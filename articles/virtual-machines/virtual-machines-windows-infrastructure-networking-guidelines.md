@@ -1,110 +1,114 @@
 <properties
-	pageTitle="Рекомендации по сетевой инфраструктуре | Microsoft Azure"
-	description="Изучите основные рекомендации по проектированию и реализации, касающиеся развертывания виртуальных сетей в службах инфраструктуры Azure."
-	documentationCenter=""
-	services="virtual-machines-windows"
-	authors="iainfoulds"
-	manager="timlt"
-	editor=""
-	tags="azure-resource-manager"/>
+    pageTitle="Networking Infrastructure Guidelines | Microsoft Azure"
+    description="Learn about the key design and implementation guidelines for deploying virtual networking in Azure infrastructure services."
+    documentationCenter=""
+    services="virtual-machines-windows"
+    authors="iainfoulds"
+    manager="timlt"
+    editor=""
+    tags="azure-resource-manager"/>
 
 <tags
-	ms.service="virtual-machines-windows"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-windows"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/08/2016"
-	ms.author="iainfou"/>
-
-# Рекомендации по сетевой инфраструктуре
-
-[AZURE.INCLUDE [virtual-machines-windows-infrastructure-guidelines-intro](../../includes/virtual-machines-windows-infrastructure-guidelines-intro.md)]
-
-Эта статья посвящена действиям по планированию виртуальной сети в Azure и подключения к существующим локальным средам.
+    ms.service="virtual-machines-windows"
+    ms.workload="infrastructure-services"
+    ms.tgt_pltfrm="vm-windows"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/08/2016"
+    ms.author="iainfou"/>
 
 
-## Рекомендации по реализации виртуальных сетей
+# <a name="networking-infrastructure-guidelines"></a>Networking infrastructure guidelines
 
-Решения
+[AZURE.INCLUDE [virtual-machines-windows-infrastructure-guidelines-intro](../../includes/virtual-machines-windows-infrastructure-guidelines-intro.md)] 
 
-- Какой тип виртуальной сети необходим, чтобы разместить рабочую нагрузку ИТ-среды или ИТ-инфраструктуру (облачная или распределенная)?
-- Какое адресное пространство необходимо для размещения подсетей и виртуальных машин сейчас и при целесообразном расширении в будущем, если используются распределенные виртуальные сети?
-- Требуется создать централизованную виртуальную сеть или отдельные виртуальные сети для каждой группы ресурсов?
-
-Задачи
-
-- Определите адресное пространство для создаваемой виртуальной сети.
-- Определить набор подсетей и адресного пространства для каждой из них.
-- Если используются распределенные виртуальные сети, определите набор адресных пространств локальной сети для локальных расположений, доступ к которым необходим виртуальным машинам в виртуальной сети.
-- Обратитесь к команде специалистов по локальным сетям, чтобы обеспечить правильную настройку маршрутизации при создании распределенной виртуальной сети.
-- Создайте виртуальную сеть, следуя соглашению об именовании.
+This article focuses on understanding the required planning steps for virtual networking within Azure and connectivity between existing on-prem environments.
 
 
-## виртуальные сети;
+## <a name="implementation-guidelines-for-virtual-networks"></a>Implementation guidelines for virtual networks
 
-Виртуальные сети необходимы для обмена данными между виртуальными машинами. Как и в физических сетях, для них можно определить подсети, пользовательский IP-адрес, параметры DNS, фильтры безопасности и балансировку нагрузки. Используя [VPN типа "сеть — сеть"](../vpn-gateway/vpn-gateway-topology.md) или [канал ExpressRoute](../expressroute/expressroute-introduction.md), можно подключить виртуальные сети Azure к локальным сетям. Вы можете больше узнать о [виртуальных сетях и их компонентах](../virtual-network/virtual-networks-overview.md).
+Decisions:
 
-Используя группы ресурсов, вы получаете возможность гибкой разработки компонентов виртуальной сети. Виртуальные машины могут подключаться к виртуальным сетям за пределами своей группы ресурсов. Распространенным подходом является создание централизованных групп ресурсов, содержащих основную сетевую инфраструктуру, которой может управлять общая команда специалистов, а затем — создание в отдельных группах ресурсов виртуальных машин и развертывание в них приложений. Такой подход позволяет владельцам приложений обращаться к группе ресурсов, содержащей их виртуальные машины, не открывая доступ к конфигурации виртуальных сетевых ресурсов вне этой группы.
+- What type of virtual network do you need to host your IT workload or infrastructure (cloud-only or cross-premises)?
+- For cross-premises virtual networks, how much address space do you need to host the subnets and VMs now and for reasonable expansion in the future?
+- Are you going to create centralized virtual networks or create individual virtual networks for each resource group?
 
-## Подключение сайтов
+Tasks:
 
-### Облачные виртуальные сети
-Если локальным пользователям и компьютерам не требуется постоянное подключение к виртуальным машинам в виртуальной сети Azure, то структура вашей виртуальной сети довольно проста.
-
-![Схема виртуальной сети только для облака](./media/virtual-machines-common-infrastructure-service-guidelines/vnet01.png)
-
-Как правило, этот подход практикуется в рабочих нагрузках, в которых требуется подключение к Интернету, например при использовании веб-сервера. Вы можете управлять этими виртуальными машинами с помощью подключений по протоколу RDP или подключений VPN типа "точка — сеть".
-
-Облачные виртуальные сети Azure могут использовать любую часть пространства частных IP-адресов, даже если такое же частное пространство используется в локальной сети, так как они не подключаются к ней.
+- Define the address space for the virtual networks to be created.
+- Define the set of subnets and the address space for each.
+- For cross-premises virtual networks, define the set of local network address spaces for the on-premises locations that the VMs in the virtual network need to reach.
+- Work with on-premises networking team to ensure the appropriate routing is configured when creating cross-premises virtual networks.
+- Create the virtual network using your naming convention.
 
 
-### Распределенные виртуальные сети
-Если локальным пользователям и компьютерам требуется постоянное подключение к виртуальным машинам в виртуальной сети Azure, то создайте распределенную виртуальную сеть. Подключите ее к локальной сети с помощью ExpressRoute или VPN-подключения типа "сеть — сеть".
+## <a name="virtual-networks"></a>Virtual networks
 
-![Схема распределенной виртуальной сети](./media/virtual-machines-common-infrastructure-service-guidelines/vnet02.png)
+Virtual networks are necessary to support communications between virtual machines (VMs). You can define subnets, custom IP address, DNS settings, security filtering, and load balancing, as with physical networks. By using a [VPN gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md) or [Express Route circuit](../expressroute/expressroute-introduction.md), you can connect Azure virtual networks to your on-premises networks. You can read more about [virtual networks and their components](../virtual-network/virtual-networks-overview.md).
 
-В этой конфигурации виртуальная сеть Azure по сути является облачным расширением локальной сети.
+By using Resource Groups, you have flexibility in how you design your virtual networking components. VMs can connect to virtual networks outside of their own resource group. A common design approach would be to create centralized resource groups that contain your core networking infrastructure that can be managed by a common team, and then VMs and their applications deployed to separate resource groups. This approach allows application owners access to the resource group that contains their VMs without opening up access to the configuration of the wider virtual networking resources.
 
-Так как распределенные виртуальные сети подключаются к локальной сети, они должны использовать уникальную часть адресного пространства, используемого в организации. Подобно тому как разным помещениям организации назначаются разные IP-подсети, так и Azure становится еще одним расположением в локальной сети.
+## <a name="site-connectivity"></a>Site connectivity
 
-Чтобы разрешить передачу пакетов из распределенной виртуальной сети в локальную сеть, необходимо настроить набор соответствующих префиксов локальных адресов в рамках определения локальной сети для виртуальной сети. В зависимости от адресного пространства виртуальной сети и набора соответствующих локальных расположений, в локальной сети может быть много префиксов адресов.
+### <a name="cloud-only-virtual-networks"></a>Cloud-only virtual networks
+If on-premises users and computers do not require ongoing connectivity to VMs in an Azure virtual network, your virtual network design is straight forward:
 
-Облачную виртуальную сеть можно преобразовать в распределенную, но для этого, скорее всего, потребуется переопределение IP-адресов адресного пространства виртуальной сети и ресурсов Azure. Поэтому подумайте, действительно ли требуется подключение виртуальной сети к локальной при назначении IP-подсети.
+![Basic cloud-only virtual network diagram](./media/virtual-machines-common-infrastructure-service-guidelines/vnet01.png)
 
-## Подсети
-Подсети позволяют упорядочивать связанные ресурсы либо логически (например, одна подсеть для виртуальных машин, связанных с одним приложением), либо физически (например, одна подсеть для каждой группы ресурсов). Кроме того, чтобы обеспечить дополнительную безопасность, можно использовать методы изоляции подсетей.
+This approach is typically for Internet-facing workloads, such as an Internet-based web server. You can manage these VMs using RDP or point-to-site VPN connections.
 
-Для распределенных виртуальных сетей проектировать подсети необходимо по тем же правилам, которые используются для локальных ресурсов. **Azure всегда использует первые три IP-адреса в адресном пространстве для каждой подсети**. Чтобы определить количество адресов, необходимых для подсети, посчитайте виртуальные машины, которые необходимы сейчас. Рассчитайте дальнейший рост, а затем для определения размера подсети используйте приведенную ниже таблицу.
+Because they do not connect to your on-premises network, Azure-only virtual networks can use any portion of the private IP address space, even if the same private space is in use on-premises.
 
-Необходимое количество виртуальных машин | Необходимое количество битов узла | Размер подсети
+
+### <a name="cross-premises-virtual-networks"></a>Cross-premises virtual networks
+If on-premises users and computers require ongoing connectivity to VMs in an Azure virtual network, create a cross-premises virtual network.  Connect it to your on-premises network with an ExpressRoute or site-to-site VPN connection.
+
+![Cross-premises virtual network diagram](./media/virtual-machines-common-infrastructure-service-guidelines/vnet02.png)
+
+In this configuration, the Azure virtual network is essentially a cloud-based extension of your on-premises network.
+
+Because they connect to your on-premises network, cross-premises virtual networks must use a portion of the address space used by your organization that is unique. In the same way that different corporate locations are assigned a specific IP subnet, Azure becomes another location as you extend out your network.
+
+To allow packets to travel from your cross-premises virtual network to your on-premises network, you must configure the set of relevant on-premises address prefixes as part of the local network definition for the virtual network. Depending on the address space of the virtual network and the set of relevant on-premises locations, there can be many address prefixes in the local network.
+
+You can convert a cloud-only virtual network to a cross-premises virtual network, but it most likely requires you to re-IP your virtual network address space and Azure resources. Therefore, carefully consider if a virtual network needs to be connected to your on-premises network when you assign an IP subnet.
+
+## <a name="subnets"></a>Subnets
+Subnets allow you to organize resources that are related, either logically (for example, one subnet for VMs associated to the same application), or physically (for example, one subnet per resource group). You can also employ subnet isolation techniques for added security.
+
+For cross-premises virtual networks, you should design subnets with the same conventions that you use for on-premises resources. **Azure always uses the first three IP addresses of the address space for each subnet**. To determine the number of addresses needed for the subnet, start by counting the number of VMs that you need now. Estimate for future growth, and then use the following table to determine the size of the subnet.
+
+Number of VMs needed | Number of host bits needed | Size of the subnet
 --- | --- | ---
 1–3 | 3 | /29
-4–11 | 4 | /28
+4–11     | 4 | /28
 12–27 | 5 | /27
 28–59 | 6 | /26
 60–123 | 7 | /25
 
-> [AZURE.NOTE] В случае обычной локальной подсети с n битов узла максимальное количество адресов узла составляет 2<sup>n</sup> – 2. В случае подсети Azure с n битов узла максимальное количество адресов узла составляет 2<sup>n</sup> – 5 (2 плюс 3 в случае адресов, используемых Azure в каждой подсети).
+> [AZURE.NOTE] For normal on-premises subnets, the maximum number of host addresses for a subnet with n host bits is 2<sup>n</sup> – 2. For an Azure subnet, the maximum number of host addresses for a subnet with n host bits is 2<sup>n</sup> – 5 (2 plus 3 for the addresses that Azure uses on each subnet).
 
-Если выбранный размер подсети слишком мал, то требуется переопределить IP-адреса виртуальных машин и повторно развернуть их в подсети.
-
-
-## группы сетевой безопасности;
-К трафику, который проходит через виртуальные сети, можно применить правила фильтрации с помощью групп безопасности сети. Можно сформировать точные правила фильтрации, чтобы защитить среду виртуальных сетей и управлять входящим и исходящим трафиком, исходным и конечным диапазонами IP-адресов, разрешенными портами и т. д. Группы безопасности сети могут применяться для подсетей в виртуальной сети или непосредственно для заданного виртуального сетевого интерфейса. Рекомендуется применять в виртуальной сети определенный уровень фильтрации трафика посредством группы безопасности сети. Вы можете больше узнать о [группах безопасности сети](../virtual-network/virtual-networks-nsg.md).
+If you choose a subnet size that is too small, you have to re-IP and redeploy the VMs in the subnet.
 
 
-## Дополнительные сетевые компоненты
-Как и сети в локальной физической сетевой инфраструктуре, виртуальные сети Azure могут содержать не только подсети и IP-адреса. При проектировании инфраструктуры приложений может потребоваться добавить некоторые из приведенных ниже дополнительных компонентов.
-
-- [VPN-шлюзы](../vpn-gateway/vpn-gateway-about-vpngateways.md) позволяют соединять виртуальные сети Azure с другими виртуальными сетями Azure или локальными сетями через VPN-подключение типа "сеть — сеть". Кроме того, они дают возможность реализовывать каналы ExpressRoute для выделенных безопасных подключений и предоставлять пользователям прямой доступ через VPN-подключения типа "точка — сеть".
-- [Балансировщик нагрузки](../load-balancer/load-balancer-overview.md). Обеспечивает балансировку нагрузки внешнего и внутреннего трафика, если это требуется.
-- [Шлюз приложений](../application-gateway/application-gateway-introduction.md). Обеспечивает балансировку нагрузки HTTP на уровне приложения, предоставляя дополнительные преимущества для веб-приложений по сравнению с развертыванием Azure Load Balancer.
-- [Диспетчера трафика](../traffic-manager/traffic-manager-overview.md). Обеспечивает распределение трафика на основе DNS, направляя пользователей к ближайшей конечной точке приложения, что позволяет размещать приложение в разных регионах вне центров обработки данных Azure.
+## <a name="network-security-groups"></a>Network Security Groups
+You can apply filtering rules to the traffic that flows through your virtual networks by using Network Security Groups. You can build granular filtering rules to secure your virtual networking environment, controlling inbound and outbound traffic, source and destination IP ranges, allowed ports, etc. Network Security Groups can be applied to subnets within a virtual network or directly to a given virtual network interface. It is recommended to have some level of Network Security Group filtering traffic on your virtual networks. You can read more about [Network Security Groups](../virtual-network/virtual-networks-nsg.md).
 
 
-## Дальнейшие действия
+## <a name="additional-network-components"></a>Additional network components
+As with an on-premises physical networking infrastructure, Azure virtual networking can contain more than subnets and IP addressing. As you design your application infrastructure, you may want to incorporate some of these additional components:
 
-[AZURE.INCLUDE [virtual-machines-windows-infrastructure-guidelines-next-steps](../../includes/virtual-machines-windows-infrastructure-guidelines-next-steps.md)]
+- [VPN gateways](../vpn-gateway/vpn-gateway-about-vpngateways.md) - connect Azure virtual networks to other Azure virtual networks, or connect to on-premises networks through a Site-to-Site VPN connection. Implement Express Route connections for dedicated, secure connections. You can also provide users direct access with Point-to-Site VPN connections.
+- [Load balancer](../load-balancer/load-balancer-overview.md) - provides load balancing of traffic for both external and internal traffic as desired.
+- [Application Gateway](../application-gateway/application-gateway-introduction.md) - HTTP load-balancing at the application layer, providing some additional benefits for web applications rather than deploying the Azure load balancer.
+- [Traffic Manager](../traffic-manager/traffic-manager-overview.md) - DNS-based traffic distribution to direct end-users to the closest available application endpoint, allowing you to host your application out of Azure datacenters in different regions.
 
-<!---HONumber=AcomDC_0914_2016-->
+
+## <a name="next-steps"></a>Next steps
+
+[AZURE.INCLUDE [virtual-machines-windows-infrastructure-guidelines-next-steps](../../includes/virtual-machines-windows-infrastructure-guidelines-next-steps.md)] 
+
+
+<!--HONumber=Oct16_HO2-->
+
+

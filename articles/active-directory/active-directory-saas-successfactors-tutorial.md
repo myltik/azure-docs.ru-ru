@@ -1,6 +1,6 @@
 <properties 
-    pageTitle="Учебник. Интеграция Azure Active Directory с SuccessFactors | Microsoft Azure"
-    description="Узнайте, как использовать SuccessFactors с Azure Active Directory для реализации единого входа, автоматической подготовки к работе и многого другого." 
+    pageTitle="Tutorial: Azure Active Directory integration with SuccessFactors | Microsoft Azure"
+    description="Learn how to use SuccessFactors with Azure Active Directory to enable single sign-on, automated provisioning, and more!" 
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
@@ -15,318 +15,320 @@
     ms.author="jeedes" />
 
 
-#Руководство. Интеграция Azure Active Directory с SuccessFactors
+
+#<a name="tutorial:-azure-active-directory-integration-with-successfactors"></a>Tutorial: Azure Active Directory integration with SuccessFactors
   
-Цель этого руководства — показать, как интегрировать приложение SuccessFactors с Azure Active Directory (Azure AD).
+The objective of this tutorial is to show you how to integrate SuccessFactors with Azure Active Directory (Azure AD).
 
-Интеграция SuccessFactors с Azure AD обеспечивает следующие преимущества.
+Integrating SuccessFactors with Azure AD provides you with the following benefits:
 
-- С помощью Azure AD вы можете контролировать доступ к приложению SuccessFactors.
-- Вы можете включить автоматический вход пользователей в SuccessFactors (единый вход) с использованием учетной записи Azure AD.
-- Вы можете управлять учетными записями централизованно — через классический портал Azure.
+- You can control in Azure AD who has access to SuccessFactors
+- You can enable your users to automatically get signed-on to SuccessFactors (Single Sign-On) with their Azure AD accounts
+- You can manage your accounts in one central location - the Azure classic portal
 
-Подробнее узнать об интеграции приложений SaaS с Azure AD можно в статье [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md).
+If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## Предварительные требования
+## <a name="prerequisites"></a>Prerequisites
 
-Чтобы настроить интеграцию Azure AD с SuccessFactors, вам потребуется:
+To configure Azure AD integration with SuccessFactors, you need the following items:
 
-- Действующая подписка на Azure
-- клиент в SuccessFactors.
-
-
-> [AZURE.NOTE] Мы не рекомендуем использовать рабочую среду для проверки действий в этом учебнике.
+- A valid Azure subscription
+- A tenant in SuccessFactors
 
 
-При проверке действий в этом учебнике соблюдайте следующие рекомендации:
-
-- Не следует использовать рабочую среду при отсутствии необходимости.
-- Если у вас нет пробной среды Azure AD, вы можете получить пробную версию на один месяц по [этой ссылке](https://azure.microsoft.com/pricing/free-trial/).
+> [AZURE.NOTE] To test the steps in this tutorial, we do not recommend using a production environment.
 
 
-## Описание сценария
-Цель этого учебника — научить вас проверять единый вход в Azure AD в пробной среде.
+To test the steps in this tutorial, you should follow these recommendations:
 
-Сценарий, описанный в этом учебнике, состоит из двух основных блоков:
-
-1. Добавление SuccessFactors из коллекции.
-2. Настройка и проверка единого входа в Azure AD
+- You should not use your production environment, unless this is necessary.
+- If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).
 
 
-## Добавление SuccessFactors из коллекции
-Чтобы настроить интеграцию SuccessFactors с Azure AD, необходимо добавить SuccessFactors из коллекции в список управляемых приложений SaaS.
+## <a name="scenario-description"></a>Scenario description
+The objective of this tutorial is to enable you to test Azure AD single sign-on in a test environment.
 
-**Чтобы добавить SuccessFactors из коллекции, выполните следующие действия.**
+The scenario outlined in this tutorial consists of two main building blocks:
 
-1.  На классическом портале Azure в области навигации слева щелкните **Active Directory**.
-
-	![Настройка единого входа][1]
-
-2.  Из списка **Каталог** выберите каталог, для которого нужно включить интеграцию каталогов.
-
-3.  Чтобы открыть представление приложений, в представлении каталога нажмите **Приложения** в верхнем меню.
-
-    ![Настройка единого входа][2]
-
-4.  В нижней части страницы нажмите кнопку **Добавить**.
-
-    ![Приложения][3]
-
-5.  В диалоговом окне **Что необходимо сделать?** нажмите **Добавить приложение из коллекции**.
-
-    ![Настройка единого входа][4]
-
-6.  В **поле поиска** введите **SuccessFactors**.
-
-    ![Настройка единого входа][5]
-
-7.  В области результатов выберите **SuccessFactors** и нажмите кнопку **Завершить**, чтобы добавить приложение.
-
-    ![Настройка единого входа][6]
+1. Adding SuccessFactors from the gallery
+2. Configuring and testing Azure AD single sign-on
 
 
-##  Настройка и проверка единого входа в Azure AD
-Цель этого раздела — показать, как настроить и проверить единый вход Azure AD в приложении SuccessFactors с использованием тестового пользователя Britta Simon.
+## <a name="adding-successfactors-from-the-gallery"></a>Adding SuccessFactors from the gallery
+To configure the integration of SuccessFactors into Azure AD, you need to add SuccessFactors from the gallery to your list of managed SaaS apps.
 
-Для работы единого входа в Azure AD необходимо знать, какой пользователь в SuccessFactors соответствует пользователю в Azure AD. Иными словами, необходимо установить связь между пользователем Azure AD и соответствующим пользователем в SuccessFactors.
+**To add SuccessFactors from the gallery, perform the following steps:**
 
-Чтобы установить эту связь, следует указать **имя пользователя** в Azure AD в качестве значения **имени пользователя** в SuccessFactors.
+1.  In the Azure classic portal, on the left navigation panel, click **Active Directory**.
 
-Чтобы настроить и проверить единый вход Azure AD в SuccessFactors, вам потребуется выполнить действия, описанные в следующих стандартных блоках.
+    ![Configuring single sign-on][1]
 
-1. **[Настройка единого входа Azure AD](#configuring-azure-ad-single-single-sign-on)** необходима, чтобы пользователи могли использовать эту функцию.
-2. **[Создание тестового пользователя Azure AD](#creating-an-azure-ad-test-user)** требуется для проверки работы единого входа Azure AD от имени пользователя Britta Simon.
-3. **[Создание тестового пользователя SuccessFactors](#creating-a-successfactors-test-user)** требуется для создания пользователя Britta Simon в SuccessFactors, связанного с соответствующим представлением в Azure AD.
-4. **[Назначение тестового пользователя Azure AD](#assigning-the-azure-ad-test-user)** необходимо, чтобы позволить Britta Simon использовать единый вход в Azure AD.
-5. **[Проверка единого входа](#testing-single-sign-on)** необходима, чтобы убедиться в корректной работе конфигурации.
+2.  From the **Directory** list, select the directory for which you want to enable directory integration.
 
-### Настройка единого входа в Azure AD
+3.  To open the applications view, in the directory view, click **Applications** in the top menu.
+
+    ![Configuring single sign-on][2]
+
+4.  Click **Add** at the bottom of the page.
+
+    ![Applications][3]
+
+5.  On the **What do you want to do** dialog, click **Add an application from the gallery**.
+
+    ![Configuring single sign-on][4]
+
+6.  In the **search box**, type **SuccessFactors**.
+
+    ![Configuring single sign-on][5]
+
+7.  In the results panel, select **SuccessFactors**, and then click **Complete** to add the application.
+
+    ![Configuring single sign-on][6]
+
+
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuring and testing Azure AD single sign-on
+The objective of this section is to show you how to configure and test Azure AD single sign-on with SuccessFactors based on a test user called "Britta Simon".
+
+For single sign-on to work, Azure AD needs to know what the counterpart user in SuccessFactors to an user in Azure AD is. In other words, a link relationship between an Azure AD user and the related user in SuccessFactors needs to be established.
+
+This link relationship is established by assigning the value of the **user name** in Azure AD as the value of the **Username** in SuccessFactors.
+
+To configure and test Azure AD single sign-on with SuccessFactors, you need to complete the following building blocks:
+
+1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-single-sign-on)** - to enable your users to use this feature.
+2. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
+3. **[Creating a SuccessFactors test user](#creating-a-successfactors-test-user)** - to have a counterpart of Britta Simon in SuccessFactors that is linked to the Azure AD representation of her.
+4. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
+5. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
+
+### <a name="configuring-azure-ad-single-sign-on"></a>Configuring Azure AD single sign-on
   
-В этом разделе описано, как включить единый вход Azure AD на классическом портале и настроить его в приложении SuccessFactors.
+In this section, you enable Azure AD single sign-on in the classic portal and configure single sign-on in your SuccessFactors application.
 
-**Чтобы настроить единый вход Azure AD в SuccessFactors, выполните следующие действия.**
+**To configure Azure AD single sign-on with SuccessFactors, perform the following steps:**
 
-1.  На классическом портале Azure на странице интеграции с приложением **SuccessFactors** щелкните **Настроить единый вход**, чтобы открыть диалоговое окно **Настройка единого входа**.
+1.  In the Azure classic portal, on the **SuccessFactors** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On** dialog.
 
-    ![Настройка единого входа][7]
+    ![Configuring single sign-on][7]
 
-2.  На странице **Как пользователи должны входить в SuccessFactors?** выберите **Единый вход Microsoft Azure AD** и нажмите кнопку **Далее**.
+2.  On the **How would you like users to sign on to SuccessFactors** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
-    ![Настройка единого входа][8]
+    ![Configuring single sign-on][8]
 
-3.  На странице **Настройка URL-адреса приложения** выполните следующие действия, а затем нажмите кнопку **Далее**.
+3.  On the **Configure App URL** page, perform the following steps, and then click **Next**.
 
-    ![Настройка единого входа][9]
+    ![Configuring single sign-on][9]
 
-    а. В текстовое поле **URL-адрес для входа** введите URL-адрес в любом из следующих форматов:
+    a. In the **Sign On URL** textbox, type a URL using one of the following patterns: 
 
-	| |
-	| ---                                                        |
-	| `https://<company name>.successfactors.com/<company name>` |
-	| .`https://<company name>.sapsf.com/<company name>` |
-	| .`https://<company name>.successfactors.eu/<company name>` |
-	| .`https://<company name>.sapsf.eu` |
+  	|                                                            |
+  	| ---                                                        |
+  	| `https://<company name>.successfactors.com/<company name>` |
+  	| `https://<company name>.sapsf.com/<company name>`          |
+  	| `https://<company name>.successfactors.eu/<company name>`  |
+  	| `https://<company name>.sapsf.eu`                          |
 
-	b. В текстовое поле **URL-адрес ответа** введите URL-адрес в любом из следующих форматов:
-	
-	| |
-	| ---                                                        |
-	| .`https://<company name>.successfactors.com/<company name>` |
-	| .`https://<company name>.sapsf.com/<company name>` |
-	| .`https://<company name>.successfactors.eu/<company name>` |
-	| .`https://<company name>.sapsf.eu` |
-	| .`https://<company name>.sapsf.eu/<company name>` |
-
-	c. Нажмите кнопку **Далее**.
-
-
-    > [AZURE.TIP] Обратите внимание, что значения, указанные выше, используются в качестве примера. Необходимо заменить эти значения на фактические URL-адреса для входа и ответа. Чтобы узнать эти адреса, обратитесь в [службу поддержки SuccessFactors](https://www.successfactors.com/en_us/support.html).
-
-4.  На странице **Настройка единого входа в SuccessFactors** нажмите кнопку **Загрузить сертификат** и сохраните файл сертификата на своем компьютере.
-
-    ![Настройка единого входа][10]
-
-5.  В другом окне веб-браузера войдите на **портал администрирования SuccessFactors** с правами администратора.
-
-6.  Откройте раздел **Application Security** (Безопасность приложения) и найдите в нем **функцию единого входа**.
-
-7. Введите любое значение в поле **Reset Token** (Сброс маркера) и нажмите кнопку **Save Token** (Сохранить маркер), чтобы включить единый вход SAML.
-
-	![Настройка единого входа на стороне приложения][11]
-
-
-	> [AZURE.NOTE] Это значение используется только как признак включения. Если здесь сохранено любое значение, единый вход SAML включен. Если сохранено пустое значение, единый вход SAML отключен.
-
-8. Перейдите на экран, представленный на снимке ниже, и выполните следующие действия.
-
-	![Настройка единого входа на стороне приложения][12]
-
-	а. Установите переключатель **SAML v2 SSO** (Единый вход SAML версии 2).
+    b. In the **Reply URL** textbox, type a URL using one of the following patterns: 
     
-	b. Задайте имя утверждающей стороны SAML (например, "Издатель SAML + название компании").
+  	|                                                            |
+  	| ---                                                        |
+  	| `https://<company name>.successfactors.com/<company name>` |
+  	| `https://<company name>.sapsf.com/<company name>`          |
+  	| `https://<company name>.successfactors.eu/<company name>`  |
+  	| `https://<company name>.sapsf.eu`                          |
+  	| `https://<company name>.sapsf.eu/<company name>`           |
 
-	c. В текстовое поле **SAML Issuer** (Издатель SAML) вставьте **URL-адреса издателя** из мастера настройки приложения в Azure AD.
-
-	г) Выберите значение **Response(Customer Generated/IdP/AP)** (Ответ (создается клиентом/IdP/AP)) для параметра **Require Mandatory Signature** (Требуется обязательная подпись).
-
-	д. Выберите значение **Enabled** (Включено) для параметра **Enable SAML Flag** (Включить флаг SAML).
-
-	Е. Выберите значение **No** (Нет) для параметра **Login Request Signature (SF Generated/SP/RP)** (Подпись запроса на вход (создается SF/SP/RP)).
-
-	g. Выберите значение **Browser/Post Profile** (Браузер/пост-профилирование) для параметра **SAML Profile** (Профиль SAML).
-
-	h. Выберите значение **No** (Нет) для параметра **Enforce Certificate Valid Period** (Применять период действия сертификата).
-
-	i. Скопируйте содержимое скачанного файла сертификата и вставьте его в текстовое поле **SAML Verifying Certificate** (Сертификат для проверки SAML).
+    c. Click **Next**. 
 
 
-	> [AZURE.NOTE] Содержимое сертификата должно включать открывающий и закрывающий теги сертификата.
+    > [AZURE.TIP] Please note that these are not the real values. You have to update these values with the actual Sign On URL and Reply URL. To get these values, contact [SuccessFactors support team](https://www.successfactors.com/en_us/support.html).
 
-9. Перейдите в раздел SAML V2 и выполните следующие действия.
+4.  On the **Configure single sign-on at SuccessFactors** page, click **Download certificate**, and then save the certificate file locally on your computer.
 
-	![Настройка единого входа на стороне приложения][13]
+    ![Configuring single sign-on][10]
 
-	а. Выберите значение **Yes** (Да) для параметра **Support SP-initiated Global Logout** (Поддержка глобального выхода, инициированного SP).
+5.  In a different web browser window, log into your **SuccessFactors admin portal** as an administrator.
 
-	b. В текстовое поле **Global Logout Service URL (LogoutRequest destination)** (URL-адрес службы глобального выхода) вставьте значение **URL-адреса удаленного выхода** из мастера настройки приложения в Azure AD.
+6.  Visit **Application Security** and native to **Single Sign On Feature**. 
 
-	c. Выберите значение **No** (Нет) для параметра **Require sp must encrypt all NameID element** (Требуется шифрование всех элементов NameID на стороне SP).
+7. Place any value in the **Reset Token** and click **Save Token** to enable SAML SSO.
 
-	г) Выберите значение **unspecified** (Не определено) для параметра **NameID Format** (Формат идентификатора имени).
-
-	д. Выберите значение **Yes** (Да) для параметра **Enable sp initiated login (AuthnRequest)** (Включить вход по требованию SP).
-
-	Е. В текстовое поле **Send request as Company-Wide issuer** (Отправлять запрос как издатель в пределах компании) вставьте **URL-адрес удаленного входа** из мастера настройки приложения в Azure AD.
-
-10.  Чтобы в именах для входа не учитывался регистр, выполните следующие действия.
-	
-	а) Найдите в нижней части экран раздел **Company Settings** (Параметры компании).
-	
-	б) Установите флажок **Enable Non-Case-Sensitive Username** (Имя пользователя без учета регистра).
-
-	в) Щелкните **Save** (Сохранить).
-	
-	![Настройка единого входа][29]
+    ![Configuring single sign-on on app side][11]
 
 
-	> [AZURE.NOTE] При попытке включить этот параметр система проверит, не возникнут ли повторяющиеся имена для входа SAML. Предположим, что у клиента есть пользователи с именами User1 и user1. Если отменить учет регистра, эти имена будут считаться одинаковыми. В таком случае система выдаст сообщение об ошибке и параметр не будет включен. Клиенту потребуется изменить одно из таких имен пользователя, чтобы они имели различное написание.
+    > [AZURE.NOTE] This value is just used as the on/off switch. If any value is saved, the SAML SSO is ON. If a blank value is saved the SAML SSO is OFF.
 
-11.  На классическом портале Azure выберите подтверждение конфигурации единого входа, а затем нажмите кнопку **Завершить**, чтобы закрыть диалоговое окно **Настройка единого входа**.
+8. Native to below screenshot and perform the following actions.
 
-    ![Приложения][14]
+    ![Configuring single sign-on on app side][12]
 
-12. На странице **Подтверждение единого входа** нажмите кнопку **Завершить**.
-
-	![Приложения][15]
-
-
-
-### Создание тестового пользователя Azure AD
-Цель этого раздела — создать на классическом портале тестового пользователя с именем Britta Simon.
-
-![Создание пользователя Azure AD][16]
-
-**Чтобы создать тестового пользователя в Azure AD, выполните следующие действия:**
-
-1. На **классическом портале Azure** в области навигации слева щелкните **Active Directory**.
-
-    ![Создание тестового пользователя Azure AD][17]
-
-2. Из списка **Каталог** выберите каталог, для которого нужно включить интеграцию каталогов.
-
-3. Чтобы отобразить список пользователей, в меню вверху выберите **Пользователи**.
+    a. Select the **SAML v2 SSO** Radio Button
     
-	![Создание тестового пользователя Azure AD][18]
+    b. Set the SAML Asserting Party Name(e.g. SAml issuer + company name).
 
-4. Чтобы открыть диалоговое окно **Добавление пользователя**, на панели инструментов внизу нажмите кнопку **Добавить пользователя**.
+    c. In the **SAML Issuer** textbox put the value of **Issuer URL** from Azure AD application configuration wizard.
 
-    ![Создание тестового пользователя Azure AD][19]
+    d. Select **Response(Customer Generated/IdP/AP)** as **Require Mandatory Signature**.
 
-5. На странице диалогового окна **Тип учетной записи пользователя** выполните следующие действия.
+    e. Select **Enabled** as **Enable SAML Flag**.
 
-    ![Создание тестового пользователя Azure AD][20]
+    f. Select **No** as **Login Request Signature(SF Generated/SP/RP)**.
 
-    а. В поле «Тип пользователя» выберите значение «Новый пользователь в вашей организации».
+    g. Select **Browser/Post Profile** as **SAML Profile**.
 
-    b. В текстовое поле **Имя пользователя** введите **BrittaSimon**.
+    h. Select **No** as **Enforce Certificate Valid Period**.
 
-    c. Нажмите кнопку **Далее**.
+    i. Copy the content of the downloaded certificate file, and then paste it into the **SAML Verifying Certificate** textbox.
 
-6.  На странице диалогового окна **Профиль пользователя** выполните следующие действия.
+
+    > [AZURE.NOTE] The certificate content must have begin certificate and end certificate tags.
+
+9. Navigate to SAML V2, and then perform the following steps:
+
+    ![Configuring single sign-on on app side][13]
+
+    a. Select **Yes** as **Support SP-initiated Global Logout**.
+
+    b. In the **Global Logout Service URL (LogoutRequest destination)** textbox put the value of **Remote Logout URL** from Azure AD application configuration wizard.
+
+    c. Select **No** as **Require sp must encrypt all NameID element**.
+
+    d. Select **unspecified** as **NameID Format**.
+
+    e. Select **Yes** as **Enable sp initiated login (AuthnRequest)**.
+
+    f. In the **Send request as Company-Wide issuer** textbox put the value of **Remote Login URL** from Azure AD application configuration wizard.
+
+10.  Perform these steps if you want to make the login usernames Case Insensitive, .
     
-	![Создание тестового пользователя Azure AD][21]
-
-    а. В текстовом поле **Имя** введите **Britta**.
-
-    b. В текстовое поле **Фамилия** введите **Simon**.
-
-    c. В текстовое поле **Отображаемое имя** введите **Britta Simon**.
-
-    г) В списке **Роль** выберите **Пользователь**.
-
-    д. Нажмите кнопку **Далее**.
-
-7. На странице диалогового окна **Получить временный пароль** нажмите кнопку **Создать**.
+    a.visit **Company Settings**(near the bottom).
     
-	![Создание тестового пользователя Azure AD][22]
+    b. select checkbox near **Enable Non-Case-Sensitive Username**.
 
-8. На странице диалогового окна **Получить временный пароль** выполните следующие действия.
+    c.Click **Save**.
     
-	![Создание тестового пользователя Azure AD][23]
-
-    а. Запишите значение поля **Новый пароль**.
-
-    b. Нажмите **Завершено**.
+    ![Configure Single Sign-On][29]
 
 
+    > [AZURE.NOTE] If you try to enable this, the system checks if it will create a duplicate SAML login name. For example if the customer has usernames User1 and user1. Taking away case sensitivity makes these duplicates. The system will give you an error message and will not enable the feature. The customer will need to change one of the usernames so it’s actually spelled different. 
 
-### Создание тестового пользователя SuccessFactors
+11.  On the Azure classic portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
+
+    ![Applications][14]
+
+12. On the **Single sign-on confirmation** page, click **Complete**.
+
+    ![Applications][15]
+
+
+
+### <a name="creating-an-azure-ad-test-user"></a>Creating an Azure AD test user
+The objective of this section is to create a test user in the classic portal called Britta Simon.
+
+![Create Azure AD User][16]
+
+**To create a test user in Azure AD, perform the following steps:**
+
+1. In the **Azure classic Portal**, on the left navigation pane, click **Active Directory**.
+
+    ![Creating an Azure AD test user][17]
+
+2. From the **Directory** list, select the directory for which you want to enable directory integration.
+
+3. To display the list of users, in the menu on the top, click **Users**.
+    
+    ![Creating an Azure AD test user][18]
+
+4. To open the **Add User** dialog, in the toolbar on the bottom, click **Add User**.
+
+    ![Creating an Azure AD test user][19]
+
+5. On the **Tell us about this user** dialog page, perform the following steps:
+
+    ![Creating an Azure AD test user][20]
+
+    a. As Type Of User, select New user in your organization.
+
+    b. In the User Name **textbox**, type **BrittaSimon**.
+
+    c. Click **Next**.
+
+6.  On the **User Profile** dialog page, perform the following steps:
+    
+    ![Creating an Azure AD test user][21]
+
+    a. In the **First Name** textbox, type **Britta**.  
+
+    b. In the **Last Name** textbox, type, **Simon**.
+
+    c. In the **Display Name** textbox, type **Britta Simon**.
+
+    d. In the **Role** list, select **User**.
+
+    e. Click **Next**.
+
+7. On the **Get temporary password** dialog page, click **create**.
+    
+    ![Creating an Azure AD test user][22]
+
+8. On the **Get temporary password** dialog page, perform the following steps:
+    
+    ![Creating an Azure AD test user][23]
+
+    a. Write down the value of the **New Password**.
+
+    b. Click **Complete**.  
+
+
+
+### <a name="creating-a-successfactors-test-user"></a>Creating a SuccessFactors test user
   
-Чтобы пользователи Azure AD могли выполнять вход в SuccessFactors, они должны быть подготовлены для работы с SuccessFactors. В случае SuccessFactors подготовка пользователей осуществляется вручную.
+In order to enable Azure AD users to log into SuccessFactors, they must be provisioned into SuccessFactors.  
+In the case of SuccessFactors, provisioning is a manual task.
   
-Чтобы создать пользователей в SuccessFactors, необходимо обратиться в [службу поддержки SuccessFactors](https://www.successfactors.com/en_us/support.html).
+To get users created in SuccessFactors, you need to contact the [SuccessFactors support team](https://www.successfactors.com/en_us/support.html).
 
 
 
-### Назначение тестового пользователя Azure AD
+### <a name="assigning-the-azure-ad-test-user"></a>Assigning the Azure AD test user
 
-Цель этого раздела — разрешить пользователю Britta Simon использовать единый вход Azure, предоставив этому пользователю доступ к SuccessFactors.
-	
-![Назначение пользователя][24]
-
-**Чтобы назначить пользователя Britta Simon в SuccessFactors, выполните следующие действия:**
-
-1. Чтобы открыть представление приложений, в представлении каталога на классическом портале щелкните **Приложения** в верхнем меню.
+The objective of this section is to enabling Britta Simon to use Azure single sign-on by granting her access to SuccessFactors.
     
-	![Назначение пользователя][25]
+![Assign User][24]
 
-2. Из списка приложений выберите **SuccessFactors **.
+**To assign Britta Simon to SuccessFactors, perform the following steps:**
+
+1. On the classic portal, to open the applications view, in the directory view, click **Applications** in the top menu.
     
-	![Настройка единого входа][26]
+    ![Assign User][25]
 
-3. В меню в верхней части страницы щелкните **Пользователи**.
+2. In the applications list, select **SuccessFactors**.
     
-	![Назначение пользователя][27]
+    ![Configure Single Sign-On][26]
 
-4. В списке пользователей выберите **Britta Simon**.
-
-5. На панели инструментов внизу щелкните **Назначить**.
+3. In the menu on the top, click **Users**.
     
-	![Назначение пользователя][28]
+    ![Assign User][27]
+
+4. In the Users list, select **Britta Simon**.
+
+5. In the toolbar on the bottom, click **Assign**.
+    
+    ![Assign User][28]
 
 
 
-### Проверка единого входа
+### <a name="testing-single-sign-on"></a>Testing single sign-on
 
-Цель этого раздела — проверить конфигурацию единого входа Azure AD с помощью панели доступа.
+The objective of this section is to test your Azure AD single sign-on configuration using the Access Panel.
  
-Щелкнув плитку SuccessFactors на панели доступа, вы автоматически войдете в приложение SuccessFactors.
+When you click the SuccessFactors tile in the Access Panel, you should get automatically signed-on to your SuccessFactors application.
 
 
-## Дополнительные ресурсы
+## <a name="additional-resources"></a>Additional resources
 
-* [Список учебников по интеграции приложений SaaS с Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 
 <!--Image references-->
@@ -365,4 +367,8 @@
 [28]: ./media/active-directory-saas-successfactors-tutorial/tutorial_general_10.png
 [29]: ./media/active-directory-saas-successfactors-tutorial/tutorial_successfactors_10.png
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

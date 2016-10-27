@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Проверка подлинности Active Directory и Resource Manager | Microsoft Azure"
-   description="Руководство разработчика по проверке подлинности с помощью API Azure Resource Manager и Active Directory для интеграции приложения с другими подписками Azure."
+   pageTitle="Active Directory authentication and Resource Manager | Microsoft Azure"
+   description="A developer's guide to authentication with the Azure Resource Manager API and Active Directory for integrating an app with other Azure subscriptions."
    services="azure-resource-manager,active-directory"
    documentationCenter="na"
    authors="dushyantgill"
@@ -15,138 +15,139 @@
    ms.date="08/31/2016"
    ms.author="dugill;tomfitz" />
 
-# Управление ресурсами клиента с помощью Azure Active Directory и Resource Manager
 
-## Введение
+# <a name="how-to-use-azure-active-directory-and-resource-manager-to-manage-a-customer’s-resources"></a>How to use Azure Active Directory and Resource Manager to manage a customer’s resources
 
-Если вы разрабатываете программное обеспечение и хотите создать приложение для управления ресурсами Azure клиента, это руководство предназначено для вас. Здесь вы узнаете, как выполнить проверку подлинности с помощью интерфейсов API Azure Resource Manager и получить доступ к ресурсам в другой подписке.
+## <a name="introduction"></a>Introduction
 
-Приложение может получить доступ к интерфейсам API Azure Resource Manager двумя способами:
+If you are a software developer who needs to create an app that manages customer's Azure resources, this topic shows you how to authenticate with the Azure Resource Manager APIs and gain access to resources in other subscriptions. 
 
-1. **Доступ от имени пользователя.** Используйте этот метод для приложений, осуществляющих доступ к ресурсам от имени выполнившего вход пользователя. Этот метод подходит для приложений, например веб-приложений и программ командной строки, которые осуществляют только интерактивное управление ресурсами Azure.
-1. **Доступ только для приложений.** Используйте этот метод для приложений, на которых запущены службы управляющих программ и запланированные задания. Удостоверение приложения предоставляет непосредственный доступ к ресурсам. Этот метод подходит для приложений, требующих долгосрочного автономного доступа к Azure.
+Your app can access the Resource Manager APIs in couple of ways:
 
-В этой статье содержатся пошаговые инструкции по созданию приложения, поддерживающего оба эти метода авторизации. Здесь показано, как выполнить каждое действие, используя REST API или C#. Полное приложение ASP.NET MVC можно получить на странице [https://github.com/dushyantgill/VipSwapper/tree/master/CloudSense](https://github.com/dushyantgill/VipSwapper/tree/master/CloudSense).
+1. **User + app access**: for apps that access resources on behalf of a signed-in user. This approach works for apps, such as web apps and command-line tools, that deal with only "interactive management" of Azure resources.
+1. **App-only access**: for apps that run daemon services and scheduled jobs. The app's identity is granted direct access to the resources. This approach works for apps that need long-term "offline access" to Azure.
 
-Код, используемый в этой статье, выполняется в качестве веб-приложения, которое можно испытать на странице [http://vipswapper.azurewebsites.net/cloudsense](http://vipswapper.azurewebsites.net/cloudsense).
+This topic provides step-by-step instructions to create an app that employs both these authorization methods. It shows how to perform each step with REST API or C#. The complete ASP.NET MVC application is available at [https://github.com/dushyantgill/VipSwapper/tree/master/CloudSense](https://github.com/dushyantgill/VipSwapper/tree/master/CloudSense).
 
-## Возможности веб-приложения
+All the code for this topic is running as a web app that you can try at [http://vipswapper.azurewebsites.net/cloudsense](http://vipswapper.azurewebsites.net/cloudsense). 
 
-Веб-приложение обеспечивает следующие возможности:
+## <a name="what-the-web-app-does"></a>What the web app does
 
-1. Вход пользователя Azure в систему.
-2. Отправка запроса к пользователю на предоставление веб-приложению доступа к Resource Manager.
-3. Получение маркера доступа от имени пользователя для доступа к Resource Manager.
-4. Вызов Resource Manager с помощью маркера (полученного на шаге 3) и назначение субъекту-службе приложения роли в подписке, в результате чего приложение получает долгосрочный доступ к подписке.
-5. Получение маркера доступа только для приложений.
-6. Управление ресурсами в подписке через Resource Manager с помощью маркера (полученного на шаге 5).
+The web app:
 
-Ниже приведены все процедуры, выполняемые веб-приложением.
+1. Signs-in an Azure user.
+2. Asks user to grant the web app access to Resource Manager.
+3. Gets user + app access token for accessing Resource Manager.
+4. Uses token (from step 3) to call Resource Manager and assign the app's service principal to a role in the subscription, which gives the app long-term access to the subscription.
+5. Gets app-only access token.
+6. Uses token (from step 5) to manage resources in the subscription through Resource Manager.
 
-![Поток проверки подлинности Resource Manager](./media/resource-manager-api-authentication/Auth-Swim-Lane.png)
+Here's the end-to-end flow of the web application.
 
-Укажите идентификатор используемой подписки от имени пользователя.
+![Resource Manager Authentication flow](./media/resource-manager-api-authentication/Auth-Swim-Lane.png)
 
-![предоставление идентификатора подписки](./media/resource-manager-api-authentication/sample-ux-1.png)
+As a user, you provide the subscription id for the subscription you want to use:
 
-Выберите учетную запись для входа в систему.
+![provide subscription id](./media/resource-manager-api-authentication/sample-ux-1.png)
 
-![выбор учетной записи](./media/resource-manager-api-authentication/sample-ux-2.png)
+Select the account to use for logging in.
 
-Укажите свои учетные данные.
+![select account](./media/resource-manager-api-authentication/sample-ux-2.png)
 
-![предоставление учетных данных](./media/resource-manager-api-authentication/sample-ux-3.png)
+Provide your credentials.
 
-Предоставьте приложению доступ к своим подпискам Azure.
+![provide credentials](./media/resource-manager-api-authentication/sample-ux-3.png)
+
+Grant the app access to your Azure subscriptions:
  
-![Предоставление доступа](./media/resource-manager-api-authentication/sample-ux-4.png)
+![Grant access](./media/resource-manager-api-authentication/sample-ux-4.png)
  
-Управляйте своими подключенными подписками.
+Manage your connected subscriptions:
 
-![Подключение подписки](./media/resource-manager-api-authentication/sample-ux-7.png)
+![Connect subscription](./media/resource-manager-api-authentication/sample-ux-7.png)
 
 
-## Регистрация приложения
+## <a name="register-application"></a>Register application
 
-Прежде чем приступить к программированию, сначала нужно зарегистрировать веб-приложение в Azure Active Directory (AD). При регистрации приложения для него создается центральное удостоверение в Azure AD. Оно содержит основные сведения о приложении, например идентификатор клиента OAuth, URL-адреса ответа и учетные данные, используемые приложением для проверки подлинности и доступа к интерфейсам API Azure Resource Manager. Кроме того, при регистрации приложения записываются различные делегированные разрешения, необходимые при получении доступа к интерфейсам API корпорации Майкрософт от имени пользователя.
+Before you start coding, register your web app with Azure Active Directory (AD). The app registration creates a central identity for your app in Azure AD. It holds basic information about your application like OAuth Client ID, Reply URLs, and credentials that your application uses to authenticate and access Azure Resource Manager APIs. The app registration also records the various delegated permissions that your application needs when accessing Microsoft APIs on behalf of the user. 
 
-Так как приложение получает доступ к другой подписке, его необходимо настроить как мультитенантное. Чтобы пройти проверку, укажите домен, связанный с Active Directory. Сведения о домене, связанном с Active Directory, можно просмотреть на [классическом портале](https://manage.windowsazure.com). Выберите свою службу Active Directory и щелкните **Домены**.
+Because your app accesses other subscription, you must configure it as a multi-tenant application. To pass validation, provide a domain associated with your Active Directory. To see the domains associated with your Active Directory, log in to the [classic portal](https://manage.windowsazure.com). Select your Active Directory and then select **Domains**.
 
-В приведенном ниже примере показано, как зарегистрировать приложение с помощью Azure PowerShell. Эта команда поддерживается только в Azure PowerShell последней версии (обновление от августа 2016 г.).
+The following example shows how to register the app by using Azure PowerShell. You must have the latest version (August 2016) of Azure PowerShell for this command to work. 
 
     $app = New-AzureRmADApplication -DisplayName "{app name}" -HomePage "https://{your domain}/{app name}" -IdentifierUris "https://{your domain}/{app name}" -Password "{your password}" -AvailableToOtherTenants $true
     
-Для входа в систему в качестве приложения AD необходимо указать идентификатор приложения и пароль. Чтобы просмотреть идентификатор приложения, который возвращается в результате выполнения предыдущей команды, используйте следующую команду:
+To log in as the AD application, you need the application id and password. To see the application id that is returned from the previous command, use:
 
     $app.ApplicationId
 
-В приведенном ниже примере показано, как зарегистрировать приложение с помощью Azure CLI.
+The following example shows how to register the app by using Azure CLI. 
 
     azure ad app create --name {app name} --home-page https://{your domain}/{app name} --identifier-uris https://{your domain}/{app name} --password {your password} --available true
 
-Выходные данные содержат идентификатор приложения, необходимый для проверки подлинности в качестве приложения.
+The results include the AppId, which you need when authenticating as the application.
 
-### Дополнительная настройка. Учетные данные сертификата
+### <a name="optional-configuration---certificate-credential"></a>Optional configuration - certificate credential
 
-Azure AD также поддерживает учетные данные сертификата для приложения. При этом вам нужно создать самозаверяющий сертификат, сохранить закрытый ключ и добавить открытый ключ для регистрации приложения Azure AD. Для проверки подлинности приложение отправляет в Azure AD небольшой объем полезных данных, подписанных с помощью закрытого ключа, а Azure AD проверяет подпись, используя зарегистрированный открытый ключ.
+Azure AD also supports certificate credentials for applications: you create a self-signed cert, keep the private key, and add the public key to your Azure AD application registration. For authentication, your application sends a small payload to Azure AD signed using your private key, and Azure AD validates the signature using the public key that you registered.
 
-Дополнительные сведения о создании приложения AD с использованием сертификата см. в статье [Использование Azure PowerShell для создания субъекта-службы и доступа к ресурсам](resource-group-authenticate-service-principal.md#create-service-principal-with-certificate) или [Использование интерфейса командной строки Azure для создания субъекта-службы и доступа к ресурсам](resource-group-authenticate-service-principal-cli.md#create-service-principal-with-certificate).
+For information about creating an AD app with a certificate, see [Use Azure PowerShell to create a service principal to access resources](resource-group-authenticate-service-principal.md#create-service-principal-with-certificate) or [Use Azure CLI to create a service principal to access resources](resource-group-authenticate-service-principal-cli.md#create-service-principal-with-certificate).
 
-## Получение идентификатора клиента из идентификатора подписки
+## <a name="get-tenant-id-from-subscription-id"></a>Get tenant id from subscription id
 
-Чтобы получить маркер, используемый для вызова Resource Manager, в приложении необходимо указать идентификатор клиента Azure AD, в котором находится подписка Azure. Скорее всего, пользователи знают идентификаторы подписок, но идентификаторы клиентов Active Directory знает не каждый. Чтобы получить идентификатор клиента, необходимо знать идентификатор подписки пользователя. Укажите этот идентификатор подписки при отправке запроса о подписке.
+To request a token that can be used to call Resource Manager, your application needs to know the tenant ID of the Azure AD tenant that hosts the Azure subscription. Most likely, your users know their subscription ids, but they might not know their tenant ids for Active Directory. To get the user's tenant id, ask the user for the subscription id. Provide that subscription id when sending a request about the subscription:
 
     https://management.azure.com/subscriptions/{subscription-id}?api-version=2015-01-01
 
-Запрос завершится сбоем, так как пользователь еще не вошел в систему, но идентификатор клиента можно получить из ответа. В этом исключении идентификатор клиента указан в заголовке ответа **WWW-Authenticate**. Эта реализация используется в методе [GetDirectoryForSubscription](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureResourceManagerUtil.cs#L20).
+The request fails because the user has not logged in yet, but you can retrieve the tenant id from the response. In that exception, retrieve the tenant id from the response header value for **WWW-Authenticate**. You see this implementation in the [GetDirectoryForSubscription](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureResourceManagerUtil.cs#L20) method.
 
-## Получение маркера доступа от имени пользователя
+## <a name="get-user-+-app-access-token"></a>Get user + app access token
 
-Приложение перенаправляет пользователя в Azure AD с помощью запроса на авторизацию OAuth 2.0, применяемого для проверки подлинности учетных данных пользователя и возвращения кода авторизации. Приложение использует код авторизации, чтобы получить маркер доступа для Resource Manager. Метод [ConnectSubscription](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/Controllers/HomeController.cs#L42) создает запрос на авторизацию.
+Your application redirects the user to Azure AD with an OAuth 2.0 Authorize Request - to authenticate the user's credentials and get back an authorization code. Your application uses the authorization code to get an access token for Resource Manager. The [ConnectSubscription](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/Controllers/HomeController.cs#L42) method creates the authorization request.
 
-Здесь приводятся примеры запросов REST API, используемых для проверки подлинности пользователя. Чтобы реализовать проверку подлинности в коде, можно также использовать вспомогательные библиотеки. Дополнительные сведения об этих библиотеках см. в статье [Библиотеки проверки подлинности Azure Active Directory](./active-directory/active-directory-authentication-libraries.md). Рекомендации по интеграции функции управления удостоверениями в приложение см. в статье [Руководство разработчика по Azure Active Directory](./active-directory/active-directory-developers-guide.md).
+This topic shows the REST API requests to authenticate the user. You can also use helper libraries to perform authentication in your code. For more information about these libraries, see [Azure Active Directory Authentication Libraries](./active-directory/active-directory-authentication-libraries.md). For guidance on integrating identity management in an application, see [Azure Active Directory developer's guide](./active-directory/active-directory-developers-guide.md).
 
-### Запрос проверки подлинности (OAuth 2.0)
+### <a name="auth-request-(oauth-2.0)"></a>Auth request (OAuth 2.0)
 
-Выполните запрос на авторизацию Open ID Connect или OAuth 2.0 к конечной точке авторизации Azure AD:
+Issue an Open ID Connect/OAuth2.0 Authorize Request to the Azure AD Authorize endpoint:
 
     https://login.microsoftonline.com/{tenant-id}/OAuth2/Authorize
 
-Параметры строки запроса, доступные для этого запроса, описаны в разделе [Запрос кода авторизации](./active-directory/active-directory-protocols-oauth-code.md#request-an-authorization-code).
+The query string parameters that are available for this request are described in the [request an authorization code](./active-directory/active-directory-protocols-oauth-code.md#request-an-authorization-code) topic.
 
-В следующем примере показано, как запросить авторизацию OAuth 2.0:
+The following example shows how to request OAuth2.0 authorization:
 
     https://login.microsoftonline.com/{tenant-id}/OAuth2/Authorize?client_id=a0448380-c346-4f9f-b897-c18733de9394&response_mode=query&response_type=code&redirect_uri=http%3a%2f%2fwww.vipswapper.com%2fcloudsense%2fAccount%2fSignIn&resource=https%3a%2f%2fgraph.windows.net%2f&domain_hint=live.com
 
-Служба Azure AD проверяет подлинность пользователя и при необходимости запрашивает у пользователя разрешение на доступ к приложению. Она возвращает код авторизации на URL-адрес ответа приложения. В зависимости от запрошенного параметра response\_mode Azure AD отправляет данные в строке запроса или в качестве данных POST.
+Azure AD authenticates the user, and, if necessary, asks the user to grant permission to the app. It returns the authorization code to the Reply URL of your application. Depending on the requested response_mode, Azure AD either sends back the data in query string or as post data.
 
     code=AAABAAAAiL****FDMZBUwZ8eCAA&session_state=2d16bbce-d5d1-443f-acdf-75f6b0ce8850
 
-### Запрос проверки подлинности (Open ID Connect)
+### <a name="auth-request-(open-id-connect)"></a>Auth request (Open ID Connect)
 
-Если требуется не только получить доступ к Azure Resource Manager от имени пользователя, но и разрешить пользователю входить в ваше приложение с помощью его учетной записи Azure AD, отправьте запрос на авторизацию Open ID Connect. С помощью Open ID Connect приложение также получит маркер id\_token из Azure AD, используемый приложением для выполнения входа пользователя.
+If you not only wish to access Azure Resource Manager on behalf of the user, but also allow the user to sign in to your application using their Azure AD account, issue an Open ID Connect Authorize Request. With Open ID Connect, your application also receives an id_token from Azure AD that your app can use to sign in the user.
 
-Параметры строки запроса, доступные для этого запроса, описаны в разделе [Отправка запроса на вход](./active-directory/active-directory-protocols-openid-connect-code.md#send-the-sign-in-request).
+The query string parameters that are available for this request are described in the [Send the sign-in request](./active-directory/active-directory-protocols-openid-connect-code.md#send-the-sign-in-request) topic.
 
-Пример запроса Open ID Connect:
+An example Open ID Connect request is:
 
      https://login.microsoftonline.com/{tenant-id}/OAuth2/Authorize?client_id=a0448380-c346-4f9f-b897-c18733de9394&response_mode=form_post&response_type=code+id_token&redirect_uri=http%3a%2f%2fwww.vipswapper.com%2fcloudsense%2fAccount%2fSignIn&resource=https%3a%2f%2fgraph.windows.net%2f&scope=openid+profile&nonce=63567Dc4MDAw&domain_hint=live.com&state=M_12tMyKaM8
 
-Служба Azure AD проверяет подлинность пользователя и при необходимости запрашивает у пользователя разрешение на доступ к приложению. Она возвращает код авторизации на URL-адрес ответа приложения. В зависимости от запрошенного параметра response\_mode Azure AD отправляет данные в строке запроса или в качестве данных POST.
+Azure AD authenticates the user, and, if necessary, asks the user to grant permission to the app. It returns the authorization code to the Reply URL of your application. Depending on the requested response_mode, Azure AD either sends back the data in query string or as post data.
 
-Пример ответа Open ID Connect:
+An example Open ID Connect response is:
 
     code=AAABAAAAiL*****I4rDWd7zXsH6WUjlkIEQxIAA&id_token=eyJ0eXAiOiJKV1Q*****T3GrzzSFxg&state=M_12tMyKaM8&session_state=2d16bbce-d5d1-443f-acdf-75f6b0ce8850
 
-### Запрос токена (предоставление кода OAuth 2.0)
+### <a name="token-request-(oauth2.0-code-grant-flow)"></a>Token request (OAuth2.0 Code Grant Flow)
 
-Теперь, когда приложение получило код авторизации из Azure AD, необходимо получить маркер доступа для Azure Resource Manager. Выполните запрос на токен предоставления кода OAuth 2.0 к конечной точке токена Azure AD с помощью метода POST:
+Now that your application has received the authorization code from Azure AD, it is time to get the access token for Azure Resource Manager.  Post an OAuth2.0 Code Grant Token Request to the Azure AD Token endpoint: 
 
     https://login.microsoftonline.com/{tenant-id}/OAuth2/Token
 
-Параметры строки запроса, доступные для этого запроса, описаны в разделе [Использование кода авторизации для запроса маркера доступа](./active-directory/active-directory-protocols-oauth-code.md#use-the-authorization-code-to-request-an-access-token).
+The query string parameters that are available for this request are described in the [use the authorization code](./active-directory/active-directory-protocols-oauth-code.md#use-the-authorization-code-to-request-an-access-token) topic.
 
-В следующем примере показан запрос на токен предоставления кода с использованием пароля:
+The following example shows a request for code grant token with password credential:
 
     POST https://login.microsoftonline.com/7fe877e6-a150-4992-bbfe-f517e304dfa0/oauth2/token HTTP/1.1
 
@@ -155,34 +156,34 @@ Azure AD также поддерживает учетные данные сер�
 
     grant_type=authorization_code&code=AAABAAAAiL9Kn2Z*****L1nVMH3Z5ESiAA&redirect_uri=http%3A%2F%2Flocalhost%3A62080%2FAccount%2FSignIn&client_id=a0448380-c346-4f9f-b897-c18733de9394&client_secret=olna84E8*****goScOg%3D
 
-При работе с учетными данными сертификата создайте веб-токен JSON (JWT) и подпишите его (RSA-SHA256) с помощью закрытого ключа сертификата приложения. Типы утверждений для маркера содержатся в разделе [Утверждения JWT](./active-directory/active-directory-protocols-oauth-code.md#jwt-token-claims). Справочную информацию по подписыванию маркеров JWT утверждений клиента см. на странице с [кодом библиотеки проверки подлинности Active Directory (.NET)](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/blob/dev/src/ADAL.PCL.Desktop/CryptographyHelper.cs).
+When working with certificate credentials, create a JSON Web Token (JWT) and sign (RSA SHA256) using the private key of your application's certificate credential. The claim types for the token are shown in [JWT token claims](./active-directory/active-directory-protocols-oauth-code.md#jwt-token-claims). For reference, see the [Active Directory Auth Library (.NET) code](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/blob/dev/src/ADAL.PCL.Desktop/CryptographyHelper.cs) to sign Client Assertion JWT tokens.
 
-Дополнительные сведения о проверке подлинности клиента см. на странице с [характеристиками Open ID Connect](http://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication).
+See the [Open ID Connect spec](http://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication) for details on client authentication. 
 
-В следующем примере показан запрос на токен предоставления кода с использованием учетных данных сертификата:
+The following example shows a request for code grant token with certificate credential:
 
-	POST https://login.microsoftonline.com/7fe877e6-a150-4992-bbfe-f517e304dfa0/oauth2/token HTTP/1.1
-	
-	Content-Type: application/x-www-form-urlencoded
-	Content-Length: 1012
-	
-	grant_type=authorization_code&code=AAABAAAAiL9Kn2Z*****L1nVMH3Z5ESiAA&redirect_uri=http%3A%2F%2Flocalhost%3A62080%2FAccount%2FSignIn&client_id=a0448380-c346-4f9f-b897-c18733de9394&client_assertion_type=urn%3Aietf%3Aparams%3Aoauth%3Aclient-assertion-type%3Ajwt-bearer&client_assertion=eyJhbG*****Y9cYo8nEjMyA
+    POST https://login.microsoftonline.com/7fe877e6-a150-4992-bbfe-f517e304dfa0/oauth2/token HTTP/1.1
+    
+    Content-Type: application/x-www-form-urlencoded
+    Content-Length: 1012
+    
+    grant_type=authorization_code&code=AAABAAAAiL9Kn2Z*****L1nVMH3Z5ESiAA&redirect_uri=http%3A%2F%2Flocalhost%3A62080%2FAccount%2FSignIn&client_id=a0448380-c346-4f9f-b897-c18733de9394&client_assertion_type=urn%3Aietf%3Aparams%3Aoauth%3Aclient-assertion-type%3Ajwt-bearer&client_assertion=eyJhbG*****Y9cYo8nEjMyA
 
-Пример ответа для токена предоставления кода:
+An example response for code grant token: 
 
     HTTP/1.1 200 OK
 
     {"token_type":"Bearer","expires_in":"3599","expires_on":"1432039858","not_before":"1432035958","resource":"https://management.core.windows.net/","access_token":"eyJ0eXAiOiJKV1Q****M7Cw6JWtfY2lGc5A","refresh_token":"AAABAAAAiL9Kn2Z****55j-sjnyYgAA","scope":"user_impersonation","id_token":"eyJ0eXAiOiJKV*****-drP1J3P-HnHi9Rr46kGZnukEBH4dsg"}
 
-#### Обработка ответа токена предоставления кода
+#### <a name="handle-code-grant-token-response"></a>Handle code grant token response
 
-Успешный ответ будет содержать маркер доступа (при доступе от имени пользователя) для Azure Resource Manager. Приложение использует этот маркер для доступа к Resource Manager от имени пользователя. Срок действия маркеров доступа, выданных Azure AD, составляет один час. Маловероятно, что веб-приложению понадобится обновить маркер доступа (при доступе от имени пользователя). Однако если обновление потребуется, можно воспользоваться маркером обновления, который приложение получает в ответе маркера. Выполните запрос токена OAuth 2.0 к конечной точке токена Azure AD с помощью метода POST:
+A successful token response contains the (user + app) access token for Azure Resource Manager. Your application uses this access token to access Resource Manager on behalf of the user. The lifetime of access tokens issued by Azure AD is one hour. It is unlikely that your web application needs to renew the (user + app) access token. If it needs to renew the access token, use the refresh token that your application receives in the token response. Post an OAuth2.0 Token Request to the Azure AD Token endpoint: 
 
     https://login.microsoftonline.com/{tenant-id}/OAuth2/Token
 
-Параметры для запроса обновления описаны в разделе [Обновление маркеров доступа](./active-directory/active-directory-protocols-oauth-code.md#refreshing-the-access-tokens).
+The parameters to use with the refresh request are described in [refreshing the access token](./active-directory/active-directory-protocols-oauth-code.md#refreshing-the-access-tokens).
 
-В следующем примере показано, как использовать токен обновления:
+The following example shows how to use the refresh token:
 
     POST https://login.microsoftonline.com/7fe877e6-a150-4992-bbfe-f517e304dfa0/oauth2/token HTTP/1.1
 
@@ -191,141 +192,141 @@ Azure AD также поддерживает учетные данные сер�
 
     grant_type=refresh_token&refresh_token=AAABAAAAiL9Kn2Z****55j-sjnyYgAA&client_id=a0448380-c346-4f9f-b897-c18733de9394&client_secret=olna84E8*****goScOg%3D
 
-Хотя с помощью маркеров обновления и можно получать новые маркеры доступа для Azure Resource Manager, они не подходят для автономного доступа приложения. Срок действия токенов обновления ограничен, и они привязаны к пользователю. Если пользователь покидает организацию, приложение, использующее маркер обновления, теряет доступ. Этот способ не подходит для приложений, используемых группами для управления ресурсами Azure.
+Although refresh tokens can be used to get new access tokens for Azure Resource Manager, they are not suitable for offline access by your application. The refresh tokens lifetime is limited, and refresh tokens are bound to the user. If the user leaves the organization, the application using the refresh token loses access. This approach isn't suitable for applications that are used by teams to manage their Azure resources.
 
-## Проверка назначения пользователем доступа к подписке
+## <a name="check-if-user-can-assign-access-to-subscription"></a>Check if user can assign access to subscription
 
-Теперь у приложения есть маркер доступа к Azure Resource Manager от имени пользователя. Далее нужно подключить приложение к подписке, чтобы оно могло управлять подписками, даже если пользователь отсутствует (долгосрочный автономный доступ).
+Your application now has a token to access Azure Resource Manager on behalf of the user. The next step is to connect your app to the subscription. After connecting, your app can manage those subscriptions even when the user isn't present (long-term offline access). 
 
-Для подключения каждой подписки необходимо вызвать API [разрешений списка Resource Manager](https://msdn.microsoft.com/library/azure/dn906889.aspx), чтобы определить, есть ли у пользователя права управления доступом для подписки.
+For each subscription to connect, call the [Resource Manager list permissions](https://msdn.microsoft.com/library/azure/dn906889.aspx) API to determine whether the user has access management rights for the subscription.
 
-Этот вызов осуществляет метод [UserCanManagerAccessForSubscription](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureResourceManagerUtil.cs#L44) примера приложения ASP.NET MVC.
+The [UserCanManagerAccessForSubscription](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureResourceManagerUtil.cs#L44) method of the ASP.NET MVC sample app implements this call.
 
-В следующем примере показано, как запросить разрешения пользователя для подписки. 83cfe939-2402-4581-b761-4f59b0a041e4 — это идентификатор подписки.
+The following example shows how to request a user's permissions on a subscription. 83cfe939-2402-4581-b761-4f59b0a041e4 is the id of the subscription.
 
     GET https://management.azure.com/subscriptions/83cfe939-2402-4581-b761-4f59b0a041e4/providers/microsoft.authorization/permissions?api-version=2015-07-01 HTTP/1.1
 
     Authorization: Bearer eyJ0eXAiOiJKV1QiLC***lwO1mM7Cw6JWtfY2lGc5A
 
-Пример ответа на получение разрешений пользователя на подписку:
+An example of the response to get user's permissions on subscription is:
 
     HTTP/1.1 200 OK
 
     {"value":[{"actions":["*"],"notActions":["Microsoft.Authorization/*/Write","Microsoft.Authorization/*/Delete"]},{"actions":["*/read"],"notActions":[]}]}
 
-API разрешений возвращает несколько разрешений. Каждое разрешение состоит из разрешенных действий (actions) и запрещенных действий (notActions). Если действие есть в списке разрешенных действий любого разрешения и отсутствует в списке запрещенных действий этого же разрешения, пользователь может его выполнять. **microsoft.authorization/roleassignments/write** — действие, предоставляющее права на управление доступом. Приложение должно проанализировать результат разрешений, чтобы найти соответствующее регулярное выражение в этой строке действия в разрешенных и запрещенных действиях всех разрешений.
+The permissions API returns multiple permissions. Each permission consists of allowed actions (actions) and disallowed actions (notactions). If an action is present in the allowed actions list of any permission and not present in the notactions list of that permission, the user is allowed to perform that action. **microsoft.authorization/roleassignments/write** is the action that that grants access management rights. Your application must parse the permissions result to look for a regex match on this action string in the actions and notactions of each permission.
 
-## Получение маркера доступа только для приложений
+## <a name="get-app-only-access-token"></a>Get app-only access token
 
-Теперь вы знаете, что пользователь может назначить доступ к подписке Azure. Теперь нужно сделать следующее:
+Now, you know if the user can assign access to the Azure subscription. The next steps are:
 
-1. Назначить удостоверению приложения в подписке соответствующую роль RBAC.
-2. Проверить назначение доступа, запрашивая разрешение приложения для подписки или получив доступ к Resource Manager с помощью маркера только для приложений.
-1. Записать подключение в структуре данных подключенных подписок приложения, сохраняя идентификатор подписки.
+1. Assign the appropriate RBAC role to your application's identity on the subscription.
+2. Validate the access assignment by querying for the Application's permission on the subscription or by accessing Resource Manager using app-only token.
+1. Record the connection in your applications "connected subscriptions" data structure - persisting the id of the subscription.
 
-Давайте рассмотрим первый шаг. Чтобы назначить соответствующую роль RBAC удостоверению приложения, необходимо определить следующее:
+Let's look closer at the first step. To assign the appropriate RBAC role to the application's identity, you must determine:
 
-- Идентификатор объекта для удостоверения приложения в каталоге Azure Active Directory пользователя.
-- Идентификатор роли RBAC, требуемой приложению для подписки.
+- The object id of your application's identity in the user's Azure Active Directory
+- The identifier of the RBAC role that your application requires on the subscription
 
-Когда приложение впервые проверяет подлинность пользователя из Azure AD, в этом экземпляре Azure AD создается объект субъекта-службы для приложения. Azure позволяет назначать роли RBAC субъектам-службам, чтобы предоставить прямой доступ к соответствующим приложениям для ресурсов Azure. Нам нужно сделать именно это. Отправьте запрос к API Graph Azure AD, чтобы определить идентификатор объекта субъекта-службы приложения в подключенном экземпляре Azure AD пользователя.
+When your application authenticates a user from an Azure AD, it creates a service principal object for your application in that Azure AD. Azure allows RBAC roles to be assigned to service principals to grant direct access to corresponding applications on Azure resources. This action is exactly what we wish to do. Query the Azure AD Graph API to determine the identifier of the service principal of your application in the signed-in user's Azure AD.
 
-У вас есть только маркер доступа для Azure Resource Manager. Поэтому вам понадобится новый маркер доступа для вызова API Graph Azure AD. У каждого приложения в Azure AD есть разрешение на запрос собственного объекта субъекта-службы. Поэтому нам достаточно маркера доступа только для приложений.
+You only have an access token for Azure Resource Manager - you need a new access token to call the Azure AD Graph API. Every application in Azure AD has permission to query its own service principal object, so an app-only access token is sufficient.
 
 <a id="app-azure-ad-graph">
-### Получение маркера доступа только для приложений для API Graph Azure AD
+### <a name="get-app-only-access-token-for-azure-ad-graph-api"></a>Get app-only access token for Azure AD Graph API
 
-Чтобы выполнить проверку подлинности приложения и получить токен для API Graph Azure AD, выполните запрос на токен предоставления учетных данных клиента OAuth 2.0 к конечной точке токена Azure AD (**https://login.microsoftonline.com/{directory\_domain\_name}/OAuth2/Token**).
+To authenticate your app and get a token to Azure AD Graph API, issue a Client Credential Grant OAuth2.0 flow token request to Azure AD token endpoint (**https://login.microsoftonline.com/{directory_domain_name}/OAuth2/Token**).
 
-Метод [GetObjectIdOfServicePrincipalInOrganization](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureADGraphAPIUtil.cs) примера приложения ASP.NET MVC получает маркер доступа только для приложений для API Graph с использованием библиотеки проверки подлинности Active Directory для .NET.
+The [GetObjectIdOfServicePrincipalInOrganization](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureADGraphAPIUtil.cs) method of the ASP.net MVC sample application gets an app-only access token for Graph API using the Active Directory Authentication Library for .NET.
 
-Параметры строки запроса, доступные для этого запроса, описаны в разделе [Запрос маркера доступа](./active-directory/active-directory-protocols-oauth-service-to-service.md#request-an-access-token).
+The query string parameters that are available for this request are described in the [Request an Access Token](./active-directory/active-directory-protocols-oauth-service-to-service.md#request-an-access-token) topic.
 
-Пример запроса на токен предоставления учетных данных клиента:
+An example request for client credential grant token: 
 
     POST https://login.microsoftonline.com/62e173e9-301e-423e-bcd4-29121ec1aa24/oauth2/token HTTP/1.1
     Content-Type: application/x-www-form-urlencoded
     Content-Length: 187</pre>
     <pre>grant_type=client_credentials&client_id=a0448380-c346-4f9f-b897-c18733de9394&resource=https%3A%2F%2Fgraph.windows.net%2F &client_secret=olna8C*****Og%3D
 
-Пример ответа токена предоставления учетных данных клиента:
+An example response for client credential grant token: 
 
     HTTP/1.1 200 OK
 
     {"token_type":"Bearer","expires_in":"3599","expires_on":"1432039862","not_before":"1432035962","resource":"https://graph.windows.net/","access_token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VLWSIsImtpZCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VLWSJ9.eyJhdWQiOiJodHRwczovL2dyYXBoLndpbmRv****G5gUTV-kKorR-pg"}
 
-### Получение идентификатора объекта субъекта-службы приложения в Azure AD пользователя
+### <a name="get-objectid-of-application-service-principal-in-user-azure-ad"></a>Get ObjectId of application service principal in user Azure AD
 
-Теперь используйте маркер доступа только для приложений для запроса API [субъектов-служб Azure AD Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity), чтобы определить идентификатор объекта субъекта-службы приложения в каталоге.
+Now, use the app-only access token to query the [Azure AD Graph Service Principals](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity) API to determine the Object Id of the application's service principal in the directory.
 
-Этот вызов осуществляет метод [GetObjectIdOfServicePrincipalInOrganization](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureADGraphAPIUtil.cs#) примера приложения ASP.NET MVC.
+The [GetObjectIdOfServicePrincipalInOrganization](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureADGraphAPIUtil.cs#) method of the ASP.net MVC sample application implements this call.
 
-В следующем примере показано, как запросить субъект-службу приложения. a0448380-c346-4f9f-b897-c18733de9394 — это идентификатор клиента приложения.
+The following example shows how to request an application's service principal. a0448380-c346-4f9f-b897-c18733de9394 is the client id of the application.
 
     GET https://graph.windows.net/62e173e9-301e-423e-bcd4-29121ec1aa24/servicePrincipals?api-version=1.5&$filter=appId%20eq%20'a0448380-c346-4f9f-b897-c18733de9394' HTTP/1.1
 
     Authorization: Bearer eyJ0eXAiOiJK*****-kKorR-pg
 
-В следующем примере показан ответ на запрос субъекта-службы приложения.
+The following example shows a response to the request for an application's service principal 
 
     HTTP/1.1 200 OK
 
     {"odata.metadata":"https://graph.windows.net/62e173e9-301e-423e-bcd4-29121ec1aa24/$metadata#directoryObjects/Microsoft.DirectoryServices.ServicePrincipal","value":[{"odata.type":"Microsoft.DirectoryServices.ServicePrincipal","objectType":"ServicePrincipal","objectId":"9b5018d4-6951-42ed-8a92-f11ec283ccec","deletionTimestamp":null,"accountEnabled":true,"appDisplayName":"CloudSense","appId":"a0448380-c346-4f9f-b897-c18733de9394","appOwnerTenantId":"62e173e9-301e-423e-bcd4-29121ec1aa24","appRoleAssignmentRequired":false,"appRoles":[],"displayName":"CloudSense","errorUrl":null,"homepage":"http://www.vipswapper.com/cloudsense","keyCredentials":[],"logoutUrl":null,"oauth2Permissions":[{"adminConsentDescription":"Allow the application to access CloudSense on behalf of the signed-in user.","adminConsentDisplayName":"Access CloudSense","id":"b7b7338e-683a-4796-b95e-60c10380de1c","isEnabled":true,"type":"User","userConsentDescription":"Allow the application to access CloudSense on your behalf.","userConsentDisplayName":"Access CloudSense","value":"user_impersonation"}],"passwordCredentials":[],"preferredTokenSigningKeyThumbprint":null,"publisherName":"vipswapper"quot;,"replyUrls":["http://www.vipswapper.com/cloudsense","http://www.vipswapper.com","http://vipswapper.com","http://vipswapper.azurewebsites.net","http://localhost:62080"],"samlMetadataUrl":null,"servicePrincipalNames":["http://www.vipswapper.com/cloudsense","a0448380-c346-4f9f-b897-c18733de9394"],"tags":["WindowsAzureActiveDirectoryIntegratedApp"]}]}
 
-### Получение идентификатора роли RBAC Azure
+### <a name="get-azure-rbac-role-identifier"></a>Get Azure RBAC role identifier
 
-Чтобы назначить соответствующую роль RBAC для субъекта-службы, необходимо определить идентификатор роли RBAC Azure.
+To assign the appropriate RBAC role to your service principal, you must determine the identifier of the Azure RBAC role.
 
-Выбор роли RBAC для приложения:
+The right RBAC role for your application:
 
-- Если приложение только выполняет мониторинг подписки и не вносит никаких изменений, ему требуются разрешения только на чтение для подписки. Назначьте роль **Читатель**.
-- Если приложение управляет подпиской Azure, а также создает, изменяет или удаляет сущности, ему понадобится разрешение участника.
-  - Для управления определенным типом ресурсов назначьте роли участников для конкретных ресурсов (участник виртуальных машин, участник виртуальных сетей, участник учетных записей хранения и т. д.).
-  - Для управления ресурсами любого типа назначьте роль **Участник**.
+- If your application only monitors the subscription, without making any changes, it requires only reader permissions on the subscription. Assign the **Reader** role.
+- If your application manages Azure the subscription, creating/modifying/deleting entities, it requires one of the contributor permissions.
+  - To manage a particular type of resource, assign the resource-specific contributor roles (Virtual Machine Contributor, Virtual Network Contributor, Storage Account Contributor, etc.)
+  - To manage any resource type, assign the **Contributor** role.
 
-Роль, назначенная для приложения, видна пользователям, поэтому выбирайте наименее востребованные привилегии.
+The role assignment for your application is visible to users, so select the least-required privilege.
 
-Вызовите [API определения ролей Resource Manager](https://msdn.microsoft.com/library/azure/dn906879.aspx), чтобы получить список всех ролей RBAC Azure и перебрать результаты. Это нужно, чтобы найти определение требуемой роли по имени.
+Call the [Resource Manager role definition API](https://msdn.microsoft.com/library/azure/dn906879.aspx) to list all Azure RBAC roles and search then iterate over the result to find the desired role definition by name.
 
-Этот вызов осуществляет метод [GetRoleId](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureResourceManagerUtil.cs#L246) примера приложения ASP.NET MVC.
+The [GetRoleId](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureResourceManagerUtil.cs#L246) method of the ASP.net MVC sample app implements this call.
 
-В следующем примере запроса показано, как получить идентификатор роли RBAC Azure. 09cbd307-aa71-4aca-b346-5f253e6e3ebb — это идентификатор подписки.
+The following request example shows how to get Azure RBAC role identifier. 09cbd307-aa71-4aca-b346-5f253e6e3ebb is the id of the subscription.
 
     GET https://management.azure.com/subscriptions/09cbd307-aa71-4aca-b346-5f253e6e3ebb/providers/Microsoft.Authorization/roleDefinitions?api-version=2015-07-01 HTTP/1.1
 
     Authorization: Bearer eyJ0eXAiOiJKV*****fY2lGc5
 
-Запрос имеет следующий формат:
+The response is in the following format: 
 
     HTTP/1.1 200 OK
 
     {"value":[{"properties":{"roleName":"API Management Service Contributor","type":"BuiltInRole","description":"Lets you manage API Management services, but not access to them.","scope":"/","permissions":[{"actions":["Microsoft.ApiManagement/Services/*","Microsoft.Authorization/*/read","Microsoft.Resources/subscriptions/resources/read","Microsoft.Resources/subscriptions/resourceGroups/read","Microsoft.Resources/subscriptions/resourceGroups/resources/read","Microsoft.Resources/subscriptions/resourceGroups/deployments/*","Microsoft.Insights/alertRules/*","Microsoft.Support/*"],"notActions":[]}]},"id":"/subscriptions/09cbd307-aa71-4aca-b346-5f253e6e3ebb/providers/Microsoft.Authorization/roleDefinitions/312a565d-c81f-4fd8-895a-4e21e48d571c","type":"Microsoft.Authorization/roleDefinitions","name":"312a565d-c81f-4fd8-895a-4e21e48d571c"},{"properties":{"roleName":"Application Insights Component Contributor","type":"BuiltInRole","description":"Lets you manage Application Insights components, but not access to them.","scope":"/","permissions":[{"actions":["Microsoft.Insights/components/*","Microsoft.Insights/webtests/*","Microsoft.Authorization/*/read","Microsoft.Resources/subscriptions/resources/read","Microsoft.Resources/subscriptions/resourceGroups/read","Microsoft.Resources/subscriptions/resourceGroups/resources/read","Microsoft.Resources/subscriptions/resourceGroups/deployments/*","Microsoft.Insights/alertRules/*","Microsoft.Support/*"],"notActions":[]}]},"id":"/subscriptions/09cbd307-aa71-4aca-b346-5f253e6e3ebb/providers/Microsoft.Authorization/roleDefinitions/ae349356-3a1b-4a5e-921d-050484c6347e","type":"Microsoft.Authorization/roleDefinitions","name":"ae349356-3a1b-4a5e-921d-050484c6347e"}]}
 
-Этот API не нужно вызывать постоянно. Определив известный GUID определения роли, можно создать идентификатор определения роли следующего вида:
+You do not need to call this API on an ongoing basis. Once you've determined the well-known GUID of the role definition, you can construct the role definition id as:
 
     /subscriptions/{subscription_id}/providers/Microsoft.Authorization/roleDefinitions/{well-known-role-guid}
 
-Ниже представлены известные идентификаторы GUID часто используемых встроенных ролей:
+Here are the well-known guids of commonly used built-in roles:
 
-| Роль | Guid |
+| Role | Guid |
 | ----- | ------ |
-| читатель. | acdd72a7-3385-48ef-bd42-f606fba81ae7
-| Участник | b24988ac-6180-42a0-ab88-20f7382dd24c
-| Участник виртуальной машины | d73bb868-a0df-4d4d-bd69-98a00b01fccb
-| Участник виртуальной сети | b34d265f-36f7-4a0d-a4d4-e158ca92e90f
-| Участник учетной записи хранения | 86e8f5dc-a6e9-4c67-9d15-de283e8eac25
-| Участник веб-сайта | de139f84-1756-47ae-9be6-808fbbe84772
-| Участник веб-плана | 2cc479cb-7b4d-49a8-b449-8c00fd0f0a4b
-| Участник SQL Server | 6d8ee4ec-f05a-4a1d-8b00-a9b17e38b437
-| Участник БД SQL | 9b7fa17d-e63e-47b0-bb0a-15c516ac86ec
+| Reader | acdd72a7-3385-48ef-bd42-f606fba81ae7
+| Contributor | b24988ac-6180-42a0-ab88-20f7382dd24c
+| Virtual Machine Contributor | d73bb868-a0df-4d4d-bd69-98a00b01fccb
+| Virtual Network Contributor | b34d265f-36f7-4a0d-a4d4-e158ca92e90f
+| Storage Account Contributor | 86e8f5dc-a6e9-4c67-9d15-de283e8eac25
+| Website Contributor | de139f84-1756-47ae-9be6-808fbbe84772
+| Web Plan Contributor | 2cc479cb-7b4d-49a8-b449-8c00fd0f0a4b
+| SQL Server Contributor | 6d8ee4ec-f05a-4a1d-8b00-a9b17e38b437
+| SQL DB Contributor | 9b7fa17d-e63e-47b0-bb0a-15c516ac86ec
 
-### Назначение роли RBAC для приложения
+### <a name="assign-rbac-role-to-application"></a>Assign RBAC role to application
 
-Теперь все готово, чтобы назначить соответствующую роль RBAC субъекту-службе с помощью API [создания назначения роли Resource Manager](https://msdn.microsoft.com/library/azure/dn906887.aspx).
+You have everything you need to assign the appropriate RBAC role to your service principal by using the [Resource Manager create role assignment](https://msdn.microsoft.com/library/azure/dn906887.aspx) API.
 
-Этот вызов осуществляет метод [GrantRoleToServicePrincipalOnSubscription](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureResourceManagerUtil.cs#L170) примера приложения ASP.NET MVC.
+The [GrantRoleToServicePrincipalOnSubscription](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureResourceManagerUtil.cs#L170) method of the ASP.net MVC sample app implements this call.
 
-Пример запроса на назначение роли RBAC для приложения:
+An example request to assign RBAC role to application: 
 
     PUT https://management.azure.com/subscriptions/09cbd307-aa71-4aca-b346-5f253e6e3ebb/providers/microsoft.authorization/roleassignments/4f87261d-2816-465d-8311-70a27558df4c?api-version=2015-07-01 HTTP/1.1
 
@@ -335,47 +336,52 @@ API разрешений возвращает несколько разреше�
 
     {"properties": {"roleDefinitionId":"/subscriptions/09cbd307-aa71-4aca-b346-5f253e6e3ebb/providers/Microsoft.Authorization/roleDefinitions/acdd72a7-3385-48ef-bd42-f606fba81ae7","principalId":"c3097b31-7309-4c59-b4e3-770f8406bad2"}}
 
-В запросе используются следующие значения:
+In the request, the following values are used:
 
-| Guid | Описание |
+| Guid | Description |
 | ------ | --------- |
-| 09cbd307-aa71-4aca-b346-5f253e6e3ebb | Идентификатор подписки
-| c3097b31-7309-4c59-b4e3-770f8406bad2 | Идентификатор объекта субъекта-службы приложения
-| acdd72a7-3385-48ef-bd42-f606fba81ae7 | Идентификатор роли "Читатель"
-| 4f87261d-2816-465d-8311-70a27558df4c | Новый GUID, созданный для нового назначения роли
+| 09cbd307-aa71-4aca-b346-5f253e6e3ebb | the id of the subscription
+| c3097b31-7309-4c59-b4e3-770f8406bad2 | the object id of the service principal of the application
+| acdd72a7-3385-48ef-bd42-f606fba81ae7 | the id of the reader role
+| 4f87261d-2816-465d-8311-70a27558df4c | a new guid created for the new role assignment
 
-Запрос имеет следующий формат:
+The response is in the following format: 
 
     HTTP/1.1 201 Created
 
     {"properties":{"roleDefinitionId":"/subscriptions/09cbd307-aa71-4aca-b346-5f253e6e3ebb/providers/Microsoft.Authorization/roleDefinitions/acdd72a7-3385-48ef-bd42-f606fba81ae7","principalId":"c3097b31-7309-4c59-b4e3-770f8406bad2","scope":"/subscriptions/09cbd307-aa71-4aca-b346-5f253e6e3ebb"},"id":"/subscriptions/09cbd307-aa71-4aca-b346-5f253e6e3ebb/providers/Microsoft.Authorization/roleAssignments/4f87261d-2816-465d-8311-70a27558df4c","type":"Microsoft.Authorization/roleAssignments","name":"4f87261d-2816-465d-8311-70a27558df4c"}
 
-### Получение маркера доступа только для приложений для Azure Resource Manager
+### <a name="get-app-only-access-token-for-azure-resource-manager"></a>Get app-only access token for Azure Resource Manager
 
-Чтобы проверить, есть ли у приложения требуемый доступ для подписки, выполните тестовое задание для подписки, используя маркер только для приложений.
+To validate that app has the desired access on the subscription, perform a test task on the subscription using an app-only token.
 
-Маркер доступа только для приложений можно получить, следуя инструкциям в разделе [Получение маркера доступа только для приложений для API Graph Azure AD](#app-azure-ad-graph). Но используйте другое значение для параметра ресурсов.
+To get an app-only access token, follow instructions from section [Get app-only access token for Azure AD Graph API](#app-azure-ad-graph), with a different value for the resource parameter: 
 
     https://management.core.windows.net/
 
-Метод [ServicePrincipalHasReadAccessToSubscription](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureResourceManagerUtil.cs#L110) примера приложения ASP.NET MVC получает маркер доступа только для приложений для Azure Resource Manager с использованием библиотеки проверки подлинности Active Directory для .NET.
+The [ServicePrincipalHasReadAccessToSubscription](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureResourceManagerUtil.cs#L110) method of the ASP.NET MVC sample application gets an app-only access token for Azure Resource Manager using the Active Directory Authentication Library for .net.
 
-#### Получение разрешений приложения для подписки
+#### <a name="get-application's-permissions-on-subscription"></a>Get Application's Permissions on Subscription
 
-Чтобы проверить, есть ли у приложения необходимый доступ на подписку Azure, можно также вызвать API [разрешений Resource Manager](https://msdn.microsoft.com/library/azure/dn906889.aspx). Этот метод аналогичен методу определения наличия у пользователя права на управление доступом для подписки. Однако на этот раз вызовите API разрешений с помощью маркера доступа только для приложений, полученного на предыдущем шаге.
+To check that your application has the desired access on an Azure subscription, you may also call the [Resource Manager Permissions](https://msdn.microsoft.com/library/azure/dn906889.aspx) API. This approach is similar to how you determined whether the user has Access Management rights for the subscription. However, this time, call the permissions API with the app-only access token that you received in the previous step.
 
-Этот вызов осуществляет метод [ServicePrincipalHasReadAccessToSubscription](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureResourceManagerUtil.cs#L110) примера приложения ASP.NET MVC.
+The [ServicePrincipalHasReadAccessToSubscription](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureResourceManagerUtil.cs#L110) method of the ASP.NET MVC sample app implements this call.
 
-## Управление подключенными подписками
+## <a name="manage-connected-subscriptions"></a>Manage connected subscriptions
 
-После назначения соответствующей роли RBAC субъекту-службе приложения для подписки приложение может и дальше выполнять мониторинг и управление с помощью маркеров доступа только для приложений для Azure Resource Manager.
+When the appropriate RBAC role is assigned to your application's service principal on the subscription, your application can keep monitoring/managing it using app-only access tokens for Azure Resource Manager.
 
-Если владелец подписки удаляет назначение роли приложения, используя классический портал или программы командной строки, приложение больше не сможет получить доступ к этой подписке. В этом случае следует уведомить пользователей, что подключение к подписке прервано вне приложения, и предоставить им возможность восстановить его. При восстановлении назначение роли, удаленное в автономном режиме, будет создано заново.
+If a subscription owner removes your application's role assignment using the classic portal or command-line tools, your application is no longer able to access that subscription. In that case, you should notify the user that the connection with the subscription was severed from outside the application and give them an option to "repair" the connection. "Repair" would simply re-create the role assignment that was deleted offline.
 
-Помимо предоставления возможности подключения подписок к вашему приложению, пользователю также необходимо разрешить отключать подписки. С точки зрения управления доступом при отключении удаляется назначение роли субъекта-службы приложения для подписки. Кроме того, любое состояние в приложении для подписки может быть удалено. Отключить подписку могут только пользователи с разрешением на управление доступом для этой подписки.
+Just as you enabled the user to connect subscriptions to your application, you must allow the user to disconnect subscriptions too. From an access management point of view, disconnect means removing the role assignment that the application's service principal has on the subscription. Optionally, any state in the application for the subscription might be removed too. Only users with access management permission on the subscription are able to disconnect the subscription.
 
-Этот вызов осуществляет метод [RevokeRoleFromServicePrincipalOnSubscription](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureResourceManagerUtil.cs#L200) примера приложения ASP.NET MVC.
+The [RevokeRoleFromServicePrincipalOnSubscription method](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureResourceManagerUtil.cs#L200) of the ASP.net MVC sample app implements this call.
 
-Теперь пользователи могут легко подключать подписки Azure к приложениям и управлять ими с помощью этих подписок.
+That's it - users can now easily connect and manage their Azure subscriptions with your application.
 
-<!---HONumber=AcomDC_0831_2016-->
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

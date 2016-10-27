@@ -1,67 +1,74 @@
 <properties 
-	pageTitle="Упреждающая диагностика в Application Insights | Microsoft Azure" 
-	description="Служба Application Insights автоматически выполняет углубленный анализ телеметрии вашего приложения и предупреждает о потенциальных проблемах." 
-	services="application-insights" 
+    pageTitle="Proactive diagnostics in Application Insights | Microsoft Azure" 
+    description="Application Insights performs automatic deep analysis of your app telemetry and warns you of potential problems." 
+    services="application-insights" 
     documentationCenter="windows"
-	authors="rakefetj" 
-	manager="douge"/>
+    authors="rakefetj" 
+    manager="douge"/>
 
 <tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/15/2016" 
-	ms.author="awills"/>
-
-#  Упреждающая диагностика в Application Insights
-
- Функция упреждающей диагностики автоматически предупреждает о потенциальных проблемах с производительностью в веб-приложении. Она выполняет расширенный анализ данных телеметрии, которые приложение отправляет в [Visual Studio Application Insights](app-insights-overview.md). В случае внезапного увеличения частоты сбоев или числа аномальных тенденций в производительности клиента или сервера вы получите оповещение. Эта функция не требует настройки. Она работает, если приложение отправляет достаточный объем данных телеметрии.
-
-Оповещения об упреждающем обнаружении можно просматривать как в получаемых сообщениях электронной почты, так и в колонке "Упреждающее обнаружение".
+    ms.service="application-insights" 
+    ms.workload="tbd" 
+    ms.tgt_pltfrm="ibiza" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="08/15/2016" 
+    ms.author="awills"/>
 
 
+#  <a name="proactive-diagnostics-in-application-insights"></a>Proactive Diagnostics in Application Insights
 
-## Просмотр результатов упреждающего обнаружения
+ Proactive Diagnostics automatically warns you of potential performance problems in your web application. It performs smart analysis of the telemetry that your app sends to [Visual Studio Application Insights](app-insights-overview.md). If there is a sudden rise in failure rates, or abnormal patterns in client or server performance, you get an alert. This feature needs no configuration. It operates if your application sends enough telemetry.
 
-Просматривать результаты обнаружения можно двумя способами.
-
-* **В сообщениях электронной почты**, получаемых из Application Insights. Вот типичный пример:
-
-    ![Оповещение по электронной почте](./media/app-insights-proactive-diagnostics/03.png)
-
-    Нажмите большую кнопку, чтобы просмотреть подробные сведения на портале.
-
-* **На плитке "Упреждающее обнаружение"** в колонке "Обзор", где отображается количество оповещений. Щелкните плитку, чтобы просмотреть список последних оповещений.
-
-![Просмотр последних результатов обнаружения](./media/app-insights-proactive-diagnostics/04.png)
-
-Выберите оповещение, чтобы просмотреть сведения о нем.
+You can access Proactive Detection alerts both from the emails you receive, and from the Proactive Detection blade.
 
 
-## Какие проблемы можно обнаружить?
 
-Существует три типа обнаружения:
+## <a name="review-your-proactive-detections"></a>Review your Proactive Detections
 
-* [Оповещения о сбоях в близком к реальному времени](app-insights-proactive-failure-diagnostics.md). С помощью машинного обучения мы настраиваем для вашего приложения ожидаемое количество неудачно завершенных запросов, сопоставляя его с нагрузкой и другими факторами. Если частота сбоев превысит ожидаемое ограничение, вам будет отправлено предупреждение.
-* [Диагностика аномалий](app-insights-proactive-anomaly-diagnostics.md). Изо дня в день мы отслеживаем аномальные тенденции во времени отклика и частоте сбоев. Мы сопоставляем эти проблемы с такими свойствами, как расположение, браузер, клиентская ОС, экземпляр сервера и время суток.
-* [Облачные службы Azure](https://azure.microsoft.com/blog/proactive-notifications-on-cloud-service-issues-with-azure-diagnostics-and-application-insights/). Вы получаете оповещения в том случае, если приложение размещено в облачных службах Azure и в экземпляре роли происходят сбои при запуске, частый перезапуск или сбои среды выполнения.
+You can discover detections in two ways:
 
-(Каждое уведомление содержит ссылки на материалы соответствующих статей.)
+* **You receive an email** from Application Insights. Here's a typical example:
+
+    ![Email alert](./media/app-insights-proactive-diagnostics/03.png)
+
+    Click the big button to open more detail in the portal.
+
+* **The Proactive Detection tile** on your app's overview blade shows a count of recent alerts. Click the tile to see a list of recent alerts.
+
+![View recent detections](./media/app-insights-proactive-diagnostics/04.png)
+
+Select an alert to see its details.
 
 
-## Дальнейшие действия
+## <a name="what-problems-are-detected?"></a>What problems are detected?
 
-Эти диагностические средства позволяют проверять данные телеметрии из приложения:
+There are three kinds of detection:
 
-* [Обозреватель метрик](app-insights-metrics-explorer.md)
-* [Обозреватель поиска](app-insights-diagnostic-search.md)
-* [Аналитика, мощный язык запросов](app-insights-analytics-tour.md)
+* [Near-real time failure alerts](app-insights-proactive-failure-diagnostics.md). We use machine learning to set the expected rate of failed requests for your app, correlating with load and other factors. If the failure rate goes outside the expected envelope, we send an alert.
+* [Anomaly diagnostics](app-insights-proactive-anomaly-diagnostics.md). We search for anomalous patterns in response times and failure rates every day. We correlate these issues with properties such as location, browser, client OS, server instance, and time of day.
+* [Azure Cloud Services](https://azure.microsoft.com/blog/proactive-notifications-on-cloud-service-issues-with-azure-diagnostics-and-application-insights/). You get alerts if your app is hosted in Azure Cloud Services and a role instance has startup failures, frequent recycling, or runtime crashes.
 
-Упреждающее обнаружение — это полностью автоматическая функция, но, возможно, вам потребуется настроить некоторые дополнительные оповещения.
+(The help links in each notification take you to the relevant articles.)
 
-* [Настройка оповещений в Application Insights](app-insights-alerts.md)
-* [Доступность веб-тестов](app-insights-monitor-web-app-availability.md)
 
-<!---HONumber=AcomDC_0907_2016-->
+## <a name="next-steps"></a>Next steps
+
+These diagnostic tools help you inspect the telemetry from your app:
+
+* [Metric explorer](app-insights-metrics-explorer.md)
+* [Search explorer](app-insights-diagnostic-search.md)
+* [Analytics - powerful query language](app-insights-analytics-tour.md)
+
+Proactive detections are completely automatic. But maybe you'd like to set up some more alerts?
+
+* [Manually configured metric alerts](app-insights-alerts.md)
+* [Availability web tests](app-insights-monitor-web-app-availability.md) 
+
+
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

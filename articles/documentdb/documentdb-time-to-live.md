@@ -1,9 +1,9 @@
 <properties
-   pageTitle="Устаревание данных в DocumentDB с использованием времени жизни | Microsoft Azure"
-   description="Функция TTL в Microsoft Azure DocumentDB позволяет автоматически удалять документы из системы по прошествии определенного периода времени."
+   pageTitle="Expire data in DocumentDB with time to live | Microsoft Azure"
+   description="With TTL, Microsoft Azure DocumentDB provides the ability to have documents automatically purged from the system after a period of time."
    services="documentdb"
    documentationCenter=""
-   keywords="Срок жизни"
+   keywords="time to live"
    authors="kiratp"
    manager="jhubbard"
    editor=""/>
@@ -17,144 +17,153 @@
    ms.date="04/28/2016"
    ms.author="kipandya"/>
 
-# Автоматическое устаревание данных в коллекциях DocumentDB с использованием срока жизни
 
-Приложения могут создавать и хранить большие объемы данных. Некоторые из этих данных, например созданные компьютером данные о событиях, журналы и пользовательские сеансы, имеют ценность только в течение ограниченного периода времени. Когда данных становится больше, чем нужно приложению, их можно безопасно удалять, чтобы снизить потребности приложения в ресурсах хранения.
+# <a name="expire-data-in-documentdb-collections-automatically-with-time-to-live"></a>Expire data in DocumentDB collections automatically with time to live
 
-Свойство TTL (время жизни) в Microsoft Azure DocumentDB позволяет автоматически удалять документы из базы данных по прошествии определенного периода времени. Время жизни можно указать на уровне коллекции, и тогда оно будет использоваться по умолчанию, либо отдельно переопределить для каждого документа. Когда свойство TTL определено (будь то время жизни по умолчанию на уровне коллекции или для конкретного документа), DocumentDB автоматически удаляет документы, время жизни которых с момента их последнего изменения превышает заданное значение.
+Applications can produce and store vast amounts of data. Some of this data, like machine generated event data, logs, and user session information is only useful for a finite period of time. Once the data becomes surplus to the needs of the application it is safe to purge this data and reduce the storage needs of an application.
 
-Срок жизни в DocumentDB отсчитывается в секундах от последнего изменения документа. Для этого используется поле \_ts, которое существует в каждом документе. В поле \_ts отмечается дата и время в формате UNIX-времени. Поле \_ts обновляется при каждом изменении документа.
+With “time to live” or TTL, Microsoft Azure DocumentDB provides the ability to have documents automatically purged from the database after a period of time. The default time to live can be set at the collection level, and overridden on a per-document basis. Once TTL is set, either as a collection default or at a document level, DocumentDB will automatically remove documents that exist after that period of time, in seconds, since they were last modified.
 
-## Поведение TTL
+Time to live in DocumentDB uses an offset against when the document was last modified. To do this it uses the _ts field which exists on every document. The _ts field is a unix-style epoch timestamp representing the date and time. The _ts field is updated every time a document is modified. 
 
-Функция TTL управляется свойствами TTL на двух уровнях — коллекции и документа. Значения задаются в секундах и отсчитываются от значения \_ts, то есть от момента последнего изменения документа.
+## <a name="ttl-behavior"></a>TTL behavior
 
- 1.  DefaultTTL (TTL по умолчанию) на уровне коллекции:
-  * Если свойство отсутствует (или имеет значение NULL), документы не удаляются автоматически.
+The TTL feature is controlled by TTL properties at two levels - the collection level and the document level. The values are set in seconds and are treated as a delta from the _ts that the document was last modified at.
+
+ 1.  DefaultTTL for the collection
+  * If missing (or set to null), documents are not deleted automatically.
   
-  * Если свойство присутствует и имеет значение -1, документы по умолчанию имеют неограниченный срок жизни.
+  * If present and the value is “-1” = infinite – documents don’t expire by default
   
-  * Если свойство присутствует и его значением является некоторое число (n), документы удаляются по истечении n секунд после последнего изменения.
+  * If present and the value is some number (“n”) – documents expire “n” seconds after last modification
 
- 2.  TTL на уровне документов:
-  * Свойство применяется только в том случае, если для родительской коллекции установлено значение DefaultTTL.
+ 2.  TTL for the documents: 
+  * Property is applicable only if DefaultTTL is present for the parent collection.
   
-  * Переопределяет значение DefaultTTL, установленное для родительской коллекции.
+  * Overrides the DefaultTTL value for the parent collection.
 
-Когда срок жизни документа истекает (ttl + \_ts >= текущее время сервера), документ отмечается как устаревший. После этого не допускаются никакие действия с этим документом, и он исключается из результатов любых запросов. Позднее документ физически удаляется из системы в фоновом режиме. Это действие не использует [единицы запроса](documentdb-request-units.md) из бюджета коллекции.
+As soon as the document has expired (ttl + _ts >= current server time), the document is marked as “expired”. No operation will be allowed on these documents after this time and they will be excluded from the results of any queries performed. The documents are physically deleted in the system, and are deleted in the background opportunistically at a later time. This does not consume any [Request Units (RUs)](documentdb-request-units.md) from the collection budget.
 
-Описанную выше логику можно представить в виде следующей таблицы.
+The above logic can be shown in the following matrix:
 
-| | Свойство DefaultTTL на уровне коллекции отсутствует или не определено | Свойство DefaultTTL на уровне коллекции имеет значение -1 | Свойство DefaultTTL на уровне коллекции имеет значение n|
+|       | DefaultTTL missing/not set on the collection | DefaultTTL = -1 on collection | DefaultTTL = "n" on collection|
 | ------------- |:-------------|:-------------|:-------------|
-| Свойство TTL на уровне документа отсутствует| Переопределение на уровне документа не происходит, так как свойство TTL не применяется ни для коллекции, ни для документа. | Документы в этой коллекции не устаревают. | Документы в этой коллекции устаревают по истечении n секунд. |
-| Свойство TTL на уровне документа имеет значение -1 | Переопределение на уровне документа не происходит, так как для коллекции не определено свойство DefaultTTL. Система не учитывает свойство TTL, определенное для документа. | Документы в этой коллекции не устаревают. | Документ с TTL=-1 в этой коллекции никогда не устаревает. Все прочие документы устаревают по истечении n секунд. |
-| Свойство TTL на уровне документа имеет значение n | Переопределение на уровне документа не происходит. Система не учитывает свойство TTL, определенное для документа. | Документ с TTL=n устаревает через n секунд. Другие документы наследуют значение интервала -1 и никогда не устаревают. | Документ с TTL=n устаревает через n секунд. Другие документы наследуют интервал n из коллекции. |
+| TTL Missing on document| Nothing to override at document level since both the document and collection have no concept of TTL. | No documents in this collection will expire. | The documents in this collection will expire when interval n elapses. |
+| TTL = -1 on document | Nothing to override at the document level since the collection doesn’t define the DefaultTTL property that a document can override. TTL on a document is un-interpreted by the system. | No documents in this collection will expire. | The document with TTL=-1 in this collection will never expire. All other documents will expire after "n" interval. |
+|  TTL = n on document | Nothing to override at the document level. TTL on a document in un-interpreted by the system. | The document with TTL = n will expire after interval n, in seconds. Other documents will inherit interval of -1 and never expire. | The document with TTL = n will expire after interval n, in seconds. Other documents will inherit "n" interval from the collection. |
 
 
-## Настройка TTL
+## <a name="configuring-ttl"></a>Configuring TTL
 
-По умолчанию срок жизни отключен для всех коллекций DocumentDB и для всех документов.
+By default, time to live is disabled by default in all DocumentDB collections and on all documents.
 
-## Активация TTL
+## <a name="enabling-ttl"></a>Enabling TTL
 
-Чтобы включить TTL на уровне коллекции или документов, необходимо определить для коллекции свойство DefaultTTL и задать в качестве его значения ненулевое положительное число или -1. Значение DefaultTTL, равное -1, означает, что по умолчанию все документы будут сохраняться в коллекции в течение неограниченного времени, но служба DocumentDB будет отслеживать наличие в этой коллекции документов, для которых значение по умолчанию переопределено.
+To enable TTL on a collection, or the documents within a collection, you need to set the DefaultTTL property of a collection to either -1 or a non-zero positive number. Setting the DefaultTTL to -1 means that by default all documents in the collection will live forever but the DocumentDB service should monitor this collection for documents that have overridden this default.
 
-## Настройка TTL по умолчанию на уровне коллекции
+## <a name="configuring-default-ttl-on-a-collection"></a>Configuring default TTL on a collection
 
-Вы можете настроить срок жизни по умолчанию для коллекции.
+You are able to configure a default time to live at a collection level. 
 
-Для этого необходимо ввести ненулевое положительное число, которое будет означать время в секундах, по истечении которого с момента последнего изменения документа (отметка времени \_ts) любой документ в этой коллекции будет считаться устаревшим.
+To set the TTL on a collection, you need to provide a non-zero positive number that indicates the period, in seconds, to expire all documents in the collection after the last modified timestamp of the document (_ts).
 
-Также можно задать значение по умолчанию -1, что будет означать неограниченное время жизни по умолчанию для всех документов в этой коллекции.
+Or, you can set the default to -1, which implies that all documents inserted in to the collection will live indefinitely by default.
 
-## Настройка TTL на уровне документа
+## <a name="setting-ttl-on-a-document"></a>Setting TTL on a document
 
-Помимо значения TTL по умолчанию для коллекции, вы можете задать значение TTL на уровне документа. Это значение переопределит значение по умолчанию, установленное для коллекции.
+In addition to setting a default TTL on a collection you can set specific TTL at a document level. Doing this will override the default of the collection.
 
-Чтобы задать TTL для документа, необходимо ввести ненулевое положительное число, которое будет означать время в секундах, по истечении которого с момента последнего изменения документа (отметка времени \_ts) этот документ будет считаться устаревшим.
+To set the TTL on a document, you need to provide a non-zero positive number which indicates the period, in seconds, to expire the document after the last modified timestamp of the document (_ts).
 
-Чтобы задать такой период до устаревания документа, задайте поле TTL для документа.
+To set this expiry offset, set the TTL field on the document.
 
-Если в документе нет поля TTL, для коллекции будет применяться значение по умолчанию.
+If a document has no TTL field, then the default of the collection will apply.
 
-Если свойство TTL отключено на уровне коллекции, поле TTL в документе будет игнорироваться, пока свойство TTL не будет включено для этой коллекции.
-
-
-## Продление TTL для существующего документа
-
-Отсчет периода TTL для документа можно сбросить, выполнив для него любую операцию записи. При этом в поле \_ts будет записано текущее время, и отсчет устаревания документа, определенный свойством TTL, начнется заново.
-
-Если вы хотите изменить срок жизни на уровне документа, вы можете обновить поле TTL, как и любое другое редактируемое поле.
+If TTL is disabled at the collection level, the TTL field on the document will be ignored until TTL is enabled again on the collection.
 
 
-## Удаление TTL из документа
+## <a name="extending-ttl-on-an-existing-document"></a>Extending TTL on an existing document
 
-Если для документа определено свойство TTL, но необходимость в устаревании документа отпала, вы можете извлечь этот документ, удалить поле TTL и сохранить документ на сервере.
+You can reset the TTL on a document by doing any write operation on the document. Doing this will set the _ts to the current time, and the countdown to the document expiry, as set by the ttl, will begin again.
 
-Когда поле TTL удаляется из документа, для него применяется значение по умолчанию, установленное для коллекции.
-
-Чтобы документ не устаревал и к нему не применялось значение TTL для коллекции, следует установить значение TTL, равное -1.
+If you wish to change the ttl of a document, you can update the field as you can do with any other settable field.
 
 
-## Отключение TTL
+## <a name="removing-ttl-from-a-document"></a>Removing TTL from a document
 
-Чтобы полностью отключить функцию TTL для коллекции и остановить фоновый поиск устаревших документов, следует удалить свойство DefaultTTL из коллекции.
+If a TTL has been set on a document and you no longer want that document to expire, then you can retrieve the document, remove the TTL field and replace the document on the server.
 
-Удаление этого свойства и выбор значения -1 имеют разный эффект. Выбор значения -1 означает, что новые документы, добавляемые в коллекцию, будут сохраняться в течение неограниченного времени, но это поведение можно переопределить для конкретных документов в коллекции.
+When the TTL field is removed from the document, the default of the collection will be applied.
 
-Удаление свойства из коллекции означает, что документы не будут устаревать, даже если для них значение по умолчанию было ранее переопределено.
-
-
-## Часто задаваемые вопросы
-
-**Сколько стоит использование функции TTL?**
-
-Использование TTL на уровне документа не влечет никаких дополнительных затрат.
-
-**Сколько времени займет удаление документа после истечения срока жизни?**
-
-Когда срок жизни документа истекает (ttl + \_ts >= текущее время сервера), документ отмечается как устаревший. После этого не допускаются никакие действия с этим документом, и он исключается из результатов любых запросов. Документы физически удаляются из системы в фоновом режиме. На это не расходуются единицы запросов из бюджета коллекции.
-
-**Если удаление документов занимает некоторое время, отразится ли это на моей квоте (и счете)?**
-
-Нет, с момента устаревания документов их хранение не оплачивается, а размер таких документов не учитывается при использовании квоты на ресурсы хранилища для коллекции.
-
-**Предусматривает ли использование функции TTL на уровне документа оплату за использование единиц запросов?**
-
-Нет, операции с любым документом в DocumentDB не предусматривают оплату за использование единиц запросов.
-
-**Влияет ли удаление документов на пропускную способность, выделенную для коллекции?**
-
-Нет, обслуживание запросов к коллекции имеет приоритет перед фоновым удалением документов. Включение TTL на уровне документа не влияет на это поведение.
-
-**Как долго будет храниться в коллекции документ после истечения срока жизни?**
-
-Сразу после истечения срока жизни документ становится недоступным. Точное время хранения документа в коллекции до фактического удаления нельзя предусмотреть. Оно зависит от того, когда фоновый процесс получит возможность удалить документ.
-
-**Устаревшие документы удаляются на всех узлах, или согласованность обеспечивается только в долгосрочной перспективе?**
-
-Документ становится недоступным одновременно на всех узлах и во всех регионах.
-
-**Расходуются ли единицы запросов на задачи фонового мониторинга TTL?**
-
-Нет, единицы запросов не расходуются на эти задачи.
-
-**Как часто проверяется истечение срока жизни TTL?**
-
-Для проверки истечения TTL не предусмотрен отдельный фоновый процесс. Серверная служба проверяет TTL при основной обработке запроса, исключая из ответа все устаревшие документы. Удаление физического документа — единственный процесс, который выполняется асинхронно в фоновом режиме. Частота его выполнения определяется наличием единиц запросов, доступных для коллекции.
-
-**Функция TTL применяется только к всему документу, или я могу установить срок жизни для отдельных свойств документа?**
-
-TTL применяется ко всему документу. Если вы хотите, чтобы устаревала только часть документа, мы рекомендуем извлекать эту часть из основного документа в отдельный связанный документ, для которого и применять TTL.
-
-**Есть ли особые требования к индексированию при использовании функции TTL?**
-
-Да. Для коллекции должна быть установлена [политика индексирования](documentdb-indexing-policies.md) со значением Consistent или Lazy. Попытка определить DefaultTTL на уровне коллекции с политикой индексирования None приведет к ошибке. Также ошибкой завершится попытка отключить индексирование коллекции, для которой уже задано свойство DefaultTTL.
+To stop a document from expiring and not inherit from the collection then you need to set the TTL value to -1.
 
 
-## Дальнейшие действия
+## <a name="disabling-ttl"></a>Disabling TTL
 
-Дополнительные сведения об Azure DocumentDB см. на странице [*документации*](https://azure.microsoft.com/documentation/services/documentdb/) по этой службе.
+To disable TTL entirely on a collection and stop the background process from looking for expired documents the DefaultTTL property on the collection should be deleted.
 
-<!---HONumber=AcomDC_0720_2016-->
+Deleting this property is different from setting it to -1. Setting to -1 means new documents added to the collection will live forever but you can override this on specific documents in the collection.
+
+Removing this property entirely from the collection means that no documents will expire, even if there are documents that have explicitly overridden a previous default.
+
+
+## <a name="faq"></a>FAQ
+
+**What will TTL cost me?**
+
+There is no additional cost to setting a TTL on a document.
+
+**How long will it take to delete my document once the TTL is up?**
+
+The documents are marked as unavailable as soon as the document has expired (ttl + _ts >= current server time). No operation will be allowed on these documents after this time and they will be excluded from the results of any queries performed. The documents are physically deleted by the system in the background. This will not consume any RUs from the collection's budget.
+
+**If it takes a period of time to delete the documents, will they count toward my quota (and bill) until they get deleted?**
+
+No, once the document has expired you will not be billed for the storage of these documents and the size of the documents will not count toward the storage quota for a collection.
+
+**Will TTL on a document have any impact on RU charges?**
+
+No, there will be no impact on RU charges for operations performed on any document within DocumentDB.
+
+**Will the deleting of documents impact on the throughput I have provisioned on my collection?**
+
+No, serving requests against your collection will receive priority over running the background process to delete your documents. Adding TTL to any document will not impact this.
+
+**When a document expires, how long will it remain in my collection until it’s deleted?**
+
+As soon as the document expires it will no longer be accessible. The exact time a document will remain in your collection before actually being deleted is non-deterministic and will be based on when the background process is able to delete the document.
+
+**Are expired documents deleted across all nodes, or is it “eventually consistent?”**
+
+The document will become unavailable at the same time across all nodes and in all regions.
+
+**Is there an RU cost for TTL-monitoring background tasks?**
+
+No, there is no RU cost for this.
+
+**How often are TTL expirations checked?**
+
+Checking TTL expirations doesn’t happen as a background process. When responding to a request the backend service will do the checks inline and exclude any documents that have expired. The deletion of the physical document is the only process that is asynchronously run in the background. The frequency of this process is determined by the available RUs on the collection.
+
+**Does the TTL feature only apply to entire documents, or can I expire individual document property values?**
+
+TTL applies to the entire document. If you would like to expire just a portion of a document, then it is recommended that you extract the portion from the main document in to a separate “linked” document and then use TTL on that extracted document.
+
+**Does the TTL feature have any specific indexing requirements?**
+
+Yes. The collection must have [indexing policy set](documentdb-indexing-policies.md) to either Lazy or Consistent. Trying to set DefaultTTL on a collection with indexing set to None will result in an error, as will trying to turn off indexing on a collection that has a DefaultTTL already set.
+
+
+## <a name="next-steps"></a>Next steps
+
+To learn more about Azure DocumentDB, refer to the service [*documentation*](https://azure.microsoft.com/documentation/services/documentdb/) page.
+
+
+
+
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

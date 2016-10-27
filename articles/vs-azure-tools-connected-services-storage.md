@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Добавление хранилища Azure с использованием подключенных служб в Visual Studio | Microsoft Azure"
-   description="Добавление хранилища Azure в приложение с помощью диалогового окна ";Добавление подключенных служб"; в Visual Studio"
+   pageTitle="Add Azure Storage by using Connected Services in Visual Studio | Microsoft Azure"
+   description="Add Azure Storage to your app by using the Visual Studio Add Connected Services dialog box"
    services="visual-studio-online"
    documentationCenter="na"
    authors="TomArcher"
@@ -15,83 +15,89 @@
    ms.date="08/15/2016"
    ms.author="tarcher" />
 
-# Добавление хранилища Azure с использованием подключенных служб Visual Studio
 
-## Обзор
+# <a name="adding-azure-storage-by-using-visual-studio-connected-services"></a>Adding Azure storage by using Visual Studio Connected Services
 
-Visual Studio 2015 позволяет подключить любую облачную службу C#, серверную мобильную службу .NET, веб-сайт или службу ASP.NET, службу ASP.NET 5 или службу Azure WebJob к хранилищу Azure с помощью диалогового окна **Добавление подключенных служб**. Подключенные службы добавляют необходимые ссылки и код подключения и вносят соответствующие изменения в файлы конфигурации. Кроме того, это диалоговое окно позволяет перейти к документации, описывающей, какие действия необходимо предпринять для запуска хранилища больших двоичных объектов, очередей и таблиц.
+## <a name="overview"></a>Overview
 
-## Поддерживаемые типы проектов
+With Visual Studio 2015, you can connect any C# cloud service, .NET backend mobile service, ASP.NET website or service, ASP.NET 5 service, or Azure WebJob service to Azure Storage by using the **Add Connected Services** dialog. The connected service functionality adds all the needed references and connection code, and modifies your configuration files appropriately. The dialog also takes you to documentation that tells you what the next steps are to start blob storage, queues, and tables.
 
-С помощью диалогового окна подключенных служб можно подключаться к хранилищу Azure в проектах следующих типов:
+## <a name="supported-project-types"></a>Supported Project Types
 
-- Веб-проекты ASP.NET
+You can use the Connected Services dialog to connect to Azure Storage in the following project types.
 
-- Проекты ASP.NET 5
+- ASP.NET Web Projects
 
-- Проекты веб-ролей и рабочих ролей облачной службы .NET
+- ASP.NET 5 Projects
 
-- Проекты мобильных служб .NET
+- .NET Cloud Service Web Role and Worker Role Projects
 
-- Проекты Azure WebJob
+- .NET Mobile Services Projects
+
+- Azure WebJob Projects
 
 
-## Подключение к хранилищу Azure с помощью диалогового окна подключенных служб
+## <a name="connect-to-azure-storage-using-the-connected-services-dialog"></a>Connect to Azure Storage using the Connected Services dialog
 
-1. Убедитесь в наличии учетной записи Azure. Если у вас ее нет, вы можете зарегистрироваться и получить [бесплатную пробную версию](http://go.microsoft.com/fwlink/?LinkId=518146). Создав учетную запись Azure, вы сможете создавать учетные записи хранения и мобильные службы, а также настраивать Azure Active Directory.
+1. Make sure you have an Azure account. If you don't have an Azure account, you can sign up for a [free trial](http://go.microsoft.com/fwlink/?LinkId=518146). Once you have an Azure account, you can create storage accounts, create mobile services, and configure Azure Active Directory.
 
-1. Откройте проект в Visual Studio, откройте контекстное меню для узла **Ссылки** в обозревателе решений и выберите пункт **Добавление подключенной службы**.
+1. Open your project in Visual Studio, open the context menu for the **References** node in Solution Explorer, and then choose **Add Connected Service**.
 
-    ![Добавление подключенной службы](./media/vs-azure-tools-connected-services-storage/IC796702.png)
+    ![Adding a connected service](./media/vs-azure-tools-connected-services-storage/IC796702.png)
 
-1. В окне **Добавить подключенную службу** выберите **Хранилище Azure** и нажмите кнопку **Настроить**. Может потребоваться войти в Azure, если это еще не сделано.
+1. In the **Add Connected Service** dialog box, choose **Azure Storage**, and then choose the **Configure** button. You may be prompted to log into Azure if you haven't already done so.
 
-    ![Диалоговое окно "Добавление подключенной службы": хранилище](./media/vs-azure-tools-connected-services-storage/IC796703.png)
+    ![Add Connected Service dialog box - Storage](./media/vs-azure-tools-connected-services-storage/IC796703.png)
 
-1. В диалоговом окне **Хранилище Azure** выберите существующую учетную запись хранения и нажмите кнопку **Добавить**.
+1. In the **Azure Storage** dialog box, select an existing storage account, and select **Add**.
 
-    Если вам нужно создать новую учетную запись хранения, перейдите к следующему шагу. В противном случае перейдите к шагу 6.
+    If you need to create a new storage account, go to the next step. Otherwise, skip to step 6.
 
-    ![Диалоговое окно "Хранилище Azure"](./media/vs-azure-tools-connected-services-storage/IC796704.png)
+    ![Azure Storage dialog box](./media/vs-azure-tools-connected-services-storage/IC796704.png)
 
-1. Чтобы создать учетную запись хранения, выполните следующие действия.
+1. To create a new storage account: 
 
-    1. Нажмите **Создать учетную запись хранения** в нижней части диалогового окна "Хранилище Azure".
+    1. Choose the **Create a New Storage Account** button at the bottom of the Azure Storage dialog box.
 
-    1. Заполните поля в диалоговом окне **Создание учетной записи хранения** и нажмите кнопку **Создать**.
+    1. Fill out the **Create Storage Account** dialog box and then choose the **Create** button.
     
-        ![Диалоговое окно "Хранилище Azure"](./media/vs-azure-tools-connected-services-storage/create-storage-account.png)
+        ![Azure Storage dialog box](./media/vs-azure-tools-connected-services-storage/create-storage-account.png)
 
-        Когда вы вернетесь в диалоговое окно **Хранилища Azure**, новое хранилище появится в списке.
+        When you're back in the **Azure Storage** dialog box, the new storage appears in the list.
 
-    1. Выберите в списке новое хранилище и нажмите кнопку **Добавить**.
+    1. Select the new storage in the list, and select **Add**.
 
-1. Подключенная служба хранилища появится в узле "Ссылки на службы" проекта WebJob.
+1. The  storage connected service appears under the Service References node of your WebJob project.
 
-    ![Хранилище Azure в проект WebJob](./media/vs-azure-tools-connected-services-storage/IC796705.png)
+    ![Azure storage in web jobs project](./media/vs-azure-tools-connected-services-storage/IC796705.png)
 
-1. Просмотрите открывшуюся страницу "Начало работы" и узнайте, какие изменения произошли в вашем проекте. Страница "Начало работы" открывается в браузере каждый раз, когда добавляется подключенная служба. Просмотрите предлагаемые дальнейшие действия и примеры кода или откройте страницу "Что произошло" и посмотрите, какие ссылки были добавлены в проект и какие изменения произошли в коде и файлах конфигурации.
+1. Review the Getting Started page that appears and find out how your project was modified. A Getting Started page appears in your browser whenever you add a connected service. You can review the suggested next steps and code examples, or switch to the What Happened page to see what references were added to your project, and how your code and configuration files were modified.
 
-## Какие изменения произойдут в проекте
+## <a name="how-your-project-is-modified"></a>How your project is modified
 
-Когда вы закроете диалоговое окно, Visual Studio добавит ссылки и внесет изменения в определенные файлы конфигурации. Конкретные изменения зависят от типа проекта.
+When you finish the dialog, Visual Studio adds references and modifies certain configuration files. The specific changes depend on the project type. 
 
- - В случае проектов ASP.NET см. статью [Что произошло: проекты ASP.NET](http://go.microsoft.com/fwlink/p/?LinkId=513126).
- - В случае проектов ASP.NET 5 см. статью [Что произошло: проекты ASP.NET 5](http://go.microsoft.com/fwlink/p/?LinkId=513124).
- - В случае проектов облачной службы (веб-ролей и рабочих ролей) см. статью [Что произошло: проекты облачной службы](http://go.microsoft.com/fwlink/p/?LinkId=516965).
- - В случае проектов WebJob см. статью [Что произошло: проекты WebJob](./storage/vs-storage-webjobs-what-happened.md).
+ - For ASP.NET projects, see [What happened – ASP.NET Projects](http://go.microsoft.com/fwlink/p/?LinkId=513126). 
+ - For ASP.NET 5 projects, see [What happened – ASP.NET 5 Projects](http://go.microsoft.com/fwlink/p/?LinkId=513124). 
+ - For cloud service projects (web roles and worker roles), see [What happened – Cloud Service projects](http://go.microsoft.com/fwlink/p/?LinkId=516965). 
+ - For WebJob projects, see [What happened - WebJob projects](./storage/vs-storage-webjobs-what-happened.md).
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Next steps
 
-1. Используя для справки образцы кода на странице "Начало работы", создайте желаемый тип хранилища и начните создавать код для доступа к учетной записи хранения.
+1. Using the Getting Started code samples as a guide, create the type of storage that you want, and then start writing code to access your storage account!
 
-1. Задавайте вопросы и получайте справку:
-     - [Форум MSDN: хранилище Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata)
+1. Ask questions and get help
+     - [MSDN Forum: Azure Storage](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata)
 
-     - [Блог рабочей группы службы хранилища Azure](http://blogs.msdn.com/b/windowsazurestorage/)
+     - [Azure Storage Team Blog](http://blogs.msdn.com/b/windowsazurestorage/)
 
-     - [Хранилище на сайте azure.microsoft.com](https://azure.microsoft.com/services/storage/)
+     - [Storage at azure.microsoft.com](https://azure.microsoft.com/services/storage/)
 
-     - [Хранилище документации на сайте azure.microsoft.com](https://azure.microsoft.com/documentation/services/storage/)
+     - [Storage Documentation at azure.microsoft.com](https://azure.microsoft.com/documentation/services/storage/)
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,137 +1,139 @@
 <properties 
-	pageTitle="Пример разработки решения в поиске Azure: как компания WhatToPedia создала информационный портал в службе Microsoft Azure | Microsoft Azure | Размещенная облачная служба поиска" 
-	description="Узнайте, как создать информационный портал и поисковую систему, использующую метаданные, с помощью Поиска Azure, размещенной облачной службы поиска для разработчиков." 
-	services="search, sql-database,  storage, web-sites" 
-	documentationCenter="" 
-	authors="HeidiSteen" 
-	manager="jhubbard"/>
+    pageTitle="Azure Search Developer Case Study: How WhatToPedia built an infomedia portal on Microsoft Azure | Microsoft Azure | Hosted cloud search service" 
+    description="Learn how to build an information portal and meta search engine using Azure Search, a cloud hosted search service for developers." 
+    services="search, sql-database,  storage, web-sites" 
+    documentationCenter="" 
+    authors="HeidiSteen" 
+    manager="jhubbard"/>
 
 <tags 
-	ms.service="search" 
-	ms.devlang="NA" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="na" 
-	ms.workload="search" 
-	ms.date="08/29/2016" 
-	ms.author="heidist"/>
-
-# Пример разработки решения в службе "Поиск Azure"
-
-## Как администраторы сайта [WhatToPedia.com](http://whattopedia.com/) создали информационный портал в Microsoft Azure
-
- ![][6] & nbsp; & nbsp; & nbsp; <font size="9">Великолепная идея</font>
+    ms.service="search" 
+    ms.devlang="NA" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="search" 
+    ms.date="08/29/2016" 
+    ms.author="heidist"/>
 
 
-Наша идея заключается в создании информационного портала, на котором покупатели могут связываться с розничными торговцами, используя широкие возможности поиска, подобно тому, как туристы находят гостиницы, рестораны и развлечения с помощью специальных порталов для путешественников.
+# <a name="azure-search-developer-case-study"></a>Azure Search Developer Case Study
 
-Наш портал должен обеспечивать высококачественный поиск данных о розничных торговцев на указанных рынках, помогая находить магазины в определенном регионе, а также предоставляя сведения о всех предоставляемых ими услугами. Поисковая система будет заполнена начальными значениями из набора данных, который со временем будет пополняться сведениями, предоставляемыми розничными торговцами, которые зарегистрировались на сайте. Наш сайт должен регулярно пополняться данными о рекламных акциях, новом товаре, популярных торговых марках, специальных услугах и подобной информацией. После регистрации розничного торговца на сайте в качестве подписчика он самостоятельно предоставляет данные, которые интегрируются в совокупность искомых данных. Мы планируем получать выручку за счет рекламы, а также модели подписки.
+## <a name="how-[whattopedia.com](http://whattopedia.com/)-built-an-infomedia-portal-on-microsoft-azure"></a>How [WhatToPedia.com](http://whattopedia.com/) built an infomedia portal on Microsoft Azure
 
-Основной моделью взаимодействия с пользователем будет поисковая система, в основе которой лежит облачная платформа. В целях масштабирования и сокращения стоимости почти все наши действия (начиная с администрирования порталом и заканчивая системой управления версиями) будут выполняться через интернет-службы. Нам требуется поисковая система, которая предоставляет готовые к использованию функции, с помощью которой мы сможем быстро создать приложение поиска без необходимости самостоятельного управления поисковой системой.
+ ![][6]  &nbsp;&nbsp;&nbsp;  <font size="9">The big idea</font> 
 
-## Результат
 
-WhatToPedia — это стартап-компания, работающая в сфере информационных услуг. Мы создали сайт [WhatToPedia.com](http://whattopedia.com/), который в настоящее время тестируется на рынках стран Северной Европы. Выпуск полнофункциональной версии намечен на 2 февраля 2015 г. Наши клиенты — в первую очередь традиционные магазины, которые хотят быть представленными в Интернете, не затрачивая при этом большие средства.
+Our idea is to build an information portal that helps shoppers connect with retailers through a highly-relevant, scoped-search experience, similar to how travel portals match tourists up with the hotels, restaurants, and entertainment when in uncharted territory. 
 
-Наша задача — привлечь покупателей с помощью широкий возможностей интернет-поиска данных по городу, району, торговым маркам, магазинам или их типам. Привлечение покупателей мотивирует розничных торговцев зарегистрироваться на сайте портала. За подписку взимается невысокая плата.
+The portal we envision will deliver an exceptionally high-quality search experience over retailer data in a given market, helping shoppers find stores based on location and other amenities the retailer provides. We will seed the search engine with an initial dataset, but deeper value will be built over time, with the help of retailer subscribers who post information about their business. Promotions, new merchandise, popular brands, in-house specialty services -– all are examples of data that adds value to our site. This data is self-reported and integrated into the search corpus, once the retailer signs up as a subscriber. Advertising, plus the subscription model, provide the revenue stream for our new business.
 
- ![][7]
+Search will be the predominant user interaction model, on a pure cloud platform. For purposes of scale and low-costs, almost everything we do, from the portal experience to source control, will be through an online service. Using a search engine that provides the features we need out of the box, we can create a search application quickly, without having to build and manage a search engine ourselves.
 
-После подписки розничный торговец получает собственный профиль (который мы создаем на базе приобретенных данных) и пополняет его дополнительными сведениями об акциях, популярных торговых марках или новых продуктах и услугах. Встроенные возможности, например поддержка различных языков и валют или освобождение от уплаты налогов при покупках, дополнительно привлекают покупателей.
+## <a name="what-we-built"></a>What we built
 
-## О нас
+WhatToPedia is a start-up infomedia company. We built [WhatToPedia.com](http://whattopedia.com/) –- currently in test-market in northern Europe with a go-live date of February 2, 2015. Our customer base is primarily brick-and-mortar shops who need an affordable online presence that is easy to manage and maintain.
 
-Я — Томас Сегато (Thomas Segato), сотрудник подразделения Microsoft Consulting. Я разработал нужное решение в сотрудничестве с Джеспером Боеллингом (Jesper Boelling), ведущим разработчиком ПО компании WhatToPedia.
+Our task is to attract shoppers through a great online search experience, boosting results based on city or neighborhood, brands, store names, or store types. Attracting shoppers has a ripple effect, motivating retailers to subscribe to our portal site. Subscriptions are fee-based, at an affordable rate.
 
-WhatToPedia — это стартап-компания, которая тестирует свой новый портал в Швеции, где большинство 60 000 розничных торговцев являются традиционными предприятиями малого и среднего размера. Поскольку мы знаем, что средний европейский покупатель говорит на нескольких языках и использует несколько валют, мы разработали решения с поддержкой нескольких языков. Служба "Поиск Azure", поддерживающая несколько языков, оказалась именно тем, что нам нужно.
+ ![][7] 
 
-Она определила дальнейшее развитие нашего проекта. До появления службы "Поиск Azure" мы потратили много усилий на разработку все собственной поисковой системы. Интернет-служба "Поиск Azure" освободила наше решение от ряда технических и административных нагрузок, что позволило нам быстро выйти на рынок с надежной поисковой системой.
+After signing up for a subscription, a retailer takes over their existing profile (created initially by us from purchased data), updating it with additional data about promotions, featured brands, or announcements. In-house capabilities, such as languages spoken, currencies accepted, tax-free shopping, can be self-reported to better attract shoppers who are looking for those amenities.
 
-## Как мы это сделали
+## <a name="who-we-are"></a>Who we are
 
-Мы хотели создать комплексную инфраструктуру на основе исключительно облачных служб. В качестве стратегического партнера платформы мы выбрали корпорацию Майкрософт, так как она обеспечивала необходимые услуги (в областях совместной работы и разработки) и гибкие возможности масштабирования по требованию, и все это по невысокой цене.
+My name is Thomas Segato (Microsoft Consulting) and I worked with Jesper Boelling, Lead Developer at WhatToPedia, to design the solution. 
+
+WhatToPedia is a start-up, test marketing its new portal business in Sweden, where most of the 60,000 retailers are brick-and-mortar SMEs (small and medium sized enterprises). Because we know that a person shopping in Europe speaks multiple languages and carries multiple currencies, we build solutions that accommodate a multilingual shopper. We needed, and found, a search engine that supports our multilingual requirements in Azure Search.
+
+Azure Search was a game-changer for our project. Prior to the availability of Azure Search, we expended considerable energy working through the kinks of building our own search engine. Having Azure Search as an online service removed the biggest technical and administrative hurdle from our solution, which meant getting to market faster, and with a more robust search experience.  
+
+## <a name="how-we-did-it"></a>How we did it
+
+Our vision was to build a complete infrastructure based on cloud services only. Microsoft was chosen as the strategic platform because it was the provider that offered the necessary services (for both collaboration and development), scale on demand, and affordable pricing.
  
-### Высокоуровневые компоненты
+### <a name="high-level-components"></a>High-level components
 
-Мы создали компанию, а не просто сайт. Для этого нам потребовался широкий спектр средств и приложений. Решения Visual Studio и Visual Studio Team Services предназначены для разработки, служба Online Team Foundation Service (TFS) — для управления версиями и применения методики Scrum, Office 365 — для общения и совместной работы, а Microsoft Azure — для всех операций, связанных с сайтом и хранилищем. Интерфейс IDE, доступный в Visual Studio, обеспечил непосредственную подготовку службы Azure к работе, а интеграция с TFS Online позволила дополнительно повысить производительность.
+We built a business, not just a site. Supporting the entire effort required a full range of tools and applications. We adopted Visual Studio and Visual Studio Team Services for development, Team Foundation Service (TFS) Online for source control and scrum management, Office 365 for communication and collaboration, and of course Microsoft Azure for all site-related operations and storage. With Visual Studio, the IDE provided direct provisioning to Azure, with integration to TFS Online providing an additional productivity boost.
 
-На следующей схеме показаны высокоуровневые компоненты, используемые в инфраструктуре WhatToPedia.
+The diagram below illustrates the high-level components used in the WhatToPedia infrastructure.
 
    ![][8]
 
-### Как мы используем службу Microsoft Azure
+### <a name="how-we-use-microsoft-azure"></a>How we use Microsoft Azure
 
-Зеленые прямоугольники на схеме выше показывают, что решение WhatToPedia создано на основе следующих служб и компонентов:
+Looking at the green boxes in the previous diagram, you’ll see that the WhatToPedia solution is built on these services:
 
-- [Поиск Azure;](https://azure.microsoft.com/services/search/)
-- [веб-сайты Azure, разработанные с использованием платформы MVC 4;](https://azure.microsoft.com/services/websites/)
-- [веб-задания Azure для запланированных задач;](../app-service-web/websites-webjobs-resources.md)
-- [база данных SQL Azure;](https://azure.microsoft.com/services/sql-database/)
-- [хранилище BLOB-объектов Azure;](https://azure.microsoft.com/services/storage/)
-- [почтовая служба SendGrid.](https://azure.microsoft.com/marketplace/partners/sendgrid/sendgrid-azure/)
+- [Azure Search](https://azure.microsoft.com/services/search/)
+- [Azure Websites using MVC 4](https://azure.microsoft.com/services/websites/)
+- [Azure WebJobs for scheduled tasks](../app-service-web/websites-webjobs-resources.md)
+- [Azure SQL Database](https://azure.microsoft.com/services/sql-database/)
+- [Azure BLOB Storage](https://azure.microsoft.com/services/storage/)
+- [SendGrid Email Delivery](https://azure.microsoft.com/marketplace/partners/sendgrid/sendgrid-azure/)
 
-Решение в первую очередь предназначено для поиска и работы с данными. Ниже показан поток данных от поставщика услуг розничной торговли к конечному потребителю.
+The very heart of the solution is data and search. The flow of data from the Reseller provider to the end customer is illustrated below:
 
   ![][9]
 
-Основные данные хранятся у розничного торговца, а данные бухгалтерской программы — в базе данных SQL Azure. Она состоит из исходного набора данных, а также относящихся к розничному торговку данных, которые добавляются с течением времени. Мы используем веб-задания Azure для отправки обновлений из базы данных SQL в совокупность искомых данных в службе "Поиск Azure".
+Primary data storage is the reseller and accounting data in Azure SQL Database. This consists of the initial dataset, plus retailer-specific data added over time. We’re using an Azure WebJob to post updates from SQL Database to the search corpus in Azure Search.
 
-### Уровень представления данных
+### <a name="presentation-layer"></a>Presentation layer
 
-Портал — это веб-сайт Azure, реализованный с помощью платформ MVC 4 и [Twitter Bootstrap](http://en.wikipedia.org/wiki/Bootstrap_%28front-end_framework%29). Мы выбрали платформу MVC, так как она обеспечивает более понятную обработку данных в формате HTML по сравнению с разработкой на основе форм ASP.NET. Чтобы не создавать приложения для нескольких устройств и обеспечить поддержку различных мобильных платформ, мы выбрали платформу Twitter Bootstrap.
+The portal is an Azure Website, implemented in MVC 4 and [Twitter Bootstrap](http://en.wikipedia.org/wiki/Bootstrap_%28front-end_framework%29). We chose MVC because it offers a much cleaner approach to HTML than ASP.NET forms-based development. To avoid having to create apps for multiple devices and maintain multiple mobile platforms, Twitter Bootstrap was chosen to support all devices and platforms.
 
-### Проверка подлинности, разрешения и конфиденциальные данные
+### <a name="authentication,-permissions-and-sensitive-data"></a>Authentication, permissions and sensitive data
 
-Покупатели просматривают содержимое сайта анонимно. Таким образом, им не нужно входить на сайт. Кроме того, мы не храним какие-либо данные о потребителях.
+Shoppers browse the site anonymously. As such, there are no login requirements for shoppers, nor do we store any consumer data. 
 
-Розничные торговцы — совсем другая история. Здесь хранятся общедоступные сведения о профиле и выставлении счетов, а также мультимедийное содержимое, которые торговцы хотят опубликовать на сайте. Каждый розничный торговец, который зарегистрировался на сайте, получает имя для входа, используемое для проверки подлинности пользователя, прежде чем он сможет вносить обновления в профиль подписчика. Мы безопасно храним все данные подписчиков в базе данных SQL Azure и хранилище BLOB-объектов Azure. Мы выбрали модель проверки подлинности на основе форм .NET. Мы выбрали этот подход благодаря его простоте; мы не нуждались в ролях, поддержке пользовательского интерфейса и дополнительных функциях, используемых в других моделях.
+Retailers are a different story. Here, we store public-facing profile information, billing information, and media content that they want to expose on the site. Every retailer who subscribes to the site get a user login, used to authenticate the user prior to making updates to the subscriber’s profile.  We securely store all subscriber data in Azure SQL Database and Azure BLOB storage.
+We opted for an authentication model based on .NET forms-based authentication. We chose this approach for its simplicity; we didn’t need the roles, UI support and other extraneous features that come with other approaches. 
 
-Чтобы розничные торговцы могли просматривать только собственные данные, каждому торговцу присваивается идентификатор, который впоследствии используется для всех операций чтения и записи с использованием данных конкретного торговца. Благодаря этому нам не нужно предоставлять разрешения на доступ к базе данных отдельным розничным продавцам. Все розничные торговцы взаимодействуют с системой под одной ролью базы данных. При этом для изоляции данных используется идентификатор торговца.
+To ensure that retailers only see the data that belongs to them, we created a retailer ID for each retailer that is subsequently used on all read and write operations involving retailer-specific data. With this approach, we found that we did not need to grant database permissions to individual retailers. All retailers interact with the system under a single database role, with the retailer ID as our data isolation technique.
 
-Поскольку задача нашего сайта — обслуживание нижних звеньев производственно-сбытовой цепочки (обеспечение деятельности розничных торговцев, стимулирование рекламы и подписки), мы можем провести границу для обработки покупок в Интернете. Поэтому на сайте нет корзины, что упрощает требования к безопасности.
+Because our business is all about the downstream effects (driving more business to retailers, creating incentive to advertise and subscribe), we can draw the line at handling purchases over the web. As such, you won’t find a shopping cart on our site, which simplifies our security requirements. 
 
-Чтобы упростить работу, мы также воспользовались услугами сторонних поставщиков для выставления счетов и расчетов с поставщиками. Сведения о платежах клиентов передаются напрямую стороннему поставщику ([SveaWebPay](http://www.sveawebpay.se/)), что снижает риски, связывание с хранением и защитой конфиденциальных данных в наших хранилищах.
+Another simplification we employed was to outsource our billing and accounts payable operations. By routing customer payment information directly to a third-party ([SveaWebPay](http://www.sveawebpay.se/)), we reduce the risks associating with storing and protecting sensitive data in our data stores. 
 
-### Поисковая система
+### <a name="search-engine"></a>Search Engine
 
-Сердце нашего решения — поисковая система, созданная на основе службы "Поиск Azure". Изначально мы создали пользовательскую поисковую систему, но в процессе разработки поняли, что она слишком сложная. Поэтому мы решили рассмотреть другие возможности.
+The core of our solution is the search engine built on Azure Search service. Initially, we built a custom search engine, but during this process, we realized the complexity and effort was very high indeed, and that prompted us to consider other alternatives. 
 
-Особую важность для нас представляли следующие основные функции.
+Basic features that were most important to us included:
 
-- Фильтры
-- Фасетная навигация
-- Повышение количества результатов поиска
-- Подкачка с помощью технологии AJAX
+- Filters
+- Faceted navigation
+- Boosting results
+- Paging through AJAX
 
-В Интернете мы нашли [видео с конференции TechEd Europe](http://channel9.msdn.com/events/TechEd/Europe/2014/DBI-B410), в котором подробно рассматривалась служба "Поиск Azure", к которой мы и решили обратиться.
+An internet search brought us to the following video, which inspired us to give Azure Search a try: [Deep Dive at TechEd Europe](http://channel9.msdn.com/events/TechEd/Europe/2014/DBI-B410) 
 
-После просмотра видео мы все были готовы создать прототип на основании увиденного. У нас уже была модель данных, созданная на базе платформы MVC, поэтому мы быстро создали прототип: данные содержали условия, поддерживающие поиск, и у нас уже имелись разработанные требования к сортировке, фасетной навигации и фильтрации данных.
+After watching the video, we were ready to build a prototype based on what we saw. Because we already had a data model in MVC, creating the prototype was straightforward because the data contained searchable terms, and we had already worked out the requirements for how we wanted to sort, facet, and filter the data. 
 
-Вот так мы создали прототипа.
+This is how we built the prototype.
 
-**Настройка службы "Поиск Azure"**
+**Configure Azure Search Service**
 
-1. Мы вошли на классический портал Azure и подписались на службу поиска. Мы использовали общедоступную версию (бесплатную с нашей подпиской).
-2. Мы создали индекс. В прототипе мы использовали пользовательский интерфейс портала, чтобы определить поля поиска и создать профили оценки. Наш профиль оценки базировался на данных о местоположении: "страна" | "город" | "адрес" (см. статью "Добавление оценки профилей").
-3. Мы скопировали URL-адрес службы и ключ API администратора в наши файлы конфигурации. Этот ключ находится на странице службы поиска на портале и используется для проверки подлинности в службе.
-	
-**Разработка задания индексатора поиска — консоль Windows**
+1. Login to Azure Classic Portal and added the Search service to our subscription. We used the shared version (free with our subscription).
+2. Create an index. For the prototype, we used the portal UI to define the search fields and create the scoring profiles. Our scoring profile is based on location data: country | city |address (see: Add scoring profiles).
+3. Copy the service URL and admin api-key to our configuration files. This key is on the Search service page in the portal, and it’s used to authenticate to the service.
+    
+**Develop a Search Indexer Job – Windows Console**
 
-1. Мы считали сведения о всех розничных торговцев из базы данных.
-2. Мы вызвали интерфейс API службы "Поиск Azure", чтобы последовательно передать данные о торговцах (см. статью по следующей ссылке: http://msdn.microsoft.com/library/azure/dn798930.aspx).
-3. В базе данных мы задали свойство, требующее добавочного индексирования розничных торговцев. Для этого мы добавили поле "indexer" (индексатор), в котором планировалось хранить состояния индексов всех профилей (вне зависимости от того, индексированы ли они).
+1. Read all resellers from database.
+2. Call the Azure Search Service API to upload resellers one by one (see: http://msdn.microsoft.com/library/azure/dn798930.aspx).
+3. Set a property in database that reseller is indexed for incremental indexing. We did this by adding an ‘indexer’ field that stores the index status of each profile (indexed or not). 
 
-Фрагмент кода, создающий задание индексатора, приведен в приложении.
+See the appendix for the code snippet that builds the indexer job.
 
-**Разработка веб-портал поиска — MVC**
+**Develop a Search Web Portal – MVC**
 
-1. Затем мы вызвали службу "Поиск Azure", чтобы получить все документы, найденные в результате поиска (см. статью по следующей ссылке: http://msdn.microsoft.com/library/azure/dn798927.aspx).
-2. После этого мы извлекли следующие данные после ответа службы поиска (с помощью json.net: http://james.newtonking.com/json).
-   - Результаты
-   - Аспекты
-   - Количество результатов
-   - Мы разработали пользовательский интерфейс для отображения результатов поиска, аспектов и количественных показателей (у нас уже были эти данные).
+1. Call Azure Search Service to get all documents from search (see: http://msdn.microsoft.com/library/azure/dn798927.aspx)
+2. Extract following from the search service response (by using json.net http://james.newtonking.com/json)
+   - Results
+   - Facets
+   - Result counts
+   - Develop a user interface for displaying search results, facets and counts (we already had this).
 
-Вот код, который мы использовали для получения результатов с помощью службы "Поиск Azure":
+This is the code we used to get the results from Azure Search:
 
     string requestUrl = 
     string.Format("https://{0}.search.windows.net/indexes/profiles/docs?searchMode=all&$count=true&search={1}&facet=city,count:20&facet=category&$top=10&$skip={2}&api-version=2014-07-31-Preview{3}", Config.SearchServiceName, EscapeODataString(q), skip, filter);
@@ -139,91 +141,91 @@ WhatToPedia — это стартап-компания, которая тест�
       response.EnsureSuccessStatusCode();
      dynamic json = JsonConvert.DeserializeObject(response.Content.ReadAsStringAsync().Result);
 
-**Повышение эффективности поиска по местоположению**
+**Boosting by location**
 
-Возможно, самым важным требованием для проверки прототипа являлось добавление в поисковый запрос ключевого слова, указывающего на местоположение. Нам было крайне важно, чтобы при вводе в поисковый запрос названия города розничные торговцы, представленные в этом городе, получали бы более высокий приоритет, чем торговцы, которые указали это же ключевое слово в своем описании. Поэтому в профиле оценки для поля City (Город) был задан более высокий приоритет, чем для других полей.
+Probably the most important requirement to verify in the prototype included adding a location search keyword to the query. It is vital to our portal that if a user enters a city name in the search query, that the resellers in the given city would rank higher than resellers having the city keyword in the description. For this requirement, we used a scoring profile to rank the city field higher than other fields.
 
-**Поддержка нескольких языков**
+**Supporting multiple languages**
 
-Нам требовалось отображать правильные результаты поиска на нужном языке, а также предоставить возможность поиска тех же результатов на разных языках. Нужно было решить две стороны этой проблемы:
+We needed to display correct search results in correct languages, and provide an option for finding the same results in different languages. The two sides to this problem were: 
 
-- поиск слов на нескольких языках;
-- отображение результатов поиска на правильном языке.
+- Search for words in multiple languages
+- Display search results in correct language
 
-Что касается представления данных, мы добавили документ для каждого языка с локализованным текстом и свойством определенного языка. Когда пользователь вводит условие поиска, для фильтрации данных на выбранном им языке используется выражение `$filter`.
+We solved the presentation part by adding a document for each language with localized text and a property with the language. When a user enters a search term, we user `$filter` expressions to filter on the language the user has chosen.
 
-Каждый документ имеет скрытое свойство "cities" (города), базирующееся на типе сбора данных. В этом свойстве хранятся названия городов на всех языках, что позволяет пользователю искать данные на нескольких языках.
+Each of the documents has a hidden property called "cities" built on the collection type. This property stores city names in all languages, enabling the user to search in multiple languages.
 
-###Хранилище данных
+###<a name="data-storage"></a>Data storage
 
-Все данные (профиль, сведения о подписке и бухгалтерском учете) хранятся в базе данных SQL. Все мультимедийные файлы (включая предоставленные розничным торговцем изображения и видеозаписи) хранятся в хранилище BLOB-объектов Azure. Отдельное хранилище BLOB-объектов позволяет избежать нагрузок, связанных с отправкой файлов. Файлы никогда не смешиваются с содержимым веб-сайта, поэтому нам не нужно перестраивать сайт при каждом добавлении файлов.
+All data (profile, subscription, and accounting) is stored in SQL Database. All media files are stored in Azure BLOB storage, including images and videos provided by the retailer. Using separate BLOB storage isolates the effects of uploading files; files are never co-mingled with the website, so we don’t need to rebuild the site whenever we add files.
 
-Важное преимущество — возможность совместного использования хранилища данных для разработки несколькими разработчиками. Одно из требований проекта WhatToPedia заключалось в возможности создать среду разработки (включая данные о розничных торговцах, изображения и видео) в течение 15 минут. Благодаря получению последних данных из службы TFS Online, выполнению сценария SQL и запуску задания импорта вся среда успешно развертывается за считанные минуты. Кроме того, повышается эффективность промежуточного хранения.
+An important benefit of our storage design is that multiple developers can share a single development storage. One of the requirements for the WhatToPedia project was to be able to create a development environment within 15 minutes, including reseller data, images, and videos. By getting the latest data from TFS Online, running a SQL script, and running the import job, a complete environment can be stood up in no time at all. This practice also improves the staging process.
 
-###Веб-задания
+###<a name="webjobs"></a>WebJobs
 
-С помощью веб-заданий Azure мы обновляем данные в индексе. Благодаря созданию задания индексатора мы смогли с легкостью интегрировать индексирование в наше решение. Единственное изменение, которое мы внесли в код для поддержки задания индексатора, заключалось том, что мы добавили поле `Indexed` в модель данных, чтобы указывать состояние индекса. При каждом добавлении или обновлении нового профиля для поля `Indexed` задается значение false. Это же происходит, если розничный торговец изменяет данные своего профиля на портале.
+We use Azure WebJobs to update data to the index. By creating a search indexer job, the indexing part was very easy to integrate into our solution. The only code change we made was to accommodate the indexer job was to add an `Indexed` field to our data model to indicate the index state. Whenever a new profile is added or updated, the `Indexed` field is set to false. The same applies if the retailer changes his or her profile data through the portal.  
 
-Задание выполняет поиск всех строк, для поля `Indexed` которых указано значение false. При обнаружении строки документ публикуется в службе "Поиск Azure", после чего для поля `Indexed` задается значение true. Нам не пришлось разрабатывать отдельные решения по добавлению и обновлению данных, так как служба "Поиск Azure" отлично справляется со всеми этими операциями. При добавлении уже имеющегося документа служба автоматически обновляет его.
+The job looks for all rows having `Indexed` set to false. When it finds the row, the document is posted to Azure Search, and then the `Indexed` field is set to true. We didn’t have to plan for adding versus updating data because the Azure Search service actually takes care of this. If you add a document that is already present, the service will do an update automatically.
 
-Все веб-задания разработаны в качестве консольных приложений, которые можно передать на веб-сайты Azure как ZIP-файлы для последующей распаковки и планирования.
+All web jobs have been developed as console applications that can be uploaded to Azure web sites as ZIP files, unzipped, and then scheduled.
 
-Задание выполняется каждые 5 минут в качестве запланированной веб-задачи. По нашим подсчетам, служба отправляет 3000 документов в течение около трех минут, что полностью соответствует поставленным требованиям.
+The job is scheduled to run every 5 minutes as a scheduled web task. We calculated that the service takes approximately three minutes to upload 3,000 documents, which was within our requirements. 
 
-> [AZURE.NOTE] В службе "Поиск Azure" недавно появился такой компонент, как индексатор прототипа. Он появился слишком поздно, поэтому мы не смогли внедрить его в первой версии решения, но этот компонент решает ту же проблему, что и использованное нами задание индексатора, то есть автоматизирует операции загрузки данных.
-
-
-###Стратегия резервного копирования
-
-Мы разработали стратегию многоуровневого резервного копирования, которая обеспечивает восстановление данных в различных сценариях, начиная с катастрофического сбоя и заканчивая восстановление отдельных транзакций. В защите нуждаются ресурсы трех типов: содержимое веб-сайта, данные подписчиков и файлы мультимедиа.
-
-Во-первых, исходный код веб-сайта хранится в службе в TFS Online, поэтому мы всегда сможем повторно опубликовать сайт из этой службы, если он выйдет из строя.
-
-Наиболее уязвимый ресурс — данные подписчиков в базе данных SQL Azure. Для их резервного копирования мы используем встроенный компонент (см. статью [Резервное копирование и восстановление баз данных SQL Azure](http://msdn.microsoft.com/library/azure/jj650016.aspx)). Раз в неделю выполняется резервное копирование всей базы данных, один раз в неделю — разностное резервное копирование базы данных, а каждые 5 минут сохраняются резервные копии журналов транзакций. Учитывая текущий и прогнозируемый объем наших томов данных, это решение в полной мере справится с поставленными задачами.
-
-В-третьих, изображения и видеофайлы хранятся в хранилище BLOB-объектов Azure. Мы все еще разрабатываем конечный план резервного копирования этих данных, рассматривая в качестве возможного решения средство Cloudberry Explorer for Azure. В настоящее время мы копируем изображения и видео в другие расположения с помощью веб-заданий.
-
-##Чему мы научились
-
-Мы с легкостью провели эксперимент, так как у нас уже были данные. В течение считанных часов мы разработали прототип, поддерживающий аспекты, счетчики, подкачку, упорядоченные профили и результаты поиска. Результаты поиска были отличались такой точностью, что мы решили удалить некоторые фильтры, которые отображались конечному потребителю.
-
-Больше всего нас удивило то, как быстро мы научились использовать Поиск Azure и что получили взамен. По сути, мы провели эксперимент за несколько часов (см. примечание ниже). Мы написали вместо 500 строк кода всего 3 строки кода в приложении переднего плана и добавили новое веб-задание, что позволили улучшить результаты поиска.
-
-Ранее наш код реализовал подкачку, счетчики и другие компоненты, традиционно используемые при поиске. Служба "Поиск Azure" обеспечивает все необходимые компоненты (поиск, аспекты, подкачка, счетчики), которые нам приходилось самостоятельно разрабатывать. Она также повышает эффективность поиска и поддерживает фасетную навигацию — возможности, отсутствующие в нашем оригинальном решении.
-
-Самая большая трудность во время реализации решения состояла в том, что оно являлось предварительной версией, что усложняло поиск сведений и отзывов. В конце-концов мы увидели, что служба "Поиск Azure" довольно проста в использовании благодаря поддержке интерфейса API REST и формата данных JSON. Мы могли вызвать платформу непосредственно при помощи подключаемых модулей с открытым исходным кодом, таки как JQuery JSON.Net, а также использовать средства типа Fiddler для оперативного проведения экспериментов и отладки.
-
-> [AZURE.NOTE] Эта служба не только подготавливала данные, но помогла нам, разработчикам прототипа, понять принципы работы технологии поиска, что позволило повысить производительность и эффективно использовать встроенные компоненты. Если в поиск следует включить конструктор поисковых запросов, возможности фасетной навигации, фильтры и другие элементы, создание прототипа может занять больше времени.
-
-###Управление аспектами на странице представления данных поиска
-
-Во время эксперимента мы поняли, что следует заранее тщательно разрабатывать аспекты. После загрузки большого количества данных в решение мы видели, что объем аспектов слишком велик для представления пользователям.
-
-Мы решили эту проблему, задав ограничение в параметре count аспекта. Параметр count налагает жесткое ограничение на количество аспектов, возвращаемых пользователю. По [этой ссылке](search-faceted-navigation.md) вы можете ознакомиться с обсуждением параметра count.
-
-###Веб-задания для планирования задач
-
-Нас приятно удивили не только возможности службы "Поиск Azure". Мы обнаружили, что веб-задания позволяют значительно эффективнее автоматизировать операции по загрузке данных в службу "Поиск Azure" по сравнению с методом, который мы использовали ранее. Он заключался в том, что мы пользовались выделенной виртуальной машиной с планировщиком Windows, который выполнял запланированные задачи по обновлению индекса поиска. Веб-задания было проще настраивать и легче отлаживать. Кроме того, использовать их было значительно дешевле, чем платить за выделенную виртуальную машину.
-
-###Средство обновления изображений Azure BLOB Storage Explorer
-
-Мы обнаружили, что средство [Azure BLOB Storage Explorer](https://azurestorageexplorer.codeplex.com/) (доступное на сайте CodePlex) позволяет эффективно обновлять изображения и видео на сайте. Мы используем его в качестве средства разработчика для ручного обновления изображений и видеозаписей, которые составляют часть нашего основного сайта. Это средство отличается большей гибкостью по сравнению с развертыванием изменений на портале, устраняя необходимость тестовой итерации при каждом обновлении изображения.
-
-##Краткое заключение
-
-Спасибо прекрасным сотрудникам WhatToPedia, которые разрешили нам поделиться их историей!
-
-Надеемся, этот пример окажется для вас полезным. Если вы решите воспользоваться службой "Поиск Azure", рекомендую ознакомиться со следующими ресурсами:
-
-- [форум MSDN, посвященный службе "Поиск Azure";](https://social.msdn.microsoft.com/forums/azure/home?forum=azuresearch)
-- [StackOverflow (выполните поиск по соответствующему тегу);](http://stackoverflow.com/questions/tagged/azure-search)
-- [страница документации на сайте Azure.com;](https://azure.microsoft.com/documentation/services/search/)
-- [документация по Поиску Azure на сайте MSDN.](http://msdn.microsoft.com/library/azure/dn798933.aspx)
+> [AZURE.NOTE] There is a prototype indexer feature that was recently introduced in Azure Search. This feature came too late for us to use it in our first release, but it appears to solve the same problem we used our indexer job for, which is to automate data load operations.
 
 
-##Приложение. Веб-задание индексатора поиска
+###<a name="backup-strategy"></a>Backup strategy
 
-С помощью следующего кода создается индексатор, упомянутый в разделе о построении прототипа.
+We designed a multi-tiered backup strategy to recover from a range of scenarios, from catastrophic failure, down to recovery of an individual transaction. The assets to protect include three kinds of data (web site, subscriber data, and media files). 
+
+First, by keeping the web site source code in TFS Online, we know that if the site goes down, we can rebuild it by republishing from TFS. 
+
+Subscriber data in Azure SQL Database is the most sensitive asset. We back this up using the built-in feature (see [Azure SQL Database Backup and Restore](http://msdn.microsoft.com/library/azure/jj650016.aspx)). The backup schedule is full database backup once a week, differential database backups once a day, and transaction log backups every 5 minutes.  Given the size of the data, this solution is more than adequate for our immediate and projected data volumes.
+
+Third, we store image and video files in Azure BLOB storage. We are still evaluating the ultimate backup plan for this data, considering Cloudberry Explorer for Azure as a potential solution. For now, we use a WebJob to copy images and videos to another location.
+
+##<a name="what-we-learned"></a>What we learned
+
+Because we already had data, it was easy to establish proof-of-concept. Within hours, we had a prototype with facets and counters, paging, ranked profiles, and search results. The search results were so precise, we decided to remove some of the filters presented to the end customer. 
+
+The biggest surprise for us was how fast we could learn Azure Search, and how much we got back. Literally, we established proof-of-concept in a few hours (see the note below), replacing 500 lines of code with 3 lines of code in the front end application (plus a new WebJob), and getting better results. 
+
+Previously, our code implemented paging, counts, and other behaviors that are standard to search. Using Azure Search, the results we get back include the search hits, facets, paging data, counts -- all the stuff we needed and were having to supply ourselves. It also included boosting and built-in faceted navigation, which we didn’t have in our original solution.
+
+The greatest challenge during implementation was that it was a Preview version and finding information and shared experiences was difficult. Once we connected a few dots, we found that using Azure Search Service was pretty simple due to its REST API and JSON data format. We could call the framework directly from most open source plugins like JQuery JSON.Net, and we could use tools like Fiddler for fast experimentation and debugging. 
+
+> [AZURE.NOTE] Besides having the data prepped, it helped that those of us building the prototype already understood how search technology works, making us more productive, and more appreciative of the built-in features. If you need to ramp up on search query construction, faceted navigation, filters, etc. you should expect prototyping to take longer. 
+
+###<a name="controlling-facets-in-the-search-presentation-page"></a>Controlling facets in the search presentation page
+
+One of our learnings during the proof-of-concept was to plan facets carefully upfront. After loading a lot of data into the solution, we saw that the sheer volume of facets was too high to present to the users. 
+
+We solved this by constraining the facet count parameter. The count parameter imposes a hard limit on the number of facets returned to the user. A link that includes a discussion of the count parameter can be found [here](search-faceted-navigation.md).
+
+###<a name="webjobs-for-scheduling-tasks"></a>WebJobs for scheduling tasks
+
+Azure Search wasn’t the only pleasant surprise for us. We discovered that using WebJobs to automate our data load operations to Azure Search was vastly superior to our previous approach, which entailed using a dedicated VM running Windows Scheduler, with scheduled tasks for updating the search index. WebJobs was simpler to configure and easier to debug, and of course much cheaper than having to pay for a dedicated VM.
+
+###<a name="azure-blob-storage-explorer-for-updating-images"></a>Azure BLOB Storage Explorer for updating images
+
+We found that using [Azure BLOB Storage Explorer](https://azurestorageexplorer.codeplex.com/) (available on codeplex) to be very helpful in managing image and video updates to the site. We use it as a developer tool to manually update images and videos that are part of our main site. We found it to be more flexible than deploying changes to the portal, and eliminates a complete test iteration whenever we need to update an image. 
+
+##<a name="a-few-final-words"></a>A few final words
+
+Thanks to the great folks at WhatToPedia for allowing us to share their story!  
+
+We hope you found this case study useful. If you go on to use Azure Search, I recommend a few resources to speed you along:
+
+- [MSDN forum dedicated to Azure Search](https://social.msdn.microsoft.com/forums/azure/home?forum=azuresearch)
+- [StackOverflow also has a tag](http://stackoverflow.com/questions/tagged/azure-search)
+- [Documentation page on Azure.com](https://azure.microsoft.com/documentation/services/search/)
+- [Azure Search documentation on MSDN](http://msdn.microsoft.com/library/azure/dn798933.aspx)
+
+
+##<a name="appendix:-search-indexer-webjob"></a>Appendix: Search Indexer WebJob
+
+The following code builds the indexer mentioned in the section on building the prototype.
 
         static void Main(string[] args)
         {
@@ -421,4 +423,8 @@ WhatToPedia — это стартап-компания, которая тест�
 [Link 3 to another azure.microsoft.com documentation topic]: ../storage-whatis-account.md
  
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,86 +1,87 @@
 <properties
-	pageTitle="Application Insights для веб-приложений JavaScript | Microsoft Azure"
-	description="Получайте данные о количестве просмотров страницы и количестве сеансов, данные веб-клиента и отслеживайте закономерности использования. Выявляйте исключения и проблемы с производительностью на веб-страницах JavaScript."
-	services="application-insights"
+    pageTitle="Application Insights for JavaScript web apps | Microsoft Azure"
+    description="Get page view and session counts, web client data, and track usage patterns. Detect exceptions and performance issues in JavaScript web pages."
+    services="application-insights"
     documentationCenter=""
-	authors="alancameronwills"
-	manager="douge"/>
+    authors="alancameronwills"
+    manager="douge"/>
 
 <tags
-	ms.service="application-insights"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="ibiza"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="08/15/2016"
-	ms.author="awills"/>
+    ms.service="application-insights"
+    ms.workload="tbd"
+    ms.tgt_pltfrm="ibiza"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="08/15/2016"
+    ms.author="awills"/>
 
-# Application Insights для веб-страниц
+
+# <a name="application-insights-for-web-pages"></a>Application Insights for web pages
 
 
 [AZURE.INCLUDE [app-insights-selector-get-started-dotnet](../../includes/app-insights-selector-get-started-dotnet.md)]
 
-Узнайте о производительности и использовании своей веб-страницы или приложения. Если добавить Visual Studio Application Insights в скрипт страницы, вы узнаете время загрузки страницы и вызовов AJAX, сведения об исключениях браузера, ошибках AJAX и их количестве, а также количество пользователей и сеансов. Все эти данные можно разбить по страницам, версии клиентской ОС и браузера, географическому расположению и другим показателям. Можно также настроить оповещения для определенного количества сбоев или медленной загрузки страниц.
+Find out about the performance and usage of your web page or app. If you add Visual Studio Application Insights to your page script, you get timings of page loads and AJAX calls, counts and details of browser exceptions and AJAX failures, as well as users and session counts. All these can be segmented by page, client OS and browser version, geo location, and other dimensions. You can also set alerts on failure counts or slow page loading.
 
-Application Insights можно использовать с любыми веб-страницами — просто добавьте небольшой фрагмент кода JavaScript. Для веб-службы [Java](app-insights-java-get-started.md) или [ASP.NET](app-insights-asp-net.md) можно интегрировать данные телеметрии, полученные с сервера и клиентских компьютеров.
+You can use Application Insights with any web pages - you just add a short piece of JavaScript. If your web service is [Java](app-insights-java-get-started.md) or [ASP.NET](app-insights-asp-net.md), you can integrate telemetry from your server and clients.
 
-Вам понадобится подписка [Microsoft Azure](https://azure.com). Если у вашей группы есть подписка организации, попросите владельца подписки добавить в нее вашу учетную запись Майкрософт. Если выбрать бесплатную ценовую категорию, разработка и использование в небольших масштабах не потребуют никаких денежных затрат.
-
-
-## Настройка Application Insights для веб-страницы
-
-Нужно ли вам добавить Application Insights для своих веб-страниц? Возможно, это уже сделано. Если вы выбрали параметр добавления Application Insights в веб-приложение в диалоговом окне "Новый проект" в Visual Studio, то скрипт уже добавлен. В этом случае больше ничего делать не нужно.
-
-В противном случае необходимо добавить на веб-страницы фрагмент кода следующим образом.
-
-### Открытие ресурса Application Insights
-
-Ресурс Application Insights — это место, где отображаются данные о производительности и об использовании страницы.
-
-Войдите на [портал Azure](https://portal.azure.com).
-
-Если вы уже настроили мониторинг приложения на стороне сервера, то у вас уже есть ресурс.
-
-![Последовательно выберите пункты «Обзор», «Службы для разработчиков» и «Application Insights».](./media/app-insights-javascript/01-find.png)
-
-Если ресурса у вас нет, создайте его.
-
-![Последовательно выберите пункты «Создать», «Службы для разработчиков», «Application Insights»](./media/app-insights-javascript/01-create.png)
+You need a subscription to [Microsoft Azure](https://azure.com). If your team has an organizational subscription, ask the owner to add your Microsoft Account to it. There's a free pricing tier, so development and small-scale use won't cost anything.
 
 
-*Уже появились вопросы?* [Дополнительная информация о создании ресурса](app-insights-create-new-resource.md).
+## <a name="set-up-application-insights-for-your-web-page"></a>Set up Application Insights for your web page
+
+First, do you need to add Application Insights to your web pages? You might already have done so. If you chose to add Application Insights to your web app in the New Project dialog in Visual Studio, the script was added then. In that case, you don't need to do any more.
+
+Otherwise, you need to add a snippet of code your web pages, as follows.
+
+### <a name="open-an-application-insights-resource"></a>Open an Application Insights resource
+
+The Application Insights resource is where data about your page's performance and usage is displayed. 
+
+Sign into [Azure portal](https://portal.azure.com).
+
+If you already set up monitoring for the server side of your app, you already have a resource:
+
+![Choose Browse, Developer Services, Application Insights.](./media/app-insights-javascript/01-find.png)
+
+If you don't have one, create it:
+
+![Choose New, Developer Services, Application Insights.](./media/app-insights-javascript/01-create.png)
 
 
-### Добавление сценария пакета SDK в приложение или на веб-страницу
-
-В разделе «Быстрый запуск» получите сценарий для веб-страниц:
-
-![В колонке обзора приложения последовательно выберите элементы «Быстрый запуск», «Получить код для мониторинга моих веб-страниц». Скопируйте сценарий.](./media/app-insights-javascript/02-monitor-web-page.png)
-
-Вставьте сценарий непосредственно перед тегом `</head>` каждой страницы, которую вы хотите отслеживать. Если на вашем веб-сайте есть главная страница, можно разместить сценарий на ней. Например:
-
-* В проекте ASP.NET MVC разместите сценарий на странице `View\Shared\_Layout.cshtml`.
-* На сайте SharePoint на панели управления откройте [Параметры сайта/Главная страница](app-insights-sharepoint.md).
-
-Сценарий содержит ключ инструментирования, который направляет данные к ресурсу Application Insights.
-
-([Подробное объяснение сценария.](http://apmtips.com/blog/2015/03/18/javascript-snippet-explained/))
-
-*(Если вы используете известную платформу веб-страницы, найдите адаптеры Application Insights. Например, [модуль AngularJS](http://ngmodules.org/modules/angular-appinsights).)*
+*Questions already?* [More about creating a resource](app-insights-create-new-resource.md).
 
 
-## Подробные сведения
+### <a name="add-the-sdk-script-to-your-app-or-web-pages"></a>Add the SDK script to your app or web pages
 
-Вы можете задать несколько [параметров](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#config), хотя в большинстве случаев это не требуется. Например, можно отключить или ограничить количество вызовов AJAX, регистрируемых при каждом просмотре страницы (чтобы уменьшить трафик). Или можно задать режим отладки, чтобы быстрее пропустить данные телеметрии через конвейер, не выполняя пакетные операции.
+In Quick Start, get the script for web pages:
 
-Чтобы задать эти параметры, найдите следующую строку в фрагменте кода и добавьте после нее несколько элементов, разделенных запятой:
+![On your app overview blade, choose Quick Start, Get code to monitor my web pages. Copy the script.](./media/app-insights-javascript/02-monitor-web-page.png)
+
+Insert the script just before the `</head>` tag of every page you want to track. If your website has a master page, you can put the script there. For example:
+
+* In an ASP.NET MVC project, you'd put it in `View\Shared\_Layout.cshtml`
+* In a SharePoint site, on the control panel, open [Site Settings / Master Page](app-insights-sharepoint.md).
+
+The script contains the instrumentation key that directs the data to your Application Insights resource. 
+
+([Deeper explanation of the script.](http://apmtips.com/blog/2015/03/18/javascript-snippet-explained/))
+
+*(If you're using a well-known web page framework, look around for Application Insights adaptors. For example, there's [an AngularJS module](http://ngmodules.org/modules/angular-appinsights).)*
+
+
+## <a name="detailed-configuration"></a>Detailed configuration
+
+There are several [parameters](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#config) you can set, though in most cases, you shouldn't need to. For example, you can disable or limit the number of Ajax calls reported per page view (to reduce traffic). Or you can set debug mode to have telemetry move rapidly through the pipeline without being batched.
+
+To set these parameters, look for this line in the code snippet, and add more comma-separated items after it:
 
     })({
       instrumentationKey: "..."
       // Insert here
     });
 
-[Доступные параметры](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#config) включают:
+The [available parameters](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#config) include:
 
     // Send telemetry immediately without batching.
     // Remember to remove this when no longer required, as it
@@ -105,148 +106,154 @@ Application Insights можно использовать с любыми веб-
 
 
 
-## <a name="run"></a>Запуск приложения
+## <a name="<a-name="run"></a>run-your-app"></a><a name="run"></a>Run your app
 
-Запустите веб-приложение, используйте его в течение непродолжительного времени для формирования телеметрии и подождите несколько секунд. Вы также можете запустить приложение на компьютере, на котором ведется разработка, нажав клавишу **F5**, или опубликовать и позволить пользователям его использовать.
+Run your web app, use it a while to generate telemetry, and wait a few seconds. You can either run it using the **F5** key on your development machine, or publish it and let users play with it.
 
-Если вам надо проверить телеметрию, отправляемую веб-приложением в Application Insights, используйте инструменты отладки браузера (во многих браузерах это можно сделать нажатием клавиши **F12**). Данные отправляются по адресу dc.services.visualstudio.com.
+If you want to check the telemetry that a web app is sending to Application Insights, use your browser's debugging tools (**F12** on many browsers). Data is sent to dc.services.visualstudio.com.
 
-## Просмотр данных о производительности браузера
+## <a name="explore-your-browser-performance-data"></a>Explore your browser performance data
 
-Откройте колонку "Браузеры", чтобы отобразить сводные данные о производительности, поступающие из браузеров пользователей.
+Open the Browsers blade to show aggregated performance data from your users' browsers.
 
-![На сайте portal.azure.com откройте ресурс приложения и щелкните "Параметры", а затем "Браузер".](./media/app-insights-javascript/03.png)
+![In portal.azure.com, open your app's resource and click Settings, Browser](./media/app-insights-javascript/03.png)
 
 
-*Еще нет данных? Нажмите кнопку **Обновить** в верхней части страницы. По-прежнему нет данных? См. раздел [Устранение неполадок](app-insights-troubleshoot-faq.md).*
+*No data yet? Click **Refresh** at the top of the page. Still nothing? See [Troubleshooting](app-insights-troubleshoot-faq.md).*
 
-Колонка "Браузеры" — это [колонка обозревателя метрик](app-insights-metrics-explorer.md) с предустановленными фильтрами и предварительно выбранными параметрами диаграмм. При необходимости можно изменить диапазон времени, фильтры и конфигурацию диаграмм и сохранить результат в избранном. Щелкните **Восстановить значения по умолчанию**, чтобы вернуться к исходной конфигурации колонки.
+The Browsers blade is a [Metrics Explorer blade](app-insights-metrics-explorer.md) with preset filters and chart selections. You can edit the time range, filters, and chart configuration if you want, and save the result as a favorite. Click **Restore defaults** to get back to the original blade configuration.
 
-## Производительность загрузки страниц
+## <a name="page-load-performance"></a>Page load performance
 
-Вверху экрана отображается сегментированная диаграмма времени загрузки страницы. Общая высота диаграммы представляет среднее время загрузки и отображения страниц приложения в браузерах пользователей. Время отсчитывается от момента, когда браузер отправляет первоначальный запрос HTTP, до момента, когда завершается обработка всех синхронных событий загрузки, включая макет и выполняющиеся сценарии. Асинхронные задачи, такие как загрузка веб-частей из вызовов AJAX, не учитываются.
+At the top is a segmented chart of page load times. The total height of the chart represents the average time to load and display pages from your app in your users' browsers. The time is measured from when the browser sends the initial HTTP request until all synchronous load events have been processed, including layout and running scripts. It doesn't include asynchronous tasks such as loading web parts from AJAX calls.
 
-На этой диаграмме общее время загрузки страницы разбито на [стандартные отрезки времени, определенные консорциумом W3C](http://www.w3.org/TR/navigation-timing/#processing-model).
+The chart segments the total page load time into the [standard timings defined by W3C](http://www.w3.org/TR/navigation-timing/#processing-model). 
 
 ![](./media/app-insights-javascript/08-client-split.png)
 
-Обратите внимание, что значение времени *подключения к сети* часто меньше ожидаемого, так как это среднее значение по всем запросам из браузера на сервер. Для множества отдельных запросов значение времени подключения — «0» из-за наличия активного подключения к серверу.
+Note that the *network connect* time is often lower than you might expect, because it's an average over all requests from the browser to the server. Many individual requests have a connect time of 0 because there is already an active connection to the server.
 
-### Медленная загрузка
+### <a name="slow-loading?"></a>Slow loading?
 
-Медленная загрузка страниц — основная причина недовольства пользователей. Если диаграмма показывает, что страницы загружаются медленно, вы можете выполнить ряд простых диагностических исследований.
+Slow page loads are a major source of dissatisfaction for your users. If the chart indicates slow page loads, it's easy to do some diagnostic research.
 
-На диаграмме показано среднее время загрузки всех страниц в приложении. Чтобы узнать, связана ли проблема с определенными страницами, найдите в колонке таблицу, где данные разбиты по URL-адресам страниц:
+The chart shows the average of all page loads in your app. To see if the problem is confined to particular pages, look further down the blade, where there's a grid segmented by page URL:
 
 ![](./media/app-insights-javascript/09-page-perf.png)
 
-Обратите внимание на количество просмотров страниц и стандартное отклонение. Если страниц очень мало, проблема не доставляет пользователям особых неудобств. Высокий уровень стандартного отклонения (относительно среднего уровня) указывает на большие различия между отдельными измерениями.
+Notice the page view count and standard deviation. If the page count is very low, then the issue isn't affecting users much. A high standard deviation (comparable to the average itself) indicates a lot of variation between individual measurements.
 
-**Данные для отдельного URL-адреса и отдельного просмотра страницы.** Щелкните имя любой страницы, чтобы отобразить колонку диаграмм браузера, отфильтрованных только для этого URL-адреса. То же самое можно сделать для экземпляра представления страницы.
+**Zoom in on one URL and one page view.** Click any page name to see a blade of browser charts filtered just to that URL; and then on an instance of a page view.
 
 ![](./media/app-insights-javascript/35.png)
 
-Щелкните `...`, чтобы увидеть полный список свойств для данного события или проверить вызовы AJAX и связанные события. Медленные вызовы AJAX влияют на общее время загрузки страницы, если они выполняются синхронно. К связанным событиям относятся запросы сервера для того же URL-адреса (если вы настроили Application Insights на веб-сервере).
+Click `...` for a full list of properties for that event, or inspect the Ajax calls and related events. Slow Ajax calls affect the overall page load time if they are synchronous. Related events include server requests for the same URL (if you've set up Application Insights on your web server).
 
 
-**Производительность страниц со временем.** Вернитесь в колонку "Браузеры" и вместо таблицы "Время загрузки страницы" выберите график, на котором отображаются пиковые значения в определенное время:
+**Page performance over time.** Back at the Browsers blade, change the Page View Load Time grid into a line chart to see if there were peaks at particular times:
 
-![Щелкните заголовок таблицы и выберите новый тип диаграммы.](./media/app-insights-javascript/10-page-perf-area.png)
+![Click the head of the grid and select a new chart type](./media/app-insights-javascript/10-page-perf-area.png)
 
-**Сегментация по другим показателям.** Возможно, загрузка страниц происходит медленнее в конкретном браузере, клиентской ОС или расположении пользователя? Добавьте новую диаграмму и поэкспериментируйте с параметром **Группировать по**.
+**Segment by other dimensions.** Maybe your pages are slower to load on a particular browser, client OS, or user locality? Add a new chart and experiment with the **Group-by** dimension.
 
 ![](./media/app-insights-javascript/21.png)
 
 
-## Производительность вызовов AJAX
+## <a name="ajax-performance"></a>AJAX Performance
 
-Убедитесь, что все вызовы AJAX на веб-страницах работают нормально. Они часто используются для асинхронного заполнения частей страницы. Иногда вся страница загружается быстро, но остаются пустые веб-части, данные в которых отображаются не сразу. Естественно, это вызывает раздражение пользователей.
+Make sure any AJAX calls in your web pages are performing well. They are often used to fill parts of your page asynchronously. Although the overall page might load promptly, your users could be frustrated by staring at blank web parts, waiting for data to appear in them.
 
-Вызовы AJAX, выполняемые с веб-страницы, отображаются в колонке "Браузеры" как зависимости.
+AJAX calls made from your web page are shown on the Browsers blade as dependencies.
 
-В верхней части колонки есть сводные диаграммы:
+There are summary charts in the upper part of the blade:
 
 ![](./media/app-insights-javascript/31.png)
 
-Подробные таблицы приводятся ниже:
+and detailed grids lower down:
 
 ![](./media/app-insights-javascript/33.png)
 
-Щелкните любую строку для получения подробной информации.
+Click any row for specific details.
 
 
-> [AZURE.NOTE] Если удалить фильтр "Браузеры" в колонке, зависимости сервера и зависимости AJAX будут включены в эти диаграммы. Чтобы повторно настроить фильтр, щелкните "Восстановить значения по умолчанию".
+> [AZURE.NOTE] If you delete the Browsers filter on the blade, both server and AJAX dependencies are included in these charts. Click Restore Defaults to reconfigure the filter.
 
-**Для быстрого анализа вызовов AJAX, завершившихся сбоем**, прокрутите вниз до таблицы сбоев зависимостей и щелкните строку, чтобы просмотреть конкретные экземпляры.
+**To drill into failed Ajax calls** scroll down to the Dependency failures grid, and then click a row to see specific instances.
 
 ![](./media/app-insights-javascript/37.png)
 
-Щелкните `...`, чтобы получить полные данные телеметрии для вызова AJAX.
+Click `...` for the full telemetry for an Ajax call.
 
-### Вызовы AJAX не регистрируются?
+### <a name="no-ajax-calls-reported?"></a>No Ajax calls reported?
 
-Вызовы AJAX включают все вызовы HTTP из сценария веб-страницы. Если они не регистрируются, проверьте, не заданы ли во фрагменте кода [параметры](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#config) `disableAjaxTracking` или `maxAjaxCallsPerView`.
+Ajax calls include any HTTP calls made from the script of your web page. If you don't see them reported, check that the code snippet doesn't set the `disableAjaxTracking` or `maxAjaxCallsPerView` [parameters](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#config).
 
-## Исключения браузера
+## <a name="browser-exceptions"></a>Browser exceptions
 
-В нижней части колонке "Браузеры" есть сводная диаграмма исключений и таблица типов исключений.
+On the Browsers blade, there's an exceptions summary chart, and a grid of exception types further down the blade.
 
 ![](./media/app-insights-javascript/39.png)
 
-Если исключения браузера не регистрируются, проверьте, не задан ли во фрагменте кода [параметр](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#config) `disableExceptionTracking`.
+If you don't see browser exceptions reported, check that the code snippet doesn't set the `disableExceptionTracking` [parameter](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#config).
 
-## Изучение отдельных событий просмотра страницы
+## <a name="inspect-individual-page-view-events"></a>Inspect individual page view events
 
-Обычно телеметрия просмотра страниц анализируется службой Application Insights, и вы видите только сводные отчеты со средними значениями для всех пользователей. Однако в целях отладки можно также изучать отдельные события просмотра страниц.
+Usually page view telemetry is analyzed by Application Insights and you see only cumulative reports, averaged over all your users. But for debugging purposes, you can also look at individual page view events.
 
-В колонке Diagnostic Search (Поиск данных диагностики) в разделе Filter (Фильтр) установите флажок Page View (Просмотр страниц).
+In the Diagnostic Search blade, set Filters to Page View.
 
 ![](./media/app-insights-javascript/12-search-pages.png)
 
-Выберите любое событие, чтобы просмотреть подробные сведения. На странице сведений нажмите кнопку «...», чтобы открыть еще более подробные сведения.
+Select any event to see more detail. In the details page, click "..." to see even more detail.
 
-> [AZURE.NOTE] Если вы используете [Поиск](app-insights-diagnostic-search.md), обратите внимание, что вы должны сопоставлять слова целиком: "Пр" и "о" не соответствуют "Про".
+> [AZURE.NOTE] If you use [Search](app-insights-diagnostic-search.md), notice that you have to match whole words: "Abou" and "bout" do not match "About".
 
-Кроме того, для поиска просмотров страницы можно использовать [язык запросов Analytics](app-insights-analytics-tour.md).
+You can also use the powerful [Analytics query language](app-insights-analytics-tour.md) to search page views.
 
-### Свойства просмотра страниц
+### <a name="page-view-properties"></a>Page view properties
 
-* **Длительность просмотра страницы**
+* **Page view duration** 
 
- * По умолчанию время, необходимое для загрузки страницы, от запроса клиента до полной загрузки (включая вспомогательные файлы, но за исключением асинхронных задач, таких как вызовы Ajax).
- * Если в [конфигурации страницы](#detailed-configuration) указано значение `overridePageViewDuration`, это интервал между запросом клиента и выполнением первого `trackPageView`. Если после инициализации сценария trackPageView вы переместили его из обычного положения, значение будет иным.
- * Если задано значение `overridePageViewDuration` и указан аргумент длительности в вызове `trackPageView()`, будет использовано значение аргумента.
+ * By default, the time it takes to load the page, from client request to full load (including auxiliary files but excluding asynchronous tasks such as Ajax calls). 
+ * If you set `overridePageViewDuration` in the [page configuration](#detailed-configuration), the interval between client request to execution of the first `trackPageView`. If you moved trackPageView from its usual position after the initialization of the script, it will reflect a different value.
+ * If `overridePageViewDuration` is set and a duration argument is provided in the `trackPageView()` call, then the argument value is used instead. 
 
 
-## Настраиваемые счетчики страниц
+## <a name="custom-page-counts"></a>Custom page counts
 
-По умолчанию счетчик страницы увеличивается на единицу каждый раз, когда страница загружается в клиентском браузере. Однако вам может потребоваться подсчитать дополнительные просмотры страницы. Например, если содержимое страницы разбито на вкладки, возможно, вы захотите, чтобы счетчик увеличивался на единицу при каждом переключении между ними. Другой пример — ситуация, когда код JavaScript на странице загружает новое содержимое, но URL-адрес в браузере при этом не меняется.
+By default, a page count occurs each time a new page loads into the client browser.  But you might want to count additional page views. For example, a page might display its content in tabs and you want to count a page when the user switches tabs. Or JavaScript code in the page might load new content without changing the browser's URL.
 
-Вставьте в соответствующем месте клиентского кода вызов JavaScript наподобие следующего:
+Insert a JavaScript call like this at the appropriate point in your client code:
 
     appInsights.trackPageView(myPageName);
 
-Имя страницы может содержать те же знаки, что и URL-адрес, но все знаки после "#" или "?" игнорируются.
+The page name can contain the same characters as a URL, but anything after "#" or "?" is ignored.
 
 
 
-## Отслеживание использования
+## <a name="usage-tracking"></a>Usage tracking
 
 
-Хотите узнать, что пользователи делают в вашем приложении?
+Want to find out what your users do with your app?
 
-* [Дополнительные сведения об отслеживании использования](app-insights-web-track-usage.md)
-* [Дополнительные сведения об API пользовательских событий и метрик](app-insights-api-custom-events-metrics.md).
+* [Learn about usage tracking](app-insights-web-track-usage.md)
+* [Learn about custom events and metrics API](app-insights-api-custom-events-metrics.md).
 
 
-#### <a name="video"></a>Видео «Отслеживание использования»
+#### <a name="<a-name="video"></a>-video:-tracking-usage"></a><a name="video"></a> Video: Tracking Usage
 
 > [AZURE.VIDEO tracking-usage-with-application-insights]
 
-## <a name="next"></a>Дальнейшие действия
+## <a name="<a-name="next"></a>-next-steps"></a><a name="next"></a> Next steps
 
-* [Отслеживание использования](app-insights-web-track-usage.md)
-* [Пользовательские события и метрики](app-insights-api-custom-events-metrics.md)
-* [Сборка, измерение и обучение](app-insights-overview-usage.md)
+* [Track usage](app-insights-web-track-usage.md)
+* [Custom events and metrics](app-insights-api-custom-events-metrics.md)
+* [Build-measure-learn](app-insights-overview-usage.md)
 
-<!---HONumber=AcomDC_0831_2016-->
+
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

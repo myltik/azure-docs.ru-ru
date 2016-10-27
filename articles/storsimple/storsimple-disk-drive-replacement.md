@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Замена диска на устройстве StorSimple | Microsoft Azure"
-   description="В статье объясняется, как заменить диск в основном корпусе StorSimple или в корпусе EBOD."
+   pageTitle="Replace a disk drive on a StorSimple device | Microsoft Azure"
+   description="Explains how to replace a disk drive on a StorSimple primary enclosure or an EBOD enclosure."
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
@@ -15,113 +15,118 @@
    ms.date="08/17/2016"
    ms.author="alkohli" />
 
-# Замена диска на устройстве StorSimple
 
-## Обзор
+# <a name="replace-a-disk-drive-on-your-storsimple-device"></a>Replace a disk drive on your StorSimple device
 
-В этом учебнике объясняется, как снять и заменить неисправный или вышедший из строя жесткий диск на устройстве Microsoft Azure StorSimple. Для замены жесткого диска необходимо:
+## <a name="overview"></a>Overview
 
-- открыть защитную защелку;
+This tutorial explains how you can remove and replace a malfunctioning or failed hard disk drive on a Microsoft Azure StorSimple device. To replace a disk drive, you need to:
 
-- снять жесткий диск;
+- Disengage the antitamper lock
 
-- установить новый жесткий диск.
+- Remove the disk drive
 
->[AZURE.IMPORTANT] Перед снятием и заменой диска ознакомьтесь со сведениями о безопасности в разделе [Замена компонентов оборудования StorSimple](storsimple-hardware-component-replacement.md).
+- Install the replacement disk drive
 
-## Открыть защитную защелку
+>[AZURE.IMPORTANT] Before removing and replacing a disk drive, review the safety information in [StorSimple hardware component replacement](storsimple-hardware-component-replacement.md).
 
-Эта процедура объясняет, как открыть и закрыть защитную защелку при замене дисков на устройстве StorSimple. Защитная защелка расположена на передней панели дискового модуля, и для доступа к ней используется маленькая щель в области защелки на передней панели. Диски поставляются с закрытыми защитными защелками.
+## <a name="disengage-the-antitamper-lock"></a>Disengage the antitamper lock
 
-#### Чтобы открыть защитную защелку
+This procedure explains how the antitamper locks on your StorSimple device can be engaged or disengaged when you replace the disk drives. The antitamper locks are fitted in the drive carrier handles, and they are accessed through a small aperture in the latch section of the handle. Drives are supplied with the locks set to the locked position.
 
-1. Аккуратно вставьте ключ ("антивандальную" отвертку T10, предоставляемую Майкрософт) в гнездо сквозь щель.
+#### <a name="to-unlock-the-antitamper-lock"></a>To unlock the antitamper lock
 
-    >[AZURE.NOTE] Если защелка закрыта, то в щели будет виден красный индикатор.
+1. Carefully insert the lock key (a "tamperproof" T10 screwdriver that Microsoft provided) into the aperture in the handle and into its socket. 
 
-    ![Диск с закрытой защитной защелкой](./media/storsimple-disk-drive-replacement/IC741056.png)
+    >[AZURE.NOTE] If the antitamper lock is activated, the red indicator is visible in the aperture.
 
-    **Рис. 1.** Защитная защелка закрыта
+    ![Locked disk drive](./media/storsimple-disk-drive-replacement/IC741056.png)
 
-    |Метка|Описание|
-    |:----|:----------|
-    |1|Щель индикатора|
-    |2|Защитная защелка|
+    **Figure 1** Anti-tamper lock engaged
 
-2. Поворачивайте ключ против часовой стрелки, пока красный индикатор в щели над ключом не перестанет быть видимым.
+  	|Label|Description|
+  	|:----|:----------|
+  	|1|Indicator aperture|
+  	|2|Antitamper lock|
 
-3. Извлеките ключ.
+2. Rotate the key in an anticlockwise direction until the red indicator is not visible in the aperture above the key.
 
-    ![Диск с открытой защитной защелкой](./media/storsimple-disk-drive-replacement/IC741057.png)
+3. Remove the key.
 
-    **Рис. 2.** Защитная защелка открыта
+    ![Unlocked disk drive](./media/storsimple-disk-drive-replacement/IC741057.png)
 
-4. Теперь диск можно снять.
+    **Figure 2** Unlocked disk drive
 
-Для закрытия защелки выполните эти действия в обратном порядке.
+4. The disk drive can now be removed.
 
-## Снять жесткий диск
+Follow the steps in reverse to engage the lock.
 
-Устройство StorSimple поддерживает конфигурацию хранилища, напоминающую RAID 10. Это означает, что устройство продолжит нормальную работу после выхода из строя одного диска, твердотельного накопителя (SSD) или жесткого диска (HDD).
+## <a name="remove-the-disk-drive"></a>Remove the disk drive
+
+Your StorSimple device supports a RAID 10-like storage spaces configuration. This implies that it can operate normally with one failed disk, solid-state drive (SSD), or hard disk drive (HDD). 
 
 >[AZURE.IMPORTANT]
 >
->- Если в системе несколько неисправных дисков, не снимайте более одного SSD или HDD в один момент времени. Это может привести к потере данных.
+>- If your system has more than one failed disk, do not remove more than one SSD or HDD from the system at any point in time. Doing so could result in loss of data.
 >
->- Убедитесь, что новый SSD устанавливается в слот, в котором ранее находился SSD. Аналогично, новый HDD должен устанавливаться в слот, в котором ранее находился HDD.
+>- Make sure that you place a replacement SSD in a slot that previously contained an SSD. Similarly, place a replacement HDD in a slot that previously contained an HDD.
 >
->- В классическом портале Azure слоты нумеруются от 0 до 11. Таким образом, если на портале управления отображается, что произошел сбой диска в слоте 2 на устройстве, то неисправным будет третий по счету диск от левого верхнего.
+>- In the Azure classic portal, slots are numbered from 0 – 11. Therefore, if the portal shows that a disk in slot 2 has failed, on the device, look for the failed disk in the third slot from the top left.
 
-Диски можно будет снимать и заменять во время работы системы.
+Drives can be removed and replaced while the system is operating.
 
-#### Для снятия диска
+#### <a name="to-remove-a-drive"></a>To remove a drive
 
-1. Для определения неисправного диска на классическом портале Azure выберите **Устройства** > **Обслуживание** > **Состояние оборудования**. Поскольку неисправный диск может находиться в основном корпусе и/или корпусе EBOD (при использовании модели 8600), просмотрите состояние дисков в разделах **Общие компоненты** и **Общие компоненты корпуса EBOD**. Неисправный диск в любом корпусе будет отмечен красным цветом.
+1. To identify the failed disk, in the Azure classic portal, go to **Devices** > **Maintenance** > **Hardware Status**. Because a disk can fail in the primary enclosure and/or in an EBOD enclosure (if you are using a 8600 model), look at the status of the disks under **Shared Components** and under **EBOD enclosure Shared Components**. A failed disk in either enclosure will be shown with a red status.
 
-2. Найдите диски в передней части основного корпуса или корпуса EBOD.
+2. Locate the drives in the front of the primary enclosure or the EBOD enclosure. 
 
-3. Если защитная защелка диска открыта, перейдите к следующему шагу. Если защитная защелка закрыта, откройте ее, выполнив процедуру, описанную в разделе [Открывание защитной защелки](#disengage-the-antitamper-lock).
+3. If the disk is unlocked, proceed to the next step. If the disk is locked, unlock it by following the procedure in [Disengage the antitamper lock](#disengage-the-antitamper-lock).
 
-4. Нажмите на черную защелку на дисковом модуле и откройте рукоятку диска на передней панели.
+4. Press the black latch on the drive carrier module and pull the drive carrier handle out and away from the front of the chassis. 
 
-    ![Открытие рукоятки диска](./media/storsimple-disk-drive-replacement/IC741051.png)
+    ![Releasing disk drive handle](./media/storsimple-disk-drive-replacement/IC741051.png)
 
-    **Рис. 3.** Открытие рукоятки диска
+    **Figure 3** Releasing the drive handle
 
-5. Полностью открыв рукоятку диска, извлеките дисковый модуль из корпуса.
+5. When the drive carrier handle is fully extended, slide the drive carrier out of the chassis. 
 
-    ![Извлечение диска](./media/storsimple-disk-drive-replacement/IC741052.png)
+    ![Sliding disk out of disk drive](./media/storsimple-disk-drive-replacement/IC741052.png)
     
-    **Рис. 4.** Извлечение диска из корпуса
+    **Figure 4** Sliding the disk drive out of the carrier
 
-## Установить новый жесткий диск
+## <a name="install-the-replacement-disk-drive"></a>Install the replacement disk drive
 
-После снятия неисправного жесткого диска на устройстве StorSimple выполните эту процедуру для установки нового диска.
+After a drive has failed in your StorSimple device and you have removed it, follow this procedure to replace it with a new drive.
 
-#### Для установки диска
+#### <a name="to-insert-a-drive"></a>To insert a drive
 
-1. Убедитесь, что рукоятка дискового модуля полностью открыта, как показано на следующем рисунке.
+1. Ensure the drive carrier handle is fully extended, as shown in the following image.
 
-    ![Диск с открытой рукояткой](./media/storsimple-disk-drive-replacement/IC741044.png)
+    ![Disk drive with handle extended](./media/storsimple-disk-drive-replacement/IC741044.png)
 
-    **Рис. 5.** Диск с открытой рукояткой
+    **Figure 5** Drive with handle extended
 
-2. Полностью установите диск в корпус.
+2. Slide the drive carrier all the way into the chassis. 
 
-    ![Установка диска в дисковый модуль](./media/storsimple-disk-drive-replacement/IC741045.png)
+    ![Sliding disk into disk drive carrier](./media/storsimple-disk-drive-replacement/IC741045.png)
 
-    **Рис. 6.** Установка дискового модуля в корпус
+    **Figure 6**  Sliding the drive carrier into the chassis
 
-3. Установив дисковый модуль, закройте рукоятку дискового модуля, продолжая надавливать на диск до тех пор, пока рукоятка не перейдет в закрытое положение.
+3. With the drive carrier inserted, close the drive carrier handle while continuing to push the drive carrier into the chassis, until the drive carrier handle snaps into a locked position.
 
-4. Для закрепления ручки используйте ключ ("антивандальную" отвертку Torx, предоставляемую Майкрософт), повернув защитный винт на четверть оборота по часовой стрелке.
+4. Use the lock key that was provided by Microsoft (tamperproof Torx screwdriver) to secure the carrier handle into place by turning the lock screw a quarter turn clockwise.
 
-5. Убедитесь, что замена выполнена успешно и диск работает, зайдя на классический портал Azure и выбрав **Обслуживание** > **Состояние оборудования**. В разделах **Общие компоненты** или **Общие компоненты корпуса EBOD** состояние диска должно быть зеленым, что указывает на его работоспособность.
+5. Verify that the replacement was successful and the drive is operational by accessing the Azure classic portal and navigating to **Maintenance** > **Hardware Status**. Under **Shared Components** or **EBOD enclosure Shared Components**, the drive status should be green, indicating that it is healthy.
 
-    >[AZURE.NOTE] После замены диска на изменение состояния диска в портале управления может потребоваться несколько часов.
+    >[AZURE.NOTE] It may take several hours for the disk status to turn green after the replacement.
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Next steps
 
-Узнайте больше о [Замене компонентов оборудования StorSimple](storsimple-hardware-component-replacement.md)
+Learn more about [StorSimple hardware component replacement](storsimple-hardware-component-replacement.md).
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

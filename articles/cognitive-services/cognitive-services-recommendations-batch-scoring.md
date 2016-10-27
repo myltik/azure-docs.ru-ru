@@ -1,56 +1,59 @@
 
 <properties
-	pageTitle="Получение пакетов рекомендаций: API рекомендаций для машинного обучения | Microsoft Azure"
-	description="Рекомендации для машинного обучения Azure. Получение пакетов рекомендаций"
-	services="cognitive-services"
-	documentationCenter=""
-	authors="luiscabrer"
-	manager="jhubbard"
-	editor="cgronlun"/>
+    pageTitle="Getting recommendations in batches: Machine learning recommendations API | Microsoft Azure"
+    description="Azure machine learning recommendations--getting recommendations in batches"
+    services="cognitive-services"
+    documentationCenter=""
+    authors="luiscabrer"
+    manager="jhubbard"
+    editor="cgronlun"/>
 
 <tags
-	ms.service="cognitive-services"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/17/2016"
-	ms.author="luisca"/>
+    ms.service="cognitive-services"
+    ms.workload="data-services"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="08/17/2016"
+    ms.author="luisca"/>
 
-# Получение пакетов рекомендаций
 
->[AZURE.NOTE] Процесс получения пакетов рекомендаций сложнее, чем получение рекомендаций по одной. Здесь вы можете получить информацию о том, как получить рекомендацию для одного запроса:
+# <a name="get-recommendations-in-batches"></a>Get recommendations in batches
 
-> [Item-to-Item recommendations](https://westus.dev.cognitive.microsoft.com/docs/services/Recommendations.V4.0/operations/56f30d77eda5650db055a3d4) (Рекомендации "элемент — элемент")<br> [User-to-Item recommendations](https://westus.dev.cognitive.microsoft.com/docs/services/Recommendations.V4.0/operations/56f30d77eda5650db055a3dd) (Рекомендации "пользователь — элемент")
+>[AZURE.NOTE] Getting recommendations in batches is more complicated than getting recommendations one at a time. Check the APIs for information about how to get recommendations for a single request:
+
+> [Item-to-Item recommendations](https://westus.dev.cognitive.microsoft.com/docs/services/Recommendations.V4.0/operations/56f30d77eda5650db055a3d4)<br>
+> [User-to-Item recommendations](https://westus.dev.cognitive.microsoft.com/docs/services/Recommendations.V4.0/operations/56f30d77eda5650db055a3dd)
 >
-> Операции пакетной оценки поддерживаются только сборками, созданными после 21 июля 2016 года.
+> Batch scoring only works for builds that were created after July 21, 2016.
 
 
-Иногда необходимо получить рекомендации для нескольких элементов за раз, например, если вы хотите создать кэш рекомендаций или проанализировать типы получаемых рекомендаций.
+There are situations in which you need to get recommendations for more than one item at a time. For instance, you might be interested in creating a recommendations cache or even analyzing the types of recommendations that you are getting.
 
-Операции пакетной оценки являются асинхронными. Сначала вы отправляете запрос, потом ожидаете завершения операции, и после этого получаете результаты.
+Batch scoring operations, as we call them, are asynchronous operations. You need to submit the request, wait for the operation to finish, and then gather your results.  
 
-Ниже приведены конкретные шаги для выполнения таких операций.
+To be more precise, these are the steps to follow:
 
-1.	Создайте контейнер хранилища Azure, если у вас его еще нет.
-2.	Передайте входной файл, в котором описываются все запросы рекомендаций к хранилищу BLOB-объектов Azure.
-3.	Запустите пакетное задание оценки.
-4.	Дождитесь завершения асинхронной операции.
-5.	После завершения операции заберите результаты из хранилища BLOB-объектов.
+1.  Create an Azure Storage container if you don’t have one already.
+2.  Upload an input file that describes each of your recommendation requests to Azure Blob storage.
+3.  Kick-start the scoring batch job.
+4.  Wait for the asynchronous operation to finish.
+5.  When the operation has finished, gather the results from Blob storage.
 
-Давайте рассмотрим каждый из этих шагов более детально.
+Let’s walk through each of these steps.
 
-## Создание контейнера хранилища
+## <a name="create-a-storage-container-if-you-don’t-have-one-already"></a>Create a Storage container if you don’t have one already
 
-Перейдите на [портал Azure](https://portal.azure.com) и создайте новую учетную запись хранения, если у вас ее нет. Для этого последовательно выберите пункты **Создать** > **Данные** + **Хранение** > **Учетная запись хранения**.
+Go to the [Azure portal](https://portal.azure.com) and create a new storage account if you don’t have one already. To do this, navigate to **New** > **Data** + **Storage** > **Storage Account**.
 
-Далее необходимо создать контейнеры больших двоичных объектов, в которых будут храниться входные и выходные данные пакетной операции.
+After you have a storage account, you need to create the blob containers where you will store the input and output of the batch execution.
 
-Отправьте входной файл, в котором описываются все запросы рекомендаций к хранилищу BLOB-объектов Azure. В этом примере он будет называться input.json. После создания контейнера необходимо отправить из службы рекомендаций файл, содержащий сведения о каждом запросе, который необходимо выполнить.
+Upload an input file that describes each of your recommendation requests to Blob storage--let's call the file input.json here.
+After you have a container, you need to upload a file that describes each of the requests that you need to perform from the recommendations service.
 
-Пакетная операция может выполнять только один тип запросов для конкретной сборки. Мы расскажем, как определить эти сведения, в следующем разделе. А пока давайте предположим, что мы собираемся выполнить рекомендации по элементам из конкретной сборки. В таком случае наш входной файл содержит входные данные (здесь это начальные элементы) для каждого запроса.
+A batch can perform only one type of request from a specific build. We will explain how to define this information in the next section. For now, let’s assume that we will be performing item recommendations out of a specific build. The input file then contains the input information (in this case, the seed items) for each of the requests.
 
-Вот как может выглядеть файл input.json:
+This is an example of what the input.json file looks like:
 
     {
       "requests": [
@@ -65,15 +68,15 @@
       ]
     }
 
-Как видно, это JSON-файл, каждый запрос в котором содержит сведения, необходимые для отправки запроса на получение рекомендаций. Создайте похожий файл JSON для запросов, которые вы хотите выполнить, и скопируйте его в контейнер, созданный ранее в хранилище BLOB-объектов.
+As you can see, the file is a JSON file, where each of the requests has the information that's necessary to send a recommendations request. Create a similar JSON file for the requests that you need to fulfill, and copy it to the container that you just created in Blob storage.
 
-## Запуск пакетного задания
+## <a name="kick-start-the-batch-job"></a>Kick-start the batch job
 
-Следующий шаг заключается в отправке нового пакетного задания. Дополнительные сведения см. в [справочнике по API](https://westus.dev.cognitive.microsoft.com/docs/services/Recommendations.V4.0/).
+The next step is to submit a new batch job. For more information, check the [API reference](https://westus.dev.cognitive.microsoft.com/docs/services/Recommendations.V4.0/).
 
-В тексте запроса API необходимо определить расположения для входных и выходных файлов, а также файлов с ошибками. Также необходимо указать учетные данные для доступа ко всем этим расположениям. Кроме того, необходимо задать некоторые параметры, которые применяются ко всему пакету (тип запрашиваемых рекомендаций, используемая модель и сборка, количество результатов на один вызов и т. д.).
+The request body of the API needs to define the locations where the input, output, and error files need to be stored. It also needs to define the credentials that are necessary to access those locations. In addition, you need to specify some parameters that apply to the whole batch (the type of recommendations to request, the model/build to use, the number of results per call, and so on.)
 
-Вот как может выглядеть текст запроса:
+This is an example of what the request body should look like:
 
     {
       "input": {
@@ -104,23 +107,24 @@
       }
     }
 
-Обратите внимание на несколько важных моментов.
+Here a few important things to note:
 
--	В настоящее время для параметра **authenticationType** необходимо использовать только значение **PublicOrSas**.
+-   Currently, **authenticationType** should always be set to **PublicOrSas**.
 
--	Чтобы предоставить API-интерфейсу рекомендаций разрешения на чтение из учетной записи хранилища BLOB-объектов и запись данных в нее, необходимо получить маркер подписанного URL-адреса (SAS). Дополнительные сведения о способах создания маркеров SAS можно найти на [странице об API рекомендаций](../storage/storage-dotnet-shared-access-signature-part-1.md).
+-   You need to get a Shared Access Signature (SAS) token to allow the Recommendations API to read and write from/to your Blob storage account. More information about how to generate SAS tokens can be found on [the Recommendations API page](../storage/storage-dotnet-shared-access-signature-part-1.md).
 
--	В настоящее время параметр **apiName** поддерживает только значение **ItemRecommend**, которое используется для рекомендаций "элемент — элемент". Пакетная обработка пока не поддерживает рекомендации "пользователь — элемент".
+-   The only **apiName** that's currently supported is **ItemRecommend**, which is used for Item-to-Item  recommendations. Batching doesn't currently support User-to-Item recommendations.
 
-## Ожидание завершения асинхронной операции
+## <a name="wait-for-the-asynchronous-operation-to-finish"></a>Wait for the asynchronous operation to finish
 
-После запуска пакетной операции в ответе вернется заголовок Operation-Location, в котором содержатся все необходимые сведения для отслеживания операции. Для отслеживания пакетной операции (как и операции создания) используется [API получения состояния операции](https://westus.dev.cognitive.microsoft.com/docs/services/Recommendations.V4.0/operations/56f30d77eda5650db055a3da).
+When you start the batch operation, the response returns the Operation-Location header that gives you the information that's necessary to track the operation.
+You track the operation by using the [Retrieve Operation Status API]( https://westus.dev.cognitive.microsoft.com/docs/services/Recommendations.V4.0/operations/56f30d77eda5650db055a3da), just like you do for tracking the operation of a build operation.
 
-## Получение результатов
+## <a name="get-the-results"></a>Get the results
 
-После завершения операции, если не возникло никаких ошибок, вы можете забрать результаты из хранилища BLOB-объектов, указанного для хранения выходных данных.
+After the operation has finished, assuming that there were no errors, you can gather the results from your output Blob storage.
 
-Ниже приводится пример таких выходных данных. В этом примере для краткости представлены результаты пакетной операции только для двух запросов.
+The example below show what the output might look like. In this example, we show results for a batch with only two requests (for brevity).
 
     {
       "results":
@@ -193,9 +197,13 @@
     ]}
 
 
-## Дополнительные сведения об ограничениях
+## <a name="learn-about-the-limitations"></a>Learn about the limitations
 
--	Для каждой подписки можно единовременно выполнять только одно пакетное задание.
--	Размер входного файла для пакетного задания не может превышать 2 МБ.
+-   Only one batch job can be called per subscription at a time.
+-   A batch job input file cannot be more than 2 MB.
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

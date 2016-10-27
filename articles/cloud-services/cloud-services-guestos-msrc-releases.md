@@ -1,9 +1,9 @@
 <properties 
-   pageTitle="Список обновлений для гостевой ОС Azure | Microsoft Azure" 
-   description="Список обновлений для выпусков гостевой ОС" 
+   pageTitle="List of updates applied to the Azure Guest OS | Microsoft Azure" 
+   description="The list of updates applied to Guest OS releases" 
    services="cloud-services" 
    documentationCenter="na" 
-   authors="yuemlu" 
+   authors="raiye" 
    manager="timlt" 
    editor=""/>
 
@@ -16,357 +16,358 @@
    ms.date="08/17/2016"
    ms.author="raiye"/>
 
-# Гостевая ОС Azure 
 
-В следующей таблице приведены обновления Microsoft Security Response Center (MSRC) для гостевой ОС Azure. Выполните поиск по этой статье, чтобы определить, применяется ли какое-либо конкретное обновление к используемой гостевой ОС. Обновления всегда пролонгируются для того семейства версий [family][family-explain], в котором они были введены.
+# <a name="azure-guest-os"></a>Azure Guest OS 
 
-## Сентябрьская гостевая система 
+The following tables show the Microsoft Security Response Center (MSRC) updates applied to the Azure Guest OS. Search this article to determine if a particular update applies to the Guest OS you are using. Updates always carry forward for the particular [family][family-explain] they were introduced in. 
 
-| Идентификатор бюллетеня | Родительская статья базы знаний | Описание уязвимости | Гостевая ОС | Дата первого появления |
+## <a name="september-guest-os"></a>September Guest OS 
+
+| Bulletin ID | Parent KB Article   | Vulnerability Description                                                   | Guest OS         | Date First Introduced |
 | ----------- | ------------------- | --------------------------------------------------------------------------- | ---------------- | --------------------- |
-| MS16-104 | [3183038] | Накопительный пакет обновлений безопасности для Internet Explorer | 4\.36, 3.43, 2.55 | 13 сентября 2016 г. |
-| MS16-106 | [3185848] | Обновление безопасности для компонента Microsoft Graphics | 4\.36, 3.43, 2.55 | 13 сентября 2016 г. |
-| MS16-110 | [3178467] | Обновление безопасности для Windows | 4\.36, 3.43, 2.55 | 13 сентября 2016 г. |
-| MS16-111 | [3186973] | Обновление безопасности для ядра Windows | 4\.36, 3.43, 2.55 | 13 сентября 2016 г. |
-| MS16-112 | [3178469] | Обновление безопасности для экрана блокировки Windows | 4\.36 | 13 сентября 2016 г. |
-| MS16-114 | [3185879] | Обновление безопасности для сервера SMB Windows | 4\.36, 3.43, 2.55 | 13 сентября 2016 г. |
-| MS16-115 | [3188733] | Обновление безопасности для PDF | 4\.35, 3.43 | 13 сентября 2016 г. |
-| MS16-116 | [3188724] | Обновление безопасности OLE-автоматизации для обработчика сценариев VBScript | 4\.36, 3.43, 2.55 | 13 сентября 2016 г. |
-| | [3174644] | Обновление поддержки обмена ключами Диффи — Хелмана | 4\.36, 3.43, 2.55 | 13 сентября 2016 г. |
-| | [3177723] | Обновление часового пояса: Египет отменяет переход на летнее время | 4\.36, 3.43, 2.55 | 13 сентября 2016 г. |
-| | [3179573] | Накопительный пакет обновления для Windows 7 с пакетом обновления 1 (SP1) и Windows Server 2008 R2 с пакетом обновления 1 (SP1), август 2016 г. | 2\.55 | 13 сентября 2016 г. |
-| | [3179575] | Накопительный пакет обновления для Windows Server 2012, август 2016 г. | 3\.43 | 13 сентября 2016 г. |
-| | [3179574] | Накопительный пакет обновления для Windows RT 8.1, Windows 8.1 и Windows Server 2012 R2, август 2016 г. | 4\.36 | 13 сентября 2016 г. |
+| MS16-104 | [3183038] | Cumulative Security Update for Internet Explorer | 4.36, 3.43, 2.55 | Sept 13, 2016 |
+| MS16-106 | [3185848] | Security Update for Microsoft Graphics Component | 4.36, 3.43, 2.55 | Sept 13, 2016 |
+| MS16-110 | [3178467] | Security Update for Windows | 4.36, 3.43, 2.55 | Sept 13, 2016 |
+| MS16-111 | [3186973] | Security Update for Windows Kernel | 4.36, 3.43, 2.55 | Sept 13, 2016 |
+| MS16-112 | [3178469] | Security Update for Windows Lock Screen | 4.36 | Sept 13, 2016 |
+| MS16-114 | [3185879] | Security Update for Windows SMB Server | 4.36, 3.43, 2.55 | Sept 13, 2016 |
+| MS16-115 | [3188733] | Security Update for PDF | 4.35, 3.43 | Sept 13, 2016 |
+| MS16-116 | [3188724] | Security Update in OLE Automation for VBScript Scripting Engine | 4.36, 3.43, 2.55 | Sept 13, 2016 |
+|  | [3174644] | Updated Support for Diffie-Hellman Key Exchange | 4.36, 3.43, 2.55 | Sept 13, 2016 |
+|  | [3177723] | Timezone Update - Egypt cancels DST | 4.36, 3.43, 2.55 | Sept 13, 2016 |
+|  | [3179573] | August 2016 update rollup for Windows 7 SP1 and Windows Server 2008 R2 SP1 | 2.55 | Sept 13, 2016 |
+|  | [3179575] | August 2016 update rollup for Windows Server 2012 | 3.43 | Sept 13, 2016 |
+|  | [3179574] | August 2016 update rollup for Windows RT 8.1, Windows 8.1, and Windows Server 2012 R2 | 4.36 | Sept 13, 2016 |
 
 
-## Августовская гостевая ОС 
+## <a name="august-guest-os"></a>August Guest OS 
 
-| Идентификатор бюллетеня | Родительская статья базы знаний | Описание уязвимости | Гостевая ОС | Дата первого появления |
+| Bulletin ID | Parent KB Article   | Vulnerability Description                                                   | Guest OS         | Date First Introduced |
 | ----------- | ------------------- | --------------------------------------------------------------------------- | ---------------- | --------------------- |
-| MS16-095 | [3177356] | Накопительный пакет обновлений безопасности для Internet Explorer | 4\.35, 3.42, 2.54 | 9 августа 2016 г. |
-| MS16-097 | [3177393] | Обновление безопасности для компонента Microsoft Graphics | 4\.35, 3.42, 2.54 | 9 августа 2016 г. |
-| MS16-098 | [3178466] | Обновление для системы безопасности драйверов Windows, работающих в режиме ядра | 4\.35, 3.42, 2.54 | 9 августа 2016 г. |
-| MS16-100 | [3179577] | Обновление безопасности для Secure Boot | 4\.35, 3.42 | 9 августа 2016 г. |
-| MS16-101 | [3178465] | Обновление для системы безопасности методов проверки подлинности Windows | 4\.35, 3.42, 2.54 | 9 августа 2016 г. |
-| MS16-102 | [3182248] | Обновление для системы безопасности библиотеки Microsoft Windows для PDF | 4\.35, 3.42 | 9 августа 2016 г. |
-| Повторный выпуск: MS16-077 | [3165191] | Обновление для системы безопасности автоматического обнаружения веб-прокси (WPAD) | 4\.35, 3.42, 2.54 | 9 августа 2016 г. |
-| | [3172605] | Накопительный пакет обновления для Windows 7 с пакетом обновления 1 (SP1) и Windows Server 2008 R2 с пакетом обновления 1 (SP1), июль 2016 г. | 2\.54 | 9 августа 2016 г. |
-| | [3172615] | Накопительный пакет обновления для Windows Server 2012, июль 2016 г. | 3\.42 | 9 августа 2016 г. |
-| | [3172614] | Накопительный пакет обновления для Windows RT 8.1, Windows 8.1 и Windows Server 2012 R2, июль 2016 г. | 4\.35 | 9 августа 2016 г. |
+| MS16-095 | [3177356] | Cumulative Security Update for Internet Explorer | 4.35, 3.42, 2.54 | Aug 9, 2016 |
+| MS16-097 | [3177393] | Security Update for Microsoft Graphics Component | 4.35, 3.42, 2.54 | Aug 9, 2016 |
+| MS16-098 | [3178466] | Security Update for Windows Kernel-Mode Drivers | 4.35, 3.42, 2.54 | Aug 9, 2016 |
+| MS16-100 | [3179577] | Security Update for Secure Boot | 4.35, 3.42 | Aug 9, 2016 |
+| MS16-101 | [3178465] | Security Update for Windows Authentication Methods | 4.35, 3.42, 2.54 | Aug 9, 2016 |
+| MS16-102 | [3182248] | Security Update for Microsoft Windows PDF Library | 4.35, 3.42 | Aug 9, 2016 |
+| MS16-077 Re-Release | [3165191] | Security Update for Web Proxy Autodiscovery (WPAD) | 4.35, 3.42, 2.54 | Aug 9, 2016 |
+|  | [3172605] | July 2016 update rollup for Windows 7 SP1 and Windows Server 2008 R2 SP1 | 2.54 | Aug 9, 2016 |
+|  | [3172615] | July 2016 update rollup for Windows Server 2012 | 3.42 | Aug 9, 2016 |
+|  | [3172614] | July 2016 update rollup for Windows RT 8.1, Windows 8.1, and Windows Server 2012 R2 | 4.35 | Aug 9, 2016 |
 
-## Июльская гостевая ОС 
+## <a name="july-guest-os"></a>July Guest OS 
 
-| Идентификатор бюллетеня | Родительская статья базы знаний | Описание уязвимости | Гостевая ОС | Дата первого появления |
+| Bulletin ID | Parent KB Article   | Vulnerability Description                                                   | Guest OS         | Date First Introduced |
 | ----------- | ------------------- | --------------------------------------------------------------------------- | ---------------- | --------------------- |
-| MS16-084 | [3169991] | Накопительный пакет обновлений безопасности для Internet Explorer | 4\.34, 3.41, 2.53 | 12 июля 2016 г. |
-| MS16-087 | [3170005] | Обновление безопасности для Microsoft Print Spooler | 4\.34, 3.41, 2.53 | 12 июля 2016 г. |
-| MS16-090 | [3171481] | Обновление безопасности для работающих в режиме ядра драйверов | 4\.34, 3.41, 2.53 | 12 июля 2016 г. |
-| MS16-091 | [3170048] | Обновление безопасности для .NET Framework | 4\.34, 3.41, 2.53 | 12 июля 2016 г. |
-| MS16-092 | [3171910] | Обновление безопасности для ядра Windows | 4\.34, 3.41 | 12 июля 2016 г. |
-| MS16-094 | [3177404] | Обновление безопасности для Secure Boot | 4\.34, 3.41 | 12 июля 2016 г. |
-| | [3162835] | Обновление часового пояса и переход на летнее время в июне 2016 г. для Windows | 4\.34, 3.41, 2.53 | 12 июля 2016 г. |
-| | [3156417] | Накопительный пакет обновления для Windows 7 с пакетом обновления 1 (SP1) и Windows Server 2008 R2 с пакетом обновления 1 (SP1), май 2016 г. | 2\.53 | 12 июля 2016 г. |
-| | [3161608] | Накопительный пакет обновления для Windows 7 с пакетом обновления 1 (SP1) и Windows Server 2008 R2 с пакетом обновления 1 (SP1), июнь 2016 г. | 2\.53 | 12 июля 2016 г. |
-| | [3161609] | Накопительный пакет обновления для Windows Server 2012, июнь 2016 г. | 3\.41 | 12 июля 2016 г. |
-| | [3161606] | Накопительный пакет обновления для Windows RT 8.1, Windows 8.1 и Windows Server 2012 R2, июнь 2016 г. | 4\.34 | 12 июля 2016 г. |
-| | [3139923] | Исправление установщика Windows (MSI) не работает во время установки пакета MSI в общий ресурс HTTP в Windows | 4\.34 | 12 июля 2016 г. |
+| MS16-084 | [3169991] | Cumulative Security Update for Internet Explorer | 4.34, 3.41, 2.53 | July 12, 2016 |
+| MS16-087 | [3170005] | Security Update for Microsoft Print Spooler | 4.34, 3.41, 2.53 | July 12, 2016 |
+| MS16-090 | [3171481] | Security Update for Kernel Mode Drivers | 4.34, 3.41, 2.53 | July 12, 2016 |
+| MS16-091 | [3170048] | Security Update for .NET Framework | 4.34, 3.41, 2.53 | July 12, 2016 |
+| MS16-092 | [3171910] | Security Update for Windows Kernel | 4.34, 3.41 | July 12, 2016 |
+| MS16-094 | [3177404] | Security Update for Secure Boot | 4.34, 3.41 | July 12, 2016 |
+|  | [3162835] | June 2016 DST and time zone update for Windows | 4.34, 3.41, 2.53 | July 12, 2016 |
+|  | [3156417] | May 2016 update rollup for Windows 7 SP1 and Windows Server 2008 R2 SP1 | 2.53 | July 12, 2016 |
+|  | [3161608] | June 2016 update rollup for Windows 7 SP1 and Windows Server 2008 R2 SP1 | 2.53 | July 12, 2016 |
+|  | [3161609] | June 2016 update rollup for Windows Server 2012 | 3.41 | July 12, 2016 |
+|  | [3161606] | June 2016 update rollup for Windows RT 8.1, Windows 8.1, and Windows Server 2012 R2 | 4.34 | July 12, 2016 |
+|  | [3139923] | Windows installer (MSI) repair doesn't work when MSI package is installed on an HTTP share in Windows | 4.34 | July 12, 2016 |
 
-## Июньская гостевая ОС 
+## <a name="june-guest-os"></a>June Guest OS 
 
-| Идентификатор бюллетеня | Родительская статья базы знаний | Описание уязвимости | Гостевая ОС | Дата первого появления |
+| Bulletin ID | Parent KB Article   | Vulnerability Description                                                   | Guest OS         | Date First Introduced |
 | ----------- | ------------------- | --------------------------------------------------------------------------- | ---------------- | --------------------- |
-| MS16-035 | [3141780] | Обновление безопасности для .NET Framework, устраняющее проблему обхода функции безопасности | 4\.33, 3.40, 2.52 | 14 июня 2016 г. |
-| Советы | [3155527] | Обновление комплектов шифров для FalseStart | 4\.33, 3.40 | 14 июня 2016 г. |
-| MS16-063 | [3163649] | Накопительный пакет обновлений безопасности для Internet Explorer | 4\.33, 3.40, 2.52 | 14 июня 2016 г. |
-| MS16-069 | [3163640] | Накопительный пакет обновлений безопасности для JScript и VBScript | 2\.52 | 14 июня 2016 г. |
-| MS16-071 | [3164065] | Обновление безопасности для DNS-сервера Microsoft Windows | 4\.33, 3.40 | 14 июня 2016 г. |
-| MS16-072 | [3163622] | Обновление безопасности для групповой политики | 4\.33, 3.40, 2.52 | 14 июня 2016 г. |
-| MS16-073 | [3164028] | Обновление безопасности для работающих в режиме ядра драйверов | 4\.33, 3.40, 2.52 | 14 июня 2016 г. |
-| MS16-074 | [3164036] | Обновление безопасности для компонента Microsoft Graphics | 4\.33, 3.40, 2.52 | 14 июня 2016 г. |
-| MS16-075 | [3164038] | Обновление безопасности для сервера SMB Windows | 4\.33, 3.40, 2.52 | 14 июня 2016 г. |
-| MS16-076 | [3167691] | Обновление безопасности для Netlogon | 4\.33 | 14 июня 2016 г. |
-| MS16-077 | [3165191] | Обновление безопасности для WPAD | 4\.33, 3.40, 2.52 | 14 июня 2016 г. |
-| MS16-080 | [3164302] | Обновление безопасности для PDF Microsoft Windows | 4\.33, 3.40 | 14 июня 2016 г. |
-| MS16-081 | [3160352] | Обновление безопасности для Active Directory | 4\.33, 3.40, 2.52 | 14 июня 2016 г. |
-| | [2922223] | Нельзя изменять системное время, если в Windows включена запись реестра RealTimeIsUniversal | 2\.52 | 14 июня 2016 г. |
-| | [3121255] | STOP-ошибка 0x00000024 в файле FsRtlNotifyFilterReportChange. Операция копирования файла может завершиться ошибкой в Windows | 2\.52 | 14 июня 2016 г. |
-| | [3125424] | Из-за взаимоблокировок LSASS Windows Server 2012 R2 или Windows Server 2012 не отвечает | 4\.33, 3.40 | 14 июня 2016 г. |
-| | [3125574] | Накопительный пакет обновления (Convenience Rollup Update) для Windows 7 с пакетом обновления 1 и Windows Server 2008 R2 с пакетом обновления 1 | 2\.52 | 14 июня 2016 г. |
-| | [3140245] | Обновление, предусматривающее использование TLS 1.1 и TLS 1.2 в качестве безопасных протоколов по умолчанию в WinHTTP в Windows | 3\.40, 2.52 | 14 июня 2016 г. |
-| | [3146604] | Случайный сбой службы WMI в Windows Server 2012 R2 или Windows Server 2012 | 4\.33, 3.40 | 14 июня 2016 г. |
-| | [3149157] | Улучшения надежности и масштабируемости в TCP/IP для Windows 8.1 и Windows Server 2012 R2 | 4\.33 | 14 июня 2016 г. |
-| | [3156416] | Накопительный пакет обновления для Windows Server 2012 от мая 2016 г. | 3\.40 | 14 июня 2016 г. |
-| | [3156418] | Накопительный пакет обновления для Windows RT 8.1, Windows 8.1 и Windows Server 2012 R2 от мая 2016 г. | 4\.33 | 14 июня 2016 г. |
-| | [3153731] | Обновление, поддерживающее переход на летнее время для Азербайджана, Чили, Гаити и Марокко в Windows, от мая 2016 г. | 4\.33, 3.40, 2.52 | 14 июня 2016 г. |
+| MS16-035 | [3141780] | Security Update for .NET Framework to Address Security Feature Bypass | 4.33, 3.40, 2.52 | June 14, 2016 |
+| Advisory | [3155527] | Update to Cipher Suites for FalseStart | 4.33, 3.40 | June 14, 2016 |
+| MS16-063 | [3163649] | Cumulative Security Update for Internet Explorer | 4.33, 3.40, 2.52 | June 14, 2016 |
+| MS16-069 | [3163640] | Cumulative Security Update for JScript and VBScript | 2.52 | June 14, 2016 |
+| MS16-071 | [3164065] | Security Update for Microsoft Windows DNS Server | 4.33, 3.40 | June 14, 2016 |
+| MS16-072 | [3163622] | Security Update for Group Policy | 4.33, 3.40, 2.52 | June 14, 2016 |
+| MS16-073 | [3164028] | Security Update for Kernel Mode Drivers | 4.33, 3.40, 2.52 | June 14, 2016 |
+| MS16-074 | [3164036] | Security Update for Microsoft Graphics Component | 4.33, 3.40, 2.52 | June 14, 2016 |
+| MS16-075 | [3164038] | Security Update for Windows SMB Server | 4.33, 3.40, 2.52 | June 14, 2016 |
+| MS16-076 | [3167691] | Security Update for Netlogon | 4.33 | June 14, 2016 |
+| MS16-077 | [3165191] | Security Update for WPAD | 4.33, 3.40, 2.52 | June 14, 2016 |
+| MS16-080 | [3164302] | Security Update for Microsoft Windows PDF | 4.33, 3.40 | June 14, 2016 |
+| MS16-081 | [3160352] | Security Update for Active Directory | 4.33, 3.40, 2.52 | June 14, 2016 |
+|  | [2922223] | You cannot change system time if RealTimeIsUniversal registry entry is enabled in Windows | 2.52 | June 14, 2016 |
+|  | [3121255] | "0x00000024" Stop error in FsRtlNotifyFilterReportChange and copy file may fail in Windows | 2.52 | June 14, 2016 |
+|  | [3125424] | LSASS deadlocks cause Windows Server 2012 R2 or Windows Server 2012 not to respond | 4.33, 3.40 | June 14, 2016 |
+|  | [3125574] | Convenience rollup update for Windows 7 SP1 and Windows Server 2008 R2 SP1 | 2.52 | June 14, 2016 |
+|  | [3140245] | Update to enable TLS 1.1 and TLS 1.2 as a default secure protocols in WinHTTP in Windows | 3.40, 2.52 | June 14, 2016 |
+|  | [3146604] | WMI service crashes randomly in Windows Server 2012 R2 or Windows Server 2012 | 4.33, 3.40 | June 14, 2016 |
+|  | [3149157] | Reliability and scalability improvements in TCP/IP for Windows 8.1 and Windows Server 2012 R2 | 4.33 | June 14, 2016 |
+|  | [3156416] | May 2016 update rollup for Windows Server 2012 | 3.40 | June 14, 2016 |
+|  | [3156418] | May 2016 update rollup for Windows RT 8.1, Windows 8.1, and Windows Server 2012 R2 | 4.33 | June 14, 2016 |
+|  | [3153731] | May 2016 DST update for Azerbaijan, Chile, Haiti, and Morocco in Windows | 4.33, 3.40, 2.52 | June 14, 2016 |
 
 
-## Майская гостевая ОС 
+## <a name="may-guest-os"></a>May Guest OS 
 
-| Идентификатор бюллетеня | Родительская статья базы знаний | Описание уязвимости | Гостевая ОС | Дата первого появления |
+| Bulletin ID | Parent KB Article   | Vulnerability Description                                                   | Guest OS         | Date First Introduced |
 | ----------- | ------------------- | --------------------------------------------------------------------------- | ---------------- | --------------------- |
-| MS16-051 | [3155533] | Накопительный пакет обновлений безопасности для Internet Explorer | 4\.32, 3.39, 2.51 | 10 мая 2016 г. |  
-| MS16-053 | [3156764] | Накопительный пакет обновлений безопасности для JScript и VBScript | 2\.51 | 10 мая 2016 г. | 
-| MS16-055 | [3156754] | Обновление безопасности для компонента Microsoft Graphics | 4\.32, 3.39, 2.51 | 10 мая 2016 г. | 
-| MS16-057 | [3156987] | Обновление безопасности для оболочки Windows | 4\.32 | 10 мая 2016 г. | 
-| MS16-060 | [3154846] | Обновление безопасности для ядра Windows | 4\.32, 3.39, 2.51 | 10 мая 2016 г. | 
-| MS16-061 | [3155520] | Обновление безопасности для RPC | 4\.32, 3.39, 2.51 | 10 мая 2016 г. | 
-| MS16-062 | [3158222] | Обновление безопасности для работающих в режиме ядра драйверов | 4\.32, 3.39, 2.51 | 10 мая 2016 г. | 
-| MS16-065 | [3156757] | Обновление безопасности для .NET Framework | 4\.32, 3.39, 2.51 | 10 мая 2016 г. | 
-| MS16-067 | [3155784] | Обновление безопасности для драйвера диспетчера томов | 4\.32, 3.39 | 10 мая 2016 г. | 
-| | [3148851] | Изменения часового пояса для России в Windows | 4\.32, 3.39, 2.51 | 10 мая 2016 г. | 
-| | [3133977] | BitLocker не может шифровать диски из-за сбоев службы в процессе svchost.exe в Windows 7 или Windows Server 2008 R2 | 2\.51 | 10 мая 2016 г. | 
-| | [3133681] | Виртуальные машины не отвечают на действие в SCVMM в Windows Server 2012 R2 | 4\.32 | 10 мая 2016 г. | 
-| | [3123245] | Обновление улучшает выявление нехватки портов в Windows Server 2012 R2 | 4\.32 | 10 мая 2016 г. | 
-| | [Отключение версии-кандидата 4] | Советы по безопасности корпорации Майкрософт: обновление для отключения версии-кандидата 4 | 4\.32, 3.39, 2.51 | 10 мая 2016 г. | 
+| MS16-051 | [3155533] | Cumulative Security Update for Internet Explorer | 4.32, 3.39, 2.51 | May 10, 2016 |  
+| MS16-053 | [3156764] | Cumulative Security Update for JScript and VBScript | 2.51 | May 10, 2016 | 
+| MS16-055 | [3156754] | Security Update for Microsoft Graphics Component | 4.32, 3.39, 2.51 | May 10, 2016 | 
+| MS16-057 | [3156987] | Security Update for Windows Shell | 4.32 | May 10, 2016 | 
+| MS16-060 | [3154846] | Security Update for Windows Kernel | 4.32, 3.39, 2.51 | May 10, 2016 | 
+| MS16-061 | [3155520] | Security Update to RPC | 4.32, 3.39, 2.51 | May 10, 2016 | 
+| MS16-062 | [3158222] | Security Update for Kernel Mode Drivers | 4.32, 3.39, 2.51 | May 10, 2016 | 
+| MS16-065 | [3156757] | Security Update for .Net Framework | 4.32, 3.39, 2.51 | May 10, 2016 | 
+| MS16-067 | [3155784] | Security Update for Volume Manager Driver | 4.32, 3.39 | May 10, 2016 | 
+|  | [3148851] | Time zone changes for Russia in Windows  | 4.32, 3.39, 2.51 | May 10, 2016 | 
+|  | [3133977] | BitLocker can't encrypt drives because of service crashes in svchost.exe process in Windows 7 or Windows Server 2008 R2  | 2.51 | May 10, 2016 | 
+|  | [3133681] | Virtual machines don't respond to your operation in SCVMM in Windows Server 2012 R2  | 4.32 | May 10, 2016 | 
+|  | [3123245] | Update improves port exhaustion identification in Windows Server 2012 R2  | 4.32 | May 10, 2016 | 
+|  | [Disable RC4] |  Microsoft security advisory: Update for disabling RC4  | 4.32, 3.39, 2.51 | May 10, 2016 | 
 
 
-## Апрельская гостевая ОС 
+## <a name="april-guest-os"></a>April Guest OS 
 
-| Идентификатор бюллетеня | Родительская статья базы знаний | Описание уязвимости | Гостевая ОС | Дата первого появления |
+| Bulletin ID | Parent KB Article   | Vulnerability Description                                                   | Guest OS         | Date First Introduced |
 | ----------- | ------------------- | --------------------------------------------------------------------------- | ---------------- | --------------------- |
-| MS16-037 | [3148531] | Накопительный пакет обновлений безопасности для Internet Explorer | 4\.31, 3.38, 2.50 | 12 апреля 2016 г. |  
-| MS16-039 | [3148522] | Обновление безопасности для компонента Microsoft Graphics | 4\.31, 3.38, 2.50 | 12 апреля 2016 г. | 
-| MS16-040 | [3148541] | Обновление безопасности для службы Microsoft XML Core Service | 4\.31, 3.38, 2.50 | 12 апреля 2016 г. | 
-| MS16-044 | [3146706] | Обновление безопасности для Windows OLE | 4\.31, 3.38, 2.50 | 12 апреля 2016 г. | 
-| MS16-045 | [3143118] | Обновление безопасности для Windows Hyper-V | 4\.31, 3.38 | 12 апреля 2016 г. | 
-| MS16-047 | [3148527] | Обновление безопасности для протокола Security Account Manager Remote | 4\.31, 3.38, 2.50 | 12 апреля 2016 г. | 
-| MS16-048 | [3148528] | Обновление безопасности для CSRSS | 4\.31, 3.38 | 12 апреля 2016 г. | 
+| MS16-037 | [3148531] | Cumulative Security Update for Internet Explorer | 4.31, 3.38, 2.50 | April 12, 2016 |  
+| MS16-039 | [3148522] | Security Update for Microsoft Graphics Component | 4.31, 3.38, 2.50 | April 12, 2016 | 
+| MS16-040 | [3148541] | Security Update for Microsoft XML Core Service | 4.31, 3.38, 2.50 | April 12, 2016 | 
+| MS16-044 | [3146706] | Security Update for Windows OLE | 4.31, 3.38, 2.50 | April 12, 2016 | 
+| MS16-045 | [3143118] | Security Update for Windows Hyper-V | 4.31, 3.38 | April 12, 2016 | 
+| MS16-047 | [3148527] | Security Update for Security Account Manager Remote Protocol | 4.31, 3.38, 2.50 | April 12, 2016 | 
+| MS16-048 | [3148528] | Security Update for CSRSS | 4.31, 3.38 | April 12, 2016 | 
 
-## Мартовская гостевая ОС 
+## <a name="march-guest-os"></a>March Guest OS 
 
-| Идентификатор бюллетеня | Родительская статья базы знаний | Описание уязвимости | Гостевая ОС | Дата первого появления |
+| Bulletin ID | Parent KB Article   | Vulnerability Description                                                   | Guest OS         | Date First Introduced |
 | ----------- | ------------------- | --------------------------------------------------------------------------- | ---------------- | --------------------- |
-| MS16-023 | [3142015] | Накопительный пакет обновлений безопасности для Internet Explorer | 4\.30, 3.37, 2.49 | 8 марта 2016 г. |  
-| MS16-026 | [3143148] | Обновление безопасности для графических шрифтов, устраняющее проблему с удаленным выполнением кода | 4\.30, 3.37, 2.49 | 8 марта 2016 г. |  
-| MS16-027 | [3143146] | Обновление безопасности для проигрывателя Windows Media, устраняющее проблему с удаленным выполнением кода | 4\.30, 3.37, 2.49 | 8 марта 2016 г. |  
-| MS16-028 | [3143081] | Обновление безопасности для библиотеки PDF Microsoft Windows, устраняющее проблему с удаленным выполнением кода | 4\.30, 3.37 | 8 марта 2016 г. |  
-| MS16-030 | [3143136] | Обновление безопасности для Windows OLE, устраняющее проблему с удаленным выполнением кода | 4\.30, 3.37, 2.49 | 8 марта 2016 г. |  
-| MS16-031 | [3140410] | Обновление безопасности для Microsoft Windows, устраняющее проблему с повышением привилегий | 2\.49 | 8 марта 2016 г. |  
-| MS16-032 | [3143141] | Обновление безопасности для вторичного входа в систему, устраняющее проблему с повышением привилегий | 4\.30, 3.37, 2.49 | 8 марта 2016 г. |  
-| MS16-033 | [3143142] | Обновление безопасности для драйвера класса USB-накопителей, устраняющее проблему с повышением привилегий | 4\.30, 3.37, 2.49 | 8 марта 2016 г. |  
-| MS16-034 | [3143145] | Обновление безопасности для работающего в режиме ядра драйвера, устраняющее проблему с повышением привилегий | 4\.30, 3.37, 2.49 | 8 марта 2016 г. | | MS16-035 | [3141780] | Обновление безопасности для .NET Framework, устраняющее проблему обхода функции безопасности | 4\.30, 3.37, 2.49 | 8 марта 2016 г. |  
+| MS16-023 | [3142015] | Cumulative Security Update for Internet Explorer | 4.30, 3.37, 2.49 | March 8, 2016 |  
+| MS16-026 | [3143148] | Security Update to Graphic Fonts to Address Remote Code Execution | 4.30, 3.37, 2.49 | March 8, 2016 |  
+| MS16-027 | [3143146] | Security Updates for Windows Media Player to address Remote Code Execution | 4.30, 3.37, 2.49 | March 8, 2016 |  
+| MS16-028 | [3143081] | Security Update for Microsoft Windows PDF Library to Address Remote Code Execution | 4.30, 3.37 | March 8, 2016 |  
+| MS16-030 | [3143136] | Security Update for Windows OLE to Address Remote Code Execution | 4.30, 3.37, 2.49 | March 8, 2016 |  
+| MS16-031 | [3140410] | Security Update for Microsoft Windows to Address Elevation of Privilege | 2.49 | March 8, 2016 |  
+| MS16-032 | [3143141] | Security Update to Secondary Logon to Address Elevation of Privilege | 4.30, 3.37, 2.49 | March 8, 2016 |  
+| MS16-033 | [3143142] | Security Update to USB Mass Storage Class Driver to Address Elevation of Privilege | 4.30, 3.37, 2.49 | March 8, 2016 |  
+| MS16-034 | [3143145] | Security Updates for Kernel-Mode Driver to address Elevation of Privilege | 4.30, 3.37, 2.49 | March 8, 2016 | | MS16-035 | [3141780] | Security Update for .NET Framework to Address Security Feature Bypass | 4.30, 3.37, 2.49 | March 8, 2016 |  
 
 
-## Февральская гостевая ОС
+## <a name="february-guest-os"></a>February Guest OS
 
-| Идентификатор бюллетеня | Родительская статья базы знаний | Описание уязвимости | Гостевая ОС | Дата первого появления |
+| Bulletin ID | Parent KB Article   | Vulnerability Description                                                   | Guest OS         | Date First Introduced |
 | ----------- | ------------------- | --------------------------------------------------------------------------- | ---------------- | --------------------- |
-| MS16-009 | [3134220] | Накопительный пакет обновлений безопасности для Internet Explorer | 4\.29, 3.36, 2.48 | 9 февраля 2016 г. |
-| MS16-013 | [3134811] | Обновление безопасности для журнала Windows, устраняющее проблему с удаленным выполнением кода. | 4\.29, 3.36, 2.48 | 9 февраля 2016 г. |
-| MS16-014 | [3134228] | Обновление безопасности для Microsoft Windows, устраняющее проблему с удаленным выполнением кода. | 4\.29, 3.36, 2.48 | 9 февраля 2016 г. |
-| MS16-016 | [3136041] | Обновление безопасности для WebDAV, устраняющее проблему с повышением привилегий. | 4\.29, 3.36, 2.48 | 9 февраля 2016 г. |
-| MS16-018 | [3136082] | Обновление безопасности для работающего в режиме ядра драйвера Windows, устраняющее проблему с повышением привилегий. | 4\.29, 3.36, 2.48 | 9 февраля 2016 г. |
-| MS16-019 | [3137893] | Обновление безопасности для платформы .NET Framework, устраняющее проблему с удаленным выполнением кода. | 4\.29, 3.36, 2.48 | 9 февраля 2016 г. |
-| MS16-021 | [3133043] | Обновление безопасности для сервера NPS RADIUS, устраняющее проблему с отказом в обслуживании. | 4\.29, 3.36, 2.48 | 9 февраля 2016 г. |
-| Советы по безопасности корпорации Майкрософт | [3109853] | Обновление для улучшения взаимодействия TLS | 4\.29, 3.36 | 9 февраля 2016 г. |
-| Повторный выпуск: MS15-101 | [3089662] | Уязвимости в .NET Framework могут привести к несанкционированному повышению привилегий | 4\.29, 3.36, 2.48 | 9 февраля 2016 г. |
-| Повторный выпуск: MS15-118 | [3104507] | Обновление безопасности для .NET Framework, устраняющее проблему с повышением привилегий. | 4\.29, 3.36, 2.48 | 9 февраля 2016 г. |
-| Повторный выпуск: MS15-128 | [3104503] | Обновление безопасности для компонента Microsoft Graphics, устраняющее проблему с удаленным выполнением кода. | 4\.29, 3.36, 2.48 | 9 февраля 2016 г. |
+| MS16-009 | [3134220] | Cumulative Security Update for Internet Explorer | 4.29, 3.36, 2.48 | February 9, 2016 |
+| MS16-013 | [3134811] | Security Update to Windows Journal to Address Remote Code Execution | 4.29, 3.36, 2.48 | February 9, 2016 |
+| MS16-014 | [3134228] | Security update to Microsoft Windows to Address Remote Code Execution | 4.29, 3.36, 2.48 | February 9, 2016 |
+| MS16-016 | [3136041] | Security Update to WebDAV to Address Elevation of Privilege | 4.29, 3.36, 2.48 | February 9, 2016 |
+| MS16-018 | [3136082] | Security Update for Windows Kernel-Mode Driver to Address Elevation of Privilege | 4.29, 3.36, 2.48 | February 9, 2016 |
+| MS16-019 | [3137893] | Security Update for .NET Framework to Address Remote Code Execution | 4.29, 3.36, 2.48 | February 9, 2016 |
+| MS16-021 | [3133043] | Security Update for NPS RADIUS Server to Address Denial of Service | 4.29, 3.36, 2.48 | February 9, 2016 |
+| Microsoft Security Advisory | [3109853] | Update to Improve TLS Interoperability | 4.29, 3.36 | February 9, 2016 |
+| Re-Release - MS15-101 | [3089662] | Vulnerabilities in .NET Framework Could Allow Elevation of Privilege | 4.29, 3.36, 2.48 | February 9, 2016 |
+| Re-Release - MS15-118 | [3104507] | Security Updates for .NET Framework to Address Elevation of Privilege | 4.29, 3.36, 2.48 | February 9, 2016 |
+| Re-Release - MS15-128 | [3104503] | Security Updates for Microsoft Graphics Component to Address Remote Code Execution | 4.29, 3.36, 2.48 | February 9, 2016 |
 
-## Январская гостевая ОС
+## <a name="january-guest-os"></a>January Guest OS
 
-| Идентификатор бюллетеня | Родительская статья базы знаний | Описание уязвимости | Гостевая ОС | Дата первого появления |
+| Bulletin ID | Parent KB Article   | Vulnerability Description                                                   | Guest OS         | Date First Introduced |
 | ----------- | ------------------- | --------------------------------------------------------------------------- | ---------------- | --------------------- |
-| MS16-001 | [3124903] | Накопительный пакет обновлений безопасности для Internet Explorer | 4\.28, 3.35, 2.47 | 12 января 2016 г. |
-| MS16-003 | [3125540] | Накопительный пакет обновлений безопасности для JScript и VBScript | 2\.47 | 12 января 2016 г. |
-| MS16-005 | [3124584] | Обновление безопасности для работающих в режиме ядра драйверов Windows, устраняющее проблему с удаленным выполнением кода | 4\.28, 3.35, 2.47 | 12 января 2016 г. |
-| MS16-007 | [3124901] | Обновление безопасности для Microsoft Windows, устраняющее проблему с удаленным выполнением кода. | 4\.28, 3.35, 2.47 | 12 января 2016 г. |
-| MS16-008 | [3124605] | Обновление безопасности для ядра, устраняющее проблему с повышением привилегий | 4\.28, 3.35, 2.47 | 12 января 2016 г. |
-| Редакция советов по безопасности корпорации Майкрософт | [2755801] | Обновление для уязвимости Adobe Flash Player в Internet Explorer (пакет КБ: будет добавлен позже) — рекомендации по заполнителям | 4\.28, 3.35 | 12 января 2016 г. |
-| Советы по безопасности корпорации Майкрософт | [3109853] | Обновление для улучшения взаимодействия TLS | 4\.28, 3.35 | 12 января 2016 г. |
-| Советы по безопасности корпорации Майкрософт | [3123479] | Устаревание алгоритма хэширования SHA-1 для программы корневого сертификата Майкрософт | 4\.28, 3.35, 2.47 | 12 января 2016 г. |
-| Советы по безопасности корпорации Майкрософт | [2736233] | Обновления для ActiveX Kill Bits | 4\.28, 3.35, 2.47 | 12 января 2016 г. |
+| MS16-001 | [3124903] | Cumulative Security Update for Internet Explorer | 4.28, 3.35, 2.47 | January 12, 2016 |
+| MS16-003 | [3125540] | Cumulative Security Update for JScript and VBScript | 2.47 | January 12, 2016 |
+| MS16-005 | [3124584] | Security Update for Windows Kernel-Mode Drivers to Address Remote Code Execution | 4.28, 3.35, 2.47 | January 12, 2016 |
+| MS16-007 | [3124901] | Security Update for Microsoft Windows to Address Remote Code Execution | 4.28, 3.35, 2.47 | January 12, 2016 |
+| MS16-008 | [3124605] | Security Update for Kernel to Address Elevation of Privilege | 4.28, 3.35, 2.47 | January 12, 2016 |
+| Microsoft Security Advisory Revision | [2755801] | Update for Vulnerabilities in Adobe Flash Player in Internet Explorer (Package KB: TBD) -  Advisory Placeholder | 4.28, 3.35 | January 12, 2016 |
+| Microsoft Security Advisory | [3109853] | Update to Improve TLS Interoperability | 4.28, 3.35 | January 12, 2016 |
+| Microsoft Security Advisory | [3123479] | Deprecation of SHA-1 Hashing Algorithm for Microsoft Root Certificate Program | 4.28, 3.35, 2.47 | January 12, 2016 |
+| Microsoft Security Advisory | [2736233] | Updates for ActiveX Kill Bits | 4.28, 3.35, 2.47 | January 12, 2016 |
 
-## Декабрьская гостевая система
+## <a name="december-guest-os"></a>December Guest OS
 
-| Идентификатор бюллетеня | Родительская статья базы знаний | Описание уязвимости | Гостевая ОС | Дата первого появления |
+| Bulletin ID | Parent KB Article   | Vulnerability Description                                                   | Guest OS         | Date First Introduced |
 | ----------- | ------------------- | --------------------------------------------------------------------------- | ---------------- | --------------------- |
-| MS15-124 | [3116180] | Накопительный пакет обновлений безопасности для Internet Explorer | 4\.27, 3.34, 2.46 | 8 декабря 2015 г. |
-| MS15-126 | [3116178] | Обновление безопасности для Microsoft VBScript и JScript, устраняющее проблему с удаленным выполнением кода. | 2\.46 | 8 декабря 2015 г. |
-| MS15-127 | [3100465] | Обновление безопасности для Microsoft Windows DNS, устраняющее проблему с удаленным выполнением кода. | 4\.27, 3.34, 2.46 | 8 декабря 2015 г. |
-| MS15-128 | [3104503] | Обновление безопасности для компонента Microsoft Graphics, устраняющее проблему с удаленным выполнением кода. | 4\.27, 3.34, 2.46 | 8 декабря 2015 г. |
-| MS15-132 | [3116162] | Обновление безопасности для Windows, устраняющее проблему с удаленным выполнением кода. | 4\.27, 3.34, 2.46 | 8 декабря 2015 г. |
-| MS15-133 | [3116130] | Обновление безопасности для Windows PGM, устраняющее проблему с повышением привилегий. | 4\.27, 3.34, 2.46 | 8 декабря 2015 г. |
-| MS15-134 | [3108669] | Обновление безопасности для Windows Media Center, устраняющее проблему с удаленным выполнением кода. | 4\.27, 3.34, 2.46 | 8 декабря 2015 г. |
-| MS15-135 | [3119075] | Обновление безопасности для работающих в режиме ядра драйверов Windows, устраняющее проблему с повышением привилегий. | 4\.27, 3.34, 2.46 | 8 декабря 2015 г. |
+| MS15-124 | [3116180] | Cumulative Security Update for Internet Explorer | 4.27, 3.34, 2.46 | December 8, 2015 |
+| MS15-126 | [3116178] | Security Update for Microsoft VBScript and JScript to Address Remote Code Execution | 2.46 | December 8, 2015 |
+| MS15-127 | [3100465] | Security Update for Microsoft Windows DNS to Address Remote Code Execution | 4.27, 3.34, 2.46 | December 8, 2015 |
+| MS15-128 | [3104503] | Security Updates for Microsoft Graphics Component to Address Remote Code Execution | 4.27, 3.34, 2.46 | December 8, 2015 |
+| MS15-132 | [3116162] | Security Update for Windows to Address Remote Code Execution | 4.27, 3.34, 2.46 | December 8, 2015 |
+| MS15-133 | [3116130] | Security Update for Windows PGM to Address Elevation of Privilege | 4.27, 3.34, 2.46 | December 8, 2015 |
+| MS15-134 | [3108669] | Security Update for Windows Media Center to Address Remote Code Execution | 4.27, 3.34, 2.46 | December 8, 2015 |
+| MS15-135 | [3119075] | Security Update for Windows Kernel Mode Drivers to Address Elevation of Privilege | 4.27, 3.34, 2.46 | December 8, 2015 |
 
-## Ноябрьская гостевая ОС
+## <a name="november-guest-os"></a>November Guest OS
 
-| Идентификатор бюллетеня | Родительская статья базы знаний | Описание уязвимости | Гостевая ОС | Дата первого появления |
+| Bulletin ID | Parent KB Article   | Vulnerability Description                                                   | Guest OS         | Date First Introduced |
 | ----------- | ------------------- | --------------------------------------------------------------------------- | ---------------- | --------------------- |
-| MS15-112 | [3104517] | Накопительный пакет обновлений безопасности для Internet Explorer | 4\.26, 3.33, 2.45 | 10 ноября 2015 г. |
-| MS15-114 | [3100213] | Обновление безопасности для журнала Windows, устраняющее проблему с удаленным выполнением кода. | 2\.45 | 10 ноября 2015 г. |
-| MS15-115 | [3105864] | Обновление безопасности для Microsoft Windows, устраняющее проблему с удаленным выполнением кода. | 4\.26, 3.33, 2.45 | 10 ноября 2015 г. |
-| MS15-117 | [3101722] | Обновление безопасности для NDIS, устраняющее проблему с повышением привилегий. | 2\.45 | 10 ноября 2015 г. |
-| MS15-118 | [3104507] | Обновление безопасности для .NET Framework, устраняющее проблему с повышением привилегий. | 4\.26, 3.33, 2.45 | 10 ноября 2015 г. |
-| MS15-119 | [3104521] | Обновление безопасности для Winsock, устраняющее проблему с повышением привилегий. | 4\.26, 3.33, 2.45 | 10 ноября 2015 г. |
-| MS15-120 | [3102939] | Обновление безопасности для IPSec, устраняющее проблему с повышением привилегий. | 4\.26, 3.33 | 10 ноября 2015 г. |
-| MS15-121 | [3081320] | Обновление безопасности Schannel, устраняющее проблему со спуфингом адресов. | 4\.26, 3.33, 2.45 | 10 ноября 2015 г. |
-| MS15-122 | [3105256] | Обновление безопасности для Kerberos, устраняющее проблему обхода функции безопасности. | 4\.26, 3.33, 2.45 | 10 ноября 2015 г. |
-| Советы по безопасности корпорации Майкрософт | [3097966] | Случайно раскрытые цифровые сертификаты могут позволить спуфинг. | 4\.26, 3.33, 2.45 | 10 ноября 2015 г. |
+| MS15-112 | [3104517] | Cumulative Security Update for Internet Explorer | 4.26, 3.33, 2.45 | November 10, 2015 |
+| MS15-114 | [3100213] | Security Update for Windows Journal to Address Remote Code Execution | 2.45 | November 10, 2015 |
+| MS15-115 | [3105864] | Security Update for Microsoft Windows to Address Remote Code Execution | 4.26, 3.33, 2.45 | November 10, 2015 |
+| MS15-117 | [3101722] | Security Update for NDIS to Address Elevation of Privilege | 2.45 | November 10, 2015 |
+| MS15-118 | [3104507] | Security Updates for .NET Framework to Address Elevation of Privilege | 4.26, 3.33, 2.45 | November 10, 2015 |
+| MS15-119 | [3104521] | Security Update for Winsock to Address Elevation of Privilege | 4.26, 3.33, 2.45 | November 10, 2015 |
+| MS15-120 | [3102939] | Security Update for IPSec to Address Denial of Service | 4.26, 3.33 | November 10, 2015 |
+| MS15-121 | [3081320] | Security Update to Schannel to Address Spoofing | 4.26, 3.33, 2.45 | November 10, 2015 |
+| MS15-122 | [3105256] | Security Update for Kerberos to Address Security Feature Bypass | 4.26, 3.33, 2.45 | November 10, 2015 |
+| Microsoft Security Advisory | [3097966] | Inadvertently disclosed Digital Certificates Could Allow spoofing | 4.26, 3.33, 2.45 | November 10, 2015 |
 
 
-## Октябрьская гостевая система
+## <a name="october-guest-os"></a>October Guest OS
 
-| Идентификатор бюллетеня | Родительская статья базы знаний | Описание уязвимости | Гостевая ОС | Дата первого появления |
+| Bulletin ID | Parent KB Article   | Vulnerability Description                                                   | Guest OS         | Date First Introduced |
 | ----------- | ------------------- | --------------------------------------------------------------------------- | ---------------- | --------------------- |
-| MS15 106 | [3096441] | Накопительный пакет обновлений безопасности для Internet Explorer | 4\.25, 3.32, 2.44 | 13 октября 2015 г. |
-| MS15 108 | [3089659] | Обновление безопасности для JScript и VBScript, устраняющее проблему с возможным удаленным выполнением кода | 2\.44 | 13 октября 2015 г. |
-| MS15-109 | [3096443] | Обновление безопасности для оболочки Windows, устраняющее проблему с удаленным выполнением кода | 4\.25, 3.32, 2.44 | 13 октября 2015 г. |
-| MS15-111 | [3096447] | Обновление безопасности для ядра Windows, устраняющее проблему с повышением привилегий | 4\.25, 3.32, 2.44 | 13 октября 2015 г. |
-| Советы по безопасности корпорации Майкрософт | [3092627] | Обновление за сентябрь 2015 года, исправляющее зависание Windows или приложения после установки обновления для системы безопасности 3076895 | 4\.25, 3.32, 2.44 | 13 октября 2015 г. |
+| MS15-106     | [3096441] | Cumulative Security Update for Internet Explorer  | 4.25, 3.32, 2.44 | October 13, 2015 |
+| MS15-108     | [3089659] | Security Update for JScript and VBScript to Address Potential Remote Code Execution  | 2.44 | October 13, 2015 |
+| MS15-109     | [3096443] | Security Update for Windows Shell to Address Remote Code Execution  | 4.25, 3.32, 2.44 | October 13, 2015 |
+| MS15-111     | [3096447] | Security Update for Windows Kernel to Address Elevation of Privilege  | 4.25, 3.32, 2.44 | October 13, 2015 |
+| Microsoft Security Advisory | [3092627] | September 2015 update to fix Windows or application freezes after you install security update 3076895 | 4.25, 3.32, 2.44 | October 13, 2015 |
 
 
-## Сентябрьская гостевая система
+## <a name="september-guest-os"></a>September Guest OS
 
-| Идентификатор бюллетеня | Родительская статья базы знаний | Описание уязвимости | Гостевая ОС | Дата первого появления |
+| Bulletin ID | Parent KB Article   | Vulnerability Description                                                   | Guest OS         | Date First Introduced |
 | ----------- | ------------------- | --------------------------------------------------------------------------- | ---------------- | --------------------- |
-| MS15-093 | [3088903] | Обновление безопасности для Internet Explorer | 4\.24, 3.31, 2.43 | 8 сентября 2015 г. |
-| MS15-094 | [3089548] | Накопительный пакет обновлений безопасности для Internet Explorer | 4\.24, 3.31, 2.43 | 8 сентября 2015 г. |
-| MS15-096 | [3072595] | Уязвимость в службе Active Directory делает возможным отказ в обслуживании | 4\.24, 3.31, 2.43 | 8 сентября 2015 г. |
-| MS15-097 | [3089656] | Уязвимости в графических компонентах Майкрософт могут привести к несанкционированному повышению привилегий. | 4\.24, 3.31, 2.43 | 8 сентября 2015 г. |
-| MS15-098 | [3089669] | Уязвимости в журнале Windows могут позволить удаленно исполнять код | 4\.24, 3.31, 2.43 | 8 сентября 2015 г. |
-| MS15-101 | [3089662] | Уязвимости в .NET Framework могут привести к несанкционированному повышению привилегий | 4\.24, 3.31, 2.43 | 8 сентября 2015 г. |
-| MS15-102 | [3089657] | Уязвимости в компоненте управления задачами Windows могут привести к несанкционированному повышению привилегий | 4\.24, 3.31, 2.43 | 8 сентября 2015 г. |
-| MS15-105 | [3091287] | Уязвимость в Windows Hyper-V может привести к обходу функции безопасности | 4\.24 | 8 сентября 2015 г. |
+| MS15-093     | [3088903] | Security Update for Internet Explorer  | 4.24, 3.31, 2.43 | September 8, 2015 |
+| MS15-094     | [3089548] | Cumulative Security Update for Internet Explorer  | 4.24, 3.31, 2.43 | September 8, 2015 |
+| MS15-096     | [3072595] | Vulnerability in Active Directory Service Could Allow Denial of Service  | 4.24, 3.31, 2.43 | September 8, 2015 |
+| MS15-097     | [3089656] | Vulnerabilities in Microsoft Graphics Component Could Allow Elevation of Privilege  | 4.24, 3.31, 2.43 | September 8, 2015 |
+| MS15-098     | [3089669] | Vulnerabilities in Windows Journal Could Allow Remote Code Execution  | 4.24, 3.31, 2.43 | September 8, 2015 |
+| MS15-101     | [3089662] | Vulnerabilities in .NET Framework Could Allow Elevation of Privilege  | 4.24, 3.31, 2.43 | September 8, 2015 |
+| MS15-102     | [3089657] | Vulnerabilities in Windows Task Management Could Allow Elevation of Privilege  | 4.24, 3.31, 2.43 | September 8, 2015 |
+| MS15-105     | [3091287] | Vulnerability in Windows Hyper-V Could Allow Security Feature Bypass  | 4.24 | September 8, 2015 |
 
 
-## Августовская гостевая ОС
+## <a name="august-guest-os"></a>August Guest OS
 
-| Идентификатор бюллетеня | Родительская статья базы знаний | Описание уязвимости | Гостевая ОС | Дата первого появления |
+| Bulletin ID | Parent KB Article   | Vulnerability Description                                                   | Guest OS         | Date First Introduced |
 | ----------- | ------------------- | --------------------------------------------------------------------------- | ---------------- | --------------------- |
-| MS15-079 | [3082442] | Накопительный пакет обновлений безопасности для Internet Explorer | 4\.23, 3.30, 2.42 | 11 августа 2015 г. |
-| MS15-080 | [3078662] | Уязвимости в графических компонентах Майкрософт могут позволить удаленно исполнять код. | 4\.23, 3.30, 2.42 | 11 августа 2015 г. |
-| MS15-082 | [3080348] | Уязвимости в протоколе RDP могут позволить удаленно запускать код. | 4\.23, 3.30, 2.42 | 11 августа 2015 г. |
-| MS15-084 | [3080129] | Уязвимости в службах MSXML делают возможным раскрытие информации. | 4\.23, 3.30, 2.42 | 11 августа 2015 г. |
-| MS15-085 | [3082487] | Уязвимость в диспетчере подключения может привести к несанкционированному повышению привилегий. | 4\.23, 3.30, 2.42 | 11 августа 2015 г. |
-| MS15-088 | [3082458] | Небезопасная передача параметра командной строки может привести к раскрытию информации. | 4\.23, 3.30, 2.42 | 11 августа 2015 г. |
-| MS15-089 | [3060716] | Уязвимости в Microsoft Windows могут привести к несанкционированному повышению привилегий. | 4\.23, 3.30, 2.42 | 11 августа 2015 г. |
-| MS15-090 | [3076949] | Уязвимость в WebDAV может привести к раскрытию информации. | 4\.23, 3.30, 2.42 | 11 августа 2015 г. |
+|  MS15-079    | [3082442] | Cumulative Security Update for Internet Explorer  | 4.23, 3.30, 2.42 | August 11, 2015 |
+|  MS15-080    | [3078662] | Vulnerabilities in Microsoft Graphics Component Could Allow Remote Code Execution  | 4.23, 3.30, 2.42 | August 11, 2015 |
+|  MS15-082    | [3080348] | Vulnerabilities in RDP could allow Remote Code Execution  | 4.23, 3.30, 2.42 | August 11, 2015 |
+|  MS15-084    | [3080129] | Vulnerabilities in XML Core Services Could Allow Information Disclosure  | 4.23, 3.30, 2.42 | August 11, 2015 |
+|  MS15-085    | [3082487] | Vulnerability in Mount Manager Could Allow Elevation of Privilege  | 4.23, 3.30, 2.42 | August 11, 2015 |
+|  MS15-088    | [3082458] | Unsafe Command Line Parameter Passing Could Allow Information Disclosure  | 4.23, 3.30, 2.42 | August 11, 2015 |
+|  MS15-089    | [3060716] | Vulnerabilities in Microsoft Windows Could Allow Elevation of Privilege  | 4.23, 3.30, 2.42 | August 11, 2015 |
+|  MS15-090    | [3076949] | Vulnerability in WebDAV Could Allow Information Disclosure  | 4.23, 3.30, 2.42 | August 11, 2015 |
 
 
-## Июльская гостевая ОС
+## <a name="july-guest-os"></a>July Guest OS
 
-| Идентификатор бюллетеня | Родительская статья базы знаний | Описание уязвимости | Гостевая ОС | Дата первого появления |
+| Bulletin ID | Parent KB Article   | Vulnerability Description                                                   | Guest OS         | Date First Introduced |
 | ----------- | ------------------- | --------------------------------------------------------------------------- | ---------------- | --------------------- |
-| MS15-065 | [3076321] | Накопительный пакет обновлений безопасности для Internet Explorer | 4\.22, 3.29, 2.41 | 14 июля 2015 г. |
-| MS15-066 | [3072604] | Уязвимость в VBScript может позволить удаленно запускать код | 2\.41 | 14 июля 2015 г. |
-| MS15-067 | [3073094] | Уязвимость в протоколе RDP может позволить удаленно запускать код | 4\.22, 3.29, 2.41 | 14 июля 2015 г. |
-| MS15-068 | [3072000] | Уязвимость в Windows Hyper-V может позволить удаленно запускать код | 4\.22, 3.29, 2.41 | 14 июля 2015 г. |
-| MS15-069 | [3072631] | Уязвимости в ОС Windows могут позволить удаленно запускать код | 4\.22, 3.29, 2.41 | 14 июля 2015 г. |
-| MS15-071 | [3068457] | Уязвимость в NETLOGON может привести к спуфингу | 4\.22, 3.29, 2.41 | 14 июля 2015 г. |
-| MS15-072 | [3069392] | Уязвимость в графическом драйвере может привести к несанкционированному повышению привилегий | 4\.22, 3.29, 2.41 | 14 июля 2015 г. |
-| MS15-073 | [3070102] | Уязвимости в драйвере режима ядра могут привести к несанкционированному повышению привилегий | 4\.22, 3.29, 2.41 | 14 июля 2015 г. |
-| MS15-074 | [3072630] | Уязвимость в службе установщика Windows может привести к несанкционированному повышению привилегий | 4\.22, 3.29, 2.41 | 14 июля 2015 г. |
-| MS15-075 | [3072633] | Уязвимости в OLE могут привести к несанкционированному повышению привилегий | 4\.22, 3.29, 2.41 | 14 июля 2015 г. |
-| MS15-076 | [3067505] | Уязвимость в удаленном вызове процедур (RPC) может привести к несанкционированному повышению привилегий | 4\.22, 3.29, 2.41 | 14 июля 2015 г. |
-| MS15-077 | [3077657] | Уязвимость в драйвере шрифтов ATM может привести к несанкционированному повышению привилегий | 4\.22, 3.29, 2.41 | 14 июля 2015 г. |
-| Нет данных | [3057154] | Обновление, направленное на ограничение использования шифрования DES | 4\.22, 3.29, 2.41 | 14 июля 2015 г. |
+| MS15-065    | [3076321] | Cumulative Security Update for Internet Explorer | 4.22, 3.29, 2.41 | July 14, 2015 |
+| MS15-066    | [3072604] | Vulnerability in VBScript could allow Remote Code Execution | 2.41 | July 14, 2015 |
+| MS15-067    | [3073094] | Vulnerability in RDP could allow Remote Code Execution | 4.22, 3.29, 2.41 | July 14, 2015 |
+| MS15-068    | [3072000] | Vulnerability in Windows Hyper-V Could Allow Remote Code Execution | 4.22, 3.29, 2.41 | July 14, 2015 |
+| MS15-069    | [3072631] | Vulnerabilities in Windows Could Allow Remote Code Execution | 4.22, 3.29, 2.41 | July 14, 2015 |
+| MS15-071    | [3068457] | Vulnerability in NETLOGON Could Allow Spoofing | 4.22, 3.29, 2.41 | July 14, 2015 |
+| MS15-072    | [3069392] | Vulnerability in Graphics Driver Could Allow Elevation of Privilege | 4.22, 3.29, 2.41 | July 14, 2015 |
+| MS15-073    | [3070102] | Vulnerabilities in Kernel-Mode Driver Could allow Elevation of Privilege | 4.22, 3.29, 2.41 | July 14, 2015 |
+| MS15-074    | [3072630] | Vulnerability in Windows Installer Service Could Allow Elevation of Privilege | 4.22, 3.29, 2.41 | July 14, 2015 |
+| MS15-075    | [3072633] | Vulnerabilities in OLE could allow Elevation of Privilege | 4.22, 3.29, 2.41 | July 14, 2015 |
+| MS15-076    | [3067505] | Vulnerability in Windows Remote Procedure Call Could Allow Elevation of Privilege | 4.22, 3.29, 2.41 | July 14, 2015 |
+| MS15-077    | [3077657] | Vulnerability in ATM Font Driver Could Allow Elevation of Privilege | 4.22, 3.29, 2.41 | July 14, 2015 |
+| NA    | [3057154] | Update to Restrict Use of DES Encryption | 4.22, 3.29, 2.41 | July 14, 2015 |
 
-## Июньская гостевая ОС
+## <a name="june-guest-os"></a>June Guest OS
 
-| Идентификатор бюллетеня | Родительская статья базы знаний | Описание уязвимости | Гостевая ОС | Дата первого появления |
+| Bulletin ID | Parent KB Article   | Vulnerability Description                                                   | Guest OS         | Date First Introduced |
 | ----------- | ------------------- | --------------------------------------------------------------------------- | ---------------- | --------------------- |
-| MS15-056 | [3058515] | Накопительный пакет обновлений безопасности для Internet Explorer | 4\.21, 3.28, 2.40 | 9 июня 2015 г. |
-| MS15-057 | [3033890] | Уязвимость в проигрывателе Windows Media может позволить удаленно исполнять код | 4\.21, 3.28, 2.40 | 9 июня 2015 г. |
-| MS15-060 | [3059317] | Уязвимость в стандартных элементах управления Microsoft может позволить удаленно исполнять код | 4\.21, 3.28, 2.40 | 9 июня 2015 г. |
-| MS15-061 | [3057839] | Уязвимости в работающих в режиме ядра драйверах Windows могут привести к несанкционированному повышению привилегий | 4\.21, 3.28, 2.40 | 9 июня 2015 г. |
-| MS15-062 | [3062577] | Уязвимость в службах федерации Active Directory может привести к несанкционированному повышению привилегий | 4\.21, 3.28, 2.40 | 9 июня 2015 г. |
-| MS15-063 | [3063858] | Уязвимость в ядре Windows может привести к несанкционированному повышению привилегий | 4\.21, 3.28, 2.40 | 9 июня 2015 г. |
+| MS15-056    | [3058515] | Cumulative Security Update for Internet Explorer | 4.21, 3.28, 2.40 | June 9, 2015 |
+| MS15-057    | [3033890] | Vulnerability in Windows Media Player Could Allow Remote Code Execution | 4.21, 3.28, 2.40 | June 9, 2015 |
+| MS15-060    | [3059317] | Vulnerability in Microsoft Common Controls Could Allow Remote Code Execution | 4.21, 3.28, 2.40 | June 9, 2015 |
+| MS15-061    | [3057839] | Vulnerabilities in Windows Kernel-Mode Drivers Could Allow Elevation of Privilege | 4.21, 3.28, 2.40 | June 9, 2015 |
+| MS15-062    | [3062577] | Vulnerability in Active Directory Federation Services Could Allow Elevation of Privilege | 4.21, 3.28, 2.40 | June 9, 2015 |
+| MS15-063    | [3063858] | Vulnerability in Windows Kernel Could Allow Elevation of Privilege | 4.21, 3.28, 2.40 | June 9, 2015 |
 
-## Майская гостевая ОС
+## <a name="may-guest-os"></a>May Guest OS
 
-| Идентификатор бюллетеня | Родительская статья базы знаний | Описание уязвимости | Гостевая ОС | Дата первого появления |
+| Bulletin ID | Parent KB Article   | Vulnerability Description                                                   | Guest OS         | Date First Introduced |
 | ----------- | ------------------- | --------------------------------------------------------------------------- | ---------------- | --------------------- |
-| MS15-043 | [3049563] | Накопительный пакет обновлений безопасности для Internet Explorer | 4\.20, 3.27, 2.39 | 12 мая 2015 г. |
-| MS15-044 | [3057110] | Уязвимости в драйвере шрифтов Microsoft могут позволить удаленно исполнять код | 4\.20, 3.27, 2.39 | 12 мая 2015 г. |
-| MS15-045 | [3046002] | Уязвимость в журнале Windows может позволить удаленно исполнять код | 4\.20, 3.27, 2.39 | 12 мая 2015 г. |
-| MS15-048 | [3057134] | Уязвимости в .NET Framework могут привести к несанкционированному повышению привилегий | 4\.20, 3.27, 2.39 | 12 мая 2015 г. |
-| MS15-050 | [3055642] | Уязвимость в диспетчере управления службами может привести к несанкционированному повышению привилегий | 4\.20, 3.27, 2.39 | 12 мая 2015 г. |
-| MS15-051 | [3057191] | Уязвимости в работающих в режиме ядра драйверах Windows могут привести к несанкционированному повышению привилегий | 4\.20, 3.27, 2.39 | 12 мая 2015 г. |
-| MS15-052 | [3050514] | Уязвимость в ядре Windows может привести к обходу функции безопасности | 4\.20, 3.27, 2.39 | 12 мая 2015 г. |
-| MS15-053 | [3057263] | Уязвимости в обработчике сценариев JScript и VBScript могут привести к обходу функции безопасности | 4\.20, 3.27, 2.39 | 12 мая 2015 г. |
-| MS15-054 | [3051768] | Уязвимость в консоли управления форматами файлов Microsoft может привести к отказу в обслуживании | 4\.20, 3.27, 2.39 | 12 мая 2015 г. |
-| MS15-055 | [3061518] | Уязвимость в Schannel может привести к разглашению важной информации в обход функции безопасности | 4\.20, 3.27, 2.39 | 12 мая 2015 г. |
-| MS15-032 | [3038314] | Накопительный пакет обновлений безопасности для Internet Explorer | 4\.20, 3.27, 2.39 | 17 апреля 2015 г. |
-| MS15-035 | [3046306] | Уязвимость в графических компонентах Microsoft может позволить удаленно исполнять код | 4\.20, 3.27, 2.39 | 17 апреля 2015 г. |
-| MS15-037 | [3046269] | Уязвимость в планировщике заданий Windows может привести к несанкционированному повышению привилегий | 4\.20, 3.27, 2.39 | 17 апреля 2015 г. |
-| MS15-038 | [3049576] | Уязвимости в Microsoft Windows могут привести к несанкционированному повышению привилегий | 4\.20, 3.27, 2.39 | 17 апреля 2015 г. |
-| MS15-039 | [3046482] | Уязвимость в основных службах XML может привести к обходу функции безопасности | 4\.20, 3.27, 2.39 | 17 апреля 2015 г. |
-| MS15-040 | [3045711] | Уязвимость в ADFS может привести к раскрытию информации | 4\.20, 3.27, 2.39 | 17 апреля 2015 г. |
-| MS15-041 | [3048010] | Уязвимость в .NET Framework может привести к раскрытию информации | 4\.20, 3.27, 2.39 | 17 апреля 2015 г. |
-| MS15-042 | [3047234] | Уязвимость в Windows Hyper-V может привести к отказу в обслуживании | 4\.20, 3.27, 2.39 | 17 апреля 2015 г. |
-| Нет данных | [3045755] | Обновление для улучшения аутентификации PKU2U | 4\.20, 3.27, 2.39 | 17 апреля 2015 г. |
+| MS15-043    | [3049563] | Cumulative Security Update for Internet Explorer | 4.20, 3.27, 2.39 | May 12, 2015 |
+| MS15-044    | [3057110] | Vulnerabilities in Microsoft Font Drivers Could Allow Remote Code Execution | 4.20, 3.27, 2.39 | May 12, 2015 |
+| MS15-045    | [3046002] | Vulnerability in Windows Journal Could Allow Remote Code Execution | 4.20, 3.27, 2.39 | May 12, 2015 |
+| MS15-048    | [3057134] | Vulnerabilities in .NET Framework Could Allow Elevation of Privilege | 4.20, 3.27, 2.39 | May 12, 2015 |
+| MS15-050    | [3055642] | Vulnerability in Service Control Manager Could Allow Elevation of Privilege | 4.20, 3.27, 2.39 | May 12, 2015 |
+| MS15-051    | [3057191] | Vulnerabilities in Windows Kernel-Mode Drivers Could Allow Elevation of Privilege | 4.20, 3.27, 2.39 | May 12, 2015 |
+| MS15-052    | [3050514] | Vulnerability in Windows Kernel Could Allow Security Feature Bypass | 4.20, 3.27, 2.39 | May 12, 2015 |
+| MS15-053    | [3057263] | Vulnerabilities in JScript and VBScript Scripting Engine Could Allow Security Feature Bypass | 4.20, 3.27, 2.39 | May 12, 2015 |
+| MS15-054    | [3051768] | Vulnerability in Microsoft Management Console File Format Could Allow Denial of Service | 4.20, 3.27, 2.39 | May 12, 2015 |
+| MS15-055    | [3061518] | Vulnerability in Schannel Could Allow Security Feature Bypass Important Information Disclosure | 4.20, 3.27, 2.39 | May 12, 2015 |
+| MS15-032    | [3038314] | Cumulative Security Update for Internet Explorer | 4.20, 3.27, 2.39 |  Apr 17, 2015 |
+| MS15-035    | [3046306] | Vulnerability in Microsoft Graphics Component Could Allow Remote Code Execution | 4.20, 3.27, 2.39 |  Apr 17, 2015 |
+| MS15-037    | [3046269] | Vulnerability in Windows Task Scheduler Could Allow Elevation of Privilege | 4.20, 3.27, 2.39 |  Apr 17, 2015 |
+| MS15-038    | [3049576] | Vulnerabilities in Microsoft Windows Could Allow Elevation of Privilege Important  | 4.20, 3.27, 2.39 |  Apr 17, 2015 |
+| MS15-039    | [3046482] | Vulnerability in XML Core Services Could Allow Security Feature Bypass  | 4.20, 3.27, 2.39 |  Apr 17, 2015 |
+| MS15-040    | [3045711] | Vulnerability in ADFS Could Allow Information Disclosure  | 4.20, 3.27, 2.39 |  Apr 17, 2015 |
+| MS15-041    | [3048010] | Vulnerability in .NET Framework Could Allow Information Disclosure  | 4.20, 3.27, 2.39 |  Apr 17, 2015 |
+| MS15-042    | [3047234] | Vulnerability in Windows Hyper-V Could Allow Denial of Service  | 4.20, 3.27, 2.39 |  Apr 17, 2015 |
+| NA   | [3045755] | Update to Improve PKU2U Authentication  | 4.20, 3.27, 2.39 |  Apr 17, 2015 |
 
-## Апрельская гостевая ОС
+## <a name="april-guest-os"></a>April Guest OS
 
-| Идентификатор бюллетеня | Родительская статья базы знаний | Описание уязвимости | Гостевая ОС | Дата первого появления |
+| Bulletin ID | Parent KB Article   | Vulnerability Description                                                   | Guest OS         | Date First Introduced |
 | ----------- | ------------------- | --------------------------------------------------------------------------- | ---------------- | --------------------- |
-| [MS15-034] | [3042553][3042553] | Уязвимость в HTTP.sys может позволить удаленно исполнять код | 4\.19, 3.26, 2.38 | 17 апреля 2015 г. |
+| [MS15-034]    | [3042553][3042553] | Vulnerability in HTTP.sys could allow remote code execution                            | 4.19, 3.26, 2.38 | Apr 17, 2015 |
 
 
-## Мартовская гостевая ОС
+## <a name="march-guest-os"></a>March Guest OS
 
-| Идентификатор бюллетеня | Родительская статья базы знаний | Описание уязвимости | Гостевая ОС | Дата первого появления |
+| Bulletin ID | Parent KB Article   | Vulnerability Description                                                   | Guest OS         | Date First Introduced |
 | ----------- | ------------------- | --------------------------------------------------------------------------- | ---------------- | --------------------- |
-| MS15-018 | [3032359][3032359] | Накопительный пакет обновлений безопасности для Internet Explorer | 4\.18, 3.25, 2.37 | Недоступно |
-| MS15-019 | [3040297][3040297] | Уязвимость в обработчике сценариев VBScript может позволить удаленно исполнять код | 4\.18, 3.25, 2.37 | Недоступно |
-| MS15-020 | [3041836][3041836] | Уязвимости в Windows могут позволить удаленно исполнять код | 4\.18, 3.25, 2.37 | Недоступно |
-| MS15-021 | [3032323][3032323] | Уязвимости в драйвере шрифтов Adobe могут позволить удаленно исполнять код | 4\.18, 3.25, 2.37 | Недоступно |
-| MS15-023 | [3034344][3034344] | Уязвимости в драйвере режима ядра могут привести к несанкционированному повышению привилегий | 4\.18, 3.25, 2.37 | Недоступно |
-| MS15-024 | [3035132][3035132] | Уязвимость в обработке PNG может привести к раскрытию информации | 4\.18, 3.25, 2.37 | Недоступно |
-| MS15-025 | [3038680][3038680] | Уязвимости в ядре Windows могут привести к несанкционированному повышению привилегий | 4\.18, 3.25, 2.37 | Недоступно |
-| MS15-027 | [3002657][3002657] | Уязвимость в NETLOGON может привести к спуфингу | 4\.18, 3.25, 2.37 | Недоступно |
-| MS15-028 | [3030377] | Уязвимость в планировщике заданий Windows может привести к обходу функции безопасности | 4\.18, 3.25, 2.37 | Недоступно |
-| MS15-029 | [3035126][3035126] | Уязвимость в компоненте Windows Photo Decoder может привести к раскрытию информации | 4\.18, 3.25, 2.37 | Недоступно |
-| MS15-030 | [3039976] | Уязвимость в протоколе удаленного рабочего стола может привести к отказу в обслуживании | 4\.18, 3.25, 2.37 | Недоступно |
+| MS15-018    | [3032359][3032359] | Cumulative Security Update for Internet Explorer                             | 4.18, 3.25, 2.37 | N/A |
+| MS15-019    | [3040297][3040297] | Vulnerability in VBScript Scripting Engine Could Allow Remote Code Execution | 4.18, 3.25, 2.37 | N/A |
+| MS15-020    | [3041836][3041836] | Vulnerabilities in Windows could allow Remote Code Execution                 | 4.18, 3.25, 2.37 | N/A |
+| MS15-021    | [3032323][3032323] | Vulnerabilities Adobe Font Driver Could Allow Remote Code Execution          | 4.18, 3.25, 2.37 | N/A |
+| MS15-023    | [3034344][3034344] | Vulnerabilities in Kernel Mode Driver Could Allow Elevation of Privilege     | 4.18, 3.25, 2.37 | N/A |
+| MS15-024    | [3035132][3035132] | Vulnerability in PNG Processing Could Allow Information Disclosure           | 4.18, 3.25, 2.37 | N/A |
+| MS15-025    | [3038680][3038680] | Vulnerabilities in Windows Kernel could allow Elevation of Privilege         | 4.18, 3.25, 2.37 | N/A |
+| MS15-027    | [3002657][3002657] | Vulnerability in NETLOGON Could Allow Spoofing                               | 4.18, 3.25, 2.37 | N/A |
+| MS15-028    | [3030377] | Vulnerability in Windows Task Scheduler Could Allow Security Feature Bypass  | 4.18, 3.25, 2.37 | N/A |
+| MS15-029    | [3035126][3035126] | Vulnerability in Windows Photo Decoder Component Could Allow Information Disclosure | 4.18, 3.25, 2.37 | N/A |
+| MS15-030    | [3039976] | Vulnerability in Remote Desktop Protocol Could Allow Denial of Service | 4.18, 3.25, 2.37 | N/A |
 
-> [AZURE.NOTE] Бюллетень MS15-031 может показаться удаленным. Однако это не относится к этому выпуску гостевой ОС.
+> [AZURE.NOTE] Bulletin MS15-031 may appear as uninstalled. However, it does not apply to this Guest OS release.
 
-## Февральская гостевая ОС
+## <a name="february-guest-os"></a>February Guest OS
 
-| Идентификатор бюллетеня | Родительская статья базы знаний | Описание уязвимости | Гостевая ОС | Дата первого появления |
+| Bulletin ID | Parent KB Article   | Vulnerability Description                                                   | Guest OS         | Date First Introduced |
 | ----------- | ------------------- | --------------------------------------------------------------------------- | ---------------- | --------------------- |
-| MS15-009 | [3034682][3034682] | Обновление безопасности для Internet Explorer | 4\.17, 3.24, 2.36 | Недоступно |
-| MS15-010 | [3036220][3036220] | Уязвимости в драйверах режима ядра Windows могут позволить удаленно исполнять код | 4\.17, 3.24, 2.36 | Недоступно |
-| MS15-011 | [3000483][3000483] | Уязвимость в политике групп может позволить удаленно исполнять код | 4\.17, 3.24, 2.36 | Недоступно |
-| MS15-014 | [3004361][3004361] | Уязвимость в SMB может привести к обходу функции безопасности | 4\.17, 3.24, 2.36 | Недоступно |
-| MS15-015 | [3031432][3031432] | Уязвимость в Microsoft Windows может привести к несанкционированному повышению привилегий | 4\.17, 3.24, 2.36 | Недоступно |
-| MS15-016 | [3029944][3029944] | Уязвимость в графическом компоненте Microsoft может привести к раскрытию информации | 4\.17, 3.24, 2.36 | Недоступно |
-| Недоступно | [3004375][3004375] | Обновление для улучшения аудита командной строки Windows<p/>**Примечание.** Это обновление установлено, но раздел реестра, в котором оно активируется, отключен. | 4\.17, 3.24, 2.36 | Недоступно |
+| MS15-009    | [3034682][3034682] | Security Update for Internet Explorer                                                   | 4.17, 3.24, 2.36 | N/A |
+| MS15-010    | [3036220][3036220] | Vulnerabilities in Windows Kernel Mode Drivers Could Allow Remote Code Execution        | 4.17, 3.24, 2.36 | N/A |
+| MS15-011    | [3000483][3000483] | Vulnerability in Group Policy Could Allow Remote Code Execution                         | 4.17, 3.24, 2.36 | N/A |
+| MS15-014    | [3004361][3004361] | Vulnerability in SMB Could Allow Security Feature Bypass                                | 4.17, 3.24, 2.36 | N/A |
+| MS15-015    | [3031432][3031432] | Vulnerability in Microsoft Windows Could Allow Elevation of Privilege                   | 4.17, 3.24, 2.36 | N/A |
+| MS15-016    | [3029944][3029944] | Vulnerability in Microsoft Graphics Component Could Allow Information Disclosure        | 4.17, 3.24, 2.36 | N/A |
+| N/A         | [3004375][3004375] | Update to Improve Windows Command Line Auditing<p/>**Note**: This is installed but the registry key to enable it is turned off | 4.17, 3.24, 2.36 | N/A |
  
 
-## Январская гостевая ОС
+## <a name="january-guest-os"></a>January Guest OS
 
-| Идентификатор бюллетеня | Родительская статья базы знаний | Описание уязвимости | Гостевая ОС | Дата первого появления |
+| Bulletin ID | Parent KB Article   | Vulnerability Description                                                   | Guest OS         | Date First Introduced |
 | ----------- | ------------------- | --------------------------------------------------------------------------- | ---------------- | --------------------- |
-| MS15-001 | [3023266][3023266] | Уязвимость в Windows AppCompatCache может привести к несанкционированному повышению привилегий | 4\.16, 3.23, 2.35 | 19 января 2015 г. |
-| MS15-002 | [3020393][3020393] | Уязвимость в службе Telnet Windows может привести к удаленному выполнению кода | 4\.16, 3.23, 2.35 | 19 января 2015 г. |
-| MS15-003 | [3021674][3021674] | Уязвимость в службе профилей пользователей может привести к несанкционированному повышению привилегий | 4\.16, 3.23, 2.35 | 19 января 2015 г. |
-| MS15-004 | [3019978][3019978] | Уязвимость в компонентах Windows может привести к несанкционированному повышению привилегий | 4\.16, 3.23, 2.35 | 19 января 2015 г. |
-| MS15-005 | [3022777][3022777] | Уязвимость в NLA может привести к обходу функции безопасности | 4\.16, 3.23, 2.35 | 19 января 2015 г. |
-| MS15-006 | [3004365][3004365] | Уязвимость в службе отчетов об ошибках Windows может привести к обходу функции безопасности | 4\.16, 3.23, 2.35 | 19 января 2015 г. |
-| MS15-007 | [3014029][3014029] | Уязвимость в сервере RADIUS сетевой политики может привести к отказу в обслуживании | 4\.16, 3.23, 2.35 | 19 января 2015 г. |
-| MS15-008 | [3019215][3019215] | Уязвимость в драйвере режима ядра Windows может привести к несанкционированному повышению привилегий | 4\.16, 3.23, 2.35 | 19 января 2015 г. |
-| MS14 080 | [3008923][3008923] | Накопительный пакет обновлений безопасности для Internet Explorer | 4\.16, 3.23, 2.35 | 19 января 2015 г. |
-| MS15-002 | [3020393][3020393] | Уязвимость в службе Telnet Windows может привести к удаленному выполнению кода | 4\.16, 3.23, 2.35 | 19 января 2015 г. |
-| MS15-002 | [3020393][3020393] | Уязвимость в службе Telnet Windows может привести к удаленному выполнению кода | 4\.16, 3.23, 2.35 | 19 января 2015 г. |
+| MS15-001    | [3023266][3023266]  | Vulnerability in Windows AppCompatCache could allow Elevation of Privilege  | 4.16, 3.23, 2.35 | Jan 19 2015           |
+| MS15-002    | [3020393][3020393]  | Vulnerability in Windows Telnet Service Could Cause Remote Code Execution   | 4.16, 3.23, 2.35 | Jan 19 2015           |
+| MS15-003    | [3021674][3021674]  | Vulnerability in Windows User Profile Service could allow Elevation of Privilege   | 4.16, 3.23, 2.35 | Jan 19 2015    |
+| MS15-004    | [3019978][3019978]  | Vulnerability in Windows Components Could Allow Elevation of Privilege      | 4.16, 3.23, 2.35 | Jan 19 2015           |
+| MS15-005    | [3022777][3022777]  | Vulnerability in NLA Could Allow Security Feature Bypass                    | 4.16, 3.23, 2.35 | Jan 19 2015           |
+| MS15-006    | [3004365][3004365]  | Vulnerability in Windows Error Reporting could Allow Security Feature Bypass | 4.16, 3.23, 2.35 | Jan 19 2015          |
+| MS15-007    | [3014029][3014029]  | Vulnerability in Network Policy Server RADIUS Could Cause Denial of Service | 4.16, 3.23, 2.35 | Jan 19 2015           |
+| MS15-008    | [3019215][3019215]  | Vulnerability in Windows Kernel Mode Driver Could Allow Elevation of Privilege | 4.16, 3.23, 2.35 | Jan 19 2015        |
+| MS14-080    | [3008923][3008923]  | Cumulative Security Update for Internet Explorer                            | 4.16, 3.23, 2.35 | Jan 19 2015           |
+| MS15-002    | [3020393][3020393]  | Vulnerability in Windows Telnet Service Could Cause Remote Code Execution   | 4.16, 3.23, 2.35 | Jan 19 2015           |
+| MS15-002    | [3020393][3020393]  | Vulnerability in Windows Telnet Service Could Cause Remote Code Execution   | 4.16, 3.23, 2.35 | Jan 19 2015           |
  
-## Декабрьская гостевая система
+## <a name="december-guest-os"></a>December Guest OS
 
-| Идентификатор бюллетеня | Родительская статья базы знаний | Описание уязвимости | Гостевая ОС | Дата первого появления |
+| Bulletin ID | Parent KB Article   | Vulnerability Description                                                   | Guest OS         | Date First Introduced |
 | ----------- | ------------------- | --------------------------------------------------------------------------- | ---------------- | --------------------- |
-| Недоступно | [3013776][3013776] | Система зависает при использовании учетной записи домена для запуска приложения | 4\.15, 3.22, 2.34 | 13 января 2015 г. | 
-| Недоступно | [3013043][3013043] | Данные файловой системы повреждены на компьютере под управлением Windows, на котором имеется более одного узла NUMA | 4\.15, 3.22, 2.34 | 13 января 2015 г. |
-| Недоступно | [3012712][3012712] | Новые блоки данных инициализируются некорректно при развертывании разностного VHD | 4\.15, 3.22, 2.34 | 13 января 2015 г. |
-| Недоступно | [3004905][3004905] | Улучшение Windows Hyper-V для виртуальных машин Linux с файловыми системами более 2 ТБ | 4\.15, 3.22, 2.34 | 13 января 2015 г. |
-| Недоступно | [3004394][3004394] | Обновление за декабрь 2014 г. для программы корневых сертификатов Windows в Windows | 4\.15, 3.22, 2.34 | 13 января 2015 г. |
-| Недоступно | [2999323][2999323] | Для идентификатора событий 17 изменился текст | 4\.15, 3.22, 2.34 | 13 января 2015 г. |
-| Недоступно | [3013488][3013488] | Долгое ожидание сброса сервера WSUS при импорте файлов CSA в Windows Server 2012 R2 или Windows Server 2012 | 4\.15, 3.22, 2.34 | 13 января 2015 г. |
-| Недоступно | [3012325][3012325] | Обновление записей базы данных APN Windows для мобильных операторов DIGI, Vodafone и Telekom в Windows 8.1 и Windows 8 | 4\.15, 3.22, 2.34 | 13 января 2015 г. |
-| Недоступно | [3007054][3007054] | При выполнении печати документа в приложении Магазина Windows в Windows всегда отображается параметр защищенной печати | 4\.15, 3.22, 2.34 | 13 января 2015 г. |
-| Недоступно | [2999802][2999802] | В Windows печатаются сплошные линии вместо пунктирных | 4\.15, 3.22, 2.34 | 13 января 2015 г. |
-| Недоступно | [2896881][2896881] | Долгое время ожидания входа при использовании команды VBScript AddPrinterConnection для сопоставления принтеров и пользователей во время выполнения входа в Windows | 4\.15, 3.22, 2.34 | 13 января 2015 г. |
+| N/A         | [3013776][3013776]  | System freezes when you use a domain account to start an application | 4.15, 3.22, 2.34 | Jan 13 2015 | 
+| N/A         | [3013043][3013043]  | File system data is corrupted on a Windows-based computer that has more than one NUMA node | 4.15, 3.22, 2.34 | Jan 13 2015 |
+| N/A         | [3012712][3012712]  | New data blocks initialize incorrectly when a differencing VHD is expanded | 4.15, 3.22, 2.34 | Jan 13 201 |
+| N/A         | [3004905][3004905]  | Windows Hyper-V improvement for Linux virtual machines that have file systems that are larger than 2 TB | 4.15, 3.22, 2.34 | Jan 13 2015 |
+| N/A         | [3004394][3004394]  | December 2014 update for Windows Root Certificate Program in Windows | 4.15, 3.22, 2.34 | Jan 13 2015 |
+| N/A         | [2999323][2999323]  | The text for event ID 17 is changed | 4.15, 3.22, 2.34 | Jan 13 2015 |
+| N/A         | [3013488][3013488]  | Long wait to reset WSUS server when you import CSA files in Windows Server 2012 R2 or Windows Server 2012 | 4.15, 3.22, 2.34 | Jan 13 2015 |
+| N/A         | [3012325][3012325]  | Windows APN database entries update for DIGI, Vodafone, and Telekom mobile operators in Windows 8.1 and Windows 8 | 4.15, 3.22, 2.34 | Jan 13 2015 |
+| N/A         | [3007054][3007054]  | PIN-protected printing option always shows when you print a document within a Windows Store application in Windows | 4.15, 3.22, 2.34 | Jan 13 2015 |
+| N/A         | [2999802][2999802]  | Solid lines instead of dotted lines are printed in Windows | 4.15, 3.22, 2.34 | Jan 13 2015 |
+| N/A         | [2896881][2896881]  | Long logon time when you use the AddPrinterConnection VBScript command to map printers for users during logon process in Windows | 4.15, 3.22, 2.34 | Jan 13 2015 |
 
 [3183038]: http://support.microsoft.com/kb/3183038
 [3185848]: http://support.microsoft.com/kb/3185848
@@ -447,7 +448,7 @@
 [3133977]: http://support.microsoft.com/kb/3133977
 [3133681]: http://support.microsoft.com/kb/3133681
 [3123245]: http://support.microsoft.com/kb/3123245
-[Отключение версии-кандидата 4]: https://blogs.msdn.microsoft.com/azuresecurity/2016/04/12/azure-cipher-suite-change-removes-rc4-support/
+[Disable RC4]: https://blogs.msdn.microsoft.com/azuresecurity/2016/04/12/azure-cipher-suite-change-removes-rc4-support/
 
 
 [3148531]: http://support.microsoft.com/kb/3148531
@@ -459,15 +460,15 @@
 [3148528]: http://support.microsoft.com/kb/3148528
 
 
-[3142015]: http://support.microsoft.com/kb/3142015
-[3143148]: http://support.microsoft.com/kb/3143148
-[3143146]: http://support.microsoft.com/kb/3143146
-[3143081]: http://support.microsoft.com/kb/3143081
-[3143136]: http://support.microsoft.com/kb/3143136
-[3140410]: http://support.microsoft.com/kb/3140410
-[3143141]: http://support.microsoft.com/kb/3143141
-[3143142]: http://support.microsoft.com/kb/3143142
-[3143145]: http://support.microsoft.com/kb/3143145
+[3142015]: http://support.microsoft.com/kb/3142015  
+[3143148]: http://support.microsoft.com/kb/3143148  
+[3143146]: http://support.microsoft.com/kb/3143146  
+[3143081]: http://support.microsoft.com/kb/3143081  
+[3143136]: http://support.microsoft.com/kb/3143136  
+[3140410]: http://support.microsoft.com/kb/3140410  
+[3143141]: http://support.microsoft.com/kb/3143141  
+[3143142]: http://support.microsoft.com/kb/3143142  
+[3143145]: http://support.microsoft.com/kb/3143145  
 [3141780]: http://support.microsoft.com/kb/3141780
 
 [3134220]: http://support.microsoft.com/kb/3134220
@@ -485,11 +486,11 @@
 [3124903]: http://support.microsoft.com/kb/3124903
 [3125540]: http://support.microsoft.com/kb/3125540
 [3124584]: http://support.microsoft.com/kb/3124584
-[3124901]: http://support.microsoft.com/kb/3124901
+[3124901]: http://support.microsoft.com/kb/3124901 
 [3124605]: http://support.microsoft.com/kb/3124605
 [2755801]: http://support.microsoft.com/kb/2755399
 [3109853]: http://support.microsoft.com/kb/3109853
-[3123479]: http://support.microsoft.com/kb/3123479
+[3123479]: http://support.microsoft.com/kb/3123479 
 [2736233]: http://support.microsoft.com/kb/2736233
 
 [3116180]: http://support.microsoft.com/kb/3116180
@@ -554,7 +555,7 @@
 
 [MS15-034]: https://technet.microsoft.com/library/security/MS15-034
 
-[3042553]: https://support.microsoft.com/ru-RU/kb/3042553/
+[3042553]: https://support.microsoft.com/en-us/kb/3042553/
 
 [3034682]: http://support.microsoft.com/kb/3034682
 [3036220]: http://support.microsoft.com/kb/3036220
@@ -597,36 +598,36 @@
 [3002657]: http://support.microsoft.com/kb/3002657
 [3035126]: http://support.microsoft.com/kb/3035126
 
-[3049563]: http://support.microsoft.com/kb/3049563
-[3057110]: http://support.microsoft.com/kb/3057110
-[3046002]: http://support.microsoft.com/kb/3046002
-[3057134]: http://support.microsoft.com/kb/3057134
-[3055642]: http://support.microsoft.com/kb/3055642
-[3057191]: http://support.microsoft.com/kb/3057191
-[3050514]: http://support.microsoft.com/kb/3050514
-[3057263]: http://support.microsoft.com/kb/3057263
-[3051768]: http://support.microsoft.com/kb/3051768
-[3061518]: http://support.microsoft.com/kb/3061518
+[3049563]:http://support.microsoft.com/kb/3049563
+[3057110]:http://support.microsoft.com/kb/3057110
+[3046002]:http://support.microsoft.com/kb/3046002
+[3057134]:http://support.microsoft.com/kb/3057134
+[3055642]:http://support.microsoft.com/kb/3055642
+[3057191]:http://support.microsoft.com/kb/3057191
+[3050514]:http://support.microsoft.com/kb/3050514
+[3057263]:http://support.microsoft.com/kb/3057263
+[3051768]:http://support.microsoft.com/kb/3051768
+[3061518]:http://support.microsoft.com/kb/3061518
 
-[3038314]: http://support.microsoft.com/kb/3038314
-[3042553]: http://support.microsoft.com/kb/3042553
-[3046306]: http://support.microsoft.com/kb/3046306
-[3046269]: http://support.microsoft.com/kb/3046269
-[3049576]: http://support.microsoft.com/kb/3049576
-[3046482]: http://support.microsoft.com/kb/3046482
-[3045711]: http://support.microsoft.com/kb/3045711
-[3048010]: http://support.microsoft.com/kb/3048010
-[3047234]: http://support.microsoft.com/kb/3047234
-[3045755]: http://support.microsoft.com/kb/3045755
-[3030377]: http://support.microsoft.com/kb/3030377
-[3039976]: http://support.microsoft.com/kb/3039976
+[3038314]:http://support.microsoft.com/kb/3038314
+[3042553]:http://support.microsoft.com/kb/3042553
+[3046306]:http://support.microsoft.com/kb/3046306
+[3046269]:http://support.microsoft.com/kb/3046269
+[3049576]:http://support.microsoft.com/kb/3049576
+[3046482]:http://support.microsoft.com/kb/3046482
+[3045711]:http://support.microsoft.com/kb/3045711
+[3048010]:http://support.microsoft.com/kb/3048010
+[3047234]:http://support.microsoft.com/kb/3047234
+[3045755]:http://support.microsoft.com/kb/3045755
+[3030377]:http://support.microsoft.com/kb/3030377
+[3039976]:http://support.microsoft.com/kb/3039976
 
-[3058515]: http://support.microsoft.com/kb/3058515
-[3033890]: http://support.microsoft.com/kb/3033890
-[3059317]: http://support.microsoft.com/kb/3059317
-[3057839]: http://support.microsoft.com/kb/3057839
-[3062577]: http://support.microsoft.com/kb/3062577
-[3063858]: http://support.microsoft.com/kb/3063858
+[3058515]:http://support.microsoft.com/kb/3058515
+[3033890]:http://support.microsoft.com/kb/3033890
+[3059317]:http://support.microsoft.com/kb/3059317
+[3057839]:http://support.microsoft.com/kb/3057839
+[3062577]:http://support.microsoft.com/kb/3062577
+[3063858]:http://support.microsoft.com/kb/3063858
 
 
 
@@ -634,4 +635,8 @@
 [family-explain]: cloud-services-guestos-update-matrix.md#guest-os-family-version-and-release-explanation
  
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

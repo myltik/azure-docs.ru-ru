@@ -1,51 +1,54 @@
 <properties
-	pageTitle="Создание приложения Azure Mobile Engagement | Microsoft Azure"
-	description="В этой статье описано, как создать новую коллекцию приложений Mobile Engagement в Azure и приступить к управлению приложениями с помощью портала Mobile Engagement."
-	services="mobile-engagement"
-	documentationCenter=""
-	authors="piyushjo"
-	manager="dwrede"
-	editor=""/>
+    pageTitle="Создание приложения Azure Mobile Engagement | Microsoft Azure"
+    description="В этой статье описано, как создать новую коллекцию приложений Mobile Engagement в Azure и приступить к управлению приложениями с помощью портала Mobile Engagement."
+    services="mobile-engagement"
+    documentationCenter=""
+    authors="piyushjo"
+    manager="dwrede"
+    editor=""/>
 
 <tags
-	ms.service="mobile-engagement"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-windows-store"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="08/19/2016"  
-	ms.author="piyushjo"/>
+    ms.service="mobile-engagement"
+    ms.workload="mobile"
+    ms.tgt_pltfrm="mobile-windows-store"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="10/10/2016"  
+    ms.author="piyushjo"/>
 
 
-# Создание приложения Azure Mobile Engagement
 
-В этой статье показано, как с помощью метода **Быстрое создание** создать новое приложение **Azure Mobile Engagement**. В статье также показано, как перейти на портал **Mobile Engagement**, чтобы начать мониторинг приложений и управление ими.
+# <a name="create-an-azure-mobile-engagement-app"></a>Создание приложения Azure Mobile Engagement
+
+В этой статье показано, как с помощью метода **Быстрое создание** создать новое приложение **Azure Mobile Engagement**. В статье также показано, как перейти на портал **Mobile Engagement** , чтобы начать мониторинг приложений и управление ими. 
 
 Обратите внимание, что вам потребуется добавить минимальный набор базовой интеграции, чтобы иметь возможность собирать данные для приложения и отправлять push-уведомления. Полную документацию по интеграции можно найти в разделе [Интеграция Mobile Engagement](mobile-engagement-windows-store-integrate-engagement.md).
 
-> [AZURE.IMPORTANT] Для работы с любым руководством по Azure Mobile Engagement необходима активная учетная запись Azure. Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fru-RU%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Бесплатная пробная версия Azure</a>.
+> [AZURE.IMPORTANT] Для работы с любым руководством по Azure Mobile Engagement необходима активная учетная запись Azure. Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Бесплатная пробная версия Azure</a>.
 
-##Настройка Mobile Engagement для мобильного приложения в Azure
+##<a name="setup-mobile-engagement-for-your-mobile-app-in-azure"></a>Настройка Mobile Engagement для мобильного приложения в Azure
 
-[AZURE.INCLUDE [Создание приложения Mobile Engagement на портале](../../includes/mobile-engagement-create-app-in-portal.md)]
+[AZURE.INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal-new.md)]
 
-##Перейдите на портал Mobile Engagement
+##<a name="navigate-to-your-mobile-engagement-portal"></a>Перейдите на портал Mobile Engagement
 
-Чтобы начать мониторинг приложения и управление им, перейдите на портал Mobile Engagement, нажав внизу кнопку **Выполнить охват**.
+Чтобы начать мониторинг приложения и управление им, перейдите на портал служб мобильного взаимодействия. Для этого нажмите кнопку **Engagement portal** (Портал взаимодействия) на верхней панели.
 
-![](../../includes/media/mobile-engagement-connect-app-with-monitor/engage-button.png)
-
-После входа на портал Mobile Engagement вы можете анализировать и создавать сегменты, управлять ими, привлекать пользователей и т. д.:
+После входа на портал служб мобильного взаимодействия вы можете анализировать и создавать сегменты, управлять ими, привлекать пользователей и выполнять другие действия.    
 
 - [Наблюдение за работой приложения в режиме реального времени](mobile-engagement-user-interface-monitor.md)
 - [Анализ журналов данных о приложении](mobile-engagement-user-interface-analytics.md)
 - [Создание сегментов пользователей и управление ими для выявления закономерностей](mobile-engagement-user-interface-segments.md)
-- [Взаимодействие с пользователями приложения с помощью push-уведомлений](mobile-engagement-user-interface-reach.md)
+- [Охват пользователей приложения с помощью push-уведомлений](mobile-engagement-user-interface-reach.md)
 
-##См. также
+##<a name="see-also"></a>См. также
 
 [Определение стратегии Mobile Engagement](mobile-engagement-define-your-mobile-engagement-strategy.md)
 
 [Приступая к работе с Azure Mobile Engagement](mobile-engagement-windows-store-dotnet-get-started.md) (в верхней части страницы можно выбрать другие мобильные платформы).
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

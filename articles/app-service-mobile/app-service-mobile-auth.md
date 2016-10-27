@@ -1,107 +1,112 @@
 <properties
-	pageTitle="Проверка подлинности и авторизация в мобильных приложениях Azure | Microsoft Azure"
-	description="Справочник принципов и общие сведения о функции проверки подлинности и авторизации для мобильных приложений Azure."
-	services="app-service\mobile"
-	documentationCenter=""
-	authors="mattchenderson"
-	manager="erikref"
-	editor=""/>
+    pageTitle="Authentication and Authorization in Azure Mobile Apps | Microsoft Azure"
+    description="Conceptual reference and overview of the Authentication / Authorization feature for Azure Mobile Apps"
+    services="app-service\mobile"
+    documentationCenter=""
+    authors="mattchenderson"
+    manager="erikre"
+    editor=""/>
 
 <tags
-	ms.service="app-service-mobile"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="na"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.date="08/22/2016"
-	ms.author="mahender"/>
+    ms.service="app-service-mobile"
+    ms.workload="mobile"
+    ms.tgt_pltfrm="na"
+    ms.devlang="multiple"
+    ms.topic="article"
+    ms.date="10/01/2016"
+    ms.author="mahender"/>
 
-# Проверка подлинности и авторизация в мобильных приложениях Azure
 
-## Что такое проверка подлинности и авторизация службы приложений?
+# <a name="authentication-and-authorization-in-azure-mobile-apps"></a>Authentication and Authorization in Azure Mobile Apps
 
-> [AZURE.NOTE] Эта статья будет перенесена в сводную статью [Проверка подлинности и авторизация в службе приложений Azure](../app-service/app-service-authentication-overview.md), которая содержит информацию о веб-приложениях, мобильных приложениях и приложениях API.
+## <a name="what-is-app-service-authentication-/-authorization?"></a>What is App Service Authentication / Authorization?
 
-Проверка подлинности и авторизация службы приложений — это функция, которая позволяет пользователям приложения выполнять вход без изменений кода, необходимых в серверной части приложения. Она является простым способом обеспечения защиты приложения и работы с данными пользователей.
+> [AZURE.NOTE] This topic will be migrated to a consolidated [App Service Authentication / Authorization](../app-service/app-service-authentication-overview.md) topic, which covers Web, Mobile, and API Apps.
 
-Служба приложений использует федеративное удостоверение, когда сторонний **поставщик удостоверений** сохраняет учетные записи и проверяет подлинность пользователей, а приложение использует это удостоверение вместо своего. Служба приложений поддерживает пять поставщиков удостоверений по умолчанию: _Azure Active Directory_, _Facebook_, _Google_, _учетная запись Майкрософт_ и _Twitter_. Вы можете расширить этот список для своих приложений, интегрировав другого поставщика удостоверений или собственное настраиваемое решение идентификации.
+App Service Authentication / Authorization is a feature which allows your application to log in users with no code changes required on the app backend. It provides an easy way to protect your application and work with per-user data.
 
-Ваше приложение может поддерживать любое количество поставщиков удостоверений, предоставляя конечным пользователям возможность выбора способа входа.
+App Service uses federated identity, in which a 3rd-party **identity provider** ("IDP") stores accounts and authenticates users, and the application uses this identity instead of its own. App Service supports five identity providers out of the box: _Azure Active Directory_, _Facebook_, _Google_, _Microsoft Account_, and _Twitter_. You can also expand this support for your apps by integrating another identity provider or your own custom identity solution.
 
-Чтобы немедленно приступить к работе, ознакомьтесь с одним из следующих учебников.
+Your app can leverage any number of these identity providers, so you can provide your end users with options for how they login.
 
-- [Добавление проверки подлинности в приложение iOS]
-- [Добавление проверки подлинности в приложение Xamarin.iOS]
-- [Добавление проверки подлинности в приложение Xamarin.Android]
-- [Добавление проверки подлинности в приложение Windows]
+If you wish to get started right away, please see one of the following tutorials:
 
-## Принцип действия проверки подлинности
+- [Add authentication to your iOS app]
+- [Add authentication to your Xamarin.iOS app]
+- [Add authentication to your Xamarin.Android app]
+- [Add Authentication to your Windows app]
 
-Чтобы проверять подлинность с помощью одного из поставщиков удостоверений, сначала необходимо настроить поставщик удостоверений так, чтобы ему было известно о вашем приложении. Затем поставщик удостоверений предоставит вам коды и секреты, которые будут указаны в приложении. Это позволяет сформировать отношение доверия и дает службе приложений возможность проверять удостоверения.
+## <a name="how-authentication-works"></a>How authentication works
 
-Эти действия описаны в следующих статьях.
+In order to authenticate using one of the identity providers, you first need to configure the identity provider to know about your application. The identity provider will then provide you with IDs and secrets that you provide back to the application. This completes the trust relationship and allows App Service to validate identities provided to it.
 
-- [Настройка приложения для использования имени входа Azure Active Directory]
-- [Настройка приложения для использования имени входа Facebook]
-- [Настройка приложения для использования имени входа Google]
-- [Настройка приложения для использования входа по учетной записи Майкрософт]
-- [Настройка приложения для использования имени входа Twitter]
+These steps are detailed in the following topics:
 
-Выполнив все настройки на серверной стороне, можно изменить клиент для входа. Существует два подхода:
+- [How to configure your app to use Azure Active Directory login]
+- [How to configure your app to use Facebook login]
+- [How to configure your app to use Google login]
+- [How to configure your app to use Microsoft Account login]
+- [How to configure your app to use Twitter login]
 
-- использование одной строки кода для входа пользователей с помощью пакета SDK клиента для мобильных приложений;
-- использование пакета SDK, опубликованного указанным поставщиком удостоверений, для определения удостоверения и последующего получения доступа к службе приложений.
+Once everything is configured on the backend, you can modify your client to log in. There are two approaches here:
 
->[AZURE.TIP] Многие приложения должны использовать пакет SDK поставщика для поддержки более естественной процедуры входа и использования возможности обновления и других преимуществ, предлагаемых конкретным поставщиком.
+- Using a single line of code, let the Mobile Apps client SDK sign in users.
+- Leverage an SDK published by a given identity provider to establish identity and then gain access to App Service.
 
-### Принцип действия проверки подлинности без пакета SDK поставщика
+>[AZURE.TIP] Most applications should use a provider SDK to get a more native-feeling login experience and to leverage refresh support and other provider-specific benefits.
 
-Если вы не хотите настраивать пакет SDK поставщика, можно разрешить мобильным приложениям выполнять за вас вход. Клиентский пакет SDK мобильных приложений будет открывать веб-представление для выбранного вам поставщика и выполнять процедуру входа. Иногда в блогах и на форумах это называется "серверным потоком" или "управляемым сервером потоком", так как входом управляет сервер, и пакет SDK клиента никогда не получает маркер поставщика.
+### <a name="how-authentication-without-a-provider-sdk-works"></a>How authentication without a provider SDK works
 
-Код, необходимый для запуска этого потока, рассматривается в учебнике по проверке подлинности для каждой платформы. В конце потока у клиентского пакета SDK есть маркер службы приложений, и маркер автоматически присоединяется ко всем запросам к серверной части.
+If you do not wish to set up a provider SDK, you can allow Mobile Apps to perform the login for you. The Mobile Apps client SDK will open a web view to the provider of your choosing and complete the sign in. Occasionally on blogs and forums you will see this referred to as the "server flow" or "server-directed flow" since the server is managing the login, and the client SDK never receives the provider token.
 
-### Принцип действия проверки подлинности с пакетом SDK поставщика
+The code needed to start this flow is covered in the authentication tutorial for each platform. At the end of the flow, the client SDK has an App Service token, and the token is automatically attached to all requests to the backend.
 
-Используя пакет SDK поставщика, вы можете связать процедуру входа с ОС платформы, на которой работает приложение. При этом вы также получаете маркер поставщика и некоторые сведения о пользователях на стороне клиента, что упрощает использование Graph API и настройку пользовательского интерфейса. Иногда в блогах и на форумах это может называться "клиентским потоком" или "управляемым клиентом потоком", так как управление входом на клиенте выполняет код, и код клиента имеет доступ к маркеру поставщика.
+### <a name="how-authentication-with-a-provider-sdk-works"></a>How authentication with a provider SDK works
 
-Полученный маркер поставщика необходимо отправить в службу приложений для проверки. В конце потока у клиентского пакета SDK есть маркер службы приложений, и маркер автоматически присоединяется ко всем запросам к серверной части. Если необходимо, разработчик также может сохранить ссылку на маркер поставщика.
+Working with a provider SDK allows the log-in experience to interact more tightly with the platform OS the app is running on. This also gives you a provider token and some user information on the client, which makes it much easier to consume graph APIs and customize the user experience. Occasionally on blogs and forums you will see this referred to as the "client flow" or "client-directed flow" since code on the client is handling the login, and the client code has access to a provider token.
 
-## Принцип действия авторизации
+Once a provider token is obtained, it needs to be sent to App Service for validation. At the end of the flow, the client SDK has an App Service token, and the token is automatically attached to all requests to the backend. The developer can also keep a reference to the provider token if they so choose.
 
-Проверка подлинности и авторизация службы приложений предоставляет несколько вариантов в качестве значения параметра **Действие, выполняемое, если запрос не прошел проверку подлинности**. Прежде чем код получит конкретный запрос, служба приложений может проверить, прошел ли запрос проверку подлинности. Если проверка подлинности не пройдена, запрос отклоняется, и перед повторением действия предпринимается попытка входа пользователя.
+## <a name="how-authorization-works"></a>How authorization works
 
-Один из вариантов — перенаправление запросов без проверки подлинности к одному из поставщиков удостоверений. В этом случае в веб-браузере пользователь будет перенаправлен на новую страницу. Однако мобильный клиент не может быть перенаправлен таким образом, и ответы без проверки подлинности будут получать код состояния HTTP _401 — Не санкционировано_. С учетом этого первый запрос, который делает ваш клиент, всегда должен быть направлен в конечную точку входа. После этого можно выполнять вызовы других API. Если вы пытаетесь вызвать другой API перед входом, ваш клиент получит ошибку.
+App Service Authentication / Authorization exposes several choices for **Action to take when request is not authenticated**. Before your code receives a given request, you can have App Service check to see if the request is authenticated and if not, reject it and attempt to have the user log in before trying again.
 
-Чтобы получить более строгий контроль над тем, какие конечные точки требуют проверку подлинности, можно выбрать параметр "Никаких действий (разрешить выполнение запроса)" для запросов без проверки подлинности. В этом случае все решения относительно проверки переносятся в код приложения. Это также позволяет разрешить доступ конкретным пользователям на основе правил настраиваемой авторизации.
+One option is to have unauthenticated requests redirect to one of the identity providers. In a web browser, this would actually take the user to a new page. However, your mobile client cannot be redirected in this way, and unauthenticated responses will receive an HTTP _401 Unauthorized_ response. Given this, the first request your client makes should always be to the login endpoint, and then you can make calls to any other APIs. If you attempt to call another API before logging in, your client will receive an error.
 
-## Документация
+If you wish to have more granular control over which endpoints require authentication, you can also pick "No action (allow request)" for unauthenticated requests. In this case, all authentication decisions are deferred to your application code. This also allows you to allow access to specific users based on custom authorization rules.
 
-В следующих учебниках показано, как добавить проверку подлинности в мобильные клиенты с помощью службы приложений.
+## <a name="documentation"></a>Documentation
 
-- [Добавление проверки подлинности в приложение iOS]
-- [Добавление проверки подлинности в приложение Xamarin.iOS]
-- [Добавление проверки подлинности в приложение Xamarin.Android]
-- [Добавление проверки подлинности в приложение Windows]
+The following tutorials show how to add authentication to your mobile clients using App Service:
 
-В следующих учебниках содержатся сведения о настройке службы приложений для использования разных поставщиков проверки подлинности.
+- [Add authentication to your iOS app]
+- [Add authentication to your Xamarin.iOS app]
+- [Add authentication to your Xamarin.Android app]
+- [Add Authentication to your Windows app]
 
-- [Настройка приложения для использования имени входа Azure Active Directory]
-- [Настройка приложения для использования имени входа Facebook]
-- [Настройка приложения для использования имени входа Google]
-- [Настройка приложения для использования входа по учетной записи Майкрософт]
-- [Настройка приложения для использования имени входа Twitter]
+The following tutorials show how to configure App Service to leverage different authentication providers:
 
-Если вы хотите использовать систему удостоверений, отличную от указанных здесь, можно также использовать [предварительную версию поддержки настраиваемой проверки подлинности в серверном пакете SDK .NET](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#custom-auth).
+- [How to configure your app to use Azure Active Directory login]
+- [How to configure your app to use Facebook login]
+- [How to configure your app to use Google login]
+- [How to configure your app to use Microsoft Account login]
+- [How to configure your app to use Twitter login]
 
-[Добавление проверки подлинности в приложение iOS]: app-service-mobile-ios-get-started-users.md
-[Добавление проверки подлинности в приложение Xamarin.iOS]: app-service-mobile-xamarin-ios-get-started-users.md
-[Добавление проверки подлинности в приложение Xamarin.Android]: app-service-mobile-xamarin-android-get-started-users.md
-[Добавление проверки подлинности в приложение Windows]: app-service-mobile-windows-store-dotnet-get-started-users.md
+If you wish to use an identity system other than the ones provided here, you can also leverage the [preview custom authentication support in the .NET server SDK](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#custom-auth).
 
-[Настройка приложения для использования имени входа Azure Active Directory]: app-service-mobile-how-to-configure-active-directory-authentication.md
-[Настройка приложения для использования имени входа Facebook]: app-service-mobile-how-to-configure-facebook-authentication.md
-[Настройка приложения для использования имени входа Google]: app-service-mobile-how-to-configure-google-authentication.md
-[Настройка приложения для использования входа по учетной записи Майкрософт]: app-service-mobile-how-to-configure-microsoft-authentication.md
-[Настройка приложения для использования имени входа Twitter]: app-service-mobile-how-to-configure-twitter-authentication.md
+[Add authentication to your iOS app]: app-service-mobile-ios-get-started-users.md
+[Add authentication to your Xamarin.iOS app]: app-service-mobile-xamarin-ios-get-started-users.md
+[Add authentication to your Xamarin.Android app]: app-service-mobile-xamarin-android-get-started-users.md
+[Add Authentication to your Windows app]: app-service-mobile-windows-store-dotnet-get-started-users.md
 
-<!---HONumber=AcomDC_0824_2016-->
+[How to configure your app to use Azure Active Directory login]: app-service-mobile-how-to-configure-active-directory-authentication.md
+[How to configure your app to use Facebook login]: app-service-mobile-how-to-configure-facebook-authentication.md
+[How to configure your app to use Google login]: app-service-mobile-how-to-configure-google-authentication.md
+[How to configure your app to use Microsoft Account login]: app-service-mobile-how-to-configure-microsoft-authentication.md
+[How to configure your app to use Twitter login]: app-service-mobile-how-to-configure-twitter-authentication.md
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

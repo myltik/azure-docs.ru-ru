@@ -1,16 +1,16 @@
-#### Настройка MPIO для томов StorSimple
+#### <a name="to-configure-mpio-for-storsimple-volumes"></a>To configure MPIO for StorSimple volumes
 
-1. Откройте раздел **Конфигурация MPIO**. Выберите **Диспетчер сервера > Панель управления > Сервис > MPIO**.
+1. Open the **MPIO configuration**. Click **Server Manager > Dashboard > Tools > MPIO**.
 
-2. В диалоговом окне **Свойства MPIO** выберите вкладку **Обнаружение многопутевых устройств**.
+2. In the **MPIO Properties** dialog box, select the **Discover Multi-Paths** tab.
 
-3. Выберите **Добавить поддержку для iSCSI-устройств** и нажмите кнопку **Добавить**.
+3. Select **Add support for iSCSI devices**, and then click **Add**.  
 
-	![Свойства MPIO. Обнаружение путей](./media/storsimple-configure-mpio-volumes/IC741003.png)
+    ![MPIO Properties Discover Multi Paths](./media/storsimple-configure-mpio-volumes/IC741003.png)
 
-4. При появлении запроса перезагрузите сервер.
-5. В диалоговом окне **Свойства MPIO** перейдите на вкладку **Устройства MPIO**. Щелкните **Добавить**.
+4. Reboot the server when prompted.
 
-	![Свойства MPIO. Устройства MPIO](./media/storsimple-configure-mpio-volumes/IC741004.png)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!--HONumber=Oct16_HO2-->
+
+

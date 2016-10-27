@@ -1,31 +1,36 @@
 <properties
-	pageTitle="Веб-задания в службе приложений Azure"
-	description="Узнайте, как создавать веб-задания для выполнения фоновых тестов, взаимодействия с такими службами, как хранилище и служебная шина, а также создания плановых задач."
-	services="app-service"
-	documentationCenter=""
-	authors="christopheranderson"
-	manager="wpickett"
-	editor="mollybos"/>
+    pageTitle="WebJobs in Azure App Service"
+    description="Learn how to build WebJobs to run background tests, interact with services like Storage and Service Bus, and create scheduled tasks."
+    services="app-service"
+    documentationCenter=""
+    authors="christopheranderson"
+    manager="wpickett"
+    editor="mollybos"/>
 
 <tags
-	ms.service="app-service"
-	ms.workload="web"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="12/10/2015"
-	ms.author="chrande"/>
+    ms.service="app-service"
+    ms.workload="web"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="12/10/2015"
+    ms.author="chrande"/>
 
-# Использование веб-заданий в службе приложений Azure
 
-В данной статье содержатся ссылки на документацию о том, как применять веб-задания Azure и пакет SDK веб-заданий Azure. Веб-задания Azure предоставляют простой способ запуска скриптов и программ в виде фоновых процессов [веб-приложений службы приложений](http://go.microsoft.com/fwlink/?LinkId=529714). Можно загружать и запускать исполняемые файлы, например cmd, bat, exe \(.NET\), ps1, sh, php, py, js и jar. Эти программы могут работать как веб-задания по расписанию \(cron\) или постоянно.
+# <a name="using-webjobs-in-azure-app-service"></a>Using WebJobs in Azure App Service
 
-Пакет SDK веб-заданий упрощает использование хранилища Azure. Пакет SDK веб-заданий имеет систему привязки и запуска, которая работает совместно с хранилищем Microsoft Azure для BLOB-объектов, очередей и таблиц, а также очередей служебной шины.
+This article links to documentation resources about how to use Azure WebJobs and the Azure WebJobs SDK. Azure WebJobs provide an easy way to run scripts or programs as background processes on [App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714). You can upload and run an executable file such as as cmd, bat, exe (.NET), ps1, sh, php, py, js and jar. These programs run as WebJobs on a schedule (cron) or continuously.
 
-Создание, развертывание веб-заданий и управление ими средствами Visual Studio не вызовет проблем. Веб-задания можно создавать из шаблонов, публиковать их и управлять ими \(запуск/остановка/мониторинг/jnkflrf\).
+The WebJobs SDK makes it easier to use Azure Storage. The WebJobs SDK has a binding and trigger system which works with Microsoft Azure Storage Blobs, Queues and Tables as well as Service Bus Queues.
 
-Панель мониторинга веб-заданий на портале Azure предоставляет широкие возможности управления и полный контроль над выполнением веб-заданий, включая возможность вызова отдельных функций в рамках самого веб-задания. Информационная панель также показывает состояние исполняемой среды и записи журнала.
+Creating, deploying, and managing WebJobs is seamless with integrated tooling in Visual Studio. You can create WebJobs from templates, publish, and manage (run/stop/monitor/debug) them.
+
+The WebJobs dashboard in the Azure portal provides powerful management capabilities that give you full control over the execution of WebJobs, including the ability to invoke individual functions within WebJobs. The dashboard also displays function runtimes and logging output.
 
 [AZURE.INCLUDE [app-service-blueprint-webjobs](../../includes/app-service-blueprint-webjobs.md)]
 
-<!---HONumber=AcomDC_0413_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

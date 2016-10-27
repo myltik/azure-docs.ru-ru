@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Удаление хранилища архивации Azure | Microsoft Azure"
-   description="Сведения об удалении хранилища архивации Azure, а также об устранении возникающих при этом неполадок. "
+   pageTitle="Delete an Azure Backup vault | Microsoft Azure"
+   description="How to delete an Azure Backup vault. Troubleshooting why you can't delete a backup vault. "
    services="service-name"
    documentationCenter="dev-center-name"
    authors="markgalioto"
@@ -16,230 +16,238 @@
    ms.date="08/29/2016"
    ms.author="markgal;trinadhk"/>
 
-# Удаление хранилища архивации Azure
 
-В службе архивации Azure используется два типа хранилища: хранилище архивации и хранилище служб восстановления. Сначала появилось хранилище архивации. Затем было создано хранилище служб восстановления для поддержки расширенных развертываний Resource Manager. Из-за расширенных возможностей и зависимостей между сведениями, которые должны храниться в хранилище, удалить хранилище служб восстановления может оказаться сложнее, чем должно быть.
+# <a name="delete-an-azure-backup-vault"></a>Delete an Azure Backup vault
 
-|**Тип развертывания**|**Портал**|**Имя хранилища**|
+The Azure Backup service has two types of vaults - the Backup vault and the Recovery Services vault. The Backup vault came first. Then the Recovery Services vault came along to support the expanded Resource Manager deployments. Because of the expanded capabilities and the information dependencies that must be stored in the vault, deleting a Recovery Services vault can seem harder than it has to be.
+
+|**Deployment Type**|**Portal**|**Vault name**|
 |--------------|----------|---------|
-|Классический|Классический|Хранилище службы архивации|
-|Диспетчер ресурсов|Таблицы Azure|Хранилище служб восстановления|
+|Classic|Classic|Backup vault|
+|Resource Manager|Azure|Recovery Services vault|
 
 
-> [AZURE.NOTE] С помощью хранилищ архивации невозможно защитить решения, развернутые с помощью Resource Manager. Тем не менее можно защитить серверы и виртуальные машины, развернутые с помощью классической модели, используя хранилище служб восстановления.
+> [AZURE.NOTE] Backup vaults cannot protect Resource Manager-deployed solutions. However, you can use a Recovery Services vault to protect classically deployed servers and VMs.  
 
-В этой статье термин "хранилище" используется для обозначения стандартного хранилища архивации или хранилища служб восстановления. Формальное имя (хранилище архивации или хранилище служб восстановления) будет использоваться для различения хранилищ.
+In this article, we use the term, vault, to refer to the generic form of the Backup vault or Recovery Services vault. We use the formal name, Backup vault, or Recovery Services vault, when it is necessary to distinguish between the vaults.
 
 
 
-## Удаление хранилища служб восстановления
+## <a name="deleting-a-recovery-services-vault"></a>Deleting a Recovery Services vault
 
-Удаление хранилища служб восстановления выполняется в одно действие *при условии, что в хранилище нет ресурсов*. Прежде чем удалить хранилище служб восстановления, необходимо удалить все ресурсы в нем. Попытка удалить хранилище, содержащее ресурсы, завершится ошибкой, как на следующем рисунке.
+Deleting a Recovery Services vault is a one-step process - *provided the vault doesn't contain any resources*. Before you can delete a Recovery Services vault, you must remove or delete all resources in the vault. If you attempt to delete a vault that contains resources, you get an error like the following image.
 
-![Ошибка удаления хранилища](./media/backup-azure-delete-vault/vault-deletion-error.png) <br/>
+![Vault deletion error](./media/backup-azure-delete-vault/vault-deletion-error.png) <br/>
 
-Пока из хранилища не будут удалены ресурсы, при нажатии кнопки **Повторить** будет появляться та же ошибка. Если вы не можете ничего сделать, нажмите кнопку **Отменить** и удалите ресурсы из хранилища служб восстановления, следуя указаниям ниже.
+Until you have cleared the resources from the vault, clicking **Retry** produces the same error. If you're stuck on this error message, click **Cancel** and follow the steps below to delete the resources in the Recovery Services vault.
 
 
-### Удаление элементов из хранилища, защищающего виртуальную машину
+### <a name="removing-the-items-from-a-vault-protecting-a-vm"></a>Removing the items from a vault protecting a VM
 
-Если хранилище служб восстановления открыто, перейдите ко второму шагу.
+If you already have the Recovery Services vault open, skip to the second step.
 
-1.  Откройте портал Azure и на панели мониторинга откройте хранилище, которое требуется удалить.
+1.  Open the Azure portal, and from the Dashboard open the vault you want to delete.
 
-    Если на панели мониторинга не закреплено хранилище служб восстановления, в главном меню щелкните **Другие службы** и в поле списка ресурсов введите **службы восстановления**. Как только вы начнете вводить символы, список отфильтруется соответствующим образом. Щелкните **Хранилища служб восстановления**.
+    If you don't have the Recovery Services vault pinned to the Dashboard, on the Hub menu, click **More Services** and in the list of resources, type **Recovery Services**. As you begin typing, the list filters based on your input. Click **Recovery Services vaults**.
 
-    ![Создание хранилища служб восстановления — шаг 1](./media/backup-azure-delete-vault/open-recovery-services-vault.png) <br/>
+    ![Create Recovery Services Vault step 1](./media/backup-azure-delete-vault/open-recovery-services-vault.png) <br/>
 
-    После этого отобразится список хранилищ служб восстановления. В списке выберите хранилище для удаления.
+    The list of Recovery Services vaults is displayed. From the list, select the vault you want to delete.
 
-    ![выберите хранилище в списке](./media/backup-azure-work-with-vaults/choose-vault-to-delete.png)
+    ![choose vault from list](./media/backup-azure-work-with-vaults/choose-vault-to-delete.png)
 
-2. В представлении хранилища просмотрите панель **Основные компоненты**. Чтобы удалить хранилище, в нем не должно быть защищенных элементов. Если под пунктами **Архивные элементы** или **Серверы управления архивацией** отображается значение, отличное от нуля, сначала нужно удалить эти элементы, а затем — удалить хранилище.
+2. In the vault view, look at the **Essentials** pane. To delete a vault, there cannot be any protected items. If you see a number other than zero, under either **Backup Items** or **Backup management servers**, you must remove those items before you can delete the vault.
 
-    ![Просмотр защищенных элементов на панели "Основные компоненты"](./media/backup-azure-delete-vault/contoso-bkpvault-settings.png)
+    ![Look at Essentials pane for protected items](./media/backup-azure-delete-vault/contoso-bkpvault-settings.png)
 
-    Архивные элементы — это виртуальные машины, файлы и папки, указанные в области **Архивные элементы** на панели "Основные компоненты". Сервер DPM указан в области **Серверы управления архивацией** на панели "Основные компоненты". **Реплицированные элементы** относятся к службе Azure Site Recovery.
+    VMs and Files/Folders are considered Backup Items, and are listed in the **Backup Items** area of the Essentials pane. A DPM server is listed in the **Backup Management Server** area of the Essentials pane. **Replicated Items** pertain to the Azure Site Recovery service.
 
-3. Чтобы начать удаление защищенных элементов из хранилища, найдите их в хранилище. На панели мониторинга хранилища щелкните **Параметры**, а затем выберите пункт **Архивные элементы**, чтобы открыть соответствующую колонку.
+3. To begin removing the protected items from the vault, find the items in the vault. In the vault dashboard click **Settings**, and then click **Backup items** to open that blade.
 
-    ![выберите хранилище в списке](./media/backup-azure-delete-vault/open-settings-and-backup-items.png)
+    ![choose vault from list](./media/backup-azure-delete-vault/open-settings-and-backup-items.png)
 
-    В колонке **Архивные элементы** содержатся отдельные списки в зависимости от типа элемента: виртуальные машины Azure или файлы и папки (см. рисунок). По умолчанию используется тип элемента "Виртуальные машины Azure". Чтобы просмотреть список элементов типа "Файлы и папки" в хранилище, выберите пункт **Файлы и папки** в раскрывающемся меню.
+    The **Backup Items** blade has separate lists, based on the Item Type: Azure Virtual Machines or File-Folders (see image). The default Item Type list shown is Azure Virtual Machines. To view the list of File-Folders items in the vault, select **File-Folders** from the drop-down menu.
 
-4. Прежде чем удалить элемент из хранилища, обеспечивающего защиту виртуальной машины, нужно остановить задание архивации элемента и удалить данные точки восстановления. Для каждого элемента в хранилище выполните следующие действия.
+4. Before you can delete an item from the vault protecting a VM, you must stop the item's backup job and delete the recovery point data. For each item in the vault, follow these steps:
 
-    а. В колонке **Архивные элементы** щелкните элемент правой кнопкой мыши и в контекстном меню выберите пункт **Остановить архивацию**.
+    a. On the **Backup Items** blade, right-click the item, and from the context menu, select **Stop backup**.
 
-    ![остановка задания архивации](./media/backup-azure-delete-vault/stop-the-backup-process.png)
+    ![stop the backup job](./media/backup-azure-delete-vault/stop-the-backup-process.png)
 
-    Откроется колонка "Прекратить резервное копирование".
+    The Stop Backup blade opens.
 
-    b. В колонке **Остановка архивации** в меню **Выберите вариант** выберите пункт **Удалить данные архивации**, введите имя элемента и щелкните **Остановить архивацию**.
+    b. On the **Stop Backup** blade, from the **Choose an option** menu, select **Delete Backup Data** > type the name of the item > and click **Stop backup**.
 
-      Введите имя элемента, чтобы подтвердить его удаление. Кнопка **Остановить архивацию** станет активной только после подтверждения элемента, архивацию которого нужно остановить. Если диалоговое окно для ввода имени архивного элемента не отображается, выбран параметр **Сохранить данные архивации**.
+      Type the name of the item to verify you want to delete it. The **Stop Backup** button will not activate until you verify the item to stop. If you do not see the dialog box to type the name of the backup item, you have chosen the **Retain Backup Data** option.
 
-    ![удаление данных архивации](./media/backup-azure-delete-vault/stop-backup-blade-delete-backup-data.png)
+    ![delete backup data](./media/backup-azure-delete-vault/stop-backup-blade-delete-backup-data.png)
 
-      При необходимости можно указать причину удаления данных и добавить комментарии. Нажав кнопку **Остановить архивацию**, дождитесь завершения удаления, прежде чем удалять хранилище. Чтобы убедиться, что задание завершено, проверьте сообщения Azure ![удаление данных архивации](./media/backup-azure-delete-vault/messages.png). <br/> После завершения задания вы получите сообщение об остановке процесса архивации и удалении данных архивации элемента.
+      Optionally, you can provide a reason why you are deleting the data, and add comments. After you click **Stop Backup**, allow the delete job to complete before attempting to delete the vault. To verify that the job has completed, check the Azure Messages ![delete backup data](./media/backup-azure-delete-vault/messages.png). <br/>
+      Once the job is complete, you'll receive a message stating the backup process was stopped and the backup data was deleted for that item.
 
-    c. Удалив элемент в списке, в меню **Архивные элементы** щелкните **Обновить**, чтобы увидеть оставшиеся элементы в хранилище.
+    c. After deleting an item in the list, on the **Backup Items** menu, click **Refresh** to see the remaining items in the vault.
 
-      ![удаление данных архивации](./media/backup-azure-delete-vault/empty-items-list.png)
+      ![delete backup data](./media/backup-azure-delete-vault/empty-items-list.png)
 
-      Если в списке нет элементов, перейдите к панели **Основные компоненты** в колонке хранилища архивации. Там не должно быть **архивных элементов**, **серверов управления архивацией** или **реплицированных элементов**. Если в хранилище по-прежнему есть элементы, вернитесь к шагу 3 выше и выберите другой список типов элементов.
+      When there are no items in the list, scroll to the **Essentials** pane in the Backup vault blade. There shouldn't be any **Backup items**, **Backup management servers**, or **Replicated items** listed. If items still appear in the vault, return to step three above and choose a different item type list.  
 
-5. Когда на панели инструментов хранилища не останется элементов, щелкните **Удалить**.
+5. When there are no more items in the vault toolbar, click **Delete**.
 
-    ![удаление данных архивации](./media/backup-azure-delete-vault/delete-vault.png)
+    ![delete backup data](./media/backup-azure-delete-vault/delete-vault.png)
 
-6. В ответ на запрос о подтверждении удаления хранилища нажмите кнопку **Да**.
+6. When asked to verify that you want to delete the vault, click **Yes**.
 
-    Хранилище удаляется, а на портале открывается меню **Новая служба**.
+    The vault is deleted and the portal returns to the **New** service menu.
 
 
-## Что делать, если процесс архивации остановлен, а данные сохранились?
+## <a name="what-if-i-stopped-the-backup-process-but-retained-the-data?"></a>What if I stopped the backup process but retained the data?
 
-Если процесс архивации остановлен, а данные случайно *сохранены*, нужно удалить данные архивации, прежде чем удалять хранилище. Чтобы удалить данные архивации, сделайте следующее:
+If you stopped the backup process but accidentally *retained* the data, you must delete the backup data before you can delete the vault. To delete the backup data:
 
-1. В колонке **Архивные элементы** щелкните элемент правой кнопкой мыши и в контекстном меню выберите пункт **Удалить данные архивации**.
+1. On the **Backup Items** blade, right-click the item, and on the context menu click **Delete backup data**.
 
-    ![удаление данных архивации](./media/backup-azure-delete-vault/delete-backup-data-menu.png)
+    ![delete backup data](./media/backup-azure-delete-vault/delete-backup-data-menu.png)
 
-    Откроется колонка **Удаление данных архивации**.
+    The **Delete Backup Data** blade opens.
 
-2. В колонке **Удаление данных архивации** введите имя элемента и нажмите кнопку **Удалить**.
+2. On the **Delete Backup Data** blade, type the name of the item, and click **Delete**.
 
-    ![удаление данных архивации](./media/backup-azure-delete-vault/delete-retained-vault.png)
+    ![delete backup data](./media/backup-azure-delete-vault/delete-retained-vault.png)
 
-    Удалив данные, перейдите к шагу 4c выше и продолжите процесс.
+    Once you have deleted the data, go to step 4c, above, and continue with the process.
 
-## Удаление хранилища, используемого для защиты сервера DPM
+## <a name="delete-a-vault-used-to-protect-a-dpm-server"></a>Delete a vault used to protect a DPM server
 
-Перед удалением хранилища, используемого для защиты сервера DPM, необходимо очистить все созданные точки восстановления, а затем отменить регистрацию сервера в хранилище.
+Before you can delete a vault used to protect a DPM server, you must clear any recovery points that have been created, and then unregister the server from the vault.
 
-Чтобы удалить данные, связанные с группой защиты, сделайте следующее:
+To delete the data associated with a protection group:
 
-1. В консоли администрирования DPM щелкните **Защита**, выберите группу защиты, члена группы защиты, а затем на ленте инструментов щелкните **Удалить**. Чтобы на ленте инструментов отображалась кнопка **Удалить**, необходимо выбрать член группы защиты. В примере выбран член группы защиты **dummyvm9**. Если в группе защиты много членов, нажмите и удерживайте клавишу CTRL, чтобы выбрать сразу несколько членов.
+1. In the DPM Administrator Console, click **Protection**, select a protection group, select the Protection Group Member, and in the tool ribbon click **Remove**. You must select the member for the **Remove** button to appear in the tool ribbon. In the example, the member is **dummyvm9**. If there are multiple members in the protection group, hold down the Ctrl key to select multiple members.
 
-    ![удаление данных архивации](./media/backup-azure-delete-vault/az-portal-delete-protection-group.png)
+    ![delete backup data](./media/backup-azure-delete-vault/az-portal-delete-protection-group.png)
 
-    Откроется диалоговое окно **Остановить защиту**.
+    The **Stop Protection** dialog opens.
 
-2. В диалоговом окне **Остановить защиту** установите переключатель **Удалить защищенные данные** и нажмите кнопку **Остановить защиту**.
+2. In the **Stop Protection** dialog, select **Delete protected data**, and click **Stop Protection**.
 
-    ![удаление данных архивации](./media/backup-azure-delete-vault/delete-dpm-protection-group.png)
+    ![delete backup data](./media/backup-azure-delete-vault/delete-dpm-protection-group.png)
 
-    Не нужно сохранять защищенные данные, так как для удаления хранилища его необходимо очистить. В зависимости от количества точек восстановления и объема данных в группе защиты удаление данных может занять от нескольких секунд до нескольких минут. После завершения задания в диалоговом окне **Остановить защиту** появляется соответствующее состояние.
+    You don't want to retain protected data because you need to clear the vault in order to delete it. Depending on how many recovery points and how much data is in the protection group, it may take anywhere from a few seconds to a few minutes to delete the data. The **Stop Protection** dialog shows the status when the job has completed.
 
-    ![удаление данных архивации](./media/backup-azure-delete-vault/success-deleting-protection-group.png)
+    ![delete backup data](./media/backup-azure-delete-vault/success-deleting-protection-group.png)
 
-3. Выполните этот процесс для всех членов во всех группах защиты.
+3. Continue this process for all members in all protection groups.
 
-    Нужно удалить все защищенные данные и группы защиты.
+    You must remove all protected data, and the protection group(s).
 
-4. После удаления всех членов из группы защиты перейдите на портал Azure. Откройте панель мониторинга хранилища и убедитесь, что **элементы архивации**, **серверы управления архивацией** и **реплицированные элементы** отсутствуют. На панели инструментов хранилища щелкните **Удалить**.
+4. After deleting all members from the protection group, switch to the Azure portal. Open the vault dashboard, and make sure there are no **Backup Items**, **Backup management servers**, or **Replicated items**. On the vault toolbar, click **Delete**.
 
-    ![удаление данных архивации](./media/backup-azure-delete-vault/delete-vault.png)
+    ![delete backup data](./media/backup-azure-delete-vault/delete-vault.png)
 
-    Если в хранилище зарегистрированы серверы управления архивацией, вы не сможете удалить хранилище, даже если в нем нет данных. Если все серверы управления архивацией, связанные с хранилищем, удалены, но на панели **Основные компоненты** все еще отображаются серверы, см. раздел [Поиск серверов управления архивацией, зарегистрированных в хранилище](backup-azure-delete-vault.md#find-the-backup-management-servers-registered-to-the-vault).
+    If there are Backup management servers registered to the vault, you won't be able to delete the vault even if there is no data in the vault. If you thought you'd deleted the Backup management servers associated with the vault, but there are still servers showing in the **Essentials** pane, see [Find the Backup management servers registered to the vault](backup-azure-delete-vault.md#find-the-backup-management-servers-registered-to-the-vault).
 
-5. В ответ на запрос о подтверждении удаления хранилища нажмите кнопку **Да**.
+5. When asked to verify that you want to delete the vault, click **Yes**.
 
-    Хранилище удаляется, а на портале открывается меню **Новая служба**.
+    The vault is deleted and the portal returns to the **New** service menu.
 
 
-## Удаление хранилища, используемого для защиты рабочего сервера
+## <a name="delete-a-vault-used-to-protect-a-production-server"></a>Delete a vault used to protect a Production server
 
-Прежде чем удалить хранилище, используемое для защиты рабочего сервера, необходимо удалить сервер или отменить его регистрацию в хранилище.
+Before you can delete a vault used to protect a Production server, you must delete or unregister the server from the vault.
 
-Чтобы удалить рабочий сервер, связанный с хранилищем, сделайте следующее:
+To delete the Production server associated with the vault:
 
-1. На портале Azure откройте панель мониторинга хранилища и выберите **Параметры** > **Инфраструктура резервного копирования** > **Рабочие серверы**.
+1. In the Azure portal, open the vault dashboard and click **Settings** > **Backup Infrastructure** > **Production Servers**.
 
-    ![открытие колонки "Рабочие серверы"](./media/backup-azure-delete-vault/delete-production-server.png)
+    ![open Production Servers blade](./media/backup-azure-delete-vault/delete-production-server.png)
 
-    Откроется колонка **Рабочие серверы**, в которой указаны все рабочие серверы в хранилище.
+    The **Production Servers** blade opens and lists all Production servers in the vault.
 
-    ![список рабочих серверов](./media/backup-azure-delete-vault/list-of-production-servers.png)
+    ![list of Production Servers](./media/backup-azure-delete-vault/list-of-production-servers.png)
 
-2. В колонке **Рабочие серверы** щелкните сервер правой кнопкой мыши и выберите пункт **Удалить**.
+2. On the **Production Servers** blade, right-click on the server, and click **Delete**.
 
-    ![удаление рабочего сервера](./media/backup-azure-delete-vault/delete-server-on-production-server-blade.png)
+    ![delete production server ](./media/backup-azure-delete-vault/delete-server-on-production-server-blade.png)
 
-    Откроется колонка **Удаление**.
+    The **Delete** blade opens.
 
-    ![удаление рабочего сервера](./media/backup-azure-delete-vault/delete-blade.png)
+    ![delete production server ](./media/backup-azure-delete-vault/delete-blade.png)
 
-3. В колонке **Удаление** подтвердите имя удаляемого сервера и нажмите кнопку **Удалить**. Чтобы активировать кнопку **Удалить**, нужно правильно ввести имя сервера.
+3. On the **Delete** blade, confirm the name of the server to delete and click **Delete**. You must correctly enter the name of the server to activate the **Delete** button.
 
-    После удаления хранилища вы получите сообщение об удалении хранилища. Удалив все серверы в хранилище, вернитесь к панели "Основные компоненты" на панели мониторинга хранилища.
+    Once the vault has been deleted, you'll receive a message stating the vault has been deleted. After deleting all servers in the vault, scroll back to the Essentials pane in the vault dashboard.
 
-4. Убедитесь, что на панели мониторинга хранилища отсутствуют **элементы архивации**, **серверы управления архивацией** и **реплицированные элементы**. На панели инструментов хранилища щелкните **Удалить**.
+4. In the vault dashboard, make sure there are no **Backup Items**, **Backup management servers**, or **Replicated items**. On the vault toolbar, click **Delete**.
 
-5. В ответ на запрос о подтверждении удаления хранилища нажмите кнопку **Да**.
+5. When asked to verify that you want to delete the vault, click **Yes**.
 
-    Хранилище удаляется, а на портале открывается меню **Новая служба**.
+    The vault is deleted and the portal returns to the **New** service menu.
 
 
-## Удаление хранилища архивации
+## <a name="delete-a-backup-vault"></a>Delete a Backup vault
 
-Далее представлены инструкции по удалению хранилища архивации на классическом портале. Прежде чем удалить хранилище архивации, как и хранилище служб восстановления, нужно удалить элементы и сохраненные данные.
+The following instructions are for deleting a Backup vault in the classic portal. A Backup vault and Recovery Services vault are the same: before you can delete the vault, delete the items and the retained data.
 
-1. Откройте классический портал.
+1. Open the Classic portal.
 
-2. В списке хранилищ архивации выберите хранилище для удаления.
+2. From the list of backup vaults, select the vault you want to delete.
 
-    ![удаление данных архивации](./media/backup-azure-delete-vault/classic-portal-delete-vault-open-vault.png)
+    ![delete backup data](./media/backup-azure-delete-vault/classic-portal-delete-vault-open-vault.png)
 
-    Затем откроется панель мониторинга хранилища. Просмотрите число серверов Windows и (или) виртуальных машин Azure, связанных с хранилищем. Кроме того, обратите внимание на общий объем занятого хранилища в Azure. Прежде чем удалить хранилище, нужно остановить все задания архивации и удалить имеющиеся данные.
+    The vault dashboard opens. Look at the number of Windows Servers and/or Azure virtual machines associated with the vault. Also, look at the total storage consumed in Azure. You'll need to stop any backup jobs and delete existing data before deleting the vault.
 
-3. Выберите вкладку **Защищенные элементы**, а затем щелкните **Остановить защиту**.
+3. Click the **Protected Items** tab, and then click **Stop Protection**
 
-    ![удаление данных архивации](./media/backup-azure-delete-vault/classic-portal-delete-vault-stop-protect.png)
+    ![delete backup data](./media/backup-azure-delete-vault/classic-portal-delete-vault-stop-protect.png)
 
-    Откроется диалоговое окно **Остановка защиты (имя хранилища)**.
+    The **Stop protection of 'your vault'** dialog appears.
 
-4. В диалоговом окне **Остановка защиты (имя хранилища)** установите флажок **Удаление связанных архивируемых данных** и щелкните значок ![флажок](./media/backup-azure-delete-vault/checkmark.png). <br/> При необходимости можно выбрать причину остановки защиты и ввести комментарий.
+4. In the **Stop protection of 'your vault'** dialog, check **Delete associated backup data** and click ![checkmark](./media/backup-azure-delete-vault/checkmark.png). <br/>
+    Optionally, you can choose a reason for stopping protection, and provide a comment.
 
-    ![удаление данных архивации](./media/backup-azure-delete-vault/classic-portal-delete-vault-verify-stop-protect.png)
+    ![delete backup data](./media/backup-azure-delete-vault/classic-portal-delete-vault-verify-stop-protect.png)
 
-    После удаления элементов хранилище станет пустым.
+    After deleting the items in the vault, the vault will be empty.
 
-    ![удаление данных архивации](./media/backup-azure-delete-vault/classic-portal-delete-vault-post-delete-data.png)
+    ![delete backup data](./media/backup-azure-delete-vault/classic-portal-delete-vault-post-delete-data.png)
 
-5. В списке вкладок выберите вкладку **Зарегистрированные элементы**. Выберите элемент и нажмите кнопку **Отменить регистрацию**. И так для каждого элемента, зарегистрированного в хранилище.
+5. In the list of tabs, click **Registered Items**. For each item registered in the vault, select the item, and click **Unregister**.
 
-    ![удаление данных архивации](./media/backup-azure-delete-vault/classic-portal-unregister.png)
+    ![delete backup data](./media/backup-azure-delete-vault/classic-portal-unregister.png)
 
-6. В списке вкладок выберите вкладку **Панель мониторинга**, чтобы открыть ее. Убедитесь, что зарегистрированные серверы или виртуальные машины Azure, защищенные в облаке, отсутствуют. Кроме того, убедитесь, что в хранилище нет данных. Щелкните **Удалить**, чтобы удалить хранилище.
+6. In the list of tabs, click **Dashboard** to open that tab. Verify there are no registered servers or Azure virtual machines protected in the cloud. Also, verify there is no data in storage. Click **Delete** to delete the vault.
 
-    ![удаление данных архивации](./media/backup-azure-delete-vault/classic-portal-list-of-tabs-dashboard.png)
+    ![delete backup data](./media/backup-azure-delete-vault/classic-portal-list-of-tabs-dashboard.png)
 
-    Откроется экран подтверждения удаления хранилища архивации. Выберите причину удаления хранилища и щелкните ![флажок](./media/backup-azure-delete-vault/checkmark.png). <br/>
+    The Delete Backup vault confirmation screen opens. Select an option why you're deleting the vault, and click ![checkmark](./media/backup-azure-delete-vault/checkmark.png). <br/>
 
-    ![удаление данных архивации](./media/backup-azure-delete-vault/classic-portal-delete-vault-confirmation-1.png)
+    ![delete backup data](./media/backup-azure-delete-vault/classic-portal-delete-vault-confirmation-1.png)
 
-    Хранилище удалено. После этого откроется панель мониторинга классического портала.
+    The vault is deleted, and you return to the classic portal dashboard.
 
-### Поиск серверов управления архивацией, зарегистрированных в хранилище
+### <a name="find-the-backup-management-servers-registered-to-the-vault"></a>Find the Backup Management servers registered to the vault
 
-Если в хранилище зарегистрировано несколько серверов, вам сложно будет запомнить их все. Чтобы просмотреть серверы, зарегистрированные в хранилище, и удалить их, сделайте следующее:
+If you have multiple servers registered to a vault, it can be difficult to remember them. To see the servers registered to the vault, and delete them:
 
-1. Откройте панель мониторинга хранилища.
+1. Open the vault dashboard.
 
-2. На панели **Основные компоненты** щелкните **Параметры**, чтобы открыть соответствующую колонку.
+2. In the **Essentials** pane, click **Settings** to open that blade.
 
-    ![открытие колонки "Параметры"](./media/backup-azure-delete-vault/backup-vault-click-settings.png)
+    ![open settings blade](./media/backup-azure-delete-vault/backup-vault-click-settings.png)
 
-3. В колонке **Параметры** щелкните **Инфраструктура резервного копирования**.
+3. On the **Settings blade**, click **Backup Infrastructure**.
 
-4. В колонке **Инфраструктура резервного копирования** щелкните **Серверы управления архивацией**. Откроется колонка "Серверы управления архивацией".
+4. On the **Backup Infrastructure** blade, click **Backup Management Servers**. The Backup Management Servers blade opens.
 
-    ![список серверов управления архивацией](./media/backup-azure-delete-vault/list-of-backup-management-servers.png)
+    ![list of backup management servers](./media/backup-azure-delete-vault/list-of-backup-management-servers.png)
 
-5. Чтобы удалить сервер из списка, щелкните его имя правой кнопкой мыши и щелкните **Удалить**. Откроется колонка **Удаление**.
+5. To delete a server from the list, right-click the name of the server and then click **Delete**.
+    The **Delete** blade opens.
 
-6. В колонке **Удаление** укажите имя сервера. Если имя длинное, его можно скопировать и вставить из списка серверов управления архивацией. Затем щелкните **Удалить**.
+6. On the **Delete** blade, provide the name of the server. If it is a long name, you can copy and paste it from the list of Backup Management Servers. Then click **Delete**.  
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

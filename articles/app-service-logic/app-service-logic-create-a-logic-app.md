@@ -1,67 +1,74 @@
 <properties
-	pageTitle="Создание приложения логики | Microsoft Azure"
-	description="Узнайте, как создать приложение логики, подключающее службы SaaS"
-	authors="jeffhollan"
-	manager="dwrede"
-	editor=""
-	services="logic-apps"
-	documentationCenter=""/>
+    pageTitle="Create a Logic App | Microsoft Azure"
+    description="Learn how to create a Logic App connecting SaaS services"
+    authors="jeffhollan"
+    manager="dwrede"
+    editor=""
+    services="logic-apps"
+    documentationCenter=""/>
 
 <tags
-	ms.service="logic-apps"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="07/16/2016"
-	ms.author="jehollan"/>
+    ms.service="logic-apps"
+    ms.workload="na"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="10/18/2016"
+    ms.author="jehollan"/>
 
-# Создание нового приложения логики, подключающего службы SaaS
 
-В этой статье показано, как всего за несколько минут создать [приложение логики Azure](app-service-logic-what-are-logic-apps.md). Мы рассмотрим простой рабочий процесс, который позволяет получать интересующие вас твиты в почтовый ящик.
+# <a name="create-a-new-logic-app-connecting-saas-services"></a>Create a new logic app connecting SaaS services
 
-Для использования этого сценария вам понадобится:
+This topic demonstrates how, in just a few minutes, you can get started with [Azure Logic Apps](app-service-logic-what-are-logic-apps.md). We'll walk through a simple workflow that lets you send interesting tweets to your email.
 
-- Подписка Azure
-- учетная запись Twitter;
-- почтовый ящик Outlook.com или Office 365.
+To use this scenario, you need:
 
-## Создание приложения логики для отправки твитов по электронной почте
+- An Azure subscription
+- A Twitter account
+- A Outlook.com or hosted Office 365 mailbox
 
-1. На [панели мониторинга портала Azure](https://portal.azure.com) выберите **Создать**.
-2. В строке поиска выполните поиск по запросу "приложение логики", а затем выберите **Приложение логики**. Вы также можете щелкнуть **Создать**, **Интернет+мобильные устройства**, а затем выбрать **Приложение логики**.
-3. Введите имя приложения логики, выберите расположение, группу ресурсов и щелкните **Создать**. Если выбрать параметр **Закрепить на панели мониторинга**, приложение логики автоматически откроется после развертывания.
-4. При первом открытии приложения логики можно выбрать шаблон для запуска. Чтобы создать приложение логики с нуля, щелкните **Blank Logic App** (Пустое приложение логики).
-1. Для начала необходимо создать триггер. Это событие, которое запускает приложение логики. В окне поиска триггера выполните поиск по запросу **twitter** и выберите отобразившийся элемент.
-7. Сейчас вам нужно ввести поисковый запрос, по которому будет срабатывать триггер. Параметры **Частота** и **Интервал** определяют частоту, с которой приложение логики будет проверять новые твиты (и возвращать их в течение установленного промежутка времени). ![Поиск Twitter](./media/app-service-logic-create-a-logic-app/twittersearch.png)
+## <a name="create-a-new-logic-app-to-email-you-tweets"></a>Create a new logic app to email you tweets
 
-5. Нажмите кнопку **Новый шаг**, а затем выберите **Добавить действие** или **Добавить условие**.
-6. Если выбрать параметр **Добавить действие**, можно выбрать действие в списке [доступных соединителей](../connectors/apis-list.md). Например, можно выбрать действие Outlook **Отправить сообщение** для отправки сообщения с адреса Outlook.com. ![Действия](./media/app-service-logic-create-a-logic-app/actions.png)
+1. On the [Azure portal dashboard](https://portal.azure.com), select **New**. 
+2. In the search bar, search for 'logic app', and then select **Logic App**. You can also select **New**, **Web + Mobile**, and select **Logic App**. 
+3. Enter a name for your logic app, select a location, resource group, and select **Create**.  If you select **Pin to Dashboard** the logic app will automatically open once deployed.  
+4. After opening your logic app for the first time you can select from a template to start.  For now click **Blank Logic App** to build this from scratch. 
+1. The first item you need to create is the trigger.  This is the event that will start your logic app.  Search for **twitter** in the trigger search box, and select it.
+7. Now you'll type in a search term to trigger on.  The **Frequency** and **Interval** will determine how often your logic app will check for new tweets (and return all tweets during that time span).
+    ![Twitter search](./media/app-service-logic-create-a-logic-app/twittersearch.png)
 
-7. Теперь нужно заполнить требуемые параметры электронной почты. ![Параметры](./media/app-service-logic-create-a-logic-app/parameters.png).
+5. Select the **New step** button, and then choose **Add an action** or **Add a condition**
+6. When you select **Add an Action**, you can search from the [available connectors](../connectors/apis-list.md) to choose an action. For example, you can select **Outlook.com - Send Email** to send mail from an outlook.com address:  
+    ![Actions](./media/app-service-logic-create-a-logic-app/actions.png)
 
-8. Наконец, щелкните **Сохранить**, чтобы запустить свое приложение логики.
+7. Now you have to fill out the parameters for the email you want:  ![Parameters](./media/app-service-logic-create-a-logic-app/parameters.png)
 
-## Управление приложением логики после его создания
+8. Finally, you can select **Save** to make your logic app live.
 
-Теперь ваше приложение логики запущено и работает. Оно будет периодически проверять наличие твитов с определенным условием поиска. После обнаружения соответствующего твита вам будет отправлено сообщение. Теперь мы покажем, как отключать приложение, и вы увидите, как это работает.
+## <a name="manage-your-logic-app-after-creation"></a>Manage your logic app after creation
 
-1. Перейдите на [портал Azure](https://portal.azure.com).
+Now your logic app is up and running. It will periodically check for tweets with the search term entered. When it finds a matching tweet, it will send you an email. Finally, you'll see how to disable the app, or see how it’s doing.
 
-1. Нажмите кнопку **Обзор** на левой стороне экрана и выберите пункт **Приложения логики**.
+1. Go to the [Azure Portal](https://portal.azure.com)
 
-2. Щелкните новое приложение логики, которое вы только что создали, чтобы просмотреть его текущее состояние и общие сведения.
+1. Click **Browse** on the left side of the screen and select **Logic Apps**.
 
-3. Чтобы изменить это новое приложение логики, щелкните **Изменить**.
+2. Click the new logic app that you just created to see current status and general information.
 
-5. Чтобы отключить приложение, нажмите кнопку **Отключить** в командной строке.
+3. To edit your new logic app, click **Edit**.
 
-1. Просматривайте журналы триггеров и запуска, чтобы отслеживать время запуска приложения логики. Щелкните **Обновить**, чтобы просмотреть последние данные.
+5. To turn off the app, click **Disable** in the command bar.
 
-Менее чем за 5 минут вы смогли создать простое приложение логики, работающее в облаке. Дополнительные сведения об использовании функций приложений логики см. в статье [Использование функций приложения логики]. Дополнительные сведения об определениях логических приложений см. в статье [Создание определений приложений логики](app-service-logic-author-definitions.md).
+1. View run and trigger histories to monitor when your logic app is running.  You can click **Refresh** to see the latest data.
+
+In less than 5 minutes you were able to set up a simple logic app running in the cloud. To learn more about using Logic Apps features, see [Use logic app features]. To learn about the Logic App definitions themselves, see [author Logic App definitions](app-service-logic-author-definitions.md).
 
 <!-- Shared links -->
 [Azure portal]: https://portal.azure.com
-[Использование функций приложения логики]: app-service-logic-create-a-logic-app.md
+[Use logic app features]: app-service-logic-create-a-logic-app.md
 
-<!---HONumber=AcomDC_0803_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

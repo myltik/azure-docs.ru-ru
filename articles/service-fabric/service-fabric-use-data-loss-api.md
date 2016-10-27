@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Как вызвать потерю данных в службах Service Fabric | Microsoft Azure"
-   description="Описывается, как использовать API потери данных."
+   pageTitle="How to Invoke Data Loss on Service Fabric Services | Microsoft Azure"
+   description="Describes how to use the data loss api"
    services="service-fabric"
    documentationCenter=".net"
    authors="LMWF"
@@ -16,39 +16,42 @@
    ms.date="09/19/2016"
    ms.author="lemai"/>
    
-# Как вызвать потерю данных в службах
 
->[AZURE.WARNING] В этом документе описывается, как вызвать потерю данных в службах, поэтому он должен использоваться с осторожностью.
+# <a name="how-to-invoke-data-loss-on-services"></a>How to Invoke Data Loss on Services
 
-## Введение
-Можно вызвать потерю данных в секции службы Service Fabric, вызвав StartPartitionDataLossAsync(). Этот API использует службу внесения ошибок и анализа для выполнения работы, чтобы создать условия для потери данных.
+>[AZURE.WARNING] This document describe how to cause data loss in your services, and should be used with care.
 
-## Использование службы внесения ошибок и анализа
+## <a name="introduction"></a>Introduction
+You can invoke data loss on a partition of your Service Fabric Service by calling StartPartitionDataLossAsync().  This api uses the Fault Injection and Analysis Service to perform the work to cause data loss conditions.
 
-В настоящее время служба внесения ошибок и анализа поддерживает следующие интерфейсы API, перечисленные в таблице ниже. В правой части диаграммы приведен соответствующий командлет PowerShell. Чтобы получить дополнительные сведения о каждом API, обратитесь к соответствующей документации на сайте MSDN.
+## <a name="using-the-fault-injection-and-analysis-service"></a>Using the Fault Injection and Analysis Service
 
-| API C# | Командлет PowerShell |
+The Fault Injection and Analysis Service currently supports the following APIs in the chart below.  The right side of the chart shows the corresponding PowerShell cmdlet.  Please refer to the msdn documentation on each API for more information on each one.
+
+|           C# API                    |         PowerShell Cmdlet                      |
 |-------------------------------------|-----------------------------------------------:|
-|[StartPartitionDataLossAsync][dl] |[Start-ServiceFabricPartitionDataLoss][psdl] |
-|[StartPartitionQuorumLossAsync][ql] |[Start-ServiceFabricPartitionQuorumLoss][psql] |
-|[StartPartitionRestartAsync][rp] |[Start-ServiceFabricPartitionRestart][psrp] |
+|[StartPartitionDataLossAsync] [dl]   |[Start-ServiceFabricPartitionDataLoss] [psdl]   |
+|[StartPartitionQuorumLossAsync] [ql] |[Start-ServiceFabricPartitionQuorumLoss] [psql] |
+|[StartPartitionRestartAsync] [rp]    |[Start-ServiceFabricPartitionRestart] [psrp]    |
 
-## Принцип выполнения команды
+## <a name="conceptual-overview-of-running-a-command"></a>Conceptual Overview of Running a Command
 
-Служба внесения ошибок и анализа использует асинхронную модель, в которой вы начинаете с выполнения команды в одном API (т. н. API Start в этом документе), а затем проверяете ход выполнения этой команды с помощью API GetProgress, пока она не достигнет конечного состояния или не будет отменена вами. Чтобы выполнить команду, вызовите API Start для соответствующего API. Этот API возвращается, если служба внесения ошибок и анализа приняла запрос. Однако это не указывает, насколько выполнена команда или было ли вообще начато ее выполнение. Чтобы проверить ход выполнения команды, вызовите API GetProgress, который соответствует ранее вызванному API Start. API GetProgress вернет объект, указывающий в своем свойстве State текущее состояние команды. Команда выполняется неограниченное время, пока не будет выполнено одно из следующих условий.
+The Fault Injection and Analysis Service uses an asynchronous model where you start the command with one API, referred to as the “Start” API in this document, then checks the progress of this command using a “GetProgress” API until it has reached a terminal state, or until you cancel it.
+To start a command, call the “Start” API for the corresponding API.  This API returns when the Fault Injection and Analysis Service has accepted the request.  However, it does not indicate how far a command has run, or even if it has started yet.  In order to check progress of a command, call the “GetProgress” API that corresponds to the “Start” API previously called.  The “GetProgress” API will return an object indicating the current status of the command inside its State property.  A command runs indefinitely until:
 
-1.	Она полностью выполнена. При вызове GetProgress в этом случае свойство State объекта хода выполнения будет иметь значение Completed.
-2.	При выполнении возникла неустранимая ошибка. При вызове GetProgress в этом случае свойство State объекта хода выполнения будет иметь значение Faulted.
-3.	Вы отменили команд с помощью API [CancelTestCommandAsync][cancel] или командлета PowerShell [Stop ServiceFabricTestCommand][cancelps]. При вызове GetProgress в этом случае свойство State объекта хода выполнения будет иметь значение Cancelled или ForceCancelled, в зависимости от аргумента данного API. Обратитесь к документации по [CancelTestCommandAsync][cancel] для получения дополнительных сведений.
+1.  It completes successfully.  If you call “GetProgress” on it in this case, the progress object’s State will be Completed.
+2.  It encounters a fatal error.  If you call “GetProgress” on it in this case, the progress object’s State will be Faulted
+3.  You cancel it through the [CancelTestCommandAsync] [cancel] API, or [Stop-ServiceFabricTestCommand] [cancelps] PowerShell cmdlet.  If you call “GetProgress” on it in this case, the progress object’s State will be either Cancelled or ForceCancelled, depending on an argument to that API.  See the documentation for [CancelTestCommandAsync] [cancel] for more details.
 
 
-## Подробное описание выполнения команды
+## <a name="details-of-running-a-command"></a>Details of Running a Command
 
-Чтобы начать выполнение команды, вызовите API Start с ожидаемыми аргументами. У всех API Start есть аргумент Guid, называемый operationId. Данный аргумент нужно отслеживать, так как он используется для отслеживания хода выполнения этой команды. Его нужно передать в API GetProgress, чтобы отслеживать ход выполнения команды. Значение operationId должно быть уникальным.
+In order to start a command, call the Start API with the expected arguments.  All Start APIs have a Guid argument named operationId.  You should keep track of the operationId argument, since it is used to track progress of this command.  This must be passed into the “GetProgress” API in order to track progress of the command.  The operationId must be unique.
 
-После успешного вызова API Start вызов API GetProgress должен осуществляться циклически, пока свойство State возвращаемого объекта хода выполнения не примет значение Completed. Все исключения [FabricTransientException][fte] и OperationCanceledException должны быть обработаны путем повтора операции. Когда команда достигнет конечного состояния (Completed, Faulted или Cancelled), свойство Result возвращаемого объекта хода выполнения будет содержать дополнительные сведения. Если состояние — Completed, то Result.SelectedPartition.PartitionId будет содержать идентификатор секции, которая была выбрана. Result.Exception будет иметь значение NULL. Если состояние — Faulted, то Result.Exception будет содержать причину, по которой служба внесения ошибок и анализа присвоила это состояние выполнения команды. Result.SelectedPartition.PartitionId будет содержать идентификатор секции, которая была выбрана. В некоторых ситуациях команда может быть выполнена недостаточно, чтобы можно было выбрать секцию. В этом случае значение PartitionId будет равно 0. Если состояние — Cancelled, то Result.Exception будет иметь значение NULL. Как и в случае состояния Faulted, Result.SelectedPartition.PartitionId будет содержать идентификатор секции, которая была выбрана, но если команда была выполнена недостаточно для этого, этот идентификатор будет равен 0. Ознакомьтесь также с примером ниже.
+After successfully calling the Start API, the GetProgress API should be called in a loop until the returned progress object’s State property is Completed.  All [FabricTransientException’s] [fte] and OperationCanceledException’s should be retried.
+When the command has reached a terminal state (Completed, Faulted, or Cancelled), the returned progress object’s Result property will have additional information.  If the state is Completed, Result.SelectedPartition.PartitionId will contain the partition id that was selected.  Result.Exception will be null.  If the state is Faulted, Result.Exception will have the reason the Fault Injection and Analysis Service faulted the command.  Result.SelectedPartition.PartitionId will have the partition id that was selected.  In some situations, the command may not have proceeded far enough to choose a partition.  In that case, the PartitionId will be 0.  If the state is Cancelled, Result.Exception will be null.  Like the Faulted case, Result.SelectedPartition.PartitionId will have the partition id that was chosen, but if the command has not proceeded far enough to do so, it will be 0.  Please also refer to the sample below.
 
-В этом примере кода показано, как начать, а затем проверять выполнение команды, которая приводит к потере данных в определенном разделе.
+The sample code below shows how to start then check progress on a command to cause data loss on a specific partition.
 
 ```csharp
     static async Task PerformDataLossSample()
@@ -131,7 +134,7 @@
     }
 ```
 
-В примере ниже показано, как использовать PartitionSelector для выбора случайной секции заданной службы.
+The sample below shows how to use the PartitionSelector to choose a random partition of a specified service:
 
 ```csharp
     static async Task PerformDataLossUseSelectorSample()
@@ -218,9 +221,9 @@
     }
 ```
 
-## Журнал и усечение
+## <a name="history-and-truncation"></a>History and Truncation
 
-После достижения командой конечного состояния ее метаданные на какое-то время остаются в службе внесения ошибок и анализа, прежде чем будут удалены для экономии места. Если после их удаления вызвать GetProgress с operationId этой команды, то будет возвращено исключение FabricException с кодом ErrorCode, равным KeyNotFound.
+After a command has reached a terminal state, its metadata will remain in the Fault Injection and Analysis Service for a certain time, before it will be removed to save space.  If “GetProgress” is called using the operationId of a command after it has been removed, it will return a FabricException with an ErrorCode of KeyNotFound.
 
 [dl]: https://msdn.microsoft.com/library/azure/mt693569.aspx
 [ql]: https://msdn.microsoft.com/library/azure/mt693558.aspx
@@ -232,4 +235,8 @@
 [cancelps]: https://msdn.microsoft.com/library/mt697566.aspx
 [fte]: https://msdn.microsoft.com/library/azure/system.fabric.fabrictransientexception.aspx
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

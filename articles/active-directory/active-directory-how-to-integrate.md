@@ -1,9 +1,9 @@
 <properties
-   pageTitle="Интеграция с Azure Active Directory | Microsoft Azure"
-   description="Руководство по преимуществам и ресурсам для интеграции с Azure Active Directory."
+   pageTitle="How to Integrate with Azure Active Directory | Microsoft Azure"
+   description="A guide to benefits of and resources for integration with Azure Active Directory."
    services="active-directory"
    documentationCenter="dev-center-name"
-   authors="msmbaldwin"
+   authors="bryanla"
    manager="mbaldwin"
    editor=""/>
 
@@ -16,78 +16,83 @@
    ms.date="09/16/2016"
    ms.author="mbaldwin"/>
 
-# Интеграция с Azure Active Directory
+
+# <a name="integrating-with-azure-active-directory"></a>Integrating with Azure Active Directory
 
 [AZURE.INCLUDE [active-directory-devguide](../../includes/active-directory-devguide.md)]
 
-Azure Active Directory предоставляет организациям функции управления идентификацией корпоративного уровня для облачных приложений. Интеграция с Azure AD позволяет вашим пользователям удобно входить в систему, а вашему приложению соответствовать политике ИТ.
+Azure Active Directory provides organizations with enterprise-grade identity management for cloud applications.  Azure AD integration gives your users a streamlined sign-in experience, and helps your application conform to IT policy.
 
-## Как выполнять интеграцию
+## <a name="how-to-integrate"></a>How To Integrate
 
-Для интеграции приложения с Azure AD можно использовать несколько способов. Выберите соответствующий сценарий для своего приложения.
+There are several ways for your application to integrate with Azure AD.  Take advantage of as many or as few of these scenarios as is appropriate for your application.
 
-### Поддержка Azure AD как способа входа в свое приложение
+### <a name="support-azure-ad-as-a-way-to-sign-in-to-your-application"></a>Support Azure AD as a Way to Sign In to Your Application
 
-**Упрощение процедуры входа и сокращение затрат на поддержку.** Благодаря применению системы Azure AD для входа в ваше приложение пользователям больше не будет нужно запоминать еще одно имя и пароль. Как разработчику вам будет нужно хранить и защищать меньшее число паролей (на один). Значительным выигрышем может оказаться отсутствие необходимости в сбросе забытых паролей. Azure AD обеспечивает возможность входа для некоторых из наиболее популярных в мире облачных приложений, включая Office 365 и Microsoft Azure. При наличии сотен миллионов пользователей из миллионов организаций высока вероятность того, что ваш пользователь уже выполнял вход в систему Azure AD. Дополнительные сведения о [добавлении поддержки для входа в Azure AD](active-directory-authentication-scenarios.md).
+**Reduce sign in friction and reduce support costs.** By using Azure AD to sign in to your application, your users won't have one more name and password to remember.  As a developer, you'll have one less password to store and protect.  Not having to handle forgotten password resets may be a significant savings alone.  Azure AD powers sign in for some of the world's most popular cloud applications, including Office 365 and Microsoft Azure.  With hundreds of millions users from millions of organizations, chances are your user is already signed in to Azure AD.  Learn more about [adding support for Azure AD sign in](active-directory-authentication-scenarios.md).
 
-**Упрощение процесса входа для своего приложения.** Во время регистрации вашего приложения система Azure AD может отправлять важные сведения о пользователе, чтобы вы могли предварительно заполнить форму регистрации или полностью ее исключить. Пользователи могут зарегистрироваться на ваше приложение с помощью своих учетных записей Azure AD благодаря хорошо знакомому механизму дачи согласия, похожему на механизмы, применяемые в социальных сетях и мобильных приложениях. Любой пользователь может зарегистрироваться и войти в приложение, которое интегрировано с Azure AD, без участия специалистов по ИТ. Дополнительные сведения о [регистрации приложения для входа c использованием учетной записи Azure Active Directory](../mobile-services/mobile-services-how-to-register-active-directory-authentication.md).
+**Simplify sign up for your application.**  During sign up for your application, Azure AD can send essential information about a user so that you can pre-fill your sign up form or eliminate it completely.  Users can sign up for your application using their Azure AD account via a familiar consent experience similar to those found in social media and mobile applications.  Any user can sign up and sign in to an application that is integrated with Azure AD without requiring IT involvement.  Learn more about [signing up your application for Azure AD Account login](../mobile-services/mobile-services-how-to-register-active-directory-authentication.md) .
 
-### Поиск пользователей, управление подготовкой пользователей и контроль доступа к приложению
+### <a name="browse-for-users,-manage-user-provisioning,-and-control-access-to-your-application"></a>Browse for Users, Manage User Provisioning, and Control Access to Your Application
 
-**Поиск пользователей в каталоге.** Чтобы помочь пользователям искать и находить других пользователей в своей организации при их приглашении или предоставлении доступа, не просите их сообщать вам свой адрес электронной почты, а используйте интерфейс Graph API. Пользователи могут выполнять поиск с помощью знакомого интерфейса адресной книги, а также просматривать подробные сведения об иерархии организации. Дополнительные сведения о [Graph API](active-directory-graph-api.md).
+**Browse for users in the directory.**  Use the Graph API to help users search and browse for other people in their organization when inviting others or granting access, instead of requiring them to type email addresses.  Users can browse using a familiar address book style interface, including viewing the details of the organizational hierarchy.  Learn more about the [Graph API](active-directory-graph-api.md).
 
-**Повторное использование групп и списков рассылки Active Directory, которыми ваш клиент уже управляет.** Azure AD содержит группы, которые ваш клиент уже применяет для рассылки по электронной почте и управления доступом. Благодаря Graph API вам больше не нужно, чтобы ваш клиент создавал и управлял отдельным набором групп в вашем приложении. Теперь можно просто повторно использовать эти группы. Сведения о группе также могут отправляться в ваше приложение в маркерах входа. Дополнительные сведения о [Graph API](active-directory-graph-api.md).
+**Re-use Active Directory groups and distribution lists your customer is already managing.**  Azure AD contains the groups that your customer is already using for email distribution and managing access.  Using the Graph API, re-use these groups instead of requiring your customer to create and manage a separate set of groups in your application.  Group information can also be sent to your application in sign in tokens.  Learn more about the [Graph API](active-directory-graph-api.md).
 
-**Использование Azure AD для контроля доступом к вашему приложению.** Администраторы и владельцы приложений в Azure AD могут назначать доступ к приложениям для конкретных пользователей и групп. Graph API позволяет вам читать этот список и использовать его для контроля процесса выделения и удаления ресурсов, а также контроля доступа к приложению.
+**Use Azure AD to control who has access to your application.**  Administrators and application owners in Azure AD can assign access to applications to specific users and groups.  Using the Graph API, you can read this list and use it to control provisioning and de-provisioning of resources and access within your application.  
 
-**Применение Azure AD для контроля доступа на основе ролей.** Администраторы и владельцы приложений могут назначать пользователям и группам роли, которые вы определяете при регистрации своего приложения в Azure AD. Сведения о роли отправляются в ваше приложение в маркерах входа. Их можно считывать с помощью Graph API. Дополнительные сведения о [применении Azure AD для авторизации](http://blogs.technet.com/b/ad/archive/2014/12/18/azure-active-directory-now-with-group-claims-and-application-roles.aspx).
+**Use Azure AD for Roles Based Access Control.**  Administrators and application owners can assign users and groups to roles that you define when you register your application in Azure AD.  Role information is sent to your application in sign in tokens and can also be read using the Graph API.  Learn more about [using Azure AD for authorization](http://blogs.technet.com/b/ad/archive/2014/12/18/azure-active-directory-now-with-group-claims-and-application-roles.aspx).
 
-### Получение доступа к профилю пользователя, календарю, электронной почте, контактам, файлам и проч.
+### <a name="get-access-to-user's-profile,-calendar,-email,-contacts,-files,-and-more"></a>Get Access to User's Profile, Calendar, Email, Contacts, Files, and More
 
-**Azure AD — это сервер авторизации для Office 365 и других бизнес-служб корпорации Майкрософт.** Если вы поддерживаете Azure AD для входа в ваше приложение или поддерживаете возможность связывания текущих учетных записей пользователей с учетными записями пользователей Azure AD с помощью OAuth 2.0, то вы можете запрашивать доступ на чтение и запись к профилю пользователя, календарю, электронной почте, контактам, файлам и прочим данным. Вы можете легко записывать события в календарь пользователя, а также считывать или записывать файлы в их службу OneDrive. Дополнительные сведения о [доступе к API-интерфейсам Office 365](https://msdn.microsoft.com/office/office365/howto/platform-development-overview).
+**Azure AD is the authorization server for Office 365 and other Microsoft business services.**  If you support Azure AD for sign in to your application or support linking your current user accounts to Azure AD user accounts using OAuth 2.0, you can request read and write access to a user's profile, calendar, email, contacts, files, and other information.  You can seamlessly write events to user's calendar, and read or write files to their OneDrive.  Learn more about [accessing the Office 365 APIs](https://msdn.microsoft.com/office/office365/howto/platform-development-overview).
 
-### Продвижение вашего приложения в магазинах Azure и Office 365
+### <a name="promote-your-application-in-the-azure-and-office-365-marketplaces"></a>Promote Your Application in the Azure and Office 365 Marketplaces
 
-**Продвижение вашего приложения миллионам организаций, уже использующих Azure AD.** Пользователи, посещающие эти магазины, уже используют одну или несколько облачных служб, что делает их квалифицированными клиентами облачных служб. Дополнительные сведения о продвижении вашего приложения в [Azure Marketplace](https://azure.microsoft.com/marketplace/partner-program/).
+**Promote your application to the millions of organizations who are already using Azure AD.**  Users who search and browse these marketplaces are already using one or more cloud services, making them qualified cloud service customers.  Learn more about promoting your application in [the Azure Marketplace](https://azure.microsoft.com/marketplace/partner-program/).
 
-**Когда пользователи регистрируются на ваше приложение, оно появляется на панели доступа Azure AD и в средстве запуска приложений Office 365.** Пользователи смогут быстро и легко вернуться к вашему приложению позже, повышая уровень вовлеченности пользователей. Дополнительные сведения о [панели доступа Azure AD](active-directory-saas-access-panel-introduction.md).
+**When users sign up for your application, it will appear in their Azure AD access panel and Office 365 app launcher.**  Users will be able to quickly and easily return to your application later, improving user engagement.  Learn more about the [Azure AD access panel](active-directory-saas-access-panel-introduction.md).
 
-### Безопасный обмен данными между устройством и службой, а также между службами
+### <a name="secure-device-to-service-and-service-to-service-communication"></a>Secure Device-to-Service and Service-to-Service Communication
 
-**Благодаря применению Azure AD для управления идентификацией служб и устройств уменьшается объем кода, который необходимо программировать, а для службы ИТ появляется возможность управления доступом.** Службы и устройства могут получать маркеры из Azure AD с помощью OAuth и использовать их для доступа к веб-интерфейсу API. Благодаря применению Azure AD нет необходимости создавать сложный код проверки подлинности. Так как удостоверения служб и устройств хранятся в Azure AD, служба ИТ может управлять ключами и отзывать их в одном месте, а не делать это отдельно в вашем приложении.
+**Using Azure AD for identity management of services and devices reduces the code you need to write and enables IT to manage access.**  Services and devices can get tokens from Azure AD using OAuth and use those tokens to access web APIs.  Using Azure AD you can avoid writing complex authentication code.  Since the identities of the services and devices are stored in Azure AD, IT can manage keys and revocation in one place instead of having to do this separately in your application.
 
-## Преимущества интеграции
+## <a name="benefits-of-integration"></a>Benefits of Integration
 
-Интеграция с Azure AD позволяет отказаться от написания дополнительного кода.
+Integration with Azure AD comes with benefits that do not require you to write additional code.
 
-### Интеграция с корпоративной системой управления идентификацией
+### <a name="integration-with-enterprise-identity-management"></a>Integration with Enterprise Identity Management
 
-**Позвольте своему приложению соответствовать политикам ИТ.** Организациям интегрируют свои корпоративные системы управления идентификацией с Azure AD. Поэтому, в случае ухода сотрудника из организации он автоматически теряет доступ к вашему приложению, и службе ИТ не нужно выполнить никакие дополнительные операции. Служба ИТ можно определять тех пользователей, кто имеет право на доступ к вашему приложению, выбирать требуемые политики доступа (например, многофакторную проверку подлинности), что позволяет уменьшить необходимость написания кода для обеспечения соответствия сложным корпоративным политикам. Azure AD предоставляет администраторам подробный журнал аудита, где фиксируются все попытки входа в ваше приложение. Таким образом, служба ИТ может отслеживать использование приложений.
+**Help your application comply with IT policies.**  Organizations integrate their enterprise identity management systems with Azure AD, so when a person leaves an organization, they will automatically lose access to your application without IT needing to take extra steps.  IT can manage who can access your application and determine what access policies are required - for example multi-factor authentication - reducing your need to write code to comply with complex corporate policies.  Azure AD provides administrators with a detailed audit log of who signed in to your application so IT can track usage.
 
-**Azure AD расширяет Active Directory в облако, чтобы приложение можно было интегрировать с AD.** Многие организации в различных странах используют Active Directory в качестве основной системы входа и управления идентификацией, и требуют, чтобы их приложения могли работать с AD. Интеграция с Azure AD интегрирует ваше приложение с Active Directory.
+**Azure AD extends Active Directory to the cloud so that your application can integrate with AD.**  Many organizations around the world use Active Directory as their principal sign-in and identity management system, and require their applications to work with AD.  Integrating with Azure AD integrates your app with Active Directory.
 
-### Дополнительные средства безопасности
+### <a name="advanced-security-features"></a>Advanced Security Features
 
-**Многофакторная проверка подлинности.** Azure AD обеспечивает собственную многофакторную проверку подлинности. ИТ-администраторам может потребоваться многофакторная проверка подлинности для доступа к вашему приложению, поэтому вам не нужно самому создавать код для этого. Дополнительные сведения о [многофакторной проверке подлинности](https://azure.microsoft.com/documentation/services/multi-factor-authentication/).
+**Multi-factor authentication.**  Azure AD provides native multi-factor authentication.  IT administrators can require multi-factor authentication to access your application, so that you do not have to code this support yourself.  Learn more about [Multi-Factor Authentication](https://azure.microsoft.com/documentation/services/multi-factor-authentication/).
 
-**Обнаружение аномальных попыток входа.** Azure AD обрабатывает свыше одного миллиарда попыток входа в сутки благодаря применению алгоритмов машинного обучения, что позволяет обнаруживать подозрительные действия и уведомлять ИТ-администраторов о возможных проблемах. Благодаря поддержке такого процесса входа в Azure AD ваше приложение получает эффективное средство защиты. Дополнительные сведения о [просмотре отчета о доступе к Azure Active Directory](active-directory-view-access-usage-reports.md).
+**Anomalous sign in detection.**  Azure AD processes more than a billion sign-ins a day, while using machine learning algorithms to detect suspicious activity and notify IT administrators of possible problems.  By supporting Azure AD sign-in, your application gets the benefit of this protection. Learn more about [viewing Azure Active Directory access report](active-directory-view-access-usage-reports.md).
 
-**Условный доступ.** В дополнение к многофакторной проверке подлинности администраторам может требоваться соблюдение определенных условий перед входом пользователей в приложение. К таким условиям могут относиться диапазон IP-адресов для клиентских устройств, членство в указанных групп и состояние устройства, используемого для доступа. Дополнительные сведения об [условном доступе к Azure Active Directory](active-directory-conditional-access.md).
+**Conditional access.**  In addition to multi-factor authentication, administrators can require specific conditions be met before users can sign-in to your application.  Conditions that can be set include the IP address range of client devices, membership in specified groups, and the state of the device being used for access.  Learn more about [Azure Active Directory conditional access](active-directory-conditional-access.md).
 
-### Более простая разработка
+### <a name="easy-development"></a>Easy Development
 
-**Стандартные протоколы.** Корпорация Майкрософт стремится поддерживать отраслевые стандарты. Azure AD поддерживает протоколы проверки подлинности SAML 2.0, OpenID Connect 1.0, OAuth 2.0 и WS-Federation 1.2. Интерфейс Graph API совместим с OData 4.0. Если приложение уже поддерживает протоколы SAML 2.0 или OpenID Connect 1.0 для федеративного входа, то задача добавления поддержки для Azure AD может быть реализована очень просто. Дополнительные сведения о [протоколах проверки подлинности, поддерживаемых системой Azure AD](active-directory-authentication-protocols.md).
+**Industry standard protocols.**  Microsoft is committed to supporting industry standards.  Azure AD supports the SAML 2.0, OpenID Connect 1.0, OAuth 2.0, and WS-Federation 1.2 authentication protocols.  The Graph API is OData 4.0 compliant.  If your application already supports the SAML 2.0 or OpenID Connect 1.0 protocols for federated sign in, adding support for Azure AD can be straightforward.  Learn more about [Azure AD supported authentication protocols](active-directory-authentication-protocols.md).
 
-**Библиотеки с открытым исходным кодом.** Корпорация Майкрософт предоставляет полностью поддерживаемые библиотеки с открытым исходным кодом для распространенных языков и платформ, что позволяет ускорить процесс разработки. Исходный код лицензируется на условиях Apache 2.0. Вы можете использовать ветвления и добавлять свой код в проекты. Подробнее о [библиотеках проверки подлинности Azure AD](active-directory-authentication-libraries.md).
+**Open source libraries.**  Microsoft provides fully supported open source libraries for popular languages and platforms to speed development.  The source code is licensed under Apache 2.0, and you are free to fork and contribute back to the projects.  Learn more about [Azure AD authentication libraries](active-directory-authentication-libraries.md).
 
-### Международное присутствие и высокая доступность
+### <a name="worldwide-presence-and-high-availability"></a>Worldwide Presence and High Availability
 
-**Система Azure AD развернута в центрах обработки данных в разных странах. Для нее обеспечивается круглосуточное управление и отслеживание.** Azure AD — это система управления идентификацией для Microsoft Azure и Office 365. Она развернута в 28 центрах обработки в разных странах мира. Данные каталога гарантированно реплицируются по крайней мере в трех центрах обработки данных. Благодаря глобальным подсистемам балансировки нагрузки пользователи получают доступ к ближайшей к ним копии системы Azure AD, где содержатся их данные. При обнаружении проблемы эти подсистемы автоматически перенаправляет запросы в другие центры обработки данных.
+**Azure AD is deployed in datacenters around the world and is managed and monitored around the clock.**  Azure AD is the identity management system for Microsoft Azure and Office 365 and is deployed in 28 datacenters around the world.  Directory data is guaranteed to be replicated to at least three datacenters.  Global load balancers ensure users access the closest copy of Azure AD containing their data, and automatically re-route requests to other datacenters if a problem is detected.
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Next Steps
 
-[Приступая к созданию кода](active-directory-developers-guide.md#getting-started).
+[Get started writing code](active-directory-developers-guide.md#getting-started).
 
-[Вход пользователей с помощью в Azure AD](active-directory-authentication-scenarios.md)
+[Sign Users In Using Azure AD](active-directory-authentication-scenarios.md)
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

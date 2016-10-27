@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Расширенное использование Reliable Services | Microsoft Azure"
-   description="Узнайте о расширенном использовании Service Fabric Reliable Services для повышения гибкости служб."
+   pageTitle="Advanced usage of Reliable Services | Microsoft Azure"
+   description="Learn about advanced usage of Service Fabric's Reliable Services for added flexibility in your services."
    services="Service-Fabric"
    documentationCenter=".net"
    authors="vturecek"
@@ -13,42 +13,47 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/06/2016"
+   ms.date="10/19/2016"
    ms.author="vturecek"/>
 
-# Дополнительные возможности использования модели программирования надежных служб
-Приложение Azure Service Fabric упрощает написание надежных служб с отслеживанием или без отслеживания состояния и управление ими. В этом руководстве пойдет речь о расширенном использовании Reliable Services для получения большей управляемости и гибкости служб. Перед чтением этого руководства ознакомьтесь с [моделью программирования надежных служб](service-fabric-reliable-services-introduction.md).
 
-Службы с отслеживанием и без отслеживания состояния имеют две основные точки входа для пользовательского кода.
+# <a name="advanced-usage-of-the-reliable-services-programming-model"></a>Advanced usage of the Reliable Services programming model
+Azure Service Fabric simplifies writing and managing reliable stateless and stateful services. This guide will talk about advanced usages of Reliable Services to gain more control and flexibility over your services. Prior to reading this guide, familiarize yourself with [the Reliable Services programming model](service-fabric-reliable-services-introduction.md).
 
- - `RunAsync` — точка входа общего назначения для кода службы.
- - `CreateServiceReplicaListeners` и `CreateServiceInstanceListeners` служат для открытия прослушивателей связи для клиентских запросов.
+Both stateful and stateless services have two primary entry points for user code:
+
+ - `RunAsync` is a general-purpose entry point for your service code.
+ - `CreateServiceReplicaListeners` and `CreateServiceInstanceListeners` is for opening communication listeners for client requests.
  
-Этих двух точек входа достаточно для большинства служб. В редких случаях, когда необходим больший контроль над жизненным циклом службы, можно использовать дополнительные события жизненного цикла.
+For most services, these two entry points are sufficient. In rare cases when more control over a service's lifecycle is required, additional lifecycle events are available.
 
-## Жизненный цикл экземпляра службы без отслеживания состояния
+## <a name="stateless-service-instance-lifecycle"></a>Stateless service instance lifecycle
 
-Жизненный цикл службы без отслеживания состояния очень прост. Службу без отслеживания состояния можно только открыть, закрыть или прервать ее работу. `RunAsync` в службе без отслеживания состояния выполняется при открытии экземпляра службы и отменяется, когда экземпляр службы закрывается или его работа прерывается.
+A stateless service's lifecycle is very simple. A stateless service can only be opened, closed, or aborted. `RunAsync` in a stateless service is executed when a service instance is opened, and cancelled when a service instance is closed or aborted. 
 
-Хотя `RunAsync` должно быть достаточно почти во всех случаях, также доступны события открытия, закрытия и прерывания службы без отслеживания состояния.
+Although `RunAsync` should be sufficient in almost all cases, the open, close, and abort events in a stateless service are also available:
 
-- `Task OnOpenAsync(IStatelessServicePartition, CancellationToken)` Объект OnOpenAsync вызывается, когда требуется использовать экземпляр службы без отслеживания состояния. В этот момент можно запустить расширенные задачи инициализации службы.
+- `Task OnOpenAsync(IStatelessServicePartition, CancellationToken)`
+    OnOpenAsync is called when the stateless service instance is about to be used. Extended service initialization tasks can be started at this time.
 
-- `Task OnCloseAsync(CancellationToken)` OnCloseAsync вызывается, когда работу экземпляра службы без отслеживания состояния планируется корректно завершить. Это может произойти при обновлении кода службы, перемещении экземпляра службы в целях балансировки нагрузки или при обнаружении временной ошибки. Объект OnCloseAsync позволяет безопасно закрыть все ресурсы, остановить все фоновые задачи, завершить сохранение внешнего состояния или закрыть существующие соединения.
+- `Task OnCloseAsync(CancellationToken)`
+    OnCloseAsync is called when the stateless service instance is going to be gracefully shut down. This can occur when the service's code is being upgraded, the service instance is being moved due to load balancing, or a transient fault is detected. OnCloseAsync can be used to safely close any resources, stop any background processing, finish saving external state, or close down existing connections.
 
-- `void OnAbort()` OnAbort вызывается при принудительном завершении работы экземпляра службы без отслеживания состояния. Обычно такой вызов осуществляется при обнаружении на узле постоянной неисправности или когда платформа Service Fabric не может надежно управлять жизненным циклом экземпляра службы из-за внутренних сбоев.
+- `void OnAbort()`
+    OnAbort is called when the stateless service instance is being forcefully shut down. This is generally called when a permanent fault is detected on the node, or when Service Fabric cannot reliably manage the service instance's lifecycle due to internal failures.
 
-## Жизненный цикл реплики службы с отслеживанием состояния
+## <a name="stateful-service-replica-lifecycle"></a>Stateful service replica lifecycle
 
-Жизненный цикл реплики службы с отслеживанием состояния намного сложнее, чем экземпляра службы без отслеживания состояния. Кроме того событий открытия, закрытия и прерывания во время существования реплика службы с отслеживанием состояния подвергается изменениям роли. При изменении роли реплики службы с отслеживанием состояния активируется событие `OnChangeRoleAsync`.
+A stateful service replica's lifecycle is much more complex than a stateless service instance. In addition to open, close, and abort events, a stateful service replica undergoes role changes during its lifetime. When a stateful service replica changes role, the `OnChangeRoleAsync` event is triggered:
 
-- `Task OnChangeRoleAsync(ReplicaRole, CancellationToken)` OnChangeRoleAsync вызывается, когда реплика службы с отслеживанием состояния меняет роль, например с первичной на вторичную, или наоборот. Основным репликам присваивается статус записи (им разрешено создавать и записывать надежные коллекции), а дополнительным — статус чтения (могут только читать из существующих надежных коллекций). Большинство операций службы с отслеживанием состояния выполняется в основной реплике. Вторичные реплики могут выполнять проверку, предусматривающую только чтение, создавать отчеты, выполнять интеллектуальный анализ данных, а также другие задания, доступные только для чтения.
+- `Task OnChangeRoleAsync(ReplicaRole, CancellationToken)`
+    OnChangeRoleAsync is called when the stateful service replica is changing role, for example to primary or secondary. Primary replicas are given write status (are allowed to create and write to Reliable Collections). Secondary replicas are given read status (can only read from existing Reliable Collections). Most work in a stateful service is performed at the primary replica. Secondary replicas can perform read-only validation, report generation, data mining, or other read-only jobs.
 
-В службе с отслеживанием состояния только у первичной реплики есть доступ на запись состояния, используемый, когда служба выполняет фактическую работу. Метод `RunAsync` в службе с отслеживанием состояния выполняется только в том случае, когда реплика службы с отслеживанием состояния является первичной. Метод `RunAsync` отменяется при смене роли первичной реплики , а также во время событий закрытия и прерывания.
+In a stateful service, only the primary replica has write access to state and thus is generally when the service is performing actual work. The `RunAsync` method in a stateful service is executed only when the stateful service replica is primary. The `RunAsync` method is cancelled when a primary replica's role changes away from primary, as well as during the close and abort events. 
 
-С помощью события `OnChangeRoleAsync` можно выполнять работу в зависимости от роли реплики, а также в ответ на изменение роли.
+Using the `OnChangeRoleAsync` event allows you to perform work depending on replica role as well as in response to role change.
 
-Кроме того, служба с отслеживанием состояния дает возможность использовать те же четыре события жизненного цикла, что и служба без отслеживания состояния, с такой же семантикой и вариантами использования.
+A stateful service also provides the same four lifecycle events as a stateless service, with the same semantics and use cases:
 
 - `Task OnOpenAsync(IStatefulServicePartition, CancellationToken)`
 - `Task OnCloseAsync(CancellationToken)`
@@ -56,15 +61,19 @@
 
 
 
-## Дальнейшие действия
-Дополнительные темы, связанные с Service Fabric, см. в приведенных ниже статьях:
+## <a name="next-steps"></a>Next steps
+For more advanced topics related to Service Fabric, see the following articles:
 
-- [Настройка надежных служб с отслеживанием состояния](service-fabric-reliable-services-configuration.md)
+- [Configuring stateful Reliable Services](service-fabric-reliable-services-configuration.md)
 
-- [Общие сведения о работоспособности Service Fabric](service-fabric-health-introduction.md)
+- [Service Fabric health introduction](service-fabric-health-introduction.md)
 
-- [Использование отчетов о работоспособности системы для устранения неполадок](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
+- [Using system health reports for troubleshooting](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
 
-- [Настройка служб с помощью диспетчера кластерных ресурсов Service Fabric](service-fabric-cluster-resource-manager-configure-services.md)
+- [Configuring Services with the Service Fabric Cluster Resource Manager](service-fabric-cluster-resource-manager-configure-services.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,53 +1,58 @@
 <properties
-	pageTitle="Подключение к базе данных SQL с помощью Ruby | Microsoft Azure"
-	description="Позвольте примеру кода Ruby, который вы можете выполнить, подключиться к базе данных SQL Azure."
-	services="sql-database"
-	documentationCenter=""
-	authors="ajlam"
-	manager="jhubbard"
-	editor=""/>
+    pageTitle="Connect to SQL Database by using Ruby | Microsoft Azure"
+    description="Give a Ruby code sample you can run to connect to Azure SQL Database."
+    services="sql-database"
+    documentationCenter=""
+    authors="ajlam"
+    manager="jhubbard"
+    editor=""/>
 
 
 <tags
-	ms.service="sql-database"
-	ms.workload="drivers"
-	ms.tgt_pltfrm="na"
-	ms.devlang="ruby"
-	ms.topic="article"
-	ms.date="09/16/2016"
-	ms.author="andrela"/>
+    ms.service="sql-database"
+    ms.workload="drivers"
+    ms.tgt_pltfrm="na"
+    ms.devlang="ruby"
+    ms.topic="article"
+    ms.date="10/03/2016"
+    ms.author="andrela"/>
 
 
-# Подключение к базе данных SQL с помощью Ruby 
 
-[AZURE.INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)]
+# <a name="connect-to-sql-database-by-using-ruby"></a>Connect to SQL Database by using Ruby 
 
-В этом разделе описывается подключение и запрос к базе данных SQL Azure с использованием Ruby. Приведенный пример можно выполнить в операционной системе Windows, Ubuntu Linux или Mac.
+[AZURE.INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)] 
 
-## Шаг 1. Настройка среды разработки
+This topic shows how to connect and query an Azure SQL Database using Ruby. You can run this sample from Windows, Ubuntu Linux, or Mac platforms.
 
-[Предварительные требования для использования драйвера Ruby TinyTDS для SQL Server](https://msdn.microsoft.com/library/mt711041.aspx)
+## <a name="step-1:-configure-development-environment"></a>Step 1: Configure Development Environment
 
-## Шаг 2. Создание базы данных SQL
+[Prerequisites for using the TinyTDS Ruby Driver for SQL Server](https://msdn.microsoft.com/library/mt711041.aspx)
 
-Чтобы узнать, как создать образец базы данных, перейдите на страницу [Начало работы](sql-database-get-started.md). Очень важно соблюдать инструкции руководства во время создания **шаблона базы данных AdventureWorks**. Приведенные ниже примеры работают только со **схемой AdventureWorks**.
+## <a name="step-2:-create-a-sql-database"></a>Step 2: Create a SQL database
 
-## Шаг 3. Получение сведений о подключении
+See the [getting started page](sql-database-get-started.md) to learn how to create a sample database.  It is important you follow the guide to create an **AdventureWorks database template**. The samples shown below only work with the **AdventureWorks schema**.
+
+## <a name="step-3:-get-connection-details"></a>Step 3: Get Connection Details
 
 [AZURE.INCLUDE [sql-database-include-connection-string-details-20-portalshots](../../includes/sql-database-include-connection-string-details-20-portalshots.md)]
 
-## Шаг 4. Выполнение примера кода
+## <a name="step-4:-run-sample-code"></a>Step 4: Run sample code
 
-[Эксперимент по подключению к SQL с помощью Ruby](http://msdn.microsoft.com/library/mt715797.aspx)
+[Proof of Concept connecting to SQL using Ruby](http://msdn.microsoft.com/library/mt715797.aspx)
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Next Steps
 
-* Ознакомьтесь с разделом [Общие сведения о разработке базы данных SQL](sql-database-develop-overview.md).
-* Получите дополнительные сведения о [драйвере Microsoft Ruby для SQL Server](https://msdn.microsoft.com/library/mt691981.aspx).
+* Review the [SQL Database Development Overview](sql-database-develop-overview.md)
+* More information on the [Microsoft Ruby Driver for SQL Server](https://msdn.microsoft.com/library/mt691981.aspx)
 
-## Дополнительные ресурсы 
+## <a name="additional-resources"></a>Additional resources 
 
-* [Шаблоны разработки для мультитенантных приложений SaaS с использованием базы данных Azure SQL](sql-database-design-patterns-multi-tenancy-saas-applications.md)
-* Вы можете изучить все [возможности Базы данных SQL](https://azure.microsoft.com/services/sql-database/).
+* [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md)
+* Explore all the [capabilities of SQL Database](https://azure.microsoft.com/services/sql-database/)
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

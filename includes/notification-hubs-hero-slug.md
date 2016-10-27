@@ -1,8 +1,11 @@
 
-Эта статья поможет вам в кратчайшие сроки начать работу с центрами уведомлений. В ней представлен пример очень простого сценария вещания, в котором мы предметно рассмотрим основные понятия о центрах уведомлений.
+The goal of this topic is to help you get started using Notification Hubs quickly as possible. This topic presents a very simple broadcast scenario example in order to concentrate on the basic concepts for Notification Hubs.
 
-Если вы уже знакомы с центрами уведомлений, выберите другую статью в области навигации слева или щелкните интересующую вас ссылку в разделе [Дальнейшие действия](#next-steps).
+If you are already familiar with Notification Hubs, you may want to select another topic from the left-navigation or see the relevant links in [Next steps](#next-steps).
 
-Мы очень ценим ваши отзывы. Если у вас возникли трудности с выполнением действий, описанных в этой статье, или у вас есть рекомендации по улучшению этого материала, пожалуйста, поделитесь с нами своими наблюдениями, воспользовавшись формой в нижней части страницы.
+We do take your feedback seriously. If you have any difficulties completing this topic, or recommendations for improving this content, we would appreciate your feedback at the bottom of the page.
 
-<!---HONumber=Oct15_HO3-->
+
+<!--HONumber=Oct16_HO2-->
+
+

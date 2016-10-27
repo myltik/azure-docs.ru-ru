@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Шлюз протокола IoT Azure | Microsoft Azure"
-   description="Описывает, как использовать шлюз протокола IoT Azure для расширения возможностей и поддержки протоколов центра IoT Azure."
+   pageTitle="Azure IoT protocol gateway | Microsoft Azure"
+   description="Describes how to use Azure IoT protocol gateway to extend the capabilities and protocol support of Azure IoT Hub."
    services="iot-hub"
    documentationCenter=""
    authors="kdotchkoff"
@@ -16,46 +16,47 @@
    ms.date="08/23/2016"
    ms.author="kdotchko"/>
 
-# Поддержка дополнительных протоколов для центра IoT
 
-Центр Azure IoT изначально поддерживает взаимодействие по протоколам AMQP, MQTT и HTTP/1. В некоторых случаях устройства или полевые шлюзы не могут использовать один из этих стандартных протоколов и требуют адаптации протокола. В таких случаях вы можете использовать настраиваемый шлюз. Адаптацию протокола для конечных точек центра IoT можно провести с помощью пользовательского шлюза, через который пропускается трафик к центру IoT и от него. [Шлюз протокола Azure IoT](https://github.com/Azure/azure-iot-protocol-gateway/blob/master/README.md) можно использовать как настраиваемый шлюз для включения адаптации протокола для центра IoT.
+# <a name="supporting-additional-protocols-for-iot-hub"></a>Supporting additional protocols for IoT Hub
 
-## Шлюз протокола IoT Azure
+Azure IoT Hub natively supports communication over the AMQP, MQTT, and HTTP/1 protocols. In some cases, devices or field gateways might not be able to use one of these standard protocols and will require protocol adaptation. In such cases, you can use a custom gateway. A custom gateway can enable protocol adaptation for IoT Hub endpoints by bridging the traffic to and from IoT Hub. You can use the [Azure IoT protocol gateway](https://github.com/Azure/azure-iot-protocol-gateway/blob/master/README.md) as a custom gateway to enable protocol adaptation for IoT Hub.
 
-Шлюз протокола IoT Azure — это платформа для адаптации протокола, предназначенная для глобального двунаправленного взаимодействия устройства с центром IoT. Шлюз протокола является сквозным компонентом, принимающим подключения устройств по определенному протоколу и направляющим трафик к центру IoT с использованием протокола AMQP 1.0. Протокол шлюза IoT доступен в виде проекта с открытым исходным кодом. Это обеспечивает гибкость при добавлении поддержки различных протоколов и версий протокола.
+## <a name="azure-iot-protocol-gateway"></a>Azure IoT protocol gateway
 
-Вы можете развернуть шлюз протокола в Azure масштабируемым способом с помощью рабочих ролей облачных служб. Кроме того, шлюз протокола можно развернуть в локальных средах, таких как полевые шлюзы.
+The Azure IoT protocol gateway is a framework for protocol adaptation that is designed for high-scale, bidirectional device communication with IoT Hub. The protocol gateway is a pass-through component that accepts device connections over a specific protocol. It bridges the traffic to IoT Hub over AMQP 1.0. The IoT protocol gateway is available as an open-source software project to provide flexibility for adding support for a variety of protocols and protocol versions.
 
-Шлюз протокола Azure IoT включает адаптер протокола MQTT, позволяющий при необходимости настраивать поведение протокола MQTT. Поскольку центр IoT включает встроенную поддержку протокола MQTT 3.1.1, адаптер протокола MQTT следует использовать только в том случае, если вам нужно настроить протокол особым образом или требуется дополнительная функциональность.
+You can deploy the protocol gateway in Azure in a highly scalable way by using Azure Cloud Services worker roles. In addition, the protocol gateway can be deployed in on-premises environments, such as field gateways.
 
-Адаптер MQTT также демонстрирует модель программирования для создания адаптеров протокола для других протоколов. Кроме того, модель программирования шлюза протокола IoT позволяет подключать пользовательские компоненты для специализированной обработки, например для нестандартной проверки подлинности, преобразования сообщений, упаковки и распаковки или шифрования и расшифровки трафика между устройствами и центром IoT.
+The Azure IoT protocol gateway includes an MQTT protocol adapter that enables you to customize the MQTT protocol behavior if required. Since IoT Hub provides built-in support for the MQTT v3.1.1 protocol, you should only consider using the MQTT protocol adapter if you have a need for protocol customizations or specific requirements for additonal functionality.
 
-Для дополнительной гибкости шлюз протокола и реализация MQTT предоставляются в виде проекта с открытым исходным кодом. Это обеспечивает гибкость в настройке реализации при необходимости.
+The MQTT adapter also demonstrates the programming model for building protocol adapters for other protocols. In addition, the IoT protocol gateway programming model allows you to plug in custom components for specialized processing--such as custom authentication, message transformations, compression/decompression, or encryption/decryption of traffic between the devices and IoT Hub.
 
-## Дальнейшие действия
+For flexibility, the protocol gateway and MQTT implementation are provided in an open-source software project. This allows you to customize the implementation as needed.
 
-Чтобы подробнее узнать о шлюзе протокола IoT Azure и о том, как развернуть его для вашего решения IoT, обратитесь к следующим документам и ресурсам:
+## <a name="next-steps"></a>Next steps
 
-* [Репозиторий шлюза протокола IoT Azure в GitHub](https://github.com/Azure/azure-iot-protocol-gateway/blob/master/README.md)
-* [Руководство разработчика для шлюза протокола IoT Azure](https://github.com/Azure/azure-iot-protocol-gateway/blob/master/docs/DeveloperGuide.md)
+To learn more about the Azure IoT protocol gateway and how to use and deploy it as part of your IoT solution, see:
 
-Дополнительные сведения о планировании развертывания центра IoT см. в следующих руководствах:
+* [Azure IoT protocol gateway repository on GitHub](https://github.com/Azure/azure-iot-protocol-gateway/blob/master/README.md)
+* [Azure IoT protocol gateway developer guide](https://github.com/Azure/azure-iot-protocol-gateway/blob/master/docs/DeveloperGuide.md)
 
-- [Сравнение центра IoT и концентраторов событий][lnk-compare]
-- [Масштабирование центра IoT][lnk-scaling]
+To learn more about planning your IoT Hub deployment, see:
 
-Для дальнейшего изучения возможностей центра IoT см. следующие статьи:
+- [Compare with Event Hubs][lnk-compare]
+- [Scaling, HA and DR][lnk-scaling]
 
-- [Руководство разработчика по центру Azure IoT (IoT — Интернет вещей)][lnk-devguide]
-- [Обзор управления устройствами центра IoT с помощью примера пользовательского интерфейса][lnk-dmui]
-- [Пакет SDK для шлюза IoT (бета-версия): отправка сообщений с устройства в облако через виртуальное устройство с помощью Linux][lnk-gateway]
-- [Управление центрами IoT через портал Azure][lnk-portal]
+To further explore the capabilities of IoT Hub, see:
+
+- [Developer guide][lnk-devguide]
+- [Simulating a device with the Gateway SDK][lnk-gateway]
 
 [lnk-compare]: iot-hub-compare-event-hubs.md
 [lnk-scaling]: iot-hub-scaling.md
 [lnk-devguide]: iot-hub-devguide.md
-[lnk-dmui]: iot-hub-device-management-ui-sample.md
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
-[lnk-portal]: iot-hub-manage-through-portal.md
 
-<!---HONumber=AcomDC_0831_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

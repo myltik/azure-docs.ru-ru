@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Управление томами StorSimple (U2) | Microsoft Azure"
-   description="Здесь объясняется, как добавлять, изменять и удалять тома StorSimple, осуществлять их мониторинг, а также отключать их при необходимости."
+   pageTitle="Manage your StorSimple volumes (U2) | Microsoft Azure"
+   description="Explains how to add, modify, monitor, and delete StorSimple volumes, and how to take them offline if necessary."
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
@@ -15,288 +15,293 @@
    ms.date="09/21/2016"
    ms.author="alkohli" />
 
-# Использование службы диспетчера StorSimple для управления томами (обновление 2)
+
+# <a name="use-the-storsimple-manager-service-to-manage-volumes-(update-2)"></a>Use the StorSimple Manager service to manage volumes (Update 2)
 
 [AZURE.INCLUDE [storsimple-version-selector-manage-volumes](../../includes/storsimple-version-selector-manage-volumes.md)]
 
-## Обзор
+## <a name="overview"></a>Overview
 
-В этом руководстве объясняется, как использовать службу StorSimple Manager для создания томов и управления ими на устройстве StorSimple и виртуальном устройстве StorSimple с установленным обновлением 2.
+This tutorial explains how to use the StorSimple Manager service to create and manage volumes on the StorSimple device and StorSimple virtual device with Update 2 installed.
 
-Служба диспетчера StorSimple — это расширение классического портала Azure, которое позволяет управлять решениями StorSimple с помощью единого веб-интерфейса. Помимо управления томами, службу диспетчера StorSimple можно использовать для создания служб StorSimple, просмотра устройств, предупреждений, политик резервного копирования и каталога резервных копий, а также управления ими.
+The StorSimple Manager service is an extension in the Azure classic portal that lets you manage your StorSimple solution from a single web interface. In addition to managing volumes, you can use the StorSimple Manager service to create and manage StorSimple services, view and manage devices, view alerts, and view and manage backup policies and the backup catalog.
 
-## Типы томов
+## <a name="volume-types"></a>Volume types
 
-Тома StorSimple могут относиться к таким типам:
+StorSimple volumes can be:
 
-- **Локально закрепленные тома**. Данные в этих томах постоянно находятся на локальном устройстве StorSimple.
-- **Многоуровневые тома**. Данные в этих томах могут переноситься в облако.
+- **Locally pinned volumes**: Data in these volumes remains on the local StorSimple device at all times.
+- **Tiered volumes**: Data in these volumes can spill to the cloud.
 
-Архивный том — это разновидность многоуровневого тома. Увеличенный размер блока дедупликации, который используется для архивного тома, позволяет устройству передавать большие сегменты данных в облако.
+An archival volume is a type of tiered volume. The larger deduplication chunk size used for archival volumes allows the device to transfer larger segments of data to the cloud. 
 
-При необходимости можно изменить тип тома с локального на многоуровневый или наоборот. Дополнительные сведения см. в разделе [Изменение типа тома](#change-the-volume-type).
+If necessary, you can change the volume type from local to tiered or from tiered to local. For more information, go to [Change the volume type](#change-the-volume-type).
 
-### Локально закрепленные тома
+### <a name="locally-pinned-volumes"></a>Locally pinned volumes
 
-Локально закрепленные тома являются полностью подготовленными томами, которые не переносят данные в облако, обеспечивая локальное хранение исходных данных независимо от возможностей подключения к облаку. Данные локально закрепленных томов не дедуплицируются и не сжимаются. Дедуплицируются только моментальные снимки локально закрепленных томов.
+Locally pinned volumes are fully provisioned volumes that do not tier data to the cloud, thereby ensuring local guarantees for primary data, independent of cloud connectivity. Data on locally pinned volumes is not deduplicated and compressed; however, snapshots of locally pinned volumes are deduplicated. 
 
-Локально закрепленные тома подготавливаются полностью, поэтому при их создании на устройстве должно быть достаточно места. Можно подготавливать локально закрепленные тома вплоть до максимального размера (8 ТБ на устройстве StorSimple 8100 и 20 ТБ на устройстве StorSimple 8600). StorSimple резервирует оставшееся пространство на локальном устройстве для моментальных снимков, метаданных и обработки данных. Размер локально закрепленного тома можно увеличить до максимального доступного объема, но после создания тома уменьшить его размер будет невозможно.
+Locally pinned volumes are fully provisioned; therefore, you must have sufficient space on your device when you create them. You can provision locally pinned volumes up to a maximum size of 8 TB on the StorSimple 8100 device and 20 TB on the 8600 device. StorSimple reserves the remaining local space on the device for snapshots, metadata, and data processing. You can increase the size of a locally pinned volume to the maximum space available, but you cannot decrease the size of a volume once created.
 
-При создании локально закрепленного тома свободное пространство для создания многоуровневых томов уменьшается. Верно и обратное: при наличии многоуровневых томов пространство, доступное для создания локально закрепленных томов, будет меньше максимальных значений, указанных выше. Дополнительные сведения о локальных томах см. в статье [Локально закрепленные тома StorSimple: часто задаваемые вопросы](storsimple-local-volume-faq.md).
+When you create a locally pinned volume, the available space for creation of tiered volumes is reduced. The reverse is also true: if you have existing tiered volumes, the space available for creating locally pinned volumes will be lower than the maximum limits stated above. For more information on local volumes, refer to the [frequently asked questions on locally pinned volumes](storsimple-local-volume-faq.md).   
 
-### Многоуровневые тома
+### <a name="tiered-volumes"></a>Tiered volumes
 
-Многоуровневые тома являются томами с тонкой подготовкой, в которых часто используемые данные остаются на локальном устройстве, а редко используемые данные автоматически переносятся в облако. Тонкая подготовка представляет собой технологию виртуализации, при использовании которой кажется, что доступное пространство для хранения превышает объем физических ресурсов. Вместо того чтобы заранее резервировать достаточный объем хранилища, StorSimple использует тонкую подготовку для выделения минимального пространства, соответствующего текущим требованиям. Эластичный характер облачного хранилища упрощает этот подход, так как StorSimple может увеличить или уменьшить облачное хранилище для соответствия меняющимся требованиям.
+Tiered volumes are thinly provisioned volumes in which the frequently accessed data stays local on the device and less frequently used data is automatically tiered to the cloud. Thin provisioning is a virtualization technology in which available storage appears to exceed physical resources. Instead of reserving sufficient storage in advance, StorSimple uses thin provisioning to allocate just enough space to meet current requirements. The elastic nature of cloud storage facilitates this approach because StorSimple can increase or decrease cloud storage to meet changing demands.
 
-Если вы используете многоуровневый том для архивных данных, то при установке флажка **Используйте этот том для архивных данных, доступ к которым осуществляется нечасто** размер блока дедупликации для тома изменяется на 512 КБ. Если этот флажок не установлен, соответствующий многоуровневный том будет использовать размер блока 64 КБ. Больший размер блока дедупликации позволяет устройству быстро передавать большие блоки архивных данных в облако.
+If you are using the tiered volume for archival data, selecting the **Use this volume for less frequently accessed archival data** check box changes the deduplication chunk size for your volume to 512 KB. If you do not select this option, the corresponding tiered volume will use a chunk size of 64 KB. A larger deduplication chunk size allows the device to expedite the transfer of large archival data to the cloud.
 
->[AZURE.NOTE] Архивные тома, созданные с помощью предварительной версии обновления 2 StorSimple, будут импортироваться как многоуровневые тома, если установлен флажок архивации.
+>[AZURE.NOTE] Archival volumes created with a pre-Update 2 version of StorSimple will be imported as tiered with the archival check box selected.
 
-### Подготовленная емкость
+### <a name="provisioned-capacity"></a>Provisioned capacity
 
-В таблице ниже приведены значения максимальной подготовленной емкости для каждого устройства и типа тома. (Обратите внимание, что локально закрепленные тома недоступны на виртуальных устройствах.)
+Refer to the following table for maximum provisioned capacity for each device and volume type. (Note that locally pinned volumes are not available on a virtual device.)
 
-| | Максимальный размер многоуровневого тома | Максимальный размер локально закрепленного тома |
+|             | Maximum tiered volume size | Maximum locally pinned volume size |
 |-------------|----------------------------|------------------------------------|
-| **Физические устройства** | | |
-| 8100 | 64 ТБ | 8 ТБ |
-| 8600 | 64 ТБ | 20 TБ |
-| **Виртуальные устройства** | | |
-| 8010 | 30 ТБ | Недоступно |
-| 8020 | 64 ТБ | Недоступно |
+| **Physical devices** |       |       |
+| 8100                 | 64 TB | 8 TB |
+| 8600                 | 64 TB | 20 TB |
+| **Virtual devices**  |       |       |
+| 8010                | 30 TB | N/A   |
+| 8020               | 64 TB | N/A   |
 
-## Страница "Тома"
+## <a name="the-volumes-page"></a>The Volumes page
 
-Страница **Тома** позволяет управлять томами хранилища, которые выделены на устройстве Microsoft Azure StorSimple для инициаторов (серверов). Здесь отображается список томов на устройстве StorSimple.
+The **Volumes** page allows you to manage the storage volumes that are provisioned on the Microsoft Azure StorSimple device for your initiators (servers). It displays the list of volumes on your StorSimple device.
 
- ![Страница "Тома"](./media/storsimple-manage-volumes-u2/VolumePage.png)
+ ![Volumes page](./media/storsimple-manage-volumes-u2/VolumePage.png)
 
-Том обладает рядом атрибутов.
+A volume consists of a series of attributes:
 
-- **Имя тома** — уникальное описательное имя, которое помогает идентифицировать том. Это имя также используется в отчетах по результатам мониторинга при фильтрации по определенному тому.
+- **Volume Name** – A descriptive name that must be unique and helps identify the volume. This name is also used in monitoring reports when you filter on a specific volume.
 
-- **Состояние** — том может быть включен или отключен. Если том отключен, он не виден инициаторам (серверам), которым разрешен доступ для использования этого тома.
+- **Status** – Can be online or offline. If a volume if offline, it is not visible to initiators (servers) that are allowed access to use the volume.
 
-- **Емкость** указывает общий объем данных, которые могут быть сохранены инициатором (сервером). Локально закрепленные тома полностью подготовлены и находятся на устройстве StorSimple. Для многоуровневых томов выполняются тонкая подготовка и дедупликация данных. Если выполняется тонкая подготовка томов, устройство не выделяет предварительно емкость внутреннего физического хранилища или облачного хранилища в соответствии с емкостью настроенного тома. Емкость тома выделяется и используется по мере необходимости.
+- **Capacity** – specifies the total amount of data that can be stored by the initiator (server). Locally-pinned volumes are fully provisioned and reside on the StorSimple device. Tiered volumes are thinly provisioned and the data is deduplicated. With thinly provisioned volumes, your device doesn’t pre-allocate physical storage capacity internally or on the cloud according to configured volume capacity. The volume capacity is allocated and consumed on demand.
 
-- **Тип** — указывает тип тома: **Многоуровневый** (по умолчанию) или **Локально закрепленный**.
+- **Type** – Indicates whether the volume is **Tiered** (the default) or **Locally pinned**.
 
-- **Резервное копирование** — указывает, установлена ли для тома политика резервного копирования по умолчанию.
+- **Backup** – Indicates whether a default backup policy exists for the volume.
 
-- **Доступ** — определяет инициаторы (серверы), которым разрешен доступ к этому тому. Инициаторы, которые не являются элементами записи контроля доступа (ACR), связанной с томом, не увидят этого тома.
+- **Access** – Specifies the initiators (servers) that are allowed access to this volume. Initiators that are not members of access control record (ACR) that is associated with the volume will not see the volume.
 
-- **Мониторинг** — указывает, выполняется ли мониторинг тома. Мониторинг тома будет включен по умолчанию при его создании. Мониторинг будет, однако, отключен при клонировании тома. Чтобы включить мониторинг для тома, следуйте инструкциям в разделе [Мониторинг тома](#monitor-a-volume).
+- **Monitoring** – Specifies whether or not a volume is being monitored. A volume will have monitoring enabled by default when it is created. Monitoring will, however, be disabled for a volume clone. To enable monitoring for a volume, follow the instructions in [Monitor a volume](#monitor-a-volume). 
 
-В этом руководстве приведены инструкции по выполнению следующих задач:
+Use the instructions in this tutorial to perform the following tasks:
 
-- Добавление тома
-- Изменение тома
-- изменение типа тома;
-- Удаление тома
-- Отключение тома
-- Мониторинг тома
+- Add a volume 
+- Modify a volume 
+- Change the volume type
+- Delete a volume 
+- Take a volume offline 
+- Monitor a volume 
 
-## Добавление тома
+## <a name="add-a-volume"></a>Add a volume
 
-[Создание тома](storsimple-deployment-walkthrough-u2.md#step-6-create-a-volume) происходит во время развертывания решения StorSimple. Добавление тома происходит аналогичным образом.
+You [created a volume](storsimple-deployment-walkthrough-u2.md#step-6-create-a-volume) during deployment of your StorSimple solution. Adding a volume is a similar procedure.
 
-#### Добавление тома
+#### <a name="to-add-a-volume"></a>To add a volume
 
-1. На странице **Устройства** выберите устройство, дважды щелкните его и перейдите на вкладку **Контейнеры томов**.
+1. On the **Devices** page, select the device, double-click it, and then click the **Volume Containers** tab.
 
-2. Выберите контейнер томов из списка и дважды щелкните его, чтобы получить доступ к томам, связанным с контейнером.
+2. Select a volume container from the list and double-click it to access the volumes associated with the container.
 
-3. В нижней части страницы нажмите кнопку **Добавить**. Откроется мастер добавления тома.
+3. Click **Add** at the bottom of the page. The Add a volume wizard starts.
 
-     ![Основные параметры мастера добавления тома](./media/storsimple-manage-volumes-u2/TieredVolEx.png)
+     ![Add volume wizard Basic Settings](./media/storsimple-manage-volumes-u2/TieredVolEx.png)
 
-4. В окне мастера добавления тома в разделе **Основные параметры** сделайте следующее.
+4. In the Add a volume wizard, under **Basic Settings**, do the following:
 
-  1. Укажите имя тома в поле **Имя**.
-  2. Выберите **Тип использования** из раскрывающегося списка. Для рабочих нагрузок, требующих, чтобы данные были в любое время доступны на локальном устройстве, выберите **Локально закрепленный**. Для любых других типов данных выберите **Многоуровневый**. (**Многоуровневый** — значение по умолчанию.)
-  3. Если на шаге 2 выбран тип **Многоуровневый**, можно установить флажок **Используйте этот том для архивных данных, доступ к которым осуществляется нечасто**, чтобы настроить архивный том.
-  4. Введите значение в поле **Подготовленная емкость** для тома в ГБ или ТБ. В разделе [Подготовленная емкость](#provisioned-capacity) приведены максимальные размеры каждого устройства и типа тома. Параметр **Доступная емкость** указывает, какой объем памяти фактически доступен на устройстве.
+  1. Supply a **Name** for your volume.
+  2. Select a **Usage Type** from the drop-down list. For workloads that require data to be available locally on the device at all times, select **Locally Pinned**. For all other types of data, select **Tiered**. (**Tiered** is the default.)
+  3. If you selected **Tiered** in step 2, you can select the **Use this volume for less frequently accessed archival data** check box to configure an archival volume.
+  4. Enter the **Provisioned Capacity** for your volume in GB or TB. See [Provisioned capacity](#provisioned-capacity) for maximum sizes for each device and volume type. Look at the **Available Capacity** to determine how much storage is actually available on your device.
 
-5. Щелкните значок с изображением стрелки ![Значок стрелки](./media/storsimple-manage-volumes-u2/HCS_ArrowIcon.png). При настройке локально закрепленного тома появится следующее сообщение.
+5. Click the arrow icon![Arrow icon](./media/storsimple-manage-volumes-u2/HCS_ArrowIcon.png). If you are configuring a locally pinned volume, you will see the following message.
 
-    ![Сообщение об изменении типа тома](./media/storsimple-manage-volumes-u2/LocalVolEx.png)
+    ![Change Volume type message](./media/storsimple-manage-volumes-u2/LocalVolEx.png)
    
-5. Снова щелкните значок с изображением стрелки ![Значок стрелки](./media/storsimple-manage-volumes-u2/HCS_ArrowIcon.png), чтобы перейти на страницу **Дополнительные параметры**.
+5. Click the arrow icon ![Arrow icon](./media/storsimple-manage-volumes-u2/HCS_ArrowIcon.png)again to go to the **Additional Settings** page.
 
-    ![Дополнительные параметры мастера добавления тома](./media/storsimple-manage-volumes-u2/AddVolume2.png)<br>
+    ![Add Volume wizard Additional Settings](./media/storsimple-manage-volumes-u2/AddVolume2.png)<br>
 
-6. В разделе **Дополнительные параметры** добавьте новую запись контроля доступа:
+6. Under **Additional Settings**, add a new access control record (ACR):
   
-  1. Выберите запись контроля доступа в раскрывающемся списке. Кроме того, можно добавить новую запись ACR. Записи ACR определяют, какие узлы могут получать доступ к томам, сопоставляя IQN узлов с томами, перечисленными в записи. Если не указать ACR, появится следующее сообщение.
+  1. Select an access control record (ACR) from the drop-down list. Alternatively, you can add a new ACR. ACRs determine which hosts can access your volumes by matching the host IQN with that listed in the record. If you do not specify an ACR, you will see the following message.
 
         ![Specify ACR](./media/storsimple-manage-volumes-u2/SpecifyACR.png)
 
-  2. Рекомендуем установить флажок **Включить архивацию по умолчанию для этого тома**.
-  3. Щелкните значок с изображением флажка ![значок с изображением флажка](./media/storsimple-manage-volumes-u2/HCS_CheckIcon.png), чтобы создать том с указанными параметрами.
+  2. We recommend that you select the **Enable a default backup for this volume** checkbox.
+  3. Click the check icon ![Check icon](./media/storsimple-manage-volumes-u2/HCS_CheckIcon.png) to create the volume with the specified settings.
 
-Теперь ваш новый том готов к использованию.
+Your new volume is now ready to use.
 
->[AZURE.NOTE] Если сразу после создания локально закрепленного тома создается другой локально закрепленный том, задания по созданию томов выполняются поочередно. Первое задание по созданию тома должно быть завершено перед началом выполнения следующего задания по созданию тома.
+>[AZURE.NOTE] If you create a locally pinned volume and then create another locally pinned volume immediately afterwards, the volume creation jobs run sequentially. The first volume creation job must finish before the next volume creation job can begin.
 
-## Изменение тома
+## <a name="modify-a-volume"></a>Modify a volume
 
-Измените том, если необходимо развернуть его или изменить узлы, у которых есть доступ к нему.
+Modify a volume when you need to expand it or change the hosts that access the volume.
 
 > [AZURE.IMPORTANT] 
 >
-> - При изменении размера тома на устройстве также необходимо изменить размер тома на узле.
-> - Приведенные здесь шаги для стороны ведущего приложения предназначены для Windows Server 2012 (2012R2). Процедуры для Linux или других операционных систем сервера виртуальных машин будут отличаться. При изменении тома на узле под управлением другой операционной системы ознакомьтесь с инструкциями для операционной системы сервера виртуальных машин.
+> - If you modify the volume size on the device, the volume size needs to be changed on the host as well. 
+> - The host-side steps described here are for Windows Server 2012 (2012R2). Procedures for Linux or other host operating systems will be different. Refer to your host operating system instructions when modifying the volume on a host running another operating system. 
 
-#### Изменение тома
+#### <a name="to-modify-a-volume"></a>To modify a volume
 
-1. На странице **Устройства** выберите устройство, дважды щелкните его и перейдите на вкладку **Контейнеры томов**.
+1. On the **Devices** page, select the device, double-click it, and then click the **Volume Containers** tab.
 
-2. Выберите контейнер томов из списка и дважды щелкните его, чтобы просмотреть тома, связанные с контейнером.
+2. Select a volume container from the list and double-click it to view the volumes associated with the container.
 
-3. Выберите том, а затем в нижней части страницы щелкните **Изменить**. Откроется мастер изменения тома.
+3. Select a volume, and at the bottom of the page, click **Modify**. The Modify volume wizard starts.
 
-4. В мастере «Изменение тома» в разделе **Основные параметры** можно сделать вот что.
+4. In the Modify volume wizard, under **Basic Settings**, you can do the following:
 
-  - Изменить **имя**.
-  - Преобразовать **тип использования** из локально закрепленного в многоуровневый или наоборот (дополнительные сведения см. в разделе [Изменение типа тома](#change-the-volume-type)).
-  - Увеличить значение в поле **Подготовленная емкость**. **Подготовленная емкость** можно только увеличить. Нельзя сжать том после его создания.
+  - Edit the **Name**.
+  - Convert the **Usage Type** from locally pinned to tiered or from tiered to locally pinned (see [Change the volume type](#change-the-volume-type) for more information).
+  - Increase the **Provisioned Capacity**. The **Provisioned Capacity** can only be increased. You cannot shrink a volume after it is created.
 
-5. В разделе **Дополнительные параметры** можно изменить ACR при условии, что том находится вне сети. Если том включен, сначала необходимо отключить его. Прежде чем изменять записи ACR, см. инструкции в разделе [Отключение тома](#take-a-volume-offline).
+5. Under **Additional Settings**, you can modify the ACR, provided that the volume is offline. If the volume is online, you will need to take it offline first. Refer to the steps in [Take a volume offline](#take-a-volume-offline) prior to modifying the ACR.
 
-    > [AZURE.NOTE] Параметр **Включить резервное копирование по умолчанию** для тома изменить нельзя.
+    > [AZURE.NOTE] You cannot change the **Enable a default backup** option for the volume.
 
-6. Сохраните изменения, щелкнув значок с изображением флажка ![значок с изображением флажка](./media/storsimple-manage-volumes-u2/HCS_CheckIcon.png). На классическом портале Azure отобразится сообщение об обновлении тома. При успешном обновлении тома будет отображаться соответствующее сообщение.
+6. Save your changes by clicking the check icon ![check-icon](./media/storsimple-manage-volumes-u2/HCS_CheckIcon.png). The Azure classic portal will display an updating volume message. It will display a success message when the volume has been successfully updated.
 
-7. Если выполняется расширение тома, выполните на главном компьютере Windows следующие действия:
+7. If you are expanding a volume, complete the following steps on your Windows host computer:
 
-   1. Выберите **Управление компьютером** -> **Управление дисками**.
-   2. Щелкните правой кнопкой мыши **Управление дисками** и выберите **Повторить проверку дисков**.
-   3. В списке дисков выберите обновленный том, щелкните его правой кнопкой мыши и выберите пункт **Расширить том**. Откроется мастер расширения тома. Нажмите кнопку **Далее**.
-   4. Завершите работу мастера, приняв значения по умолчанию. После завершения работы мастера размер тома должен увеличиться.
+   1. Go to **Computer Management** ->**Disk Management**.
+   2. Right-click **Disk Management** and select **Rescan Disks**.
+   3. In the list of disks, select the volume that you updated, right-click, and then select **Extend Volume**. The Extend Volume wizard starts. Click **Next**.
+   4. Complete the wizard, accepting the default values. After the wizard is finished, the volume should show the increased size.
 
-    >[AZURE.NOTE] Если сразу после расширения локально закрепленного тома запускается расширение другого локально закрепленного тома, задания по расширению томов выполняются поочередно. Первое задание по расширению тома должно быть завершено перед началом выполнения следующего задания по расширению тома.
+    >[AZURE.NOTE] If you expand a locally pinned volume and then expand another locally pinned volume immediately afterwards, the volume expansion jobs run sequentially. The first volume expansion job must finish before the next volume expansion job can begin.
 
-![Доступно видео](./media/storsimple-manage-volumes-u2/Video_icon.png) **Доступно видео**
+![Video available](./media/storsimple-manage-volumes-u2/Video_icon.png) **Video available**
 
-Чтобы просмотреть видео о расширении тома, щелкните [здесь](https://azure.microsoft.com/documentation/videos/expand-a-storsimple-volume/).
+To watch a video that demonstrates how to expand a volume, click [here](https://azure.microsoft.com/documentation/videos/expand-a-storsimple-volume/).
 
-## Изменение типа тома
+## <a name="change-the-volume-type"></a>Change the volume type
 
-Тип тома можно изменить с многоуровневого на локально закрепленный или наоборот. Однако такое преобразование не следует выполнять часто. Вот некоторые причины для преобразования тома из многоуровневого в локально закрепленный:
+You can change the volume type from tiered to locally pinned or from locally pinned to tiered. However, this conversion should not be a frequent occurrence. Some reasons for converting a volume from tiered to locally pinned are:
 
-- гарантия доступности данных на локальном устройстве и его производительности;
-- отсутствие задержек и проблем подключения, которые могут возникнуть при работе с облаком.
+- Local guarantees regarding data availability and performance
+- Elimination of cloud latencies and cloud connectivity issues.
 
-Как правило, изменение выполняется для небольших томов, к которым часто осуществляется доступ. При создании локально закрепленный том полностью подготавливается. Перед началом преобразования многоуровневого тома в локально закрепленный StorSimple проверяет наличие достаточного пространства на устройстве. Если места недостаточно, появится сообщение об ошибке и операция будет отменена.
+Typically, these are small existing volumes that you want to access frequently. A locally pinned volume is fully provisioned when it is created. If you are converting a tiered volume to a locally pinned volume, StorSimple verifies that you have sufficient space on your device before it starts the conversion. If you have insufficient space, you will receive an error and the operation will be canceled. 
 
-> [AZURE.NOTE] Перед началом преобразования многоуровневого тома в локально закрепленный убедитесь, что доступен объем пространства, необходимый для других рабочих нагрузок.
+> [AZURE.NOTE] Before you begin a conversion from tiered to locally pinned, make sure that you consider the space requirements of your other workloads. 
 
-Если возникнет необходимость в дополнительном пространстве для подготовки других томов, возможно, вам придется изменить локально закрепленный том на многоуровневый. При преобразовании локально закрепленного тома в многоуровневый к доступной емкости на устройстве добавляется освобожденная емкость. Если проблемы с подключением препятствуют преобразованию тома из локального в многоуровневый, локальный том будет обладать свойствами многоуровневого до завершения преобразования. Причина в том, что некоторые данные могли быть перенесены в облако. Перенесенные данные будут и дальше занимать пространство на локальном устройстве. Оно не освободится, пока операция не будет перезапущена и завершена.
+You might want to change a locally pinned volume to a tiered volume if you need additional space to provision other volumes. When you convert the locally pinned volume to tiered, the available capacity on the device increases by the size of the released capacity. If connectivity issues prevent the conversion of a volume from the local type to the tiered type, the local volume will exhibit properties of a tiered volume until the conversion is completed. This is because some data might have spilled to the cloud. This spilled data will continue to occupy local space on the device that cannot be freed until the operation is restarted and completed.
 
->[AZURE.NOTE] Преобразование тома может занять некоторое время. После запуска отменить преобразование невозможно. Во время преобразования том остается подключенным к сети. Можно выполнять резервное копирование, но развернуть или восстановить том во время преобразования невозможно.
+>[AZURE.NOTE] Converting a volume can take some time and you cannot cancel a conversion after it starts. The volume remains online during the conversion, and you can take backups, but you cannot expand or restore the volume while the conversion is taking place.  
 
-Преобразование многоуровневого тома в локально закрепленный может отрицательно сказаться на производительности устройства. Кроме того, приведенные ниже факторы могут увеличить время, необходимое для преобразования.
+Conversion from a tiered to a locally pinned volume can adversely affect device performance. Additionally, the following factors might increase the time it takes to complete the conversion:
 
-- Недостаточная пропускная способность.
+- There is insufficient bandwidth.
 
-- Отсутствует текущая резервная копия.
+- There is no current backup.
 
-Вот что можно сделать, чтобы свести к минимуму воздействие этих факторов.
+To minimize the effects that these factors may have:
 
-- Просмотрите политики пропускной способности и обеспечьте выделение пропускной способности в 40 Мбит/с.
-- Запланируйте преобразование на часы наименьшей нагрузки.
-- Создайте облачный моментальный снимок перед началом преобразования.
+- Review your bandwidth throttling policies and make sure that a dedicated 40 Mbps bandwidth is available.
+- Schedule the conversion for off-peak hours.
+- Take a cloud snapshot before you start the conversion.
 
-При преобразовании нескольких томов (с поддержкой разных рабочих нагрузок) следует установить приоритеты томов, чтобы сначала преобразовывались тома с более высоким приоритетом. Например, тома, в которых размещены виртуальные машины (ВМ), или тома с рабочими нагрузками SQL следует преобразовать раньше, чем тома с рабочими нагрузками файловых ресурсов.
+If you are converting multiple volumes (supporting different workloads), then you should prioritize the volume conversion so that higher priority volumes are converted first. For example, you should convert volumes that host virtual machines (VMs) or volumes with SQL workloads before you convert volumes with file share workloads.
 
-#### Изменение типа тома
+#### <a name="to-change-the-volume-type"></a>To change the volume type
 
-1. На странице **Устройства** выберите устройство, дважды щелкните его и перейдите на вкладку **Контейнеры томов**.
+1. On the **Devices** page, select the device, double-click it, and then click the **Volume Containers** tab.
 
-2. Выберите контейнер томов из списка и дважды щелкните его, чтобы просмотреть тома, связанные с контейнером.
+2. Select a volume container from the list and double-click it to view the volumes associated with the container.
 
-3. Выберите том, а затем в нижней части страницы щелкните **Изменить**. Откроется мастер изменения тома.
+3. Select a volume, and at the bottom of the page, click **Modify**. The Modify volume wizard starts.
 
-4. На странице **Основные параметры** измените тип использования, выбрав новый тип из раскрывающегося списка **Тип использования**.
+4. On the **Basic Settings** page, change the usage type by selecting the new type from the **Usage Type** drop-down list.
 
-    - При изменении типа на **Локально закрепленный** StorSimple проверяет наличие достаточной емкости.
-    - При изменении типа на **Многоуровневый** и использовании тома для архивных данных установите флажок **Использовать этот том для архивных данных, доступ к которым осуществляется нечасто**.
+    - If you are changing the type to **Locally pinned**, StorSimple will check to see if there is sufficient capacity.
+    - If you are changing the type to **Tiered** and this volume will be used for archival data, select the **Use this volume for less frequently accessed archival data** check box.
 
-        ![Флажок архивации](./media/storsimple-manage-volumes-u2/ModifyTieredVolEx.png)
+        ![Archive checkbox](./media/storsimple-manage-volumes-u2/ModifyTieredVolEx.png)
 
-5. Щелкните значок с изображением стрелки ![Значок стрелки](./media/storsimple-manage-volumes-u2/HCS_ArrowIcon.png), чтобы перейти на страницу **Дополнительные параметры**. При настройке локально закрепленного тома появится следующее сообщение.
+5. Click the arrow icon ![Arrow icon](./media/storsimple-manage-volumes-u2/HCS_ArrowIcon.png) to go to the **Additional Settings** page. If you are configuring a locally pinned volume, the following message appears.
 
-    ![Сообщение об изменении типа тома](./media/storsimple-manage-volumes-u2/ModifyLocalVolEx.png)
+    ![Change Volume type message](./media/storsimple-manage-volumes-u2/ModifyLocalVolEx.png)
 
-6. Для продолжения снова щелкните значок стрелки ![значок стрелки](./media/storsimple-manage-volumes-u2/HCS_ArrowIcon.png).
+6. Click the arrow icon ![arrow icon](./media/storsimple-manage-volumes-u2/HCS_ArrowIcon.png) again to continue.
 
-7. Для запуска процесса преобразования щелкните значок флажка ![значок с изображением флажка](./media/storsimple-manage-volumes-u2/HCS_CheckIcon.png). На портале Azure отобразится сообщение об обновлении тома. При успешном обновлении тома будет отображаться соответствующее сообщение.
+7. Click the check icon ![Check icon](./media/storsimple-manage-volumes-u2/HCS_CheckIcon.png) to start the conversion process. The Azure portal will display an updating volume message. It will display a success message when the volume has been successfully updated.
 
-## Отключение тома
+## <a name="take-a-volume-offline"></a>Take a volume offline
 
-Если том необходимо изменить или удалить, его нужно отключить. Если том отключен, он недоступен для чтения и записи. Отключать том следует на узле и на устройстве.
+You may need to take a volume offline when you are planning to modify it or delete it. When a volume is offline, it is not available for read-write access. You will need to take the volume offline on the host as well as on the device. 
 
-#### Отключение тома
+#### <a name="to-take-a-volume-offline"></a>To take a volume offline
 
-1. Перед отключением тома убедитесь, что он не используется.
+1. Make sure that the volume in question is not in use before taking it offline.
 
-2. Сначала отключите том на узле. Это устранит потенциальный риск повреждения данных в томе. Конкретные указания см. в инструкциях для вашей операционной системы.
+2. Take the volume offline on the host first. This eliminates any potential risk of data corruption on the volume. For specific steps, refer to the instructions for your host operating system.
 
-3. После перевода узла в автономный режим, отключите том на устройстве, сделав следующее:
+3. After the host is offline, take the volume on the device offline by performing the following steps:
 
-  1. На странице **Устройства** выберите устройство, дважды щелкните его и перейдите на вкладку **Контейнеры томов**. На вкладке **Контейнеры томов** в таблице перечислены все контейнеры томов, которые связаны с этим устройством.
-  2. Выберите контейнер томов и щелкните его, чтобы отобразить список всех томов в контейнере.
-  3. Выберите том и щелкните **Отключить**.
-  4. При появлении запроса на подтверждение, нажмите кнопку **Да**. Теперь том должен быть отключен.
+  1. On the **Devices** page, select the device, double-click it, and then click the **Volume Containers** tab. The **Volume Containers** tab lists in a tabular format all the volume containers that are associated with the device.
+  2. Select a volume container and click it to display the list of all the volumes within the container.
+  3. Select a volume and click **Take offline**.
+  4. When prompted for confirmation, click **Yes**. The volume should now be offline.
 
-    После отключения тома станет доступен параметр **Включить**.
+    After a volume is offline, the **Bring Online** option becomes available.
 
-> [AZURE.NOTE] Команда **Отключить** отправляет на устройство запрос на отключение тома. Если узлы по-прежнему используют том, это приведет к разрыву подключений, но не предотвратит отключение тома.
+> [AZURE.NOTE] The **Take Offline** command sends a request to the device to take the volume offline. If hosts are still using the volume, this results in broken connections, but taking the volume offline will not fail. 
 
-## Удаление тома
+## <a name="delete-a-volume"></a>Delete a volume
 
-> [AZURE.IMPORTANT] Том можно удалить только в том случае, если он отключен.
+> [AZURE.IMPORTANT] You can delete a volume only if it is offline.
 
-Вот как можно удалить том.
+Complete the following steps to delete a volume.
 
-#### Удаление тома
+#### <a name="to-delete-a-volume"></a>To delete a volume
 
-1. На странице **Устройства** выберите устройство, дважды щелкните его и перейдите на вкладку **Контейнеры томов**.
+1. On the **Devices** page, select the device, double-click it, and then click the **Volume Containers** tab.
 
-2. Выберите контейнер томов с томом, который требуется удалить. Щелкните контейнер томов, чтобы перейти к странице **Тома**.
+2. Select the volume container that has the volume you want to delete. Click the volume container to access the **Volumes** page.
 
-3. Все тома, связанные с этим контейнером, отображаются в таблице. Проверьте состояние тома, который требуется удалить. Если требуется удалить том, который не отключен, сначала отключите его, а затем выполните указания в разделе [Отключение тома](#take-a-volume-offline).
+3. All the volumes associated with this container are displayed in a tabular format. Check the status of the volume you want to delete. If the volume you want to delete is not offline, take it offline first, following the steps in [Take a volume offline](#take-a-volume-offline).
 
-4. После отключения тома нажмите кнопку **Удалить** в нижней части страницы.
+4. After the volume is offline, click **Delete** at the bottom of the page.
 
-5. При появлении запроса на подтверждение, нажмите кнопку **Да**. Том будет удален и на странице **Тома** будет отображаться обновленный список томов в контейнере.
+5. When prompted for confirmation, click **Yes**. The volume will now be deleted and the **Volumes** page will show the updated list of volumes within the container.
 
-    >[AZURE.NOTE] При удалении локально закрепленного тома пространство для новых томов может обновляться не сразу. Служба диспетчера StorSimple периодически обновляет доступное локальное пространство. Рекомендуем подождать несколько минут, прежде чем приступать к созданию нового тома.<br> Кроме того, если сразу после удаления локально закрепленного тома удаляется другой локально закрепленный том, задания по удалению томов выполняются поочередно. Первое задание по удалению тома должно быть завершено перед началом выполнения следующего задания по удалению тома.
+    >[AZURE.NOTE] If you delete a locally pinned volume, the space available for new volumes may not be updated immediately. The StorSimple Manager Service updates the local space available periodically. We suggest you wait for a few minutes before you try to create the new volume.<br> Additionally, if you delete a locally pinned volume and then delete another locally pinned volume immediately afterwards, the volume deletion jobs run sequentially. The first volume deletion job must finish before the next volume deletion job can begin.
  
-## Мониторинг тома
+## <a name="monitor-a-volume"></a>Monitor a volume
 
-Мониторинг тома позволяет собирать данные, связанные с операциями ввода-вывода для тома. Мониторинг по умолчанию включен для первых 32 создаваемых томов. Мониторинг дополнительных томов по умолчанию отключен. Мониторинг клонированных томов также отключен по умолчанию.
+Volume monitoring allows you to collect I/O-related statistics for a volume. Monitoring is enabled by default for the first 32 volumes that you create. Monitoring of additional volumes is disabled by default. Monitoring of cloned volumes is also disabled by default.
 
-Вот как можно включить или отключить мониторинг для тома.
+Perform the following steps to enable or disable monitoring for a volume.
 
-#### Включение или отключение мониторинга тома
+#### <a name="to-enable-or-disable-volume-monitoring"></a>To enable or disable volume monitoring
 
-1. На странице **Устройства** выберите устройство, дважды щелкните его и перейдите на вкладку **Контейнеры томов**.
+1. On the **Devices** page, select the device, double-click it, and then click the **Volume Containers** tab.
 
-2. Выберите контейнер томов, в котором находится том, затем щелкните контейнер томов, чтобы перейти к странице **Тома**.
+2. Select the volume container in which the volume resides, and then click the volume container to access the **Volumes** page.
 
-3. Все тома, связанные с этим контейнером, перечислены в таблице. Щелкните и выберите том или клон тома.
+3. All the volumes associated with this container are listed in the tabular display. Click and select the volume or volume clone.
 
-4. В нижней части страницы щелкните **Изменить**.
+4. At the bottom of the page, click **Modify**.
 
-5. В мастере «Изменение тома» в разделе **Основные параметры** выберите **Включить** или **Отключить** в раскрывающемся списке **Мониторинг**.
+5. In the Modify Volume wizard, under **Basic Settings**, select **Enable** or **Disable** from the **Monitoring** drop-down list.
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Next steps
 
-- Информация о [Клонировании тома StorSimple](storsimple-clone-volume.md).
+- Learn how to [clone a StorSimple volume](storsimple-clone-volume.md).
 
-- Информация об [использовании службы диспетчера StorSimple для администрирования устройства StorSimple](storsimple-manager-service-administration.md).
+- Learn how to [use the StorSimple Manager service to administer your StorSimple device](storsimple-manager-service-administration.md).
 
  
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

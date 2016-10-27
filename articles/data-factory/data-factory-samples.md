@@ -1,120 +1,124 @@
-<properties 	
-	pageTitle="Фабрика данных Azure — примеры" 
-	description="Подробное описание примеров, поставляемых со службой фабрики данных Azure." 
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
-	editor="monicar"/>
+<properties     
+    pageTitle="Azure Data Factory - Samples" 
+    description="Provides details about samples that ship with the Azure Data Factory service." 
+    services="data-factory" 
+    documentationCenter="" 
+    authors="spelluru" 
+    manager="jhubbard" 
+    editor="monicar"/>
 
 <tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/08/2016" 
-	ms.author="spelluru"/>
+    ms.service="data-factory" 
+    ms.workload="data-services" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="08/08/2016" 
+    ms.author="spelluru"/>
 
-# Фабрика данных Azure — примеры
 
-## Примеры на GitHub
-В [репозитории GitHub Azure-DataFactory](https://github.com/azure/azure-datafactory) предлагается несколько примеров, которые помогут вам быстро приступить к работе со службой фабрики данных Azure или настроить сценарии для использования в собственном приложении. Папка Samples\\JSON содержит фрагменты JSON для распространенных сценариев.
+# <a name="azure-data-factory---samples"></a>Azure Data Factory - Samples
 
-| Образец | Описание |
+## <a name="samples-on-github"></a>Samples on GitHub
+The [GitHub Azure-DataFactory repository](https://github.com/azure/azure-datafactory) contains several samples that help you quickly ramp up with Azure Data Factory service (or) modify the scripts and use it in own application. The Samples\JSON folder contains JSON snippets for common scenarios.
+
+| Sample | Description |
 | :----- | :---------- | 
-| [Пошаговое руководство по ADF](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ADFWalkthrough) | Этот пример представляет собой сквозное руководство по обработке файлов журналов с помощью фабрики данных Azure для преобразования данных из файлов журналов в аналитические данные. <br/><br/> В этом руководстве конвейер фабрики данных собирает примеры журналов, обрабатывает и дополняет их эталонными данными из журналов, а также преобразует сведения, чтобы оценить эффективность недавно запущенной маркетинговой кампании. |
-| [Примеры JSON](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/JSON) | В этой выборке представлены примеры кода JSON для распространенных сценариев. | 
-| [Пример загрузчика данных HTTP](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/HttpDataDownloaderSample) | В этой выборке демонстрируется скачивание данных из конечной точки HTTP в хранилище BLOB-объектов Azure с помощью настраиваемого действия .NET. |
-| [Пример действия перекрестного домена приложения .NET](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/CrossAppDomainDotNetActivitySample) | Этот пример позволяет создать настраиваемое действие .NET, не ограниченное версиями сборок, которые используются средством запуска фабрики данных Azure (например, WindowsAzure.Storage версии 4.3.0, Newtonsoft.Json версии 6.0.x и т. д.). |
-| [Запуск сценария R](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample) | Этот пример включает пользовательское действие фабрики данных, которое можно использовать для вызова файла RScript.exe. Этот пример работает только с вашим собственным кластером HDInsight (не по требованию), в которое уже установлен R. |
-| [Вызов заданий Spark в кластере HDInsight Hadoop](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/Spark) | В этом примере показано, как использовать действие MapReduce для запуска программы Spark. Программа Spark просто копирует данные из одного контейнера BLOB-объектов Azure в другой. |
-| [Анализ Twitter с использованием действия пакетной оценки показателей машинного обучения Azure](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/TwitterAnalysisSample-AzureMLBatchScoringActivity) | В этом примере показано, как использовать AzureMLBatchScoringActivity для вызова модели машинного обучения Azure, которая выполняет анализ мнений с помощью Twitter, оценку, прогноз и т. д. |
-| [Анализ Twitter с использованием настраиваемого действия](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/TwitterAnalysisSample-CustomC%23Activity) | В этом примере показано, как использовать настраиваемое действие .NET для вызова модели машинного обучения Azure, которая выполняет анализ мнений с помощью Twitter, оценку, прогноз и т. д. |
-| [Параметризованные конвейеры для машинного обучения Azure](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ParameterizedPipelinesForAzureML/) | Пример содержит полный код C# для развертывания N конвейеров для оценки и повторного обучения с различными параметрами регионов (список регионов берется из файла parameters.txt, включенного в этот пример). | 
-| [Обновление эталонных данных для заданий в службе Azure Stream Analytics](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ReferenceDataRefreshForASAJobs) | В этом примере показано, как использовать фабрику данных Azure и службу Azure Stream Analytics для выполнения запросов с эталонными данными и настройки обновления эталонных данных по расписанию. |
-| [Гибридный конвейер с локальным кластером Hadoop Hortonworks](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/HybridPipelineWithOnPremisesHortonworksHadoop) | В этом примере локальный кластер Hadoop используется как целевой объект для выполнения заданий в фабрике данных, аналогично другим объектам вычислений, таким как кластер Hadoop на основе HDInsight в облаке. |
-| [Средство преобразования JSON](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/JSONConversionTool) | Позволяет преобразовать JSON из версии до 2015-07-01-preview в последнюю доступную версию или в версию 2015-07-01-preview (по умолчанию). |  
-| [Пример входного файла U-SQL](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/U-SQL%20Sample%20Input%20File) | Это пример файла, который используется действием U-SQL. | 
+| [ADF Walkthrough](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ADFWalkthrough) | This sample provides an end-to-end walkthrough for processing log files using Azure Data Factory to turn data from log files into insights. <br/><br/>In this walkthrough, the Data Factory pipeline collects sample logs, processes and enriches the data from logs with reference data, and transforms the data to evaluate the effectiveness of a marketing campaign that was recently launched. |
+| [JSON samples](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/JSON) | This sample provides JSON examples for common scenarios. | 
+| [Http Data Downloader Sample](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/HttpDataDownloaderSample) | This sample showcases downloading of data from an HTTP endpoint to Azure Blob Storage using custom .NET activity. |
+| [Cross AppDomain Dot Net Activity Sample](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/CrossAppDomainDotNetActivitySample) | This sample allows you to author a custom .NET activity that is not constrained to assembly versions used by the ADF launcher (e.g., WindowsAzure.Storage v4.3.0, Newtonsoft.Json v6.0.x, etc.). |
+| [Run R script](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample) |  This sample includes the Data Factory custom activity that can be used to invoke RScript.exe. This sample works only with your own (not on-demand) HDInsight cluster that already has R Installed on it. |
+| [Invoke Spark jobs on HDInsight Hadoop cluster](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/Spark) | This sample shows how to use MapReduce activity to invoke a Spark program. The spark program just copies data from one Azure Blob container to another. |
+| [Twitter Analysis using Azure Machine Learning Batch Scoring Activity](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/TwitterAnalysisSample-AzureMLBatchScoringActivity) | This sample shows how to use AzureMLBatchScoringActivity to invoke an Azure Machine Learning model that performs twitter sentiment analysis, scoring, prediction etc. |
+| [Twitter Analysis using custom activity](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/TwitterAnalysisSample-CustomC%23Activity) |  This sample shows how to use a custom .NET activity to invoke an Azure Machine Learning model that performs twitter sentiment analysis, scoring, prediction etc. |
+| [Parameterized Pipelines for Azure Machine Learning](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ParameterizedPipelinesForAzureML/) | The sample provides an end-to-end C# code to deploy N pipelines for scoring and retraining each with a different region parameter where the list of regions is coming from a parameters.txt file which is included with this sample. | 
+| [Reference Data Refresh for Azure Stream Analytics jobs](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ReferenceDataRefreshForASAJobs) |  This sample shows how to leverage Azure Data Factory and Azure Stream Analytics together to run the queries with reference data and setup the refresh for reference data on a schedule. |
+| [Hybrid Pipeline with On-premises Hortonworks Hadoop](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/HybridPipelineWithOnPremisesHortonworksHadoop) | The sample uses an on-premises Hadoop cluster as a compute target for running jobs in Data Factory just like you would add other compute targets like an HDInsight based Hadoop cluster in cloud. |
+| [JSON Conversion Tool](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/JSONConversionTool) | This tool allows you to convert JSONs from version prior to 2015-07-01-preview to latest or 2015-07-01-preview (default). |  
+| [U-SQL sample input file](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/U-SQL%20Sample%20Input%20File) |  This is a sample file used by an U-SQL activity. | 
 
 
 
-## Примеры на портале Azure
-Воспользуйтесь элементом **Примеры конвейеров** на домашней странице фабрики данных, чтобы развернуть примеры конвейеров и их связанные сущности (наборы данных и связанные службы) в фабрике данных.
+## <a name="samples-in-azure-portal"></a>Samples in Azure Portal
+You can use the **Sample pipelines** tile on the home page of your data factory to deploy sample pipelines and their associated entities (datasets and linked services) into your data factory. 
 
-1. Создайте или откройте существующую фабрику данных. Информацию о создании фабрики данных см. в статье [Приступая к работе с фабрикой данных Azure](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md#CreateDataFactory).
-2. В колонке **ФАБРИКА ДАННЫХ** для этой фабрики данных щелкните плитку **Примеры конвейеров**.
+1. Create a new data factory or open an existing data factory. See [Getting started with Azure Data Factory](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md#CreateDataFactory) for steps to create a data factory.
+2. In the **DATA FACTORY** blade for the data factory, click the **Sample pipelines** tile.
 
-	![Плитка "Примеры конвейеров"](./media/data-factory-samples/SamplePipelinesTile.png)
+    ![Sample pipelines tile](./media/data-factory-samples/SamplePipelinesTile.png)
 
-2. В колонке **Примеры конвейеров** выберите **пример**, который хотите развернуть.
-	
-	![Колонка "Примеры конвейеров"](./media/data-factory-samples/SampleTile.png)
+2. In the **Sample pipelines** blade, click the **sample** that you want to deploy. 
+    
+    ![Sample pipelines blade](./media/data-factory-samples/SampleTile.png)
 
-3. Задайте параметры конфигурации для этого примера. Например, вы можете указать имя и ключ вашей учетной записи хранения Azure, имя сервера Azure SQL, базу данных, идентификатор пользователя, пароль и т. д.
+3. Specify configuration settings for the sample. For example, your Azure storage account name and account key, Azure SQL server name, database, User ID, and password, etc... 
 
-	![Колонка примера](./media/data-factory-samples/SampleBlade.png)
+    ![Sample blade](./media/data-factory-samples/SampleBlade.png)
 
-4. Настроив параметры, нажмите кнопку **Создать**, чтобы создать или развернуть примеры конвейеров и используемые ими связанные службы и таблицы.
-5. Состояние развертывания будет отображаться на плитке примера, которую вы щелкнули ранее в колонке **Примеры конвейеров**.
+4. After you are done with specifying the configuration settings, click **Create** to create/deploy the sample pipelines and linked services/tables used by the pipelines.
+5. You will see the status of deployment on the sample tile you clicked earlier on the **Sample pipelines** blade.
 
-	![Состояние развертывания](./media/data-factory-samples/DeploymentStatus.png)
+    ![Deployment status](./media/data-factory-samples/DeploymentStatus.png)
 
-6. Когда на плитке примера появится сообщение **Развертывание успешно завершено**, закройте колонку **Примеры конвейеров**.
-5. В колонке **ФАБРИКА ДАННЫХ** вы увидите, что связанные службы, наборы данных и конвейеры добавлены в вашу фабрику данных.
+6. When you see the **Deployment succeeded** message on the tile for the sample, close the **Sample pipelines** blade.  
+5. On **DATA FACTORY** blade, you will see that linked services, data sets, and pipelines are added to your data factory.  
 
-	![Колонка "Фабрика данных"](./media/data-factory-samples/DataFactoryBladeAfter.png)
+    ![Data Factory blade](./media/data-factory-samples/DataFactoryBladeAfter.png)
    
-## Примеры в Visual Studio
+## <a name="samples-in-visual-studio"></a>Samples in Visual Studio
 
-### Предварительные требования
+### <a name="prerequisites"></a>Prerequisites
 
-На вашем компьютере должны быть установлены следующие компоненты:
+You must have the following installed on your computer: 
 
-- Visual Studio 2013 или Visual Studio 2015.
-- Загрузите пакет SDK Azure для Visual Studio 2013 или Visual Studio 2015. Перейдите к [Странице загрузки Azure](https://azure.microsoft.com/downloads/) и щелкните **VS 2013** или **VS2015** в разделе **.NET**.
-- Скачайте последнюю версию подключаемого модуля фабрики данных Azure для Visual Studio: [VS 2013](https://visualstudiogallery.msdn.microsoft.com/754d998c-8f92-4aa7-835b-e89c8c954aa5) или [VS 2015](https://visualstudiogallery.msdn.microsoft.com/371a4cf9-0093-40fa-b7dd-be3c74f49005). При использовании Visual Studio 2013 можно обновить подключаемый модуль, выполнив следующие действия: в меню выберите команду **Сервис** -> **Расширения и обновления** -> **В сети** -> **Галерея Visual Studio** -> **Инструменты фабрики данных Microsoft Azure для Visual Studio** -> **Обновить**.
+- Visual Studio 2013 or Visual Studio 2015
+- Download Azure SDK for Visual Studio 2013 or Visual Studio 2015. Navigate to [Azure Download Page](https://azure.microsoft.com/downloads/) and click **VS 2013** or **VS 2015** in the **.NET** section.
+- Download the latest Azuer Data Factory plugin for Visual Studio : [VS 2013](https://visualstudiogallery.msdn.microsoft.com/754d998c-8f92-4aa7-835b-e89c8c954aa5) or [VS 2015](https://visualstudiogallery.msdn.microsoft.com/371a4cf9-0093-40fa-b7dd-be3c74f49005). If you are using Visual Studio 2013, you can also update the plugin by doing the following: On the menu, click **Tools** -> **Extensions and Updates** -> **Online** -> **Visual Studio Gallery** -> **Microsoft Azure Data Factory Tools for Visual Studio** -> **Update**.
 
-### Использование шаблонов фабрики данных
+### <a name="use-data-factory-templates"></a>Use Data Factory Templates
 
-1. Щелкните **Файл**, наведите указатель мыши на пункт **Создать** и щелкните **Проект**.
-2. В диалоговом окне **Новый проект** сделайте следующее:
-	1. Выберите **Фабрика данных** в разделе **Шаблоны**.
-	2. В правой области выберите **Шаблоны фабрики данных**.
-	3. Введите **имя** проекта.
-	4. Выберите **расположение** для проекта.
-	5. Нажмите кнопку **ОК**.
+1. Click **File** on the menu, point to **New**, and click **Project**. 
+2. In the **New Project** dialog box, do the following: 
+    1. Select **DataFactory** under **Templates**. 
+    2. Select **Data Factory Templates** in the right pane. 
+    3. Enter a **name** for the project. 
+    4. Select a **location** for the project. 
+    5. Click **OK**. 
 
-	![Диалоговое окно "Новый проект"](./media/data-factory-samples/vs-new-project-adf-templates.png)
-6. В диалоговом окне **Шаблоны фабрики данных** выберите образец шаблона в разделе **Примеры использования шаблонов** и нажмите кнопку **Далее**. Далее приводится описание процедуры использования шаблона **Профилирование клиентов**. Действия аналогичны действиям в других примерах.
+    ![New project dialog box](./media/data-factory-samples/vs-new-project-adf-templates.png)
+6. In the **Data Factory Templates** dialog box, select the sample template from the **Use-Case Templates** section, and click **Next**. The following steps walk you through using the **Customer Profiling** template. Steps are similar for the other sample(s). 
 
-	![Диалоговое окно "Шаблоны фабрики данных"](./media/data-factory-samples/vs-data-factory-templates-dialog.png)
-7. В диалоговом окне **Конфигурация фабрики данных** нажмите кнопку **Далее** на странице **Основы фабрики данных**.
-8. На странице **Настройка фабрики данных** выполните следующие действия:
-	1. Выберите **Создать фабрику данных** для данного пошагового руководства. Можно также выбрать **Использовать существующую фабрику данных**.
-	2. Введите **имя** фабрики данных.
-	3. Выберите **подписку Azure**, в рамках которой вы хотите создать фабрику данных.
-	4. Выберите **группу ресурсов** для фабрики данных.
-	5. В качестве **региона** выберите **западную часть США**, **восточную часть США** или **Северную Европу**.
-	6. Нажмите кнопку **Далее**.
-9. На странице **Configure data stores** (Настройка хранилищ данных) укажите существующую **базу данных SQL Azure** и **учетную запись хранения Azure** (или создайте новые), а затем нажмите кнопку "Далее".
-10. На странице **Настройка вычислений** выберите значения по умолчанию и нажмите кнопку **Далее**.
-11. На странице **Сводка** проверьте все параметры и нажмите кнопку **Далее**.
-12. На странице **Состояние развертывания** дождитесь завершения развертывания и затем нажмите кнопку **Готово**.
-13. В обозревателе решений щелкните проект правой кнопкой мыши и выберите **Опубликовать**.
-19. Если вы видите диалоговое окно **Войдите в учетную запись Майкрософт**, введите данные учетной записи с подпиской Azure и нажмите кнопку **Войти**.
-20. Вы должны увидеть следующее диалоговое окно:
+    ![Data Factory Templates dialog box](./media/data-factory-samples/vs-data-factory-templates-dialog.png) 
+7. In the **Data Factory Configuration** dialog, click **Next** on the **Data Factory Basics** page.
+8. On the **Configure data factory** page, do the following: 
+    1. select **Create New Data Factory** for the purpose of this walkthrough. You can also select **Use existing data factory**.
+    2. Enter a **name** for the data factory.
+    3. Select the **Azure subscription** in which you want the data factory to be created. 
+    4. Select the **resource group** for the data factory.
+    5. Select the **West US**, **East US** or **North Europe** for the **region**.
+    6. Click **Next**. 
+9. In the **Configure data stores** page, specify an existing **Azure SQL database** and **Azure storage account** (or) create new ones, and click Next. 
+10. In the **Configure compute** page, select defaults, and click **Next**. 
+11. In the **Summary** page, review all settings, and click **Next**. 
+12. In the **Deployment Status** page, wait until the deployment is finished, and click **Finish**.
+13. Right-click project in the Solution Explorer, and click **Publish**. 
+19. If you see **Sign in to your Microsoft account** dialog box, enter your credentials for the account that has Azure subscription, and click **sign in**.
+20. You should see the following dialog box:
 
-	![Диалоговое окно "Опубликовать"](./media/data-factory-build-your-first-pipeline-using-vs/publish.png)
+    ![Publish dialog box](./media/data-factory-build-your-first-pipeline-using-vs/publish.png)
 
-21. На странице **Настройка фабрики данных** выполните следующие действия.
-	1. Убедитесь, что выбран параметр **Use existing data factory** (Использовать существующую фабрику данных).
-	2. Выберите **фабрику данных**, выбранную при использовании указанного выше шаблона.
-	6. Нажмите кнопку **Далее** для перехода на страницу **Публикация элементов**. (Нажмите клавишу **TAB**, чтобы выйти из поля «Имя», если кнопка **Далее** недоступна).
-23. На странице **Публикация элементов** убедитесь, что выбраны все сущности данных фабрики, и нажмите кнопку **Далее** для перехода на страницу **Сводка**.
-24. Просмотрите сводку и нажмите кнопку **Далее** для запуска процесса развертывания и просмотра **Состояния развертывания**.
-25. На странице **Состояние развертывания** вы увидите состояние процесса развертывания. После завершения развертывания нажмите кнопку "Готово".
+21. In the **Configure data factory** page, do the following: 
+    1. Confirm that **Use existing data factory** option.
+    2. Select the **data factory** you had select when using the template above. 
+    6. Click **Next** to switch to the **Publish Items** page. (Press **TAB** to move out of the Name field to if the **Next** button is disabled.) 
+23. In the **Publish Items** page, ensure that all the Data Factories entities are selected, and click **Next** to switch to the **Summary** page.     
+24. Review the summary and click **Next** to start the deployment process and view the **Deployment Status**.
+25. In the **Deployment Status** page, you should see the status of the deployment process. Click Finish after the deployment is done. 
 
-Подробные сведения об использовании Visual Studio для создания сущностей фабрики данных и их публикации в Azure см. в статье [Создание первой фабрики данных Azure с помощью Microsoft Visual Studio](data-factory-build-your-first-pipeline-using-vs.md).
+See [Build your first data factory (Visual Studio)](data-factory-build-your-first-pipeline-using-vs.md) for details about using Visual Studio to author Data Factory entities and publishing them to Azure.          
 
-<!---HONumber=AcomDC_0810_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

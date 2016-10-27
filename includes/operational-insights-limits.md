@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Таблица ограничений Operational Insights"
-   description="Описывает ограничения системы для Operational Insights."
+   pageTitle="Operational Insights limits table"
+   description="Describes system limits for Operational Insights."
    services="operational-insights"
    documentationCenter="NA"
    authors="bandersmsft"
@@ -16,16 +16,21 @@
    ms.author="banders" />
 
 
-Следующие ограничения применяются к подпискам Operational Insights.
+
+The following limits apply to Operational Insights subscriptions.
 
 
-| |БЕСПЛАТНЫЙ|СТАНДАРТ|PREMIUM|
+|   |FREE|STANDARD|PREMIUM|
 |---|---|---|---|
-|Ограничение на объем данных, передаваемых ежедневно|500 МБ<sup>1</sup>|None|None|
-|Срок хранения данных|7 дней|1 месяц|12 месяцев|
-|Ограничение на хранение данных|500 МБ * 7 дней = 3,5 ГБ|без ограничений|без ограничений|
+|Daily data transfer limit|500 MB<sup>1</sup>|None|None|
+|Data retention period|7 days|1 month|12 months|
+|Data storage limit|500 MB * 7 days = 3.5 GB|unlimited|unlimited|
 
 
-<sup>1</sup>Если клиент достиг ограничения на объем данных, передаваемых ежедневно (500 МБ), анализ данных прерывается и возобновляется в начале следующего дня. День считается по формату времени UTC.
+<sup>1</sup>When customers reach their 500MB daily data transfer limit, data analysis stops and resumes at the start of the next day. A day is based on UTC.
 
-<!---HONumber=AcomDC_0706_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

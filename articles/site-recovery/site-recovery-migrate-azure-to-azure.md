@@ -1,56 +1,61 @@
 <properties
-	pageTitle="Перенос виртуальных машин IaaS Azure из одного региона Azure в другой с помощью Site Recovery | Microsoft Azure"
-	description="Используйте службу Site Recovery для переноса виртуальных машин IaaS Azure из одного региона Azure в другой."
-	services="site-recovery"
-	documentationCenter=""
-	authors="rayne-wiselman"
-	manager="jwhit"
-	editor="tysonn"/>
+    pageTitle="Migrate Azure IaaS virtual machines from one Azure region to another with Site Recovery | Microsoft Azure"
+    description="Use Azure Site Recovery to migrate Azure IaaS virtual machines from one Azure region to another."
+    services="site-recovery"
+    documentationCenter=""
+    authors="rayne-wiselman"
+    manager="jwhit"
+    editor="tysonn"/>
 
 <tags
-	ms.service="site-recovery"
-	ms.workload="backup-recovery"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/21/2016"
-	ms.author="raynew"/>
-
-#  Перенос виртуальных машин IaaS Azure между регионами Azure с помощью Azure Site Recovery
-
-## Обзор
-
-Вас приветствует служба Azure Site Recovery! Воспользуйтесь этой статьей для выполнения переноса виртуальных машин Azure из одного региона Azure в другой. Перед началом работы обратите внимание на следующее:
-
-- В Azure предлагаются две модели развертывания для создания ресурсов и работы с ними: модель Azure Resource Manager и классическая модель. Кроме того, Azure предоставляет два портала — классический портал Azure, поддерживающий классическую модель развертывания, и портал Azure, поддерживающий обе модели развертывания. Основные шаги, необходимые для выполнения переноса, одинаковы при настройке Site Recovery как с помощью модели Resource Manager, так и с помощью классической модели. Приводимые в этой статье элементы пользовательского интерфейса и снимки экрана относятся к порталу Azure.
-- **В настоящее время поддерживается только перенос из одного региона в другой. Вы можете выполнить отработку отказа виртуальных машин из одного региона Azure в другой, но не сможете выполнить обратную отработку отказа этих виртуальных машин.**
-- Инструкции по переносу, приводимые в этой статье, основаны на инструкциях по репликации физического компьютера в Azure. Здесь содержатся ссылки на шаги из статьи [Репликация виртуальных машин VMware и физических компьютеров в Azure с помощью службы Azure Site Recovery и портала Azure](site-recovery-vmware-to-azure.md), в которой описывается процесс репликации физического сервера на портале Azure.
-- Если вы настраиваете Site Recovery на классическом портале, то следуйте подробным инструкциям, приведенным в [этой статье](site-recovery-vmware-to-azure-classic.md). Для переноса **больше не следует использовать** инструкции в этой [устаревшей статье](site-recovery-vmware-to-azure-classic-legacy.md).
-
-Все комментарии или вопросы можно добавить в конце этой статьи или на [форуме по службам восстановления Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
+    ms.service="site-recovery"
+    ms.workload="backup-recovery"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="08/21/2016"
+    ms.author="raynew"/>
 
 
-## Предварительные требования
+#  <a name="migrate-azure-iaas-virtual-machines-between-azure-regions-with-azure-site-recovery"></a>Migrate Azure IaaS virtual machines between Azure regions with Azure Site Recovery
 
-Вот что нужно для этого развертывания:
+## <a name="overview"></a>Overview
 
-- **Сервер конфигурации**: локальная виртуальная машина под управлением Windows Server 2012 R2, которая выступает в качестве сервера конфигурации. Также установите на этой виртуальной машине другие компоненты Site Recovery (включая сервер обработки и главный целевой сервер). Дополнительные сведения см. в разделах [Архитектура сценария](site-recovery-vmware-to-azure.md#scenario-architecture) и [Предварительные требования для сервера конфигурации](site-recovery-vmware-to-azure.md#configuration-server-prerequisites).
-- **Виртуальные машины IaaS** — виртуальные машины, которые требуется перенести. При переносе виртуальных машин используйте те же инструкции, что и для физических компьютеров.
+Welcome to Azure Site Recovery! Use this article if you want to migrate Azure VMs between Azure regions. Before you start, note that:
 
-## Шаги по развертыванию
+- Azure has two different deployment models for creating and working with resources: Azure Resource Manager and classic. Azure also has two portals – the Azure classic portal that supports the classic deployment model, and the Azure portal with support for both deployment models. The basic steps for migration are the same whether you're configuring Site Recovery in Resource Manager or in classic. However the UI instructions and screenshots in this article are relevant for the Azure portal.
+- **Currently you can only migrate from one region to another. You can fail over VMs from one Azure region to another, but you can't fail them back again.**
+- The migration instructions in this article are based on the instructions for replicating a physical machine to Azure. It includes links to the steps in [Replicate VMware VMs or physical servers to Azure](site-recovery-vmware-to-azure.md), which describes how to replicate a physical server in the Azure portal.
+- If you're setting up Site Recovery in the classic portal, follow the detailed instructions in [this article](site-recovery-vmware-to-azure-classic.md). **You should no longer use** the instructions in this [legacy article](site-recovery-vmware-to-azure-classic-legacy.md).
 
-В этом разделе описаны шаги по развертыванию на новом портале Azure. Если вам требуются инструкции по развертыванию Site Recovery на классическом портале, то см. [эту статью](site-recovery-vmware-to-azure-classic.md).
+Post any comments or questions at the bottom of this article, or on the [Azure Recovery Services Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
-1. [Создайте хранилище](site-recovery-vmware-to-azure.md#create-a-recovery-services-vault).
-2. [Выполните развертывание сервера конфигурации](site-recovery-vmware-to-azure.md#step-2-set-up-the-source-environment).
-3. После развертывания сервера конфигурации убедитесь, что он может обмениваться данными с виртуальными машинами, которые требуется перенести.
-4. [Настройте параметры репликации](site-recovery-vmware-to-azure.md#step-4-set-up-replication-settings). Создайте политику репликации и назначьте ее серверу конфигурации.
-5. [Установите службу Mobility Service](site-recovery-vmware-to-azure.md#step-6-replication-application). На каждую виртуальную машину, которую вы планируете защитить, требуется установить службу Mobility Service. Эта служба отправляет данные на сервер обработки. Службу Mobility Service можно установить вручную или передать и установить автоматически с помощью сервера обработки после включения защиты для виртуальной машины. Правила брандмауэра на виртуальных машинах, которые требуется перенести, необходимо настроить таким образом, чтобы разрешить принудительную установку этой службы.
-6. [Включите репликацию](site-recovery-vmware-to-azure.md#enable-replication). Включите репликацию для виртуальных машин, которые требуется перенести. Вы можете просмотреть виртуальные машины IaaS, которые требуется перенести в Azure, с помощью их частных IP-адресов. Этот адрес можно найти на панели мониторинга виртуальной машины в Azure. При включении репликации в качестве типа машины для виртуальных машин укажите "физические компьютеры".
-7. [Запустите внеплановую отработку отказа](site-recovery-failover.md#run-an-unplanned-failover). После завершения начальной репликации вы можете запустить внеплановую отработку отказа из одного региона Azure в другой. При необходимости вы можете создать план восстановления и запустить внеплановую отработку отказа, чтобы перенести несколько виртуальных машин между регионами. [Узнайте подробнее](site-recovery-create-recovery-plans.md) о планах восстановления.
 
-## Дальнейшие действия
+## <a name="prerequisites"></a>Prerequisites
 
-Сведения о других сценариях репликации см. в статье [Что такое Site Recovery?](site-recovery-overview.md)
+Here's what you need for this deployment:
 
-<!---HONumber=AcomDC_0824_2016-->
+- **Configuration server**: An on-premises VM running Windows Server 2012 R2 that acts as the configuration server. You install the other Site Recovery components (including the process server and master target server) on this VM too. Read more in [scenario architecture](site-recovery-vmware-to-azure.md#scenario-architecture) and [configuration server prerequisites](site-recovery-vmware-to-azure.md#configuration-server-prerequisites).
+- **IaaS virtual machines**: The VMs you want to migrate. You migrate these VMs by treating them as physical machines.
+
+## <a name="deployment-steps"></a>Deployment steps
+
+This section describes the deployment steps in the new Azure portal. If you need these deployment steps for Site Recovery in the classic portal, refer to [this article](site-recovery-vmware-to-azure-classic.md).
+
+1. [Create a vault](site-recovery-vmware-to-azure.md#create-a-recovery-services-vault).
+2. [Deploy a configuration server](site-recovery-vmware-to-azure.md#step-2-set-up-the-source-environment).
+3. After you've deployed the configuration server, check that it can communicate with the VMs that you want to migrate.
+4. [Set up replication settings](site-recovery-vmware-to-azure.md#step-4-set-up-replication-settings). Create a replication policy and assign to the configuration server.
+5. [Install the Mobility service](site-recovery-vmware-to-azure.md#step-6-replication-application). Each VM you want to protect needs the Mobility service installed. This service sends data to the process server. The Mobility service can be installed manually or pushed and installed automatically by the process server when protection for the VM is enabled. Firewall rules on the VMs that you want to migrate should be configured to allow push installation of this service.
+6. [Enable replication](site-recovery-vmware-to-azure.md#enable-replication). Enable replication for the VMs you want to migrate. You can discover the IaaS virtual machines that you want to migrate to Azure using the private IP address of the virtual machines. Find this address on the virtual machine dashboard in Azure. When you enable replication, you set the machine type for the VMs as physical machines.
+7. [ Run an unplanned failover](site-recovery-failover.md#run-an-unplanned-failover). After initial replication is complete, you can run an unplanned failover from one Azure region to another. Optionally, you can create a recovery plan and run an unplanned failover, to migrate multiple virtual machines between regions. [Learn more](site-recovery-create-recovery-plans.md) about recovery plans.
+
+## <a name="next-steps"></a>Next steps
+
+Learn more about other replication scenarios in [What is Azure Site Recovery?](site-recovery-overview.md)
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

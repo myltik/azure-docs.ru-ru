@@ -1,226 +1,228 @@
 <properties
-	pageTitle="Что такое служба архивации Azure | Microsoft Azure"
-	description="С помощью службы архивации и служб восстановления Azure можно создавать резервные копии и восстанавливать данные и приложения на серверах Windows, клиентских компьютерах Windows, серверах System Center DPM и виртуальных машинах Azure."
-	services="backup"
-	documentationCenter=""
-	authors="markgalioto"
-	manager="cfreeman"
-	editor="tysonn"
-	keywords="резервное копирование и восстановление; службы восстановления; решения для резервного копирования"/>
+    pageTitle="What is Azure Backup? | Microsoft Azure"
+    description="By using Azure Backup and Recovery Services, you can back up and restore data and applications from Windows Servers, Windows client machines, System Center DPM servers and Azure virtual machines."
+    services="backup"
+    documentationCenter=""
+    authors="markgalioto"
+    manager="cfreeman"
+    editor="tysonn"
+    keywords="backup and restore; recovery services; backup solutions"/>
 
 <tags
-	ms.service="backup"
-	ms.workload="storage-backup-recovery"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="07/21/2016"
-	ms.author="jimpark; trinadhk"/>
+    ms.service="backup"
+    ms.workload="storage-backup-recovery"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="10/19/2016"
+    ms.author="jimpark; trinadhk"/>
 
-# Что такое служба архивации Azure?
-Служба архивации Azure — служба, используемая для резервного копирования и восстановления данных в Microsoft Cloud. Она заменяет существующее локальное или автономное решение для резервного копирования на надежное, безопасное и конкурентоспособное облачное решение. Она также позволяет защитить ресурсы-контейнеры, которые используются в облаке. Служба архивации Azure предоставляет службы восстановления на основе масштабируемой, долговечной и высокодоступной инфраструктуры мирового уровня.
 
-[Просмотрите видеообзор службы архивации Azure](https://azure.microsoft.com/documentation/videos/what-is-azure-backup/)
+# <a name="what-is-azure-backup?"></a>What is Azure Backup?
+Azure Backup is the service that you use to back up and restore your data in the Microsoft cloud. It replaces your existing on-premises or off-site backup solution with a cloud-based solution that is reliable, secure, and cost-competitive. It also helps protect assets that run in the cloud. Azure Backup provides recovery services built on a world-class infrastructure that is scalable, durable, and highly available.
 
-## Зачем использовать службу архивации Azure?
-Традиционные решения для резервного копирования используют облако в качестве конечной точки подобно диску или магнитной ленте. Несмотря на простоту, у этого подхода есть ограничения. Он не позволяет использовать все преимущества базовой облачной платформы, вынуждая прибегать к неэффективному и дорогому решению. В то же время служба архивации Azure реализует все преимущества мощного и доступного облачного решения для резервного копирования. Ниже приведены некоторые из основных преимуществ службы архивации Azure.
+[Watch a video overview of Azure Backup](https://azure.microsoft.com/documentation/videos/what-is-azure-backup/)
 
-| Функция | Преимущество |
+## <a name="why-use-azure-backup?"></a>Why use Azure Backup?
+Traditional backup solutions have evolved to treat the cloud as an endpoint similar to disks or tape. While this approach is simple, it is also limited. It does not take full advantage of an underlying cloud platform and translates to an inefficient, expensive solution.
+In contrast, Azure Backup delivers all the advantages of a powerful and affordable cloud backup solution. Here are some of the key benefits that Azure Backup provides.
+
+| Feature | Benefit |
 | ------- | ------- |
-| Автоматическое управление хранилищем | Отсутствие существенных затрат на локальные устройства хранения данных. Служба архивации Azure обеспечивает автоматическое выделение хранилища для резервных копий и управление им, при этом оплата осуществляется по мере использования. |
-| Неограниченное масштабирование | Вы можете использовать все преимущества гарантии высокой доступности без расходов на обслуживание и мониторинг. Служба архивации Azure использует базовые возможности и масштабирование облака Azure, а также возможности ненавязчивого автоматического масштабирования. |
-| Несколько вариантов хранения | Выберите хранилище для резервных копий в соответствии со своими потребностями. <li>Локально избыточное хранилище блочных BLOB-объектов идеально подходит для клиентов, задумывающихся о расходах. При этом решение обеспечивает защиту данных от сбоев локального оборудования. <li>Хранилище блочных BLOB-объектов с георепликацией предоставляет три дополнительные копии в сопряженном центре обработки данных. Это гарантирует высокую доступность данных резервных копий даже в случае аварии на уровне веб-сайта Azure. |
-| Отсутствие ограничений на передачу данных | Исходящие данные, передаваемые во время восстановления из хранилища службы архивации, не тарифицируются. Входящие данные, передаваемые в хранилище Azure, также не тарифицируются. Передачу данных можно использовать со службой импорта, если она доступна. |
-| Шифрование данных | Шифрование данных обеспечивает безопасность при передаче данных клиента в общедоступное облако и их хранении там. Парольная фраза для шифрования содержится в источнике и никогда не передается и не хранится в Azure. Для восстановления любых данных необходим ключ шифрования, и только у клиента есть полный доступ к данным в службе. |  
-| Согласованные с приложениями резервные копии | Согласованность резервных копий с приложениями в Windows гарантирует, что во время восстановления не потребуется исправление. Это сокращает целевое время восстановления и позволяет пользователям быстрее вернутся к работе. |
-| Длительный период удержания | Вместо того чтобы платить за использование автономных решений резервного копирования на магнитную ленту, клиенты могут выполнять резервное копирование в службу Azure. Возможности последней функционально сопоставимы с возможностями решения резервного копирования на магнитную ленту, но отличаются низкой стоимостью. |
+| Automatic storage management | No capital expenditure is needed for on-premises storage devices. Azure Backup automatically allocates and manages backup storage, and it uses a pay-as-you-use consumption model. |
+| Unlimited scaling | Take advantage of high availability guarantees without the overhead of maintenance and monitoring. Azure Backup uses the underlying power and scale of the Azure cloud, with its nonintrusive autoscaling capabilities. |
+| Multiple storage options | Choose your backup storage based on need:<li>A locally redundant storage block blob is ideal for price-conscious customers, and it still helps protect data against local hardware failures. <li>A geo-replication storage block blob provides three more copies in a paired datacenter. These extra copies help ensure that your backup data is highly available even if an Azure site-level disaster occurs. |
+| Unlimited data transfer | There is no charge for any egress (outbound) data transfer during a restore operation from the Backup vault. Data inbound to Azure is also free. Works with the import service where it is available. |
+| Data encryption | Data encryption allows for secure transmission and storage of customer data in the public cloud. The encryption passphrase is stored at the source, and it is never transmitted or stored in Azure. The encryption key is required to restore any of the data, and only the customer has full access to the data in the service. |  
+| Application-consistent backup | Application-consistent backups on Windows help ensure that fixes are not needed at the time of restore, which reduces the recovery time objective. This allows customers to return to a running state more quickly. |
+| Long-term retention | Rather than pay for off-site tape backup solutions, customers can back up to Azure, which provides a compelling tape-like solution at a low cost. |
 
-## Компоненты службы архивации Azure
-Так как служба архивации — это гибридное решение для резервного копирования, она состоит из нескольких компонентов, которые работают вместе, позволяя полностью реализовать рабочие процессы резервного копирования и восстановления.
+## <a name="azure-backup-components"></a>Azure Backup components
+Because Backup is a hybrid backup solution, it consists of multiple components that work together to enable end-to-end backup and restore workflows.
 
-![Компоненты службы архивации Azure](./media/backup-introduction-to-azure-backup/azure-backup-overview.png)
+![Azure Backup components](./media/backup-introduction-to-azure-backup/azure-backup-overview.png)
 
-### Сценарии развертывания
+### <a name="deployment-scenarios"></a>Deployment scenarios
 
-| Компонент | Можно развернуть в Azure? | Можно развернуть локально? | Поддерживаемое целевое хранилище|
+| Component | Can be deployed in Azure? | Can be deployed on-premises? | Target storage supported|
 | --- | --- | --- | --- |
-| Агент службы архивации Azure | <p>**Да**</p> <p>Агент службы архивации Azure можно развернуть на любой виртуальной машине Windows Server в Azure</p> | <p>**Да**</p> <p>Агент службы архивации можно развернуть на любой виртуальной машине Windows Server и на любом физическом компьютере</p> | <p>Хранилище службы архивации Azure</p> |
-| System Center Data Protection Manager (DPM) | <p>**Да**</p> <p>Узнайте больше о том, [как защитить рабочие нагрузки в Azure с помощью System Center DPM](http://blogs.technet.com/b/dpm/archive/2014/09/02/azure-iaas-workload-protection-using-data-protection-manager.aspx)</p> | <p>**Да**</p> <p>Узнайте больше о том, [как защитить рабочие нагрузки и виртуальные машины в центре обработки данных](https://technet.microsoft.com/library/hh758173.aspx)</p> | <p>Локально подключенный диск,</p> <p>хранилище службы архивации Azure,</p> <p>магнитная лента (только локально)</p> |
-| Сервер службы архивации Azure | <p>**Да**</p> <p>Узнайте больше о том, [как защитить рабочие нагрузки в Azure с помощью сервера службы архивации Azure](backup-azure-microsoft-azure-backup.md)</p> | <p>**Да**</p> <p>Узнайте больше о том, [как защитить рабочие нагрузки в Azure с помощью сервера службы архивации Azure](backup-azure-microsoft-azure-backup.md)</p> | <p>Локально подключенный диск,</p> <p>хранилище службы архивации Azure</p> |
-| Служба архивации Azure (расширение виртуальной машины) | <p>**Да**</p> <p>Принадлежит к структуре Azure</p><p>Предназначена специально для [резервного копирования виртуальных машин IaaS Azure](backup-azure-vms-introduction.md)</p> | <p>**Нет**</p> <p>Используйте System Center DPM для резервного копирования виртуальных машин в центре обработки данных</p> | <p>Хранилище службы архивации Azure</p> |
+| Azure Backup agent | <p>**Yes**</p> <p>The Azure Backup agent can be deployed on any Windows Server VM that runs in Azure.</p> | <p>**Yes**</p> <p>The Backup agent can be deployed on any Windows Server VM or physical machine.</p> | <p>Azure Backup vault</p> |
+| System Center Data Protection Manager (DPM) | <p>**Yes**</p><p>Learn more about [how to protect workloads in Azure by using System Center DPM](http://blogs.technet.com/b/dpm/archive/2014/09/02/azure-iaas-workload-protection-using-data-protection-manager.aspx).</p> | <p>**Yes**</p> <p>Learn more about [how to protect workloads and VMs in your datacenter](https://technet.microsoft.com/library/hh758173.aspx).</p> | <p>Locally attached disk,</p> <p>Azure Backup vault,</p> <p>tape (on-premises only)</p> |
+| Azure Backup Server | <p>**Yes**</p><p>Learn more about [how to protect workloads in Azure by using Azure Backup Server](backup-azure-microsoft-azure-backup.md).</p> | <p>**Yes**</p> <p>Learn more about [how to protect workloads in Azure by using Azure Backup Server](backup-azure-microsoft-azure-backup.md).</p> | <p>Locally attached disk,</p> <p>Azure Backup vault</p> |
+| Azure Backup (VM extension) | <p>**Yes**</p><p>Part of Azure fabric</p><p>Specialized for [backup of Azure infrastructure as a service (IaaS) virtual machines](backup-azure-vms-introduction.md).</p> | <p>**No**</p> <p>Use System Center DPM to back up virtual machines in your datacenter.</p> | <p>Azure Backup vault</p> |
 
-### Преимущества и ограничения компонентов
+### <a name="component-level-benefits-and-limitations"></a>Component level benefits and limitations
 
-| Компонент | Преимущества | Ограничения | Восстанавливаемые объекты |
+| Component | Benefits | Limitations | Recovery granularity |
 | --- | --- | --- | --- |
-| Агент службы архивации Azure | <li>Может создавать резервные копии файлов и папок на физических или виртуальных компьютерах с Windows (виртуальные машины могут быть расположены локально или в Azure).<li>Отдельный сервер для резервных копий не требуется.<li>Используется хранилище службы архивации Azure | <li>Задания резервного копирования, а также восстановления файлов ограничены до трех в день.<li>Восстанавливаются файлы, папки или тома, но не приложения.<li>Linux не поддерживается | Файлы, папки и тома |
-| System Center Data Protection Manager | <li>Поддерживаются моментальные снимки для приложений (VSS).<li>Гибкая настройка времени создания резервных копий.<li>Полное восстановление.<li>Может использоваться хранилище службы архивации Azure.<li>Поддерживаются виртуальные машины Linux (размещенные в Hyper-V) | <li>Разнородное резервное копирование (виртуальных машин VMware, рабочих нагрузок Oracle) не поддерживается | Файлы, папки, тома<br>, виртуальные машины и приложения |
-| Сервер службы архивации Microsoft Azure | <li>Поддерживаются моментальные снимки для приложений (VSS).<li>Гибкая настройка времени создания резервных копий.<li>Полное восстановление.<li>Может использоваться хранилище службы архивации Azure.<li>Поддерживаются виртуальные машины Linux (размещенные в Hyper-V).<li>Лицензия System Center не требуется | <li>Разнородное резервное копирование (виртуальных машин VMware, рабочих нагрузок Oracle) не поддерживается.<li>Всегда требуется активная подписка Azure.<li>Резервное копирование на магнитную ленту не поддерживается | Файлы, папки, тома<br>, виртуальные машины и приложения |
-| Служба архивации виртуальных машин Azure IaaS | <li>Собственные технологии резервного копирования для Windows и Linux.<li>Установка агентов не требуется.<li>Поддерживается резервное копирование на уровне структуры. Для этого не требуется инфраструктура | <li>Резервное копирование и восстановление дисков один раз в день.<li>Резервное копирование в локальной среде не поддерживается | Виртуальные машины<br>Все диски (с помощью PowerShell) |
+| Azure Backup (MARS) agent | <li>Can backup files and folders on a Windows OS machine, be it physical or virtual (VMs can be anywhere on-premises or Azure)<li>No separate backup server required<li>Uses Azure Backup Vault | <li>Three times a day backup/file level restore<li>File/folder/volume level restore only, not application aware<li>No support for Linux | files/folders/volumes |
+| System Center Data Protection Manager | <li>App aware snapshots (VSS)<li>Full flexibility for when to take backups<li>Recovery granularity (all)<li>Can use Azure Backup vault<li>Linux support (if hosted on Hyper-V) | <li>Lack of heterogeneous support (VMware VM back up, Oracle workload back up).  | files/folders/volumes<br>/VMs/applications |
+| Microsoft Azure Backup Server | <li>App aware snapshots (VSS)<li>Full flexibility for when to take backups<li>Recovery granularity (all)<li>Can use Azure Backup vault<li>Linux support (if hosted on Hyper-V)<li>Does not require a System Center license | <li>Lack of heterogeneous support (VMware VM back up, Oracle workload back up).<li>Always requires live Azure subscription<li>No support for tape backup | files/folders/volumes<br>/VMs/applications |
+| Azure IaaS VM Backup | <li>Native backups for Windows/Linux<li>No specific agent installation required<li>Fabric level backup with no backup infrastructure needed | <li>Once a day back up/disk level restore<li>Cannot back up on-premises | VMs<br>All disks(using PowerShell) |
 
-## Приложения и рабочие нагрузки, для которых можно создать резервную копию
+## <a name="which-applications-and-workloads-can-be-backed-up?"></a>Which applications and workloads can be backed up?
 
-| Рабочая нагрузка | Исходный компьютер | Решение службы архивации Azure |
+| Workload | Source machine | Azure Backup solution |
 | --- | --- |---|
-| Файлы и папки | Windows Server | <p>[Агент службы архивации Azure](backup-configure-vault.md),</p> <p>[System Center DPM](backup-azure-dpm-introduction.md) (и агент службы архивации Azure),</p> <p>[сервер службы архивации Azure](backup-azure-microsoft-azure-backup.md) (включает в себя агент службы архивации Azure)</p> |
-| Файлы и папки | Клиент Windows | <p>[Агент службы архивации Azure](backup-configure-vault.md),</p> <p>[System Center DPM](backup-azure-dpm-introduction.md) (и агент службы архивации Azure),</p> <p>[сервер службы архивации Azure](backup-azure-microsoft-azure-backup.md) (включает в себя агент службы архивации Azure)</p> |
-| Виртуальная машина Hyper-V (Windows) | Windows Server | <p>[System Center DPM](backup-azure-backup-sql.md) (и агент службы архивации Azure),</p> <p>[сервер службы архивации Azure](backup-azure-microsoft-azure-backup.md) (включает в себя агент службы архивации Azure)</p> |
-| Виртуальная машина Hyper-V (Linux) | Windows Server | <p>[System Center DPM](backup-azure-backup-sql.md) (и агент службы архивации Azure),</p> <p>[сервер службы архивации Azure](backup-azure-microsoft-azure-backup.md) (включает в себя агент службы архивации Azure)</p> |
-| Microsoft SQL Server | Windows Server | <p>[System Center DPM](backup-azure-backup-sql.md) (и агент службы архивации Azure),</p> <p>[сервер службы архивации Azure](backup-azure-microsoft-azure-backup.md) (включает в себя агент службы архивации Azure)</p> |
-| Microsoft SharePoint | Windows Server | <p>[System Center DPM](backup-azure-backup-sql.md) (и агент службы архивации Azure),</p> <p>[сервер службы архивации Azure](backup-azure-microsoft-azure-backup.md) (включает в себя агент службы архивации Azure)</p> |
-| Microsoft Exchange | Windows Server | <p>[System Center DPM](backup-azure-backup-sql.md) (и агент службы архивации Azure),</p> <p>[сервер службы архивации Azure](backup-azure-microsoft-azure-backup.md) (включает в себя агент службы архивации Azure)</p> |
-| Виртуальные машины IaaS Azure (Windows)| — | [Служба архивации Azure (расширение виртуальной машины)](backup-azure-vms-introduction.md) |
-| Виртуальные машины Azure IaaS (Linux) | — | [Служба архивации Azure (расширение виртуальной машины)](backup-azure-vms-introduction.md) |
+| Files and folders | Windows Server | <p>[Azure Backup agent](backup-configure-vault.md),</p> <p>[System Center DPM](backup-azure-dpm-introduction.md) (+ the Azure Backup agent),</p> <p>[Azure Backup Server](backup-azure-microsoft-azure-backup.md) (includes the Azure Backup agent)</p>  |
+| Files and folders | Windows client | <p>[Azure Backup agent](backup-configure-vault.md),</p> <p>[System Center DPM](backup-azure-dpm-introduction.md) (+ the Azure Backup agent),</p> <p>[Azure Backup Server](backup-azure-microsoft-azure-backup.md) (includes the Azure Backup agent)</p>  |
+| Hyper-V virtual machine (Windows) | Windows Server | <p>[System Center DPM](backup-azure-backup-sql.md) (+ the Azure Backup agent),</p> <p>[Azure Backup Server](backup-azure-microsoft-azure-backup.md) (includes the Azure Backup agent)</p> |
+| Hyper-V virtual machine (Linux) | Windows Server | <p>[System Center DPM](backup-azure-backup-sql.md) (+ the Azure Backup agent),</p> <p>[Azure Backup Server](backup-azure-microsoft-azure-backup.md) (includes the Azure Backup agent)</p>  |
+| Microsoft SQL Server | Windows Server | <p>[System Center DPM](backup-azure-backup-sql.md) (+ the Azure Backup agent),</p> <p>[Azure Backup Server](backup-azure-microsoft-azure-backup.md) (includes the Azure Backup agent)</p>  |
+| Microsoft SharePoint | Windows Server | <p>[System Center DPM](backup-azure-backup-sql.md) (+ the Azure Backup agent),</p> <p>[Azure Backup Server](backup-azure-microsoft-azure-backup.md) (includes the Azure Backup agent)</p>   |
+| Microsoft Exchange |  Windows Server | <p>[System Center DPM](backup-azure-backup-sql.md) (+ the Azure Backup agent),</p> <p>[Azure Backup Server](backup-azure-microsoft-azure-backup.md) (includes the Azure Backup agent)</p>   |
+| Azure IaaS VMs (Windows) | - | [Azure Backup (VM extension)](backup-azure-vms-introduction.md) |
+| Azure IaaS VMs (Linux) | - | [Azure Backup (VM extension)](backup-azure-vms-introduction.md) |
 
-## Поддержка ARM и Linux
+## <a name="arm-and-linux-support"></a>ARM and Linux support
 
-| Компонент | Поддержка ARM | Поддержка Linux (рекомендованная для Azure) |
+| Component | ARM Support | Linux (Azure endorsed) Support |
 | --- | --- | --- |
-| Агент службы архивации Azure | Да | Нет (только агент для Windows) |
-| System Center Data Protection Manager | Да (агент в гостевой ОС) | Только для виртуальных машин Hyper-V (но не Azure) возможно резервное копирование с согласованием файлов |
-| Сервер службы архивации Azure | Да (агент в гостевой ОС) | Только для виртуальных машин Hyper-V (но не Azure) возможно резервное копирование с согласованием файлов (как и с помощью DPM) |
-| Служба архивации виртуальных машин Azure IaaS | Да | Да |
+| Azure Backup (MARS) agent | Yes | No (Only Windows based agent) |
+| System Center Data Protection Manager | Yes (Agent in guest) | Only Hyper-V (Not Azure VM) Only file-consistent backup is possible |
+| Azure Backup Server (MABS) | Yes (Agent in guest) | Only Hyper-V (Not Azure VM) Only file-consistent backup is possible (Same as DPM) |
+| Azure IaaS VM Backup | Yes | Yes |
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
 
 
-## Резервное копирование и восстановление виртуальных машин хранилища класса Premium
+## <a name="back-up-and-restore-premium-storage-vms"></a>Back up and Restore Premium Storage VMs
 
-Служба архивации Azure теперь защищает и виртуальные машины хранилища класса Premium.
+The Azure Backup service now protects Premium Storage VMs.
 
-### Резервное копирование ВМ хранилища класса Premium
+### <a name="back-up-premium-storage-vms"></a>Back up Premium Storage VMs
 
-Когда служба архивации выполняет резервное копирование виртуальных машин хранилища класса Premium, она создает временное расположение промежуточного хранения в учетной записи хранилища класса Premium. Это расположение промежуточного хранения получает имя "AzureBackup-", а его размер равен полному размеру данных на дисках хранилища класса Premium, подключенных к виртуальной машине.
+While backing up Premium Storage VMs, the Backup service creates a temporary staging location in the Premium Storage account. The staging location, named "AzureBackup-", is equal to the total data size of the premium disks attached to the VM.
 
->[AZURE.NOTE] Не изменяйте свойства или содержимое этого расположения.
+>[AZURE.NOTE] Do not modify or edit the staging location.
 
-После завершения задания резервного копирования расположение промежуточного хранения удаляется. Плата за использование расположения промежуточного хранения взимается в соответствии с [тарифами на использование хранилища класса Premium](../storage/storage-premium-storage.md#pricing-and-billing).
+Once the backup job finishes, the staging location is deleted. The price of storage used for the staging location is consistent with all [Premium storage pricing](../storage/storage-premium-storage.md#pricing-and-billing).
 
-### Восстановление ВМ хранилища класса Premium
+### <a name="restore-premium-storage-vms"></a>Restore Premium Storage VMs
 
-Виртуальную машину хранилища класса Premium можно восстановить в это же хранилище или обычное. Восстановление ВМ хранилища класса Premium из точки восстановления обратно в хранилище выполняется так же, как любой обычный процесс восстановления. Обратите внимание, что в целях экономии можно восстановить ВМ хранилища класса Premium в стандартное хранилище. Такой тип восстановления удобен, если нужно только получить доступ к некоторым файлам виртуальной машины.
+Premium Storage VM can be restored to either Premium Storage or to normal storage. Restoring a Premium Storage VM recovery point back to Premium Storage is the typical process of restoration. However, it can be cost effective to restore a Premium Storage VM recovery point to standard storage. This type of restoration can be used if you need a subset of files from the VM.
 
-## Функции
-В пяти таблицах ниже содержатся сводные сведения о том, как реализованы функции службы архивации в каждом компоненте.
+## <a name="functionality"></a>Functionality
+These five tables summarize how backup functionality is handled in each component.
 
-### Хранилище
+### <a name="storage"></a>Storage
 
-| Функция | Агент службы архивации Azure | System Center DPM | Сервер службы архивации Azure | Служба архивации Azure (расширение виртуальной машины) |
+| Feature | Azure Backup agent | System Center DPM | Azure Backup Server | Azure Backup (VM extension) |
 | ------- | --- | --- | --- | ---- |
-| Хранилище службы архивации Azure | ![Да][green] | ![Да][green] | ![Да][green] | ![Да][green] |
-| Дисковый накопитель | | ![Да][green] | ![Да][green] | |
-| Ленточный накопитель | | ![Да][green] | | |
-| Сжатие (в резервном хранилище) | ![Да][green] | ![Да][green]| ![Да][green] | |
-| Добавочное резервное копирование | ![Да][green] | ![Да][green] | ![Да][green] | ![Да][green] |
-| Дедупликация диска | | ![Частично][yellow] | ![Частично][yellow]| | |
+| Azure Backup vault | ![Yes][green] | ![Yes][green] | ![Yes][green] | ![Yes][green] |
+| Disk storage | | ![Yes][green] | ![Yes][green] |  |
+| Tape storage | | ![Yes][green] |  | |
+| Compression (in backup vault) | ![Yes][green] | ![Yes][green]| ![Yes][green] | |
+| Incremental backup | ![Yes][green] | ![Yes][green] | ![Yes][green] | ![Yes][green] |
+| Disk deduplication | | ![Partially][yellow] | ![Partially][yellow]| | |
 
-![ключ таблицы](./media/backup-introduction-to-azure-backup/table-key.png)
+![table key](./media/backup-introduction-to-azure-backup/table-key.png)
 
-Хранилище службы архивации — предпочтительное хранилище для всех компонентов. С помощью System Center DPM и резервного копирования вы также можете выполнять копирование локального диска. Однако только System Center DPM позволяет записывать данные на ленточный накопитель для хранения.
+The Backup vault is the preferred storage target across all components. System Center DPM and Backup Server also provide the option to have a local disk copy. However, only System Center DPM provides the option to write data to a tape storage device.
 
-#### Добавочное резервное копирование
-Независимо от целевого хранилища (диск, магнитная лента, хранилище службы архивации) каждый компонент поддерживает добавочное резервное копирование. Добавочное резервное копирование гарантирует эффективное использование времени и ресурсов хранилища во время резервного копирования, передавая только изменения, внесенные с момента последнего резервного копирования.
+#### <a name="incremental-backup"></a>Incremental backup
+Every component supports incremental backup regardless of the target storage (disk, tape, backup vault). Incremental backup ensures that backups are storage and time efficient, by transferring only those changes made since the last backup.
 
-#### Сжатие
-Резервные копии сжимаются, чтобы сократить требуемый объем хранилища. Единственный компонент, для которого не выполняется сжатие, — это расширение виртуальной машины. Для этого компонента все данные резервных копий копируются из пользовательской учетной записи хранения в хранилище службы архивации в том же регионе без сжатия. Хотя это немного увеличивает используемый объем хранилища, хранение данных без сжатия позволяет сократить время восстановления.
+#### <a name="compression"></a>Compression
+Backups are compressed to reduce the required storage space. The only component that does not use compression is the VM extension. With VM extension, all backup data is copied from the customer storage account to the backup vault in the same region without compressing it. While going without compression slightly inflates the storage used, storing the data without compression allows for faster restore times.
 
-#### Дедупликация
-Для System Center DPM и сервера службы архивации поддерживается дедупликация при [развертывании на виртуальной машине Hyper-V](http://blogs.technet.com/b/dpm/archive/2015/01/06/deduplication-of-dpm-storage-reduce-dpm-storage-consumption.aspx). Дедупликация (соответствующая функция Windows Server) выполняется на уровне узла на виртуальных жестких дисках, подключенных к виртуальной машине в качестве хранилища службы архивации.
+#### <a name="deduplication"></a>Deduplication
+Deduplication is supported for System Center DPM and Backup Server when it is [deployed in a Hyper-V virtual machine](http://blogs.technet.com/b/dpm/archive/2015/01/06/deduplication-of-dpm-storage-reduce-dpm-storage-consumption.aspx). Deduplication is performed at the host level by using Windows Server deduplication on virtual hard disks (VHDs) that are attached to the virtual machine as backup storage.
 
->[AZURE.WARNING] Дедупликация в Azure недоступна ни для одного из компонентов службы архивации. При развертывании System Center DPM и сервера службы архивации в Azure нельзя выполнить дедупликацию дисков, подключенных к виртуальной машине.
+>[AZURE.WARNING] Deduplication is not available in Azure for any of the Backup components. When System Center DPM and Backup Server are deployed in Azure, the storage disks attached to the VM cannot be deduplicated.
 
-### Безопасность
+### <a name="security"></a>Security
 
-| Функция | Агент службы архивации Azure | System Center DPM | Сервер службы архивации Azure | Служба архивации Azure (расширение виртуальной машины) |
+| Feature | Azure Backup agent | System Center DPM | Azure Backup Server | Azure Backup (VM extension) |
 | ------- | --- | --- | --- | ---- |
-| Сетевая безопасность (в Azure) | ![Да][green] |![Да][green] | ![Да][green] | ![Частично][yellow]|
-| Защита данных (в Azure) | ![Да][green] |![Да][green] | ![Да][green] | ![Частично][yellow]|
+| Network security (to Azure) | ![Yes][green] |![Yes][green] | ![Yes][green] | ![Partially][yellow]|
+| Data security (in Azure) | ![Yes][green] |![Yes][green] | ![Yes][green] | ![Partially][yellow]|
 
-![ключ таблицы](./media/backup-introduction-to-azure-backup/table-key.png)
+![table key](./media/backup-introduction-to-azure-backup/table-key.png)
 
-Все данные трафика резервного копирования с серверов в хранилище службы архивации подвергаются шифрованию с использованием AES 256. Данные передаются через защищенное соединение HTTPS. Данные резервных копий также хранятся в зашифрованном виде в хранилище службы архивации. Парольная фраза для расшифровки есть только у клиента. Мы не можем расшифровывать данные резервных копий.
+All backup traffic from your servers to the Backup vault is encrypted by using Advanced Encryption Standard 256. The data is sent over a secure HTTPS link. The backup data is also stored in the Backup vault in encrypted form. Only the customer holds the passphrase to unlock this data. Microsoft cannot decrypt the backup data at any point.
 
->[AZURE.WARNING] Ключ, используемый для шифрования резервной копии данных, есть только у клиента. Мы не храним копии ключей в Azure и не имеет к ключам никакого доступа. При утрате ключа Майкрософт не сможет восстановить данные из резервных копий.
+>[AZURE.WARNING] The key used to encrypt the backup data is present only with the customer. Microsoft does not maintain a copy in Azure and does not have any access to the key. If the key is misplaced, Microsoft cannot recover the backup data.
 
-Чтобы выполнять резервное копирование виртуальных машин Azure, необходимо настроить шифрование *в рамках* виртуальной машины. На виртуальных машинах Windows используйте средство BitLocker, а на виртуальных машинах Linux — **dm-crypt**. Служба архивации Azure не предусматривает автоматическое шифрование резервных копий данных, поступающих по указанному пути.
+Backing up Azure VMs requires setting up encryption *within* the virtual machine. Use BitLocker on Windows virtual machines and **dm-crypt** on Linux virtual machines. Azure Backup does not automatically encrypt backup data that comes through this path.
 
-### Поддерживаемые рабочие нагрузки
+### <a name="supported-workloads"></a>Supported workloads
 
-| Функция | Агент службы архивации Azure | System Center DPM | Сервер службы архивации Azure | Служба архивации Azure (расширение виртуальной машины) |
+| Feature | Azure Backup agent | System Center DPM | Azure Backup Server | Azure Backup (VM extension) |
 | ------- | --- | --- | --- | ---- |
-| Для компьютеров Windows Server: файлы и папки | ![Да][green] | ![Да][green] | ![Да][green] | |
-| Для клиентских компьютеров Windows: файлы и папки | ![Да][green] | ![Да][green] | ![Да][green] | |
-| Виртуальная машина Hyper-V (Windows) | | ![Да][green] | ![Да][green] | |
-| Виртуальная машина Hyper-V (Linux) | | ![Да][green] | ![Да][green] | |
-| Microsoft SQL Server | | ![Да][green] | ![Да][green] | |
-| Microsoft SharePoint | | ![Да][green] | ![Да][green] | |
-| Microsoft Exchange | | ![Да][green] | ![Да][green] | |
-| Виртуальная машина Azure (Windows) | | | | ![Да][green] |
-| Виртуальная машина Azure (Linux) | | | | ![Да][green] |
+| Windows Server machine--files and folders | ![Yes][green] | ![Yes][green] | ![Yes][green] | |
+| Windows client machine--files and folders | ![Yes][green] | ![Yes][green] | ![Yes][green] | |
+| Hyper-V virtual machine (Windows) | | ![Yes][green] | ![Yes][green] | |
+| Hyper-V virtual machine (Linux) | | ![Yes][green] | ![Yes][green] | |
+| Microsoft SQL Server | | ![Yes][green] | ![Yes][green] | |
+| Microsoft SharePoint | | ![Yes][green] | ![Yes][green] | |
+| Microsoft Exchange  | | ![Yes][green] | ![Yes][green] | |
+| Azure virtual machine (Windows) | | | | ![Yes][green] |
+| Azure virtual machine (Linux) | | | | ![Yes][green] |
 
-![ключ таблицы](./media/backup-introduction-to-azure-backup/table-key-2.png)
+![table key](./media/backup-introduction-to-azure-backup/table-key-2.png)
 
-### Сеть
+### <a name="network"></a>Network
 
-| Функция | Агент службы архивации Azure | System Center DPM | Сервер службы архивации Azure | Служба архивации Azure (расширение виртуальной машины) |
+| Feature | Azure Backup agent | System Center DPM | Azure Backup Server | Azure Backup (VM extension) |
 | ------- | --- | --- | --- | ---- |
-| Сжатие в сети (на сервер службы архивации) | | ![Да][green] | ![Да][green] | |
-| Сжатие в сети (в хранилище службы архивации) | ![Да][green] | ![Да][green] | ![Да][green] | |
-| Сетевой протокол (на сервер службы архивации) | | TCP | TCP | |
-| Сетевой протокол (в хранилище службы архивации) | HTTPS | HTTPS | HTTPS | HTTPS |
+| Network compression (to the backup server) | | ![Yes][green] | ![Yes][green] | |
+| Network compression (to the backup vault) | ![Yes][green] | ![Yes][green] | ![Yes][green] | |
+| Network protocol (to the backup server) | | TCP | TCP | |
+| Network protocol (to the backup vault) | HTTPS | HTTPS | HTTPS | HTTPS |
 
-![ключ таблицы](./media/backup-introduction-to-azure-backup/table-key-2.png)
+![table key](./media/backup-introduction-to-azure-backup/table-key-2.png)
 
-Так как расширение виртуальных машин считывает данные напрямую из учетной записи хранения Azure по сети хранения данных, оптимизация этого трафика не обязательна. Трафик проходит по локальной сети хранения в центре обработки данных Azure, поэтому потребность в сжатии данных для сохранения пропускной способности сводится к минимуму.
+Because the VM extension reads the data directly from the Azure storage account over the storage network, it is not necessary to optimize this traffic. The traffic is over the local storage network in the Azure datacenter, so there is little need for compression because of bandwidth considerations.
 
-Если вы копируете свои данные на сервер службы архивации (DPM или сервер службы архивации), в целях экономии пропускной способности данные, передаваемые с основного сервера на сервер службы архивации, можно сжать.
+If you are backing up your data to a backup server (DPM or Backup Server), traffic from the primary server to the backup server can be compressed to save on bandwidth.
 
-#### Регулирование сети
-В агенте службы архивации Azure реализована функция регулирования, которая позволяет управлять использованием пропускной способности сети при передаче данных. Регулирование может быть полезно, если вам нужно создать резервную копию данных в рабочее время так, чтобы операция копирования не мешала другим процессам, связанным с обработкой интернет-данных. Регулирование передачи данных применяется при резервном копировании и восстановлении.
+#### <a name="network-throttling"></a>Network Throttling
+The Azure Backup agent provides throttling capability, which allows you to control how network bandwidth is used during data transfer. Throttling can be helpful if you need to back up data during work hours but do not want the backup process to interfere with other internet traffic. Throttling for data transfer applies to back up and restore activities.
 
-### Резервное копирование и период удержания
+### <a name="backup-and-retention"></a>Backup and retention
 
-| | Агент службы архивации Azure | System Center DPM | Сервер службы архивации Azure | Служба архивации Azure (расширение виртуальной машины) |
+|  | Azure Backup agent | System Center DPM | Azure Backup Server | Azure Backup (VM extension) |
 | --- | --- | --- | --- | --- |
-| Частота резервного копирования (в хранилище службы архивации) | Три резервных копии в день | Две резервных копии в день |Две резервных копии в день | Одна резервная копия в день |
-| Частота резервного копирования (на диск) | Не применяется | <p>Каждые 15 минут для SQL Server</p> <p>Каждый час для других рабочих нагрузок</p> | <p>Каждые 15 минут для SQL Server</p> <p>Каждый час для других рабочих нагрузок</p> |Не применяется |
-| Параметры хранения | Ежедневно, еженедельно, ежемесячно, ежегодно | Ежедневно, еженедельно, ежемесячно, ежегодно | Ежедневно, еженедельно, ежемесячно, ежегодно |Ежедневно, еженедельно, ежемесячно, ежегодно |
-| Срок хранения | До 99 лет | До 99 лет | До 99 лет | До 99 лет |
-| Точки восстановления в хранилище службы архивации | Без ограничений | Без ограничений | Без ограничений | Без ограничений |
-| Точки восстановления на локальном диске | Не применяется | 64 для файловых серверов,<br><br>448 для серверов приложений | 64 для файловых серверов,<br><br>448 для серверов приложений |Не применяется |
-| Точки восстановления на ленточном накопителе | Не применяется | Без ограничений | Не применяется | Не применяется |
+| Backup frequency (to the backup vault) | Three backups per day | Two backups per day |Two backups per day | One backup per day |
+| Backup frequency (to disk) | Not applicable | <p>Every 15 minutes for SQL Server</p> <p>Every hour for other workloads</p> | <p>Every 15 minutes for SQL Server</p> <p>Every hour for other workloads</p> |Not applicable |
+| Retention options | Daily, weekly, monthly, yearly | Daily, weekly, monthly, yearly | Daily, weekly, monthly, yearly |Daily, weekly, monthly, yearly |
+| Retention period | Up to 99 years | Up to 99 years | Up to 99 years | Up to 99 years |
+| Recovery points in Backup vault | Unlimited | Unlimited | Unlimited | Unlimited |
+| Recovery points on local disk | Not applicable | 64 for File Servers,<br><br>448 for Application Servers | 64 for File Servers,<br><br>448 for Application Servers |Not applicable |
+| Recovery points on tape | Not applicable | Unlimited | Not applicable | Not applicable |
 
-## Что такое файл учетных данных хранилища
+## <a name="what-is-the-vault-credential-file?"></a>What is the vault credential file?
 
-Файл учетных данных хранилища представляет собой сертификат, который создается порталом для каждого хранилища архивации. Затем портал отправляет открытый ключ в службу контроля доступа (ACS). Закрытый ключ предоставляется пользователю при загрузке учетных данных; его нужно указать во время регистрации компьютера. Закрытый ключ используется для проверки подлинности компьютера при отправке данных резервных копий в указанное хранилище в службе архивации Azure.
+The vault credentials file is a certificate generated by the portal for each backup vault. The portal then uploads the public key to the Access Control Service (ACS). The private key is provided to the user when downloading the credentials and then entered during the machine registration. The private key authenticates the machine to send backup data to an identified vault in the Azure Backup service.
 
-Учетные данные хранилища используются только в рабочем процессе регистрации. За безопасность файла учетных данных хранилища отвечает пользователь. Если файл попадет в руки посторонних лиц, им могут воспользоваться для регистрации других компьютеров в том же хранилище. Но так как резервные копии данных зашифрованы с помощью парольной фразы (она известна только пользователю), существующие данные резервных копий не будут скомпрометированы. Чтобы устранить эту проблему, для учетных данных хранилища настроен срок действия в 48 часов. Хотя учетные данные хранилища можно загружать неограниченное количество раз, только последний загруженный файл можно использовать для регистрации.
+The vault credential is used only during the registration workflow. It is your responsibility to ensure that the vault credentials file is not compromised. If it falls in the hands of any rogue-user, the vault credentials file can be used to register other machines against the same vault. However, since the backup data is encrypted using a passphrase belonging only to the customer, existing backup data cannot be compromised. To mitigate this concern, vault credentials are set to expire in 48 hours. While you can download the vault credentials of a backup vault any number of times, only the latest file is applicable during the registration workflow.
 
-## Чем служба архивации Azure отличается от Azure Site Recovery?
-Многие клиенты путают восстановление резервных копий и аварийное восстановление. В обоих случаях происходит сбор данных и предоставляется семантика восстановления, но основные предлагаемые преимущества процессов отличаются.
+## <a name="how-does-azure-backup-differ-from-azure-site-recovery?"></a>How does Azure Backup differ from Azure Site Recovery?
+Many customers confuse backup recovery and disaster recovery. Both capture data and provide restore semantics, but their core value propositions are different.
 
-Служба архивации Azure позволяет создавать резервные копии данных локально или в облаке. Azure Site Recovery обеспечивает координирование репликации, отработки отказа и восстановления размещения виртуальных машин и физических серверов. Обе службы важны, так как решение по аварийному восстановлению данных должно не только обеспечивать надежное хранение и восстановление данных (за это отвечает служба архивации), *но и* поддерживать доступность рабочих нагрузок при сбоях (за это отвечает Site Recovery).
+Azure Backup backs up data on-premises and in the cloud. Azure Site Recovery coordinates virtual-machine and physical-server replication, failover, and failback. Both services are important because your disaster recovery solution needs to keep your data safe and recoverable (Backup) *and* keep your workloads available (Site Recovery) when outages occur.
 
-Ознакомившись со следующими понятиями, вы сможете выбрать правильный способ резервного копирования и аварийного восстановления.
+The following concepts help you make important decisions around backup and disaster recovery.
 
-| Концепция | Сведения | Архивация | Аварийное восстановление |
+| Concept | Details | Backup | Disaster recovery (DR) |
 | ------- | ------- | ------ | ----------------- |
-| Целевая точка восстановления (RPO) | Объем допустимой потери данных при необходимости выполнить восстановление. | Допустимые целевые точки восстановления решений для резервного копирования сильно отличаются. Резервное копирование виртуальных машин обычно предусматривает одну RPO в день, тогда как резервное копирование баз данных — всего в 15 минут. | Решения аварийного восстановления отличаются низкими значениями RPO. Копия аварийного восстановления может отставать на несколько секунд или несколько минут. |
-| Целевое время восстановления (RTO) | Количество времени, необходимое для полного восстановления. | Из-за большего значения RPO объем данных, которые будут обработаны решением резервного копирования, обычно также возрастает, что приводит к повышению значений RTO. Например, восстановление данных с магнитных лент может занимать несколько дней в зависимости от того, сколько времени требуется для транспортировки ленты из места ее размещения. | Для решений аварийного восстановления характерно меньшее RTO, так как они более синхронизированы с источником и им необходимо обрабатывать меньшее количество изменений. |
-| Сохранение | Как долго должны храниться данные | Когда требуется оперативное восстановление (при повреждении данных, случайном удалении файла или сбое операционной системы), резервные копии данных обычно хранятся не более 30 дней.<br>Чтобы обеспечить соответствие требованиям, данные могут храниться в течение нескольких месяцев или даже лет. В таких случаях резервные копии данных лучше всего архивировать. | Чтобы выполнить аварийное восстановление, нужны только данные оперативного восстановления; сама операция обычно длится от нескольких часов до одного дня. Так как в решениях для аварийного восстановления используется детальный сбор данных, длительное хранение данных аварийного восстановления не рекомендуется. |
+| Recovery point objective (RPO) | The amount of acceptable data loss if a recovery needs to be done. | Backup solutions have wide variability in their acceptable RPO. Virtual machine backups usually have an RPO of one day, while database backups have RPOs as low as 15 minutes. | Disaster recovery solutions have low RPOs. The DR copy can be behind by a few seconds or a few minutes. |
+| Recovery time objective (RTO) | The amount of time that it takes to complete a recovery or restore. | Because of the larger RPO, the amount of data that a backup solution needs to process is typically much higher, which leads to longer RTOs. For example, it can take days to restore data from tapes, depending on the time it takes to transport the tape from an off-site location. | Disaster recovery solutions have smaller RTOs because they are more in sync with the source. Fewer changes need to be processed. |
+| Retention | How long data needs to be stored | For scenarios that require operational recovery (data corruption, inadvertent file deletion, OS failure), backup data is typically retained for 30 days or less.<br>From a compliance standpoint, data might need to be stored for months or even years. Backup data is ideally suited for archiving in such cases. | Disaster recovery needs only operational recovery data, which typically takes a few hours or up to a day. Because of the fine-grained data capture used in DR solutions, using DR data for long-term retention is not recommended. |
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Next steps
 
-Ознакомьтесь с простой службой архивации Azure. Указания см. в одном из следующих учебников:
+Try out a simple Azure Backup. For instructions, see one of these tutorials:
 
-- [Знакомство со службой архивации Azure](backup-try-azure-backup-in-10-mins.md)
-- [Резервное копирование виртуальных машин Azure](backup-azure-vms-first-look.md)
+- [Try Azure Backup](backup-try-azure-backup-in-10-mins.md)
+- [Try Azure VM Backup](backup-azure-vms-first-look.md)
 
-Так как эти руководства предназначены помочь быстро создать резервную копию, в них описаны только самые простые способы резервного копирования данных. Дополнительные сведения о типах резервного копирования, которые вы можете выполнять, см. в статьях для следующих сценариев.
+Because those tutorials help you back up quickly, they show you only the most direct path for backing up your data. For additional information about the type of back up you want to do, see:
 
-- [Резервное копирование компьютеров Windows](backup-configure-vault.md)
-- [Резервное копирование рабочих нагрузок приложений](backup-azure-microsoft-azure-backup.md)
-- [Резервное копирование виртуальных машин Azure IaaS](backup-azure-vms-prepare.md)
+- [Back up Windows machine](backup-configure-vault.md)
+- [Back up application workloads](backup-azure-microsoft-azure-backup.md)
+- [Backup Azure IaaS VMs](backup-azure-vms-prepare.md)
 
 
 
@@ -228,4 +230,8 @@
 [yellow]: ./media/backup-introduction-to-azure-backup/yellow.png
 [red]: ./media/backup-introduction-to-azure-backup/red.png
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

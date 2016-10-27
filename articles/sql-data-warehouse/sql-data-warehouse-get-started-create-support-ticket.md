@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Создание запроса в службу поддержки для хранилища данных SQL | Microsoft Azure"
-   description="Порядок создания запроса в службу поддержки для хранилища данных SQL Azure"
+   pageTitle="How to create a support ticket for SQL Data Warehouse | Microsoft Azure"
+   description="How to create a support ticket in Azure SQL Data Warehouse."
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="sonyam"
@@ -16,72 +16,73 @@
    ms.date="09/01/2016"
    ms.author="sonyama;barbkess"/>
 
-# Создание запроса в службу поддержки для хранилища данных SQL
+
+# <a name="how-to-create-a-support-ticket-for-sql-data-warehouse"></a>How to create a support ticket for SQL Data Warehouse
  
-Если у вас возникли проблемы с хранилищем данных SQL, создайте запрос в службу поддержки, чтобы получить помощь от нашей команды разработчиков.
+If you having any issues with your SQL Data Warehouse, please create a support ticket so that our engineering team can assist you.
 
-## Создание запроса в службу поддержки
+## <a name="create-a-support-ticket"></a>Create a support ticket
 
-1. Откройте [портал Azure][].
+1. Open the [Azure portal][].
 
-2. На начальном экране щелкните элемент **Справка + поддержка**.
+2. On the Home screen, click the **Help + support** tile.
 
-    ![Справка + поддержка](./media/sql-data-warehouse-get-started-create-support-ticket/help-support.png)
+    ![Help + support](./media/sql-data-warehouse-get-started-create-support-ticket/help-support.png)
 
-3. В колонке «Справка + поддержка» щелкните **Создать запрос на техническую поддержку**.
+3. On the Help + Support blade, click **Create support request**.
 
-    ![Новый запрос на техническую поддержку](./media/sql-data-warehouse-get-started-create-support-ticket/create-support-request.png)
+    ![New support request](./media/sql-data-warehouse-get-started-create-support-ticket/create-support-request.png)
     
-    <a name="request-quota-change"></a>
+    <a name="request-quota-change"></a> 
 
-4. Выберите **Тип запроса**.
+4. Select the **Request Type**.
 
-    ![Тип запроса](./media/sql-data-warehouse-get-started-create-support-ticket/request-type.png)
+    ![Request type](./media/sql-data-warehouse-get-started-create-support-ticket/request-type.png)
     
-    >[AZURE.NOTE]  По умолчанию для каждого экземпляра SQL Server (например, myserver.database.windows.net) предусмотрена следующая **квота на DTU**: 45 000. Эта квота является просто ограничением для безопасности. Вы можете увеличить квоту, отправив запрос в службу поддержки и указав *квоту* в качестве типа запроса. Чтобы вычислить потребности в DTU, умножьте 7,5 на общее необходимое количество [DWU][]. Например, вы хотите разместить две базы данных DW6000 на одном сервере SQL Server. Следует запросить квоту DTU 90 000. Текущее потребление DTU можно просмотреть в колонке SQL Server на портале. В рамках квоты DTU учитываются как приостановленные базы данных, так и базы данных с отменой приостановки.
+    >[AZURE.NOTE]  By default, each SQL server (e.g. myserver.database.windows.net) has a **DTU Quota** of 45,000. This quota is simply a safety limit. You can increase your quota by creating a support ticket and selecting *Quota* as the request type. To calculate your DTU needs, multiply the 7.5 by the total [DWU][] needed. For example, you would like to host two DW6000s on one SQL server, then you should request a DTU quota of 90,000.  You can view your current DTU consumption from the SQL server blade in the portal. Both paused and un-paused databases count toward the DTU quota. 
 
-5. Выберите **подписку**, в которой размещена база данных с соответствующей проблемой.
+5. Select the **Subscription** that hosts the database with the problem you are reporting.
 
-    ![Подписки](./media/sql-data-warehouse-get-started-create-support-ticket/subscription.png)
+    ![Subscription](./media/sql-data-warehouse-get-started-create-support-ticket/subscription.png)
 
-6. Выберите **хранилище данных SQL** в качестве ресурса.
+6. Select **SQL Data Warehouse** as the Resource.
 
-    ![Resource (Ресурс)](./media/sql-data-warehouse-get-started-create-support-ticket/resource.png)
+    ![Resource](./media/sql-data-warehouse-get-started-create-support-ticket/resource.png)
 
-7. Выберите свой [план поддержки Azure][].
+7. Select your [Azure support plan][].
 
-    - Поддержка по **вопросам, связанным с выставлением счетов, квотами и управлением подпиской**, доступна на всех уровнях.
-    - Поддержка по **замене или ремонту** обеспечивается на уровнях поддержки [Developer][], [Standard][], [Professional Direct][] и [Premier][]. Проблемы характера «замена или ремонт» — это возникающие при использовании Azure проблемы, относительно которых имеются обоснованные предположения, что их причиной стала корпорация Майкрософт.
-    - Услуги **обучения** и **консультирования разработчиков** доступны на уровнях поддержки [Professional Direct][] и [Premier][].
+    - **Billing, quota and subscription management** support is available at all support levels.
+    - **Break-fix** support is provided through [Developer][], [Standard][], [Professional Direct][] or [Premier][] support. Break-fix issues are problems experienced by customers while using Azure where there is a reasonable expectation that Microsoft caused the problem.
+    - **Developer mentoring** and **advisory services** are available at the [Professional Direct][] and [Premier][] support levels. 
     
-    При наличии плана поддержки Premier можно также создавать отчеты по неполадкам хранилища данных SQL на [портале Microsoft Premier][]. Дополнительные сведения о доступной поддержке, включая области действия, время реагирования, цены и т. д., см. на странице [планов поддержки Azure][Azure support plan]. Также см. страницу [Часто задаваемые вопросы о поддержке Azure][].
+    If you have a Premier support plan, you can also report SQL Data Warehouse related issues on the [Microsoft Premier online portal][].  See [Azure support plans][Azure support plan] to learn more about the various support plans, including scope, response times, pricing, etc.  For frequently asked questions about Azure support, see [Azure support FAQs][].  
 
-    ![План поддержки](./media/sql-data-warehouse-get-started-create-support-ticket/support-plan.png)
+    ![Support plan](./media/sql-data-warehouse-get-started-create-support-ticket/support-plan.png)
 
-8. Выберите значения **Тип проблемы** и **Категория**.
+8. Select the **Problem Type** and **Category**.
 
-    ![Категория типов проблем](./media/sql-data-warehouse-get-started-create-support-ticket/problem-type-category.png)
+    ![Problem type category](./media/sql-data-warehouse-get-started-create-support-ticket/problem-type-category.png)
 
-9. Опишите неполадку и выберите уровень влияния на бизнес.
+9. Describe the problem and choose the level of business impact.
 
-    ![Описание проблемы](./media/sql-data-warehouse-get-started-create-support-ticket/problem-description.png)
+    ![Problem description](./media/sql-data-warehouse-get-started-create-support-ticket/problem-description.png)
 
-10. Ваши **контактные данные** для этого запроса в службу поддержки будут заполнены предварительно. При необходимости обновите их.
+10. Your **contact information** for this support ticket will be pre-filled. Update this if necessary.
 
-    ![Контактные данные](./media/sql-data-warehouse-get-started-create-support-ticket/contact-info.png)
+    ![Contact info](./media/sql-data-warehouse-get-started-create-support-ticket/contact-info.png)
 
-11. Щелкните **Создать**, чтобы отправить запрос в службу поддержки.
+11. Click **Create** to submit the support request.
 
 
-## Мониторинг запроса в службу поддержки
+## <a name="monitor-a-support-ticket"></a>Monitor a support ticket
 
-После отправки запроса с вами свяжется представитель службы поддержки Azure. Чтобы проверить состояние запроса и сведения о нем, щелкните **Управление запросами на поддержку** на панели мониторинга.
+After you have submitted the support request, the Azure support team will contact you. To check your request status and details, click **Manage support requests** on the dashboard.
 
-![Проверка состояния](./media/sql-data-warehouse-get-started-create-support-ticket/check-status.png)
+![Check status](./media/sql-data-warehouse-get-started-create-support-ticket/check-status.png)
 
-## Другие ресурсы
+## <a name="other-resources"></a>Other Resources
 
-Кроме того, вы можете присоединиться к сообществу пользователей хранилища данных SQL на странице [Stack Overflow][] или обратиться на [форум MSDN, посвященный хранилищу данных SQL Azure][].
+Additionally, you can connect with the SQL Data Warehouse community on [Stack Overflow][] or on the [Azure SQL Data Warehouse MSDN forum][].
 
 <!--Image references--> 
 
@@ -91,16 +92,20 @@
 <!--MSDN references--> 
 
 <!--Other web references--> 
-[портал Azure]: https://portal.azure.com/
-[Azure support plan]: https://azure.microsoft.com/support/plans/?WT.mc_id=Support_Plan_510979/
-[план поддержки Azure]: https://azure.microsoft.com/support/plans/?WT.mc_id=Support_Plan_510979/
-[Developer]: https://azure.microsoft.com/support/plans/developer/
-[Standard]: https://azure.microsoft.com/support/plans/standard/
-[Professional Direct]: https://azure.microsoft.com/support/plans/prodirect/
-[Premier]: https://azure.microsoft.com/support/plans/premier/
-[Часто задаваемые вопросы о поддержке Azure]: https://azure.microsoft.com/support/faq/
-[портале Microsoft Premier]: https://premier.microsoft.com/
+[Azure portal]: https://portal.azure.com/
+[Azure support plan]: https://azure.microsoft.com/support/plans/?WT.mc_id=Support_Plan_510979/  
+[Developer]: https://azure.microsoft.com/support/plans/developer/  
+[Standard]: https://azure.microsoft.com/support/plans/standard/  
+[Professional Direct]: https://azure.microsoft.com/support/plans/prodirect/  
+[Premier]: https://azure.microsoft.com/support/plans/premier/  
+[Azure support FAQs]: https://azure.microsoft.com/support/faq/
+[Microsoft Premier online portal]: https://premier.microsoft.com/
 [Stack Overflow]: https://stackoverflow.com/questions/tagged/azure-sqldw/
-[форум MSDN, посвященный хранилищу данных SQL Azure]: https://social.msdn.microsoft.com/Forums/home?forum=AzureSQLDataWarehouse/
+[Azure SQL Data Warehouse MSDN forum]: https://social.msdn.microsoft.com/Forums/home?forum=AzureSQLDataWarehouse/
 
-<!---HONumber=AcomDC_0907_2016---->
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

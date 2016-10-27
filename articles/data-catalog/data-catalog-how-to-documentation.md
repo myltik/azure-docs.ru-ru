@@ -1,51 +1,56 @@
 <properties
-	pageTitle="Создание документации по источникам данных | Microsoft Azure"
-	description="Эта статья представляет собой практическое руководство, в котором объяснено, как создать документацию по ресурсам данных в каталоге данных Azure."
-	services="data-catalog"
-	documentationCenter=""
-	authors="spelluru"
-	manager="NA"
-	editor=""
-	tags=""/>
+    pageTitle="How to document data sources | Microsoft Azure"
+    description="How-to article highlighting how to document data assets in Azure Data Catalog."
+    services="data-catalog"
+    documentationCenter=""
+    authors="spelluru"
+    manager="NA"
+    editor=""
+    tags=""/>
 <tags
-	ms.service="data-catalog"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="data-catalog"
-	ms.date="09/13/2016"
-	ms.author="spelluru"/>
+    ms.service="data-catalog"
+    ms.devlang="NA"
+    ms.topic="article"
+    ms.tgt_pltfrm="NA"
+    ms.workload="data-catalog"
+    ms.date="09/13/2016"
+    ms.author="spelluru"/>
 
-# Создание документации по источникам данных
 
-## Введение
+# <a name="document-data-sources"></a>Document data sources
 
-**Каталог данных Microsoft Azure** — это полностью управляемая облачная служба, выполняющая функции систем регистрации и обнаружения корпоративных источников данных. Проще говоря, **каталог данных Azure** помогает пользователям находить, *оценивать* и использовать источники данных, что, в свою очередь, повышает для организаций ценность существующей информации.
+## <a name="introduction"></a>Introduction
 
-Если источник данных зарегистрирован в **каталоге данных Azure**, его метаданные копируются и индексируются службой, но на этом работа с ними не заканчивается. **Каталог данных Azure** позволяет пользователям также предоставлять их собственную полную документацию, в которой описаны использование и стандартные сценарии, предназначенные для источника данных.
+**Microsoft Azure Data Catalog** is a fully managed cloud service that serves as a system of registration and system of discovery for enterprise data sources. In other words, **Azure Data Catalog** is all about helping people discover, *understand*, and use data sources, and helping organizations to get more value from their existing data.
 
-Из статьи о [создании заметок к источникам данных](data-catalog-how-to-annotate.md) вы можете узнать, что специалисты, владеющие информацией об источнике данных, могут добавлять к нему теги и описания. Портал **каталога данных Azure** содержит текстовый редактор, с помощью которого пользователи могут документировать ресурсы и контейнеры данных. Редактор предусматривает возможности форматирования, включая работу с заголовками, маркированными списками, нумерованными списками и таблицами, а также форматированием текста.
+When a data source is registered with **Azure Data Catalog**, its metadata is copied and indexed by the service, but the story doesn’t end there. **Azure Data Catalog** also allows users to provide their own complete documentation that can describe the usage and common scenarios for the data source.
 
-Теги и описания прекрасно подходят для простых заметок. Но чтобы пользователи могли соотнести бизнес-сценарии с имеющимися источниками данных, а также оценили возможности использования этих источников, специалисты могут предоставить исчерпывающую документацию. Создать документацию по источнику данных легко. Выберите ресурс данных или контейнер и щелкните **Документация**.
+In [How to annotate data sources](data-catalog-how-to-annotate.md), you learn that experts who know the data source can annotate it with tags and a description. The **Azure Data Catalog** portal includes a rich text editor so that users can fully document data assets and containers. The editor includes paragraph formatting, such as headings, text formatting, bulleted lists, numbered lists, and tables.
+
+Tags and descriptions are great for simple annotations. However, to help data consumers better understand the use of a data source, and business scenarios for a data source, an expert can provide complete, detailed documentation. It's easy to document a data source. Select a data asset or container, and choose **Documentation**.
 
 ![](media\data-catalog-documentation\data-catalog-documentation.png)
 
-## Создание документации по ресурсам данных
+## <a name="documenting-data-assets"></a>Documenting data assets
 
-Вы можете использовать документацию **каталога данных Azure** в качестве репозитория содержимого, создавая с его помощью полное описание ресурсов данных. Можно изучать подробные описания контейнеров и таблиц. Если у вас уже есть содержимое в другом репозитории содержимого, например в SharePoint или общей папке, вы можете добавить ссылки на это содержимое в документацию по ресурсу. Эта возможность облегчает поиск существующих документов.
+The benefit of **Azure Data Catalog** documentation allows you to use your Data Catalog as a content repository to create a complete narrative of your data assets. You can explore detailed content that describes containers and tables. If you already have content in another content repository, such as SharePoint or a file share, you can add to the asset documentation links to reference this existing content. This feature makes your existing documents more discoverable.
 
-> [AZURE.NOTE] Документация не включена в индекс поиска.
+> [AZURE.NOTE] Documentation is not included in search index.
 
 ![](media\data-catalog-documentation\data-catalog-documentation2.png)
 
-Уровень документации может быть разным: от описания характеристик и значений контейнера ресурса данных до подробного описания схемы таблицы, которую содержит контейнер. Уровень документации следует выбирать с учетом ваших бизнес-потребностей. Создание документации по ресурсам данных сопряжено с такими основными преимуществами и недостатками.
+The level of documentation can range from describing the characteristics and value of a data asset container to a detailed description of table schema within a container. The level of documentation provided should be driven by your business needs. But in general, here are a few pros and cons of documenting data assets:
 
--	Документация только по контейнеру: все содержимое находится в одном расположении, но содержимое может быть недостаточно подробным, следовательно, некоторые пользователи не смогут принять обоснованные решения.
--	Документация только по таблицам: содержимое описывает конкретный объект, но документы находятся в нескольких расположениях.
--	Документация по контейнерам и таблицам: комплексный подход, который не исключает необходимость дополнительной работы с документами.
+-   Document just a container: All the content is in one place, but might lack necessary details for users to make an informed decision.
+-   Document just the tables: Content is specific to that object, but your users have multiple places for documents.
+-   Document containers and tables: Most comprehensive approach, but might introduce more maintenance of the documents.
 
-## Сводка
+## <a name="summary"></a>Summary
 
-Создавая документацию по источникам данных с помощью **каталога данных Azure**, можно описать свои ресурсы данных максимально подробно. Вы можете добавить ссылки на существующий репозиторий содержимого, чтобы использовать уже имеющиеся документы и ресурсы данных. А ваши пользователи, обнаружив определенные ресурсы данных, могут пользоваться полным набором документации.
+Documenting data sources with **Azure Data Catalog** can create a narrative about your data assets in as much detail as you need.  By using links, you can link to content stored in an existing content repository, which brings your existing docs and data assets together. Once your users discover appropriate data assets, they can have a complete set of documentation.
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

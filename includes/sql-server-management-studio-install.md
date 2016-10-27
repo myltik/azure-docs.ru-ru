@@ -1,9 +1,15 @@
-##Установка последней версии SQL Server Management Studio
+##<a name="install-the-newest-version-of-sql-server-management-studio"></a>Install the newest version of SQL Server Management Studio
 
-  При работе с базой данных SQL следует использовать последнюю версию SQL Server Management Studio (SSMS). Последняя версия SSMS постоянно обновляется и оптимизируется для работы базой данных Azure и SQL. Последняя версия SSMS работает для всех поддерживаемых версий SQL Server. Сведения о том, как скачать и установить последнюю версию SSMS, см. в статье [Download SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx) (Скачивание SQL Server Management Studio). Когда новая версия становится доступной для скачивания, последняя версия SSMS выдает соответствующий запрос. Это позволяет всегда пользоваться обновленным ПО.
+  When working with SQL Database, you should always use the most recent version of SQL Server Management Studio (SSMS). The latest version of SSMS is continually updated and optimized to work with Azure and SQL Database. The latest version of SSMS works for all supported versions of SQL Server. To download and install the latest version, see [Download SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx). To stay up-to-date, the latest version of SSMS prompts you when there is a new version available to download. 
 
-  После установки введите в поле поиска Windows текст **Microsoft SQL Server Management Studio** и запустите приложение:
+  After installing, type **Microsoft SQL Server Management Studio** in the Windows search box and run the app:
 
   ![SQL Server Management Studio](./media/sql-server-management-studio-install/ssms.png)
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

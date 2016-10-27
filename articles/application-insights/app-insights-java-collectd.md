@@ -1,52 +1,53 @@
 <properties 
-	pageTitle="collectd: статистика производительности для Java на Unix в Application Insights" 
-	description="Расширенный мониторинг веб-сайта Java с подключаемым модулем CollectD для Application Insights" 
-	services="application-insights" 
+    pageTitle="collectd: perf stats for Java on Unix in Application Insights" 
+    description="Extended monitoring of your Java website with the CollectD plug-in for Application Insights" 
+    services="application-insights" 
     documentationCenter="java"
-	authors="alancameronwills" 
-	manager="douge"/>
+    authors="alancameronwills" 
+    manager="douge"/>
 
 <tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/24/2016" 
-	ms.author="awills"/>
+    ms.service="application-insights" 
+    ms.workload="tbd" 
+    ms.tgt_pltfrm="ibiza" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="08/24/2016" 
+    ms.author="awills"/>
  
-# collectd: метрики производительности Unix в Application Insights
 
-*Доступна только предварительная версия компонента Application Insights.*
+# <a name="collectd:-unix-performance-metrics-in-application-insights"></a>collectd: Unix performance metrics in Application Insights
 
-Для работы с метриками производительности системы Unix в [Application Insights](app-insights-overview.md) установите [collectd](http://collectd.org/) вместе с его подключаемым модулем Application Insights. Это решение с открытым исходным кодом собирает разнообразные данные системной и сетевой статистики.
+*Application Insights is in Preview.*
 
-Обычно collectd используется, если вы уже [инструментировали веб-службу Java с помощью Application Insights][java]. Это средство предоставляет больше данных, помогая вам повысить производительность приложения или диагностировать неполадки.
+To explore Unix system performance metrics in [Application Insights](app-insights-overview.md), install [collectd](http://collectd.org/), together with its Application Insights plug-in. This open-source solution gathers various system and network statistics.
 
-![Примеры диаграмм](./media/app-insights-java-collectd/sample.png)
+Typically you'll use collectd if you have already [instrumented your Java web service with Application Insights][java]. It gives you more data to help you to enhance your app's performance or diagnose problems. 
 
-## Получение ключа инструментирования
+![Sample charts](./media/app-insights-java-collectd/sample.png)
 
-На [портале Microsoft Azure](https://portal.azure.com) откройте ресурс [Application Insights](app-insights-overview.md) там, где требуется отображение данных. (Либо [создайте новый ресурс](app-insights-create-new-resource.md).)
+## <a name="get-your-instrumentation-key"></a>Get your instrumentation key
 
-Скопируйте ключ инструментирования, идентифицирующий этот ресурс.
+In the [Microsoft Azure portal](https://portal.azure.com), open the [Application Insights](app-insights-overview.md) resource where you want the data to appear. (Or [create a new resource](app-insights-create-new-resource.md).)
 
-![Просмотрите все, откройте свой ресурс и затем в раскрывающемся списке основных компонентов выберите и скопируйте ключ инструментирования](./media/app-insights-java-collectd/02-props.png)
+Take a copy of the instrumentation key, which identifies the resource.
+
+![Browse all, open your resource, and then in the Essentials drop-down, select, and copy the Instrumentation Key](./media/app-insights-java-collectd/02-props.png)
 
 
 
-## Установка collectd и подключаемого модуля
+## <a name="install-collectd-and-the-plug-in"></a>Install collectd and the plug-in
 
-На компьютере с сервером Unix выполните следующие действия.
+On your Unix server machines:
 
-1. Установите [collectd](http://collectd.org/) 5.4.0 или более поздней версии.
-2. Загрузите [подключаемый модуль записи Application Insights collectd](https://aka.ms/aijavasdk). Запишите номер версии.
-3. Скопируйте подключаемый модуль JAR в `/usr/share/collectd/java`.
-3. Отредактируйте файл `/etc/collectd/collectd.conf`:
- * Убедитесь, что [подключаемый модуль Java](https://collectd.org/wiki/index.php/Plugin:Java) включен.
- * Обновите JVMArg для java.class.path, включив в него указанный ниже файл JAR. Номер версии должен совпадать с номером версии, которую вы загрузили:
-  * .`/usr/share/collectd/java/applicationinsights-collectd-1.0.5.jar`
- * Добавьте следующий фрагмент кода, используя ключ инструментирования из ресурса:
+1. Install [collectd](http://collectd.org/) version 5.4.0 or later.
+2. Download the [Application Insights collectd writer plugin](https://aka.ms/aijavasdk). Note the version number.
+3. Copy the plugin JAR into `/usr/share/collectd/java`.
+3. Edit `/etc/collectd/collectd.conf`:
+ * Ensure that [the Java plugin](https://collectd.org/wiki/index.php/Plugin:Java) is enabled.
+ * Update the JVMArg for the java.class.path to include the following JAR. Update the version number to match the one you downloaded:
+  * `/usr/share/collectd/java/applicationinsights-collectd-1.0.5.jar`
+ * Add this snippet, using the Instrumentation Key from your resource:
 
 ```
 
@@ -56,7 +57,7 @@
      </Plugin>
 ```
 
-Пример файла конфигурации (фрагмент):
+Here's part of a sample configuration file:
 
     ...
     # collectd plugins
@@ -84,47 +85,47 @@
       # Other plugin configurations ...
       ...
     </Plugin>
-. ...
+.   ...
 
-Настройте другие [подключаемые модули collectd](https://collectd.org/wiki/index.php/Table_of_Plugins), которые могут собирать разные данные из разных источников.
+Configure other [collectd plugins](https://collectd.org/wiki/index.php/Table_of_Plugins), which can collect various data from different sources.
 
-Перезапустите collectd в соответствии с его [документацией](https://collectd.org/wiki/index.php/First_steps).
+Restart collectd according to its [manual](https://collectd.org/wiki/index.php/First_steps).
 
-## Просмотр данных в Application Insights
+## <a name="view-the-data-in-application-insights"></a>View the data in Application Insights
 
-В ресурсе Application Insights откройте [обозреватель метрик и добавьте диаграммы][metrics], выбрав нужные метрики в пользовательской категории.
+In your Application Insights resource, open [Metrics Explorer and add charts][metrics], selecting the metrics you want to see from the Custom category.
 
 ![](./media/app-insights-java-collectd/result.png)
 
-По умолчанию метрики со всех хост-компьютеров, которые их поставляют, объединяются. Чтобы просмотреть метрики по хостам, в колонке сведений о диаграмме включите группировку и выберите группировку по параметру CollectD-Host.
+By default, the metrics are aggregated across all host machines from which the metrics were collected. To view the metrics per host, in the Chart details blade, turn on Grouping and then choose to group by CollectD-Host.
 
 
-## Исключение загрузки определенных статистических данных
+## <a name="to-exclude-upload-of-specific-statistics"></a>To exclude upload of specific statistics
 
-По умолчанию подключаемый модуль Application Insights отправляет все данные, собранные всеми подключаемыми модулями read collectd.
+By default, the Application Insights plugin sends all the data collected by all the enabled collectd 'read' plugins. 
 
-Чтобы исключить данные из определенных подключаемых модулей или источников данных, выполните указанные ниже действия.
+To exclude data from specific plugins or data sources:
 
-* Измените файл конфигурации.
-* В `<Plugin ApplicationInsightsWriter>` добавьте строки директив следующего вида:
+* Edit the configuration file. 
+* In `<Plugin ApplicationInsightsWriter>`, add directive lines like this:
 
-Директива | Результат
+Directive | Effect
 ---|---
-`Exclude disk` | Исключаются все данные, собранные подключаемым модулем `disk`
-`Exclude disk:read,write` | Исключаются источники `read` и `write` из подключаемого модуля `disk`
+`Exclude disk` | Exclude all data collected by the `disk` plugin
+`Exclude disk:read,write` | Exclude the sources named `read` and `write` from the `disk` plugin.
 
-Каждая директива должна начинаться с новой строки.
+Separate directives with a newline.
 
 
-## Проблемы?
+## <a name="problems?"></a>Problems?
 
-*Данные не отображаются в портале*
+*I don't see data in the portal*
 
-* Откройте [Поиск][diagnostic] и проверьте поступление необработанных событий. Иногда они появляются в обозревателе метрик не сразу.
-* Вам может понадобиться [указать исключения брандмауэра для исходящих данных](app-insights-ip-addresses.md).
-* Включите трассировку в подключаемом модуле Application Insights. Добавьте в `<Plugin ApplicationInsightsWriter>` следующую строку:
+* Open [Search][diagnostic] to see if the raw events have arrived. Sometimes they take longer to appear in metrics explorer.
+* You might need to [set firewall exceptions for outgoing data](app-insights-ip-addresses.md)
+* Enable tracing in the Application Insights plugin. Add this line within `<Plugin ApplicationInsightsWriter>`:
  *  `SDKLogger true`
-* Откройте терминал и запустите collectd в режиме подробного протоколирования, чтобы проверить, не сообщает ли он о каких-либо неполадках:
+* Open a terminal and start collectd in verbose mode, to see any issues it is reporting:
  * `sudo collectd -f`
 
 
@@ -144,4 +145,8 @@
 
  
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

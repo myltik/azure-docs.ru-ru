@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Настройка именованных учетных данных для проверки подлинности | Microsoft Azure"
-   description="Узнайте, как указать учетные данные, которые Visual Studio сможет использовать для проверки подлинности запросов к Azure, чтобы опубликовать приложение из Visual Studio в Azure или отслеживать существующую облачную службу. "
+   pageTitle="Setting Up Named Authentication Credentials | Microsoft Azure"
+   description="Learn how to to provide credentials that Visual Studio can use to authenticate requests to Azure to publish an application to Azure from Visual Studio or to monitor an existing cloud service.. "
    services="visual-studio-online"
    documentationCenter="na"
    authors="TomArcher"
@@ -15,60 +15,65 @@
    ms.date="08/15/2016"
    ms.author="tarcher" />
 
-# Настройка именованных учетных данных для проверки подлинности
 
-Чтобы опубликовать приложение из Visual Studio в Azure или отслеживать существующую облачную службу, необходимо предоставить учетные данные, которые Visual Studio сможет использовать для проверки подлинности запросов к Azure. Эти учетные данные можно указывать в разных разделах Visual Studio. Например, откройте контекстное меню для узла **Azure** в обозревателе сервера и выберите **Подключиться к Azure**. Когда вы войдете в систему, сведения о подписке, связанные с учетной записью Azure, будут доступны в Visual Studio, поэтому больше ничего делать не нужно.
+# <a name="setting-up-named-authentication-credentials"></a>Setting Up Named Authentication Credentials
 
-Инструменты Azure также поддерживают прежний способ предоставления учетных данных с помощью файла подписки (файла PUBLISHSETTINGS). В этой статье описывается способ, который все еще поддерживается в пакете Azure SDK 2.2.
+To publish an application to Azure from Visual Studio or to monitor an existing cloud service, you must provide credentials that Visual Studio can use to authenticate requests to Azure. There are several places in Visual Studio where you can sign in to provide these credentials. For example, from the Server Explorer, you can open the shortcut menu for the **Azure** node and choose **Connect to Azure**. When you sign in, the subscription information associated with your Azure account is available in Visual Studio, and there is nothing more you need to do.
 
-Для проверки подлинности в Azure необходимы следующие элементы:
+Azure Tools also supports an older way of providing credentials, using the subscription file (.publishsettings file). This topic describes this method, which is still supported in Azure SDK 2.2.
 
-- идентификатор подписки;
+The following items are required for authentication to Azure.
 
-- действительный сертификат X.509 v3.
+- Your subscription ID
 
->[AZURE.NOTE] Длина ключа сертификата X.509 v3 должна составлять как минимум 2048 бит. Azure отклонит любой недействительный сертификат или сертификат, не соответствующий этому требованию.
+- A valid X.509 v3 certificate
 
-Visual Studio использует в качестве учетных данных ваш идентификатор подписки и данные сертификата. Соответствующие учетные данные указываются в файле подписки (файл PUBLISHSETTINGS), который содержит открытый ключ для сертификата. Файл подписки может содержать учетные данные нескольких подписок.
+>[AZURE.NOTE] The length of the X.509 v3 certificate's key must be at least 2048 bits. Azure will reject any certificate that doesn’t meet this requirement or that isn’t valid.
 
-Вы можете изменить сведения о подписке в диалоговом окне **Создать/Изменить подписку**, как описано далее в этой статье.
+Visual Studio uses your subscription ID together with the certificate data as credentials. The appropriate credentials are referenced in the subscription file (.publishsettings file), which contains a public key for the certificate. The subscription file can contain credentials for more than one subscription.
 
-Если вы хотите создать сертификат самостоятельно, следуйте инструкциям в статье [Общие сведения о сертификатах для облачных служб Azure](https://msdn.microsoft.com/library/windowsazure/gg551722.aspx) и вручную передайте сертификат на [классический портал Azure](http://go.microsoft.com/fwlink/?LinkID=213885).
+You can edit the subscription information from the **New/Edit Subscription** dialog box, as explained later in this topic.
 
->[AZURE.NOTE] Эти учетные данные, которые требуются Visual Studio для управления облачными службами, не совпадают с учетными данными, необходимыми для проверки подлинности запроса к службам хранилища Azure.
+If you want to create a certificate yourself, you can refer to the instructions in [Create and Upload a Management Certificate for Azure](https://msdn.microsoft.com/library/windowsazure/gg551722.aspx) and then manually upload the certificate to the [Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=213885).
 
-## Изменение или экспорт учетных данных для проверки подлинности в Visual Studio
+>[AZURE.NOTE] These credentials that Visual Studio requires to manage your cloud services aren’t the same credentials that are required to authenticate a request against the Azure storage services.
 
-Вы можете настроить, изменить или экспортировать учетные данные для проверки подлинности в диалоговом окне **Новая подписка**, которое появится после выполнения одного из следующих действий.
+## <a name="modify-or-export-authentication-credentials-in-visual-studio"></a>Modify or Export Authentication Credentials in Visual Studio
 
-- В **обозревателе серверов** откройте контекстное меню для узла **Azure**, выберите **Управление подписками**, затем откройте вкладку **Сертификаты** и нажмите кнопку **Создать** или **Изменить**.
+You can also set up, modify, or export your authentication credentials in the **New Subscription** dialog box, which appears if you perform either of the following actions:
 
-- Во время публикации облачной службы Azure с помощью мастера **Опубликовать приложение Azure** выберите **Управление** в списке **Выбор подписки**, откройте вкладку "Сертификаты", а затем нажмите кнопку **Создать** или **Изменить**.
+- In **Server Explorer**, open the shortcut menu for the **Azure** node, choose **Manage Subscriptions**, choose the **Certificates** tab, and choose the **New** or **Edit** button.
 
-Следующая процедура предполагает, что диалоговое окно **Новая подписка** открыто.
+- When you publish an Azure cloud service from the **Publish Azure Application** wizard, choose **Manage** in the **Choose your Subscription** list, then choose the Certificates tab, and then choose the **New** or **Edit** button.
 
-### Настройка учетных данных для проверки подлинности в Visual Studio
+The following procedure assumes that the **New Subscription** dialog box is open.
 
-1. Выберите сертификат в списке **Выберите существующий сертификат для аутентификации**.
+### <a name="to-set-up-authentication-credentials-in-visual-studio"></a>To set up authentication credentials in Visual Studio
 
-1. Нажмите кнопку **Скопировать полный путь**. Путь к сертификату (CER-файлу) будет скопирован в буфер обмена.
+1. In the **Select an existing certificate** for authentication list, choose a certificate.
 
-    >[AZURE.IMPORTANT] Чтобы опубликовать приложение Azure из Visual Studio, следует передать этот сертификат на [классический портал Azure](http://go.microsoft.com/fwlink/?LinkID=213885).
+1. Choose the **Copy the full path** button.The path for the certificate (.cer file) is copied to the Clipboard.
 
-1. Чтобы передать сертификат на [классический портал Azure](http://go.microsoft.com/fwlink/?LinkID=213885), сделайте следующее.
+    >[AZURE.IMPORTANT] To publish your Azure application from Visual Studio, you must upload this certificate to the [Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=213885).
 
-    1. Выберите ссылку «Портал Azure».
+1. To upload the certificate to the [Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=213885):
 
-         Откроется [классический портал Azure](http://go.microsoft.com/fwlink/?LinkID=213885).
+    1. Choose the Azure Portal link.
 
-    1. Войдите на [классический портал Azure](http://go.microsoft.com/fwlink/?LinkID=213885) нажмите кнопку **Облачные службы**.
+         The [Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=213885) opens.
 
-    1. Выберите интересующую вас облачную службу.
+    1. Sign in to the [Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=213885), and then choose the **Cloud Services** button.
 
-        Откроется страница этой службы.
+    1. Choose the cloud service that interests you.
 
-    1. На вкладке **Сертификаты** нажмите кнопку **Передать**.
+        The page for the service opens.
 
-    1. Вставьте полный путь к CER-файлу, который вы только что создали, а затем введите выбранный вами пароль.
+    1. On the **Certificates** tab, choose the **Upload** button.
 
-<!---HONumber=AcomDC_0817_2016-->
+    1. Paste the full path of the .cer file that you just created, and then enter the password that you specified.
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

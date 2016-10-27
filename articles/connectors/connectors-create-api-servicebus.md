@@ -1,8 +1,8 @@
 <properties
-pageTitle="Использование соединителя служебной шины Azure в приложениях логики | Microsoft Azure"
-description="Создание приложений логики с помощью службы приложений Azure. Подключитесь к служебной шине Azure для отправки и получения сообщений. Вы можете выполнять такие действия, как отправка в очередь, отправка в раздел, получение из очереди и получение из подписки."
+pageTitle="Learn to use the Azure Service Bus connector in your logic apps | Microsoft Azure"
+description="Create logic apps with Azure App service. Connect to Azure Service Bus to send and receive messages. You can perform actions such as send to queue, send to topic, receive from queue, and receive from subscription."
 services="logic-apps"
-documentationCenter=".net,nodejs,java" 	
+documentationCenter=".net,nodejs,java"  
 authors="msftman"
 manager="erikre"
 editor=""
@@ -17,168 +17,173 @@ ms.workload="integration"
 ms.date="08/02/2016"
 ms.author="deonhe"/>
 
-# Начало работы с соединителем служебной шины Azure
 
-Подключитесь к служебной шине Azure для отправки и получения сообщений. Вы можете выполнять такие действия, как отправка в очередь, отправка в раздел, получение из очереди и получение из подписки.
+# <a name="get-started-with-the-azure-service-bus-connector"></a>Get started with the Azure Service Bus connector
 
-Чтобы использовать [соединитель](./apis-list.md), сначала нужно создать приложение логики. Вы можете начать с [создания приложения логики](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Connect to Azure Service Bus to send and receive messages. You can perform actions such as send to queue, send to topic, receive from queue, and receive from subscription.
 
-## Подключение к служебной шине
+To use [any connector](./apis-list.md), you first need to create a logic app. You can get started by [creating a logic app now](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-Чтобы обеспечить доступ приложения логики к какой-либо службе, сначала необходимо создать подключение к этой службе. Таким образом вы установите [подключение](./connectors-overview.md) между приложением логики и другой службой.
+## <a name="connect-to-service-bus"></a>Connect to Service Bus
 
->[AZURE.INCLUDE [Шаги по созданию подключения к служебной шине Azure](../../includes/connectors-create-api-servicebus.md)]
+Before your logic app can access any service, you first need to create a connection to the service. A [connection](./connectors-overview.md) provides connectivity between a logic app and another service.  
 
-## Использование триггера служебной шины
+>[AZURE.INCLUDE [Steps to create a connection to Azure Service Bus](../../includes/connectors-create-api-servicebus.md)]
 
-Триггер — это событие, которое можно использовать для запуска рабочего процесса, определенного в приложении логики. Дополнительные сведения о триггерах см. [здесь](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
+## <a name="use-a-service-bus-trigger"></a>Use a Service Bus trigger
 
->[AZURE.INCLUDE [Шаги по созданию триггера служебной шины Azure](../../includes/connectors-create-api-servicebus-trigger.md)]
+A trigger is an event that can be used to start the workflow defined in a logic app. [Learn more about triggers](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).  
 
-## Использование действия служебной шины
+>[AZURE.INCLUDE [Steps to create a Service Bus trigger](../../includes/connectors-create-api-servicebus-trigger.md)]  
 
-Действие — это операция, выполняемая рабочим процессом, определенным в приложении логики. Дополнительные сведения о действиях см. [здесь](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
+## <a name="use-a-service-bus-action"></a>Use a Service Bus action
 
-[AZURE.INCLUDE [Шаги по созданию действия служебной шины Azure](../../includes/connectors-create-api-servicebus-action.md)]
+An action is an operation carried out by the workflow defined in a logic app. [Learn more about actions](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
 
-## Технические сведения
+[AZURE.INCLUDE [Steps to create a Service Bus action](../../includes/connectors-create-api-servicebus-action.md)]  
 
-Ниже приведены сведения о триггерах, действиях и ответах, которые поддерживает это подключение.
+## <a name="technical-details"></a>Technical details
 
-### Триггеры служебной шины
+Here are the details about the triggers, actions, and responses that this connection supports.
 
-В служебной шине доступны такие триггеры:
+### <a name="service-bus-triggers"></a>Service Bus triggers
 
-|Триггер | Описание|
+Service Bus has the following triggers:  
+
+|Trigger | Description|
 |--- | ---|
-|[При получении сообщения в очереди](connectors-create-api-servicebus.md#when-a-message-is-received-in-a-queue)|Активирует поток в случае получения сообщения в очереди.|
-|[При получении сообщения в подписке раздела](connectors-create-api-servicebus.md#when-a-message-is-received-in-a-topic-subscription)|Активирует поток в случае получения сообщения в подписке раздела.|
+|[When a message is received in a queue](connectors-create-api-servicebus.md#when-a-message-is-received-in-a-queue)|This operation triggers a flow when a message is received in a queue.|
+|[When a message is received in a topic subscription](connectors-create-api-servicebus.md#when-a-message-is-received-in-a-topic-subscription)|This operation triggers a flow when a message is received in a topic subscription.|
 
 
-### Действия служебной шины
+### <a name="service-bus-actions"></a>Service Bus actions
 
-В служебной шине доступны такие действия:
+Service Bus has the following actions:
 
 
-|Действие|Описание|
+|Action|Description|
 |--- | ---|
-|[Отправить сообщение](connectors-create-api-servicebus.md#send-message)|Отправляет сообщение в очередь или раздел.|
-### Сведения о действиях и триггерах
+|[Send message](connectors-create-api-servicebus.md#send-message)|This operation sends a message to a queue or topic.|
+### <a name="action-and-trigger-details"></a>Action and trigger details
 
-Ниже приведены подробные сведения о действиях и триггерах этого соединителя, а также ответы на них.
+Here are the details for the actions and triggers for this connector, along with their responses.
 
 
 
-#### Отправить сообщение
+#### <a name="send-message"></a>Send message
 
-|Имя свойства| Отображаемое имя|Описание|
+|Property name| Display name|Description|
 | ---|---|---|
-|ContentData*|Содержимое|Содержимое сообщения.|
-|ContentType|Тип содержимого|Тип содержимого сообщения.|
-|Свойства|Свойства|Пары "ключ-значение" для каждого свойства-посредника.|
-|entityName*|Имя очереди или раздела|Имя очереди или раздела.|
+|ContentData*|Content|Content of the message.|
+|ContentType|Content Type|Content type of the message content.|
+|Properties|Properties|Key-value pairs for each brokered property.|
+|entityName*|Queue/Topic name|Name of the queue or topic.|
 
-Также доступны такие дополнительные параметры:
+These advanced parameters are also available:
 
-|Имя свойства| Отображаемое имя|Описание|
+|Property name| Display name|Description|
 | ---|---|---|
-|MessageId|Идентификатор сообщения|Определяемое пользователем значение, используемое служебной шиной для выявления повторяющихся сообщений.|
-|Кому|Кому|Адрес для отправки.|
-|ReplyTo|Ответить|Адрес очереди для ответа.|
-|ReplyToSessionId|Ответить идентификатору сеанса|Идентификатор сеанса для ответа.|
-|Метка|Метка|Метка приложения.|
-|ScheduledEnqueueTimeUtc|ScheduledEnqueueTimeUtc|Дата и время в формате UTC, когда сообщение будет добавлено в очередь.|
-|SessionId|Идентификатор сеанса|Идентификатор сеанса.|
-|CorrelationId|Идентификатор корреляции|Идентификатор корреляции.|
-|TimeToLive (срок жизни)|Срок жизни|Срок действия сообщения (в тактах). Отсчет начинается с отправки сообщения служебной шине.|
+|MessageId|Message Id|A user-defined value that Service Bus can use to identify duplicate messages, if enabled.|
+|To|To|Address to send to.|
+|ReplyTo|Reply To|Address of the queue to reply to.|
+|ReplyToSessionId|Reply To Session Id|Identifier of the session to reply to.|
+|Label|Label|Application-specific label.|
+|ScheduledEnqueueTimeUtc|ScheduledEnqueueTimeUtc|Date and time, in UTC, when the message will be added to the queue.|
+|SessionId|Session Id|Identifier of the session.|
+|CorrelationId|Correlation Id|Identifier of the correlation.|
+|TimeToLive|Time To Live|The duration, in ticks, that a message is valid. The duration starts from when the message is sent to Service Bus.|
 
 
 
-Звездочка (*) означает, что свойство является обязательным.
+An * indicates that a property is required.
 
 
-#### При получении сообщения в очереди
+#### <a name="when-a-message-is-received-in-a-queue"></a>When a message is received in a queue
 
-|Имя свойства| Отображаемое имя|Описание|
+|Property name| Display name|Description|
 | ---|---|---|
-|queueName*|Имя очереди|Имя очереди.|
+|queueName*|Queue name|Name of the queue.|
 
 
-Звездочка (*) означает, что свойство является обязательным.
+An * indicates that a property is required.
 
 
-##### Сведения о выходных данных
+##### <a name="output-details"></a>Output details
 
-ServiceBusMessage. Этот объект имеет содержимое и свойства сообщения служебной шины.
+ServiceBusMessage: This object has the content and properties of a Service Bus message.
 
 
-| Имя свойства | Тип данных | Описание |
+| Property name | Data type | Description |
 |---|---|---|
-|ContentData|string|Содержимое сообщения.|
-|ContentType|строка|Тип содержимого сообщения.|
-|Свойства|object|Пары "ключ-значение" для каждого свойства-посредника.|
-|MessageId|строка|Определяемое пользователем значение, используемое служебной шиной для выявления повторяющихся сообщений.|
-|Кому|string|Адрес для отправки.|
-|ReplyTo|строка|Адрес очереди для ответа.|
-|ReplyToSessionId|string|Идентификатор сеанса для ответа.|
-|Метка|строка|Метка приложения.|
-|ScheduledEnqueueTimeUtc|строка|Дата и время в формате UTC, когда сообщение будет добавлено в очередь.|
-|SessionId|строка|Идентификатор сеанса.|
-|CorrelationId|string|Идентификатор корреляции.|
-|TimeToLive (срок жизни)|string|Срок действия сообщения (в тактах). Отсчет начинается с отправки сообщения служебной шине.|
+|ContentData|string|Content of the message.|
+|ContentType|string|Content type of the message content.|
+|Properties|object|Key-value pairs for each brokered property.|
+|MessageId|string|A user-defined value that Service Bus can use to identify duplicate messages, if enabled.|
+|To|string|Send to address.|
+|ReplyTo|string|Address of the queue to reply to.|
+|ReplyToSessionId|string|Identifier of the session to reply to.|
+|Label|string|Application-specific label.|
+|ScheduledEnqueueTimeUtc|string|Date and time, in UTC, when the message will be added to the queue.|
+|SessionId|string|Identifier of the session.|
+|CorrelationId|string|Identifier of the correlation.|
+|TimeToLive|string|The duration, in ticks, that a message is valid. The duration starts from when the message is sent to Service Bus.|
 
 
 
 
-#### При получении сообщения в подписке раздела
+#### <a name="when-a-message-is-received-in-a-topic-subscription"></a>When a message is received in a topic subscription
 
-|Имя свойства| Отображаемое имя|Описание|
+|Property name| Display name|Description|
 | ---|---|---|
-|topicName*|Имя раздела|Имя раздела.|
-|subscriptionName*|Имя подписки раздела|Имя подписки раздела.|
+|topicName*|Topic name|Name of the topic.|
+|subscriptionName*|Topic subscription name|Name of the topic subscription.|
 
 
-Звездочка (*) означает, что свойство является обязательным.
+An * indicates that a property is required.
 
 
-##### Сведения о выходных данных
+##### <a name="output-details"></a>Output details
 
-ServiceBusMessage. Этот объект имеет содержимое и свойства сообщения служебной шины.
+ServiceBusMessage: This object has the content and properties of a Service Bus message.
 
 
-| Имя свойства | Тип данных | Описание |
+| Property name | Data type | Description |
 |---|---|---|
-|ContentData|строка|Содержимое сообщения.|
-|ContentType|строка|Тип содержимого сообщения.|
-|Свойства|object|Пары "ключ-значение" для каждого свойства-посредника.|
-|MessageId|строка|Определяемое пользователем значение, используемое служебной шиной для выявления повторяющихся сообщений.|
-|Кому|строка|Адрес для отправки.|
-|ReplyTo|string|Адрес очереди для ответа.|
-|ReplyToSessionId|строка|Идентификатор сеанса для ответа.|
-|Метка|строка|Метка приложения.|
-|ScheduledEnqueueTimeUtc|string|Дата и время в формате UTC, когда сообщение будет добавлено в очередь.|
-|SessionId|строка|Идентификатор сеанса.|
-|CorrelationId|строка|Идентификатор корреляции.|
-|TimeToLive (срок жизни)|string|Срок действия сообщения (в тактах). Отсчет начинается с отправки сообщения служебной шине.|
+|ContentData|string|Content of the message.|
+|ContentType|string|Content type of the message content.|
+|Properties|object|Key-value pairs for each brokered property.|
+|MessageId|string|A user-defined value that Service Bus can use to identify duplicate messages, if enabled.|
+|To|string|Send to address.|
+|ReplyTo|string|Address of the queue to reply to.|
+|ReplyToSessionId|string|Identifier of the session to reply to.|
+|Label|string|Application-specific label.|
+|ScheduledEnqueueTimeUtc|string|Date and time, in UTC, when the message will be added to the queue.|
+|SessionId|string|Identifier of the session.|
+|CorrelationId|string|Identifier of the correlation.|
+|TimeToLive|string|The duration, in ticks, that a message is valid. The duration starts from when the message is sent to Service Bus.|
 
 
 
-### Ответы HTTP
+### <a name="http-responses"></a>HTTP responses
 
-Описанные выше действия и триггеры могут возвращать один или несколько кодов состояния HTTP, которые приведены ниже.
+The preceding actions and triggers can return one or more of the following HTTP status codes:
 
-|Имя|Описание|
+|Name|Description|
 |---|---|
-|200|ОК|
-|202|Принято|
-|400|Недопустимый запрос|
-|401|Не авторизовано|
-|403|Запрещено|
-|404|Не найдено|
-|500|Внутренняя ошибка сервера. Произошла неизвестная ошибка.|
-|по умолчанию|Операция завершилась ошибкой.|
+|200|OK|
+|202|Accepted|
+|400|Bad request|
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not found|
+|500|Internal server error. Unknown error occurred.|
+|default|Operation failed.|
 
-## Дальнейшие действия
-[Создайте приложение логики](../app-service-logic/app-service-logic-create-a-logic-app.md).
+## <a name="next-steps"></a>Next steps
+[Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-<!----HONumber=AcomDC_0810_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

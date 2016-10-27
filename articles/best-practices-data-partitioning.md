@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Руководство по секционированию данных | Microsoft Azure"
-   description="Руководство по способам разделения секций для реализации отдельного управления и доступа."
+   pageTitle="Data partitioning guidance | Microsoft Azure"
+   description="Guidance for how to separate partitions to be managed and accessed separately."
    services=""
    documentationCenter="na"
    authors="dragon119"
@@ -17,561 +17,555 @@
    ms.date="07/14/2016"
    ms.author="masashin"/>
 
-# Руководство по секционированию данных
+
+# <a name="data-partitioning-guidance"></a>Data partitioning guidance
 
 [AZURE.INCLUDE [pnp-header](../includes/guidance-pnp-header-include.md)]
 
-## Обзор
+## <a name="overview"></a>Overview
 
-Во многих крупномасштабных решениях данные разделяются на особые секции, которыми можно управлять и пользоваться отдельно. Следует тщательно выбирать стратегию секционирования, чтобы максимально увеличить преимущества от ее использования и свести к минимуму отрицательные эффекты. Секционирование поможет улучшить масштабируемость, уменьшить количество конфликтов и оптимизировать производительность. Дополнительное преимущество секционирования состоит в том, что оно также может предоставить механизм для разделения данных по шаблону использования. Например, можно архивировать старые менее активные (холодные) данные, чтобы снизить стоимость хранилища данных.
+In many large-scale solutions, data is divided into separate partitions that can be managed and accessed separately. The partitioning strategy must be chosen carefully to maximize the benefits while minimizing adverse effects. Partitioning can help improve scalability, reduce contention, and optimize performance. Another benefit of partitioning is that it can provide a mechanism for dividing data by the pattern of use. For example, you can archive older, less active (cold) data in cheaper data storage.
 
-## Зачем секционировать данные?
+## <a name="why-partition-data?"></a>Why partition data?
 
-Большинство облачных приложений и служб хранят и извлекают данные в рамках своих операций. Структура хранилищ данных, которыми пользуется приложение, может значительно влиять на производительность, пропускную способность и масштабируемость системы. Одним из способов, которые обычно применяются в крупномасштабных системах, является разделение данных на отдельные секции.
+Most cloud applications and services store and retrieve data as part of their operations. The design of the data stores that an application uses can have a significant bearing on the performance, throughput, and scalability of a system. One technique that is commonly applied in large-scale systems is to divide the data into separate partitions.
 
-> Термин _секционирование_, используемый в этом руководстве, относится к процессу физического разделения данных на отдельные хранилища. Это не то же самое, что секционирование таблицы сервера SQL, которое представляет собой совсем другую концепцию.
+> The term _partitioning_ that's used in this guidance refers to the process of physically dividing data into separate data stores. This is not the same as SQL Server table partitioning, which is a different concept.
 
-Секционирование данных обеспечивает множество преимуществ. Например, его можно применять в следующих целях.
+Partitioning data can offer a number of benefits. For example, it can be applied in order to:
 
-- **Повышение масштабируемости**. Вертикальное масштабирование отдельной базы данных рано или поздно столкнется с физическими ограничениями оборудования. При разделении данных на несколько секций, каждая из которых размещается на отдельном сервере, можно практически неограниченно масштабировать систему.
-- **Повышение производительности**. В каждой секции осуществляется доступ к данным меньшего объема. При условии, что данные секционированы подходящим образом, секционирование может повысить эффективность системы. Операции, которые задействуют несколько секций, могут выполняться параллельно. Каждая секция может находиться рядом с приложением, которое ее использует, для минимизации задержки в сети.
-- **Повышение доступности**. Распределение данных по нескольким серверам позволяет избежать наличия единственной точки отказа. В случае сбоя или запланированного обслуживания сервера недоступны только данные в этой секции. Операции в других секциях можно продолжать. Увеличение числа секций уменьшает относительное влияние сбоя на одном сервере за счет снижения доли данных, которые будут недоступны. Репликация каждой секции может дополнительно уменьшить вероятность влияния сбоя одной секции на операции. Такой подход также позволяет отделить критически важные данные, для которых необходима постоянная и высокая доступность, от данных низкой значимости (например файлов журнала).
-- **Усиление безопасности**. В зависимости от характера данных и метода их секционирования может существовать возможность размещения конфиденциальных и неконфиденциальных данных в разных секциях и, следовательно, на разных серверах или в разных хранилищах. При этом для конфиденциальных данных можно специально оптимизировать безопасность.
-- **Обеспечение операционной гибкости**. Секционирование предлагает множество возможностей для операций тонкой настройки, максимально повышая эффективность администрирования и сводя затраты к минимуму. Некоторые примеры определяют разные стратегии управления, мониторинга, резервного копирования и восстановления, а также других административных задач в зависимости от степени важности данных в каждой секции.
-- **Сопоставление хранилища данных с шаблоном использования**. Секционирование позволяет развернуть любую секцию в хранилище данных любого типа в зависимости от стоимости и встроенных функций, которые предоставляет хранилище данных. Например, двоичные данные больших объемов могут храниться в хранилище больших двоичных объектов, а более структурированные данные можно хранить в базе данных документов. Дополнительные сведения см. в разделе [Построение решения Polyglot] руководства по шаблонам и практическим рекомендациям [Доступ к данным для масштабируемых решений: с помощью SQL, NoSQL и Polyglot Persistence] на веб-сайте Майкрософт.
+- **Improve scalability**. When you scale up a single database system, it will eventually reach a physical hardware limit. If you divide data across multiple partitions, each of which is hosted on a separate server, you can scale out the system almost indefinitely.
+- **Improve performance**. Data access operations on each partition take place over a smaller volume of data. Provided that the data is partitioned in a suitable way, partitioning can make your system more efficient. Operations that affect more than one partition can run in parallel. Each partition can be located near the application that uses it to minimize network latency.
+- **Improve availability**. Separating data across multiple servers avoids a single point of failure. If a server fails, or is undergoing planned maintenance, only the data in that partition is unavailable. Operations on other partitions can continue. Increasing the number of partitions reduces the relative impact of a single server failure by reducing the percentage of data that will be unavailable. Replicating each partition can further reduce the chance of a single partition failure affecting operations. It also makes it possible to separate critical data that must be continually and highly available from low-value data that has lower availability requirements (log files, for example).
+- **Improve security**. Depending on the nature of the data and how it is partitioned, it might be possible to separate sensitive and non-sensitive data into different partitions, and therefore into different servers or data stores. Security can then be specifically optimized for the sensitive data.
+- **Provide operational flexibility**. Partitioning offers many opportunities for fine tuning operations, maximizing administrative efficiency, and minimizing cost. For example, you can define different strategies for management, monitoring, backup and restore, and other administrative tasks based on the importance of the data in each partition.
+- **Match the data store to the pattern of use**. Partitioning allows each partition to be deployed on a different type of data store, based on cost and the built-in features that data store offers. For example, large binary data can be stored in a blob data store, while more structured data can be held in a document database. For more information, see [Building a polyglot solution] in the patterns & practices guide and [Data access for highly-scalable solutions: Using SQL, NoSQL, and polyglot persistence] on the Microsoft website.
 
-В некоторых системах не реализованы секции, так как считается, что они связаны с затратами, а не дополнительными преимуществами. Вот наиболее распространенные причины такого мнения.
+Some systems do not implement partitioning because it is considered a cost rather than an advantage. Common reasons for this rationale include:
 
-- Многие системы хранения данных не поддерживают соединения по секциям, поэтому поддержка целостности данных в секционированных системах может быть затруднена. Часто возникает необходимость реализовать соединения и проверки целостности в коде приложения (на уровне секционирования), что может привести к увеличению числа вводов-выводов и сложности приложения.
-- Обслуживание секций не всегда является простой задачей. В системе, где данные энергозависимы, может потребоваться периодически балансировать секции, чтобы снизить число конфликтов и горячих зон.
-- Некоторые стандартные средства не работают автоматически с секционированными данными.
+- Many data storage systems do not support joins across partitions, and it can be difficult to maintain referential integrity in a partitioned system. It is frequently necessary to implement joins and integrity checks in application code (in the partitioning layer), which can result in additional I/O and application complexity.
+- Maintaining partitions is not always a trivial task. In a system where the data is volatile, you might need to rebalance partitions periodically to reduce contention and hot spots.
+- Some common tools do not work naturally with partitioned data.
 
-## Проектирование секций
+## <a name="designing-partitions"></a>Designing partitions
 
-Данные могут быть секционированы по-разному: вертикально, горизонтально или функционально. Выбор стратегии зависит от причины секционирования данных, а также требований приложений и служб, которые будут использовать эти данные.
+Data can be partitioned in different ways: horizontally, vertically, or functionally. The strategy you choose depends on the reason for partitioning the data, and the requirements of the applications and services that will use the data.
 
-> [AZURE.NOTE] Схемы секционирования, о которых идет речь в этом руководстве, описаны способом, который не зависит от используемой технологии хранения данных. Они применимы для различных типов хранилищ данных, включая реляционные и базы данных NoSQL.
+> [AZURE.NOTE] The partitioning schemes described in this guidance are explained in a way that is independent of the underlying data storage technology. They can be applied to many types of data stores, including relational and NoSQL databases.
 
-### Стратегии секционирования
+### <a name="partitioning-strategies"></a>Partitioning strategies
 
-Ниже представлены три типичные стратегии для секционирования данных.
+The three typical strategies for partitioning data are:
 
-- **Горизонтальное секционирование** (часто называемое _сегментированием_). В этой стратегии каждая секция представляет собой хранилище данных сама по себе, но все секции имеют одинаковые схемы. Каждая секция называется _сегментом_ и содержит конкретное подмножество данных, например все заказы для определенной группы клиентов в приложении электронной коммерции.
-- **Вертикальное секционирование**. В этой стратегии каждая секция содержит подмножество полей для элементов в хранилище данных. Поля разделяются по шаблону их использования. Например, часто используемые поля размещаются в одной вертикальной секции, а более редко используемые поля — в другой.
-- **Функциональное секционирование**. В этой стратегии данные группируются в соответствии с их использованием в каждом связанном контексте в системе. Например, система электронной коммерции, которая реализует отдельные бизнес-функции для выставления счетов и управления описью продуктов, может хранить данные счетов в одной секции, а данные инвентаризации продуктов — в другой.
+- **Horizontal partitioning** (often called _sharding_). In this strategy, each partition is a data store in its own right, but all partitions have the same schema. Each partition is known as a _shard_ and holds a specific subset of the data, such as all the orders for a specific set of customers in an e-commerce application.
+- **Vertical partitioning**. In this strategy, each partition holds a subset of the fields for items in the data store. The fields are divided according to their pattern of use. For example, frequently accessed fields might be placed in one vertical partition and less frequently accessed fields in another.
+- **Functional partitioning**. In this strategy, data is aggregated according to how it is used by each bounded context in the system. For example, an e-commerce system that implements separate business functions for invoicing and managing product inventory might store invoice data in one partition and product inventory data in another.
 
-Обратите внимание, что три стратегии, описанные здесь, можно сочетать. Они не являются взаимоисключающими, и все три стратегии рекомендуется учитывать при разработке схемы секционирования. Например, можно разделить данные на сегменты и затем использовать вертикальное секционирование для дальнейшего разделения данных в каждом сегменте. Аналогичным образом данные в функциональной секции могут быть разделены на сегменты (которые могут быть также вертикально секционированы).
+It’s important to note that the three strategies described here can be combined. They are not mutually exclusive, and we recommend that you consider them all when you design a partitioning scheme. For example, you might divide data into shards and then use vertical partitioning to further subdivide the data in each shard. Similarly, the data in a functional partition can be split into shards (which can also be vertically partitioned).
 
-Однако разные требования каждой стратегии могут увеличить число конфликтов. Их все необходимо оценить и сбалансировать при разработке схемы секционирования, обеспечивающей целевую производительность обработки данных для вашей системы. Следующие разделы посвящены более подробному описанию каждой стратегии.
+However, the differing requirements of each strategy can raise a number of conflicting issues. You must evaluate and balance all of these when designing a partitioning scheme that meets the overall data processing performance targets for your system. The following sections explore each of the strategies in more detail.
 
-### Горизонтальное секционирование (сегментирование)
+### <a name="horizontal-partitioning-(sharding)"></a>Horizontal partitioning (sharding)
 
-На рисунке 1 представлен обзор горизонтального секционирования, или сегментирования. В этом примере данные инвентаризации продуктов разделены на сегменты на основании ключа продукта. Каждый сегмент содержит данные для непрерывного диапазона ключей сегментов (A-G и H-Z) в алфавитном порядке.
+Figure 1 shows an overview of horizontal partitioning or sharding. In this example, product inventory data is divided into shards based on the product key. Each shard holds the data for a contiguous range of shard keys (A-G and H-Z), organized alphabetically.
 
-![Горизонтальное секционирование данных (сегментирование) на основании ключа секции](media/best-practices-data-partitioning/DataPartitioning01.png)
+![Horizontally partitioning (sharding) data based on a partition key](media/best-practices-data-partitioning/DataPartitioning01.png)
 
-_Рис. 1. Горизонтальное секционирование данных (сегментирование) на основании ключа секции_
+_Figure 1. Horizontally partitioning (sharding) data based on a partition key_
 
-Сегментирование помогает распределить нагрузку между несколькими компьютерами, уменьшая вероятность конфликтов и повышая производительность. Можно масштабировать систему, добавляя дополнительные сегменты, работающие на дополнительных серверах.
+Sharding helps you spread the load over more computers, which reduces contention and improves performance. You can scale the system out by adding further shards that run on additional servers.
 
-Наиболее важным фактором при реализации этой стратегии секционирования является выбор ключа сегментирования. Может быть трудно изменить ключ после начала работы системы. Ключ должен гарантировать, что данные секционированы таким образом, чтобы рабочая нагрузка была распределена по сегментам максимально равномерно.
+The most important factor when implementing this partitioning strategy is the choice of sharding key. It can be difficult to change the key after the system is in operation. The key must ensure that data is partitioned so that the workload is as even as possible across the shards.
 
-Обратите внимание, что разные сегменты необязательно должны содержать сходные объемы данных. Гораздо важнее сбалансировать количество запросов. Некоторые сегменты, возможно, будут очень большими, но элементы в них могут редко использоваться. Другие сегменты будут меньше, но данные в них могут использоваться чаще. Также важно убедиться, что один сегмент не превышает предел масштабирования (с точки зрения емкости и ресурсов обработки) хранилища данных, используемого для размещения этого сегмента.
+Note that different shards do not have to contain similar volumes of data. Rather, the more important consideration is to balance the number of requests. Some shards might be very large, but each item is the subject of a low number of access operations. Other shards might be smaller, but each item is accessed much more frequently. It is also important to ensure that a single shard does not exceed the scale limits (in terms of capacity and processing resources) of the data store that's being used to host that shard.
 
-При использовании схемы сегментирования следует избегать возникновения горячих точек (или горячих секций), которые могут повлиять на производительность и доступность. Например, если использовать хэш идентификатора клиента вместо первой буквы имени клиента, можно предотвратить несбалансированное распределение, которое возникнет из-за неоднородной частоты использования начальных букв. Это типичный способ, позволяющий более равномерно распределить данные по секциям.
+If you use a sharding scheme, avoid creating hotspots (or hot partitions) that can affect performance and availability. For example, if you use a hash of a customer identifier instead of the first letter of a customer’s name, you prevent the unbalanced distribution that results from common and less common initial letters. This is a typical technique that helps distribute data more evenly across partitions.
 
-Выберите ключ сегментирования, который сводит к минимуму любые будущие требования разбить большие сегменты на более мелкие части, объединить небольшие сегменты в секции большего размера или изменить схему, которая описывает данные, хранящиеся в наборе секций. Эти операции могут занять очень много времени и потребовать отключения одного или нескольких сегментов во время их выполнения.
+Choose a sharding key that minimizes any future requirements to split large shards into smaller pieces, coalesce small shards into larger partitions, or change the schema that describes the data stored in a set of partitions. These operations can be very time consuming, and might require taking one or more shards offline while they are performed.
 
-Если сегменты реплицируются, можно оставить некоторые реплики в рабочем режиме во время разделения, слияния или перенастройки других реплик. Но система может ограничить операции, выполняемые с данными в этих сегментах во время перенастройки. Например, данные в репликах могут быть помечены как данные только для чтения, чтобы ограничить объем несоответствий, которые возникают во время реструктуризации сегментов.
+If shards are replicated, it might be possible to keep some of the replicas online while others are split, merged, or reconfigured. However, the system might need to limit the operations that can be performed on the data in these shards while the reconfiguration is taking place. For example, the data in the replicas can be marked as read-only to limit the scope of inconsistences that might occur while shards are being restructured.
 
-> Более подробные сведения и рекомендации по этим вопросам, как и по рекомендуемым методам проектирования хранилищ данных, которые реализуют горизонтальное секционирование, см. в разделе [Sharding pattern (Шаблон сегментирования)].
+> For more detailed information and guidance about many of these considerations, and good practice techniques for designing data stores that implement horizontal partitioning, see [Sharding pattern].
 
-### Вертикальное секционирование
+### <a name="vertical-partitioning"></a>Vertical partitioning
 
-Вертикальное секционирование наиболее часто используется для сокращения операций ввода-вывода и расходов на производительность, связанных с выборкой наиболее часто используемых элементов. На рисунке 2 показан пример вертикального секционирования. В этом примере разные свойства для каждого элемента данных хранятся в разных секциях. В одной секции хранятся данные, используемые чаще всего, например имя, описание и сведения о ценах на продукты. В другой содержатся данные о количестве на складе и дате последнего заказа.
+The most common use for vertical partitioning is to reduce the I/O and performance costs associated with fetching the items that are accessed most frequently. Figure 2 shows an example of vertical partitioning. In this example, different properties for each data item are held in different partitions. One partition holds data that is accessed more frequently, including the name, description, and price information for products. Another holds the volume in stock and the last ordered date.
 
-![Вертикальное секционирование данных по шаблону использования](media/best-practices-data-partitioning/DataPartitioning02.png)
+![Vertically partitioning data by its pattern of use](media/best-practices-data-partitioning/DataPartitioning02.png)
 
-_Рис. 2. Вертикальное секционирование данных по шаблону использования_
+_Figure 2. Vertically partitioning data by its pattern of use_
 
-В этом примере приложение регулярно запрашивает имя, описание и цену продукта при отображении подробных сведений о продукте для клиента. Такие данные, как количество продукта на складе и дата последнего заказа у производителя, хранятся в отдельной секции, так как эти два элемента часто используются совместно.
+In this example, the application regularly queries the product name, description, and price when displaying the product details to customers. The stock level and date when the product was last ordered from the manufacturer are held in a separate partition because these two items are commonly used together.
 
-Эта схема секционирования имеет то дополнительное преимущество, что относительно медленно изменяющиеся данные (название, описание и цена продукта) отделены от более динамически меняющихся данных (количество продукта на складе и дата последнего заказа). Приложение может выиграть, когда изменяющиеся данные медленно кэшируются в памяти, если они часто используются.
+This partitioning scheme has the added advantage that the relatively slow-moving data (product name, description, and price) is separated from the more dynamic data (stock level and last ordered date). An application might find it beneficial to cache the slow-moving data in memory if it is frequently accessed.
 
-Другой типичный сценарий для этой стратегии секционирования — максимальное повышение безопасности конфиденциальных данных. Этого можно добиться, например, храня номера кредитных карт и соответствующие номера проверки безопасности карты в отдельной секции.
+Another typical scenario for this partitioning strategy is to maximize the security of sensitive data. For example, you can do this by storing credit card numbers and the corresponding card security verification numbers in separate partitions.
 
-Вертикальное секционирование может также снизить объем требуемого параллельного доступа к данным.
+Vertical partitioning can also reduce the amount of concurrent access that's needed to the data.
 
-> Вертикальное секционирование работает на уровне сущности в хранилище данных, частично нормализуя сущность и преобразуя ее из _широкого_ элемента в набор _узких_ элементов. Это идеально подходит для хранилищ данных со столбцами, таких как HBase и Cassandra. Если данные в коллекции столбцов меняются редко, также можно использовать хранилища со столбцами в SQL Server.
+> Vertical partitioning operates at the entity level within a data store, partially normalizing an entity to break it down from a _wide_ item to a set of _narrow_ items. It is ideally suited for column-oriented data stores such as HBase and Cassandra. If the data in a collection of columns is unlikely to change, you can also consider using column stores in SQL Server.
 
-### Функциональное секционирование
+### <a name="functional-partitioning"></a>Functional partitioning
 
-Для систем, где можно идентифицировать связанный контекст для каждой области бизнеса или службы в приложении, функциональное секционирование предоставляет способ повышения изоляции и скорости доступа к данным. Кроме этого, функциональное секционирование обычно используется для разделения данных для чтения и записи от данных только для чтения, используемых для составления отчетов. На рисунке 3 представлен обзор функционального секционирования, где инвентаризации отделены от данных клиентов.
+For systems where it is possible to identify a bounded context for each distinct business area or service in the application, functional partitioning provides a technique for improving isolation and data access performance. Another common use of functional partitioning is to separate read-write data from read-only data that's used for reporting purposes. Figure 3 shows an overview of functional partitioning where inventory data is separated from customer data.
 
-![Функциональное секционирование данных по связанному контексту или дочернему домену](media/best-practices-data-partitioning/DataPartitioning03.png)
+![Functionally partitioning data by bounded context or subdomain](media/best-practices-data-partitioning/DataPartitioning03.png)
 
-_Рис. 3. Функциональное секционирование данных по связанному контексту или дочернему домену_
+_Figure 3. Functionally partitioning data by bounded context or subdomain_
 
-Эта стратегия секционирования может помочь уменьшить количество конфликтов доступа к данным в различных частях системы.
+This partitioning strategy can help reduce data access contention across different parts of a system.
 
-## Проектирование секций для масштабируемости
+## <a name="designing-partitions-for-scalability"></a>Designing partitions for scalability
 
-Важно учитывать размер и рабочую нагрузку каждой секции и равномерно распределять данные для достижения максимальной масштабируемости. Тем не менее необходимо все же секционировать данные так, чтобы не превысить ограничения масштабирования одной секции хранилища.
+It's vital to consider size and workload for each partition and balance them so that data is distributed to achieve maximum scalability. However, you must also partition the data so that it does not exceed the scaling limits of a single partition store.
 
-При создании секций для масштабируемости выполните приведенные далее действия.
+Follow these steps when designing partitions for scalability:
 
-1. Проанализируйте приложение, чтобы понять шаблоны доступа к данным, такие как размер результирующего набора, возвращаемого каждым запросом, частота доступа, встречающиеся задержки и требования к вычислительной обработке на стороне сервера. Во многих случаях несколько основных сущностей потребуют большую часть вычислительных ресурсов.
-2. На основе анализа определите текущие и будущие целевые показатели масштабируемости, такие как размер данных и рабочая нагрузка. Затем распределите данные по секциям в соответствии с целевыми показателями масштабируемости. В горизонтальной стратегии секционирования выбор соответствующего ключа сегмента важен для обеспечения равномерного распределения. Дополнительные сведения см. в разделе [Sharding pattern (Шаблон сегментирования)].
-3. Убедитесь в том, что каждой секции предоставлено достаточно ресурсов для достижения требований масштабируемости с точки зрения размера данных и пропускной способности. Например, узел, где размещается секция, может накладывать жесткое ограничение на объем для хранения, объем обработки или пропускную способность сети, которые он предоставляет. Если требования к хранению и обработке данных, скорее всего, превысят эти пределы, возможно, вам придется пересмотреть стратегию секционирования или дополнительно разделить данные. Например, можно использовать такой подход к масштабированию: отделить данные журналов от основных функций приложения. Для этого следует использовать отдельные хранилища, чтобы общие требования хранилища данных не превышали предел масштабирования узла. Если общее число хранилищ данных превышает ограничение узла, может потребоваться использование отдельных узлов хранилища.
-4. Понаблюдайте за используемой системой, чтобы убедиться, что данные распределяются ожидаемым образом и секции справляются со своей нагрузкой. Есть вероятность, что фактические результаты использования не будут совпадать с данными анализа. В этом случае можно повторно сбалансировать секции. Если это не дало результата, может потребоваться изменить некоторые компоненты системы, чтобы получить необходимый баланс.
+1. Analyze the application to understand the data access patterns, such as the size of the result set returned by each query, the frequency of access, the inherent latency, and the server-side compute processing requirements. In many cases, a few major entities will demand most of the processing resources.
+2. Use this analysis to determine the current and future scalability targets, such as data size and workload. Then distribute the data across the partitions to meet the scalability target. In the horizontal partitioning strategy, choosing the appropriate shard key is important to make sure distribution is even. For more information, see the [Sharding pattern].
+3. Make sure that the resources available to each partition are sufficient to handle the scalability requirements in terms of data size and throughput. For example, the node that's hosting a partition might impose a hard limit on the amount of storage space, processing power, or network bandwidth that it provides. If the data storage and processing requirements are likely to exceed these limits, it might be necessary to refine your partitioning strategy or split data out further. For example, one scalability approach might be to separate logging data from the core application features. You do this by using separate data stores to prevent the total data storage requirements from exceeding the scaling limit of the node. If the total number of data stores exceeds the node limit, it might be necessary to use separate storage nodes.
+4. Monitor the system under use to verify that the data is distributed as expected and that the partitions can handle the load that is imposed on them. It's possible that the usage does not match the usage that's anticipated by the analysis. In that case, it might be possible to rebalance the partitions. Failing that, it might be necessary to redesign some parts of the system to gain the required balance.
 
-Обратите внимание, что некоторые облачные среды распределяют ресурсы по границам инфраструктуры. Следует убедиться, что ограничения выбранной границы предоставляют достаточно места для любого ожидаемого роста объема данных с точки зрения хранилища данных, вычислительной мощности и пропускной способности.
+Note that some cloud environments allocate resources in terms of infrastructure boundaries. Ensure that the limits of your selected boundary provide enough room for any anticipated growth in the volume of data, in terms of data storage, processing power, and bandwidth.
 
-Например, при использовании хранилища таблиц Azure занятый сегмент может потребовать больше ресурсов, чем доступно отдельным секциям для обработки запросов. (Существует ограничение на объем запросов, которые могут обрабатываться одним разделом в определенный период времени. Дополнительные сведения см. на странице [Целевые показатели масштабируемости и производительности службы хранилища Azure] на веб-сайте Майкрософт.)
+For example, if you use Azure table storage, a busy shard might require more resources than are available to a single partition to handle requests. (There is a limit to the volume of requests that can be handled by a single partition in a particular period of time. See the page [Azure storage scalability and performance targets] on the Microsoft website for more details.)
 
- В этом случае можно повторно секционировать сегмент, чтобы распределить нагрузку. Если общий размер или пропускная способность этих таблиц превышают емкость учетной записи хранения, возможно, потребуется создать дополнительные учетные записи хранения и распределить таблицы по этим учетным записям. Если число учетных записей хранения превышает количество доступных для подписки, возможно, потребуется использовать несколько подписок.
+ If this is the case, the shard might need to be repartitioned to spread the load. If the total size or throughput of these tables exceeds the capacity of a storage account, it might be necessary to create additional storage accounts and spread the tables across these accounts. If the number of storage accounts exceeds the number of accounts that are available to a subscription, then it might be necessary to use multiple subscriptions.
 
-## Проектирование секций для повышения производительности запросов
+## <a name="designing-partitions-for-query-performance"></a>Designing partitions for query performance
 
-Производительность запросов часто можно увеличить путем использования небольших наборов данных и параллельного выполнения запросов. Каждая секция должна содержать небольшую часть всего набора данных. Такое уменьшение объема может повысить производительность запросов. Тем не менее секционирование не является альтернативой правильной разработке и настройке базы данных. Например, необходимо убедиться в том, что присутствуют все необходимые индексы, если вы используете реляционную базу данных.
+Query performance can often be boosted by using smaller data sets and by running parallel queries. Each partition should contain a small proportion of the entire data set. This reduction in volume can improve the performance of queries. However, partitioning is not an alternative for designing and configuring a database appropriately. For example, make sure that you have the necessary indexes in place if you are using a relational database.
 
-При создании секций для производительности запросов выполните приведенные далее действия.
+Follow these steps when designing partitions for query performance:
 
-1. Изучите требования и производительность приложения.
-	- Используйте бизнес-требования, чтобы определить важные запросы, которые всегда должны выполняться быстро.
-	- Отслеживайте состояния системы, чтобы выявить любые медленно выполняемые запросы.
-	- Установите, какие запросы выполняются наиболее часто. Один экземпляр каждого запроса может иметь минимальный вес, но совокупное потребление ресурсов может быть значительным. Возможно, полезно будет выделить данные, полученные этими запросами, в отдельную секцию или даже в кэш.
-2. Разделите данные, которые вызывают снижение производительности.
-	- Ограничьте размер каждой секции, чтобы время отклика запроса оставалось в пределах целевого значения.
-	- Создайте ключ сегментирования таким образом, чтобы приложение могло легко находить секцию, если вы реализуете горизонтальное секционирование. Так запросу не потребуется проверять каждую секцию.
-	- Учитывайте влияние расположения секции. Если это возможно, старайтесь хранить данные в секциях, географически близких к использующим их приложениям и пользователям.
-3. Если у сущности есть требования к пропускной способности и запросам, используйте функциональное секционирование на основе этой сущности. Если по-прежнему не удается удовлетворить требования, примените также горизонтальное секционирование. В большинстве случаев будет достаточно одной стратегии секционирования, но в некоторых случаях более эффективно будет объединить обе стратегии.
-4. Для повышения производительности рекомендуется использовать асинхронные запросы, которые выполняются параллельно по секциям.
+1. Examine the application requirements and performance:
+    - Use the business requirements to determine the critical queries that must always perform quickly.
+    - Monitor the system to identify any queries that perform slowly.
+    - Establish which queries are performed most frequently. A single instance of each query might have minimal cost, but the cumulative consumption of resources could be significant. It might be beneficial to separate the data that's retrieved by these queries into a distinct partition, or even a cache.
+2. Partition the data that is causing slow performance:
+    - Limit the size of each partition so that the query response time is within target.
+    - Design the shard key so that the application can easily find the partition if you are implementing horizontal partitioning. This prevents the query from having to scan through every partition.
+    - Consider the location of a partition. If possible, try to keep data in partitions that are geographically close to the applications and users that access it.
+3. If an entity has throughput and query performance requirements, use functional partitioning based on that entity. If this still doesn't satisfy the requirements, apply horizontal partitioning as well. In most cases a single partitioning strategy will suffice, but in some cases it is more efficient to combine both strategies.
+4. Consider using asynchronous queries that run in parallel across partitions to improve performance.
 
-## Проектирование секций для увеличения доступности
+## <a name="designing-partitions-for-availability"></a>Designing partitions for availability
 
-Секционирование данных может повысить доступность приложений за счет того, что весь набор данных не составляет единственную точку отказа и что отдельными подмножествами набора данных можно управлять независимо друг от друга. Доступность можно также повысить за счет репликации секций, содержащих важные данные.
+Partitioning data can improve the availability of applications by ensuring that the entire dataset does not constitute a single point of failure and that individual subsets of the dataset can be managed independently. Replicating partitions that contain critical data can also improve availability.
 
-При разработке и реализации секций учитывайте следующие факторы, влияющие на доступность.
+When designing and implementing partitions, consider the following factors that affect availability:
 
-- **Степень важности данных для бизнес-операций**. Некоторые данные могут представлять собой важные для бизнеса сведения, например сведения о счетах или о банковских переводах. Другие данные могут быть менее важными рабочими данными, такими как файлы журнала, трассировка производительности и т. д. После определения каждого типа данных подумайте о следующем.
-	- Можно хранить критически важные данные в секциях высокой доступности с соответствующим планом архивации.
-	- Можно установить отдельные механизмы или процедуры управления и мониторинга для различных степеней важности каждого набора данных. Можно разместить данные с одинаковым уровнем важности в одной секции, чтобы их можно было архивировать с соответствующей частотой. Например, для секций, содержащих данные о банковских переводах, архивация может требоваться чаще, чем для секций, содержащих данные журналов или трассировки.
-- **Как можно управлять отдельными секциями**. Проектирование секций с поддержкой независимых управления и обслуживания обеспечивает ряд преимуществ. Например:
-	- Если в секции происходит сбой, ее можно восстановить независимо, не затрагивая экземпляры приложений, работающих с данными в других секциях.
-	- Секционирование данных по географическому региону позволит запускать запланированные задачи по обслуживанию в непиковые часы для каждого расположения. Убедитесь, что секции не слишком велики и их размер не помешает завершить запланированное обслуживание в течение этого периода.
-- **Подумайте, следует ли реплицировать критически важные данные по секциям**. Эта стратегия может повысить доступность и производительность, хотя она также может вызвать проблемы согласованности. Для синхронизации изменения данных в секции с каждой репликой требуется время. В течение этого времени различные секции будут содержать разные значения данных.
+- **How critical the data is to business operations**. Some data might include critical business information such as invoice details or bank transactions. Other data might include less critical operational data, such as log files, performance traces, and so on. After identifying each type of data, consider:
+    - Storing critical data in highly-available partitions with an appropriate backup plan.
+    - Establishing separate management and monitoring mechanisms or procedures for the different criticalities of each dataset. Place data that has the same level of criticality in the same partition so that it can be backed up together at an appropriate frequency. For example, partitions that hold data for bank transactions might need to be backed up more frequently than partitions that hold logging or trace information.
+- **How individual partitions can be managed**. Designing partitions to support independent management and maintenance provides several advantages. For example:
+    - If a partition fails, it can be recovered independently without affecting instances of applications that access data in other partitions.
+    - Partitioning data by geographical area allows scheduled maintenance tasks to occur at off-peak hours for each location. Ensure that partitions are not too big to prevent any planned maintenance from being completed during this period.
+- **Whether to replicate critical data across partitions**. This strategy can improve availability and performance, although it can also introduce consistency issues. It takes time for changes made to data in a partition to be synchronized with every replica. During this period, different partitions will contain different data values.
 
-## Сведения о влиянии секционирования на проектирование и разработку
+## <a name="understanding-how-partitioning-affects-design-and-development"></a>Understanding how partitioning affects design and development
 
-Использование секционирования усложняет проектирование и разработку системы. Секционирование следует рассматривать как основную часть разработки системы, даже если система изначально содержит только одну секцию. Обращение к секционированию как к методу решения проблем с производительностью и масштабируемостью системы, возникших после ее запуска, приведет к повышению сложности, так как у вас уже есть действующая система, которую нужно поддерживать.
+Using partitioning adds complexity to the design and development of your system. Consider partitioning as a fundamental part of system design even if the system initially only contains a single partition. If you address partitioning as an afterthought, when the system starts to suffer performance and scalability issues, the complexity increases because you already have a live system to maintain.
 
-Обновление системы для включения секционирования в этой среде требует не только изменения логики доступа к данным. Оно также может привести к миграции большого количества существующих данных, которые необходимо распределить по секциям. При этом пользователи хотят иметь возможность по-прежнему использовать систему.
+If you update the system to incorporate partitioning in this environment, it necessitates modifying the data access logic. It can also involve migrating large quantities of existing data to distribute it across partitions, often while users expect to be able to continue using the system.
 
-В некоторых случаях секционирование не считается важным, так как исходный набор данных небольшой и легко обрабатывается на одном сервере. Это может быть справедливо, если в системе не планируется масштабирование свыше начального размера, но многим коммерческим системам требуется возможность расширения по мере увеличения числа пользователей. Это расширение обычно сопровождается увеличением объема данных.
+In some cases, partitioning is not considered important because the initial dataset is small and can be easily handled by a single server. This might be true in a system that is not expected to scale beyond its initial size, but many commercial systems need to expand as the number of users increases. This expansion is typically accompanied by a growth in the volume of data.
 
-Следует также понимать, что секционирование не всегда связано с хранилищами больших объемов данных. Например, небольшое хранилище данных могут использовать сотни параллельных клиентов. Секционирование данных в этой ситуации может помочь уменьшить количество конфликтов и повысить пропускную способность.
+It's also important to understand that partitioning is not always a function of large data stores. For example, a small data store might be heavily accessed by hundreds of concurrent clients. Partitioning the data in this situation can help to reduce contention and improve throughput.
 
-При разработке схемы секционирования данных учитывайте следующие моменты.
+Consider the following points when you design a data partitioning scheme:
 
-- **По возможности храните данные для наиболее распространенных операций базы данных вместе в каждой секции, чтобы свести к минимуму операции доступа к данным из разных секций**. Запросы к разным секциям могут занимать больше времени, чем отправка запросов в рамках одной секции, но оптимизация секций для одного набора запросов может неблагоприятно повлиять на другие наборы запросов. Чтобы свести к минимуму время запроса к разным секциям там, где этого не избежать, реализуйте параллельные запросы к секциям и статистическую обработку результатов в приложении. Однако такой подход может оказаться невозможным в некоторых случаях, например, когда это необходимо, чтобы получить результат из одного запроса и использовать его в следующем запросе.
-- **Если запросы используют относительно статические справочные данные, например таблицы почтовых индексов или списки продуктов, подумайте о репликации этих данных во всех секциях, чтобы снизить потребность в отдельных операциях уточняющих запросов в другие секции**. Этот подход также может уменьшить вероятность того, что справочные данные станут "горячим" набором данных, который подвергается значительному трафику из всех точек системы. Однако существуют дополнительные затраты, связанные с синхронизацией любых изменений этих справочных данных.
-- **По возможности сведите к минимуму требования для обеспечения целостности данных для вертикальных и функциональных секций**. В этих схемах само приложение отвечает за обеспечение целостности данных в секциях, когда данные обновляются и потребляются. Запросы, которые должны объединить данные из нескольких секций, выполняются медленнее, чем запросы, которые объединяют данные только из одной секции, поскольку приложению обычно требуется выполнить последовательные запросы на основе ключа, а затем на основе внешнего ключа. Вместо этого рассмотрите возможность репликации или денормализации соответствующих данных. Чтобы свести к минимуму время запроса там, где необходимы соединения между секциями, реализуйте параллельные запросы из разных секций и объединение данных внутри приложения.
-- **Учитывайте влияние схемы секционирования на согласованность данных в секциях.** Следует оценить, является ли строгое согласование обязательным. Обычно стандартный подход в облаке заключается в реализации окончательной согласованности. Данные в каждой секции обновляются отдельно, а логика приложения может нести ответственность за обеспечение успешного завершения обновлений. Она также обрабатывает несоответствия, которые могут возникнуть после запроса данных во время выполнения операции согласования. Дополнительные сведения о реализации окончательной согласованности см. в [руководстве по согласованности].
-- **Подумайте, как запросы будут находить правильную секцию**. Если запрос должен сканировать все секции, чтобы найти требуемые данные, это сильно повлияет на производительность даже при выполнении нескольких параллельных запросов. Запросы, используемые с вертикальной и функциональной стратегиями секционирования, могут естественным образом указывать секции. Однако при использовании горизонтального секционирования (сегментирования) поиск элемента может быть затруднен, так как каждый сегмент имеет ту же схему. Стандартное решение для сегментирования — поддерживать карту, которую можно использовать для поиска определенных элементов данных в сегменте. Эту карту можно реализовать в логике сегментирования приложения или поддерживать в хранилище данных, если оно поддерживает прозрачное сегментирование.
-- **При использовании стратегии горизонтального секционирования рекомендуется периодически балансировать нагрузку сегментов**. Это позволит равномерно распределять данные по размеру и рабочей нагрузке и свести к минимуму горячие точки, повысить производительность выполнения запросов и обойти ограничения физического хранилища. Однако это сложная задача, которая часто требует использования пользовательских средств или процессов.
-- **Репликация каждой из секций обеспечивает дополнительную защиту от сбоев**. В случае сбоя одной реплики запросы могут направляться на рабочую копию.
-- **При достижении физических ограничений стратегии секционирования может потребоваться расширить масштабируемость до другого уровня**. Например, если секционирование находится на уровне базы данных, может потребоваться разместить или реплицировать секции в нескольких базах данных. Если секционирование уже находится на уровне базы данных и физические ограничения стали проблемой, это может означать необходимость размещения или репликации секций в нескольких учетных записях.
-- **Избегайте транзакций, осуществляющих доступ к данным в нескольких секциях**. Некоторые хранилища данных реализуют согласованность и целостность транзакций для операций, которые изменяют данные, но только в том случае, когда они находятся в одной секции. Если требуется поддержка транзакций с использованием нескольких секций, возможно, потребуется реализовать это как часть логики приложения, поскольку большая часть систем секционирования не обеспечивает встроенную поддержку.
+- **Where possible, keep data for the most common database operations together in each partition to minimize cross-partition data access operations**. Querying across partitions can be more time-consuming than querying only within a single partition, but optimizing partitions for one set of queries might adversely affect other sets of queries. When you can't avoid querying across partitions, minimize query time by running parallel queries and aggregating the results within the application. This approach might not be possible in some cases, such as when it's necessary to obtain a result from one query and use it in the next query.
+- **If queries make use of relatively static reference data, such as postal code tables or product lists, consider replicating this data in all of the partitions to reduce the requirement for separate lookup operations in different partitions**. This approach can also reduce the likelihood of the reference data becoming a "hot" dataset that is subject to heavy traffic from across the entire system. However,   there is an additional cost associated with synchronizing any changes that might occur to this reference data.
+- **Where possible, minimize requirements for referential integrity across vertical and functional partitions**. In these schemes, the application itself is responsible for maintaining referential integrity across partitions when data is updated and consumed. Queries that must join data across multiple partitions run more slowly than queries that join data only within the same partition because the application typically needs to perform consecutive queries based on a key and then on a foreign key. Instead, consider replicating or de-normalizing the relevant data. To minimize the query time where cross-partition joins are necessary, run parallel queries over the partitions and join the data within the application.
+- **Consider the effect that the partitioning scheme might have on the data consistency across partitions.** Evaluate whether strong consistency is actually a requirement. Instead, a common approach in the cloud is to implement eventual consistency. The data in each partition is updated separately, and the application logic ensures that the updates are all completed successfully. It also handles the inconsistencies that can arise from querying data while an eventually consistent operation is running. For more information about implementing eventual consistency, see the [Data consistency primer].
+- **Consider how queries locate the correct partition**. If a query must scan all partitions to locate the required data, there is a significant impact on performance, even when multiple parallel queries are running. Queries that are used with vertical and functional partitioning strategies can naturally specify the partitions. However, horizontal partitioning (sharding) can make locating an item difficult because every shard has the same schema. A typical solution for sharding is to maintain a map that can be used to look up the shard location for specific items of data. This map can be implemented in the sharding logic of the application, or maintained by the data store if it supports transparent sharding.
+- **When using a horizontal partitioning strategy, consider periodically rebalancing the shards**. This helps distribute the data evenly by size and by workload to minimize hotspots, maximize query performance, and work around physical storage limitations. However, this is a complex task that often requires the use of a custom tool or process.
+- **If you replicate each partition, it provides additional protection against failure**. If a single replica fails, queries can be directed towards a working copy.
+- **If you reach the physical limits of a partitioning strategy, you might need to extend the scalability to a different level**. For example, if partitioning is at the database level, you might need to locate or replicate partitions in multiple databases. If partitioning is already at the database level, and physical limitations are an issue, it might mean that you need to locate or replicate partitions in multiple hosting accounts.
+- **Avoid transactions that access data in multiple partitions**. Some data stores implement transactional consistency and integrity for operations that modify data, but only when the data is located in a single partition. If you need transactional support across multiple partitions, you will probably need to implement this as part of your application logic because most partitioning systems do not provide native support.
 
-Все хранилища данных требуют некоторого оперативного управления и наблюдения за активностью. Задачи могут варьироваться от загрузки данных, резервного копирования и восстановления данных до реорганизации данных и обеспечения правильной и эффективной работы системы.
+All data stores require some operational management and monitoring activity. The tasks can range from loading data, backing up and restoring data, reorganizing data, and ensuring that the system is performing correctly and efficiently.
 
-Учитывайте следующие факторы, влияющие на оперативное управление.
+Consider the following factors that affect operational management:
 
-- **Как при секционировании данных реализовать соответствующее управление и рабочие задачи**. В число этих задач могут входить архивация и восстановление, архивация данных, мониторинг системы и других задач администрирования. Например, сохранение логического соответствия во время операций резервного копирования и восстановления может оказаться непростой задачей.
-- **Как можно загружать данные в несколько секций и как добавлять новые данные, поступающие из других источников**. Некоторые средства и служебные программы могут не поддерживать операции с сегментированными данными, например загрузку в нужную секцию. Поэтому такие операции могут потребовать создания или приобретения новых средств и служебных программ.
-- **Как будут архивироваться и удаляться данные на регулярной основе**. Для предотвращения чрезмерного увеличения размера секций необходимо регулярно архивировать и обновлять данные (возможно, раз в месяц). Очевидно, потребуется преобразовать данные, чтобы обеспечить соответствие другой схеме архивирования.
-- **Как обнаруживать проблемы целостности данных**. Рассмотрите возможность выполнения периодического процесса для обнаружения любых проблем целостности данных, например, когда данные в одной секции ссылаются на данные в другой, но эти данные отсутствуют. Процесс может либо попытаться устранить эти проблемы автоматически, либо создать оповещение оператора для устранения неполадок вручную. Например, в приложении электронной коммерции сведения о заказах могут храниться в одной секции, а элементы строк, которые составляют каждый заказ, — в другой. В процессе размещения заказа необходимо добавить данные к обеим секциям. Если этот процесс завершается ошибкой, могут быть сохранены элементы строк, для которых отсутствует соответствующий заказ.
+- **How to implement appropriate management and operational tasks when the data is partitioned**. These tasks might include backup and restore, archiving data, monitoring the system, and other administrative tasks. For example, maintaining logical consistency during backup and restore operations can be a challenge.
+- **How to load the data into multiple partitions and add new data that's arriving from other sources**. Some tools and utilities might not support sharded data operations such as loading data into the correct partition. This means that you might have to create or obtain new tools and utilities.
+- **How to archive and delete the data on a regular basis**. To prevent the excessive growth of partitions, you need to archive and delete data on a regular basis (perhaps monthly). It might be necessary to transform the data to match a different archive schema.
+- **How to locate data integrity issues**. Consider running a periodic process to locate any data integrity issues such as data in one partition that references missing information in another. The process can either attempt to fix these issues automatically or raise an alert to an operator to correct the problems manually. For example, in an e-commerce application, order information might be held in one partition but the line items that constitute each order might be held in another. The process of placing an order needs to add data to other partitions. If this process fails, there might be line items stored for which there is no corresponding order.
 
-Разные технологии хранения данных обычно предоставляют свои собственные функции для поддержки секционирования. В следующих разделах рассматриваются возможности, реализуемые хранилищами данных и часто используемые приложениями Azure. В них также содержатся рекомендации по разработке приложений с использованием преимуществ этих функций.
+Different data storage technologies typically provide their own features to support partitioning. The following sections summarize the options that are implemented by data stores commonly used by Azure applications. They also describe considerations for designing applications that can best take advantage of these features.
 
-## Стратегии секционирования для базы данных SQL Azure
+## <a name="partitioning-strategies-for-azure-sql-database"></a>Partitioning strategies for Azure SQL Database
 
-База данных SQL Azure является реляционной базой данных, которая предоставляется как служба, работающая в облаке. Она основана на Microsoft SQL Server. Реляционная база данных делит данные на таблицы, и каждая таблица содержит сведения о сущностях в виде набора строк. Каждая строка содержит столбцы, которые предоставляют данные для отдельных полей сущности. Подробную документацию по созданию и использованию базы данных SQL см. на странице [Что такое база данных SQL Azure] на веб-сайте Майкрософт.
+Azure SQL Database is a relational database-as-a-service that runs in the cloud. It is based on Microsoft SQL Server. A relational database divides information into tables, and each table holds information about entities as a series of rows. Each row contains columns that hold the data for the individual fields of an entity. The page [What is Azure SQL Database?] on the Microsoft website provides detailed documentation about creating and using SQL databases.
 
-## Горизонтальное секционирование с использованием эластичной базы данных
+## <a name="horizontal-partitioning-with-elastic-database"></a>Horizontal partitioning with Elastic Database
 
-Одна база данных SQL имеет ограничение на объем содержащихся в ней данных. Пропускная способность ограничена архитектурными факторами и числом поддерживаемых одновременных подключений. База данных SQL Azure предоставляет эластичную базу данных для поддержки горизонтального масштабирования базы данных SQL. С помощью эластичной базы данных вы можете секционировать данные в сегменты, которые распределены между несколькими базами данных SQL. Можно также добавлять или удалять сегменты по мере роста или уменьшения объема обрабатываемых данных. Кроме того, использование эластичной базы данных помогает уменьшить количество конфликтов за счет распределения нагрузки между базами данных.
+A single SQL database has a limit to the volume of data that it can contain. Throughput is constrained by architectural factors and the number of concurrent connections that it supports. The Elastic Database feature of SQL Database supports horizontal scaling for a SQL database. Using Elastic Database, you can partition your data into shards that are spread across multiple SQL databases. You can also add or remove shards as the volume of data that you need to handle grows and shrinks. Using Elastic Database can also help reduce contention by distributing the load across databases.
 
-> [AZURE.NOTE] Эластичная база данных заменяет федерации базы данных SQL Azure. Установленную федерацию базы данных SQL можно перенести в эластичную базу данных с помощью программы миграции федераций. Кроме того, вы можете реализовать собственный механизм сегментирования, если ваш сценарий не использует естественным образом функции, предоставляемые эластичной базой данных.
+> [AZURE.NOTE] Elastic Database is a replacement for the Federations feature of Azure SQL Database. Existing SQL Database Federation installations can be migrated to Elastic Database by using the Federations migration utility. Alternatively, you can implement your own sharding mechanism if your scenario does not lend itself naturally to the features that are provided by Elastic Database.
 
-Каждый сегмент реализуется как база данных SQL. Сегмент может содержать более одного набора данных (называемого _шардлетом_). Каждая база данных хранит метаданные, которые описывают содержащиеся в ней шардлеты. Шардлет может быть отдельным элементом данных или группой элементов, которые совместно используют один и тот же ключ шардлета. Например, если вы сегментируете данные в приложении с несколькими клиентами, ключом шардлета может быть идентификатор клиента, и все данные для данного клиента будут храниться в рамках одного шардлета. Данные для других клиентов будут храниться в других шардлетах.
+Each shard is implemented as a SQL database. A shard can hold more than one dataset (referred to as a _shardlet_). Each database maintains metadata that describes the shardlets that it contains. A shardlet can be a single data item, or it can be a group of items that share the same shardlet key. For example, if you are sharding data in a multitenant application, the shardlet key can be the tenant ID, and all data for a given tenant can be held as part of the same shardlet. Data for other tenants would be held in different shardlets.
 
-Программист должен связать набор данных с ключом шардлета. Отдельная база данных SQL выступает в роли глобального диспетчера сопоставления сегментов. Эта база данных содержит список всех сегментов и шардлетов в системе. Клиентское приложение, которое обращается к данным, сначала подключается к базе данных глобального диспетчера сопоставления сегментов для получения копии карты сегментов (списка сегментов и шардлетов), которую оно кэширует локально.
+It is the programmer's responsibility to associate a dataset with a shardlet key. A separate SQL database acts as a global shard map manager. This database contains a list of all the shards and shardlets in the system. A client application that accesses data connects first to the global shard map manager database to obtain a copy of the shard map (listing shards and shardlets), which it then caches locally.
 
-Затем приложение использует эти сведения для направления запросов данных к соответствующему сегменту. Эта функциональность скрыта за рядом API-интерфейсов, содержащихся в клиентской библиотеке эластичной базы данных базы данных SQL Azure, доступной в виде пакета NuGet. Дополнительные сведения об эластичной базе данных см. на странице [Общие сведения о возможностях эластичных баз данных] на веб-сайте Майкрософт.
+The application then uses this information to route data requests to the appropriate shard. This functionality is hidden behind a series of APIs that are contained in the Azure SQL Database Elastic Database Client Library, which is available as a NuGet package. The page [Elastic Database features overview] on the Microsoft website provides a more comprehensive introduction to Elastic Database.
 
-> [AZURE.NOTE] Можно реплицировать базу данных глобального диспетчера сопоставления сегментов для сокращения задержки и повышения доступности. При реализации базы данных с помощью одной из ценовых категорий "Премиум" можно настроить активную георепликацию для непрерывного копирования данных в базы данных в разных регионах. Создайте копию базы данных в каждом регионе, где есть пользователи. Затем настройте приложение на подключение к этой копии для получения карты сегментов.
+> [AZURE.NOTE] You can replicate the global shard map manager database to reduce latency and improve availability. If you implement the database by using one of the Premium pricing tiers, you can configure active geo-replication to continuously copy data to databases in different regions. Create a copy of the database in each region in which users are based. Then configure your application to connect to this copy to obtain the shard map.
 
-> В качестве альтернативы можно использовать синхронизацию данных SQL Azure или конвейер фабрики данных Azure для репликации базы данных диспетчера сопоставления сегментов по регионам. Эта форма репликации запускается периодически и лучше подходит, если карта сегментов изменяется редко. Кроме того, базу данных диспетчера сопоставления сегментов не обязательно создавать с помощью ценовой категории "Премиум".
+> An alternative approach is to use Azure SQL Data Sync or an Azure Data Factory pipeline to replicate the shard map manager database across regions. This form of replication runs periodically and is more suitable if the shard map changes infrequently. Additionally, the shard map manager database does not have to be created by using a Premium pricing tier.
 
-Эластичная база данных предоставляет две схемы для сопоставления данных и шардлетов и их хранения в сегментах.
+Elastic Database provides two schemes for mapping data to shardlets and storing them in shards:
 
-- **Карта сегментов в виде списка** описывает связь между одним ключом и шардлетом. Например, в мультитенантной системе данные для каждого клиента могут быть связаны с уникальным ключом и храниться в собственном шардлете. Для обеспечения конфиденциальности и изоляции (чтобы предотвратить истощение одним клиентом ресурсов хранилища данных, доступных другим пользователям) каждый шардлет может храниться в собственном сегменте.
+- A **list shard map** describes an association between a single key and a shardlet. For example, in a multitenant system, the data for each tenant can be associated with a unique key and stored in its own shardlet. To guarantee privacy and isolation (that is, to prevent one tenant from exhausting the data storage resources available to others), each shardlet can be held within its own shard.
 
-![Использование карты сегментов в виде списка для хранения данных клиента в отдельных сегментах](media/best-practices-data-partitioning/PointShardlet.png)
+![Using a list shard map to store tenant data in separate shards](media/best-practices-data-partitioning/PointShardlet.png)
 
-_Рис. 4. Использование карты сегментов в виде списка для хранения данных клиента в отдельных сегментах_
+_Figure 4. Using a list shard map to store tenant data in separate shards_
 
-- **Карта сегментов в виде диапазона** описывает связь между набором непрерывных значений ключа и шардлетом. В описанном ранее примере многопользовательской системы в качестве альтернативы реализации выделенных шардлетов можно группировать данные для набора клиентов (каждый из которых имеет собственный ключ) в пределах одного шардлета. Эта схема дешевле первой (клиенты совместно используют ресурсы хранилища данных), но есть риск снижения конфиденциальности и изоляции данных.
+- A **range shard map** describes an association between a set of contiguous key values and a shardlet. In the multitenant example described previously, as an alternative to implementing dedicated shardlets, you can group the data for a set of tenants (each with their own key) within the same shardlet. This scheme is less expensive than the first (because tenants share data storage resources), but it also creates a risk of reduced data privacy and isolation.
 
-![Использование карты сегментов в виде диапазона для хранения данных диапазона клиентов в сегменте](media/best-practices-data-partitioning/RangeShardlet.png)
+![Using a range shard map to store data for a range of tenants in a shard](media/best-practices-data-partitioning/RangeShardlet.png)
 
-_Рис. 5. Использование карты сегментов в виде диапазона для хранения данных диапазона клиентов в сегменте_
+_Figure 5. Using a range shard map to store data for a range of tenants in a shard_
 
-Обратите внимание, что один сегмент может содержать данные для нескольких шардлетов. Например, можно использовать шардлеты в виде списка для хранения данных разных несмежных клиентов в одном сегменте. Можно также смешивать шардлеты в виде диапазона и шардлеты в виде списка в одном сегменте несмотря на то, что они будут использоваться через разные карты в базе данных глобального диспетчера карт сегментов. (База данных глобального диспетчера карт сегментов может содержать несколько карт сегментов.) Рис. 6 демонстрирует этот подход.
+Note that a single shard can contain the data for several shardlets. For example, you can use list shardlets to store data for different non-contiguous tenants in the same shard. You can also mix range shardlets and list shardlets in the same shard, although they will be addressed through different maps in the global shard map manager database. (The global shard map manager database can contain multiple shard maps.) Figure 6 depicts this approach.
 
-![Реализация нескольких карт сегментов](media/best-practices-data-partitioning/MultipleShardMaps.png)
+![Implementing multiple shard maps](media/best-practices-data-partitioning/MultipleShardMaps.png)
 
-_Рис. 6. Реализация нескольких карт сегментов_
+_Figure 6. Implementing multiple shard maps_
 
-Реализованная вами схема секционирования может значительно повлиять на производительность системы. Она также влияет на скорость добавления или удаления сегментов и повторного секционирования данных по сегментам. При использовании эластичной базы данных для секционирования данных учитывайте приведенные далее моменты.
+The partitioning scheme that you implement can have a significant bearing on the performance of your system. It can also affect the rate at which shards have to be added or removed, or the rate at which data must be repartitioned across shards. Consider the following points when you use Elastic Database to partition data:
 
-- Группируйте данные, используемые вместе, в одном сегменте и избегайте операций, которым требуется доступ к данным, хранящимся в нескольких сегментах. Имейте в виду, что при использовании эластичной базы данных сегмент сам по себе является базой данных SQL, а база данных SQL Azure не поддерживает межбазовые соединения. Эти операции должны выполняться на стороне клиента. Также следует помнить, что в базе данных SQL Azure ограничения целостности данных, триггеры и хранимые процедуры в одной базе данных не могут ссылаться на объекты в другой. Поэтому не разрабатывайте систему, в которой есть зависимости между сегментами. Однако база данных SQL может включать таблицы, содержащие копии справочных данных, часто используемых в запросах и других операциях. Эти таблицы не всегда принадлежат какому-либо конкретному шардлету. Репликация данных по сегментам поможет устранить необходимость объединения данных, охватывающих базы данных. В идеальном случае такие данные должны быть статическими или медленно изменяющимися, чтобы максимально упростить репликацию и снизить вероятность устаревания изменений.
+- Group data that is used together in the same shard, and avoid operations that need to access data that's held in multiple shards. Keep in mind that with Elastic Database, a shard is a SQL database in its own right, and Azure SQL Database does not support cross-database joins (which have to be performed on the client side). Remember also that in Azure SQL Database, referential integrity constraints, triggers, and stored procedures in one database cannot reference objects in another. Therefore, don't design a system that has dependencies between shards. A SQL database can, however, contain tables that hold copies of reference data frequently used by queries and other operations. These tables do not have to belong to any specific shardlet. Replicating this data across shards can help remove the need to join data that spans databases. Ideally, such data should be static or slow-moving to minimize the replication effort and reduce the chances of it becoming stale.
 
-	> [AZURE.NOTE] Несмотря на то, что база данных SQL Azure не поддерживает межбазовые соединения, API эластичной базы данных позволяет выполнять запросы к нескольким сегментам. Эти запросы обеспечивают прозрачную итерацию данных, содержащихся во всех шардлетах, на которые ссылается карта сегментов. API эластичной базы данных разбивает запросы к нескольким сегментам на ряд отдельных запросов (по одному для каждой базы данных) и объединяет результаты. Дополнительные сведения см. на странице [Многосегментное формирование запросов] на веб-сайте Майкрософт.
+    > [AZURE.NOTE] Although SQL Database does not support cross-database joins, you can perform cross-shard queries with the Elastic Database API. These queries can transparently iterate through the data held in all the shardlets that are referenced by a shard map. The Elastic Database API breaks cross-shard queries down into a series of individual queries (one for each database) and then merges the results. For more information, see the page [Multi-shard querying] on the Microsoft website.
 
-- Данные, хранящиеся в шардлетах, принадлежащих к одной карте сегментов, должны иметь одинаковую схему. Например, не стоит создавать карту сегментов в виде списка, которая указывает на некоторые шардлеты, содержащие данные клиента, и на другие шардлеты, содержащие сведения о продукте. Эластичная база данных не навязывает это правило, но управление данными и запросами становится очень сложным, если у всех шардлетов разные схемы. В приведенном выше примере необходимо создать две карты сегментов в виде списка: одна будет ссылаться на данные клиента, а другая — на сведения о продукте. Помните, что данные, принадлежащие к разным шардлетам, можно хранить в одном сегменте.
+- The data stored in shardlets that belong to the same shard map should have the same schema. For example, don't create a list shard map that points to some shardlets containing tenant data and other shardlets containing product information. This rule is not enforced by Elastic Database, but data management and querying becomes very complex if each shardlet has a different schema. In the example just cited, a good is solution is to create two list shard maps: one that references tenant data and another that points to product information. Remember that the data belonging to different shardlets can be stored in the same shard.
 
-	> [AZURE.NOTE] Функциональность межсегментных запросов в API эластичной базы данных зависит от каждого шардлета в схеме сегментирования, содержащей одну и ту же схему.
+    > [AZURE.NOTE] The cross-shard query functionality of the Elastic Database API depends on each shardlet in the shard map containing the same schema.
 
-- Транзакционные операции поддерживаются только для данных, хранящихся в пределах одного сегмента, но не между сегментами. Транзакции могут охватывать шардлеты при условии, что они являются частью одного сегмента. Таким образом, если вашей бизнес-логике требуется выполнять транзакции, соответствующие данные либо должны храниться в одном сегменте, либо нужно реализовать окончательную согласованность. Дополнительную информацию см. в статье [Data consistency primer (Руководство по согласованности данных)].
-- Размещайте сегменты рядом с пользователями, которые обращаются к данным в этих сегментах (другими словами, выполняйте географическое распределение сегментов). Эта стратегия помогает сократить задержку.
-- Избегайте смешения высокоактивных (горячих) и относительно неактивных сегментов. Попробуйте равномерно распределить нагрузку по сегментам. Это может потребовать хэширования ключей шардлетов.
-- При географическом распределении сегментов убедитесь, что хэшированные ключи соответствуют шардлетам, хранящимся в сегментах, которые находятся рядом с использующими эти данные пользователями.
-- В настоящее время в качестве ключей шардлетов поддерживается только ограниченный набор типов данных SQL: _int, bigint, varbinary,_ и _uniqueidentifier_. Типы SQL _int_ и _bigint_ соответствуют типам данных _int_ и _long_ в C# и имеют такие же диапазоны. Тип SQL _varbinary_ может обрабатываться с помощью массива _Byte_ в C#, а тип SQL _uniqueidentier_ соответствует классу _Guid_ в .NET Framework.
+- Transactional operations are only supported for data that's held within the same shard, and not across shards. Transactions can span shardlets as long as they are part of the same shard. Therefore, if your business logic needs to perform transactions, either store the affected data in the same shard or implement eventual consistency. For more information, see the [Data consistency primer].
+- Place shards close to the users that access the data in those shards (in other words, geo-locate the shards). This strategy helps reduce latency.
+- Avoid having a mixture of highly active (hotspots) and relatively inactive shards. Try to spread the load evenly across shards. This might require hashing the shardlet keys.
+- If you are geo-locating shards, make sure that the hashed keys map to shardlets held in shards stored close to the users that access that data.
+- Currently, only a limited set of SQL data types are supported as shardlet keys; _int, bigint, varbinary,_ and _uniqueidentifier_. The SQL _int_ and _bigint_ types correspond to the _int_ and _long_ data types in C#, and have the same ranges. The SQL _varbinary_ type can be handled by using a _Byte_ array in C#, and the SQL _uniqueidentier_ type corresponds to the _Guid_ class in the .NET Framework.
 
-Как предполагает имя, эластичная база данных позволяет добавлять и удалять сегменты в системе по мере увеличения или уменьшения объема данных. API в клиентской библиотеке эластичной базы данных базы данных SQL Azure позволяют приложению создавать и удалять сегменты динамически (и прозрачно обновлять диспетчер карты сегментов). Однако удаление сегмента является необратимой операцией, в ходе которой также необходимо удалить все данные этого сегмента.
+As the name implies, Elastic Database makes it possible for a system to add and remove shards as the volume of data shrinks and grows. The APIs in the Azure SQL Database Elastic Database client library enable an application to create and delete shards dynamically (and transparently update the shard map manager). However, removing a shard is a destructive operation that also requires deleting all the data in that shard.
 
-Если приложению требуется разбить сегмент на два отдельных сегмента или объединить их, эластичная база данных предоставляет отдельную службу разделения и объединения. Эта служба работает в облачной службе (разработчик должен ее создать) и обеспечивает безопасный перенос данных между сегментами. Дополнительные сведения см. в разделе [Масштабирование с применением средства разбиения и объединения эластичной базы данных] на веб-сайте Майкрософт.
+If an application needs to split a shard into two separate shards or combine shards, Elastic Database provides a separate split-merge service. This service runs in a cloud-hosted service (which must be created by the developer) and migrates data safely between shards. For more information, see the topic [Scaling using the Elastic Database split-merge tool] on the Microsoft website.
 
-## Стратегии секционирования для хранилища Azure
+## <a name="partitioning-strategies-for-azure-storage"></a>Partitioning strategies for Azure Storage
 
-Хранилище Azure предоставляет три абстракции для управления данными.
+Azure storage provides three abstractions for managing data:
 
-- Хранилище таблиц, которое реализует хранилище с масштабируемой структурой. Таблица содержит коллекцию сущностей, каждая из которых может включать в себя набор свойств и значений.
-- Хранилище BLOB-объектов, которое предоставляет хранилище для больших объектов и файлов.
-- Очереди хранилища, которые поддерживают надежную асинхронную систему обмена сообщениями между приложениями.
+- Table storage, which implements scalable structure storage. A table contains a collection of entities, each of which can include a set of properties and values.
+- Blob storage, which supplies storage for large objects and files.
+- Storage queues, which support reliable asynchronous messaging between applications.
 
-Хранилище таблиц и хранилище BLOB-объектов фактически представляют собой хранилища на базе значения и ключа, оптимизированные для хранения структурированных и неструктурированных данных соответственно. Очереди хранилища предоставляют механизм для создания слабосвязанных масштабируемых приложений. Хранилище таблиц, хранилище BLOB-объектов и очереди хранилища создаются в контексте учетной записи хранения Azure. Учетные записи хранения Azure поддерживают три вида избыточности.
+Table storage and blob storage are essentially key-value stores that are optimized to hold structured and unstructured data respectively. Storage queues provide a mechanism for building loosely coupled, scalable applications. Table storage, blob storage, and storage queues are created within the context of an Azure storage account. Storage accounts support three forms of redundancy:
 
-- **Локально избыточное хранилище** поддерживает три копии данных в одном центре обработки данных. Эта форма избыточности обеспечивает защиту от сбоев оборудования, но не от аварии, которая охватывает весь центр обработки данных.
-- **Хранилище, избыточное в пределах зоны**, поддерживает три копии данных, которые хранятся в различных центрах обработки данных в одном регионе (или двух географически близких регионах). Эта форма избыточности обеспечивает защиту от сбоев, возникающих в рамках одного центра обработки данных, но не может защитить от крупномасштабных сетевых отключений, которые влияют на весь регион. Обратите внимание, что хранилище, избыточное в пределах зоны, в данный момент доступно только для блочных BLOB-объектов.
-- **Геоизбыточное хранилище** поддерживает шесть копий данных: три копии хранятся в одном регионе (в вашем локальном регионе), а еще три копии — в удаленном регионе. Эта форма избыточности обеспечивает самый высокий уровень защиты от аварии.
+- **Locally redundant storage**, which maintains three copies of data within a single datacenter. This form of redundancy protects against hardware failure but not against a disaster that encompasses the entire datacenter.
+- **Zone-redundant storage**, which maintains three copies of data spread across different datacenters within the same region (or across two geographically close regions). This form of redundancy can protect against disasters that occur within a single datacenter, but cannot protect against large-scale network disconnects that affect an entire region. Note that zone-redundant storage is currently only currently available for block blobs.
+- **Geo-redundant storage**, which maintains six copies of data: three copies in one region (your local region), and another three copies in a remote region. This form of redundancy provides the highest level of disaster protection.
 
-Корпорация Майкрософт опубликовала целевые показатели масштабируемости для хранилища Azure. Дополнительные сведения см. на странице [Целевые показатели масштабируемости и производительности службы хранилища Azure] на веб-сайте Майкрософт. В настоящее время общая емкость учетной записи хранения не может превышать 500 ТБ. (Сюда входит размер данных, хранящихся в хранилище таблиц, хранилище BLOB-объектов и в ожидающих сообщениях в очереди хранилища.)
+Microsoft has published scalability targets for Azure Storage. For more information, see the page [Azure Storage scalability and performance targets] on the Microsoft website. Currently, the total storage account capacity cannot exceed 500 TB. (This includes the size of data that's held in table storage and blob storage, as well as outstanding messages that are held in storage queue).
 
-Максимальная частота запросов (из расчета размера сущности, BLOB-объекта или сообщения в 1 КБ) составляет 20 КБ в секунду. Если для вашей системы вероятно превышение этих ограничений, попробуйте разбить нагрузку на несколько учетных записей хранения. Каждая подписка Azure может включать до 100 учетных записей хранения. Однако обратите внимание, что эти ограничения могут изменяться со временем.
+The maximum request rate (assuming a 1-KB entity, blob, or message size) is 20 KBps. If your system is likely to exceed these limits, consider partitioning the load across multiple storage accounts. A single Azure subscription can create up to 100 storage accounts. However, note that these limits might change over time.
 
-## Секционирование хранилища таблиц Microsoft Azure
+## <a name="partitioning-azure-table-storage"></a>Partitioning Azure table storage
 
-Хранилище таблиц Azure является хранилищем ключей и значений, которое разработано на основе секционирования. Все сущности хранятся в секции, а секции управляются внутренне хранилищем таблиц Azure. Каждая сущность, хранящаяся в таблице, должна предоставить двухкомпонентный ключ, включающий ключ секции и ключ строки.
+Azure table storage is a key-value store that's designed around partitioning. All entities are stored in a partition, and partitions are managed internally by Azure table storage. Each entity that's stored in a table must provide a two-part key that includes:
 
-- **Ключ секции**. Это строковые значения, которые определяют, в какой секции хранилища таблицы Azure нужно разместить сущность. Все сущности с одинаковым ключом секции будут храниться в одной секции.
-- **Ключ строки**. Это другое строковое значение, определяющее сущность в секции. Все сущности в секции сортируются лексически в порядке возрастания с помощью этого ключа. Сочетание ключа секции и ключа строки должно быть уникальным для каждой сущности, а его длина не может превышать 1 КБ.
+- **The partition key**. This is a string value that determines in which partition Azure table storage will place the entity. All entities with the same partition key will be stored in the same partition.
+- **The row key**. This is another string value that identifies the entity within the partition. All entities within a partition are sorted lexically, in ascending order, by this key. The partition key/row key combination must be unique for each entity and cannot exceed 1 KB in length.
 
-Остальная часть данных для сущности состоит из полей, определяемых приложением. Конкретные схемы не применяются, и каждая строка может содержать свой набор полей, определяемых приложением. Единственное ограничение: максимальный размер сущности (включая ключи секций и строк) в настоящее время составляет 1 МБ. Максимальный размер таблицы составляет 200 ТБ, хотя эти данные могут измениться в будущем. (Актуальные сведения об этих ограничениях см. на странице [Целевые показатели масштабируемости и производительности службы хранилища Azure] на веб-сайте Майкрософт.)
+The remainder of the data for an entity consists of application-defined fields. No particular schemas are enforced, and each row can contain a different set of application-defined fields. The only limitation is that the maximum size of an entity (including the partition and row keys) is currently 1 MB. The maximum size of a table is 200 TB, although these figures might change in the future. (Check the page [Azure Storage scalability and performance targets] on the Microsoft website for the most recent information about these limits.)
 
-Если вам необходимо хранить сущности, размер которых превышает это ограничение, попробуйте разбить их на несколько таблиц. Используйте вертикальное секционирование и разделите поля на группы, которые, скорее всего, используются вместе.
+If you are attempting to store entities that exceed this capacity, then consider splitting them into multiple tables. Use vertical partitioning to divide the fields into the groups that are most likely to be accessed together.
 
-Рис. 7 демонстрирует логическую структуру примера учетной записи хранения (Contoso Data) для вымышленного приложения электронной коммерции. Учетные записи хранения содержат три таблицы: сведения о клиенте, сведения о продукции и сведения о заказах. Каждая таблица содержит несколько секций.
+Figure 7 shows the logical structure of an example storage account (Contoso Data) for a fictitious e-commerce application. The storage account contains three tables: Customer Info, Product Info, and Order Info. Each table has multiple partitions.
 
-В таблице сведений о клиенте данные секционируются по городам, в которых находятся клиенты, а ключ строки содержит идентификатор клиента. В таблице сведений о продукте продукты секционированы по категориям, а ключ строки содержит номер продукта. В таблице сведений о заказах заказы секционируются по дате размещения, а ключ строки указывает время получения заказа. Обратите внимание, что все данные в каждой секции упорядочены с помощью ключа строки.
+In the Customer Info table, the data is partitioned according to the city in which the customer is located, and the row key contains the customer ID. In the Product Info table, the products are partitioned by product category, and the row key contains the product number. In the Order Info table, the orders are partitioned by the date on which they were placed, and the row key specifies the time the order was received. Note that all data is ordered by the row key in each partition.
 
-![Таблицы и секции в примере учетной записи хранения](media/best-practices-data-partitioning/TableStorage.png)
+![The tables and partitions in an example storage account](media/best-practices-data-partitioning/TableStorage.png)
 
-_Рис. 7. Таблицы и секции в примере учетной записи хранения_
+_Figure 7. The tables and partitions in an example storage account_
 
-> [AZURE.NOTE] Хранилище таблиц Azure также добавляет поле метки времени для каждой сущности. Поле метки времени обслуживается хранилищем таблиц. Оно обновляется при каждом изменении сущности и записывается обратно в секцию. Служба хранилища таблиц использует поле для реализации оптимистичного параллелизма. (Каждый раз, когда приложение записывает сущность обратно в хранилище таблиц, служба хранилища таблиц сравнивает значение метки времени записываемой сущности со значением, содержащимся в хранилище таблиц. Если значения отличаются, возможно, другое приложение изменило сущность после получения, в результате чего происходит сбой операции записи.) Не изменяйте это поле в собственном коде, а также не задавайте значение для этого поля при создании новой сущности.
+> [AZURE.NOTE] Azure table storage also adds a timestamp field to each entity. The timestamp field is maintained by table storage and is updated each time the entity is modified and written back to a partition. The table storage service uses this field to implement optimistic concurrency. (Each time an application writes an entity back to table storage, the table storage service compares the value of the timestamp in the entity that's being written with the value that's held in table storage. If the values are different, it means that another application must have modified the entity since it was last retrieved, and the write operation fails. Don't modify this field in your own code, and don't specify a value for this field when you create a new entity.
 
-Хранилище таблиц Azure использует ключ секции для определения способа хранения данных. При добавлении сущности в таблицу с ранее неиспользуемым ключом секции хранилище таблиц Azure создаст новую секцию для этой сущности. Другие сущности с одинаковым ключом секции будут храниться в одной секции.
+Azure table storage uses the partition key to determine how to store the data. If an entity is added to a table with a previously unused partition key, Azure table storage creates a new partition for this entity. Other entities with the same partition key will be stored in the same partition.
 
-Этот механизм эффективно реализует стратегию автоматического масштабирования. Каждая секция хранится на одном сервере в центре обработки данных Azure, чтобы обеспечить быстрое выполнение запросов, получающих данные из одной секции. Но разные секции могут располагаться на нескольких серверах. Кроме того, один сервер может поддерживать несколько секций, если размер этих секций ограничен.
+This mechanism effectively implements an automatic scale-out strategy. Each partition is stored on a single server in an Azure datacenter to help ensure that queries that retrieve data from a single partition run quickly. However, different partitions can be distributed across multiple servers. Additionally, a single server can host multiple partitions if these partitions are limited in size.
 
-При проектировании сущностей для хранилища таблиц Azure учитывайте следующие моменты.
+Consider the following points when you design your entities for Azure table storage:
 
-- Выбор значений ключа секции и ключа строки должен быть основан на способе получения доступа к данным. Необходимо выбрать сочетание ключа секции и ключа строки, которое поддерживает большинство запросов. Наиболее эффективные запросы будут получать данные, указав ключ секции и ключ строки. Запросы, которые определяют ключ секции и диапазон ключей строк, могут быть выполнены путем сканирования одной секции. Это относительно быстро, поскольку данные хранятся в порядке значений ключей строк. В случае запросов, которые не указывают, какую секцию следует сканировать, ключ секции может потребовать от хранилища таблиц Azure проверить каждую секцию данных.
+- The selection of partition key and row key values should be driven by the way in which the data is accessed. Choose a partition key/row key combination that supports the majority of your queries. The most efficient queries retrieve data by specifying the partition key and the row key. Queries that specify a partition key and a range of row keys can be completed by scanning a single partition. This is relatively fast because the data is held in row key order. If queries don't specify which partition to scan, the partition key might require Azure table storage to scan every partition for your data.
 
-	> [AZURE.TIP] Если у сущности есть один естественный ключ, используйте его в качестве ключа секции и укажите пустую строку в качестве ключа строки. Если сущность имеет составной ключ, включающий два свойства, выберите наиболее медленно изменяющееся свойство в качестве ключа секции, а второе — в качестве ключа строки. Если сущность имеет более двух свойств ключа, используйте объединение свойств, чтобы указать ключи секций и строк.
+    > [AZURE.TIP] If an entity has one natural key, then use it as the partition key and specify an empty string as the row key. If an entity has a composite key comprising two properties, select the slowest changing property as the partition key and the other as the row key. If an entity has more than two key properties, use a concatenation of properties to provide the partition and row keys.
 
-- Если вы регулярно выполняете запросы, которые ищут данные с использованием других полей, кроме ключей секций и строк, рассмотрите возможность реализации [шаблона таблицы индексов].
-- Если вы создаете ключи секций с помощью монотонной увеличивающейся или уменьшающейся последовательности (например 0001, 0002, 0003 и т. д.) и каждая секция содержит только ограниченный объем данных, хранилище таблиц Azure может физически сгруппировать эти секции вместе на одном сервере. Этот механизм предполагает, что приложение, скорее всего, будет выполнять запросы к смежным секциям (запросы к диапазону), и оптимизирован для этого случая. Однако такой подход может привести к образованию горячих точек на одном сервере, так как все операции добавления новых сущностей, вероятно, будут сконцентрированы на одном или другом конце непрерывного диапазона. Он также может снизить масштабируемость. Чтобы более равномерно распределить нагрузку между серверами, рассмотрите возможность хэширования ключа секции, чтобы сделать последовательность более случайной.
-- Хранилище таблиц Azure поддерживает транзакционные операции для сущностей, которые относятся к одной секции. Это означает, что приложение может выполнять несколько операций вставки, обновления, удаления или объединения как одну неделимую единицу (транзакции не должны включать более 100 сущностей, а размер полезных данных запроса не должен превышать 4 МБ). Операции, охватывающие несколько секций, не являются транзакционными и могут потребовать реализации окончательной согласованности, как описано на странице [Руководство по согласованности данных]. Дополнительные сведения о хранилище таблиц и транзакциях см. на странице [Выполнение транзакций группы сущностей] на веб-сайте Майкрософт.
-- Уделите особое внимание гранулярности ключа секции. Это необходимо сделать по указанным далее причинам:
-	- Использование одного и того же ключа секции для каждой сущности приведет к тому, что служба хранилища таблиц создаст одну большую секцию, хранящуюся на одном сервере. В результате масштабирование будет затруднено, а нагрузка сконцентрируется на одном сервере. В результате этот подход применим только для систем, которые управляют небольшим количеством сущностей. Тем не менее этот подход не гарантирует, что все сущности смогут участвовать в транзакциях группы сущностей.
-	- Использование уникального ключа секции для каждой сущности приведет к тому, что служба хранилища таблиц создаст отдельную секцию для каждой сущности, в результате чего может появиться большое количество небольших секций (в зависимости от размера сущностей). Этот подход лучше поддается масштабированию, чем подход с использованием одного ключа секции, но транзакции группы сущностей невозможны. Кроме того запросы, получающие более одной сущности, могут включать чтение с нескольких серверов. Тем не менее, если приложение выполняет запросы к диапазону, использование монотонной последовательности для создания ключей секций может помочь оптимизировать такие запросы.
-	- Совместное использование ключа секции в подмножестве сущностей позволяет группировать связанные сущности в одну секцию. Операции, включающие связанные сущности, можно выполнить с помощью транзакции группы сущностей, и запросы, получающие набор связанных сущностей, могут удовлетворяться путем доступа к одному серверу.
+- If you regularly perform queries that look up data by using fields other than the partition and row keys, consider implementing the [index table pattern].
+- If you generate partition keys by using a monotonic increasing or decreasing sequence (such as "0001", "0002", "0003", and so on) and each partition only contains a limited amount of data, then Azure table storage can physically group these partitions together on the same server. This mechanism assumes that the application is most likely to perform queries across a contiguous range of partitions (range queries) and is optimized for this case. However, this approach can lead to hotspots focused on a single server because all insertions of new entities are likely to be concentrated at one end or the other of the contiguous ranges. It can also reduce scalability. To spread the load more evenly across servers, consider hashing the partition key to make the sequence more random.
+- Azure table storage supports transactional operations for entities that belong to the same partition. This means that an application can perform multiple insert, update, delete, replace, or merge operations as an atomic unit (as long as the transaction doesn't include more than 100 entities and the payload of the request doesn't exceed 4 MB). Operations that span multiple partitions are not transactional, and might require you to implement eventual consistency as described by the [Data consistency primer]. For more information about table storage and transactions, go to the page [Performing entity group transactions] on the Microsoft website.
+- Give careful attention to the granularity of the partition key because of the following reasons:
+    - Using the same partition key for every entity causes the table storage service to create a single large partition that's held on one server. This prevents it from scaling out and instead focuses the load on a single server. As a result, this approach is only suitable for systems that manage a small number of entities. However, this approach does ensure that all entities can participate in entity group transactions.
+    - Using a unique partition key for every entity causes the table storage service to create a separate partition for each entity, possibly resulting in a large number of small partitions (depending on the size of the entities). This approach is more scalable than using a single partition key, but entity group transactions are not possible. Also, queries that fetch more than one entity might involve reading from more than one server. However, if the application performs range queries, then using a monotonic sequence to generate the partition keys might help to optimize these queries.
+    - Sharing the partition key across a subset of entities makes it possible for you to group related entities in the same partition. Operations that involve related entities can be performed by using entity group transactions, and queries that fetch a set of related entities can be satisfied by accessing a single server.
 
-Дополнительные сведения о секционировании данных в хранилище таблиц Azure см. в статье [Azure storage table design guide (Руководство по разработке таблиц хранилища Azure)] на веб-сайте Майкрософт.
+For additional information about partitioning data in Azure table storage, see the article [Azure storage table design guide] on the Microsoft website.
 
-## Секционирование хранилища BLOB-объектов Azure
+## <a name="partitioning-azure-blob-storage"></a>Partitioning Azure blob storage
 
-Хранилище BLOB-объектов Azure позволяет хранить большие двоичные объекты, размер которых в настоящее время может достигать 200 ГБ для блочных BLOB-объектов или 1 ТБ для страничных BLOB-объектов. (Самые последние сведения см. на странице [Целевые показатели масштабируемости и производительности службы хранилища Azure] на веб-сайте Майкрософт.) Используйте блочные BLOB-объекты в таких сценариях, как потоковая передача, где требуется быстро отправлять или загружать большие объемы данных. Используйте страничные BLOB-объекты для приложений, требующих случайного, а не последовательного доступа к частям данных.
+Azure blob storage makes it possible to hold large binary objects--currently up to 200 GB in size for block blobs or 1 TB for page blobs. (For the most recent information, go to the page [Azure Storage scalability and performance targets] on the Microsoft website.) Use block blobs in scenarios such as streaming where you need to upload or download large volumes of data quickly. Use page blobs for applications that require random rather than serial access to parts of the data.
 
-Каждый BLOB-объект (блочный или страничный) удерживается в контейнере в учетной записи хранения Azure. Контейнеры можно использовать для группировки связанных BLOB-объектов, имеющих одинаковые требования безопасности, хотя это группирование скорее логическое, чем физическое. Внутри контейнера каждый BLOB-объект имеет уникальное имя.
+Each blob (either block or page) is held in a container in an Azure storage account. You can use containers to group related blobs that have the same security requirements, although this grouping is logical rather than physical. Inside a container, each blob has a unique name.
 
-Хранилище BLOB-объектов автоматически секционируется на основе имени BLOB-объекта. Каждый BLOB-объект хранится в отдельной секции. BLOB-объекты в одном контейнере используют разные секции. Эта архитектура позволяет хранилищу BLOB-объектов Azure прозрачно балансировать нагрузку между серверами, так как разные BLOB-объекты в одном контейнере могут быть распределены по разным серверам.
+Blob storage is automatically partitioned based on the blob name. Each blob is held in its own partition. Blobs in the same container do not share a partition. This architecture helps Azure blob storage to balance the load across servers transparently because different blobs in the same container can be distributed across different servers.
 
-Действия записи одного блока (блочного BLOB-объекта) или страницы (страничного BLOB-объекта) являются неделимыми, но операции, охватывающие блоки, страницы или BLOB-объекты, таковыми не являются. Если требуется обеспечить согласованность при выполнении операций записи всех блоков, страниц и BLOB-объектов, необходимо убрать блокировку записи с помощью аренды BLOB-объекта.
+The actions of writing a single block (block blob) or page (page blob) are atomic, but operations that span blocks, pages, or blobs are not. If you need to ensure consistency when performing write operations across blocks, pages, and blobs, take out a write lock by using a blob lease.
 
-Хранилище BLOB-объектов Azure поддерживает скорость передачи данных до 60 МБ в секунду или 500 запросов в секунду для каждого BLOB-объекта. Если предполагается превышение этих ограничений и данные BLOB-объекта относительно статичны, рассмотрите возможность репликации BLOB-объектов с помощью сети доставки содержимого Azure. Дополнительные сведения см. на странице [Использование сети доставки содержимого для Azure] на веб-сайте Майкрософт. Дополнительные руководства и рекомендации см. в статье [Использование сети доставки содержимого для Azure].
+Azure blob storage supports transfer rates of up to 60 MB per second or 500 requests per second for each blob. If you anticipate surpassing these limits, and the blob data is relatively static, then consider replicating blobs by using the Azure Content Delivery Network. For more information, see the page [Using Delivery Content Network for Azure] on the Microsoft website. For additional guidance and considerations, see  [Using Content Delivery Network for Azure].
 
-## Секционирование очередей хранилища Azure
+## <a name="partitioning-azure-storage-queues"></a>Partitioning Azure storage queues
 
-Очереди хранилища Azure позволяют реализовать асинхронный обмен сообщениями между процессами. Учетная запись хранения Azure может содержать любое количество очередей, и каждая очередь может содержать любое количество сообщений. Единственным ограничением является место, доступное в учетной записи хранения. Максимальный размер отдельного сообщения составляет 64 КБ. Если требуются сообщения большего размера, попробуйте использовать очереди служебной шины Azure.
+Azure storage queues enable you to implement asynchronous messaging between processes. An Azure storage account can contain any number of queues, and each queue can contain any number of messages. The only limitation is the space that's available in the storage account. The maximum size of an individual message is 64 KB. If you require messages bigger than this, then consider using Azure Service Bus queues instead.
 
-Каждая очередь хранилища имеет уникальное имя в пределах учетной записи хранения, где она содержится. Очереди секций Azure основаны на имени. Все сообщения одной очереди хранятся в одной секции, управляемой одним сервером. Различными очередями могут управлять разные серверы, чтобы сбалансировать нагрузку. Выделение очередей для серверов является прозрачным для приложений и пользователей.
+Each storage queue has a unique name within the storage account that contains it. Azure partitions queues based on the name. All messages for the same queue are stored in the same partition, which is controlled by a single server. Different queues can be managed by different servers to help balance the load. The allocation of queues to servers is transparent to applications and users.
 
- В приложении большого объема не используйте одну и ту же очередь хранилища для всех экземпляров приложения: этот подход может привести к тому, что на сервере образуется очередь, являющаяся горячей точкой. Используйте различные очереди для различных функциональных областей приложения. Очереди хранилища Azure не поддерживают транзакции, поэтому направление сообщений в различные очереди должно мало влиять на согласованность обмена сообщениями.
+ In a large-scale application, don't use the same storage queue for all instances of the application because this approach might cause the server that's hosting the queue to become a hotspot. Instead, use different queues for different functional areas of the application. Azure storage queues do not support transactions, so directing messages to different queues should have little impact on messaging consistency.
 
-Очередь хранилища Azure может обрабатывать до 2 000 сообщений в секунду. Если необходимо обрабатывать сообщения с большей скоростью, рассмотрите возможность создания нескольких очередей. Например, в глобальном приложении создайте отдельные очереди хранилища в отдельных учетных записях хранения для обработки экземпляров приложений, работающих в каждом регионе.
+An Azure storage queue can handle up to 2,000 messages per second.  If you need to process messages at a greater rate than this, consider creating multiple queues. For example, in a global application, create separate storage queues in separate storage accounts to handle application instances that are running in each region.
 
-## Стратегии секционирования для служебной шины Azure
+## <a name="partitioning-strategies-for-azure-service-bus"></a>Partitioning strategies for Azure Service Bus
 
-Служебная шина Azure использует брокер сообщений для обработки сообщений, отправленных в очередь или раздел служебной шины. По умолчанию все сообщения, отправленные в очередь или раздел, обрабатываются одним процессом брокера сообщений. Эта архитектура может ограничить общую пропускную способность очереди сообщений. Однако можно секционировать очереди или разделы при их создании. Это можно сделать, задав свойству _EnablePartitioning_ описания очереди или раздела значение _true_.
+Azure Service Bus uses a message broker to handle messages that are sent to a Service Bus queue or topic. By default, all messages that are sent to a queue or topic are handled by the same message broker process. This architecture can place a limitation on the overall throughput of the message queue. However, you can also partition a queue or topic when it is created. You do this by setting the _EnablePartitioning_ property of the queue or topic description to _true_.
 
-Секционированная очередь или раздел делится на несколько фрагментов, для каждого из которых выполняется резервное копирование в отдельном хранилище сообщений и брокере сообщений. Служебная шина отвечает за создание этих фрагментов и управление ими. Когда приложение отправляет сообщение в секционированную очередь или раздел, служебная шина назначает сообщение фрагменту для этой очереди или раздела. Когда приложение получает сообщение из очереди или подписки, служебная шина проверяет каждый фрагмент на наличие следующего доступного сообщения и передает его приложению для обработки.
+A partitioned queue or topic is divided into multiple fragments, each of which is backed by a separate message store and message broker. Service Bus takes responsibility for creating and managing these fragments. When an application posts a message to a partitioned queue or topic, Service Bus assigns the message to a fragment for that queue or topic. When an application receives a message from a queue or subscription, Service Bus checks each fragment for the next available message and then passes it to the application for processing.
 
-Эта структура позволяет распределять нагрузку между брокерами сообщений и хранилищами сообщений, повышая масштабируемость и доступность. Если брокер или хранилище сообщений для одного фрагмента временно недоступны, служебная шина может получить сообщения от одного из оставшихся доступных фрагментов.
+This structure helps distribute the load across message brokers and message stores, increasing scalability and improving availability. If the message broker or message store for one fragment is temporarily unavailable, Service Bus can retrieve messages from one of the remaining available fragments.
 
-Служебная шина присваивает сообщение фрагменту следующим образом.
+Service Bus assigns a message to a fragment as follows:
 
-- Если сообщение относится к сеансу, все сообщения с тем же значением свойства _SessionId_ отправляются в тот же фрагмент.
-- Если сообщение не относится к сеансу, но отправитель указал значение для свойства _PartitionKey_, все сообщения с тем же значением _PartitionKey_ отправляются в тот же фрагмент.
+- If the message belongs to a session, all messages with the same value for the _ SessionId_  property are sent to the same fragment.
+- If the message does not belong to a session, but the sender has specified a value for the _PartitionKey_ property, then all messages with the same _PartitionKey_ value are sent to the same fragment.
 
-	> [AZURE.NOTE] Если значения заданы обоим свойствам (_SessionId_ и _PartitionKey_), они должны быть одинаковыми, иначе сообщение будет отклонено.
-- Если свойства _SessionId_ и _PartitionKey_ для сообщения не заданы, но включен поиск повторяющихся данных, будет использоваться свойство _MessageId_. Все сообщения с тем же значением _MessageId_ будут направляться в тот же фрагмент.
-- Если сообщения не содержат свойства _SessionId, PartitionKey_ или _MessageId_, служебная шина назначает сообщения фрагментам по очереди. Если фрагмент недоступен, служебная шина перейдет к следующему. Таким образом, временная ошибка в инфраструктуре обмена сообщениями не вызовет сбой операции отправки сообщения.
+    > [AZURE.NOTE] If the _SessionId_ and _PartitionKey_ properties are both specified, then they must be set to the same value or the message will be rejected.
+- If the _SessionId_ and _PartitionKey_ properties for a message are not specified, but duplicate detection is enabled, the _MessageId_ property will be used. All messages with the same _MessageId_ will be directed to the same fragment.
+- If messages do not include a _SessionId, PartitionKey,_ or _MessageId_ property, then Service Bus assigns messages to fragments sequentially. If a fragment is unavailable, Service Bus will move on to the next. This means that a temporary fault in the messaging infrastructure does not cause the message-send operation to fail.
 
-При принятии решения о том, стоит ли и как именно секционировать очередь сообщений или раздел служебной шины, рекомендуется учитывать следующее.
+Consider the following points when deciding if or how to partition a Service Bus message queue or topic:
 
-- Очереди и разделы служебной шины создаются в области пространства имен служебной шины. В настоящее время служебная шина обеспечивает до 100 секционированных очередей или разделов на пространство имен.
-- Каждое пространство имен служебной шины налагает квоты на доступные ресурсы, такие как количество подписок на раздел, количество параллельных запросов на отправку и получение в секунду, а также максимальное число одновременных подключений, которые можно установить. Эти квоты описаны на странице [Квоты на служебную шину] на веб-сайте Майкрософт. Если предполагается, что эти значения будут превышены, создайте дополнительные пространства имен с собственными очередями и разделами и распределите работу по этим пространствам имен. Например, в глобальном приложении создайте отдельные пространства имен в каждом регионе и настройте экземпляры приложения на использование очередей и разделов в ближайшем пространстве имен.
-- Сообщения, отправленные в рамках транзакции, должны указать ключ секции. Это может быть свойство _SessionId_, _PartitionKey_ или _MessageId_. Все сообщения, отправленные в рамках одной транзакции, должны указать один и тот же ключ секции, так как их должен обрабатывать один брокер сообщений. Невозможно отправить сообщения в различные очереди или разделы в рамках одной транзакции.
-- Невозможно настроить автоматическое удаление секционированной очереди или раздела, когда они становятся неактивными.
-- При построении межплатформенных или гибридных решений в настоящее время нельзя использовать секционированные очереди и расширенный протокол управления очередью сообщений (AMQP).
+- Service Bus queues and topics are created within the scope of a Service Bus namespace. Service Bus currently allows up to 100 partitioned queues or topics per namespace.
+- Each Service Bus namespace imposes quotas on the available resources, such as the number of subscriptions per topic, the number of concurrent send and receive requests per second, and the maximum number of concurrent connections that can be established. These quotas are documented on the Microsoft website on the page [Service Bus quotas]. If you expect to exceed these values, then create additional namespaces with their own queues and topics, and spread the work across these namespaces. For example, in a global application, create separate namespaces in each region and configure application instances to use the queues and topics in the nearest namespace.
+- Messages that are sent as part of a transaction must specify a partition key. This can be a _SessionId_, _PartitionKey_, or _MessageId_ property. All messages that are sent as part of the same transaction must specify the same partition key because they must be handled by the same message broker process. You cannot send messages to different queues or topics within the same transaction.
+- Partitioned queues and topics can't be configured to be automatically deleted when they become idle.
+- Partitioned queues and topics can't currently be used with the Advanced Message Queuing Protocol (AMQP) if you are building cross-platform or hybrid solutions.
 
-## Стратегии секционирования для баз данных Azure DocumentDB
+## <a name="partitioning-strategies-for-azure-documentdb-databases"></a>Partitioning strategies for Azure DocumentDB databases
 
-Azure DocumentDB — это база данных NoSQL, созданная для хранения документов. Документ в базе данных DocumentDB является представлением сериализации JSON объекта или другой части данных. Фиксированные схемы не применяются, за исключением того, что каждый документ должен содержать уникальный идентификатор.
+Azure DocumentDB is a NoSQL database that can store documents. A document in a DocumentDB database is a JSON-serialized representation of an object or other piece of data. No fixed schemas are enforced except that every document must contain a unique ID.
 
-Документы организованы в коллекции. Связанные документы можно группировать в коллекции. Например, в системе, которая хранит сообщения блогов, можно хранить содержимое каждой записи блога в виде документа в коллекции. Можно также создавать коллекции для каждого типа субъекта. Кроме того, в мультитенантном приложении, таком как система, где разные авторы управляют собственными блогами и записями, можно секционировать блоги по авторам и создавать отдельную коллекцию для каждого автора. Выделенное для коллекций дисковое пространство гибкое и может уменьшаться или увеличиваться по мере необходимости.
+Documents are organized into collections. You can group related documents together in a collection. For example, in a system that maintains blog postings, you can store the contents of each blog post as a document in a collection. You can also create collections for each subject type. Alternatively, in a multitenant application, such as a system where different authors control and manage their own blog posts, you can partition blogs by author and create separate collections for each author. The storage space that's allocated to collections is elastic and can shrink or grow as needed.
 
-Коллекция документов предоставляет естественный механизм для секционирования данных в пределах отдельной базы данных. База данных DocumentDB может внутренне охватывать несколько серверов и пытаться балансировать нагрузку путем распределения коллекций между серверами. Самый простой способ реализации сегментирования — создание коллекции для каждого сегмента.
+Document collections provide a natural mechanism for partitioning data within a single database. Internally, a DocumentDB database can span several servers and might attempt to spread the load by distributing collections across servers. The simplest way to implement sharding is to create a collection for each shard.
 
-> [AZURE.NOTE] Каждая база данных DocumentDB имеет _уровень производительности_, который определяет объем получаемых ресурсов. Каждый уровень производительности связан с ограничением частоты в виде _единицы запроса_ (RU). Ограничение частоты RU определяет объем ресурсов, которые зарезервированы для этой коллекции и доступны для эксклюзивного использования этой коллекцией. Стоимость коллекции зависит от выбранного для нее уровня производительности. Чем выше уровень производительность (и ограничение частоты RU), тем выше стоимость. Уровень производительности коллекции можно настроить с помощью портала Azure. Дополнительные сведения см. на странице [Уровни производительности в DocumentDB] на веб-сайте Майкрософт.
+> [AZURE.NOTE] Each DocumentDB database has a _performance level_ that determines the amount of resources it gets. A performance level is associated with a _request unit_ (RU) rate limit. The RU rate limit specifies the volume of resources that's reserved and available for exclusive use by that collection. The cost of a collection depends on the performance level that's selected for that collection. The higher the performance level (and RU rate limit) the higher the charge. You can adjust the performance level of a collection by using the Azure portal. For more information, see the page [Performance levels in DocumentDB] on the Microsoft website.
 
-Все базы данных создаются в контексте учетной записи DocumentDB. Одна учетная запись DocumentDB может содержать несколько баз данных и указывает, в каком регионе создаются базы данных. Каждая учетная запись DocumentDB также обеспечивает собственный контроль доступа. Можно использовать учетные записи DocumentDB для обнаружения сегментов (коллекций в базах данных), географически близких к пользователям, которым необходим к ним доступ, и наложить ограничения, чтобы к ним могли подключаться только такие пользователи.
+All databases are created in the context of a DocumentDB account. A single DocumentDB account can contain several databases, and it specifies in which region the databases are created. Each DocumentDB account also enforces its own access control. You can use DocumentDB accounts to geo-locate shards (collections within databases) close to the users who need to access them, and enforce restrictions so that only those users can connect to them.
 
-Каждая учетная запись DocumentDB имеет квоту, ограничивающую количество баз данных и коллекций, которые она может содержать, а также доступный объем хранилища документов. Эти ограничения могут измениться. Текущие ограничения описаны на странице [Ограничения и квоты DocumentDB] на веб-сайте Майкрософт. При реализации системы, где все сегменты принадлежат одной базе данных, теоретически возможно достичь предельной емкости хранилища в учетной записи.
+Each DocumentDB account has a quota that limits the number of databases and collections that it can contain and the amount of document storage that's available. These limits are subject to change, but are described on the page [DocumentDB limits and quotas] on the Microsoft website. It is theoretically possible that if you implement a system where all shards belong to the same database, you might reach the storage capacity limit of the account.
 
-В этом случае может потребоваться создать дополнительные учетные записи и базы данных DocumentDB и распределить сегменты между этими базами данных. Даже если вы не ожидаете превышения емкости хранилища базы данных, целесообразно использовать несколько баз данных. Это связано с тем, что каждая база данных имеет собственный набор пользователей и разрешений. Этот механизм позволяет изолировать доступ к коллекциям отдельно для каждой базы данных.
+In this case, you might need to create additional DocumentDB accounts and databases, and distribute the shards across these databases. However, even if you are unlikely to reach the storage capacity of a database, it's a good practice to use multiple databases. That's because each database has its own set of users and permissions, and you can use this mechanism to isolate access to collections on a per-database basis.
 
-На рисунке 8 показана структура высокого уровня архитектуры DocumentDB.
+Figure 8 illustrates the high-level structure of the DocumentDB architecture.
 
-![Структура DocumentDB](media/best-practices-data-partitioning/DocumentDBStructure.png)
+![The structure of DocumentDB](media/best-practices-data-partitioning/DocumentDBStructure.png)
 
-_Рис. 8. Структура архитектуры DocumentDB_
+_Figure 8.  The structure of the DocumentDB architecture_
 
-Клиентское приложение должно отвечать за направление запросов в соответствующий сегмент, обычно путем реализации собственного механизма сопоставления на основе некоторых атрибутов данных, которые определяют ключ сегмента. Рис. 9 демонстрирует две базы данных DocumentDB, каждая из которых содержит две коллекции, действующие как сегменты. Данные сегментируются по идентификатору клиента и содержат данные конкретного клиента. Базы данных создаются в отдельных учетных записях DocumentDB. Эти учетные записи находятся в том же регионе, что и клиенты, данные которых они содержат. Логика маршрутизации в клиентском приложении использует идентификатор клиента как ключ сегментирования.
+It is the task of the client application to direct requests to the appropriate shard, usually by implementing its own mapping mechanism based on some attributes of the data that define the shard key. Figure 9 shows two DocumentDB databases, each containing two collections that are acting as shards. The data is sharded by a tenant ID and contains the data for a specific tenant. The databases are created in separate DocumentDB accounts. These accounts are located in the same region as the tenants for which they contain data. The routing logic in the client application uses the tenant ID as the shard key.
 
-![Реализация сегментирования с помощью Azure DocumentDB](media/best-practices-data-partitioning/DocumentDBPartitions.png)
+![Implementing sharding using Azure DocumentDB](media/best-practices-data-partitioning/DocumentDBPartitions.png)
 
-_Рис. 9. Реализация сегментирования с помощью базы данных Azure DocumentDB_
+_Figure 9. Implementing sharding using an Azure DocumentDB database_
 
-Принимая решение о том, как секционировать данные с помощью базы данных DocumentDB, учитывайте следующие моменты:
+Consider the following points when deciding how to partition data with a DocumentDB database:
 
-- **Ресурсы, доступные базе данных DocumentDB, могут быть ограничены квотами учетной записи DocumentDB**. Каждая база данных может содержать несколько коллекций (здесь тоже есть ограничение), каждая из которых связана с уровнем производительности, который управляет ограничением частоты RU (зарезервированной пропускной способностью) для этой коллекции. Дополнительные сведения см. на странице [Ограничения и квоты DocumentDB] на веб-сайте Майкрософт.
-- **Каждый документ должен иметь атрибут, который используется для идентификации этого документа в пределах содержащей его коллекции**. Этот атрибут отличается от ключа сегмента, который определяет, в какой коллекции содержится документ. Коллекция может содержать большое количество документов. Теоретически она ограничена только максимальной длиной идентификатора документа. Идентификатор документа может включать до 255 символов.
-- **Все операции с документом выполняются в контексте транзакции. Транзакции в базах данных DocumentDB относятся к коллекции, в которой содержится документ.** Если произошел сбой операции, происходит откат выполняемой работы. Пока выполняется операция с документом, любые сделанные изменения подвергаются изоляции уровня моментальных снимков. Этот механизм гарантирует, что если, например, запрос на создание нового документа завершается ошибкой, другой пользователь, одновременно запрашивающий базу данных, не увидит частичный документ, который затем удаляется.
-- **Запросы баз данных DocumentDB также ограничиваются уровнем коллекции**. Один запрос может получать данные только из одной коллекции. Если требуется получить данные из нескольких коллекций, необходимо запросить каждую коллекцию отдельно и объединить результаты в коде приложения.
-- **Базы данных DocumentDB поддерживают программируемые элементы, которые могут храниться в коллекции вместе с документами**. Это хранимые процедуры, определяемые пользователем функции и триггеры (на языке JavaScript). Эти элементы могут получить доступ к любому документу в одной коллекции. Кроме того, эти элементы выполняются либо внутри области внешней транзакции (в случае триггера, срабатывающего в результате операций создания, удаления и замены документа), либо путем запуска новой транзакции (в случае хранимой процедуры, выполняемой в результате явного запроса клиента). Если код в программируемом элементе создает исключение, транзакция откатывается. Чтобы сохранить целостность и согласованность между документами, можно использовать хранимые процедуры и триггеры, но эти документы всегда должны быть частью одной коллекции.
-- **Коллекции, которые планируется хранить в базах данных в учетной записи DocumentDB, вряд ли будут превышать ограничения пропускной способности, определяемые уровнями производительности коллекций**. Эти ограничения описаны на странице [Требования емкости DocumentDB] на веб-сайте Майкрософт. Если предполагается превышение этих ограничений, рассмотрите возможность разделения коллекций между базами данных в различных учетных записях DocumentDB, чтобы снизить нагрузку на коллекции.
+- **The resources available to a DocumentDB database are subject to the quota limitations of the DocumentDB account**. Each database can hold a number of collections (again, there is a limit), and each collection is associated with a performance level that governs the RU rate limit (reserved throughput) for that collection. For more information, go to the page [DocumentDB limits and quotas] on the Microsoft website.
+- **Each document must have an attribute that can be used to uniquely identify that document within the collection in which it is held**. This attribute is different from the shard key, which defines which collection holds the document. A collection can contain a large number of documents. In theory, it's limited only by the maximum length of the document ID. The document ID can be up to 255 characters.
+- **All operations against a document are performed within the context of a transaction. Transactions in DocumentDB databases are scoped to the collection in which the document is contained.** If an operation fails, the work that it has performed is rolled back. While a document is subject to an operation, any changes that are made are subject to snapshot-level isolation. This mechanism guarantees that if, for example, a request to create a new document fails, another user who's querying the database simultaneously will not see a partial document that is then removed.
+- **DocumentDB database queries are also scoped to the collection level**. A single query can retrieve data from only one collection. If you need to retrieve data from multiple collections, you must query each collection individually and merge the results in your application code.
+- **DocumentDB databases supports programmable items that can all be stored in a collection alongside documents**. These include stored procedures, user-defined functions, and triggers (written in JavaScript). These items can access any document within the same collection. Furthermore, these items run either inside the scope of the ambient transaction (in the case of a trigger that fires as the result of a create, delete, or replace operation performed against a document), or by starting a new transaction (in the case of a stored procedure that is run as the result of an explicit client request). If the code in a programmable item throws an exception, the transaction is rolled back. You can use stored procedures and triggers to maintain integrity and consistency between documents, but these documents must all be part of the same collection.
+- **The collections that you intend to hold in the databases in a DocumentDB account should be unlikely to exceed the throughput limits defined by the performance levels of the collections**. These limits are described on the page [Manage DocumentDB capacity needs] on the Microsoft website. If you anticipate reaching these limits, consider splitting collections across databases in different DocumentDB accounts to reduce the load per collection.
 
-## Стратегии секционирования для поиска Azure
+## <a name="partitioning-strategies-for-azure-search"></a>Partitioning strategies for Azure Search
 
-Возможность поиска данных часто является основным методом навигации и просмотра, который предоставляют многие веб-приложения. Она помогает пользователям быстро находить ресурсы (например продукты в приложении электронной коммерции) на основе сочетания условий поиска. Служба поиска Azure предоставляет возможности полнотекстового поиска по веб-содержимому и включает такие функции, как автозаполнение, предлагаемые запросы на основании совпадений и многогранная навигация. Полное описание этих возможностей см. на странице [Что такое поиск Azure] на веб-сайте Майкрософт.
+The ability to search for data is often the primary method of navigation and exploration that's provided by many web applications. It helps users find resources quickly (for example, products in an e-commerce application) based on combinations of search criteria. The Azure Search service provides full-text search capabilities over web content, and includes features such as type-ahead, suggested queries based on near matches, and faceted navigation. A full description of these capabilities is available on the page [What is Azure Search?] on the Microsoft website.
 
-Служба поиска Azure хранит подлежащее поиску содержимое как документы JSON в базе данных. Можно определить индексы, которые указывают поля для поиска в этих документах, и предоставить эти определения службе поиска Azure. Когда пользователь отправляет поисковый запрос, служба поиска Azure использует соответствующие индексы для поиска совпадающих элементов.
+Azure Search stores searchable content as JSON documents in a database. You define indexes that specify the searchable fields in these documents and provide these definitions to Azure Search. When a user submits a search request, Azure Search uses the appropriate indexes to find matching items.
 
-Чтобы снизить количество конфликтов, можно разделить хранилища, используемые службой поиска Azure, на 1, 2, 3, 4, 6 или 12 секций, и каждую секцию реплицировать до 6 раз. Произведение числа секций и числа реплик называется _единицей поиска_ (SU). Один экземпляр службы поиска Azure может содержать не более 36 единиц поиска (база данных с 12 секциями поддерживает не более 3 реплик).
+To reduce contention, the storage that's used by Azure Search can be divided into 1, 2, 3, 4, 6, or 12 partitions, and each partition can be replicated up to 6 times. The product of the number of partitions multiplied by the number of replicas is called the _search unit_ (SU). A single instance of Azure Search can contain a maximum of 36 SUs (a database with 12 partitions only supports a maximum of 3 replicas).
 
-Плата взимается за каждую единицу поиска, выделенную для службы. При увеличении объема содержимого для поиска или скорости запросов поиска можно добавить единицы поиска в существующий экземпляр службы поиска Azure для обработки дополнительной нагрузки. Сама служба поиска Azure отвечает за равномерное распределение документов по секциям. Сейчас стратегии секционирования вручную не поддерживаются.
+You are billed for each SU that is allocated to your service. As the volume of searchable content increases or the rate of search requests grows, you can add SUs to an existing instance of Azure Search to handle the extra load. Azure Search itself distributes the documents evenly across the partitions. No manual partitioning strategies are currently supported.
 
-Каждая секция может содержать не более 15 миллионов документов или занимать не более 300 ГБ дискового пространства (в зависимости от того, какое значение ниже). Можно создать до 50 индексов. Производительность службы зависит от сложности документов, доступных индексов и эффектов задержки в сети. В среднем одна реплика (1 единица поиска) должна уметь обрабатывать 15 запросов в секунду (QPS), хотя рекомендуется выполнить тестирование производительности со своими данными, чтобы получить более точные показатели пропускной способности. Дополнительные сведения см. на странице [Ограничения службы поиска Azure] на веб-сайте Майкрософт.
+Each partition can contain a maximum of 15 million documents or occupy 300 GB of storage space (whichever is smaller). You can create up to 50 indexes. The performance of the service varies and depends on the complexity of the documents, the available indexes, and the effects of network latency. On average, a single replica (1 SU) should be able to handle 15 queries per second (QPS), although we recommend performing benchmarking with your own data to obtain a more precise measure of throughput. For more information, see the page [Service limits in Azure Search] on the Microsoft website.
 
-> [AZURE.NOTE] В документах для поиска можно хранить ограниченный набор типов данных: строки, логические значения, числовые данные, данные даты и времени и географические данные. Дополнительные сведения см. на странице [Поддерживаемые типы данных (поиск Azure)] на веб-сайте Майкрософт.
+> [AZURE.NOTE] You can store a limited set of data types in searchable documents, including strings, Booleans, numeric data, datetime data, and some geographical data. For more details, see the page [Supported data types (Azure Search)] on the Microsoft website.
 
-Вы можете лишь частично контролировать то, как служба поиска Azure секционирует данные для каждого экземпляра службы. Однако в глобальной среде можно повысить производительность и снизить задержку и количество конфликтов за счет секционирования самой службы одним из следующих способов.
+You have limited control over how Azure Search partitions data for each instance of the service. However, in a global environment you might be able to improve performance and reduce latency and contention further by partitioning the service itself using either of the following strategies:
 
-- Создайте экземпляр службы поиска Azure в каждом географическом регионе и убедитесь, что клиентские приложения направляются к ближайшему доступному экземпляру. Эта стратегия требует своевременной репликации всех обновлений содержимого для поиска во всех экземплярах службы.
+- Create an instance of Azure Search in each geographic region, and ensure that client applications are directed towards the nearest available instance. This strategy requires that any updates to searchable content are replicated in a timely manner across all instances of the service.
 
-- Создайте два уровня службы поиска Azure:
-    - локальную службу в каждом регионе, которая содержит наиболее часто применяемые пользователями этого региона данные. Пользователи могут направлять запросы в локальную службу для получения быстрых, но ограниченных результатов.
-    - Глобальная служба, которая включает в себя все данные. Пользователи могут направлять запросы в глобальную службу для получения менее быстрых, но более полных результатов.
+- Create two tiers of Azure Search:
+    - A local service in each region that contains the data that's most frequently accessed by users in that region. Users can direct requests here for fast but limited results.
+    - A global service that encompasses all the data. Users can direct requests here for slower but more complete results.
 
-Этот подход наиболее эффективен при значительных региональных различиях в данных, по которым выполняется поиск.
+This approach is most suitable when there is a significant regional variation in the data that's being searched.
 
-## Стратегии секционирования кэша Redis для Azure
+## <a name="partitioning-strategies-for-azure-redis-cache"></a>Partitioning strategies for Azure Redis Cache
 
-Кэш Redis для Azure предоставляет службу общего кэша в облаке, которая основана на хранилище данных Redis типа ключ-значение. Как понятно из названия, кэш Redis для Azure создан как решение для кэширования. Поэтому его следует использовать только для хранения временных данных, а не как постоянное хранилище данных. Приложения, использующие кэш Redis для Azure, должны иметь возможность продолжать работу, даже если кэш недоступен. Кэш Redis для Azure поддерживает первичную или вторичную репликацию для обеспечения высокой доступности, но сейчас максимальный размер кэша ограничен 53 ГБ. Если требуется больше места, необходимо создать дополнительные кэши. Дополнительные сведения см. на странице [Кэш Redis для Azure] на веб-сайте Майкрософт.
+Azure Redis Cache provides a shared caching service in the cloud that's based on the Redis key-value data store. As its name implies, Azure Redis Cache is intended as a caching solution. Use it only for holding transient data and not as a permanent data store. Applications that utilize Azure Redis Cache should be able to continue functioning if the cache is unavailable. Azure Redis Cache supports primary/secondary replication to provide high availability, but currently limits the maximum cache size to 53 GB. If you need more space than this, you must create additional caches. For more information, go to the page [Azure Redis Cache] on the Microsoft website.
 
-Секционирование хранилища данных Redis включает в себя разбиение данных по экземплярам службы Redis. Каждый экземпляр представляет одну секцию. Кэш Redis для Azure абстрагирует службы Redis за фасадом и не раскрывает их напрямую. Самый простой способ реализации секционирования — создание нескольких экземпляров кэша Redis для Azure и распределение данных между ними.
+Partitioning a Redis data store involves splitting the data across instances of the Redis service. Each instance constitutes a single partition. Azure Redis Cache abstracts the Redis services behind a façade and does not expose them directly. The simplest way to implement partitioning is to create multiple Azure Redis Cache instances and spread the data across them.
 
-Каждый элемент данных можно связать с идентификатором (ключом секции), который указывает, в каком кэше его следует хранить. Логика клиентского приложения может использовать этот идентификатор для перенаправления запросов в соответствующую секцию. Эта схема очень проста, но при изменении схемы секционирования (например, если создаются дополнительные экземпляры кэша Redis для Azure) может потребоваться изменение конфигурации клиентских приложений.
+You can associate each data item with an identifier (a partition key) that specifies which cache stores the data item. The client application logic can then use this identifier to route requests to the appropriate partition. This scheme is very simple, but if the partitioning scheme changes (for example, if additional Azure Redis Cache instances are created), client applications might need to be reconfigured.
 
-Собственный Redis (не кэш Redis для Azure) поддерживает серверную часть секционирования на основе кластеризации Redis. При таком подходе данные делятся поровну между серверами с помощью механизма хэширования. На каждом сервере Redis хранятся метаданные, описывающие диапазон содержащихся в секции хэш-ключей, а также сведения о хэш-ключах, которые находятся в секциях на других серверах.
+Native Redis (not Azure Redis Cache) supports server-side partitioning based on Redis clustering. In this approach, you can divide the data evenly across servers by using a hashing mechanism. Each Redis server stores metadata that describes the range of hash keys that the partition holds, and also contains information about which hash keys are located in the partitions on other servers.
 
-Клиентские приложения просто отправляют запросы на любой сервер-участник Redis (скорее всего, на ближайший). Сервер Redis проверяет запрос клиента. Если его можно разрешить локально, сервер выполняет запрошенную операцию. В противном случае он перенаправляет запрос на соответствующий сервер.
+Client applications simply send requests to any of the participating Redis servers (probably the closest one). The Redis server examines the client request. If it can be resolved locally, it performs the requested operation. Otherwise it forwards the request on to the appropriate server.
 
-Эта модель реализуется с помощью кластеризации Redis и более подробно описана на странице [Учебник по кластерам Redis] на веб-сайте Redis. Кластеризация Redis прозрачна для клиентских приложений. В кластер можно добавлять дополнительные серверы Redis (а также повторно секционировать данные) без необходимости перенастройки клиентов.
+This model is implemented by using Redis clustering, and is described in more detail on the [Redis cluster tutorial] page on the Redis website. Redis clustering is transparent to client applications. Additional Redis servers can be added to the cluster (and the data can be re-partitioned) without requiring that you reconfigure the clients.
 
-> [AZURE.IMPORTANT] Кэш Redis для Azure в настоящее время не поддерживает кластеризацию Redis. Если вы хотите реализовать такой подход с Azure, необходимо сначала реализовать собственные серверы Redis, установив Redis на набор виртуальных машин Azure и настроив их вручную. На странице [Запуск Redis на виртуальной машине CentOS Linux в Azure] на веб-сайте Майкрософт содержится пример, показывающий, как создать и настроить узел Redis, запущенный в качестве виртуальной машины Azure.
+> [AZURE.IMPORTANT] Azure Redis Cache does not currently support Redis clustering. If you want to implement this approach with Azure, then you must implement your own Redis servers by installing Redis on a set of Azure virtual machines and configuring them manually. The page [Running Redis on a CentOS Linux VM in Azure] on the Microsoft website walks through an example that shows you how to build and configure a Redis node running as an Azure VM.
 
-Подробнее о реализации секционирования с помощью Redis см. на странице [Секционирование: распределение данных между несколькими экземплярами Redis] на веб-сайте Redis. В оставшейся части этого раздела предполагается, что вы реализуете секционирование на стороне клиента или через прокси-сервер.
+The page [Partitioning: how to split data among multiple Redis instances] on the Redis website provides more information about implementing partitioning with Redis. The remainder of this section assumes that you are implementing client-side or proxy-assisted partitioning.
 
-При выборе способа секционирования данных с помощью кэша Redis для Azure учитывайте следующие моменты.
+Consider the following points when deciding how to partition data with Azure Redis Cache:
 
-- Кэш Redis для Azure не предназначен для работы в качестве постоянного хранилища данных, поэтому, какую бы схему секционирования вы ни выбрали, код приложения должен быть готов извлекать данные из источника, не являющегося кэшем.
-- Часто используемые данные необходимо размещать в одной секции. Redis — это эффективное хранилище типа ключ-значение, которое предоставляет несколько значительно оптимизированных механизмов для структурирования данных. Механизмы могут быть следующими:
-    - простые строки (двоичные данные длиной до 512 МБ);
-    - агрегатные типы, такие как списки (которые могут выступать в качестве очередей и стеков);
-    - наборы (упорядоченные и неупорядоченные);
-    - хэши (которые могут группировать связанные поля, например элементы, представляющие поля в объекте).
+- Azure Redis Cache is not intended to act as a permanent data store, so whatever partitioning scheme you implement, your application code must be able to retrieve data from a location that's not the cache.
+- Data that is frequently accessed together should be kept in the same partition. Redis is a powerful key-value store that provides several highly optimized mechanisms for structuring data. These mechanisms can be one of the following:
+    - Simple strings (binary data up to 512 MB in length)
+    - Aggregate types such as lists (which can act as queues and stacks)
+    - Sets (ordered and unordered)
+    - Hashes (which can group related fields together, such as the items that represent the fields in an object)
 
-- Агрегатные типы позволяют связывать несколько взаимосвязанных значений с одним ключом. Ключ Redis определяет список, набор или хэш, а не элементы данных, которые он содержит. Все эти типы доступны в кэше Redis для Azure и описаны на странице [Типы данных] на веб-сайте Redis. Например, в части системы электронной коммерции, отслеживающей размещенные клиентами заказы, подробные сведения о каждом клиенте могут храниться в хэше Redis, зашифрованном с помощью идентификатора клиента. Каждый хэш может содержать коллекцию идентификаторов заказов клиента. Отдельный набор Redis может содержать заказы, опять же структурированные как хэши, зашифрованные с помощью идентификатора заказа. Эта структура показана на рис. 10. Обратите внимание, что Redis не реализует какую-либо форму целостности данных, поэтому разработчик сам должен обеспечить связь между клиентами и заказами.
+- The aggregate types enable you to associate many related values with the same key. A Redis key identifies a list, set, or hash rather than the data items that it contains. These types are all available with Azure Redis Cache and are described by the [Data types] page on the Redis website. For example, in part of an e-commerce system that tracks the orders that are placed by customers, the details of each customer can be stored in a Redis hash that is keyed by using the customer ID. Each hash can hold a collection of order IDs for the customer. A separate Redis set can hold the orders, again structured as hashes, and keyed by using the order ID. Figure 10 shows this structure. Note that Redis does not implement any form of referential integrity, so it is the developer's responsibility to maintain the relationships between customers and orders.
 
-![Предлагаемая структура в хранилище Redis для записи заказов клиентов и сведений о них](media/best-practices-data-partitioning/RedisCustomersandOrders.png)
+![Suggested structure in Redis storage for recording customer orders and their details](media/best-practices-data-partitioning/RedisCustomersandOrders.png)
 
-_Рис. 10. Предлагаемая структура в хранилище Redis для записи заказов клиентов и сведений о них_
+_Figure 10. Suggested structure in Redis storage for recording customer orders and their details_
 
-> [AZURE.NOTE] В Redis все ключи являются значениями двоичных данных (например строки Redis) и могут содержать до 512 МБ данных. В теории ключ может содержать почти любую информацию. Однако рекомендуется использовать согласованный контекст именования ключей, согласно которому имя должно описывать тип данных и определять сущность, но не быть слишком длинным. Распространенный подход — использовать ключи в формате "entity\_type: ID". Например, можно использовать "customer: 99", чтобы указать ключ для клиента с идентификатором 99.
+> [AZURE.NOTE] In Redis, all keys are binary data values (like Redis strings) and can contain up to 512 MB of data. In theory, a key can contain almost any information. However, we recommend adopting a consistent naming convention for keys that is descriptive of the type of data and that identifies the entity, but is not excessively long. A common approach is to use keys of the form "entity_type:ID". For example, you can use "customer:99" to indicate the key for a customer with the ID 99.
 
-- Можно реализовать вертикальное секционирование, сохраняя связанные сведения в различных агрегатах в одной базе данных. Например, в приложении электронной коммерции можно хранить часто используемые сведения о продуктах в одном хэше Redis, а реже используемые сведения — в другом. Оба хэша могут использовать один и тот же идентификатор продукта как часть ключа. Например, product:_nn_ (где _nn_ — идентификатор продукта) для сведений о продукте и product\_details:_nn_ для подробного описания. Эта стратегия позволяет сократить объем данных, к которым обращается большинство запросов.
-- Перераспределение хранилища данных Redis является сложной задачей, которая требует много времени. Кластеризация Redis может секционировать данные автоматически, но эта возможность не поддерживается в кэше Redis для Azure. Таким образом, при разработке схемы секционирования попытайтесь оставить достаточно свободного места в каждой секции, чтобы учесть ожидаемый со временем рост данных. Однако помните, что кэш Redis для Azure предназначен для временного кэширования данных, а также что у данных, хранящихся в кэше, может быть ограниченное время существования, указанное как значение срока жизни (TTL). Для относительно временных данных значение TTL должно быть коротким, но для статических данных значение TTL может быть гораздо большим. Не следует хранить большие объемы долгоживущих данных в кэше, если эти данные, скорее всего, переполнят кэш. Можно указать политику вытеснения, согласно которой кэш Redis для Azure будет удалять данные, если места осталось мало.
+- You can implement vertical partitioning by storing related information in different aggregations in the same database. For example, in an e-commerce application, you can store commonly accessed information about products in one Redis hash and less frequently used detailed information in another.
+Both hashes can use the same product ID as part of the key. For example, you can use "product: _nn_" (where _nn_ is the product ID) for the product information and "product_details: _nn_" for the detailed data. This strategy can help reduce the volume of data that most queries are likely to retrieve.
+- You can repartition a Redis data store, but keep in mind that it's a complex and time-consuming task. Redis clustering can repartition data automatically, but this capability is not available with Azure Redis Cache. Therefore, when you design your partitioning scheme, try to leave sufficient free space in each partition to allow for expected data growth over time. However, remember that Azure Redis Cache is intended to cache data temporarily, and that data held in the cache can have a limited lifetime specified as a time-to-live (TTL) value. For relatively volatile data, the TTL can be short, but for static data the TTL can be a lot longer. Avoid storing large amounts of long-lived data in the cache if the volume of this data is likely to fill the cache. You can specify an eviction policy that causes Azure Redis Cache to remove data if space is at a premium.
 
-	> [AZURE.NOTE] При использовании кэша Redis для Azure вы указываете максимальный размер кэша (от 250 МБ до 53 ГБ), выбирая соответствующую ценовую категорию. Однако после создания кэша Redis для Azure нельзя увеличить (или уменьшить) его размер.
+    > [AZURE.NOTE] When you use Azure Redis cache, you specify the maximum size of the cache (from 250 MB to 53 GB) by selecting the appropriate pricing tier. However, after an Azure Redis Cache has been created, you cannot increase (or decrease) its size.
 
-- Пакеты и транзакции Redis не могут охватывать несколько подключений, поэтому все данные, затрагиваемые пакетом или транзакцией, должны храниться в одной базе данных (в одном сегменте).
+- Redis batches and transactions cannot span multiple connections, so all data that is affected by a batch or transaction should be held in the same database (shard).
 
-	> [AZURE.NOTE] Последовательность операций в транзакции Redis не обязательно является неделимой. Команды, которые составляют транзакцию, проверяются и добавляются в очередь перед выполнением. Если на этом этапе возникает ошибка, вся очередь удаляется. Однако после успешной отправки транзакции команды в очереди будут выполняться последовательно. Если какая-либо из команд завершается ошибкой, прерывается только эта команда. Все предыдущие и последующие команды выполняются по очереди. Дополнительные сведения см. на странице [Транзакции] на веб-сайте Redis.
+    > [AZURE.NOTE] A sequence of operations in a Redis transaction is not necessarily atomic. The commands that compose a transaction are verified and queued before they run. If an error occurs during this phase, the entire queue is discarded. However, after the transaction has been successfully submitted, the queued commands run in sequence. If any command fails, only that command stops running. All previous and subsequent commands in the queue are performed. For more information, go to the [Transactions] page on the Redis website.
 
-- Redis поддерживает ограниченное число атомарных операций. Единственными операциями такого типа, которые поддерживают несколько ключей, являются MGET и MSET. Операции MGET возвращают коллекцию значений для указанного списка ключей, а операции MSET сохраняют коллекцию значений для указанного списка ключей. Если необходимо использовать эти операции, пары ключ-значение, на которые ссылаются команды MSET и MGET, должны храниться в той же базе данных.
+- Redis supports a limited number of atomic operations. The only operations of this type that support multiple keys and values are MGET and MSET operations. MGET operations return a collection of values for a specified list of keys, and MSET operations store a collection of values for a specified list of keys. If you need to use these operations, the key-value pairs that are referenced by the MSET and MGET commands must be stored within the same database.
 
-## Балансировка секций
+## <a name="rebalancing-partitions"></a>Rebalancing partitions
 
-По мере того как система развивается и схемы использования становятся более понятны, может возникнуть необходимость изменить схему секционирования. Например, отдельные секции могут начать привлекать непропорциональный объем трафика и становятся горячими точками, что приводит к слишком большому количеству конфликтов. Кроме того, вы могли недооценить объем данных в некоторых секциях, в результате чего достигли пределов емкости хранилища в этих секциях. Какой бы ни была причина, иногда необходимо повторно сбалансировать секции, чтобы более равномерно распределить нагрузку.
+As a system matures and you understand the usage patterns better, you might have to adjust the partitioning scheme. For example, individual partitions might start attracting a disproportionate volume of traffic and become hot, leading to excessive contention. Additionally, you might have underestimated the volume of data in some partitions, causing you to approach the limits of the storage capacity in these partitions. Whatever the cause, it is sometimes necessary to rebalance partitions to spread the load more evenly.
 
-В некоторых случаях системы хранения данных, которые не демонстрируют способ распределения данных на серверах, могут автоматически балансировать секции в пределах доступных ресурсов. В других ситуациях перераспределение является административной задачей, которая состоит из двух этапов.
+In some cases, data storage systems that don't publicly expose how data is allocated to servers can automatically rebalance partitions within the limits of the resources available. In other situations, rebalancing is an administrative task that consists of two stages:
 
-1. Сначала необходимо определить новую стратегию секционирования, чтобы понять следующие моменты:
-    - Какие секции необходимо разделить (или, возможно, объединить).
-    - Как разместить данные в этих новых секциях, создав новые ключи секций.
-2. Затем необходимо перенести затронутые данные из старой схемы секционирования в новый набор секций.
+1. Determining the new partitioning strategy to ascertain:
+    - Which partitions might need to be split (or possibly combined).
+    - How to allocate data to these new partitions by designing new partition keys.
+2. Migrating the affected data from the old partitioning scheme to the new set of partitions.
 
-> [AZURE.NOTE] Сопоставление коллекций базы данных DocumentDB серверам является прозрачным, но вы можете достигнуть предела емкости хранилища и пропускной способности учетной записи DocumentDB. В этом случае потребуется изменить схему секционирования и перенести данные.
+> [AZURE.NOTE] The mapping of DocumentDB database collections to servers is transparent, but you can still reach the storage capacity and throughput limits of a DocumentDB account. If this happens, you might need to redesign your partitioning scheme and migrate the data.
 
-В зависимости от технологии хранения данных и структуры системы хранения данных у вас может быть возможность перенести данные между секциями, не останавливая их использование (оперативная миграция). Если это невозможно, потребуется заблокировать доступ к соответствующим секциям на время перемещения данных (автономная миграция).
+Depending on the data storage technology and the design of your data storage system, you might be able to migrate data between partitions while they are in use (online migration). If this isn't possible, you might need to make the affected partitions temporarily unavailable while the data is relocated (offline migration).
 
-## Автономная миграция
+## <a name="offline-migration"></a>Offline migration
 
-Автономная миграция, возможно, является самым простым подходом, так как уменьшает вероятность возможных конфликтов. Не вносите никаких изменений в данные во время перемещения и реструктуризации.
+Offline migration is arguably the simplest approach because it reduces the chances of contention occurring. Don't make any changes to the data while it is being moved and restructured.
 
-По сути, этот процесс включает в себя следующие шаги:
+Conceptually, this process includes the following steps:
 
-1. пометить сегменты как отключенные;
-2. разделить или объединить сегменты и переместить данные в новые сегменты;
-3. проверить данные;
-4. подключить новые сегменты;
-5. удалить старый сегмент.
+1. Mark the shard offline.
+2. Split-merge and move the data to the new shards.
+3. Verify the data.
+4. Bring the new shards online.
+5. Remove the old shard.
 
-Чтобы сохранить некоторую доступность, можно в шаге 1 сделать исходный сегмент доступным только для чтения, а не полностью недоступным. Это позволит приложениям считывать данные во время перемещения, но не изменять их.
+To retain some availability, you can mark the original shard as read-only in step 1 rather than making it unavailable. This allows applications to read the data while it is being moved but not to change it.
 
-## Оперативная миграция
+## <a name="online-migration"></a>Online migration
 
-Оперативную миграцию реализовать сложнее, но удобнее для пользователей, так как данные остаются доступными во время всей процедуры. Процесс аналогичен процессу автономной миграции, за исключением того, что исходный сегмент не помечается как отключенный (шаг 1). В зависимости от гранулярности процесса миграции (например по элементу или по сегменту), коду доступа к данным в клиентских приложениях может понадобиться считывать и записывать данные, находящиеся в двух расположениях (в исходном сегменте и в новом).
+Online migration is more complex to perform but less disruptive to users because data remains available during the entire procedure. The process is similar to that used by offline migration, except that the original shard is not marked offline (step 1). Depending on the granularity of the migration process (for example, whether it's done item by item or shard by shard), the data access code in the client applications might have to handle reading and writing data that's held in two locations (the original shard and the new shard).
 
-Пример решения, которое поддерживает оперативную миграцию, см. в разделе [Масштабирование с применением средства разбиения и объединения гибкой базы данных] на веб-сайте Майкрософт.
+For an example of a solution that supports online migration, see the article [Scaling using the Elastic Database split-merge tool] on the Microsoft website.
 
-## Связанные шаблоны и рекомендации
+## <a name="related-patterns-and-guidance"></a>Related patterns and guidance
 
-При выборе стратегии реализации согласованности данных для вашего сценария также могут быть полезны указанные далее шаблоны.
+When considering strategies for implementing data consistency, the following patterns might also be relevant to your scenario:
 
-- [Руководство по согласованности данных] на веб-сайте Майкрософт описывает стратегии для поддержания согласованности в распределенной среде, например в облаке.
-- На странице [Рекомендации по секционированию данных] на веб-сайте Майкрософт предоставлены общие сведения по проектированию секций для удовлетворения различных критериев в распределенном решении.
-- [Шаблон сегментирования], описанный на веб-сайте Майкрософт, включает некоторые распространенные стратегии для сегментирования данных.
-- [Шаблон таблицы индексов], описанный на веб-сайте Майкрософт, иллюстрирует создание вторичных индексов данных. Такой подход позволяет приложению быстро получить данные с помощью запросов, которые не ссылаются на первичный ключ коллекции.
-- [Шаблон материализованного представления], представленный на веб-сайте Майкрософт, описывает, как создавать предварительно заполненные представления, которые отображают итоговые данные для поддержки операций быстрого запроса. Этот подход можно использовать в секционированном хранилище данных, если секции, содержащие итоговые данные, распределены по нескольким сайтам.
-- Статья [Использование Azure CDN] содержит дополнительные рекомендации по настройке и использованию сети доставки содержимого с помощью Azure.
+- The [Data consistency primer] page on the Microsoft website describes strategies for maintaining consistency in a distributed environment such as the cloud.
+- The [Data partitioning guidance] page on the Microsoft website provides a general overview of how to design partitions to meet various criteria in a distributed solution.
+- The [sharding pattern] as described on the Microsoft website summarizes some common strategies for sharding data.
+- The [index table pattern] as described on the Microsoft website illustrates how to create secondary indexes over data. An application can quickly retrieve data with this approach, by using queries that do not reference the primary key of a collection.
+- The [materialized view pattern] as described on the Microsoft website describes how to generate pre-populated views that summarize data to support fast query operations. This approach can be useful in a partitioned data store if the partitions that contain the data being summarized are distributed across multiple sites.
+- The [Using Azure Content Delivery Network] article on the Microsoft website provides additional guidance on configuring and using Content Delivery Network with Azure.
 
-## Дополнительные сведения
+## <a name="more-information"></a>More information
 
-- На странице [Что такое база данных SQL Azure] на веб-сайте Майкрософт представлена подробная документация, в которой описываются способы создания и использования базы данных SQL.
-- Дополнительные сведения об эластичной базе данных см. на странице [Общие сведения о возможностях эластичных баз данных] на веб-сайте Майкрософт.
-- На странице [Масштабирование с использованием инструмента разбиения и объединения эластичных баз данных] веб-сайта Майкрософт содержатся сведения об использовании службы разбиения и объединения для управления сегментами эластичной базы данных.
-- На странице [Целевые показатели производительности и масштабируемости хранилища Azure](https://msdn.microsoft.com/library/azure/dn249410.aspx) на веб-сайте Майкрософт перечислены текущие ограничения размера и пропускной способности хранилища Azure.
-- На странице [Выполнение групповых транзакций сущности] на веб-сайте Майкрософт предоставлены подробные сведения о реализации транзакционных операций по сущностям, хранящимся в хранилище таблиц Azure.
-- Статья [Руководство по разработке таблиц хранилища Azure] на веб-сайте Майкрософт содержит подробные сведения о секционировании данных в хранилище таблиц Azure.
-- В статье [Использование Azure CDN] объясняется, как реплицировать данные, хранящиеся в хранилище BLOB-объектов Azure, с помощью сети доставки содержимого Azure.
-- Статья [Дополнительные сведения о подготовке хранилища и прогнозируемой производительности в DocumentDB] содержит сведения о том, каким образом Azure DocumentDB выделяет ресурсы базам данных.
-- Страница [Что такое поиск Azure] на веб-сайте Майкрософт содержит полное описание возможностей, доступных в службе поиска Azure.
-- На странице [Ограничения службы поиска Azure] на веб-сайте Майкрософт представлены сведения о емкости каждого экземпляра службы поиска Azure.
-- На странице [Поддерживаемые типы данных (служба поиска Azure)] на веб-сайте Майкрософт перечислены типы данных, которые можно использовать в документах и индексах для поиска.
-- На странице [Кэш Redis для Azure] на веб-сайте Майкрософт представлено введение в кэш Redis для Azure.
-- На странице [Секционирование: распределение данных между несколькими экземплярами Redis] на веб-сайте Redis содержатся сведения о реализации секционирования с использованием Redis.
-- На странице [Запуск Redis на виртуальной машине CentOS Linux в Azure] на веб-сайте Майкрософт содержится пример, показывающий, как создать и настроить узел Redis, запущенный в качестве виртуальной машины Azure.
-- На странице [Типы данных] на веб-сайте Redis описаны типы данных, которые доступны в Redis и кэше Redis для Azure.
+- The page [What is Azure SQL Database?] on the Microsoft website provides detailed documentation that describes how to create and use SQL databases.
+- The page [Elastic Database features overview] on the Microsoft website provides a comprehensive introduction to Elastic Database.
+- The page [Scaling using the Elastic Database split-merge tool] on the Microsoft website contains information about using the split-merge service to manage Elastic Database shards.
+- The page [Azure storage scalability and performance targets](https://msdn.microsoft.com/library/azure/dn249410.aspx) on the Microsoft website documents the current sizing and throughput limits of Azure Storage.
+- The page [Performing entity group transactions] on the Microsoft website provides detailed information about implementing transactional operations over entities that are stored in Azure table storage.
+- The article [Azure Storage table design guide] on the Microsoft website contains detailed information about partitioning data in Azure table storage.
+- The page [Using Azure Content Delivery Network] on the Microsoft website describes how to replicate data that's held in Azure blob storage by using the Azure Content Delivery Network.
+- The page [Manage DocumentDB capacity needs] on the Microsoft website contains information about how Azure DocumentDB databases allocate resources.
+- The page [What is Azure Search?] on the Microsoft website provides a full description of the capabilities that are available in Azure Search.
+- The page [Service limits in Azure Search] on the Microsoft website contains information about the capacity of each instance of Azure Search.
+- The page [Supported data types (Azure Search)] on the Microsoft website summarizes the data types that you can use in searchable documents and indexes.
+- The page [Azure Redis Cache] on the Microsoft website provides an introduction to Azure Redis Cache.
+- The [Partitioning: how to split data among multiple Redis instances] page on the Redis website provides information about how to implement partitioning with Redis.
+- The page [Running Redis on a CentOS Linux VM in Azure] on the Microsoft website walks through an example that shows you how to build and configure a Redis node running as an Azure VM.
+- The [Data types] page on the Redis website describes the data types that are available with Redis and Azure Redis Cache.
 
-[Кэш Redis для Azure]: http://azure.microsoft.com/services/cache/
-[Кэш Redis для Azure]: http://azure.microsoft.com/services/cache/
-[Целевые показатели масштабируемости и производительности службы хранилища Azure]: storage/storage-scalability-targets.md
-[Azure storage table design guide (Руководство по разработке таблиц хранилища Azure)]: storage/storage-table-design-guide.md
-[Руководство по разработке таблиц хранилища Azure]: storage/storage-table-design-guide.md
-[Построение решения Polyglot]: https://msdn.microsoft.com/library/dn313279.aspx
-[Доступ к данным для масштабируемых решений: с помощью SQL, NoSQL и Polyglot Persistence]: https://msdn.microsoft.com/library/dn271399.aspx
-[Data consistency primer (Руководство по согласованности данных)]: http://aka.ms/Data-Consistency-Primer
-[Руководство по согласованности данных]: http://aka.ms/Data-Consistency-Primer
-[руководстве по согласованности]: http://aka.ms/Data-Consistency-Primer
-[Рекомендации по секционированию данных]: https://msdn.microsoft.com/library/dn589795.aspx
-[Типы данных]: http://redis.io/topics/data-types
-[Ограничения и квоты DocumentDB]: documentdb/documentdb-limits.md
-[Общие сведения о возможностях эластичных баз данных]: sql-database/sql-database-elastic-scale-introduction.md
+[Azure Redis Cache]: http://azure.microsoft.com/services/cache/
+[Azure Storage Scalability and Performance Targets]: storage/storage-scalability-targets.md
+[Azure Storage Table Design Guide]: storage/storage-table-design-guide.md
+[Building a Polyglot Solution]: https://msdn.microsoft.com/library/dn313279.aspx
+[Data Access for Highly-Scalable Solutions: Using SQL, NoSQL, and Polyglot Persistence]: https://msdn.microsoft.com/library/dn271399.aspx
+[Data consistency primer]: http://aka.ms/Data-Consistency-Primer
+[Data Partitioning Guidance]: https://msdn.microsoft.com/library/dn589795.aspx
+[Data Types]: http://redis.io/topics/data-types
+[DocumentDB limits and quotas]: documentdb/documentdb-limits.md
+[Elastic Database features overview]: sql-database/sql-database-elastic-scale-introduction.md
 [Federations Migration Utility]: https://code.msdn.microsoft.com/vstudio/Federations-Migration-ce61e9c1
-[Шаблон таблицы индексов]: http://aka.ms/Index-Table-Pattern
-[шаблона таблицы индексов]: http://aka.ms/Index-Table-Pattern
-[Дополнительные сведения о подготовке хранилища и прогнозируемой производительности в DocumentDB]: documentdb/documentdb-manage.md
-[Требования емкости DocumentDB]: documentdb/documentdb-manage.md
-[Шаблон материализованного представления]: http://aka.ms/Materialized-View-Pattern
-[Многосегментное формирование запросов]: sql-database/sql-database-elastic-scale-multishard-querying.md
-[Секционирование: распределение данных между несколькими экземплярами Redis]: http://redis.io/topics/partitioning
-[Уровни производительности в DocumentDB]: documentdb/documentdb-performance-levels.md
-[Выполнение групповых транзакций сущности]: https://msdn.microsoft.com/library/azure/dd894038.aspx
-[Выполнение транзакций группы сущностей]: https://msdn.microsoft.com/library/azure/dd894038.aspx
-[Учебник по кластерам Redis]: http://redis.io/topics/cluster-tutorial
-[Запуск Redis на виртуальной машине CentOS Linux в Azure]: http://blogs.msdn.com/b/tconte/archive/2012/06/08/running-redis-on-a-centos-linux-vm-in-windows-azure.aspx
-[Масштабирование с использованием инструмента разбиения и объединения эластичных баз данных]: sql-database/sql-database-elastic-scale-overview-split-and-merge.md
-[Масштабирование с применением средства разбиения и объединения гибкой базы данных]: sql-database/sql-database-elastic-scale-overview-split-and-merge.md
-[Масштабирование с применением средства разбиения и объединения эластичной базы данных]: sql-database/sql-database-elastic-scale-overview-split-and-merge.md
-[Использование Azure CDN]: cdn/cdn-create-new-endpoint.md
-[Квоты на служебную шину]: service-bus/service-bus-quotas.md
-[Ограничения службы поиска Azure]: search/search-limits-quotas-capacity.md
-[Ограничения службы поиска Azure]: search/search-limits-quotas-capacity.md
-[Sharding pattern (Шаблон сегментирования)]: http://aka.ms/Sharding-Pattern
-[Шаблон сегментирования]: http://aka.ms/Sharding-Pattern
-[Поддерживаемые типы данных (поиск Azure)]: https://msdn.microsoft.com/library/azure/dn798938.aspx
-[Поддерживаемые типы данных (служба поиска Azure)]: https://msdn.microsoft.com/library/azure/dn798938.aspx
-[Транзакции]: http://redis.io/topics/transactions
-[Что такое поиск Azure]: search/search-what-is-azure-search.md
-[Что такое база данных SQL Azure]: sql-database/sql-database-technical-overview.md
+[Index Table Pattern]: http://aka.ms/Index-Table-Pattern
+[Manage DocumentDB capacity needs]: documentdb/documentdb-manage.md
+[Materialized View Pattern]: http://aka.ms/Materialized-View-Pattern
+[Multi-shard querying]: sql-database/sql-database-elastic-scale-multishard-querying.md
+[Partitioning: how to split data among multiple Redis instances]: http://redis.io/topics/partitioning
+[Performance levels in DocumentDB]: documentdb/documentdb-performance-levels.md
+[Performing Entity Group Transactions]: https://msdn.microsoft.com/library/azure/dd894038.aspx
+[Redis cluster tutorial]: http://redis.io/topics/cluster-tutorial
+[Running Redis on a CentOS Linux VM in Azure]: http://blogs.msdn.com/b/tconte/archive/2012/06/08/running-redis-on-a-centos-linux-vm-in-windows-azure.aspx
+[Scaling using the Elastic Database split-merge tool]: sql-database/sql-database-elastic-scale-overview-split-and-merge.md
+[Using Azure Content Delivery Network]: cdn/cdn-create-new-endpoint.md
+[Service Bus quotas]: service-bus/service-bus-quotas.md
+[Service limits in Azure Search]:  search/search-limits-quotas-capacity.md
+[Sharding pattern]: http://aka.ms/Sharding-Pattern
+[Supported Data Types (Azure Search)]:  https://msdn.microsoft.com/library/azure/dn798938.aspx
+[Transactions]: http://redis.io/topics/transactions
+[What is Azure Search?]: search/search-what-is-azure-search.md
+[What is Azure SQL Database?]: sql-database/sql-database-technical-overview.md
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

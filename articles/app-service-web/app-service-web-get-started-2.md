@@ -1,140 +1,163 @@
 <properties 
-	pageTitle="Добавление функциональных возможностей в первое веб-приложение" 
-	description="Добавьте потрясающие возможности в свое первое веб-приложение за несколько минут." 
-	services="app-service\web"
-	documentationCenter=""
-	authors="cephalin" 
-	manager="wpickett" 
-	editor="" 
+    pageTitle="Add functionality to your first web app" 
+    description="Add cool features to your first web app in a few minutes." 
+    services="app-service\web"
+    documentationCenter=""
+    authors="cephalin" 
+    manager="wpickett" 
+    editor="" 
 />
 
 <tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="hero-article"
-	ms.date="05/12/2016" 
-	ms.author="cephalin"
+    ms.service="app-service-web" 
+    ms.workload="web" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="hero-article"
+    ms.date="05/12/2016" 
+    ms.author="cephalin"
 />
 
-# Добавление функциональных возможностей в первое веб-приложение
 
-Выполнив инструкции из статьи [Начало работы с веб-приложениями в службе приложений Azure](app-service-web-get-started.md), вы развернули пример веб-приложения в [службе приложений Azure](../app-service/app-service-value-prop-what-is.md). Эта статья поможет быстро добавить в развернутое веб-приложение некоторые важные функции. Через несколько минут вы научитесь:
+# <a name="add-functionality-to-your-first-web-app"></a>Add functionality to your first web app
 
-- применять обязательную проверку подлинности для пользователей;
-- автоматически масштабировать приложение;
-- получать оповещения о производительности приложения;
+In [Deploy a web app to Azure in 5 minutes](app-service-web-get-started.md), you deployed a sample web app to [Azure App Service](../app-service/app-service-value-prop-what-is.md). In this article, you'll quickly add some great functionalities to your deployed web app. In a few minutes, you will:
 
-Приведенное здесь руководство можно использовать независимо от того, какой пример приложения вы развернули во время изучения предыдущей статьи.
+- enforce authentication for your users
+- scale your app automatically
+- receive alerts on the performance of your app
 
-Три действия в этом руководстве — это лишь некоторые примеры из множества полезных функций, которыми можно пользоваться при размещении веб-приложения в службе приложений. Многие функции доступны на уровне **Бесплатный** (на котором работает ваше первое веб-приложение). Также вы можете использовать кредиты пробной версии, чтобы попробовать функции, для которых требуются более высокие ценовые категории. Проследите, чтобы веб-приложение оставалось на уровне **Бесплатный**, пока вы явно не переведете его в другую ценовую категорию.
+Regardless of which sample app you deployed in the previous article, you can follow along in the tutorial.
 
->[AZURE.NOTE] Веб-приложение, созданное с помощью интерфейса командной строки Azure, работает на уровне **Бесплатный**, который допускает только один общий экземпляр виртуальной машины с квотами ресурсов. Дополнительные сведения о ресурсах, доступных на уровне **Бесплатный**, см. в разделе [Ограничения службы приложений](../azure-subscription-service-limits.md#app-service-limits).
+The three activities in this tutorial are only a few examples of the many useful features you get when you put your web app in App Service. Many of the features are available in the **Free** tier (which is what your first web app is running on), and you can use your trial credits to try out features that require higher pricing tiers. Rest assured that your web app remains in **Free** tier unless you explicitly changes it to a different pricing tier.
 
-## Проверка подлинности пользователей
+>[AZURE.NOTE] The web app you created with Azure CLI runs in **Free** tier, which only allows one shared VM instance with resource quotas. For more information on what you get with **Free** tier, see [App Service limits](../azure-subscription-service-limits.md#app-service-limits).
 
-Смотрите, как легко можно добавить в приложение проверку подлинности (дополнительные материалы см. в записи блога о [проверке подлинности и авторизации в службе приложений](https://azure.microsoft.com/blog/announcing-app-service-authentication-authorization/)).
+## <a name="authenticate-your-users"></a>Authenticate your users
 
-1. На портале откройте колонку своего приложения и щелкните **Параметры** > **Проверка подлинности и авторизация**. ![Проверка подлинности — колонка параметров](./media/app-service-web-get-started/aad-login-settings.png)
+Now, let's see how easy it is to add authentication to your app (further reading at [App Service Authentication/Authorization](https://azure.microsoft.com/blog/announcing-app-service-authentication-authorization/)).
+
+1. In the portal blade for your app, which you just opened, click **Settings** > **Authentication / Authorization**.  
+    ![Authenticate - settings blade](./media/app-service-web-get-started/aad-login-settings.png)
     
-2. Щелкните **Вкл.**, чтобы включить проверку подлинности.
+2. Click **On** to turn on authentication.  
     
-4. В разделе **Поставщики проверки подлинности** щелкните **Azure Active Directory**. ![Проверка подлинности — выбор Azure AD](./media/app-service-web-get-started/aad-login-config.png)
+4. In **Authentication Providers**, click **Azure Active Directory**.  
+    ![Authenticate - select Azure AD](./media/app-service-web-get-started/aad-login-config.png)
 
-5. В колонке **Параметры Azure Active Directory** щелкните **Стандартные**, затем нажмите кнопку **ОК**. В соответствии с параметрами по умолчанию в вашем каталоге по умолчанию будет создано новое приложение Azure AD. ![Проверка подлинности — стандартная конфигурация](./media/app-service-web-get-started/aad-login-express.png)
+5. In the **Azure Active Directory Settings** blade, click **Express**, then click **OK**. The default settings create a new Azure AD application in your default directory.  
+ ![Authenticate - express configuration](./media/app-service-web-get-started/aad-login-express.png)
 
-6. Щелкните **Сохранить**. ![Проверка подлинности — сохранить конфигурацию](./media/app-service-web-get-started/aad-login-save.png)
+6. Click **Save**.  
+    ![Authenticate - save configuration](./media/app-service-web-get-started/aad-login-save.png)
 
-    После успешного внесения изменений значок звонка станет зеленым и появится соответствующее сообщение.
+    Once the change is successful, you'll see the notification bell turn green, along with a friendly message.
 
-7. На портале в колонке своего приложения щелкните ссылку **URL-адрес** (или нажмите кнопку **Обзор** в строке меню). Ссылка является HTTP-адресом. ![Проверка подлинности — открытие URL-адреса](./media/app-service-web-get-started/aad-login-browse-click.png) Когда приложение откроется в новой вкладке, браузер выполнит несколько перенаправлений. В итоге вы попадете на страницу своего приложения с адресом HTTPS. Вы увидите, что уже вошли в систему с помощью подписки Azure и автоматически прошли проверку подлинности в приложении. ![Проверка подлинности — вход выполнен](./media/app-service-web-get-started/aad-login-browse-http-postclick.png) Поэтому, если сейчас вы откроете сеанс без проверки подлинности в другом браузере, вы увидите экран входа при переходе на тот же URL-адрес.
+7. Back in the portal blade of your app, click the **URL** link (or **Browse** in the menu bar). The link is an HTTP address.  
+    ![Authenticate - browse to URL](./media/app-service-web-get-started/aad-login-browse-click.png)  
+    But once it opens the app in a new tab, the URL box redirects several times and finishes on your app with an HTTPS address. What you're seeing is that you're already logged in to your Azure subscription, and you're automatically authenticated in the app.  
+    ![Authenticate - logged in](./media/app-service-web-get-started/aad-login-browse-http-postclick.png)  
+    So if you now open an unauthenticated session in a different browser, you'll see a login screen when you navigate to the same URL.  
     <!-- ![Authenticate - login page](./media/app-service-web-get-started/aad-login-browse.png)  -->
-    Если вы никогда не работали с Azure Active Directory, ваш каталог по умолчанию может не содержать всех пользователей Azure AD. Вероятно, там будет только ваша учетная запись Майкрософт с подпиской Azure. Именно поэтому вы смогли автоматически войти в приложение в том же браузере ранее. Ту же учетную запись Майкрософт можно использовать для входа и на этой странице.
+    If you've never done anything with Azure Active Directory, your default directory might not have any Azure AD users. In that case, probably the only account in there is the Microsoft account with your Azure subscription. That's why you were automatically logged in to the app in the same browser earlier. You can use that same Microsoft account to log in on this login page as well.
 
-Поздравляем, теперь в вашем веб-приложении проверяется подлинность всего трафика.
+Congratulations, you are authenticating all traffic to your web app.
 
-Вы могли заметить, что в колонке **Проверка подлинности и авторизация** можно настроить и другие возможности, в частности:
+You may have noticed in the **Authentication / Authorization** blade that you can do a lot more, such as:
 
-- разрешить вход с помощью учетных записей социальных сетей;
-- включить несколько вариантов входа в систему;
-- изменить стандартное поведение приложения при первом входе пользователя;
+- Enable social login
+- Enable multiple login options
+- Change the default behavior when people first navigate to your app
 
-Служба приложений предоставляет готовое решение для некоторых распространенных сценариев проверки подлинности, поэтому вам не нужно самостоятельно организовывать логику проверки подлинности. Дополнительные сведения см. в записи блога о [проверке подлинности и авторизации в службе приложений](https://azure.microsoft.com/blog/announcing-app-service-authentication-authorization/).
+App Service provides a turn-key solution for some of the common authentication needs so you don't need to provide the authentication logic yourself. For more information, see [App Service Authentication/Authorization](https://azure.microsoft.com/blog/announcing-app-service-authentication-authorization/).
 
-## Автоматическое масштабирование приложения по требованию
+## <a name="scale-your-app-automatically-based-on-demand"></a>Scale your app automatically based on demand
 
-Теперь выполним автоматическое масштабирование приложения, чтобы оно автоматически изменяло свою производительность в ответ на требование пользователя. Дополнительные сведения см. в статьях [Масштабирование веб-приложения в службе приложений Azure](web-sites-scale.md) и [Масштабирование числа экземпляров вручную или автоматически](../azure-portal/insights-how-to-scale.md).
+Next, let's autoscale your app so that it will automatically adjust it capacity to respond to user demand (further reading at [Scale up your app in Azure](web-sites-scale.md) and [Scale instance count manually or automatically](../azure-portal/insights-how-to-scale.md)). 
 
-Веб-приложение можно масштабировать двумя способами.
+Briefly, you scale your web app in two ways:
 
-- [Увеличение масштаба](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling) — получение дополнительных ресурсов, в том числе ЦП, памяти и места на диске, и дополнительных возможностей, таких как выделенные виртуальные машины, пользовательские домены и сертификаты, промежуточные слоты, автоматическое масштабирование и т. д. Вы увеличиваете масштаб приложения путем изменения ценовой категории плана службы приложений, к которой принадлежит ваше приложение.
-- [Развертывание](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling) — увеличение количества экземпляров виртуальных машин, на которых работает приложение. В зависимости от ценовой категории вы можете развернуть приложение на виртуальных машинах в количестве до 50 экземпляров.
+- [Scale up](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling): Get more CPU, memory, disk space, and extra features like dedicated VMs, custom domains and certificates, staging slots, autoscaling, and more. You scale out by changing the pricing tier of the App Service plan your app belongs to.
+- [Scale out](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling): Increasing the number VM instances that run your app.
+You can scale out to as many as 50 instances, depending on your pricing tier.
 
-Теперь настроим автоматическое масштабирование.
+Without further ado, let's set up autoscaling.
 
-1. Сначала мы увеличим масштаб, чтобы включить автоматическое масштабирование. На портале в колонке своего приложения щелкните **Параметры** > **Увеличить масштаб (план службы приложений)**. ![Увеличение масштаба — колонка параметров](./media/app-service-web-get-started/scale-up-settings.png)
+1. First, let's scale up to enable autoscaling. In the portal blade of your app, click **Settings** > **Scale Up (App Service Plan)**.  
+    ![Scale up - settings blade](./media/app-service-web-get-started/scale-up-settings.png)
 
-2. Прокрутите список и выберите уровень **Стандартный S1** (выделен на снимке экрана). Это минимальный уровень, на котором возможно автоматическое масштабирование. Затем нажмите кнопку **Выбрать**. ![Увеличение масштаба — выбор уровня](./media/app-service-web-get-started/scale-up-select.png)
+2. Scroll and select the **S1 Standard** tier, the lowest tier that supports autoscaling (circled in screenshot), then click **Select**.  
+    ![Scale up - choose tier](./media/app-service-web-get-started/scale-up-select.png)
 
-    Вот и все, что нужно было сделать для увеличения масштаба.
+    You're done scaling up.
     
-    >[AZURE.IMPORTANT] Для этого уровня нужно потратить кредиты на бесплатную пробную версию. Если ваша учетная запись предусматривает оплату за использование, c вас будет взиматься плата.
+    >[AZURE.IMPORTANT] This tier expends your free trial credits. If you have a pay-per-use account, it incurs charges to your account.
     
-3. Теперь давайте настроим автоматическое масштабирование. На портале в колонке своего приложения щелкните **Параметры** > **Расширить (план службы приложений)**. ![Развертывание — колонка параметров](./media/app-service-web-get-started/scale-out-settings.png)
+3. Next, let's configure autoscaling. In the portal blade of your app, click **Settings** > **Scale Out (App Service Plan)**.  
+    ![Scale out - settings blade](./media/app-service-web-get-started/scale-out-settings.png)
 
-4. Для параметра **Масштабировать по** выберите значение **Процент ЦП**. Ползунки под раскрывающимся списком займут соответствующие места. Затем определите диапазон **экземпляров** (от **1** до **2**) и **целевой диапазон** (от **40** до **80**). Эти значения можно ввести вручную или задать с помощью ползунков. ![Развертывание — автоматическое масштабирование](./media/app-service-web-get-started/scale-out-configure.png)
+4. Change **Scale by** to **CPU Percentage**. The sliders underneath the dropdown update accordingly. Then, define an **Instances** range between **1** and **2** and a **Target range** between **40** and **80**. Do it by typing in the boxes or by moving the sliders.  
+ ![Scale out - configure autoscaling](./media/app-service-web-get-started/scale-out-configure.png)
     
-    При таких настройках приложение будет автоматически развертываться, если загрузка ЦП превысит 80 %, и свертываться, если загрузка ЦП будет меньше 40 %.
+    Based on this configuration, your app automatically scales out when CPU utilization is above 80% and scales in when CPU utilization is below 40%. 
     
-5. В строке меню нажмите кнопку **Сохранить**.
+5. Click **Save** in the menu bar.
 
-Поздравляем! Вы настроили для своего приложения автоматическое масштабирование.
+Congratulations, your app is autoscaling.
 
-Возможно, вы обратили внимание, что в колонке **Настройки масштабирования** можно настроить и другие возможности, в частности:
+You may have noticed in the **Scale Settings** blade that you can do a lot more, such as:
 
-- масштабирование до определенного числа экземпляров вручную;
-- масштабирование с учетом других метрик производительности, таких как процент использования памяти и очередь диска;
-- настройка поведения масштабирования при запуске правила производительности;
-- автоматическое масштабирование по расписанию;
-- настройка поведения автоматического масштабирования для будущих событий.
+- Scale to a specific number of instances manually
+- Scale by other performance metrics, such as memory percentage or disk queue
+- Customize scaling behavior when a performance rule is triggered
+- Autoscale on a schedule
+- Set autoscaling behavior for a future event
 
-Дополнительные сведения см. в статье [Масштабирование веб-приложения в службе приложений Azure](../app-service-web/web-sites-scale.md). Дополнительные сведения см. в статье [Масштабирование числа экземпляров вручную или автоматически](../azure-portal/insights-how-to-scale.md).
+For more information on scaling up your app, see [Scale up your app in Azure](../app-service-web/web-sites-scale.md). For more information on scaling out, see [Scale instance count manually or automatically](../azure-portal/insights-how-to-scale.md).
 
-## Получение оповещений о приложении
+## <a name="receive-alerts-for-your-app"></a>Receive alerts for your app
 
-Теперь, когда для приложения настроено автоматическое масштабирование, что произойдет при достижении максимального числа экземпляров (2) и превышении желаемой нормы загрузки ЦП (80 %)? Настроив оповещения (дополнительную информацию см. в статье [Получение уведомлений об оповещениях](../azure-portal/insights-receive-alert-notifications.md)), вы будете получать информацию о возникновении таких ситуаций и сможете, например, еще больше увеличить масштаб приложения. Давайте быстро настроим оповещение для такого сценария.
+Now that your app is autoscaling, what happens when it reaches the maximum instance count (2) and CPU is above desired utilization (80%)? You can set up an alert (further reading at [Receive alert notifications](../azure-portal/insights-receive-alert-notifications.md)) to inform you of this situation so you can further scale up/out your app, for example. Let's quickly set up an alert for this scenario.
 
-1. На портале в колонке своего приложения щелкните **Средства** > **Оповещения**. ![Оповещения — колонка параметров](./media/app-service-web-get-started/alert-settings.png)
+1. In the portal blade of your app, click **Tools** > **Alerts**.  
+    ![Alerts - settings blade](./media/app-service-web-get-started/alert-settings.png)
 
-2. Нажмите кнопку **Добавить оповещение**. Затем в раскрывающемся списке **Ресурс** выберите ресурс, который заканчивается на **(serverfarms)**. Это ваш план службы приложений. ![Оповещения — добавление оповещения для плана службы приложений](./media/app-service-web-get-started/alert-add.png)
+2. Click **Add alert**. Then, in the **Resource** box, select the resource that ends with **(serverfarms)**. That's your App Service plan.  
+    ![Alerts - add alert for App Service plan](./media/app-service-web-get-started/alert-add.png)
 
-3. Укажите для параметра **Имя** значение `CPU Maxed`, для параметра **Метрика** — **Процент ЦП**, а для параметра **Пороговое значение** — `90`. После этого установите флажок **Сообщать по электронной почте владельцам, участникам и читателям** и нажмите кнопку **ОК**. ![Оповещения — настройка оповещений](./media/app-service-web-get-started/alert-configure.png)
+3. Specify **Name** as `CPU Maxed`, **Metric** as **CPU Percentage**, and **Threshold** as `90`, then select **Email owners, contributors, and readers**, and then click **OK**.   
+ ![Alerts - configure alert](./media/app-service-web-get-started/alert-configure.png)
     
-    Когда Azure завершит создание оповещения, вы увидите его в колонке **Предупреждения**. ![Оповещения — готовое представление](./media/app-service-web-get-started/alert-done.png)
+    When Azure finishes creating the alert, you'll see it in the **Alerts** blade.  
+    ![Alerts - finished view](./media/app-service-web-get-started/alert-done.png)
 
-Поздравляем! Вы настроили получение оповещений.
+Congratulations, you're now getting alerts. 
 
-При такой настройке оповещений использование ЦП проверяется каждые пять минут. Если процент использования превысит 90 %, вы получите оповещение по электронной почте. Его также получат другие пользователи, у которых есть для этого необходимые права. Чтобы просмотреть, кто имеет право получать оповещения, вернитесь в колонку своего приложения на портале и нажмите кнопку **Доступ**. ![Просмотр пользователей, которые получают оповещения](./media/app-service-web-get-started/alert-rbac.png)
+This alert setting checks CPU utilization every five minutes. If that number goes above 90%, you'll receive an email alert, along with anyone who is authorized. To see everyone who is authorized to receive the alerts, go back to the portal blade of your app and click the **Access** button.  
+![See who gets alerts](./media/app-service-web-get-started/alert-rbac.png)
 
-Вы увидите, что **администраторы подписки** уже входят в группу **владельцев** приложения. В эту группу также входите вы, если вы являетесь администратором учетной записи подписки Azure (например, своей пробной подписки). Дополнительные сведения об управлении доступом на основе ролей см. в статье [Управление доступом на основе ролей в Azure](../active-directory/role-based-access-control-configure.md).
+You should see that **Subscription admins** are already the **Owner** of the app. This group would include you if you're the account administrator of your Azure subscription (e.g. your trial subscription). For more information on Azure role-based access control, see [Azure Role-Based Access Control](../active-directory/role-based-access-control-configure.md).
 
-> [AZURE.NOTE] Правила Azure — это функция Azure. Дополнительные сведения см. в статье [Получение уведомлений об оповещениях](../azure-portal/insights-receive-alert-notifications.md).
+> [AZURE.NOTE] Alert rules is an Azure feature. For more information, see [Receive alert notifications](../azure-portal/insights-receive-alert-notifications.md). 
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Next Steps
 
-Во время настройки оповещений вы, возможно, заметили большой набор средств в колонке **Средства**. С их помощью можно устранять неполадки, наблюдать за производительностью, проверять наличие уязвимостей, управлять ресурсами, взаимодействовать с консолью виртуальной машины и добавлять полезные расширения. Изучите их все. Так вы поймете, насколько простые и в то же время мощные инструменты у вас всегда есть под рукой.
+On your way to configure the alert, you may have noticed a rich set of tools in the **Tools** blade. Here, you can troubleshoot issues, monitor performance, test for vulnerabilities, manage resources, interact with the VM console, and add useful extensions. We invite you to click on each one of these tools to discover the simple yet powerful tools at your finger tips. 
 
-Ознакомьтесь с дополнительной информацией о работе с развернутым приложением. Вот только некоторые из возможностей.
+Find out how to do more with your deployed app. Here's only a partial list:
 
-- [Приобретение и настройка личного домена для службы приложений Azure.](custom-dns-web-site-buydomains-web-app.md) Приобретите для веб-приложения домен с привлекательным именем, который будет использоваться вместо домена *.azurewebsites.net domain. Или используйте свой домен.
-- [Настройка промежуточных сред для веб-приложений в службе приложений Azure.](web-sites-staged-publishing.md) Разверните приложение в промежуточном URL-адресе, прежде чем поместить его в рабочую среду. Уверенно обновляйте свое веб-приложение. Настройте решение для разработки DevOps с несколькими слотами развертывания.
-- [Настройка непрерывного развертывания.](app-service-continuous-deployment.md) Интегрируйте развертывание приложения в систему управления версиями. Развертывайте каждую фиксацию в Azure.
-- [Доступ к локальным ресурсам с помощью гибридных подключений в службе приложений Azure.](web-sites-hybrid-connection-get-started.md) Обращайтесь к существующей локальной базе данных или системе CRM.
-- [Резервное копирование веб-приложений в службе приложений Azure.](web-sites-backup.md) Настройте резервное копирование и восстановление веб-приложения. Подготовьтесь к неожиданным сбоям и восстановлению после них.
-- [Включение ведения журнала диагностики для веб-приложений в службе приложений Azure.](web-sites-enable-diagnostic-log.md) Читайте журналы IIS из трассировки Azure или приложения. Читайте журналы в потоке, загружайте их или передавайте в [Application Insights](../application-insights/app-insights-overview.md) для анализа "под ключ".
-- [Web Vulnerability Scanning for Azure App Service powered by Tinfoil Security](https://azure.microsoft.com/blog/web-vulnerability-scanning-for-azure-app-service-powered-by-tinfoil-security/) (Сканирование веб-уязвимостей службы приложений Azure с помощью Tinfoil Security). Просканируйте свое веб-приложение на уязвимость перед современными угрозами с помощью службы [Tinfoil Security](https://www.tinfoilsecurity.com/).
-- [Обзор функций Azure.](../azure-functions/functions-overview.md) Выполнение заданий по обработке данных, созданию отчетов и т. д.
-- [Принцип работы службы приложений](../app-service/app-service-how-works-readme.md)
+- [Buy and configure a custom domain name](custom-dns-web-site-buydomains-web-app.md) - Buy an attractive domain for your web app instead of the *.azurewebsites.net domain. Or use a domain that you already have.
+- [Set up staging environments](web-sites-staged-publishing.md) - Deploy your app to a staging URL before putting it into production. Update your live web app with confidence. Set up an elaborate DevOps solution with multiple deployment slots. 
+- [Set up continuous deployment](app-service-continuous-deployment.md) - Integrate app deployment into your source control system. Deploy to Azure with every commit.
+- [Access on-premises resources](web-sites-hybrid-connection-get-started.md) - Access an existing on-premises database or CRM system.
+- [Back up your app](web-sites-backup.md) - Set up back up and restore for your web app. Prepare for unexpected failures and recover from them.
+- [Enable diagnostic logs](web-sites-enable-diagnostic-log.md) - Read the IIS logs from Azure or application traces. Read them in a stream, download them, or port them into [Application Insights](../application-insights/app-insights-overview.md) for turn-key analysis.
+- [Scan your app for vulnerabilities](https://azure.microsoft.com/blog/web-vulnerability-scanning-for-azure-app-service-powered-by-tinfoil-security/) -
+Scan your web app against modern threats using service provided by [Tinfoil Security](https://www.tinfoilsecurity.com/).
+- [Run background jobs](../azure-functions/functions-overview.md) - Run jobs for data processing, reporting, etc.
+- [Learn how App Service works](../app-service/app-service-how-works-readme.md) 
 
-<!---HONumber=AcomDC_0803_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

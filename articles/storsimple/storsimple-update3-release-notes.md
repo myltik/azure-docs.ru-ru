@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Заметки о выпуске, посвященные обновлению 3 для устройств серии StorSimple 8000 | Microsoft Azure"
-   description="В статье описываются новые возможности, проблемы и способы их решения для обновления 3, предназначенного для устройств серии StorSimple 8000."
+   pageTitle="StorSimple 8000 Series Update 3 release notes | Microsoft Azure"
+   description="Describes the new features, issues, and workarounds for StorSimple 8000 Series Update 3."
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
@@ -12,96 +12,102 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/06/2016"
+   ms.date="10/12/2016"
    ms.author="alkohli" />
 
-# Заметки о выпуске, посвященные обновлению 3 для устройств серии StorSimple 8000  
 
-## Обзор
+# <a name="storsimple-8000-series-update-3-release-notes"></a>StorSimple 8000 Series Update 3 release notes  
 
-В приведенных ниже заметках о выпуске описаны новые функции и критические открытые проблемы в обновлении 3 для устройств серии StorSimple 8000. Здесь также содержится список обновлений программного обеспечения StorSimple для этого выпуска.
+## <a name="overview"></a>Overview
 
-Обновление 3 можно применить к любому устройству StorSimple под управлением ПО общедоступной версии или версии с обновлениями 0.1–2.2. Версия устройства, связанная с обновлением 3 — 6.3.9600.17759.
+The following release notes describe the new features and identify the critical open issues for StorSimple 8000 Series Update 3. They also contain a list of the StorSimple software updates included in this release. 
 
-Перед развертыванием обновления в решении StorSimple, просмотрите сведения, содержащиеся в заметках о выпуске.
+Update 3 can be applied to any StorSimple device running Release (GA) or Update 0.1 through Update 2.2. The device version associated with Update 3 is 6.3.9600.17759.
+
+Please review the information contained in the release notes before you deploy the update in your StorSimple solution.
 
 >[AZURE.IMPORTANT]
 > 
-> - Обновление 3 включает в себя обновления программного обеспечения устройства, драйвера LSI и встроенного ПО, а также Storport и Spaceport. Установка этого обновления занимает примерно 1,5–2 часа.
+> - Update 3 has device software, LSI driver and firmware, and Storport and Spaceport updates. It takes approximately 1.5-2 hours to install this update. 
 
-> - Для новых выпусков обновления могут отображаться не сразу, поскольку развертывание обновлений выполняется поэтапно. Подождите несколько дней и затем повторите попытку поиска обновлений, так как они станут доступными в ближайшее время.
+> - For new releases, you may not see updates immediately because we do a phased rollout of the updates. Wait a few days, and then scan for updates again as these will become available soon.
 
 
-## Новые возможности в обновлении 3
+## <a name="what's-new-in-update-3"></a>What's new in Update 3
 
-В обновление 3 внесены следующие основные улучшения и исправления ошибок:
+The following key improvements and bug fixes have been made in Update 3.
 
  
-- **Изменения в автоматической реорганизации пространства**: начиная с обновления 3, алгоритмы реорганизации пространства выполняются на резервном контроллере системы, что обеспечивает более высокую скорость выполнения. Дополнительные сведения о портах, которые необходимы для работы с реорганизацией пространства, см. разделе [Требования к сети для устройства StorSimple](storsimple-system-requirements.md#networking-requirements-for-your-storsimple-device).
+- **Automated space reclamation changes** – Starting Update 3, the space reclamation algorithms run on the standby controller of the system resulting in faster execution. For more information on the ports that are required to work with space reclamation, refer to the [StorSimple networking requirements](storsimple-system-requirements.md#networking-requirements-for-your-storsimple-device).
 
-- **Повышение производительности**: в обновлении 3 повышена производительность операций чтения и записи в облако.
+- **Performance enhancements** – Update 3 has improved read-write performance to the cloud.
 
-- **Улучшение функций переноса**: в этом выпуске исправлено несколько ошибок и выполнена оптимизация функции переноса с устройств серий 5000 и 7000 на устройства серии 8000. Дополнительные сведения об использовании функции переноса см. в статье [Migration from 5000/7000 series device to 8000 series device](https://www.microsoft.com/ru-RU/download/details.aspx?id=47322) (Перенос с устройства серии 5000 или 7000 на устройство серии 8000).
+- **Migration-related improvements** – In this release, several bug fixes and improvements were done for the Migration feature from 5000/7000 series devices to 8000 series devices. For more information on how to use the migration feature, go to [Migration from 5000/7000 series device to 8000 series device](https://www.microsoft.com/en-us/download/details.aspx?id=47322). 
 
-- **Исправления, связанные с мониторингом**: в этом выпуске исправлены ошибки, связанные с диаграммами мониторинга, панелями мониторинга служб и устройств.
+- **Monitoring related fixes** - In this release, bugs related to monitoring charts, service dashboard, and device dashboard were fixed.
 
 
-## Проблемы, устраненные в обновлении 3
+## <a name="issues-fixed-in-update-3"></a>Issues fixed in Update 3
 
-В приведенной ниже таблице в общих чертах описаны проблемы, устраненные в обновлении 3.
+The following tables provides a summary of issues that were fixed in Update 3.    
 
-| Нет | Функция | Проблема | Для физического устройства | Для виртуального устройства |
+| No | Feature                                    | Issue                                                                                                                                                                                                                                                                                        | Applies to physical device | Applies to virtual device |
 |----|--------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------|---------------------------|
-| 1 | Перенос данных на стороне узла | В предыдущем выпуске при переносе данных на стороне узла облачное решение StorSimple Cloud Appliance переходило в автономный режим. В этом обновлении эта проблема исправлена. | Нет | Да |
-| 2 | Локально закрепленные тома | В предыдущем выпуске возникали проблемы при выполнении операций ввода-вывода, ошибки преобразования томов и сбои пути к данным локально закрепленных томов. В данном выпуске основные причины этих проблем были определены и устранены. | Да | Нет |
-| 3 | Мониторинг | Было обнаружено несколько проблем, связанных с блоками отчета и мониторингом, а также с диаграммами панели мониторинга устройств, где для локально закрепленных томов отображались неправильные сведения. В этом обновлении эти проблемы исправлены. | Да | Нет |
-| 4 | Большое число операций записи ввода-вывода | Используя StorSimple для рабочих нагрузок с большим числом операций записи, пользователи иногда сталкивались с ошибкой, при которой рабочий набор подвергался многоуровневой обработке в облаке. В этом обновлении эта ошибка устранена. | Да | Да |
-| 5 | Архивация | В редких случаях в предыдущих версиях ПО, когда пользователь создавал резервную копию удаленного клона, происходила ошибка в облаке и операция завершалась сбоем. В данном выпуске эта ошибка устранена, и операция завершается успешно. | Да | Да |
-| 6 | Политика резервного копирования | В редких случаях в предыдущих выпусках ПО имела место ошибка, связанная с удалением политики архивации. В этом обновлении эта проблема исправлена. | Да | Да |
+| 1  | Host-side data migration                      | In the earlier release, the StorSimple Cloud Appliance was going offline during a host-side data migration. This issue is fixed in this release.                                                | No                        | Yes                        |
+| 2  | Locally pinned volumes                     | In the previous release, there were issues related to I/O failures, volume conversion failures, and datapath failures for locally pinned volumes. These issues were root-caused and fixed in this release.                | Yes                        | No                       |
+| 3  | Monitoring                                    | There were multiple issues related to reporting units and monitoring as well as device dashboard charts where incorrect information was displayed for locally pinned volumes. These issues are fixed in this release. | Yes                         | No                       |
+| 4  | Heavy writes I/O                          | When using StorSimple for workloads involving heavy writes, the user would run into an infrequent bug where the working set was being tiered into the cloud. This bug is fixed in this release. | Yes                        | Yes                       |
+| 5  | Backup                                     | In certain rare instances, in the previous versions of software, when user took a backup of a remote clone, they would run into cloud errors and the operation would error out. In this release, the issue is fixed and the operation completes successfully.             | Yes                        | Yes                       |
+| 6  | Backup policy                                     | In certain rare instances, in the earlier releases of software, there was a bug related to the deletion of backup policy. This issue is fixed in this release.       | Yes                        | Yes                       |
 
 
 
-## Известные проблемы в обновлении 3
+## <a name="known-issues-in-update-3"></a>Known issues in Update 3
 
-В таблице ниже содержится сводка по известным проблемам в этом выпуске.
+The following table provides a summary of known issues in this release.
 
-| Нет. | Функция | Проблема | Комментарии и возможные решения | Для физического устройства | Для виртуального устройства |
+| No. | Feature | Issue | Comments / workaround | Applies to physical device | Applies to virtual device |
 |-----|---------|-------|----------------------------|----------------------------|---------------------------|
-| 1 | Дисковый кворум | В редких случаях, если большинство дисков в корпусе EBOD устройства 8600 отключены, что приводит к отсутствию дискового кворума, пул хранения будет отключен. Он будет оставаться отключенным даже если диски будут подключены повторно. | Устройство необходимо будет перезагрузить. Если проблема возникнет снова, обратитесь в службу поддержки Майкрософт. | Да | Нет |
-| 2 | Неправильный идентификатор контроллера | При замене контроллера, контроллер 0 может отображаться как контроллер 1. Во время замены контроллера, когда образ загружается с однорангового узла, идентификатор контроллера может изначально отображаться как идентификатор контроллера однорангового узла. Иногда такое поведение может также наблюдаться после перезагрузки системы. | Никаких действий от пользователя не требуется. Ситуация разрешится сама после завершения замены контроллера. | Да | Нет |
-| 3 | учетные записи хранения; | Использование службы хранилища для удаления учетной записи хранения не поддерживается. Это приведет к ситуации, в которой невозможно получить пользовательские данные.| | Да | Да |
-| 4\. | Отработка отказа устройства | Многократные отработки отказов контейнера томов из одного исходного устройства на разные целевые устройства не поддерживаются. Отработка отказа с одного неиспользуемого устройства на несколько устройств приведет к тому, что контейнеры томов на первом отказавшем устройстве потеряют право собственности на данные. После такой отработки отказа эти контейнеры томов при просмотре на классическом портале Azure отображаются или ведут себя по-другому. | | Да | Нет |
-| 5 | Установка | Во время установки адаптера StorSimple для SharePoint для успешного завершения установки необходимо указать IP-адрес устройства. | | Да | Нет |
-| 6 | Веб-прокси | Если в конфигурации веб-прокси указан протокол HTTPS, это повлияет на связь между устройством и службой и устройство будет отключено. В этом процессе также могут создаваться пакеты поддержки, вследствие чего устройство потребляет значительные ресурсы. | Убедитесь, что для URL-адреса прокси-сервера указан протокол HTTP. Дополнительные сведения см. в статье [Настройка прокси-сервера доступа в Интернет для устройства](storsimple-configure-web-proxy.md). | Да | Нет |
-| 7 | Веб-прокси | Если настроить и включить веб-прокси на зарегистрированном устройстве, на этом устройстве необходимо будет перезагрузить активный контроллер. | | Да | Нет |
-| 8 | Высокая задержка при связи с облаком и высокая рабочая нагрузка операций ввода-вывода | Когда на устройстве StorSimple обнаруживается очень высокая задержка для облачных служб (порядка нескольких секунд) в сочетании с высокой рабочей нагрузкой операций ввода-вывода, тома на устройстве переходят в состояние сниженной производительности и операции ввода-вывода могут завершиться ошибкой "Устройство не готово". | Чтобы исправить ошибку, потребуется вручную перезагрузить контроллеры устройства или выполнить отработку отказа устройства. | Да | Нет |
-| 9 | Azure PowerShell | При использовании командлета StorSimple **Get-AzureStorSimpleStorageAccountCredential | Select-Object -First 1 -Wait** для выбора первого объекта с целью создания нового объекта **VolumeContainer** командлет возвращает все объекты. | Заключите командлет в круглые скобки следующим образом: **(Get-Azure-StorSimpleStorageAccountCredential) | Select-Object -First 1 -Wait** | Да | Да |
-| 10| Миграция | При передаче нескольких контейнеров томов для миграции ETA для последней резервной копии имеет точное значение только для первого контейнера томов. Кроме того, после миграции первых 4 резервных копий в первом контейнере томов начинается параллельная миграция. | Рекомендуется переносить не более одного контейнера томов одновременно. | Да | Нет |
-| 11| Миграция | После восстановления не происходит добавления томов в политику архивирования или в группу виртуального диска. | Для создания резервных копий вам придется самостоятельно добавлять эти тома в политику архивирования. | Да | Да |
-| 12| Миграция | После завершения миграции устройство серии 5000 или 7000 не должно получать доступ к контейнерам с данными, для которых выполнена миграция. | После переноса и фиксации рекомендуется удалить контейнеры c данными, для которых выполнена миграция. | Да | Нет |
-| 13\.| Клонирование и аварийное восстановление | Устройство StorSimple, на котором установлено обновление 1, не способно выполнять клонирование или аварийное восстановление на устройство под управлением программного обеспечения без обновления 1. | Чтобы использовать эти операции, установите обновление 1 на целевое устройство. | Да | Да |
-| 14 | Миграция | Резервное копирование конфигурации для миграции на устройстве серий 5000–7000 может завершиться с ошибкой, если имеются группы томов, в которых нет сопоставленных томов. | Удалите все пустые группы томов, в которых нет сопоставленных томов, и еще раз запустите операцию резервного копирования конфигурации.| Да | Нет |
-| 15 | Командлеты Azure PowerShell и локально закрепленные тома | Создать локально закрепленный том с помощью командлетов Azure PowerShell невозможно. (Любой том, который создан с помощью Azure PowerShell, будет многоуровневым.) |Всегда используйте службу диспетчера StorSimple для настройки локально закрепленных томов.| Да | Нет |
-| 16 |Пространство, доступное для локально закрепленных томов | При удалении локально закрепленного тома пространство для новых томов может обновляться не сразу. Служба диспетчера StorSimple обновляет доступное локальное пространство с частотой примерно один раз в час.| Подождите в течение часа, прежде чем приступать к созданию нового тома. | Да | Нет |
-| 17 | Локально закрепленные тома | Задание восстановления предоставляет временный моментальный снимок базы данных в каталоге резервного копирования, но только на время выполнения этого задания. Кроме того, оно предоставляет группу виртуального диска с префиксом **tmpCollection** на странице **Политики резервного копирования**, но только во время выполнения этого задания. | Это может происходить, если задание восстановления включает только локально закрепленные тома или комбинацию локально закрепленных и многоуровневых томов. Если задание восстановления включает только многоуровневые тома, этого не произойдет. Вмешательство пользователя не требуется. | Да | Нет |
-| 18 | Локально закрепленные тома | Если задание восстановления будет отменено, а сразу после этого произойдет отработка отказа контроллера, задание восстановления получит статус **Сбой**, а не **Отменено**. Если задание восстановления завершится сбоем, а сразу после этого произойдет отработка отказа контроллера, задание восстановления получит статус **Отменено**, а не **Сбой**. | Это может происходить, если задание восстановления включает только локально закрепленные тома или комбинацию локально закрепленных и многоуровневых томов. Если задание восстановления включает только многоуровневые тома, этого не произойдет. Вмешательство пользователя не требуется. | Да | Нет |
-| 19 |Локально закрепленные тома | В случае отмены задания восстановления или сбоя восстановления с последующей отработкой отказа на странице **Задания** появится дополнительное задание восстановления. | Это может происходить, если задание восстановления включает только локально закрепленные тома или комбинацию локально закрепленных и многоуровневых томов. Если задание восстановления включает только многоуровневые тома, этого не произойдет. Вмешательство пользователя не требуется. | Да | Нет |
-| 20 |Локально закрепленные тома | Если при попытке преобразовать многоуровневый том (созданный и клонированный с обновлением 1.2 или более ранней версии) в локально закрепленный том на устройстве не хватает места или облако недоступно, клоны могут быть повреждены.| Эта проблема возникает только с томами, созданными и клонированными с помощью ПО до версии 2.1. Этот сценарий не должен встречаться часто.|
-| 21 | Преобразование тома | Не обновляйте записи контроля доступа, связанные с томом, во время преобразования тома (из многоуровневого в локально закрепленный или наоборот). Обновление записей контроля доступа может привести к повреждению данных. | При необходимости обновите записи контроля доступа до преобразования тома и не выполняйте дальнейших обновлений записей контроля доступа во время выполнения преобразования. |
+| 1 | Disk quorum | In rare instances, if the majority of disks in the EBOD enclosure of an 8600 device are disconnected resulting in no disk quorum, then the storage pool will go offline. It will stay offline even if the disks are reconnected. | You will need to reboot the device. If the issue persists, please contact Microsoft Support for next steps. | Yes | No |
+| 2 | Incorrect controller ID | When a controller replacement is performed, controller 0 may show up as controller 1. During controller replacement, when the image is loaded from the peer node, the controller ID can show up initially as the peer controller’s ID. In rare instances, this behavior may also be seen after a system reboot. | No user action is required. This situation will resolve itself after the controller replacement is complete. | Yes | No |
+| 3 | Storage accounts | Using the Storage service to delete the storage account is an unsupported scenario. This will lead to a situation in which user data cannot be retrieved.|  | Yes | Yes |
+| 4 | Device failover | Multiple failovers of a volume container from the same source device to different target devices is not supported. Failover from a single dead device to multiple devices will make the volume containers on the first failed over device lose data ownership. After such a failover, these volume containers will appear or behave differently when you view them in the Azure classic portal. | | Yes | No |
+| 5 | Installation | During StorSimple Adapter for SharePoint installation, you need to provide a device IP in order for the install to finish successfully.    | | Yes | No |
+| 6 | Web proxy | If your web proxy configuration has HTTPS as the specified protocol, then your device-to-service communication will be affected and the device will go offline. Support packages will also be generated in the process, consuming significant resources on your device. | Make sure that the web proxy URL has HTTP as the specified protocol. For more information, go to [Configure web proxy for your device](storsimple-configure-web-proxy.md). | Yes | No |
+| 7 | Web proxy | If you configure and enable web proxy on a registered device, then you will need to restart the active controller on your device. | | Yes | No |
+| 8 | High cloud latency and high I/O workload | When your StorSimple device encounters a combination of very high cloud latencies (order of seconds) and high I/O workload, the device volumes go into a degraded state and the I/Os may fail with a "device not ready" error. | You will need to manually reboot the device controllers or perform a device failover to recover from this situation. | Yes | No |
+| 9 | Azure PowerShell | When you use the StorSimple cmdlet **Get-AzureStorSimpleStorageAccountCredential &#124; Select-Object -First 1 -Wait** to select the first object so that you can create a new **VolumeContainer** object, the cmdlet returns all the objects. | Wrap the cmdlet in parentheses as follows: **(Get-Azure-StorSimpleStorageAccountCredential) &#124; Select-Object -First 1 -Wait** | Yes | Yes |
+| 10| Migration | When multiple volume containers are passed for migration, the ETA for latest backup is accurate only for the first volume container. Additionally, parallel migration will start after the first 4 backups in the first volume container are migrated. | We recommend that you migrate one volume container at a time. | Yes | No |
+| 11| Migration | After the restore, volumes are not added to the backup policy or the virtual disk group. | You will need to add these volumes to a backup policy in order to create backups. | Yes | Yes |
+| 12| Migration | After the migration is complete, the 5000/7000 series device must not access the migrated data containers. | We recommend that you delete the migrated data containers after the migration is complete and committed. | Yes | No |
+| 13| Clone and DR | A StorSimple device running Update 1 cannot clone or perform disaster recovery to a device running pre-update 1 software. | You will need to update the target device to Update 1 to allow these operations | Yes | Yes |
+| 14 | Migration | Configuration backup for migration may fail on a 5000-7000 series device when there are volume groups with no associated volumes. | Delete all the empty volume groups with no associated volumes and then retry the configuration backup.| Yes | No |
+| 15 | Azure PowerShell cmdlets and locally pinned volumes | You cannot create a locally pinned volume via Azure PowerShell cmdlets. (Any volume you create via Azure PowerShell will be tiered.) |Always use the StorSimple Manager service to configure locally pinned volumes.| Yes | No |
+| 16 |Space available for locally pinned volumes | If you delete a locally pinned volume, the space available for new volumes may not be updated immediately. The StorSimple Manager service updates the local space available approximately every hour.| Wait for an hour before you try to create the new volume. | Yes | No |
+| 17 | Locally pinned volumes | Your restore job exposes the temporary snapshot backup in the Backup Catalog, but only for the duration of the restore job. Additionally, it exposes a virtual disk group with prefix **tmpCollection** on the **Backup Policies** page, but only for the duration of the restore job. | This behavior can occur if your restore job has only locally pinned volumes or a mix of locally pinned and tiered volumes. If the restore job includes only tiered volumes, then this behavior will not occur. No user intervention is required. | Yes | No |
+| 18 | Locally pinned volumes | If you cancel a restore job and a controller failover occurs immediately afterwards, the restore job will show **Failed** instead of **Canceled**. If a restore job fails and a controller failover occurs immediately afterwards, the restore job will show **Canceled** instead of **Failed**. | This behavior can occur if your restore job has only locally pinned volumes or a mix of locally pinned and tiered volumes. If the restore job includes only tiered volumes, then this behavior will not occur. No user intervention is required. | Yes | No |
+| 19 |Locally pinned volumes | If you cancel a restore job or if a restore fails and then a controller failover occurs, an additional restore job appears on the **Jobs** page. | This behavior can occur if your restore job has only locally pinned volumes or a mix of locally pinned and tiered volumes. If the restore job includes only tiered volumes, then this behavior will not occur. No user intervention is required. | Yes | No |
+| 20 |Locally pinned volumes | If you try to convert a tiered volume (created and cloned with Update 1.2 or earlier) to a locally pinned volume and your device is running out of space or there is a cloud outage, then the clone(s) can be corrupted.| This problem occurs only with volumes that were created and cloned with pre-Update 2.1 software. This should be an infrequent scenario.|
+| 21 | Volume conversion | Do not update the ACRs attached to a volume while a volume conversion is in progress (tiered to locally pinned or vice versa). Updating the ACRs could result in data corruption. | If needed, update the ACRs prior to the volume conversion and do not make any further ACR updates while the conversion is in progress. |
+| 22 | Updates | After successfully applying Update 3, the **Maintenance** page in the Azure classic portal still displays the following message related to Update 2 - "StorSimple 8000 series Update 2 includes the ability  for Microsoft to proactively collect log information from your device when we detect potential problems". | This will be fixed in a future release. | Yes | No |
 
 
-## Обновления контроллера и встроенного ПО в обновлении 3
+## <a name="controller-and-firmware-updates-in-update-3"></a>Controller and firmware updates in Update 3
 
-Этот выпуск содержит обновления драйвера LSI и встроенного ПО. Дополнительные сведения о том, как установить обновления драйвера LSI и встроенного ПО, см. в статье [Установка обновления 3 на устройство StorSimple](storsimple-install-update-3.md).
+This release has LSI driver and firmware updates. For more information on how to install the LSI driver and firmware updates, see [install Update 3](storsimple-install-update-3.md) on your StorSimple device.
 
  
-## Обновления для виртуальных устройств в обновлении 3
+## <a name="virtual-device-updates-in-update-3"></a>Virtual device updates in Update 3
 
-Это обновление не может применяться к StorSimple Cloud Appliance (также известному как виртуальное устройство). Нужно будет создать новые виртуальные устройства.
+This update cannot be applied to the StorSimple Cloud Appliance (also known as the virtual device). New virtual devices will need to be created. 
 
 
-## Дальнейшие действия
+## <a name="next-step"></a>Next step
 
-Узнайте, как [установить обновление 3](storsimple-install-update-3.md) на устройство StorSimple.
+Learn how to [install Update 3](storsimple-install-update-3.md) on your StorSimple device.
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

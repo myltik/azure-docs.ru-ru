@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Просмотр заданий виртуального массива StorSimple и управление ими | Microsoft Azure"
-   description="Описывается страница ";Задания"; службы диспетчера StorSimple и способы ее использования для отслеживания недавних и текущих заданий для виртуального массива StorSimple."
+   pageTitle="View and manage StorSimple Virtual Array jobs | Microsoft Azure"
+   description="Describes the StorSimple Manager service Jobs page and how to use it to track recent and current jobs for the StorSimple Virtual Array."
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
@@ -15,61 +15,66 @@
    ms.date="06/07/2016"
    ms.author="alkohli" />
 
-# Использование службы диспетчера StorSimple для просмотра заданий виртуального массива StorSimple
 
-## Обзор
+# <a name="use-the-storsimple-manager-service-to-view-jobs-for-the-storsimple-virtual-array"></a>Use the StorSimple Manager service to view jobs for the StorSimple Virtual Array
 
-Страница **Задания** — это единый центральный портал для просмотра заданий, которые были запущены на виртуальных массивах (локальных виртуальных устройствах), подключенных к службе StorSimple Manager, и управления ими. Вы можете просматривать запущенные, завершенные и невыполненные задания для нескольких виртуальных устройств. Результаты представляются в табличном формате.
+## <a name="overview"></a>Overview
 
-![Страница "Задания"](./media/storsimple-ova-manage-jobs/ovajobs1.png)
+The **Jobs** page provides a single central portal for viewing and managing jobs that are started on Virtual Arrays (also known as on-premises virtual devices) that are connected to your StorSimple Manager service. You can view running, completed, and failed jobs for multiple virtual devices. Results are presented in a tabular format. 
 
-Вы можете быстро найти задания, которые вам нужны, фильтруя данные по следующим полям:
+![Jobs page](./media/storsimple-ova-manage-jobs/ovajobs1.png)
 
-- **Состояние** — можно выполнять поиск по всем заданиям, запущенным и завершенным заданиям, а также заданиям, завершившихся сбоем.
-- **Диапазон** — задания можно фильтровать по диапазону даты и времени.
-- **Тип** — тип задания: все задания, резервное копирование, восстановление, отработка отказа, а также загрузка или установка обновлений.
-- **Устройства** — задания инициируются на конкретном устройстве, подключенном к службе. Затем отфильтрованные задания будут представлены в табличной форме на основе следующих атрибутов:
+You can quickly find the jobs you are interested in by filtering on fields such as:
 
-    - **Тип** — тип задания: все задания, резервное копирование, восстановление, отработка отказа, а также загрузка или установка обновлений.
+- **Status** – You can search for all, running, completed, or failed jobs.
+- **From and To** – Jobs can be filtered based on the date and time range.
+- **Type** – The job type can be all, backup, restore, failover, download updates, or install updates.
+- **Devices** – Jobs are initiated on a specific device connected to your service. The filtered jobs are then tabulated on the basis of the following attributes:
 
-    - **Состояние** — все задания, запущенные и завершенные задания, а также задания, завершившиеся сбоем.
+    - **Type** – The job type can be all, backup, restore, failover, download updates, or install updates.
 
-    - **Сущность** — задания могут быть связаны с томом, общей папкой или устройством.
+    - **Status** – Jobs can be all, running, completed, or failed.
 
-    - **Устройство** — имя устройства, на котором запущено задание.
+    - **Entity** – The jobs can be associated with a volume, share, or device. 
 
-    - **Время запуска** — время начала задания.
+    - **Device** – The name of the device on which the job was started.
 
-    - **Ход выполнения** — процент завершения задания. Для завершенного задания это значение равно 100 %.
+    - **Started on** – The time when the job was started.
 
-Список заданий обновляется каждые 30 секунд.
+    - **Progress** – The percentage completion of a running job. For a completed job, this should always be 100%.
 
-## Просмотр сведений о задании
+The list of jobs is refreshed every 30 seconds.
 
-Выполните следующие действия для просмотра сведений о любом задании.
+## <a name="view-job-details"></a>View job details
 
-#### Просмотр сведений о задании
+Perform the following steps to view the details of any job.
 
-1. На странице **Задания** можно отобразить интересующие вас задания, выполнив запрос с соответствующими фильтрами. Можно выполнять поиск по завершенным или выполняющимся заданиям.
+#### <a name="to-view-job-details"></a>To view job details
 
-2. Выберите задание из табличного списка заданий.
+1. On the **Jobs** page, display the job(s) you are interested in by running a query with appropriate filters. You can search for completed or running jobs.
 
-3. В нижней части страницы нажмите кнопку **Сведения**.
+2. Select a job from the tabular list of jobs.
 
-4. В диалоговом окне **Сведения** можно просмотреть состояние, сведения и статистику по времени. Ниже отображено диалоговое окно **Сведения о задании резервного копирования**.
+3. At the bottom of the page, click **Details**.
+
+4. In the **Details** dialog box, you can view status, details,  and time statistics. The following illustration shows an example of the **Backup Job Details** dialog box.
  
-    ![Страница сведений о задании](./media/storsimple-ova-manage-jobs/ovajobs2.png)
+    ![Job details page](./media/storsimple-ova-manage-jobs/ovajobs2.png)
 
-#### Сбои заданий при приостановке виртуальной машины в гипервизоре
+#### <a name="job-failures-when-the-virtual-machine-is-paused-in-the-hypervisor"></a>Job failures when the virtual machine is paused in the hypervisor
 
-Если задание выполняется в виртуальном массиве StorSimple и устройство (виртуальная машина, подготовленная в гипервизоре) приостанавливается более чем на 15 минут, задание завершится ошибкой. Это происходит из-за нарушения синхронизации времени виртуального массива StorSimple и Microsoft Azure. На следующем снимке экрана показан пример сбоя задания восстановления.
+When a job is in progress on your StorSimple Virtual Array and the device (virtual machine provisioned in hypervisor) is paused for greater than 15 minutes, the job will fail. This is due to your StorSimple Virtual Array time being out of sync with the Microsoft Azure time. An example for a restore job failure is shown in the following screenshot.
 
-![Сбой задания восстановления](./media/storsimple-ova-manage-jobs/restorejobfailure.png)
+![Restore job failure](./media/storsimple-ova-manage-jobs/restorejobfailure.png)
 
-Эти ошибки свойственны заданиям архивации, восстановления, обновления и отработки отказа. Если виртуальная машина подготовлена в Hyper-V, она в конечном итоге синхронизирует время с гипервизором. После этого можно перезапустить задание.
+These failures will apply to backup, restore, update, and failover jobs. If your virtual machine is provisioned in Hyper-V, the machine will eventually synchronize time with your hypervisor. Once that happens, you can restart your job. 
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Next steps
 
-[Узнайте, как с помощью локального веб-интерфейса администрировать виртуальный массив StorSimple](storsimple-ova-web-ui-admin.md).
+[Learn how to use the local web UI to administer your StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
 
-<!---HONumber=AcomDC_0622_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

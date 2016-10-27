@@ -1,186 +1,191 @@
 <properties
-	pageTitle="Новые возможности версии 12 базы данных SQL | Microsoft Azure"
-	description="В статье описаны преимущества для облачных бизнес-систем, использующих базу данных SQL Azure, после обновления до версии 12."
-	services="sql-database"
-	documentationCenter=""
-	authors="MightyPen"
-	manager="jhubbard"
-	editor=""/>
+    pageTitle="What's new in SQL Database V12 | Microsoft Azure"
+    description="Describes why business systems that are using Azure SQL Database in the cloud will benefit by upgrading to version V12 now."
+    services="sql-database"
+    documentationCenter=""
+    authors="MightyPen"
+    manager="jhubbard"
+    editor=""/>
 
 
 <tags
-	ms.service="sql-database"
-	ms.workload="data-management"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/15/2016"
-	ms.author="genemi"/>
+    ms.service="sql-database"
+    ms.workload="data-management"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="08/15/2016"
+    ms.author="genemi"/>
 
 
-# Новые возможности версии 12 базы данных SQL
+
+# <a name="what's-new-in-sql-database-v12"></a>What's new in SQL Database V12
 
 
-В этом разделе описаны многочисленные преимущества Базы данных SQL Azure версии 12 по сравнению с версией 11.
+This topic describes the many advantages that the new V12 version of Azure SQL Database has over version V11.
 
 
-Мы продолжаем расширять функционал версии 12. Поэтому рекомендуем вам почаще посещать нашу веб-страницу с обновлениями служб Azure и при работе с ней пользоваться фильтрами.
+We continue to add features to V12. So we encourage you to visit our Service Updates webpage for Azure, and to use its filters:
 
 
-- Фильтруйте обновления по [службе базы данных SQL](https://azure.microsoft.com/updates/?service=sql-database).
-- Фильтруйте обновления по [объявлениям об общедоступных версиях](http://azure.microsoft.com/updates/?service=sql-database&update-type=general-availability) функций базы данных SQL.
+- Filtered to the [SQL Database service](https://azure.microsoft.com/updates/?service=sql-database).
+- Filtered to General Availability [(GA) announcements](http://azure.microsoft.com/updates/?service=sql-database&update-type=general-availability) for SQL Database features.
 
 
-Актуальные сведения об ограничениях ресурсов Базы данных SQL представлены в разделе: <br/>[Ограничения ресурсов Базы данных SQL Azure](sql-database-resource-limits.md).
+The latest information about resource limits for SQL Database is documented at:<br/>[Azure SQL Database Resource Limits](sql-database-resource-limits.md).
 
 
-## Улучшенная совместимость приложений с сервером SQL Server
+## <a name="increased-application-compatibility-with-sql-server"></a>Increased application compatibility with SQL Server
 
 
-Основной целью Базы данных SQL версии 12 было улучшение совместимости с Microsoft SQL Server 2014 и ее сохранение по мере выпуска новых версий SQL Server. Помимо прочего, версия 12 вышла на один уровень с сервером SQL Server с точки зрения возможностей программирования. Например:
+A key goal for SQL Database V12 was to improve the compatibility with Microsoft SQL Server 2014, and to maintain the compatibility as new versions of SQL Server are released. Among other areas, V12 achieves parity with SQL Server in the important area of programmability. For example:
 
-- [встроенная поддержка JSON](https://msdn.microsoft.com/library/dn921897.aspx);
+- [Built-in JSON support](https://msdn.microsoft.com/library/dn921897.aspx)
 
-- [оконные функции](http://msdn.microsoft.com/library/ms189798.aspx) и поддержка [OVER](http://msdn.microsoft.com/library/ms189461.aspx);
+- [Window functions](http://msdn.microsoft.com/library/ms189798.aspx), with [OVER](http://msdn.microsoft.com/library/ms189461.aspx)
 
-- [XML-индексы](http://msdn.microsoft.com/library/bb934097.aspx) и [выборочные XML-индексы](http://msdn.microsoft.com/library/jj670104.aspx);
+- [XML indexes](http://msdn.microsoft.com/library/bb934097.aspx) and [selective XML indexes](http://msdn.microsoft.com/library/jj670104.aspx)
 
-- [отслеживание изменений;](http://msdn.microsoft.com/library/bb933875.aspx)
+- [Change tracking](http://msdn.microsoft.com/library/bb933875.aspx)
 
-- [SELECT...INTO;](http://msdn.microsoft.com/library/ms188029.aspx)
+- [SELECT...INTO](http://msdn.microsoft.com/library/ms188029.aspx)
 
-- [полнотекстовый поиск.](http://msdn.microsoft.com/library/ms142571.aspx)
+- [Full-text search](http://msdn.microsoft.com/library/ms142571.aspx)
 
 - [ALTER DATABASE SCOPED CONFIGURATION (Transact-SQL)](http://msdn.microsoft.com/library/mt629158.aspx)
 
-[Здесь](sql-database-transact-sql-information.md) можно ознакомиться с небольшим набором функций, которые еще не поддерживаются в базе данных SQL.
+See [here](sql-database-transact-sql-information.md) for the small set of features not yet supported in SQL Database.
 
 
-### Уровень совместимости 130
+### <a name="compatibility-level-130"></a>Compatibility level 130
 
 
-> [AZURE.IMPORTANT] Начиная с **июня 2016 г.** *вновь* созданные базы данных в базе данных SQL Azure версии 12 имеют уровень совместимости не ниже 130; это соответствует уровню Microsoft SQL Server 2016 GА.
+> [AZURE.IMPORTANT] Starting in **June 2016**, *newly* created databases on Azure SQL Database V12 have their compatibility level start at 130, which matches Microsoft SQL Server 2016 GA.
 > 
-> Можно использовать `ALTER DATABASE YourDatabase SET COMPATIBILITY_LEVEL = 120` при необходимости.
+> You can use `ALTER DATABASE YourDatabase SET COMPATIBILITY_LEVEL = 120` if you prefer.
 > 
-> Для баз данных, созданных до июня 2016 г., уровень совместимости по умолчанию не изменяется. Также и уровень базы данных, измененный при обновлении с версии 11 до версии 12.
+> Databases created before June 2016 do not have their compatibility level changed by this change of default. Nor is the level of a database changed by upgrading it from V11 to V12.
 
 
 
-Сведения о сравнении наиболее важных запросов для последнего и предыдущего уровня совместимости см. здесь:
+For an explanation of how you can compare your most important queries between the latest versus previous compatibility level, see:
 
-- [Повышение производительности запросов с использованием уровня совместимости 130 в базе данных SQL Azure](sql-database-compatibility-level-query-performance-130.md)
-
-
-
-## Увеличенная производительность для категории Premium и новые уровни производительности
+- [Improved Query Performance with Compatibility Level 130 in Azure SQL Database](sql-database-compatibility-level-query-performance-130.md)
 
 
-В версии 12 мы на 25 % увеличили количество единиц транзакций базы данных (DTU) для всех уровней производительности категории "Премиум" без повышения стоимости. Еще большей производительности можно достичь за счет использования таких новых функций:
+
+## <a name="more-premium-performance,-new-performance-levels"></a>More premium performance, new performance levels
 
 
-- Поддержка хранения [индексов columnstore](http://msdn.microsoft.com/library/gg492153.aspx) в памяти.
-- [Секционирование таблиц по строкам](http://msdn.microsoft.com/library/ms187802.aspx) и расширенные возможности инструкции [TRUNCATE TABLE](http://msdn.microsoft.com/library/ms177570.aspx).
-- Доступность динамических административных представлений [(DMV)](http://msdn.microsoft.com/library/ms188754.aspx) для мониторинга и настройки производительности.
+In V12, we increased the Database Transaction Units (DTUs) allocated to all Premium performance levels by 25% at no additional cost. Even greater performance gains can be achieved with new features like:
 
 
-### Надежная производительность
+- Support for in-memory [columnstore indexes](http://msdn.microsoft.com/library/gg492153.aspx).
+- [Table partitioning by rows](http://msdn.microsoft.com/library/ms187802.aspx) with related enhancements to [TRUNCATE TABLE](http://msdn.microsoft.com/library/ms177570.aspx).
+- The availability of dynamic management views [(DMVs)](http://msdn.microsoft.com/library/ms188754.aspx) to help monitor and tune performance.
 
 
-Если клиентская программа подключается к базы данных SQL V12, а клиент работает на виртуальной машине Azure (ВМ), необходимо открыть на ней следующие диапазоны портов:
-
-- 11000–11999;
-- 14000–14999.
+### <a name="reliable-performance"></a>Reliable performance
 
 
-Щелкните [здесь](sql-database-develop-direct-route-ports-adonet-v12.md), чтобы узнать больше о портах для базы данных SQL V12. Эти порты необходимы для улучшения производительности базы данных SQL V12.
+If your client program connects to SQL Database V12 while your client runs on an Azure virtual machine (VM), you must open the following port ranges on the VM:
+
+- 11000-11999
+- 14000-14999
 
 
-## Улучшенная поддержка поставщиков облачных SaaS-решений
+Click [here](sql-database-develop-direct-route-ports-adonet-v12.md) for details about the ports for SQL Database V12. The ports are needed by performance enhancements in SQL Database V12.
 
 
-В версии 12 представлен новый уровень производительности, Standard S3, и общедоступная предварительная версия [эластичных пулов баз данных](sql-database-elastic-pool.md). Пулы эластичных баз данных специально разработаны для поставщиков облачных решений SaaS. Эластичные пулы баз данных позволяют:
+## <a name="better-support-for-cloud-saas-vendors"></a>Better support for cloud SaaS vendors
 
 
-- определять производительность всего пула баз данных, а не каждой базы по отдельности, что дает возможность сократить расходы на содержание большого количества баз данных;
-- выполнять [задания эластичных баз данных](sql-database-elastic-jobs-overview.md) для управления большим количеством баз.
+Only in V12, we released the new Standard performance level S3 and the public preview of [elastic database pools](sql-database-elastic-pool.md). Elastic database pools is a solution designed for cloud SaaS vendors.  With elastic database pools, you can:
 
 
-## Улучшенная система безопасности
+- Share DTUs among databases to reduce costs for large numbers of databases.
+- Execute [elastic database jobs](sql-database-elastic-jobs-overview.md) to manage databases at scale.
 
 
-Для всех, кто ведет свой бизнес в облаке, безопасность является одним из главных вопросов. В версии 12 реализовано несколько новых функций безопасности, в частности:
+## <a name="security-enhancements"></a>Security enhancements
 
 
-- [безопасность на уровне строк](http://msdn.microsoft.com/library/dn765131.aspx) (RLS);
-- [динамическое маскирование данных;](sql-database-dynamic-data-masking-get-started.md)
-- [автономные базы данных;](http://msdn.microsoft.com/library/ff929188.aspx)
-- [роли приложений](http://msdn.microsoft.com/library/ms190998.aspx), управляемые с помощью инструкций GRANT, DENY, REVOKE;
-- [прозрачное шифрование данных](http://msdn.microsoft.com/library/0bf7e8ff-1416-4923-9c4c-49341e208c62.aspx) (TDE).
-- [Подключение к базе данных SQL с использованием проверки подлинности Azure Active Directory](sql-database-aad-authentication.md)
- - База данных SQL теперь поддерживает проверку подлинности Azure Active Directory — это механизм подключения к базе данных SQL с помощью удостоверений в Azure Active Directory (Azure AD). С помощью проверки подлинности Azure Active Directory можно централизованно управлять удостоверениями пользователей базы данных и другими службами Майкрософт.
-- [Всегда зашифрованы](https://msdn.microsoft.com/library/mt163865.aspx) (в предварительной версии) делает шифрование прозрачным для приложений и позволяет клиентам шифровать конфиденциальные данные внутри клиентских приложений без совместного использования ключей шифрования с базой данных SQL.
+Security is a primary concern for anyone who runs their business in the cloud. The latest security features released in V12 include:
 
 
-## Улучшенная непрерывность бизнес-процессов при восстановлении данных
+- [Row-level security](http://msdn.microsoft.com/library/dn765131.aspx) (RLS)
+- [Dynamic Data Masking](sql-database-dynamic-data-masking-get-started.md)
+- [Contained databases](http://msdn.microsoft.com/library/ff929188.aspx)
+- [Application roles](http://msdn.microsoft.com/library/ms190998.aspx) managed with GRANT, DENY, REVOKE
+- [Transparent Data Encryption](http://msdn.microsoft.com/library/0bf7e8ff-1416-4923-9c4c-49341e208c62.aspx) (TDE)
+- [Connecting to SQL Database By Using Azure Active Directory Authentication](sql-database-aad-authentication.md)
+ - SQL Database now supports Azure Active Directory authentication, a mechanism of connecting to SQL Database by using identities in Azure Active Directory (Azure AD). With Azure Active Directory authentication you can centrally manage the identities of database users and other Microsoft services in one central location.
+- [Always Encrypted](https://msdn.microsoft.com/library/mt163865.aspx) (in preview) makes encryption transparent to applications and allows clients to encrypt sensitive data inside client applications without sharing the encryption keys with SQL Database.
 
 
-В версии 12 улучшены целевые точки восстановления (RPO) и сокращено оценочное время восстановления (ERT).
+## <a name="increased-business-continuity-when-recovery-is-needed"></a>Increased business continuity when recovery is needed
 
 
-| Функция обеспечения непрерывности бизнес-процессов | Предыдущая версия | Версия 12 |
+V12 offers improved recovery point objectives (RPOs) and estimated recovery times (ERTs):
+
+
+| Business continuity feature | Earlier version | V12 |
 | :-- | :-- | :-- |
-| Геовосстановление | • RPO < 24 часов.<br/>• ERT < 12 часов. | • RPO < 1 часа.<br/>• ERT < 12 часов. |
-| Активная георепликация | • RPO < 5 минут.<br/>• ERT < 1 часа. | • RPO < 5 секунд.<br/>• ERT < 30 секунд. |
+| Geo-restore | • RPO < 24 hours.<br/>• ERT <  12 hours. | • RPO < 1 hour.<br/>• ERT < 12 hours. |
+| Active Geo-Replication | • RPO < 5 minutes.<br/>• ERT < 1 hour. | • RPO < 5 seconds.<br/>• ERT < 30 seconds. |
 
 
-Дополнительные сведения см. в статье [Обеспечение непрерывности работы базы данных SQL Azure](sql-database-business-continuity.md).
+See [SQL Database business continuity](sql-database-business-continuity.md) for more information.
 
 
-## Дополнительные причины для обновления
+## <a name="more-reasons-to-upgrade-now"></a>More reasons to upgrade now
 
 
-Существует множество причин, по которым клиентам следует перейти с базы данных SQL Azure версии 11 на версию 12.
+There are many good reasons why customers should upgrade now to Azure SQL Database V12 from V11:
 
 
-- База данных SQL версии 12 имеет много новых функций, которые недоступны в версии 11.
-- Мы продолжаем расширять функционал версии 12, а в версию 11 новые функции добавляться не будут.
-- Большинство новых функций представлены в базе данных SQL версии 12 раньше, чем в Microsoft SQL Server.
+- SQL Database V12 has a long list of features beyond the features of V11.
+- We continue to add new features to V12, but no new features will be added to V11.
+- Most new features are released on SQL Database V12 before they are being released for Microsoft SQL Server.
 
 
-## Как узнать свою версию
+## <a name="are-you-using-v12-already?"></a>Are you using V12 already?
 
 
-Проще всего определить версию службы базы данных SQL, которая управляет вашей базой данных или логическим сервером, так:
+One easy way to see if you have a database or logical server running on an earlier version of the SQL Database service is to do the following:
 
 
-1. Перейдите на [портал Azure](https://portal.azure.com/).
-2. Щелкните **Обзор**.
-3. Выберите **Серверы SQL Server**.
-4. Значок рядом с сервером или базой данных красноречиво укажет на версию службы:
- - ![Значок сервера версии 12](./media/sql-database-v12-whats-new/v12_icon.png) **логический сервер версии 12**;
- - ![Значок сервера более ранней версии](./media/sql-database-v12-whats-new/earlier_icon.png) **логический сервер предыдущей версии**.
+1. Go to the [Azure Portal](https://portal.azure.com/).
+2. Click **Browse**.
+3. Click **SQL Servers**.
+4. The icon next to your server or database tells the story:
+ - ![Icon for a v12 server](./media/sql-database-v12-whats-new/v12_icon.png) **V12 logical server**
+ - ![Icon for earlier version server](./media/sql-database-v12-whats-new/earlier_icon.png) **Earlier version logical server**
 
 
-Определить версию службы можно и другим способом. Выполните в базе данных инструкцию `SELECT @@version;` и просмотрите результаты:
+Another technique to ascertain the version is to run the `SELECT @@version;` statement in your database, and view the results similar to:
 
 
-- **12**.0.2000.10 & nbsp; *(версия 12)*;
-- **11**.0.9228.18 &nbsp; *(версия 11)*.
+- **12**.0.2000.10 &nbsp; *(version V12)*
+- **11**.0.9228.18 &nbsp; *(version V11)*
 
 
-База данных версии 12 может размещаться только на логическом сервере версии 12, а на сервере 12 могут размещаться базы данных только версии 12.
+A V12 database can be hosted only on a V12 logical server. And a V12 server can host only V12 databases.
 
 
-Если вы еще не работаете с версией 12, обновите логический сервер, выполнив действия, описанные в статье [Вышло обновление до версии 12 базы данных SQL](sql-database-v12-plan-prepare-upgrade.md).
+If you are not yet running on V12, you can upgrade your logical server by following the steps in [Upgrade to SQL Database V12 in place](sql-database-v12-plan-prepare-upgrade.md).
 
 
-## <a name="V12AzureSqlDbPreviewGaTable"></a> Выход общедоступного выпуска
+## <a name="<a-name="v12azuresqldbpreviewgatable"></a>-general-availability-regions"></a><a name="V12AzureSqlDbPreviewGaTable"></a> General Availability regions
 
 
-- К 31 июля 2015 г. все регионы были переведены в состояние общедоступной версии.
-- Версия 12 была выпущена в декабре 2014 года, но только в статусе предварительной версии.
+- By July 31, 2015, all regions had been promoted to General Availability (GA).
+- V12 was released in December 2014, but only at the status of Preview.
 
-[Дополнительные условия использования для предварительных версий Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+[Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Создание пользовательской пробы для шлюза приложений с помощью портала | Microsoft Azure"
-   description="Узнайте, как создать пользовательскую пробу для шлюза приложений с помощью портала."
+   pageTitle="Create a custom probe for an application gateway by using the portal | Microsoft Azure"
+   description="Learn how to create a custom probe for Application Gateway by using the portal"
    services="application-gateway"
    documentationCenter="na"
    authors="georgewallace"
@@ -14,77 +14,80 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/09/2016"
+   ms.date="10/24/2016"
    ms.author="gwallace" />
 
-# Создание пользовательской пробы для шлюза приложений с помощью портала
+
+# <a name="create-a-custom-probe-for-application-gateway-by-using-the-portal"></a>Create a custom probe for Application Gateway by using the portal
 
 > [AZURE.SELECTOR]
-- [Портал Azure](application-gateway-create-probe-portal.md)
-- [PowerShell и диспетчер ресурсов Azure](application-gateway-create-probe-ps.md)
-- [Классическая модель — Azure PowerShell](application-gateway-create-probe-classic-ps.md)
+- [Azure portal](application-gateway-create-probe-portal.md)
+- [Azure Resource Manager PowerShell](application-gateway-create-probe-ps.md)
+- [Azure Classic PowerShell](application-gateway-create-probe-classic-ps.md)
 
-.<BR>
+<BR>
 
 [AZURE.INCLUDE [azure-probe-intro-include](../../includes/application-gateway-create-probe-intro-include.md)]
 
-## Сценарий
+## <a name="scenario"></a>Scenario
 
-В следующем сценарии рассматривается создание пользовательской пробы работоспособности в существующем шлюзе приложений. Предполагается, что действия по [созданию шлюза приложений](application-gateway-create-gateway-portal.md) уже выполнены.
+The following scenario goes through creating a custom health probe in an existing application gateway.
+The scenario assumes that you have already followed the steps to [Create an Application Gateway](application-gateway-create-gateway-portal.md).
 
-## <a name="createprobe"></a>Создание пробы
+## <a name="<a-name="createprobe"></a>create-the-probe"></a><a name="createprobe"></a>Create the probe
 
-На портале пробы настраиваются в два этапа. Первым шагом является создание пробы, затем следует добавить ее в параметры HTTP серверной части приложения шлюза.
+Probes are configured in a two-step process through the portal. The first step is to create the probe, next you add the probe to the backend http settings of the application gateway.
 
-### Шаг 1
+### <a name="step-1"></a>Step 1
 
-Перейдите по адресу http://portal.azure.com и выберите имеющийся шлюз приложений.
+Navigate to http://portal.azure.com and select an existing application gateway.
 
-.![Обзор шлюза приложений][1]
+![Application Gateway overview][1]
 
-### Шаг 2
+### <a name="step-2"></a>Step 2
 
-Щелкните **Пробы** и нажмите кнопку **Добавить**, чтобы добавить новую пробу.
+Click **Probes** and click the **Add** button to add a new probe.
 
-.![Колонка добавления пробы с заполненной информацией][2]
+![Add Probe blade with information filled out][2]
 
-### Шаг 3.
+### <a name="step-3"></a>Step 3
 
-Введите необходимые сведения о пробе, затем нажмите кнопку **ОК**.
+Fill out the required information for the probe and when complete click **OK**.
 
-- **Имя** — понятное имя пробы, которое отображается на портале.
-- **Узел** — имя узла, который используется для пробы.
-- **Путь** — остальная часть полного URL-адреса пользовательской пробы.
-- **Интервал (с)** — интервал между выполнением проб работоспособности.
-- **Время ожидания (с)** — время ожидания пробы.
-- **Порог состояния неработоспособности** — число неудачных попыток, после которых состояние считается неработоспособным.
+- **Name** - This is a friendly name to the probe that is accessible in the portal.
+- **Host** - This is the host name that is used for the probe.
+- **Path** - The remainder of the full url for the custom probe.
+- **Interval (secs)** - How often the probe is run to check for health.
+- **Timeout (secs)** - The amount of time the probe waits before timing out.
+- **Unhealthy threshold** - Number of failed attempts to be considered unhealthy.
 
-> [AZURE.IMPORTANT] Имя узла не является именем сервера. Это имя виртуального узла, запущенного на сервере приложений. Проба отправляется по адресу http://(имя\_узла):(порт\_из\_параметров\_HTTP)/urlPath.
+> [AZURE.IMPORTANT] the host name is not the server name. This is the name of the virtual host running on the application server. The probe is sent to http://(host name):(port from httpsetting)/urlPath
 
-.![Параметры конфигурации пробы][3]
+![probe configuration settings][3]
 
-## Добавление пробы в шлюз
+## <a name="add-probe-to-the-gateway"></a>Add probe to the gateway
 
-После создания пробы пора добавить ее в шлюз. Настройки пробы задаются в параметрах протокола HTTP серверной части приложения шлюза.
+Now that the probe has been created, it is time to add it to the gateway. Probe settings are set on the backend http settings of the application gateway.
 
-### Шаг 1
+### <a name="step-1"></a>Step 1
 
-Щелкните **Параметры HTTP** для шлюза приложения и выберите текущие параметры HTTP серверной части в окне, чтобы открыть колонку конфигурации.
+Click the **HTTP settings** of the application gateway, and then click the current backend http settings in the window to bring up the configuration blade.
 
-.![Окно параметров HTTPS][4]
+![https settings window][4]
 
-### Шаг 2
+### <a name="step-2"></a>Step 2
 
-В колонке параметров **appGatewayBackEndHttp** щелкните **Использовать пользовательский зонд** и выберите пробу, созданную в разделе [Создание пробы](#createprobe). По завершении нажмите кнопку **ОК**, и параметры будут применены.
+On the **appGatewayBackEndHttp** settings blade, click **Use custom probe** and choose the probe created in the [Create the probe](#createprobe) section.
+When complete, click **OK** and the settings are applied.
 
-.![Колонка параметров серверной части шлюза приложений][5]
+![appgatewaybackend settings blade][5]
 
-Проба по умолчанию проверяет доступ по умолчанию к веб-приложению. После создания пользовательской пробы шлюз приложений использует определенный пользовательский путь для мониторинга работоспособности выбранной серверной части. На основе определенных критериев шлюз приложений проверяет файл, указанный в пробе. Если вызов по адресу <узел>:<порт>/<путь> не возвращает ответ состояния "Http 200 ОК", то по достижении порогового значения неработоспособности сервер выводится из ротации. Выполнение проб неработоспособного экземпляра продолжается, чтобы определить, когда она снова станет работоспособен. После добавления экземпляра обратно пул работоспособных серверов трафик снова начинает поступать к нему, и выполнение проб этого экземпляра продолжается с указанным пользователем интервалом в обычном режиме.
+The default probe checks the default access to the web application. Now that a custom probe has been created, the application gateway uses the custom path defined to monitor health for the backend selected. Based on the criteria that was defined, the application gateway checks the file specified in the probe. If the call to host:Port/path does not return an Http 200 OK status response, the server is taken out of rotation, after the unhealthy threshold is reached. Probing continues on the unhealthy instance to determine when it becomes healthy again. Once the instance is added back to healthy server pool traffic begins flowing to it again and probing to the instance continues at user specified interval as normal.
 
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Next steps
 
-В можете узнать, как [настроить разгрузку SSL](application-gateway-ssl-portal.md) с использованием шлюза приложений Azure.
+To learn how to configure SSL Offloading with Azure Application Gateway see [Configure SSL Offload](application-gateway-ssl-portal.md)
 
 [1]: ./media/application-gateway-create-probe-portal/figure1.png
 [2]: ./media/application-gateway-create-probe-portal/figure2.png
@@ -92,4 +95,7 @@
 [4]: ./media/application-gateway-create-probe-portal/figure4.png
 [5]: ./media/application-gateway-create-probe-portal/figure5.png
 
-<!---HONumber=AcomDC_0810_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

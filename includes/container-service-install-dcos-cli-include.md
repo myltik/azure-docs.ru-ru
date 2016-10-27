@@ -1,13 +1,13 @@
 <properties
-   pageTitle="Установка интерфейса командной строки контроллера домена или ОС | Microsoft Azure"
-   description="Установка интерфейса командной строки контроллера домена или ОС."
+   pageTitle="Install the DC/OS CLI | Microsoft Azure"
+   description="Install the DC/OS CLI."
    services="container-service"
    documentationCenter=""
    authors="rgardler"
    manager="timlt"
    editor=""
    tags="acs, azure-container-service"
-   keywords="Контейнеры, микрослужбы, DC/OS, Azure"/>
+   keywords="Containers, Micro-services, DC/OS, Azure"/>
 
 <tags
    ms.service="container-service"
@@ -18,9 +18,10 @@
    ms.date="05/10/2016"
    ms.author="rogardle"/>
 
->[AZURE.NOTE] Это необходимо для работы с кластерами ACS на основе контроллеров домена или ОС. Это не требуется для кластеров ACS под управлением Swarm.
 
-Сначала [подключитесь к кластеру ACS на основе контроллеров домена или ОС](../articles/container-service/container-service-connect.md). Теперь вы можете установить интерфейс командной строки контроллера домена или операционной системы на клиентский компьютер с помощью приведенной ниже команды:
+>[AZURE.NOTE] This is for working with DC/OS-based ACS clusters. There is no need to do this for Swarm-based ACS clusters.
+
+First, [connect to your DC/OS-based ACS cluster](../articles/container-service/container-service-connect.md). Once you have done this, you can install the DC/OS CLI on your client machine with the commands below:
 
 ```bash
 sudo pip install virtualenv
@@ -30,23 +31,23 @@ chmod +x install-optout-dcos-cli.sh
 ./install-optout-dcos-cli.sh . http://localhost --add-path yes
 ```
 
-Если вы используете старую версию Python, можно заметить предупреждения о незащищенной платформе (InsecurePlatformWarnings). Эти предупреждения можно игнорировать.
+If you are using an old version of Python, you may notice some "InsecurePlatformWarnings". You can safely ignore these.
 
-Чтобы приступить к работе без перезагрузки оболочки, выполните следующую команду:
+In order to get started without restarting your shell, run:
 
 ```bash
 source ~/.bashrc
 ```
 
-Этот шаг не нужно выполнять при запуске новой оболочки.
+This step will not be necessary when you start new shells.
 
-Теперь можно проверить, установлен ли интерфейс командной строки:
+Now you can confirm that the CLI is installed:
 
 ```bash
 dcos --help
 ```
 
 
-
+<!--HONumber=Oct16_HO2-->
 
 

@@ -1,11 +1,11 @@
 
 <properties 
-    pageTitle="Использование Azure RemoteApp с учетными записями пользователей Office 365 | Microsoft Azure"
-	description="Узнайте, как использовать Azure RemoteApp с учетными записями пользователей Office 365"
-	services="remoteapp"
-	documentationCenter="" 
-	authors="piotrci" 
-	manager="mbaldwin" />
+    pageTitle="How to use Azure RemoteApp with Office 365 user accounts | Microsoft Azure"
+    description="Learn how to use Azure RemoteApp with my Office 365 user accounts"
+    services="remoteapp"
+    documentationCenter="" 
+    authors="piotrci" 
+    manager="mbaldwin" />
 
 <tags 
     ms.service="remoteapp" 
@@ -18,35 +18,45 @@
 
 
 
-# Использование Azure RemoteApp с учетными записями пользователей Office 365
+
+# <a name="how-to-use-azure-remoteapp-with-office-365-user-accounts"></a>How to use Azure RemoteApp with Office 365 user accounts
 
 > [AZURE.IMPORTANT]
-Мы выводим удаленное приложение Azure RemoteApp из эксплуатации. Дополнительные сведения см. в [объявлении](https://go.microsoft.com/fwlink/?linkid=821148).
+> Azure RemoteApp is being discontinued. Read the [announcement](https://go.microsoft.com/fwlink/?linkid=821148) for details.
 
-Если у вас есть подписка Office 365, то вы имеете каталог Azure Active Directory, в котором хранятся имена пользователей и пароли, используемые для доступа к службам Office 365. Например, когда пользователи активируют Office 365 ProPlus, они проходят проверку подлинности у Azure AD для подтверждения лицензии. Большинству пользователей хотелось бы использовать тот же каталог с Azure RemoteApp.
+If you have an Office 365 subscription you have an Azure Active Directory that stores your user names and passwords used to access Office 365 services. For example, when your users activate Office 365 ProPlus they authenticate against Azure AD to check for licenses. Most customers would like to use the same directory with Azure RemoteApp.
 
-При развертывании удаленного приложения Azure RemoteApp вы, скорее всего, будете использовать подписку, которая связана с другим каталогом Azure AD. Чтобы использовать каталог Office 365, необходимо переместить подписку Azure в этот каталог.
+If you are deploying Azure RemoteApp you are most likely using an Azure subscription that is associated with a different Azure AD. In order to use your Office 365 directory, you will need to move the Azure subscription into that directory.
 
-Сведения о развертывании клиентских приложений Office 365 см. в разделе [Использование подписки Office 365 с Azure RemoteApp](remoteapp-officesubscription.md).
+For info on how to deploy Office 365 client applications, see [How to use your Office 365 subscription with Azure RemoteApp](remoteapp-officesubscription.md).
  
-## Этап 1. Регистрация бесплатной подписки Azure Active Directory для Office 365
-При использовании классического портала Azure следуйте инструкциям, приведенным в статье [Регистрация бесплатной подписки Azure Active Directory](https://technet.microsoft.com/library/dn832618.aspx), чтобы получить административный доступ к Azure AD на портале управления Azure. В результате вы сможете войти на портал Azure и увидеть, что каталог существует — на этом этапе вы не увидите большего, так как полная подписка Azure, которую вы используете с удаленным приложением Azure RemoteApp, связана с другим каталогом.
+## <a name="phase-1:-register-your-free-office-365-azure-active-directory-subscription"></a>Phase 1: Register your free Office 365 Azure Active Directory subscription
+If you are using the Azure classic portal, use the steps in [Register your free Azure Active Directory subscription](https://technet.microsoft.com/library/dn832618.aspx) to get administrative access to your Azure AD via the Azure Management Portal. As the result of this process you should be able to log into the Azure portal and see your directory there – at this point you won’t see much more since the full Azure subscription you are using with Azure RemoteApp is in a different directory.
 
-Запомните имя и пароль учетной записи администратора, созданные на этом этапе — они потребуются на этапе 2.
+Remember the name and password of the administrator account you created in this step – they will be needed in Phase 2.
 
-Если вы используете портал Azure, то ознакомьтесь со статьей [Регистрация и активация бесплатного каталога Azure Active Directory с помощью портала Office 365](http://azureblogger.com/2016/01/how-to-register-and-activate-a-free-azure-active-directory-using-office-365-portal/).
+If you are using the Azure portal, check out [How to register and activate a free Azure Active Directory using Office 365 portal](http://azureblogger.com/2016/01/how-to-register-and-activate-a-free-azure-active-directory-using-office-365-portal/).
 
-## Этап 2. Изменение каталога Azure AD, связанного с вашей подпиской Azure.
-Мы собираемся изменить подписку Azure с текущего каталога подписки на каталог Office 365, с которым мы работали на этапе 1.
+## <a name="phase-2:-change-the-azure-ad-associated-with-your-azure-subscription."></a>Phase 2: Change the Azure AD associated with your Azure subscription.
+We are going to change your Azure subscription from its current directory into the Office 365 directory we worked with in Phase 1.
 
-Следуйте инструкциям, описанным в разделе [Смена клиента Azure Active Directory в Azure RemoteApp](remoteapp-changetenant.md). Обратите особое внимание на следующие шаги:
+Follow the instructions described in [Change the Azure Active Directory tenant in Azure RemoteApp](remoteapp-changetenant.md). Pay particular attention to the following steps:
 
-- Шаг № 1. Если вы развернули удаленное приложение Azure RemoteApp (ARA) в этой подписке, удалите все учетные записи Azure AD из коллекций ARA перед выполнением дальнейших действий. Также можно удалить все существующие коллекции.
-- Шаг № 2. Этот шаг является особенно важным. В качестве администратора службы для этой подписки необходимо использовать учетную запись Майкрософт (например, @outlook.com). Это связано с тем, что к этой подписке не может быть привязано ни одной учетной записи пользователя из существующего каталога Azure AD, подключенной к данной подписке. Если они будут привязаны, то мы не сможем переместить их в другой каталог Azure AD.
-- Шаг № 4. При добавлении существующего каталога система выдаст запрос на вход с учетной записью администратора для этого каталога. Используйте учетную запись администратора, использованную на этапе 1.
-- Шаг № 5. Измените родительский каталог подписки на каталог Office 365. В результате в меню "Параметры" > "Подписки" для вашей подписки должен быть указан каталог Office 365. ![Изменение родительского каталога подписки](./media/remoteapp-o365user/settings.png)
+- Step #1: If you have deployed Azure RemoteApp (ARA) in this subscription, make sure you remove all Azure AD user accounts from any ARA collections first, before trying anything else. Alternatively, you can consider deleting any existing collections.
+- Step #2: This is a critical step. You need to use a Microsoft account (e.g. @outlook.com) as a Service Administrator on the subscription; this is because we cannot have any user accounts from the existing Azure AD attached to the subscription – if we do, we won’t be able to move it to a different Azure AD.
+- Step #4: When adding an existing directory, the system will ask you to sign in with the administrator account for that directory. Make sure to use the administrator account from Phase 1.
+- Step #5: Change the parent directory of the subscription to your Office 365 directory. The end result should be that under Settings -> Subscriptions your subscription lists the Office 365 directory. 
+![Change the parent directory of the subscription](./media/remoteapp-o365user/settings.png)
  
 
-На этом этапе ваша подписка Azure RemoteApp связана с каталогом Azure AD Office 365, и вы можете использовать существующие учетные записи пользователей Office 365 с Azure RemoteApp.
+At this point your Azure RemoteApp subscription is associated with your Office 365 Azure AD; you can use the existing Office 365 user accounts with Azure RemoteApp!
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

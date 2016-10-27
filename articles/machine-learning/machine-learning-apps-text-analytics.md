@@ -1,240 +1,241 @@
 <properties
-	pageTitle="API-интерфейсы машинного обучения — текстовая аналитика | Microsoft Azure"
-	description="Интерфейсы API текстовой аналитики машинного обучения Microsoft можно использовать для анализа неструктурированного текста в таких задачах, как анализ мнений, извлечение ключевой фразы, определение языка и определение темы."
-	services="machine-learning"
-	documentationCenter=""
-	authors="onewth"
-	manager="jhubbard"
-	editor="cgronlun"/>
+    pageTitle="Machine Learning APIs: Text Analytics | Microsoft Azure"
+    description="Microsoft's Machine Learning Text Analytics APIs can be used to analyze unstructured text for sentiment analysis, key phrase extraction, language detection and topic detection."
+    services="machine-learning"
+    documentationCenter=""
+    authors="onewth"
+    manager="jhubbard"
+    editor="cgronlun"/> 
 
 <tags
-	ms.service="machine-learning"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/07/2016"
-	ms.author="onewth"/>
+    ms.service="machine-learning"
+    ms.workload="data-services"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/04/2016"
+    ms.author="onewth"/>
 
 
-# API-интерфейсы машинного обучения: текстовая аналитика для мнений, извлечение ключевой фразы, определение языка и определение темы
 
->[AZURE.NOTE] Это руководство предназначено для API версии 1. Руководство для версии 2 см. [**здесь**](../cognitive-services/cognitive-services-text-analytics-quick-start.md). Теперь версия 2 является предпочтительной версией этого API.
+# <a name="machine-learning-apis:-text-analytics-for-sentiment,-key-phrase-extraction,-language-detection-and-topic-detection"></a>Machine Learning APIs: Text Analytics for Sentiment, Key Phrase Extraction, Language Detection and Topic Detection
 
-## Обзор
+>[AZURE.NOTE] This guide is for version 1 of the API. For version 2, [**refer to this document**](../cognitive-services/cognitive-services-text-analytics-quick-start.md). Version 2 is now the preferred version of this API.
 
-API анализа текста — это набор [веб-служб](https://datamarket.azure.com/dataset/amla/text-analytics) для анализа текста, созданный с помощью машинного обучения Azure. API можно использовать для анализа неструктурированного текста в таких задачах, как анализ мнений, извлечение ключевой фразы, определение языка и определение темы. Для работы с этим API данные для обучения не нужны, поэтому можно просто использовать свои текстовые данные. Для обеспечения лучшего в своем классе прогнозирования этот API применяет собственные расширенные методы обработки естественного языка.
+## <a name="overview"></a>Overview
 
-Анализ текста в действии можно увидеть на нашем [демонстрационном сайте](https://text-analytics-demo.azurewebsites.net/), где также находятся [примеры](https://text-analytics-demo.azurewebsites.net/Home/SampleCode) реализации анализа текста в C# и Python.
+The Text Analytics API is a suite of text analytics [web services](https://datamarket.azure.com/dataset/amla/text-analytics) built with Azure Machine Learning. The API can be used to analyze unstructured text for tasks such as sentiment analysis, key phrase extraction, language detection and topic detection. No training data is needed to use this API: just bring your text data. This API uses advanced natural language processing techniques to deliver best in class predictions.
 
-[AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
+You can see text analytics in action on our [demo site](https://text-analytics-demo.azurewebsites.net/), where you will also find [samples](https://text-analytics-demo.azurewebsites.net/Home/SampleCode) on how to implement text analytics in C# and Python.
+
+[AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)] 
 
 ---
 
-## Анализ мнений
+## <a name="sentiment-analysis"></a>Sentiment analysis
 
-API возвращает численную оценку между 0 и 1. Если оценка приближается к 1, то у текста позитивная тональность, а если к 0, то негативная. Оценка тональности создается с помощью методов классификации. Входные признаки, поступающие в классификатор, включают n-граммы, признаки, созданные на основе частеречной разметки, и векторное представление слов. В настоящее время поддерживается только английский язык.
+The API returns a numeric score between 0 & 1. Scores close to 1 indicate positive sentiment, while scores close to 0 indicate negative sentiment. Sentiment score is generated using classification techniques. The input features to the classifier include n-grams, features generated from part-of-speech tags, and word embeddings. Currently, English is the only supported language.
  
-## Извлечение ключевой фразы
+## <a name="key-phrase-extraction"></a>Key phrase extraction
 
-API возвращает список строк с обозначением ключевых тем разговора во входном тексте. Мы используем методы из высокотехнологичного набора средств для обработки естественных языков Microsoft Office. В настоящее время поддерживается только английский язык.
+The API returns a list of strings denoting the key talking points in the input text. We employ techniques from Microsoft Office's sophisticated Natural Language Processing toolkit. Currently, English is the only supported language.
 
-## Определение языка
+## <a name="language-detection"></a>Language detection
 
-API возвращает определенный язык и численную оценку между 0 и 1. Если оценка приближается к 1, существует стопроцентная уверенность, что язык определен правильно. Поддерживается всего 120 языков.
+The API returns the detected language and a numeric score between 0 & 1. Scores close to 1 indicate 100% certainty that the identified language is true. A total of 120 languages are supported.
 
-## Определение темы
+## <a name="topic-detection"></a>Topic detection
 
-Это только что выпущенный API, который определяет основные темы для списка отправленных текстовых записей. Тема определяется по ключевой фразе, которая может содержать одно или несколько связанных слов. Этот интерфейс API позволяет определять темы для количества текстовых записей от нескольких сотен до тысяч. При этом минимальное количество текстовых записей равно 100. Обратите внимание, что для этого API-интерфейса тарифицируется каждая транзакция для текстовой записи. Этот API-интерфейс хорошо работает с короткими, написанными человеком текстами, такими как обзоры и отзывы пользователей.
+This is a newly released API which returns the top detected topics for a list of submitted text records. A topic is identified with a key phrase, which can be one or more related words. This API requires a minimum of 100 text records to be submitted, but is designed to detect topics across hundreds to thousands of records. Note that this API charges 1 transaction per text record submitted. The API is designed to work well for short, human written text such as reviews and user feedback.
 
 ---
 
-## Определение интерфейса API
+## <a name="api-definition"></a>API Definition
 
-### Заголовки
+### <a name="headers"></a>Headers
 
-Убедитесь, что в запрос, который должен иметь следующий вид, включены правильные заголовки:
+Ensure that you include the correct headers in your request, which should be as follows:
 
-	Authorization: Basic <creds>
-	Accept: application/json
+    Authorization: Basic <creds>
+    Accept: application/json
                
-	Where <creds> = ConvertToBase64(“AccountKey:” + yourActualAccountKey);  
+    Where <creds> = ConvertToBase64(“AccountKey:” + yourActualAccountKey);  
 
-Ключ учетной записи можно найти в вашей учетной записи в [Azure Data Market](https://datamarket.azure.com/account/keys). Обратите внимание, что в настоящее время в качества формата входных и выходных данных принимается только JSON. XML не поддерживается.
-
----
-
-## API-интерфейсы отдельного ответа
-
-### GetSentiment
-
-**URL-адрес**
-
-	https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/GetSentiment
-
-**Пример запроса**
-
-В приведенном ниже вызове запрашивается тональность фразы "Hello World".
-
-	GET https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/GetSentiment?Text=hello+world
-
-Возвращается следующий ответ:
-
-	{
-	  "odata.metadata":"https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/$metadata",
-		"Score":1.0
-	}
+You can find your account key from your account in the [Azure Data Market](https://datamarket.azure.com/account/keys). Note that currently only JSON is accepted for input and output formats. XML is not supported.
 
 ---
 
-### GetKeyPhrases
+## <a name="single-response-apis"></a>Single Response APIs
 
-**URL-адрес**
+### <a name="getsentiment"></a>GetSentiment
 
-	https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/GetKeyPhrases
+**URL** 
 
-**Пример запроса**
+    https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/GetSentiment
 
-В приведенном ниже вызове запрашиваются ключевые фразы в тексте "It was a wonderful hotel to stay at, with unique decor and friendly staff".
+**Example request**
 
-	GET https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/GetKeyPhrases?
-	Text=It+was+a+wonderful+hotel+to+stay+at,+with+unique+decor+and+friendly+staff
+In the call below, we are requesting sentiment analysis for the phrase "Hello World":
 
-Возвращается следующий ответ:
+    GET https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/GetSentiment?Text=hello+world
 
-	{
-	  "odata.metadata":"https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/$metadata",
-	  "KeyPhrases":[
-	    "wonderful hotel",
-	    "unique decor",
-	    "friendly staff"
-	  ]
-	}
+This will return a response as follows:
+
+    {
+      "odata.metadata":"https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/$metadata",
+        "Score":1.0
+    }
+
+---
+
+### <a name="getkeyphrases"></a>GetKeyPhrases
+
+**URL**
+
+    https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/GetKeyPhrases
+
+**Example request**
+
+In the call below, we are requesting the key phrases found in the text "It was a wonderful hotel to stay at, with unique decor and friendly staff":
+
+    GET https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/GetKeyPhrases?
+    Text=It+was+a+wonderful+hotel+to+stay+at,+with+unique+decor+and+friendly+staff
+
+This will return a response as follows:
+
+    {
+      "odata.metadata":"https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/$metadata",
+      "KeyPhrases":[
+        "wonderful hotel",
+        "unique decor",
+        "friendly staff"
+      ]
+    }
  
 ---
 
-### GetLanguage
+### <a name="getlanguage"></a>GetLanguage
 
-**URL-адрес**
+**URL**
 
-	https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/GetLanguage
+    https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/GetLanguage
 
-**Пример запроса**
+**Example request**
 
-В приведенном ниже вызове GET запрашивается тональность ключевых фраз в тексте *Hello World*.
+In the GET call below, we are requesting for the sentiment for the key phrases in the text *Hello World*
 
-	GET https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/GetLanguages?
-	Text=Hello+World
+    GET https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/GetLanguages?
+    Text=Hello+World
 
-Возвращается следующий ответ:
+This will return a response as follows:
 
-	{
-	  "UnknownLanguage": false,
-	  "DetectedLanguages": [{
-	    "Name": "English",
-	    "Iso6391Name": "en",
-	    "Score": 1.0
-	  }]
-	}
+    {
+      "UnknownLanguage": false,
+      "DetectedLanguages": [{
+        "Name": "English",
+        "Iso6391Name": "en",
+        "Score": 1.0
+      }]
+    }
 
-**Необязательные параметры**
+**Optional parameters**
 
-`NumberOfLanguagesToDetect` является необязательным параметром. Значение по умолчанию — 1.
-
----
-
-## API-интерфейсы пакетной службы
-
-Служба текстовой аналитики позволяет выполнять поиск на основе тональности и ключевых фраз в пакетном режиме. Обратите внимание, что каждая из записей считается как одна транзакция. Таким образом, при получении тональности для 1000 записей в одном запросе будет вычтено 1000 транзакций.
-
-Обратите внимание, что введенные в систему идентификаторы — это идентификаторы, возвращенные системой. Веб-служба не проверяет уникальность идентификаторов. Ответственность за проверку уникальности несет вызывающий объект.
-
-
-### GetSentimentBatch
-
-**URL-адрес**
-
-	https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/GetSentimentBatch
-
-**Пример запроса**
-
-В приведенном ниже вызове POST запрашивается тональность следующих ключевых фраз в тексте запроса: "Hello World", "Hello Foo World" и "Hello My World".
-
-	POST https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/GetSentimentBatch 
-
-Тело запроса:
-
-	{"Inputs":
-	[
-	    {"Id":"1","Text":"hello world"},
-	    {"Id":"2","Text":"hello foo world"},
-	    {"Id":"3","Text":"hello my world"},
-	]}
-
-В приведенном ниже ответе отображается список показателей, связанных с идентификаторами текста:
-
-	{
-	  "odata.metadata":"<url>", 
-	  "SentimentBatch":
-	  [
-		{"Score":0.9549767,"Id":"1"},
-		{"Score":0.7767222,"Id":"2"},
-		{"Score":0.8988889,"Id":"3"}
-	  ],  
-	  "Errors":[]
-	}
-
+`NumberOfLanguagesToDetect` is an optional parameter. The default is 1.
 
 ---
 
-### GetKeyPhrasesBatch
+## <a name="batch-apis"></a>Batch APIs
 
-**URL-адрес**
+The Text Analytics service allows you to do sentiment and key-phrase extractions in batch mode. Note that each of the records scored counts as one transaction. As an example, if you request sentiment for 1000 records in a single call, 1000 transactions will be deducted.
 
-	https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/GetKeyPhrasesBatch
+Note that the IDs entered into the system are the IDs returned by the system. The web service does not check that these IDs are unique. It is the responsibility of the caller to verify uniqueness. 
 
-**Пример запроса**
 
-В приведенном ниже вызове запрашивается список тональностей ключевых фраз в следующих текстах:
+### <a name="getsentimentbatch"></a>GetSentimentBatch
 
-* "It was a wonderful hotel to stay at, with unique decor and friendly staff";
-* "It was an amazing build conference, with very interesting talks";
-* "The traffic was terrible, I spent three hours going to the airport".
+**URL** 
 
-Этот запрос выполняется как вызов метода POST в конечную точку:
+    https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/GetSentimentBatch
+
+**Example request**
+
+In the POST call below, we are requesting for the sentiments of the phrases "Hello World", "Hello Foo World" and "Hello My World" in the body of the request:
+
+    POST https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/GetSentimentBatch 
+
+Request body:
+
+    {"Inputs":
+    [
+        {"Id":"1","Text":"hello world"},
+        {"Id":"2","Text":"hello foo world"},
+        {"Id":"3","Text":"hello my world"},
+    ]}
+
+In the response below, you get the list of scores associated with your text Ids:
+
+    {
+      "odata.metadata":"<url>", 
+      "SentimentBatch":
+      [
+        {"Score":0.9549767,"Id":"1"},
+        {"Score":0.7767222,"Id":"2"},
+        {"Score":0.8988889,"Id":"3"}
+      ],  
+      "Errors":[]
+    }
+
+
+---
+
+### <a name="getkeyphrasesbatch"></a>GetKeyPhrasesBatch
+
+**URL**
+
+    https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/GetKeyPhrasesBatch
+
+**Example request**
+
+In this example, we are requesting for the list of sentiments for the key phrases in the following texts: 
+
+* "It was a wonderful hotel to stay at, with unique decor and friendly staff"
+* "It was an amazing build conference, with very interesting talks"
+* "The traffic was terrible, I spent three hours going to the airport"
+
+This request is made as a POST call to the endpoint:
 
     POST https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/GetKeyPhrasesBatch
 
-Тело запроса:
+Request body:
 
-	{"Inputs":
-	[
-		{"Id":"1","Text":"It was a wonderful hotel to stay at, with unique decor and friendly staff"},
-		{"Id":"2","Text":"It was an amazing build conference, with very interesting talks"},
-		{"Id":"3","Text":"The traffic was terrible, I spent three hours going to the airport"}
-	]}
+    {"Inputs":
+    [
+        {"Id":"1","Text":"It was a wonderful hotel to stay at, with unique decor and friendly staff"},
+        {"Id":"2","Text":"It was an amazing build conference, with very interesting talks"},
+        {"Id":"3","Text":"The traffic was terrible, I spent three hours going to the airport"}
+    ]}
 
-В приведенном ниже ответе можно получить список ключевых фраз, связанных с идентификаторами текста:
+In the response below, you get the list of key phrases associated with your text Ids:
 
-	{ "odata.metadata":"<url>",
-	 	"KeyPhrasesBatch":
-		[
-		   {"KeyPhrases":["unique decor","friendly staff","wonderful hotel"],"Id":"1"},
-		   {"KeyPhrases":["amazing build conference","interesting talks"],"Id":"2"},
-		   {"KeyPhrases":["hours","traffic","airport"],"Id":"3" }
-		],
-		"Errors":[]
-	}
+    { "odata.metadata":"<url>",
+        "KeyPhrasesBatch":
+        [
+           {"KeyPhrases":["unique decor","friendly staff","wonderful hotel"],"Id":"1"},
+           {"KeyPhrases":["amazing build conference","interesting talks"],"Id":"2"},
+           {"KeyPhrases":["hours","traffic","airport"],"Id":"3" }
+        ],
+        "Errors":[]
+    }
 
 ---
 
-### GetLanguageBatch
+### <a name="getlanguagebatch"></a>GetLanguageBatch
 
-В приведенном ниже вызове POST запрашивается определение языка для двух входных значений текста:
+In the POST call below, we are requesting language detection for two text inputs:
 
     POST https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/GetLanguageBatch
 
-Тело запроса:
+Request body:
 
     {
       "Inputs": [
@@ -243,7 +244,7 @@ API возвращает определенный язык и численную
       ]
     }
 
-Возвращается следующий ответ, где в первом наборе входных данных определен английский язык, а в втором — французский.
+This returns the following response, where English is detected in the first input and French in the second input:
 
     {
        "LanguageBatch": [{
@@ -269,120 +270,124 @@ API возвращает определенный язык и численную
 
 ---
 
-## Интерфейсы API определения темы
+## <a name="topic-detection-apis"></a>Topic Detection APIs
 
-Это только что выпущенный API, который определяет основные темы для списка отправленных текстовых записей. Тема определяется по ключевой фразе, которая может содержать одно или несколько связанных слов. Обратите внимание, что для этого API-интерфейса тарифицируется каждая транзакция для текстовой записи.
+This is a newly released API which returns the top detected topics for a list of submitted text records. A topic is identified with a key phrase, which can be one or more related words. Note that this API charges 1 transaction per text record submitted.
 
-Этот интерфейс API позволяет определять темы для количества текстовых записей от нескольких сотен до тысяч. При этом минимальное количество текстовых записей равно 100.
-
-
-### Темы — отправить задание
-
-**URL-адрес**
-
-	https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/StartTopicDetection
-
-**Пример запроса**
+This API requires a minimum of 100 text records to be submitted, but is designed to detect topics across hundreds to thousands of records.
 
 
-В приведенном ниже вызове POST запрашиваются темы для набора 100 статей, отображаются первая и последняя статьи, и включены две стоповые фразы.
+### <a name="topics-–-submit-job"></a>Topics – Submit job
 
-	POST https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/StartTopicDetection HTTP/1.1
+**URL**
 
-Тело запроса:
+    https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/StartTopicDetection
 
-	{"Inputs":[
-		{"Id":"1","Text":"I loved the food at this restaurant"},
-		...,
-		{"Id":"100","Text":"I hated the decor"}
-	],
-	"StopPhrases":[
-		"restaurant", “visitor"
-	]}
-
-В приведенном ниже ответе вы получаете JobId для отправленного задания:
-
-	{
-		"odata.metadata":"<url>",
-		"JobId":"<JobId>"
-	}
-
-Список из слов или фраз, которые не нужно возвращать в качестве темы. Можно использовать для исключения слишком общих тем. Например, в наборе данных об обзорах отелей разумно использовать стоповые фразы "отель" и "хостел".
-
-### Темы — опрос результатов задания
-
-**URL-адрес**
-
-	https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/GetTopicDetectionResult
-
-**Пример запроса**
-
-Передайте JobId, возвращенный на шаге "Отправить задание", для получения результатов. Мы рекомендуем вызывать эту конечную точку каждую минуту, пока состояние в ответе не изменится на "Завершено". Для завершения задания потребуется около 10 минут, для заданий с несколькими тысячами записей потребуется больше времени.
-
-	GET https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/GetTopicDetectionResult?JobId=<JobId>
+**Example request**
 
 
-Во время его обработки ответ будет иметь следующий вид:
+In the POST call below, we are requesting topics for a set of 100 articles, where the first and last input articles are shown, and two StopPhrases are included.
 
-	{
-		"odata.metadata":"<url>",
-		"Status":"Running",
- 		"TopicInfo":[],
-		"TopicAssignment":[],
-		"Errors":[]
-	}
+    POST https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/StartTopicDetection HTTP/1.1
 
+Request body:
 
-API возвращает выходные данные в JSON в следующем формате:
+    {"Inputs":[
+        {"Id":"1","Text":"I loved the food at this restaurant"},
+        ...,
+        {"Id":"100","Text":"I hated the decor"}
+    ],
+    "StopPhrases":[
+        "restaurant", “visitor"
+    ]}
 
-	{
-		"odata.metadata":"<url>",
-		"Status":"Finished",
-		"TopicInfo":[
-		{
-			"TopicId":"ed00480e-f0a0-41b3-8fe4-07c1593f4afd",
-			"Score":8.0,
-			"KeyPhrase":"food"
-		},
-		...
-		{
-			"TopicId":"a5ca3f1a-fdb1-4f02-8f1b-89f2f626d692",
-			"Score":6.0,
-			"KeyPhrase":"decor"
-    		}
-  		],
-		"TopicAssignment":[
-		{
-			"Id":"1",
-			"TopicId":"ed00480e-f0a0-41b3-8fe4-07c1593f4afd",
-			"Distance":0.7809
-		},
-		...
-		{
-			"Id":"100",
-			"TopicId":"a5ca3f1a-fdb1-4f02-8f1b-89f2f626d692",
-			"Distance":0.8034
-		}
-		],
-		"Errors":[]
+In the response below, you get the JobId for the submitted job:
+
+    {
+        "odata.metadata":"<url>",
+        "JobId":"<JobId>"
+    }
+
+A list of single word or multiple word phrases which should not be returned as topics. Can be used to filter out very generic topics. For example, in a dataset about hotel reviews, "hotel" and "hostel" may be sensible stop phrases.  
+
+### <a name="topics-–-poll-for-job-results"></a>Topics – Poll for job results
+
+**URL**
+
+    https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/GetTopicDetectionResult
+
+**Example request**
+
+Pass the JobId returned from the ‘Submit job’ step to fetch the results. We recommend that you call this endpoint every minute until Status=’Complete’ in the response. It will take around 10 mins for a job to complete, or longer for jobs with many thousands of records.
+
+    GET https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/GetTopicDetectionResult?JobId=<JobId>
 
 
-Ниже приведены свойства для каждой части ответа:
+While it is processing, the response will be as follows:
 
-**Свойства TopicInfo**
+    {
+        "odata.metadata":"<url>",
+        "Status":"Running",
+        "TopicInfo":[],
+        "TopicAssignment":[],
+        "Errors":[]
+    }
 
-| Ключ | Описание |
+
+The API returns output in JSON format in the following format:
+
+    {
+        "odata.metadata":"<url>",
+        "Status":"Finished",
+        "TopicInfo":[
+        {
+            "TopicId":"ed00480e-f0a0-41b3-8fe4-07c1593f4afd",
+            "Score":8.0,
+            "KeyPhrase":"food"
+        },
+        ...
+        {
+            "TopicId":"a5ca3f1a-fdb1-4f02-8f1b-89f2f626d692",
+            "Score":6.0,
+            "KeyPhrase":"decor"
+            }
+        ],
+        "TopicAssignment":[
+        {
+            "Id":"1",
+            "TopicId":"ed00480e-f0a0-41b3-8fe4-07c1593f4afd",
+            "Distance":0.7809
+        },
+        ...
+        {
+            "Id":"100",
+            "TopicId":"a5ca3f1a-fdb1-4f02-8f1b-89f2f626d692",
+            "Distance":0.8034
+        }
+        ],
+        "Errors":[]
+
+
+The properties for each part of the response are as follows:
+
+**TopicInfo properties**
+
+| Key | Description |
 |:-----|:----|
-| TopicId | Уникальный идентификатор каждой темы. |
-| Оценка | Количество записей, назначенных теме. |
-| KeyPhrase | Обобщающее слово или фраза для темы. Может состоять из одного или нескольких слов. |
+| TopicId | A unique identifier for each topic. |
+| Score | Count of records assigned to topic. |
+| KeyPhrase | A summarizing word or phrase for the topic. Can be 1 or multiple words. |
 
-**Свойства TopicAssignment**
+**TopicAssignment properties**
 
-| Ключ | Описание |
+| Key | Description |
 |:-----|:----|
-| Идентификатор | Идентификатор записи. Соответствует идентификатору, включенному во входные данные. |
-| TopicId | Идентификатор темы, которому была назначена запись. |
-| Distance | Уверенность в том, что запись принадлежит к разделу. Более близкое к нулю значение означает более высокую степень уверенности. |
+| Id | Identifier for the record. Equates to the ID included in the input. |
+| TopicId | The topic ID which the record has been assigned to. |
+| Distance | Confidence that the record belongs to the topic. Distance closer to zero indicates higher confidence. |
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

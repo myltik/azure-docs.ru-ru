@@ -1,11 +1,14 @@
-Ресурс|Ограничение по умолчанию|Максимальное ограничение
+Resource|Default Limit|Maximum Limit
 ---|---|---
-Ресурсов на [группу ресурсов](../articles/resource-group-overview.md#resource-groups) (для каждого типа ресурсов)|800|800
-Развертываний на группу ресурсов|800|800
-Ресурсов в развертывании|800|800
-Блокировок управления (на уникальную область)|20|20
-Число тегов (на ресурс или группу ресурсов)|15|15
-Длина ключа тега|512|512
-Длина значения тега|256|256
+Resources per [resource group](../articles/resource-group-overview.md#resource-groups) (per resource type)|800|800
+Deployments per resource group|800|800
+Resources per deployment|800|800
+Management Locks (per unique scope)|20|20
+Number of Tags (per resource or resource group)|15|15
+Tag key length|512|512
+Tag value length|256|256
 
-<!---HONumber=AcomDC_0211_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

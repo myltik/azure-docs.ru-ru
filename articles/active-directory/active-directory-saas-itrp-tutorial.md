@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Руководство. Интеграция Azure Active Directory с ITRP | Microsoft Azure" 
-    description="Узнайте, как использовать ITRP вместе с Azure Active Directory для реализации единого входа, автоматической подготовки пользователей и выполнения других задач." 
+    pageTitle="Tutorial: Azure Active Directory Integration with ITRP | Microsoft Azure" 
+    description="Learn how to use ITRP with Azure Active Directory to enable single sign-on, automated provisioning, and more!" 
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
@@ -14,153 +14,157 @@
     ms.date="09/07/2016" 
     ms.author="jeedes" />
 
-#Руководство. Интеграция Azure Active Directory с ITRP
+
+#<a name="tutorial:-azure-active-directory-integration-with-itrp"></a>Tutorial: Azure Active Directory Integration with ITRP
   
-Цель данного руководства — показать интеграцию Azure и ITRP.  
-Сценарий, описанный в этом учебнике, предполагает, что у вас уже имеется:
+The objective of this tutorial is to show the integration of Azure and ITRP.  
+The scenario outlined in this tutorial assumes that you already have the following items:
 
--   Действующая подписка на Azure
--   Клиент ITRP
+-   A valid Azure subscription
+-   A ITRP tenant
   
-После завершения этого руководства пользователи Azure AD, назначенные ITRP, будут иметь возможность единого входа в приложение на корпоративном веб-сайте ITRP (вход, инициированный поставщиком услуг) или с помощью инструкций из статьи [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
+After completing this tutorial, the Azure AD users you have assigned to ITRP will be able to single sign into the application at your ITRP company site (service provider initiated sign on), or using the [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
   
-Сценарий, описанный в этом учебнике, состоит из следующих блоков:
+The scenario outlined in this tutorial consists of the following building blocks:
 
-1.  Включение интеграции приложений для ITRP
-2.  Настройка единого входа
-3.  Настройка подготовки учетных записей пользователей
-4.  Назначение пользователей
+1.  Enabling the application integration for ITRP
+2.  Configuring single sign-on
+3.  Configuring user provisioning
+4.  Assigning users
 
-![Сценарий](./media/active-directory-saas-itrp-tutorial/IC775551.png "Сценарий")
-##Включение интеграции приложений для ITRP
+![Scenario](./media/active-directory-saas-itrp-tutorial/IC775551.png "Scenario")
+##<a name="enabling-the-application-integration-for-itrp"></a>Enabling the application integration for ITRP
   
-В этом разделе показано, как включить интеграцию приложений для ITRP.
+The objective of this section is to outline how to enable the application integration for ITRP.
 
-###Чтобы включить интеграцию приложений для ITRP, выполните следующие действия.
+###<a name="to-enable-the-application-integration-for-itrp,-perform-the-following-steps:"></a>To enable the application integration for ITRP, perform the following steps:
 
-1.  На классическом портале Azure в области навигации слева щелкните **Active Directory**.
+1.  In the Azure classic portal, on the left navigation pane, click **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-itrp-tutorial/IC700993.png "Active Directory")
 
-2.  Из списка **Каталог** выберите каталог, для которого нужно включить интеграцию каталогов.
+2.  From the **Directory** list, select the directory for which you want to enable directory integration.
 
-3.  Чтобы открыть представление приложений, в представлении каталога нажмите **Приложения** в верхнем меню.
+3.  To open the applications view, in the directory view, click **Applications** in the top menu.
 
-    ![Приложения](./media/active-directory-saas-itrp-tutorial/IC700994.png "Приложения")
+    ![Applications](./media/active-directory-saas-itrp-tutorial/IC700994.png "Applications")
 
-4.  В нижней части страницы нажмите кнопку **Добавить**.
+4.  Click **Add** at the bottom of the page.
 
-    ![Добавление приложения](./media/active-directory-saas-itrp-tutorial/IC749321.png "Добавление приложения")
+    ![Add application](./media/active-directory-saas-itrp-tutorial/IC749321.png "Add application")
 
-5.  В диалоговом окне **Что необходимо сделать?** нажмите **Добавить приложение из коллекции**.
+5.  On the **What do you want to do** dialog, click **Add an application from the gallery**.
 
-    ![Добавить приложение из коллекции](./media/active-directory-saas-itrp-tutorial/IC749322.png "Добавить приложение из коллекции")
+    ![Add an application from gallerry](./media/active-directory-saas-itrp-tutorial/IC749322.png "Add an application from gallerry")
 
-6.  В **поле поиска** введите **ITRP**.
+6.  In the **search box**, type **ITRP**.
 
-    ![Коллекция приложений](./media/active-directory-saas-itrp-tutorial/IC775565.png "Коллекция приложений")
+    ![Application Gallery](./media/active-directory-saas-itrp-tutorial/IC775565.png "Application Gallery")
 
-7.  В области результатов выберите **ITRP** и нажмите кнопку **Завершить**, чтобы добавить приложение.
+7.  In the results pane, select **ITRP**, and then click **Complete** to add the application.
 
     ![ITRP](./media/active-directory-saas-itrp-tutorial/IC775566.png "ITRP")
-##Настройка единого входа
+##<a name="configuring-single-sign-on"></a>Configuring single sign-on
   
-В этом разделе показано, как разрешить пользователям проходить проверку подлинности в ITRP со своей учетной записью Azure AD, используя федерацию на основе протокола SAML.  
-Чтобы настроить единый вход для ITRP, необходимо извлечь значение отпечатка из сертификата.  
-Если вы не знакомы с этой процедурой, просмотрите видео [Как извлечь значение отпечатка из сертификата](http://youtu.be/YKQF266SAxI).
+The objective of this section is to outline how to enable users to authenticate to ITRP with their account in Azure AD using federation based on the SAML protocol.  
+Configuring single sign-on for ITRP requires you to retrieve a thumbprint value from a certificate.  
+If you are not familiar with this procedure, see [How to retrieve a certificate's thumbprint value](http://youtu.be/YKQF266SAxI).
 
-###Чтобы настроить единый вход, выполните следующие действия.
+###<a name="to-configure-single-sign-on,-perform-the-following-steps:"></a>To configure single sign-on, perform the following steps:
 
-1.  На странице интеграции с приложением **ITRP** классического портала Azure щелкните **Настроить единый вход**, чтобы открыть диалоговое окно **Настройка единого входа**.
+1.  In the Azure classic portal, on the **ITRP** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
 
-    ![Настройка единого входа](./media/active-directory-saas-itrp-tutorial/IC771709.png "Настройка единого входа")
+    ![Configure single sign-on](./media/active-directory-saas-itrp-tutorial/IC771709.png "Configure single sign-on")
 
-2.  На странице **Как пользователи должны входить в ITRP?** выберите **Единый вход Microsoft Azure AD** и нажмите кнопку **Далее**.
+2.  On the **How would you like users to sign on to ITRP** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
-    ![Настройка единого входа](./media/active-directory-saas-itrp-tutorial/IC775567.png "Настройка единого входа")
+    ![Configure Single Sign-On](./media/active-directory-saas-itrp-tutorial/IC775567.png "Configure Single Sign-On")
 
-3.  На странице **Настройка URL-адреса приложения** в текстовом поле **URL-адрес для входа в ITRP** введите свой URL-адрес, используя следующий шаблон *https://\<имя-клиента>.ITRP.com*, а затем нажмите кнопку **Далее**.
+3.  On the **Configure App URL** page, in the **ITRP Sign In URL** textbox, type your URL using the following pattern "*https://\<tenant-name\>.ITRP.com*", and then click **Next**.
 
-    ![Настройка URL-адреса приложения](./media/active-directory-saas-itrp-tutorial/IC775568.png "Настройка URL-адреса приложения")
+    ![Configure App URL](./media/active-directory-saas-itrp-tutorial/IC775568.png "Configure App URL")
 
-4.  На странице **Настройка единого входа в ITRP** нажмите кнопку **Загрузить сертификат**, а затем сохраните файл сертификата локально как **c:\\ITRP.cer**.
+4.  On the **Configure single sign-on at ITRP** page, to download your certificate, click **Download certificate**, and then save the certificate file locally as **c:\\ITRP.cer**.
 
-    ![Настройка единого входа](./media/active-directory-saas-itrp-tutorial/IC775569.png "Настройка единого входа")
+    ![Configure Single Sign-On](./media/active-directory-saas-itrp-tutorial/IC775569.png "Configure Single Sign-On")
 
-5.  В другом окне веб-браузера войдите на свой корпоративный веб-сайт ITRP в качестве администратора.
+5.  In a different web browser window, log into your ITRP company site as an administrator.
 
-6.  На панели инструментов в верхней части экрана нажмите **Параметры**.
+6.  In the toolbar on the top, click **Settings**.
 
     ![ITRP](./media/active-directory-saas-itrp-tutorial/IC775570.png "ITRP")
 
-7.  В левой области навигации нажмите **Единый вход**.
+7.  In the left navigation pane, select **Single Sign-On**.
 
-    ![Единый вход](./media/active-directory-saas-itrp-tutorial/IC775571.png "Единый вход")
+    ![Single Sign-On](./media/active-directory-saas-itrp-tutorial/IC775571.png "Single Sign-On")
 
-8.  В разделе конфигурации единого входа выполните следующие действия.
+8.  In the Single Sign-On configuration section, perform the following steps:
 
-    ![Единый вход](./media/active-directory-saas-itrp-tutorial/IC775572.png "Единый вход")
+    ![Single Sign-On](./media/active-directory-saas-itrp-tutorial/IC775572.png "Single Sign-On")
 
-    ![Единый вход](./media/active-directory-saas-itrp-tutorial/IC775573.png "Единый вход")
+    ![Single Sign-On](./media/active-directory-saas-itrp-tutorial/IC775573.png "Single Sign-On")
 
-    1.  Нажмите **Включить**.
-    2.  На странице **Настройка единого входа в ITRP** классического портала Azure скопируйте значение поля **URL-адрес удаленного выхода** и вставьте его в текстовое поле **URL-адрес удаленного выхода**.
-    3.  На странице **Настройка единого входа в ITRP** классического портала Azure скопируйте значение поля **URL-адрес единого входа SAML** и вставьте его в текстовое поле **URL-адрес единого входа SAML**.
-    4.  Скопируйте значение поля **Отпечаток** из экспортированного сертификата и вставьте его в текстовое поле **Отпечаток сертификата**.
+    1.  Click **Enable**.
+    2.  In the Azure classic portal, on the **Configure single sign-on at ITRP** dialog page, copy the **Remote Logout URL** value, and then paste it into the **Remote Logout URL** textbox.
+    3.  In the Azure classic portal, on the **Configure single sign-on at ITRP** dialog page, copy the **SAML SSO URL** value, and then paste it into the **SAML SSO URL** textbox.
+    4.  Copy the **Thumbprint** value from the exported certificate, and then paste it into the **Certificate Fingerprint** textbox.
         
-		>[AZURE.TIP]Дополнительные сведения можно найти в видео [Как получить значение отпечатка сертификата](http://youtu.be/YKQF266SAxI).
+        >[AZURE.TIP]For more details, see [How to retrieve a certificate's thumbprint value](http://youtu.be/YKQF266SAxI)
 
-    5.  Щелкните **Сохранить**.
+    5.  Click **Save**.
 
-9.  На классическом портале Azure выберите подтверждение конфигурации единого входа, а затем нажмите кнопку **Завершить**, чтобы закрыть диалоговое окно **Настройка единого входа**.
+9.  On the Azure classic portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
 
-    ![Настройка единого входа](./media/active-directory-saas-itrp-tutorial/IC775574.png "Настройка единого входа")
-##Настройка подготовки учетных записей пользователей
+    ![Configure Single Sign-On](./media/active-directory-saas-itrp-tutorial/IC775574.png "Configure Single Sign-On")
+##<a name="configuring-user-provisioning"></a>Configuring user provisioning
   
-Чтобы пользователи Azure AD могли выполнять вход в ITRP, они должны быть подготовлены для ITRP.  
-В случае с ITRP подготовка выполняется вручную.
+In order to enable Azure AD users to log into ITRP, they must be provisioned into ITRP.  
+In the case of ITRP, provisioning is a manual task.
 
-###Чтобы подготовить учетные записи пользователей, выполните следующие действия:
+###<a name="to-provision-a-user-accounts,-perform-the-following-steps:"></a>To provision a user accounts, perform the following steps:
 
-1.  Выполните вход в клиент **ITRP**.
+1.  Log in to your **ITRP** tenant.
 
-2.  На панели инструментов в верхней части экрана нажмите **Записи**.
+2.  In the toolbar on the top, click **Records**.
 
-    ![Администратор](./media/active-directory-saas-itrp-tutorial/IC775575.png "Администратор")
+    ![Admin](./media/active-directory-saas-itrp-tutorial/IC775575.png "Admin")
 
-3.  В контекстном меню выберите пункт **Пользователи**.
+3.  From the popup menu, select **People**.
 
-    ![Люди](./media/active-directory-saas-itrp-tutorial/IC775587.png "Люди")
+    ![People](./media/active-directory-saas-itrp-tutorial/IC775587.png "People")
 
-4.  Нажмите **Добавить пользователя** ("+").
+4.  Click **Add New Person** (“+”).
 
-    ![Администратор](./media/active-directory-saas-itrp-tutorial/IC775576.png "Администратор")
+    ![Admin](./media/active-directory-saas-itrp-tutorial/IC775576.png "Admin")
 
-5.  В диалоговом окне "Добавить пользователя" выполните следующие действия.
+5.  On the Add New Person dialog, perform the following steps:
 
-    ![Пользователь](./media/active-directory-saas-itrp-tutorial/IC775577.png "Пользователь")
+    ![User](./media/active-directory-saas-itrp-tutorial/IC775577.png "User")
 
-    1.  Введите значения **Имя**, **Адрес электронной почты** для действующей учетной записи AAD, которую необходимо подготовить.
-    2.  Щелкните **Сохранить**.
+    1.  Type the **Name**, **Email** of a valid AAD account you want to provision.
+    2.  Click **Save**.
 
->[AZURE.NOTE] Вы можете использовать любые другие средства создания учетной записи пользователя ITRP или API, предоставляемые ITRP для подготовки учетных записей пользователя AAD.
+>[AZURE.NOTE] You can use any other ITRP user account creation tools or APIs provided by ITRP to provision AAD user accounts.
 
-##Назначение пользователей
+##<a name="assigning-users"></a>Assigning users
   
-Чтобы проверить свою конфигурацию, предоставьте пользователям Azure AD, которые должны использовать приложение, доступ путем их назначения.
+To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.
 
-###Чтобы назначить пользователей ITRP, выполните следующие действия.
+###<a name="to-assign-users-to-itrp,-perform-the-following-steps:"></a>To assign users to ITRP, perform the following steps:
 
-1.  На портале Azure AD создайте тестовую учетную запись.
+1.  In the Azure AD portal, create a test account.
 
-2.  На странице интеграции с приложением **ITRP** нажмите кнопку **Назначить пользователей**.
+2.  On the **ITRP **application integration page, click **Assign users**.
 
-    ![Назначить пользователей](./media/active-directory-saas-itrp-tutorial/IC775588.png "Назначить пользователей")
+    ![Assign Users](./media/active-directory-saas-itrp-tutorial/IC775588.png "Assign Users")
 
-3.  Выберите тестового пользователя, нажмите кнопку **Назначить**, а затем — **Да**, чтобы подтвердить назначение.
+3.  Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.
 
-    ![Да](./media/active-directory-saas-itrp-tutorial/IC767830.png "Да")
+    ![Yes](./media/active-directory-saas-itrp-tutorial/IC767830.png "Yes")
   
-Если вы хотите проверить параметры единого входа, откройте панель доступа. Дополнительные сведения о панели доступа см. в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
+If you want to test your single sign-on settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0907_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,124 +1,129 @@
 <properties
-	pageTitle="Управление группами в Azure Active Directory | Microsoft Azure"
-	description="Сведения о создании и администрировании групп для управления пользователями Azure с помощью Azure Active Directory."
-	services="active-directory"
-	documentationCenter=""
-	authors="curtand"
-	manager="femila"
-	editor=""/>
+    pageTitle="Managing groups in Azure Active Directory | Microsoft Azure"
+    description="How to create and manage groups to manage Azure users using Azure Active Directory."
+    services="active-directory"
+    documentationCenter=""
+    authors="curtand"
+    manager="femila"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="09/29/2016"
-	ms.author="curtand"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="09/29/2016"
+    ms.author="curtand"/>
 
 
-# Управление группами в Azure Active Directory
+
+# <a name="managing-groups-in-azure-active-directory"></a>Managing groups in Azure Active Directory
 
 > [AZURE.SELECTOR]
-- [Портал Azure](active-directory-groups-create-azure-portal.md)
-- [Классический портал Azure](active-directory-accessmanagement-manage-groups.md)
+- [Azure portal](active-directory-groups-create-azure-portal.md)
+- [Azure classic portal](active-directory-accessmanagement-manage-groups.md)
 - [PowerShell](active-directory-accessmanagement-groups-v2-cmdlets.md)
 
 
-Одной из функций управления пользователями в Azure Active Directory (Azure AD) является возможность создания групп пользователей. Группа используется для выполнения таких задач управления, как одновременное назначение лицензий или разрешений нескольким пользователям. Кроме того, вы можете использовать группы для предоставления разрешений на доступ к:
+One of the features of Azure Active Directory (Azure AD) user management is the ability to create groups of users. You use a group to perform management tasks such as assigning licenses or permissions to a number of users at once. You can also use groups to assign access permission to
 
-- таким ресурсам, как объекты в каталоге;
-- ресурсам, которые являются внешними по отношению к каталогу, например приложениям SaaS, службам Azure, сайтам SharePoint или локальным ресурсам.
+- Resources such as objects in the directory
+- Resources external to the directory such as SaaS applications, Azure services, SharePoint sites, or on-premises resources
 
-Кроме того, владелец ресурса может назначить доступ к ресурсу группе Azure AD, принадлежащей кому-то другому. В результате такого назначения участники данной группы получат доступ к ресурсу. Членством в группе управляет ее владелец. Фактически владелец ресурса делегирует владельцу группы разрешение назначать пользователям доступ к ресурсу.
+In addition, a resource owner can also assign access to a resource to an Azure AD group owned by someone else. This assignment grants the members of that group access to the resource. Then, the owner of the group manages membership in the group. Effectively, the resource owner delegates to the owner of the group the permission to assign users to their resource.
 
-## Как создать группу?
+## <a name="how-do-i-create-a-group?"></a>How do I create a group?
 
-В зависимости от служб, на которые подписана ваша организация, вы можете создать группу, используя один из следующих вариантов:
-- классический портал Azure;
-- портал учетной записи Office 365;
-- портал учетной записи Windows Intune.
+Depending on the services to which your organization has subscribed, you can create a group using one of the following:
+- the Azure classic portal
+- the Office 365 account portal
+- the Windows Intune account portal
 
-Мы расскажем о задачах, которые выполняются в случае использования классического портала Azure. Дополнительную информацию об использовании порталов для управления каталогом Azure AD, которые не являются порталами Azure, см. в статье [Администрирование каталога Azure AD](active-directory-administer.md).
+We'll describe tasks as performed in the Azure classic portal. For more information about using non-Azure portals to manage your Azure AD directory, see [Administering your Azure AD directory](active-directory-administer.md).
 
-1. На [классическом портале Azure](https://manage.windowsazure.com) щелкните **Active Directory**, а затем выберите имя каталога для своей организации.
+1. In the [Azure classic portal](https://manage.windowsazure.com), select **Active Directory**, and then select the name of the directory for your organization.
 
-2. Выберите вкладку **Группы**.
+2. Select the **Groups** tab.
 
-3. Выберите **Добавить группу**.
+3. Select **Add Group**.
 
-4. В окне **Добавление группы** укажите имя и описание группы.
-
-
-## Как назначить пользователей в группу безопасности или удалить их из такой группы
-
-**Добавление пользователя в группу**
-
-1. На [классическом портале Azure](https://manage.windowsazure.com) щелкните **Active Directory**, а затем выберите имя каталога для своей организации.
-
-2. Выберите вкладку **Группы**.
-
-3. Откройте группу, в которую нужно добавить участников. Откройте вкладку **Участники** выбранной группы, если она еще не открыта.
-
-4. Выберите **Добавить участников**.
-
-5. На странице **добавления участников** щелкните имя пользователя или группы, которых нужно добавить в качестве участника этой группы. Убедитесь, что это имя добавлено в область **Выбранные**.
+4. In the **Add Group** window, specify the name and the description of a group.
 
 
-**Удаление пользователя из группы**
+## <a name="how-do-i-add-or-remove-individual-users-in-a-security-group?"></a>How do I add or remove individual users in a security group?
 
-1. На [классическом портале Azure](https://manage.windowsazure.com) щелкните **Active Directory**, а затем выберите имя каталога для своей организации.
+**To add an individual user to a group**
 
-2. Выберите вкладку **Группы**.
+1. In the [Azure classic portal](https://manage.windowsazure.com), select **Active Directory**, and then select the name of the directory for your organization.
 
-3. Откройте группу, из которой требуется удалить участников.
+2. Select the **Groups** tab.
 
-4. Откройте вкладку **Участники**, выберите имя участника, которого хотите удалить из группы, и щелкните **Удалить**.
+3. Open the group to which you want to add members. Open the **Members** tab of the selected group if it not already displaying.
 
-6. В командной строке подтвердите, что этого участника нужно удалить из группы.
+4. Select **Add Members**.
+
+5. On the **Add Members** page, select the name of the user or a group that you want to add as a member of this group. Make sure that this name is added to the **Selected** pane.
 
 
-## Как управлять членством в группе динамически
+**To remove an individual user from a group**
 
-Чтобы определять, какие пользователи могут стать участниками группы, в Azure AD вы можете легко настроить простое правило (правило, которое содержит только одно сравнение). Например, если группа назначена приложению SaaS, вы можете настроить правило для добавления пользователей, имеющих должность "Продавец". Такое правило предоставляет доступ к этому приложению SaaS всем пользователям с указанной должностью в каталоге.
+1. In the [Azure classic portal](https://manage.windowsazure.com), select **Active Directory**, and then select the name of the directory for your organization.
 
-При изменении любых атрибутов пользователя система оценивает все правила динамических групп в каталоге, чтобы определить, приведет ли это событие к добавлению или удалению в группе. Если пользователь соответствует условиям правила в группе, он добавляется в эту группу. Если он больше не отвечает условиям правила группы, в которую он входит, он удаляется из этой группы.
+2. Select the **Groups** tab.
 
-> [AZURE.NOTE] Вы можете настроить правило динамического членства для групп безопасности или групп Office 365. Сейчас членство во вложенных группах не поддерживается для назначения приложений на основе групп.
+3. Open the group from which you want to remove members.
+
+4. Select the **Members** tab, select the name of the member that you want to remove from this group, and then click **Remove**.
+
+6. Confirm at the prompt that you want to remove this member from the group.
+
+
+## <a name="how-can-i-manage-the-membership-of-a-group-dynamically?"></a>How can I manage the membership of a group dynamically?
+
+In Azure AD, you can very easily set up a simple rule to determine which users are to be members of the group. A simple rule is one that makes only a single comparison. For example, if a group is assigned to a SaaS application, you can set up a rule to add users who have a job title of "Sales Rep." This rule then grants access to this SaaS application to all users with that job title in your directory.
+
+When any attributes of a user change, the system evaluates all dynamic group rules in a directory to see if the attribute change of the user would trigger any group adds or removes. If a user satisfies a rule on a group, they are added as a member to that group. If they no longer satisfy the rule of a group they are a member of, they are removed as a members from that group.
+
+> [AZURE.NOTE] You can set up a rule for dynamic membership on security groups or Office 365 groups. Nested group memberships aren't currently supported for group-based assignment to applications.
 >
-> Для динамического членства в группах нужно, чтобы лицензия Azure AD Premium была назначена:
+> Dynamic memberships for groups require an Azure AD Premium license to be assigned to
 >
-> - администратору, который управляет правилом в группе;
-> - всем участникам группы.
+> - The administrator who manages the rule on a group
+> - All members of the group
 
-**Включение динамического членства в группе**
+**To enable dynamic membership for a group**
 
-1. На [классическом портале Azure](https://manage.windowsazure.com) щелкните **Active Directory**, а затем выберите имя каталога для своей организации.
+1. In the [Azure classic portal](https://manage.windowsazure.com), select **Active Directory**, and then select the name of the directory for your organization.
 
-2. Откройте вкладку **Группы**, а затем откройте группу, которую нужно изменить.
+2. Select the **Groups** tab, and open the group you want to edit.
 
-3. Выберите вкладку **Настройка**, а затем для параметра **Включить динамическое членство** выберите значение **Да**.
+3. Select the **Configure** tab, and then set **Enable Dynamic Memberships** to **Yes**.
 
-4. Настройте простое правило для группы, которое будет управлять параметрами динамического членства в этой группе. Убедитесь, что параметр **Добавить пользователей** выбран, а затем выберите свойство пользователя в списке (например, department, jobTitle и т. д.).
+4. Set up a simple single rule for the group to control how dynamic membership for this group functions. Make sure the **Add users where** option is selected, and then select a user property from the list (for example, department, jobTitle, etc.),
 
-5. После этого выберите условие ("Не равно", "Равно", "Не начинается с", "Начинается с", "Не содержит", "Содержит", "Не соответствует", "Соответствует").
+5. Next, select a condition (Not Equals, Equals, Not Starts With, Starts With, Not Contains, Contains, Not Match, Match).
 
-6. Укажите значение сравнения для выбранного свойства пользователя.
+6. Specify a comparison value for the selected user property.
 
-Сведения о том, как создавать *более сложные* правила (которые содержат несколько сравнений), регулирующие членство в динамических группах, см. в статье [Использование атрибутов для создания расширенных правил](active-directory-accessmanagement-groups-with-advanced-rules.md).
+To learn about how to create *advanced* rules (rules that can contain multiple comparisons) for dynamic group membership, see [Using attributes to create advanced rules](active-directory-accessmanagement-groups-with-advanced-rules.md).
 
-## Дополнительная информация
+## <a name="additional-information"></a>Additional information
 
-В следующих статьях содержатся дополнительные сведения об Azure Active Directory.
+These articles provide additional information on Azure Active Directory.
 
-* [Управление доступом к ресурсам с помощью групп Azure Active Directory](active-directory-manage-groups.md)
+* [Managing access to resources with Azure Active Directory groups](active-directory-manage-groups.md)
 
-* [Azure Active Directory cmdlets for configuring group settings (Настройка параметров групп с помощью командлетов Azure Active Directory)](active-directory-accessmanagement-groups-settings-cmdlets.md)
+* [Azure Active Directory cmdlets for configuring group settings](active-directory-accessmanagement-groups-settings-cmdlets.md)
 
-* [Указатель статьей по управлению приложениями в Azure Active Directory](active-directory-apps-index.md)
+* [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md)
 
-* [Что такое Microsoft Azure Active Directory](active-directory-whatis.md)
+* [What is Azure Active Directory?](active-directory-whatis.md)
 
-* [Интеграция локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md)
+* [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_1005_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

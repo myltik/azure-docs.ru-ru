@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Необходимые компоненты каталога данных Azure | Microsoft Azure"
-   description="Необходимые компоненты каталога данных Azure, которые нужны для начала работы с каталогом данных Azure."
+   pageTitle="Azure Data Catalog prerequisites | Microsoft Azure"
+   description="Azure Data Catalog prerequisites - what you need to get started with Azure Data Catalog."
    services="data-catalog"
    documentationCenter=""
    authors="steelanddata"
@@ -16,34 +16,39 @@
    ms.date="09/21/2016"
    ms.author="maroche"/>
 
-# Предварительные условия для работы с каталогом данных Azure
 
-## Что нужно, чтобы начать работу с каталогом данных Azure?
+# <a name="azure-data-catalog-prerequisites"></a>Azure Data Catalog prerequisites
 
-Есть несколько моментов, которые необходимо решить перед настройкой **каталога данных Azure**. Не стоит беспокоиться, это не займет много времени!
+## <a name="what-do-i-need-to-get-started-with-azure-data-catalog?"></a>What do I need to get started with Azure Data Catalog?
 
-## Подписка Azure
-Чтобы настроить каталог данных Azure, необходимо быть владельцем или совладельцем подписки Azure.
+There are a few things you’ll need to take care of before you can set up **Azure Data Catalog**. Don’t worry – they won’t take long!
 
-Подписки Azure помогают организовать доступ к ресурсам облачных служб, таких как каталог данных Azure. Они также позволяют управлять составлением отчетов об использовании ресурса, выставлением счетов за использование и их оплатой. Каждая подписка может иметь различные настройки для выставления счетов и их оплаты, поэтому у вас могут быть разные подписки и тарифные планы для разных отделов, проектов, региональных офисов и т. д. Каждая облачная служба привязана к подписке, поэтому необходимо иметь подписку перед настройкой каталога данных Azure. Дополнительные сведения см. в статье [Использование назначений ролей для управления доступом к ресурсам в подписке Azure](../active-directory/active-directory-assign-admin-roles.md).
+## <a name="azure-subscription"></a>Azure Subscription
+To set up Azure Data Catalog, you must be the owner or co-owner of an Azure subscription.
 
-## Azure Active Directory
-Для настройки каталога данных Azure необходимо выполнить вход с использованием учетной записи пользователя Azure Active Directory.
+Azure subscriptions help you organize access to cloud service resources like Azure Data Catalog. They also help you control how resource usage is reported, billed, and paid for. Each subscription can have a different billing and payment setup, so you can have different subscriptions and different plans by department, project, regional office, and so on. Every cloud service belongs to a subscription, and you need to have a subscription before setting up Azure Data Catalog. To learn more, see [Manage Accounts, Subscriptions, and Administrative Roles](../active-directory/active-directory-assign-admin-roles.md).
 
-Azure Active Directory (Azure AD) предоставляет компаниям простой способ управления удостоверениями и доступом не только в облаке, но и локально. Пользователи могут использовать единую рабочую или школьную учетную запись для единого входа во все облачные и локальные веб-приложения. Каталог данных Azure использует Azure AD для проверки подлинности входа. Дополнительные сведения см. в статье [Что такое Azure Active Directory](../active-directory/active-directory-whatis.md).
+## <a name="azure-active-directory"></a>Azure Active Directory
+To set up Azure Data Catalog, you must be logged in using an Azure Active Directory user account.
 
-> [AZURE.NOTE] Пользователи могут входить на [портал Azure](http://portal.azure.com/) с помощью личной учетной записи Майкрософт, а также рабочей или учебной учетной записи Azure Active Directory. Чтобы настроить каталог данных Azure с помощью портала Azure или [портала каталога данных](http://www.azuredatacatalog.com), необходимо войти с помощью учетной записью Azure Active Directory, а не личной учетной записи.
+Azure Active Directory (Azure AD) provides an easy way for your business to manage identity and access, both in the cloud and on-premises. Users can use a single work or school account for single sign-on to any cloud and on-premises web application. Azure Data Catalog uses Azure AD to authenticate sign-on. To learn more, see [What is Azure Active Directory](../active-directory/active-directory-whatis.md).
 
-## Настройка политики Active Directory
+> [AZURE.NOTE] The [Azure portal](http://portal.azure.com/) allows users to sign in using either a personal Microsoft Account or an Azure Active Directory work or school account. To set up Azure Data Catalog using the Azure portal or using the [Data Catalog portal](http://www.azuredatacatalog.com) you must be logged in using an Azure Active Directory account, not a personal account.
 
-Иногда пользователи могут столкнуться с ситуацией, когда они могут войти на портал каталога данных Azure, но при попытке входа на средство регистрации источника данных отображается сообщение об ошибке, которая запрещает вход в систему. Эта ошибка может происходить только в том случае, если пользователь находится в локальной сети, или только в том случае, если пользователь подключается из-за пределов сети компании.
+## <a name="active-directory-policy-configuration"></a>Active Directory policy configuration
 
-Средство регистрации источника данных использует проверку подлинности форм для проверки входа в систему пользователя с данными Active Directory. Для успешного входа в систему администратор Active Directory должен включить проверку подлинности форм в глобальную политику проверки подлинности.
+In some situations, users may encounter a situation where they can log on to the Azure Data Catalog portal, but when they attempt to log on to the data source registration tool they encounter an error message that prevents them from logging on. This problem behavior may occur only when the user is on the company network, or may occur only when the user is connecting from outside the company network.
 
-Глобальная политика проверки подлинности позволяет включить методы проверки подлинности отдельно для интрасети и экстрасети, как показано ниже. Ошибки входа в систему могут возникать, если не включена проверка подлинности форм для сети, из которой пользователь подключается.
+The data source registration tool uses Forms Authentication to validate user logons against Active Directory. For successful logon, Forms Authentication must be enabled in the Global Authentication Policy by an Active Directory administrator.
 
- ![Глобальная политика аутентификации AD FS](./media/data-catalog-prerequisites/global-auth-policy.png)
+The Global Authentication Policy allows authentication methods to be enabled separately for intranet and extranet connections, as illustrated below. Logon errors may occur if Forms Authentication is not enabled for the network from which the user is connecting.
 
-Подробнее: [Настройка политик проверки подлинности](https://technet.microsoft.com/library/dn486781.aspx).
+ ![Active Directory Global Authentication Policy](./media/data-catalog-prerequisites/global-auth-policy.png)
 
-<!---HONumber=AcomDC_0921_2016-->
+For more information, see [Configuring Authentication Policies](https://technet.microsoft.com/library/dn486781.aspx).
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

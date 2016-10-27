@@ -1,16 +1,19 @@
-## Сценарий
+## <a name="scenario"></a>Scenario
 
-Чтобы лучше проиллюстрировать процесс создания определяемых пользователем маршрутов, в этом документе будет использоваться представленный ниже сценарий.
+To better illustrate how to create UDRs, this document will use the scenario below.
 
-![ОПИСАНИЕ ОБРАЗА](./media/virtual-network-create-udr-scenario-include/figure1.png)
+![IMAGE DESCRIPTION](./media/virtual-network-create-udr-scenario-include/figure1.png)
 
-В данном случае вы создадите один определяемый пользователем маршрут для *подсети переднего плана* и еще один такой маршрут для *серверной подсети*, как описано ниже:
+In this scenario you will create one UDR for the *Front end subnet* and another UDR for the *Back end subnet* , as described below: 
 
-- **UDR-FrontEnd**. Определяемый пользователем маршрут переднего плана будет применен к подсети *FrontEnd* и будет содержать один маршрут:	
-	- **RouteToBackend**. Этот маршрут будет отправлять весь трафик, адресованный серверной подсети, в виртуальную машину **FW1**.
-- **UDR-BackEnd**. Внутренний определяемый пользователем маршрут будет применен к подсети *BackEnd* и будет содержать один маршрут:	
-	- **RouteToFrontend**. Этот маршрут будет отправлять весь трафик, адресованный подсети переднего плана, в виртуальную машину **FW1**.
+- **UDR-FrontEnd**. The front end UDR will be applied to the *FrontEnd* subnet, and contain one route:  
+    - **RouteToBackend**. This route will send all traffic to the back end subnet to the **FW1** virtual machine.
+- **UDR-BackEnd**. The back end UDR will be applied to the *BackEnd* subnet, and contain one route: 
+    - **RouteToFrontend**. This route will send all traffic to the front end subnet to the **FW1** virtual machine.
 
-Сочетание этих маршрутов обеспечивает то, что любой трафик, передаваемый из одной подсети в другую, будет направляться в виртуальную машину **FW1**, которая используется в качестве виртуального модуля. Необходимо также включить IP-пересылку для этой виртуальной машины, чтобы она могла получать трафик, предназначенный для других виртуальных машин.
+The combination of these routes will ensure that all traffic destined from one subnet to another will be routed to the **FW1** virtual machine, which is being used as a virtual appliance. You also need to turn on IP forwarding for that VM, to ensure it can receive traffic destined to other VMs.
 
-<!---HONumber=Oct15_HO3-->
+
+<!--HONumber=Oct16_HO2-->
+
+

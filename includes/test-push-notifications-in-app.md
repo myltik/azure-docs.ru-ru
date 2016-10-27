@@ -1,10 +1,13 @@
 
-* В Xcode нажмите **Run** и запустите приложение на реальном устройстве iOS (не в симуляторе). Щелкните **ОК**, чтобы подтвердить принятие push-уведомлений. Этот запрос отображается при первом запуске приложения.
+* In Xcode, press **Run** and start the app on an iOS device (not the simulator.) Click **OK** to accept push notifications; this request occurs the first time the app runs.
 
-* В приложении добавьте новый элемент и щелкните **+**.
+* In the app, add a new item and click **+**.
 
-* Убедитесь, что уведомление получено, а затем нажмите кнопку **ОК**, чтобы закрыть его. На этом работа с данным учебником завершена.
+* Verify that a notification is received, then click **OK** to dismiss the notification. You have now successfully completed this tutorial.
 
-  	![](../articles/media/mobile-services-ios-get-started-push/mobile-quickstart-push3-ios.png)
+    ![](../articles/media/mobile-services-ios-get-started-push/mobile-quickstart-push3-ios.png)
 
-<!---HONumber=Oct15_HO3-->
+
+<!--HONumber=Oct16_HO2-->
+
+

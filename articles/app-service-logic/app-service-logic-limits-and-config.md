@@ -1,137 +1,141 @@
 <properties
-	pageTitle="Ограничения и настройка приложений логики | Microsoft Azure"
-	description="Обзор ограничений службы и значений конфигурации, доступных для приложений логики."
-	services="logic-apps"
-	documentationCenter=".net,nodejs,java"
-	authors="jeffhollan"
-	manager="dwrede"
-	editor=""/>
+    pageTitle="Logic App limits and configuration | Microsoft Azure"
+    description="Overview of the service limits and configuration values available for Logic Apps."
+    services="logic-apps"
+    documentationCenter=".net,nodejs,java"
+    authors="jeffhollan"
+    manager="dwrede"
+    editor=""/>
 
 <tags
-	ms.service="logic-apps"
-	ms.workload="integration"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/22/2016"
-	ms.author="jehollan"/>
+    ms.service="logic-apps"
+    ms.workload="integration"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="07/22/2016"
+    ms.author="jehollan"/>
 
-# Ограничения и настройка приложений логики
 
-Ниже приведены сведения о текущих ограничениях и сведения о конфигурации приложений логики Azure.
+# <a name="logic-app-limits-and-configuration"></a>Logic App limits and configuration
 
-## Ограничения
+Below are information on the current limits and configuration details for Azure Logic Apps.
 
-### Ограничения HTTP-запросов
+## <a name="limits"></a>Limits
 
-Ниже представлены ограничения для одного вызова HTTP-запроса и/или вызова соединителя.
+### <a name="http-request-limits"></a>HTTP request limits
 
-#### Время ожидания
+These are limits for a single HTTP request and/or connector call
 
-|Name (Имя)|Ограничение|Примечания|
+#### <a name="timeout"></a>Timeout
+
+|Name|Limit|Notes|
 |----|----|----|
-|Истекло время ожидания запроса|1 минута|[Асинхронная модель](app-service-logic-create-api-app.md) или [пока цикл](app-service-logic-loops-and-scopes.md) не компенсирует до необходимого значения|
+|Request Timeout|1 Minute|An [async pattern](app-service-logic-create-api-app.md) or [until loop](app-service-logic-loops-and-scopes.md) can compensate as needed|
 
-#### Размер сообщения
+#### <a name="message-size"></a>Message size
 
-|Имя|Ограничение|Примечания|
+|Name|Limit|Notes|
 |----|----|----|
-|Размер сообщения|50 MB|Некоторые соединители и API могут не поддерживать размер 50 МБ. Триггер запроса поддерживает размер до 25 МБ|
-|Оценочное ограничение выражения|131 072 символов|`@concat()`, `@base64()`, `string` не могут быть длиннее|
+|Message size|50 MB|Some connectors and APIs may not support 50MB.  Request trigger supports up to 25MB|
+|Expression evaluation limit|131,072 characters|`@concat()`, `@base64()`, `string` cannot be longer than this|
 
-#### Политика повтора
+#### <a name="retry-policy"></a>Retry policy
 
-|Имя|Ограничение|Примечания|
+|Name|Limit|Notes|
 |----|----|----|
-|Количество повторных попыток.|4\.|Можно настроить с помощью [параметра политики повтора](https://msdn.microsoft.com/ru-RU/library/azure/mt643939.aspx)|
-|Максимальный интервал повторения|1 час|Можно настроить с помощью [параметра политики повтора](https://msdn.microsoft.com/ru-RU/library/azure/mt643939.aspx)|
-|Минимальный интервал повторения|20 минут|Можно настроить с помощью [параметра политики повтора](https://msdn.microsoft.com/ru-RU/library/azure/mt643939.aspx)|
+|Retry attempts|4|Can configure with the [retry policy parameter](https://msdn.microsoft.com/en-us/library/azure/mt643939.aspx)|
+|Retry max delay|1 hour|Can configure with the [retry policy parameter](https://msdn.microsoft.com/en-us/library/azure/mt643939.aspx)|
+|Retry min delay|20 min|Can configure with the [retry policy parameter](https://msdn.microsoft.com/en-us/library/azure/mt643939.aspx)|
 
-### Длительность выполнения и удержания
+### <a name="run-duration-and-retention"></a>Run duration and retention
 
-Ниже представлены ограничения для единого выполнения приложения логики.
+These are the limits for a single logic app run.
 
-|Имя|Ограничение|Примечания|
+|Name|Limit|Notes|
 |----|----|----|
-|Длительность выполнения|90 дней||
-|Хранение периода удержания|90 дней|Считается с начала выполнения|
-|Минимальный интервал повторения|15 секунд||
-|Максимальный интервал повторения|500 дней||
+|Run duration|90 days||
+|Storage retention|90 days|This is from the run start time|
+|Min recurrence interval|15 sec||
+|Max recurrence interval|500 days||
 
 
-### Ограничения зацикливания и индивидуальной обработки
+### <a name="looping-and-debatching-limits"></a>Looping and debatching limits
 
-Ниже представлены ограничения для единого выполнения приложения логики.
+These are limits for a single logic app run.
 
-|Имя|Ограничение|Примечания|
+|Name|Limit|Notes|
 |----|----|----|
-|Элементы ForEach|5 000|При необходимости можно использовать [действие запроса](../connectors/connectors-native-query.md) для фильтрации больших массивов|
-|Максимальное количество итераций|10 000||
-|Элементы SplitOn|10 000||
-|Параллелизм ForEach|20|Можно настроить последовательность foreach, добавив `"operationOptions": "Sequential"` в действие `foreach`|
+|ForEach items|5,000|You can use the [query action](../connectors/connectors-native-query.md) to filter larger arrays as needed|
+|Until iterations|10,000||
+|SplitOn items|10,000||
+|ForEach Parallelism|20|You can set to a sequential foreach by adding `"operationOptions": "Sequential"` to the `foreach` action|
 
 
-### Ограничения пропускной способности
+### <a name="throughput-limits"></a>Throughput limits
 
-Ниже представлены ограничения для одного экземпляра приложения логики.
+These are limits for a single logic app instance. 
 
-|Name (Имя)|Ограничение|Примечания|
+|Name|Limit|Notes|
 |----|----|----|
-|Триггеров в секунду|100|При необходимости можно распределить рабочие процессы между несколькими приложениями|
+|Triggers per second|100|Can distribute workflows across multiple apps as needed|
 
-### Ограничение определений
+### <a name="definition-limits"></a>Definition limits
 
-Ниже представлены ограничения для единого определения приложения логики.
+These are limits for a single logic app definition.
 
-|Имя|Ограничение|Примечания|
+|Name|Limit|Notes|
 |----|----|----|
-|Действия в ForEach|1|Это ограничение можно расширить, добавив вложенные рабочие процессы|
-|Действий для каждого рабочего процесса|60|Это ограничение можно расширить, добавив вложенные рабочие процессы|
-|Допустимая глубина вложенных действий|5|Это ограничение можно расширить, добавив вложенные рабочие процессы|
-|Количество последовательностей в регионе на подписку|1000||
-|Триггеров для каждого рабочего процесса|10||
-|Максимальное число символов в выражении|8192||
-|Максимальный размер `trackedProperties` в символах|16 000|
-|Ограничение имени `action`/`trigger`|80||
-|Ограничение длины `description`|256||
-|Ограничение `parameters`|50||
-|Ограничение `outputs`|10||
+|Actions in ForEach|1|You can add nested workflows to extend this as needed|
+|Actions per workflow|60|You can add nested workflows to extend this as needed|
+|Allowed action nesting depth|5|You can add nested workflows to extend this as needed|
+|Flows per region per subscription|1000||
+|Triggers per workflow|10||
+|Max characters per expression|8,192||
+|Max `trackedProperties` size in characters|16,000|
+|`action`/`trigger` name limit|80||
+|`description` length limit|256||
+|`parameters` limit|50||
+|`outputs` limit|10||
 
-## Конфигурация
+## <a name="configuration"></a>Configuration
 
-### IP-адрес
+### <a name="ip-address"></a>IP Address
 
-Вызовы из [соединителя](../connectors/apis-list.md) будут поступать из IP-адреса, указанного ниже.
+Calls made from a [connector](../connectors/apis-list.md) will come from the IP Address specified below.
 
-Вызовы непосредственно из приложения логики (т. е. через [HTTP](../connectors/connectors-native-http.md) или [HTTP + Swagger](../connectors/connectors-native-http-swagger.md)) могут поступать из любого из [диапазонов IP-адресов центра обработки данных Azure](https://www.microsoft.com/ru-RU/download/details.aspx?id=41653).
+Calls made from a logic app directly (i.e. via [HTTP](../connectors/connectors-native-http.md) or [HTTP + Swagger](../connectors/connectors-native-http-swagger.md)) may come from any of the [Azure Datacenter IP Ranges](https://www.microsoft.com/en-us/download/details.aspx?id=41653).
 
-|Регион приложения логики|Исходящий IP-адрес|
+|Logic App Region|Outbound IP|
 |-----|----|
-|Восточная часть Австралии|40\.126.251.213|
-|Юго-Восточная часть Австралии|40\.127.80.34|
-|Южная часть Бразилии|191\.232.38.129|
-|Центральная Индия|104\.211.98.164|
-|Центральный регион США|40\.122.49.51|
-|Восточная Азия|23\.99.116.181|
-|Восток США|191\.237.41.52|
-|Восток США 2|104\.208.233.100|
-|Восточная часть Японии|40\.115.186.96|
-|Западная часть Японии|40\.74.130.77|
-|Северо-центральный регион США|65\.52.218.230|
-|Северная Европа|104\.45.93.9|
-|Южно-центральный регион США|104\.214.70.191|
-|Юго-Восточная Азия|13\.76.231.68|
-|Южная Индия|104\.211.227.225|
-|Западная Европа|40\.115.50.13|
-|Западная Индия|104\.211.161.203|
-|Запад США|104\.40.51.248|
+|Australia East|40.126.251.213|
+|Australia Southeast|40.127.80.34|
+|Brazil South|191.232.38.129|
+|Central India|104.211.98.164|
+|Central US|40.122.49.51|
+|East Asia|23.99.116.181|
+|East US|191.237.41.52|
+|East US 2|104.208.233.100|
+|Japan East|40.115.186.96|
+|Japan West|40.74.130.77|
+|North Central US|65.52.218.230|
+|North Europe|104.45.93.9|
+|South Central US|104.214.70.191|
+|Southeast Asia|13.76.231.68|
+|South India|104.211.227.225|
+|West Europe|40.115.50.13|
+|West India|104.211.161.203|
+|West US|104.40.51.248|
 
 
-## Дальнейшие действия  
+## <a name="next-steps"></a>Next Steps  
 
-- Чтобы начать работу с приложениями логики, выполните задания из учебника [Создание приложения логики](app-service-logic-create-a-logic-app.md).
-- [Примеры приложений логики и распространенные сценарии](app-service-logic-examples-and-scenarios.md)
-- [Вы можете автоматизировать бизнес-процессы с помощью приложений логики](http://channel9.msdn.com/Events/Build/2016/T694)
-- [Узнайте, как интегрировать системы с приложениями логики](http://channel9.msdn.com/Events/Build/2016/P462)
+- To get started with Logic Apps, follow the [create a Logic App](app-service-logic-create-a-logic-app.md) tutorial.  
+- [View common examples and scenarios](app-service-logic-examples-and-scenarios.md)
+- [You can automate business processes with Logic Apps](http://channel9.msdn.com/Events/Build/2016/T694) 
+- [Learn How to Integrate your systems with Logic Apps](http://channel9.msdn.com/Events/Build/2016/P462)
 
-<!---HONumber=AcomDC_0831_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

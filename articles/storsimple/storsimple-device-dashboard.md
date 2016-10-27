@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Использование панели мониторинга устройств диспетчера StorSimple | Microsoft Azure"
-   description="Описание панели мониторинга устройств диспетчера StorSimple и ее использования для просмотра метрик хранилища и подключенных инициаторов, а также поиска серийного номера и IQN."
+   pageTitle="Use the StorSimple Manager device dashboard | Microsoft Azure"
+   description="Describes the StorSimple Manager service device dashboard and how to use it to view storage metrics and connected initiators and find the serial number and IQN."
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
@@ -15,89 +15,94 @@
    ms.date="09/21/2016"
    ms.author="alkohli" />
 
-# Использование панели мониторинга устройств диспетчера StorSimple
 
-## Обзор
+# <a name="use-the-storsimple-manager-device-dashboard"></a>Use the StorSimple Manager device dashboard
 
-Панель мониторинга устройств диспетчера StorSimple предоставляет общие сведения для конкретного устройства StorSimple в отличие от панели мониторинга службы, которая предоставляет сведения обо всех устройствах, включенных в решение Microsoft Azure StorSimple.
+## <a name="overview"></a>Overview
 
-![Страница панели мониторинга устройства](./media/storsimple-device-dashboard/StorSimple_DeviceDashbaord1M.png)
+The StorSimple Manager device dashboard gives you an overview of information for a specific  StorSimple device, in contrast to the service dashboard, which gives you information about all of the devices included in your Microsoft Azure StorSimple solution.
 
-Панель мониторинга содержит следующие сведения:
+![Device dashboard page](./media/storsimple-device-dashboard/StorSimple_DeviceDashbaord1M.png)
 
-- **Область диаграммы** — здесь можно увидеть соответствующие метрики хранилища в верхней части панели мониторинга. На этой диаграмме можно просмотреть метрики для всего основного хранилища (объем данных, записанных узлами на устройство) и общий объем облачного хранилища, использованный устройством в течение определенного периода времени.
+The dashboard contains the following information:
 
-     В этом контексте *основное хранилище* представляет общий объем данных, записанных узлом, и может отличаться по типу тома. *Основное многоуровневое хранилище* включает в себя данные, хранимые локально, и данные, расположенные в облаке; *основное локально закрепленное хранилище* включает в себя только данные, хранимые локально. *Облачное хранилище*, с другой стороны, — это мера общего объема данных, хранящихся в облаке. Сюда входят многоуровневые данные и резервные копии. Обратите внимание, что данные, которые хранятся в облаке, дедуплицированы и сжаты. При этом в основном хранилище указывается объем хранилища, используемый до их дедупликации и сжатия. (Можно сравнить эти две величины, чтобы получить представление о степени сжатия.) Для первичного и облачного хранилища показанные объемы будут зависеть от настроенной частоты отслеживания. Например, если выбрать одну неделю в качестве частоты, на диаграмме будут показаны данные за каждый день предыдущей недели.
+- **Chart area** – You can see the relevant storage metrics in the chart area at the top of the dashboard. In this chart, you can view metrics for the total primary storage (the amount of data written by hosts to your device) and the total cloud storage consumed by your device over a period of time.
 
-	 Диаграмму можно настроить следующим образом.
+     In this context, *primary storage* refers to the total amount of data written by the host, and can be broken down by volume type: *primary tiered storage* includes both locally stored data and data tiered to the cloud; *primary locally pinned storage* includes just data stored locally. *Cloud storage*, on the other hand, is a measurement of the total amount of data stored in the cloud. This includes tiered data and backups. Note that data stored in the cloud is deduplicated and compressed, whereas primary storage indicates the amount of storage used before the data is deduplicated and compressed. (You can compare these two numbers to get an idea of the compression rate.) For both primary and cloud storage, the amounts shown will be based on the tracking frequency you configure. For example, if you choose a one week frequency, then the chart will show data for each day in the previous week.
 
-	 - Чтобы увидеть объем облачного хранилища, использованного в течение времени, выберите параметр **ИСПОЛЬЗОВАННОЕ ОБЛАЧНОЕ ХРАНИЛИЩЕ**. Чтобы просмотреть общий объем хранилища, записанный узлом, выберите параметр **PRIMARY TIERED STORAGE USED** (Используемое основное хранилище) и **PRIMARY LOCALLY PINNED STORAGE USED** (Используемое основное локально закрепленное хранилище). На этом рисунке выбраны оба параметра, поэтому на диаграмме показаны объемы облачного и основного хранилища. Обратите внимание, что любое основное хранилище, используемое перед установкой обновления 2, представлено строкой **PRIMARY TIERED STORAGE USED** (Используемое многоуровневое основное хранилище).
-	 - Используйте раскрывающееся меню в правом верхнем углу диаграммы, чтобы указать шкалу времени: 1 неделя, 1 месяц, 3 месяца или 1 год. Обратите внимание, что диаграмма верхнего уровня обновляется только один раз в день, поэтому отображаются итоги за предыдущий день.
+     You can configure the chart as follows:
 
-     Дополнительные сведения см. в разделе [Использование службы StorSimple Manager для мониторинга устройства StorSimple](storsimple-monitor-device.md).
+     - To see the amount of cloud storage consumed over time, select the **CLOUD STORAGE USED** option. To see the total storage that has been written by the host, select the **PRIMARY TIERED STORAGE USED** and **PRIMARY LOCALLY PINNED STORAGE USED** options. In the illustration, both options are selected; therefore, the chart shows storage amounts for both cloud and primary storage. Note that any primary storage used prior to installing Update 2 is represented by the **PRIMARY TIERED STORAGE USED** line.
+     - Use the drop-down menu in the top-right corner of the chart to specify a 1-week, 1-month, 3-month, or 1-year time period. Note that the top-level chart is refreshed only one time per day, and therefore will reflect the previous day's totals.
 
-- **Общие сведения об использовании** — в области **общих сведений об использовании** отображаются следующие данные: использованный объем основного хранилища, объем выделенного хранилища и максимальная емкость устройства. Сравнивая эти показатели использования с максимальным доступным объемом хранилища, вы можете быстро узнать, требуется ли вам дополнительное хранилище. Обратите внимание, что эти сведения обновляются каждые 15 минут и, из-за различий в частоте обновления, могут отображаться показатели, отличные от тех, что показаны в области диаграммы выше, которая обновляется ежедневно. Дополнительные сведения см. в разделе [Использование службы StorSimple Manager для мониторинга устройства StorSimple](storsimple-monitor-device.md).
+     For more information, see [Use the StorSimple Manager service to monitor your StorSimple device](storsimple-monitor-device.md).
+
+- **Usage overview** – In the **usage overview** area, you can see the amount of primary storage used, the amount of provisioned storage, and the maximum storage capacity for your device. By comparing these usage numbers to the maximum amount of storage that is available, you can see at a glance if you need to obtain additional storage. Note that this overview is updated every 15 minutes and, because of the difference in update frequency, may show different numbers than those shown in the chart area above, which is updated daily. For more information, see [Use the StorSimple Manager service to monitor your StorSimple device](storsimple-monitor-device.md).
 
 
-- **Оповещения** — в области **оповещений** отображается обзор оповещений для вашего устройства. Оповещения сгруппированы по уровню серьезности, при этом указывается число оповещений на каждом уровне. Если щелкнуть уровень серьезности оповещения, откроется представление вкладки оповещений с заданной областью, где вы можете просмотреть оповещения только этого уровня серьезности для заданного устройства.
+- **Alerts** – The **alerts** area contains an overview of the alerts for your device. Alerts are grouped by severity, and a count is provided of the number of alerts at each severity level. Clicking the alert severity opens a scoped view of the alerts tab to show you only the alerts of that severity level for this device.
 
-- **Задания** — в области **заданий** отображаются результаты последних заданий. Здесь вы можете убедиться, что система работает, как ожидалось, или узнать, что необходимо предпринять действия для исправления проблемы. Чтобы просмотреть дополнительную информацию о недавно выполненных заданиях, щелкните **Задания, успешно выполненные за последние 24 часа**.
+- **Jobs** – The **jobs** area shows you the outcome of recent job activity. This can assure you that the system is operating as expected, or it can let you know that you need to take corrective action. To see more information about recently completed jobs, click **Jobs succeeded in the last 24 hours**.
 
-- В области **сводки** в правой части панели мониторинга представлены следующие полезные сведения: модель, серийный номер, состояние, описание и количество томов устройства.
+- The **quick glance** area on the right of the dashboard provides useful information such as device model, serial number, status, description, and number of volumes.
 
-На панели мониторинга устройства вы также можете настроить отработку отказа и просмотреть подключенные инициаторы.
+You can also configure failover and view connected initiators from the device dashboard.
 
-Ниже приведены распространенные задачи, которые можно выполнить на этой странице.
+The common tasks that can be performed on this page are:
 
-- просмотр подключенных инициаторов;
+- View connected initiators
 
-- поиск серийного номера устройства;
+- Find the device serial number
 
-- поиск целевого IQN устройства.
+- Find the device target IQN
 
-## Просмотр подключенных инициаторов
+## <a name="view-connected-initiators"></a>View connected initiators
 
-Вы можете просмотреть инициаторы iSCSI, подключенные к устройству, щелкнув ссылку **Просмотр подключенных инициаторов** в области **сводки** панели мониторинга. Эта страница содержит табличный список инициаторов, которые успешно подключились к устройству. Для каждого инициатора можно увидеть:
+You can view the iSCSI initiators that are connected to your device by clicking the **View connected initiators** link provided in the **quick glance** area of your device dashboard. This page provides a tabular listing of the initiators that have successfully connected to your device. For each initiator, you can see:
 
-- полное имя ISCSI (IQN) подключенного инициатора;
+- The iSCSI Qualified Name (IQN) of the connected initiator.
 
-- имя записи контроля доступа (ACR), которая реализует этот подключенный инициатор;
+- The name of the access control record (ACR) that allows this connected initiator.
 
-- IP-адрес подключенного инициатора;
+- The IP address of the connected initiator.
 
-- сетевые интерфейсы, к которым подключен инициатор на устройстве хранения (DATA 0–DATA 5);
+- The network interfaces that the initiator is connected to on your storage device. These can range from DATA 0 to DATA 5.
 
-- все тома, к которым подключенному инициатору разрешен доступ при текущей конфигурации ACR.
+- All the volumes that the connected initiator is allowed to access according to the current ACR configuration.
 
-Если в этом списке есть непредвиденные инициаторы или вы не видите те инициаторы, которые вы ожидали увидеть, проверьте конфигурацию ACR. К устройству могут подключиться не больше 512 инициаторов.
+If you see unexpected initiators in this list or do not see the expected ones, review your ACR configuration. A maximum of 512 initiators can connect to your device.
 
-## Поиск серийного номера устройства
+## <a name="find-the-device-serial-number"></a>Find the device serial number
 
-Серийный номер устройства может понадобиться при настройке Microsoft Multipath I/O (MPIO) на устройстве. Выполните следующие действия, чтобы найти серийный номер устройства.
+You may need the device serial number when you configure Microsoft Multipath I/O (MPIO) on the device. Perform the following steps to find the device serial number.
 
-#### Поиск серийного номера устройства
+#### <a name="to-find-the-device-serial-number"></a>To find the device serial number
 
-1. Перейдите в раздел **Устройства** > **Панель мониторинга**.
+1. Navigate to **Devices** > **Dashboard**.
 
-2. В правой части панели мониторинга отображена область **сводки**.
+2. In the right pane of the dashboard, locate the **quick glance** area.
 
-3. Прокрутите экран вниз и найдите серийный номер.
+3. Scroll down and locate the serial number.
 
-## Поиск целевого IQN устройства
+## <a name="find-the-device-target-iqn"></a>Find the device target IQN
 
-Целевой IQN устройства может понадобиться при настройке протокола CHAP на устройстве StorSimple. Выполните следующие действия, чтобы найти целевой IQN устройства.
+You may need the device target IQN when you configure the Challenge Handshake Authentication Protocol (CHAP) on your StorSimple device. Perform the following steps to find the device target IQN.
 
-### Поиск целевого IQN устройства
+### <a name="to-find-the-device-target-iqn"></a>To find the device target IQN
 
-1. Перейдите в раздел **Устройства** > **Панель мониторинга**.
+1. Navigate to **Devices** > **Dashboard**.
 
-1. В правой части панели мониторинга отображена область **сводки**.
+1. In the right pane of the dashboard, locate the **quick glance** area.
 
-1. Прокрутите экран вниз и найдите целевой IQN.
+1. Scroll down and locate the target IQN.
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Next steps
 
-- Узнайте больше о [панели мониторинга службы диспетчера StorSimple](storsimple-service-dashboard.md).
-- Узнайте больше об [использовании службы диспетчера StorSimple для администрирования устройства StorSimple](storsimple-manager-service-administration.md).
+- Learn more about the [StorSimple Manager service dashboard](storsimple-service-dashboard.md).
+- Learn more about [using the StorSimple Manager service to administer your StorSimple device](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

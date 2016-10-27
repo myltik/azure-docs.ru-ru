@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Добавление соединителя Поиска Bing в приложения логики | Microsoft Azure"
-    description="Обзор соединителя Поиска Bing с параметрами интерфейса API REST"
+    pageTitle="Add the Bing Search connector logic apps | Microsoft Azure"
+    description="Overview of the Bing Search connector with REST API parameters"
     services=""
     suite=""
     documentationCenter="" 
@@ -18,271 +18,283 @@
    ms.date="08/18/2016"
    ms.author="mandia"/>
 
-# Начало работы с соединителем Поиска Bing 
-Подключение к Поиску Bing позволяет искать новости, видео и многое другое. С Поиском Bing можно:
 
-- формировать бизнес-процессы на основе данных, получаемых в результате поиска;
-- использовать действия для поиска изображений, новостей и многого другого. Эти действия получают ответ и делают выходные данные доступными для использования другими действиями. Например, можно найти видеоролик, а затем с помощью Twitter опубликовать его в веб-канале Twitter.
+# <a name="get-started-with-the-bing-search-connector"></a>Get started with the Bing Search connector 
+Connect to Bing Search to search news, search videos, and more. With Bing Search, you can: 
 
-Сведения о добавлении операции в приложения логики см. в статье о [создании приложения логики](../app-service-logic/app-service-logic-create-a-logic-app.md).
+- Build your business flow based on the data you get from your search. 
+- Use actions to search images, search the news, and more. These actions get a response, and then make the output available for other actions. For example, you can search for a video, and then use Twitter to post that video to a Twitter feed.
 
-## Триггеры и действия
-Поиск Bing включает следующие действия. Триггеры отсутствуют.
+To add an operation in logic apps, see [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-триггеры; | Действия
+## <a name="triggers-and-actions"></a>Triggers and actions
+Bing Search includes the following actions. There are no triggers. 
+
+Triggers | Actions
 --- | ---
-None | <ul><li>Поиск в Интернете</li><li>Поиск видео</li><li>Поиск изображений</li><li>Поиск новостей</li><li>Поиск похожего</li><li>Поиск написания</li><li>Поиск по всем</li></ul>
+None | <ul><li>Search web</li><li>Search videos</li><li>Search images</li><li>Search news</li><li>Search related</li><li>Search spellings</li><li>Search all</li></ul>
 
-Все соединители поддерживают данные в форматах JSON и XML.
+All connectors support data in JSON and XML formats.
 
 
-## Справочник по REST API Swagger
-Относится к версии 1.0.
+## <a name="swagger-rest-api-reference"></a>Swagger REST API reference
+Applies to version: 1.0.
 
-### Поиск в Интернете 
-Извлекает веб-сайты из Поиска Bing. ```GET: /Web```
+### <a name="search-web"></a>Search web 
+Retrieves web sites from a Bing search.  
+```GET: /Web```
 
-| Имя| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Description (Описание)|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|запрос|string|Да|запрос|Нет |Текст для поиска (например: xbox)|
-|maxResult|целое число|Нет|запрос|Нет |Максимальное количество отображаемых результатов|
-|startOffset|целое число|Нет|запрос| Нет|Количество пропускаемых результатов|
-|adultContent|string|Нет|запрос|Нет |Фильтр содержимого для взрослых Допустимые значения: <ul><li>Отключен</li><li>Умеренный</li><li>Строгий</li></ul>|
-|market|string|Нет|запрос|Нет |Рынок или регион для сужения области поиска (например: ru-RU)|
-|longitude|number|Нет|запрос| Нет|Долгота (координаты востока и запада) для сужения области поиска (например: 47.603450)|
-|latitude|number|Нет|запрос| Нет|Широта (координаты севера и юга) для сужения области поиска (например: -122.329696)|
-|webFileType|string|Нет|запрос|Нет |Тип файла для сужения области поиска (например: DOC)|
+|query|string|yes|query|none |Text to search for (example: 'xbox')|
+|maxResult|integer|no|query|none |Maximum number of results to return|
+|startOffset|integer|no|query| none|Number of results to skip|
+|adultContent|string|no|query|none |Adult content filter. Valid values: <ul><li>Off</li><li>Moderate</li><li>Strict</li></ul>|
+|market|string|no|query|none |Market or region to narrow the search (example: en-US)|
+|longitude|number|no|query| none|Longitude (east/west coordinate) to narrow the search (example: 47.603450)|
+|latitude|number|no|query| none|Latitude (north/south coordinate) to narrow the search (example: -122.329696)|
+|webFileType|string|no|query|none |File type to narrow the search (example: 'DOC')|
 
-#### Ответ
-|Name (Имя)|Описание|
+#### <a name="response"></a>Response
+|Name|Description|
 |---|---|
-|200|ОК|
-|по умолчанию|Операция завершилась ошибкой.|
+|200|OK|
+|default|Operation Failed.|
 
 
-### Поиск видео 
-Извлекает видео из Поиска Bing. ```GET: /Video```
+### <a name="search-videos"></a>Search videos 
+Retrieves videos from a Bing search.  
+```GET: /Video```
 
-| Name (Имя)| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Description (Описание)|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|запрос|string|Да|запрос|Нет |Текст для поиска (например: xbox)|
-|maxResult|целое число|Нет|запрос| Нет|Максимальное количество отображаемых результатов|
-|startOffset|целое число|Нет|запрос|Нет |Количество пропускаемых результатов|
-|adultContent|string|Нет|запрос|Нет |Фильтр содержимого для взрослых Допустимые значения: <ul><li>Отключен</li><li>Умеренный</li><li>Строгий</li></ul>|
-|market|string|Нет|запрос|Нет |Рынок или регион для сужения области поиска (например: ru-RU)|
-|longitude|number|Нет|запрос|Нет |Долгота (координаты востока и запада) для сужения области поиска (например: 47.603450)|
-|latitude|number|Нет|запрос|Нет |Широта (координаты севера и юга) для сужения области поиска (например: -122.329696)|
-|videoFilters|string|Нет|запрос|Нет |Фильтр поиска на основе размера, аспекта, цвета, стиля, распознавания лиц или комбинации этих параметров. Допустимые значения: <ul><li>Длительность:короткое</li><li>Длительность:среднее</li><li>Длительность:долгое</li><li>Формат:стандарт</li><li>Формат:широкоэкранный</li><li>Разрешение:низкое</li><li>Разрешение:среднее</li><li>Разрешение:высокое</li></ul> <br/><br/>Например: "Длительность:короткое+разрешение:высокое"|
-|videoSortBy|string|Нет|запрос|Нет |Порядок сортировки результатов. Допустимые значения: <ul><li>Дата</li><li>Релевантность</li></ul> <p>При сортировке по дате используется сортировка по убыванию.</p>|
+|query|string|yes|query|none |Text to search for (example: 'xbox')|
+|maxResult|integer|no|query| none|Maximum number of results to return|
+|startOffset|integer|no|query|none |Number of results to skip|
+|adultContent|string|no|query|none |Adult content filter. Valid values: <ul><li>Off</li><li>Moderate</li><li>Strict</li></ul>|
+|market|string|no|query|none |Market or region to narrow the search (example: en-US)|
+|longitude|number|no|query|none |Longitude (east/west coordinate) to narrow the search (example: 47.603450)|
+|latitude|number|no|query|none |Latitude (north/south coordinate) to narrow the search (example: -122.329696)|
+|videoFilters|string|no|query|none |Filter search based on size, aspect, color, style, face or any combination thereof.  Valid values: <ul><li>Duration:Short</li><li>Duration:Medium</li><li>Duration:Long</li><li>Aspect:Standard</li><li>Aspect:Widescreen</li><li>Resolution:Low</li><li>Resolution:Medium</li><li>Resolution:High</li></ul> <br/><br/>For example: 'Duration:Short+Resolution:High'|
+|videoSortBy|string|no|query|none |Sort order for results. Valid values: <ul><li>Date</li><li>Relevance</li></ul> <p>Date sort order implies descending.</p>|
 
-#### Ответ
-|Name (Имя)|Описание|
+#### <a name="response"></a>Response
+|Name|Description|
 |---|---|
-|200|ОК|
-|по умолчанию|Операция завершилась ошибкой.|
+|200|OK|
+|default|Operation Failed.|
 
 
-### Поиск изображений    
-Извлекает изображения из Поиска Bing. ```GET: /Image```
+### <a name="search-images"></a>Search images    
+Retrieves images from a Bing search.  
+```GET: /Image```
 
-| Name (Имя)| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|запрос|string|Да|запрос|Нет |Текст для поиска (например: xbox)|
-|maxResult|целое число|Нет|запрос|Нет |Максимальное количество отображаемых результатов|
-|startOffset|целое число|Нет|запрос|Нет |Количество пропускаемых результатов|
-|adultContent|string|Нет|запрос|Нет |Фильтр содержимого для взрослых Допустимые значения: <ul><li>Отключен</li><li>Умеренный</li><li>Строгий</li></ul>|
-|market|string|Нет|запрос|Нет |Рынок или регион для сужения области поиска (например: ru-RU)|
-|longitude|number|Нет|запрос| Нет|Долгота (координаты востока и запада) для сужения области поиска (например: 47.603450)|
-|latitude|number|Нет|запрос|Нет |Широта (координаты севера и юга) для сужения области поиска (например: -122.329696)|
-|imageFilters|string|Нет|запрос|Нет |Фильтр поиска на основе размера, аспекта, цвета, стиля, распознавания лиц или комбинации этих параметров. Допустимые значения: <ul><li>Размер:малый</li><li>Размер:средний</li><li>Размер:большой</li><li>Размер,ширина:[ширина]</li><li>Размер,высота:[высота]</li><li>Формат:квадрат</li><li>Формат: широкое</li><li>Формат:высокое</li><li>Цвета:цветное</li><li>Цвета:монохромное</li><li>Стиль:фото</li><li>Стиль:графика</li><li>Лицо:лицо</li><li>Лицо:портрет</li><li>Лицо:другое</li></ul><br/><br/>Например: "Размер:малый+формат:квадрат"|
+|query|string|yes|query|none |Text to search for (example: 'xbox')|
+|maxResult|integer|no|query|none |Maximum number of results to return|
+|startOffset|integer|no|query|none |Number of results to skip|
+|adultContent|string|no|query|none |Adult content filter. Valid values: <ul><li>Off</li><li>Moderate</li><li>Strict</li></ul>|
+|market|string|no|query|none |Market or region to narrow the search (example: en-US)|
+|longitude|number|no|query| none|Longitude (east/west coordinate) to narrow the search (example: 47.603450)|
+|latitude|number|no|query|none |Latitude (north/south coordinate) to narrow the search (example: -122.329696)|
+|imageFilters|string|no|query|none |Filter search based on size, aspect, color, style, face or any combination thereof. Valid values: <ul><li>Size:Small</li><li>Size:Medium</li><li>Size:Large</li><li>Size:Width:[Width]</li><li>Size:Height:[Height]</li><li>Aspect:Square</li><li>Aspect:Wide</li><li>Aspect:Tall</li><li>Color:Color</li><li>Color:Monochrome</li><li>Style:Photo</li><li>Style:Graphics</li><li>Face:Face</li><li>Face:Portrait</li><li>Face:Other</li></ul><br/><br/>For example: 'Size:Small+Aspect:Square'|
 
-#### Ответ
-|Имя|Описание|
+#### <a name="response"></a>Response
+|Name|Description|
 |---|---|
-|200|ОК|
-|по умолчанию|Операция завершилась ошибкой.|
+|200|OK|
+|default|Operation Failed.|
 
 
-### Поиск новостей    
-Извлекает новости из Поиска Bing. ```GET: /News```
+### <a name="search-news"></a>Search news    
+Retrieves news results from a Bing search.  
+```GET: /News```
 
-| Имя| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Description (Описание)|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|запрос|string|Да|запрос|Нет |Текст для поиска (например: xbox)|
-|maxResult|целое число|Нет|запрос|Нет |Максимальное количество отображаемых результатов|
-|startOffset|целое число|Нет|запрос| Нет|Количество пропускаемых результатов|
-|adultContent|string|Нет|запрос|Нет |Фильтр содержимого для взрослых Допустимые значения: <ul><li>Отключен</li><li>Умеренный</li><li>Строгий</li></ul>|
-|market|string|Нет|запрос|Нет |Рынок или регион для сужения области поиска (например: ru-RU)|
-|longitude|number|Нет|запрос|Нет |Долгота (координаты востока и запада) для сужения области поиска (например: 47.603450)|
-|latitude|number|Нет|запрос|Нет |Широта (координаты севера и юга) для сужения области поиска (например: -122.329696)|
-|newsSortBy|string|Нет|запрос| Нет|Порядок сортировки результатов. Допустимые значения: <ul><li>Дата</li><li>Релевантность</li></ul> <p>При сортировке по дате используется сортировка по убыванию.</p>|
-|newsCategory|string|Нет|запрос| |Категории новостей для сужения области поиска (пример: "rt\_Business")|
-|newsLocationOverride|string|Нет|запрос|Нет |Переопределение для обнаружения местонахождения Bing. Этот параметр применяется только на рынке ru-RU. Формат ввода — US./<штат /> (например: US.WA).|
+|query|string|yes|query|none |Text to search for (example: 'xbox')|
+|maxResult|integer|no|query|none |Maximum number of results to return|
+|startOffset|integer|no|query| none|Number of results to skip|
+|adultContent|string|no|query|none |Adult content filter. Valid values: <ul><li>Off</li><li>Moderate</li><li>Strict</li></ul>|
+|market|string|no|query|none |Market or region to narrow the search (example: en-US)|
+|longitude|number|no|query|none |Longitude (east/west coordinate) to narrow the search (example: 47.603450)|
+|latitude|number|no|query|none |Latitude (north/south coordinate) to narrow the search (example: -122.329696)|
+|newsSortBy|string|no|query| none|Sort order for results. Valid values: <ul><li>Date</li><li>Relevance</li></ul> <p>Date sort order implies descending.</p>|
+|newsCategory|string|no|query| |Category of news to narrow the search (example: 'rt_Business')|
+|newsLocationOverride|string|no|query|none |Override for Bing location detection. This parameter is only applicable in en-US market. The format for input is US./<state /> (example: 'US.WA')|
 
-#### Ответ
-|Name (Имя)|Описание|
+#### <a name="response"></a>Response
+|Name|Description|
 |---|---|
-|200|ОК|
-|по умолчанию|Операция завершилась ошибкой.|
+|200|OK|
+|default|Operation Failed.|
 
 
-### Поиск написания    
-Извлекает варианты правильного написания. ```GET: /SpellingSuggestions```
+### <a name="search-spellings"></a>Search spellings    
+Retrieves spelling suggestions.  
+```GET: /SpellingSuggestions```
 
-| Имя| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|запрос|string|Да|запрос| Нет|Текст для поиска (например: xbox)|
-|maxResult|целое число|Нет|запрос|Нет |Максимальное количество отображаемых результатов|
-|startOffset|целое число|Нет|запрос| Нет|Количество пропускаемых результатов|
-|adultContent|string|Нет|запрос|Нет |Фильтр содержимого для взрослых Допустимые значения: <ul><li>Отключен</li><li>Умеренный</li><li>Строгий</li></ul>|
-|market|string|Нет|запрос| Нет|Рынок или регион для сужения области поиска (например: ru-RU)|
-|longitude|number|Нет|запрос|Нет |Долгота (координаты востока и запада) для сужения области поиска (например: 47.603450)|
-|latitude|number|Нет|запрос|Нет |Широта (координаты севера и юга) для сужения области поиска (например: -122.329696)|
+|query|string|yes|query| none|Text to search for (example: 'xbox')|
+|maxResult|integer|no|query|none |Maximum number of results to return|
+|startOffset|integer|no|query| none|Number of results to skip|
+|adultContent|string|no|query|none |Adult content filter. Valid values: <ul><li>Off</li><li>Moderate</li><li>Strict</li></ul>|
+|market|string|no|query| none|Market or region to narrow the search (example: en-US)|
+|longitude|number|no|query|none |Longitude (east/west coordinate) to narrow the search (example: 47.603450)|
+|latitude|number|no|query|none |Latitude (north/south coordinate) to narrow the search (example: -122.329696)|
 
-#### Ответ
-|Имя|Описание|
+#### <a name="response"></a>Response
+|Name|Description|
 |---|---|
-|200|ОК|
-|по умолчанию|Операция завершилась ошибкой.|
+|200|OK|
+|default|Operation Failed.|
 
 
-### Поиск похожего    
-Извлекает похожие результаты поиска из Поиска Bing. ```GET: /RelatedSearch```
+### <a name="search-related"></a>Search related    
+Retrieves related search results from a Bing search.  
+```GET: /RelatedSearch```
 
-| Name (Имя)| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Description (Описание)|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|запрос|string|Да|запрос|Нет |Текст для поиска (например: xbox)|
-|maxResult|целое число|Нет|запрос|Нет |Максимальное количество отображаемых результатов|
-|startOffset|целое число|Нет|запрос| Нет|Количество пропускаемых результатов|
-|adultContent|string|Нет|запрос|Нет |Фильтр содержимого для взрослых Допустимые значения: <ul><li>Отключен</li><li>Умеренный</li><li>Строгий</li></ul>|
-|market|string|Нет|запрос|Нет |Рынок или регион для сужения области поиска (например: ru-RU)|
-|longitude|number|Нет|запрос|Нет |Долгота (координаты востока и запада) для сужения области поиска (например: 47.603450)|
-|latitude|number|Нет|запрос| Нет|Широта (координаты севера и юга) для сужения области поиска (например: -122.329696)|
+|query|string|yes|query|none |Text to search for (example: 'xbox')|
+|maxResult|integer|no|query|none |Maximum number of results to return|
+|startOffset|integer|no|query| none|Number of results to skip|
+|adultContent|string|no|query|none |Adult content filter. Valid values: <ul><li>Off</li><li>Moderate</li><li>Strict</li></ul>|
+|market|string|no|query|none |Market or region to narrow the search (example: en-US)|
+|longitude|number|no|query|none |Longitude (east/west coordinate) to narrow the search (example: 47.603450)|
+|latitude|number|no|query| none|Latitude (north/south coordinate) to narrow the search (example: -122.329696)|
 
-#### Ответ
-|Имя|Описание|
+#### <a name="response"></a>Response
+|Name|Description|
 |---|---|
-|200|ОК|
-|по умолчанию|Операция завершилась ошибкой.|
+|200|OK|
+|default|Operation Failed.|
 
 
-### Поиск по всем    
-Извлекает все веб-сайты, видео, изображения и т. д. из Поиска Bing. ```GET: /CompositeSearch```
+### <a name="search-all"></a>Search all    
+Retrieves all web sites, videos, images, etc. from a Bing search.  
+```GET: /CompositeSearch```
 
-| Name (Имя)| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|запрос|string|Да|запрос|Нет |Текст для поиска (например: xbox)|
-|maxResult|целое число|Нет|запрос|Нет |Максимальное количество отображаемых результатов|
-|startOffset|целое число|Нет|запрос|Нет |Количество пропускаемых результатов|
-|adultContent|string|Нет|запрос|Нет |Фильтр содержимого для взрослых Допустимые значения: <ul><li>Отключен</li><li>Умеренный</li><li>Строгий</li></ul>|
-|market|string|Нет|запрос|Нет |Рынок или регион для сужения области поиска (например: ru-RU)|
-|longitude|number|Нет|запрос|Нет |Долгота (координаты востока и запада) для сужения области поиска (например: 47.603450)|
-|latitude|number|Нет|запрос|Нет |Широта (координаты севера и юга) для сужения области поиска (например: -122.329696)|
-|webFileType|string|Нет|запрос|Нет |Тип файла для сужения области поиска (например: DOC)|
-|videoFilters|string|Нет|запрос|Нет |Фильтр поиска на основе размера, аспекта, цвета, стиля, распознавания лиц или комбинации этих параметров. Допустимые значения: <ul><li>Длительность:короткое</li><li>Длительность:среднее</li><li>Длительность:долгое</li><li>Формат:стандарт</li><li>Формат:широкоэкранный</li><li>Разрешение:низкое</li><li>Разрешение:среднее</li><li>Разрешение:высокое</li></ul> <br/><br/>Например: "Длительность:короткое+разрешение:высокое"|
-|videoSortBy|string|Нет|запрос|Нет |Порядок сортировки результатов. Допустимые значения: <ul><li>Дата</li><li>Релевантность</li></ul> <p>При сортировке по дате используется сортировка по убыванию.</p>|
-|imageFilters|string|Нет|запрос|Нет |Фильтр поиска на основе размера, аспекта, цвета, стиля, распознавания лиц или комбинации этих параметров. Допустимые значения: <ul><li>Размер:малый</li><li>Размер:средний</li><li>Размер:большой</li><li>Размер,ширина:[ширина]</li><li>Размер,высота:[высота]</li><li>Формат:квадрат</li><li>Формат: широкое</li><li>Формат:высокое</li><li>Цвета:цветное</li><li>Цвета:монохромное</li><li>Стиль:фото</li><li>Стиль:графика</li><li>Лицо:лицо</li><li>Лицо:портрет</li><li>Лицо:другое</li></ul><br/><br/>Например: "Размер:малый+формат:квадрат"|
-|newsSortBy|string|Нет|запрос|Нет |Порядок сортировки результатов. Допустимые значения: <ul><li>Дата</li><li>Релевантность</li></ul> <p>При сортировке по дате используется сортировка по убыванию.</p>|
-|newsCategory|string|Нет|запрос|Нет |Категории новостей для сужения области поиска (пример: "rt\_Business")|
-|newsLocationOverride|string|Нет|запрос|Нет |Переопределение для обнаружения местонахождения Bing. Этот параметр применяется только на рынке ru-RU. Формат ввода — US./<штат /> (например: US.WA).|
+|query|string|yes|query|none |Text to search for (example: 'xbox')|
+|maxResult|integer|no|query|none |Maximum number of results to return|
+|startOffset|integer|no|query|none |Number of results to skip|
+|adultContent|string|no|query|none |Adult content filter. Valid values: <ul><li>Off</li><li>Moderate</li><li>Strict</li></ul>|
+|market|string|no|query|none |Market or region to narrow the search (example: en-US)|
+|longitude|number|no|query|none |Longitude (east/west coordinate) to narrow the search (example: 47.603450)|
+|latitude|number|no|query|none |Latitude (north/south coordinate) to narrow the search (example: -122.329696)|
+|webFileType|string|no|query|none |File type to narrow the search (example: 'DOC')|
+|videoFilters|string|no|query|none |Filter search based on size, aspect, color, style, face or any combination thereof.  Valid values: <ul><li>Duration:Short</li><li>Duration:Medium</li><li>Duration:Long</li><li>Aspect:Standard</li><li>Aspect:Widescreen</li><li>Resolution:Low</li><li>Resolution:Medium</li><li>Resolution:High</li></ul> <br/><br/>For example: 'Duration:Short+Resolution:High'|
+|videoSortBy|string|no|query|none |Sort order for results. Valid values: <ul><li>Date</li><li>Relevance</li></ul> <p>Date sort order implies descending.</p>|
+|imageFilters|string|no|query|none |Filter search based on size, aspect, color, style, face or any combination thereof. Valid values: <ul><li>Size:Small</li><li>Size:Medium</li><li>Size:Large</li><li>Size:Width:[Width]</li><li>Size:Height:[Height]</li><li>Aspect:Square</li><li>Aspect:Wide</li><li>Aspect:Tall</li><li>Color:Color</li><li>Color:Monochrome</li><li>Style:Photo</li><li>Style:Graphics</li><li>Face:Face</li><li>Face:Portrait</li><li>Face:Other</li></ul><br/><br/>For example: 'Size:Small+Aspect:Square'|
+|newsSortBy|string|no|query|none |Sort order for results. Valid values: <ul><li>Date</li><li>Relevance</li></ul> <p>Date sort order implies descending.</p>|
+|newsCategory|string|no|query|none |Category of news to narrow the search (example: 'rt_Business')|
+|newsLocationOverride|string|no|query|none |Override for Bing location detection. This parameter is only applicable in en-US market. The format for input is US./<state /> (example: 'US.WA')|
 
-#### Ответ
-|Имя|Описание|
+#### <a name="response"></a>Response
+|Name|Description|
 |---|---|
-|200|ОК|
-|по умолчанию|Операция завершилась ошибкой.|
+|200|OK|
+|default|Operation Failed.|
 
 
-## Определения объектов
+## <a name="object-definitions"></a>Object definitions
 
-#### WebResultModel: результаты веб-поиска Bing
+#### <a name="webresultmodel:-bing-web-search-results"></a>WebResultModel: Bing web search results
 
-|Имя свойства | Тип данных | Обязательно |
+|Property Name | Data Type | Required |
 |---|---|---|
-|Название|string|Нет|
-|Описание|string|Нет|
-|DisplayUrl|string|Нет|
-|Идентификатор|string|Нет|
-|FullUrl|string|Нет|
+|Title|string|no|
+|Description|string|no|
+|DisplayUrl|string|no|
+|Id|string|no|
+|FullUrl|string|no|
 
-#### VideoResultModel: результаты поиска видео в Bing
+#### <a name="videoresultmodel:-bing-video-search-results"></a>VideoResultModel: Bing video search results
 
-|Имя свойства | Тип данных |Обязательно |
+|Property Name | Data Type |Required |
 |---|---|---|
-|Название|string|Нет|
-|DisplayUrl|string|Нет|
-|Идентификатор|string|Нет|
-|MediaUrl|string|Нет|
-|Среда выполнения|целое число|Нет|
-|Эскиз|не определено|Нет|
+|Title|string|no|
+|DisplayUrl|string|no|
+|Id|string|no|
+|MediaUrl|string|no|
+|Runtime|integer|no|
+|Thumbnail|not defined|no|
 
-#### ThumbnailModel: свойства эскиза элемента мультимедиа
+#### <a name="thumbnailmodel:-thumbnail-properties-of-the-multimedia-element"></a>ThumbnailModel: Thumbnail properties of the multimedia element
 
-|Имя свойства | Тип данных |Обязательно |
+|Property Name | Data Type |Required |
 |---|---|---|
-|MediaUrl|string|Нет|
-|ContentType|string|Нет|
-|Ширина|целое число|Нет|
-|Высота:|целое число|Нет|
-|FileSize|целое число|Нет|
+|MediaUrl|string|no|
+|ContentType|string|no|
+|Width|integer|no|
+|Height|integer|no|
+|FileSize|integer|no|
 
-#### ImageResultModel: результаты поиска изображения в Bing
+#### <a name="imageresultmodel:-bing-image-search-results"></a>ImageResultModel: Bing image search results
 
-|Имя свойства | Тип данных |Обязательно |
+|Property Name | Data Type |Required |
 |---|---|---|
-|Название|string|Нет|
-|DisplayUrl|string|Нет|
-|Идентификатор|string|Нет|
-|MediaUrl|string|Нет|
-|SourceUrl|string|Нет|
-|Эскиз|не определено|Нет|
+|Title|string|no|
+|DisplayUrl|string|no|
+|Id|string|no|
+|MediaUrl|string|no|
+|SourceUrl|string|no|
+|Thumbnail|not defined|no|
 
-#### NewsResultModel: результаты поиска новостей в Bing
+#### <a name="newsresultmodel:-bing-news-search-results"></a>NewsResultModel: Bing news search results
 
-|Имя свойства | Тип данных |Обязательно |
+|Property Name | Data Type |Required |
 |---|---|---|
-|Название|string|Нет|
-|Description (Описание)|string|Нет|
-|DisplayUrl|string|Нет|
-|Идентификатор|string|Нет|
-|Источник|string|Нет|
-|Дата|string|Нет|
+|Title|string|no|
+|Description|string|no|
+|DisplayUrl|string|no|
+|Id|string|no|
+|Source|string|no|
+|Date|string|no|
 
-#### SpellResultModel: результаты вариантов написания при проверке орфографии в Bing
+#### <a name="spellresultmodel:-bing-spelling-suggestions-results"></a>SpellResultModel: Bing spelling suggestions results
 
-|Имя свойства | Тип данных |Обязательно |
+|Property Name | Data Type |Required |
 |---|---|---|
-|Идентификатор|string|Нет|
-|Значение|string|Нет|
+|Id|string|no|
+|Value|string|no|
 
-#### RelatedSearchResultModel: связанные результаты поиска Bing
+#### <a name="relatedsearchresultmodel:-bing-related-search-results"></a>RelatedSearchResultModel: Bing related search results
 
-|Имя свойства | Тип данных |Обязательно |
+|Property Name | Data Type |Required |
 |---|---|---|
-|Название|string|Нет|
-|Идентификатор|string|Нет|
-|BingUrl|string|Нет|
+|Title|string|no|
+|Id|string|no|
+|BingUrl|string|no|
 
-#### CompositeSearchResultModel: результаты составного поиска Bing
+#### <a name="compositesearchresultmodel:-bing-composite-search-results"></a>CompositeSearchResultModel: Bing composite search results
 
-|Имя свойства | Тип данных |Обязательно |
+|Property Name | Data Type |Required |
 |---|---|---|
-|WebResultsTotal|целое число|Нет|
-|ImageResultsTotal|целое число|Нет|
-|VideoResultsTotal|целое число|Нет|
-|NewsResultsTotal|целое число|Нет|
-|SpellSuggestionsTotal|целое число|Нет|
-|WebResults|array|Нет|
-|ImageResults|array|Нет|
-|VideoResults|array|Нет|
-|NewsResults|array|Нет|
-|SpellSuggestionResults|array|Нет|
-|RelatedSearchResults|array|Нет|
+|WebResultsTotal|integer|no|
+|ImageResultsTotal|integer|no|
+|VideoResultsTotal|integer|no|
+|NewsResultsTotal|integer|no|
+|SpellSuggestionsTotal|integer|no|
+|WebResults|array|no|
+|ImageResults|array|no|
+|VideoResults|array|no|
+|NewsResults|array|no|
+|SpellSuggestionResults|array|no|
+|RelatedSearchResults|array|no|
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Next steps
 
-[Создайте приложение логики](../app-service-logic/app-service-logic-create-a-logic-app.md).
+[Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-Вы можете вернуться к [списку интерфейсов API](apis-list.md).
+Go back to the [APIs list](apis-list.md).
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

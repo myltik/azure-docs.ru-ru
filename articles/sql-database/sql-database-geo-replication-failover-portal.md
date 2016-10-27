@@ -1,6 +1,6 @@
 <properties 
-    pageTitle="Запуск плановой или незапланированной отработки отказа для базы данных SQL Azure с помощью портала Azure | Microsoft Azure" 
-    description="Запуск плановой или незапланированной отработки отказа для базы данных SQL Azure с помощью портала Azure" 
+    pageTitle="Initiate a planned or unplanned failover for Azure SQL Database with the Azure portal | Microsoft Azure" 
+    description="Initiate a planned or unplanned failover for Azure SQL Database using the Azure portal" 
     services="sql-database" 
     documentationCenter="" 
     authors="stevestein" 
@@ -16,45 +16,46 @@
     ms.date="08/29/2016"
     ms.author="sstein"/>
 
-# Запуск плановой или незапланированной отработки отказа для базы данных SQL Azure с помощью портала Azure
+
+# <a name="initiate-a-planned-or-unplanned-failover-for-azure-sql-database-with-the-azure-portal"></a>Initiate a planned or unplanned failover for Azure SQL Database with the Azure portal
 
 
 > [AZURE.SELECTOR]
-- [Портал Azure](sql-database-geo-replication-failover-portal.md)
+- [Azure portal](sql-database-geo-replication-failover-portal.md)
 - [PowerShell](sql-database-geo-replication-failover-powershell.md)
 - [T-SQL](sql-database-geo-replication-failover-transact-sql.md)
 
 
-В этой статье объясняется, как запустить отработку отказа в базе данных-получателе SQL Azure с помощью [портала Azure](http://portal.azure.com). Информацию о настройке георепликации для баз данных SQL Azure см. в [этой статье](sql-database-geo-replication-portal.md).
+This article shows you how to initiate failover to a secondary SQL Database with the [Azure portal](http://portal.azure.com). To configure Geo-Replication, see [Configure Geo-Replication for Azure SQL Database](sql-database-geo-replication-portal.md).
 
 
-## Запуск отработки отказа
+## <a name="initiate-a-failover"></a>Initiate a failover
 
-Базу данных-получатель можно сделать источником.
+The secondary database can be switched to become the primary.  
 
-1. На [портале Azure](http://portal.azure.com) перейдите к базе данных-источнику в связи георепликации.
-2. В колонке «База данных SQL» выберите **Все параметры** > **Георепликация**.
-3. В списке **ПОЛУЧАТЕЛИ** выберите базу данных, которая должна стать новым источником, и щелкните **Отработка отказа**.
+1. In the [Azure portal](http://portal.azure.com) browse to the primary database in the Geo-Replication partnership.
+2. On the SQL Database blade, select **All settings** > **Geo-Replication**.
+3. In the **SECONDARIES** list, select the database you want to become the new primary and click **Failover**.
 
-    ![отработка отказа][2]
+    ![failover][2]
 
-4. Выберите **Да**, чтобы запустить отработку отказа.
+4. Click **Yes** to begin the failover.
 
-Команда незамедлительно переведет базу данных-получателя в основную роль.
+The command will immediately switch the secondary database into the primary role. 
 
-В течение короткого периода (от 0 до 25 секунд), пока переключаются роли, обе базы данных будут недоступны. Если база данных-источник имеет несколько баз данных-получателей, команда автоматически перенастроится на другие базы данных-получатели для подключения к новой базе данных-источнику. Обычно вся операция занимает меньше минуты.
+There is a short period during which both databases are unavailable (on the order of 0 to 25 seconds) while the roles are switched. If the primary database has multiple secondary databases, the command will automatically reconfigure the other secondaries to connect to the new primary. The entire operation should take less than a minute to complete under normal circumstances. 
 
->[AZURE.NOTE] Если при отправке команды источник находится в сети и выполняет транзакции, некоторые данные могут быть утеряны.
+>[AZURE.NOTE] If the primary is online and committing transactions when the command is issued some data loss may occur.
 
 
-## Дальнейшие действия   
+## <a name="next-steps"></a>Next steps   
 
-- После отработки отказа убедитесь, что для новой базы данных-источника настроены требования аутентификации ваших сервера и базы данных. Дополнительные сведения см. в разделе [Как управлять безопасностью базы данных SQL после аварийного восстановления](sql-database-geo-replication-security-config.md).
-- Чтобы изучить восстановление после сбоя с помощью активной георепликации, включая предварительные и последующие действия и отработку аварийного восстановления, ознакомьтесь с разделом [Отработка аварийного восстановления](sql-database-disaster-recovery.md).
-- Прочитайте запись блога Александра Носова об активной георепликации: [Spotlight on new Geo-Replication capabilities](https://azure.microsoft.com/blog/spotlight-on-new-capabilities-of-azure-sql-database-geo-replication/) (Новые возможности георепликации).
-- Сведения о проектировании облачных приложений для использования активной георепликации см. в разделе [Создание приложения для аварийного восстановления облака с использованием активной георепликации в базе данных SQL](sql-database-designing-cloud-solutions-for-disaster-recovery.md).
-- Сведения об использовании активной георепликации с пулами эластичных баз данных см. в разделе [Стратегии аварийного восстановления для приложений с использованием пула эластичных баз данных SQL](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
-- Общие сведения об обеспечении непрерывности бизнес-процессов можно узнать в [обзоре непрерывности бизнес-процессов](sql-database-business-continuity.md).
+- After failover, ensure the authentication requirements for your server and database are configured on the new primary. For details, see [SQL Database security after disaster recovery](sql-database-geo-replication-security-config.md).
+- To learn recovering after a disaster using Active Geo-Replication, including pre and post recovery steps and performing a disaster recovery drill, see [Disaster Recovery Drills](sql-database-disaster-recovery.md)
+- For a Sasha Nosov blog post about Active Geo-Replication, see [Spotlight on new Geo-Replication capabilities](https://azure.microsoft.com/blog/spotlight-on-new-capabilities-of-azure-sql-database-geo-replication/)
+- For information about designing cloud applications to use Active Geo-Replication, see [Designing cloud applications for business continuity using Geo-Replication](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
+- For information about using Active Geo-Replication with elastic database pools, see [Elastic Pool disaster recovery strategies](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
+- For an overview of business continurity, see [Business Continuity Overview](sql-database-business-continuity.md)
 
 
 
@@ -63,4 +64,8 @@
 [1]: ./media/sql-database-geo-replication-failover-portal/failover.png
 [2]: ./media/sql-database-geo-replication-failover-portal/secondaries.png
 
-<!---HONumber=AcomDC_0831_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

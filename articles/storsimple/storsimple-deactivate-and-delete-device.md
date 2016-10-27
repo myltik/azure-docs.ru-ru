@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Отключение и удаление устройства StorSimple | Microsoft Azure"
-   description="Описание процедуры вывода устройства StorSimple из эксплуатации путем его отключения и последующего удаления."
+   pageTitle="Deactivate and delete a StorSimple device | Microsoft Azure"
+   description="Describes how to remove StorSimple device from service by  first deactivating it and then deleting it."
    services="storsimple"
    documentationCenter=""
    authors="SharS"
@@ -12,97 +12,102 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/01/2016"
+   ms.date="10/18/2016"
    ms.author="anoobbacker" />
 
-# Отключение и удаление устройства StorSimple
 
-## Обзор
+# <a name="deactivate-and-delete-a-storsimple-device"></a>Deactivate and delete a StorSimple device
 
-Вам может потребоваться вывести устройство StorSimple из эксплуатации (например при замене или обновлении устройства, либо если StorSimple больше не используется). В этом случае перед удалением устройство потребуется отключить. Отключение обрывает соединение между устройством и соответствующей службой диспетчера StorSimple. В этом учебнике объясняется, как вывести устройство StorSimple из эксплуатации путем его отключения и последующего удаления.
+## <a name="overview"></a>Overview
 
-После отключения устройства все данные, хранящиеся в его внутренней памяти, станут недоступны. Восстановлению подлежат лишь связанные с устройством данные, хранящиеся в облаке.
+You may wish to take a StorSimple device out of service (for example, if you are replacing or upgrading your device or if you are no longer using StorSimple). If this is the case, you will need to deactivate the device before you can delete it. Deactivating severs the connection between the device and the corresponding StorSimple Manager service. This tutorial explains how to remove a StorSimple device from service by first deactivating it and then deleting it. 
 
->[AZURE.WARNING] Отключение является НЕОБРАТИМОЙ операцией. Отключенное устройство нельзя зарегистрировать в службе диспетчера StorSimple, пока производитель не вернет его в исходное состояние.
+When you deactivate a device, any data that was stored locally on the device will no longer be accessible. Only the data associated with the device that was stored in the cloud can be recovered.  
+
+>[AZURE.WARNING] Deactivation is a PERMANENT operation and cannot be undone. A deactivated device cannot be registered with the StorSimple Manager service unless it is first reset by the factory. 
 >
->Процедура возврата к заводским настройкам удаляет все данные, хранящиеся во внутренней памяти устройства. Поэтому крайне важно создать облачный моментальный снимок всех данных перед отключением устройства. Это позволит вам восстановить все данные в дальнейшем.
+>The factory reset process deletes all the data that was stored locally on your device. Therefore, it is essential that you take a cloud snapshot of all your data before you deactivate a device. This will allow you to recover all the data at a later stage.
 
-В этом учебнике объясняется, как выполнить такие задачи:
+This tutorial explains how to:
 
-- Отключение устройства и удаление данных
-- Отключение устройства и сохранение данных
+- Deactivate a device and delete the data
+- Deactivate a device and retain the data
 
-Здесь также объясняется действие отключения и удаления на виртуальном устройстве StorSimple.
+It also explains how deactivation and deletion works on a StorSimple virtual device.
 
->[AZURE.NOTE] Перед отключением виртуального или физического устройства StorSimple обязательно удалите зависящие от него клиенты и узлы или прекратите их работу.
+>[AZURE.NOTE] Before you deactivate a StorSimple physical or virtual device, make sure to stop or delete clients and hosts that depend on that device.
 
-## Отключение и удаление данных
+## <a name="deactivate-and-delete-data"></a>Deactivate and delete data
 
-Если вам требуется полностью удалить устройство без сохранения данных на нем, сделайте следующее.
+If you are interested in deleting the device completely and do not want to retain the data on the device, then complete the following steps.
 
-#### Отключение устройства и удаление данных  
+#### <a name="to-deactivate-the-device-and-delete-the-data"></a>To deactivate the device and delete the data  
 
-1. Перед отключением устройства вам потребуется удалить все контейнеры томов (и сами тома), связанные с устройством. Контейнеры томов можно удалить только после удаления связанных резервных копий.
+1. Prior to deactivating a device, you must delete all the volume containers (and the volumes) associated with the device. You can delete volume containers only after you have deleted the associated backups.
 
-2. Отключите устройство, выполнив следующие действия:
+2. Deactivate the device as follows:
 
-    1. На странице **Devices** (Устройства) службы диспетчера StorSimple выберите устройство, которое требуется отключить и нажмите кнопку **Deactivate** (Отключить) в нижней части страницы.
+    1. On the StorSimple Manager service **Devices** page, select the device that you wish to deactivate and, at the bottom of the page, click **Deactivate**.
 
-    2. Появится сообщение с подтверждением. Чтобы продолжить, щелкните **Да**. Начнется процесс отключения, который займет несколько минут.
+    2. A confirmation message will appear. Click **Yes** to continue. The deactivate process will start and take a few minutes to complete.
 
-3. После отключения вы можете полностью удалить устройство. При этом устройство удаляется из списка устройств, подключенных к службе. После удаления устройства служба больше не сможет управлять им. Вот как можно удалить устройство:
+3. After deactivation, you can delete the device completely. Deleting a device removes it from the list of devices connected to the service. The service can then no longer manage the deleted device. Use the following steps to delete the device:
 
-    1. На странице **Devices** (Устройства) службы диспетчера StorSimple выберите отключенное устройство, которое требуется удалить.
+    1. On the StorSimple Manager service **Devices** page, select a deactivated device that you wish to delete.
 
-    2. В нижней части страницы нажмите кнопку **Удалить**.
+    2. On the bottom on the page, click **Delete**.
 
-    3. После этого введите подтверждение для применения этих исправлений. Чтобы продолжить, щелкните **Да**.
+    3. You will be prompted for confirmation. Click **Yes** to continue.
 
-    Удаление устройства может занять несколько минут.
+    It may take a few minutes for the device to be deleted.
 
-## Отключение и сохранение данных
+## <a name="deactivate-and-retain-data"></a>Deactivate and retain data
 
-Если вам требуется удалить устройство и сохранить данные на нем, сделайте следующее.
+If you are interested in deleting the device but want to retain the data, then complete the following steps.
 
-####Отключение устройства и сохранение данных 
+####<a name="to-deactivate-a-device-and-retain-the-data"></a>To deactivate a device and retain the data 
 
-1. Отключите устройство. Все контейнеры томов и моментальные снимки на устройстве сохранятся.
+1. Deactivate the device. All the volume containers and the snapshots of the device will remain.
 
-    1. На странице **Devices** (Устройства) службы диспетчера StorSimple выберите устройство, которое требуется отключить и нажмите кнопку **Deactivate** (Отключить) в нижней части страницы.
+    1. On the StorSimple Manager service **Devices** page, select the device that you wish to deactivate and, at the bottom of the page, click **Deactivate**.
 
-    2. Появится сообщение с подтверждением. Чтобы продолжить, щелкните **Да**. Начнется процесс отключения, который займет несколько минут.
+    2. A confirmation message will appear. Click **Yes** to continue. The deactivate process will start and take a few minutes to complete.
 
-2. Теперь вы можете выполнить отработку отказа для контейнеров томов и связанных моментальных снимков. Сведения о том, как это сделать, см. в статье [Отработка отказа и аварийное восстановление для устройства StorSimple](storsimple-device-failover-disaster-recovery.md).
+2. You can now fail over the volume containers and the associated snapshots. For procedures, go to [Failover and disaster recovery for your StorSimple device](storsimple-device-failover-disaster-recovery.md).
 
-3. После отключения и отработки отказа вы можете полностью удалить устройство. При этом устройство удаляется из списка устройств, подключенных к службе. После удаления устройства служба больше не сможет управлять им. Вот как можно удалить устройство:
+3. After deactivation and failover, you can delete the device completely. Deleting a device removes it from the list of devices connected to the service. The service can then no longer manage the deleted device. Complete the following steps to delete the device:
  
-    1. На странице **Devices** (Устройства) службы диспетчера StorSimple выберите отключенное устройство, которое требуется удалить.
+    1. On the StorSimple Manager service **Devices** page, select a deactivated device that you wish to delete.
 
-    2. В нижней части страницы нажмите кнопку **Удалить**.
+    2. On the bottom on the page, click **Delete**.
 
-    3. После этого введите подтверждение для применения этих исправлений. Чтобы продолжить, щелкните **Да**.
+    3. You will be prompted for confirmation. Click **Yes** to continue.
 
-    Удаление устройства может занять несколько минут.
+    It may take a few minutes for the device to be deleted.
 
-## Отключение и удаление виртуального устройства
+## <a name="deactivate-and-delete-a-virtual-device"></a>Deactivate and delete a virtual device
 
-При отключении виртуального устройства StorSimple освобождаются ресурсы виртуальной машины. Затем можно удалить виртуальную машину и ресурсы, созданные во время его подготовки. После деактивации виртуального устройства его невозможно вернуть в предыдущее состояние.
+For a StorSimple virtual device, deactivation deallocates the virtual machine. You can then delete the virtual machine and the resources created when it was provisioned. After the virtual device is deactivated, it cannot be restored to its previous state. 
 
-Отключение приводит к следующим результатам:
+Deactivation results in the following actions:
 
-- Виртуальное устройство StorSimple будет удалено.
+- The StorSimple virtual device is removed.
 
-- OSDisk и диски с данными, созданные для виртуального устройства StorSimple, будут удалены.
+- The OSDisk and Data Disks created for the StorSimple virtual device are removed.
 
-- Размещенная служба и виртуальная сеть, созданные во время подготовки к работе, будут сохранены. Если вы их не используете их, удалите их вручную.
+- The Hosted Service and Virtual Network that were created during provisioning are retained. If you are not using these entities, you should delete them manually.
 
-- Облачные моментальные снимки, созданные виртуальным устройством StorSimple, будут сохранены.
+- Cloud snapshots created by the StorSimple virtual device are retained.
 
-## Дальнейшие действия
-- Сведения о том, как восстановить на отключенном устройстве заводские параметры, см. в разделе [Восстановление на устройстве до заводских настроек](storsimple-manage-device-controller.md#reset-the-device-to-factory-default-settings).
+## <a name="next-steps"></a>Next steps
+- To restore the deactivated device to factory defaults, go to [Reset the device to factory default settings](storsimple-manage-device-controller.md#reset-the-device-to-factory-default-settings).
 
-- Чтобы получить техническую поддержку, [обратитесь в службу поддержки Майкрософт](storsimple-contact-microsoft-support.md).
+- For technical assistance, [contact Microsoft Support](storsimple-contact-microsoft-support.md).
 
-- Подробнее об управлении устройством с помощью службы диспетчера StorSimple см. в статье [Использование службы диспетчера StorSimple для администрирования устройства StorSimple](storsimple-manager-service-administration.md).
+- To learn more about how to use the StorSimple Manager service, go to [Use the StorSimple Manager service to administer your StorSimple device](storsimple-manager-service-administration.md). 
 
-<!---HONumber=AcomDC_0608_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,19 +1,22 @@
-В приведенной ниже таблице описаны основные квоты, ограничения, значения по умолчанию и регулирования планировщика Azure.
+The following table describes each of the major quotas, limits, defaults, and throttles in Azure Scheduler.
 
-|Ресурс|Описание ограничения|
+|Resource|Limit Description|
 |---|---|
-|**Размер задания**|Максимальный размер задания составляет 16 КБ. Если в результате применения запросов PUT или PATCH задание превышает эти пределы, выдается код состояния 400 (ошибочный запрос).|
-|**Размер URL-адреса запроса**|Максимальный размер URL-адреса запроса составляет 2048 символов.|
-|**Совокупный размер заголовка**|Максимальный совокупный размер заголовка составляет 4096 символов.|
-|**Число заголовков**|Максимальное число заголовков составляет 50.|
-|**Размер текста**|Максимальный размер текста составляет 8192 символа.|
-|**Период повторения**|Максимальный период повторения составляет 18 месяцев.|
-|**Время до запуска**|Максимальное время до запуска составляет 18 месяцев.|
-|**Журнал заданий**|Максимальный размер ответа, сохраняемого в журнале заданий, составляет 2048 байт.|
-|**Frequency**|По умолчанию максимальная квота частоты составляет 1 час в свободной коллекции заданий и 1 минуту в стандартной коллекции заданий. Максимальная частота для коллекции заданий должна быть меньше максимальной. Все задания в коллекции заданий ограничиваются значением, установленным для коллекции заданий. При попытке создать задание с частотой, превышающей максимум для коллекции заданий, запрос завершается ошибкой с кодом состояния 409 (конфликт).|
-|**Задания**|По умолчанию максимальная квота на задания составляет 5 заданий в свободной коллекции и 50 заданий в стандартной коллекции заданий. Максимальное число заданий настраивается для всей коллекции заданий. Все задания в коллекции заданий ограничиваются значением, установленным для коллекции заданий. Если пользователь пытается создать задание, превышающее квоту на максимальное количество заданий, запрос завершается с кодом состояния 409 (конфликт).|
-|**Срок хранения журнала заданий**|Журнал заданий хранится до 2 месяцев или до последних 1000 выполнений.|
-|**Срок хранения выполненных и неисправных заданий**|Выполненные и невыполненные задания хранятся в течение 60 дней.|
-|**Время ожидания**|Для действий HTTP предусмотрен статичный (не настраиваемый) период времени ожидания запроса, который составляет 30 секунд. Для операций с более длительным временем выполнения используйте асинхронные протоколы HTTP, например незамедлительную выдачу кода 202 с продолжением работы в фоновом режиме.|
+|**Job size**|The maximum job size is 16K. If a PUT or a PATCH results in a job larger than these limits, a 400 Bad Request status code is returned.|
+|**Request URL size**|Maximum size of the request URL is 2048 chars.|
+|**Aggregate header size**|Maximum aggregate header size is 4096 chars.|
+|**Header count**|Maximum header count is 50 headers.|
+|**Body size**|Maximum body size is 8192 chars.|
+|**Recurrence span**|Maximum recurrence span is 18 months.|
+|**Time to start time**|Maximum “time to start time” is 18 months.|
+|**Job history**|Maximum response body stored in job history is 2048 bytes.|
+|**Frequency**|The default max frequency quota is 1 hour in a free job collection and 1 minute in a standard job collection. The max frequency is configurable on a job collection to be lower than the maximum. All jobs in the job collection are limited the value set on the job collection. If you attempt to create a job with a higher frequency than the maximum frequency on the job collection then request will fail with a 409 Conflict status code.|
+|**Jobs**|The default max jobs quota is 5 jobs in a free job collection and 50 jobs in a standard job collection. The maximum number of jobs is configurable on a job collection. All jobs in the job collection are limited the value set on the job collection. If you attempt to create more jobs than the maximum jobs quota, then the request fails with a 409 Conflict status code.|
+|**Job history retention**|Job history is retained for up to 2 months or up to the last 1000 executions.|
+|**Completed and faulted job retention**|Completed and faulted jobs are retained for 60 days.|
+|**Timeout**|There’s a static (not configurable) request timeout of 60 seconds for HTTP actions. For longer running operations, follow HTTP asynchronous protocols; for example, return a 202 immediately but continue working in the background.|
 
-<!---HONumber=AcomDC_0316_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

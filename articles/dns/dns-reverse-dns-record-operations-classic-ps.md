@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Как управлять обратными записями DNS служб с помощью PowerShell в классической модели развертывания | Microsoft Azure"
-   description="Как управлять обратными записями DNS или записями типа PTR для служб Azure с помощью PowerShell в классической модели развертывания. "
+   pageTitle="How to manage reverse DNS records for your services using PowerShell in the classic deployment model | Microsoft Azure"
+   description="How to manage reverse DNS records or PTR records for Azure services using PowerShell in the classic deployment model. "
    services="DNS"
    documentationCenter="na"
    authors="s-malone"
@@ -17,42 +17,47 @@
    ms.date="09/05/2016"
    ms.author="smalone" />
 
-# Как управлять обратными записями DNS для служб (классическая модель) с помощью PowerShell
+
+# <a name="how-to-manage-reverse-dns-records-for-your-services-(classic)-using-powershell"></a>How to manage reverse DNS records for your services (classic) using PowerShell
 
 [AZURE.INCLUDE [dns-reverse-dns-record-operations-arm-selectors-include.md](../../includes/dns-reverse-dns-record-operations-arm-selectors-include.md)]
 <BR>
 [AZURE.INCLUDE [DNS-reverse-dns-record-operations-intro-include.md](../../includes/dns-reverse-dns-record-operations-intro-include.md)]
 <BR>
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-classic-include.md)] Узнайте, как [выполнить эти действия с помощью модели Resource Manager](dns-reverse-dns-record-operations-ps.md).
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-classic-include.md)] Learn how to [perform these steps using the Resource Manager model](dns-reverse-dns-record-operations-ps.md).
 
-## Проверка обратных записей DNS
-Чтобы гарантировать, что третья сторона не сможет создать сопоставление обратных записей DNS с вашими доменами DNS, Azure позволяет создавать только обратные записи DNS, для которых выполняется одно из следующих условий:
+## <a name="validation-of-reverse-dns-records"></a>Validation of reverse DNS records
+To ensure a third party can’t create reverse DNS records mapping to your DNS domains, Azure only allows the creation of a reverse DNS record where one of the following is true:
 
-- Обратное полное доменное имя DNS является именем облачной службы, для которой оно было указано, или именем любой облачной службы в той же подписке, т. е. обратный DNS — contosoapp1.cloudapp.net.
-- При переадресации обратное полное доменное имя DNS разрешается в имя или IP-адрес облачной службы, для которой оно было указано, либо имя или IP-адрес любой облачной службы в той же подписке, т. е. обратный DNS — app1.contoso.net, представляющий собой псевдоним CName для contosoapp1.cloudapp.net.
+- The reverse DNS FQDN is the name of the Cloud Service for which it has been specified, or any Cloud Service name within the same subscription e.g., reverse DNS is “contosoapp1.cloudapp.net.”.
+- The reverse DNS FQDN forward resolves to the name or IP of the Cloud Service for which it has been specified, or to any Cloud Service name or IP within the same subscription e.g., reverse DNS is “app1.contoso.com.” which is a CName alias for contosoapp1.cloudapp.net.
 
-Проверки выполняются только в том случае, если задается или меняется свойство обратного DNS для облачной службы. Периодическая повторная проверка не выполняется.
+Validation checks are only performed when the reverse DNS property for a Cloud Service is set or modified. Periodic re-validation is not performed.
 
-## Добавление обратного DNS для существующих облачных служб
-Вы можете добавить обратную запись DNS для существующей облачной службы, используя командлет Set-AzureService.
+## <a name="add-reverse-dns-to-existing-cloud-services"></a>Add reverse DNS to existing Cloud Services
+You can add a reverse DNS record to an existing Cloud Service using the “Set-AzureService” cmdlet:
 
-	PS C:\> Set-AzureService –ServiceName “contosoapp1” –Description “App1 with Reverse DNS” –ReverseDnsFqdn “contosoapp1.cloudapp.net.”
+    PS C:\> Set-AzureService –ServiceName “contosoapp1” –Description “App1 with Reverse DNS” –ReverseDnsFqdn “contosoapp1.cloudapp.net.”
 
-## Создание облачной службы с обратным DNS
-Вы можете добавить новую облачную службу со свойством обратного DNS, указанного с помощью командлета Set-AzureService.
+## <a name="create-a-cloud-service-with-reverse-dns"></a>Create a Cloud Service with reverse DNS
+You can add a new Cloud Service with the reverse DNS property specified using the “Set-AzureService” cmdlet:
 
-	PS C:\> New-AzureService –ServiceName “contosoapp1” –Location “West US” –Description “App1 with Reverse DNS” –ReverseDnsFqdn “contosoapp1.cloudapp.net.”
+    PS C:\> New-AzureService –ServiceName “contosoapp1” –Location “West US” –Description “App1 with Reverse DNS” –ReverseDnsFqdn “contosoapp1.cloudapp.net.”
 
-## Просмотр обратного DNS существующих облачных служб
-Вы можете просмотреть настроенное значение существующей облачной службы с помощью командлета Get-AzureService.
+## <a name="view-reverse-dns-for-existing-cloud-services"></a>View reverse DNS for existing Cloud Services
+You can view the configured value for an existing Cloud Service using the “Get-AzureService” cmdlet:
 
-	PS C:\> Get-AzureService "contosoapp1"
+    PS C:\> Get-AzureService "contosoapp1"
 
-## Удаление обратного DNS существующих облачных служб
-Вы можете удалить свойство обратного DNS из существующей облачной службы с помощью командлета Set-AzureService. Для этого нужно указать пустое значение свойства обратного DNS.
+## <a name="remove-reverse-dns-from-existing-cloud-services"></a>Remove reverse DNS from existing Cloud Services
+You can remove a reverse DNS property from an existing Cloud Service using the “Set-AzureService” cmdlet. This is done by setting the reverse DNS property value to blank:
 
-	PS C:\> Set-AzureService –ServiceName “contosoapp1” –Description “App1 with Reverse DNS” –ReverseDnsFqdn “”
+    PS C:\> Set-AzureService –ServiceName “contosoapp1” –Description “App1 with Reverse DNS” –ReverseDnsFqdn “”
 
-[AZURE.INCLUDE [ЧАСТО ЗАДАВАЕМЫЕ ВОПРОСЫ](../../includes/dns-reverse-dns-record-operations-faq-asm-include.md)]
+[AZURE.INCLUDE [FAQ](../../includes/dns-reverse-dns-record-operations-faq-asm-include.md)]
 
-<!---HONumber=AcomDC_0907_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,79 +1,81 @@
-## Группа безопасности сети
-Ресурс NSG позволяет создать периметр безопасности для рабочих нагрузок путем реализации разрешающих и запрещающих правил. Такие правила могут быть применены к виртуальной машине, сетевой карте или подсети.
+## <a name="network-security-group"></a>Network Security Group
+An NSG resource enables the creation of security boundary for workloads, by implementing allow and deny rules. Such rules can be applied to a VM, a NIC, or a subnet.
 
-|Свойство|Описание|Примеры значений|
+|Property|Description|Sample values|
 |---|---|---|
-|**Подсети**|Список идентификаторов подсетей, к которым применена группа безопасности сети.|/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/FrontEnd|
-|**securityRules**|Список правил безопасности, которые определяют группу безопасности сети.|См. раздел [Правило безопасности](#Security-rule) ниже.|
-|**defaultSecurityRules**|Список правил безопасности по умолчанию в каждой группе безопасности сети.|См. раздел [Правила безопасности по умолчанию](#Default-security-rules) ниже.|
+|**subnets**|List of subnet ids the NSG is applied to.|/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/FrontEnd|
+|**securityRules**|List of security rules that make up the NSG|See [Security rule](#Security-rule) below|
+|**defaultSecurityRules**|List of default security rules present in every NSG|See [Default security rules](#Default-security-rules) below|
 
-- **Правило безопасности**: для NSG можно определить несколько правил безопасности. Каждое правило может разрешать или запрещать различные типы трафика.
+- **Security rule** - An NSG can have multiple security rules defined. Each rule can allow or deny different types of traffic.
 
-### Правило безопасности
-Правило безопасности является дочерним ресурсом группы безопасности сети, содержащим описанные ниже свойства.
+### <a name="security-rule"></a>Security rule
+A security rule is a child resource of an NSG containing the properties below.
 
-|Свойство|Описание|Примеры значений|
+|Property|Description|Sample values|
 |---|---|---|
-|**description**|Описание правила.|Разрешить входящий трафик для всех виртуальных машин в подсети X.|
-|**protocol**|Протокол правила для сопоставления.|TCP, UDP или *|
-|**sourcePortRange**|Диапазон портов источника правила для сопоставления.|80, 100-200, *|
-|**destinationPortRange**|Диапазон портов назначения правила для сопоставления.|80, 100-200, *| 
-|**sourceAddressPrefix**|Префикс адреса источника правила для сопоставления.|10\.10.10.1, 10.10.10.0/24, VirtualNetwork|
-|**destinationAddressPrefix**|Префикс адреса назначения правила для сопоставления.|10\.10.10.1, 10.10.10.0/24, VirtualNetwork|
-|**direction**|Направление трафика правила для сопоставления.|inbound или outbound|
-|**priority**|Приоритет правила. Правила проверяются в порядке приоритета. Когда применяется правило, соответствие дополнительным правилам не проверяется.|10, 100, 65000|
-|**access**|Тип доступа, применяемый при соответствии правилу.|allow или deny|
+|**description**|Description for the rule|Allow inbound traffic for all VMs in subnet X|
+|**protocol**|Protocol to match for the rule|TCP, UDP, or *|
+|**sourcePortRange**|Source port range to match for the rule|80, 100-200, *|
+|**destinationPortRange**|Destination port range to match for the rule|80, 100-200, *|
+|**sourceAddressPrefix**|Source address prefix to match for the rule|10.10.10.1, 10.10.10.0/24, VirtualNetwork|
+|**destinationAddressPrefix**|Destination address prefix to match for the rule|10.10.10.1, 10.10.10.0/24, VirtualNetwork|
+|**direction**|Direction of traffic to match for the rule|inbound or outbound|
+|**priority**|Priority for the rule. Rules are checked int he order of priority, once a rule applies, no more rules are tested for matching.|10, 100, 65000|
+|**access**|Type of access to apply if the rule matches|allow or deny|
 
-Пример группы безопасности сети в формате JSON:
+Sample NSG in JSON format:
 
-	{
-	    "name": "NSG-BackEnd",
-	    "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/networkSecurityGroups/NSG-BackEnd",
-	    "etag": "W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"",
-	    "type": "Microsoft.Network/networkSecurityGroups",
-	    "location": "westus",
-	    "tags": {
-	        "displayName": "NSG - Front End"
-	    },
-	    "properties": {
-	        "provisioningState": "Succeeded",
-	        "resourceGuid": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-	        "securityRules": [
-	            {
-	                "name": "rdp-rule",
-	                "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/networkSecurityGroups/NSG-BackEnd/securityRules/rdp-rule",
-	                "etag": "W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"",
-	                "properties": {
-	                    "provisioningState": "Succeeded",
-	                    "description": "Allow RDP",
-	                    "protocol": "Tcp",
-	                    "sourcePortRange": "*",
-	                    "destinationPortRange": "3389",
-	                    "sourceAddressPrefix": "Internet",
-	                    "destinationAddressPrefix": "*",
-	                    "access": "Allow",
-	                    "priority": 100,
-	                    "direction": "Inbound"
-	                }
-	            }
-	        ],
-	        "defaultSecurityRules": [
-	            { [...],
-	        "subnets": [
-	            {
-	                "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/FrontEnd"
-	            }
-	        ]
-	    }
-	}
+    {
+        "name": "NSG-BackEnd",
+        "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/networkSecurityGroups/NSG-BackEnd",
+        "etag": "W/\"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx\"",
+        "type": "Microsoft.Network/networkSecurityGroups",
+        "location": "westus",
+        "tags": {
+            "displayName": "NSG - Front End"
+        },
+        "properties": {
+            "provisioningState": "Succeeded",
+            "resourceGuid": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+            "securityRules": [
+                {
+                    "name": "rdp-rule",
+                    "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/networkSecurityGroups/NSG-BackEnd/securityRules/rdp-rule",
+                    "etag": "W/\"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx\"",
+                    "properties": {
+                        "provisioningState": "Succeeded",
+                        "description": "Allow RDP",
+                        "protocol": "Tcp",
+                        "sourcePortRange": "*",
+                        "destinationPortRange": "3389",
+                        "sourceAddressPrefix": "Internet",
+                        "destinationAddressPrefix": "*",
+                        "access": "Allow",
+                        "priority": 100,
+                        "direction": "Inbound"
+                    }
+                }
+            ],
+            "defaultSecurityRules": [
+                { [...],
+            "subnets": [
+                {
+                    "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/FrontEnd"
+                }
+            ]
+        }
+    }
 
-### Правила безопасности по умолчанию
-Правила безопасности по умолчанию имеют те же свойства, что и правила безопасности. Они существуют для обеспечения базовых подключений между ресурсами, к которым применены группы безопасности сети. Убедитесь, что знаете, какие существуют [правила безопасности по умолчанию](../articles/virtual-network/virtual-networks-nsg.md#Default-Rules).
+### <a name="default-security-rules"></a>Default security rules
+Default security rules have the same properties available in security rules. They exist to provide basic connectivity between resources that have NSGs applied to them. Make sure you know which [default security rules](../articles/virtual-network/virtual-networks-nsg.md#Default-Rules) exist. 
 
-### Дополнительные ресурсы
+### <a name="additional-resources"></a>Additional resources
 
-- Более подробная информация о [группах безопасности сети](../articles/virtual-network/virtual-networks-nsg.md).
-- Прочитайте [справочную документацию по REST API](https://msdn.microsoft.com/library/azure/mt163615.aspx) для групп безопасности сети.
-- Прочитайте [справочную документацию по REST API](https://msdn.microsoft.com/library/azure/mt163580.aspx) для правил безопасности.
+- Get more information about [NSGs](../articles/virtual-network/virtual-networks-nsg.md).
+- Read the [REST API reference documentation](https://msdn.microsoft.com/library/azure/mt163615.aspx) for NSGs.
+- Read the [REST API reference documentation](https://msdn.microsoft.com/library/azure/mt163580.aspx) for security rules.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,54 +1,56 @@
 <properties
-	pageTitle="Руководство. Приступая к работе с клиентом Python пакетной службы Azure | Microsoft Azure"
-	description="Основные понятия пакетной службы Azure и использование пакетной службы в простом сценарии"
-	services="batch"
-	documentationCenter="python"
-	authors="mmacy"
-	manager="timlt"
-	editor=""/>
+    pageTitle="Tutorial - Get started with the Azure Batch Python client | Microsoft Azure"
+    description="Learn the basic concepts of Azure Batch and how to develop the Batch service with a simple scenario"
+    services="batch"
+    documentationCenter="python"
+    authors="mmacy"
+    manager="timlt"
+    editor=""/>
 
 <tags
-	ms.service="batch"
-	ms.devlang="python"
-	ms.topic="hero-article"
-	ms.tgt_pltfrm="na"
-	ms.workload="big-compute"
-	ms.date="09/27/2016"
-	ms.author="marsma"/>
+    ms.service="batch"
+    ms.devlang="python"
+    ms.topic="hero-article"
+    ms.tgt_pltfrm="na"
+    ms.workload="big-compute"
+    ms.date="09/27/2016"
+    ms.author="marsma"/>
 
-# Приступая к работе с клиентом Python пакетной службы Azure
+
+# <a name="get-started-with-the-azure-batch-python-client"></a>Get started with the Azure Batch Python client
 
 > [AZURE.SELECTOR]
 - [.NET](batch-dotnet-get-started.md)
 - [Python](batch-python-tutorial.md)
 
-Здесь представлены основные сведения о [пакетной службе Azure][azure_batch] и клиенте [Python пакетной службы][py_azure_sdk] в рамках обсуждения небольшого приложения пакетной службы Azure, написанного на языке Python. Мы рассмотрим, как два примера скрипта используют пакетную службу для обработки параллельной рабочей нагрузки на виртуальных машинах Linux в облаке и взаимодействуют со [службой хранилища Azure](./../storage/storage-introduction.md) при промежуточном хранении и извлечении файлов. Вы узнаете об общем рабочем процессе приложения пакетной службы и получите базовые знания о главных компонентах пакетной службы, например заданиях, задачах, пулах и вычислительных узлах.
+Learn the basics of [Azure Batch][azure_batch] and the [Batch Python][py_azure_sdk] client as we discuss a small Batch application written in Python. We look at how two sample scripts use the Batch service to process a parallel workload on Linux virtual machines in the cloud, and how they interact with [Azure Storage](./../storage/storage-introduction.md) for file staging and retrieval. You'll learn a common Batch application workflow and gain a base understanding of the major components of Batch such as jobs, tasks, pools, and compute nodes.
 
-![Рабочий процесс решения пакетной службы (основной)][11]<br/>
+![Batch solution workflow (basic)][11]<br/>
 
-## Предварительные требования
+## <a name="prerequisites"></a>Prerequisites
 
-В этой статье предполагается, что вы уже работали с Python и знаете, как работать в Linux. Также предполагается, что вы можете выполнить требования к созданию учетной записи для службы хранилища и пакетной службы Azure. Эти требования перечислены ниже.
+This article assumes that you have a working knowledge of Python and familiarity with Linux. It also assumes that you're able to satisfy the account creation requirements that are specified below for Azure and the Batch and Storage services.
 
-### Учетные записи
+### <a name="accounts"></a>Accounts
 
-- **Учетная запись Azure**. Если у вас еще нет подписки Azure, [создайте бесплатную учетную запись Azure][azure_free_account].
-- **Учетная запись пакетной службы**. Если у вас есть подписка Azure, [создайте учетную запись пакетной службы Azure](batch-account-create-portal.md).
-- **Учетная запись хранения**. См. раздел [Создание учетной записи хранения](../storage/storage-create-storage-account.md#create-a-storage-account) в статье [Об учетных записях хранения Azure](../storage/storage-create-storage-account.md).
+- **Azure account**: If you don't already have an Azure subscription, [create a free Azure account][azure_free_account].
+- **Batch account**: Once you have an Azure subscription, [create an Azure Batch account](batch-account-create-portal.md).
+- **Storage account**: See [Create a storage account](../storage/storage-create-storage-account.md#create-a-storage-account) in [About Azure storage accounts](../storage/storage-create-storage-account.md).
 
-### Пример кода
+### <a name="code-sample"></a>Code sample
 
-[Пример кода][github_article_samples] Python для руководства — это один из многих примеров кода пакетной службы в репозитории [azure-batch-samples][github_samples] на сайте GitHub. Чтобы скачать все примеры, на домашней странице репозитория последовательно выберите **Clone or download (Клонировать или скачать) > Download ZIP (Скачать ZIP-файл)** или щелкните ссылку [azure-batch-samples-master.zip][github_samples_zip] и скачайте их напрямую. После извлечения содержимого ZIP-файла оба сценария для этого руководства будут находиться в каталоге `article_samples`:
+The Python tutorial [code sample][github_article_samples] is one of the many Batch code samples found in the [azure-batch-samples][github_samples] repository on GitHub. You can download all the samples by clicking  **Clone or download > Download ZIP** on the repository home page, or by clicking the [azure-batch-samples-master.zip][github_samples_zip] direct download link. Once you've extracted the contents of the ZIP file, the two scripts for this tutorial are found in the `article_samples` directory:
 
-`/azure-batch-samples/Python/Batch/article_samples/python_tutorial_client.py`<br/> `/azure-batch-samples/Python/Batch/article_samples/python_tutorial_task.py`
+`/azure-batch-samples/Python/Batch/article_samples/python_tutorial_client.py`<br/>
+`/azure-batch-samples/Python/Batch/article_samples/python_tutorial_task.py`
 
-### Среда Python
+### <a name="python-environment"></a>Python environment
 
-Чтобы запустить пример скрипта *python\_tutorial\_client.py* на локальной рабочей станции, необходим **интерпретатор Python**, совместимый с версией **2.7** или **3.3+**. Сценарий прошел испытания в Linux и Windows.
+To run the *python_tutorial_client.py* sample script on your local workstation, you need a **Python interpreter** compatible with version **2.7** or **3.3+**. The script has been tested on both Linux and Windows.
 
-### Зависимости шифрования
+### <a name="cryptography-dependencies"></a>cryptography dependencies
 
-Для библиотеки [шифрования][crypto], которая требуется пакетам Python `azure-batch` и `azure-storage`, необходимо установить зависимости. Выполните одну из следующих операций, подходящих для вашей платформы, или обратитесь к сведениям об [установке шифрования][crypto_install]\:
+You must install the dependencies for the [cryptography][crypto] library, required by the `azure-batch` and `azure-storage` Python packages. Perform one of the following operations appropriate for your platform, or refer to the [cryptography installation][crypto_install] details for more information:
 
 * Ubuntu
 
@@ -66,45 +68,56 @@
 
     `pip install cryptography`
 
->[AZURE.NOTE] При установке для версии Python 3.3+ в Linux используйте эквиваленты python3 для зависимостей Python. Например, в Ubuntu: `apt-get update && apt-get install -y build-essential libssl-dev libffi-dev libpython3-dev python3-dev`
+>[AZURE.NOTE] If installing for Python 3.3+ on Linux, use the python3 equivalents for the Python dependencies. For example, on Ubuntu: `apt-get update && apt-get install -y build-essential libssl-dev libffi-dev libpython3-dev python3-dev`
 
-### Пакеты Azure
+### <a name="azure-packages"></a>Azure packages
 
-Далее установите пакеты Python **пакетной службы Azure** и **службы хранилища Azure**. Это можно сделать с помощью команды **pip** и файла *requirements.txt*, который находится здесь:
+Next, install the **Azure Batch** and **Azure Storage** Python packages. You can do this with **pip** and the *requirements.txt* found here:
 
-.`/azure-batch-samples/Python/Batch/requirements.txt`
+`/azure-batch-samples/Python/Batch/requirements.txt`
 
-Выполните команду **pip**, чтобы установить пакеты службы хранения и пакетной службы.
+Issue following **pip** command to install the Batch and Storage packages:
 
 `pip install -r requirements.txt`
 
-Кроме того, пакеты Python [azure-batch][pypi_batch] и [azure-storage][pypi_storage] можно установить вручную.
+Or, you can install the [azure-batch][pypi_batch] and [azure-storage][pypi_storage] Python packages manually:
 
-`pip install azure-batch`<br/> `pip install azure-storage`
+`pip install azure-batch`<br/>
+`pip install azure-storage`
 
-> [AZURE.TIP] Если вы используете непривилегированную учетную запись, может понадобиться добавить к команде префикс `sudo`. Например, `sudo pip install -r requirements.txt`. Дополнительные сведения об установке пакетов Python см. в статье [Installing Packages][pypi_install] (Установка пакетов) на сайте readthedocs.io.
+> [AZURE.TIP] You may need to prefix your commands with `sudo` if you are using an unprivileged account. For example, `sudo pip install -r requirements.txt`. For more information on installing Python packages, see [Installing Packages][pypi_install] on readthedocs.io.
 
-## Пример кода Python для руководства по пакетной службе
+## <a name="batch-python-tutorial-code-sample"></a>Batch Python tutorial code sample
 
-Пример кода Python для руководства по пакетной службе состоит из двух сценариев Python и нескольких файлов данных:
+The Batch Python tutorial code sample consists of two Python scripts and a few data files.
 
-- **python\_tutorial\_client.py** взаимодействует с пакетной службой и службой хранилища, чтобы выполнять параллельную рабочую нагрузку на вычислительных узлах (виртуальных машинах). Скрипт *python\_tutorial\_client.py* выполняется на локальной рабочей станции.
+- **python_tutorial_client.py**: Interacts with the Batch and Storage services to execute a parallel workload on compute nodes (virtual machines). The *python_tutorial_client.py* script runs on your local workstation.
 
-- **python\_tutorial\_task.py** — это скрипт, который запускается на вычислительных узлах в Azure, чтобы выполнять фактическую работу. В этом примере *python\_tutorial\_task.py* анализирует текст во входном файле, скачанном из службы хранилища Azure. Затем он создает текстовый файл (выходной файл), который содержит список из трех наиболее часто употребляемых слов во входном файле. После создания выходного файла *python\_tutorial\_task.py* отправляет его в службу хранилища Azure. После этого он станет доступен для скачивания в сценарий клиента, запущенного на рабочей станции. Скрипт *python\_tutorial\_task.py* выполняется параллельно на нескольких вычислительных узлах в пакетной службе.
+- **python_tutorial_task.py**: The script that runs on compute nodes in Azure to perform the actual work. In the sample, *python_tutorial_task.py* parses the text in a file downloaded from Azure Storage (the input file). Then it produces a text file (the output file) that contains a list of the top three words that appear in the input file. After it creates the output file, *python_tutorial_task.py* uploads the file to Azure Storage. This makes it available for download to the client script running on your workstation. The *python_tutorial_task.py* script runs in parallel on multiple compute nodes in the Batch service.
 
-- Три текстовых файла **./data/taskdata*.txt** обеспечивают ввод данных для задач, которые выполняются на вычислительных узлах.
+- **./data/taskdata\*.txt**: These three text files provide the input for the tasks that run on the compute nodes.
 
-На следующей схеме показаны основные операции, выполняемые с помощью сценариев клиента и задач. Этот основной рабочий процесс является типичным для многих вычислительных решений, созданных с помощью пакетной службы. Хотя он не демонстрирует все возможности, доступные в пакетной службе, почти все ее сценарии включают в себя части этого рабочего процесса.
+The following diagram illustrates the primary operations that are performed by the client and task scripts. This basic workflow is typical of many compute solutions that are created with Batch. While it does not demonstrate every feature available in the Batch service, nearly every Batch scenario includes portions of this workflow.
 
-![Пример рабочего процесса пакетной службы][8]<br/>
+![Batch example workflow][8]<br/>
 
-[**Шаг 1.**](#step-1-create-storage-containers) Создайте **контейнеры** в хранилище BLOB-объектов Azure.<br/> [**Шаг 2.**](#step-2-upload-task-script-and-data-files) Отправьте скрипт задач и входные файлы в контейнеры.<br/> [**Шаг 3.**](#step-3-create-batch-pool) Создайте **пул** пакетной службы.<br/> &nbsp;&nbsp;&nbsp;&nbsp;**3.1.** Задача **StartTask** пула скачивает скрипт задач (python\_tutorial\_task.py) на узлы во время их присоединения к пулу.<br/> [**Шаг 4.**](#step-4-create-batch-job) Создайте **задание** пакетной службы.<br/> [**Шаг 5.**](#step-5-add-tasks-to-job) Добавьте **задачи** в задание.<br/> &nbsp;&nbsp;&nbsp;&nbsp;**5.1.** Планируется выполнение задач на узлах.<br/> &nbsp;&nbsp;&nbsp;&nbsp;**5.2.** Каждая задача скачивает свои входные данные из службы хранилища Azure, а затем начинает выполнение.<br/> [**Шаг 6.**](#step-6-monitor-tasks) Отслеживайте задачи.<br/> &nbsp;&nbsp;&nbsp;&nbsp;**6.1.** После выполнения задач их выходные данные отправляются в службу хранилища Azure.<br/> [**Шаг 7.**](#step-7-download-task-output) Скачайте выходные данные задачи из службы хранилища.
+[**Step 1.**](#step-1-create-storage-containers) Create **containers** in Azure Blob Storage.<br/>
+[**Step 2.**](#step-2-upload-task-script-and-data-files) Upload task script and input files to containers.<br/>
+[**Step 3.**](#step-3-create-batch-pool) Create a Batch **pool**.<br/>
+  &nbsp;&nbsp;&nbsp;&nbsp;**3a.** The pool **StartTask** downloads the task script (python_tutorial_task.py) to nodes as they join the pool.<br/>
+[**Step 4.**](#step-4-create-batch-job) Create a Batch **job**.<br/>
+[**Step 5.**](#step-5-add-tasks-to-job) Add **tasks** to the job.<br/>
+  &nbsp;&nbsp;&nbsp;&nbsp;**5a.** The tasks are scheduled to execute on nodes.<br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;**5b.** Each task downloads its input data from Azure Storage, then begins execution.<br/>
+[**Step 6.**](#step-6-monitor-tasks) Monitor tasks.<br/>
+  &nbsp;&nbsp;&nbsp;&nbsp;**6a.** As tasks are completed, they upload their output data to Azure Storage.<br/>
+[**Step 7.**](#step-7-download-task-output) Download task output from Storage.
 
-Как уже упоминалось, не каждое решение пакетной службы будет выполнять именно эти шаги. Некоторые решения могут выполнять больше действий, но этот пример демонстрирует общие процессы в решении пакетной службы.
+As mentioned, not every Batch solution performs these exact steps, and may include many more, but this sample demonstrates common processes found in a Batch solution.
 
-## Подготовка сценария клиента
+## <a name="prepare-client-script"></a>Prepare client script
 
-Прежде чем запустить пример, добавьте учетные данные учетных записей пакетной службы и службы хранилища в скрипт *python\_tutorial\_client.py*. Откройте файл в своем редакторе и обновите следующие строки, используя учетные данные, если еще не сделали этого.
+Before you run the sample, add your Batch and Storage account credentials to *python_tutorial_client.py*. If you have not done so already, open the file in your favorite editor and update the following lines with your credentials.
 
 ```python
 # Update the Batch and Storage account credential strings below with the values
@@ -121,29 +134,31 @@ storage_account_name = "";
 storage_account_key  = "";
 ```
 
-Учетные данные учетных записей пакетной службы и службы хранилища можно найти в колонке учетной записи каждой службы на [портале Azure][azure_portal].
+You can find your Batch and Storage account credentials within the account blade of each service in the [Azure portal][azure_portal]:
 
-![Учетные данные пакетной службы на портале][9] ![Учетные данные службы хранилища на портале][10]<br/>
+![Batch credentials in the portal][9]
+![Storage credentials in the portal][10]<br/>
 
-В следующих разделах мы проанализируем шаги, выполняемые в скриптах для обработки рабочей нагрузки в пакетной службе. Во время работы с оставшейся частью статьи рекомендуем регулярно просматривать сценарии в редакторе.
+In the following sections, we analyze the steps used by the scripts to process a workload in the Batch service. We encourage you to refer regularly to the scripts in your editor while you work your way through the rest of the article.
 
-Перейдите на следующую строку в скрипте **python\_tutorial\_client.py**, чтобы выполнить шаг 1.
+Navigate to the following line in **python_tutorial_client.py** to start with Step 1:
 
 ```python
 if __name__ == '__main__':
 ```
 
-## Шаг 1. Создание контейнеров службы хранилища
+## <a name="step-1:-create-storage-containers"></a>Step 1: Create Storage containers
 
-![Создание контейнеров в службе хранилища Azure][1] <br/>
+![Create containers in Azure Storage][1]
+<br/>
 
-Пакетная служба включает встроенную поддержку для взаимодействия со службой хранилища Azure. Контейнеры в учетной записи хранения предоставляют файлы, которые нужны для выполнения задач, запускаемых в вашей учетной записи пакетной службы. Контейнеры также предоставляют место для хранения выходных данных, создаваемых задачами. Сначала скрипт *python\_tutorial\_client.py* создает три контейнера в [хранилище BLOB-объектов Azure](../storage/storage-introduction.md#blob-storage).
+Batch includes built-in support for interacting with Azure Storage. Containers in your Storage account will provide the files needed by the tasks that run in your Batch account. The containers also provide a place to store the output data that the tasks produce. The first thing the *python_tutorial_client.py* script does is create three containers in [Azure Blob Storage](../storage/storage-introduction.md#blob-storage):
 
-- **application** — в этом контейнере будет храниться скрипт Python *python\_tutorial\_task.py*, выполняемый задачами.
-- **input** — задачи будут скачивать файлы данных, которые они должны обрабатывать, из контейнера *input*.
-- **output** — после завершения обработки входных файлов задачи будут отправлять результаты обработки в контейнер *output*.
+- **application**: This container will store the Python script run by the tasks, *python_tutorial_task.py*.
+- **input**: Tasks will download the data files to process from the *input* container.
+- **output**: When tasks complete input file processing, they will upload the results to the *output* container.
 
-Чтобы скрипт мог взаимодействовать с учетной записью службы хранилища и создавать контейнеры, мы используем пакет [azure-storage][pypi_storage] для создания объекта [BlockBlobService][py_blockblobservice], клиента службы BLOB-объектов. Затем с помощью клиента BLOB-объектов мы создадим три контейнера в учетной записи службы хранилища.
+In order to interact with a Storage account and create containers, we use the [azure-storage][pypi_storage] package to create a [BlockBlobService][py_blockblobservice] object--the "blob client." We then create three containers in the Storage account using the blob client.
 
 ```python
  # Create the blob client, for use in obtaining references to
@@ -162,15 +177,16 @@ if __name__ == '__main__':
  blob_client.create_container(output_container_name, fail_on_exist=False)
 ```
 
-Когда контейнеры будут созданы, приложение сможет отправлять файлы, которые будут использоваться задачами.
+Once the containers have been created, the application can now upload the files that will be used by the tasks.
 
-> [AZURE.TIP] Статья ["Приступая к работе с хранилищем BLOB-объектов Azure с помощью Python"](../storage/storage-python-how-to-use-blob-storage.md) содержит хороший обзор работы с контейнерами службы хранилища Azure и большими двоичными объектами. Вы должны ознакомиться с этой статьей, прежде чем приступать к работе с пакетной службой.
+> [AZURE.TIP] [How to use Azure Blob storage from Python](../storage/storage-python-how-to-use-blob-storage.md) provides a good overview of working with Azure Storage containers and blobs. It should be near the top of your reading list as you start working with Batch.
 
-## Шаг 2. Отправка сценария задач и файлов данных
+## <a name="step-2:-upload-task-script-and-data-files"></a>Step 2: Upload task script and data files
 
-![Отправка файлов приложения и входных данных в контейнеры][2] <br/>
+![Upload task application and input (data) files to containers][2]
+<br/>
 
-Во время отправки файлов скрипт *python\_tutorial\_client.py* сначала определяет коллекции путей к файлам **application** и **input** на локальном компьютере. Затем оно отправляет эти файлы в контейнеры, созданные в рамках предыдущего шага.
+In the file upload operation, *python_tutorial_client.py* first defines collections of **application** and **input** file paths as they exist on the local machine. Then it uploads these files to the containers that you created in the previous step.
 
 ```python
  # Paths to the task script. This script will be executed by the tasks that
@@ -196,7 +212,7 @@ if __name__ == '__main__':
      for file_path in input_file_paths]
 ```
 
-Списковое выражение вызывает функцию `upload_file_to_container` для каждого файла в коллекциях, а затем заполняются две коллекции [ResourceFile][py_resource_file]. Функция `upload_file_to_container` показана ниже.
+Using list comprehension, the `upload_file_to_container` function is called for each file in the collections, and two [ResourceFile][py_resource_file] collections are populated. The `upload_file_to_container` function appears below:
 
 ```
 def upload_file_to_container(block_blob_client, container_name, file_path):
@@ -234,34 +250,35 @@ def upload_file_to_container(block_blob_client, container_name, file_path):
                                     blob_source=sas_url)
 ```
 
-### ResourceFiles
+### <a name="resourcefiles"></a>ResourceFiles
 
-Объект [ResourceFile][py_resource_file] передает задачи в пакетную службу с URL-адресом файла в службе хранилища Azure, который будет скачан на вычислительный узел перед выполнением этой задачи. Свойство [ResourceFile][py_resource_file].**blob\_source** указывает полный URL-адрес файла, по которому его можно найти в службе хранилища Azure. URL-адрес может также включать подписанный URL-адрес (SAS), который обеспечивает безопасный доступ к файлу. Большинство типов задач в пакетной службе, в том числе перечисленные ниже, содержат свойство *ResourceFiles*.
+A [ResourceFile][py_resource_file] provides tasks in Batch with the URL to a file in Azure Storage that is downloaded to a compute node before that task is run. The [ResourceFile][py_resource_file].**blob_source** property specifies the full URL of the file as it exists in Azure Storage. The URL may also include a shared access signature (SAS) that provides secure access to the file. Most task types in Batch include a *ResourceFiles* property, including:
 
 - [CloudTask][py_task]
 - [StartTask][py_starttask]
 - [JobPreparationTask][py_jobpreptask]
 - [JobReleaseTask][py_jobreltask]
 
-В этом примере не используются типы задач JobPreparationTask или JobReleaseTask, но о них можно узнать больше из статьи [Выполнение задач подготовки и завершения заданий на вычислительных узлах пакетной службы Azure](batch-job-prep-release.md).
+This sample does not use the JobPreparationTask or JobReleaseTask task types, but you can read more about them in [Run job preparation and completion tasks on Azure Batch compute nodes](batch-job-prep-release.md).
 
-### Подписанный URL-адрес (SAS)
+### <a name="shared-access-signature-(sas)"></a>Shared access signature (SAS)
 
-Подписанные URL-адреса — это строки, которые предоставляют безопасный доступ к контейнерам и большим двоичным объектам в службе хранилища Azure. Скрипт *python\_tutorial\_client.py* использует подписанные URL-адреса (SAS) как контейнеров, так и больших двоичных объектов. Он демонстрирует, как получить эти строки подписанных URL-адресов из службы хранилища.
+Shared access signatures are strings that provide secure access to containers and blobs in Azure Storage. The *python_tutorial_client.py* script uses both blob and container shared access signatures, and demonstrates how to obtain these shared access signature strings from the Storage service.
 
-- **Подписанные URL-адреса больших двоичных объектов**. Задача StartTask пула использует подписанные URL-адреса больших двоичных объектов во время скачивания скрипта заданий и файлов входных данных из службы хранилища (см. [шаг 3](#step-3-create-batch-pool) ниже). Функция `upload_file_to_container` в *python\_tutorial\_client.py* содержит код, который получает подписанный URL-адрес каждого большого двоичного объекта. Для этого в модуле службы хранилища вызывается [BlockBlobService.make\_blob\_url][py_make_blob_url].
+- **Blob shared access signatures**: The pool's StartTask uses blob shared access signatures when it downloads the task script and input data files from Storage (see [Step #3](#step-3-create-batch-pool) below). The `upload_file_to_container` function in *python_tutorial_client.py* contains the code that obtains each blob's shared access signature. It does so by calling [BlockBlobService.make_blob_url][py_make_blob_url] in the Storage module.
 
-- **Подписанный URL-адрес контейнера**. Когда каждая задача завершает работу на вычислительном узле, она отправляет свой выходной файл в контейнер *output* в службе хранилища Azure. Для этого *python\_tutorial\_task.py* использует подписанный URL-адрес контейнера, который предоставляет доступ на запись в контейнер. Функция `get_container_sas_token` в *python\_tutorial\_client.py* получает подписанный URL-адрес контейнера, который затем передается в задачи в качестве аргумента командной строки. На шаге 5 [Добавление задач в задание](#step-5-add-tasks-to-job) описывается использование SAS контейнера.
+- **Container shared access signature**: As each task finishes its work on the compute node, it uploads its output file to the *output* container in Azure Storage. To do so, *python_tutorial_task.py* uses a container shared access signature that provides write access to the container. The `get_container_sas_token` function in *python_tutorial_client.py* obtains the container's shared access signature, which is then passed as a command-line argument to the tasks. Step #5, [Add tasks to a job](#step-5-add-tasks-to-job), discusses the usage of the container SAS.
 
-> [AZURE.TIP] Дополнительные сведения о предоставлении безопасного доступа к данным в своей учетной записи службы хранилища см. в серии из двух статей о подписанных URL-адресах: [Часть 1: общие сведения о модели SAS](../storage/storage-dotnet-shared-access-signature-part-1.md) и [Часть 2: создание и использование подписанного URL-адреса в службе BLOB-объектов](../storage/storage-dotnet-shared-access-signature-part-2.md).
+> [AZURE.TIP] Check out the two-part series on shared access signatures, [Part 1: Understanding the SAS model](../storage/storage-dotnet-shared-access-signature-part-1.md) and [Part 2: Create and use a SAS with the Blob service](../storage/storage-dotnet-shared-access-signature-part-2.md), to learn more about providing secure access to data in your Storage account.
 
-## Шаг 3. Создание пула пакетной службы
+## <a name="step-3:-create-batch-pool"></a>Step 3: Create Batch pool
 
-![Создание пула пакетной службы][3] <br/>
+![Create a Batch pool][3]
+<br/>
 
-**Пул** пакетной службы — это коллекция вычислительных узлов (виртуальных машин), на которых пакетная служба выполняет задачи задания.
+A Batch **pool** is a collection of compute nodes (virtual machines) on which Batch executes a job's tasks.
 
-После отправки скрипта задач и файлов данных в учетную запись службы хранилища *python\_tutorial\_client.py* начинает взаимодействие с пакетной службой, используя ее модуль Python. Для этого создается [BatchServiceClient][py_batchserviceclient].
+After it uploads the task script and data files to the Storage account, *python_tutorial_client.py* starts its interaction with the Batch service by using the Batch Python module. To do so, a [BatchServiceClient][py_batchserviceclient] is created:
 
 ```python
  # Create a Batch service client. We'll now be interacting with the Batch
@@ -274,7 +291,7 @@ def upload_file_to_container(block_blob_client, container_name, file_path):
      base_url=_BATCH_ACCOUNT_URL)
 ```
 
-Затем в учетной записи пакетной службы нужно создать пул вычислительных узлов, вызвав `create_pool`.
+Next, a pool of compute nodes is created in the Batch account with a call to `create_pool`.
 
 ```python
 def create_pool(batch_service_client, pool_id,
@@ -343,33 +360,33 @@ def create_pool(batch_service_client, pool_id,
         raise
 ```
 
-Во время создания пула необходимо определить [PoolAddParameter][py_pooladdparam], который указывает несколько свойств пула.
+When you create a pool, you define a [PoolAddParameter][py_pooladdparam] that specifies several properties for the pool:
 
-- **Идентификатор** пула (*id*, обязательное).<p/>Как и у большинства сущностей в пакетной службе, у нового пула должен быть идентификатор, уникальный в учетной записи этой службы. Код ссылается на этот пул, используя его идентификатор, по которому пул также можно найти на [портале][azure_portal] Azure.
+- **ID** of the pool (*id* - required)<p/>As with most entities in Batch, your new pool must have a unique ID within your Batch account. Your code refers to this pool using its ID, and it's how you identify the pool in the Azure [portal][azure_portal].
 
-- **Количество вычислительных узлов** (*target\_dedicated*, обязательное).<p/>Указывает, сколько виртуальных машин следует развернуть в пуле. Стоит отметить, что для всех учетных записей пакетной службы установлена **квота** по умолчанию, которая ограничивает количество **ядер** (и, следовательно, вычислительных узлов) в учетной записи. Дополнительные сведения о квотах по умолчанию и инструкцию по [увеличению квоты](batch-quota-limit.md#increase-a-quota) (например, максимального количества ядер в учетной записи пакетной службы) см. в статье [Квоты и ограничения пакетной службы Azure](batch-quota-limit.md). Если возник вопрос о том, почему пул не использует больше определенного количества узлов, причиной может быть квота на ядра.
+- **Number of compute nodes** (*target_dedicated* - required)<p/>This property specifies how many VMs should be deployed in the pool. It is important to note that all Batch accounts have a default **quota** that limits the number of **cores** (and thus, compute nodes) in a Batch account. You can find the default quotas and instructions on how to [increase a quota](batch-quota-limit.md#increase-a-quota) (such as the maximum number of cores in your Batch account) in [Quotas and limits for the Azure Batch service](batch-quota-limit.md). If you find yourself asking "Why won't my pool reach more than X nodes?" this core quota may be the cause.
 
-- **Операционная система** для узлов (*virtual\_machine\_configuration* **или** *cloud\_service\_configuration*, обязательно).<p/>В *python\_tutorial\_client.py* мы создадим пул узлов Linux с использованием [VirtualMachineConfiguration][py_vm_config]. Функция `select_latest_verified_vm_image_with_node_agent_sku` в `common.helpers` упрощает работу с образами из [магазина виртуальных машин Azure][vm_marketplace]. Дополнительные сведения об использовании образов из магазина см. в статье [Подготовка вычислительных узлов Linux в пулах пакетной службы Azure](batch-linux-nodes.md).
+- **Operating system** for nodes (*virtual_machine_configuration* **or** *cloud_service_configuration* - required)<p/>In *python_tutorial_client.py*, we create a pool of Linux nodes using a [VirtualMachineConfiguration][py_vm_config]. The `select_latest_verified_vm_image_with_node_agent_sku` function in `common.helpers` simplifies working with [Azure Virtual Machines Marketplace][vm_marketplace] images. See [Provision Linux compute nodes in Azure Batch pools](batch-linux-nodes.md) for more information about using Marketplace images.
 
-- **Размер вычислительных узлов**(*vm\_size*, обязательное).<p/>Так как мы указываем узлы Linux для [VirtualMachineConfiguration][py_vm_config], необходимо указать их размер (в этом примере — `STANDARD_A1`), как описано в статье [Размеры виртуальных машин в Azure](../virtual-machines/virtual-machines-linux-sizes.md). Дополнительные сведения см. в статье [Подготовка вычислительных узлов Linux в пулах пакетной службы Azure](batch-linux-nodes.md).
+- **Size of compute nodes** (*vm_size* - required)<p/>Since we're specifying Linux nodes for our [VirtualMachineConfiguration][py_vm_config], we specify a VM size (`STANDARD_A1` in this sample) from [Sizes for virtual machines in Azure](../virtual-machines/virtual-machines-linux-sizes.md). Again, see [Provision Linux compute nodes in Azure Batch pools](batch-linux-nodes.md) for more information.
 
-- **Задача запуска** (*start\_task*, необязательное).<p/>Вместе со свойствами физических узлов выше можно также указать [StartTask][py_starttask] для пула (необязательно). Задача StartTask выполняется на каждом узле по мере его присоединения к пулу, а также при каждом перезапуске узла. Она особенно полезна для подготовки вычислительных узлов к выполнению таких операций, как установка приложений, которые будут использовать задачи.<p/>В этом примере приложения задача StartTask копирует файлы, которые она скачивает из *рабочего каталога* StartTask службы хранилища (эти файлы указаны в свойстве **resource\_files** задачи StartTask) в *общий* каталог, к которому есть доступ у всех задач, выполняемых на узле. По сути, это обеспечивает копирование `python_tutorial_task.py` в общий каталог на каждом узле, когда узел присоединяется к пулу, чтобы к нему был доступ у всех задач, запускаемых на узле.
+- **Start task** (*start_task* - not required)<p/>Along with the above physical node properties, you may also specify a [StartTask][py_starttask] for the pool (it is not required). The StartTask executes on each node as that node joins the pool, and each time a node is restarted. The StartTask is especially useful for preparing compute nodes for the execution of tasks, such as installing the applications that your tasks run.<p/>In this sample application, the StartTask copies the files that it downloads from Storage (which are specified by using the StartTask's **resource_files** property) from the StartTask *working directory* to the *shared* directory that all tasks running on the node can access. Essentially, this copies `python_tutorial_task.py` to the shared directory on each node as the node joins the pool, so that any tasks that run on the node can access it.
 
-Вы могли заметить вызов вспомогательной функции `wrap_commands_in_shell`. Она использует коллекцию отдельных команд и создает одну соответствующую командную строку для свойства командной строки задачи.
+You may notice the call to the `wrap_commands_in_shell` helper function. This function takes a collection of separate commands and creates a single command line appropriate for a task's command line property.
 
-Обратите также внимание, что во фрагменте кода выше в свойстве **command\_line** задачи StartTask используются две переменные среды: `AZ_BATCH_TASK_WORKING_DIR` и `AZ_BATCH_NODE_SHARED_DIR`. На каждом вычислительном узле в пуле пакетной службы автоматически настраивается несколько переменных среды, характерных для пакетной службы. Любой процесс, выполняемый задачей, имеет доступ к этим переменным среды.
+Also notable in the code snippet above is the use of two environment variables in the **command_line** property of the StartTask: `AZ_BATCH_TASK_WORKING_DIR` and `AZ_BATCH_NODE_SHARED_DIR`. Each compute node within a Batch pool is automatically configured with several environment variables that are specific to Batch. Any process that is executed by a task has access to these environment variables.
 
-> [AZURE.TIP] Дополнительные сведения о переменных среды, доступных на вычислительных узлах в пуле пакетной службы, а также сведения о рабочих каталогах задач см. в разделах **Параметры среды для задач** и **Файлы и каталоги** статьи [с обзором функций пакетной службы Azure](batch-api-basics.md).
+> [AZURE.TIP] To find out more about the environment variables that are available on compute nodes in a Batch pool, as well as information on task working directories, see **Environment settings for tasks** and **Files and directories** in the [overview of Azure Batch features](batch-api-basics.md).
 
-## Шаг 4. Создание задания пакетной службы
+## <a name="step-4:-create-batch-job"></a>Step 4: Create Batch job
 
-![Создание задания пакетной службы][4]<br/>
+![Create Batch job][4]<br/>
 
-**Задание** пакетной службы — это коллекция задач, связанных с пулом вычислительных узлов. Задачи задания выполняются на вычислительных узлах связанного пула.
+A Batch **job** is a collection of tasks, and is associated with a pool of compute nodes. The tasks in a job execute on the associated pool's compute nodes.
 
-Вы можете использовать задание не только для упорядочивания и отслеживания задач в соответствующих рабочих нагрузках, но и для установления определенных ограничений, включая максимальное время выполнения задания (а следовательно, и его задач). При этом назначается приоритет задания относительно других заданий в учетной записи пакетной службы. Но в этом примере задание связано только с пулом, который был создан на шаге 3. Дополнительные свойства не настроены.
+You can use a job not only for organizing and tracking tasks in related workloads, but also for imposing certain constraints--such as the maximum runtime for the job (and by extension, its tasks) and job priority in relation to other jobs in the Batch account. In this example, however, the job is associated only with the pool that was created in step #3. No additional properties are configured.
 
-Все задания пакетной службы связаны с конкретным пулом. Эта связь указывает, в каких узлах выполняются задачи задания. Вам необходимо указать пул, используя свойство [PoolInformation][py_poolinfo], как показано в следующем фрагменте кода.
+All Batch jobs are associated with a specific pool. This association indicates which nodes the job's tasks execute on. You specify the pool by using the [PoolInformation][py_poolinfo] property, as shown in the code snippet below.
 
 ```python
 def create_job(batch_service_client, job_id, pool_id):
@@ -394,15 +411,16 @@ def create_job(batch_service_client, job_id, pool_id):
         raise
 ```
 
-В созданное задание добавляются задачи для выполнения работы.
+Now that a job has been created, tasks are added to perform the work.
 
-## Шаг 5. Добавление задач в задание
+## <a name="step-5:-add-tasks-to-job"></a>Step 5: Add tasks to job
 
-![Добавление задач в задание][5]<br/> *(1) Задачи добавляются в задание, (2) планируется запуск задач на узлах, (3) задачи скачивают файлы данных для обработки*
+![Add tasks to job][5]<br/>
+*(1) Tasks are added to the job, (2) the tasks are scheduled to run on nodes, and (3) the tasks download the data files to process*
 
-**Задачи** пакетной службы представляют собой отдельные рабочие единицы, выполняемые на вычислительных узлах. У задачи есть командная строка, она запускает сценарии или исполняемые файлы, указанные в этой строке.
+Batch **tasks** are the individual units of work that execute on the compute nodes. A task has a command line and runs the scripts or executables that you specify in that command line.
 
-Для фактического выполнения работы необходимо добавить задачи в задание. Каждая задача [CloudTask][py_task] (как и задача StartTask пула) настраивается с помощью свойства командной строки и объекта [ResourceFiles][py_resource_file], который она скачивает на узел до автоматического выполнения ее командной строки. В этом примере каждая задача обрабатывает только один файл. Поэтому его коллекция ResourceFiles содержит один элемент.
+To actually perform work, tasks must be added to a job. Each [CloudTask][py_task] is configured with a command line property and [ResourceFiles][py_resource_file] (as with the pool's StartTask) that the task downloads to the node before its command line is automatically executed. In the sample, each task processes only one file. Thus, its ResourceFiles collection contains a single element.
 
 ```python
 def add_tasks(batch_service_client, job_id, input_files,
@@ -446,19 +464,19 @@ def add_tasks(batch_service_client, job_id, input_files,
     batch_service_client.task.add_collection(job_id, tasks)
 ```
 
-> [AZURE.IMPORTANT] При получении доступа к переменным среды, таким как `$AZ_BATCH_NODE_SHARED_DIR`, или выполнении приложения, которое не находится в `PATH` на узле, командные строки задачи должны явным образом вызвать оболочку, например с помощью `/bin/sh -c MyTaskApplication $MY_ENV_VAR`. Это требование не является обязательным, если задачи выполняют приложение в `PATH` и не ссылаются на переменные среды.
+> [AZURE.IMPORTANT] When they access environment variables such as `$AZ_BATCH_NODE_SHARED_DIR` or execute an application not found in the node's `PATH`, task command lines must invoke the shell explicitly, such as with `/bin/sh -c MyTaskApplication $MY_ENV_VAR`. This requirement is unnecessary if your tasks execute an application in the node's `PATH` and do not reference any environment variables.
 
-В пределах цикла `for` в приведенном выше фрагменте кода видно, что командная строка задачи построена с использованием пяти аргументов командной строки, передаваемых в *python\_tutorial\_task.py*:
+Within the `for` loop in the code snippet above, you can see that the command line for the task is constructed with five command-line arguments that are passed to *python_tutorial_task.py*:
 
-1. **filepath** — это локальный путь к файлу, по которому его можно найти на узле. Когда объект ResourceFile создавался в `upload_file_to_container` на шаге 2 выше, для этого свойства использовалось имя файла (в конструкторе ResourceFile в параметре `file_path`). Это значит, что файл находится в том же каталоге на узле, что и *python\_tutorial\_task.py*.
+1. **filepath**: This is the local path to the file as it exists on the node. When the ResourceFile object in `upload_file_to_container` was created in Step 2 above, the file name was used for this property (the `file_path` parameter in the ResourceFile constructor). This indicates that the file can be found in the same directory on the node as *python_tutorial_task.py*.
 
-2. **numwords** указывает *N* наиболее часто используемых слов, которые должны быть записаны в выходной файл.
+2. **numwords**: The top *N* words should be written to the output file.
 
-3. **storageaccount** — имя учетной записи службы хранилища, которой принадлежит контейнер, куда следует передать выходные данные задач.
+3. **storageaccount**: The name of the Storage account that owns the container to which the task output should be uploaded.
 
-4. **storagecontainer** — имя контейнера службы хранилища, в который следует передать выходные файлы.
+4. **storagecontainer**: The name of the Storage container to which the output files should be uploaded.
 
-5. **sastoken** — это подписанный URL-адрес (SAS), который предоставляет доступ на запись в контейнер **output** в службе хранилища Azure. Скрипт *python\_tutorial\_task.py* использует подписанный URL-адрес при создании ссылки на BlockBlobService. Это обеспечивает доступ на запись в контейнер без ключа доступа к учетной записи хранения.
+5. **sastoken**: The shared access signature (SAS) that provides write access to the **output** container in Azure Storage. The *python_tutorial_task.py* script uses this shared access signature when creates its BlockBlobService reference. This provides write access to the container without requiring an access key for the storage account.
 
 ```python
 # NOTE: Taken from python_tutorial_task.py
@@ -470,13 +488,14 @@ blob_client = azureblob.BlockBlobService(account_name=args.storageaccount,
                                          sas_token=args.sastoken)
 ```
 
-## Шаг 6. Мониторинг задач
+## <a name="step-6:-monitor-tasks"></a>Step 6: Monitor tasks
 
-![Мониторинг задач][6]<br/> *Скрипт (1) выполняет мониторинг задач и состояние их выполнения, а задачи (2) отправляют данные результатов в службу хранилища Azure*
+![Monitor tasks][6]<br/>
+*The script (1) monitors the tasks for completion status, and (2) the tasks upload result data to Azure Storage*
 
-Добавленные в задание задачи автоматически выстраиваются в очередь и планируются для выполнения на вычислительных узлах пула, связанного с заданием. Пакетная служба обрабатывает постановку задач в очередь, их планирование извлечение и другие задачи администрирования с учетом указанных вами параметров.
+When tasks are added to a job, they are automatically queued and scheduled for execution on compute nodes within the pool associated with the job. Based on the settings you specify, Batch handles all task queuing, scheduling, retrying, and other task administration duties for you.
 
-Есть несколько подходов к отслеживанию выполнения задач. Функция `wait_for_tasks_to_complete` в *python\_tutorial\_client.py* является простым примером мониторинга определенного состояния задач, в этом случае — [выполненного][py_taskstate] состояния.
+There are many approaches to monitoring task execution. The `wait_for_tasks_to_complete` function in *python_tutorial_client.py* provides a simple example of monitoring tasks for a certain state, in this case, the [completed][py_taskstate] state.
 
 ```python
 def wait_for_tasks_to_complete(batch_service_client, job_id, timeout):
@@ -513,11 +532,11 @@ def wait_for_tasks_to_complete(batch_service_client, job_id, timeout):
                        "timeout period of " + str(timeout))
 ```
 
-## Шаг 7. Загрузка выходных данных задачи
+## <a name="step-7:-download-task-output"></a>Step 7: Download task output
 
-![Загрузка выходных данных задачи из службы хранилища][7]<br/>
+![Download task output from Storage][7]<br/>
 
-Теперь, когда задание выполнено, можно загрузить выходные данные задач из службы хранилища Azure. Для этого нужно вызвать `download_blobs_from_container` в *python\_tutorial\_client.py*.
+Now that the job is completed, the output from the tasks can be downloaded from Azure Storage. This is done with a call to `download_blobs_from_container` in *python_tutorial_client.py*:
 
 ```python
 def download_blobs_from_container(block_blob_client,
@@ -551,11 +570,11 @@ def download_blobs_from_container(block_blob_client,
     print('  Download complete!')
 ```
 
-> [AZURE.NOTE] При вызове `download_blobs_from_container` в *python\_tutorial\_client.py* указывается, что файлы необходимо скачивать в корневой каталог. Вы можете изменить это расположение выходных данных.
+> [AZURE.NOTE] The call to `download_blobs_from_container` in *python_tutorial_client.py* specifies that the files should be downloaded to your home directory. Feel free to modify this output location.
 
-## Шаг 8. Удаление контейнеров
+## <a name="step-8:-delete-containers"></a>Step 8: Delete containers
 
-Так как вы платите за данные, которые находятся в службе хранилища Azure, рекомендуется всегда удалять все большие двоичные объекты, которые больше не нужны для выполнения заданий пакетной службы. В *python\_tutorial\_client.py* это можно сделать, вызвав [BlockBlobService.delete\_container][py_delete_container] трижды.
+Because you are charged for data that resides in Azure Storage, it is always a good idea to remove any blobs that are no longer needed for your Batch jobs. In *python_tutorial_client.py*, this is done with three calls to [BlockBlobService.delete_container][py_delete_container]:
 
 ```
 # Clean up storage resources
@@ -565,11 +584,11 @@ blob_client.delete_container(input_container_name)
 blob_client.delete_container(output_container_name)
 ```
 
-## Шаг 9. Удаление задания и пула
+## <a name="step-9:-delete-the-job-and-the-pool"></a>Step 9: Delete the job and the pool
 
-На последнем шаге появляется запрос на удаление пула и задания, созданных скриптом *python\_tutorial\_client.py*. Хотя вы и не платите за задания и задачи, *взимается* плата за используемые вычислительные узлы. Поэтому рекомендуется выделять узлы только при необходимости. Удаление неиспользуемых пулов может быть частью процесса обслуживания.
+In the final step, you are prompted to delete the job and the pool that were created by the *python_tutorial_client.py* script. Although you are not charged for jobs and tasks themselves, you *are* charged for compute nodes. Thus, we recommend that you allocate nodes only as needed. Deleting unused pools can be part of your maintenance process.
 
-Свойства [JobOperations][py_job] и [PoolOperations][py_pool] BatchServiceClient предусматривают соответствующие методы удаления, которые вызываются, если подтвердить удаление.
+The BatchServiceClient's [JobOperations][py_job] and [PoolOperations][py_pool] both have corresponding deletion methods, which are called if you confirm deletion:
 
 ```python
 # Clean up Batch resources (if the user so chooses).
@@ -580,15 +599,15 @@ if query_yes_no('Delete pool?') == 'yes':
     batch_client.pool.delete(_POOL_ID)
 ```
 
-> [AZURE.IMPORTANT] Помните, что вы платите за использование вычислительных ресурсов, поэтому удаление неиспользуемых пулов позволит сократить затраты. Также не забывайте, что при удалении пула удаляются все вычислительные узлы этого пула, после чего все данные на узлах уже нельзя будет восстановить.
+> [AZURE.IMPORTANT] Keep in mind that you are charged for compute resources--deleting unused pools will minimize cost. Also, be aware that deleting a pool deletes all compute nodes within that pool, and that any data on the nodes will be unrecoverable after the pool is deleted.
 
-## Запуск примера сценария
+## <a name="run-the-sample-script"></a>Run the sample script
 
-При запуске скрипта *python\_tutorial\_client.py* из [примера кода][github_article_samples] в руководстве консоль будет выглядеть следующим образом. Во время создания и запуска вычислительных узлов пула, а также выполнения команд в рамках его задачи запуска выполнение приостанавливается на `Monitoring all tasks for 'Completed' state, timeout in 0:20:00...`. Используйте [портал Azure][azure_portal] для мониторинга пула, вычислительных узлов, заданий и задач во время и после выполнения. Используйте [портал Azure][azure_portal] или [обозреватель хранилищ Microsoft Azure][storage_explorer], чтобы просматривать ресурсы службы хранилища (контейнеры и большие двоичные объекты), созданные приложением.
+When you run the *python_tutorial_client.py* script from the tutorial [code sample][github_article_samples], the console output is similar to the following. There is a pause at `Monitoring all tasks for 'Completed' state, timeout in 0:20:00...` while the pool's compute nodes are created, started, and the commands in the pool's start task are executed. Use the [Azure portal][azure_portal] to monitor your pool, compute nodes, job, and tasks during and after execution. Use the [Azure portal][azure_portal] or the [Microsoft Azure Storage Explorer][storage_explorer] to view the Storage resources (containers and blobs) that are created by the application.
 
->[AZURE.TIP] Выполните скрипт *python\_tutorial\_client.py* в каталоге `azure-batch-samples/Python/Batch/article_samples`. Он использует относительный путь для импорта модуля `common.helpers`, поэтому, если не выполнить скрипт в этом каталоге, может возникнуть ошибка `ImportError: No module named 'common'`.
+>[AZURE.TIP] Run the *python_tutorial_client.py*  script from within the `azure-batch-samples/Python/Batch/article_samples` directory. It uses a relative path for the `common.helpers` module import, so you might see `ImportError: No module named 'common'` if you don't run the the script from within this directory.
 
-Обычное время выполнения — **примерно 5–7 минут**, если для примера задана конфигурация по умолчанию.
+Typical execution time is **approximately 5-7 minutes** when you run the sample in its default configuration.
 
 ```
 Sample start: 2016-05-20 22:47:10
@@ -618,15 +637,15 @@ Delete pool? [Y/n]
 Press ENTER to exit...
 ```
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Next steps
 
-Вы можете внести изменения в *python\_tutorial\_client.py* и *python\_tutorial\_task.py*, чтобы поэкспериментировать с различными вычислительными сценариями. Например, попробуйте добавить задержку выполнения в *python\_tutorial\_task.py*, чтобы сымитировать длительно выполняемые задачи и следить за ними на портале. Попробуйте добавить дополнительные задачи или изменить количество вычислительных узлов. Добавьте логику для проверки и разрешите использование существующего пула, чтобы сократить время выполнения.
+Feel free to make changes to *python_tutorial_client.py* and *python_tutorial_task.py* to experiment with different compute scenarios. For example, try adding an execution delay to *python_tutorial_task.py* to simulate long-running tasks and monitor them in the portal. Try adding more tasks or adjusting the number of compute nodes. Add logic to check for and allow the use of an existing pool to speed execution time.
 
-Теперь, когда вы знакомы с основным рабочим процессом решения пакетной службы, пришло время подробно изучить дополнительные возможности пакетной службы.
+Now that you're familiar with the basic workflow of a Batch solution, it's time to dig in to the additional features of the Batch service.
 
-- Если вы недавно используете пакетную службу, рекомендуем прочитать статью [с обзором функций пакетной службы Azure](batch-api-basics.md).
-- Ознакомьтесь с другими статьями на тему разработки в пакетной службе. См. раздел **Подробные сведения о разработке** на схеме обучения [Пакетная служба][batch_learning_path].
-- Ознакомьтесь с другими способами обработки рабочей нагрузки "N часто употребляемых слов" с помощью пакетной службы. См. пример [TopNWords][github_topnwords].
+- Review the [Overview of Azure Batch features](batch-api-basics.md) article, which we recommend if you're new to the service.
+- Start on the other Batch development articles under **Development in-depth** in the [Batch learning path][batch_learning_path].
+- Check out a different implementation of processing the "top N words" workload with Batch in the [TopNWords][github_topnwords] sample.
 
 [azure_batch]: https://azure.microsoft.com/services/batch/
 [azure_free_account]: https://azure.microsoft.com/free/
@@ -680,16 +699,20 @@ Press ENTER to exit...
 [visual_studio]: https://www.visualstudio.com/products/vs-2015-product-editions
 [vm_marketplace]: https://azure.microsoft.com/marketplace/virtual-machines/
 
-[1]: ./media/batch-python-tutorial/batch_workflow_01_sm.png "Создание контейнеров в службе хранилища Azure"
-[2]: ./media/batch-python-tutorial/batch_workflow_02_sm.png "Отправка файлов приложения и входных данных в контейнеры"
-[3]: ./media/batch-python-tutorial/batch_workflow_03_sm.png "Создание пула пакетной службы"
-[4]: ./media/batch-python-tutorial/batch_workflow_04_sm.png "Создание задания пакетной службы"
-[5]: ./media/batch-python-tutorial/batch_workflow_05_sm.png "Добавление задач в задание"
-[6]: ./media/batch-python-tutorial/batch_workflow_06_sm.png "Мониторинг задач"
-[7]: ./media/batch-python-tutorial/batch_workflow_07_sm.png "Загрузка выходных данных задачи из службы хранилища"
-[8]: ./media/batch-python-tutorial/batch_workflow_sm.png "Рабочий процесс решения пакетной службы (полная схема)"
-[9]: ./media/batch-python-tutorial/credentials_batch_sm.png "Учетные данные пакетной службы на портале"
-[10]: ./media/batch-python-tutorial/credentials_storage_sm.png "Учетные данные службы хранилища на портале"
-[11]: ./media/batch-python-tutorial/batch_workflow_minimal_sm.png "Рабочий процесс решения пакетной службы (сокращенная схема)"
+[1]: ./media/batch-python-tutorial/batch_workflow_01_sm.png "Create containers in Azure Storage"
+[2]: ./media/batch-python-tutorial/batch_workflow_02_sm.png "Upload task application and input (data) files to containers"
+[3]: ./media/batch-python-tutorial/batch_workflow_03_sm.png "Create Batch pool"
+[4]: ./media/batch-python-tutorial/batch_workflow_04_sm.png "Create Batch job"
+[5]: ./media/batch-python-tutorial/batch_workflow_05_sm.png "Add tasks to job"
+[6]: ./media/batch-python-tutorial/batch_workflow_06_sm.png "Monitor tasks"
+[7]: ./media/batch-python-tutorial/batch_workflow_07_sm.png "Download task output from Storage"
+[8]: ./media/batch-python-tutorial/batch_workflow_sm.png "Batch solution workflow (full diagram)"
+[9]: ./media/batch-python-tutorial/credentials_batch_sm.png "Batch credentials in Portal"
+[10]: ./media/batch-python-tutorial/credentials_storage_sm.png "Storage credentials in Portal"
+[11]: ./media/batch-python-tutorial/batch_workflow_minimal_sm.png "Batch solution workflow (minimal diagram)"
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

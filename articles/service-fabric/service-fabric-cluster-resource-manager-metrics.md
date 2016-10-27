@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Управление метриками с помощью диспетчера кластерных ресурсов Azure Service Fabric | Microsoft Azure"
-   description="Узнайте, как настраивать и использовать метрики в Service Fabric."
+   pageTitle="Managing Metrics with the Azure Service Fabric Cluster Resource Manager | Microsoft Azure"
+   description="Learn about how to configure and use metrics in Service Fabric."
    services="service-fabric"
    documentationCenter=".net"
    authors="masnider"
@@ -16,46 +16,47 @@
    ms.date="08/19/2016"
    ms.author="masnider"/>
 
-# Управление потреблением ресурсов и нагрузкой в Service Fabric с помощью метрик
-Метрики — общий термин в Service Fabric, относящийся к ресурсам, которые нужны вашим службам и которые предоставляются узлами в кластере. Вообще метрика — это все, чем требуется управлять, чтобы контролировать производительность своих служб.
 
-Примерами метрик являются ресурсы памяти, дисков и ЦП. Это физические метрики, т. е. ресурсы, соответствующие физическим ресурсам на узле, которыми нужно управлять. Метрики могут также быть (и обычно бывают) логическими. Например, такие параметры, как MyWorkQueueDepth, определяются в приложении и соответствуют определенному уровню потребления ресурсов (само приложение не знает, в каком объеме оно потребляет ресурсы, или же не знает, как это потребление измерить). Большинство встречающихся пользователям метрик являются логическими. Этому есть несколько причин, среди которых можно выделить две самые распространенные. Первая — многие наши клиенты пишут свои службы в управляемом коде. Вторая — в рамках конкретного экземпляра службы без сохранения состояния или объекта реплики службы с отслеживанием состояния трудно измерить и представить показатели потребления фактических физических ресурсов. Именно из-за сложности создания отчетов о собственных метриках мы предоставляем готовые к использованию метрики.
+# <a name="managing-resource-consumption-and-load-in-service-fabric-with-metrics"></a>Managing resource consumption and load in Service Fabric with metrics
+Metrics are the generic term within Service Fabric for the resources that your services care about and which are provided by the nodes in the cluster. Generally, a metric is anything that you want to manage in order to deal with the performance of your services.
 
-## Метрики по умолчанию
-Предположим, вы хотите приступить к работе и не знаете, какие ресурсы вы будете использовать, или даже не знаете, какие ресурсы вообще вам нужны. Поэтому вы переходите к реализации и создаете службы без указания метрик. Все в порядке. Мы выберем метрики для вас. Если вы не указали собственные метрики, мы по умолчанию используем для вас сегодня следующие метрики: PrimaryCount (первичное количество), ReplicaCount (количество реплик) и (звучит немного туманно, мы понимаем) Count (количество). В следующей таблице показана связь нагрузки для каждой метрики с соответствующими объектами службы.
+Things like Memory, Disk, CPU usage – all of these are examples of metrics. These are physical metrics, resources that correspond to physical resources on the node that need to be managed. Metrics can also be (and commonly are) logical metrics, things like “MyWorkQueueDepth” that are application-defined and which correspond to some level of resource consumption (but where the application don’t really know it or know how to measure it). Most metrics that we see people use are logical metrics. There's a variety of reasons for this, but the most common is that today many of our customers write their services in managed code, and from within a given stateless service instance or stateful service replica object it is actually quite hard to measure and report your consumption of actual physical resources. The complexity of reporting your own metrics is also why we provide some default metrics out of the box.
 
-| Метрика | Нагрузка экземпляра без отслеживания состояния |	Вторичная нагрузка с отслеживанием состояния |	Первичная нагрузка с отслеживанием состояния |
+## <a name="default-metrics"></a>Default metrics
+Let’s say that you just want to get started and don’t know what resources you are going to consume or even which ones would be important to you. So you go implement and then create your services without specifying any metrics. That’s fine! We’ll pick some metrics for you. The default metrics that we use for you today if you don’t specify any of your own are called PrimaryCount, ReplicaCount, and (somewhat vaguely, we realize) Count. The table below shows how much load for each of these metrics is associated with each service object:
+
+| Metric | Stateless Instance Load |    Stateful Secondary Load |   Stateful Primary Load |
 |--------|--------------------------|-------------------------|-----------------------|
-| PrimaryCount | 0 |	0 |	1 |
-| ReplicaCount | 0 | 1 | 1 |
-| Count |	1 |	1 |	1 |
+| PrimaryCount | 0 |    0 | 1 |
+| ReplicaCount | 0  | 1 | 1 |
+| Count |   1 | 1 | 1 |
 
-Итак, что же вы получаете с помощью этих используемых по умолчанию метрик? Оказывается, что работа правильно распределяется между основными рабочими нагрузками. На примере ниже вы можете увидеть, что произойдет, если мы создадим одну службу с отслеживанием состояния с тремя разделами, укажем для размера набора целевых реплик значение "3", а также создадим единую службу без отслеживания состояния с количеством экземпляров "3". Получится что-то вроде этого.
+Ok, so with these default metrics, what do you get? Well it turns out that for basic workloads you get a pretty good distribution of work. In this example below let’s see what happens when we create one stateful service with three partitions and a target replica set size of three, and also a single stateless service with an instance count of three - you’ll get something like this!
 
-![Макет кластера с метриками по умолчанию][Image1]
+![Cluster Layout with Default Metrics][Image1]
 
-В этом примере мы видим следующие результаты.
--	Первичные реплики для службы с отслеживанием состояния не расположены на одном узле.
--	Реплики одного раздела не находятся на одном и том же узле.
--	Общее число первичных и вторичных реплик правильно распределено в кластере.
--	Общее количество объектов службы (без отслеживания состояния и с отслеживанием состояния) равномерно выделено на каждом узле.
+In this example we see
+-   Primary replicas for the stateful service are not stacked up on a single node
+-   Replicas for the same partition are not on the same node
+-   The total number of primaries and secondaries is well distributed in the cluster
+-   The total number of service objects (stateless and stateful) are evenly allocated on each node
 
-Неплохо!
+Pretty good!  
 
-Все будет работать отлично, пока у вас не возникнет вопрос: какова вероятность того, что выбранная схема секционирования со временем приведет к идеально равномерному распределению всех узлов? И еще один вопрос: какова вероятность того, что данная служба испытывает одинаковую нагрузку все время или даже прямо сейчас? Оказывается, что для любой серьезной нагрузки вероятность того, что все реплики будут эквивалентны, достаточно мала. Поэтому если вы стремитесь максимально эффективно использовать кластер, возможно, стоит рассмотреть пользовательские метрики.
+This works great until you start to think about it: What's the likelihood that the partitioning scheme you picked will result in perfectly even utilization by all partitions over time? Coupled with that, what’s the chance that the load for a given service is constant over time, or even just the same right now? Turns, out for any serious workload the odds of all replicas being equivalent is actually rather low, so if you're interested in getting the most out of your cluster you'll probably want to start looking into custom metrics.
 
-На самом деле вы можете спокойно работать с только метриками по умолчанию. Но обычно это приводит к тому, что кластер используется меньше, чем хотелось бы (так как создание отчетов не является адаптивным и рассматривает все как эквивалентное). В худшем случае это может привести к неправильному планированию узлов, что, в свою очередь, может вызвать проблемы с производительностью. Лучше использовать пользовательские метрики с отчетами о динамической нагрузке. Их мы и рассмотрим ниже.
+Realistically, you could absolutely run with just the default metrics but doing so usually means that your cluster utilization is lower than you’d like (since reporting isn’t adaptive and presumes everything is equivalent); in the worst case it can also result in overscheduled nodes resulting in performance issues. We can do better with custom metrics and dynamic load reports, which we'll cover next.
 
-## Настраиваемые метрики
-Мы выяснили, что метрики могут быть физическими и логическими, а пользователи могут определять свои собственные метрики. Отлично! Но как? На самом деле это довольно просто! Достаточно при создании службы настроить метрику и используемую по умолчанию начальную нагрузку. Любой набор метрик и значений по умолчанию, представляющих предполагаемое использование ресурсов службой, можно настроить отдельно для каждого экземпляра именованной службы во время ее создания.
+## <a name="custom-metrics"></a>Custom metrics
+We’ve already discussed that there can be both physical and logical metrics, and that people can define their own metrics. Great! But how? Well, it's actually pretty easy! Just configure the metric and the default initial load when creating the service and you’re done! Any set of metrics and default values representing how much the service is expected to consume can be configured on a per-named-service-instance basis when you’re creating the service.
 
-Обратите внимание, что если вы начали определять пользовательские метрики, нужно явно добавить их к метрикам по умолчанию, если вы хотите, чтобы они (пользовательские метрики) тоже использовались для балансировки нагрузки в службе. Вот почему нам необходимо иметь четкое представление о связи между метриками по умолчанию и пользовательскими метриками: возможно, для вас важнее больше интересует, как потребляется память или какова длина рабочей очереди, чем распределение нагрузки в первичной реплике.
+Note that when you start defining custom metrics you need to explicitly add back in the default metrics if you want us to use them to balance your service as well. This is because we want you to be clear about the relationship between the default metrics and your custom metrics – maybe you care about Memory consumption or WorkQueueDepth way more than you care about Primary distribution.
 
-Предположим, вы хотите настроить службу, которая выдает значение метрики с именем "Память" (в дополнение к метрике по умолчанию). Предположим, вы провели основные измерения и выяснили, что обычно первичная реплика этой службы может занимать 20 МБ памяти, хотя вторичные реплики той же службы занимают 5 МБ. Вы знаете, что "Память" является наиболее важной метрикой с точки зрения управления производительностью данной службы. Но вы все равно хотите, чтобы нагрузка была сбалансирована между основными репликами и чтобы в результате потери узла или домена сбоя не пропадало слишком большое количество первичных реплик. В остальных случаях вы будет использовать значения по умолчанию.
+Let’s say you wanted to configure a service which would report a metric called “Memory” (in addition to the default metrics). For memory, let’s say that you’ve done some basic measurements and know that normally a primary replica of that service takes up 20Mb of Memory, while secondaries of that same service will take up 5Mb. You know that Memory is the most important metric in terms of managing the performance of this particular service, but you still want primary replicas to be balanced so that the loss of some node or fault domain doesn’t take an inordinate number of primary replicas along with it. Other than that you’ll take the defaults.
 
-Сделать нужно следующее.
+Here’s what you’d do:
 
-Код:
+Code:
 
 ```csharp
 StatefulServiceDescription serviceDescription = new StatefulServiceDescription();
@@ -91,114 +92,118 @@ serviceDescription.Metrics.Add(totalCountMetric);
 await fabricClient.ServiceManager.CreateServiceAsync(serviceDescription);
 ```
 
-PowerShell:
+Powershell:
 
 ```posh
 New-ServiceFabricService -ApplicationName $applicationName -ServiceName $serviceName -ServiceTypeName $serviceTypeName –Stateful -MinReplicaSetSize 2 -TargetReplicaSetSize 3 -PartitionSchemeSingleton –Metric @("Memory,High,20,5”,"PrimaryCount,Medium,1,0”,"ReplicaCount,Low,1,1”,"Count,Low,1,1”)
 ```
 
-(Напоминаем, что если вы хотите использовать метрики по умолчанию, то вам вообще не нужно ничего менять в коллекции метрик или делать что-то специальное при создании службы.)
+(Reminder: if you just want to use the default metrics, you don’t need to touch the metrics collection at all or do anything special when creating your service.)
 
-Теперь, когда вы знаете, как определить собственные метрики, поговорим о различных свойствах метрик. Мы уже показали их вам, но сейчас нужно выяснить, что они значат. Метрика может иметь четыре разных свойства.
+Now that we’ve shown you how to define your own metrics, let’s talk about the different properties that metrics can have. We’ve already shown them to you, but it’s time to talk about what they actually mean! There are four different properties a metric can have today:
 
--	Metric Name — это имя метрики. Это уникальный идентификатор метрики в кластере с точки зрения диспетчера Resource Manager.
-- Загрузка по умолчанию представляется по-разному в зависимости от того, какой является служба: с отслеживанием или без отслеживания состояния.
-  - Для служб без отслеживания состояния у каждой метрики есть только одно свойство — Default Load.
-  - Для служб с отслеживанием состояния можно определить следующие свойства:
-    -	PrimaryDefaultLoad — объем нагрузки по умолчанию, которую служба будет производить для этой метрики в качестве первичной реплики.
-    -	SecondaryDefaultLoad — объем нагрузки по умолчанию, которую служба будет производить для этой метрики в качестве вторичной реплики.
--	Weight — это вес метрики по сравнению с другими настроенными метриками для этой службы.
+-   Metric Name: This is the name of the metric. This is a unique identifier for the metric within the cluster from the Resource Manager’s perspective.
+- Default Load: The default load is represented differently depending on whether the service is stateless or stateful.
+  - For stateless services each metric just has a single property named Default Load
+  - For stateful services you define
+    -   PrimaryDefaultLoad: The default amount of load that this service will exert for this metric as a Primary
+    -   SecondaryDefaultLoad: The default amount of load that this service will exert for this metric as a Secondary replica  
+-   Weight: This is how important the metric is relative to the other configured metrics for this service.
 
-## загрузить
-Нагрузка — это общее понятие, которое обозначает количество этой метрики, используемое экземпляром или репликой службы на заданном узле.
+## <a name="load"></a>Load
+Load is the general notion of how much of a given metric is consumed by some service instance or replica on a given node.
 
-## Нагрузка по умолчанию
-Нагрузка по умолчанию — это объем нагрузки, который по предположению Cluster Resource Manager будет потреблять каждый экземпляр или каждая реплика этой службы до получения обновлений от фактических экземпляров или реплик службы. Для простых служб это будет статическое определение, которое никогда не обновляется динамически и поэтому используется в течение всего времени существования службы. Это отлично работает для простого планирования ресурсов, так как именно это мы обычно делаем — выделяем конкретные ресурсы для конкретных рабочих нагрузок. Но преимуществом является то, что теперь мы работаем с категорией микрослужб, в которой ресурсы на самом деле не назначаются статически для конкретных рабочих нагрузок, а человеческий фактор вообще не входит в цикл принятия решений.
+## <a name="default-load"></a>Default load
+Default load is how much load the Cluster Resource Manager should assume each service instance or replica of this service will consume until it receives any updates from the actual service instances or replicas. For simpler services, this ends up being a static definition that is never updated dynamically and hence will be used for the lifetime of the service. This works great for simple capacity planning because it’s exactly what we are used to doing – dedicating certain resources to certain workloads, but the benefit is that at least now we’re operating in the microservices mindset where resources aren’t actually statically assigned to particular workloads and where people aren’t in the decision-making loop.
 
-Мы позволяем службам с отслеживанием состояния указывать нагрузки по умолчанию для метрик "Первичные реплики" и "Вторичные реплики". В действительности для многих служб эти числа не совпадают, так как первичные и вторичные реплики выполняют различные рабочие нагрузки. А так как первичные реплики обычно служат и для чтения, и для записи, а также берут на себя большую часть вычислительной нагрузки, нагрузка по умолчанию для первичных реплик превышает нагрузку по умолчанию для вторичных реплик.
+We allow stateful services to specify default load for both their Primaries and Secondaries – realistically for a lot of services these numbers are different due to the different workloads executed by primary replicas and secondary replicas, and since primaries usually serve both reads and writes (as well as most of the computational burden) the default load for a primary replica is higher than for secondary replicas.
 
-Но предположим, что вы запустили свою службу и через какое-то время заметили, что некоторые экземпляры или реплики службы используют больше ресурсов, чем другие, или что со временем их потребление изменяется. Возможно, они связаны с определенным клиентом. Возможно, эти изменения соответствуют рабочим нагрузкам, которые изменяются в течение всего дня, как, например, трафик обмена сообщениями, телефонные звонки или торги на бирже. В любом случае вы заметите, что не существует "единого числа", которое можно использовать для загрузки и при этом сильно не ошибиться, по крайней мере, на какое-то время. Вы заметите также, что ошибка в первоначальной оценке приведет к тому, что диспетчер кластерных ресурсов выделит больше или меньше ресурсов для вашей службы. Следовательно, использование некоторых узлов будет чрезмерным или недостаточным.
+But now let’s say that you’ve been running your service for a while and you’ve noticed that some instances or replicas of your service consume way more resources than others or that their consumption varies over time – maybe they’re associated with a particular customer, maybe they just correspond to workloads that vary over the course of the day like messaging traffic, phone calls, or stock trades. At any rate, you notice that there’s no “single number” that you can use for the load without being off by a significant amount for at least some portion of the time. You also notice that “being off” in your initial estimate results in the Cluster Resource Manager either over or under allocating resources to your service, and consequently you have nodes which are over or under utilized.
 
-Что делать? Можно сделать так, чтобы ваша служба сообщала о нагрузке в режиме реального времени!
+What to do? Well, your service could be reporting load on the fly!
 
-## Динамическая нагрузка
-Отчеты о динамической нагрузке позволяют репликам или экземплярам во время своего существования регулировать заявленное или реальное использование метрик в кластере. Реплики или экземпляры службы, которые простаивали и не выполняли никакой работы, обычно сообщают, что они использовали меньше заданной метрики. В то же время загруженные реплики или экземпляры сообщают, что они используют больше ресурсов. Этот общий уровень оттока нагрузки в кластере позволяет нам реорганизовать реплики и экземпляры службы в кластере "на лету", чтобы они получали необходимые им ресурсы. То есть мы можем сделать так, чтобы загруженные службы отзывали ресурсы у других реплик и экземпляров, которые простаивают или выполняют меньше работы. Отчеты о нагрузке можно создавать "на лету" с помощью метода ReportLoad, который доступен для свойства ServicePartition базового класса StatefulService или StatelessService посредством модели программирования Reliable Services. В коде вашей службы это будет выглядеть так:
+## <a name="dynamic-load"></a>Dynamic load
+Dynamic load reports allow replicas or instances to adjust their allocation/reported use of metrics in the cluster over their lifetime. A service replica or instance that was cold and not doing any work would usually report that it was using low amounts of a given metric, while busy replicas or instances report that they are using more. This general level of churn in the cluster allows us to reorganize the service replicas and instances in the cluster on the fly in order to ensure that the get the resources they require – in effect that busy services are able to reclaim resources from other replicas or instances which are currently cold or doing less work. Reporting load on the fly can be done via the ReportLoad method, available on the ServicePartition, available as a property on the base StatefulService or StatelessService class via the Reliable Services programming model. Within your service the code would look like this:
 
-Код:
+Code:
 
 ```csharp
 this.ServicePartition.ReportLoad(new List<LoadMetric> { new LoadMetric("Memory", 1234), new LoadMetric("metric1", 42) });
 ```
 
-Реплики или экземпляры службы могут сообщать о нагрузке только тех метрик, которые настроены для использования. Список метрик задается во время создания каждой службы. Позднее его можно будет изменить. Если реплика или экземпляр пытается сообщить о нагрузке метрики, которая не настроена для использования, Service Fabric заносит отчет в журнал, но игнорирует его. Это означает, что метрика не будет использоваться во время вычисления или создания отчетов о состоянии кластера. Это чудесно, так как такое поведение позволяет больше экспериментировать. Код может измерять любимые метрики и сообщать обо всех метриках, которые он умеет измерять и о которых он умеет сообщать. А оператор может настраивать, поправлять и обновлять ресурс, изменяя правила для службы в режиме реального времени без изменения кода. Эти изменения могут включать, например, отключение метрик с отчетом с ошибками, перенастройку весов метрик на основе поведения или включение новой метрики только после кода развертывания и его проверки с помощью других механизмов.
+Services replicas or instances may only report load for the metrics that they have been configured to use. The metric list is set when each service is created and may be updated later. If a service replica or instance tries to report load for a metric that it is not currently configured to use, Service Fabric logs the report but ignores it, meaning that we won’t use it when calculating or reporting on the state of the cluster. This is neat because it allows for greater experimentation – the code can measure and report on everything it knows how to, and the operator can configure, tweak, and update the resource balancing rules for that service on the fly without ever having to change the code. This can include for example, disabling a metric with a buggy report, reconfiguring the weights of metrics based on behavior, or enabling a new metric only after the code has already been deployed and validated via other mechanisms.
 
-## Совместное использование значений нагрузки по умолчанию и отчетов о динамической загрузке
-Имеет ли смысл указывать нагрузку по умолчанию для службы, которая будет сообщать о нагрузке динамически? Конечно. В этом случае заданная по умолчанию нагрузка используется в качестве приблизительной оценки до тех пор, пока не начинают отображаться реальные отчеты из фактической реплики или экземпляра службы. Это замечательно, так как диспетчер кластерных ресурсов уже может с чем-то работать. Оценка нагрузки по умолчанию позволяет с самого начала оптимально разместить экземпляры или реплики службы. Без сведений о загрузке по умолчанию размещение создаваемых служб фактически осуществляется произвольно, и если позже загрузки изменятся, то диспетчеру кластерных ресурсов почти наверняка придется перемещать ресурсы.
+## <a name="mixing-default-load-values-and-dynamic-load-reports"></a>Mixing default load values and dynamic load reports
+Does it make sense to have a default load specified for a service which is going to be reporting load dynamically? Absolutely! In this case the default load serves as an estimate until the real reports start to show up from the actual service replica or instance. This is great because it gives the Cluster Resource Manager something to work with - the default load estimate allows it to place the service instances or replicas in good places right from the start. When no default load information is provided the placement of services is effectively random at creation time, and if loads change later the Cluster Resource Manager would almost certainly have to move things around.
 
-Возьмем наш предыдущий пример и посмотрим, что произойдет, если мы добавим пользовательскую нагрузку, которая после создания службы будет динамически обновляться. В этом примере мы будем использовать в качестве примера метрику "Память". Предположим, мы создали службу с отслеживанием состояния с помощью следующей команды.
+So let’s take our previous example and see what happens when we add some custom load and then when after the service is created it gets updated dynamically. In this example, we’ll use “Memory” as an example, and let’s presume that we initially created the stateful service with the following command:
 
-PowerShell:
+Powershell:
 
 ```posh
 New-ServiceFabricService -ApplicationName $applicationName -ServiceName $serviceName -ServiceTypeName $serviceTypeName –Stateful -MinReplicaSetSize 2 -TargetReplicaSetSize 3 -PartitionSchemeSingleton –Metric @("Memory,High,21,11”,"PrimaryCount,Medium,1,0”,"ReplicaCount,Low,1,1”,"Count,Low,1,1”)
 ```
 
-Мы говорили об этом синтаксисе ранее (MetricName, MetricWeight, PrimaryDefaultLoad, SecondaryDefaultLoad). Но конкретное значение метрики Weight подробнее обсудим позже.
+We talked about this syntax earlier (MetricName, MetricWeight, PrimaryDefaultLoad, SecondaryDefaultLoad), but we’ll talk more about what the specific value for Weight means later.
 
-Один из возможных макетов кластера может выглядеть как:
+Let's see what one possible cluster layout could look like:
 
-![Сбалансированный кластер с метриками по умолчанию и пользовательскими метриками][Image2]
+![Cluster Balanced with both Default and Custom metrics][Image2]
 
-Обратите внимание на следующие факторы.
+Some things that are worth noting:
 
--	Так как реплики и экземпляры используют нагрузку службы по умолчанию, пока они не сообщат о своей собственной нагрузке, мы знаем, что реплики внутри раздела 1 службы с отслеживанием состояния не сообщали о нагрузках сами.
--	Вторичные реплики в разделе могут иметь собственную нагрузку.
--	В целом метрики считаются хорошими, если разница между максимальной и минимальной нагрузкой на узле (речь идет о пользовательских метриках, которые нас больше всего интересуют) составляет соотношение 1,75 (узел с максимальной нагрузкой для памяти N3, с минимальной — N2, а 28/16 = 1,75). Это означает, что нагрузка в узле сбалансирована правильно.
+-   Since replicas or instances use the service’s default load until they report their own load, we know that the replicas inside of partition 1 of the stateful service haven’t reported load on their own
+-   Secondary replicas within a partition can have their own load
+-   Overall the metrics look pretty good, with the difference between the maximum and minimum load on a node (for memory – the custom metric we said we cared the most about) of only a factor of 1.75 (the node with the most load for the memory is N3, the least is N2, and 28/16 = 1.75) – pretty balanced!
 
-Но некоторые факторы все же необходимо объяснить.
+There are some things that we still need to explain
 
--	Как определить, является ли соотношение 1,75 разумным? Как узнать, достаточно ли этого соотношения или нужно еще что-то делать?
--	Когда происходит балансировка нагрузки?
--	Что означает, если вес метрики "Память" определен как высокий?
+-   What determined whether a ratio of 1.75 was reasonable or not? How do we know that’s good enough or if there is more work to do?
+-   When does balancing happen?
+-   What does it mean that Memory was weighted “High”?
 
-## Вес метрик
-Вес метрик — это свойство, которое позволяет двум службам сообщать одну и ту же метрику и одновременно по-разному трактовать важность балансировки нагрузки этой метрики. Например, рассмотрим механизм выполняющейся в памяти аналитики и постоянную базу данных. Вероятно, для обеих служб важна метрика "Память", но для выполняющейся в памяти службы, скорее всего, не имеет значения метрика "Диск". Такая служба может использовать данную метрику, но она не влияет на производительность службы, и служба может даже не создавать отчеты об этой метрике. Возможность отслеживать одни и те же метрики в разных службах очень удобна, так как она позволяет диспетчеру кластерных ресурсов отслеживать реальное потребление ресурсов в кластере, следить за тем, чтобы узлы не использовали больше ресурсов, чем запланировано, и т. д.
+## <a name="metric-weights"></a>Metric weights
+Metric Weights are what allows two different services to report the same metrics but to view the importance of balancing that metric differently. For example, consider an in-memory analytics engine and a persistent database; both probably care about the “Memory” metric, but the in-memory service probably doesn’t care much about the “Disk” metric – it might consume a little of it, but it is not critical to the service’s performance, so it probably doesn't even report it. Being able to track the same metrics across different services is great since that’s what allows the Cluster Resource Manager to track real consumption in the cluster, ensure that nodes don’t go over capacity, etc.
 
-Веса метрик позволяют также диспетчеру кластерных ресурсов принимать решение о способе балансировки кластера, когда нет идеального решения (а такое случается очень часто). Метрики могут иметь четыре разных уровня веса: нулевой, низкий, средний и высокий. Метрики с нулевым весом не играют роли для балансировки нагрузки, но их нагрузка имеет значение для измерения производительности.
+Metric weights also allow the Cluster Resource Manager to make decisions about how to balance the cluster when there’s no perfect answer (which is a lot of the time). Metrics can have four different weight levels: Zero, Low, Medium, and High. A metric with a weight of Zero contributes nothing when considering whether things are balanced or not, but its load does still contribute to things like capacity measurement.
 
-Так как в кластере есть метрики с разными весами, то для служб действуют разные схемы, потому что диспетчеру кластерных ресурсов было указано, что в совокупности одни метрики важнее, чем другие. Так как ему это известно, то когда метрики с разными весами конфликтуют между собой, диспетчер кластерных ресурсов может выбрать решения, которые лучше балансируют метрики с большими весами.
+The real impact of different metric weights in the cluster is that we arrive at different arrangements of the services since the Cluster Resource Manager has been told, in aggregate, that certain metrics are more important than others. Because it knows this, when metrics which have different weights conflict with other the Cluster Resource Manager can prefer solutions which balance the higher weighted metrics better.
 
-Рассмотрим простой пример нескольких отчетов нагрузки и влияния разных уровней веса метрик на выделение ресурсов в кластере. В этом примере мы видим, что переключение относительного веса метрики влияет на то, как диспетчер Resource Manager выбирает различные решения путем различного размещения служб.
+Let’s take a look at a simple example of some load reports and how different metric weights can result in different allocations in the cluster. In this example we see that switching the relative weight of the metrics results in the Resource Manager preferring certain solutions by creating different arrangements of services.
 
-![Пример веса метрики и его влияния на решения балансировки нагрузки][Image3]
+![Metric Weight Example and Its Impact on Balancing Solutions][Image3]
 
-В этом примере есть четыре разные службы. Все они сообщают разные значения для двух метрик, А и Б. В первом случае все службы считают метрику А важной (высокий вес), а метрику Б — относительно незначительной (низкий вес). И мы действительно видим, что диспетчер кластерных ресурсов размещает службы таким образом, чтобы нагрузка на метрику А была лучше сбалансирована (имела меньшие отклонения), чем нагрузка на метрику Б. Во втором случае мы меняем местами веса метрик и видим, что диспетчер кластерных ресурсов, вероятно, поменяет местами службы А и Б, чтобы предложить выделение, в котором для метрики Б нагрузка сбалансирована лучше, чем для метрики А.
+In this example there are four different services, all reporting different values for two different metrics A and B. In one case all the services define Metric A is the most important one (Weight = High) and MetricB as relatively unimportant (Weight = Low), and indeed we see that the Cluster Resource Manager places the services so that MetricA is better balanced (has a lower standard deviation) than MetricB. In the second case, we reverse the metric weights, and we see that the Cluster Resource Manager would probably swap services A and B in order to come up with an allocation where MetricB is better balanced than MetricA.
 
-### Глобальный вес метрик
-Итак, если служба А считает метрику А более важной, а для службы Б эта метрика вообще не имеет значения, то какой вес будет использоваться в конечном итоге?
+### <a name="global-metric-weights"></a>Global metric weights
+So if ServiceA defines MetricA as most important, and ServiceB doesn’t care about it at all, what’s the actual weight that ends up getting used?
 
-На самом деле мы принимаем во внимание два веса каждой метрики — вес, который определяет сама служба, и глобальный средний вес метрики во всех службах, для которых эта метрика имеет значение. Мы используем оба эти значения при вычислении результатов решения, которое мы создаем, так как для нас важно обеспечить и балансировку нагрузки в службе согласно ее приоритетам, и правильное выделение ресурсов в кластере в целом.
+Well there are actually two weights we keep track of for every metric – the weight the service itself defined and the global average weight across all of the services that care about that metric. We use both these weights when calculating the scores of the solutions we generate, since it is important to ensure that both a service is balanced with regard to its own priorities, but also that the cluster as a whole is allocated correctly.
 
-Что произойдет, если мы не будем учитывать и глобальный, и локальный баланс? Конечно, очень просто создать решения с глобальной балансировкой нагрузки, но это приводит к неправильным балансировке и выделению ресурсов для отдельных служб. В следующем примере рассмотрим метрики по умолчанию, которые настроены для службы с отслеживанием состояния (PrimaryCount, ReplicaCount и Count), и увидим, что происходит, если мы учитываем только глобальную балансировку нагрузки.
+What would happen if we didn’t care about both global and local balance? Well, it’s trivial to construct solutions that are globally balanced but which result in very poor balance and resource allocation for individual services. In the example below let’s consider the default metrics that a stateful service is configured with, PrimaryCount, ReplicaCount, and Count, and see what happens when we only consider global balance:
 
-![Результаты решения только глобальной балансировки][Image4]
+![The Impact of a Global Only Solution][Image4]
 
-В примере выше, в котором нас интересовала только глобальная балансировка нагрузки, кластер в целом действительно сбалансирован — все узлы имеют одинаковое количество первичных реплик и реплик вообще. Однако, если взглянуть на результаты такого выделения ресурсов, окажется, что оно не совсем правильное. Потеря одного узла непропорционально влияет на конкретную рабочую нагрузку, так как вместе с ним теряются все его первичные реплики. Например, представим, что мы потеряли первый узел. Если это произойдет, будут потеряны одновременно три первичные реплики для трех разных разделов службы "Круг". И, наоборот, другие две службы ("Треугольник" и "Шестиугольник") теряют реплики своих разделов и это не нарушает работу (если не учитывать, что нужно восстановить потерянную реплику).
+In the top example where we only looked at global balance, the cluster as a whole is indeed balanced – all nodes have the same count of primaries, and total replicas. However if you look at the actual impact of this allocation it’s not so good: the loss of any node impacts a particular workload disproportionally, as it takes out all of its primaries. Take for example if we were to lose the first node. If this happened the three primaries for the three different partitions of the Circle service would all be lost simultaneously. Conversely, the other two services (Triangle and Hexagon) have their partitions lose a replica, which causes no disruption (other than having to recover the down replica).
 
-В примере ниже мы распределили реплики с учетом глобального баланса и баланса каждой службы. При вычислении результата решения мы отдаем большую часть веса глобальному решению, но определенная часть (она может меняться) выделяется на обеспечение оптимальной балансировки нагрузки в самих службах. В результате, если мы потеряем тот же первый узел, мы увидим, что потеря первичных (и вторичных) реплик распределяется на все разделы всех служб и влияет на всех одинаково.
+In the bottom example we have distributed the replicas based on both the global and per-service balance. When calculating the score of the solution we give a majority of the weight to the global solution, but a (configurable) portion does go to ensuring that the services are balanced within themselves as much as possible as well. As a result, if we were to lose the same first node, we see that the loss of primaries (and secondaries) is distributed across all partitions of all services and the impact to each is the same.
 
-Учитывая веса метрик, глобальный баланс вычисляется на основе среднего веса метрик, настроенных для каждой службы. Мы сбалансировали службу с учетом определенных ею весов метрик.
+Taking metric weights into account, the global balance is calculated based on the average of the metric weights configured for each of the services. We balance a service with regard to its own defined metric weights.
 
-## Дальнейшие действия
-- Дополнительные сведения о других вариантах настройки служб см. в статье [Настройка параметров диспетчера кластерных ресурсов для служб Service Fabric](service-fabric-cluster-resource-manager-configure-services.md).
-- Определение метрик дефрагментации — один из способов объединения нагрузки на узлах вместо ее рассредоточения. Сведения о настройке дефрагментации см. в [этой статье](service-fabric-cluster-resource-manager-defragmentation-metrics.md).
-- Чтобы узнать, как диспетчер кластерных ресурсов управляет нагрузкой кластера и балансирует ее, ознакомьтесь со статьей о [балансировке нагрузки](service-fabric-cluster-resource-manager-balancing.md).
-- Начните с самого начала, [изучив общие сведения о диспетчере кластерных ресурсов Service Fabric](service-fabric-cluster-resource-manager-introduction.md).
-- Стоимость перемещения — один из способов сообщить диспетчеру кластерных ресурсов, что некоторые службы перемещать затратнее, чем остальные. Чтобы больше узнать о стоимости перемещения, см. [эту статью](service-fabric-cluster-resource-manager-movement-cost.md).
+## <a name="next-steps"></a>Next steps
+- For more information about the other options available for configuring services check out the topic on the other Cluster Resource Manager configurations available [Learn about configuring Services](service-fabric-cluster-resource-manager-configure-services.md)
+- Defining Defragmentation Metrics is one way to consolidate load on nodes instead of spreading it out. To learn how to configure defragmentation, refer to [this article](service-fabric-cluster-resource-manager-defragmentation-metrics.md)
+- To find out about how the Cluster Resource Manager manages and balances load in the cluster, check out the article on [balancing load](service-fabric-cluster-resource-manager-balancing.md)
+- Start from the beginning and [get an Introduction to the Service Fabric Cluster Resource Manager](service-fabric-cluster-resource-manager-introduction.md)
+- Movement Cost is one way of signaling to the Cluster Resource Manager that certain services are more expensive to move than others. To learn more about movement cost, refer to [this article](service-fabric-cluster-resource-manager-movement-cost.md)
 
-[Image1]: ./media/service-fabric-cluster-resource-manager-metrics/cluster-resource-manager-cluster-layout-with-default-metrics.png
-[Image2]: ./media/service-fabric-cluster-resource-manager-metrics/Service-Fabric-Resource-Manager-Dynamic-Load-Reports.png
-[Image3]: ./media/service-fabric-cluster-resource-manager-metrics/cluster-resource-manager-metric-weights-impact.png
-[Image4]: ./media/service-fabric-cluster-resource-manager-metrics/cluster-resource-manager-global-vs-local-balancing.png
+[Image1]:./media/service-fabric-cluster-resource-manager-metrics/cluster-resource-manager-cluster-layout-with-default-metrics.png
+[Image2]:./media/service-fabric-cluster-resource-manager-metrics/Service-Fabric-Resource-Manager-Dynamic-Load-Reports.png
+[Image3]:./media/service-fabric-cluster-resource-manager-metrics/cluster-resource-manager-metric-weights-impact.png
+[Image4]:./media/service-fabric-cluster-resource-manager-metrics/cluster-resource-manager-global-vs-local-balancing.png
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

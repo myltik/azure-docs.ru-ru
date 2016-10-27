@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Управление каталогом резервных копий StorSimple | Microsoft Azure"
-   description="В этой статье описываются способы использования страницы каталога резервного копирования службы диспетчера StorSimple для перечисления, выбора и удаления резервных наборов данных для тома."
+   pageTitle="Manage your StorSimple backup catalog | Microsoft Azure"
+   description="Explains how to use the StorSimple Manager service Backup Catalog page to list, select, and delete backup sets for a volume."
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
@@ -15,106 +15,111 @@
    ms.date="04/28/2016"
    ms.author="v-sharos" />
 
-# Использование службы диспетчера StorSimple для управления каталогом резервного копирования
 
-## Обзор
+# <a name="use-the-storsimple-manager-service-to-manage-your-backup-catalog"></a>Use the StorSimple Manager service to manage your backup catalog
 
-На странице **Каталог резервного копирования** службы StorSimple Manager находятся все наборы резервных копий, созданных во время ручной или запланированной архивации. Эта страница позволяет просмотреть все резервные копии для определенной политики резервного копирования или определенного тома, выбрать или удалить резервные копии или использовать резервную копию для восстановления или клонирования тома.
+## <a name="overview"></a>Overview
 
-В этом учебнике описывается, как выбирать и удалять резервный набор данных. Информацию о восстановлении устройства с помощью резервных копий см. в разделе [Восстановление устройства из резервной копии](storsimple-restore-from-backup-set.md). Информацию о клонировании тома см. в разделе [Клонирование тома StorSimple](storsimple-clone-volume.md).
+The StorSimple Manager service **Backup Catalog** page displays all the backup sets that are created when manual or scheduled backups are taken. You can use this page to list all the backups for a backup policy or a volume, select or delete backups, or use a backup to restore or clone a volume.
 
-![Каталог резервного копирования](./media/storsimple-manage-backup-catalog/backupcatalog.png)
+This tutorial explains how to list, select, and delete a backup set. To learn how to restore your device from backup, go to [Restore your device from a backup set](storsimple-restore-from-backup-set.md). To learn how to clone a volume, go to [Clone a StorSimple volume](storsimple-clone-volume.md).
 
-На странице **Каталог резервного копирования** можно создать запрос, который поможет сузить спектр выбранных резервных наборов данных. Вы можете фильтровать полученные резервные наборы данных по следующим параметрам:
+![Backup catalog](./media/storsimple-manage-backup-catalog/backupcatalog.png) 
 
-- **Устройство** — устройство, на котором был создан резервный набор данных.
+The **Backup Catalog** page provides a query to narrow your backup set selection. You can filter the backup sets that are retrieved, based on the following parameters:
 
-- **Политика или том резервного копирования** — политика или том резервного копирования, связанные с этим резервным набором данных.
+- **Device** – The device on which the backup set was created.
 
-- **От и до** — диапазон дат и времени создания резервного набора данных.
+- **Backup Policy or Volume** – The backup policy or volume associated with this backup set.
 
-Затем отфильтрованные резервные наборы данных будут представлены в табличной форме на основе следующих атрибутов:
+- **From and To** – The date and time range when the backup set was created.
 
-- **Имя** — имя политики резервного копирования или тома, связанное с резервным набором данных.
+The filtered backup sets are then tabulated based on the following attributes:
 
-- **Размер** — фактический размер резервного набора данных.
+- **Name** – The name of the backup policy or volume associated with the backup set.
 
-- **Создано** — дата и время создания резервных копий.
+- **Size** – The actual size of the backup set.
 
-- **Тип** — наборы резервного копирования могут представлять собой локальные моментальные снимки или облачные моментальные снимки. Локальный моментальный снимок — это резервная копия всех данных тома, которая хранится локально на устройстве, а облачный моментальный снимок — это резервная копия данных тома, хранящаяся в облаке. Локальные моментальные снимки обеспечивают более быстрый доступ, а облачные моментальные снимки выбираются для обеспечения устойчивости данных.
+- **Created On** – The date and time when the backups were created. 
 
-- **Инициировано** — резервные копии могут инициироваться автоматически по расписанию или вручную пользователем. Для планирования резервного копирования можно использовать политику резервного копирования. Кроме того, можно использовать параметр **Создать резервную копию** для резервного копирования вручную.
+- **Type** – Backup sets can be local snapshots or cloud snapshots. A local snapshot is a backup of all your volume data stored locally on the device, whereas a cloud snapshot refers to the backup of volume data residing in the cloud. Local snapshots provide faster access, whereas cloud snapshots are chosen for data resiliency.
 
-## Создание списка резервных наборов данных для тома
+- **Initiated By** – The backups can be initiated automatically by a schedule or manually by a user. You can use a backup policy to schedule backups. Alternatively, you can use the **Take backup** option to take a manual backup.
+
+## <a name="list-backup-sets-for-a-volume"></a>List backup sets for a volume
  
-Выполните следующие действия, чтобы создать список всех резервных копий для тома.
+Complete the following steps to list all the backups for a volume.
 
-#### Для создания списка резервных наборов данных
+#### <a name="to-list-backup-sets"></a>To list backup sets
 
-1. На странице службы диспетчера StorSimple щелкните вкладку **Каталог резервных копий**.
+1. On the StorSimple Manager service page, click the **Backup catalog** tab.
 
-2. Отфильтруйте выбранные элементы следующим образом:
+2. Filter the selections as follows:
 
-    1. Выберите подходящее устройство.
+    1. Select the appropriate device.
 
-    2. В раскрывающемся списке выберите том для просмотра соответствующих резервных копий.
+    2. In the drop-down list, choose a volume to view the corresponding the backups.
 
-    3. Укажите интервал времени.
+    3. Specify the time range.
 
-    4. Щелкните значок с изображением флажка ![значок с изображением флажка](./media/storsimple-manage-backup-catalog/HCS_CheckIcon.png), чтобы выполнить этот запрос.
+    4. Click the check icon ![Check icon](./media/storsimple-manage-backup-catalog/HCS_CheckIcon.png) to execute this query.
  
-    В списке резервных наборов данных должны отобразиться резервные копии, связанные с выбранным томом.
+    The backups associated with the selected volume should appear in the list of backup sets.
 
-## Выбор резервного набора данных
+## <a name="select-a-backup-set"></a>Select a backup set
 
-Чтобы выбрать резервный набор данных для тома или политики резервного копирования, выполните следующие действия.
+Complete the following steps to select a backup set for a volume or backup policy.
 
-#### Для выбора резервного набора данных
+#### <a name="to-select-a-backup-set"></a>To select a backup set
 
-1. На странице службы диспетчера StorSimple щелкните вкладку **Каталог резервных копий**.
+1. On the StorSimple Manager service page, click the **Backup catalog** tab.
 
-2. Отфильтруйте выбранные элементы следующим образом:
+2. Filter the selections as follows:
 
-    1. Выберите подходящее устройство.
+    1. Select the appropriate device.
 
-    2. В раскрывающемся списке выберите том или политику резервного копирования для той резервной копии, которую нужно выбрать.
+    2. In the drop-down list, choose the volume or backup policy for the backup that you wish to select.
 
-    3. Укажите интервал времени.
+    3. Specify the time range.
 
-    4. Щелкните значок с изображением флажка ![значок с изображением флажка](./media/storsimple-manage-backup-catalog/HCS_CheckIcon.png), чтобы выполнить этот запрос.
+    4. Click the check icon ![Check icon](./media/storsimple-manage-backup-catalog/HCS_CheckIcon.png) to execute this query.
 
-    В списке резервных наборов данных должны отобразиться резервные копии, связанные с выбранным томом или политикой резервного копирования.
+    The backups associated with the selected volume or backup policy should appear in the list of backup sets.
 
-3. Выберите и разверните резервный набор данных. Параметры **Восстановить** и **Удалить** отображаются в нижней части страницы. С выбранным резервным набором данных можно выполнить одно из следующих действий.
+3. Select and expand a backup set. The **Restore** and **Delete** options are displayed at the bottom of the page. You can perform either of these actions on the backup set that you selected.
 
-## Удаление резервного набора данных
+## <a name="delete-a-backup-set"></a>Delete a backup set
 
-Удаление резервной копии, если больше не требуется хранить связанные с ней данные. Чтобы удалить резервный набор данных, выполните указанные ниже действия.
+Delete a backup when you no longer wish to retain the data associated with it. Perform the following steps to delete a backup set.
 
-#### Чтобы удалить резервный набор данных
+#### <a name="to-delete-a-backup-set"></a>To delete a backup set
 
-1. На странице службы диспетчера StorSimple откройте вкладку **Каталог резервного копирования**.
+1. On the StorSimple Manager service page, click the **Backup Catalog tab**.
 
-2. Отфильтруйте выбранные элементы следующим образом:
+2. Filter the selections as follows:
 
-    1. Выберите подходящее устройство.
+    1. Select the appropriate device.
 
-    2. В раскрывающемся списке выберите том или политику резервного копирования для той резервной копии, которую нужно выбрать.
+    2. In the drop-down list, choose the volume or backup policy for the backup that you wish to select.
 
-    3. Укажите интервал времени.
+    3. Specify the time range.
 
-    4. Щелкните значок с изображением флажка ![значок с изображением флажка](./media/storsimple-manage-backup-catalog/HCS_CheckIcon.png), чтобы выполнить этот запрос.
+    4. Click the check icon ![Check icon](./media/storsimple-manage-backup-catalog/HCS_CheckIcon.png) to execute this query.
 
-    В списке резервных наборов данных должны отобразиться резервные копии, связанные с выбранным томом или политикой резервного копирования.
+    The backups associated with the selected volume or backup policy should appear in the list of backup sets.
 
-3. Выберите и разверните резервный набор данных. Параметры **Восстановить** и **Удалить** отображаются в нижней части страницы. Нажмите кнопку **Delete** (Удалить).
+3. Select and expand a backup set. The **Restore** and **Delete** options are displayed at the bottom of the page. Click **Delete**.
 
-4. Во время выполнения удаления и его успешного завершения вы получите уведомление. После завершения удаления обновите запрос на этой странице. Удаленный резервный набор данных больше не будет отображаться в списке резервных наборов данных.
+4. You will be notified when the deletion is in progress and when it has successfully finished. After the deletion is done, refresh the query on this page. The deleted backup set will no longer appear in the list of backup sets.
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Next steps
 
-- Узнайте об использовании каталога резервного копирования [для восстановления устройства с помощью набора архивации](storsimple-restore-from-backup-set.md).
+- Learn how to [use the backup catalog to restore your device from a backup set](storsimple-restore-from-backup-set.md).
 
-- Узнайте об [использовании службы диспетчера StorSimple для администрирования устройства StorSimple](storsimple-manager-service-administration.md).
+- Learn how to [use the StorSimple Manager service to administer your StorSimple device](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_0504_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

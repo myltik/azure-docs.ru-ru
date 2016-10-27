@@ -1,37 +1,45 @@
 <properties 
-	pageTitle="Выборка данных в контейнерах больших двоичных объектов Azure, SQL Server и таблицах Hive | Microsoft Azure" 
-	description="Изучение данных, хранящихся в различных средах Azure." 
-	services="machine-learning" 
-	documentationCenter="" 
-	authors="bradsev" 
-	manager="jhubbard" 
-	editor="cgronlun" />
+    pageTitle="Sample data in Azure blob containers, SQL Server, and Hive tables | Microsoft Azure" 
+    description="How to explore data stored in various Azure enviromnents." 
+    services="machine-learning" 
+    documentationCenter="" 
+    authors="bradsev" 
+    manager="jhubbard" 
+    editor="cgronlun" />
 
 <tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/19/2016" 
-	ms.author="fashah;garye;bradsev" />
+    ms.service="machine-learning" 
+    ms.workload="data-services" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="09/19/2016" 
+    ms.author="fashah;garye;bradsev" /> 
 
-#<a name="heading"></a>Выборка данных в контейнерах больших двоичных объектов Azure, SQL Server и таблицах Hive
 
-Этот документ содержит ссылки на статьи, рассказывающие, как получить выборку данных из одного из трех расположений Azure.
+#<a name="<a-name="heading"></a>sample-data-in-azure-blob-containers,-sql-server,-and-hive-tables"></a><a name="heading"></a>Sample data in Azure blob containers, SQL Server, and Hive tables
 
-- Выборка **данных контейнера больших двоичных объектов Azure** осуществляется путем их программного скачивания и последующей выборки с помощью примера кода на языке Python.
-- Выборка **данных SQL Server** осуществляется с помощью как SQL, так и языка программирования Python.
-- Выборка **данных таблицы Hive** осуществляется с помощью запросов Hive.
+This document links to topics that covers how to sample data that is stored in one of three different Azure locations:
 
-**Меню** ниже содержит ссылки на разделы, описывающие процесс выборки данных из каждой среды хранения Azure.
+- **Azure blob container data** is sampled by downloading it programmatically and then sampling it with sample Python code.
+- **SQL Server data** is sampled using both SQL and the Python Programming Language. 
+- **Hive table data** is sampled using Hive queries.
+
+The **menu** below links to the topics that describe how to sample data from each of these Azure storage environments. 
 
 [AZURE.INCLUDE [cap-sample-data-selector](../../includes/cap-sample-data-selector.md)]
 
-Эта задача выборки является одним из этапов [процесса обработки и анализа данных группы (TDSP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
+This sampling task is a step in the [Team Data Science Process (TDSP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
 
-## Для чего нужна выборка данных?
+## <a name="why-sample-data?"></a>Why sample data?
 
-Если размер набора данных, который планируется проанализировать, слишком большой, обычно рекомендуется уменьшить выборку данных до размера, который останется репрезентативным и будет более управляемым. Это способствует пониманию данных, их исследованию и проектированию характеристик. Роль этой операции в процессе аналитики Кортаны заключается в том, чтобы сделать возможным быстрое прототипирование функций обработки данных и моделей машинного обучения.
+If the dataset you plan to analyze is large, it is usually a good idea to down-sample the data to reduce it to a smaller but representative and more manageable size. This facilitates data understanding, exploration, and feature engineering. Its role in the Cortana Analytics Process is to enable fast prototyping of the data processing functions and machine learning models.
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

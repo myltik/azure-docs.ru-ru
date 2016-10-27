@@ -1,42 +1,42 @@
 
-В этом разделе показано, как отправлять экстренные новости в виде шаблонных уведомлений с тегами из консольного приложения .NET.
+This section shows how to send breaking news as tagged template notifications from a .NET console app.
 
-При использовании мобильных приложений обратитесь к учебнику [Добавление push-уведомлений для мобильных приложений](../articles/app-service-mobile/app-service-mobile-windows-store-dotnet-get-started-push.md) и выберите платформу в верхней части страницы.
+If you are using Mobile Apps please refer to the [Add push notifications for Mobile Apps](../articles/app-service-mobile/app-service-mobile-windows-store-dotnet-get-started-push.md) tutorial and select your platform at the top. 
 
-Если вы хотите использовать Java или PHP, см. раздел [Использование концентраторов уведомлений из Java/PHP](../articles/notification-hubs/notification-hubs-java-push-notification-tutorial.md). Уведомления можно отправлять из любого серверного компонента с помощью [интерфейса REST центров уведомлений](http://msdn.microsoft.com/library/windowsazure/dn223264.aspx).
+If you want to use Java or PHP refer to [How to use Notification Hubs from Java/PHP](../articles/notification-hubs/notification-hubs-java-push-notification-tutorial.md). You can send notifications from any backend using the [Notification Hub REST interface](http://msdn.microsoft.com/library/windowsazure/dn223264.aspx).
 
-Пропустите шаги 1–3, если консольное приложение для отправки уведомлений было создано при завершении раздела [Приступая к работе с центрами уведомлений][get-started].
+Skip steps 1-3 if you created the console app for sending notifications when you completed [Get started with Notification Hubs][get-started].
 
-1. В Visual Studio создайте новое консольное приложение Visual C#: 
+1. In Visual Studio create a new Visual C# console application: 
 
-   	![][13]
+    ![][13]
 
-2. В главном меню Visual Studio выберите пункт **Сервис**, **Диспетчер пакетов библиотеки** и **Консоль диспетчера пакетов**, затем в окне консоли введите следующую команду и нажмите клавишу **ВВОД**:
+2. In the Visual Studio main menu, click **Tools**, **Library Package Manager**, and **Package Manager Console**, then in the console window type the following and press **Enter**:
 
         Install-Package Microsoft.Azure.NotificationHubs
- 	
-	После этого будет добавлена ссылка на пакет SDK для центров уведомлений Azure с помощью <a href="http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/">пакета NuGet Microsoft.Azure.Notification Hubs</a>.
+    
+    This adds a reference to the Azure Notification Hubs SDK using the <a href="http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/">Microsoft.Azure.Notification Hubs NuGet package</a>. 
 
-3. Откройте файл Program.cs и добавьте следующий оператор `using`:
+3. Open the file Program.cs and add the following `using` statement:
 
         using Microsoft.Azure.NotificationHubs;
 
-4. В класс `Program` добавьте следующий метод или замените его, если он уже существует:
+4. In the `Program` class, add the following method, or replace it if it already exists:
 
         private static async void SendTemplateNotificationAsync()
         {
-			// Define the notification hub.
-		    NotificationHubClient hub = 
-				NotificationHubClient.CreateClientFromConnectionString(
-					"<connection string with full access>", "<hub name>");
+            // Define the notification hub.
+            NotificationHubClient hub = 
+                NotificationHubClient.CreateClientFromConnectionString(
+                    "<connection string with full access>", "<hub name>");
 
             // Create an array of breaking news categories.
             var categories = new string[] { "World", "Politics", "Business", 
-											"Technology", "Science", "Sports"};
+                                            "Technology", "Science", "Sports"};
 
             // Sending the notification as a template notification. All template registrations that contain 
-			// "messageParam" and the proper tags will receive the notifications. 
-			// This includes APNS, GCM, WNS, and MPNS template registrations.
+            // "messageParam" and the proper tags will receive the notifications. 
+            // This includes APNS, GCM, WNS, and MPNS template registrations.
 
             Dictionary<string, string> templateParams = new Dictionary<string, string>();
 
@@ -45,18 +45,18 @@
                 templateParams["messageParam"] = "Breaking " + category + " News!";            
                 await hub.SendTemplateNotificationAsync(templateParams, category);
             }
-		 }
+         }
 
-	Этот код отправляет шаблонное уведомление по каждому из шести тегов в массиве строк. Использование тегов гарантирует, что устройства будут получать уведомления только зарегистрированных категорий.
+    This code sends a template notification for each of the six tags in the string array. The use of tags makes sure that devices receive notifications only for the registered categories. 
 
-6. В приведенном выше коде замените заполнители `<hub name>` и `<connection string with full access>` именем центра уведомлений и строкой подключения для *DefaultFullSharedAccessSignature*, полученными ранее на панели мониторинга центра уведомлений.
+6. In the above code, replace the `<hub name>` and `<connection string with full access>` placeholders with your notification hub name and the connection string for *DefaultFullSharedAccessSignature* from the dashboard of your notification hub.
 
-7. Добавьте следующие строки в метод **Main**:
+7. Add the following lines in the **Main** method:
 
          SendTemplateNotificationAsync();
-		 Console.ReadLine();
+         Console.ReadLine();
 
-8. Выполните сборку консольного приложения.
+8. Build the console app.
 
 <!-- Anchors -->
 [From a console app]: #console
@@ -78,4 +78,7 @@
 [Notification Hubs How-To for Windows Store]: http://msdn.microsoft.com/library/jj927172.aspx
 [Notification Hubs REST interface]: http://msdn.microsoft.com/library/windowsazure/dn223264.aspx
 
-<!---HONumber=AcomDC_0622_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

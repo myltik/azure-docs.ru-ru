@@ -1,9 +1,11 @@
-- **PolicyBased**. В классической модели развертывания сети VPN на основе политик (PolicyBased) назывались шлюзами статической маршрутизации. Сети VPN на основе политик шифруют и направляют пакеты через туннели IPsec на основе политик IPsec, настроенных с помощью комбинаций префиксов адресов, между локальной сетью и виртуальной сетью Azure. Политика (или селектор трафика) обычно определяется как список доступа в конфигурации VPN-устройства. Значение для типа VPN на основе политик — *PolicyBased*. При использовании VPN на основе политик необходимо учитывать следующие ограничения:
+- **PolicyBased:** PolicyBased VPNs were previously called static routing gateways in the classic deployment model. Policy-based VPNs encrypt and direct packets through IPsec tunnels based on the IPsec policies configured with the combinations of address prefixes between your on-premises network and the Azure VNet. The policy (or traffic selector) is usually defined as an access list in the VPN device configuration. The value for a PolicyBased VPN type is *PolicyBased*. When using a PolicyBased VPN, keep in mind the following limitations:
 
-	- Сети VPN на основе политик можно использовать **только** для шлюзов с SKU Basic. Этот тип VPN не совместим со шлюзами с другими SKU.
-	- При использовании VPN на основе политик может использоваться только один туннель.
-	- VPN на основе политик можно использовать только для подключений типа "сеть — сеть" и только в определенных конфигурациях. Для большинства конфигураций VPN-шлюзов необходимо использовать VPN на основе маршрутов.
+    - PolicyBased VPNs can **only** be used on the Basic gateway SKU. This VPN type is not compatible with other gateway SKUs.
+    - You can have only 1 tunnel when using a PolicyBased VPN.
+    - You can only use PolicyBased VPNs for S2S connections, and only for certain configurations. Most VPN Gateway configurations require a RouteBased VPN.
 
-- **RouteBased**. В классической модели развертывания сети VPN на основе маршрутов (RouteBased) назывались шлюзами динамической маршрутизации. Сети VPN на основе маршрутов используют "маршруты" в таблице маршрутизации и IP-переадресации для направления пакетов в соответствующие интерфейсы туннелей. Затем интерфейсы туннелей шифруют пакеты в туннели или расшифровывают их из туннелей. Политика (или селектор трафика) для VPN типа RouteBased настроена по схеме "любой к любому" (или подстановочные знаки). Значение для типа VPN на основе маршрутов — *RouteBased*.
+- **RouteBased**: RouteBased VPNs were previously called dynamic routing gateways in the classic deployment model. RouteBased VPNs use "routes" in the IP forwarding or routing table to direct packets into their corresponding tunnel interfaces. The tunnel interfaces then encrypt or decrypt the packets in and out of the tunnels. The policy (or traffic selector) for RouteBased VPNs are configured as any-to-any (or wild cards). The value for a RouteBased VPN type is *RouteBased*.
 
-<!---HONumber=AcomDC_0921_2016-->
+<!--HONumber=Oct16_HO2-->
+
+

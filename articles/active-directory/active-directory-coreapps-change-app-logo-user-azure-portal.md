@@ -1,54 +1,59 @@
 <properties
-	pageTitle="Изменение имени или логотипа корпоративного приложения в предварительной версии Azure Active Directory | Microsoft Azure"
-	description="Узнайте, как изменить имя или логотип настраиваемого корпоративного приложения в Azure Active Directory."
-	services="active-directory"
-	documentationCenter=""
-	authors="curtand"
-	manager="femila"
-	editor=""/>
+    pageTitle="Change the name or logo of an enterprise app in Azure Active Directory preview | Microsoft Azure"
+    description="How to change the name or logo for a custom enterprise app in Azure Active Directory"
+    services="active-directory"
+    documentationCenter=""
+    authors="curtand"
+    manager="femila"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/12/2016"
-	ms.author="curtand"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/30/2016"
+    ms.author="curtand"/>
 
-# Изменение имени или логотипа корпоративного приложения в предварительной версии Azure Active Directory
 
-Вы можете легко изменить имя или логотип настраиваемого корпоративного приложения в предварительной версии Azure Active Directory (Azure AD). [Что есть в предварительной версии?](active-directory-preview-explainer.md) Для внесения этих изменений необходимы соответствующие разрешения. В текущей предварительной версии необходимо быть создателем настраиваемого приложения.
+# <a name="change-the-name-or-logo-of-an-enterprise-app-in-azure-active-directory-preview"></a>Change the name or logo of an enterprise app in Azure Active Directory preview
 
-## Как изменить имя или логотип корпоративного приложения?
+It's easy to change the name or logo for a custom enterprise application in Azure Active Directory (Azure AD) preview. [What's in the preview?](active-directory-preview-explainer.md) You must have the appropriate permissions to make these changes. In the current preview, you must be the creator of the custom app.
 
-1. Войдите на [портал Azure](https://portal.azure.com) с помощью учетной записи глобального администратора каталога.
+## <a name="how-do-i-change-an-enterprise-app's-name-or-logo?"></a>How do I change an enterprise app's name or logo?
 
-2. Выберите **Больше служб**, введите **Azure Active Directory** в текстовое поле, а затем нажмите клавишу **ВВОД**.
+1. Sign in to the [Azure portal](https://portal.azure.com) with an account that's a global admin for the directory.
 
-3. В колонке **Azure Active Directory — *имя\_каталога*** (то есть в колонке Azure AD для каталога, которым вы управляете) выберите **Корпоративные приложения**.
+2. Select **More services**, enter **Azure Active Directory** in the text box, and then select **Enter**.
 
-	![Открытие колонки "Корпоративные приложения"](./media/active-directory-coreapps-change-app-logo-azure-portal/open-enterprise-apps.png)
+3. On the **Azure Active Directory - *directoryname*** blade (that is, the Azure AD blade for the directory you are managing), select **Enterprise applications**.
 
-4. В колонке **Корпоративные приложения** выберите **Все приложения**. Отобразится список приложений, которыми можно управлять.
+    ![Opening Enterprise apps](./media/active-directory-coreapps-change-app-logo-azure-portal/open-enterprise-apps.png)
 
-5. В колонке **Корпоративные приложения — Все приложения** выберите приложение.
+4. On the **Enterprise applications** blade, select **All applications**. You'll see a list of the apps you can manage.
 
-6. В колонке ***имя\_приложения*** (то есть в колонке с именем выбранного приложения в заголовке) выберите **Свойства**.
+5. On the **Enterprise applications - All applications** blade, select an app.
 
-	![Выбор команды "Свойства"](./media/active-directory-coreapps-change-app-logo-azure-portal/select-app.png)
+6. On the ***appname*** blade (that is, the blade with the name of the selected app in the title), select **Properties**.
 
-7. В колонке ***имя\_приложения*** — **Свойства** укажите файл нового логотипа или измените имя приложения.
+    ![Selecting the properties command](./media/active-directory-coreapps-change-app-logo-azure-portal/select-app.png)
 
-	![Изменение свойств для логотипа или имени приложения](./media/active-directory-coreapps-change-app-logo-azure-portal/change-logo.png)
+7. On the ***appname*** **- Properties** blade, browse for a file to use as a new logo, or edit the app name, or both.
 
-8. Щелкните **Сохранить**.
+    ![Changing the app logo or nameproperties command](./media/active-directory-coreapps-change-app-logo-azure-portal/change-logo.png)
 
-## Дальнейшие действия
+8. Select the **Save** command.
 
-- [Просмотр всех моих групп](active-directory-groups-view-azure-portal.md)
-- [Назначение корпоративному приложению пользователя или группы](active-directory-coreapps-assign-user-azure-portal.md)
-- [Удаление назначения пользователя или группы из корпоративного приложения](active-directory-coreapps-remove-assignment-user-azure-portal.md)
-- [Отключение входа пользователя в корпоративное приложение](active-directory-coreapps-disable-app-azure-portal.md)
+## <a name="next-steps"></a>Next steps
 
-<!---HONumber=AcomDC_0914_2016-->
+- [See all of my groups](active-directory-groups-view-azure-portal.md)
+- [Assign a user or group to an enterprise app](active-directory-coreapps-assign-user-azure-portal.md)
+- [Remove a user or group assignment from an enterprise app](active-directory-coreapps-remove-assignment-azure-portal.md)
+- [Disable user sign-ins for an enterprise app](active-directory-coreapps-disable-app-azure-portal.md)
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

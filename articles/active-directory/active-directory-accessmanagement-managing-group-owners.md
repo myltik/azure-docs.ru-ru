@@ -1,32 +1,33 @@
 
 <properties
-	pageTitle="Дополнительные возможности управления доступом с помощью групп | Microsoft Azure"
-	description="Расширенные указания по управлению группами безопасности и использованию этих групп для управления доступом к ресурсу."
-	services="active-directory"
-	documentationCenter=""
-	authors="curtand"
-	manager="femila"
-	editor=""/>
+    pageTitle="Дополнительные возможности управления доступом с помощью групп | Microsoft Azure"
+    description="Расширенные указания по управлению группами безопасности и использованию этих групп для управления доступом к ресурсу."
+    services="active-directory"
+    documentationCenter=""
+    authors="curtand"
+    manager="femila"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/22/2016"
-	ms.author="curtand"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/22/2016"
+    ms.author="curtand"/>
 
-# Управление владельцами группы
+
+# <a name="managing-owners-for-a-group"></a>Управление владельцами группы
 После того как владелец ресурса предоставил доступ к ресурсу группе Azure Active Directory, управление членством в группе осуществляется владельцем группы. Владелец ресурса фактически делегирует владельцу группы разрешение предоставлять пользователям доступ к ресурсу.
 
-## Назначение владельца группы
+## <a name="assigning-group-ownership"></a>Назначение владельца группы
 
 **Добавление владельца в группу**
 
-1. На [классическом портале Azure](https://manage.windowsazure.com) щелкните **Active Directory**, а затем откройте каталог своей организации.
+1. На [классическом портале Azure](https://manage.windowsazure.com)щелкните **Active Directory**, а затем откройте каталог своей организации.
 
-2. Откройте вкладку **Группы**, а затем группу, в которую нужно добавить владельцев.
+2. Откройте вкладку **Группы** , а затем группу, в которую нужно добавить владельцев.
 
 3. Щелкните **Добавить владельцев**.
 
@@ -35,22 +36,26 @@
 
 **Удаление владельца из группы**
 
-1. На [классическом портале Azure](https://manage.windowsazure.com) щелкните **Active Directory**, а затем откройте каталог своей организации.
+1. На [классическом портале Azure](https://manage.windowsazure.com)щелкните **Active Directory**, а затем откройте каталог своей организации.
 
-2. Откройте вкладку **Группы**, а затем группу, из которой нужно удалить владельца.
+2. Откройте вкладку **Группы** , а затем группу, из которой нужно удалить владельца.
 
-4. Откройте вкладку **Владельцы**.
+4. Откройте вкладку **Владельцы** .
 
 5. Выберите владельца, которого нужно удалить из группы, а затем щелкните **Удалить**.
 
-## Дополнительная информация
+## <a name="additional-information"></a>Дополнительная информация
 
 В следующих статьях содержатся дополнительные сведения об Azure Active Directory.
 
 * [Управление доступом к ресурсам с помощью групп Azure Active Directory](active-directory-manage-groups.md)
-* [Azure Active Directory cmdlets for configuring group settings (Настройка параметров групп с помощью командлетов Azure Active Directory)](active-directory-accessmanagement-groups-settings-cmdlets.md)
+* [Azure Active Directory cmdlets for configuring group settings](active-directory-accessmanagement-groups-settings-cmdlets.md)
 * [Указатель статьей по управлению приложениями в Azure Active Directory](active-directory-apps-index.md)
 * [Что такое Microsoft Azure Active Directory](active-directory-whatis.md)
 * [Интеграция локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,49 +1,55 @@
 <properties
-	pageTitle="Что такое наборы масштабирования виртуальных машин? | Microsoft Azure"
-	description="Узнайте о наборах масштабирования виртуальных машин."
-	keywords="Виртуальная машина Linux, наборы масштабирования виртуальных машин" 
-	services="virtual-machines-linux"
-	documentationCenter=""
-	authors="gatneil"
-	manager="madhana"
-	editor="tysonn"
-	tags="azure-resource-manager" />
+    pageTitle="What are VM scale sets? | Microsoft Azure"
+    description="Learn about VM scale sets."
+    keywords="linux virtual machine,virtual machine scale sets" 
+    services="virtual-machines-linux"
+    documentationCenter=""
+    authors="gatneil"
+    manager="madhana"
+    editor="tysonn"
+    tags="azure-resource-manager" />
 
 <tags
-	ms.service="virtual-machine-linux"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-linux"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="03/24/2016"
-	ms.author="gatneil"/>
+    ms.service="virtual-machine-linux"
+    ms.workload="infrastructure-services"
+    ms.tgt_pltfrm="vm-linux"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="03/24/2016"
+    ms.author="gatneil"/>
 
-# Что такое наборы масштабирования виртуальных машин?
 
-Масштабируемые наборы виртуальных машин позволяют управлять несколькими виртуальными машинами как единым набором. Если не вдаваться в подробности, масштабируемые наборы имеют следующие преимущества и недостатки:
+# <a name="what-are-virtual-machine-scale-sets?"></a>What are virtual machine scale sets?
 
-Преимущества:
+Virtual Machine Scale Sets allow you to manage multiple VMs as a set. At a high level, scale sets have the following pros and cons:
 
-1. обеспечение высокой доступности; Каждый набор масштабирования помещает свои виртуальные машины в группу доступности с 5 доменами сбоя \(FD\) и 5 доменами обновления \(UD\) для обеспечения доступности \(дополнительные сведения о доменах сбоя и обновления см. в статье [Доступность виртуальных машин](./virtual-machines-linux-manage-availability.md)\). 
-2. Простая интеграция с балансировщиком нагрузки Azure и шлюзом приложений.
-3. Простая интеграция с функцией автоматического масштабирования Azure.
-4. Упрощение развертывания, удаления виртуальных машин и управления ими.
-5. Поддержка распространенных выпусков Windows и Linux, а также пользовательских образов.
+Pros:
 
-Недостатки:
+1. High availability. Each scale set puts its VMs into an Availability Set with 5 Fault Domains (FDs) and 5 Update Domains (UDs) to ensure availability (for more information on FDs and UDs, see [VM availability](./virtual-machines-linux-manage-availability.md)). 
+2. Easy integration with Azure Load Balancer and App Gateway.
+3. Easy integration with Azure Autoscale.
+4. Simplified deployment, management, and clean up of VMs.
+5. Support common Windows and Linux flavors, as well as custom images.
 
-1. Невозможность подключения дисков данных к экземплярам виртуальных машин в масштабируемом наборе. Вместо этого следует использовать хранилище BLOB-объектов, службу файлов Azure, таблицы Azure или другое решение для хранения.
+Cons:
 
-## Быстрое создание с помощью Azure CLI
+1. Cannot attach data disks to VM instances in a scale set. Instead, must use Blob Storage, Azure Files, Azure Tables, or other storage solution.
+
+## <a name="quick-create-using-azure-cli"></a>Quick-create using Azure CLI
 
 [AZURE.INCLUDE [cli-vmss-quick-create](../../includes/virtual-machines-linux-cli-vmss-quick-create-include.md)]
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Next steps
 
-Общие сведения см. на [основной целевой странице для наборов масштабирования](https://azure.microsoft.com/services/virtual-machine-scale-sets/).
+For general information, check out the [main landing page for scale sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/).
 
-Документацию см. на [основной странице документации по наборам масштабирования](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md).
+For more documentation, check out the [main documentation page for scale sets](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md).
 
-Чтобы найти примеры шаблонов Resource Manager с использованием наборов масштабирования, выполните поиск строки "vmss" в [репозитории GitHub с шаблонами быстрого запуска Azure](https://github.com/Azure/azure-quickstart-templates).
+For example Resource Manager templates using scale sets, search for "vmss" in the [Azure Quickstart Templates github repo](https://github.com/Azure/azure-quickstart-templates).
 
-<!---HONumber=AcomDC_0413_2016-->
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,4 +1,8 @@
 
-> [AZURE.NOTE]В этой статье описаны действия по созданию кластера HDInsight с использованием базовых параметров конфигурации. Информацию о других параметрах конфигурации кластера (например, относящихся к использованию виртуальной сети Azure или метахранилища для Hive и Oozie) см. в разделе [Подготовка кластеров Hadoop в HDInsight](../articles/hdinsight/hdinsight-provision-clusters.md).
+> [AZURE.NOTE] The steps in this article create an HDInsight cluster by using basic configuration settings. For information about other cluster configuration settings (such as using Azure virtual network or a metastore for Hive and Oozie), see [Provision Hadoop clusters in HDInsight](../articles/hdinsight/hdinsight-provision-clusters.md).
 
-<!---HONumber=Oct15_HO3-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

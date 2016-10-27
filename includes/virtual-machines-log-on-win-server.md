@@ -1,19 +1,26 @@
 <properties services="virtual-machines" title="How to Log on to a Virtual Machine Running Windows Server" authors="cynthn" solutions="" manager="timlt" editor="tysonn" />
 
-4. Щелкните кнопку **Подключить**, чтобы создать и скачать файл протокола удаленного рабочего стола (RDP-файл). Чтобы воспользоваться этим файлом, щелкните **Открыть**.
 
-5. Появится предупреждение, что издатель RDP-файла неизвестен. Это нормально. Чтобы продолжить, в окне удаленного рабочего стола нажмите кнопку **Подключить**.
+4. Clicking **Connect** creates and downloads a Remote Desktop Protocol file (.rdp file). Click **Open** to use this file.
 
-	![Снимок экрана с предупреждением о неизвестном издателе.](./media/virtual-machines-log-on-win-server/rdp-warn.png)
+5. You will get a warning that the .rdp is from an unknown publisher. This is normal. In the Remote Desktop window, click **Connect** to continue.
 
-6. В окне **Безопасность Windows** введите учетные данные для учетной записи виртуальной машины, а затем нажмите кнопку **ОК**.
+    ![Screenshot of a warning about an unknown publisher.](./media/virtual-machines-log-on-win-server/rdp-warn.png)
 
- 	**Локальная учетная запись** — как правило, это имя пользователя и пароль, указанные при создании виртуальной машины. В данном случае домен представляет собой имя виртуальной машины и вводится в формате *имя\_виртуальной\_машины*&#92;*имя\_пользователя*.
-	
-	**Присоединенная к домену виртуальная машина** — если виртуальная машина входит в домен, введите имя пользователя в формате *домен*& #92;*имя\_пользователя*. Учетная запись также должна входить в группу "Администраторы" или ей должны быть назначены права удаленного доступа к виртуальной машине.
-	
-	**Контроллер домена** — если виртуальная машина является контроллером домена, введите имя пользователя и пароль для учетной записи администратора домена для этого домена.
+6. In the **Windows Security** window, type the credentials for an account on the virtual machine and then click **OK**.
 
-7.	Щелкните **Да** для проверки удостоверения виртуальной машины и завершения входа в систему.
+    **Local account** - this is usually the local account user name and password that you specified when you created the virtual machine. In this case, the domain is the name of the virtual machine and it is entered as *vmname*&#92;*username*.  
+    
+    **Domain joined VM** - if the VM belongs to a domain, enter the user name in the format *Domain*&#92;*Username*. The account also needs to either be in the Administrators group or have been granted remote access privileges to the VM.
+    
+    **Domain controller** - if the VM is a domain controller, type the user name and password of a domain administrator account for that domain.
 
-	![Снимок экрана с сообщением о проверке удостоверения виртуальной машины](./media/virtual-machines-log-on-win-server/cert-warning.png)
+7.  Click **Yes** to verify the identity of the virtual machine and finish logging on.
+
+    ![Screenshot showing a message abut verifying the identity of the VM.](./media/virtual-machines-log-on-win-server/cert-warning.png)
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

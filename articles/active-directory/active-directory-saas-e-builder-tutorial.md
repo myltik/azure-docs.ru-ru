@@ -1,6 +1,6 @@
 <properties 
-    pageTitle="Руководство. Интеграция Azure Active Directory с e-Builder | Microsoft Azure" 
-    description="Узнайте, как использовать e-Builder вместе с Azure Active Directory для реализации единого входа, автоматической подготовки пользователей и выполнения других задач." 
+    pageTitle="Tutorial: Azure Active Directory integration with e-Builder | Microsoft Azure" 
+    description="Learn how to use e-Builder with Azure Active Directory to enable single sign-on, automated provisioning, and more!" 
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
@@ -11,103 +11,111 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="07/11/2016" 
+    ms.date="09/29/2016" 
     ms.author="jeedes" />
 
-#Руководство. Интеграция Azure Active Directory с e-Builder
+
+#<a name="tutorial:-azure-active-directory-integration-with-e-builder"></a>Tutorial: Azure Active Directory integration with e-Builder
   
-Цель данного учебника — показать интеграцию Azure и e-Builder. Сценарий, описанный в этом учебнике, предполагает, что у вас уже имеется:
+The objective of this tutorial is to show the integration of Azure and e-Builder.  
+The scenario outlined in this tutorial assumes that you already have the following items:
 
--   Действующая подписка на Azure
--   Клиент e-Builder
+-   A valid Azure subscription
+-   An e-Builder tenant
   
-После завершения этого руководства пользователи Azure AD, назначенные е-Builder, смогут выполнять единый вход в приложение на корпоративном веб-сайте е-Builder (вход, инициированный поставщиком услуг) или с использованием инструкций из статьи [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
+After completing this tutorial, the Azure AD users you have assigned to e-Builder will be able to single sign into the application at your e-Builder company site (service provider initiated sign on), or using the [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
   
-Сценарий, описанный в этом учебнике, состоит из следующих блоков:
+The scenario outlined in this tutorial consists of the following building blocks:
 
-1.  Включение интеграции приложений для e-Builder
-2.  Настройка единого входа
-3.  Настройка подготовки учетных записей пользователей
-4.  Назначение пользователей
+1.  Enabling the application integration for e-Builder
+2.  Configuring single sign-on
+3.  Configuring user provisioning
+4.  Assigning users
 
-![Сценарий](./media/active-directory-saas-e-builder-tutorial/IC777378.png "Сценарий")
-##Включение интеграции приложений для e-Builder
+![Scenario](./media/active-directory-saas-e-builder-tutorial/IC777378.png "Scenario")
+##<a name="enabling-the-application-integration-for-e-builder"></a>Enabling the application integration for e-Builder
   
-В этом разделе показано, как включить интеграцию приложений для e-Builder.
+The objective of this section is to outline how to enable the application integration for e-Builder.
 
-###Чтобы включить интеграцию приложений для e-Builder, выполните следующие действия.
+###<a name="to-enable-the-application-integration-for-e-builder,-perform-the-following-steps:"></a>To enable the application integration for e-Builder, perform the following steps:
 
-1.  На классическом портале Azure в области навигации слева щелкните **Active Directory**.
+1.  In the Azure classic portal, on the left navigation pane, click **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-e-builder-tutorial/IC700993.png "Active Directory")
 
-2.  Из списка **Каталог** выберите каталог, для которого нужно включить интеграцию каталогов.
+2.  From the **Directory** list, select the directory for which you want to enable directory integration.
 
-3.  Чтобы открыть представление приложений, в представлении каталога нажмите **Приложения** в верхнем меню.
+3.  To open the applications view, in the directory view, click **Applications** in the top menu.
 
-    ![Приложения](./media/active-directory-saas-e-builder-tutorial/IC700994.png "Приложения")
+    ![Applications](./media/active-directory-saas-e-builder-tutorial/IC700994.png "Applications")
 
-4.  В нижней части страницы нажмите кнопку **Добавить**.
+4.  Click **Add** at the bottom of the page.
 
-    ![Добавление приложения](./media/active-directory-saas-e-builder-tutorial/IC749321.png "Добавление приложения")
+    ![Add application](./media/active-directory-saas-e-builder-tutorial/IC749321.png "Add application")
 
-5.  В диалоговом окне **Что необходимо сделать?** нажмите **Добавить приложение из коллекции**.
+5.  On the **What do you want to do** dialog, click **Add an application from the gallery**.
 
-    ![Добавить приложение из коллекции](./media/active-directory-saas-e-builder-tutorial/IC749322.png "Добавить приложение из коллекции")
+    ![Add an application from gallerry](./media/active-directory-saas-e-builder-tutorial/IC749322.png "Add an application from gallerry")
 
-6.  В **поле поиска** введите **e-Builder**.
+6.  In the **search box**, type **e-Builder**.
 
-    ![Коллекция приложений](./media/active-directory-saas-e-builder-tutorial/IC777379.png "Коллекция приложений")
+    ![Application gallery](./media/active-directory-saas-e-builder-tutorial/IC777379.png "Application gallery")
 
-7.  В области результатов выберите **e-Builder** и нажмите кнопку **Завершить**, чтобы добавить приложение.
+7.  In the results pane, select **e-Builder**, and then click **Complete** to add the application.
 
     ![e-Builder](./media/active-directory-saas-e-builder-tutorial/IC777380.png "e-Builder")
-##Настройка единого входа
+##<a name="configuring-single-sign-on"></a>Configuring single sign-on
   
-В этом разделе показано, как разрешить пользователям проходить проверку подлинности в e-Builder со своей учетной записью Azure AD, используя федерацию на основе протокола SAML.
+The objective of this section is to outline how to enable users to authenticate to e-Builder with their account in Azure AD using federation based on the SAML protocol.
 
-###Чтобы настроить единый вход, выполните следующие действия.
+###<a name="to-configure-single-sign-on,-perform-the-following-steps:"></a>To configure single sign-on, perform the following steps:
 
-1.  На странице интеграции с приложением **e-Builder** классического портала Azure щелкните **Настройка единого входа**, чтобы открыть диалоговое окно **Настройка единого входа**.
+1.  In the Azure classic portal, on the **e-Builder** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
 
-    ![Настройка единого входа](./media/active-directory-saas-e-builder-tutorial/IC777381.png "Настройка единого входа")
+    ![Configure single sign-on](./media/active-directory-saas-e-builder-tutorial/IC777381.png "Configure single sign-on")
 
-2.  На странице **Как пользователи должны входить в e-Builder?** выберите **Единый вход Microsoft Azure AD** и нажмите кнопку **Далее**.
+2.  On the **How would you like users to sign on to e-Builder** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
-    ![Настройка единого входа](./media/active-directory-saas-e-builder-tutorial/IC777382.png "Настройка единого входа")
+    ![Configure single sign-on](./media/active-directory-saas-e-builder-tutorial/IC777382.png "Configure single sign-on")
 
-3.  На странице **Настройка URL-адреса приложения** в текстовом поле **URL-адрес для входа в e-Builder** введите свой URL-адрес, используя следующий шаблон *https://\<имя-клиента>.e-Builder.com*, а затем нажмите кнопку **Далее**.
+3.  On the **Configure App URL** page, in the **e-Builder Sign In URL** textbox, type your URL using the following pattern "*https://\<tenant-name\>.e-Builder.com*", and then click **Next**.
 
-    ![Настройка URL-адреса приложения](./media/active-directory-saas-e-builder-tutorial/IC777383.png "Настройка URL-адреса приложения")
+    ![Configure app URL](./media/active-directory-saas-e-builder-tutorial/IC777383.png "Configure app URL")
 
-4.  На странице **Настройка единого входа в e-Builder** щелкните **Скачать метаданные**, а затем сохраните файл данных локально в формате **c:\\е-BuilderMetaData.xml**.
+4.  On the **Configure single sign-on at e-Builder** page, to download your metadata, click **Download metadata**, and then the data file locally as **c:\\e-BuilderMetaData.xml**.
 
-    ![Настройка единого входа](./media/active-directory-saas-e-builder-tutorial/IC777384.png "Настройка единого входа")
+    ![Configure single sign-on](./media/active-directory-saas-e-builder-tutorial/IC777384.png "Configure single sign-on")
 
-5.  Передайте этот файл метаданных в службу поддержки e-Builder. Служба поддержки осуществляет настройку единого входа.
+5.  Forward that metadata file to e-Builder support team. The support team needs configures single sign-on for you.
 
-6.  Выберите подтверждение конфигурации единого входа, а затем нажмите кнопку **Завершить**, чтобы закрыть диалоговое окно **Настройка единого входа**.
+6.  Select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
 
-    ![Настройка единого входа](./media/active-directory-saas-e-builder-tutorial/IC777385.png "Настройка единого входа")
-##Настройка подготовки учетных записей пользователей
+    ![Configure single sign-on](./media/active-directory-saas-e-builder-tutorial/IC777385.png "Configure single sign-on")
+##<a name="configuring-user-provisioning"></a>Configuring user provisioning
   
-Элемент действия для настройки подготовки пользователей в e-Builder отсутствует. Когда назначенный пользователь пытается войти в e-Builder с помощью панели доступа, e-Builder проверяет, существует ли данный пользователь. Если учетная запись пользователя отсутствует, e-Builder автоматически создает ее.
-##Назначение пользователей
+There is no action item for you to configure user provisioning to e-Builder.  
+When an assigned user tries to log into e-Builder using the access panel, e-Builder checks whether the user exists.  
+If there is no user account available yet, it is automatically created by e-Builder.
+##<a name="assigning-users"></a>Assigning users
   
-Чтобы проверить свою конфигурацию, предоставьте пользователям Azure AD, которые должны использовать приложение, доступ путем их назначения.
+To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.
 
-###Чтобы назначить пользователей e-Builder, выполните следующие действия.
+###<a name="to-assign-users-to-e-builder,-perform-the-following-steps:"></a>To assign users to e-Builder, perform the following steps:
 
-1.  На классическом портале Azure создайте тестовую учетную запись.
+1.  In the Azure classic portal, create a test account.
 
-2.  На странице интеграции с приложением **e-Builder** нажмите кнопку **Назначить пользователей**.
+2.  On the **e-Builder **application integration page, click **Assign users**.
 
-    ![Назначить пользователей](./media/active-directory-saas-e-builder-tutorial/IC777386.png "Назначить пользователей")
+    ![Assign users](./media/active-directory-saas-e-builder-tutorial/IC777386.png "Assign users")
 
-3.  Выберите тестового пользователя, нажмите кнопку **Назначить**, а затем — **Да**, чтобы подтвердить назначение.
+3.  Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.
 
-    ![Да](./media/active-directory-saas-e-builder-tutorial/IC767830.png "Да")
+    ![Yes](./media/active-directory-saas-e-builder-tutorial/IC767830.png "Yes")
   
-Если вы хотите проверить параметры единого входа, откройте панель доступа. Дополнительные сведения о панели доступа см. в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
+If you want to test your single sign-on settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0713_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

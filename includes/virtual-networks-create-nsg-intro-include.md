@@ -1,5 +1,8 @@
-С помощью группы безопасности сети вы можете контролировать входящий трафик одной или нескольких виртуальных машин, экземпляров роли, сетевых карт или подсетей в своей виртуальной сети. Группа безопасности сети содержит правила контроля доступа, которые разрешают или запрещают трафик в зависимости от направления трафика, протокола, исходного и целевого адреса и порта. Эти правила можно изменять в любое время, при этом изменения применяются ко всем связанным экземплярам.
+You can use an NSG to control traffic to one or more virtual machines (VMs), role instances, network adapters (NICs), or subnets in your virtual network. An NSG contains access control rules that allow or deny traffic based on traffic direction, protocol, source address and port, and destination address and port. The rules of an NSG can be changed at any time, and changes are applied to all associated instances.
 
-Дополнительные сведения о группах безопасности сети см. в разделе [Что такое группа безопасности сети](../articles/virtual-network/virtual-networks-nsg.md).
+For more information about NSGs, visit [what is an NSG](../articles/virtual-network/virtual-networks-nsg.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

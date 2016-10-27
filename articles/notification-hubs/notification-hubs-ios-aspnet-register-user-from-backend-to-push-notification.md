@@ -1,229 +1,230 @@
 <properties
-	pageTitle="Регистрация текущего пользователя для push-уведомлений с помощью веб-API | Microsoft Azure"
-	description="Узнайте, как запросить регистрацию push-уведомления в приложении iOS с помощью центров уведомлений Azure, когда регистрации выполняется через веб-API ASP.NET."
-	services="notification-hubs"
-	documentationCenter="ios"
-	authors="wesmc7777"
-	manager="erikre"
-	editor=""/>
+    pageTitle="Register the current user for push notifications by using Web API | Microsoft Azure"
+    description="Learn how to request push notification registration in an iOS app with Azure Notification Hubs when registeration is performed by ASP.NET Web API."
+    services="notification-hubs"
+    documentationCenter="ios"
+    authors="wesmc7777"
+    manager="erikre"
+    editor=""/>
 
 <tags
-	ms.service="notification-hubs"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="ios"
-	ms.devlang="objective-c"
-	ms.topic="article"
-	ms.date="06/29/2016"
-	ms.author="wesmc"/>
+    ms.service="notification-hubs"
+    ms.workload="mobile"
+    ms.tgt_pltfrm="ios"
+    ms.devlang="objective-c"
+    ms.topic="article"
+    ms.date="06/29/2016"
+    ms.author="wesmc"/>
 
-# Регистрация текущего пользователя для push-уведомлений с помощью ASP.NET
+
+# <a name="register-the-current-user-for-push-notifications-by-using-asp.net"></a>Register the current user for push notifications by using ASP.NET
 
 > [AZURE.SELECTOR]
 - [iOS](notification-hubs-ios-aspnet-register-user-from-backend-to-push-notification.md)
 
 
 
-##Обзор
+##<a name="overview"></a>Overview
 
-В этом разделе рассказывается о том, как запросить регистрацию push-уведомлений с помощью концентраторов уведомлений Azure при выполнении регистрации средствами веб-API ASP.NET. Этот раздел расширяет учебник [Уведомление пользователей посредством концентраторов уведомлений с помощью серверной части .NET]. Чтобы создать прошедшую проверку подлинности мобильную службу, вы должны завершить требуемые действия в этом учебнике. Дополнительные сведения о сценарии уведомления пользователей см. в учебнике [Уведомление пользователей с помощью концентраторов уведомлений].
+This topic shows you how to request push notification registration with Azure Notification Hubs when registration is performed by ASP.NET Web API. This topic extends the tutorial [Notify users with Notification Hubs]. You must have already completed the required steps in that tutorial to create the authenticated mobile service. For more information on the notify users scenario, see [Notify users with Notification Hubs].
 
-##Обновление приложения  
+##<a name="update-your-app"></a>Update your app  
 
-1. В вашем MainStoryboard\_iPhone.storyboard добавьте следующие компоненты из библиотеки объектов:
+1. In your MainStoryboard_iPhone.storyboard, add the following components from the object library:
 
-	+ **Метка**: «Принудительно отправлять пользователю уведомления из центров уведомлений»
-	+ **Метка**: «InstallationId»
-	+ **Метка**: «Пользователь»
-	+ **Текстовое поле**: «Пользователь»
-	+ **Метка**: «Пароль»
-	+ **Текстовое поле**: «Пароль»
-	+ **Кнопка**: «Вход»
+    + **Label**: "Push to User with Notification Hubs"
+    + **Label**: "InstallationId"
+    + **Label**: "User"
+    + **Text Field**: "User"
+    + **Label**: "Password"
+    + **Text Field**: "Password"
+    + **Button**: "Login"
 
-	На этом этапе раскадровка выглядит следующим образом:
+    At this point, your storyboard looks like the following:
 
-   	![][0]
+    ![][0]
 
-2. Во вспомогательном редакторе создайте выходы для всех коммутируемых элементов управления и вызовите их, соедините текстовые поля с контроллером представления (делегируйте) и создайте **Действие** для кнопки **Вход**.
+2. In the assistant editor, create outlets for all the switched controls and call them, connect the text fields with the View Controller (delegate), and create an **Action** for the **login** button.
 
-   	![][1]
+    ![][1]
 
-   	Теперь файл BreakingNewsViewController.h должен содержать следующий код:
+    Your BreakingNewsViewController.h file should now contain the following code:
 
-		@property (weak, nonatomic) IBOutlet UILabel *installationId;
-		@property (weak, nonatomic) IBOutlet UITextField *User;
-		@property (weak, nonatomic) IBOutlet UITextField *Password;
+        @property (weak, nonatomic) IBOutlet UILabel *installationId;
+        @property (weak, nonatomic) IBOutlet UITextField *User;
+        @property (weak, nonatomic) IBOutlet UITextField *Password;
 
-		- (IBAction)login:(id)sender;
+        - (IBAction)login:(id)sender;
 
-5. Создайте класс с именем **DeviceInfo** и скопируйте следующий код в раздел интерфейса файла DeviceInfo.h:
+5. Create a class named **DeviceInfo**, and copy the following code into the interface section of the file DeviceInfo.h:
 
-		@property (readonly, nonatomic) NSString* installationId;
-		@property (nonatomic) NSData* deviceToken;
+        @property (readonly, nonatomic) NSString* installationId;
+        @property (nonatomic) NSData* deviceToken;
 
-6. Скопируйте следующий код в реализационную часть файла DeviceInfo.m:
+6. Copy the following code in the implementation section of the DeviceInfo.m file:
 
-			@synthesize installationId = _installationId;
+            @synthesize installationId = _installationId;
 
-			- (id)init {
-			    if (!(self = [super init]))
-					return nil;
+            - (id)init {
+                if (!(self = [super init]))
+                    return nil;
 
-			    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-			    _installationId = [defaults stringForKey:@"PushToUserInstallationId"];
-			    if(!_installationId) {
-			        CFUUIDRef newUUID = CFUUIDCreate(kCFAllocatorDefault);
-			        _installationId = (__bridge_transfer NSString *)CFUUIDCreateString(kCFAllocatorDefault, newUUID);
-			        CFRelease(newUUID);
+                NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+                _installationId = [defaults stringForKey:@"PushToUserInstallationId"];
+                if(!_installationId) {
+                    CFUUIDRef newUUID = CFUUIDCreate(kCFAllocatorDefault);
+                    _installationId = (__bridge_transfer NSString *)CFUUIDCreateString(kCFAllocatorDefault, newUUID);
+                    CFRelease(newUUID);
 
-			        //store the install ID so we don't generate a new one next time
-			        [defaults setObject:_installationId forKey:@"PushToUserInstallationId"];
-			        [defaults synchronize];
-			    }
+                    //store the install ID so we don't generate a new one next time
+                    [defaults setObject:_installationId forKey:@"PushToUserInstallationId"];
+                    [defaults synchronize];
+                }
 
-			    return self;
-			}
+                return self;
+            }
 
-			- (NSString*)getDeviceTokenInHex {
-			    const unsigned *tokenBytes = [[self deviceToken] bytes];
-			    NSString *hexToken = [NSString stringWithFormat:@"%08X%08X%08X%08X%08X%08X%08X%08X",
-			                          ntohl(tokenBytes[0]), ntohl(tokenBytes[1]), ntohl(tokenBytes[2]),
-			                          ntohl(tokenBytes[3]), ntohl(tokenBytes[4]), ntohl(tokenBytes[5]),
-			                          ntohl(tokenBytes[6]), ntohl(tokenBytes[7])];
-			    return hexToken;
-			}
+            - (NSString*)getDeviceTokenInHex {
+                const unsigned *tokenBytes = [[self deviceToken] bytes];
+                NSString *hexToken = [NSString stringWithFormat:@"%08X%08X%08X%08X%08X%08X%08X%08X",
+                                      ntohl(tokenBytes[0]), ntohl(tokenBytes[1]), ntohl(tokenBytes[2]),
+                                      ntohl(tokenBytes[3]), ntohl(tokenBytes[4]), ntohl(tokenBytes[5]),
+                                      ntohl(tokenBytes[6]), ntohl(tokenBytes[7])];
+                return hexToken;
+            }
 
-7. В PushToUserAppDelegate.h добавьте следующее одноэлементное свойство:
+7. In PushToUserAppDelegate.h, add the following property singleton:
 
-		@property (strong, nonatomic) DeviceInfo* deviceInfo;
+        @property (strong, nonatomic) DeviceInfo* deviceInfo;
 
-8. В метод **didFinishLaunchingWithOptions** в файле PushToUserAppDelegate.m добавьте следующий код:
+8. In the **didFinishLaunchingWithOptions** method in PushToUserAppDelegate.m, add the following code:
 
-		self.deviceInfo = [[DeviceInfo alloc] init];
+        self.deviceInfo = [[DeviceInfo alloc] init];
 
-		[[UIApplication sharedApplication] registerForRemoteNotificationTypes: UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound];
+        [[UIApplication sharedApplication] registerForRemoteNotificationTypes: UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound];
 
-	Первая строка обеспечивает инициализацию одноэлементного **DeviceInfo**. Во второй строке начинается регистрация для push-уведомлений, которая уже существует, если вы уже изучили учебник [Приступая к работе с концентраторами уведомлений].
+    The first line initializes the **DeviceInfo** singleton. The second line starts the registration for push notifications, which is already present is you have already completed the [Get Started with Notification Hubs] tutorial.
 
-9. В PushToUserAppDelegate.m реализуйте метод **didRegisterForRemoteNotificationsWithDeviceToken** в своем AppDelegate и добавьте следующий код:
+9. In PushToUserAppDelegate.m, implement the method **didRegisterForRemoteNotificationsWithDeviceToken** in your AppDelegate and add the following code:
 
-		self.deviceInfo.deviceToken = deviceToken;
+        self.deviceInfo.deviceToken = deviceToken;
 
-	Таким образом задается маркер устройства для запроса.
+    This sets the device token for the request.
 
-	> [AZURE.NOTE] На этом этапе в методе не должно быть никакого другого кода. Если в методе **registerNativeWithDeviceToken** уже есть вызов, добавленный при прохождении учебника [Приступая к работе с концентраторами уведомлений](/manage/services/notification-hubs/get-started-notification-hubs-ios/), этот вызов нужно закомментировать или удалить.
+    > [AZURE.NOTE] At this point, there should not be any other code in this method. If you already have a call to the **registerNativeWithDeviceToken** method that was added when you completed the [Get Started with Notification Hubs](/manage/services/notification-hubs/get-started-notification-hubs-ios/) tutorial, you must comment-out or remove that call.
 
-10.	В файле PushToUserAppDelegate.m добавьте следующий метод обработчика:
+10. In the PushToUserAppDelegate.m file, add the following handler method:
 
-		- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
-		    NSLog(@"%@", userInfo);
-		    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Notification" message:
-		                          [userInfo objectForKey:@"inAppMessage"] delegate:nil cancelButtonTitle:
-		                          @"OK" otherButtonTitles:nil, nil];
-		    [alert show];
-		}
+        - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
+            NSLog(@"%@", userInfo);
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Notification" message:
+                                  [userInfo objectForKey:@"inAppMessage"] delegate:nil cancelButtonTitle:
+                                  @"OK" otherButtonTitles:nil, nil];
+            [alert show];
+        }
 
-	 Этот метод отображает предупреждение в пользовательском интерфейсе, когда приложение получает уведомления во время работы.
+     This method displays an alert in the UI when your app receives notifications while it is running.
 
-9. Откройте файл PushToUserViewController.m и верните клавиатуру в следующей реализации:
+9. Open the PushToUserViewController.m file, and return the keyboard in the following implementation:
 
-		- (BOOL)textFieldShouldReturn:(UITextField *)theTextField {
-		    if (theTextField == self.User || theTextField == self.Password) {
-		        [theTextField resignFirstResponder];
-		    }
-		    return YES;
-		}
+        - (BOOL)textFieldShouldReturn:(UITextField *)theTextField {
+            if (theTextField == self.User || theTextField == self.Password) {
+                [theTextField resignFirstResponder];
+            }
+            return YES;
+        }
 
-9. В методе **viewDidLoad** в файле PushToUserViewController.m инициализируйте метку installationId, как показано ниже.
+9. In the **viewDidLoad** method in the PushToUserViewController.m file, initialize the installationId label as follows:
 
-		DeviceInfo* deviceInfo = [(PushToUserAppDelegate*)[[UIApplication sharedApplication]delegate] deviceInfo];
-		Self.installationId.text = deviceInfo.installationId;
+        DeviceInfo* deviceInfo = [(PushToUserAppDelegate*)[[UIApplication sharedApplication]delegate] deviceInfo];
+        Self.installationId.text = deviceInfo.installationId;
 
-10. В интерфейс файла PushToUserViewController.m добавьте следующие свойства:
+10. Add the following properties in interface in PushToUserViewController.m:
 
-		@property (readonly) NSOperationQueue* downloadQueue;
-		- (NSString*)base64forData:(NSData*)theData;
+        @property (readonly) NSOperationQueue* downloadQueue;
+        - (NSString*)base64forData:(NSData*)theData;
 
-11. Затем добавьте следующую реализацию:
+11. Then, add the following implementation:
 
-			- (NSOperationQueue *)downloadQueue {
-			    if (!_downloadQueue) {
-			        _downloadQueue = [[NSOperationQueue alloc] init];
-			        _downloadQueue.name = @"Download Queue";
-			        _downloadQueue.maxConcurrentOperationCount = 1;
-			    }
-			    return _downloadQueue;
-			}
+            - (NSOperationQueue *)downloadQueue {
+                if (!_downloadQueue) {
+                    _downloadQueue = [[NSOperationQueue alloc] init];
+                    _downloadQueue.name = @"Download Queue";
+                    _downloadQueue.maxConcurrentOperationCount = 1;
+                }
+                return _downloadQueue;
+            }
 
-			// base64 encoding
-			- (NSString*)base64forData:(NSData*)theData
-			{
-			    const uint8_t* input = (const uint8_t*)[theData bytes];
-			    NSInteger length = [theData length];
+            // base64 encoding
+            - (NSString*)base64forData:(NSData*)theData
+            {
+                const uint8_t* input = (const uint8_t*)[theData bytes];
+                NSInteger length = [theData length];
 
-			    static char table[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=";
+                static char table[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=";
 
-			    NSMutableData* data = [NSMutableData dataWithLength:((length + 2) / 3) * 4];
-			    uint8_t* output = (uint8_t*)data.mutableBytes;
+                NSMutableData* data = [NSMutableData dataWithLength:((length + 2) / 3) * 4];
+                uint8_t* output = (uint8_t*)data.mutableBytes;
 
-			    NSInteger i;
-			    for (i=0; i < length; i += 3) {
-			        NSInteger value = 0;
-			        NSInteger j;
-			        for (j = i; j < (i + 3); j++) {
-			            value <<= 8;
+                NSInteger i;
+                for (i=0; i < length; i += 3) {
+                    NSInteger value = 0;
+                    NSInteger j;
+                    for (j = i; j < (i + 3); j++) {
+                        value <<= 8;
 
-			            if (j < length) {
-			                value |= (0xFF & input[j]);
-			            }
-			        }
+                        if (j < length) {
+                            value |= (0xFF & input[j]);
+                        }
+                    }
 
-			        NSInteger theIndex = (i / 3) * 4;
-			        output[theIndex + 0] =                    table[(value >> 18) & 0x3F];
-			        output[theIndex + 1] =                    table[(value >> 12) & 0x3F];
-			        output[theIndex + 2] = (i + 1) < length ? table[(value >> 6)  & 0x3F] : '=';
-			        output[theIndex + 3] = (i + 2) < length ? table[(value >> 0)  & 0x3F] : '=';
-			    }
+                    NSInteger theIndex = (i / 3) * 4;
+                    output[theIndex + 0] =                    table[(value >> 18) & 0x3F];
+                    output[theIndex + 1] =                    table[(value >> 12) & 0x3F];
+                    output[theIndex + 2] = (i + 1) < length ? table[(value >> 6)  & 0x3F] : '=';
+                    output[theIndex + 3] = (i + 2) < length ? table[(value >> 0)  & 0x3F] : '=';
+                }
 
-			    return [[NSString alloc] initWithData:data encoding:NSASCIIStringEncoding];
-			}
+                return [[NSString alloc] initWithData:data encoding:NSASCIIStringEncoding];
+            }
 
 
-12. Скопируйте следующий код в метод обработчика **login**, созданный с помощью XCode:
+12. Copy the following code into the **login** handler method created by XCode:
 
-			DeviceInfo* deviceInfo = [(PushToUserAppDelegate*)[[UIApplication sharedApplication]delegate] deviceInfo];
+            DeviceInfo* deviceInfo = [(PushToUserAppDelegate*)[[UIApplication sharedApplication]delegate] deviceInfo];
 
-		    // build JSON
-		    NSString* json = [NSString stringWithFormat:@"{"platform":"ios", "instId":"%@", "deviceToken":"%@"}", deviceInfo.installationId, [deviceInfo getDeviceTokenInHex]];
+            // build JSON
+            NSString* json = [NSString stringWithFormat:@"{\"platform\":\"ios\", \"instId\":\"%@\", \"deviceToken\":\"%@\"}", deviceInfo.installationId, [deviceInfo getDeviceTokenInHex]];
 
-		    // build auth string
-		    NSString* authString = [NSString stringWithFormat:@"%@:%@", self.User.text, self.Password.text];
+            // build auth string
+            NSString* authString = [NSString stringWithFormat:@"%@:%@", self.User.text, self.Password.text];
 
-		    NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"http://nhnotifyuser.azurewebsites.net/api/register"]];
-		    [request setHTTPMethod:@"POST"];
-		    [request setHTTPBody:[json dataUsingEncoding:NSUTF8StringEncoding]];
-		    [request addValue:[@([json lengthOfBytesUsingEncoding:NSUTF8StringEncoding]) description] forHTTPHeaderField:@"Content-Length"];
-		    [request addValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-		    [request addValue:[NSString stringWithFormat:@"Basic %@",[self base64forData:[authString dataUsingEncoding:NSUTF8StringEncoding]]] forHTTPHeaderField:@"Authorization"];
+            NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"http://nhnotifyuser.azurewebsites.net/api/register"]];
+            [request setHTTPMethod:@"POST"];
+            [request setHTTPBody:[json dataUsingEncoding:NSUTF8StringEncoding]];
+            [request addValue:[@([json lengthOfBytesUsingEncoding:NSUTF8StringEncoding]) description] forHTTPHeaderField:@"Content-Length"];
+            [request addValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+            [request addValue:[NSString stringWithFormat:@"Basic %@",[self base64forData:[authString dataUsingEncoding:NSUTF8StringEncoding]]] forHTTPHeaderField:@"Authorization"];
 
-		    // connect with POST
-		    [NSURLConnection sendAsynchronousRequest:request queue:[self downloadQueue] completionHandler:^(NSURLResponse* response, NSData* data, NSError* error) {
-		        // add UIAlert depending on response.
-		        if (error != nil) {
-		            NSHTTPURLResponse* httpResponse = (NSHTTPURLResponse*)response;
-		            if ([httpResponse statusCode] == 200) {
-		                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Back-end registration" message:@"Registration successful" delegate:nil cancelButtonTitle: @"OK" otherButtonTitles:nil, nil];
-		                [alert show];
-		            } else {
-		                NSLog(@"status: %ld", (long)[httpResponse statusCode]);
-		            }
-		        } else {
-		            NSLog(@"error: %@", error);
-		        }
-		    }];
+            // connect with POST
+            [NSURLConnection sendAsynchronousRequest:request queue:[self downloadQueue] completionHandler:^(NSURLResponse* response, NSData* data, NSError* error) {
+                // add UIAlert depending on response.
+                if (error != nil) {
+                    NSHTTPURLResponse* httpResponse = (NSHTTPURLResponse*)response;
+                    if ([httpResponse statusCode] == 200) {
+                        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Back-end registration" message:@"Registration successful" delegate:nil cancelButtonTitle: @"OK" otherButtonTitles:nil, nil];
+                        [alert show];
+                    } else {
+                        NSLog(@"status: %ld", (long)[httpResponse statusCode]);
+                    }
+                } else {
+                    NSLog(@"error: %@", error);
+                }
+            }];
 
-	Этот метод возвращает ИД установки и канал для push-уведомлений и отправляет его, вместе с типом устройства, прошедшему проверку подлинности методу веб-API, который создает регистрацию в концентраторах уведомлений. Этот веб-API был определен в учебнике [Уведомление пользователей с помощью концентраторов уведомлений].
+    This method gets both an installation ID and channel for push notifications and sends it, along with the device type, to the authenticated Web API method that creates a registration in Notification Hubs. This Web API was defined in [Notify users with Notification Hubs].
 
-Теперь, когда клиентское приложение было обновлено, вернитесь к учебнику [Уведомление пользователей с помощью концентраторов уведомлений] и обновите мобильную службу для отправки уведомлений с помощью концентраторов уведомлений.
+Now that the client app has been updated, return to the [Notify users with Notification Hubs] and update the mobile service to send notifications by using Notification Hubs.
 
 <!-- Anchors. -->
 
@@ -232,9 +233,12 @@
 [1]: ./media/notification-hubs-ios-aspnet-register-user-push-notifications/notification-hub-user-aspnet-ios2.png
 
 <!-- URLs. -->
-[Уведомление пользователей посредством концентраторов уведомлений с помощью серверной части .NET]: /manage/services/notification-hubs/notify-users-aspnet
-[Уведомление пользователей с помощью концентраторов уведомлений]: /manage/services/notification-hubs/notify-users-aspnet
+[Notify users with Notification Hubs]: /manage/services/notification-hubs/notify-users-aspnet
 
-[Приступая к работе с концентраторами уведомлений]: /manage/services/notification-hubs/get-started-notification-hubs-ios
+[Get Started with Notification Hubs]: /manage/services/notification-hubs/get-started-notification-hubs-ios
 
-<!---HONumber=AcomDC_0907_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

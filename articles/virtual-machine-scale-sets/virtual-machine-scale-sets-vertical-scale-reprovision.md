@@ -1,84 +1,85 @@
 <properties
-	pageTitle="Вертикальное масштабирование в масштабируемых наборах виртуальных машин Azure | Microsoft Azure"
-	description="Сведения о вертикальном масштабировании виртуальной машины в ответ на оповещения c помощью службы автоматизации Azure"
-	services="virtual-machine-scale-sets"
-	documentationCenter=""
-	authors="gbowerman"
-	manager="madhana"
-	editor=""
-	tags="azure-resource-manager"/>
+    pageTitle="Vertically scale Azure virtual machine scale sets | Microsoft Azure"
+    description="How to vertically scale a Virtual Machine in response to monitoring alerts with Azure Automation"
+    services="virtual-machine-scale-sets"
+    documentationCenter=""
+    authors="gbowerman"
+    manager="madhana"
+    editor=""
+    tags="azure-resource-manager"/>
 
 <tags
-	ms.service="virtual-machine-scale-sets"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-multiple"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/03/2016"
-	ms.author="guybo"/>
+    ms.service="virtual-machine-scale-sets"
+    ms.workload="infrastructure-services"
+    ms.tgt_pltfrm="vm-multiple"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="08/03/2016"
+    ms.author="guybo"/>
 
-# Вертикальное автомасштабирование масштабируемых наборов виртуальных машин
 
-В этой статье описывается, как выполнить вертикальное масштабирование [масштабируемых наборов виртуальных машин](https://azure.microsoft.com/services/virtual-machine-scale-sets/) Azure с повторной подготовкой или без нее. Дополнительные сведения о вертикальном масштабировании виртуальных машин, которые не входят в масштабируемые наборы, см. в статье [Vertically scale Azure virtual machine with Azure Automation](../virtual-machines/virtual-machines-windows-vertical-scaling-automation.md) (Вертикальное масштабирование виртуальных машин Azure с помощью службы автоматизации Azure).
+# <a name="vertical-autoscale-with-virtual-machine-scale-sets"></a>Vertical autoscale with Virtual Machine Scale sets
 
-Вертикальное масштабирование — это изменение размеров виртуальной машины (как _увеличение масштаба_, так и его _уменьшение_) в ответ на рабочую нагрузку. Сравните это с [горизонтальным масштабированием](./virtual-machine-scale-sets-autoscale-overview.md), при котором в зависимости от рабочей нагрузки изменяется количество виртуальных машин (также происходит _увеличение_ или _уменьшение масштаба_).
+This article describes how to vertically scale Azure [Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/) with or without reprovisioning. For vertical scaling of VMs which are not in scale sets, refer to [Vertically scale Azure virtual machine with Azure Automation](../virtual-machines/virtual-machines-windows-vertical-scaling-automation.md).
 
-Повторная подготовка означает удаление существующей виртуальной машины и ее замену новой. Когда вы увеличиваете или уменьшаете размер виртуальных машин в масштабируемом наборе, как правило, вам нужно либо изменить размер существующих виртуальных машин и сохранить данные, либо развернуть новые виртуальные машины другого размера. В этом документе описываются оба сценария.
+Vertical scaling, also known as _scale up_ and _scale down_, means increasing or decreasing virtual machine (VM) sizes in response to a workload. Compare this with [horizontal scaling](./virtual-machine-scale-sets-autoscale-overview.md), also referred to as _scale out_ and _scale in_, where the number of VMs is altered depending on the workload.
 
-Когда полезно выполнять вертикальное масштабирование:
+Reprovisioning means removing an existing VM and replacing it with a new one. When you increase or decrease the size of VMs in a VM Scale Set, in some cases you want to resize existing VMs and retain your data, while in other cases you need to deploy new VMs of the new size. This document covers both cases.
 
-- Если служба, работающая на базе виртуальных машин, мало используется (например, в выходные). Уменьшение размера виртуальной машины может сократить ежемесячные расходы.
-- Чтобы увеличить размер виртуальной машины в соответствии с возросшими потребностями, не создавая дополнительные виртуальные машины.
+Vertical scaling can be useful when:
 
-Вы можете настроить активацию вертикального масштабирования с помощью оповещений на основе метрик масштабируемого набора виртуальных машин. Активированное оповещение запускает веб-перехватчик, который, в свою очередь, активирует модуль Runbook. Этот модуль и изменяет размер масштабируемого набора. Вертикальное масштабирование можно настроить так:
+- A service built on virtual machines is under-utilized (for example at weekends). Reducing the VM size can reduce monthly costs.
+- Increasing VM size to cope with larger demand without creating additional VMs.
 
-1. Создайте учетную запись службы автоматизации Azure с возможностью запуска от имени.
-2. Импортируйте в подписку модули Runbook службы автоматизации Azure для вертикального масштабирования.
-3. Добавьте в модуль Runbook веб-перехватчик.
-4. Добавьте в свой набор для масштабирования виртуальных машин правило оповещения с использованием системы уведомлений веб-перехватчика.
+You can set up vertical scaling to be triggered based on metric based alerts from your VM Scale Set. When the alert is activated it fires a webhook that triggers a runbook which can scale your scale set up or down. Vertical scaling can be configured by following these steps:
 
-> [AZURE.NOTE] Вертикальное автомасштабирование поддерживается только для виртуальных машин определенных размеров. Прежде чем принимать решение о переходе с одного размера на другой, сравните спецификации каждого размера (большее число не всегда свидетельствует о большем размере виртуальной машины). Вы можете выбрать для масштабирования следующие пары размеров:
+1. Create an Azure Automation account with run-as capability.
+2. Import Azure Automation Vertical Scale runbooks for VM Scale Sets into your subscription.
+3. Add a webhook to your runbook.
+4. Add an alert to your VM Scale Set using a webhook notification.
 
->| Пары размеров виртуальных машин, для которых можно применять вертикальное масштабирование | |
+> [AZURE.NOTE] Vertical autoscaling can only take place within certain ranges of VM sizes. Compare the specifications of each size before deciding to scale from one to another (higher number does not always indicate bigger VM size). You can choose to scale between the following pairs of sizes:
+
+>| VM sizes scaling pair |   |
 |---|---|
-| Standard\_A0 | Standard\_A11 |
-| Standard\_D1 | Standard\_D14 |
-| Standard\_DS1 | Standard\_DS14 |
-| Standard\_D1v2 | Standard\_D15v2 |
-| Standard\_G1 | Standard\_G5 |
-| Standard\_GS1 | Standard\_GS5 |
+|  Standard_A0 | Standard_A11 |
+|  Standard_D1 |  Standard_D14 |
+|  Standard_DS1 |  Standard_DS14 |
+|  Standard_D1v2 |  Standard_D15v2 |
+|  Standard_G1 |  Standard_G5 |
+|  Standard_GS1 |  Standard_GS5 |
 
-## Создание учетной записи службы автоматизации Azure с возможностью запуска от имени
+## <a name="create-an-azure-automation-account-with-run-as-capability"></a>Create an Azure Automation Account with run-as capability
 
-Первое, что вам нужно сделать, — создать учетную запись службы автоматизации Azure, где будут размещаться модули Runbook, используемые для масштабирования экземпляров масштабируемого набора виртуальных машин. Недавно в [службе автоматизации Azure](https://azure.microsoft.com/services/automation/) появился компонент "Учетная запись запуска от имени". Этот компонент упрощает настройку субъекта-службы для автоматического запуска модулей Runbook от имени пользователя. Дополнительные сведения об этом см. здесь:
+The first thing you need to do is create an Azure Automation account that will host the runbooks used to scale the VM Scale Set instances. Recently [Azure Automation](https://azure.microsoft.com/services/automation/) introduced the "Run As account" feature which makes setting up the Service Principal for automatically running the runbooks on a user's behalf very easy. You can read more about this in the article below:
 
-* [Проверка подлинности модулей Runbook в Azure с помощью учетной записи запуска от имени](../automation/automation-sec-configure-azure-runas-account.md)
+* [Authenticate Runbooks with Azure Run As account](../automation/automation-sec-configure-azure-runas-account.md)
 
-## Импорт в подписку модулей Runbook службы автоматизации Azure для вертикального масштабирования
+## <a name="import-azure-automation-vertical-scale-runbooks-into-your-subscription"></a>Import Azure Automation Vertical Scale runbooks into your subscription
 
-Модули Runbook, необходимые для вертикального масштабирования масштабируемых наборов виртуальных машин, уже опубликованы в коллекции Runbook службы автоматизации Azure. Вот как импортировать их в подписку:
+The runbooks needed to vertically scale your VM Scale Sets are already published in the Azure Automation Runbook Gallery. To import them into your subscription follow the steps in this article:
 
-* [Runbook и коллекции модулей для службы автоматизации Azure](../automation/automation-runbook-gallery.md)
+* [Runbook and module galleries for Azure Automation](../automation/automation-runbook-gallery.md)
 
-Щелкните в меню модулей Runbook значок "Обзор коллекции".
+Choose the Browse Gallery option from the Runbooks menu:
 
-.![Модули Runbook, которые нужно импортировать][runbooks]
+![Runbooks to be imported][runbooks]
 
-На рисунке ниже показаны модули Runbook, которые нужно импортировать. Выберите модуль Runbook в зависимости от того, какой вариант вертикального масштабирования вы хотите выполнить — с повторной подготовкой или без нее.
+The runbooks that need to be imported are shown. Select the runbook based on whether you want vertical scaling with or without reprovisioning:
 
-![Коллекция модулей Runbook][gallery]
+![Runbooks gallery][gallery]
 
-## Добавление веб-перехватчика в модуль Runbook
+## <a name="add-a-webhook-to-your-runbook"></a>Add a webhook to your runbook
 
-В импортированные модули Runbook нужно добавить веб-перехватчик, чтобы система оповещений масштабируемого набора виртуальных машин могла активировать запуск модулей. Дополнительные сведения о создании веб-перехватчика для модуля Runbook см. в этой статье:
+Once you've imported the runbooks you'll need to add a webhook to the runbook so it can be triggered by an alert from a VM Scale Set. The details of creating a webhook for your Runbook are described in this article:
 
-* [Объекты Webhook в службе автоматизации Azure](../automation/automation-webhooks.md)
+* [Azure Automation webhooks](../automation/automation-webhooks.md)
 
-> [AZURE.NOTE] Прежде чем закрывать диалоговое окно, обязательно скопируйте универсальный код ресурса (URI) веб-перехватчика. Он понадобится вам в следующем разделе.
+> [AZURE.NOTE] Make sure you copy the webhook URI before closing the webhook dialog as you will need this in the next section.
 
-## Добавление правила оповещения в масштабируемый набор виртуальных машин
+## <a name="add-an-alert-to-your-vm-scale-set"></a>Add an alert to your VM Scale Set
 
-Ниже приведен скрипт PowerShell, с помощью которого вы можете добавить в масштабируемый набор виртуальных машин правило оповещения. Дополнительные сведения о получении имени метрики для активации оповещения см. в статье [Общие метрики автомасштабирования Azure Insights](../azure-portal/insights-autoscale-common-metrics.md).
+Below is a PowerShell script which shows how to add an alert to a VM Scale Set. Refer to the following article to get the name of the metric to fire the alert on: [Azure Insights autoscaling common metrics](../azure-portal/insights-autoscale-common-metrics.md).
 
 ```
 $actionEmail = New-AzureRmAlertRuleEmail -CustomEmail user@contoso.com
@@ -106,18 +107,22 @@ Add-AzureRmMetricAlertRule  -Name  $alertName `
                             -Description $description
 ```
 
-> [AZURE.NOTE] Мы рекомендуем взвешенно подходить к определению временного окна для правила оповещения. Так вы сможете избежать слишком частой активации вертикального масштабирования, а также связанных с этой процедурой перерывов в работе службы. Начните с интервала минимум в 20–30 минут. Если перерывы в работе службы недопустимы, рассмотрите возможность горизонтального масштабирования.
+> [AZURE.NOTE] It is recommended to configure a reasonable time window for the alert in order to avoid triggering vertical scaling, and any associated service interruption, too often. Consider a window of least 20-30 minutes or more. Consider horizontal scaling if you need to avoid any interruption.
 
-Дополнительные сведения о создании правил оповещений см. в следующих статьях:
+For more information on how to create alerts refer to the following articles:
 
-* [Примеры для быстрого запуска Azure Insights с помощью PowerShell](../azure-portal/insights-powershell-samples.md)
-* [Примеры команд для межплатформенного интерфейса командной строки Azure Insights](../azure-portal/insights-cli-samples.md)
+* [Azure Insights PowerShell quick start samples](../azure-portal/insights-powershell-samples.md)
+* [Azure Insights Cross-platform CLI quick start samples](../azure-portal/insights-cli-samples.md)
 
-## Сводка
+## <a name="summary"></a>Summary
 
-В этой статье описан простой способ вертикального масштабирования. Указанные блоки (работа с учетной записью службы автоматизации, модулями Runbook, веб-перехватчиками и оповещениями) позволяют включить в настраиваемый набор действий самые разные события.
+This article showed simple vertical scaling examples. With these building blocks - Automation account, runbooks, webhooks, alerts - you can connect a rich variety of events with a customized set of actions.
 
 [runbooks]: ./media/virtual-machine-scale-sets-vertical-scale-reprovision/runbooks.png
 [gallery]: ./media/virtual-machine-scale-sets-vertical-scale-reprovision/runbooks-gallery.png
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

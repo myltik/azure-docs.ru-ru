@@ -1,65 +1,66 @@
 <properties 
-	pageTitle="Триггеры приложения API службы приложений |Microsoft Azure" 
-	description="Как реализовать триггеры в приложении API в службе приложений Azure" 
-	services="logic-apps" 
-	documentationCenter=".net" 
-	authors="guangyang"
-	manager="wpickett" 
-	editor="jimbe"/>
+    pageTitle="App Service API app triggers | Microsoft Azure" 
+    description="How to implement triggers in an API App in Azure App Service" 
+    services="logic-apps" 
+    documentationCenter=".net" 
+    authors="guangyang"
+    manager="wpickett" 
+    editor="jimbe"/>
 
 <tags 
-	ms.service="logic-apps" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="dotnet" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/25/2016" 
-	ms.author="rachelap"/>
-
-# Триггеры приложения API службы приложений Azure
-
->[AZURE.NOTE] Эта версия статьи предназначена для приложений API со схемой версии 2014-12-01-preview.
+    ms.service="logic-apps" 
+    ms.workload="na" 
+    ms.tgt_pltfrm="dotnet" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="08/25/2016" 
+    ms.author="rachelap"/>
 
 
-## Обзор
+# <a name="azure-app-service-api-app-triggers"></a>Azure App Service API app triggers
 
-В этой статье описывается, как реализовать триггеры приложения API и использовать их из приложения логики.
+>[AZURE.NOTE] This version of the article applies to API apps 2014-12-01-preview schema version.
 
-Все фрагменты кода в этом разделе копируются из [примера кода приложения API FileWatcher](http://go.microsoft.com/fwlink/?LinkId=534802).
 
-Обратите внимание, что необходимо загрузить следующий пакет nuget для создания и запуска кода в этой статье: [http://www.nuget.org/packages/Microsoft.Azure.AppService.ApiApps.Service/](http://www.nuget.org/packages/Microsoft.Azure.AppService.ApiApps.Service/).
+## <a name="overview"></a>Overview
 
-## Что такое триггеры приложения API?
+This article explains how to implement API app triggers and consume them from a Logic app.
 
-Приложения API создают события, чтобы клиенты приложения API могли предпринять соответствующие действия в ответ на событие. Механизм на основе REST API, который поддерживает такой сценарий, называется триггер приложения API.
+All of the code snippets in this topic are copied from the [FileWatcher API App code sample](http://go.microsoft.com/fwlink/?LinkId=534802). 
 
-Например, предположим, что код клиента использует [приложение API с соединителем Twitter](../app-service-logic/app-service-logic-connector-twitter.md) и код должен выполнять определенное действие на основании новых твитов с конкретными словами. В таком случае можно настроить извещающий или опрашивающий триггер для упрощения этой задачи.
+Note that you'll need to download the following nuget package for the code in this article to build and run: [http://www.nuget.org/packages/Microsoft.Azure.AppService.ApiApps.Service/](http://www.nuget.org/packages/Microsoft.Azure.AppService.ApiApps.Service/).
 
-## Сравнение триггера опроса и извещающего триггера
+## <a name="what-are-api-app-triggers?"></a>What are API app triggers?
 
-На данный момент поддерживаются два типа триггеров:
+It's a common scenario for an API app to fire an event so that clients of the API app can take the appropriate action in response to the event. The REST API based mechanism that supports this scenario is called an API app trigger. 
 
-- триггер опроса — клиент опрашивает приложение API для обнаружения уведомления о событии, которые было создано;
-- извещающий триггер — клиент получает уведомление от приложения API, когда создается событие.
+For example, let's say your client code is using the [Twitter Connector API app](../app-service-logic/app-service-logic-connector-twitter.md) and your code needs to perform an action based on new tweets that contain specific words. In this case, you might set up a poll or push trigger to facilitate this need.
 
-### Триггер опроса
+## <a name="poll-trigger-versus-push-trigger"></a>Poll trigger versus push trigger
 
-Триггер опроса реализуется как обычный REST API и ожидает, что его клиенты (например, приложения логики) опросят его для получения уведомлений. Хотя клиент может сохранять состояние, сам триггер опроса не имеет состояния.
+Currently, two types of triggers are supported:
 
-Следующая информация о пакетах запросов и ответов показывает некоторые ключевые аспекты контракта триггера опроса:
+- Poll trigger - Client polls the API app for notification of an event having been fired 
+- Push trigger - Client is notified by the API app when an event fires 
 
-- Запрос
-    - Метод HTTP: GET
-    - Параметры
-        - triggerState — этот необязательный параметр позволяет клиентам указать их состояние, чтобы триггер опроса мог правильно определить, следует ли возвращать уведомления, основываясь на указанном состоянии.
-        - Параметры, относящиеся к API
-- Ответ
-    - Код состояния **200** — запрос действителен, и существует уведомление от триггера. Содержимое уведомления будет являться текстом ответа. Заголовок «Retry-After» в ответе указывает, что необходимо получить дополнительные данные уведомления с последующим вызовом запроса.
-    - Код состояния **202** — запрос действителен, но нет новых уведомлений от триггера.
-    - Код состояния **4xx** — запрос недействителен. Клиенту не следует повторять запрос.
-    - Код состояния **5xx** — запрос привел к появлению внутренней ошибки сервера и/или временной проблемы. Клиенту следует повторить запрос.
+### <a name="poll-trigger"></a>Poll trigger
 
-В следующем фрагменте кода приведен пример реализации триггера опроса.
+A poll trigger is implemented as a regular REST API and expects its clients (such as a Logic app) to poll it in order to get notification. While the client may maintain state, the poll trigger itself is stateless. 
+
+The following information regarding the request and response packets illustrate some key aspects of the poll trigger contract:
+
+- Request
+    - HTTP method: GET
+    - Parameters
+        - triggerState - This optional parameter allows clients to specify their state so that the poll trigger can properly decide whether to return notification or not based on the specified state.
+        - API-specific parameters
+- Response
+    - Status code **200** - Request is valid and there is a notification from the trigger. The content of the notification will be the response body. A "Retry-After" header in the response indicates that additional notification data must be retrieved with a subsequent request call.
+    - Status code **202** - Request is valid, but there is no new notification from the trigger.
+    - Status code **4xx** - Request is not valid. The client should not retry the request.
+    - Status code **5xx** - Request has resulted in an internal server error and/or temporary issue. The client should retry the request.
+
+The following code snippet is an example of how to implement a poll trigger.
 
     // Implement a poll trigger.
     [HttpGet]
@@ -90,33 +91,35 @@
         }
     }
 
-Чтобы протестировать этот триггер опроса, выполните следующие действия.
+To test this poll trigger, follow these steps:
 
-1. Разверните приложение API с параметром проверки подлинности **общедоступный (анонимный)**.
-2. Вызовите операцию **touch** для обращения к файлу. На следующем изображении приведен пример запроса через инструмент Postman. ![Вызов операции «touch» через Postman](./media/app-service-api-dotnet-triggers/calltouchfilefrompostman.PNG)
-3. Вызовите триггер опроса, для которого значение параметра **triggerState** соответствует метке времени ранее шага 2. На следующем изображении приведен пример запроса через инструмент Postman. ![Вызов триггера опроса через Postman](./media/app-service-api-dotnet-triggers/callpolltriggerfrompostman.PNG)
+1. Deploy the API App with an authentication setting of **public anonymous**.
+2. Call the **touch** operation to touch a file. The following image shows a sample request via Postman.
+   ![Call Touch Operation via Postman](./media/app-service-api-dotnet-triggers/calltouchfilefrompostman.PNG)
+3. Call the poll trigger with the **triggerState** parameter set to a time stamp prior to Step #2. The following image shows the sample request via Postman.
+   ![Call Poll Trigger via Postman](./media/app-service-api-dotnet-triggers/callpolltriggerfrompostman.PNG)
 
-### Извещающий триггер
+### <a name="push-trigger"></a>Push trigger
 
-Извещающий триггер реализован в виде регулярного REST API, который отправляет уведомления на клиенты, зарегистрированные для получения уведомлений о возникновении определенных событий.
+A push trigger is implemented as a regular REST API that pushes notifications to clients who have registered to be notified when specific events fire.
 
-Следующая информация о пакетах запросов и ответов показывает некоторые ключевые аспекты контракта извещающего триггера.
+The following information regarding the request and response packets illustrate some key aspects of the push trigger contract.
 
-- Запрос
-    - Метод HTTP: PUT
-    - Параметры
-        - triggerId: обязательно — непрозрачная строка (например, GUID), представляющая регистрацию извещающего триггера.
-        - callbackUrl: обязательно — URL-адрес обратного вызова, осуществляемого при возникновении события. Вызов — это простой вызов POST HTTP.
-        - Параметры, относящиеся к API
-- Ответ
-    - Код состояния **200** — запрос на регистрацию клиента успешно завершен.
-    - Код состояния **4xx** — запрос недействителен. Клиенту не следует повторять запрос.
-    - Код состояния **5xx** — запрос привел к появлению внутренней ошибки сервера и/или временной проблемы. Клиенту следует повторить запрос.
-- Обратный вызов
-    - Метод HTTP: POST
-    - Текст запроса: содержимое уведомления.
+- Request
+    - HTTP method: PUT
+    - Parameters
+        - triggerId: required - Opaque string (such as a GUID) that represents the registration of a push trigger.
+        - callbackUrl: required - URL of the callback to invoke when the event fires. The invocation is a simple POST HTTP call.
+        - API-specific parameters
+- Response
+    - Status code **200** - Request to register client successful.
+    - Status code **4xx** - Request is not valid. The client should not retry the request.
+    - Status code **5xx** - Request has resulted in an internal server error and/or temporary issue. The client should retry the request.
+- Callback
+    - HTTP method: POST
+    - Request body: Notification content.
 
-В следующем фрагменте кода приведен пример реализации извещающего триггера.
+The following code snippet is an example of how to implement a push trigger:
 
     // Implement a push trigger.
     [HttpPut]
@@ -193,21 +196,24 @@
         }
     }
 
-Чтобы протестировать этот триггер опроса, выполните следующие действия.
+To test this poll trigger, follow these steps:
 
-1. Разверните приложение API с параметром проверки подлинности **общедоступный (анонимный)**.
-2. Перейдите к [http://requestb.in/](http://requestb.in/) для создания RequestBin, который будет использоваться в качестве URL-адрес обратного вызова.
-3. Вызовите извещающий триггер со значением идентификатора GUID **triggerId** и URL-адресом RequestBin — **callbackUrl**. ![Вызов извещающего триггера через Postman](./media/app-service-api-dotnet-triggers/callpushtriggerfrompostman.PNG)
-4. Вызовите операцию **touch** для обращения к файлу. На следующем изображении приведен пример запроса через инструмент Postman. ![Вызов операции «touch» через Postman](./media/app-service-api-dotnet-triggers/calltouchfilefrompostman.PNG)
-5. Проверьте RequestBin, чтобы убедиться, что обратный вызов извещающего триггера выполняется с выводом свойства. ![Вызов триггера опроса через Postman](./media/app-service-api-dotnet-triggers/pushtriggercallbackinrequestbin.PNG)
+1. Deploy the API App with an authentication setting of **public anonymous**.
+2. Browse to [http://requestb.in/](http://requestb.in/) to create a RequestBin which will serve as your callback URL.
+3. Call the push trigger with a GUID as **triggerId** and the RequestBin URL as **callbackUrl**.
+   ![Call Push Trigger via Postman](./media/app-service-api-dotnet-triggers/callpushtriggerfrompostman.PNG)
+4. Call the **touch** operation to touch a file. The following image shows a sample request via Postman.
+   ![Call Touch Operation via Postman](./media/app-service-api-dotnet-triggers/calltouchfilefrompostman.PNG)
+5. Check the RequestBin to confirm that the push trigger callback is invoked with property output.
+   ![Call Poll Trigger via Postman](./media/app-service-api-dotnet-triggers/pushtriggercallbackinrequestbin.PNG)
 
-### Описание триггеров в определении API
+### <a name="describe-triggers-in-api-definition"></a>Describe triggers in API definition
 
-После реализации триггеров и развертывания приложения API в Azure перейдите к колонке **Определение API** на портале предварительной версии Azure и вы увидите, что триггеры автоматически распознаются в пользовательском интерфейсе, управляемом с помощью определения Swagger 2.0 приложения API.
+After implementing the triggers and deploying your API app to Azure, navigate to the **API Definition** blade in the Azure preview portal and you'll see that triggers are automatically recognized in the UI, which is driven by the Swagger 2.0 API definition of the API app.
 
-![Колонка определения API](./media/app-service-api-dotnet-triggers/apidefinitionblade.PNG)
+![API Definition Blade](./media/app-service-api-dotnet-triggers/apidefinitionblade.PNG)
 
-Если нажать кнопку **Загрузить Swagger** и открыть файл JSON, вы увидите результаты, аналогичные следующим:
+If you click the **Download Swagger** button and open the JSON file, you'll see results similar to the following:
 
     "/api/files/poll/TouchedFiles": {
       "get": {
@@ -224,44 +230,44 @@
       }
     }
 
-Свойство расширения **x-ms-schedular-trigger** определяет, как триггеры описаны в определении API, оно автоматически добавляется на шлюзе приложения API при запросе определения API через шлюз, если запрос осуществляется к одному из следующих критериев. (Это свойство также можно добавить вручную.)
+The extension property **x-ms-schedular-trigger** is how triggers are described in API definition, and is automatically added by the API app gateway when you request the API definition via the gateway if the request to one of the following criteria. (You can also add this property manually.)
 
-- Триггер опроса
-    - Если используется метод HTTP **GET**.
-    - Если свойство **operationId** содержит строку **trigger**.
-    - Если свойство **parameters** включает параметр со свойством **name**, для которого установлено значение **triggerState**.
-- Извещающий триггер
-    - Если используется метод HTTP **PUT**.
-    - Если свойство **operationId** содержит строку **trigger**.
-    - Если свойство **parameters** включает параметр со свойством **name**, для которого установлено значение **triggerId**.
+- Poll trigger
+    - If the HTTP method is **GET**.
+    - If the **operationId** property contains the string **trigger**.
+    - If the **parameters** property includes a parameter with a **name** property set to **triggerState**.
+- Push trigger
+    - If the HTTP method is **PUT**.
+    - If the **operationId** property contains the string **trigger**.
+    - If the **parameters** property includes a parameter with a **name** property set to **triggerId**.
 
-## Использование триггеров приложения API в приложениях логики
+## <a name="use-api-app-triggers-in-logic-apps"></a>Use API app triggers in Logic apps
 
-### Перечисление и настройка триггеров приложения API в конструкторе приложений логики
+### <a name="list-and-configure-api-app-triggers-in-the-logic-apps-designer"></a>List and configure API app triggers in the Logic apps designer
 
-При создании приложения логики в той же группе ресурсов, что и приложение API, можно добавить его на полотно конструктора, просто щелкнув его. Это показано на следующих изображениях.
+If you create a Logic app in the same resource group as the API app, you will be able to add it to the designer canvas simply by clicking it. The following images illustrate this:
 
-![Триггеры в конструкторе приложения логики](./media/app-service-api-dotnet-triggers/triggersinlogicappdesigner.PNG)
+![Triggers in Logic App Designer](./media/app-service-api-dotnet-triggers/triggersinlogicappdesigner.PNG)
 
-![Настройка триггера опроса в конструкторе приложения логики](./media/app-service-api-dotnet-triggers/configurepolltriggerinlogicappdesigner.PNG)
+![Configure Poll Trigger in Logic App Designer](./media/app-service-api-dotnet-triggers/configurepolltriggerinlogicappdesigner.PNG)
 
-![Настройка извещающего триггера в конструкторе приложения логики](./media/app-service-api-dotnet-triggers/configurepushtriggerinlogicappdesigner.PNG)
+![Configure Push Trigger in Logic App Designer](./media/app-service-api-dotnet-triggers/configurepushtriggerinlogicappdesigner.PNG)
 
-## Оптимизация триггеров приложения API для приложений логики
+## <a name="optimize-api-app-triggers-for-logic-apps"></a>Optimize API app triggers for Logic apps
 
-После добавления триггеров в приложение API можно выполнить несколько действий для более удобного использования приложения API в приложении логики.
+After you add triggers to an API app, there are a few things you can do to improve the experience when using the API app in a Logic app.
 
-Например, для параметра **triggerState** триггеров опроса должно быть присвоено следующее выражение в приложении логики. Это выражение должно оценивать последний вызов триггера из приложения логики и возвращают данное значение.
+For instance, the **triggerState** parameter for poll triggers should be set to the following expression in the Logic app. This expression should evaluate the last invocation of the trigger from the Logic app, and return that value.  
 
-	@coalesce(triggers()?.outputs?.body?['triggerState'], '')
+    @coalesce(triggers()?.outputs?.body?['triggerState'], '')
 
-Примечание. Объяснение функций, используемых в выражении выше, см. документацию о [языке определения рабочего процесса приложения логики](https://msdn.microsoft.com/library/azure/dn948512.aspx).
+NOTE: For an explanation of the functions used in the expression above, refer to the documentation on [Logic App Workflow Definition Language](https://msdn.microsoft.com/library/azure/dn948512.aspx).
 
-Пользователям приложения логики необходимо указать упомянутое выше выражение для параметра **triggerState** при использовании триггера. Это значение может быть предварительно задано с помощью конструктора приложения логики через свойство расширения **x-ms-scheduler-recommendation**. Свойству расширения **x-ms-visibility** может быть присвоено значение *internal*, чтобы сам параметр не отображался в конструкторе. Это показано в следующем фрагменте.
+Logic app users would need to provide the expression above for the **triggerState** parameter while using the trigger. It is possible to have this value preset by the Logic app designer through the extension property **x-ms-scheduler-recommendation**.  The **x-ms-visibility** extension property can be set to a value of *internal* so that the parameter itself is not shown on the designer.  The following snippet illustrates that.
 
     "/api/Messages/poll": {
       "get": {
-	    "operationId": "Messages_NewMessageTrigger",
+        "operationId": "Messages_NewMessageTrigger",
         "parameters": [
           {
             "name": "triggerState",
@@ -277,11 +283,11 @@
       }
     }
 
-Для извещающих триггеров параметр **triggerId** должен однозначно определять приложение логики. Рекомендуется присвоить этому свойству имя рабочего процесса с помощью следующего выражения:
+For push triggers, the **triggerId** parameter must uniquely identify the Logic app. A recommended best practice is to set this property to the name of the workflow by using the following expression:
 
     @workflow().name
 
-С помощью свойств расширения **x-ms-scheduler-recommendation** и **x-ms-visibility** в его определении API приложение API может настроить конструктор приложения логики на автоматическую установку этого выражения для пользователя.
+Using the **x-ms-scheduler-recommendation** and **x-ms-visibility** extension properties in its API definiton, the API app can convey to the Logic app designer to automatically set this expression for the user.
 
         "parameters":[  
           {  
@@ -294,13 +300,13 @@
           },
 
 
-### Добавление свойств расширения в определение API
+### <a name="add-extension-properties-in-api-defintion"></a>Add extension properties in API defintion
 
-В определение API можно добавить дополнительные сведения о метаданных, например свойства расширения **x-ms-scheduler-recommendation** и **x-ms-visibility**, одним из двух способов: статическим или динамическим.
+Additional metadata information - such as the extension properties **x-ms-scheduler-recommendation** and **x-ms-visibility** - can be added in the API defintion in one of two ways: static or dynamic.
 
-Для статических метаданных можно непосредственно редактировать файл */metadata/apiDefinition.swagger.json* в проекте и добавить свойства вручную.
+For static metadata, you can directly edit the */metadata/apiDefinition.swagger.json* file in your project and add the properties manually.
 
-Для приложений API, использующих динамические метаданные, можно изменить файл SwaggerConfig.cs и добавить фильтр операции, который может добавить эти расширения.
+For API apps using dynamic metadata, you can edit the SwaggerConfig.cs file to add an operation filter which can add these extensions.
 
     GlobalConfiguration.Configuration 
         .EnableSwagger(c =>
@@ -311,7 +317,7 @@
             }
 
 
-Ниже приведен пример реализации этого класса для упрощения сценария с динамическими метаданными.
+The following is an example of how this class can be implemented to facilitate the dynamic metadata scenario.
 
     // Add extension properties on the triggerState parameter
     public class TriggerStateFilter : IOperationFilter
@@ -342,4 +348,8 @@
     }
  
 
-<!---HONumber=AcomDC_0831_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,121 +1,127 @@
 <properties
-	pageTitle="Масштабирование уровней ресурсов для рабочих нагрузок запросов и индексирования в Поиске Azure | Microsoft Azure"
-	description="Планирование загрузки в Поиске Azure основано на сочетаниях вычислительных ресурсов разделов и реплик, в которых каждый ресурс оценивается в оплачиваемых единицах поиска."
-	services="search"
-	documentationCenter=""
-	authors="HeidiSteen"
-	manager="jhubbard"
-	editor=""
+    pageTitle="Scale resource levels for query and indexing workloads in Azure Search | Microsoft Azure"
+    description="Capacity planning in Azure Search is based on combinations of partition and replica computer resources, where each resource is priced in billable search units."
+    services="search"
+    documentationCenter=""
+    authors="HeidiSteen"
+    manager="jhubbard"
+    editor=""
     tags="azure-portal"/>
 
 <tags
-	ms.service="search"
-	ms.devlang="NA"
-	ms.workload="search"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.date="08/29/2016"
-	ms.author="heidist"/>
+    ms.service="search"
+    ms.devlang="NA"
+    ms.workload="search"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.date="08/29/2016"
+    ms.author="heidist"/>
 
-# Масштабирование уровней ресурсов для рабочих нагрузок запросов и индексирования в Поиске Azure
 
-После [выбора SKU](search-sku-tier.md) и [подготовки службы поиска](search-create-service-portal.md) вы можете дополнительно настроить ресурсы службы.
+# <a name="scale-resource-levels-for-query-and-indexing-workloads-in-azure-search"></a>Scale resource levels for query and indexing workloads in Azure Search
 
-В Поиске Azure для службы поиска изначально выделяется минимальный уровень ресурсов, состоящий из одного раздела и одной реплики. Для уровней, которые поддерживают службу, вы можете постепенно корректировать вычислительные ресурсы, увеличивая количество разделов, если вам нужно больше места для хранения и операций ввода-вывода, или увеличивая количество реплик, чтобы увеличить объем запросов или повысить производительность. Одна служба должна иметь достаточно ресурсов для обработки всех рабочих нагрузок (индексирования и запросов). Нельзя разделить рабочие нагрузки между несколькими службами.
+After you [choose a SKU](search-sku-tier.md) and [provision a search service](search-create-service-portal.md), the next step is to optionally configure service resources.
 
-Параметры масштабирования становятся доступными при подготовке платной службы на уровне [Базовый](http://aka.ms/azuresearchbasic) или на одном из уровней [Стандартный](search-limits-quotas-capacity.md). Для платных SKU объем приобретается в *единицах поиска* (ЕП), где каждый раздел и реплика считается как одна единица поиска. Если объем не превышает верхний предел, используется меньше ЕП и пропорционально уменьшается плата за использование. Оплата осуществляется на протяжении всего периода подготовки службы. Чтобы не платить за службу, которую вы временно не используете, вам нужно удалить ее, а затем при необходимости создать ее снова.
+In Azure Search, a service is initially allocated a minimal level of resources consisting of one partition and one replica. For tiers that support it, you can incrementally adjust computational resources by increasing partitions if you need more storage and IO, or replicas for larger query volumes or better performance. A single service must have sufficient resources to handle all workloads (indexing and queries). You cannot subdivide workloads among multiple services.
 
-Для увеличения или изменения количества выделенных реплик или разделов мы рекомендуем использовать портал. Он принудительно применит ограничения для допустимых сочетаний, которые не превышают верхний предел.
+Scale settings are available when you provision a billable service at either the [Basic tier](http://aka.ms/azuresearchbasic) or one of the [Standard tiers](search-limits-quotas-capacity.md). For billable SKUs, capacity is purchased in increments of *search units* (SU) where each partition and replica counts as one SU apiece. Staying below the maximum limits uses fewer SUs, with a proportionally lower bill. Billing is in effect for as long as the service is provisioned. If you are temporarily not using a service, the only way to avoid billing is by deleting the service, and then recreating it later when you need it.
 
-1. Войдите на [портал Azure](https://portal.azure.com/) и выберите службу поиска.
-2. В параметрах откройте колонку "Масштаб" и с помощью ползунков укажите количество разделов и реплик.
+To increase or change the allocation of replicas and partitions, we recommend using the portal. The portal will enforce limits on allowable combinations that stay below maximum limits:
 
-Как правило, приложениям поиска требуется больше реплик, чем разделов, особенно если операции службы смещаются в сторону рабочей нагрузки запросов. В разделе, посвященном [высокой доступности](#HA), объясняется, почему так происходит.
+1. Sign in to the [Azure Portal](https://portal.azure.com/) and select the search service.
+2. In Settings, open the Scale blade and use the sliders to increase or decrease the number of partitions and replicas.
 
-> [AZURE.NOTE] После подготовки службы ее невозможно обновить до более высокого SKU. Вам нужно будет создать службу поиска на новом уровне и перезагрузить индексы. Инструкции по подготовке службы см. в статье [Создание службы Поиска Azure с помощью портала Azure](search-create-service-portal.md).
+As a general rule, search applications need more replicas than partitions, particularly when the service operations are biased towards query workloads. The section on [high availability](#HA) explains why.
 
-## Терминология: секции и реплики
+> [AZURE.NOTE] Once a service is provisioned, it cannot be upgraded in place to a higher SKU. You will need to create a new search service at the new tier and reload your indexes. See [Create an Azure Search service in the portal](search-create-service-portal.md) for help with service provisioning.
 
-Разделы и реплики — это основные ресурсы, на которых работает служба поиска.
+## <a name="terminology:-partitions-and-replicas"></a>Terminology: partitions and replicas
 
-**Разделы** служат для хранения индексов и ввода-вывода данных для операций чтения и записи (например, при повторном создании или обновлении индексов).
+Partitions and replicas are the primary resources that back a search service.
 
-**Реплики** — это экземпляры службы поиска, используемые главным образом для распределения операций запросов. На каждой реплике всегда размещается одна копия индекса. Если у вас есть 12 реплик, в службу будет загружено 12 копий каждого индекса.
+**Partitions** provide index storage and IO for read-write operations (for example when rebuilding or refreshing an index).
 
-> [AZURE.NOTE] Невозможно напрямую выбрать или определить, какие индексы будут запущены в реплике. Одна копия каждого индекса в каждой реплике является частью архитектуры службы.
+**Replicas** are instances of the search service, used primarily to load balance query operations. Each replica always hosts one copy of an index. If you have 12 replicas, you will have 12 copies of every index loaded on the service. 
+
+> [AZURE.NOTE] There is no way to directly manipulate or manage which indexes run on a replica. One copy of each index on every replica is part of the service architecture.
 
 <a id="HA"></a>
-## высокую доступность;
+## <a name="high-availability"></a>High availability
 
-Так как масштабирование выполнить достаточно просто, на начальном этапе обычно рекомендуется использовать один раздел и одну или две реплики, увеличивая их количество по мере роста запросов, пока не будет достигнуто максимально допустимое количество реплик и разделов. Для многих служб уровня "Базовый" или S1 будет достаточно места для хранения одного раздела и операций ввода/вывода (15 миллионов документов на раздел).
+Because it's easy and relatively fast to scale up, we generally recommend that you start with one partition and one or two replicas, and then scale up as query volumes build, up to the maximum replicas and partitions supported by the SKU. For many services at the Basic or S1 tiers, one partition provides sufficient storage and IO (at 15 million documents per partition).
 
-Рабочие нагрузки запросов в основном выполняются с репликами. Вам, скорее всего, потребуется больше реплик для повышения пропускной способности или обеспечения высокого уровня доступности.
+Query workloads execute primarily on replicas. You most likely require additional replicas if you need more throughput or high availability.
 
-Ниже приведены общие рекомендации для обеспечения высокой доступности.
+General recommendations for high availability are:
 
-- 2 реплики для обеспечения высокой доступности рабочих нагрузок для чтения (запросов).
-- Три или более реплик для обеспечения высокого уровня доступности рабочих нагрузок чтения и записи (запросов и индексирования по мере добавления, обновления или удаления отдельных документов).
+- 2 replicas for high availability of read-only workloads (queries)
+- 3 or more replicas for high availability of read-write workloads (queries plus indexing as individual documents are added, updated, or deleted)
 
-Соглашения об уровне обслуживания (SLA) для Поиска Azure используются для операций запросов и обновления индекса, которые состоят из добавления, обновления или удаления документов.
+Service Level Agreements (SLA) for Azure Search are targeted at query operations and at index updates that consist of adding, updating, or deleting documents.
 
-**Доступность индексов во время повторного создания**
+**Index availability during a rebuild**
 
-Высокий уровень доступности для Поиска Azure относится к запросам и обновлению индексов, не требующих повторного создания индексов. Если индекс требует повторного создания, например при добавлении или удалении поля, изменении типа данных или переименовании поля, вы можете удалить индекс, создать его заново и загрузить данные еще раз.
+High availability for Azure Search pertains to queries and index updates that don't involve rebuilding an index. If the index requires a rebuild, for example if you add or deleting a field, change a data type, or rename a field, you would need to rebuild the index by doing the following: delete the index, recreate the index, and reload the data. 
 
-Чтобы обеспечить доступность индекса во время повторного создания, необходимо иметь вторую копию индекса (с другим именем) в рабочей среде той же службы или индекс с таким же именем в другой службе, а затем обеспечить перенаправление или логику отработки отказа в коде.
+To maintain index availability during a rebuild, you must have a second copy of the index already in production on the same service (with a different name) or a same-named index on a different service, and then provide redirection or fail over logic in your code.
 
-## Аварийное восстановление
+## <a name="disaster-recovery"></a>Disaster recovery
 
-В настоящее время встроенного механизма для аварийного восстановления не предусмотрено. Увеличение разделов или реплик для решения задач аварийного восстановления является ошибочной стратегией. Наиболее распространенным подходом является добавление избыточности на уровне службы за счет подготовки второй службы поиска в другом регионе. Как и в случае с доступностью при повторном создании индекса, перенаправление и логику отработки отказа должен обеспечивать ваш код.
+Currently, there is no built-in mechanism for disaster recovery. Adding partitions or replicas would be the wrong strategy for meeting disaster recovery objectives. The most common approach is to add redundancy at the service level by provisioning a second search service in another region. As with availability during an index rebuild, the redirection or failover logic must come from your code.
 
-## Увеличение производительности запросов с помощью реплик
+## <a name="increase-query-performance-with-replicas"></a>Increase query performance with replicas
 
-Признаком необходимости добавления дополнительных реплик является задержка обработки запросов. Как правило, первым шагом к повышению производительности запросов является добавление этого ресурса. При добавлении новых реплик вы подключаете дополнительные копии индексов. В результате увеличивается допустимая рабочая нагрузка и обеспечивается распределение запросов между большим количеством реплик.
+Query latency is an indicator that additional replicas are needed. Generally, a first step towards improving query performance is to add more of this resource. As you add replicas, additional copies of the index are brought online to support bigger query workloads and to load balance the requests over the multiple replicas. 
 
-Обратите внимание, что мы не можем указать точное количество запросов в секунду (QPS), так как выполнение запроса во многом зависит от его сложности и конкурирующих рабочих нагрузок. В среднем реплика на SKU уровня "Базовый" или S1 обслуживает около 15 запросов в секунду, но фактическая пропускная способность будет немного выше или ниже в зависимости от сложности запросов (фасетные запросы являются более сложными) и задержки сети. Также необходимо учитывать, что зависимость роста мощности и производительности от количества реплик не обязательно является линейной. Например, добавление 3 реплик не гарантирует трехкратный рост пропускной способности.
+Note that we cannot provide hard estimates on queries per second (QPS): query performance depends on the complexity of the query and competing workloads. On average, a replica at Basic or S1 SKUs can service about 15 QPS, but your throughput will be somewhat higher or lower depending on query complexity (faceted queries are more complex) and network latency. Also, it's important to recognize that while adding replicas will definitely add scale and performance, the end result is not strictly linear: adding 3 replicas does not guarantee triple throughput. 
 
-Дополнительные сведения о количестве запросов в секунду (QPS), включая способы оценки QPS для рабочих нагрузок, см. в статье [Управление службой поиска в Microsoft Azure](search-manage.md).
+To learn about QPS, including approaches for estimating QPS for your workloads, see [Manage your Search service](search-manage.md).
 
-## Увеличение производительности индексирования с помощью секций
+## <a name="increase-indexing-performance-with-partitions"></a>Increase indexing performance with partitions
 
-Приложениям поиска, которым требуется обновления данных в режиме, близком к реальному времени, понадобится пропорционально больше секций, чем реплик. Добавление секций распределяет операции чтения-записи среди большего количества вычислительных ресурсов. Оно также обеспечивает больше дискового пространства для хранения дополнительных индексов и документов.
+Search applications that require near real-time data refresh will need proportionally more partitions than replicas. Adding partitions spreads read-write operations across a larger number of compute resources. It also gives you more disk space for storing additional indexes and documents.
 
-Запрос больших индексов выполняется дольше. Поэтому может оказаться, что каждое добавочное увеличение числа секций потребует меньшего, но пропорционального увеличения числа реплик. Как отмечалось ранее, сложность запросов и их объем обуславливают скорость выполнения запросов.
+Larger indexes take longer to query. As such, you might find that every incremental increase in partitions requires a smaller but proportional increase in replicas. As noted earlier, the complexity of your queries and query volume will factor into how quickly query execution is turned around.
 
-## Уровень "Базовый": сочетания разделов и реплик
+## <a name="basic-tier:-partition-and-replica-combinations"></a>Basic tier: Partition and replica combinations
 
-На уровне "Базовый" служба может иметь только один раздел и до трех реплик. Таким образом, максимальное количество единиц поиска составляет три. Единственным ресурсом, который можно изменять, являются реплики. Как отмечалось ранее, требуется не менее двух реплик, чтобы обеспечить высокий уровень доступности при обработке запросов.
+A Basic service can have exactly 1 partition and up to 3 replicas, for a maximum limit of 3 SUs. The only adjustable resource is replicas. As noted earlier, you need a minimum of 2 replicas for high availability on queries.
 
 <a id="chart"></a>
-## Уровень "Стандартный": сочетания разделов и реплик
+## <a name="standard-tiers:-partition-and-replica-combinations"></a>Standard tiers: Partition and replica combinations
 
-В этой таблице показаны единицы поиска, необходимые для поддержки сочетаний реплик и разделов, с предельным значением в 36 единиц поиска (ЕП) (кроме уровней "Базовый" и S3 HD).
+This table shows the search units required to support combinations of replicas and partitions, subject to the 36 search unit (SU) limit (excludes Basic and S3 HD tiers). 
 
 - |- |- |- |- |- |- |
 ---|----|---|---|---|---|---|
-**12 реплик**|12 ЕП|24 ЕП|36 ЕП|Недоступно|Недоступно|Недоступно|
-**6 реплик**|6 ЕП|12 ЕП|18 ЕП|24 ЕП|36 ЕП|Недоступно|
-**5 реплик**|5 ЕП|10 ЕП|15 ЕП|20 ЕП|30 ЕП|Недоступно|
-**4 реплики**|4 ЕП|8 ЕП|12 ЕП|16 ЕП|24 ЕП|Нет|
-**3 реплики**|3 ЕП|6 ЕП|9 ЕП|12 ЕП|18 ЕП|36 ЕП|
-**2 реплики**|2 ЕП|4 ЕП|6 ЕП|8 ЕП|12 ЕП|24 ЕП|
-**1 реплика**|1 ЕП|2 ЕП|3 ЕП|4 ЕП|6 ЕП|12 ЕП|
-Недоступно|**1 раздел**|**2 раздела**|**3 раздела**<|**4 раздела**|**6 разделов**|**12 разделов**|
+**12 replicas**|12 SU|24 SU|36 SU|N/A|N/A|N/A|
+**6 replicas**|6 SU|12 SU|18 SU|24 SU|36 SU|N/A|
+**5 replicas**|5 SU|10 SU|15 SU|20 SU|30 SU|N/A|
+**4 replicas**|4 SU|8 SU<|12 SU|16 SU|24 SU|N/|
+**3 replicas**|3 SU|6 SU|9 SU|12 SU|18 SU|36 SU|
+**2 replicas**|2 SU|4 SU|6 SU|8 SU|12 SU|24 SU|
+**1 replica**|1 SU|2 SU|3 SU|4 SU|6 SU|12 SU|
+N/A|**1 Partition**|**2 Partitions**|**3 Partitions**<|**4 Partitions**|**6 Partitions**|**12 Partitions**|
 
-Подробная информация о единицах поиска, ценах и объемах приведена на веб-сайте Azure. Дополнительные сведения см. в статье [Сведения о ценах](https://azure.microsoft.com/pricing/details/search/).
+Search units, pricing, and capacity are explained in detail on the Azure web site. See [Pricing Details](https://azure.microsoft.com/pricing/details/search/) for more information.
 
-> [AZURE.NOTE] Количество реплик и разделов должно быть кратным 12 (а именно 1, 2, 3, 4, 6, 12). Это связано с тем, что Поиск Azure предварительно делит каждый индекс на 12 сегментов, которые можно распределить равными частями по разделам. Например, если в вашей службе есть три раздела и вы создаете новый индекс, то каждый раздел будет содержать по 4 сегмента индекса. Способ, используемый службой поиска Azure для сегментации индекса, является задачей оптимизации и может быть изменен в будущих выпусках. Несмотря на то, что сегодня это число 12, вам не следует полагаться на то, что в будущем оно не изменится.
+> [AZURE.NOTE] The number of replicas and partitions must evenly divide into 12 (specifically, 1, 2, 3, 4, 6, 12). This is because Azure Search pre-divides each index into 12 shards so that it can be spread in equal portions across all partitions. For example, if your service has three partitions and you create a new index, each partition will contain 4 shards of the index. How Azure Search shards an index is an implementation detail, subject to change in future release. Although the number is 12 today, you shouldn't expect that number to always be 12 in the future.
 
-## Высокая плотность уровня S3: сочетания разделов и реплик
+## <a name="s3-high-density:-partition-and-replica-combinations"></a>S3 High Density: Partition and replica combinations
 
-На уровне S3 HD служба может иметь один раздел и до 12 реплик, при этом максимальное количество единиц поиска составляет 12. Единственным ресурсом, который можно изменять, являются реплики.
+S3 HD has 1 partition and up to 12 replicas, for a maximum limit of 12 SUs. The only adjustable resource is replicas.
 
-## Расчет единиц поиска для конкретных сочетаний ресурсов производится по следующей формуле: R X P = SU
+## <a name="calculate-search-units-for-specific-resourcing-combinations:-r-x-p-=-su"></a>Calculate Search Units for Specific Resourcing Combinations: R X P = SU
 
-Для получения количества единиц поиска по этой формуле необходимо умножить количество реплик на количество разделов. Например, 3 реплики, умноженные на 3 раздела, дадут 9 единиц поиска.
+The formula for calculating how many SUs you need is replicas multiplied by partitions. For example, 3 replicas multiplied by 3 partitions is billed as 9 search units.
 
-Оба уровня начинаются с одной реплики и одного раздела, что дает одну единицу поиска (SU). Это единственный случай, в котором как реплика, так и раздел считаются одной единицей поиска. Каждый дополнительный ресурс, будь то реплика или раздел, считается собственной единицей поиска.
+Both tiers start with one replica and one partition, counted as one search unit (SU). This is the only instance where both a replica and a partition count as one search unit. Each additional  resource, whether it is a replica or a partition, is counted as its own SU.
 
-Стоимость каждой единицы поиска определяется в зависимости от уровня. Стоимость каждой единицы поиска меньше для уровня "Базовый", чем для уровня "Стандартный". Расценки для каждого уровня см. в разделе [Сведения о ценах](https://azure.microsoft.com/pricing/details/search/).
+Cost per SU is determined by the tier. Cost per SU is lower for the Basic tier than it is for Standard. Rates for each tier can be found on [Pricing Details](https://azure.microsoft.com/pricing/details/search/).
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

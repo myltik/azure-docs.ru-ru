@@ -1,12 +1,12 @@
 <properties
-  pageTitle="Подготовка среды к резервному копированию рабочих нагрузок с помощью сервера службы архивации Azure | Microsoft Azure"
-  description="Правильная подготовка среды к резервному копированию рабочих нагрузок с помощью сервера службы архивации Azure."
+  pageTitle="Preparing your environment to back up workloads using Azure Backup Server | Microsoft Azure"
+  description="Prepare your environment to use Azure Backup Server to protect or back up workloads."
   services="backup"
   documentationCenter=""
   authors="PVRK"
   manager="shivamg"
   editor=""
-  keywords="сервер службы архивации Azure; хранилище службы архивации"/>
+  keywords="azure backup server; protect workloads; back up workloads"/>
 
 <tags
   ms.service="backup"
@@ -14,267 +14,275 @@
   ms.tgt_pltfrm="na"
   ms.devlang="na"
   ms.topic="article"
-  ms.date="07/20/2016"
+  ms.date="09/27/2016"
   ms.author="jimpark;trinadhk;pullabhk;markgal"/>
 
-# Подготовка к резервному копированию рабочих нагрузок с использованием сервера службы архивации Azure
+
+# <a name="preparing-to-back-up-workloads-using-azure-backup-server"></a>Preparing to back up workloads using Azure Backup Server
 
 > [AZURE.SELECTOR]
-- [Сервер службы архивации Azure](backup-azure-microsoft-azure-backup.md)
+- [Azure Backup Server](backup-azure-microsoft-azure-backup.md)
 - [SCDPM](backup-azure-dpm-introduction.md)
-- [Сервер службы архивации Azure (классическая модель)](backup-azure-microsoft-azure-backup-classic.md)
-- [Диспетчер SCDPM (классическая модель)](backup-azure-dpm-introduction-classic.md)
+- [Azure Backup Server (Classic)](backup-azure-microsoft-azure-backup-classic.md)
+- [SCDPM (Classic)](backup-azure-dpm-introduction-classic.md)
 
-В этой статье рассматривается подготовка среды к резервному копированию рабочих нагрузок с помощью сервера службы архивации Azure. Используя сервер службы архивации Azure, вы можете создавать резервные копии рабочих нагрузок приложения, таких как виртуальные машины Hyper-V, Microsoft SQL Server, SharePoint Server, Microsoft Exchange и клиенты Windows, с помощью единой консоли. Можно также настроить защиту информации, представленной в виде рабочих нагрузок сервера (IaaS), например виртуальных машин в Azure.
+This article explains how to prepare your environment to back up workloads using Azure Backup Server. With Azure Backup Server, you can protect application workloads such as Hyper-V VMs, Microsoft SQL Server, SharePoint Server, Microsoft Exchange and Windows clients from a single console. You can also protect information as a server (IaaS) workloads such as VMs in Azure.
 
-> [AZURE.NOTE] В Azure предусмотрены две модели развертывания, позволяющие создавать ресурсы и работать с ними: [модель Resource Manager и классическая модель](../resource-manager-deployment-model.md). Данная статья содержит сведения о восстановлении виртуальных машин, развернутых с использованием модели Resource Manager.
+> [AZURE.NOTE] Azure has two deployment models for creating and working with resources: [Resource Manager and classic](../resource-manager-deployment-model.md). This article provides the information and procedures for restoring VMs deployed using the Resource Manager model.
 
-Сервер службы архивации Azure наследует большую часть функциональных возможностей архивации рабочих нагрузок Data Protection Manager (DPM). В этой статье содержатся ссылки на документацию DPM, где рассматриваются некоторые общие функциональные возможности. Сервер службы архивации Azure и DPM имеют практически одинаковые функциональные возможности. Однако сервер службы архивации Azure не поддерживает резервное копирование на ленту, а также интеграцию с System Center.
+Azure Backup Server inherits much of the workload backup functionality from Data Protection Manager (DPM). This article links to DPM documentation to explain some of the shared functionality. Though Azure Backup Server shares much of the same functionality as DPM. Azure Backup Server does not back up to tape, nor does it integrate with System Center.
 
-## 1\. Выбор платформы для установки
+## <a name="1.-choose-an-installation-platform"></a>1. Choose an installation platform
 
-Для начала работы с сервером службы архивации Azure нужно настроить Windows Server. Он может находиться как в Azure, так в локальной среде.
+The first step towards getting the Azure Backup Server up and running is to set up a Windows Server. Your server can be in Azure or on-premises.
 
-### Использование сервера в Azure
+### <a name="using-a-server-in-azure"></a>Using a server in Azure
 
-При выборе сервера для запуска сервера службы архивации Azure рекомендуется начать с образа коллекции Windows Server 2012 R2 Datacenter. В статье [Создание первой виртуальной машины Windows на портале Azure](..\virtual-machines\virtual-machines-windows-hero-tutorial.md) содержится руководство по началу работы с рекомендуемой виртуальной машиной в Azure. Оно подходит даже для тех, кто только начинает знакомиться с Azure. Рекомендуемые минимальные требования для виртуальной машины сервера: Standard A2 с двумя ядрами и 3,5 ГБ ОЗУ.
+When choosing a server for running Azure Backup Server, it is recommended you start with a gallery image of Windows Server 2012 R2 Datacenter. The article, [Create your first Windows virtual machine in the Azure portal](..\virtual-machines\virtual-machines-windows-hero-tutorial.md), provides a tutorial for getting started with the recommended virtual machine in Azure, even if you've never used Azure before. The recommended minimum requirements for the server virtual machine (VM) should be: A2 Standard with 2 cores and 3.5 GB RAM.
 
-Защита рабочих нагрузок с помощью сервера службы архивации Azure имеет свои особенности. Эти особенности рассматриваются в статье [Установка DPM в виде виртуальной машины Azure](https://technet.microsoft.com/library/jj852163.aspx). Прежде чем развертывать виртуальную машину, полностью ознакомьтесь с этой статьей.
+Protecting workloads with Azure Backup Server has many nuances. The article, [Install DPM as an Azure virtual machine](https://technet.microsoft.com/library/jj852163.aspx), helps explain these nuances. Please read this article completely before deploying the machine.
 
-### Использование локального сервера
+### <a name="using-an-on-premises-server"></a>Using an on-premises server
 
-Если вы не хотите запускать базовый сервер в Azure, можно запустить сервер на виртуальной машине Hyper-V, виртуальной машине VMware или на физическом узле. Рекомендуемые минимальные требования к оборудованию сервера: 2 ядра и 4 ГБ ОЗУ. В следующей таблице перечислены поддерживаемые операционные системы.
+If you do not want to run the base server in Azure, you can run the server on a Hyper-V VM, a VMware VM, or a physical host. The recommended minimum requirements for the server hardware are 2 cores and 4 GB RAM. The supported operating systems are listed in the following table.
 
-| Операционная система | платформа | SKU |
+| Operating System        | Platform           | SKU  |
 | :------------- |-------------| :-----|
-|Windows Server 2012 R2 и последние пакеты обновления|	64-разрядная|	Standard, Datacenter, Foundation|
-|Windows Server 2012 и последние пакеты обновления|	64-разрядная|	Datacenter, Foundation, Standard|
-|Windows Storage Server 2012 R2 и последние пакеты обновления |64-разрядная|	Standard, Workgroup|
-|Windows Storage Server 2012 и последние пакеты обновления |64-разрядная |Standard, Workgroup|
+|Windows Server 2012 R2 and latest SPs| 64 bit| Standard, Datacenter, Foundation|
+|Windows Server 2012 and latest SPs|    64 bit| Datacenter, Foundation, Standard|
+|Windows Storage Server 2012 R2 and latest SPs  |64 bit|    Standard, Workgroup|
+|Windows Storage Server 2012 and latest SPs |64 bit |Standard, Workgroup|
 
 
-С помощью дедупликации Windows Server можно выполнить дедупликацию хранилища DPM. См. дополнительные сведения об использовании [DPM и дедупликации](https://technet.microsoft.com/library/dn891438.aspx) при развертывании на виртуальных машинах Hyper-V.
+You can deduplicate the DPM storage using Windows Server Deduplication. Learn more about how [DPM and deduplication](https://technet.microsoft.com/library/dn891438.aspx) work together when deployed in Hyper-V VMs.
 
-> [AZURE.NOTE]  Сервер службы архивации Azure невозможно установить на компьютере, выполняющем роль контроллера домена.
+> [AZURE.NOTE]  You cannot install Azure Backup Server on a machine running as a domain controller.
 
-Если вы в дальнейшем планируете присоединить этот сервер к домену, операцию присоединения рекомендуется выполнить до установки сервера службы архивации Azure. Перемещение имеющегося компьютера-сервера службы архивации Azure в новый домен после развертывания *не поддерживается*.
+You must join Azure Backup Server to a domain. If you plan to move the server to a different domain, it is recommended that you join the server to the new domain before installing Azure Backup Server. Moving an existing Azure Backup Server machine to a new domain after deployment is *not supported*.
 
-## 2\. Хранилище служб восстановления
+## <a name="2.-recovery-services-vault"></a>2. Recovery Services vault
 
-Чтобы отправить данные резервного копирования в Azure или сохранить их локально, требуется подключить программное обеспечение к Azure. Проще говоря, компьютер сервера службы архивации Azure необходимо зарегистрировать в хранилище служб восстановления.
+Whether you send backup data to Azure or keep it locally, the software needs to be connected to Azure. To be more specific, the Azure Backup Server machine needs to be registered with a recovery services vault.
 
-Чтобы создать хранилище служб восстановления, сделайте следующее:
+To create a recovery services vault:
 
-1. Войдите на [портал Azure](https://portal.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 
-2. В главном меню щелкните **Обзор**, а затем в списке ресурсов введите **Службы восстановления**. Как только вы начнете вводить, список отфильтруется соответствующим образом. Щелкните **Хранилище служб восстановления**.
+2. On the Hub menu, click **Browse** and in the list of resources, type **Recovery Services**. As you begin typing, the list will filter based on your input. Click **Recovery Services vault**.
 
-    ![Создание хранилища служб восстановления — шаг 1](./media/backup-azure-microsoft-azure-backup/open-recovery-services-vault.png) <br/>
+    ![Create Recovery Services Vault step 1](./media/backup-azure-microsoft-azure-backup/open-recovery-services-vault.png) <br/>
 
-    После этого отобразится список хранилищ служб восстановления.
+    The list of Recovery Services vaults is displayed.
 
-3. В меню **Хранилища служб восстановления** щелкните **Добавить**.
+3. On the **Recovery Services vaults** menu, click **Add**.
 
-    ![Создание хранилища служб восстановления — шаг 2](./media/backup-azure-microsoft-azure-backup/rs-vault-menu.png)
+    ![Create Recovery Services Vault step 2](./media/backup-azure-microsoft-azure-backup/rs-vault-menu.png)
 
-    Откроется колонка хранилища служб восстановления, в которой нужно указать **имя**, **подписку**, **группу ресурсов** и **расположение**.
+    The Recovery Services vault blade opens, prompting you to provide a **Name**, **Subscription**, **Resource group**, and **Location**.
 
-    ![Создание хранилища служб восстановления — шаг 5](./media/backup-azure-microsoft-azure-backup/rs-vault-attributes.png)
+    ![Create Recovery Services vault step 5](./media/backup-azure-microsoft-azure-backup/rs-vault-attributes.png)
 
-4. В поле **Имя** введите понятное имя хранилища. Имя должно быть уникальным в пределах подписки Azure. Введите имя длиной от 2 до 50 знаков. Имя должно начинаться с буквы, оно может содержать только буквы, цифры и дефисы.
+4. For **Name**, enter a friendly name to identify the vault. The name needs to be unique for the Azure subscription. Type a name that contains between 2 and 50 characters. It must start with a letter, and can contain only letters, numbers, and hyphens.
 
-5. Щелкните **Подписка**, чтобы просмотреть список доступных подписок. Если неизвестно, какую подписку нужно использовать, оставьте подписку по умолчанию (или предлагаемую подписку). Вариантов будет несколько только в том случае, если учетная запись вашей организации связана с несколькими подписками Azure.
+5. Click **Subscription** to see the available list of subscriptions. If you are not sure which subscription to use, use the default (or suggested) subscription. There will be multiple choices only if your organizational account is associated with multiple Azure subscriptions.
 
-6. Щелкните **Группа ресурсов**, чтобы просмотреть список доступных групп ресурсов, или создайте группу ресурсов, щелкнув **Создать**. Дополнительные сведения о группах ресурсов см. в статье [Общие сведения об Azure Resource Manager](../resource-group-overview.md).
+6. Click **Resource group** to see the available list of Resource groups, or click **New** to create a new Resource group. For complete information on Resource groups, see [Azure Resource Manager overview](../resource-group-overview.md)
 
-7. Щелкните **Расположение**, чтобы выбрать географический регион для хранилища.
+7. Click **Location** to select the geographic region for the vault.
 
-8. Щелкните **Создать**. Для создания хранилища служб восстановления может потребоваться некоторое время. Следите за уведомлениями о состоянии на портале в верхней правой области. Сразу после создания хранилище откроется на портале.
+8. Click **Create**. It can take a while for the Recovery Services vault to be created. Monitor the status notifications in the upper right-hand area in the portal.
+Once your vault is created, it opens in the portal.
 
-### Настройка репликации хранилища
+### <a name="set-storage-replication"></a>Set Storage Replication
 
-При настройке репликации хранилища можно выбирать между геоизбыточным хранилищем и локально избыточным хранилищем. По умолчанию это геоизбыточное хранилище. Если данная резервная копия является основной, оставьте установленный параметр. Если вам нужно более дешевое и не такое надежное решение, выберите локально избыточное хранилище. Дополнительные сведения о [геоизбыточном](../storage/storage-redundancy.md#geo-redundant-storage) и [локально избыточном](../storage/storage-redundancy.md#locally-redundant-storage) хранилищах см. в [обзоре репликации службы хранилища Azure](../storage/storage-redundancy.md).
+The storage replication option allows you to choose between geo-redundant storage and locally redundant storage. By default, your vault has geo-redundant storage. Leave the option set to geo-redundant storage if this is your primary backup. Choose locally redundant storage if you want a cheaper option that isn't quite as durable. Read more about [geo-redundant](../storage/storage-redundancy.md#geo-redundant-storage) and [locally redundant](../storage/storage-redundancy.md#locally-redundant-storage) storage options in the [Azure Storage replication overview](../storage/storage-redundancy.md).
 
-Чтобы изменить параметр репликации хранилища:
+To edit the storage replication setting:
 
-1. Выберите хранилище, чтобы открыть для него панель мониторинга и колонку "Параметры". Если колонка **Параметры** не открывается, щелкните **Все параметры** на панели мониторинга хранилища.
+1. Select your vault to open the vault dashboard and the Settings blade. If the **Settings** blade doesn't open, click **All settings** in the vault dashboard.
 
-2. В колонке **Параметры** последовательно выберите **Backup Infrastructure** (Инфраструктура архивации) > **Резервная конфигурация**, чтобы открыть колонку **Резервная конфигурация**. В колонке **Резервная конфигурация** выберите вариант репликации для своего хранилища.
+2. On the **Settings** blade, click **Backup Infrastructure** > **Backup Configuration** to open the **Backup Configuration** blade. On the **Backup Configuration** blade, choose the storage replication option for your vault.
 
-    ![Список хранилищ службы архивации](./media/backup-azure-vms-first-look-arm/choose-storage-configuration-rs-vault.png)
+    ![List of backup vaults](./media/backup-azure-vms-first-look-arm/choose-storage-configuration-rs-vault.png)
 
-    Выбрав параметры хранилища, вы можете приступать к связыванию виртуальной машины с хранилищем. Перед началом связывания нужно обнаружить и зарегистрировать виртуальные машины Azure.
+    After choosing the storage option for your vault, you are ready to associate the VM with the vault. To begin the association, you should discover and register the Azure virtual machines.
 
-## 3\. Программный пакет
+## <a name="3.-software-package"></a>3. Software package
 
-### Скачивание программного пакета
-1. Войдите на [портал Azure](https://portal.azure.com/).
+### <a name="downloading-the-software-package"></a>Downloading the software package
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 
-2. Если хранилище служб восстановления уже открыто, перейдите к шагу 3. Если хранилище служб восстановления не открыто, на портале Azure в главном меню щелкните **Обзор**.
+2. If you already have a Recovery Services vault open, proceed to step 3. If you do not have a Recovery Services vault open, but are in the Azure portal, on the Hub menu, click **Browse**.
 
-    - В списке ресурсов введите **Службы восстановления**.
-    - Как только вы начнете вводить, список отфильтруется соответствующим образом. Когда появится пункт **Хранилища служб восстановления**, щелкните его.
+    - In the list of resources, type **Recovery Services**.
+    - As you begin typing, the list will filter based on your input. When you see **Recovery Services vaults**, click it.
 
-    ![Создание хранилища служб восстановления — шаг 1](./media/backup-azure-microsoft-azure-backup/open-recovery-services-vault.png)
+    ![Create Recovery Services Vault step 1](./media/backup-azure-microsoft-azure-backup/open-recovery-services-vault.png)
 
-    После этого отобразится список хранилищ служб восстановления,
+    The list of Recovery Services vaults appears.
 
-    - в котором нужно выбрать хранилище.
+    - From the list of Recovery Services vaults, select a vault.
 
-    Затем откроется панель мониторинга выбранного хранилища.
+    The selected vault dashboard opens.
 
-    ![Открытие колонки хранилища](./media/backup-azure-microsoft-azure-backup/vault-dashboard.png)
+    ![Open vault blade](./media/backup-azure-microsoft-azure-backup/vault-dashboard.png)
 
-3. По умолчанию открывается колонка параметров. Если колонка параметров закрыта, щелкните **Параметры**, чтобы открыть ее.
+3. Settings blade opens up by default. If it is closed, click on **Settings** to open the settings blade.
 
-    ![Открытие колонки хранилища](./media/backup-azure-microsoft-azure-backup/vault-setting.png)
+    ![Open vault blade](./media/backup-azure-microsoft-azure-backup/vault-setting.png)
 
-4. В разделе **Приступая к работе** щелкните **Резервное копирование**, чтобы открыть мастер начальной настройки.
+4. Click on **Backup** in **Getting Started** to open the Getting Started wizard.
 
-    ![Приступая к работе со службой архивации](./media/backup-azure-microsoft-azure-backup/getting-started-backup.png)
+    ![Backup getting started](./media/backup-azure-microsoft-azure-backup/getting-started-backup.png)
 
-5. В открывшемся разделе "Приступая к работе" будет автоматически выбран экран целей архивации. ![Колонка целей архивации, открытая по умолчанию](./media/backup-azure-microsoft-azure-backup/getting-started.png)
+5. In the Getting Started that opens, Backup Goals screen will be auto-selected.
+    ![Backup-goals-default-opened](./media/backup-azure-microsoft-azure-backup/getting-started.png)
 
-    В разделе **целей архивации** в меню *Где выполняется рабочая нагрузка?* выберите *Локально*.
+    In the **Backup goals** section, select *on-premises* for *where is your workload running*.
 
-    ![Выбор параметра "Локально" и рабочих нагрузок в колонке целей архивации](./media/backup-azure-microsoft-azure-backup/backup-goals-azure-backup-server.png)
+    ![on-premises and workloads as goals](./media/backup-azure-microsoft-azure-backup/backup-goals-azure-backup-server.png)
 
-6. В разделе *What workloads you want to protect* (Рабочие нагрузки, которые необходимо защитить) выберите рабочие нагрузки, которые необходимо защитить с помощью сервера службы архивации Azure, и нажмите кнопку **ОК**.
+6. Select the workloads you want to protect using Azure Backup Server in *what workloads you want to protect* and click on **OK**.
 
-    > [AZURE.NOTE] Если нужно защищать только файлы и папки, рекомендуется использовать агент службы архивации Azure. Если нужно защитить дополнительные рабочие нагрузки, а не только файлы и папки, или если в будущем планируется расширить защиту, выберите соответствующие рабочие нагрузки.
+    > [AZURE.NOTE] If you are planning to protect just files and folders, then we recommend using Azure Backup agent. If you are planning to protect more workloads than just files and folders or in future if you are planning to expand the protection needs, select all those workloads.
 
-    После этого в мастере начальной настройки откроется колонка Prepare infrastructure (Подготовка инфраструктуры) для защиты рабочих нагрузок из локальной системы в Azure.
+    This will change the Getting Started wizard to prepare infrastructure for protecting workloads from on-premises to Azure.
 
-    ![Изменение колонки в мастере начальной настройки](./media/backup-azure-microsoft-azure-backup/getting-started-prep-infra.png)
+    ![Getting Started wizard change](./media/backup-azure-microsoft-azure-backup/getting-started-prep-infra.png)
 
-7. В открывшейся колонке **Подготовка инфраструктуры** щелкните ссылки **Скачать**, чтобы установить сервер службы архивации Azure и скачать учетные данные хранилища. Эти учетные данные используются для регистрации сервера службы архивации Azure в хранилище служб восстановления. В результате откроется страница Центра загрузки, где можно скачать программный пакет.
+7. In the **Prepare infrastructure** blade that opens, click the **Download** links for Install Azure Backup Server and Download vault credentials. You use the vault credentials during registration of Azure Backup Server to the recovery services vault. The links take you to the Download Center where the software package can be downloaded.
 
-    ![Подготовка инфраструктуры для сервера службы архивации Azure](./media/backup-azure-microsoft-azure-backup/azure-backup-server-prep-infra.png)
+    ![Prepare infrastructure for Azure Backup Server](./media/backup-azure-microsoft-azure-backup/azure-backup-server-prep-infra.png)
 
-8. Выберите все файлы и нажмите кнопку **Далее**. Скачайте все файлы со страницы скачивания службы архивации Microsoft Azure и поместите их в одну папку.
+8. Select all the files and click **Next**. Download all the files coming in from the Microsoft Azure Backup download page, and place all the files in the same folder.
 
-    ![Центр загрузки 1](./media/backup-azure-microsoft-azure-backup/downloadcenter.png)
+    ![Download center 1](./media/backup-azure-microsoft-azure-backup/downloadcenter.png)
 
-    Поскольку общий размер файлов превышает 3 ГБ, при скорости подключения 10 Мбит/с загрузка может занять до одного часа.
+    Since the download size of all the files together is > 3G, on a 10Mbps download link it may take up to 60 minutes for the download to complete.
 
 
-### Извлечение программного пакета
+### <a name="extracting-the-software-package"></a>Extracting the software package
 
-После загрузки всех файлов щелкните **MicrosoftAzureBackupInstaller.exe**. Будет запущен **мастер установки службы архивации Microsoft Azure**, с помощью которого можно извлечь файлы установки в указанное расположение. Выполните указания мастера и нажмите кнопку **Извлечь**, чтобы начать процесс извлечения.
+After you've downloaded all the files, click **MicrosoftAzureBackupInstaller.exe**. This will start the **Microsoft Azure Backup Setup Wizard** to extract the setup files to a location specified by you. Continue through the wizard and click on the **Extract** button to begin the extraction process.
 
-> [AZURE.WARNING] Для извлечения файлов установки требуется как минимум 4 ГБ свободного места.
+> [AZURE.WARNING] At least 4GB of free space is required to extract the setup files.
 
 
-![Мастер настройки резервного копирования в Microsoft Azure](./media/backup-azure-microsoft-azure-backup/extract/03.png)
+![Microsoft Azure Backup Setup Wizard](./media/backup-azure-microsoft-azure-backup/extract/03.png)
 
-Когда извлечение будет завершено, установите флажок, чтобы запустить только что извлеченный файл *setup.exe* и начать установку сервера службы архивации Microsoft Azure, а затем нажмите кнопку **Готово**.
+Once the extraction process complete, check the box to launch the freshly extracted *setup.exe* to begin installing Microsoft Azure Backup Server and click on the **Finish** button.
 
-### Установка программного пакета
+### <a name="installing-the-software-package"></a>Installing the software package
 
-1. Щелкните **Сервер архивации Microsoft Azure**, чтобы запустить мастер установки.
+1. Click **Microsoft Azure Backup** to launch the setup wizard.
 
-    ![Мастер настройки резервного копирования в Microsoft Azure](./media/backup-azure-microsoft-azure-backup/launch-screen2.png)
+    ![Microsoft Azure Backup Setup Wizard](./media/backup-azure-microsoft-azure-backup/launch-screen2.png)
 
-2. На экране приветствия нажмите кнопку **Далее**. Вы перейдете в раздел *Проверки готовности*. На этом экране нажмите кнопку **Проверить**, чтобы определить, выполнены ли предварительные требования к оборудованию и программному обеспечению для сервера службы архивации Azure. Если все обязательные условия выполняются, появится соответствующее сообщение. Нажмите кнопку **Далее**.
+2. On the Welcome screen click the **Next** button. This takes you to the *Prerequisite Checks* section. On this screen, click on the **Check** button to determine if the hardware and software prerequisites for Azure Backup Server have been met. If all of the prerequisites are have been met successfully, you will see a message indicating that the machine meets the requirements. Click on the **Next** button.
 
-    ![Сервер службы архивации Azure – приветствие и проверка готовности](./media/backup-azure-microsoft-azure-backup/prereq/prereq-screen2.png)
+    ![Azure Backup Server - Welcome and Prerequisites check](./media/backup-azure-microsoft-azure-backup/prereq/prereq-screen2.png)
 
-3. Для сервера службы архивации Microsoft Azure необходимо, чтобы в SQL Server Standard и пакет установки сервера службы архивации Azure были включены соответствующие двоичные файлы SQL Server. При запуске новой установки сервера службы архивации Azure установите переключатель **Install new Instance of SQL Server with this Setup** (Установить новый экземпляр SQL Server во время этой установки) и нажмите кнопку **Проверить и установить**. После успешной установки необходимых компонентов нажмите кнопку **Далее**.
+3. Microsoft Azure Backup Server requires SQL Server Standard, and the Azure Backup Server installation package comes bundled with the appropriate SQL Server binaries needed. When starting with a new Azure Backup Server installation, you should pick the option **Install new Instance of SQL Server with this Setup** and click the **Check and Install** button. Once the prerequisites are successfully installed, click **Next**.
 
-    ![Сервер службы архивации Azure – проверка SQL](./media/backup-azure-microsoft-azure-backup/sql/01.png)
+    ![Azure Backup Server - SQL check](./media/backup-azure-microsoft-azure-backup/sql/01.png)
 
-    В случае сбоя и появления рекомендации перезагрузить компьютер, выполните инструкцию на экране и нажмите кнопку **Проверить снова**.
+    If a failure occurs with a recommendation to restart the machine, do so and click **Check Again**.
 
-    > [AZURE.NOTE] Сервер службы архивации Azure не поддерживает использование удаленного экземпляра SQL Server. Экземпляр, который использует сервер службы архивации Azure, должен быть локальным.
+    > [AZURE.NOTE] Azure Backup Server will not work with a remote SQL Server instance. The instance being used by Azure Backup Server needs to be local.
 
-4. Укажите расположение для установки файлов сервера архивации Microsoft Azure и нажмите кнопку **Далее**.
+4. Provide a location for the installation of Microsoft Azure Backup server files and click **Next**.
 
     ![Microsoft Azure Backup PreReq2](./media/backup-azure-microsoft-azure-backup/space-screen.png)
 
-    Папка для временных файлов обязательна для резервного копирования в Azure. Убедитесь, что размер папки для временных файлов составляет по крайней мере 5 % объема данных, для которых планируется создать резервную копию в облаке. После завершения установки необходимо настроить защиту отдельных дисков. Дополнительные сведения о пулах носителей см. в статье [Настройка пулов носителей и дисковых хранилищ](https://technet.microsoft.com/library/hh758075.aspx).
+    The scratch location is a requirement for back up to Azure. Ensure the scratch location is at least 5% of the data planned to be backed up to the cloud. For disk protection, separate disks need to be configured once the installation completes. For more information regarding storage pools, see [Configure storage pools and disk storage](https://technet.microsoft.com/library/hh758075.aspx).
 
-5. Введите надежный пароль для локальных учетных записей пользователей с ограниченными правами и нажмите кнопку **Далее**.
+5. Provide a strong password for restricted local user accounts and click **Next**.
 
     ![Microsoft Azure Backup PreReq2](./media/backup-azure-microsoft-azure-backup/security-screen.png)
 
-6. Укажите, следует ли проверять обновления с помощью *Центра обновления Майкрософт*, и нажмите кнопку **Далее**.
+6. Select whether you want to use *Microsoft Update* to check for updates and click **Next**.
 
-    >[AZURE.NOTE] Рекомендуется выполнять перенаправление из Центра обновления Windows в Центр обновления Майкрософт, который предлагает обновления безопасности и другие важные обновления для Windows и других продуктов, таких как сервер службы архивации Microsoft Azure.
+    >[AZURE.NOTE] We recommend having Windows Update redirect to Microsoft Update, which offers security and important updates for Windows and other products like Microsoft Azure Backup Server.
 
     ![Microsoft Azure Backup PreReq2](./media/backup-azure-microsoft-azure-backup/update-opt-screen2.png)
 
-7. Просмотрите *Сводку параметров* и нажмите кнопку **Установить**.
+7. Review the *Summary of Settings* and click **Install**.
 
     ![Microsoft Azure Backup PreReq2](./media/backup-azure-microsoft-azure-backup/summary-screen.png)
 
-8. Установка выполняется поэтапно. На первом этапе выполняется установка агента служб восстановления Microsoft Azure на сервер. В это время мастер также проверяет наличие подключения к Интернету. При наличии подключения к Интернету можно продолжить установку. В противном случае потребуется указать сведения о прокси-сервере.
+8. The installation happens in phases. In the first phase the Microsoft Azure Recovery Services Agent is installed on the server. The wizard also checks for Internet connectivity. If Internet connectivity is available you can proceed with installation, if not, you need to provide proxy details to connect to the Internet.
 
-    Следующий шаг – настроить агент служб восстановления Microsoft Azure. В рамках настройки необходимо предоставить учетные данные хранилища, чтобы зарегистрировать компьютер в хранилище служб восстановления. Вам также потребуется предоставить парольную фразу для шифрования и расшифровки данных, передаваемых между Azure и локальной средой. Вы можете сгенерировать парольную фразу автоматически или ввести ее вручную. Она должна включать не менее 16 символов. Продолжайте работу мастера, пока агент не будет настроен.
+    The next step is to configure the Microsoft Azure Recovery Services Agent. As a part of the configuration, you will have to provide your vault credentials to register the machine to the recovery services vault. You will also provide a passphrase to encrypt/decrypt the data sent between Azure and your premises. You can automatically generate a passphrase or provide your own minimum 16-character passphrase. Continue with the wizard until the agent has been configured.
 
-    ![PreReq2 сервера службы архивации Azure](./media/backup-azure-microsoft-azure-backup/mars/04.png)
+    ![Azure Backup Serer PreReq2](./media/backup-azure-microsoft-azure-backup/mars/04.png)
 
-9. После успешного завершения регистрации сервера службы архивации Microsoft Azure работа мастера установки продолжается: выполняется установка и настройка SQL Server и компонентов сервера службы архивации Azure. C установкой компонента SQL Server установка компонентов сервера службы архивации Microsoft Azure завершается.
+9. Once registration of the Microsoft Azure Backup server successfully completes, the overall setup wizard proceeds to the installation and configuration of SQL Server and the Azure Backup Server components. Once the SQL Server component installation completes, the Azure Backup Server components are installed.
 
-    ![Сервер службы архивации Azure](./media/backup-azure-microsoft-azure-backup/final-install/venus-installation-screen.png)
+    ![Azure Backup Server](./media/backup-azure-microsoft-azure-backup/final-install/venus-installation-screen.png)
 
 
-По завершению установки на рабочем столе должны быть созданы соответствующие значки. Дважды щелкните значок для запуска продукта.
+When the installation step has completed, the product's desktop icons will have been created as well. Just double-click the icon to launch the product.
 
-### Добавление хранилища службы архивации
+### <a name="add-backup-storage"></a>Add backup storage
 
-Первая резервная копия хранится в хранилище, подключенном к компьютеру сервера службы архивации Azure. Дополнительные сведения о добавлении дисков см. в статье [Настройка пулов носителей и дисковых хранилищ](https://technet.microsoft.com/library/hh758075.aspx).
+The first backup copy is kept on storage attached to the Azure Backup Server machine. For more information about adding disks, see [Configure storage pools and disk storage](https://technet.microsoft.com/library/hh758075.aspx).
 
-> [AZURE.NOTE] Хранилище службы архивации необходимо добавить, даже если вы планируете отправлять данные в Azure. В текущей архитектуре сервера службы архивации Azure хранилище службы архивации Azure содержит *вторую* копию данных, а локальное хранилище — первую (и обязательную) резервную копию.
+> [AZURE.NOTE] You need to add backup storage even if you plan to send data to Azure. In the current architecture of Azure Backup Server, the Azure Backup vault holds the *second* copy of the data while the local storage holds the first (and mandatory) backup copy.
 
-## 4\. Сетевое подключение
+## <a name="4.-network-connectivity"></a>4. Network connectivity
 
-Для успешной работы серверу службы архивации Azure необходимо подключение к службе архивации Azure. Чтобы проверить, подключен ли компьютер к Azure, используйте командлет ```Get-DPMCloudConnection``` в консоли PowerShell сервера службы архивации Azure. Если выходные данные командлета имеют значение TRUE, то подключение существует. В противном случае оно отсутствует.
+Azure Backup Server requires connectivity to the Azure Backup service for the product to work successfully. To validate whether the machine has the connectivity to Azure, use the ```Get-DPMCloudConnection``` cmdlet in the Azure Backup Server PowerShell console. If the output of the cmdlet is TRUE then connectivity exists, else there is no connectivity.
 
-При этом подписка Azure должна быть активна. Чтобы определить состояние подписки и управлять им, войдите на [портал подписки](https://account.windowsazure.com/Subscriptions).
+At the same time, the Azure subscription needs to be in a healthy state. To find out the state of your subscription and to manage it, log in to the [subscription portal]( https://account.windowsazure.com/Subscriptions).
 
-Узнав состояние подключения и подписки Azure, можно использовать следующую таблицу, чтобы определить влияние на предоставляемые возможности резервного копирования и восстановления.
+Once you know the state of the Azure connectivity and of the Azure subscription, you can use the table below to find out the impact on the backup/restore functionality offered.
 
-| Состояние подключения | Подписка Azure | Резервное копирование в Azure| Резервное копирование на диск | Восстановление из Azure | Восстановление с диска |
+| Connectivity State | Azure Subscription | Backup to Azure| Backup to disk | Restore from Azure | Restore from disk |
 | -------- | ------- | --------------------- | ------------------- | --------------------------- | ----------------------- |
-| Подключено | Активна | Разрешено | Разрешено | Разрешено | Разрешено |
-| Подключено | Срок действия истек | Остановлено | Остановлено | Разрешено | Разрешено |
-| Подключено | Отозвана | Остановлено | Остановлено | Остановлено; точки восстановления Azure удалены | Остановлено |
-| Подключение потеряно на 15 и более дней | Активна | Остановлено | Остановлено | Разрешено | Разрешено |
-| Подключение потеряно на 15 и более дней | Срок действия истек | Остановлено | Остановлено | Разрешено | Разрешено |
-| Подключение потеряно на 15 и более дней | Отозвана | Остановлено | Остановлено | Остановлено; точки восстановления Azure удалены | Остановлена |
+| Connected | Active | Allowed | Allowed | Allowed | Allowed |
+| Connected | Expired | Stopped | Stopped | Allowed | Allowed |
+| Connected | Deprovisioned | Stopped | Stopped | Stopped and Azure recovery points deleted | Stopped |
+| Lost connectivity > 15 days | Active | Stopped | Stopped | Allowed | Allowed |
+| Lost connectivity > 15 days | Expired | Stopped | Stopped | Allowed | Allowed |
+| Lost connectivity > 15 days | Deprovisioned | Stopped | Stopped |  Stopped and Azure recovery points deleted | Stopped |
 
-### Восстановление после потери подключения
-При наличии брандмауэра или прокси-сервера, который препятствует доступу к Azure, необходимо добавить следующие адреса доменов в белый список в профиле брандмауэра или прокси-сервера:
+### <a name="recovering-from-loss-of-connectivity"></a>Recovering from loss of connectivity
+If you have a firewall or a proxy that is preventing access to Azure, you need to whitelist the following domain addresses in the firewall/proxy profile:
 
 - www.msftncsi.com
-- *.Microsoft.com
-- *.WindowsAzure.com
-- *.microsoftonline.com
-- *.windows.net
+- \*.Microsoft.com
+- \*.WindowsAzure.com
+- \*.microsoftonline.com
+- \*.windows.net
 
-После восстановления подключения компьютера сервера службы архивации к Azure доступные операции зависят от состояния подписки Azure. В таблице выше содержатся подробные сведения об операциях, которые можно выполнять после того, как состояние компьютера изменится на «Подключено».
+Once connectivity to Azure has been restored to the Azure Backup Server machine, the operations that can be performed are determined by the Azure subscription state. The table above has details about the operations allowed once the machine is "Connected".
 
-### Сведения о состояниях подписки
+### <a name="handling-subscription-states"></a>Handling subscription states
 
-Состояние подписки Azure можно изменить со *Срок действия истек* или *Отозвана* на *Активная*. Если подписка находится в состоянии, отличном от *Активная*, это может повлиять на поведение продукта:
+It is possible to take an Azure subscription from an *Expired* or *Deprovisioned* state to the *Active* state. However this has some implications on the product behavior while the state is not *Active*:
 
-- Если подписка находится в состоянии *Отозвана*, во время пребывания в этом состоянии основные возможности становятся недоступными. После изменения состояния подписки на *Активная* возможности архивации и восстановления снова становятся доступными. Кроме того, можно извлечь данные резервного копирования, хранящиеся на локальном диске, если период их удержания достаточно большой. Но как только состояние подписки меняется на *Отозвана*, данные архивации в Azure безвозвратно теряются.
-- Если подписка пребывает в состоянии *Срок действия истек*, функциональные возможности теряются только до восстановления состояния *Активная*. Если подписка пребывает в состоянии *Срок действия истек* и на этот период времени запланирована архивация, она не будет выполнена.
-
-
-## Устранение неполадок
-
-Если на этапе установки, резервного копирования или восстановления происходит сбой сервера архивации Microsoft Azure с указанием кода ошибки, см. информацию о кодах ошибок [в этом документе](https://support.microsoft.com/kb/3041338). Вы также можете изучить [часто задаваемые вопросы, связанные с резервным копированием в Azure](backup-azure-backup-faq.md).
+- A *Deprovisioned* subscription loses functionality for the period that it is deprovisioned. On turning *Active*, the product functionality of backup/restore is revived. The backup data on the local disk also can be retrieved if it was kept with a sufficiently large retention period. However, the backup data in Azure is irretrievably lost once the subscription enters the *Deprovisioned* state.
+- An *Expired* subscription only loses functionality for until it has been made *Active* again. Any backups scheduled for the period that the subscription was *Expired* will not run.
 
 
-## Дальнейшие действия
+## <a name="troubleshooting"></a>Troubleshooting
 
-См. дополнительные сведения о [подготовке среды для DPM](https://technet.microsoft.com/library/hh758176.aspx) на веб-сайте Microsoft TechNet. На этом сайте также содержатся сведения о поддерживаемых конфигурациях, при которых можно развернуть и использовать сервер службы архивации Azure.
+If Microsoft Azure Backup server fails with errors during the setup phase (or backup or restore), refer to this [error codes document](https://support.microsoft.com/kb/3041338)  for more information.
+You can also refer to [Azure Backup related FAQs](backup-azure-backup-faq.md)
 
-Вы можете использовать эти статьи для более глубокого изучения вариантов защиты рабочих нагрузок с помощью сервера архивации Microsoft Azure.
 
-- [Резервное копирование сервера SQL Server](backup-azure-backup-sql.md)
-- [Резервное копирование сервера SharePoint](backup-azure-backup-sharepoint.md)
-- [Резервное копирование альтернативного сервера](backup-azure-alternate-dpm-server.md)
+## <a name="next-steps"></a>Next steps
 
-<!---HONumber=AcomDC_0803_2016-->
+You can get detailed information about [preparing your environment for DPM](https://technet.microsoft.com/library/hh758176.aspx) on the Microsoft TechNet site. It also contains information about supported configurations on which Azure Backup Server can be deployed and used.
+
+You can use these articles to gain a deeper understanding of workload protection using Microsoft Azure Backup server.
+
+- [SQL Server backup](backup-azure-backup-sql.md)
+- [SharePoint server backup](backup-azure-backup-sharepoint.md)
+- [Alternate server backup](backup-azure-alternate-dpm-server.md)
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

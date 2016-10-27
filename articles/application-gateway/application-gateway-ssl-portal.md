@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Настройка шлюза приложений для разгрузки SSL с помощью портала | Microsoft Azure"
-   description="На этой странице приводятся инструкции по созданию шлюза приложений с разгрузкой SSL с помощью портала."
+   pageTitle="Configure an application gateway for SSL offload by using the portal | Microsoft Azure"
+   description="This page provides instructions to create an application gateway with SSL offload by using the portal"
    documentationCenter="na"
    services="application-gateway"
    authors="georgewallace"
@@ -15,78 +15,82 @@
    ms.date="09/09/2016"
    ms.author="gwallace"/>
 
-# Настройка шлюза приложений для разгрузки SSL с помощью портала
+
+# <a name="configure-an-application-gateway-for-ssl-offload-by-using-the-portal"></a>Configure an application gateway for SSL offload by using the portal
 
 > [AZURE.SELECTOR]
 -[Azure portal](application-gateway-ssl-portal.md)
 -[Azure Resource Manager PowerShell](application-gateway-ssl-arm.md)
 -[Azure Classic PowerShell](application-gateway-ssl.md)
 
-Шлюз приложений Azure можно настроить на завершение сеанса SSL в шлюзе во избежание выполнения дорогостоящих задач SSL-шифрования на веб-ферме. Кроме того, разгрузка SSL упрощает процесс установки внешнего сервера и управления веб-приложением.
+Azure Application Gateway can be configured to terminate the Secure Sockets Layer (SSL) session at the gateway to avoid costly SSL decryption tasks to happen at the web farm. SSL offload also simplifies the front-end server setup and management of the web application.
 
-## Сценарий
+## <a name="scenario"></a>Scenario
 
-В следующем сценарии рассматривается настройка разгрузки SSL в существующем шлюзе приложений. Предполагается, что действия по [созданию шлюза приложений](application-gateway-create-gateway-portal.md) уже выполнены.
+The following scenario goes through configuring SSL offload on an existing application gateway. The scenario assumes that you have already followed the steps to [Create an Application Gateway](application-gateway-create-gateway-portal.md).
 
-## Перед началом работы
+## <a name="before-you-begin"></a>Before you begin
 
-Чтобы настроить разгрузку SSL с помощью шлюза приложений, требуется сертификат. Этот сертификат загружается в шлюз приложений и используется для шифрования и расшифровки трафика, передаваемого через подключение SSL. Сертификат должен быть в формате PFX (файл обмена личной информацией). Этот формат файла позволяет экспортировать закрытый ключ, необходимый шлюзу приложений для шифрования и расшифровки трафика.
+To configure SSL offload with an application gateway, a certificate is required. This certificate is loaded on the application gateway and used to encrypt and decrypt the traffic sent via SSL. The certificate needs to be in Personal Information Exchange (pfx) format. This file format allows for the private key to be exported which is required by the application gateway to perform the encryption and decryption of traffic.
 
-## Добавление прослушивателя HTTPS
+## <a name="add-an-https-listener"></a>Add an HTTPS listener
 
-Прослушиватель HTTPS ищет трафик согласно заданной конфигурации и помогает направлять трафик во внутренние пулы.
+The HTTPS listener looks for traffic based on its configuration and helps route the traffic to the backend pools.
 
-### Шаг 1
+### <a name="step-1"></a>Step 1
 
-Перейдите на портал Azure и выберите существующий шлюз приложений.
+Navigate to the Azure portal and select an existing application gateway
 
-![Колонка обзора шлюза приложений][1]
+![app gateway overview blade][1]
 
-### Шаг 2
+### <a name="step-2"></a>Step 2
 
-Щелкните "Прослушиватели" и нажмите кнопку "Добавить", чтобы добавить прослушиватель.
+Click Listeners and click the Add button to add a listener.
 
-### Шаг 3.
+### <a name="step-3"></a>Step 3
 
-Введите необходимые сведения о прослушивателе и передайте PFX-файл сертификата. По завершении нажмите кнопку "ОК".
+Fill out the required information for the listener and upload the .pfx certificate, when complete click OK.
 
-**Имя** — понятное имя прослушивателя.
+**Name** - This value is a friendly name of the listener.
 
-**Интерфейсная IP-конфигурация** — конфигурация интерфейсных IP-адресов, используемая для прослушивателя.
+**Frontend IP configuration** - This value is the frontend IP configuration that is used for the listener.
 
-**Интерфейсный порт (имя и порт)** — понятное имя порта, используемого во внешнем интерфейсе шлюза приложений, и фактически используемый порт.
+**Frontend port (Name/Port)** - A friendly name for the port used on the front end of the application gateway and the actual port used.
 
-**Протокол** — параметр, позволяющий определить протокол, используемый для внешнего интерфейса: https или http.
+**Protocol** - A switch to determine if https or http is used for the front end.
 
-**Сертификат (имя и пароль)** — если используется разгрузка SSL, то для этого параметра требуется указать PFX-файл сертификата, понятное имя и пароль.
+**Certificate (Name/Password)** - If SSL offload is used, a .pfx certificate is required for this setting and a friendly name and password are required.
 
-![Колонка добавления прослушивателя][2]
+![add listener blade][2]
 
-## Создание правила и его привязка к прослушивателю
+## <a name="create-a-rule-and-associate-it-to-the-listener"></a>Create a rule and associate it to the listener
 
-Теперь прослушиватель создан. Пора создать правило для обработки трафика, поступающего от этого прослушивателя.
+The listener has now been created. It is time to create a rule to handle the traffic from the listener.
 
-### Шаг 1
+### <a name="step-1"></a>Step 1
 
-Щелкните **Правила** для шлюза приложений, затем щелкните "Добавить".
+Click the **Rules** of the application gateway, and then click Add.
 
-![Колонка правил шлюза приложений][3]
+![app gateway rules blade][3]
 
-### Шаг 2
+### <a name="step-2"></a>Step 2
 
-В колонке **Добавление базового правила** введите понятное имя правила и выберите прослушиватель, созданный на предыдущем шаге. Выберите соответствующий внутренний пул и параметр http, затем нажмите кнопку **ОК**.
+On the **Add basic rule** blade, type in the friendly name for the rule and choose the listener created in the previous step. Choose the appropriate backend pool and http setting and click **OK**
 
-![Окно параметров HTTPS][4]
+![https settings window][4]
 
-Теперь параметры сохранены в шлюзе приложений. Процесс сохранения этих параметров может занять некоторое время, которое пройдет, прежде чем они станут доступны для просмотра посредством портала или PowerShell. После сохранения параметров шлюз приложений выполняет шифрование и расшифровку трафика. Весь трафик между шлюзом приложений и внутренними веб-серверами будет передаваться с помощью протокола HTTP. Если передача была инициирована по протоколу HTTPS, то любые данные, передаваемые обратно клиенту, будут шифроваться.
+The settings are now saved to the application gateway. The save process for these settings may take a while before they are available to view through the portal or through PowerShell. Once saved the application gateway handles the encryption and decryption of traffic. All traffic between the application gateway and the backend web servers will be handled over http. Any communication back to the client if initiated over https will be returned to the client encrypted.
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Next steps
 
-Чтобы узнать, как настроить пользовательскую пробу работоспособности с использованием шлюза приложений Azure, ознакомьтесь с разделом [Create a custom probe for Application Gateway by using the portal](application-gateway-create-gateway-portal.md) (Создание пользовательской пробы для шлюза приложений с помощью портала).
+To learn how to configure a custom health probe with Azure Application Gateway, see [Create a custom health probe](application-gateway-create-gateway-portal.md).
 
 [1]: ./media/application-gateway-ssl-portal/figure1.png
 [2]: ./media/application-gateway-ssl-portal/figure2.png
 [3]: ./media/application-gateway-ssl-portal/figure3.png
 [4]: ./media/application-gateway-ssl-portal/figure4.png
 
-<!---HONumber=AcomDC_0921_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

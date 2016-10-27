@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Отладка приложений в локальном контейнере Docker | Microsoft Azure"
-   description="Узнайте, как вносить изменения в приложение, выполняемое в локальном контейнере Docker, обновлять контейнер с помощью функций правки и обновления, а также устанавливать точки останова."
+   pageTitle="Debugging apps in a local Docker container | Microsoft Azure"
+   description="Learn how to modify an app that is running in a local Docker container, refresh the container via Edit and Refresh and set debugging breakpoints"
    services="azure-container-service"
    documentationCenter="na"
    authors="mlearned"
@@ -15,114 +15,124 @@
    ms.date="07/22/2016"
    ms.author="mlearned" />
 
-# Отладка приложений в локальном контейнере Docker
 
-## Обзор
-Инструменты Visual Studio для Docker обеспечивают согласованное выполнение разработки и проверки вашего приложения локально в контейнере Docker в Linux. Не нужно перезапустить контейнер каждый раз при внесении изменений в код. В этой статье рассказывается, как запускать веб-приложение ASP.NET Core в локальном контейнере Docker, вносить необходимые изменения и обновлять браузер для отображения сделанных изменений с помощью функций правки и обновления. В ней также будет показано, как устанавливать точки останова для отладки.
+# <a name="debugging-apps-in-a-local-docker-container"></a>Debugging apps in a local Docker container
 
-> [AZURE.NOTE] Поддержка контейнера Windows будет реализована в следующем выпуске.
+## <a name="overview"></a>Overview
+The Visual Studio Tools for Docker provides a consistent way to develop in a and validate your application locally in a Linux Docker container.
+You don't have to restart the container each time you make a code change.
+This article will illustrate how to use the "Edit and Refresh" feature to start an ASP.NET Core Web app in a local Docker container, make any necessary changes, and then refresh the browser to see those changes.
+It will also show you how to set breakpoints for debugging.
 
-## Предварительные требования
-Должны быть установлены следующие средства.
+> [AZURE.NOTE] Windows Container support will be coming in a future release
 
-- [Visual Studio 2015 с обновлением 2](https://go.microsoft.com/fwlink/?LinkId=691978).
-- [Visual Studio 2015 с обновлением 3](https://go.microsoft.com/fwlink/?LinkId=691129).
-- [Пакет SDK для Microsoft ASP.NET Core 1.0](https://go.microsoft.com/fwlink/?LinkID=809122).
+## <a name="prerequisites"></a>Prerequisites
+The following tools need to be installed.
 
-Для запуска контейнеров Docker локально потребуется локальный клиент Docker. Можно воспользоваться выпуском [панели элементов Docker Toolbox](https://www.docker.com/products/overview#/docker_toolbox), для которой требуется отключить Hyper-V, или можно воспользоваться [бета-версией Docker для Windows](https://beta.docker.com), для которой требуется Hyper-V и Windows 10.
+- [Visual Studio 2015 Update 2](https://go.microsoft.com/fwlink/?LinkId=691978)
+- Install [Visual Studio 2015 Update 3](https://go.microsoft.com/fwlink/?LinkId=691129)
+- [Microsoft ASP.NET Core 1.0 SDK](https://go.microsoft.com/fwlink/?LinkID=809122)
 
-При использовании панели элементов Docker Toolbox необходимо выполнить [настройку клиента Docker](./vs-azure-tools-docker-setup.md).
+To run Docker containers locally, you'll need a local docker client.
+You can use the released [Docker Toolbox](https://www.docker.com/products/overview#/docker_toolbox) which requires Hyper-V to be disabled, or you can use [Docker for Windows Beta](https://beta.docker.com) which uses Hyper-V, and requires Windows 10.
 
-## 1\. Создание веб-приложения
+If using Docker Toolbox, you'll need to [configure the Docker client](./vs-azure-tools-docker-setup.md)
+
+## <a name="1.-create-a-web-app"></a>1. Create a web app
 
 [AZURE.INCLUDE [create-aspnet5-app](../includes/create-aspnet5-app.md)]
 
-## 2) Добавление поддержки Docker
+## <a name="2.-add-docker-support"></a>2. Add Docker support
 
-[AZURE.INCLUDE [Добавление поддержки Docker](../includes/vs-azure-tools-docker-add-docker-support.md)]
+[AZURE.INCLUDE [Add docker support](../includes/vs-azure-tools-docker-add-docker-support.md)]
 
 
-## 3) Изменение и обновление кода
+## <a name="3.-edit-your-code-and-refresh"></a>3. Edit your code and refresh
 
-Для быстрой итерации изменений можно запустить приложение в контейнере и продолжить внесение изменений, просматривая их так же, как в IIS Express.
+To quickly iterate changes, you can start your application within a container, and continue to make changes, viewing them as you would with IIS Express.
 
-1. Укажите для конфигурации решения значение `Debug` и нажмите клавиши **&lt;CTRL+F5>**, чтобы создать образ Docker и запустить его локально.
+1. Set the Solution Configuration to `Debug` and press **&lt;CTRL + F5>** to build your docker image and run it locally.
 
-    Когда образ контейнера будет построен и запущен в контейнере Docker, Visual Studio запустит веб-приложение в вашем браузере по умолчанию. Если вы пользуетесь браузером Microsoft Edge или если у вас возникают проблемы, см. раздел [Устранение неполадок](vs-azure-tools-docker-troubleshooting-docker-errors.md).
+    Once the container image has been built and is running in a Docker container, Visual Studio will launch the Web app in your default browser.
+    If you are using the Microsoft Edge browser or otherwise have errors, see [Troubleshooting](vs-azure-tools-docker-troubleshooting-docker-errors.md) section.
 
-1. Перейдите на страницу "О программе", где мы сможем внести наши изменения.
+1. Go to the About page, which is where we're going to make our changes.
 
-1. Вернитесь в Visual Studio и откройте `Views\Home\About.cshtml`.
+1. Return to Visual Studio and open `Views\Home\About.cshtml`.
 
-1. Добавьте следующее HTML-содержимое в конец файла и сохраните изменения.
+1. Add the following HTML content to the end of the file and save the changes.
 
-	```
-	<h1>Hello from a Docker Container!</h1>
-	```
+    ```
+    <h1>Hello from a Docker Container!</h1>
+    ```
 
-1.	При просмотре окна вывода, когда сборка .NET завершена и отображаются следующие строки, вернитесь в браузер и обновите страницу "О программе".
+1.  Viewing the output window, when the .NET build is completed and you see these lines, switch back to your browser and refresh the About page.
 
     ```
     Now listening on: http://*:80
     Application started. Press Ctrl+C to shut down
     ```
 
-1.	Изменения применены!
+1.  Your changes have been applied!
 
-## 4\. Отладка с использованием точек останова
+## <a name="4.-debug-with-breakpoints"></a>4. Debug with breakpoints
 
-Часто после внесения изменений требуется выполнить дополнительные проверки, используя средства отладки Visual Studio.
+Often, changes will need further inspection, leveraging the debugging features of Visual Studio.
 
-1.	Вернитесь в Visual Studio и откройте `Controllers\HomeController.cs`.
+1.  Return to Visual Studio and open `Controllers\HomeController.cs`
 
-1.  Замените содержимое метода About() следующим кодом:
+1.  Replace the contents of the About() method with the following:
 
-	```
-	string message = "Your application description page from wthin a Container";
-	ViewData["Message"] = message;
+    ```
+    string message = "Your application description page from wthin a Container";
+    ViewData["Message"] = message;
     ````
 
-1.  Установите точку останова слева от строки `string message`…
+1.  Set a breakpoint to the left of the `string message`... line.
 
-1.  Чтобы начать отладку, нажмите клавишу **&lt;F5>**.
+1.  Hit **&lt;F5>** to start debugging.
 
-1.  Перейдите на страницу "О программе", чтобы достигнуть точки останова.
+1.  Navigate to the About page to hit your breakpoint.
 
-1.  Переключитесь в Visual Studio, чтобы просмотреть точку останова и проверить значение сообщения.
+1.  Switch to Visual Studio to view the breakpoint, and inspect the value of message.
 
-	![][2]
+    ![][2]
 
-##Сводка
+##<a name="summary"></a>Summary
 
-Используя [инструменты Visual Studio 2015 для Docker](https://aka.ms/DockerToolsForVS), вы повышаете производительность за счет работы локально, а также получаете реалистичную рабочую среду для разработки в контейнере Docker.
+With [Visual Studio 2015 Tools for Docker](https://aka.ms/DockerToolsForVS), you can get the productivity of working locally, with the production realism of developing within a Docker container.
 
-## Устранение неполадок
+## <a name="troubleshooting"></a>Troubleshooting
 
-[Устранение неполадок при разработке в Visual Studio Docker](vs-azure-tools-docker-troubleshooting-docker-errors.md)
+[Troubleshooting Visual Studio Docker Development](vs-azure-tools-docker-troubleshooting-docker-errors.md)
 
-## Дополнительные сведения об использовании Docker с Visual Studio, Windows и Azure
+## <a name="more-about-docker-with-visual-studio,-windows,-and-azure"></a>More about Docker with Visual Studio, Windows, and Azure
 
-- [Docker Tools for Visual Studio](http://aka.ms/dockertoolsforvs) (Инструменты Docker для Visual Studio) — разработка кода .NET Core в контейнере.
-- [Docker Tools for Visual Studio Team Services](http://aka.ms/dockertoolsforvsts) (Инструменты Docker для Visual Studio Team Services) — сборка и развертывание контейнеров Docker.
-- [Docker Tools for Visual Studio Code](http://aka.ms/dockertoolsforvscode) (Инструменты Docker для Visual Studio Code) — языковые службы для редактирования файлов Docker с дополнительными сценариями E2E (ожидаются в ближайшее время).
-- [Windows Container Information](http://aka.ms/containers) (Сведения о контейнерах Windows) — сведения о Windows Server и Nano Server.
-- [Служба контейнеров Azure](https://azure.microsoft.com/services/container-service/) — [общие сведения о службе контейнеров Azure](http://aka.ms/AzureContainerService).
--    Дополнительные примеры работы с Docker см. в статье [Работа с Docker](https://github.com/Microsoft/HealthClinic.biz/wiki/Working-with-Docker), описывающей [демонстрационный проект](https://blogs.msdn.microsoft.com/visualstudio/2015/12/08/connectdemos-2015-healthclinic-biz/) [HealthClinic.biz](https://github.com/Microsoft/HealthClinic.biz) 2015 Connect. Дополнительные примеры из демонстрационного проекта HealthClinic.biz см. на странице [Примеры использования средств разработчика Azure](https://github.com/Microsoft/HealthClinic.biz/wiki/Azure-Developer-Tools-Quickstarts).
+- [Docker Tools for Visual Studio](http://aka.ms/dockertoolsforvs) - Developing your .NET Core code in a container
+- [Docker Tools for Visual Studio Team Services](http://aka.ms/dockertoolsforvsts) - Build and Deploy docker containers
+- [Docker Tools for Visual Studio Code](http://aka.ms/dockertoolsforvscode) - Language services for editing docker files, with more e2e scenarios coming
+- [Windows Container Information](http://aka.ms/containers)- Windows Server and Nano Server information
+- [Azure Container Service](https://azure.microsoft.com/services/container-service/) - [Azure Container Service Content](http://aka.ms/AzureContainerService)
+-    For more examples of working with Docker, see [Working with Docker](https://github.com/Microsoft/HealthClinic.biz/wiki/Working-with-Docker) from the [HealthClinic.biz](https://github.com/Microsoft/HealthClinic.biz) 2015 Connect [demo](https://blogs.msdn.microsoft.com/visualstudio/2015/12/08/connectdemos-2015-healthclinic-biz/). For more quickstarts from the HealthClinic.biz demo, see [Azure Developer Tools Quickstarts](https://github.com/Microsoft/HealthClinic.biz/wiki/Azure-Developer-Tools-Quickstarts).
 
-## Различные инструменты Docker
+## <a name="various-docker-tools"></a>Various Docker tools
 
-[Some great docker tools (Steve Lasker's blog) (Несколько отличных инструментов Docker — блог Стива Ласкера (Steve Lasker))](https://blogs.msdn.microsoft.com/stevelasker/2016/03/25/some-great-docker-tools/)
+[Some great docker tools (Steve Lasker's blog)](https://blogs.msdn.microsoft.com/stevelasker/2016/03/25/some-great-docker-tools/)
 
-## Рекомендуемые статьи
+## <a name="good-articles"></a>Good articles
 
-[Introduction to Microservices from NGINX (Введение в микрослужбы от NGINX)](https://www.nginx.com/blog/introduction-to-microservices/)
+[Introduction to Microservices from NGINX](https://www.nginx.com/blog/introduction-to-microservices/)
 
-## Презентации
+## <a name="presentations"></a>Presentations
 
-- [Steve Lasker: VS Live Las Vegas 2016 - Docker e2e (Стив Ласкер: презентация по Visual Studio и Docker E2E — Лас-Вегас, 2016 г.)](https://github.com/SteveLasker/Presentations/blob/master/VSLive2016/Vegas/)
-- [Introduction to ASP.NET Core @ build 2016 - Where You At Demo (Введение в ASP.NET Core @ сборка 2016 г.)](https://channel9.msdn.com/Events/Build/2016/B810)
-- [Developing .NET apps in containers, Channel 9 (Разработка приложений .NET в контейнерах, Channel 9)](https://blogs.msdn.microsoft.com/stevelasker/2016/02/19/developing-asp-net-apps-in-docker-containers/)
+- [Steve Lasker: VS Live Las Vegas 2016 - Docker e2e](https://github.com/SteveLasker/Presentations/blob/master/VSLive2016/Vegas/)
+- [Introduction to ASP.NET Core @ build 2016 - Where You At Demo](https://channel9.msdn.com/Events/Build/2016/B810)
+- [Developing .NET apps in containers, Channel 9](https://blogs.msdn.microsoft.com/stevelasker/2016/02/19/developing-asp-net-apps-in-docker-containers/)
 
 [2]: ./media/vs-azure-tools-docker-edit-and-refresh/breakpoint.png
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,95 +1,100 @@
 <properties
-	pageTitle="Резервное копирование и восстановление для SQL Server | Microsoft Azure"
-	description="Содержит сведения об архивации и восстановлении баз данных SQL Server на виртуальных машинах Azure."
-	services="virtual-machines-windows"
-	documentationCenter="na"
-	authors="rothja"
-	manager="jhubbard"
-	editor=""
-	tags="azure-resource-management" />
+    pageTitle="Backup and Restore for SQL Server | Microsoft Azure"
+    description="Describes backup and restore considerations for SQL Server databases running on Azure Virtual Machines."
+    services="virtual-machines-windows"
+    documentationCenter="na"
+    authors="rothja"
+    manager="jhubbard"
+    editor=""
+    tags="azure-resource-management" />
 
 <tags
-	ms.service="virtual-machines-windows"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="vm-windows-sql-server"
-	ms.workload="infrastructure-services"
-	ms.date="08/19/2016"
-	ms.author="jroth" />
+    ms.service="virtual-machines-windows"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="vm-windows-sql-server"
+    ms.workload="infrastructure-services"
+    ms.date="08/19/2016"
+    ms.author="jroth" />
 
-# Резервное копирование и восстановление SQL Server в виртуальных машинах Azure
 
-## Обзор
+# <a name="backup-and-restore-for-sql-server-in-azure-virtual-machines"></a>Backup and Restore for SQL Server in Azure Virtual Machines
 
-Архивация данных в базах данных SQL Server является важной частью стратегии защиты от потери данных из-за ошибки приложения или пользователя. Это относится и к SQL Server на виртуальных машинах Azure.
+## <a name="overview"></a>Overview
+
+Backing up data in SQL Server databases is an important part of the strategy in protecting against data loss due to application or user errors. This is equally true for SQL Server running on Azure Virtual Machines (VMs).
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
-Для SQL Server на виртуальных машинах Azure можно применять собственные методы архивации и восстановления, используя для хранения файлов резервных копий подключенные диски. При этом существует ограничение на количество дисков, которые можно присоединить к виртуальной машине Azure, связанное с [размером виртуальной машины](virtual-machines-linux-sizes.md). Также необходимо учитывать накладные расходы на управление дисками.
+For SQL Server running in Azure VMs, you can use native backup and restore techniques using attached disks for the destination of the backup files. However, there is a limit to the number of disks you can attach to an Azure virtual machine, based on the [size of the virtual machine](virtual-machines-linux-sizes.md). There is also the overhead of disk management to consider.
 
-Начиная с SQL Server 2014 для архивации и восстановления можно использовать хранилище BLOB-объектов Microsoft Azure. Дополнительные возможности для этого параметра реализуются также в версии SQL Server 2016. Кроме того, SQL Server 2016 позволяет практически мгновенно создавать резервные копии файлов базы данных, которые находятся в хранилище больших двоичных объектов Microsoft Azure, и быстро их восстанавливать с помощью моментальных снимков Azure. В этой статье содержится обзор этих параметров. Дополнительные сведения см. в статье [Архивация и восстановление SQL Server с помощью службы хранилища больших двоичных объектов Microsoft Azure](https://msdn.microsoft.com/library/jj919148.aspx).
+Beginning with SQL Server 2014, you can back up and restore to Microsoft Azure Blob storage. SQL Server 2016 also provides enhancements for this option. In addition, for database files stored in Microsoft Azure Blob storage, SQL Server 2016 provides an option for nearly instantaneous backups and for rapid restores using Azure snapshots. This article provides an overview of these options, and additional information can be found at [SQL Server Backup and Restore with Microsoft Azure Blob Storage Service](https://msdn.microsoft.com/library/jj919148.aspx).
 
->[AZURE.NOTE] Обсуждение параметров архивации очень больших баз данных см. в статье [Стратегии архивации терабайтных баз данных SQL Server для виртуальных машин Azure](http://blogs.msdn.com/b/igorpag/archive/2015/07/28/multi-terabyte-sql-server-database-backup-strategies-for-azure-virtual-machines.aspx).
+>[AZURE.NOTE] For a discussion of the options for backing up very large databases, see [Multi-Terabyte SQL Server Database Backup Strategies for Azure Virtual Machines](http://blogs.msdn.com/b/igorpag/archive/2015/07/28/multi-terabyte-sql-server-database-backup-strategies-for-azure-virtual-machines.aspx).
 
-В следующих разделах приводятся сведения по отдельным версиям SQL Server, которые поддерживаются виртуальными машинами Azure.
+The sections below include information specific to the different versions of SQL Server supported in an Azure virtual machine.
 
-## Виртуальные машины SQL Server
+## <a name="sql-server-virtual-machines"></a>SQL Server Virtual Machines
 
-Если экземпляр SQL Server работает на виртуальной машине Azure, файлы базы данных уже содержатся на дисках данных в Azure. Эти диски находятся в хранилище BLOB-объектов. Поэтому причины для архивации базы данных и применяемый подход будут немного отличаться. Давайте рассмотрим следующее.
+When your SQL Server instance is running on an Azure Virtual Machine, your database files already reside on data disks in Azure. These disks live in Azure Blob storage. So the reasons for backing up your database and the approaches you take change slightly. Consider the following. 
 
-- Архивировать базы данных для защиты от сбоев оборудования или отказа носителей больше не нужно, поскольку такая защита предоставляется в рамках службы Microsoft Azure по умолчанию.
+- You no longer need to perform database backups to provide protection against hardware or media failure because Microsoft Azure provides this protection as part of the Microsoft Azure service.
 
-- Архивация базы данных требуется для защиты от ошибок пользователей, а также для формирования архивов, соблюдения нормативных требований или в административных целях.
+- You still need to perform database backups to provide protection against user errors, or for archival purposes, regulatory reasons, or administrative purposes.
 
-- Файл резервной копии можно хранить непосредственно в Azure. Дополнительные сведения см. в следующих разделах, которые дают представление о различных версиях SQL Server.
+- You can store the backup file directly in Azure. For more information, see the following sections that provide guidance for the different versions of SQL Server.
 
-## SQL Server 2016
+## <a name="sql-server-2016"></a>SQL Server 2016
 
-Microsoft SQL Server 2016 поддерживает функции [архивации и восстановления с использованием больших двоичных объектов Azure](https://msdn.microsoft.com/library/jj919148.aspx), реализованные в SQL Server 2014. Однако эта версия включает также следующие усовершенствования:
+Microsoft SQL Server 2016 supports [backup and restore with Azure blobs](https://msdn.microsoft.com/library/jj919148.aspx) features found in SQL Server 2014. But it also includes the following enhancements:
 
-| Усовершенствования 2016 года | Сведения |
+| 2016 Enhancement               | Details                          |
 |---------------------|-------------------------------|
-| **Чередование** | Когда выполняется резервное копирование в хранилище BLOB-объектов Microsoft Azure, SQL Server 2016 позволяет использовать сразу несколько больших двоичных объектов и, таким образом, создавать резервные копии больших баз данных размером до 12,8 ТБ. |
-| **Резервное копирование моментальных снимков** | Благодаря использованию моментальных снимков Azure функция резервного копирования моментальных снимков файлов SQL Server дает возможность практически мгновенно создавать резервные копии и быстро восстанавливать файлы баз данных, сохраненные с помощью службы хранилища BLOB-объектов Azure. Это позволяет упростить политики архивации и восстановления политик. Функция архивации моментальных снимков файлов поддерживает также восстановление до определенной точки во времени. Дополнительные сведения см. в статье [Резервные копии для снимков файлов баз данных в Azure](https://msdn.microsoft.com/library/mt169363%28v=sql.130%29.aspx). |
-| **Планирование управляемого резервного копирования** | Функция управляемого резервного копирования в Azure, доступная в SQL Server, теперь поддерживает пользовательские расписания. Дополнительные сведения см. в статье [Управляемое резервное копирование SQL Server в Microsoft Azure](https://msdn.microsoft.com/library/dn449496.aspx). |
+| **Striping**              | When backing up to Microsoft Azure blob storage, SQL Server 2016 supports backing up to multiple blobs to enable backing up large databases, up to a maximum of 12.8 TB.      |
+| **Snapshot Backup**                | Through the use of Azure snapshots, SQL Server File-Snapshot Backup provides nearly instantaneous backups and rapid restores for database files stored using the Azure Blob storage service. This capability enables you to simplify your backup and restore policies. File-snapshot backup also supports point in time restore. For more information, see [Snapshot Backups for Database Files in Azure](https://msdn.microsoft.com/library/mt169363%28v=sql.130%29.aspx).   |
+| **Managed Backup Scheduling**            | SQL Server Managed Backup to Azure now supports custom schedules. For more information, see [SQL Server Managed Backup to Microsoft Azure](https://msdn.microsoft.com/library/dn449496.aspx).   |
 
-Инструкции по использованию функций SQL Server 2016 при работе с хранилищем больших двоичных объектов Azure см. в учебнике [Использование службы хранилища больших двоичных объектов Microsoft Azure с базами данных SQL Server 2016](https://msdn.microsoft.com/library/dn466438.aspx).
+For a tutorial of the capabilities of SQL Server 2016 when using Azure Blob storage, see [Tutorial: Using the Microsoft Azure Blob storage service with SQL Server 2016 databases](https://msdn.microsoft.com/library/dn466438.aspx).
 
-## SQL Server 2014
+## <a name="sql-server-2014"></a>SQL Server 2014
 
-SQL Server 2014 включает следующие усовершенствования:
+SQL Server 2014 includes the following enhancements:
 
-1. **Резервное копирование и восстановление в Azure**.
+1. **Backup and Restore to Azure**:
 
- - Функция *резервного копирование SQL Server с использованием указанного URL-адреса хранилища* теперь поддерживается в среде SQL Server Management Studio. Теперь при выполнении задачи архивации или восстановления, а также при работе с мастером планов обслуживания в SQL Server Management Studio можно сохранять резервные копии в Azure. Дополнительные сведения см. в статье [Резервное копирование SQL Server с использованием указанного URL-адреса хранилища](https://msdn.microsoft.com/library/jj919148%28v=sql.120%29.aspx).
- - В функцию *управляемого резервного копирования SQL Server в Azure* добавлены новые возможности, позволяющие автоматизировать управление резервным копированием. Они пригодятся при управлении автоматической архивацией для экземпляров SQL Server 2014, выполняемых на машине Azure. Дополнительные сведения см. в статье [Управляемое резервное копирование SQL Server в Microsoft Azure](https://msdn.microsoft.com/library/dn449496%28v=sql.120%29.aspx).
- - Функция *автоматического резервного копирования* позволяет автоматически включать *управляемое резервное копирование SQL Server в Azure* во всех действующих и новых базах данных для виртуальной машины SQL Server в Azure. Дополнительную информацию см. в статье [Автоматическое резервное копирование для SQL Server на виртуальных машинах Azure](virtual-machines-windows-sql-automated-backup.md).
- - Общие сведения обо всех параметрах резервного копирования SQL Server 2014 в Azure см. в статье [Резервное копирование и восстановление SQL Server с помощью службы хранилища больших двоичных объектов Microsoft Azure](https://msdn.microsoft.com/library/jj919148%28v=sql.120%29.aspx).
+ - *SQL Server Backup to URL* now has support in SQL Server Management Studio. The option to back up to Azure is now available when using Backup or Restore task, or maintenance plan wizard in SQL Server Management Studio. For more information, see [SQL Server Backup to URL](https://msdn.microsoft.com/library/jj919148%28v=sql.120%29.aspx).
+ - *SQL Server Managed Backup to Azure* has new functionality that enables automated backup management. This is especially useful for automating backup management for SQL Server 2014 instances running on an Azure Machine. For more information, see [SQL Server Managed Backup to Microsoft Azure](https://msdn.microsoft.com/library/dn449496%28v=sql.120%29.aspx).
+ - *Automated Backup* provides additional automation to automatically enable *SQL Server Managed Backup to Azure* on all existing and new databases for a SQL Server VM in Azure. For more information, see [Automated Backup for SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-automated-backup.md).
+ - For an overview of all the options for SQL Server 2014 Backup to Azure, see [SQL Server Backup and Restore with Microsoft Azure Blob Storage Service](https://msdn.microsoft.com/library/jj919148%28v=sql.120%29.aspx).
 
-1. **Шифрование**: SQL Server 2014 поддерживает шифрование данных при создании резервной копии. Поддерживаются несколько алгоритмов шифрования и использование сертификата или асимметричного ключа. Дополнительные сведения см. в статье [Шифрование резервных копий](https://msdn.microsoft.com/library/dn449489%28v=sql.120%29.aspx).
+1. **Encryption**: SQL Server 2014 supports encrypting data when creating a backup. It supports several encryption algorithms and the use osf a certificate or asymmetric key. For more information, see [Backup Encryption](https://msdn.microsoft.com/library/dn449489%28v=sql.120%29.aspx).
 
-## SQL Server 2012
+## <a name="sql-server-2012"></a>SQL Server 2012
 
-Подробные сведения о резервном копировании и восстановлении в SQL Server 2012 см. в статье [Резервное копирование и восстановление баз данных SQL Server 2012](https://msdn.microsoft.com/library/ms187048%28v=sql.110%29.aspx).
+For detailed information on SQL Server Backup and Restore in SQL Server 2012, see [Backup and Restore of SQL Server Databases (SQL Server 2012)](https://msdn.microsoft.com/library/ms187048%28v=sql.110%29.aspx).
 
-Начиная с SQL Server 2012 с пакетом обновления 1 (SP1) и накопительным пакетом обновления 2, поддерживается архивация и восстановление через службу хранилища больших двоичных объектов Azure. Это улучшение можно использовать для архивации баз данных SQL Server в SQL Server на виртуальной машине Azure или в локальном экземпляре. Дополнительные сведения см. в статье [Резервное копирование и восстановление SQL Server с помощью службы хранилища больших двоичных объектов Azure](https://msdn.microsoft.com/library/jj919148%28v=sql.110%29.aspx).
+Starting in SQL Server 2012 SP1 Cumulative Update 2, you can back up to and restore from the Azure Blob Storage service. This enhancement can be used to back up SQL Server databases on a SQL Server running on an Azure Virtual Machine or an on-premises instance. For more information, see [SQL Server Backup and Restore with Azure Blob Storage Service](https://msdn.microsoft.com/library/jj919148%28v=sql.110%29.aspx).
 
-К ряду преимуществ, связанных с использованием службы хранилища больших двоичных объектов Azure, относятся: возможность обойти ограничение, позволяющего подключать не больше 16 дисков, легкость управления, а также прямая доступность резервных файлов для другого экземпляра SQL Server, работающего на виртуальной машине Azure, или локальных экземпляров для переноса или аварийного восстановления данных. Полный список преимуществ, связанных с хранением резервных копий SQL Server в службе хранилища BLOB-объектов Azure, см. в статье [Резервное копирование и восстановление SQL Server с помощью службы хранилища больших двоичных объектов Microsoft Azure](https://msdn.microsoft.com/library/jj919148%28v=sql.110%29.aspx) в разделе *Преимущества*.
+Some of the benefits of using the Azure Blob storage service include the ability to bypass the 16 disk limit for attached disks, ease of management, the direct availability of the backup file to another instance of SQL Server instance running on an Azure virtual machine, or an on-premises instance for migration or disaster recovery purposes. For a full list of benefits to using an Azure blob storage service for SQL Server backups, see the *Benefits* section in [SQL Server Backup and Restore with Azure Blob Storage Service](https://msdn.microsoft.com/library/jj919148%28v=sql.110%29.aspx).
 
-Рекомендации и сведения об устранении неполадок см. в статье [Рекомендованные методы резервного копирования и восстановления (служба хранилищ больших двоичных объектов Azure)](https://msdn.microsoft.com/library/jj919149%28v=sql.110%29.aspx).
+For Best Practice recommendations and troubleshooting information, see [Backup and Restore Best Practices (Azure Blob Storage Service)](https://msdn.microsoft.com/library/jj919149%28v=sql.110%29.aspx).
 
-## SQL Server 2008
+## <a name="sql-server-2008"></a>SQL Server 2008
 
-Информацию о резервном копировании и восстановлении в SQL Server 2008 R2 см. в статье [Резервное копирование и восстановление баз данных в SQL Server 2008 R2](https://msdn.microsoft.com/library/ms187048%28v=sql.105%29.aspx).
+For SQL Server Backup and Restore in SQL Server 2008 R2, see [Backing up and Restoring Databases in SQL Server (SQL Server 2008 R2)](https://msdn.microsoft.com/library/ms187048%28v=sql.105%29.aspx).
 
-Информацию о резервном копировании и восстановлении в SQL Server 2008 см. в статье [Архивация и восстановление баз данных в SQL Server 2008](https://msdn.microsoft.com/library/ms187048%28v=sql.100%29.aspx).
+For SQL Server Backup and Restore in SQL Server 2008, see [Backing up and Restoring Databases in SQL Server (SQL Server 2008)](https://msdn.microsoft.com/library/ms187048%28v=sql.100%29.aspx).
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Next steps
 
-Планируя развертывание SQL Server на виртуальной машине Azure, воспользуйтесь рекомендациями из руководства по [подготовке виртуальной машины SQL Server в Azure при помощи Azure Resource Manager](virtual-machines-windows-portal-sql-server-provision.md).
+If you are planning your deployment of SQL Server in an Azure VM, you can find provisioning guidance in the following tutorial: [Provisioning a SQL Server Virtual Machine on Azure with Azure Resource Manager](virtual-machines-windows-portal-sql-server-provision.md).
 
-При том, что архивацию и восстановление можно использовать для переноса данных, существуют более простые способы переноса данных в SQL Server на виртуальной машине Azure. Полное описание вариантов переноса и соответствующие рекомендации см. в статье [Перенос базы данных в SQL Server на виртуальной машине Azure](virtual-machines-windows-migrate-sql.md).
+Although backup and restore can be used to migrate your data, there are potentially easier data migration paths to SQL Server on an Azure VM. For a full discussion of migration options and recommendations, see [Migrating a Database to SQL Server on an Azure VM](virtual-machines-windows-migrate-sql.md).
 
-Просмотрите и другие [ресурсы по запуску SQL Server на виртуальных машинах Azure](virtual-machines-windows-sql-server-iaas-overview.md).
+Review other [resources for running SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-server-iaas-overview.md).
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

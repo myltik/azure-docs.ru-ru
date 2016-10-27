@@ -1,140 +1,147 @@
 <properties 
-	pageTitle="Настройка и использование API рекомендаций для машинного обучения | Microsoft Azure" 
-	description="Microsoft RECOMMENDATIONS API, созданный с помощью часто задаваемых вопросов и ответов по Машинному обучению Azure" 
-	services="machine-learning" 
-	documentationCenter="" 
-	authors="LuisCabrer" 
-	manager="jhubbard" 
-	editor="cgronlun"/>
+    pageTitle="Set up and use the Machine Learning Recommendations API | Microsoft Azure" 
+    description="Microsoft RECOMMENDATIONS API built with Azure Machine Learning FAQ" 
+    services="machine-learning" 
+    documentationCenter="" 
+    authors="LuisCabrer" 
+    manager="jhubbard" 
+    editor="cgronlun"/>
 
 <tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/08/2016" 
-	ms.author="luisca"/>
-
-#Часто задаваемые вопросы о настройке и использовании API рекомендаций для машинного обучения
+    ms.service="machine-learning" 
+    ms.workload="data-services" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="09/08/2016" 
+    ms.author="luisca"/> 
 
 
-**Что представляет собой служба «РЕКОМЕНДАЦИИ»?**
+#<a name="setting-up-and-using-machine-learning-recommendations-api-faq"></a>Setting up and using Machine Learning Recommendations API FAQ
 
->[AZURE.NOTE] Начните использовать когнитивную службу API рекомендаций вместо этой версии. Когнитивная служба рекомендаций заменит эту службу, и все новые функции будут разрабатываться в ней. Она включает в себя новые возможности, такие как поддержка пакетной обработки, улучшенный обозреватель API, более четкое представление API, более согласованные процедуры регистрации и выставления счетов, и т. д. Дополнительные сведения см. в статье [Migrating to the new Cognitive Service](http://aka.ms/recomigrate) (Переход на новую когнитивную службу).
 
-Для организаций и компаний, которые полагаются на рекомендации для перекрестных продаж товаров и услуг, а также увеличения их продаж, служба «РЕКОМЕНДАЦИИ», являющаяся частью Машинного обучения Azure, представляет собой механизм самообслуживания для получения рекомендаций. Это реализация функции совместной фильтрации, использующей факторизацию матрицы в качестве основного алгоритма. Разработчики приложений могут получать доступ к службе «РЕКОМЕНДАЦИИ» с помощью интерфейсов REST API.
+**What is RECOMMENDATIONS?**
+
+>[AZURE.NOTE] You should start using the Recommendations API Cognitive Service instead of this version. The Recommendations Cognitive Service will be replacing this service, and all the new features will be developed there. It has new capabilities like batching support, a better API Explorer, a cleaner API surface, more consistent signup/billing experience, etc.
+> Learn more about [Migrating to the new Cognitive Service](http://aka.ms/recomigrate)
+
+For organizations and businesses that rely on recommendations to cross-sell and up-sell products and services to their customers, RECOMMENDATIONS in Azure Machine Learning provides a self-service recommendations engine. It is an implementation of collaborative filtering that uses matrix factorization as its core algorithm. Application developers can access RECOMMENDATIONS by using REST APIs. 
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-**Для чего можно использовать службу «РЕКОМЕНДАЦИИ»?**
+**What can I do with RECOMMENDATIONS?**
 
-Служба "РЕКОМЕНДАЦИИ" принимает в качестве входных данных элемент или набор элементов и возвращает список соответствующих рекомендаций. Пример — клиент интернет-магазина выбирает продукт. Интернет-магазин отправляет данные продукта в качестве входных данных в службу «РЕКОМЕНДАЦИИ», получает в ответ список продуктов и решает, какие из них будут показаны клиенту. Вы можете использовать службу "РЕКОМЕНДАЦИИ" для оптимизации работы интернет-магазина или даже для информирования отдела продаж или колл-центра.
+RECOMMENDATIONS takes as input an item or a set of items and returns a list of relevant recommendations. For example: A customer of an online retailer clicks a product. The online retailer sends that product as input to RECOMMENDATIONS, gets a list of products in return, and decides which of these products will be shown to the customer. You may want to use RECOMMENDATIONS to optimize your online store or even to inform your inside sales department or call center.
 
-**Существуют ли какие-либо ограничения использования?**
+**Are there any usage limitations?**
 
-Рекомендации имеют следующие ограничения:
-* Максимальное число моделей на одну подписку — 10.
-* Максимальное количество элементов в каталоге: 100 000
-* Максимальное количество поддерживаемых точек использования — около 5 000 000. По мере поступления новых точек будут удаляться самые старые.
-* Максимальный размер данных, которые можно отправить по электронной почте (например, при импорте данных каталога, импорте данных по использованию), составляет 200 МБ.
-* Число транзакций в секунду (TPS) для неактивной сборки модели рекомендаций — около 2. Для активной сборки модели рекомендаций это значение может достигать 20 транзакций в секунду.
+Recommendations has the following usage limitations:
+* Maximum number of models per subscription: 10
+* Maximum number of items that a catalog can hold: 100,000
+* The maximum number of usage points that are kept is ~5,000,000. The oldest will be deleted if new ones will be uploaded or reported.
+* Maximum size of data that can be sent in email (for example, import catalog data, import usage data) is 200 MB
+* Number of transactions per second (TPS) for a Recommendations model build that is not active is ~2 TPS. A Recommendations model build that is active can hold up to 20 TPS.
 
-##Покупка и выставление счетов 
+##<a name="purchase-and-billing"></a>Purchase and Billing 
 
 
-**Сколько стоит использование службы «РЕКОМЕНДАЦИИ» в стартовый период?**
+**How much does Recommendations cost during the launch period?**
 
-"РЕКОМЕНДАЦИИ" — это служба на основе подписки. Оплата осуществляется на основе количества транзакций в месяц. См. информацию о ценах на [странице предложений](https://datamarket.azure.com/dataset/amla/recommendations) в Microsoft Azure Marketplace.
+Recommendations is a subscription-based service. Charging is based on volume of transactions per month. You can check the [offer page] (https://datamarket.azure.com/dataset/amla/recommendations) in Microsoft Azure Marketplace for pricing information.
 
-**Взимается ли какая-либо плата за отслеживание и/или сохранение информации о действиях пользователей службой «РЕКОМЕНДАЦИИ»?**
+**Are there any costs associated with having Recommendations track and store user activity for me?**
 
-В данный момент нет.
+Not at the moment.
 
-**Есть ли у службы «РЕКОМЕНДАЦИИ» бесплатная пробная версия?**
+**Does Recommendations have a free trial?**
 
-Во время бесплатного пробного периода служба ограничена 10 000 транзакций в месяц.
+There is a free trail which is restricted to 10,000 transactions per month.
 
-**Когда мне будет выставлен счет за использование службы «РЕКОМЕНДАЦИИ»?**
+**When will I be billed for Recommendations?**
 
-Платная подписка — это подписка, за которую взимается ежемесячная плата. При приобретении платной подписки с вас немедленно взимается плата за первый месяц. Взимается сумма, связанная с предложением на странице подписки (плюс применимые налоги). Эта ежемесячная плата взимается каждый месяц в ту же календарную дату, в которую была осуществлена исходная покупка, пока подписка не будет отменена.
+A paid subscription is any subscription for which there is a monthly fee. When you purchase a paid subscription, you are immediately charged for the first month's use. You are charged the amount that is associated with the offer on the subscription page (plus applicable taxes). This monthly charge is made each month on the same calendar date as your original purchase until you cancel the subscription. 
 
-**Как обновить службу до более высокого уровня?**
+**How do I upgrade to a higher tier service?**
 
-Вы можете приобрести или обновить подписку на [странице предложений](https://datamarket.azure.com/dataset/amla/recommendations) в Microsoft Azure Marketplace.
+You can buy or update your subscription from the [offer page] (https://datamarket.azure.com/dataset/amla/recommendations) page on Microsoft Azure Marketplace.
 
-При обновлении подписки:
+When you upgrade a subscription:
 
-* Транзакции, остающиеся в старой подписке, не добавляются в новую.
-* Вы оплачиваете полную стоимость новой подписки, даже если в вашей старой подписке есть неиспользованные транзакции.
+* Transactions that are remaining on your old subscription are not added to your new subscription. 
+* You pay full price for the new subscription, even though you have unused transactions on your old subscription.
 
-Как обновить подписку:
+Process to upgrade a subscription:
 
-* Перейдите на [страницу предложений](https://datamarket.azure.com/dataset/amla/recommendations).
-* Войдите в Marketplace, если вы еще этого не сделали.
-* На панели справа перечислены все доступные планы. Щелкните переключатель для плана, который необходимо использовать.
-* Чтобы выполнить обновление, нажмите кнопку **OK**. Если обновление не требуется, нажмите кнопку **Отмена**.
+* Nevigate to the [offer page] (https://datamarket.azure.com/dataset/amla/recommendations).
+* Sign in to the Marketplace if you aren't already Signed in.
+* In the right pane, all the available plans are listed. Click the radio button for the plan you want to upgrade to.
+* If you want to upgrade, click **OK**. If you do not want to upgrade, click **Cancel**.
 
-**Важно!** Внимательно прочитайте информацию в диалоговом окне перед обновлением, чтобы быть в курсе условий выставления счетов и использования.
+**Important** Carefully read the dialog box before you upgrade because there are billing and use implications.
 
-**Когда закончится срок действия подписки на службу "РЕКОМЕНДАЦИИ"?**
+**When will my subscription to Recommendations end?**
 
-Подписка закончится, когда вы ее отмените. Если вы хотите отменить подписку, см. указания ниже.
+Your subscription will end when you cancel it. If you would like to cancel your subscriptions, see the following instructions.
 
-**Как отменить подписку на службу "РЕКОМЕНДАЦИИ"?**
+**How do I cancel my Recommendations subscription?**
 
-Чтобы отменить подписку, выполните следующие действия. Если у вас платная подписка, она будет действовать до конца текущего расчетного периода. Если необходимо немедленно отменить подписку, обратитесь в [службу поддержки Майкрософт](https://support.microsoft.com/oas/default.aspx?gprid=17024&st=1&wfxredirect=1&sd=gn).
+To cancel your subscription, use the following steps. If your current subscription is a paid subscription, your subscription continues in effect until the end of the current billing period. If you need the cancellation to be effective immediately, contact us at [Microsoft Support](https://support.microsoft.com/oas/default.aspx?gprid=17024&st=1&wfxredirect=1&sd=gn).
 
-**Примечание.** Возмещение в случае отмены подписки до окончания расчетного периода и за транзакции, не использованные во время расчетного периода, не предоставляется.
+**Note** No refund is given if you cancel before the end of a billing period or for unused transactions in a billing period.
 
-* Перейдите на [страницу предложений](https://datamarket.azure.com/dataset/amla/recommendations).
-* Войдите в Marketplace, если вы еще этого не сделали.
-* Нажмите кнопку **Отмена** справа от имени набора данных и состояния. Вы можете использовать эту подписку до окончания текущего расчетного периода или до достижения лимита транзакций (в зависимости от того, что произойдет раньше).
+* Navigate to the [offer page] (https://datamarket.azure.com/dataset/amla/recommendations).
+* Sign in to the Marketplace if you aren't already Signed in.
+* Click **Cancel** to the right of the dataset name and status. You can use this subscription until the end of the current billing period or your transaction limit is reached (whichever occurs first).
 
-Если вы хотите немедленно отменить подписку, чтобы приобрести новую, то отправьте запрос в [службу поддержки Майкрософт](https://support.microsoft.com/oas/default.aspx?gprid=17024&st=1&wfxredirect=1&sd=gn).
+If you would like to cancel your subscription immediately so you can purchase a new subscription, file a ticket at [Microsoft Support](https://support.microsoft.com/oas/default.aspx?gprid=17024&st=1&wfxredirect=1&sd=gn).
 
-##Приступая к работе со службой «РЕКОМЕНДАЦИИ»
+##<a name="getting-started-with-recommendations"></a>Getting started with Recommendations
 
-**Могу ли я пользоваться службой «РЕКОМЕНДАЦИИ»?**
+**Is Recommendations for me?** 
 
-Служба машинного обучения «РЕКОМЕНДАЦИИ» предназначена для организаций и компаний, которые полагаются на рекомендации для перекрестных продаж товаров и услуг, а также увеличения их продаж. Если у вас есть веб-сайт для клиентов, команда торговых агентов, команда дистанционных торговых агентов или колл-центр и вы предлагаете каталог, в котором более нескольких десятков товаров или услуг, служба «РЕКОМЕНДАЦИИ» может помочь увеличить вашу прибыль.
+Recommendations in Machine Learning is for organizations and businesses that rely on recommendations to cross-sell and up-sell products or services to their customers. If you have a customer-facing website, a sales force, an inside sales force, or a call center, and if you offer a catalog of more than a few dozen products or services, your bottom line may benefit from using Recommendations. 
 
-Работать со службой «РЕКОМЕНДАЦИИ» довольно просто. Текущая версия на основе API требует знания основных операций программирования. Если вам требуется помощь, обратитесь к разработчику вашего веб-сайта. Если у вас есть ИТ-отдел или штатный разработчик, они смогут настроить службу «РЕКОМЕНДАЦИИ» для вас.
+Experimenting with Recommendations is designed to be fairly simple. The current API-based version requires basic programming skills. If you need assistance, contact the vendor who developed your website. If you have an internal IT department or an in-house developer, they should be able to get Recommendations to work for you. 
 
-**Что необходимо для использования службы «РЕКОМЕНДАЦИИ»?**
+**What are the prerequisites for setting up Recommendations?**
 
-Для использования службы «РЕКОМЕНДАЦИИ» требуется журнал с информацией о выборе пользователей, связанном с вашим каталогом. Если у вас нет такого журнала, но есть веб-сайт для клиентов, служба «РЕКОМЕНДАЦИИ» может собирать для вас информацию о действиях пользователей.
+Recommendations requires that you have a log of user choices as it relates to your catalog. If you don�t have such a log and you do have a customer facing website, Recommendations can collect user activity for you. 
 
-Службе «РЕКОМЕНДАЦИИ» также требуется каталог ваших товаров или услуг. Если у вас нет каталога, служба «РЕКОМЕНДАЦИИ» может создать каталог на основе данных об использовании клиентами товаров или услуг. Такой каталог не будет содержать элементы, которые не участвовали в пользовательских транзакциях.
+Recommendations also requires a catalog of your products or services. If you don�t have the catalog, Recommendations can use the actual customer usage data and distill a catalog. An �implied� catalog will not include items that were not �reported� as part of user transactions.
 
-**Как настроить службу «РЕКОМЕНДАЦИИ» при первом использовании?**
+**How do I set up Recommendations for the first time?**
 
-После [подписки](https://datamarket.azure.com/dataset/amla/recommendations) на службу «РЕКОМЕНДАЦИИ» для ее настройки следует использовать документацию по API в статье [Рекомендации по Машинному обучению Azure. Краткое руководство по началу работы](machine-learning-recommendation-api-quick-start-guide.md).
+After [subscribing] (https://datamarket.azure.com/dataset/amla/recommendations) to Recommendations, you should use the API documentation in the [Azure Machine Learning Recommendations � Quick Start Guide](machine-learning-recommendation-api-quick-start-guide.md) to set up the service.
 
-**Где найти документацию по API?**
+**Where can I find API documentation?** 
 
-Документация по API содержится в статье [Рекомендации по Машинному обучению Azure. Краткое руководство по началу работы](machine-learning-recommendation-api-quick-start-guide.md).
+The API documentation is [Azure Machine Learning Recommendations � Quick Start Guide](machine-learning-recommendation-api-quick-start-guide.md).
 
-**Какие есть варианты загрузки данных каталога и данных об использовании в службу «РЕКОМЕНДАЦИИ»?**
+**What options do I have to upload catalog and usage data to Recommendations?**
 
-Есть два варианта загрузки данных каталога и данных об использовании: экспортировать эти данные из системы CRM или других журналов и загрузить их в службу «РЕКОМЕНДАЦИИ» или добавить на веб-сайт теги, которые будут отслеживать действия пользователей. В случае выбора второго способа данные будут храниться в Azure.
+You have two options for uploading your catalog and usage data: You can export the data from your CRM system or other logs and upload it to Recommendations, or you can add tags to your website that will track user activities. If you use the latter method, the data will be stored in Azure.
 
-##Обслуживание и поддержка
+##<a name="maintenance-and-support"></a>Maintenance and support
 
-**Насколько большим может быть набор данных?**
+**How large can my data set be?**
 
-Каждый набор данных может содержать до 100 000 элементов каталога и до 2048 МБ данных об использовании. Кроме того, подписка может содержать до 10 наборов данных (моделей).
+Each data set can contain up to 100,000 catalog items and up to 2048 MB of usage data.
+In addition, a subscription can contain up to 10 data sets (models).
 
-**Где можно получить техническую поддержку для службы «РЕКОМЕНДАЦИИ»?**
+**Where can I get technical support for Recommendations?**
 
-Техническая поддержка доступна на сайте [поддержки Microsoft Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=MachineLearning).
+Technical support is available on the [Microsoft Azure Support](https://social.msdn.microsoft.com/forums/azure/home?forum=MachineLearning) site.
 
-**Где можно найти условия использования?**
+**Where can I find the terms of use?**
 
-[Интерфейсы API рекомендаций по Машинному обучению Microsoft Azure. Условия предоставления услуг](https://datamarket.azure.com/dataset/amla/recommendations#terms).
+[Microsoft Azure Machine Learning Recommendations API Terms of Service](https://datamarket.azure.com/dataset/amla/recommendations#terms).
 
 
 
  
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,103 +1,104 @@
 <properties
-	pageTitle="Управление учетными записями с помощью библиотеки .NET для управления пакетной службой | Microsoft Azure"
-	description="Создание, удаление и изменение учетных записей пакетной службы Azure в приложениях с помощью библиотеки .NET для управления пакетной службой."
-	services="batch"
-	documentationCenter=".net"
-	authors="mmacy"
-	manager="timlt"
-	editor=""
-	tags="azure-resource-manager"/>
+    pageTitle="Account management with Batch Management .NET | Microsoft Azure"
+    description="Create, delete, and modify Azure Batch accounts in your applications with the Batch Management .NET library."
+    services="batch"
+    documentationCenter=".net"
+    authors="mmacy"
+    manager="timlt"
+    editor=""
+    tags="azure-resource-manager"/>
 
 <tags
-	ms.service="batch"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.tgt_pltfrm="vm-windows"
-	ms.workload="big-compute"
-	ms.date="08/03/2016"
-	ms.author="marsma"/>
+    ms.service="batch"
+    ms.devlang="multiple"
+    ms.topic="article"
+    ms.tgt_pltfrm="vm-windows"
+    ms.workload="big-compute"
+    ms.date="08/03/2016"
+    ms.author="marsma"/>
 
-# Управление квотами и учетными записями пакетной службы Azure с помощью библиотеки .NET для управления пакетной службой
+
+# <a name="manage-azure-batch-accounts-and-quotas-with-batch-management-.net"></a>Manage Azure Batch accounts and quotas with Batch Management .NET
 
 > [AZURE.SELECTOR]
-- [Портал Azure](batch-account-create-portal.md)
-- [Библиотека .NET для управления пакетной службой](batch-management-dotnet.md)
+- [Azure portal](batch-account-create-portal.md)
+- [Batch Management .NET](batch-management-dotnet.md)
 
-С помощью [библиотеки .NET для управления пакетной службой][api_mgmt_net] можно снизить издержки на обслуживание приложений пакетной службы Azure. Эта библиотека позволяет автоматизировать создание и удаление учетных записей пакетной службы, управление ключами и определение квот.
+You can lower maintenance overhead in your Azure Batch applications by using the [Batch Management .NET][api_mgmt_net] library to automate Batch account creation, deletion, key management, and quota discovery.
 
-- **Создание и удаление учетных записей пакетной службы** в любом регионе. Например, вы являетесь независимым поставщиком программного обеспечения и оказываете услуги клиентам, каждому из которых назначена соответствующая учетная запись пакетной службы для выставления счетов. Для повышения удобства вы можете добавить на портал для пользователей возможность создания и удаления учетных записей.
-- **Получение и повторное создание ключей учетных записей** для всех учетных записей пакетной службы программным образом. Это особенно удобно для обеспечения соответствия политикам безопасности, которые могут требовать периодической замены ключей и определять сроки действия ключей учетных записей. Если у вас есть несколько учетных записей пакетной службы в разных регионах Azure, автоматизация замены ключей повысит эффективность вашего решения.
-- **Проверка квот учетных записей** и исключение метода проб и ошибок из процедуры определения ограничений учетных записей пакетной службы. Проверка квот учетной записи до запуска задания, создание пулов или добавление вычислительных узлов позволит вам заранее выбирать время и место создания ресурсов вычисления. Вы можете определить учетные записи, требующие повышения квот, прежде чем выделить дополнительные ресурсы в этих учетных записях.
-- **Объедините функции других служб Azure** для создания полнофункционального приложения для управления, в котором одновременно используются библиотека .NET для управления пакетной службой, [Azure Active Directory][aad_about] и [Azure Resource Manager][resman_overview]. С помощью этих функций и соответствующих API вы можете предоставлять клиентам удобные возможности проверки подлинности, создания и удаления групп ресурсов, а также доступа к описанным выше функциям.
+- **Create and delete Batch accounts** within any region. If, as an independent software vendor (ISV) for example, you provide a service for your clients in which each is assigned a separate Batch account for billing purposes, you can add account creation and deletion capabilities to your customer portal.
+- **Retrieve and regenerate account keys** programmatically for any of your Batch accounts. This is particularly handy for maintaining compliance with security policies that might enforce the periodic rollover or expiry of account keys. When you have a number of a Batch accounts in various Azure regions, automation of this rollover process will increase your solution's efficiency.
+- **Check account quotas** and take the trial-and-error guesswork out of determining which Batch accounts have what limits. By checking your account quotas prior to starting jobs, creating pools, or adding compute nodes, you can proactively adjust where or when these compute resources are created. You can determine which accounts require quota increases prior to the allocation of additional resources in those accounts.
+- **Combine features of other Azure services** for a full-featured management experience--by leveraging Batch Management .NET, [Azure Active Directory][aad_about], and the [Azure Resource Manager][resman_overview] together in the same application. By using these features and their APIs, you can provide a frictionless authentication experience, the ability to create and delete resource groups, and the capabilities that are described above for an end-to-end management solution.
 
-> [AZURE.NOTE] Несмотря на то что в этой статье акцент сделан на программное управление учетными записями пакетной службы, ключами и квотами, большую часть описываемых действий можно выполнить на [портале Azure][azure_portal]. Дополнительные сведения см. в статьях [Создание учетной записи пакетной службы Azure на портале Azure и управление ею](batch-account-create-portal.md) и [Квоты и ограничения пакетной службы Azure](batch-quota-limit.md).
+> [AZURE.NOTE] While this article focuses on the programmatic management of your Batch accounts, keys, and quotas, you can perform many of these activities by using the [Azure portal][azure_portal]. See [Create an Azure Batch account using the Azure portal](batch-account-create-portal.md) and [Quotas and limits for the Azure Batch service](batch-quota-limit.md) for more information.
 
-## Создание и удаление учетных записей пакетной службы
+## <a name="create-and-delete-batch-accounts"></a>Create and delete Batch accounts
 
-Как было сказано выше, одной из основных функций API управления пакетной службой является возможность создания и удаления учетных записей пакетной службы в определенном регионе Azure. Для этого предназначены методы [BatchManagementClient.Account.CreateAsync][net_create] и [DeleteAsync][net_delete], а также их синхронные аналоги.
+As mentioned above, one of the primary features of the Batch Management API is to create and delete Batch accounts within an Azure region. To do so, you will use [BatchManagementClient.Account.CreateAsync][net_create] and [DeleteAsync][net_delete], or their synchronous counterparts.
 
-В следующем фрагменте кода создается учетная запись, выполняется получение созданной учетной записи из пакетной службы, а затем она удаляется. В этом и других фрагментах кода, приведенных в этой статье, `batchManagementClient` представляет собой полностью инициализированный экземпляр [BatchManagementClient][net_mgmt_client].
+The following code snippet creates an account, obtains the newly created account from the Batch service, and then deletes it. In this and the other snippets in this article, `batchManagementClient` is a fully initialized instance of [BatchManagementClient][net_mgmt_client].
 
 ```csharp
 // Create a new Batch account
 await batchManagementClient.Account.CreateAsync("MyResourceGroup",
-	"mynewaccount",
-	new BatchAccountCreateParameters() { Location = "West US" });
+    "mynewaccount",
+    new BatchAccountCreateParameters() { Location = "West US" });
 
 // Get the new account from the Batch service
 AccountResource account = await batchManagementClient.Account.GetAsync(
-	"MyResourceGroup",
-	"mynewaccount");
+    "MyResourceGroup",
+    "mynewaccount");
 
 // Delete the account
 await batchManagementClient.Account.DeleteAsync("MyResourceGroup", account.Name);
 ```
 
-> [AZURE.NOTE] Приложениям, использующим библиотеку .NET для управления пакетной службой и класс BatchManagementClient, необходимы права **администратора службы** или **соадминистратора** для доступа к подписке, которой принадлежит управляемая учетная запись пакетной службы. Дополнительные сведения см. в разделе [Azure Active Directory](#azure-active-directory) ниже и примере кода [AccountManagement][acct_mgmt_sample].
+> [AZURE.NOTE] Applications that use the Batch Management .NET library and its BatchManagementClient class require **service administrator** or **coadministrator** access to the subscription that owns the Batch account to be managed. See the [Azure Active Directory](#azure-active-directory) section below and the [AccountManagement][acct_mgmt_sample] code sample for more information.
 
-## Получение и повторное создание ключей учетной записи
+## <a name="retrieve-and-regenerate-account-keys"></a>Retrieve and regenerate account keys
 
-Получите первичный и дополнительный ключи из любой учетной записи пакетной службы в вашей подписке с помощью метода [ListKeysAsync][net_list_keys]. Для повторного создания этих ключей используется метод [RegenerateKeyAsync][net_regenerate_keys].
+Obtain primary and secondary account keys from any Batch account within your subscription by using [ListKeysAsync][net_list_keys]. You can regenerate those keys by using [RegenerateKeyAsync][net_regenerate_keys].
 
 ```csharp
 // Get and print the primary and secondary keys
 BatchAccountListKeyResult accountKeys =
-	await batchManagementClient.Account.ListKeysAsync(
-		"MyResourceGroup",
-		"mybatchaccount");
+    await batchManagementClient.Account.ListKeysAsync(
+        "MyResourceGroup",
+        "mybatchaccount");
 Console.WriteLine("Primary key:   {0}", accountKeys.Primary);
 Console.WriteLine("Secondary key: {0}", accountKeys.Secondary);
 
 // Regenerate the primary key
 BatchAccountRegenerateKeyResponse newKeys =
-	await batchManagementClient.Account.RegenerateKeyAsync(
-		"MyResourceGroup",
-		"mybatchaccount",
-		new BatchAccountRegenerateKeyParameters() {
-			KeyName = AccountKeyType.Primary
-			});
+    await batchManagementClient.Account.RegenerateKeyAsync(
+        "MyResourceGroup",
+        "mybatchaccount",
+        new BatchAccountRegenerateKeyParameters() {
+            KeyName = AccountKeyType.Primary
+            });
 ```
 
-> [AZURE.TIP] Вы можете упростить процедуру подключения в своем приложении для управления. Во-первых, получите ключ учетной записи пакетной службы, которой вы хотите управлять, с помощью метода [ListKeysAsync][net_list_keys]. Затем используйте этот ключ при инициализации класса [BatchSharedKeyCredentials][net_sharedkeycred] библиотеки .NET пакетной службы, который применяется при инициализации [BatchClient][net_batch_client].
+> [AZURE.TIP] You can create a streamlined connection workflow for your management applications. First, obtain an account key for the Batch account you wish to manage with [ListKeysAsync][net_list_keys]. Then, use this key when initializing the Batch .NET library's [BatchSharedKeyCredentials][net_sharedkeycred] class, which is used when initializing [BatchClient][net_batch_client].
 
-## Проверка подписки Azure и квот учетной записи пакетной службы
+## <a name="check-azure-subscription-and-batch-account-quotas"></a>Check Azure subscription and Batch account quotas
 
-Подписки Azure и отдельные службы Azure, такие как пакетная служба, имеют стандартные квоты для ограничения количества определенных в них сущностей. Квоты по умолчанию для подписок Azure см. в статье [Подписка Azure, границы, квоты и ограничения службы](./../azure-subscription-service-limits.md). Квоты пакетной службы по умолчанию см. в разделе [Квоты и ограничения пакетной службы Azure](batch-quota-limit.md). С помощью библиотеки .NET для управления пакетной службой можно проверять эти квоты в приложениях. Это позволяет принимать решения о выделении ресурсов перед добавлением учетных записей или вычислительных ресурсов, таких как пулы и вычислительные узлы.
+Azure subscriptions and the individual Azure services like Batch all have default quotas that limit the number of certain entities within them. For the default quotas for Azure subscriptions, see [Azure subscription and service limits, quotas, and constraints](./../azure-subscription-service-limits.md). For the default quotas of the Batch service, see [Quotas and limits for the Azure Batch service](batch-quota-limit.md). By using the Batch Management .NET library, you can check these quotas within your applications. This enables you to make allocation decisions before you add accounts or compute resources like pools and compute nodes.
 
-### Определение квот для учетной записи пакетной службы в подписке Azure
+### <a name="check-an-azure-subscription-for-batch-account-quotas"></a>Check an Azure subscription for Batch account quotas
 
-Прежде чем создавать учетную запись пакетной службы в определенном регионе, вы можете проверить данные подписки Azure, чтобы узнать о возможности создания учетной записи в этом регионе.
+Before creating a Batch account in a region, you can check your Azure subscription to see whether you are able to add an account in that region.
 
-В следующем фрагменте кода мы сначала используем метод [BatchManagementClient.Account.ListAsync][net_mgmt_listaccounts], чтобы получить коллекцию всех учетных записей пакетной службы в подписке. После получения этой коллекции мы определяем количество учетных записей в целевом регионе. Затем мы используем метод [BatchManagementClient.Subscriptions][net_mgmt_subscriptions] для получения квоты учетной записи пакетной службы и определения количества учетных записей, которые могут создаваться в этом регионе (если таковые имеются).
+In the code snippet below, we first use [BatchManagementClient.Account.ListAsync][net_mgmt_listaccounts] to get a collection of all Batch accounts that are within a subscription. Once we've obtained this collection, we determine how many accounts are in the target region. Then we use [BatchManagementClient.Subscriptions][net_mgmt_subscriptions] to obtain the Batch account quota and determine how many accounts (if any) can be created in that region.
 
 ```csharp
 // Get a collection of all Batch accounts within the subscription
 BatchAccountListResponse listResponse =
-		await batchManagementClient.Account.ListAsync(new AccountListParameters());
+        await batchManagementClient.Account.ListAsync(new AccountListParameters());
 IList<AccountResource> accounts = listResponse.Accounts;
 Console.WriteLine("Total number of Batch accounts under subscription id {0}:  {1}",
-	creds.SubscriptionId,
-	accounts.Count);
+    creds.SubscriptionId,
+    accounts.Count);
 
 // Get a count of all accounts within the target region
 string region = "westus";
@@ -112,16 +113,16 @@ Console.WriteLine("Accounts in {0}: {1}", region, accountsInRegion);
 Console.WriteLine("You can create {0} accounts in the {1} region.", quotaResponse.AccountQuota - accountsInRegion, region);
 ```
 
-В приведенном выше фрагменте `creds` является экземпляром [TokenCloudCredentials][azure_tokencreds]. Пример создания этого объекта см. в примере [AccountManagement][acct_mgmt_sample] на GitHub.
+In the snippet above, `creds` is an instance of [TokenCloudCredentials][azure_tokencreds]. To see an example of creating this object, see the [AccountManagement][acct_mgmt_sample] code sample on GitHub.
 
-### Определение квоты вычислительных ресурсов для учетной записи пакетной службы
+### <a name="check-a-batch-account-for-compute-resource-quotas"></a>Check a Batch account for compute resource quotas
 
-Перед увеличением вычислительных ресурсов в решении пакетной службы вы можете убедиться, что выделяемые ресурсы не превысят действующие квоты для учетной записи. В следующем фрагменте кода мы просто выводим сведения о квотах для учетной записи пакетной службы с именем `mybatchaccount`. Однако в приложении с помощью этих сведений можно определить, способна ли учетная запись обрабатывать дополнительные ресурсы, которые вы хотите создать.
+Prior to increasing compute resources within your Batch solution, you can check to ensure that the resources that you intend to allocate will not exceed account quotas that are currently in place. In the code snippet below, we simply print the quota information for the Batch account named `mybatchaccount`. But in your own application, you could use such information to determine whether the account can handle the additional resources that you wish to create.
 
 ```csharp
 // First obtain the Batch account
 BatchAccountGetResponse getResponse =
-	await batchManagementClient.Account.GetAsync("MyResourceGroup", "mybatchaccount");
+    await batchManagementClient.Account.GetAsync("MyResourceGroup", "mybatchaccount");
 AccountResource account = getResponse.Resource;
 
 // Now print the compute resource quotas for the account
@@ -130,64 +131,66 @@ Console.WriteLine("Pool quota: {0}", account.Properties.PoolQuota);
 Console.WriteLine("Active job and job schedule quota: {0}", account.Properties.ActiveJobAndJobScheduleQuota);
 ```
 
-> [AZURE.IMPORTANT] Несмотря на наличие стандартных квот для подписок и служб Azure, многие из ограничений можно увеличить путем создания соответствующего запроса на [портале Azure][azure_portal]. В качестве примера обратитесь к инструкциям по увеличению квот для учетной записи пакетной службы в статье [Квоты и ограничения пакетной службы Azure](batch-quota-limit.md).
+> [AZURE.IMPORTANT] While there are default quotas for Azure subscriptions and services, many of these limits can be raised by issuing a request in the [Azure portal][azure_portal]. For example, see [Quotas and limits for the Azure Batch service](batch-quota-limit.md) for instructions on increasing your Batch account quotas.
 
-## Библиотека .NET для управления пакетной службой, Azure AD и диспетчер ресурсов
+## <a name="batch-management-.net,-azure-ad,-and-resource-manager"></a>Batch Management .NET, Azure AD, and Resource Manager
 
-При работе с библиотекой .NET для управления пакетной службой обычно используются возможности [Azure Active Directory][aad_about] \(Azure AD) и [Azure Resource Manager][resman_overview]. В рассматриваемом далее примере показано, как можно использовать Azure Active Directory и диспетчер ресурсов в сочетании с библиотекой .NET для управления пакетной службой.
+When you work with the Batch Management .NET library, you will typically leverage the capabilities of both [Azure Active Directory][aad_about] (Azure AD) and the [Azure Resource Manager][resman_overview]. The sample project discussed below employs both Azure Active Directory and the Resource Manager while it demonstrates the Batch Management .NET API.
 
-### Azure Active Directory
+### <a name="azure-active-directory"></a>Azure Active Directory
 
-Инфраструктура Azure уже использует Azure AD для проверки подлинности клиентов, администраторов служб и пользователей организации. В контексте библиотеки .NET для управления пакетной службой она будет использоваться для проверки подлинности администратора подписки или соадминистратора. Это позволит вам использовать библиотеку управления пакетной службой для опроса пакетной службы и выполнения операций, описанных в этой статье.
+Azure itself uses Azure AD for the authentication of its customers, service administrators, and organizational users. In the context of Batch Management .NET, you will use it to authenticate a subscription administrator or coadminstrator. This will then allow the management library to query the Batch service and perform the operations that are described in this article.
 
-В описываемом далее примере проекта для авторизации пользователей с помощью учетных данных Майкрософт будет использоваться [библиотека проверки подлинности Azure Active Directory][aad_adal] \(ADAL). Приложение, получив учетные данные от администратора или соадминистратора службы, сможет отправлять запросы в Azure для получения списка подписок, а также создавать и удалять группы ресурсов и учетных записей пакетной службы.
+In the sample project discussed below, the Azure [Active Directory Authentication Library][aad_adal] (ADAL) is used to prompt the user for their Microsoft credentials. When service administrator or coadministrator credentials are supplied, the application can query Azure for a list of subscriptions--and can create and delete both resource groups and Batch accounts.
 
-### Диспетчер ресурсов
+### <a name="resource-manager"></a>Resource Manager
 
-При создании учетных записей пакетной службы с помощью библиотеки .NET для управления пакетной службой они обычно создаются в составе [группы ресурсов][resman_overview]. Группы ресурсов можно создавать программно с помощью класса [ResourceManagementClient][resman_client] в библиотеке [.NET для Resource Manager][resman_api]. Также с помощью [портала Azure][azure_portal] можно добавить учетную запись в существующую группу ресурсов, созданную ранее.
+When you create Batch accounts with the Batch Management .NET library, you will typically be creating them within a [resource group][resman_overview]. You can create the resource group programmatically by using the [ResourceManagementClient][resman_client] class in the [Resource Manager .NET][resman_api] library. Or you can add an account to an existing resource group that you created previously by using the [Azure portal][azure_portal].
 
-## Пример проекта на сайте GitHub
+## <a name="sample-project-on-github"></a>Sample project on GitHub
 
-Работу библиотеки .NET для управления пакетной службой можно посмотреть на примере проекта [AccountManagment][acct_mgmt_sample] на сайте GitHub. Это консольное приложение демонстрирует создание и использование [BatchManagementClient][net_mgmt_client] и [ResourceManagementClient][resman_client]. Оно также демонстрирует использование [библиотеки проверки подлинности Azure Active Directory][aad_adal] \(ADAL), которая необходима для обоих клиентов.
+Check out the [AccountManagment][acct_mgmt_sample] sample project on GitHub to see the Batch Management .NET library in action. This console application shows the creation and usage of  [BatchManagementClient][net_mgmt_client] and [ResourceManagementClient][resman_client]. It also demonstrates the usage of the Azure [Active Directory Authentication Library][aad_adal] (ADAL), which is required by both clients.
 
-Для успешного запуска примера приложения вам потребуется зарегистрировать его в Azure AD с помощью портала Azure. Обратитесь к разделу [Добавление приложения](../active-directory/active-directory-integrating-applications.md#adding-an-application) статьи [Интеграция приложений в Azure Active Directory][aad_integrate] и следуйте указаниям, чтобы зарегистрировать пример приложения в каталоге по умолчанию для собственной учетной записи. Выберите в качестве типа приложения **Собственное клиентское приложение**. Вы также можете указать любой допустимый URI-адрес (например, `http://myaccountmanagementsample`) в параметре **URI-адрес перенаправления**. Реальную конечную точку указывать не обязательно.
+To run the sample application successfully, you must first register it with Azure AD by using the Azure portal. Follow the steps in the [Adding an Application](../active-directory/active-directory-integrating-applications.md#adding-an-application) section in [Integrating applications with Azure Active Directory][aad_integrate] to register the sample application within your own account's Default Directory. Be sure to select **Native Client Application** for the type of application, and you may specify any valid URI (such as `http://myaccountmanagementsample`) for the **Redirect URI**--it does not need to be a real endpoint.
 
-После добавления приложения предоставьте разрешение **Доступ к управлению службами Azure в качестве организации** для приложения *API управления службами Microsoft Azure* в настройках приложения на портале.
+After adding your application, delegate the **Access Azure Service Management as organization** permission to the *Windows Azure Service Management API* application in the application's settings in the portal:
 
-![Разрешения приложения на портале Azure][2]
+![Application permissions in Azure portal][2]
 
-> [AZURE.TIP] Если **API управления службами Microsoft Azure** не отображается в разделе *разрешения для других приложений*, нажмите кнопку **Добавление приложения**, выберите **API управления службами Microsoft Azure** и щелкните кнопку с флажком. Затем делегируйте разрешения, как описано выше.
+> [AZURE.TIP] If **Windows Azure Service Management API** does not appear under *permissions to other applications*, click **Add application**, select **Windows Azure Service Management API**, then click the check mark button. Then, delegate permissions as specified above.
 
-После добавления приложения обновите файл `Program.cs` в примере проекта [AccountManagment][acct_mgmt_sample] с использованием идентификатора клиента и URI перенаправления вашего приложения. Эти параметры можно найти в приложении на вкладке **Настройка**.
+Once you've added the application as described above, update `Program.cs` in the [AccountManagment][acct_mgmt_sample] sample project with your application's Redirect URI and Client ID. You can find these values in the **Configure** tab of your application:
 
-![Настройка приложения на портале Azure][3]
+![Application configuration in Azure portal][3]
 
-В примере приложения [AccountManagment][acct_mgmt_sample] демонстрируются следующие операции:
+The [AccountManagment][acct_mgmt_sample] sample application demonstrates the following operations:
 
-1. Получение маркера безопасности из Active Directory Azure с помощью библиотеки [ADAL][aad_adal]. Если пользователь не выполнил вход в систему, ему будет предложено ввести учетные данные Azure.
-2. Создание [SubscriptionClient][resman_subclient] для отправки запроса к Azure на получение списка подписок, связанных с учетной записью, с помощью маркера безопасности, полученного из Azure AD. Если найдено несколько подписок, пользователь сможет выбрать одну.
-3. Создание нового объекта учетных данных, связанного с выбранной подпиской.
-4. Создание [ResourceManagementClient][resman_client] с использованием новых учетных данных.
-5. Создание новой группы ресурсов с помощью [ResourceManagementClient][resman_client].
-6. Использование [BatchManagementClient][net_mgmt_client] для выполнения ряда операций с учетной записью пакетной службы:
-  - Создание учетной записи пакетной службы в созданной группе ресурсов.
-  - Получение созданной учетной записи из пакетной службы.
-  - Вывод ключей учетной записи для новой учетной записи.
-  - Повторное создание первичного ключа для учетной записи.
-  - Вывод сведений о квотах для учетной записи.
-  - Вывод сведений о квотах для подписки.
-  - Вывод всех учетных записей в подписке.
-  - Удаление созданной учетной записи.
-7. Удалите ее.
+1. Acquire a security token from Azure AD by using [ADAL][aad_adal]. If the user is not already signed in, they will be prompted for their Azure credentials.
+2. By using the security token that was obtained from Azure AD, create [SubscriptionClient][resman_subclient] to query Azure for a list of subscriptions that are associated with the account. This allows the user to select one subscription if multiple are found.
+3. Create a new credentials object that is associated with the selected subscription.
+4. Create [ResourceManagementClient][resman_client] by using the new credentials.
+5. Use [ResourceManagementClient][resman_client] to create a new resource group.
+6. Use [BatchManagementClient][net_mgmt_client] to perform a number of Batch account operations:
+  - Create a new Batch account within the newly created resource group.
+  - Get the newly created account from the Batch service.
+  - Print the account keys for the new account.
+  - Regenerate a new primary key for the account.
+  - Print the quota information for the account.
+  - Print the quota information for the subscription.
+  - Print all accounts within the subscription.
+  - Delete newly created account.
+7. Delete the resource group.
 
-Перед удалением новой учетной записи пакетной службы или группы ресурсов вы можете просмотреть оба этих объекта на [портале Azure][azure_portal]\:
+Before deleting the newly created Batch account and resource group, you can inspect both in the [Azure portal][azure_portal]:
 
-![Отображение группы ресурсов и учетной записи пакетной службы на портале Azure][1] <br /> *Новая группа ресурсов и учетная запись пакетной службы на портале Azure*
+![Azure portal displaying the resource group and Batch account][1]
+<br />
+*Azure portal displaying new resource group and Batch account*
 
-[aad_about]: ../active-directory/active-directory-whatis.md "Что такое Microsoft Azure Active Directory"
+[aad_about]: ../active-directory/active-directory-whatis.md "What is Azure Active Directory?"
 [aad_adal]: ../active-directory/active-directory-authentication-libraries.md
-[aad_auth_scenarios]: ../active-directory/active-directory-authentication-scenarios.md "Сценарии аутентификации в Azure Active Directory"
-[aad_integrate]: ../active-directory/active-directory-integrating-applications.md "Интеграция приложений с Azure Active Directory"
+[aad_auth_scenarios]: ../active-directory/active-directory-authentication-scenarios.md "Authentication Scenarios for Azure AD"
+[aad_integrate]: ../active-directory/active-directory-integrating-applications.md "Integrating Applications with Azure Active Directory"
 [acct_mgmt_sample]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/AccountManagement
 [api_net]: http://msdn.microsoft.com/library/azure/mt348682.aspx
 [api_mgmt_net]: https://msdn.microsoft.com/library/azure/mt463120.aspx
@@ -213,4 +216,8 @@ Console.WriteLine("Active job and job schedule quota: {0}", account.Properties.A
 [2]: ./media/batch-management-dotnet/portal-02.png
 [3]: ./media/batch-management-dotnet/portal-03.png
 
-<!---HONumber=AcomDC_0831_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

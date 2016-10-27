@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Жизненный цикл надежных субъектов | Microsoft Azure"
-   description="Описание жизненного цикла Reliable Actors Service Fabric, сбора мусора и ручного удаления субъектов и их состояний."
+   pageTitle="Reliable Actors lifecycle | Microsoft Azure"
+   description="Explains Service Fabric Reliable Actor lifecycle, garbage collection, and manually deleting actors and their state"
    services="service-fabric"
    documentationCenter=".net"
    authors="amanbha"
@@ -17,43 +17,44 @@
    ms.author="amanbha"/>
 
 
-# Жизненный цикл субъектов, автоматическая сборка мусора и удаление вручную
-Субъект активируется при первом вызове любого из его методов. Субъект деактивируется, если он не используется в течение заданного периода времени (при этом среда выполнения субъектов собирает мусор). Субъект и его состояние можно также удалить вручную в любое время.
 
-## Активация субъекта
+# <a name="actor-lifecycle,-automatic-garbage-collection,-and-manual-delete"></a>Actor lifecycle, automatic garbage collection, and manual delete
+An actor is activated the first time a call is made to any of its methods. An actor is deactivated (garbage collected by the Actors runtime) if it is not used for a configurable period of time. An actor and its state can also be deleted manually at any time.
 
-При активации субъекта происходит следующее:
+## <a name="actor-activation"></a>Actor activation
 
-- При поступлении вызова для субъекта, который еще не активен, создается новый субъект.
-- Загружается состояние субъекта (если это субъект с отслеживанием состояния).
-- Вызывается метод `OnActivateAsync` (он может быть переопределен в реализации субъекта).
-- После этого субъект считается активным.
+When an actor is activated, the following occurs:
 
-## Деактивации субъекта
+- When a call comes for an actor and one is not already active, a new actor is created.
+- The actor's state is loaded if it's maintaining state.
+- The `OnActivateAsync` method (which can be overridden in the actor implementation) is called.
+- The actor is now considered active.
 
-При деактивации субъекта происходит следующее:
+## <a name="actor-deactivation"></a>Actor deactivation
 
-- Если субъект не используется в течение некоторого периода времени, он удаляется из таблицы активных субъектов.
-- Вызывается метод `OnDeactivateAsync` (он может быть переопределен в реализации субъекта). Это приводит к сбросу все таймеров для субъекта. Операции с субъектом, такие как изменение состояния, не должны вызываться из этого метода.
+When an actor is deactivated, the following occurs:
 
-> [AZURE.TIP] Среда выполнения субъектов Service Fabric генерирует некоторые [события, связанные с активацией и деактивацией субъектов](service-fabric-reliable-actors-diagnostics.md#actor-activation-and-deactivation-events). Они полезны при диагностике и мониторинге производительности.
+- When an actor is not used for some period of time, it is removed from the Active Actors table.
+- The `OnDeactivateAsync` method (which can be overridden in the actor implementation) is called. This clears all the timers for the actor. Actor operations like state changes should not be called from this method.
 
-### Сборка мусора и субъекты
-При деактивации субъекта ссылки на объект субъекта освобождаются и могут удаляться сборщиком мусора среды CLR в обычном режиме. Сборщик мусора удаляет только объект субъекта; он **не** удаляет состояние, сохраненное в диспетчере состояний субъектов. При следующей активации субъекта создается новый объект субъекта и восстанавливается его состояние.
+> [AZURE.TIP] The Fabric Actors runtime emits some [events related to actor activation and deactivation](service-fabric-reliable-actors-diagnostics.md#actor-activation-and-deactivation-events). They are useful in diagnostics and performance monitoring.
 
-Что считается "использованием" субъекта в контексте деактивации и сборки мусора?
+### <a name="actor-garbage-collection"></a>Actor garbage collection
+When an actor is deactivated, references to the actor object are released and it can be garbage collected normally by the common language runtime (CLR) garbage collector. Garbage collection only cleans up the actor object; it does **not** remove state stored in the actor's State Manager. The next time the actor is activated, a new actor object is created and its state is restored.
 
-- Получение вызова
-- Вызывается метод `IRemindable.ReceiveReminderAsync` (применимо только в том случае, если субъект использует напоминания).
+What counts as “being used” for the purpose of deactivation and garbage collection?
 
-> [AZURE.NOTE] Если субъект использует таймеры и выполняется обратный вызов по таймеру, он **не** считается "используемым".
+- Receiving a call
+- `IRemindable.ReceiveReminderAsync` method being invoked (applicable only if the actor uses reminders)
 
-Прежде чем перейти к подробному рассмотрению деактивации, важно определить два понятия:
+> [AZURE.NOTE] if the actor uses timers and its timer callback is invoked, it does **not** count as "being used".
 
-- *Интервал сканирования*. Это интервал, с которым среда выполнения проверяет таблицу активных субъектов, чтобы определить, какие субъекты можно деактивировать и удалить во время сборки мусора. По умолчанию интервал равен 1 минуте.
-- *Время ожидания в состоянии простоя*. Это период времени, в течение которого субъект должен находиться в неиспользуемом состоянии (в состоянии простоя) до того, как он будет деактивирован и удален сборщиком мусора. По умолчанию это время равно 60 минутам.
+Before we go into the details of deactivation, it is important to define the following terms:
 
-Как правило, эти значения изменять не требуется. При необходимости этот период времени можно изменить, вызвав метод `ActorServiceSettings` при регистрации [службы субъектов](service-fabric-reliable-actors-platform.md):
+- *Scan interval*. This is the interval at which the Actors runtime scans its Active Actors table for actors that can be deactivated and garbage collected. The default value for this is 1 minute.
+- *Idle timeout*. This is the amount of time that an actor needs to remain unused (idle) before it can be deactivated and garbage collected. The default value for this is 60 minutes.
+
+Typically, you do not need to change these defaults. However, if necessary, these intervals can be changed through `ActorServiceSettings` when registering your [Actor Service](service-fabric-reliable-actors-platform.md):
 
 ```csharp
 public class Program
@@ -74,30 +75,30 @@ public class Program
 }
 ```
 
-Для каждого активного субъекта среда выполнения субъектов хранит информацию о времени, в течение которого он простаивает (не используется). Среда проверяет каждый субъект с интервалом `ScanIntervalInSeconds`, чтобы узнать, можно ли его удалить во время сборки мусора, и удаляет его, если он не используется в течение интервала времени, равного `IdleTimeoutInSeconds`.
+For each active actor, the actor runtime keeps track of the amount of time that it has been idle (i.e. not used). The actor runtime checks each of the actors every `ScanIntervalInSeconds` to see if it can be garbage collected and collects it if it has been idle for `IdleTimeoutInSeconds`.
 
-При каждом использовании субъекта его время ожидания в состоянии простоя обнуляется. После этого субъект может быть удален сборщиком мусора только после бездействия в течение интервала времени, равного `IdleTimeoutInSeconds`. Считается, что субъект был использован, если метод вызван через интерфейс субъекта или если выполнен обратный вызов по напоминанию. **Не** считается, что субъект был использован, если выполняется обратный вызов по таймеру.
+Anytime an actor is used, its idle time is reset to 0. After this, the actor can be garbage collected only if it again remains idle for `IdleTimeoutInSeconds`. Recall that an actor is considered to have been used if either an actor interface method an actor reminder callback is executed. An actor is **not** considered to have been used if its timer callback is executed.
 
-На следующей схеме показан жизненный цикл одного субъекта, демонстрирующий описанные принципы.
+The following diagram shows the lifecycle of a single actor to illustrate these concepts.
 
-![Пример времени простоя][1]
+![Example of idle time][1]
 
-В примере показано влияние вызова методов субъекта, напоминаний и таймеров на время жизни субъекта. Обратите внимание на следующие важные моменты:
+The example shows the impact of actor method calls, reminders, and timers on the lifetime of this actor. The following points about the example are worth mentioning:
 
-- ScanInterval и IdleTimeout установлены в 5 и 10 соответственно. (Единицы не имеют значения, поскольку наша цель — лишь проиллюстрировать концепцию.)
-- Поиск субъектов, которые нужно удалить во время сборки мусора, происходит при T = 0, 5, 10, 15, 20 и 25, так как интервал сканирования равен 5.
-- Таймер срабатывает при T = 4, 8, 12, 16, 20 и 24, после чего выполняется обратный вызов. Это не влияет на время простоя субъекта.
-- Вызов метода субъекта при T = 7 обнуляет время ожидания в состоянии простоя и откладывает удаление субъекта при сборке мусора.
-- При T = 14 выполняется обратный вызов по напоминанию, что снова откладывает удаление субъекта при сборке мусора.
-- На момент поиска объектов, которые можно удалить при сборке мусора, при T = 25 время простоя субъекта превышает заданное значение IdleTimeout (10) и субъект удаляется сборщиком мусора.
+- ScanInterval and IdleTimeout are set to 5 and 10 respectively. (Units do not matter here, since our purpose is only to illustrate the concept.)
+- The scan for actors to be garbage collected happens at T=0,5,10,15,20,25, as defined by the scan interval of 5.
+- A periodic timer fires at T=4,8,12,16,20,24, and its callback executes. It does not impact the idle time of the actor.
+- An actor method call at T=7 resets the idle time to 0 and delays the garbage collection of the actor.
+- An actor reminder callback executes at T=14 and further delays the garbage collection of the actor.
+- During the garbage collection scan at T=25, the actor's idle time finally exceeds the idle timeout of 10, and the actor is garbage collected.
 
-Субъект никогда не удаляется сборщиком мусора, если выполняется какой-либо из его методов, независимо от того, сколько времени занимает выполнение этого метода. Как упоминалось ранее, выполнение методов, определенных в интерфейсе субъекта, и обратных вызовов по напоминанию предотвращает сборку мусора, так как время простоя субъекта обнуляется. Выполнение обратных вызовов по таймеру не обнуляет время простоя. Однако сборка мусора для субъекта откладывается до завершения выполнения функции обратного вызова по таймеру.
+An actor will never be garbage collected while it is executing one of its methods, no matter how much time is spent in executing that method. As mentioned earlier, the execution of actor interface methods and reminder callbacks prevents garbage collection by resetting the actor's idle time to 0. The execution of timer callbacks does not reset the idle time to 0. However, the garbage collection of the actor is deferred until the timer callback has completed execution.
 
-## Удаление субъектов и их состояние
+## <a name="deleting-actors-and-their-state"></a>Deleting actors and their state
 
-При удалении деактивированных субъектов удаляется только объект субъекта; из диспетчера состояний субъекта данные не удаляются. При повторной активации субъекта его данные снова становятся доступны в диспетчере состояний. Если субъекты, данные которых хранятся в диспетчере состояний, деактивируются и больше не активируются, может возникнуть необходимость в удалении связанных с ними данных.
+Gabrage collection of deactivated actors only cleans up the actor object, but it does not remove data that is stored in an actor's State Manager. When an actor is re-activated, its data is again made available to it through the State Manager. In cases where actors store data in State Manager and are deactivated but never re-activated, it may be necessary to clean up their data.
 
-В [службе субъектов](service-fabric-reliable-actors-platform.md) имеется функция удаления субъектов с помощью удаленного вызывающего объекта:
+The [Actor Service](service-fabric-reliable-actors-platform.md) provides a function for deleting actors from a remote caller:
 
 ```csharp
 ActorId actorToDelete = new ActorId(id);
@@ -108,25 +109,29 @@ IActorService myActorServiceProxy = ActorServiceProxy.Create(
 await myActorServiceProxy.DeleteActorAsync(actorToDelete, cancellationToken)
 ```
 
-При удалении субъекта происходит следующее (в зависимости от того, были ли он активен в момент удаления):
-- **Активный субъект**
- - Субъект удаляется из списка активных субъектов и деактивируется.
- - Состояние субъекта удаляется окончательно.
-- **Неактивный субъект**
- - Состояние субъекта удаляется окончательно.
+Deleting an actor has the following effects depending on whether or not the actor is currently active:
+- **Active Actor**
+ - Actor is removed from active actors list and is deactivated.
+ - Its state is deleted permanently.
+- **Inactive Actor**
+ - Its state is deleted permanently.
 
-Обратите внимание, что субъект не может удалить себя, воспользовавшись одним из собственных методов, поскольку нельзя удалить субъект, выполняемый в контексте вызова субъектов, где для обеспечения однопоточного доступа среда выполнения блокирует вызов субъекта.
+Note that an actor cannot call delete on itself from one of its actor methods because the actor cannot be deleted while executing within an actor call context, in which the runtime has obtained a lock around the actor call to enforce single-threaded access.
 
-## Дальнейшие действия
- - [Таймеры и напоминания субъекта](service-fabric-reliable-actors-timers-reminders.md)
- - [События субъекта](service-fabric-reliable-actors-events.md)
- - [Повторный вход субъекта](service-fabric-reliable-actors-reentrancy.md)
- - [Диагностика и мониторинг производительности в Reliable Actors](service-fabric-reliable-actors-diagnostics.md)
- - [Справочная документация по API субъектов](https://msdn.microsoft.com/library/azure/dn971626.aspx)
- - [Пример кода](https://github.com/Azure/servicefabric-samples)
+## <a name="next-steps"></a>Next steps
+ - [Actor timers and reminders](service-fabric-reliable-actors-timers-reminders.md)
+ - [Actor events](service-fabric-reliable-actors-events.md)
+ - [Actor reentrancy](service-fabric-reliable-actors-reentrancy.md)
+ - [Actor diagnostics and performance monitoring](service-fabric-reliable-actors-diagnostics.md)
+ - [Actor API reference documentation](https://msdn.microsoft.com/library/azure/dn971626.aspx)
+ - [Sample code](https://github.com/Azure/servicefabric-samples)
 
 
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-lifecycle/garbage-collection.png
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

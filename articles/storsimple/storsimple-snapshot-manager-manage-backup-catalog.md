@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Каталог архивов диспетчера моментальных снимков StorSimple | Microsoft Azure"
-   description="Узнайте, как использовать оснастку консоли MMC ";Диспетчер моментальных снимков StorSimple"; для просмотра каталога резервных копий и управления ими."
+   pageTitle="StorSimple Snapshot Manager backup catalog | Microsoft Azure"
+   description="Describes how to use the StorSimple Snapshot Manager MMC snap-in to view and manage the backup catalog."
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
@@ -15,198 +15,203 @@
    ms.date="04/26/2016"
    ms.author="v-sharos" />
 
-# Использование диспетчера моментальных снимков StorSimple для управления каталогом резервных копий
 
-## Обзор
+# <a name="use-storsimple-snapshot-manager-to-manage-the-backup-catalog"></a>Use StorSimple Snapshot Manager to manage the backup catalog
 
-Основная функция StorSimple Snapshot Manager — создание согласованных с приложением резервных копий томов StorSimple в виде моментальных снимков. Затем моментальные снимки перечисляются в XML-файле, который называется *каталогом резервных копий*. Моментальные снимки в каталоге резервных копий упорядочиваются по группе томов, а затем — по локальному или облачному моментальному снимку.
+## <a name="overview"></a>Overview
 
-В этом учебнике описывается, как использовать узел **Каталог архивов** для выполнения следующих задач:
+The primary function of StorSimple Snapshot Manager is to allow you to create application-consistent backup copies of StorSimple volumes in the form of snapshots. Snapshots are then listed in an XML file called a *backup catalog*. The backup catalog organizes snapshots by volume group and then by local snapshot or cloud snapshot. 
 
-- восстановление тома; 
-- клонирование тома или группы томов; 
-- удаление резервной копии; 
-- восстановление файла;
-- восстановление базы данных диспетчера моментальных снимков StorSimple.
+This tutorial describes how you can use the **Backup Catalog** node to complete the following tasks:
 
-Чтобы просмотреть каталог резервных копий, необходимо развернуть узел **Каталог архивов** на панели **Область**, а затем развернуть группу томов.
+- Restore a volume 
+- Clone a volume or volume group 
+- Delete a backup 
+- Recover a file
+- Restore the Storsimple Snapshot Manager database
 
-- Если щелкнуть имя группы томов, на панели **Результаты** отобразится количество локальных и облачных моментальных снимков, доступных для группы томов. 
+You can view the backup catalog by expanding the **Backup Catalog** node in the **Scope** pane, and then expanding the volume group.
 
-- Если щелкнуть **Локальный моментальный снимок** или **Облачный моментальный снимок**, на панели **Результаты** отобразятся следующие сведения о каждом моментальном снимке резервной копии (в зависимости от настроек, заданных в меню **Вид**).
+- If you click the volume group name, the **Results** pane shows the number of local snapshots and cloud snapshots available for the volume group. 
 
-    - **Имя**: время, когда был сделан моментальный снимок. 
+- If you click **Local Snapshot** or **Cloud Snapshot**, the **Results** pane shows the following information about each backup snapshot (depending on your **View** settings): 
 
-    - **Тип**: локальный или облачный моментальный снимок.
+    - **Name** – the time the snapshot was taken. 
 
-    - **Владелец**: владелец содержимого.
+    - **Type** – whether this is a local snapshot or a cloud snapshot. 
 
-    - **Доступен**: доступен ли моментальный снимок в настоящее время. Значение **True** указывает, что моментальный снимок доступен и может быть восстановлен, а значение **False** — что моментальный снимок больше недоступен.
+    - **Owner** – the content owner. 
 
-    - **Импортирована**: импортирована ли резервная копия. Значение **True** указывает, что резервная копия была импортирована из службы диспетчера StorSimple во время настройки устройства в диспетчере моментальных снимков StorSimple. Значение **False** указывает, что копия не импортирована, а создана в диспетчере моментальных снимков StorSimple. (На импортированную группу томов указывает суффикс, идентифицирующий устройство, с которого она импортирована.)
+    - **Available** – whether the snapshot is currently available. **True** indicates that the snapshot is available and can be restored; **False** indicates that the snapshot is no longer available. 
 
-    ![Каталог резервного копирования](./media/storsimple-snapshot-manager-manage-backup-catalog/HCS_SSM_Backup_catalog.png)
+    - **Imported** – whether the backup was imported. **True** indicates that the backup was imported from the StorSimple Manager service at the time the device was configured in StorSimple Snapshot Manager; **False** indicates that it was not imported, but was created by StorSimple Snapshot Manager. (You can easily identify an imported volume group because a suffix is added that identifies the device from which the volume group was imported.)
 
-- Если развернуть узел **Локальный моментальный снимок** или **Облачный моментальный снимок**, а затем щелкнуть имя отдельного моментального снимка, на панели **Результаты** отобразятся следующие сведения о выбранном моментальном снимке.
+    ![Backup catalog](./media/storsimple-snapshot-manager-manage-backup-catalog/HCS_SSM_Backup_catalog.png)
 
-    - **Имя**: буква диска, назначаемая тому. 
+- If you expand **Local Snapshot** or **Cloud Snapshot**, and then click an individual snapshot name, the **Results** pane shows the following information about the snapshot that you selected:
 
-    - **Локальное имя**: локальное имя диска (если доступно).
+    - **Name** – the volume identified by drive letter. 
 
-    - **Устройство**: имя устройства, на котором расположен том.
+    - **Local Name** – the local name of the drive (if available). 
 
-    - **Доступен**: доступен ли моментальный снимок в настоящее время. Значение **True** указывает, что моментальный снимок доступен и может быть восстановлен, а значение **False** — что моментальный снимок больше недоступен.
+    - **Device** – the name of the device on which the volume resides. 
+
+    - **Available** – whether the snapshot is currently available. **True** indicates that the snapshot is available and can be restored; **False** indicates that the snapshot is no longer available. 
 
 
-## Восстановление тома
+## <a name="restore-a-volume"></a>Restore a volume
 
-Выполните следующие действия, чтобы восстановить том из резервной копии.
+Use the following procedure to restore a volume from backup.
 
-#### Предварительные требования
+#### <a name="prerequisites"></a>Prerequisites
 
-Если вы еще не сделали этого, создайте том и группу томов, а затем удалите том. По умолчанию диспетчер моментальных снимков StorSimple создает резервную копию тома, прежде чем разрешить ее удаление. Это позволяет предотвратить потерю данных, если том удален случайно или если по какой-либо необходимо восстановить данные.
+If you have not already done so, create a volume and volume group, and then delete the volume. By default, StorSimple Snapshot Manager backs up a volume before permitting it to be deleted. This precaution can prevent data loss if the volume is deleted unintentionally or if the data needs to be recovered for any reason. 
 
-Диспетчер моментальных снимков StorSimple отображает следующее сообщение во время создания резервной копии в качестве меры предосторожности.
+StorSimple Snapshot Manager displays the following message while it creates the precautionary backup.
 
-![Сообщение об автоматическом моментальном снимке](./media/storsimple-snapshot-manager-manage-backup-catalog/HCS_SSM_Automatic_snap.png)
+![Automatic snapshot message](./media/storsimple-snapshot-manager-manage-backup-catalog/HCS_SSM_Automatic_snap.png) 
 
->[AZURE.IMPORTANT] Невозможно удалить том, который входит в группу томов. Параметр удаления недоступен. <br>
+>[AZURE.IMPORTANT] You cannot delete a volume that is part of a volume group. The delete option is unavailable. <br>
 
-#### Восстановление тома
+#### <a name="to-restore-a-volume"></a>To restore a volume
 
-1. Щелкните значок рабочего стола, чтобы запустить диспетчер моментальных снимков StorSimple. 
+1. Click the desktop icon to start StorSimple Snapshot Manager. 
 
-2. На панели **Область** последовательно разверните узел **Каталог архивов** и группу томов, а затем щелкните **Локальные моментальные снимки** или **Облачные моментальные снимки**. На панели **Результаты** отобразится список моментальных снимков резервных копий.
+2. In the **Scope** pane, expand the **Backup Catalog** node, expand a volume group, and then click **Local Snapshots** or **Cloud Snapshots**. A list of backup snapshots appears in the **Results** pane. 
 
-3. Найдите резервную копию, которую нужно восстановить, щелкните правой кнопкой мыши и выберите пункт **Восстановить**.
+3. Find the backup that you want to restore, right-click, and then click **Restore**. 
 
-    ![Восстановление каталога резервных копий](./media/storsimple-snapshot-manager-manage-backup-catalog/HCS_SSM_Restore_BU_catalog.png)
+    ![Restore backup catalog](./media/storsimple-snapshot-manager-manage-backup-catalog/HCS_SSM_Restore_BU_catalog.png) 
 
-4. На странице подтверждения просмотрите сведения, введите **Confirm** (Подтверждаю), а затем нажмите кнопку **ОК**. Диспетчер моментальных снимков StorSimple использует резервную копию для восстановления тома.
+4. On the confirmation page, review the details, type **Confirm**, and then click **OK**. StorSimple Snapshot Manager uses the backup to restore the volume. 
 
-    ![Сообщение с подтверждением восстановления](./media/storsimple-snapshot-manager-manage-backup-catalog/HCS_SSM_Restore_volume_msg.png)
+    ![Restore confirmation message](./media/storsimple-snapshot-manager-manage-backup-catalog/HCS_SSM_Restore_volume_msg.png) 
 
-5. Вы можете отслеживать ход выполнения действия по восстановлению. На панели **Область** разверните узел **Задания**, а затем щелкните**Выполняются**. Сведения о задании отобразятся на панели **Результаты**. После завершения задания восстановления сведения о задании вносятся в список **За последние 24 часа**.
+5. You can monitor the restore action as it runs. In the **Scope** pane, expand the **Jobs** node, and then click **Running**. The job details appear in the **Results** pane. When the restore job is finished, the job details are transferred to the **Last 24 hours** list.
 
-## Клонирование тома или группы томов
+## <a name="clone-a-volume-or-volume-group"></a>Clone a volume or volume group
 
-Выполните следующие действия, чтобы создать дубликат (клон) тома или группы томов.
+Use the following procedure to create a duplicate (clone) of a volume or volume group.
 
-#### Клонирование тома или группы томов
+#### <a name="to-clone-a-volume-or-volume-group"></a>To clone a volume or volume group
 
-1. Щелкните значок рабочего стола, чтобы запустить диспетчер моментальных снимков StorSimple.
+1. Click the desktop icon to start StorSimple Snapshot Manager.
 
-2. На панели **Область** последовательно разверните узел **Каталог архивов** и группу томов, а затем щелкните **Облачные моментальные снимки**. На панели **Результаты** отобразится список резервных копий.
+2. In the **Scope** pane, expand the **Backup Catalog** node, expand a volume group, and then click **Cloud Snapshots**. A list of backups appears in the **Results** pane.
 
-3. Найдите том или группу томов, которые нужно клонировать, щелкните правой кнопкой мыши имя необходимого элемента и нажмите **Клонировать**. Откроется диалоговое окно **Клонирование облачного моментального снимка**.
+3. Find the volume or volume group that you want to clone, right-click the volume or volume group name, and click **Clone**. The **Clone Cloud Snapshot** dialog box appears.
 
-    ![Клонирование облачного моментального снимка](./media/storsimple-snapshot-manager-manage-backup-catalog/HCS_SSM_Clone.png)
+    ![Clone a cloud snapshot](./media/storsimple-snapshot-manager-manage-backup-catalog/HCS_SSM_Clone.png) 
 
-4. Заполните поля в диалоговом окне **Клонирование облачного моментального снимка** следующим образом.
+4. Complete the **Clone Cloud Snapshot** dialog box as follows: 
 
-    1. В текстовом поле **Имя** введите имя клонируемого тома. Это имя будет отображаться на узле **Тома**. 
+    1. In the **Name** text box, type a name for the cloned volume. This name will appear in the **Volumes** node. 
 
-    2. (Необязательно.) Щелкните **Диск**, а затем выберите букву диска в раскрывающемся списке.
+    2. (Optional) select **Drive**, and then select a drive letter from the drop-down list. 
 
-    3. (Необязательно.) Выберите пункт **Папка (NTFS)** и введите путь к папке или нажмите кнопку "Обзор" и выберите расположение для папки.
+    3. (Optional) select **Folder (NTFS)**, and type a folder path or click Browse and select a location for the folder. 
 
-    4. Щелкните **Создать**.
+    4. Click **Create**.
 
-5. По завершении процесса клонирования необходимо инициализировать клонированный том. Последовательно запустите диспетчер серверов и служебную программу "Управление дисками". Подробные инструкции см. в разделе [Подключение томов](storsimple-snapshot-manager-manage-volumes.md#mount-volumes). После инициализации том будет включен в узел **Тома** на панели **Область**. Если том не отобразится на этом узле, обновите список томов (щелкните правой кнопкой мыши узел **Тома**, а затем выберите пункт **Обновить**).
+5. When the cloning process is finished, you must initialize the cloned volume. Start Server Manager, and then start Disk Management. For detailed instructions, see [Mount volumes](storsimple-snapshot-manager-manage-volumes.md#mount-volumes). After it is initialized, the volume will be listed under the **Volumes** node in the **Scope** pane. If you do not see the volume listed, refresh the list of volumes (right-click the **Volumes** node, and then click **Refresh**).
 
-## Удаление резервной копии
+## <a name="delete-a-backup"></a>Delete a backup
 
-Выполните следующие действия, чтобы удалить моментальный снимок из каталога резервных копий.
+Use the following procedure to delete a snapshot from the backup catalog. 
 
->[AZURE.NOTE] При удалении моментального снимка также удаляются резервные копии данных, связанных с ним. Однако процесс очистки данных из облака может занять некоторое время.<br>
+>[AZURE.NOTE] Deleting a snapshot deletes the backed up data associated with the snapshot. However, the process of cleaning up data from the cloud may take some time.<br>
  
-#### Удаление резервной копии
+#### <a name="to-delete-a-backup"></a>To delete a backup
 
-1. Щелкните значок рабочего стола, чтобы запустить диспетчер моментальных снимков StorSimple.
+1. Click the desktop icon to start StorSimple Snapshot Manager.
 
-2. На панели **Область** последовательно разверните узел **Каталог архивов** и группу томов, а затем щелкните **Локальные моментальные снимки** или **Облачные моментальные снимки**. На панели **Результаты** отобразится список моментальных снимков.
+2. In the **Scope** pane, expand the **Backup Catalog** node, expand a volume group, and then click **Local Snapshots** or **Cloud Snapshots**. A list of snapshots appears in the **Results** pane. 
 
-3. Щелкните правой кнопкой мыши моментальный снимок, который нужно удалить, и выберите пункт **Удалить**.
+3. Right-click the snapshot you want to delete, and then click **Delete**.
 
-4. В появившемся сообщении с подтверждением нажмите кнопку**ОК**.
+4. When the confirmation message appears, click **OK**. 
 
-## Восстановление файла
+## <a name="recover-a-file"></a>Recover a file
 
-Если файл случайно удален из тома, вы можете восстановить файл. Для этого необходимо извлечь моментальный снимок, сделанный до удаления, с помощью этого снимка создать клона тома, а затем скопировать файл из клонированного тома в исходный.
+If a file is accidentally deleted from a volume, you can recover the file by retrieving a snapshot that pre-dates the deletion, using the snapshot to create a clone of the volume, and then copying the file from the cloned volume to the original volume.
 
-#### Предварительные требования
+#### <a name="prerequisites"></a>Prerequisites
 
-Перед началом работы убедитесь, что у вас есть актуальная резервная копия группы томов. Затем удалите файл, сохраненный в одном из томов в этой группе томов. Наконец, выполните следующие действия, чтобы восстановить удаленный файл из резервной копии.
+Before you begin, make sure that you have a current backup of the volume group. Then, delete a file stored on one of the volumes in that volume group. Finally, use the following steps to restore the deleted file from your backup. 
 
-#### Восстановление удаленного файла
+#### <a name="to-recover-a-deleted-file"></a>To recover a deleted file
 
-1. Щелкните значок диспетчера моментальных снимков StorSimple на рабочем столе. Откроется окно консоли диспетчера моментальных снимков StorSimple. 
+1. Click the StorSimple Snapshot Manager icon on your desktop. The StorSimple Snapshot Manager console window appears. 
 
-2. На панели **Область** разверните узел **Каталог архивов** и перейдите к моментальному снимку, содержащему удаленный файл. Как правило, следует выбрать снимок, созданный непосредственно перед удалением.
+2. In the **Scope** pane, expand the **Backup Catalog** node, and browse to a snapshot that contains the deleted file. Typically, you should select a snapshot that was created just before the deletion. 
 
-3. Найдите том, который нужно клонировать, щелкните правой кнопкой мыши и выберите пункт **Клонировать**. Откроется диалоговое окно **Клонирование облачного моментального снимка**.
+3. Find the volume that you want to clone, right-click, and click **Clone**. The **Clone Cloud Snapshot** dialog box appears.
 
-    ![Клонирование облачного моментального снимка](./media/storsimple-snapshot-manager-manage-backup-catalog/HCS_SSM_Clone.png)
+    ![Clone a cloud snapshot](./media/storsimple-snapshot-manager-manage-backup-catalog/HCS_SSM_Clone.png) 
 
-4. Заполните поля в диалоговом окне **Клонирование облачного моментального снимка** следующим образом.
+4. Complete the **Clone Cloud Snapshot** dialog box as follows: 
 
-   1. В текстовом поле **Имя** введите имя клонируемого тома. Это имя будет отображаться на узле **Тома**.
+   1. In the **Name** text box, type a name for the cloned volume. This name will appear in the **Volumes** node. 
 
-   2. (Необязательно.) Щелкните **Диск**, а затем выберите букву диска в раскрывающемся списке.
+   2. (Optional) Select **Drive**, and then select a drive letter from the drop-down list. 
 
-   3. (Необязательно.) Выберите пункт **Папка (NTFS)** и введите путь к папке или нажмите кнопку **Обзор** и выберите расположение для папки.
+   3. (Optional) Select **Folder (NTFS)**, and type a folder path or click **Browse** and select a location for the folder. 
 
-   4. Щелкните **Создать**.
+   4. Click **Create**. 
 
-5. По завершении процесса клонирования необходимо инициализировать клонированный том. Последовательно запустите диспетчер серверов и служебную программу "Управление дисками". Подробные инструкции см. в разделе [Подключение томов](storsimple-snapshot-manager-manage-volumes.md#mount-volumes). После инициализации том будет включен в узел **Тома** на панели **Область**.
+5. When the cloning process is finished, you must initialize the cloned volume. Start Server Manager, and then start Disk Management. For detailed instructions, see [Mount volumes](storsimple-snapshot-manager-manage-volumes.md#mount-volumes). After it is initialized, the volume will be listed under the **Volumes** node in the **Scope** pane. 
 
-    Если том не отобразится на этом узле, обновите список томов (щелкните правой кнопкой мыши узел **Тома**, а затем выберите пункт **Обновить**).
+    If you do not see the volume listed, refresh the list of volumes (right-click the **Volumes** node, and then click **Refresh**).
 
-6. Откройте папку NTFS, содержащую клонированный том, разверните узел **Тома** и откройте клонированный том. Найдите файл, который нужно восстановить, и скопируйте его в основной том.
+6. Open the NTFS folder that contains the cloned volume, expand the **Volumes** node, and then open the cloned volume. Find the file that you want to recover, and copy it to the primary volume.
 
-7. После восстановления файла вы можете удалить папку NTFS, содержащую клонированный том.
+7. After you restore the file, you can delete the NTFS folder that contains the cloned volume.
 
-## Восстановление базы данных диспетчера моментальных снимков StorSimple
+## <a name="restore-the-storsimple-snapshot-manager-database"></a>Restore the StorSimple Snapshot Manager database
 
-На главном компьютере следует регулярно создавать резервные копии базы данных диспетчера моментальных снимков StorSimple. Если произойдет авария или по какой-либо причине главный компьютер выйдет из строя, вы сможете восстановить базу данных из резервной копии. Резервная копия базы данных создается вручную.
+You should regularly back up the StorSimple Snapshot Manager database on the host computer. If a disaster occurs or the host computer fails for any reason, you can then restore it from the backup. Creating the database backup is a manual process.
 
-#### Архивация и восстановление базы данных
+#### <a name="to-back-up-and-restore-the-database"></a>To back up and restore the database
 
-1. Остановите службу управления Microsoft StorSimple. Для этого выполните следующие действия.
+1. Stop the Microsoft StorSimple Management Service:
 
-    1. Запустите диспетчер серверов.
+    1. Start Server Manager.
 
-    2. На панели мониторинга диспетчера серверов в меню **Инструменты** выберите пункт **Службы**.
+    2. On the Server Manager dashboard, on the **Tools** menu, select **Services**.
 
-    3. В окне **Службы** выберите пункт **Служба управления Microsoft StorSimple**.
+    3. On the **Services** window, select the **Microsoft StorSimple Management Service**.
 
-    4. На панели справа в разделе **Служба управления Microsoft StorSimple** щелкните **Остановить службу**.
+    4. In the right pane, under **Microsoft StorSimple Management Service**, click **Stop the service**.
 
-2. На главном компьютере перейдите в папку C:\\ProgramData\\Microsoft\\StorSimple\\BACatalog.
+2. On the host computer, browse to C:\ProgramData\Microsoft\StorSimple\BACatalog. 
 
-    >[AZURE.NOTE] ProgramData — это скрытая папка.
+    >[AZURE.NOTE] ProgramData is a hidden folder.
  
-3. Найдите XML-файл каталога, скопируйте файл и сохраните его копию в безопасном месте или в облаке. Если узел выйдет из строя, то с помощью этого файла резервной копии вы сможете восстановить политики архивации, которые создали в диспетчере моментальных снимков StorSimple.
+3. Find the catalog XML file, copy the file, and store the copy in a safe location or in the cloud. If the host fails, you can use this backup file to help recover the backup policies that you created in StorSimple Snapshot Manager.
 
-    ![Файл каталога резервных копий Azure StorSimple](./media/storsimple-snapshot-manager-manage-backup-catalog/HCS_SSM_bacatalog.png)
+    ![Azure StorSimple backup catalog file](./media/storsimple-snapshot-manager-manage-backup-catalog/HCS_SSM_bacatalog.png)
 
-4. Перезапустите службу управления Microsoft StorSimple. Для этого выполните следующие действия.
+4. Restart the Microsoft StorSimple Management Service: 
 
-    1. На панели мониторинга диспетчера серверов в меню **Инструменты** выберите пункт **Службы**.
+    1. On the Server Manager dashboard, on the **Tools** menu, select **Services**.
     
-    2. В окне **Службы** выберите пункт **Служба управления Microsoft StorSimple**.
+    2. On the **Services** window, select the **Microsoft StorSimple Management Service**.
 
-    3. На панели справа в разделе **Служба управления Microsoft StorSimple** щелкните **Перезапустить службу**.
+    3. In the right pane, under **Microsoft StorSimple Management Service**, click **Restart the service**.
 
-5. На главном компьютере перейдите в папку C:\\ProgramData\\Microsoft\\StorSimple\\BACatalog.
+5. On the host computer, browse to C:\ProgramData\Microsoft\StorSimple\BACatalog. 
 
-6. Удалите XML-файл каталога и замените его созданной версией резервной копии.
+6. Delete the catalog XML file, and replace it with the backup version that you created. 
 
-7. Щелкните значок диспетчера моментальных снимков StorSimple на рабочем столе, чтобы запустить диспетчер моментальных снимков StorSimple.
+7. Click the desktop StorSimple Snapshot Manager icon to start StorSimple Snapshot Manager. 
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Next steps
 
-- Узнайте больше об [использовании диспетчера моментальных снимков StorSimple для администрирования решения StorSimple](storsimple-snapshot-manager-admin.md).
-- Узнайте больше о [задачах и рабочих процессах диспетчера моментальных снимков StorSimple](storsimple-snapshot-manager-admin.md#storsimple-snapshot-manager-tasks-and-workflows).
+- Learn more about [using StorSimple Snapshot Manager to administer your StorSimple solution](storsimple-snapshot-manager-admin.md).
+- Learn more about [StorSimple Snapshot Manager tasks and workflows](storsimple-snapshot-manager-admin.md#storsimple-snapshot-manager-tasks-and-workflows).
 
-<!---HONumber=AcomDC_0511_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

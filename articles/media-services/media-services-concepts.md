@@ -1,223 +1,228 @@
 <properties 
-	pageTitle="Основные понятия служб мультимедиа Azure | Microsoft Azure" 
-	description="В этой статье приводится обзор основных понятий служб мультимедиа Azure" 
-	services="media-services" 
-	documentationCenter="" 
-	authors="Juliako" 
-	manager="erikre" 
-	editor=""/>
+    pageTitle="Azure Media Services concepts | Microsoft Azure" 
+    description="This topic gives an overview of Azure Media Services Concepts" 
+    services="media-services" 
+    documentationCenter="" 
+    authors="Juliako" 
+    manager="erikre" 
+    editor=""/>
 
 <tags 
-	ms.service="media-services" 
-	ms.workload="media" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/19/2016"
-	ms.author="juliako"/>
+    ms.service="media-services" 
+    ms.workload="media" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="09/19/2016"
+    ms.author="juliako"/>
 
-#Основные понятия служб мультимедиа Azure 
 
-В этом разделе приводится обзор наиболее важных понятий служб мультимедиа.
+#<a name="azure-media-services-concepts"></a>Azure Media Services concepts 
 
-##<a id="assets"></a>Ресурсы-контейнеры и хранилища
+This topic gives an overview of the most important Media Services concepts.
 
-###Активы
+##<a name="<a-id="assets"></a>assets-and-storage"></a><a id="assets"></a>Assets and Storage
 
-Сущность [Ресурс](https://msdn.microsoft.com/library/azure/hh974277.aspx) содержит цифровые файлы (в том числе видео, аудио, изображения, коллекции эскизов, текстовые дорожки и файлы скрытых титров), а также метаданные об этих файлах. После загрузки цифровых файлов в ресурс их можно использовать в рабочих процессах кодирования и потоковой передачи служб мультимедиа.
+###<a name="assets"></a>Assets
 
-Ресурс сопоставляется с контейнером BLOB-объектов в учетной записи хранения Azure. Файлы ресурса хранятся в этом контейнере как BLOB-объекты.
+An [Asset](https://msdn.microsoft.com/library/azure/hh974277.aspx) contains digital files (including video, audio, images, thumbnail collections, text tracks and closed caption files) and the metadata about these files. After the digital files are uploaded into an asset, they could be used in the Media Services encoding and streaming workflows.
 
-При выборе содержимого мультимедиа для отправки и хранения в активе можно руководствоваться следующими соображениями.
+An asset is mapped to a blob container in the Azure Storage account and the files in the asset are stored as blobs in that container.
 
-- Актив должен содержать только один уникальный экземпляр содержимого мультимедиа. Например, одно изменение серии телепередачи, фильма или рекламы.
-- Актив не должен содержать несколько представлений или изменений аудиовизуального файла. Один из примеров неправильного использования актива — попытка сохранить более одной серии телепередачи, рекламы или несколько расположений камеры из одной рабочей среды в активе. Сохранение нескольких представлений или изменений аудиовизуального файла может привести к проблемам при отправке заданий кодирования, потоковой передаче и защите доставки актива позже в рабочем процессе.
+When deciding what media content to upload and store in an asset, the following considerations apply:
 
-###Файл ресурса 
-[AssetFile](https://msdn.microsoft.com/library/azure/hh974275.aspx) представляет собой фактический массив видео или аудио, хранящийся в контейнере больших двоичных объектов. Файл ресурса всегда связан с ресурсом, а ресурс может содержать один или несколько файлов. Задача кодировщика служб мультимедиа завершится с ошибкой, если объект файла ресурса не связан с цифровым файлом в контейнере больших двоичных объектов.
+- An asset should contain only a single, unique instance of media content. For example, a single edit of a TV episode, movie, or advertisement.
+- An asset should not contain multiple renditions or edits of an audiovisual file. One example of an improper usage of an Asset would be attempting to store more than one TV episode, advertisement, or multiple camera angles from a single production inside an asset. Storing multiple renditions or edits of an audiovisual file in an asset can result in difficulties submitting encoding jobs, streaming and securing the delivery of the asset later in the workflow.  
 
-Экземпляр **AssetFile** и фактический файл мультимедиа — это два разных объекта. Экземпляр AssetFile содержит метаданные о файле мультимедиа, а сам файл мультимедиа — фактическое мультимедийное содержимое.
+###<a name="asset-file"></a>Asset file 
+An [AssetFile](https://msdn.microsoft.com/library/azure/hh974275.aspx) represents an actual video or audio file that is stored in a blob container. An asset file is always associated with an asset, and an asset may contain one or many files. The Media Services Encoder task fails if an asset file object is not associated with a digital file in a blob container.
 
-Не следует пытаться изменить содержимое контейнеров больших двоичных объектов, созданных службами мультимедиа, без использования интерфейсов API служб мультимедиа.
+The **AssetFile** instance and the actual media file are two distinct objects. The AssetFile instance contains metadata about the media file, while the media file contains the actual media content.
 
-###Параметры шифрования ресурсов
+You should not attempt to change the contents of blob containers that were generated by Media Services without using Media Service APIs.
 
-В зависимости от типа содержимого, которое вы хотите выкладывать, хранить и доставлять, службы мультимедиа предлагают различные параметры шифрования.
+###<a name="asset-encryption-options"></a>Asset encryption options
 
-**None** — шифрование не используется. Это значение по умолчанию. Обратите внимание, что при использовании этого параметра содержимое не защищено при передаче или в хранилище.
+Depending on the type of content you want to upload, store, and deliver, Media Services provides various encryption options that you can choose from.
 
-Используйте этот параметр при добавлении содержимого, если MP4-файл планируется доставлять с помощью поэтапного скачивания.
+**None** No encryption is used. This is the default value. Note that when using this option your content is not protected in transit or at rest in storage.
 
-**StorageEncrypted** — используйте этот параметр для локального шифрования незашифрованного содержимого с помощью AES 256 и его добавления в хранилище Azure, где оно хранится в зашифрованном виде. Ресурсы, защищенные с помощью шифрования хранилища, автоматически расшифровываются и помещаются в зашифрованную файловую систему до кодирования, а затем при необходимости повторно кодируются перед добавлением в виде нового выходного актива. Основная причина использования шифрования хранилища — для защиты входных файлов мультимедиа высокого качества с помощью стойкого шифрования при хранении на диске.
+If you plan to deliver an MP4 using progressive download, use this option to upload your content.
 
-Для доставки ресурса из зашифрованного хранилища необходимо настроить политику доставки ресурсов, чтобы службы мультимедиа могли определить, как вы хотите доставлять содержимое. Перед выполнением потоковой передачи ресурса сервер потоковой передачи удаляет шифрование хранилища и осуществляет потоковую передачу содержимого с помощью указанной политики доставки (например, AES, PlayReady или без шифрования).
+**StorageEncrypted** – Use this option to encrypt your clear content locally using AES 256 bit encryption and then upload it to Azure Storage where it is stored encrypted at rest. Assets protected with storage encryption are automatically unencrypted and placed in an encrypted file system prior to encoding, and optionally re-encrypted prior to uploading back as a new output asset. The primary use case for storage encryption is when you want to secure your high quality input media files with strong encryption at rest on disk. 
 
-**CommonEncryptionProtected**— используйте этот параметр, если вы хотите зашифровать содержимое с помощью стандартного шифрования или PlayReady DRM либо выложить уже зашифрованное содержимое (например, Smooth Streaming с защитой PlayReady DRM).
+In order to deliver a storage encrypted asset, you must configure the asset’s delivery policy so Media Services knows how you want to deliver your content. Before your asset can be streamed, the streaming server removes the storage encryption and streams your content using the specified delivery policy (for example, AES, PlayReady, or no encryption). 
 
-**EnvelopeEncryptionProtected** — используйте этот параметр, если требуется защитить потоковую передачу HTTP (HLS), зашифрованную с помощью AES, или же добавить уже защищенную передачу. Обратите внимание на то, что если HLS уже зашифрована с помощью AES, ее можно выложить только в том случае, если для шифрования использовался Transform Manager.
+**CommonEncryptionProtected** - Use this option if you want to encrypt (or upload already encrypted) content with Common Encryption or PlayReady DRM (for example, Smooth Streaming protected with PlayReady DRM).
 
-###Политика доступа 
+**EnvelopeEncryptionProtected** – Use this option if you want to protect (or upload already protected) HTTP Live Streaming (HLS) encrypted with Advanced Encryption Standard (AES). Note that if you are uploading HLS already encrypted with AES, it must have been encrypted by Transform Manager.
 
-Сущность [AccessPolicy](https://msdn.microsoft.com/library/azure/hh974297.aspx) определяет разрешения (например, на чтение, запись и создание списков) и длительность доступа к ресурсу. Обычно объект AccessPolicy следует передавать в указатель, который затем будет использоваться для доступа к файлам, содержащимся в ресурсе.
+###<a name="access-policy"></a>Access policy 
 
+An [AccessPolicy](https://msdn.microsoft.com/library/azure/hh974297.aspx) defines permissions (like read, write, and list) and duration of access to an asset. You would usually pass an AccessPolicy object to a locator that would then be used to access the files contained in an asset.
 
-###Контейнер BLOB-объектов
 
-Контейнер BLOB-объектов обеспечивает группирование набора BLOB-объектов. Контейнеры BLOB-объектов используются в службах мультимедиа в качестве граничной точки для управления доступом и как указатели на подписанный URL-адрес (SAS) в ресурсах. Учетная запись хранилища Azure может содержать неограниченное количество контейнеров BLOB-объектов. Контейнер может хранить неограниченное количество больших двоичных объектов.
+###<a name="blob-container"></a>Blob container
 
->[AZURE.NOTE]Не следует пытаться изменить содержимое контейнеров больших двоичных объектов, созданных службами мультимедиа, без использования интерфейсов API служб мультимедиа.
+A blob container provides a grouping of a set of blobs. Blob containers are used in Media Services as boundary point for access control, and Shared Access Signature (SAS) locators on assets. An Azure Storage account can contain an unlimited number of blob containers. A container can store an unlimited number of blobs.
 
-###<a id="locators"></a>Указатели
+>[AZURE.NOTE]You should not attempt to change the contents of blob containers that were generated by Media Services without using Media Service APIs.
 
-[Указатели](https://msdn.microsoft.com/library/azure/hh974308.aspx) предоставляют точку входа для доступа к файлам, содержащимся в ресурсе. Политика доступа используется для определения разрешений и длительности доступа клиента к определенному активу. Указатели могут иметь множество или одну связь с политикой доступа таким образом, чтобы разные указатели могли обеспечивать разное время запуска и типы подключения к различным клиентам с использованием одних параметров разрешения и длительности. Однако из-за ограничений общей политики доступа, установленных службами хранилища Azure, невозможно одновременно связать с определенным активом более пяти указателей.
+###<a name="<a-id="locators"></a>locators"></a><a id="locators"></a>Locators
 
-Службы мультимедиа поддерживают два типа указателей: указатели OnDemandOrigin, используемые для потоковой передачи мультимедиа (например, MPEG DASH, HLS или Smooth Streaming) или последовательной загрузки мультимедиа и указатели URL-адрес, используемые для отправки или загрузки файлов мультимедиа в или из хранилища Azure.
+[Locator](https://msdn.microsoft.com/library/azure/hh974308.aspx)s provide an entry point to access the files contained in an asset. An access policy is used to define the permissions and duration that a client has access to a given asset. Locators can have a many to one relationship with an access policy, such that different locators can provide different start times and connection types to different clients while all using the same permission and duration settings; however, because of a shared access policy restriction set by Azure storage services, you cannot have more than five unique locators associated with a given asset at one time. 
 
-Обратите внимание, что разрешение списка (AccessPermissions.List) не следует использовать при создании указателя OrDemandOrigin.
+Media Services supports two types of locators: OnDemandOrigin locators, used to stream media (for example, MPEG DASH, HLS, or Smooth Streaming) or progressively download media and SAS URL locators, used to upload or download media files to\from Azure storage. 
 
-###Учетная запись хранения
+Note, that the list permission (AccessPermissions.List) should not be used when creating an OrDemandOrigin locator. 
 
-Весь доступ к хранилищу Azure осуществляется с помощью учетной записи хранения. Учетную запись служб мультимедиа можно связать с одной или несколькими учетными записями хранения. Учетная запись может содержать неограниченное количество контейнеров, пока их общий размер составляет менее 500 ТБ на учетную запись хранения. Службы мультимедиа обеспечивают средства уровня SDK, позволяющие управлять несколькими учетными записями хранения и распределять нагрузку распределения активов во время отправки в эти учетные записи на основе метрик или случайного распределения. Дополнительную информацию см. в разделе [Служба хранилища Azure](https://msdn.microsoft.com/library/azure/dn767951.aspx).
+###<a name="storage-account"></a>Storage account
 
-##Задания и задачи
+All access to Azure Storage is done through a storage account. A Media Service account can associate with one or more storage accounts. An account can contain an unlimited number of containers, as long as their total size is under 500TB per storage account.  Media Services provides SDK level tooling to allow you to manage multiple storage accounts and load balance the distribution of your assets during upload to these accounts based on metrics or random distribution. For more information, see Working with [Azure Storage](https://msdn.microsoft.com/library/azure/dn767951.aspx). 
 
-[Задание](https://msdn.microsoft.com/library/azure/hh974289.aspx) обычно используется для обработки (например, индексирования или кодирования) одного аудио- или видеопредставления. При обработке нескольких видео необходимо создать задание для перекодировки каждого.
+##<a name="jobs-and-tasks"></a>Jobs and tasks
 
-Задание включает метаданные о порядке обработки, которую необходимо выполнить. Каждое задание содержит одну или несколько [задач](https://msdn.microsoft.com/library/azure/hh974286.aspx), которые задают неделимую задачу обработки, ее входные ресурсы, выходные ресурсы, обработчик мультимедиа и связанные с ним параметры. Задачи в задании можно соединять между собой в цепочки, в которых выходной ресурс одной задачи является входным ресурсом следующей. Таким образом одно задание может содержать все обработки, необходимые для представления мультимедиа.
+A [job](https://msdn.microsoft.com/library/azure/hh974289.aspx) is typically used to process (for example, index or encode) one audio/video presentation. If you are processing multiple videos, create a job for each video to be encoded.
 
-##<a id="encoding"></a>Кодирование
+A job contains metadata about the processing to be performed. Each job contains one or more [task](https://msdn.microsoft.com/library/azure/hh974286.aspx)s that specify an atomic processing task, its input Assets, output Assets, a media processor and its associated settings. Tasks within a job can be chained together, where the output asset of one task is given as the input asset to the next task. In this way one job can contain all of the processing necessary for a media presentation.
 
-Службы мультимедиа Azure предоставляют несколько вариантов для кодирования мультимедиа в облаке.
+##<a name="<a-id="encoding"></a>encoding"></a><a id="encoding"></a>Encoding
 
-При начале работы со службами мультимедиа важно понимать разницу между кодеками и форматами файлов. Кодеки — это программное обеспечение, которое реализует алгоритмы сжатия и распаковки, тогда как форматы файлов являются контейнерами, в которых хранится сжатое видео.
+Azure Media Services provides multiple options for the encoding of media in the cloud.
 
-Службы мультимедиа обеспечивают динамическую упаковку, которая позволяет доставлять закодированное содержимое MP4-файлов с адаптивным битрейтом или Smooth Streaming в форматах потоковой передачи с поддержкой служб мультимедиа (MPEG DASH, HLS, Smooth Streaming, HDS) без необходимости повторной упаковки в эти форматы потоковой передачи.
+When starting out with Media Services, it is important to understand the difference between codecs and file formats.
+Codecs are the software that implements the compression/decompression algorithms whereas file formats are containers that hold the compressed video.
 
-Чтобы воспользоваться преимуществом [динамической упаковки](media-services-dynamic-packaging-overview.md), необходимо выполнить следующие действия:
+Media Services provides dynamic packaging which allows you to deliver your adaptive bitrate MP4 or Smooth Streaming encoded content in streaming formats supported by Media Services (MPEG DASH, HLS, Smooth Streaming, HDS) without you having to re-package into these streaming formats.
 
-- закодировать мезонинный (исходный) файл в набор MP4-файлов с адаптивной скоростью или в набор файлов Smooth Streaming (шаги кодирования показаны далее в этом учебнике);
-- получить по крайней мере одну единицу потокового воспроизведения по запросу для конечной точки потоковой передачи, из которой планируется доставлять содержимое. Дополнительную информацию см. в разделе [Масштабирование зарезервированных единиц потоковой передачи по запросу](media-services-portal-manage-streaming-endpoints.md).
+To take advantage of [dynamic packaging](media-services-dynamic-packaging-overview.md), you need to do the following:
 
-Службы мультимедиа поддерживают следующие кодировщики по запросу, описанные в этом разделе.
+- Encode your mezzanine (source) file into a set of adaptive bitrate MP4 files or adaptive bitrate Smooth Streaming files (the encoding steps are demonstrated later in this tutorial).
+- Get at least one On-Demand streaming unit for the streaming endpoint from which you plan to delivery your content. For more information, see [How to Scale On-Demand Streaming Reserved Units](media-services-portal-manage-streaming-endpoints.md).
 
-- [Стандартный кодировщик служб мультимедиа](media-services-encode-asset.md#media-encoder-standard)
-- [Расширенный рабочий процесс кодировщика мультимедиа](media-services-encode-asset.md#media-encoder-premium-workflow)
+Media Services supports the following on demand encoders that are described in this article:
 
-Дополнительную информацию о поддерживаемых кодировщиках см. в разделе [Кодировщики](media-services-encode-asset.md)
+- [Media Encoder Standard](media-services-encode-asset.md#media-encoder-standard)
+- [Media Encoder Premium Workflow](media-services-encode-asset.md#media-encoder-premium-workflow)
 
+For information about supported encoders, see [Encoders](media-services-encode-asset.md).
 
-##Потоковая передача в реальном времени
 
-В службах мультимедиа Azure канал представляет собой конвейер для обработки контента, передаваемого в потоковом режиме. Канал получает входные потоки одним из двух способов.
+##<a name="live-streaming"></a>Live Streaming
 
-- Локальный динамический кодировщик передает контент в многоскоростном формате RTMP или Smooth Streaming (фрагментированном формате MP4) в канал. Вы можете использовать следующие динамические кодировщики, выдающие контент в многоскоростном формате Smooth Streaming: Elemental, Envivio, Cisco. Следующие динамические кодировщики выдают контент в формате RTMP: Adobe Flash Live, Telestream Wirecast и транскодеры Tricaster. Переданные потоки проходят через каналы без дополнительной обработки. При получении запроса службы мультимедиа предоставляют потоки клиентам.
+In Azure Media Services, a Channel represents a pipeline for processing live streaming content. A Channel receives live input streams in one of two ways:
 
-- Односкоростной поток (в одном из следующих форматов: RTP (MPEG-TS), RTMP или Smooth Streaming (фрагментированный формат MP4)) передается в канал, который может осуществлять кодирование в реальном времени с помощью служб мультимедиа. Затем канал кодирует входящий односкоростной поток в реальном времени в многоскоростной (адаптивный) видеопоток. При получении запроса службы мультимедиа предоставляют потоки клиентам.
+- An on-premises live encoder sends multi-bitrate RTMP or Smooth Streaming (Fragmented MP4) to the Channel. You can use the following live encoders that output multi-bitrate Smooth Streaming: Elemental, Envivio, Cisco. The following live encoders output RTMP: Adobe Flash Live, Telestream Wirecast, and Tricaster transcoders. The ingested streams pass through Channels without any further processing. When requested, Media Services delivers the stream to customers.
 
-###Канал
+- A single bitrate stream (in one of the following formats: RTP (MPEG-TS)), RTMP, or Smooth Streaming (Fragmented MP4)) is sent to the Channel that is enabled to perform live encoding with Media Services. The Channel then performs live encoding of the incoming single bitrate stream to a multi-bitrate (adaptive) video stream. When requested, Media Services delivers the stream to customers.
 
-В службах мультимедиа [каналы](https://msdn.microsoft.com/library/azure/dn783458.aspx) отвечают за обработку обновляющегося содержимого потоковой трансляции. Канал предоставляет входную конечную точку, которая затем передается динамическому кодировщику. Канал получает входные потоковые трансляции от кодировщика и предоставляет их для потоковой передачи по одной или нескольким StreamingEndpoint. Каналы также предоставляют конечную точку предварительного просмотра (URL-адрес предварительного просмотра), используемого для предварительного просмотра и проверки вашего потока перед дальнейшей обработкой и доставкой.
+###<a name="channel"></a>Channel
 
-URL-адрес приема и URL-адрес предварительного просмотра можно получить при создании канала. Получить эти URL-адреса можно только тогда, когда канал не запущен. Когда все готово для начала передачи данных из динамического транскодера в канал, канал должен быть запущен. После запуска приема данных динамического транскодера можно выполнить предварительный просмотр потока.
+In Media Services, [Channel](https://msdn.microsoft.com/library/azure/dn783458.aspx)s are responsible for processing live streaming content. A Channel provides an input endpoint (ingest URL) that you then provide to a live transcoder. The channel receives live input streams from the live transcoder and makes it available for streaming through one or more StreamingEndpoints. Channels also provide a preview endpoint (preview URL) that you use to preview and validate your stream before further processing and delivery.
 
-Каждая учетная запись служб мультимедиа может содержать множество каналов, программ и конечных служб StreamingEndpoint. В зависимости от пропускной способности и потребностей безопасности службы StreamingEndpoint могут быть выделены одному или нескольким каналам. Любая служба StreamingEndpoint может извлекать данные из любого канала.
+You can get the ingest URL and the preview URL when you create the channel. To get these URLs, the channel does not have to be in the started state. When you are ready to start pushing data from a live transcoder into the channel, the channel must be started. Once the live transcoder starts ingesting data, you can preview your stream.
 
+Each Media Services account can contain multiple Channels, multiple Programs, and multiple StreamingEndpoints. Depending on the bandwidth and security needs, StreamingEndpoint services can be dedicated to one or more channels. Any StreamingEndpoint can pull from any Channel.
 
-###Программа
 
-[Программа](https://msdn.microsoft.com/library/azure/dn783463.aspx) позволяет управлять публикацией и хранением сегментов в динамическом потоке. Каналы управляют программами. Отношение между каналом и программой очень похоже на традиционные мультимедиа, где канал передает постоянный поток контента, а программа ограничена временным событием на этом канале. Можно указать количество часов, в течение которого записанный содержимого должен сохраняться для программы, установив свойство **ArchiveWindowLength**. Это значение может быть задано в диапазоне от 5 минут до 25 часов.
+###<a name="program"></a>Program
 
-Оно также указывает максимальное время, на которое клиенты могут вернуться назад от текущей позиции. Программы могут выходить за указанный промежуток времени, но содержимое за пределами этого промежутка постоянно удаляется. Значение этого свойства также определяет максимальный размер манифестов клиентов.
+A [Program](https://msdn.microsoft.com/library/azure/dn783463.aspx) enables you to control the publishing and storage of segments in a live stream. Channels manage Programs. The Channel and Program relationship is very similar to traditional media where a channel has a constant stream of content and a program is scoped to some timed event on that channel.
+You can specify the number of hours you want to retain the recorded content for the program by setting the **ArchiveWindowLength** property. This value can be set from a minimum of 5 minutes to a maximum of 25 hours.
 
-Каждая программа связана с ресурсом. Чтобы опубликовать программу, необходимо создать указатель для связанного ресурса. С помощью этого указателя можно сформировать URL-адрес потоковой передачи данных, который предоставляется клиентам.
+ArchiveWindowLength also dictates the maximum amount of time clients can seek back in time from the current live position. Programs can run over the specified amount of time, but content that falls behind the window length is continuously discarded. This value of this property also determines how long the client manifests can grow.
 
-Канал поддерживает одновременную потоковую трансляцию до трех программ, поэтому можно создавать по несколько архивов одного и того же входящего потока. Благодаря этому можно публиковать и архивировать разные части транслируемого мероприятия. Например ваш бизнес-требование — архивировать 6 часов программы, но для передачи только оставить последние 10 минут. Для этого необходимо создать две одновременно работающие программы. Для одной из них настроено архивирование 6 часов транслируемого мероприятия, но без публикации. Для второй программы настроено архивирование 10 минут с публикацией.
+Each program is associated with an Asset. To publish the program you must create a locator for the associated asset. Having this locator will enable you to build a streaming URL that you can provide to your clients.
 
+A channel supports up to three concurrently running programs so you can create multiple archives of the same incoming stream. This allows you to publish and archive different parts of an event as needed. For example, your business requirement is to archive 6 hours of a program, but to broadcast only last 10 minutes. To accomplish this, you need to create two concurrently running programs. One program is set to archive 6 hours of the event but the program is not published. The other program is set to archive for 10 minutes and this program is published.
 
-Дополнительные сведения см. в следующих статьях:
 
-- [Работа с каналами, выполняющими кодирование в реальном времени с помощью служб мультимедиа Azure](media-services-manage-live-encoder-enabled-channels.md)
-- [Работа с каналами, получающими динамические многоскоростные потоки данных от локальных кодировщиков](media-services-live-streaming-with-onprem-encoders.md)
-- [Квоты и ограничения](media-services-quotas-and-limitations.md)
+For more information, see:
 
-##Защита содержимого
+- [Working with Channels that are Enabled to Perform Live Encoding with Azure Media Services](media-services-manage-live-encoder-enabled-channels.md)
+- [Working with Channels that Receive Multi-bitrate Live Stream from On-premises Encoders](media-services-live-streaming-with-onprem-encoders.md)
+- [Quotas and limitations](media-services-quotas-and-limitations.md).
 
-###Динамическое шифрование
+##<a name="protecting-content"></a>Protecting content
 
-Службы мультимедиа Azure позволяют защитить данные мультимедиа, покидающие ваш компьютер, на этапах их хранения, обработки и доставки. Службы мультимедиа позволяют доставлять содержимое, зашифрованное динамически с помощью AES (с использованием 128-битных ключей шифрования) и общим шифрованием (CENC), используя PlayReady и (или) Widevine DRM. Они также обеспечивают службы доставки ключей AES и лицензий PlayReady авторизованным клиентам.
+###<a name="dynamic-encryption"></a>Dynamic encryption
 
-В настоящее время поддерживается шифрование для следующих форматов потоковой передачи: HLS, MPEG DASH и Smooth Streaming. Шифрование формата потоковой передачи HDS и последовательных скачиваний не поддерживается.
+Azure Media Services enables you to secure your media from the time it leaves your computer through storage, processing, and delivery. Media Services allows you to deliver your content encrypted dynamically with Advanced Encryption Standard (AES) (using 128-bit encryption keys) and common encryption (CENC) using PlayReady and/or Widevine DRM. Media Services also provides a service for delivering AES keys and PlayReady licenses to authorized clients.
 
-Если требуется, чтобы службы мультимедиа зашифровали ресурс, необходимо связать ключ шифрования (CommonEncryption или EnvelopeEncryption) с ресурсом, а также настроить политики авторизации для ключа.
+Currently, you can encrypt the following streaming formats: HLS, MPEG DASH, and Smooth Streaming. You cannot encrypt HDS streaming format, or progressive downloads.
 
-Для потоковой передачи ресурса из зашифрованного хранилища необходимо настроить политику доставки ресурсов, указав способ доставки этого ресурса.
+If you want for Media Services to encrypt an asset, you need to associate an encryption key (CommonEncryption or EnvelopeEncryption) with your asset and also configure authorization policies for the key.
 
-Когда поток запрашивается проигрывателем, службы мультимедиа используют указанный ключ для динамического шифрования содержимого с помощью конвертного (AES) или общего (PlayReady или Widevine) шифрования. Чтобы расшифровать поток, проигрыватель запросит ключ у службы доставки ключей. Чтобы определить, есть ли у пользователя право на получение ключа, служба оценивает политики авторизации, заданные для ключа.
+If you want to stream a storage encrypted asset, you must configure the asset's delivery policy in order to specify how you want to deliver your asset.
 
+When a stream is requested by a player, Media Services uses the specified key to dynamically encrypt your content using an envelope encryption (with AES) or common encryption (with PlayReady  or Widevine). To decrypt the stream, the player will request the key from the key delivery service. To decide whether or not the user is authorized to get the key, the service evaluates the authorization policies that you specified for the key.
 
-###Ограничение по маркеру
 
-Для политики авторизации ключа содержимого можно задать одно или несколько из ограничений авторизации: открытая авторизация, с ограничением по маркеру или с ограничением по IP-адресу. При ограничении по маркеру к политике должен прилагаться маркер, выданный службой маркеров безопасности (STS). Службы мультимедиа поддерживают маркеры в формате простого веб-маркера (SWT) и формате веб-маркера JSON (JWT). Службы мультимедиа не предоставляют службы маркеров безопасности. Для выдачи маркеров можно создать пользовательскую службу STS или использовать службу Microsoft Azure ACS. Чтобы создать маркер, подписанный указанным ключом, и получить утверждения, указанные в конфигурации ограничения по маркерам, должна быть настроена служба маркеров безопасности. Служба доставки ключей служб мультимедиа возвращает клиенту запрошенный ключ (или лицензию), если маркер является допустимым, а его утверждения соответствуют утверждениям, настроенным для ключа (или лицензии).
+###<a name="token-restriction"></a>Token restriction
 
-При настройке политики ограничения по маркеру необходимо задать такие параметры, как основной ключ проверки, издатель и аудитория. Основной ключ проверки содержит ключ, которым подписан маркер, а издатель — это служба маркеров безопасности, которая выдает маркер. Аудитория (иногда называется областью) описывает назначение маркера или ресурс, доступ к которому обеспечивает маркер. Служба доставки ключей служб мультимедиа проверяет, соответствуют ли эти значения в маркере значениям в шаблоне.
+The content key authorization policy could have one or more authorization restrictions: open, token restriction, or IP restriction. The token restricted policy must be accompanied by a token issued by a Secure Token Service (STS). Media Services supports tokens in the Simple Web Tokens (SWT) format and JSON Web Token (JWT) format. Media Services does not provide Secure Token Services. You can create a custom STS or leverage Microsoft Azure ACS to issue tokens. The STS must be configured to create a token signed with the specified key and issue claims that you specified in the token restriction configuration. The Media Services key delivery service will return the requested key (or license) to the client if the token is valid and the claims in the token match those configured for the key (or license).
 
-Дополнительные сведения см. в следующих статьях:
+When configuring the token restricted policy, you must specify the primary verification key, issuer and audience parameters. The primary verification key contains the key that the token was signed with, issuer is the secure token service that issues the token. The audience (sometimes called scope) describes the intent of the token or the resource the token authorizes access to. The Media Services key delivery service validates that these values in the token match the values in the template.
 
-[Общие сведения о защите содержимого](media-services-content-protection-overview.md) [Защита с помощью AES-128](media-services-protect-with-aes128.md) [Защита с помощью DRM](media-services-protect-with-drm.md)
+For more information, see the following articles:
 
-##Доставка содержимого
+[Protect content overview](media-services-content-protection-overview.md)
+[Protect with AES-128](media-services-protect-with-aes128.md)
+[Protect with DRM](media-services-protect-with-drm.md)
 
-###<a id="dynamic_packaging"></a>Динамическая упаковка
+##<a name="delivering"></a>Delivering
 
-При работе со службами мультимедиа рекомендуется всегда кодировать мезонинные файлы в набор MP4 с адаптивной скоростью, а затем преобразовать их в нужный формат с помощью [динамической упаковки](media-services-dynamic-packaging-overview.md).
+###<a name="<a-id="dynamic_packaging"></a>dynamic-packaging"></a><a id="dynamic_packaging"></a>Dynamic packaging
 
+When working with Media Services it is recommended to encode your mezzanine files into an adaptive bitrate MP4 set and then convert the set to the desired format using the [Dynamic Packaging](media-services-dynamic-packaging-overview.md).
 
-###Конечная точка потоковой трансляции
 
-StreamingEndpoint представляет собой службу потоковой трансляции, способную передавать контент непосредственно в приложение проигрывателя клиента или в сеть доставки содержимого для дальнейшего распределения. Исходящий поток из службы StreamingEndpoint может быть потоком трансляции или активом видео по запросу в учетной записи служб мультимедиа. Кроме того, вы можете управлять емкостью службы StreamingEndpoint для обработки растущих требований к пропускной способности, изменив единицы масштабирования (также известные как единицы потоковой передачи). Рекомендуем выделить одну или несколько единиц масштабирования для приложения в рабочей среде. Единицы масштабирования предоставляют как выделенные мощности исходящего трафика, которые могут быть приобретены с шагом 200 Мбит/с, так и дополнительную функциональность, которая в настоящее время включает возможности динамической упаковки.
+###<a name="streaming-endpoint"></a>Streaming endpoint
 
-Рекомендуется использовать динамическую упаковку или динамическое шифрование. Для этого нужна хотя бы одна единица потоковой трансляции для конечной точки, из которой планируется организовать потоковую трансляцию. Дополнительную информацию см. в разделе [Масштабирование единиц потоковой передачи](media-services-portal-manage-streaming-endpoints.md).
+A StreamingEndpoint represents a streaming service that can deliver content directly to a client player application, or to a Content Delivery Network (CDN) for further distribution (Azure Media Services now provides the Azure CDN integration.) The outbound stream from a StreamingEndpoint service can be a live stream, or a video on demand Asset in your Media Services account. In addition, you can control the capacity of the StreamingEndpoint service to handle growing bandwidth needs by adjusting scale units (also known as streaming units). It is recommended to allocate one or more scale units for applications in production environment. Scale units provide you with both dedicated egress capacity that can be purchased in increments of 200 Mbps and additional functionality which currently includes use dynamic packaging.
 
-По умолчанию в учетную запись служб мультимедиа можно добавить до 2 конечных точек потоковой передачи. Информацию о том, как увеличить максимальное значение, см. в статье [Квоты и ограничения](media-services-quotas-and-limitations.md).
+It is recommended to use dynamic packaging and\or dynamic encryption. To use these features, you must have at least one streaming unit for the endpoint from which you plan to stream. For more information, see  [Scaling streaming units](media-services-portal-manage-streaming-endpoints.md).
 
-Плата взимается, только когда служба StreamingEndpoint используется.
+By default you can have up to 2 streaming endpoints in your Media Services account. To request a higher limit, see [Quotas and limitations](media-services-quotas-and-limitations.md).
 
-###Политика доставки ресурсов
+You are only billed when your StreamingEndpoint is in running state.
 
-Один из шагов в рабочем процессе доставки содержимого служб мультимедиа — настройка [политик доставки ресурсов](https://msdn.microsoft.com/library/azure/dn799055.aspx), для которых необходимо выполнить потоковую передачу. Политика доставки ресурсов сообщает службам мультимедиа способ доставки ресурса: какие протоколы передачи следует использовать для динамической упаковки ресурса (например, MPEG DASH, HLS, Smooth Streaming или все), следует ли использовать динамическое шифрование и как (конвертное или общее шифрование).
+###<a name="asset-delivery-policy"></a>Asset delivery policy
 
-Перед началом потоковой передачи ресурса сервер потоковой передачи удаляет шифрование хранилища и выполняет потоковую передачу контента с использованием определенной политики доставки. Например, чтобы доставить ресурс, зашифрованный с помощью ключа шифрования AES, установите тип политики DynamicEnvelopeEncryption. Чтобы удалить шифрование хранилища и выполнить потоковую передачу ресурса в незашифрованном виде, задайте для типа политики значение NoDynamicEncryption.
+One of the steps in the Media Services content delivery workflow is configuring [delivery policies for assets ](https://msdn.microsoft.com/library/azure/dn799055.aspx)that you want to be streamed. The asset delivery policy tells Media Services how you want for your asset to be delivered: into which streaming protocol should your asset be dynamically packaged (for example, MPEG DASH, HLS, Smooth Streaming, or all), whether or not you want to dynamically encrypt your asset and how (envelope or common encryption).
 
-###Прогрессивное скачивание
+If you have a storage encrypted asset, before your asset can be streamed, the streaming server removes the storage encryption and streams your content using the specified delivery policy. For example, to deliver your asset encrypted with Advanced Encryption Standard (AES) encryption key, set the policy type to DynamicEnvelopeEncryption. To remove storage encryption and stream the asset in the clear, set the policy type to NoDynamicEncryption.
 
-Прогрессивное скачивание позволяет начать воспроизведение мультимедиа до окончания скачивания всего файла. Допускается только прогрессивное скачивание MP4-файла.
+###<a name="progressive-download"></a>Progressive download
 
-Обратите внимание, что зашифрованные ресурсы необходимо расшифровать, если он должны быть доступны для прогрессивного скачивания.
+Progressive download allows you to start playing media before the entire file has been downloaded. You can only progressively download an MP4 file.
 
-Чтобы предоставить пользователям URL-адреса прогрессивного скачивания, сначала необходимо создать указатель OnDemandOrigin. При создании указателя будет получен базовый путь к ресурсу. К нему нужно будет добавить имя MP4-файла. Например:
+Note that you must decrypt encrypted assets if you wish for them to be available for progressive download.
+
+To provide users with progressive download URLs, you first must create an OnDemandOrigin locator. Creating the locator, gives you the base Path to the asset. You then need to append the name of MP4 file. For example:
 
 http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny_H264_650kbps_AAC_und_ch2_96kbps.mp4
 
-###URL-адреса потоковой передачи
+###<a name="streaming-urls"></a>Streaming URLs
 
-Потоковая передача контента клиентам Чтобы предоставить пользователям URL-адреса потоковой передачи, сначала необходимо создать указатель OnDemandOrigin. При создании указателя вы получите базовое значение Path для ресурса, который содержит контент для потоковой передачи. Однако, чтобы получить возможность потоковой передачи контента, необходимо изменить этот путь. Чтобы создать полный URL-адрес к файлу манифеста потоковой передачи, необходимо соединить значение Path указателя и имя файла манифеста (filename.ism). Затем добавьте /Manifest и соответствующий формат (если нужно) в путь указателя источника.
+Streaming your content to clients. To provide users with streaming URLs, you first must create an OnDemandOrigin locator. Creating the locator, gives you the base Path to the asset that contains the content you want to stream. However, to be able to stream this content you need to modify this path further. To construct a full URL to the streaming manifest file, you must concatenate the locator’s Path value and the manifest (filename.ism) file name. Then, append /Manifest and an appropriate format (if needed) to the locator path.
 
-Также по SSL-подключению можно выполнять потоковую передачу содержимого. Для этого убедитесь, что URL-адреса потоковой передачи начинаются с HTTPS.
+You can also stream your content over an SSL connection. To do this, make sure your streaming URLs start with HTTPS.
 
-Обратите внимание, что потоковую передачу через SSL-соединение можно выполнять, только если конечная точка потоковой передачи, из которой получено содержимое, была создана после 10 сентября 2014 г. Если URL-адреса потоковой передачи основаны на конечных точках потоковой передачи, созданных после 10 сентября, URL-адрес содержит "streaming.mediaservices.windows.net" (новый формат). URL-адреса потоковой передачи, который содержат "origin.mediaservices.windows.net" (старый формат), не поддерживают SSL. Если URL-адрес имеет старый формат и необходимо организовать передачу через SSL, нужно создать новую конечную точку. Используйте URL-адреса, созданные на основе новой конечной точки потоковой передачи, для потоковой передачи содержимого по SSL.
+Note that you can only stream over SSL if the streaming endpoint from which you deliver your content was created after September 10th, 2014. If your streaming URLs are based on the streaming endpoints created after September 10th, the URL contains “streaming.mediaservices.windows.net” (the new format). Streaming URLs that contain “origin.mediaservices.windows.net” (the old format) do not support SSL. If your URL is in the old format and you want to be able to stream over SSL, create a new streaming endpoint. Use URLs created based on the new streaming endpoint to stream your content over SSL.
 
-В следующем списке описываются различные форматы потоковой передачи и приведены примеры:
+The following list describes different streaming formats and gives examples:
 
 - Smooth Streaming
 
-{имя конечной точки потоковой передачи - имя учетной записи служб мультимедиа}.streaming.mediaservices.windows.net/{идентификатор указателя}/{имя файла}.ism/Manifest
+{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest
 
 http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest
 
 
 - MPEG DASH
 
-{имя конечной точки потоковой передачи - имя учетной записи служб мультимедиа}.streaming.mediaservices.windows.net/{идентификатор указателя}/{имя файла}.ism/Manifest(format=mpd-time-csf)
+{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=mpd-time-csf)
 
 http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=mpd-time-csf)
 
@@ -225,7 +230,7 @@ http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f
 
 - Apple HTTP Live Streaming (HLS) V4
 
-{имя конечной точки потоковой передачи - имя учетной записи служб мультимедиа}.streaming.mediaservices.windows.net/{идентификатор указателя}/{имя файла}.ism/Manifest(format=m3u8-aapl)
+{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=m3u8-aapl)
 
 http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl)
 
@@ -233,23 +238,27 @@ http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f
 
 - Apple HTTP Live Streaming (HLS) V3
 
-{имя конечной точки потоковой передачи - имя учетной записи служб мультимедиа}.streaming.mediaservices.windows.net/{идентификатор указателя}/{имя файла}.ism/Manifest(format=m3u8-aapl-v3)
+{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=m3u8-aapl-v3)
 
 http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl-v3)
 
-- HDS (только для лицензиатов Adobe PrimeTime/Access)
+- HDS (for Adobe PrimeTime/Access licensees only)
 
-{имя конечной точки потоковой передачи - имя учетной записи служб мультимедиа}.streaming.mediaservices.windows.net/{идентификатор указателя}/{имя файла}.ism/Manifest(format=f4m-f4f)
+{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=f4m-f4f)
 
 http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=f4m-f4f)
 
 
-##Схемы обучения работе со службами мультимедиа
+##<a name="media-services-learning-paths"></a>Media Services learning paths
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-##Отзывы
+##<a name="provide-feedback"></a>Provide feedback
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Создание индекса службы поиска Azure с помощью REST API | Microsoft Azure | Размещенная облачная служба поиска"
-    description="Программное создание индекса с помощью HTTP REST API службы поиска Azure."
+    pageTitle="Create an Azure Search index using the REST API | Microsoft Azure | Hosted cloud search service"
+    description="Create an index in code using the Azure Search HTTP REST API."
     services="search"
     documentationCenter=""
     authors="ashmaka"
@@ -17,44 +17,45 @@
     ms.date="08/29/2016"
     ms.author="ashmaka"/>
 
-# Создание индекса службы поиска Azure с помощью REST API
+
+# <a name="create-an-azure-search-index-using-the-rest-api"></a>Create an Azure Search index using the REST API
 > [AZURE.SELECTOR]
-- [Обзор](search-what-is-an-index.md)
-- [Портал](search-create-index-portal.md)
+- [Overview](search-what-is-an-index.md)
+- [Portal](search-create-index-portal.md)
 - [.NET](search-create-index-dotnet.md)
 - [REST](search-create-index-rest-api.md)
 
 
-Эта статья поможет вам создать [индекс](https://msdn.microsoft.com/library/azure/dn798941.aspx) службы поиска Azure с помощью REST API службы поиска Azure.
+This article will walk you through the process of creating an Azure Search [index](https://msdn.microsoft.com/library/azure/dn798941.aspx) using the Azure Search REST API.
 
-Перед выполнением инструкций, приведенных в этом руководстве, и созданием индекса следует [создать службу поиска Azure](search-create-service-portal.md).
+Before following this guide and creating an index, you should have already [created an Azure Search service](search-create-service-portal.md).
 
-Чтобы создать индекс службы поиска Azure с помощью REST API, вам нужно отправить один HTTP-запрос POST к конечной точке службы поиска Azure по определенному адресу. Определение индекса будет содержаться в тексте запроса как JSON-содержимое правильного формата.
+To create an Azure Search index using the REST API, you will issue a single HTTP POST request to your Azure Search service's URL endpoint. Your index definition will be contained in the request body as well-formed JSON content.
 
 
-## 1\. Определение ключа API администратора службы поиска Azure
-Подготовив службу поиска Azure, вы можете отправлять HTTP-запросы к конечной точке вашей службы по определенному URL-адресу, используя REST API. При этом *все* запросы API должны содержать ключ API, который был создан для подготовленной службы поиска. Если есть действительный ключ, для каждого запроса устанавливаются отношения доверия между приложением, которое отправляет запрос, и службой, которая его обрабатывает.
+## <a name="i.-identify-your-azure-search-service's-admin-api-key"></a>I. Identify your Azure Search service's admin api-key
+Now that you have provisioned an Azure Search service, you can issue HTTP requests against your service's URL endpoint using the REST API. However, *all* API requests must include the api-key that was generated for the Search service you provisioned. Having a valid key establishes trust, on a per request basis, between the application sending the request and the service that handles it.
 
-1. Чтобы найти ключи API своей службы, войдите на [портал Azure](https://portal.azure.com/).
-2. Перейдите к колонке службы поиска Azure.
-3. Щелкните значок "Ключи".
+1. To find your service's api-keys you must log into the [Azure Portal](https://portal.azure.com/)
+2. Go to your Azure Search service's blade
+3. Click on the "Keys" icon
 
-Ваша служба получит *ключи администратора* и *ключи запросов*.
+Your service will have *admin keys* and *query keys*.
 
- - Первичные и вторичные *ключи администратора* предоставляют полный доступ ко всем операциям, включая возможность управлять службой, создавать и удалять индексы, индексаторы и источники данных. Ключей два, поэтому вы можете и дальше использовать вторичный ключ, если решите повторно создать первичный ключ, и наоборот.
- - *Ключи запросов* предоставляют только разрешение на чтение индексов и документов; обычно они добавляются в клиентские приложения, которые создают запросы на поиск.
+ - Your primary and secondary *admin keys* grant full rights to all operations, including the ability to manage the service, create and delete indexes, indexers, and data sources. There are two keys so that you can continue to use the secondary key if you decide to regenerate the primary key, and vice-versa.
+ - Your *query keys* grant read-only access to indexes and documents, and are typically distributed to client applications that issue search requests.
 
-Для создания индекса можно использовать первичный или вторичный ключ администратора.
+For the purposes of creating an index, you can use either your primary or secondary admin key.
 
-## 2\. Определение индекса службы поиска Azure с помощью JSON-содержимого правильного формата
-Создать индекс можно с помощью одного HTTP-запроса POST к службе. Текст HTTP-запроса POST должен содержать один объект JSON, определяющий индекс службы поиска Azure.
+## <a name="ii.-define-your-azure-search-index-using-well-formed-json"></a>II. Define your Azure Search index using well-formed JSON
+A single HTTP POST request to your service will create your index. The body of your HTTP POST request will contain a single JSON object that defines your Azure Search index.
 
-1. Первое свойство этого объекта JSON — имя индекса.
-2. Второе свойство — массив JSON с именем `fields`, содержащий отдельный объект JSON для каждого поля в индексе. Каждый из этих объектов JSON содержит несколько пар "имя — значение" для каждого из атрибутов поля, включая name, type и т. д.
+1. The first property of this JSON object is the name of your index.
+2. The second property of this JSON object is a JSON array named `fields` that contains a separate JSON object for each field in your index. Each of these JSON objects contain multiple name/value pairs for each of the field attributes including "name," "type," etc.
 
-При проектировании индекса важно помнить о бизнес-потребностях и удобстве работы с поиском, поэтому каждому полю необходимо назначить [правильные атрибуты](https://msdn.microsoft.com/library/azure/dn798941.aspx). Эти атрибуты контролируют, какие функции поиска (фильтрация, фасетная навигация, сортировка полнотекстового поиска и т. д.) применяются к каждому полю. Если атрибут не указан, по умолчанию будет использоваться соответствующая функция поиска, если вы специально не отключите ее.
+It is important that you keep your search user experience and business needs in mind when designing your index as each field must be assigned the [proper attributes](https://msdn.microsoft.com/library/azure/dn798941.aspx). These attributes control which search features (filtering, faceting, sorting full-text search, etc.) apply to which fields. For any attribute you do not specify, the default will be to enable the corresponding search feature unless you specifically disable it.
 
-В нашем примере мы присвоили индексу имя hotels и определили поля следующим образом:
+For our example, we've named our index "hotels" and defined our fields as follows:
 
 ```JSON
 {
@@ -76,18 +77,18 @@
 }
 ```
 
-Мы тщательно выбрали атрибуты индекса для каждого поля в зависимости от того, как мы планируем использовать их в приложении. Например, `hotelId` — это уникальный ключ, который, скорее всего, не будет известен пользователям, ищущим гостиницы. Поэтому мы отключаем полнотекстовый поиск для этого поля, задав для `searchable` значение `false`, что экономит место в индексе.
+We have carefully chosen the index attributes for each field based on how we think they will be used in an application. For example, `hotelId` is a unique key that people searching for hotels likely won't know, so we disable full-text search for that field by setting `searchable` to `false`, which saves space in the index.
 
-Обратите внимание, что только одно поле в индексе типа `Edm.String` должно быть назначено как поле key.
+Please note that exactly one field in your index of type `Edm.String` must be the designated as the 'key' field.
 
-В приведенном выше определении индекса используется настраиваемый языковой анализатор для поля `description_fr`, так как оно предназначено для текста на французском языке. Дополнительные сведения об анализаторах языка см. в [статье о поддержке языков на сайте MSDN](https://msdn.microsoft.com/library/azure/dn879793.aspx), а также в соответствующей [записи блога](https://azure.microsoft.com/blog/language-support-in-azure-search/).
+The index definition above uses a custom language analyzer for the `description_fr` field because it is intended to store French text. See [the Language support topic on MSDN](https://msdn.microsoft.com/library/azure/dn879793.aspx) as well as the corresponding [blog post](https://azure.microsoft.com/blog/language-support-in-azure-search/) for more information about language analyzers.
 
-## 3\. Отправка HTTP-запроса
-1. Используя определение индекса в качестве текста запроса, отправьте HTTP-запрос POST в конечную точку службы поиска Azure по URL-адресу. В URL-адресе в качестве имени узла следует использовать имя службы. Также важно правильно указать `api-version` как параметр строки запроса (текущая версия API на момент публикации этого документа — `2015-02-28`).
-2. В заголовках запроса укажите `Content-Type` в качестве `application/json`. Необходимо также указать ключ администратора службы, который мы определили в заголовке `api-key` (см. шаг 1).
+## <a name="iii.-issue-the-http-request"></a>III. Issue the HTTP request
+1. Using your index definition as the request body, issue an HTTP POST request to your Azure Search service endpoint URL. In the URL, be sure to use your service name as the host name, and put the proper `api-version` as a query string parameter (the current API version is `2015-02-28` at the time of publishing this document).
+2. In the request headers, specify the `Content-Type` as `application/json`. You will also need to provide your service's admin key that you identified in Step I in the `api-key` header.
 
 
-Вы должны указать собственные имя службы и ключ API, чтобы выполнить приведенный ниже запрос.
+You will have to provide your own service name and api key to issue the request below:
 
 
     POST https://[service name].search.windows.net/indexes?api-version=2015-02-28
@@ -95,15 +96,19 @@
     api-key: [api-key]
 
 
-При успешном выполнении запроса возвращается код состояния 201 (индекс создан). Дополнительные сведения о создании индекса с помощью REST API см. в справочнике по API на сайте [MSDN](https://msdn.microsoft.com/library/azure/dn798941.aspx). Дополнительные сведения о других кодах состояния HTTP, которые могут быть возвращены в случае сбоя, см. в статье [Коды состояния HTTP (поиск Azure)](https://msdn.microsoft.com/library/azure/dn798925.aspx).
+For a successful request, you should see status code 201 (Created). For more information on creating an index via the REST API, please visit the API reference on [MSDN](https://msdn.microsoft.com/library/azure/dn798941.aspx). For more information on other HTTP status codes that could be returned in case of failure, see [HTTP status codes (Azure Search)](https://msdn.microsoft.com/library/azure/dn798925.aspx).
 
-Если вы завершили работу с индексом и хотите удалить его, просто отправьте HTTP-запрос DELETE. Например, индекс hotels удаляется так:
+When you're done with an index and want to delete it, just issue an HTTP DELETE request. For example, this is how we would delete the "hotels" index:
 
     DELETE https://[service name].search.windows.net/indexes/hotels?api-version=2015-02-28
     api-key: [api-key]
 
 
-## Далее
-Создав индекс службы поиска Azure, вы сможете [передать в него содержимое](search-what-is-data-import.md) и искать нужные вам данные.
+## <a name="next"></a>Next
+After creating an Azure Search index, you will be ready to [upload your content into the index](search-what-is-data-import.md) so you can start searching your data.
 
-<!---HONumber=AcomDC_0831_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

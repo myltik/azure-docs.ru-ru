@@ -1,25 +1,28 @@
-### Создайте конечную точку TCP для виртуальной машины
+### <a name="create-a-tcp-endpoint-for-the-virtual-machine"></a>Create a TCP endpoint for the virtual machine
 
-Для доступа к SQL Server из Интернета на виртуальной машине должна быть настроена конечная точка для прослушивания входящих TCP-подключений. На данном этапе настройки Azure направляет входящий трафик TCP-порта на TCP-порт, доступный для виртуальной машины.
+In order to access SQL Server from the internet, the virtual machine must have an endpoint to listen for incoming TCP communication. This Azure configuration step, directs incoming TCP port traffic to a TCP port that is accessible to the virtual machine.
 
->[AZURE.NOTE] При подключении в пределах той же облачной службы или виртуальной сети не нужно создавать общедоступную конечную точку. В этом случае можно перейти к следующему шагу. Дополнительные сведения см. в статье [Сценарии подключения](../articles/virtual-machines/virtual-machines-windows-classic-sql-connect.md#connection-scenarios).
+>[AZURE.NOTE] If you are connecting within the same cloud service or virtual network, you do not have to create a publically accessible endpoint. In that case, you could continue to the next step. For more information, see [Connection Scenarios](../articles/virtual-machines/virtual-machines-windows-classic-sql-connect.md#connection-scenarios).
 
-1. На портале Azure выберите **Виртуальные машины (классика)**.
+1. On the Azure Portal, select **Virtual machines (classic)**.
 
-2. Затем выберите виртуальную машину SQL Server.
+2. Then select you SQL Server virtual machine.
 
-3. Выберите **Конечные точки**, а затем в верхней части колонки "Конечные точки" нажмите кнопку **Добавить**.
+3. Select **Endpoints**, and then click the **Add** button at the top of the Endpoints blade.
 
-	![Шаги для создания конечной точки на портале](./media/virtual-machines-sql-server-connection-steps/portal-endpoint-creation.png)
+    ![Portal Steps for Endpoint Creation](./media/virtual-machines-sql-server-connection-steps/portal-endpoint-creation.png)
 
-4. В колонке **Добавление конечной точки** введите **имя**, например SQLEndpoint.
+4. On the **Add Endpoint** blade, provide a **Name** such as SQLEndpoint.
 
-5. В разделе **Протокол** выберите **TCP**.
+5. Select **TCP** for the **Protocol**.
 
-6. В разделе **Общий порт** укажите номер порта, например **57500**.
+6. For **Public port**, specify a port number such as **57500**.
 
-7. В разделе **Частный порт** укажите порт прослушивания SQL Server; по умолчанию используется **1433**.
+7. For **Private port**, specify SQL Server's listening port, which defaults to **1433**.
 
-6. Нажмите кнопку **ОК**, чтобы создать конечную точку.
+6. Click **Ok** to create the endpoint.
 
-<!---HONumber=AcomDC_0629_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,68 +1,71 @@
-## Создание классической виртуальной сети с помощью интерфейса командной строки Azure
+## <a name="how-to-create-a-classic-vnet-using-azure-cli"></a>How to create a classic VNet using Azure CLI
 
-Интерфейс командной строки Azure можно использовать для управления ресурсами Azure из командной строки с любого компьютера под управлением Windows, Linux или OSX. Чтобы создать виртуальную сеть с помощью интерфейса командной строки Azure, выполните указанные ниже действия.
+You can use the Azure CLI to manage your Azure resources from the command prompt from any computer running Windows, Linux, or OSX. To create a VNet by using the Azure CLI, follow the steps below.
 
-1. Если вы еще не пользовались интерфейсом командной строки Azure, см. статью [Установка и настройка интерфейса командной строки Azure](../articles/xplat-cli-install.md) и следуйте инструкциям вплоть до выбора учетной записи Azure и подписки.
-2. Выполните команду **azure network vnet create**, чтобы создать виртуальную сеть и подсеть, как показано ниже. В списке, который откроется после выполнения команды, будут указаны используемые параметры.
+1. If you have never used Azure CLI, see [Install and Configure the Azure CLI](../articles/xplat-cli-install.md) and follow the instructions up to the point where you select your Azure account and subscription.
+2. Run the **azure network vnet create** command to create a VNet and a subnet, as shown below. The list shown after the output explains the parameters used.
 
-			azure network vnet create --vnet TestVNet -e 192.168.0.0 -i 16 -n FrontEnd -p 192.168.1.0 -r 24 -l "Central US"
-	
-	Ожидаемые выходные данные:
+            azure network vnet create --vnet TestVNet -e 192.168.0.0 -i 16 -n FrontEnd -p 192.168.1.0 -r 24 -l "Central US"
+    
+    Expected output:
 
-			info:    Executing command network vnet create
-			+ Looking up network configuration
-			+ Looking up locations
-			+ Setting network configuration
-			info:    network vnet create command OK
+            info:    Executing command network vnet create
+            + Looking up network configuration
+            + Looking up locations
+            + Setting network configuration
+            info:    network vnet create command OK
 
-	- **--vnet**. Имя виртуальной сети, которую нужно будет создать. В данном сценарии это *TestVNet*.
-	- **-e (или --address-space)**. Адресное пространство виртуальной сети. В данном сценарии это *192.168.0.0*.
-	- **-i (или -cidr)**. Маска подсети в формате CIDR. В данном сценарии это *16*.
-	- **-n (или --subnet-name**). Имя первой подсети. В данном сценарии это *FrontEnd*.
-	- **-p (или --subnet-start-ip)**. Начальный IP-адрес для подсети или адресное пространство подсети. В нашем сценарии это *192.168.1.0*.
-	- **-r (или --subnet-cidr)**. Маска подсети в формате CIDR для подсети. В данном сценарии это *24*.
-	- **-l (или --location)**. Регион Azure, в котором будет создана виртуальная сеть. В данном сценарии это *Central US*.
+    - **--vnet**. Name of the VNet to be created. For our scenario, *TestVNet*
+    - **-e (or --address-space)**. VNet address space. For our scenario, *192.168.0.0*
+    - **-i (or -cidr)**. Network mask in CIDR format. For our scenario, *16*.
+    - **-n (or --subnet-name**). Name of the first subnet. For our scenario, *FrontEnd*.
+    - **-p (or --subnet-start-ip)**. Starting IP address for subnet, or subnet address space. For our scenario, *192.168.1.0*.
+    - **-r (or --subnet-cidr)**. Network mask in CIDR format for subnet. For our scenario, *24*.
+    - **-l (or --location)**. Azure region where the VNet will be created. For our scenario, *Central US*.
 
-3. Выполните команду **azure network vnet subnet create**, чтобы создать подсеть, как показано ниже. В списке, который откроется после выполнения команды, будут указаны используемые параметры.
+3. Run the **azure network vnet subnet create** command to create a subnet as shown below. The list shown after the output explains the parameters used.
 
-			azure network vnet subnet create -t TestVNet -n BackEnd -a 192.168.2.0/24
-	
-	Вот результат, ожидаемый для указанной выше команды:
+            azure network vnet subnet create -t TestVNet -n BackEnd -a 192.168.2.0/24
+    
+    Here is the expected output for the command above:
 
-			info:    Executing command network vnet subnet create
-			+ Looking up network configuration
-			+ Creating subnet "BackEnd"
-			+ Setting network configuration
-			+ Looking up the subnet "BackEnd"
-			+ Looking up network configuration
-			data:    Name                            : BackEnd
-			data:    Address prefix                  : 192.168.2.0/24
-			info:    network vnet subnet create command OK
+            info:    Executing command network vnet subnet create
+            + Looking up network configuration
+            + Creating subnet "BackEnd"
+            + Setting network configuration
+            + Looking up the subnet "BackEnd"
+            + Looking up network configuration
+            data:    Name                            : BackEnd
+            data:    Address prefix                  : 192.168.2.0/24
+            info:    network vnet subnet create command OK
 
-	- **-t (или --vnet-name**. Имя виртуальной сети, в которой будет создана подсеть. В данном сценарии это *TestVNet*.
-	- **-n (или --name)**. Имя новой подсети. В нашем сценарии это *BackEnd*.
-	- **-a (или --address-prefix)**. Блок подсети CIDR. В данном сценарии это *192.168.2.0/24*.
+    - **-t (or --vnet-name**. Name of the VNet where the subnet will be created. For our scenario, *TestVNet*.
+    - **-n (or --name)**. Name of the new subnet. For our scenario, *BackEnd*.
+    - **-a (or --address-prefix)**. Subnet CIDR block. Four our scenario, *192.168.2.0/24*.
 
-4. Выполните команду **azure network vnet show**, как показано ниже, чтобы просмотреть свойства новой виртуальной сети.
+4. Run the **azure network vnet show** command to view the properties of the new vnet, as shown below.
 
-			azure network vnet show
+            azure network vnet show
 
-	Вот результат, ожидаемый для указанной выше команды:
+    Here is the expected output for the command above:
 
-			info:    Executing command network vnet show
-			Virtual network name: TestVNet
-			+ Looking up the virtual network sites
-			data:    Name                            : TestVNet
-			data:    Location                        : Central US
-			data:    State                           : Created
-			data:    Address space                   : 192.168.0.0/16
-			data:    Subnets:
-			data:      Name                          : FrontEnd
-			data:      Address prefix                : 192.168.1.0/24
-			data:
-			data:      Name                          : BackEnd
-			data:      Address prefix                : 192.168.2.0/24
-			data:
-			info:    network vnet show command OK
+            info:    Executing command network vnet show
+            Virtual network name: TestVNet
+            + Looking up the virtual network sites
+            data:    Name                            : TestVNet
+            data:    Location                        : Central US
+            data:    State                           : Created
+            data:    Address space                   : 192.168.0.0/16
+            data:    Subnets:
+            data:      Name                          : FrontEnd
+            data:      Address prefix                : 192.168.1.0/24
+            data:
+            data:      Name                          : BackEnd
+            data:      Address prefix                : 192.168.2.0/24
+            data:
+            info:    network vnet show command OK
 
-<!---HONumber=AcomDC_0323_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

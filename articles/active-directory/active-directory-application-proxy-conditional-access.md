@@ -1,71 +1,77 @@
 <properties
-	pageTitle="Условный доступ для приложений, опубликованных с использованием прокси-сервера приложений Azure AD"
-	description="В статье рассматривается настройка условного доступа для опубликованных приложений, доступ к которым осуществляется через прокси-сервер приложений Azure AD."
-	services="active-directory"
-	documentationCenter=""
-	authors="kgremban"
-	manager="femila"
-	editor=""/>
+    pageTitle="Conditional Access for Applications Published with Azure AD Application Proxy"
+    description="Covers how to set up conditional access for applications you publish to be accessed remotely using Azure AD Application Proxy."
+    services="active-directory"
+    documentationCenter=""
+    authors="kgremban"
+    manager="femila"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="06/22/2016"
-	ms.author="kgremban"/>
-
-# Работа с условным доступом
-
-Чтобы предоставить условный доступ к приложениям, опубликованным с помощью прокси приложения, можно настроить правила доступа. Это позволяет:
-
-- требовать многофакторную проверку подлинности для каждого приложения;
-- требовать многофакторную проверку подлинности только в том случае, если пользователи не находятся на работе;
-- блокировать пользователям доступ к приложению, если они не на работе.
-
-Эти правила могут применяться ко всем или только к определенным пользователям и группам. По умолчанию правило применяется ко всем пользователям, имеющим доступ к приложению. В то же время применение правила можно ограничить только теми пользователями, которые являются членами определенных групп безопасности.
-
-Правила доступа оцениваются, когда пользователь обращается к федеративному приложению, использующему OAuth 2.0, OpenID Connect, SAML или WS-Federation. Кроме того, правила доступа оцениваются, когда для получения маркера доступа OAuth 2.0 и OpenID Connect используют маркер безопасности.
-
-## Необходимые условия для включения условного доступа
-
-- Подписка на Azure Active Directory Premium.
-- Федеративный или управляемый клиент Azure Active Directory.
-- Федеративным клиентам требуется многофакторная проверка подлинности (MFA). ![Настройка правил доступа: требование многофакторной проверки подлинности](./media/active-directory-application-proxy-conditional-access/application-proxy-conditional-access.png)
-
-## Настройка многофакторной проверки подлинности для каждого приложения
-1. Войдите на классический портал Azure как администратор.
-2. Перейдите к Active Directory и выберите каталог, в котором необходимо включить прокси приложения.
-3. Щелкните **Приложения** и прокрутите экран вниз до раздела **Правила доступа**. Раздел правил доступа отображается только для приложений, опубликованных с помощью прокси-сервера приложений, использующих федеративную проверку подлинности.
-4. Включите правило, установив для параметра **Включить правила доступа** значение **Вкл.**.
-5. Укажите пользователей и группы, к которым должно применяться правило. Нажмите кнопку **Добавить группу** и выберите одну или несколько групп, к которым будет применяться правило доступа. В этом диалоговом окне можно также удалить выбранные группы. Правила доступа, выбранные для применения к группам, будут действовать только для пользователей, входящих в одну из указанных групп безопасности.  
-
-  - Чтобы явно исключить группы безопасности из правила, установите флажок **Исключение** и укажите одну или несколько групп. Пользователи-члены группы, указанной в списке "Исключение", не должны будут проходить многофакторную проверку подлинности.  
-
-  - Если пользователь был настроен с использованием функции индивидуальной многофакторной проверки подлинности, этот параметр будет иметь приоритет над правилами многофакторной проверки подлинности приложения. Это означает, что пользователь, для которого была настроена индивидуальная многофакторная проверка подлинности, должен будет проходить многофакторную проверку подлинности, даже если он был исключен из правил приложения многофакторной проверки подлинности. Узнайте больше о [многофакторной проверке подлинности и пользовательских параметрах](../multi-factor-authentication/multi-factor-authentication.md).
-
-6. Выберите правило доступа, которое вы хотите настроить.
-	- **Требовать многофакторную проверку подлинности**: пользователи, к которым применяются правила доступа, должны будут проходить многофакторную проверку подлинности, прежде чем получить доступ к приложению, к которому относится правило.
-	- **Требовать многофакторную проверку подлинности, если не на работе**: пользователи, пытающиеся получить доступ к приложению с надежного IP-адреса, не должны будут проходить многофакторную проверку подлинности. Диапазоны надежных IP-адресов можно задать на странице параметров многофакторной проверки подлинности.
-	- **Блокировать доступ, если не на работе**: пользователи не смогут получить доступ к приложению вне корпоративной сети.
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="06/22/2016"
+    ms.author="kgremban"/>
 
 
-## Настройка многофакторной проверки подлинности для служб федерации
-Для федеративных клиентов многофакторную проверку подлинности (MFA) могут выполнять Azure Active Directory или локальный сервер AD FS. По умолчанию многофакторная проверка подлинности осуществляется на любой странице, размещенной в Azure Active Directory. Чтобы настроить многофакторную проверку подлинности локально, запустите Windows PowerShell и установите модуль Azure AD с помощью свойства SupportsMFA.
+# <a name="working-with-conditional-access"></a>Working with conditional access
 
-В следующем примере показано, как включить локальную многофакторную проверку подлинности, используя командлет [Set-MsolDomainFederationSettings](https://msdn.microsoft.com/library/azure/dn194088.aspx) в клиенте contoso.com: `Set-MsolDomainFederationSettings -DomainName contoso.com -SupportsMFA $true `
+You can configure access rules to grant conditional access to applications published using Application Proxy. This enables you to:
 
-Установив этот флажок, также следует настроить выполнение многофакторной проверки подлинности для экземпляра федеративного клиента AD FS. Выполните инструкции по [локальному развертыванию службы Microsoft Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication-get-started-server.md).
+- Require multi-factor authentication per application
+- Require multi-factor authentication only when users are not at work
+- Block users from accessing the application when they are not at work
+
+These rules can be applied to all users and groups or only to specific users and groups. By default the rule will apply to all users who have access to the application. However the rule can also be restricted to users that are members of specified security groups.  
+
+Access rules are evaluated when a user accesses a federated application that uses OAuth 2.0, OpenID Connect, SAML or WS-Federation. In addition, access rules are evaluated with OAuth 2.0 and OpenID Connect when a refresh token is used to acquire an access token.
+
+## <a name="conditional-access-prerequisites"></a>Conditional access prerequisites
+
+- Subscription to Azure Active Directory Premium
+- A federated or managed Azure Active Directory tenant
+- Federated tenants require that multi-factor authentication (MFA) be enabled  
+    ![Configure access rules - require multi-factor authentication](./media/active-directory-application-proxy-conditional-access/application-proxy-conditional-access.png)
+
+## <a name="configure-per-application-multi-factor-authentication"></a>Configure per-application multi-factor authentication
+1. Sign in as an administrator in the Azure classic portal.
+2. Go to Active Directory and select the directory in which you want to enable Application Proxy.
+3. Click **Applications** and scroll down to the **Access Rules** section. The access rules section only appears for applications published using Application Proxy that use federated authentication.
+4. Enable the rule by selecting **Enable Access Rules** to **On**.
+5. Specify the users and groups to whom the rules will apply. Use the **Add Group** button  to select one or more groups to which the access rule will apply. This dialog can also be used to remove selected groups.  When the rules are selected to apply to groups, the access rules will only be enforced for users that belong to one of the specified security groups.  
+
+  - To explicitly exclude security groups from the rule, check **Except**  and specify one or more groups. Users who are members of a group in the Except list will not be required to perform multi-factor authentication.  
+
+  - If a user was configured using the per-user multi-factor authentication feature, this setting will take precedence over the application multi-factor authentication rules. This means that a user who has been configured for per-user multi-factor authentication will be required to perform multi-factor authentication even if they have been exempted from the application's multi-factor authentication rules. Learn more about [multi-factor authentication and per-user settings](../multi-factor-authentication/multi-factor-authentication.md).
+
+6. Select the access rule you want to set:
+    - **Require Multi-factor authentication**: Users to whom access rules apply will be required to complete multi-factor authentication before accessing the application to which the rule applies.
+    - **Require Multi-factor authentication when not at work**: Users trying to access the application from a trusted IP address will not be required to perform multi-factor authentication. The trusted IP address ranges can be configured on the multi-factor authentication settings page.
+    - **Block access when not at work**: Users trying to access the application from outside your corporate network will not be able to access the application.
 
 
-## См. также
+## <a name="configuring-mfa-for-federation-services"></a>Configuring MFA for federation services
+For federated tenants, multi-factor authentication (MFA) may be performed by Azure Active Directory or by the on-premises AD FS server. By default, MFA will occur on any page hosted by Azure Active Directory. In order to configure MFA on-premises, run Windows PowerShell and use the –SupportsMFA property to set the Azure AD module.
 
-- [Работа с приложениями, поддерживающими утверждения](active-directory-application-proxy-claims-aware-apps.md)
-- [Опубликуйте приложения с помощью прокси-сервера приложений.](active-directory-application-proxy-publish.md)
-- [Включение единого входа](active-directory-application-proxy-sso-using-kcd.md)
-- [Публикация приложений с помощью доменного имени](active-directory-application-proxy-custom-domains.md)
+The following example shows how to enable on-premises MFA by using the [Set-MsolDomainFederationSettings cmdlet](https://msdn.microsoft.com/library/azure/dn194088.aspx) on the contoso.com tenant: `Set-MsolDomainFederationSettings -DomainName contoso.com -SupportsMFA $true `
 
-Последние новости и обновления см. в [блоге о прокси приложения](http://blogs.technet.com/b/applicationproxyblog/).
+In addition to setting this flag, the federated tenant AD FS instance must be configured to perform multi-factor authentication. Follow the instructions for [deploying Microsoft Azure multi-factor authentication on-premises](../multi-factor-authentication/multi-factor-authentication-get-started-server.md).
 
-<!---HONumber=AcomDC_0622_2016-->
+
+## <a name="see-also"></a>See also
+
+- [Working with claims aware applications](active-directory-application-proxy-claims-aware-apps.md)
+- [Publish applications with Application Proxy](active-directory-application-proxy-publish.md)
+- [Enable single-sign on](active-directory-application-proxy-sso-using-kcd.md)
+- [Publish applications using your own domain name](active-directory-application-proxy-custom-domains.md)
+
+For the latest news and updates, check out the [Application Proxy blog](http://blogs.technet.com/b/applicationproxyblog/)
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

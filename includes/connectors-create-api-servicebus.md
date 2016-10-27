@@ -1,21 +1,24 @@
-### Предварительные требования
+### <a name="prerequisites"></a>Prerequisites
 
-Вам понадобится учетная запись [служебной шины](https://azure.microsoft.com/services/service-bus/).
+You must have a [Service Bus](https://azure.microsoft.com/services/service-bus/) account.  
 
-Прежде чем использовать учетную запись служебной шины Azure в приложении логики, необходимо авторизовать его для подключения к этой учетной записи. К счастью, это можно легко сделать из приложения логики на портале Azure.
+Before you can use your Azure Service Bus account in a logic app, you must authorize the logic app to connect to your service bus account. Fortunately, you can do this easily from within your logic app on the Azure portal.  
 
-Ниже приведены указания по авторизации приложения логики для подключения к учетной записи служебной шины.
+Here are the steps to authorize your logic app to connect to your Service Bus account:  
 
-1. Чтобы создать подключение к служебной шине, в конструкторе приложений логики в раскрывающемся списке выберите параметр **Показать API, управляемые Майкрософт**. Затем введите данные **служебной шины** в поле поиска. Выберите триггер или действие, которые хотите использовать.  
-    ![Подключение к служебной шине. Изображение 1](./media/connectors-create-api-servicebus/servicebus-1.png)  
+1. To create a connection to Service Bus, in the logic app designer, select **Show Microsoft managed APIs** in the drop-down list. Then enter **service bus** in the search box. Select the trigger or action you want to use.  
+    ![Service Bus connection image 1](./media/connectors-create-api-servicebus/servicebus-1.png)  
 
-2. Если вы ранее не создавали подключения к служебной шине, вам будет предложено ввести учетные данные служебной шины. Эти учетные данные используются для авторизации приложения логики, чтобы оно могло подключиться к вашей учетной записи служебной шины и получить доступ к ее данным. Соединителю служебной шины требуется строка подключения для пространства имен служебной шины. Также требуется разрешения **Управление**. Чтобы определить, для чего предназначена строка подключения (для пространства имен или какой-либо определенной сущности), проверьте наличие параметра `EntityPath`. При его наличии строка подключения не является правильной для приложения логики.  
-    ![Строка подключения к служебной шине](./media/connectors-create-api-servicebus/connectionstring.png)
+2. If you haven't created any connections to Service Bus before, you'll be prompted to provide your Service Bus credentials. These credentials are used to authorize your logic app to connect to and access your Service Bus account's data. The Service Bus connector needs the connection string for the Service Bus namespace. It also requires **Manage** permissions. A good way to know if your connection string is for the namespace or a specific entity is if it contains the `EntityPath` parameter. If it does, it is not the right connection string for a logic app.  
+    ![Service Bus connection string](./media/connectors-create-api-servicebus/connectionstring.png)
 
-1. После получения строки подключения для пространства имен ее можно использовать для подключения к API в приложениях логики.  
-    ![Подключение к служебной шине. Изображение 2](./media/connectors-create-api-servicebus/servicebus-2.png)  
+1. After you have received the connection string for the namespace, you can use it for the API connection in Logic Apps.  
+    ![Service Bus connection image 2](./media/connectors-create-api-servicebus/servicebus-2.png)  
 
-3. Подключение создано, и теперь вы можете перейти к другим действиям в приложении логики.  
-    ![Подключение к служебной шине. Изображение 3](./media/connectors-create-api-servicebus/servicebus-3.png)    
+3. Notice the connection has been created, and you are now free to proceed with the other steps in your logic app.  
+    ![Service Bus connection image 3](./media/connectors-create-api-servicebus/servicebus-3.png)   
 
-<!----HONumber=AcomDC_0810_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

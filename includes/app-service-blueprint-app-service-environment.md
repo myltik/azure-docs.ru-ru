@@ -1,14 +1,16 @@
-* [Географически распределенное масштабирование с использованием сред службы приложений](../articles/app-service-web/app-service-app-service-environment-geo-distributed-scale.md)
-* [Реализация многоуровневой архитектуры безопасности со средами службы приложений](../articles/app-service-web/app-service-app-service-environment-layered-security.md)
-* [Настройка брандмауэра веб-приложения (WAF) для среды службы приложений](../articles/app-service-web/app-service-app-service-environment-web-application-firewall.md)
+* [Setting Up a Geo-Distributed App Footprint](../articles/app-service-web/app-service-app-service-environment-geo-distributed-scale.md)
+* [Implementing a Layered Security Architecture](../articles/app-service-web/app-service-app-service-environment-layered-security.md) 
+* [Configuring a Web Application Firewall with an App Service Environment](../articles/app-service-web/app-service-app-service-environment-web-application-firewall.md)
 
 
-* [Создание среды службы приложений с включенным ILB, используя шаблоны Resource Manager](../articles/app-service-web/app-service-app-service-environment-create-ilb-ase-resourcemanager.md)
-* [Автоматическое масштабирование и среда службы приложений](../articles/app-service/app-service-environment-auto-scale.md)
-* [Как управлять входящим трафиком в среде службы приложений](../articles/app-service-web/app-service-app-service-environment-control-inbound-traffic.md)
-* [Безопасное подключение к серверным ресурсам из среды службы приложений](../articles/app-service-web/app-service-app-service-environment-securely-connecting-to-backend-resources.md)
-* [Сведения о конфигурации сети для сред службы приложений с ExpressRoute](../articles/app-service-web/app-service-app-service-environment-network-configuration-expressroute.md)
-* [Настраиваемые параметры конфигурации для сред службы приложений, в том числе параметры соответствия требованиям PCI](../articles/app-service-web/app-service-app-service-environment-custom-settings.md)
-* [Высокая плотность размещения в службе приложений Azure](../articles/app-service/app-service-high-density-hosting.md#recommended-configuration-for-high-density-hosting)
+* [Creating an ILB Enabled App Service Environment using Resource Manager Templates](../articles/app-service-web/app-service-app-service-environment-create-ilb-ase-resourcemanager.md)
+* [Using Auto-Scale with an App Service Environment](../articles/app-service/app-service-environment-auto-scale.md)
+* [Securing Inbound Traffic](../articles/app-service-web/app-service-app-service-environment-control-inbound-traffic.md)
+* [Connecting to Backend Resources](../articles/app-service-web/app-service-app-service-environment-securely-connecting-to-backend-resources.md)
+* [ExpressRoute and App Service Environments](../articles/app-service-web/app-service-app-service-environment-network-configuration-expressroute.md)
+* [Custom Configuration Settings for App Service Environments Including PCI Compliance Settings](../articles/app-service-web/app-service-app-service-environment-custom-settings.md)
+* [High Density App Hosting with App Service Environments](../articles/app-service/app-service-high-density-hosting.md#recommended-configuration-for-high-density-hosting)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!--HONumber=Oct16_HO2-->
+
+

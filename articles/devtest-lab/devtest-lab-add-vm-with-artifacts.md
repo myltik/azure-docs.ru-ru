@@ -1,141 +1,149 @@
 <properties
-	pageTitle="Добавление виртуальной машины с артефактами в лабораторию в Azure DevTest Labs | Microsoft Azure"
-	description="Узнайте, как добавить виртуальную машину с артефактами в Azure DevTest Labs."
-	services="devtest-lab,virtual-machines"
-	documentationCenter="na"
-	authors="tomarcher"
-	manager="douge"
-	editor=""/>
+    pageTitle="Add a VM with artifacts to a lab in Azure DevTest Labs | Microsoft Azure"
+    description="Learn how to add a VM with artifacts in Azure DevTest Labs"
+    services="devtest-lab,virtual-machines"
+    documentationCenter="na"
+    authors="tomarcher"
+    manager="douge"
+    editor=""/>
 
 <tags
-	ms.service="devtest-lab"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/30/2016"
-	ms.author="tarcher"/>
+    ms.service="devtest-lab"
+    ms.workload="na"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="08/30/2016"
+    ms.author="tarcher"/>
 
-# Добавление виртуальной машины с артефактами в лабораторию в Azure DevTest Labs
+
+# <a name="add-a-vm-with-artifacts-to-a-lab-in-azure-devtest-labs"></a>Add a VM with artifacts to a lab in Azure DevTest Labs
 
 > [AZURE.VIDEO how-to-create-vms-with-artifacts-in-a-devtest-lab]
 
-Виртуальная машина создается в лаборатории из *основы*, которая представляет собой [пользовательский образ](./devtest-lab-create-template.md), [формулу](./devtest-lab-manage-formulas.md) или [образ Marketplace](./devtest-lab-configure-marketplace-images.md).
+You create a VM in a lab from a *base* that is either a [custom image](./devtest-lab-create-template.md), [formula](./devtest-lab-manage-formulas.md), or [Marketplace image](./devtest-lab-configure-marketplace-images.md).
 
-*Артефакты* DevTest Labs позволяют указать *действия*, выполняемые при создании виртуальной машины.
+DevTest Labs *artifacts* let you specify *actions* that are performed when the VM is created. 
 
-Действия артефактов могут запускать такие процедуры, как выполнение сценариев Windows PowerShell, выполнение команд Bash и установка программного обеспечения.
+Artifact actions can perform procedures such as running Windows PowerShell scripts, running Bash commands, and installing software. 
 
-*Параметры* артефакта позволяют настроить артефакт для конкретной ситуации.
+Artifact *parameters* let you customize the artifact for your particular scenario.
 
-В этой статье показано, как создать виртуальную машину в лаборатории с помощью артефактов.
+This article shows you how to create a VM in your lab with artifacts.
 
-## Добавление виртуальной машины с артефактами
+## <a name="add-a-vm-with-artifacts"></a>Add a VM with artifacts
 
-1. Выполните вход на [портал Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Sign in to the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Щелкните **Другие службы**, а затем выберите в списке **DevTest Labs**.
+1. Select **More Services**, and then select **DevTest Labs** from the list.
 
-1. Из списка лабораторий выберите ту, в которой необходимо создать виртуальную машину.
+1. From the list of labs, select the lab in which you want to create the VM.  
 
-1. В колонке **Обзор** лаборатории выберите **+ Виртуальная машина**. ![Кнопка добавления виртуальной машины](./media/devtest-lab-add-vm-with-artifacts/devtestlab-home-blade-add-vm.png)
+1. On the lab's **Overview** blade, select **+ Virtual Machine**.  
+    ![Add VM button](./media/devtest-lab-add-vm-with-artifacts/devtestlab-home-blade-add-vm.png)
 
-1. В колонке **Выбор основы** выберите основу для виртуальной машины.
+1. On the **Choose a base** blade, select a base for the VM.
 
-1. В колонке **Виртуальная машина** введите имя для новой виртуальной машины в текстовое поле **Имя виртуальной машины**.
+1. On the **Virtual machine** blade, enter a name for the new virtual machine in the **Virtual machine name** text box.
 
-	![Колонка виртуальной машины лаборатории](./media/devtest-lab-add-vm-with-artifacts/devtestlab-lab-vm-blade.png)
+    ![Lab VM blade](./media/devtest-lab-add-vm-with-artifacts/devtestlab-lab-vm-blade.png)
 
-1. Введите **имя пользователя**, которому будут предоставлены права администратора на виртуальной машине.
+1. Enter a **User Name** that will be granted administrator privileges on the virtual machine.  
 
-1. Если вы хотите использовать пароль, хранящийся в *хранилище секретов*, то выберите **Use secrets from my secret store** (Использовать секреты из моего хранилища секретов) и укажите значение ключа, соответствующее секрету (пароль). В противном случае — просто введите пароль в текстовое поле, где указано **Введите значение**.
+1. If you want to use a password stored in your *secret store*, select **Use secrets from my secret store**, and specify a key value that corresponds to your secret (password). Otherwise, simply enter a password in the text field labeled **Type a value**.
  
-1. Щелкните **Размер виртуальной машины** и выберите один из стандартных пунктов, указывающих количество ядер процессора, объем ОЗУ и размер жесткого диска для создаваемой виртуальной машины.
+1. Select **Virtual machine size** and select one of the predefined items that specify the processor cores, RAM size, and the hard drive size of the VM to create.
 
-1. Щелкните **Виртуальная сеть** и выберите нужную виртуальную сеть.
+1. Select **Virtual network** and select the desired virtual network.
 
-1. Щелкните **Подсеть** и выберите подсеть.
+1. Select **Subnet** and select subnet.
 
-1. Если политика лаборатории разрешает использовать общедоступные IP-адреса для выбранной подсети, то укажите, должен ли IP-адрес быть общедоступным, выбрав **Да** или **Нет**. В противном случае этот параметр отключен и имеет значение **Нет**.
+1. If the lab policy is set to allow public IP addresses for the selected subnet, specify whether you want the IP address to be public by selecting either **Yes** or **No**. Otherwise, this option is disabled and selected as **No**. 
 
-1. Щелкните **Артефакты**, а затем выберите из списка и настройте артефакты, которые нужно добавить в базовый образ. **Примечание**. Если вы не знакомы с DevTest Labs или настройкой артефактов, перейдите к разделу [Добавление существующего артефакта к виртуальной машине](#add-an-existing-artifact-to-a-vm), выполните необходимые действия и вернитесь сюда.
+1. Select **Artifacts** and - from the list of artifacts - select and configure the artifacts that you want to add to the base image. 
+**Note:** If you're new to DevTest Labs or configuring artifacts, skip to the [Add an existing artifact to a VM](#add-an-existing-artifact-to-a-vm) section, and then return here when finished.
 
-1. Если вы хотите просмотреть или скопировать шаблон Azure Resource Manager, перейдите к разделу [Сохранение шаблона Azure Resource Manager](#save-arm-template), а по завершении вернитесь сюда.
+1. If you want to view or copy the Azure Resource Manager template, skip to the [Save Azure Resource Manager template](#save-arm-template) section, and return here when finished.
 
-1. Щелкните **Создать**, чтобы добавить в лабораторию указанную виртуальную машину.
+1. Select **Create** to add the specified VM to the lab.
 
-1. В колонке лаборатории отображается состояние создания виртуальной машины: сначала **Создается**, а после того, как машина будет создана, — **Выполняется**.
+1. The lab blade displays the status of the VM's creation; first as **Creating**, then as **Running** after the VM has been started.
 
-1. Перейдите к разделу [Дальнейшие действия](#next-steps).
+1. Go to the [Next Steps](#next-steps) section. 
 
-## Добавление существующего артефакта к виртуальной машине
+## <a name="add-an-existing-artifact-to-a-vm"></a>Add an existing artifact to a VM
 
-Существующие артефакты можно добавить при создании виртуальной машины. Каждая лаборатория включает в себя артефакты из общедоступного репозитория артефактов DevTest Labs, а также артефакты, созданные и добавленные в ваш собственный репозиторий артефактов. Чтобы узнать, как создать артефакты, см. статью [Создание пользовательских артефактов для виртуальной машины DevTest Lab](devtest-lab-artifact-author.md).
+While creating a VM, you can add existing artifacts. Each lab includes artifacts from the Public DevTest Labs Artifact Repository as well as artifacts that you've created and added to your own Artifact Repository.
+To discover how to create artifacts, see the article, [Learn how to author your own artifacts for use with DevTest Labs](devtest-lab-artifact-author.md).
 
-1. В колонке **Виртуальная машина** выберите **Артефакты**.
+1. On the **Virtual machine** blade, select **Artifacts**. 
 
-1. В колонке **Добавить артефакты** щелкните нужный артефакт.
+1. On the **Add artifacts** blade, select the desired artifact.  
 
-	![Колонка "Добавление артефактов"](./media/devtest-lab-add-vm-with-artifacts/devtestlab-add-artifact-blade.png)
+    ![Add Artifacts blade](./media/devtest-lab-add-vm-with-artifacts/devtestlab-add-artifact-blade.png)
 
-1. Введите значения обязательных параметров и другие параметры по желанию.
+1. Enter the required parameter values and any optional parameters that you need.  
 
-1. Щелкните **Добавить**, чтобы добавить артефакт и вернуться в колонку **Добавить артефакты**.
+1. Select **Add** to add the artifact and return to the **Add Artifacts** blade.
 
-1. Продолжайте добавлять артефакты, необходимые для виртуальной машины.
+1. Continue adding artifacts as needed for your VM.
 
-1. После добавления артефактов можно [изменить порядок, в котором они выполняются](#change-the-order-in-which-artifacts-are-run). Также можно вернуться к [просмотру или изменению артефакта](#view-or-modify-an-artifact).
+1. Once you've added your artifacts, you can [change the order in which the artifacts are run](#change-the-order-in-which-artifacts-are-run). You can also go back to [view or modify an artifact](#view-or-modify-an-artifact).
 
-## Изменение порядка выполнения артефактов
+## <a name="change-the-order-in-which-artifacts-are-run"></a>Change the order in which artifacts are run
 
-По умолчанию действия артефактов выполняются в порядке их добавления на виртуальную машину. Ниже показано, как изменить порядок, в котором выполняются артефакты.
+By default, the actions of the artifacts are executed in the order in which they are added to the VM. The following steps illustrate how to change the order in which the artifacts are run.
 
-1. В верхней части колонки **Добавить артефакты** щелкните ссылку указывающую на количество артефактов, добавленных в виртуальную машину.
+1. At the top of the **Add Artifacts** blade, select the link indicating the number of artifacts that have been added to the VM.
 
-    ![Количество артефактов, добавленных к виртуальной машине](./media/devtest-lab-add-vm-with-artifacts/devtestlab-add-artifacts-blade-selected-artifacts.png)
+    ![Number of artifacts added to VM](./media/devtest-lab-add-vm-with-artifacts/devtestlab-add-artifacts-blade-selected-artifacts.png)
 
-1. Чтобы изменить порядок выполнения артефактов, перетащите их в другое положение в списке. **Примечание**. Если у вас возникли проблемы при перетаскивании артефакта, убедитесь, что вы перетаскиваете артефакт за левую сторону.
+1. To specify the order in which the artifacts are run, drag and drop the artifacts into the desired order. **Note:** If you have having trouble dragging the artifact, make sure that you are dragging from the left side of the artifact. 
 
-1. По окончании нажмите кнопку **ОК**.
+1. Select **OK** when done.  
 
-## Просмотр или изменение артефакта
+## <a name="view-or-modify-an-artifact"></a>View or modify an artifact
 
-Для просмотра или изменения параметров артефакта выполните следующие действия:
+The following steps illustrate how to view or modify the parameters of an artifact:
 
-1. В верхней части колонки **Добавить артефакты** щелкните ссылку указывающую на количество артефактов, добавленных в виртуальную машину.
+1. At the top of the **Add Artifacts** blade, select the link indicating the number of artifacts that have been added to the VM.
 
-    ![Количество артефактов, добавленных к виртуальной машине](./media/devtest-lab-add-vm-with-artifacts/devtestlab-add-artifacts-blade-selected-artifacts.png)
+    ![Number of artifacts added to VM](./media/devtest-lab-add-vm-with-artifacts/devtestlab-add-artifacts-blade-selected-artifacts.png)
 
-1. В колонке **Выбранные артефакты** щелкните артефакт, который хотите просмотреть или изменить.
+1. On the **Selected Artifacts** blade, select the artifact that you want to view or edit.  
 
-1. В колонке **Добавить артефакт** внесите необходимые изменения, а затем нажмите кнопку **ОК**, чтобы закрыть колонку **Добавить артефакт**.
+1. On the **Add Artifact** blade, make any needed changes, and select **OK** to close the **Add Artifact** blade.
 
-1. Нажмите кнопку **ОК**, чтобы закрыть колонку **Выбранные артефакты**.
+1. Select **OK** to close the **Selected Artifacts** blade.
 
-## Сохранение шаблона Azure Resource Manager
+## <a name="save-azure-resource-manager-template"></a>Save Azure Resource Manager template
 
-С помощью шаблона Azure Resource Manager можно декларативно определить повторяемое развертывание. Далее описывается процесс сохранения шаблона Azure Resource Manager для создаваемой виртуальной машины. После сохранения шаблон Azure Resource Manager можно использовать для [развертывания новых виртуальных машин с помощью Azure PowerShell](../resource-group-overview.md#template-deployment).
+An Azure Resource Manager template provides a declarative way to define a repeatable deployment. The following steps explain how to save the Azure Resource Manager template for the VM being created.
+Once saved, you can use the Azure Resource Manager template to [deploy new VMs with Azure PowerShell](../resource-group-overview.md#template-deployment).
 
-1. В колонке **Виртуальная машина** выберите **View ARM Template** (Просмотреть шаблон ARM).
+1. On the **Virtual machine** blade, select **View ARM Template**.
 
-1. В колонке **View Azure Resource Manager Template** (Просмотр шаблона Azure Resource Manager) выделите текст шаблона.
+1. On the **View Azure Resource Manager Template blade**, select the template text.
 
-1. Скопируйте выделенный текст в буфер обмена.
+1. Copy the selected text to the clipboard.
 
-1. Нажмите кнопку **ОК**, чтобы закрыть колонку **View Azure Resource Manager Template** (Просмотр шаблона Azure Resource Manager).
+1. Select **OK** to close the **View Azure Resource Manager Template blade**.
 
-1. Откройте текстовый редактор.
+1. Open a text editor.
 
-1. Вставьте текст шаблона из буфера обмена.
+1. Paste in the template text from the clipboard.
 
-1. Сохраните файл для последующего использования.
+1. Save the file for later use.
 
 [AZURE.INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Next steps
 
-- После создания виртуальной машины к ней можно подключиться, щелкнув **Подключиться** в колонке виртуальной машины.
-- Узнайте, как [создавать пользовательские артефакты для виртуальной машины DevTest Labs](devtest-lab-artifact-author.md).
-- Изучите [коллекцию шаблонов быстрого запуска ARM для DevTest Labs](https://github.com/Azure/azure-devtestlab/tree/master/ARMTemplates).
+- Once the VM has been created, you can connect to the VM by selecting **Connect** on the VM's blade.
+- Learn how to [create custom artifacts for your DevTest Labs VM](devtest-lab-artifact-author.md).
+- Explore the [DevTest Labs ARM QuickStart template gallery](https://github.com/Azure/azure-devtestlab/tree/master/ARMTemplates)
 
-<!---HONumber=AcomDC_0907_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

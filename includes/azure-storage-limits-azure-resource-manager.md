@@ -1,9 +1,12 @@
-Указанные ниже ограничения применяются только при использовании диспетчера ресурсов Azure и групп ресурсов Azure.
+The following limits apply when using the Azure Resource Manager and Azure Resource Groups only.
 
-Ресурс|Ограничение по умолчанию
+Resource|Default Limit
 ---|---
-Операций управления учетными записями хранения (чтение)|800 за 5 минут
-Операций управления учетными записями хранения (запись)|200 в час
-Операции управления учетными записями хранения (список)|100 за 5 минут
+Storage account management operations (read)|800 per 5 minutes
+Storage account management operations (write)|200 per hour
+Storage account management operations (list)|100 per 5 minutes
 
-<!---HONumber=Nov15_HO3-->
+
+<!--HONumber=Oct16_HO2-->
+
+

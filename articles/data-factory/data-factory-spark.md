@@ -1,50 +1,55 @@
 <properties 
-	pageTitle="Вызов программ Spark из фабрики данных Azure" 
-	description="Узнайте, как вызывать программы Spark из фабрики данных Azure с помощью действия MapReduce." 
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
-	editor="monicar"/>
+    pageTitle="Invoke Spark programs from Azure Data Factory" 
+    description="Learn how to invoke Spark programs from an Azure data factory using the MapReduce Activity." 
+    services="data-factory" 
+    documentationCenter="" 
+    authors="spelluru" 
+    manager="jhubbard" 
+    editor="monicar"/>
 
 <tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/25/2016" 
-	ms.author="spelluru"/>
+    ms.service="data-factory" 
+    ms.workload="data-services" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="08/25/2016" 
+    ms.author="spelluru"/>
 
-# Вызов программ Spark из фабрики данных
-## Введение
-Для запуска программ Spark в кластере HDInsight Spark можно использовать действие MapReduce в конвейере фабрики данных. Перед чтением этой статьи просмотрите статью, посвященную [действию MapReduce](data-factory-map-reduce.md), в которой содержатся подробные сведения об использовании этого действия.
 
-## Пример Spark в GitHub
-В [примере "Spark — фабрика данных" в GitHub](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/Spark) показано, как использовать действие MapReduce для запуска программы Spark. Программа Spark просто копирует данные из одного контейнера BLOB-объектов Azure в другой.
+# <a name="invoke-spark-programs-from-data-factory"></a>Invoke Spark Programs from Data Factory
+## <a name="introduction"></a>Introduction
+You can use the MapReduce Activity in a Data Factory pipeline to run Spark programs on your HDInsight Spark cluster. See [MapReduce Activity](data-factory-map-reduce.md) article for detailed information on using the activity before reading this article. 
 
-## Сущности фабрики данных
-В папке **Spark-ADF/src/ADFJsons** содержатся файлы для сущностей фабрики данных (связанные службы, наборы данных, конвейер).
+## <a name="spark-sample-on-github"></a>Spark sample on GitHub
+The [Spark - Data Factory sample on GitHub](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/Spark) shows how to use MapReduce activity to invoke a Spark program. The spark program just copies data from one Azure Blob container to another. 
 
-В этом примере имеется две **связанные службы**: служба хранилища Azure и Azure HDInsight. Имя службы хранилища Azure и значения ключа необходимо указать в файле **StorageLinkedService.json**. Также необходимо указать значения параметров clusterUri (URI кластера), userName (имя пользователя) и password (пароль) в файле **HDInsightLinkedService.json**.
+## <a name="data-factory-entities"></a>Data Factory entities
+The **Spark-ADF/src/ADFJsons** folder contains files for Data Factory entities (linked services, datasets, pipeline).  
 
-В этом примере существует два **набора данных**: **input.json** и **output.json**. Эти файлы расположены в папке **Datasets**. Они представляют входные и выходные наборы данных для действия MapReduce.
+There are two **linked services** in this sample: Azure Storage and Azure HDInsight. Specify your Azure storage name and key values in **StorageLinkedService.json** and clusterUri, userName, and password in **HDInsightLinkedService.json**.
 
-Примеры конвейеров можно найти в папке **ADFJsons/Pipeline**. Просмотрите конвейер, чтобы понять, как вызывать программу Spark с помощью действия MapReduce.
+There are two **datasets** in this sample: **input.json** and **output.json**. These files are located in the **Datasets** folder.  These files represent input and output datasets for the MapReduce activity
 
-Действие MapReduce настроено для вызова **com.adf.sparklauncher.jar** в контейнере **adflibs** в службе хранилища Azure (указанной в файле StorageLinkedService.json). Исходный код для этой программы находится в папке Spark-ADF/src/main/java/com/adf/. Он вызывает spark-submit и запускает задания Spark.
+You find sample pipelines in the **ADFJsons/Pipeline** folder. Review a pipeline to understand how to invoke a Spark program by using the MapReduce activity. 
+
+The MapReduce activity is configured to invoke **com.adf.sparklauncher.jar** in the **adflibs** container in your Azure storage (specified in the StorageLinkedService.json). The source code for this program is in Spark-ADF/src/main/java/com/adf/ folder and it calls spark-submit and run Spark jobs. 
 
 > [AZURE.IMPORTANT] 
-Перед использованием примера прочтите файл [README.TXT](https://github.com/Azure/Azure-DataFactory/blob/master/Samples/Spark/README.txt), чтобы ознакомиться с последней дополненной информацией.
+> Read through [README.TXT](https://github.com/Azure/Azure-DataFactory/blob/master/Samples/Spark/README.txt) for the latest and additional information before using the sample. 
 >  
-> При таком вызове программ Spark с помощью действия MapReduce используйте собственный кластер Spark HDInsight. Использование кластера HDInsight по требованию не поддерживается.
+> Use your own HDInsight Spark cluster with this approach to invoke Spark programs using the MapReduce activity. Using an on-demand HDInsight cluster is not supported.   
 
 
-## См. также
-- [Действие Hive](data-factory-hive-activity.md)
-- [Действие Pig](data-factory-pig-activity.md)
-- [Действие MapReduce](data-factory-map-reduce.md)
-- [Потоковая активность Hadoop](data-factory-hadoop-streaming-activity.md)
-- [Вызов сценариев R](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample)
+## <a name="see-also"></a>See Also
+- [Hive Activity](data-factory-hive-activity.md)
+- [Pig Activity](data-factory-pig-activity.md)
+- [MapReduce Activity](data-factory-map-reduce.md)
+- [Hadoop Streaming Activity](data-factory-hadoop-streaming-activity.md)
+- [Invoke R scripts](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample)
 
-<!---HONumber=AcomDC_0831_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

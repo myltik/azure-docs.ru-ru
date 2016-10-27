@@ -1,26 +1,28 @@
 <properties
-	pageTitle="Что произошло с моим проектом веб-заданий (подключенными к службе хранилища Azure службами Visual Studio)? | Microsoft Azure"
-	description="Сведения о том, что происходит в проекте веб-заданий Azure после подключения к учетной записи хранения с помощью подключенных служб Visual Studio"
-	services="storage"
-	documentationCenter=""
-	authors="TomArcher"
-	manager="douge"
-	editor=""/>
+    pageTitle="What happened to my WebJob project (Visual Studio Azure Storage connected service)? | Microsoft Azure"
+    description="Describes what happened in a Azure WebJob project after connecting to a storage account using Visual Studio connected services"
+    services="storage"
+    documentationCenter=""
+    authors="TomArcher"
+    manager="douge"
+    editor=""/>
 
 <tags
-	ms.service="storage"
-	ms.workload="web"
-	ms.tgt_pltfrm="vs-what-happened"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/15/2016"
-	ms.author="tarcher"/>
+    ms.service="storage"
+    ms.workload="web"
+    ms.tgt_pltfrm="vs-what-happened"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="08/15/2016"
+    ms.author="tarcher"/>
 
-# Что произошло с моим проектом веб-заданий (подключенными к службе хранилища Azure службами Visual Studio)?
 
-## Добавленные ссылки
+# <a name="what-happened-to-my-webjob-project-(visual-studio-azure-storage-connected-service)?"></a>What happened to my WebJob project (Visual Studio Azure Storage connected service)?
 
-Пакет NuGet хранилища Azure добавлен в проект Visual Studio или обновлен в этом проекте. Этот пакет добавляет следующие ссылки .NET:
+## <a name="references-added"></a>References Added
+
+The Azure Storage NuGet package was added to or updated in your Visual Studio project.  
+This package adds the following .NET references:
 
 - **Microsoft.Data.Edm**
 - **Microsoft.Data.OData**
@@ -31,9 +33,13 @@
 - **System.Data**
 - **System.Spatial**
 
-## Добавлена строка подключения к хранилищу Azure
-В файле App.config вашего проекта в записи **AzureWebJobsStorage** и **AzureWebJobsDashboard** добавлена строка подключения и ключ выбранной учетной записи хранения.
+## <a name="connection-string-for-azure-storage-added"></a>Connection string for Azure Storage added
+In the App.config file of your project, the **AzureWebJobsStorage** and **AzureWebJobsDashboard** entries were updated with the selected storage account's connection string and key.
 
-Дополнительные сведения см. в статье [Документация по веб-заданиям Azure](http://go.microsoft.com/fwlink/?linkid=390226).
+For more information, see [Azure WebJobs documentation resources](http://go.microsoft.com/fwlink/?linkid=390226).
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,15 +1,21 @@
 
 <!--author=SharS last changed: 11/06/15-->
 
-#### Удаление политики резервного копирования StorSimple
+#### <a name="to-delete-a-storsimple-backup-policy"></a>To delete a StorSimple backup policy
 
-1. На странице устройства **Быстрый запуск** перейдите на вкладку **Политики резервного копирования**. В результате откроется страница **Политики резервного копирования**.
+1. On the device **Quick Start** page, click the **Backup Policies** tab. This will take you to the **Backup Policies** page.
 
-2. Выберите политику, щелкнув любое место в соответствующей строке, но не в первом столбце. Затем внизу страницы щелкните **Удалить**.
+2. Select the policy by clicking anywhere in the corresponding row except for the first column, and then click **Delete** at the bottom of the page.
 
-3. После этого введите подтверждение для применения этих исправлений. Помните о том, что при удалении политики резервного копирования удаляются и все связанные с ней резервные копии. Щелкните **Да** для удаления.
+3. You will be prompted for confirmation. Keep in mind that deleting a backup policy will delete all the associated backups. Click **Yes** to delete.
 
-Страница **Политики резервного копирования** обновится, и на ней появится новый список политик.
+The **Backup Policies** page will be updated to display the new list of policies.
  
 
-<!---HONumber=AcomDC_1217_2015-->
+
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

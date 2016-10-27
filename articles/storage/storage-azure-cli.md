@@ -1,10 +1,10 @@
 <properties
-    pageTitle="Использование интерфейса командной строки (CLI) Azure со службой хранилища Azure | Microsoft Azure"
-    description="Узнайте, как использовать интерфейс командной строки Azure (Azure CLI) для создания учетных записей хранения и управления ими, а также для работы с большими двоичными объектами и файлами Azure в службе хранилища Azure. Azure CLI — это кроссплатформенное средство "
+    pageTitle="Using the Azure CLI with Azure Storage | Microsoft Azure"
+    description="Learn how to use the Azure Command-Line Interface (Azure CLI) with Azure Storage to create and manage storage accounts and work with Azure blobs and files. The Azure CLI is a cross-platform tool "
     services="storage"
     documentationCenter="na"
-    authors="tamram"
-    manager="carmonm"
+    authors="micurd"
+    manager="jahogg"
     editor="tysonn"/>
 
 <tags
@@ -13,144 +13,145 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="09/20/2016"
-    ms.author="micurd;tamram"/>
+    ms.date="10/18/2016"
+    ms.author="micurd"/>
 
-# Использование интерфейса командной строки (CLI) Azure со службой хранилища Azure
 
-## Обзор
+# <a name="using-the-azure-cli-with-azure-storage"></a>Using the Azure CLI with Azure Storage
 
-Интерфейс командной строки Azure представляет собой набор межплатформенных команд с открытым кодом для работы с платформой Azure. Он предоставляет практически те же функции, что и [портал Azure](https://portal.azure.com), а также различные возможности доступа к данным.
+## <a name="overview"></a>Overview
 
-В этом руководстве вы узнаете, как использовать [интерфейс командной строки Azure (Azure CLI)](../xplat-cli-install.md) для выполнения различных задач, связанных с разработкой и администрированием, в службе хранилища Azure. Рекомендуем загрузить и установить (или обновить до последней версии) интерфейс командной строки Azure перед использованием в этом руководстве.
+The Azure CLI provides a set of open source, cross-platform commands for working with the Azure Platform. It provides much of the same functionality found in the [Azure portal](https://portal.azure.com) as well as rich data access functionality.
 
-В этом руководстве предполагается, что вам знакомы основные понятия службы хранилища Azure. Руководство предоставляет несколько сценариев для демонстрации использования интерфейса командной строки Azure со службой хранилища Azure. Перед выполнением каждого сценария необходимо обновить переменные сценария в зависимости от конфигурации.
+In this guide, we’ll explore how to use [Azure Command-Line Interface (Azure CLI)](../xplat-cli-install.md) to perform a variety of development and administration tasks with Azure Storage. We recommend that you download and install or upgrade to the latest Azure CLI before using this guide.
 
-> [AZURE.NOTE] Руководство содержит команды Azure CLI и примеры сценариев для классических учетных записей хранения. Перечень команд Azure CLI учетных записей хранения Resource Manager см. в разделе [Использование Azure CLI для Mac, Linux и Windows с диспетчером ресурсов Azure](../virtual-machines/azure-cli-arm-commands.md#azure-storage-commands-to-manage-your-storage-objects).
+This guide assumes that you understand the basic concepts of Azure Storage. The guide provides a number of scripts to demonstrate the usage of the Azure CLI with Azure Storage. Be sure to update the script variables based on your configuration before running each script.
 
-## Начало работы со службой хранилища Azure и интерфейсом командной строки Azure в течение 5 минут
+> [AZURE.NOTE] The guide provides the Azure CLI command and script examples for classic storage accounts. See [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management](../virtual-machines/azure-cli-arm-commands.md#azure-storage-commands-to-manage-your-storage-objects) for Azure CLI commands for Resource Manager storage accounts.
 
-В этом руководстве для демонстрации примеров используется ОС Ubuntu, но другие платформы должны работать аналогично.
+## <a name="get-started-with-azure-storage-and-the-azure-cli-in-5-minutes"></a>Get started with Azure Storage and the Azure CLI in 5 minutes
 
-**Впервые используете Azure?** Получите подписку на Microsoft Azure и связанную с ней учетную запись Microsoft. Сведения о способах приобретения Azure см. в разделах [Бесплатная пробная версия](https://azure.microsoft.com/pricing/free-trial/), [Способы приобретения](https://azure.microsoft.com/pricing/purchase-options/) и [Предложения для участников](https://azure.microsoft.com/pricing/member-offers/) (для подписчиков MSDN, участников Microsoft Partner Network, BizSpark и других программ корпорации Майкрософт).
+This guide uses Ubuntu for examples, but other OS platforms should perform similarly.
 
-Дополнительные сведения о подписках Azure см. в статье [Назначение ролей администратора в Azure Active Directory (Azure AD)](https://msdn.microsoft.com/library/azure/hh531793.aspx).
+**New to Azure:** Get a Microsoft Azure subscription and a Microsoft account associated with that subscription. For information on Azure purchase options, see [Free Trial](https://azure.microsoft.com/pricing/free-trial/), [Purchase Options](https://azure.microsoft.com/pricing/purchase-options/), and [Member Offers](https://azure.microsoft.com/pricing/member-offers/) (for members of MSDN, Microsoft Partner Network, and BizSpark, and other Microsoft programs).
 
-**После создания подписки Microsoft Azure и учетной записи:**
+See [Assigning administrator roles in Azure Active Directory (Azure AD)](https://msdn.microsoft.com/library/azure/hh531793.aspx) for more information about Azure subscriptions.
 
-1. Загрузите и установите интерфейс командной строки Azure согласно инструкциям в статье [Установка интерфейса командной строки Azure](../xplat-cli-install.md).
-2. После установки интерфейса командной строки Azure для доступа к соответствующим функциям можно использовать команду azure в интерфейсе командной строки (Bash, терминал, командная строка). Введите команду `azure`, после чего вы должны увидеть следующие выходные данные.
+**After creating a Microsoft Azure subscription and account:**
 
-    ![Вывод команды Azure][Image1]
+1. Download and install the Azure CLI following the instructions outlined in [Install the Azure CLI](../xplat-cli-install.md).
+2. Once the Azure CLI has been installed, you will be able to use the azure command from your command-line interface (Bash, Terminal, Command prompt) to access the Azure CLI commands. Type `azure` command and you should see the following output.
 
-3. В интерфейсе командной строки введите `azure storage`, чтобы вывести список всех команд службы хранилища Azure и ознакомиться с функциями, предоставляемыми интерфейсом командной строки Azure. Вы можете ввести название команды с параметром **-h** (например, `azure storage share create -h`), чтобы увидеть подробности синтаксиса команды.
-4. Теперь мы предоставим вам простой сценарий, который показывает основные команды интерфейса командной строки Azure для доступа к службе хранилища Azure. Сценарий сначала потребует установить две переменные для учетной записи хранения и ключа. Затем сценарий создает новый контейнер в этой новой учетной записи хранения и передает существующий файл образа (BLOB) в этот контейнер. После этого сценарий выводит список всех BLOB-объектов в этом контейнере и загружает файл образа в каталог назначения, существующий на локальном компьютере.
+    ![Azure Command Output][Image1]
 
-		#!/bin/bash
-		# A simple Azure storage example
+3. In the command line interface, type `azure storage` to list out all the azure storage commands and get a first impression of the functionalities the Azure CLI provides. You can type command name with **-h** parameter (for example, `azure storage share create -h`) to see details of command syntax.
+4. Now, we’ll give you a simple script that shows basic Azure CLI commands to access Azure Storage. The script will first ask you to set two variables for your storage account and key. Then, the script will create a new container in this new storage account and upload an existing image file (blob) to that container. After the script lists all blobs in that container, it will download the image file to the destination directory which exists on the local computer.
 
-		export AZURE_STORAGE_ACCOUNT=<storage_account_name>
-		export AZURE_STORAGE_ACCESS_KEY=<storage_account_key>
+        #!/bin/bash
+        # A simple Azure storage example
 
-		export container_name=<container_name>
-		export blob_name=<blob_name>
-		export image_to_upload=<image_to_upload>
-		export destination_folder=<destination_folder>
+        export AZURE_STORAGE_ACCOUNT=<storage_account_name>
+        export AZURE_STORAGE_ACCESS_KEY=<storage_account_key>
 
-		echo "Creating the container..."
-		azure storage container create $container_name
+        export container_name=<container_name>
+        export blob_name=<blob_name>
+        export image_to_upload=<image_to_upload>
+        export destination_folder=<destination_folder>
 
-		echo "Uploading the image..."
-		azure storage blob upload $image_to_upload $container_name $blob_name
+        echo "Creating the container..."
+        azure storage container create $container_name
 
-		echo "Listing the blobs..."
-		azure storage blob list $container_name
+        echo "Uploading the image..."
+        azure storage blob upload $image_to_upload $container_name $blob_name
 
-		echo "Downloading the image..."
-		azure storage blob download $container_name $blob_name $destination_folder
+        echo "Listing the blobs..."
+        azure storage blob list $container_name
 
-		echo "Done"
+        echo "Downloading the image..."
+        azure storage blob download $container_name $blob_name $destination_folder
 
-5. Откройте любой текстовый редактор на локальном компьютере (например, Vim) Введите указанный сценарий в текстовый редактор.
+        echo "Done"
 
-6. Теперь необходимо обновить переменные сценария на основе заданных параметров конфигурации.
+5. In your local computer, open your preferred text editor (vim for example). Type the above script into your text editor.
 
-    - **<имя\_учетной\_записи\_хранения>**: используйте заданное в сценарии имя или введите новое имя для учетной записи хранения. **Внимание:** имя учетной записи хранения в Azure должно быть уникальным и состоять из символов нижнего регистра.
+6. Now, you need to update the script variables based on your configuration settings.
 
-    - **<ключ\_учетной\_записи\_хранения>**: ключ доступа к вашей учетной записи хранения.
+    - **<storage_account_name>** Use the given name in the script or enter a new name for your storage account. **Important:** The name of the storage account must be unique in Azure. It must be lowercase, too!
 
-    - **<имя\_контейнера>**: используйте заданное в сценарии имя или введите новое имя для контейнера.
+    - **<storage_account_key>** The access key of your storage account.
 
-    - **<передаваемое\_изображение>**: введите путь к изображению на локальном компьютере (например, "~/images/HelloWorld.png").
+    - **<container_name>** Use the given name in the script or enter a new name for your container.
 
-    - **<папка\_назначения>**: введите путь к локальному каталогу для хранения файлов, скачанных из службы хранилища Azure (например, "~/downloadImages").
+    - **<image_to_upload>** Enter a path to a picture on your local computer, such as: "~/images/HelloWorld.png".
 
-7. После обновления необходимых переменных в Vim нажмите комбинации клавиш "Esc, : , wq!", чтобы сохранить сценарий.
+    - **<destination_folder>** Enter a path to a local directory to store files downloaded from Azure Storage, such as: “~/downloadImages”.
 
-8. Чтобы выполнить этот сценарий, введите имя файла сценария в консоль Bash. После выполнения сценария появится локальная целевая папка, которая содержит загруженный файл образа. На следующем снимке экрана показан пример вывода:
+7. After you’ve updated the necessary variables in vim, press key combinations “Esc, : , wq!” to save the script.
 
-После выполнения сценария появится локальная целевая папка, которая содержит загруженный файл образа.
+8. To run this script, simply type the script file name in the bash console. After this script runs, you should have a local destination folder that includes the downloaded image file. The following screenshot shows an example output:
 
-## Управление учетными записями хранения с помощью интерфейса командной строки Azure
+After the script runs, you should have a local destination folder that includes the downloaded image file.
 
-### Подключение к подписке Azure
+## <a name="manage-storage-accounts-with-the-azure-cli"></a>Manage storage accounts with the Azure CLI
 
-Хотя большинство команд хранилища могут работать без подписки Azure, рекомендуем вам подключить свою подписку через интерфейс командной строки Azure (Azure CLI). Чтобы настроить Azure CLI для работы с подпиской, следуйте инструкциям в статье [Подключение к среде Azure с использованием интерфейса командной строки Azure (Azure CLI)](../xplat-cli-connect.md).
+### <a name="connect-to-your-azure-subscription"></a>Connect to your Azure subscription
 
-### Создание новой учетной записи хранения
+While most of the storage commands will work without an Azure subscription, we recommend you to connect to your subscription from the Azure CLI. To configure the Azure CLI to work with your subscription, follow the steps in [Connect to an Azure subscription from the Azure CLI](../xplat-cli-connect.md).
 
-Для использования службы хранилища Azure потребуется учетная запись хранения. После настройки компьютера для подключения к подписке можно создать новую учетную запись хранения Azure.
+### <a name="create-a-new-storage-account"></a>Create a new storage account
+
+To use Azure storage, you will need a storage account. You can create a new Azure storage account after you have configured your computer to connect to your subscription.
 
         azure storage account create <account_name>
 
-Имя учетной записи хранения должно содержать от 3 до 24 символов и состоять только из цифр и букв нижнего регистра.
+The name of your storage account must be between 3 and 24 characters in length and use numbers and lower-case letters only.
 
-### Установите учетную запись хранения Azure по умолчанию в переменных среды
+### <a name="set-a-default-azure-storage-account-in-environment-variables"></a>Set a default Azure storage account in environment variables
 
-В подписке может иметься несколько учетных записей хранения. Вы можете выбрать одну из них и установить ее в переменных среды для всех команд хранилища в одном сеансе. Это позволяет выполнять команды хранилища интерфейса командной строки Azure без явного указания учетной записи и ключа хранения.
+You can have multiple storage accounts in your subscription. You can choose one of them and set it in the environment variables for all the storage commands in the same session. This enables you to run the Azure CLI storage commands without specifying the storage account and key explicitly.
 
         export AZURE_STORAGE_ACCOUNT=<account_name>
         export AZURE_STORAGE_ACCESS_KEY=<key>
 
-Установить учетную запись хранения по умолчанию можно также с помощью строки подключения. Во-первых, получите строку подключения при помощи следующей команды:
+Another way to set a default storage account is using connection string. Firstly get the connection string by command:
 
         azure storage account connectionstring show <account_name>
 
-Затем скопируйте полученную строку подключения и установите ее на переменную среды:
+Then copy the output connection string and set it to environment variable:
 
         export AZURE_STORAGE_CONNECTION_STRING=<connection_string>
 
-## Создание больших двоичных объектов (BLOB-объектов) и управление ими
+## <a name="create-and-manage-blobs"></a>Create and manage blobs
 
-Хранилище BLOB-объектов Azure — это служба хранения большого количества неструктурированных данных, таких как текстовые или бинарные файлы, к которым можно получить доступ практически из любой точки мира по протоколу HTTP или HTTPS. В этом разделе предполагается, что вы уже знакомы с понятиями службы хранилища BLOB-объектов Azure. Дополнительную информацию см. в статьях [Приступая к работе с хранилищем BLOB-объектов Azure с помощью .NET](storage-dotnet-how-to-use-blobs.md) и [Основные понятия службы BLOB-объектов](http://msdn.microsoft.com/library/azure/dd179376.aspx).
+Azure Blob storage is a service for storing large amounts of unstructured data, such as text or binary data, that can be accessed from anywhere in the world via HTTP or HTTPS. This section assumes that you are already familiar with the Azure Blob storage concepts. For detailed information, see [Get started with Azure Blob storage using .NET](storage-dotnet-how-to-use-blobs.md) and [Blob Service Concepts](http://msdn.microsoft.com/library/azure/dd179376.aspx).
 
-### Создание контейнера
+### <a name="create-a-container"></a>Create a container
 
-Каждый BLOB-объект в хранилище Azure должен находиться в контейнере. Вы можете создать закрытый контейнер с помощью команды `azure storage container create`:
+Every blob in Azure storage must be in a container. You can create a private container using the `azure storage container create` command:
 
         azure storage container create mycontainer
 
-> [AZURE.NOTE] Существует три уровня анонимного доступа для чтения: **Отключено**, **BLOB-объект** и **контейнер**. Чтобы запретить анонимный доступ к BLOB-объекту, присвойте параметру разрешение **Отключено**. По умолчанию новый контейнер является закрытым, доступ к нему может осуществляться только владельцем учетной записи. Чтобы разрешить анонимный общий доступ на чтение к BLOB-объектам, но не к метаданным контейнера или списку BLOB-объектов в контейнере, присвойте параметру разрешение **BLOB-объект**. Чтобы разрешить полный общий доступ на чтение к ресурсам BLOB-объектов, метаданным контейнера и списку BLOB-объектов в контейнере, присвойте параметру разрешение **контейнер**. Дополнительные сведения см. в статье [Управление анонимным доступом на чтение к контейнерам и большим двоичным объектам](storage-manage-access-to-resources.md).
+> [AZURE.NOTE] There are three levels of anonymous read access: **Off**, **Blob**, and **Container**. To prevent anonymous access to blobs, set the Permission parameter to **Off**. By default, the new container is private and can be accessed only by the account owner. To allow anonymous public read access to blob resources, but not to container metadata or to the list of blobs in the container, set the Permission parameter to **Blob**. To allow full public read access to blob resources, container metadata, and the list of blobs in the container, set the Permission parameter to **Container**. For more information, see [Manage anonymous read access to containers and blobs](storage-manage-access-to-resources.md).
 
-### Отправка BLOB-объекта в контейнер
+### <a name="upload-a-blob-into-a-container"></a>Upload a blob into a container
 
-Хранилище BLOB-объектов Azure поддерживает блочные и страничные BLOB-объекты. Дополнительные сведения см. в статье [Основные сведения о блочных, добавочных и страничных BLOB-объектах](http://msdn.microsoft.com/library/azure/ee691964.aspx).
+Azure Blob Storage supports block blobs and page blobs. For more information, see [Understanding Block Blobs, Append Blobs, and Page Blobs](http://msdn.microsoft.com/library/azure/ee691964.aspx).
 
-Чтобы загрузить BLOB-объекты в контейнер, вы можете использовать `azure storage blob upload`. По умолчанию эта команда отправляет локальные файлы в BLOB-объект. Чтобы указать тип BLOB-объекта можно использовать параметр `--blobtype`.
+To upload blobs in to a container, you can use the `azure storage blob upload`. By default, this command uploads the local files to a block blob. To specify the type for the blob, you can use the `--blobtype` parameter.
 
         azure storage blob upload '~/images/HelloWorld.png' mycontainer myBlockBlob
 
-### Загрузка BLOB-объектов из контейнера
+### <a name="download-blobs-from-a-container"></a>Download blobs from a container
 
-Следующий пример демонстрирует загрузку BLOB-объектов из контейнера.
+The following example demonstrates how to download blobs from a container.
 
         azure storage blob download mycontainer myBlockBlob '~/downloadImages/downloaded.png'
 
-### Копирование BLOB-объектов
+### <a name="copy-blobs"></a>Copy blobs
 
-Можно асинхронно копировать BLOB-объекты между учетными записями хранения и областями или внутри них.
+You can copy blobs within or across storage accounts and regions asynchronously.
 
-Следующий пример демонстрирует копирование BLOB-объектов из одной учетной записи хранения в другую. В этом примере мы создаем контейнер с общим анонимным доступом к BLOB-объектам.
+The following example demonstrates how to copy blobs from one storage account to another. In this sample we create a container where blobs are publicly, anonymously accessible.
 
     azure storage container create mycontainer2 -a <accountName2> -k <accountKey2> -p Blob
 
@@ -158,68 +159,72 @@
 
     azure storage blob copy start 'https://<accountname2>.blob.core.windows.net/mycontainer2/myBlockBlob2' mycontainer
 
-В этом примере выполняется асинхронное копирование. Вы можете следить за состоянием операции копирования, выполнив операцию `azure storage blob copy show`.
+This sample performs an asynchronous copy. You can monitor the status of each copy operation by running the `azure storage blob copy show` operation.
 
-Обратите внимание, что URL-адрес источника, предоставленный для операции копирования, должен либо быть общедоступным, либо содержать маркер SAS (подписанный URL-адрес).
+Note that the source URL provided for the copy operation must either be publicly accessible, or include a SAS (shared access signature) token.
 
-### Удаление большого двоичного объекта
+### <a name="delete-a-blob"></a>Delete a blob
 
-Чтобы удалить BLOB-объект, используйте следующую команду:
+To delete a blob, use the below command:
 
         azure storage blob delete mycontainer myBlockBlob2
 
-## Создание общих папок и управление ими
+## <a name="create-and-manage-file-shares"></a>Create and manage file shares
 
-Хранилище файлов Azure предоставляет общее хранилище для приложений с помощью стандартного протокола SMB. Виртуальные машины Microsoft Azure и облачные службы, а также локальные приложения, могут совместно использовать данные через монтированные ресурсы. Вы можете управлять общими папками и файловыми данными через интерфейс командной строки Azure. Дополнительные сведения о хранилище файлов Azure см. в статье [Приступая к работе с хранилищем файлов Azure в Windows](storage-dotnet-how-to-use-files.md) или [Использование хранилища файлов Azure с Linux](storage-how-to-use-files-linux.md).
+Azure File storage offers shared storage for applications using the standard SMB protocol. Microsoft Azure virtual machines and cloud services, as well as on-premises applications, can share file data via mounted shares. You can manage file shares and file data via the Azure CLI. For more information on Azure File storage, see [Get started with Azure File storage on Windows](storage-dotnet-how-to-use-files.md) or [How to use Azure File storage with Linux](storage-how-to-use-files-linux.md).
 
-### Создайте общую папку
+### <a name="create-a-file-share"></a>Create a file share
 
-Общая папка Azure представляет собой общую папку с файлами SMB в Azure. Все каталоги и файлы должны быть созданы в общей папке. Учетная запись может содержать любое количество совместно используемых ресурсов, а ресурс может содержать любое количество файлов, насколько это позволяет емкость учетной записи хранения. В следующем примере создается общая папка с именем **myshare**.
+An Azure File share is an SMB file share in Azure. All directories and files must be created in a file share. An account can contain an unlimited number of shares, and a share can store an unlimited number of files, up to the capacity limits of the storage account. The following example creates a file share named **myshare**.
 
         azure storage share create myshare
 
-### Создайте каталог
+### <a name="create-a-directory"></a>Create a directory
 
-Каталог обеспечивает дополнительную иерархическую структуру для общей папки Azure. В следующем примере в общей папке создается каталог с именем **myDir**.
+A directory provides an optional hierarchical structure for an Azure file share. The following example creates a directory named **myDir** in the file share.
 
         azure storage directory create myshare myDir
 
-Обратите внимание, что путь к каталогу может включать несколько уровней, *например* **a/b**. Однако необходимо убедиться в наличии всех родительских каталогов. Например, для пути **a/b** вам потребуется сначала создать каталог **a**, а затем каталог **b**.
+Note that directory path can include multiple levels, *e.g.*, **a/b**. However, you must ensure that all parent directories exists. For example, for path **a/b**, you must create directory **a** first, then create directory **b**.
 
-### Отправка локального файла в каталог
+### <a name="upload-a-local-file-to-directory"></a>Upload a local file to directory
 
-В следующем примере выполняется передача файла из **~/temp/samplefile.txt** в каталог **myDir**. Отредактируйте путь к файлу, чтобы он соответствовал пути к существующему файлу на локальном компьютере:
+The following example uploads a file from **~/temp/samplefile.txt** to the **myDir** directory. Edit the file path so that it points to a valid file on your local machine:
 
         azure storage file upload '~/temp/samplefile.txt' myshare myDir
 
-Обратите внимание, что размер файла в общей папке может составлять до 1 ТБ.
+Note that a file in the share can be up to 1 TB in size.
 
-### Укажите список файлов в корне или каталоге общей папки
+### <a name="list-the-files-in-the-share-root-or-directory"></a>List the files in the share root or directory
 
-Вы можете указать список файлов и подкаталогов в корне или каталоге общей папки с помощью следующей команды:
+You can list the files and subdirectories in a share root or a directory using the following command:
 
         azure storage file list myshare myDir
 
-Обратите внимание, что имя каталога необязательно для операции перечисления. Если имя каталога не указано, команда перечислит содержимое корневого каталога общей папки.
+Note that the directory name is optional for the listing operation. If omitted, the command lists the contents of the root directory of the share.
 
-### Копирование файлов
+### <a name="copy-files"></a>Copy files
 
-Начиная с версии 0.9.8 интерфейса Azure CLI, можно скопировать файл в другой файл, файл в большой двоичный объект или BLOB-объект в файл. Ниже демонстрируется выполнение этих операций копирования с помощью команд CLI. Копирование файла в новый каталог:
+Beginning with version 0.9.8 of Azure CLI, you can copy a file to another file, a file to a blob, or a blob to a file. Below we demonstrate how to perform these copy operations using CLI commands. To copy a file to the new directory:
 
-	azure storage file copy start --source-share srcshare --source-path srcdir/hello.txt --dest-share destshare --dest-path destdir/hellocopy.txt --connection-string $srcConnectionString --dest-connection-string $destConnectionString
+    azure storage file copy start --source-share srcshare --source-path srcdir/hello.txt --dest-share destshare --dest-path destdir/hellocopy.txt --connection-string $srcConnectionString --dest-connection-string $destConnectionString
 
-Копирование большого двоичного объекта в каталог файлов:
+To copy a blob to a file directory:
 
-	azure storage file copy start --source-container srcctn --source-blob hello2.txt --dest-share hello --dest-path hellodir/hello2copy.txt --connection-string $srcConnectionString --dest-connection-string $destConnectionString
+    azure storage file copy start --source-container srcctn --source-blob hello2.txt --dest-share hello --dest-path hellodir/hello2copy.txt --connection-string $srcConnectionString --dest-connection-string $destConnectionString
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Next Steps
 
-Ниже приведены некоторые связанные статьи и ресурсы для подробного изучения службы хранилища Azure.
+Here are some related articles and resources for learning more about Azure Storage.
 
-- [Документация по хранилищу Azure](https://azure.microsoft.com/documentation/services/storage/)
-- [Справочник по API-интерфейсу REST служб хранилища](https://msdn.microsoft.com/library/azure/dd179355.aspx)
+- [Azure Storage Documentation](https://azure.microsoft.com/documentation/services/storage/)
+- [Azure Storage REST API Reference](https://msdn.microsoft.com/library/azure/dd179355.aspx)
 
 
 [Image1]: ./media/storage-azure-cli/azure_command.png
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

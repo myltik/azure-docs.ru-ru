@@ -1,8 +1,8 @@
 <properties 
-    pageTitle="Приступая к работе с аутентификацией в iOS на основе сертификата | Microsoft Azure" 
-    description="Узнайте, как настроить аутентификацию на основе сертификата в решениях на устройствах iOS." 
+    pageTitle="Get started with certificate based authentication on iOS | Microsoft Azure" 
+    description="Learn how to configure certificate based authentication in solutions with iOS devices" 
     services="active-directory" 
-    authors="markusvi"  
+    authors="MarkusVi"  
     documentationCenter="na" 
     manager="femila"/>
 <tags 
@@ -11,108 +11,111 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="08/02/2016" 
+    ms.date="10/20/2016" 
     ms.author="markvi" />
 
 
 
-# Приступая к работе с аутентификацией в iOS на основе сертификата — общедоступная предварительная версия
+
+# <a name="get-started-with-certificate-based-authentication-on-ios---public-preview"></a>Get started with certificate based authentication on iOS - Public Preview
 
 > [AZURE.SELECTOR]
 - [iOS](active-directory-certificate-based-authentication-ios.md)
 - [Android](active-directory-certificate-based-authentication-android.md)
 
 
-В этом разделе показано, как настроить и использовать аутентификацию на основе сертификата (CBA) на устройствах iOS для пользователей клиентов в Office 365 (планы "Корпоративный", "Бизнес" и "Для образования").
+This topic shows you how to configure and utilize certificate based authentication (CBA) on an iOS device for users of tenants in Office 365 Enterprise, Business, and Education plans. 
 
-CBA позволяет Azure Active Directory выполнять аутентификацию с помощью сертификата клиента на устройстве Android или iOS при подключении учетной записи Exchange Online к:
+CBA enables you to be authenticated by Azure Active Directory with a client certificate on an Android or iOS device when connecting your Exchange online account to: 
 
-- мобильным приложениям Office, таким как Microsoft Outlook и Microsoft Word;
-- клиентам Exchange ActiveSync (EAS).
+- Office mobile applications such as Microsoft Outlook and Microsoft Word   
+- Exchange ActiveSync (EAS) clients 
 
-Настройка данной функции избавляет от необходимости ввода имени пользователя и пароля в определенных почтовых клиентах и приложениях Microsoft Office на мобильных устройствах.
+Configuring this feature eliminates the need to enter a username and password combination into certain mail and Microsoft Office applications on your mobile device. 
  
 
-## Поддерживаемые сценарии и требования  
+## <a name="supported-scenarios-and-requirements"></a>Supported scenarios and requirements  
 
 
 
-### Общие требования 
+### <a name="general-requirements"></a>General requirements 
 
 
-Для всех сценариев, описанных в этой статье, должны выполняться перечисленные ниже требования.
+For all scenarios in this topic, the following tasks are required:  
 
-- Доступ к центрам сертификации для выдачи сертификатов клиентов.
+- Access to certificate authority(s) to issue client certificates.  
 
-- Центры сертификации должны быть настроены в Azure Active Directory. Подробные инструкции по настройке см. в разделе [Приступая к работе](#getting-started).
+- The certificates authority(s) must be configured in Azure Active Directory. You can find detailed steps on how to complete the configuration in the [Getting Started](#getting-started) section.  
 
-- Корневой центр сертификации и все промежуточные центры сертификации должны быть настроены в Azure Active Directory.
+- The root certificate authority and any intermediate certificate authorities must be configured in Azure Active Directory.  
 
-- Каждый центр сертификации должен иметь список отзыва сертификатов (CRL), на который можно сослаться с помощью URL-адреса для Интернета.
+- Each certificate authority must have a certificate revocation list (CRL) that can be referenced via an Internet facing URL.  
 
-- Для аутентификации клиента должен быть выдан сертификат клиента.
-
-
-- Только для клиентов Exchange ActiveSync: в сертификате клиента в поле "Альтернативное имя субъекта" в качестве значения имени субъекта или имени RFC822 должен быть указан маршрутизируемый адрес электронной почты пользователя в Exchange Online. Azure Active Directory сопоставляет значение RFC822 с атрибутом прокси-адреса в каталоге.
+- The client certificate must be issued for client authentication.  
 
 
+- For Exchange ActiveSync clients only, the client certificate must have the user’s routable email address in Exchange online in either the Principal Name or the RFC822 Name value of the Subject Alternative Name field. Azure Active Directory maps the RFC822 value to the Proxy Address attribute in the directory.  
 
-### Поддержка мобильных приложений Office 
 
-| Приложения | Поддержка |
+
+### <a name="office-mobile-applications-support"></a>Office mobile applications support 
+
+| Apps                      | Support      |
 | ---                       | ---          |
-| Word/Excel/PowerPoint | ![Проверка][1] |
-| OneNote | ![Проверка][1] |
-| OneDrive | ![Проверка][1] |
-| Outlook | Скоро |
-| Yammer | ![Проверка][1] |
-| Skype для бизнеса | Скоро |
+| Word / Excel / PowerPoint | ![Check][1]  |
+| OneNote                   | ![Check][1]  |
+| OneDrive                  | ![Check][1]  |
+| Outlook                   | Coming soon  |
+| Yammer                    | ![Check][1]  |
+| Skype for Business        | Coming soon  |
 
 
-### Требования  
+### <a name="requirements"></a>Requirements  
 
-Устройство должно иметь операционную систему iOS 9 и более поздней версии.
+The device OS version must be iOS 9 and above 
 
-Необходимо настроить сервер федерации.
+A federation server must be configured.  
 
-Для приложений Office на iOS требуется Azure Authenticator.
+Azure Authenticator is required for Office applications on iOS.  
 
-Чтобы служба Azure Active Directory могла отзывать сертификат клиента, маркер AD FS должен иметь следующие утверждения:
+For Azure Active Directory to revoke a client certificate, the ADFS token must have the following claims:  
 
-  - `http://schemas.microsoft.com/ws/2008/06/identity/claims/<serialnumber>` (серийный номер сертификата клиента);
+  - `http://schemas.microsoft.com/ws/2008/06/identity/claims/<serialnumber>`  
+(The serial number of the client certificate) 
 
-  - `http://schemas.microsoft.com/2012/12/certificatecontext/field/<issuer>` (строка для издателя сертификата клиента).
+  - `http://schemas.microsoft.com/2012/12/certificatecontext/field/<issuer>`  
+(The string for the issuer of the client certificate) 
 
-Azure Active Directory добавляет эти утверждения в маркер обновления, если они доступны в маркере AD FS (или любом другом токене SAML). Когда требуется проверить маркер обновления, эта информация используется для проверки отзыва.
+Azure Active Directory adds these claims to the refresh token if they are available in the ADFS token (or any other SAML token). When the refresh token needs to be validated, this information is used to check the revocation. 
 
-Рекомендуется обновить страницы ошибок AD FS следующими сведениями:
+As a best practice, you should update the ADFS error pages with the following:
 
-- требованием установки Azure Authenticator для iOS;
+- The requirement for installing the Azure Authenticator on iOS
 
-- инструкциями о получении сертификата пользователя.
+- Instructions on how to get a user certificate. 
 
-Дополнительные сведения см. в разделе [Настройка страниц входа AD FS](https://technet.microsoft.com/library/dn280950.aspx).
-
-
-
-### Поддержка клиентов Exchange ActiveSync 
-
-
-В iOS версии 9 и выше поддерживается собственный почтовый клиент iOS. Чтобы определить, поддерживается ли эта функция во всех остальных приложениях Exchange ActiveSync, обратитесь к разработчику приложения.
+For more details, see [Customizing the AD FS Sign-in Pages](https://technet.microsoft.com/library/dn280950.aspx).  
 
 
 
-## Приступая к работе 
+### <a name="exchange-activesync-clients-support"></a>Exchange ActiveSync clients support 
 
 
-Чтобы приступить к работе, необходимо настроить центры сертификации в Azure Active Directory. Для каждого центра сертификации передайте следующие данные:
+On iOS 9 or later, the native iOS mail client is supported. For all other Exchange ActiveSync applications, to determine if this feature is supported, contact your application developer.  
 
-- открытую часть сертификата в формате *CER*;
 
-- URL-адреса для Интернета, где находятся списки отзыва сертификатов (CRL).
+
+## <a name="getting-started"></a>Getting started 
+
+
+To get started, you need to configure the certificate authorities in Azure Active Directory. For each certificate authority, upload the following: 
+
+- The public portion of the certificate, in *.cer* format 
+
+- The Internet facing URLs where the Certificate Revocation Lists (CRLs) reside
  
 
-Ниже приведена схема для центра сертификации.
+Below is the schema for a certificate authority: 
 
     class TrustedCAsForPasswordlessAuth 
     { 
@@ -137,25 +140,26 @@ Azure Active Directory добавляет эти утверждения в ма�
     } 
 
 
-Чтобы передать эти данные, можно воспользоваться модулем Azure AD с помощью Windows PowerShell. Ниже приведены примеры добавления, удаления и изменения центра сертификации.
+To upload the information, you can use  the Azure AD module through Windows PowerShell.  
+Below are examples for adding, removing or modifying a certificate authority. 
 
 
 
-### Настройка клиента Azure AD для аутентификации на основе сертификата 
+### <a name="configuring-your-azure-ad-tenant-for-certificate-based-authentication"></a>Configuring your Azure AD tenant for certificate based authentication 
 
-1. Запустите Windows PowerShell с правами администратора.
+1. Start Windows PowerShell with administrator privileges. 
 
-2. Установите модуль Azure AD. Необходимо установить версию [1\.1.143.0](http://www.powershellgallery.com/packages/AzureADPreview/1.1.143.0) или более позднюю.
+2. Install the Azure AD module. You need to install Version [1.1.143.0](http://www.powershellgallery.com/packages/AzureADPreview/1.1.143.0) or higher.  
 
         Install-Module -Name AzureADPreview –RequiredVersion 1.1.143.0 
 
-3. Подключитесь к целевому клиенту:
+3. Connect to your target tenant: 
 
         Connect-AzureAD 
 
-### Добавление нового центра сертификации
+### <a name="adding-a-new-certificate-authority"></a>Adding a new certificate authority
 
-1. Задайте различные свойства центра сертификации и добавьте его в Azure Active Directory:
+1. Set various properties of the certificate authority and add it to Azure Active Directory: 
 
         $cert=Get-Content -Encoding byte "[LOCATION OF THE CER FILE]" 
         $new_ca=New-Object -TypeName Microsoft.Open.AzureAD.Model.CertificateAuthorityInformation 
@@ -163,119 +167,122 @@ Azure Active Directory добавляет эти утверждения в ма�
         $new_ca.TrustedCertificate=$cert 
         New-AzureADTrustedCertificateAuthority -CertificateAuthorityInformation $new_ca 
 
-5. Получите сведения о центрах сертификации:
+5. Get the Certificate Authorities: 
 
         Get-AzureADTrustedCertificateAuthority 
 
 
-### Получение списка центров сертификации
+### <a name="retrieving-the-list-certificate-authorities"></a>Retrieving the list certificate authorities
 
-Получите текущий список центров сертификации, хранящихся в Azure Active Directory для вашего клиента:
+Retrieve the certificate authorities currently stored in Azure Active Directory for your tenant: 
 
         Get-AzureADTrustedCertificateAuthority 
 
 
-### Удаление центра сертификации
+### <a name="removing-a-certificate-authority"></a>Removing a certificate authority
 
-1.	Получите сведения о центрах сертификации:
+1.  Retrieve the certificate authorities: 
 
-		$c=Get-AzureADTrustedCertificateAuthority 
-
-
-2. Удалите сертификат для центра сертификации:
-
-		Remove-AzureADTrustedCertificateAuthority -CertificateAuthorityInformation $c[2] 
+        $c=Get-AzureADTrustedCertificateAuthority 
 
 
-### Изменение центра сертификации 
+2. Remove the certificate for the certificate authority: 
 
-1.	Получите сведения о центрах сертификации:
-
-		$c=Get-AzureADTrustedCertificateAuthority 
+        Remove-AzureADTrustedCertificateAuthority -CertificateAuthorityInformation $c[2] 
 
 
-2. Измените свойства центра сертификации:
+### <a name="modfiying-a-certificate-authority"></a>Modfiying a certificate authority 
 
-		$c[0].AuthorityType=1 
+1.  Retrieve the certificate authorities: 
 
-3. Укажите **центр сертификации**:
-
-		Set-AzureADTrustedCertificateAuthority -CertificateAuthorityInformation $c[0] 
+        $c=Get-AzureADTrustedCertificateAuthority 
 
 
+2. Modify properties on the certificate authority: 
 
+        $c[0].AuthorityType=1 
 
-## Тестирование мобильных приложений Office  
+3. Set the **Certificate Authority**: 
 
-Чтобы протестировать аутентификацию на основе сертификата в мобильном приложении Office, выполните описанные ниже действия.
-
-1.	На тестовом устройстве установите мобильное приложение Office (например, OneDrive) из App Store.
-
-2.	Убедитесь, что для тестового устройства подготовлен сертификат пользователя.
-
-3.	Запустите приложение.
-
-4.	Введите имя пользователя, а затем выберите сертификат пользователя, который хотите использовать.
-
-Вы должны без проблем войти в систему.
+        Set-AzureADTrustedCertificateAuthority -CertificateAuthorityInformation $c[0] 
 
 
 
 
+## <a name="testing-office-mobile-applications"></a>Testing Office mobile applications  
 
-## Тестирование клиентских приложений Exchange ActiveSync
+To test certificate authentication on your mobile Office application: 
 
-Для доступа к Exchange ActiveSync с использованием аутентификации на основе сертификата приложению должен быть доступен профиль EAS, содержащий сертификат клиента. В профиле EAS должны содержаться следующие сведения:
+1.  On your test device, install an Office mobile application (e.g. OneDrive) from the App Store.
 
-- сертификат пользователя, который будет использоваться для аутентификации;
+2.  Verify that the user certificate has been provisioned to your test device. 
 
-- конечная точка EAS должна иметь значение outlook.office365.com (так как в настоящее время эта функция поддерживается только в мультитенантной среде Exchange Online).
+3.  Launch the application. 
 
-Профиль EAS можно настроить и поместить на устройство с помощью системы MDM, такой как Intune, либо вручную поместить сертификат в профиль EAS на устройстве.
+4.  Enter your user name, and then pick the user certificate you want to use. 
 
-### Тестирование клиентских приложений EAS на iOS 
-
-Чтобы протестировать аутентификацию на основе сертификата в собственном почтовом приложении, работающем на iOS 9 или более поздней версии, выполните описанные ниже действия.
-
-1.	Настройте профиль EAS, удовлетворяющий изложенным выше требованиям.
-
-2.	Установите профиль на устройство iOS (с помощью системы MDM, такой как Intune, или приложения Apple Configurator).
-
-3.	Когда профиль будет полностью установлен, откройте собственное почтовое приложение и убедитесь, что почта синхронизируется.
+You should be successfully signed in. 
 
 
 
-## Запрет доступа
 
-Чтобы отозвать сертификат клиента, Azure Active Directory извлекает список отзыва сертификатов (CRL) из URL-адресов, переданных вместе с информацией центра сертификации, и кэширует его. Метка времени последней публикации (свойство **Дата вступления в силу**) в списке отзыва сертификатов обеспечивает допустимость этого списка. Список отзыва сертификатов периодически опрашивается для отзыва доступа к сертификатам, которые числятся в этом списке.
 
-Если требуется более быстрый отзыв (например, если пользователь потерял устройство), то маркер авторизации пользователя можно сделать недействительным. Чтобы сделать маркер авторизации недействительным, с помощью Windows PowerShell определите поле **StsRefreshTokenValidFrom** для этого пользователя. Поле **StsRefreshTokenValidFrom** необходимо обновить для каждого пользователя, доступ для которого будет отозван.
+## <a name="testing-exchange-activesync-client-applications"></a>Testing Exchange ActiveSync client applications
+
+To access Exchange ActiveSync via certificate based authentication, an EAS profile containing the client certificate must be available to application. The EAS profile must contain the following information:
+
+- The user certificate to be used for authentication 
+
+- The EAS endpoint must be outlook.office365.com (as this feature is currently supported only in the Exchange online multi-tenant environment)
+
+An EAS profile can be configured and placed on the device through the utilization of an MDM such as Intune or by manually placing the certificate in the EAS profile on the device.  
+
+### <a name="testing-eas-client-applications-on-ios"></a>Testing EAS client applications on iOS 
+
+To test certificate authentication with the native mail application on iOS 9 or above: 
+
+1.  Configure an EAS profile that satisfies the requirements above. 
+
+2.  Install the profile on the iOS device (either using an MDM, such as Intune, or the Apple Configurator application)
+
+3.  Once the profile is properly installed, open the native Mail application, and verify that mail is synchronizing
+
+
+
+## <a name="revocation"></a>Revocation
+
+To revoke a client certificate, Azure Active Directory fetches the certificate revocation list (CRL) from the URLs uploaded as part of certificate authority information and caches it. The last publish timestamp (**Effective Date** property) in the CRL is used to ensure the CRL is still valid. The CRL is periodically referenced to revoke access to certificates that are a part of the list.
+
+If a more instant revocation is required (for example, if a user loses a device), the authorization token of the user can be invalidated. To invalidate the authorization token, set the **StsRefreshTokenValidFrom** field for this particular user using Windows PowerShell. You must update the **StsRefreshTokenValidFrom** field for each user you want to revoke access for.
  
-Чтобы отзыв оставался в силе, для свойства **Дата вступления в силу** списка отзыва сертификатов необходимо указать дату, которая наступит после даты, заданной в поле **StsRefreshTokenValidFrom**, а также убедиться, что этот сертификат есть в списке отзыва сертификатов.
+To ensure that the revocation persists, you must set the **Effective Date** of the CRL to a date after the value set by **StsRefreshTokenValidFrom** and ensure the certificate in question is in the CRL.
  
-Ниже описан процесс обновления и аннулирования маркера авторизации с помощью поля **StsRefreshTokenValidFrom**.
+The following steps outline the process for updating and invalidating the authorization token by setting the **StsRefreshTokenValidFrom** field. 
 
-1. Используя учетные данные администратора, подключитесь к службе MSOL:
+1. Connect with admin credentials to the MSOL service: 
 
-		$msolcred = get-credential 
-		connect-msolservice -credential $msolcred 
+        $msolcred = get-credential 
+        connect-msolservice -credential $msolcred 
 
-1.	Получите текущее значение StsRefreshTokensValidFrom для пользователя:
+1.  Retrieve the current StsRefreshTokensValidFrom value for a user: 
 
-		$user = Get-MsolUser -UserPrincipalName test@yourdomain.com` 
-		$user.StsRefreshTokensValidFrom 
-
-
-1.	Настройте новое значение StsRefreshTokensValidFrom для пользователя, равное текущей метке времени:
-
-		Set-MsolUser -UserPrincipalName test@yourdomain.com -StsRefreshTokensValidFrom ("03/05/2016")
+        $user = Get-MsolUser -UserPrincipalName test@yourdomain.com` 
+        $user.StsRefreshTokensValidFrom 
 
 
-Задаваемая дата должна быть в будущем. Если дата не в будущем, свойство **StsRefreshTokensValidFrom** не будет задано. Если дата в будущем, для **StsRefreshTokensValidFrom** задается актуальное время (не дата, указанная командой Set-MsolUser).
+1.  Configure a new StsRefreshTokensValidFrom value for the user equal to the current timestamp: 
+
+        Set-MsolUser -UserPrincipalName test@yourdomain.com -StsRefreshTokensValidFrom ("03/05/2016")
+
+
+The date you set must be in the future. If the date is not in the future, the **StsRefreshTokensValidFrom** property is not set. If the date is in the future, **StsRefreshTokensValidFrom** is set to the current time (not the date indicated by Set-MsolUser command). 
 
 
 
 <!--Image references-->
 [1]: ./media/active-directory-certificate-based-authentication-ios/ic195031.png
 
-<!---HONumber=AcomDC_0803_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

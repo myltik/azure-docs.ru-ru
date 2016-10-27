@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Настройка ролей для облачной службы Azure в среде Visual Studio | Microsoft Azure"
-   description="Узнайте, как настроить роли для облачных служб Azure с помощью Visual Studio."
+   pageTitle="Configure the Roles for an Azure Cloud Service with Visual Studio | Microsoft Azure"
+   description="Learn how to set up and configure roles for Azure cloud services by using Visual Studio."
    services="visual-studio-online"
    documentationCenter="na"
    authors="TomArcher"
@@ -15,99 +15,100 @@
    ms.date="08/15/2016"
    ms.author="tarcher" />
 
-# Настройка ролей для облачной службы Azure в среде Visual Studio
 
-Облачной службе Azure можно назначить одну или несколько рабочих ролей или веб-ролей. Для каждой роли нужно определить способ настройки и настроить способ выполнения. Дополнительные сведения о ролях в облачных службах см. в видео [Введение в облачные службы Azure](https://channel9.msdn.com/Series/Windows-Azure-Cloud-Services-Tutorials/Introduction-to-Windows-Azure-Cloud-Services). Эта информация для облачной службы хранится в следующих файлах.
+# <a name="configure-the-roles-for-an-azure-cloud-service-with-visual-studio"></a>Configure the Roles for an Azure Cloud Service with Visual Studio
+
+An Azure cloud service can have one or more worker or web roles. For each role you need to define how that role is set up and also configure how that role runs. To learn more about roles in cloud services, see the video [Introduction to Azure Cloud Services](https://channel9.msdn.com/Series/Windows-Azure-Cloud-Services-Tutorials/Introduction-to-Windows-Azure-Cloud-Services). The information for your cloud service is stored in the following files:
 
 - **ServiceDefinition.csdef**
 
-    CSDEF-файл определяет параметры среды выполнения для облачной службы, в том числе требуемые роли, конечные точки и размер виртуальной машины. Хранящиеся в этом файле данные нельзя изменить во время выполнения роли.
+    The service definition file defines the runtime settings for your cloud service including what roles are required, endpoints, and virtual machine size. None of the data stored in this file can be changed when your role is running.
 
 - **ServiceConfiguration.cscfg**
 
-    Файл конфигурации службы задает количество выполняемых экземпляров роли, а также значения параметров, определенных для роли. Хранящиеся в этом файле данные можно изменить во время выполнения роли.
+    The service configuration file configures how many instances of a role are run and the values of the settings defined for a role. The data stored in this file can be changed while your role is running.
 
-Наличие нескольких конфигураций службы дает возможность хранить разные значения для параметров, определяющих выполнение роли. Разные конфигурации службы можно использовать для разных сред развертывания. Например, можно задать строку подключения к учетной записи хранения, чтобы использовать эмулятор локального хранения Azure в конфигурации локальной службы. Таким образом вы сможете создать другую конфигурацию службы для использования облачного хранилища Azure.
+To be able to store different values for these settings for how your role runs, you can have multiple service configurations. You can use a different service configuration for each deployment environment. For example, you can set your storage account connection string to use the local Azure storage emulator in a local service configuration and create another service configuration to use the Azure storage in the cloud.
 
-При создании новой облачной службы Azure в Visual Studio по умолчанию создаются две конфигурации службы. Эти конфигурации добавляются в проект Azure. Имена этих конфигураций:
+When you create a new Azure cloud service in Visual Studio, two service configurations are created by default. These configurations are added to your Azure project. The configurations are named:
 
 - ServiceConfiguration.Cloud.cscfg
 
 - ServiceConfiguration.Local.cscfg
 
-## Настройка облачной службы Azure
+## <a name="configure-an-azure-cloud-service"></a>Configure an Azure cloud service
 
-В среде Visual Studio можно настроить облачную службу Azure из обозревателя решений, как показано ниже.
+You can configure an Azure cloud service from Solution Explorer in Visual Studio, as shown in the following illustration.
 
-![Настройка облачной службы](./media/vs-azure-tools-configure-roles-for-cloud-service/IC713462.png)
+![Configure Cloud Service](./media/vs-azure-tools-configure-roles-for-cloud-service/IC713462.png)
 
-### Настройка облачной службы Azure
+### <a name="to-configure-an-azure-cloud-service"></a>To configure an Azure cloud service
 
-1. Чтобы настроить все роли в проекте Azure, в **обозревателе решений** откройте контекстное меню для роли и выберите пункт **Свойства**.
+1. To configure each role in your Azure project from **Solution Explorer**, open the shortcut menu for the role in the Azure project and then choose **Properties**.
 
-    В редакторе Visual Studio отобразится страница с именем роли. На странице будут представлены поля для вкладки **Конфигурация**.
+    A page with the name of the role is displayed in the Visual Studio editor. The page displays the fields for the **Configuration** tab.
 
-1. В списке **Конфигурация службы** выберите имя конфигурации службы, которую нужно изменить.
+1. In the **Service Configuration** list, choose the name of the service configuration that you want to edit.
 
-    Если нужно изменить все конфигурации службы для этой роли, выберите пункт **Все конфигурации**.
+    If you want to make changes to all of the service configurations for this role, you can choose **All Configurations**.
 
-    >[AZURE.IMPORTANT] При выборе конкретной конфигурации службы некоторые ее свойства будут отключены, так как их можно задать только для всех конфигураций. Чтобы изменить эти свойства, выберите пункт «Все конфигурации».
+    >[AZURE.IMPORTANT] If you choose a specific service configuration, some properties are disabled because they can only be set for all configurations. To edit these properties, you must choose All Configurations.
 
-    Теперь вы можете перейти на вкладку, чтобы обновить все включенные свойства в этом представлении.
+    You can now choose a tab to update any enabled properties on that view.
 
-## Изменение количества экземпляров роли
+## <a name="change-the-number-of-role-instances"></a>Change the number of role instances
 
-Чтобы повысить производительность облачной службы, можно изменить количество запущенных экземпляров роли в зависимости от количества пользователей или нагрузки, ожидаемой для определенной роли. При запуске облачной службы в Azure для каждого экземпляра роли создается отдельная виртуальная машина. От этого будут зависеть выставленные счета за развертывание этой облачной службы. Дополнительные сведения о плате за использование Azure см. в статье [Расшифровка счета за использование Microsoft Azure](billing-understand-your-bill.md).
+To improve the performance of your cloud service, you can change the number of instances of a role that are running, based on the number of users or the load expected for a particular role. A separate virtual machine is created for each instance of a role when the cloud service runs in Azure. This will affect the billing for the deployment of this cloud service. For more information about billing, see [Understand your bill for Microsoft Azure](billing-understand-your-bill.md).
 
-### Изменение количества экземпляров роли
+### <a name="to-change-the-number-of-instances-for-a-role"></a>To change the number of instances for a role
 
-1. Перейдите на вкладку **Конфигурация**.
+1. Choose the **Configuration** tab.
 
-1. В списке **Конфигурация службы** выберите конфигурацию службы, которую нужно обновить.
+1. In the **Service Configuration** list, choose the service configuration that you want to update.
 
-    >[AZURE.NOTE] Можно задать количество экземпляров для конкретной конфигурации службы или всех конфигураций службы.
+    >[AZURE.NOTE] You can set the instance count for a specific service configuration or for all service configurations.
 
-1. В поле **Количество экземпляров** введите количество экземпляров, которые будут запущены для этой роли.
+1. In the **Instance count** text box, enter the number of instances that you want to start for this role.
 
-    >[AZURE.NOTE] Каждый экземпляр выполняется на отдельной виртуальной машине при публикации облачной службы в Azure.
+    >[AZURE.NOTE] Each instance is run on a separate virtual machine when you publish your cloud service to Azure.
 
-1. Нажмите кнопку **Сохранить** на панели инструментов, чтобы сохранить эти изменения в CSCFG-файле.
+1. Choose the **Save** button on the toolbar to save these changes to the service configuration file.
 
-## Управление строками подключения для учетных записей хранения
+## <a name="manage-connection-strings-for-storage-accounts"></a>Manage connection strings for storage accounts
 
-Вы можете добавлять, удалять или изменять строки подключения для конфигураций службы. Также можно использовать разные строки подключения для разных конфигураций службы. Например, вы можете использовать строку локального подключения для конфигурации локальной службы, которая имеет значение `UseDevelopmentStorage=true`. Можно также настроить конфигурацию облачной службы, которая использует учетную запись хранения в Azure.
+You can add, remove or modify connection strings for your service configurations. You might want different connection strings for different service configurations. For example, you might want a local connection string for a local service configuration that has a value of `UseDevelopmentStorage=true`. You might also want to configure a cloud service configuration that uses a storage account in Azure.
 
->[AZURE.WARNING] Когда вы вводите ключ учетной записи хранения Azure для строки подключения к учетной записи хранения, эти сведения сохраняются локально в CSCFG-файле. Тем не менее эти сведения в настоящее время не хранятся в виде зашифрованного текста.
+>[AZURE.WARNING] When you enter the Azure storage account key information for a storage account connection string, this information is stored locally in the service configuration file. However, this information is currently not stored as encrypted text.
 
-Использование разных значений для разных конфигураций службы избавляет от необходимости использовать разные строки подключения в облачной службе или изменять код при публикации этой службы в Azure. Для строки подключения в коде можно использовать одно и то же имя, а значение будет другим в зависимости от конфигурации службы, выбранной при сборке или публикации облачной службы.
+By using a different value for each service configuration, you do not have to use different connection strings in your cloud service or modify your code when you publish your cloud service to Azure. You can use the same name for the connection string in your code and the value will be different, based on the service configuration that you select when you build your cloud service or when you publish it.
 
-### Управление строками подключения для учетных записей хранения
+### <a name="to-manage-connection-strings-for-storage-accounts"></a>To manage connection strings for storage accounts
 
-1. Перейдите на вкладку **Параметры**.
+1. Choose the **Settings** tab.
 
-1. В списке **Конфигурация службы** выберите конфигурацию службы, которую нужно обновить.
+1. In the **Service Configuration** list, choose the service configuration that you want to update.
 
-    >[AZURE.NOTE] Вы можете обновить строки подключения для конкретной конфигурации службы. Если же вам нужно добавить или удалить строку подключения, выберите пункт «Все конфигурации».
+    >[AZURE.NOTE] You can update connection strings for a specific service configuration, but if you need to add or delete a connection string you must select All Configurations.
 
-1. Чтобы добавить строку подключения, нажмите кнопку **Добавить параметр**. Новая запись будет добавлена в список.
+1. To add a connection string, choose the **Add Setting** button. A new entry is added to the list.
 
-1. В поле **Имя** введите имя, которое будет использоваться для строки подключения.
+1. In the **Name** text box, type the name that you want to use for the connection string.
 
-1. В раскрывающемся списке **Тип** выберите пункт **Строка подключения**.
+1. In the **Type** drop-down list, choose **Connection String**.
 
-1. Чтобы изменить значение для строки подключения, нажмите кнопку с многоточием (...). Откроется диалоговое окно **Создание строки подключения к хранилищу**.
+1. To change the value for the connection string, choose the ellipsis (...) button. The **Create Storage Connection String** dialog box appears.
 
-1. Чтобы использовать эмулятор локальной учетной записи хранения, выберите вариант **Эмулятор хранения Microsoft Azure** и нажмите кнопку **ОК**.
+1. To use the local storage account emulator, choose the **Microsoft Azure storage emulator** option button and then choose the **OK** button.
 
-1. Чтобы использовать учетную запись хранения в Azure, выберите вариант **Подписка** и укажите учетную запись хранения.
+1. To use a storage account in Azure, choose the **Your subscription** option button and select the desired storage account.
 
-1. Чтобы использовать пользовательские учетные данные, выберите вариант **Учетные данные, введенные вручную**. Введите имя учетной записи хранения, а также первичный или вторичный ключ. Дополнительные сведения о создании учетной записи хранения и вводе данных учетной записи хранения в диалоговом окне **Создание строки подключения к хранилищу** см. в статье [Подготовка к публикации или развертыванию приложения Azure из Visual Studio](vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio.md).
+1. To use custom credentials, choose the **Manually entered credentials** options button. Enter the storage account name, and either the primary or second key. For information about how to create a storage account and how to enter the details for the storage account in the **Create Storage Connection String** dialog box, see [Prepare to publish or deploy an Azure application from Visual Studio](vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio.md).
 
-1. Чтобы удалить строку подключения, выберите ее, а затем нажмите кнопку **Удалить параметр**.
+1. To delete a connection string, select the connection string and then choose the **Remove Setting** button.
 
-1. Щелкните значок **Сохранить** на панели инструментов, чтобы сохранить эти изменения в CSCFG-файле.
+1. Choose the **Save** icon on the toolbar to save these changes to the service configuration file.
 
-1. Чтобы получить доступ к строке подключения в файле конфигурации службы, необходимо получить значение параметра конфигурации. Ниже показан пример кода, в котором создается хранилище больших двоичных объектов. Данные загружаются с помощью строки подключения `MyConnectionString` из файла конфигурации службы, когда пользователь выбирает **Button1** на странице Default.aspx в веб-роли для облачной службы Azure. Добавьте в файл Default.aspx.cs следующие инструкции using:
+1. To access the connection string in the service configuration file, you must get the value of the configuration setting. The following code shows an example where blob storage is created and data uploaded using a connection string `MyConnectionString` from the service configuration file when a user chooses **Button1** on the Default.aspx page in the web role for an Azure cloud service. Add the following using statements to Default.aspx.cs:
 
     ```
     using Microsoft.WindowsAzure;
@@ -115,7 +116,7 @@
     using Microsoft.WindowsAzure.ServiceRuntime;
     ```
 
-1. Откройте Default.aspx.cs в режиме конструктора и добавьте кнопку с панели элементов. Добавьте в метод `Button1_Click` следующий код. Этот код использует `GetConfigurationSettingValue` для получения значения из файла конфигурации службы для строки подключения. Затем в учетной записи хранения, которая указывается в строке подключения `MyConnectionString`, создается большой двоичный объект. После чего программа добавляет текст в этот большой двоичный объект.
+1. Open Default.aspx.cs in design view, and add a button from the toolbox. Add the following code to the `Button1_Click` method. This code uses `GetConfigurationSettingValue` to get the value from the service configuration file for the connection string. Then a blob is created in the storage account that is referenced in the connection string `MyConnectionString` and finally the program adds text to the blob.
 
     ```
     protected void Button1_Click(object sender, EventArgs e)
@@ -133,37 +134,37 @@
     }
     ```
 
-## Добавление пользовательских параметров для использования в облачной службе Azure
+## <a name="add-custom-settings-to-use-in-your-azure-cloud-service"></a>Add custom settings to use in your Azure cloud service
 
-Пользовательские параметры в файле конфигурации службы позволяют добавлять имя и значение строки для конкретной конфигурации службы. Можно использовать этот параметр, чтобы настроить функцию в облачной службе: значение параметра считывается и используется для управления логикой в коде. Вы можете изменять эти значения конфигурации службы без необходимости выполнять повторную сборку пакета служб, а также при запуске облачной службы. Ваш код может проверять наличие уведомлений об изменении параметра. См. статью [Событие RoleEnvironment.Changing](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.changing.aspx).
+Custom settings in the service configuration file let you add a name and value for a string for a specific service configuration. You might choose to use this setting to configure a feature in your cloud service by reading the value of the setting and using this value to control the logic in your code. You can change these service configuration values without having to rebuild your service package or when your cloud service is running. Your code can check for notifications of when a setting changes. See [RoleEnvironment.Changing Event](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.changing.aspx).
 
-Вы можете добавлять, удалять или изменять пользовательские параметры для конфигураций службы. Также можно использовать разные значения этих строк для разных конфигураций службы.
+You can add, remove or modify custom settings for your service configurations. You might want different values for these strings for different service configurations.
 
-Использование разных значений для разных конфигураций службы избавляет от необходимости использовать разные строки в облачной службе или изменять код при публикации этой службы в Azure. Для строки в коде можно использовать одно и то же имя, а значение будет другим в зависимости от конфигурации службы, выбранной при сборке или публикации облачной службы.
+By using a different value for each service configuration, you do not have to use different strings in your cloud service or modify your code when you publish your cloud service to Azure. You can use the same name for the string in your code and the value will be different, based on the service configuration that you select when you build your cloud service or when you publish it.
 
-### Добавление пользовательских параметров для использования в облачной службе Azure
+### <a name="to-add-custom-settings-to-use-in-your-azure-cloud-service"></a>To add custom settings to use in your Azure cloud service
 
-1. Перейдите на вкладку **Параметры**.
+1. Choose the **Settings** tab.
 
-1. В списке **Конфигурация службы** выберите конфигурацию службы, которую нужно обновить.
+1. In the **Service Configuration** list, choose the service configuration that you want to update.
 
-    >[AZURE.NOTE] Вы можете обновить строки для конкретной конфигурации службы. Если же вам нужно добавить или удалить строку, выберите пункт **Все конфигурации**.
+    >[AZURE.NOTE] You can update strings for a specific service configuration, but if you need to add or delete a string, you must select **All Configurations**.
 
-1. Чтобы добавить строку, нажмите кнопку **Добавить параметр**. Новая запись будет добавлена в список.
+1. To add a string, choose the **Add Setting** button. A new entry is added to the list.
 
-1. В поле **Имя** введите имя строки.
+1. In the **Name** text box, type the name that you want to use for the string.
 
-1. В раскрывающемся списке **Тип** выберите пункт **Строка**.
+1. In the **Type** drop-down list, choose **String**.
 
-1. Чтобы добавить или изменить значение строки, в поле **Значение** введите новое значение.
+1. To add or change the value for the string, in the **Value** text box type the new value.
 
-1. Чтобы удалить строку, выберите ее, а затем нажмите кнопку **Удалить параметр**.
+1. To delete a string, select the string and then choose the **Remove Setting** button.
 
-1. Нажмите кнопку **Сохранить** на панели инструментов, чтобы сохранить эти изменения в CSCFG-файле.
+1. Choose the **Save** button on the toolbar to save these changes to the service configuration file.
 
-1. Чтобы получить доступ к строке в файле конфигурации службы, нужно получить значение параметра конфигурации.
+1. To access the string in the service configuration file, you must get the value of the configuration setting.
 
-    Проверьте, добавлены ли следующие инструкции using в файл Default.aspx.cs, как в предыдущей процедуре.
+    You need to make sure that the following using statements are already added to Default.aspx.cs just as you did in the previous procedure.
 
     ```
     using Microsoft.WindowsAzure;
@@ -171,7 +172,7 @@
     using Microsoft.WindowsAzure.ServiceRuntime;
     ```
 
-1. Добавьте представленный ниже код в метод `Button1_Click`, чтобы получить доступ к этой строке, так же как и при получении доступа к строке подключения. Затем этот код сможет выполнять определенный код, основанный на значении строки параметров для используемого CSCFG-файла.
+1. Add the following code to the `Button1_Click` method to access this string in the same way that you access a connection string. Your code can then perform some specific code based on the value of the settings string for the service configuration file that is used.
 
     ```
     var settingValue = RoleEnvironment.GetConfigurationSettingValue("MySetting");
@@ -181,42 +182,42 @@
     }
     ```
 
-## Управление локальным хранилищем для каждого экземпляра роли
+## <a name="manage-local-storage-for-each-role-instance"></a>Manage local storage for each role instance
 
-Каждому экземпляру роли можно назначить хранилище локальной файловой системы. Вы можете хранить здесь локальные данные, к которым не требуется доступ других ролей. Здесь могут храниться любые данные, которые не нужно сохранять в таблицу, большой двоичный объект или хранилище базы данных SQL. Например, с помощью этого локального хранилища можно кэшировать данные, которые могут использоваться повторно. Эти хранимые данные недоступны для других экземпляров роли.
+You can add local file system storage for each instance of a role. You can store local data here that does not need to be accessed by other roles. Any data that you do not need to save into table, blob, or SQL Database storage can be stored in here. For example, you could use this local storage to cache data that might need to be used again. This stored data can’t be accessed by other instances of a role. 
 
-Параметры локального хранилища применяются ко всем конфигурациям службы. Можно только добавить, удалить или изменить локальное хранилище для всех конфигураций службы.
+Local storage settings apply to all service configurations. You can only add, remove, or modify local storage for all service configurations.
 
-### Управление локальным хранилищем для каждого экземпляра роли
+### <a name="to-manage-local-storage-for-each-role-instance"></a>To manage local storage for each role instance
 
-1. Перейдите на вкладку **Локальное хранилище**.
+1. Choose the **Local Storage** tab.
 
-1. В списке **Конфигурация службы** выберите пункт **Все конфигурации**.
+1. In the **Service Configuration** list, choose **All Configurations**.
 
-1. Чтобы добавить запись локального хранилища, нажмите кнопку **Добавить локальное хранилище**. Новая запись будет добавлена в список.
+1. To add a local storage entry, choose the **Add Local Storage** button. A new entry is added to the list.
 
-1. В поле **Имя** введите имя для этого локального хранилища.
+1. In the **Name** text box, type the name that you want to use for this local storage.
 
-1. В поле **Размер** введите размер локального хранилища в мегабайтах.
+1. In the **Size** text box, type the size in MB that you need for this local storage.
 
-1. Чтобы удалять данные из этого локального хранилища при перезапуске виртуальной машины для этой роли, установите флажок **Очистка при перезапуске роли**.
+1. To remove the data in this local storage when the virtual machine for this role is recycled, select the **Clean on role recycle** check box.
 
-1. Чтобы изменить существующую запись локального хранилища, выберите строку, которую необходимо обновить. Затем вы можете изменить поля, как описано в предыдущих шагах.
+1. To edit an existing local storage entry, choose the row that you need to update. Then you can edit the fields, as described in the previous steps.
 
-1. Чтобы удалить запись локального хранилища, выберите запись хранилища в списке, а затем нажмите кнопку **Удалить локальное хранилище**.
+1. To delete a local storage entry, choose the storage entry in the list and then choose the **Remove Local Storage** button.
 
-1. Щелкните значок **Сохранить** на панели инструментов, чтобы сохранить эти изменения в CSCFG-файле.
+1. To save these changes to the service configuration files, choose the **Save** icon on the toolbar.
 
-1. Чтобы получить доступ к локальному хранилищу, добавленному в файл конфигурации службы, необходимо получить значение параметра конфигурации локального ресурса. Получите доступ к этому значению с помощью следующего кода. Затем создайте файл с именем **MyStorageTest.txt** и добавьте строку тестовых данных в этот файл. Вы можете добавить этот код в метод `Button_Click`, который использовался в предыдущих процедурах:
+1. To access the local storage that you have added in the service configuration file, you must get the value of the local resource configuration setting. Use the following lines of code to access this value and create a file called **MyStorageTest.txt** and write a line of test data into that file. You can add this code into the `Button_Click` method that you used in the previous procedures:
 
-1. Проверьте, добавлены ли следующие инструкции using в файл Default.aspx.cs:
+1. You need to make sure that the following using statements are added to Default.aspx.cs:
 
     ```
     using System.IO;
     using System.Text;
     ```
 
-1. Добавьте в метод `Button1_Click` следующий код. В локальном хранилище будет создан файл, в который будут записаны тестовые данные.
+1. Add the following code to the `Button1_Click` method. This creates the file in the local storage and writes test data into that file.
 
     ```
     // Retrieve an object that points to the local storage resource
@@ -233,147 +234,151 @@
     }
     ```
 
-1. Необязательное действие: чтобы просмотреть файл, созданный при локальном запуске облачной службы, сделайте следующее.
+1. (Optional) To view this file that you created when you run your cloud service locally, use the following steps:
 
-  1. Запустите веб-роль и выберите **Button1**, чтобы проверить вызов кода из метода `Button1_Click`.
+  1. Run the web role and select **Button1** to make sure that the code inside `Button1_Click` gets called.
 
-  1. Откройте контекстное меню для значка Azure в области уведомлений и выберите пункт **Показать пользовательский интерфейс эмулятора вычислений**. Откроется диалоговое окно **Эмулятор вычислений Azure**.
+  1. In the notification area, open the shortcut menu for the Azure icon and choose **Show Compute Emulator UI**. The **Azure Compute Emulator** dialog box appears.
 
-  1. Выберите веб-роль.
+  1. Select the web role.
 
-  1. В строке меню последовательно выберите **Средства**, **Открыть локальное хранилище**. Откроется окно проводника Windows.
+  1. On the menu bar, choose **Tools**, **Open local store**. A Windows Explorer window appears.
 
-  1. В строке меню введите в текстовое поле **Поиск** значение **MyStorageTest.txt**, а затем нажмите клавишу **ВВОД**, чтобы начать поиск.
+  1. On the menu bar, enter **MyStorageTest.txt** into the **Search** text box and then choose **Enter** to start the search.
 
-    Файл отобразится в результатах поиска.
+    The file is displayed in the search results.
 
-  1. Чтобы просмотреть содержимое файла, откройте контекстное меню для файла и выберите **Открыть**.
+  1. To view the contents of the file, open the shortcut menu for the file and choose **Open**.
 
-## Сбор диагностических данных облачной службы
+## <a name="collect-cloud-service-diagnostics"></a>Collect cloud service diagnostics
 
-Вы можете собирать диагностические данные для облачной службы Azure. Эти данные добавляются в учетную запись хранения. Также можно использовать разные строки подключения для разных конфигураций службы. Например, вы можете использовать локальную учетную запись хранения для конфигурации локальной службы, которая имеет значение UseDevelopmentStorage=true. Можно также настроить конфигурацию облачной службы, которая использует учетную запись хранения в Azure. Дополнительные сведения о системе диагностики Azure см. в статье «Сбор данных журналов с помощью средств диагностики Azure».
+You can collect diagnostics data for your Azure cloud service. This data is added to a storage account. You might want different connection strings for different service configurations. For example, you might want a local storage account for a local service configuration that has a value of UseDevelopmentStorage=true. You might also want to configure a cloud service configuration that uses a storage account in Azure. For more information about Azure diagnostics, see Collect Logging Data by Using Azure Diagnostics.
 
->[AZURE.NOTE] Конфигурация локальной службы позволяет использовать локальные ресурсы. Если для публикации облачной службы Azure используется конфигурация облачной службы, указанная при публикации строка соединения также будет использоваться для строки подключения диагностики, если не будет указана другая строка подключения. Если облачная служба упакована с помощью Visual Studio, строка подключения в конфигурации службы не меняется.
+>[AZURE.NOTE] The local service configuration is already configured to use local resources. If you use the cloud service configuration to publish your Azure cloud service, the connection string that you specify when you publish is also used for the diagnostics connection string unless you have specified a connection string. If you package your cloud service using Visual Studio, the connection string in the service configuration is not changed.
 
-### Сбор диагностических данных облачной службы
+### <a name="to-collect-cloud-service-diagnostics"></a>To collect cloud service diagnostics
 
-1. Перейдите на вкладку **Конфигурация**.
+1. Choose the **Configuration** tab.
 
-1. В списке **Конфигурация службы** выберите имя конфигурации службы, которую нужно обновить, или выберите пункт **Все конфигурации**.
+1. In the **Service Configuration** list, choose the service configuration that you want to update or choose **All Configurations**.
 
-    >[AZURE.NOTE] Вы можете обновить учетную запись хранения для конкретной конфигурации службы. Если же нужно включить или отключить диагностику, выберите пункт «Все конфигурации».
+    >[AZURE.NOTE] You can update the storage account for a specific service configuration, but if you want to enable or disable diagnostics you must choose All Configurations.
 
-1. Чтобы включить диагностику, установите флажок **Включить диагностику**.
+1. To enable diagnostics, select the **Enable Diagnostics** check box.
 
-1. Чтобы изменить значение для учетной записи хранения, нажмите кнопку с многоточием (...).
+1. To change the value for the storage account, choose the ellipsis (...) button.
 
-    Откроется диалоговое окно **Создание строки подключения к хранилищу**.
+    The **Create Storage Connection String** dialog box appears.
 
-1. Чтобы использовать строку локального подключения, выберите вариант с эмулятором хранения Azure, а затем нажмите кнопку **ОК**.
+1. To use a local connection string, choose Azure storage emulator option and then choose the **OK** button.
 
-1. Чтобы использовать учетную запись хранения, связанную с подпиской Azure, выберите вариант **Подписка**.
+1. To use a storage account associated with your Azure subscription, choose the **Your subscription** option.
 
-1. Чтобы использовать учетную запись хранения для строки локального подключения, выберите вариант **Учетные данные, введенные вручную**.
+1. To use a storage account for the local connection string, choose the **Manually entered credentials** option.
 
-    Дополнительные сведения о создании учетной записи хранения и вводе данных учетной записи хранения в диалоговом окне **Создание строки подключения к хранилищу** см. в статье [Подготовка к публикации или развертыванию приложения Azure из Visual Studio](vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio.md).
+    For more information about how to create a storage account and how to enter the details for the storage account in the **Create Storage Connection String** dialog box, see [Prepare to publish or deploy an Azure application from Visual Studio](vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio.md).
 
-1. Выберите нужную учетную запись хранения в поле **Имя учетной записи**.
+1. Choose the storage account you want to use in **Account name**.
 
-    Если вы вводите данные учетной записи хранения вручную, скопируйте или введите первичный ключ в поле **Ключ учетной записи**. Этот ключ можно скопировать на [классическом портале Azure](http://go.microsoft.com/fwlink/?LinkID=213885). Чтобы скопировать этот ключ, на [классическом портале Azure](http://go.microsoft.com/fwlink/?LinkID=213885) в представлении **Учетные записи хранения** выполните следующие действия.
+    If you are manually entering your storage account credentials, copy or type your primary key in **Account key**. This key can be copied from the [Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=213885). To copy this key, following these steps from the **Storage Accounts** view in the [Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=213885):
     
-  1. Выберите учетную запись хранения, которую вы хотите использовать с облачной службой.
+  1. Select the storage account that you want to use for your cloud service.
 
-  1. Нажмите кнопку **Управление ключами доступа**, расположенную в нижней части экрана. Откроется диалоговое окно **Управление ключами доступа**.
+  1. Choose the **Manage Access Keys** button located at the bottom of the screen. The **Manage Access Keys** dialog box appears.
 
-  1. Чтобы скопировать ключ доступа, нажмите кнопку **Копировать в буфер обмена**. Теперь можно вставить этот ключ в поле **Ключ учетной записи**.
+  1. To copy the access key, choose the **Copy to clipboard** button. You can now paste this key into the **Account key** field.
 
-1. Вы можете использовать указанную учетную запись хранения в качестве строки подключения для диагностики (и кэширования) при публикации облачной службы в Azure. Для этого установите флажок **Обновлять строки подключения к хранилищу разработки для диагностики и кэширования с использованием учетных данных учетной записи хранения Azure при публикации в Azure**.
+1. To use the storage account that you provide, as the connection string for diagnostics (and caching) when you publish your cloud service to Azure, select the **Update development storage connection strings for Diagnostics and Caching with Azure storage account credentials when publishing to Azure** check box.
 
-1. Нажмите кнопку **Сохранить** на панели инструментов, чтобы сохранить эти изменения в CSCFG-файле.
+1. Choose the **Save** button on the toolbar to save these changes to the service configuration file.
 
-## Изменение размера виртуальной машины, используемой для каждой роли
+## <a name="change-the-size-of-the-virtual-machine-used-for-each-role"></a>Change the size of the virtual machine used for each role
 
-Вы можете задать размер виртуальной машины для каждой роли. Задавать этот размер можно только для всех конфигураций службы. Если вы укажете меньший размер машины, будет выделено меньше ядер ЦП, памяти и объема локального дискового хранилища. Выделенная пропускная способность также сократится. Дополнительные сведения об этих размерах и выделяемых ресурсах см. в статье [Размеры для облачных служб](cloud-services/cloud-services-sizes-specs.md).
+You can set the virtual machine size for each role. You can only set this size for all service configurations. If you select a smaller machine size, then less CPU cores, memory and local disk storage is allocated. The allocated bandwidth is also smaller. For more information about these sizes and the resources allocated, see [Sizes for Cloud Services](cloud-services/cloud-services-sizes-specs.md).
 
-Ресурсы, необходимые для каждой виртуальной машины в Azure, влияют на стоимость выполнения облачной службы в Azure. Дополнительные сведения о плате за использование Azure см. в статье [Расшифровка счета за использование Microsoft Azure](billing-understand-your-bill.md).
+The resources required for each virtual machine in Azure affects the cost of running your cloud service in Azure. For more information about Azure Billing, see [Understand your bill for Microsoft Azure](billing-understand-your-bill.md).
 
-### Изменение размера виртуальной машины
+### <a name="to-change-the-size-of-the-virtual-machine"></a>To change the size of the virtual machine
 
-1. Перейдите на вкладку **Конфигурация**.
+1. Choose the **Configuration** tab.
 
-1. В списке **Конфигурация службы** выберите пункт **Все конфигурации**.
+1. In the **Service Configuration** list, choose **All Configurations**.
 
-1. Чтобы выбрать размер виртуальной машины для этой роли, выберите соответствующий размер в списке **Размер виртуальной машины**.
+1. To select the size for the virtual machine for this role, choose the appropriate size from the **VM size** list.
 
-1. Нажмите кнопку **Сохранить** на панели инструментов, чтобы сохранить эти изменения в CSCFG-файле.
+1. Choose the **Save** button on the toolbar to save these changes to the service configuration file.
 
-## Управление конечными точками и сертификатами для ролей
+## <a name="manage-endpoints-and-certificates-for-your-roles"></a>Manage endpoints and certificates for your roles
 
-Вы можете настроить конечные точки сети, указав протокол, номер порта, а также сведения о SSL-сертификате для протокола HTTPS. Выпуски до июня 2012 г. поддерживают протоколы HTTP, HTTPS и TCP. Выпуски после июня 2012 г. поддерживают эти протоколы и UDP. Протокол UDP нельзя использовать для входных конечных точек в эмуляторе вычислений. Этот протокол можно использовать только для внутренних конечных точек.
+You configure networking endpoints by specifying the protocol, the port number, and, for HTTPS, the SSL certificate information. Releases before June 2012 support HTTP, HTTPS, and TCP. The June 2012 release supports those protocols and UDP. You can’t use UDP for input endpoints in the compute emulator. You can use that protocol only for internal endpoints.
 
-Чтобы улучшить защиту облачной службы Azure, можно создать конечные точки, использующие протокол HTTPS. Например, если у вас есть облачная служба, которая используется клиентами для оформления заказов на покупку, проверьте, защищена ли информация клиентов с помощью SSL-протокола.
+To improve the security of your Azure cloud service, you can create endpoints that use the HTTPS protocol. For example, if you have a cloud service that is used by customers to purchase orders, you want to make sure that their information is secure by using SSL.
 
-Можно также добавить конечные точки для использования в качестве внутренних или внешних. Внешние конечные точки называются входными конечными точками. Входная конечная точка предоставляет пользователям другую точку доступа для доступа к облачной службе. Если у вас есть служба WCF, вам может потребоваться использовать внутреннюю конечную точку веб-роли для предоставления доступа к этой службе.
+You can also add endpoints that can be used internally or externally. External endpoints are called input endpoints. An input endpoint allows another access point to users to your cloud service. If you have a WCF service, you might want to expose an internal endpoint for a web role to use to access this service.
 
->[AZURE.IMPORTANT] Обновлять конечные точки можно только для всех конфигураций службы.
+>[AZURE.IMPORTANT] You can only update endpoints for all service configurations.
 
-При добавлении конечных точек HTTPS необходимо использовать SSL-сертификат. Для этого можно связать сертификаты с вашей ролью для всех конфигураций службы, используя их для конечных точек.
+If you add HTTPS endpoints, you need to use an SSL certificate. To do this you can associate certificates with your role for all service configurations and use these for your endpoints.
 
->[AZURE.IMPORTANT] Эти сертификаты не поставляются вместе со службой. Сертификаты необходимо передать в Azure отдельно через [классический портал Azure](http://go.microsoft.com/fwlink/?LinkID=213885).
+>[AZURE.IMPORTANT] These certificates are not packaged with your service. You must upload your certificates separately to Azure through the [Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=213885).
 
-Все сертификаты управления, связанные с конфигурациями службы, применяются только в том случае, если эта облачная служба запущена в Azure. Если служба запущена в локальной среде разработки, используется стандартный сертификат, управляемый с помощью эмулятора вычислений Azure.
+Any management certificates that you associate with your service configurations apply only when your cloud service runs in Azure. When your cloud service runs in the local development environment, a standard certificate that is managed by the Azure compute emulator is used.
 
-### Назначение сертификата роли
+### <a name="to-add-a-certificate-to-a-role"></a>To add a certificate to a role
 
-1. Перейдите на вкладку **Сертификаты**.
+1. Choose the **Certificates** tab.
 
-1. В списке **Конфигурация службы** выберите пункт **Все конфигурации**.
+1. In the **Service Configuration** list, choose **All Configurations**.
 
-    >[AZURE.NOTE] Чтобы добавить или удалить сертификаты, нужно выбрать пункт «Все конфигурации». При необходимости можно обновить имя и отпечаток для конкретной конфигурации службы.
+    >[AZURE.NOTE] To add or remove certificates, you must select All Configurations. You can update the name and the thumbprint for a specific service configuration if it is required.
 
-1. Чтобы назначить сертификат этой роли, нажмите кнопку **Добавить сертификат**. Новая запись будет добавлена в список.
+1. To add a certificate for this role, choose the **Add Certificate** button. A new entry is added to the list.
 
-1. В текстовое поле **Имя** введите имя сертификата.
+1. In the **Name** text box, enter the name for the certificate.
 
-1. В списке **Расположение хранилища** выберите расположение для назначаемого сертификата.
+1. In the **Store Location** list, choose the location for the certificate that you want to add.
 
-1. В списке **Имя хранилища** выберите хранилище, из которого будет выбран сертификат.
+1. In the **Store Name** list, choose the store that you want to use to select the certificate.
 
-1. Чтобы добавить сертификат, нажмите кнопку с многоточием (...). Откроется диалоговое окно **Безопасность Windows**.
+1. To add the certificate, choose the ellipsis (...) button. The **Windows Security** dialog box appears.
 
-1. Выберите в списке нужный сертификат, а затем нажмите кнопку **ОК**.
+1. Choose the certificate that you want to use from the list and then choose the **OK** button.
 
-    >[AZURE.NOTE] Когда вы добавляете сертификат из хранилища сертификатов, все промежуточные сертификаты автоматически добавляются в параметры конфигурации. Эти промежуточные сертификаты также следует передать в Azure, чтобы правильно настроить службу для использования протокола SSL.
+    >[AZURE.NOTE] When you add a certificate from the certificate store, any intermediate certificates are added automatically to the configuration settings for you. These intermediate certificates must also be uploaded to Azure in order to correctly configure your service for SSL.
 
-1. Чтобы удалить сертификат, выберите сертификат, а затем нажмите кнопку **Удалить сертификат**.
+1. To delete a certificate, choose the certificate and then choose the **Remove Certificate** button.
 
-1. Нажмите значок **Сохранить** на панели инструментов, чтобы сохранить эти изменения в CSCFG-файлах.
+1. Choose the **Save** icon in the toolbar to save these changes to the service configuration files.
 
-### Управление конечными точками для роли
+### <a name="to-manage-endpoints-for-a-role"></a>To manage endpoints for a role
 
-1. Перейдите на вкладку **Конечные точки**.
+1. Choose the **Endpoints** tab.
 
-1. В списке **Конфигурация службы** выберите пункт **Все конфигурации**.
+1. In the **Service Configuration** list, choose **All Configurations**.
 
-1. Чтобы добавить конечную точку, нажмите кнопку **Добавить конечную точку**. Новая запись будет добавлена в список.
+1. To add an endpoint, choose the **Add Endpoint** button. A new entry is added to the list.
 
-1. В поле **Имя** введите имя для этой конечной точки.
+1. In the **Name** text box, type the name that you want to use for this endpoint.
 
-1. Выберите тип конечной точки в списке **Тип**.
+1. Choose the type of endpoint that you need from the **Type** list.
 
-1. Выберите нужный протокол для конечной точки в списке **Протокол**.
+1. Choose the protocol for the endpoint that you need from the **Protocol** list.
 
-1. Для входной конечной точки введите общий порт в поле **Общий порт**.
+1. If it is an input endpoint, in the **Public Port** text box, enter the public port to use.
 
-1. В поле **Частный порт** введите частный порт.
+1. In the **Private Port** text box type the private port to use.
 
-1. Если для конечной точки требуется протокол HTTPS, в списке **Имя SSL-сертификата** выберите сертификат, который следует использовать.
+1. If the endpoint requires the https protocol, in the **SSL Certificate Name** list choose a certificate to use.
 
-    >[AZURE.NOTE] Этот список включает сертификаты, которые были назначены этой роли на вкладке **Сертификаты**.
+    >[AZURE.NOTE] This list shows the certificates that you have added for this role in the **Certificates** tab.
 
-1. Нажмите кнопку **Сохранить** на панели инструментов, чтобы сохранить эти изменения в CSCFG-файлах.
+1. Choose the **Save** button on the toolbar to save these changes to the service configuration files.
 
-## Дальнейшие действия
-Дополнительные сведения о проектах Azure в Visual Studio см. в статье [Настройка проекта Azure](vs-azure-tools-configuring-an-azure-project.md). Дополнительные сведения о схеме облачной службы см. в статье [Справка по схемам](https://msdn.microsoft.com/library/azure/dd179398).
+## <a name="next-steps"></a>Next steps
+Learn more about Azure projects in Visual Studio by reading [Configuring an Azure Project](vs-azure-tools-configuring-an-azure-project.md). Learn more about the cloud service schema by reading [Schema Reference](https://msdn.microsoft.com/library/azure/dd179398).
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

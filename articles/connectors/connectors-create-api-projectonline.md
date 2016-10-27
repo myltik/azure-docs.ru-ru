@@ -1,10 +1,10 @@
 <properties
 pageTitle="ProjectOnline | Microsoft Azure"
-description="Создание приложений логики с помощью службы приложений Azure. Project Online — это гибкое интернет-решение для управления портфелем проектов (PPM) и повседневной работы с продуктами Майкрософт. Project Online предоставляется в рамках служб Office 365. Это решение позволяет организациям быстро приступить к работе с эффективными функциями управления проектами для планирования, определения приоритетов и управления проектами и инвестициями в портфель проектов в режиме повсеместной доступности."
-services="logic-apps"	
-documentationCenter=".net,nodejs,java" 	
-authors="msftman"	
-manager="erikre"	
+description="Create Logic apps with Azure App service. Project Online is a flexible online solution for project portfolio management (PPM) and everyday work from Microsoft. Delivered through Office 365, Project Online enables organizations to get started quickly with powerful project management capabilities to plan, prioritize, and manage projects and project portfolio investments—from almost anywhere on almost any device."
+services="logic-apps"   
+documentationCenter=".net,nodejs,java"  
+authors="msftman"   
+manager="erikre"    
 editor=""
 tags="connectors" />
 
@@ -17,505 +17,509 @@ ms.workload="integration"
 ms.date="08/18/2016"
 ms.author="deonhe"/>
 
-# Начало работы с соединителем ProjectOnline
 
-Project Online — это гибкое интернет-решение для управления портфелем проектов (PPM) и повседневной работы с продуктами Майкрософт. Project Online предоставляется в рамках служб Office 365. Это решение позволяет организациям быстро приступить к работе с эффективными функциями управления проектами для планирования, определения приоритетов и управления проектами и инвестициями в портфель проектов в режиме повсеместной доступности.
+# <a name="get-started-with-the-projectonline-connector"></a>Get started with the ProjectOnline connector
 
->[AZURE.NOTE] Эта версия статьи предназначена для приложений логики со схемой версии 2015-08-01-preview.
+Project Online is a flexible online solution for project portfolio management (PPM) and everyday work from Microsoft. Delivered through Office 365, Project Online enables organizations to get started quickly with powerful project management capabilities to plan, prioritize, and manage projects and project portfolio investments—from almost anywhere on almost any device.
 
-Для начала можно создать приложение логики, как указано в соответствующей [статье](../app-service-logic/app-service-logic-create-a-logic-app.md).
+>[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version. 
 
-## Триггеры и действия
+You can get started by creating a Logic app now, see [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-Соединитель ProjectOnline можно использовать как действие. Кроме того, он имеет триггеры. Все соединители поддерживают данные в форматах JSON и XML.
+## <a name="triggers-and-actions"></a>Triggers and actions
 
- Соединитель ProjectOnline предоставляет следующие триггеры и действия:
+The ProjectOnline connector can be used as an action; it has trigger(s). All connectors support data in JSON and XML formats. 
 
-### Действия ProjectOnline
-Вы можете выполнять перечисленные ниже действия:
+ The ProjectOnline connector has the following action(s) and/or trigger(s) available:
 
-|Действие|Description (Описание)|
+### <a name="projectonline-actions"></a>ProjectOnline actions
+You can take these action(s):
+
+|Action|Description|
 |--- | ---|
-|[ListProjects](connectors-create-api-projectonline.md#listprojects)|Список проектов на сайте Project Online|
-|[CreateProject](connectors-create-api-projectonline.md#createproject)|Создание проекта на сайте Project Online|
-|[CreateTask](connectors-create-api-projectonline.md#createtask)|Создание задачи в проекте|
-|[CreateResource](connectors-create-api-projectonline.md#createresource)|Создание корпоративных ресурсов на сайте Project Online|
-|[ListTasks](connectors-create-api-projectonline.md#listtasks)|Список опубликованных задач в проекте|
-|[CheckoutProject](connectors-create-api-projectonline.md#checkoutproject)|Извлечение проекта на сайте|
-|[PublishProject](connectors-create-api-projectonline.md#publishproject)|Возврат и публикация существующего проекта на сайте|
-### Триггеры ProjectOnline
-Можно прослушивать указанные ниже события:
+|[ListProjects](connectors-create-api-projectonline.md#listprojects)|Lists the projects in your project online site|
+|[CreateProject](connectors-create-api-projectonline.md#createproject)|Creates a new project in your project online site|
+|[CreateTask](connectors-create-api-projectonline.md#createtask)|Creates a new task in you project|
+|[CreateResource](connectors-create-api-projectonline.md#createresource)|Creates an Enterprise Resources in your project online site|
+|[ListTasks](connectors-create-api-projectonline.md#listtasks)|Lists the published tasks in a project|
+|[CheckoutProject](connectors-create-api-projectonline.md#checkoutproject)|Checks out a project in your site|
+|[PublishProject](connectors-create-api-projectonline.md#publishproject)|Check in and publish and existing project in your site|
+### <a name="projectonline-triggers"></a>ProjectOnline triggers
+You can listen for these event(s):
 
-|Триггер | Description (Описание)|
+|Trigger | Description|
 |--- | ---|
-|При создании проекта|Запускает поток при создании нового проекта|
-|При создании ресурса|Запускает новый поток при создании нового ресурса|
-|При создании новой задачи|Запускает поток при создании новой задачи|
+|When a new project is created|Triggers a flow whenever a new project is created|
+|When a new resource is created|Triggers a new flow when a new resource is created|
+|When a new task is created|Triggers a flow when a new task is created|
 
 
-## Создание подключения к ProjectOnline
-Для создания приложений логики с помощью ProjectOnline необходимо создать **подключение**, а затем указать данные для следующих свойств:
+## <a name="create-a-connection-to-projectonline"></a>Create a connection to ProjectOnline
+To create Logic apps with ProjectOnline, you must first create a **connection** then provide the details for the following properties: 
 
-|Свойство| Обязательно|Description (Описание)|
+|Property| Required|Description|
 | ---|---|---|
-|Маркер|Да|Укажите учетные данные ProjectOnline|
+|Token|Yes|Provide ProjectOnline Credentials|
 
->[AZURE.INCLUDE [Шаги по созданию подключения к ProjectOnline](../../includes/connectors-create-api-projectonline.md)]
+>[AZURE.INCLUDE [Steps to create a connection to ProjectOnline](../../includes/connectors-create-api-projectonline.md)]
 
->[AZURE.TIP] Это подключение можно использовать в других приложениях логики.
+>[AZURE.TIP] You can use this connection in other logic apps.
 
-## Справочник по ProjectOnline
-Относится к версии 1.0.
+## <a name="reference-for-projectonline"></a>Reference for ProjectOnline
+Applies to version: 1.0
 
-## OnNewProject
-При создании проекта: запуск потока при создании нового проекта
+## <a name="onnewproject"></a>OnNewProject
+When a new project is created: Triggers a flow whenever a new project is created 
 
-```GET: /trigger/_api/ProjectData/Projects```
+```GET: /trigger/_api/ProjectData/Projects``` 
 
-| Имя| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|siteUrl|string|Да|запрос|Нет|URL-адрес корневого сайта проекта (например, https://sampletenant.sharepoint.com/teams/sampleteam).|
+|siteUrl|string|yes|query|none|Root site url of your project site (Example: https://sampletenant.sharepoint.com/teams/sampleteam )|
 
-#### Ответ
+#### <a name="response"></a>Response
 
-|Name (Имя)|Описание|
+|Name|Description|
 |---|---|
-|200|ОК|
-|400|Ошибка запроса|
-|401|Не авторизовано|
-|403|Запрещено|
-|404|Не найдено|
-|500|Внутренняя ошибка сервера. Произошла неизвестная ошибка|
-|по умолчанию|Операция завершилась ошибкой.|
+|200|OK|
+|400|Bad Request|
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
+|500|Internal Server Error. Unknown error occured|
+|default|Operation Failed.|
 
 
-## OnNewResource
-При создании ресурса: запуск нового потока при создании нового ресурса
+## <a name="onnewresource"></a>OnNewResource
+When a new resource is created: Triggers a new flow when a new resource is created 
 
-```GET: /trigger/_api/ProjectData/Resources```
+```GET: /trigger/_api/ProjectData/Resources``` 
 
-| Name (Имя)| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|siteUrl|string|Да|запрос|Нет|URL-адрес корневого сайта проекта (например, https://sampletenant.sharepoint.com/teams/sampleteam).|
+|siteUrl|string|yes|query|none|Root site url of your project site (Example: https://sampletenant.sharepoint.com/teams/sampleteam )|
 
-#### Ответ
+#### <a name="response"></a>Response
 
-|Имя|Описание|
+|Name|Description|
 |---|---|
-|200|ОК|
-|400|Ошибка запроса|
-|401|Не авторизовано|
-|403|Запрещено|
-|404|Не найдено|
-|500|Внутренняя ошибка сервера. Произошла неизвестная ошибка|
-|по умолчанию|Операция завершилась ошибкой.|
+|200|OK|
+|400|Bad Request|
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
+|500|Internal Server Error. Unknown error occured|
+|default|Operation Failed.|
 
 
-## OnNewTask
-При создании задачи: запуск потока при создании новой задачи
+## <a name="onnewtask"></a>OnNewTask
+When a new task is created: Triggers a flow when a new task is created 
 
-```GET: /trigger/_api/ProjectData/Tasks```
+```GET: /trigger/_api/ProjectData/Tasks``` 
 
-| Name (Имя)| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|siteUrl|string|Да|запрос|Нет|URL-адрес корневого сайта проекта (например, https://sampletenant.sharepoint.com/teams/sampleteam).|
+|siteUrl|string|yes|query|none|Root site url of your project site (Example: https://sampletenant.sharepoint.com/teams/sampleteam )|
 
-#### Ответ
+#### <a name="response"></a>Response
 
-|Name (Имя)|Описание|
+|Name|Description|
 |---|---|
-|200|ОК|
-|400|Ошибка запроса|
-|401|Не авторизовано|
-|403|Запрещено|
-|404|Не найдено|
-|500|Внутренняя ошибка сервера. Произошла неизвестная ошибка|
-|по умолчанию|Операция завершилась ошибкой.|
+|200|OK|
+|400|Bad Request|
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
+|500|Internal Server Error. Unknown error occured|
+|default|Operation Failed.|
 
 
-## ListProjects
-Список проектов: список проектов на сайте Project Online
+## <a name="listprojects"></a>ListProjects
+List projects: Lists the projects in your project online site 
 
-```GET: /_api/ProjectServer/Projects```
+```GET: /_api/ProjectServer/Projects``` 
 
-| Name (Имя)| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|siteUrl|string|Да|запрос|Нет|URL-адрес корневого сайта проекта (например, https://sampletenant.sharepoint.com/teams/sampleteam).|
+|siteUrl|string|yes|query|none|Root site url of your project site (Example: https://sampletenant.sharepoint.com/teams/sampleteam )|
 
-#### Ответ
+#### <a name="response"></a>Response
 
-|Name (Имя)|Описание|
+|Name|Description|
 |---|---|
-|200|ОК|
-|400|Ошибка запроса|
-|401|Не авторизовано|
-|403|Запрещено|
-|404|Не найдено|
-|500|Внутренняя ошибка сервера. Произошла неизвестная ошибка|
-|по умолчанию|Операция завершилась ошибкой.|
+|200|OK|
+|400|Bad Request|
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
+|500|Internal Server Error. Unknown error occured|
+|default|Operation Failed.|
 
 
-## CreateProject
-Создание проекта: создание проекта на сайте Project Online
+## <a name="createproject"></a>CreateProject
+Creates new project: Creates a new project in your project online site 
 
-```POST: /_api/ProjectServer/Projects```
+```POST: /_api/ProjectServer/Projects``` 
 
-| Name (Имя)| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|siteUrl|string|Да|запрос|Нет|URL-адрес корневого сайта проекта (например, https://sampletenant.sharepoint.com/teams/sampleteam).|
-|proj| |Да|текст|Нет|Создаваемый проект|
+|siteUrl|string|yes|query|none|Root site url of your project site (Example: https://sampletenant.sharepoint.com/teams/sampleteam )|
+|proj| |yes|body|none|New project to create|
 
-#### Ответ
+#### <a name="response"></a>Response
 
-|Name (Имя)|Описание|
+|Name|Description|
 |---|---|
-|200|ОК|
-|400|Ошибка запроса|
-|401|Не авторизовано|
-|403|Запрещено|
-|404|Не найдено|
-|500|Внутренняя ошибка сервера. Произошла неизвестная ошибка|
-|по умолчанию|Операция завершилась ошибкой.|
+|200|OK|
+|400|Bad Request|
+|401|Unauthorized|
+|403|ForbIDden|
+|404|Not Found|
+|500|Internal Server Error. Unknown error occured|
+|default|Operation Failed.|
 
 
-## CreateTask
-Создание задачи: создание новой задачи в проекте
+## <a name="createtask"></a>CreateTask
+Creates new task: Creates a new task in you project 
 
-```POST: /_api/ProjectServer/Projects('{project_id}')/Draft/Tasks/Add```
+```POST: /_api/ProjectServer/Projects('{project_id}')/Draft/Tasks/Add``` 
 
-| Имя| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|siteUrl|string|Да|запрос|Нет|URL-адрес корневого сайта проекта (например, https://sampletenant.sharepoint.com/teams/sampleteam).|
-|project\_id|string|Да|path|Нет|Уникальный идентификатор проекта, в который добавляется задача|
-|task| |Да|текст|Нет|Новая задача для добавления в проект|
+|siteUrl|string|yes|query|none|Root site url of your project site (Example: https://sampletenant.sharepoint.com/teams/sampleteam )|
+|project_id|string|yes|path|none|Unique ID of the project to add the task to|
+|task| |yes|body|none|New task to add to the project|
 
-#### Ответ
+#### <a name="response"></a>Response
 
-|Name (Имя)|Описание|
+|Name|Description|
 |---|---|
-|200|ОК|
-|400|Ошибка запроса|
-|401|Не авторизовано|
-|403|Запрещено|
-|404|Не найдено|
-|500|Внутренняя ошибка сервера. Произошла неизвестная ошибка|
-|по умолчанию|Операция завершилась ошибкой.|
+|200|OK|
+|400|Bad Request|
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
+|500|Internal Server Error. Unknown error occured|
+|default|Operation Failed.|
 
 
-## CreateResource
-Создание ресурса: создание корпоративных ресурсов на сайте Project Online
+## <a name="createresource"></a>CreateResource
+Create new resource: Creates an Enterprise Resources in your project online site 
 
-```POST: /_api/ProjectServer/EnterpriseResources```
+```POST: /_api/ProjectServer/EnterpriseResources``` 
 
-| Name (Имя)| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|siteUrl|string|Да|запрос|Нет|URL-адрес корневого сайта проекта (например, https://sampletenant.sharepoint.com/teams/sampleteam).|
-|resource| |Да|текст|Нет|Новые корпоративные ресурсы для добавления в проект|
+|siteUrl|string|yes|query|none|Root site url of your project site (Example: https://sampletenant.sharepoint.com/teams/sampleteam )|
+|resource| |yes|body|none|New enterprise resource to add to the project|
 
-#### Ответ
+#### <a name="response"></a>Response
 
-|Имя|Описание|
+|Name|Description|
 |---|---|
-|200|ОК|
-|400|Ошибка запроса|
-|401|Не авторизовано|
-|403|Запрещено|
-|404|Не найдено|
-|500|Внутренняя ошибка сервера. Произошла неизвестная ошибка|
-|по умолчанию|Операция завершилась ошибкой.|
+|200|OK|
+|400|Bad Request|
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
+|500|Internal Server Error. Unknown error occured|
+|default|Operation Failed.|
 
 
-## ListTasks
-Список задач: список опубликованных задач в проекте
+## <a name="listtasks"></a>ListTasks
+Lists tasks: Lists the published tasks in a project 
 
-```GET: /_api/ProjectServer/Projects('{project_id}')/Tasks```
+```GET: /_api/ProjectServer/Projects('{project_id}')/Tasks``` 
 
-| Имя| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Description (Описание)|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|siteUrl|string|Да|запрос|Нет|URL-адрес корневого сайта проекта (например, https://sampletenant.sharepoint.com/teams/sampleteam).|
-|project\_id|string|Да|path|Нет|Уникальный идентификатор проекта для получения задач|
+|siteUrl|string|yes|query|none|Root site url of your project site (Example: https://sampletenant.sharepoint.com/teams/sampleteam )|
+|project_id|string|yes|path|none|Unique ID of the project to fetch tasks|
 
-#### Ответ
+#### <a name="response"></a>Response
 
-|Имя|Описание|
+|Name|Description|
 |---|---|
-|200|ОК|
-|400|Ошибка запроса|
-|401|Не авторизовано|
-|403|Запрещено|
-|404|Не найдено|
-|500|Внутренняя ошибка сервера. Произошла неизвестная ошибка|
-|по умолчанию|Операция завершилась ошибкой.|
+|200|OK|
+|400|Bad Request|
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
+|500|Internal Server Error. Unknown error occured|
+|default|Operation Failed.|
 
 
-## CheckoutProject
-Извлечение проекта: извлечение проекта на сайте
+## <a name="checkoutproject"></a>CheckoutProject
+Checkout a project: Checks out a project in your site 
 
-```POST: /_api/ProjectServer/Projects('{project_id}')/checkOut```
+```POST: /_api/ProjectServer/Projects('{project_id}')/checkOut``` 
 
-| Name (Имя)| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Description (Описание)|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|siteUrl|string|Да|запрос|Нет|URL-адрес корневого сайта проекта (например, https://sampletenant.sharepoint.com/teams/sampleteam).|
-|project\_id|string|Да|path|Нет|Уникальный идентификатор проекта, в который добавляется задача|
+|siteUrl|string|yes|query|none|Root site url of your project site (Example: https://sampletenant.sharepoint.com/teams/sampleteam )|
+|project_id|string|yes|path|none|Unique ID of the project to add the task to|
 
-#### Ответ
+#### <a name="response"></a>Response
 
-|Name (Имя)|Описание|
+|Name|Description|
 |---|---|
-|200|ОК|
-|400|Ошибка запроса|
-|401|Не авторизовано|
-|403|Запрещено|
-|404|Не найдено|
-|500|Внутренняя ошибка сервера. Произошла неизвестная ошибка|
-|по умолчанию|Операция завершилась ошибкой.|
+|200|OK|
+|400|Bad Request|
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
+|500|Internal Server Error. Unknown error occured|
+|default|Operation Failed.|
 
 
-## PublishProject
-Возврат и публикация проекта: возврат и публикация существующего проекта на сайте
+## <a name="publishproject"></a>PublishProject
+Checkin and publish project: Check in and publish and existing project in your site 
 
-```POST: /_api/ProjectServer/Projects('{project_id}')/Draft/Publish(true)```
+```POST: /_api/ProjectServer/Projects('{project_id}')/Draft/Publish(true)``` 
 
-| Name (Имя)| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|siteUrl|string|Да|запрос|Нет|URL-адрес корневого сайта проекта (например, https://sampletenant.sharepoint.com/teams/sampleteam).|
-|project\_id|string|Да|path|Нет|Уникальный идентификатор возвращаемого проекта|
+|siteUrl|string|yes|query|none|Root site url of your project site (Example: https://sampletenant.sharepoint.com/teams/sampleteam )|
+|project_id|string|yes|path|none|Unique ID of the project to checkin|
 
-#### Ответ
+#### <a name="response"></a>Response
 
-|Имя|Описание|
+|Name|Description|
 |---|---|
-|200|ОК|
-|400|Ошибка запроса|
-|401|Не авторизовано|
-|403|Запрещено|
-|404|Не найдено|
-|500|Внутренняя ошибка сервера. Произошла неизвестная ошибка|
-|по умолчанию|Операция завершилась ошибкой.|
+|200|OK|
+|400|Bad Request|
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
+|500|Internal Server Error. Unknown error occured|
+|default|Operation Failed.|
 
 
-## Определения объектов 
+## <a name="object-definitions"></a>Object definitions 
 
-### TriggerProjectsWrapper
+### <a name="triggerprojectswrapper"></a>TriggerProjectsWrapper
 
 
-| Имя свойства | Тип данных | Обязательно |
+| Property Name | Data Type | Required |
 |---|---|---|
-|value|array|Нет |
+|value|array|No |
 
 
 
-### TriggerProject
+### <a name="triggerproject"></a>TriggerProject
 
 
-| Имя свойства | Тип данных | Обязательно |
+| Property Name | Data Type | Required |
 |---|---|---|
-|ProjectStartDate|string|Нет |
-|ProjectFinishDate|string|Нет |
-|ProjectCreatedDate|string|Нет |
-|ProjectId|string|Нет |
-|ProjectModifiedDate|string|Нет |
-|ProjectType|целое число|Нет |
-|ProjectName|string|Нет |
+|ProjectStartDate|string|No |
+|ProjectFinishDate|string|No |
+|ProjectCreatedDate|string|No |
+|ProjectId|string|No |
+|ProjectModifiedDate|string|No |
+|ProjectType|integer|No |
+|ProjectName|string|No |
 
 
 
-### TriggerResourcesWrapper
+### <a name="triggerresourceswrapper"></a>TriggerResourcesWrapper
 
 
-| Имя свойства | Тип данных | Обязательно |
+| Property Name | Data Type | Required |
 |---|---|---|
-|value|array|Нет |
+|value|array|No |
 
 
 
-### TriggerResource
+### <a name="triggerresource"></a>TriggerResource
 
 
-| Имя свойства | Тип данных | Обязательно |
+| Property Name | Data Type | Required |
 |---|---|---|
-|ResourceId|string|Нет |
-|ResourceBaseCalendar|string|Нет |
-|ResourceBookingType|целое число|Нет |
-|ResourceCanLevel|Логическое|Нет |
-|ResourceCostPerUse|number|Нет |
-|ResourceCreatedDate|string|Нет |
-|ResourceEarliestAvailableFrom|string|Нет |
-|ResourceEmail|string|Нет |
-|ResourceInitials|string|Нет |
-|ResourceIsActive|Логическое|Нет |
-|ResourceIsGeneric|Логическое|Нет |
-|ResourceLatestAvailableTo|string|Нет |
-|ResourceModifiedDate|string|Нет |
-|ResourceName|string|Нет |
-|ResourceStatusName|string|Нет |
-|ResourceType|целое число|Нет |
-|TypeDescription|string|Нет |
-|TypeName|string|Нет |
+|ResourceId|string|No |
+|ResourceBaseCalendar|string|No |
+|ResourceBookingType|integer|No |
+|ResourceCanLevel|boolean|No |
+|ResourceCostPerUse|number|No |
+|ResourceCreatedDate|string|No |
+|ResourceEarliestAvailableFrom|string|No |
+|ResourceEmail|string|No |
+|ResourceInitials|string|No |
+|ResourceIsActive|boolean|No |
+|ResourceIsGeneric|boolean|No |
+|ResourceLatestAvailableTo|string|No |
+|ResourceModifiedDate|string|No |
+|ResourceName|string|No |
+|ResourceStatsuName|string|No |
+|ResourceType|integer|No |
+|TypeDescription|string|No |
+|TypeName|string|No |
 
 
 
-### TriggerTasksWrapper
+### <a name="triggertaskswrapper"></a>TriggerTasksWrapper
 
 
-| Имя свойства | Тип данных | Обязательно |
+| Property Name | Data Type | Required |
 |---|---|---|
-|value|array|Нет |
+|value|array|No |
 
 
 
-### TriggerTask
+### <a name="triggertask"></a>TriggerTask
 
 
-| Имя свойства | Тип данных | Обязательно |
+| Property Name | Data Type | Required |
 |---|---|---|
-|ProjectId|string|Нет |
-|TaskId|строка|Нет |
-|ProjectName|string|Нет |
-|TaskName|string|Нет |
-|TaskCreatedDate|string|Нет |
-|TaskModifieddate|string|Нет |
-|TaskStartDate|string|Нет |
-|TaskFinishDate|string|Нет |
-|TaskPriority|целое число|Нет |
-|TaskIsActive|Логическое|Нет |
+|ProjectId|string|No |
+|TaskId|string|No |
+|ProjectName|string|No |
+|TaskName|string|No |
+|TaskCreatedDate|string|No |
+|TaskModifieddate|string|No |
+|TaskStartDate|string|No |
+|TaskFinishDate|string|No |
+|TaskPriority|integer|No |
+|TaskIsActive|boolean|No |
 
 
 
-### NewProject
+### <a name="newproject"></a>NewProject
 
 
-| Имя свойства | Тип данных | Обязательно |
+| Property Name | Data Type | Required |
 |---|---|---|
-|Имя|string|Да |
-|Description (Описание)|string|Нет |
-|Начало|string|Нет |
+|Name|string|Yes |
+|Description|string|No |
+|Start|string|No |
 
 
 
-### NewResource
+### <a name="newreource"></a>NewReource
 
 
-| Имя свойства | Тип данных | Обязательно |
+| Property Name | Data Type | Required |
 |---|---|---|
-|Имя|string|Да |
-|IsBudget|Логическое|Нет |
-|IsGeneric|Логическое|Нет |
-|IsInactive|Логическое|Нет |
+|Name|string|Yes |
+|IsBudget|boolean|No |
+|IsGeneric|boolean|No |
+|IsInactive|boolean|No |
 
 
 
-### Project
+### <a name="project"></a>Project
 
 
-| Имя свойства | Тип данных | Обязательно |
+| Property Name | Data Type | Required |
 |---|---|---|
-|ApprovedStart|string|Нет |
-|ApprovedEnd|string|Нет |
-|CheckedOutDate|string|Нет |
-|CheckOutDescription|string|Нет |
-|CheckOutId|string|Нет |
-|CreatedDate|string|Нет |
-|Идентификатор|string|Нет |
-|IsCheckedOut|Логическое|Нет |
-|LastPublishedDate|string|Нет |
-|LastSavedDate|string|Нет |
-|OptimizerDecision|целое число|Нет |
-|PlannerDecision|целое число|Нет |
-|ProjectType|целое число|Нет |
-|Name (Имя)|string|Нет |
-|WinprojVersion|string|Нет |
+|ApprovedStart|string|No |
+|ApprovedEnd|string|No |
+|CheckedOutDate|string|No |
+|CheckOutDescription|string|No |
+|CheckOutId|string|No |
+|CreatedDate|string|No |
+|Id|string|No |
+|IsCheckedOut|boolean|No |
+|LastPublishedDate|string|No |
+|LastSavedDate|string|No |
+|OptimizerDecision|integer|No |
+|PlannerDecision|integer|No |
+|ProjectType|integer|No |
+|Name|string|No |
+|WinprojVersion|string|No |
 
 
 
-### ProjectsWrapper
+### <a name="projectswrapper"></a>ProjectsWrapper
 
 
-| Имя свойства | Тип данных | Обязательно |
+| Property Name | Data Type | Required |
 |---|---|---|
-|value|array|Нет |
+|value|array|No |
 
 
 
-### NewTask
+### <a name="newtask"></a>NewTask
 
 
-| Имя свойства | Тип данных | Обязательно |
+| Property Name | Data Type | Required |
 |---|---|---|
-|parameters|не определено|Да |
+|parameters|not defined|Yes |
 
 
 
-### TaskParameters
+### <a name="taskparameters"></a>TaskParameters
 
 
-| Имя свойства | Тип данных | Обязательно |
+| Property Name | Data Type | Required |
 |---|---|---|
-|Name (Имя)|string|Да |
-|Примечания|string|Нет |
-|Начало|string|Нет |
-|Длительность|string|Нет |
+|Name|string|Yes |
+|Notes|string|No |
+|Start|string|No |
+|Duration|string|No |
 
 
 
-### EnterpriseResource
+### <a name="enterpriseresource"></a>EnterpriseResource
 
 
-| Имя свойства | Тип данных | Обязательно |
+| Property Name | Data Type | Required |
 |---|---|---|
-|CanLevel|Логическое|Нет |
-|Код|string|Нет |
-|CostAccrual|целое число|Нет |
-|CostCenter|string|Нет |
-|Создано|string|Нет |
-|DefaultBookingType|целое число|Нет |
-|Email|string|Нет |
-|ExternalId|string|Нет |
-|Группа|string|Нет |
-|HireDate|string|Нет |
-|Идентификатор|string|Нет |
-|Initials|string|Нет |
-|IsActive|Логическое|Нет |
-|IsBudget|Логическое|Нет |
-|IsCheckedOut|Логическое|Нет |
-|IsGeneric|Логическое|Нет |
-|IsTeam|Логическое|Нет |
-|MaterialLabel|string|Нет |
-|Изменено|string|Нет |
-|Имя|string|Нет |
-|Phonetics|string|Нет |
-|ResourceType|целое число|Нет |
-|TerminationDate|string|Нет |
+|CanLevel|boolean|No |
+|Code|string|No |
+|CostAccrual|integer|No |
+|CostCenter|string|No |
+|Created|string|No |
+|DefaultBookingType|integer|No |
+|Email|string|No |
+|ExternalId|string|No |
+|Group|string|No |
+|HireDate|string|No |
+|Id|string|No |
+|Initials|string|No |
+|IsActive|boolean|No |
+|IsBudget|boolean|No |
+|IsCheckedOut|boolean|No |
+|IsGeneric|boolean|No |
+|IsTeam|boolean|No |
+|MaterialLabel|string|No |
+|Modified|string|No |
+|Name|string|No |
+|Phonetics|string|No |
+|ResourceType|integer|No |
+|TerminationDate|string|No |
 
 
 
-### TasksWrapper
+### <a name="taskswrapper"></a>TasksWrapper
 
 
-| Имя свойства | Тип данных | Обязательно |
+| Property Name | Data Type | Required |
 |---|---|---|
-|value|array|Нет |
+|value|array|No |
 
 
 
-### Задача
+### <a name="task"></a>Task
 
 
-| Имя свойства | Тип данных | Обязательно |
+| Property Name | Data Type | Required |
 |---|---|---|
-|Создано|string|Нет |
-|Изменено|string|Нет |
-|Начало|string|Нет |
-|Готово|string|Нет |
-|Имя|string|Нет |
-|Идентификатор|string|Нет |
-|Приоритет|целое число|Нет |
-|PercentComplete|целое число|Нет |
-|Примечания|string|Нет |
-|Контакт|string|Нет |
+|Created|string|No |
+|Modified|string|No |
+|Start|string|No |
+|Finish|string|No |
+|Name|string|No |
+|Id|string|No |
+|Priority|integer|No |
+|PercentComplete|integer|No |
+|Notes|string|No |
+|Contact|string|No |
 
 
-## Дальнейшие действия
-[Создайте приложение логики](../app-service-logic/app-service-logic-create-a-logic-app.md)
+## <a name="next-steps"></a>Next Steps
+[Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

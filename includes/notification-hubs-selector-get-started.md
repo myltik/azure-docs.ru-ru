@@ -9,4 +9,7 @@
 - [Xamarin.Android](../articles/notification-hubs/xamarin-notification-hubs-push-notifications-android-gcm.md)
 - [Xamarin.iOS](../articles/notification-hubs/xamarin-notification-hubs-ios-push-notification-apns-get-started.md)
 
-<!---HONumber=AcomDC_0921_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Развертывание виртуальной машины с общедоступным IP-адресом с помощью портала Azure в диспетчере ресурсов | Microsoft Azure"
-   description="Дополнительные сведения о развертывании виртуальных машин со статическим общедоступным IP-адресом в диспетчере ресурсов на портале Azure"
+   pageTitle="Deploy a VM with a static public IP using the Azure portal in Resource Manager | Microsoft Azure"
+   description="Learn how to deploy VMs with a static public IP using the zure portal in Resource Manager"
    services="virtual-network"
    documentationCenter="na"
    authors="jimdial"
@@ -17,46 +17,50 @@
    ms.date="02/04/2016"
    ms.author="jdial" />
 
-# Развертывание виртуальной машины со статическим общедоступным IP-адресом с использованием портала Azure
+
+# <a name="deploy-a-vm-with-a-static-public-ip-using-the-azure-portal"></a>Deploy a VM with a static public IP using the Azure portal
 
 [AZURE.INCLUDE [virtual-network-deploy-static-pip-arm-selectors-include.md](../../includes/virtual-network-deploy-static-pip-arm-selectors-include.md)]
 
 [AZURE.INCLUDE [virtual-network-deploy-static-pip-intro-include.md](../../includes/virtual-network-deploy-static-pip-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] Классическая модель развертывания.
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] classic deployment model.
 
 [AZURE.INCLUDE [virtual-network-deploy-static-pip-scenario-include.md](../../includes/virtual-network-deploy-static-pip-scenario-include.md)]
 
-## Создание виртуальной машины со статическим общедоступным IP-адресом 
+## <a name="create-a-vm-with-a-static-public-ip"></a>Create a VM with a static public IP 
 
-Чтобы создать виртуальную машину со статическим общедоступным IP-адресом на портале Azure, выполните следующие действия.
+To create a VM with a static public IP address in the Azure portal, follow the steps below.
 
-1. В браузере откройте [портал Azure](https://portal.azure.com) и при необходимости войдите с использованием учетной записи Azure.
-2. В верхнем левом углу портала щелкните **Создать**>>**Вычисления**>**Windows Server 2012 R2 Datacenter**.
-3. В списке **Выбор модели развертывания** выберите элемент **Диспетчер ресурсов** и нажмите кнопку **Создать**.
-4. В колонке **Основы** введите сведения о виртуальной машине, как показано ниже, и нажмите кнопку **ОК**.
+1. From a browser, navigate to the [Azure portal](https://portal.azure.com) and, if necessary, sign in with your Azure account.
+2. On the top left hand corner of the portal, click **New**>>**Compute**>**Windows Server 2012 R2 Datacenter**.
+3. In the **Select a deployment model** list, select **Resource Manager** and click **Create**.
+4. In the **Basics** blade, enter the VM information as shown below, and then click **OK**.
 
-	![Портал Azure — основы](./media/virtual-network-deploy-static-pip-arm-portal/figure1.png)
+    ![Azure portal - Basics](./media/virtual-network-deploy-static-pip-arm-portal/figure1.png)
 
-5. В колонке **Выбор размера** щелкните **A1 стандартный**, как показано ниже, и нажмите кнопку **Выбрать**.
+5. In the **Choose a size** blade, click **A1 Standard** as shown below, and then click **Select**.
 
-	![Портал Azure — выбор размера](./media/virtual-network-deploy-static-pip-arm-portal/figure2.png)
+    ![Azure portal - Choose a size](./media/virtual-network-deploy-static-pip-arm-portal/figure2.png)
 
-6. В колонке **Параметры** щелкните **Общедоступный IP-адрес**, затем в колонке **Создать общедоступный IP-адрес** в разделе **Назначения** нажмите кнопку **Статический**, как показано ниже. Затем нажмите **ОК**.
+6. In the **Settings** blade, click **Public IP address**, then in the **Create public IP address** blade, under **Assignment**, click **Static** as shown below. And then click **OK**.
 
-	![Портал Azure — создание общедоступного IP-адреса](./media/virtual-network-deploy-static-pip-arm-portal/figure3.png)
+    ![Azure portal - Create public IP address](./media/virtual-network-deploy-static-pip-arm-portal/figure3.png)
 
-7. В колонке **Параметры** нажмите кнопку **ОК**.
-8. Просмотрите колонку **Сводка**, как показано ниже, а затем нажмите **ОК**.
+7. In the **Settings** blade, click **OK**.
+8. Review the **Summary** blade, as shown below, and then click **OK**.
 
-	![Портал Azure — создание общедоступного IP-адреса](./media/virtual-network-deploy-static-pip-arm-portal/figure4.png)
+    ![Azure portal - Create public IP address](./media/virtual-network-deploy-static-pip-arm-portal/figure4.png)
 
-9. Обратите внимание на новую плитку на панели мониторинга.
+9. Notice the new tile in your dashboard.
 
-	![Портал Azure — создание общедоступного IP-адреса](./media/virtual-network-deploy-static-pip-arm-portal/figure5.png)
+    ![Azure portal - Create public IP address](./media/virtual-network-deploy-static-pip-arm-portal/figure5.png)
 
-10. После создания виртуальной машины колонка **Параметры** будет отображаться, как показано ниже
+10. Once the VM is created, the **Settings** blade will be displayed as shown below
 
-	.![Портал Azure — создание общедоступного IP-адреса](./media/virtual-network-deploy-static-pip-arm-portal/figure6.png)
+    ![Azure portal - Create public IP address](./media/virtual-network-deploy-static-pip-arm-portal/figure6.png)
 
-<!---HONumber=AcomDC_0810_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

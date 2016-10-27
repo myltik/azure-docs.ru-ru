@@ -1,3 +1,6 @@
->[AZURE.IMPORTANT] Ключ учетной записи хранения похож на корневой пароль для вашей учетной записи хранения. Не забудьте защитить ключ учетной записи. Не сообщайте его другим пользователям, не определяйте его в коде и не храните его в текстовом файле, доступном другим пользователям. Если вы подозреваете, что ключ учетной записи мог быть скомпрометирован, повторно создайте его на портале Azure. Дополнительные сведения о повторном создании ключа учетной записи см. в статье [Создание, управление и удаление учетной записи на портале Azure](../articles/storage/storage-create-storage-account.md#manage-your-storage-account).
+>[AZURE.IMPORTANT] Your storage account key is similar to the root password for your storage account. Always be careful to protect your account key. Avoid distributing it to other users, hard-coding it, or saving it in a plain-text file that is accessible to others. Regenerate your account key using the Azure Portal if you believe it may have been compromised. To learn how to regenerate your account key, see [How to create, manage, or delete a storage account in the Azure Portal](../articles/storage/storage-create-storage-account.md#manage-your-storage-account).
 
-<!---HONumber=AcomDC_0420_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

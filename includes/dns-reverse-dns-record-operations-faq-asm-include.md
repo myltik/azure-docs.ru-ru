@@ -1,20 +1,23 @@
-<BR>
-## Часто задаваемые вопросы 
-### Каковы затраты на обратные записи DNS?
-Они бесплатны! Никакие дополнительные затраты на обратные записи или запросы DNS не требуются.
-### Будут ли мои обратные записи DNS разрешаться из Интернета?
-Да. После того, как вы задали свойство обратного DNS для облачной службы, Azure управляет всеми операциями делегирования DNS и зонами DNS, необходимыми для разрешения этой обратной записи DNS для всех пользователей Интернета.
-### Будет ли создана обратная запись DNS по умолчанию для моих облачных служб?
-Нет. Обратный DNS является включаемой функцией. Если вы не захотите настроить обратные записи DNS, они не будут созданы по умолчанию.
-### Каков формат полного доменного имени (FQDN)?
-Полные доменные имена указываются в прямом порядке и должны завершаться точкой (например, app1.contoso.com.).
-### Что происходит при ошибке проверки указанного мной обратного DNS?
-Если обратный DNS не пройдет проверку, операция службы управления завершится ошибкой. В этом случае исправьте значение обратного DNS, как указано, и повторите попытку.
-### Можно ли управлять обратным DNS для веб-сайта Azure?
-Для веб-сайтов Azure обратный DNS не поддерживается. Обратный DNS поддерживается для ролей PaaS и виртуальных машин IaaS Azure.
-### Можно ли настроить несколько обратных записей DNS для моей облачной службы?
-Нет. Azure поддерживает одну обратную запись DNS для каждой облачной службы Azure. Тем не менее, у каждой облачной службы Azure может быть собственная обратная запись DNS.
-### Можно ли отправлять электронные сообщения во внешние домены из служб вычислений Azure?
-Нет. Как указано [здесь](https://blogs.msdn.microsoft.com/mast/2016/04/04/sending-e-mail-from-azure-compute-resource-to-external-domains/), службы вычислений Azure не поддерживают отправку электронных сообщений во внешние домены.
+<BR> 
+## <a name="faq"></a>FAQ 
+### <a name="how-much-do-reverse-dns-records-cost?"></a>How much do reverse DNS records cost?
+They’re free!  There is no additional cost for reverse DNS records or queries.
+### <a name="will-my-reverse-dns-records-resolve-from-the-internet?"></a>Will my reverse DNS records resolve from the internet?
+Yes. Once you set the reverse DNS property for your Cloud Service, Azure manages all the DNS delegations and DNS zones required to ensure that reverse DNS record resolves for all internet users.
+### <a name="will-a-default-reverse-dns-record-be-created-for-my-cloud-services?"></a>Will a default reverse DNS record be created for my Cloud Services?
+No. Reverse DNS is an opt-in feature. No default reverse DNS records are created if you choose not to configure them.
+### <a name="what-is-the-format-for-the-fully-qualified-domain-name-(fqdn)?"></a>What is the format for the fully-qualified domain name (FQDN)?
+FQDNs are specified in forward order, and must be terminated by a dot (e.g., “app1.contoso.com.”).
+### <a name="what-happens-if-the-validation-checks-for-the-reverse-dns-i’ve-specified-fail?"></a>What happens if the validation checks for the reverse DNS I’ve specified fail?
+Where the validation for reverse DNS checks fail, the service management operation will fail. Please correct the reverse DNS value as required, and retry.
+### <a name="can-i-manage-reverse-dns-for-my-azure-website?"></a>Can I manage reverse DNS for my Azure Website?
+Reverse DNS is not supported for Azure Websites. Reverse DNS is supported for Azure PaaS roles and IaaS virtual machines.
+### <a name="can-i-configure-multiple-reverse-dns-records-for-my-cloud-service?"></a>Can I configure multiple reverse DNS records for my Cloud Service?
+No. Azure supports a single reverse DNS record for each Azure Cloud Service. Each Azure Cloud Service however can have their own reverse DNS record.
+### <a name="can-i-send-emails-to-external-domains-from-my-azure-compute-services?"></a>Can I send emails to external domains from my Azure Compute services?
+No. As per [here](https://blogs.msdn.microsoft.com/mast/2016/04/04/sending-e-mail-from-azure-compute-resource-to-external-domains/), Azure Compute services do not support sending emails to external domains.
 
-<!---HONumber=AcomDC_0907_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

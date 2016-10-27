@@ -1,6 +1,6 @@
 <properties
-pageTitle="Добавление соединителя Yammer в приложения логики | Microsoft Azure"
-description="Обзор соединителя Yammer с параметрами API REST"
+pageTitle="Add the Yammer Connector in your Logic Apps | Microsoft Azure"
+description="Overview of the Yammer Connector with REST API parameters"
 services=""    
 documentationCenter=""     
 authors="msftman"    
@@ -17,182 +17,189 @@ ms.workload="na"
 ms.date="05/18/2016"
 ms.author="deonhe"/>
 
-# Начало работы с соединителем Yammer
 
-Вы можете подключаться к Yammer для доступа к беседам в корпоративной сети.
+# <a name="get-started-with-the-yammer-connector"></a>Get started with the Yammer connector
 
->[AZURE.NOTE] Эта версия статьи предназначена для приложений логики со схемой версии 2015-08-01-preview.
+Connect to Yammer to access conversations in your enterprise network.
 
-С помощью Yammer вы можете:
+>[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version.
 
-- формировать бизнес-процессы на основе данных, получаемых из Yammer; 
-- использовать триггеры при поступлении нового сообщения в группе или веб-канале, на который вы подписаны;
-- использовать действия для публикации сообщений, получения всех сообщений и т. д. Эти действия получают ответ и делают выходные данные доступными для использования другими действиями. Например, при появлении нового сообщения вы можете отправлять сообщения электронной почты с помощью Office 365.
+With Yammer, you can:
 
-Сведения о добавлении операции в приложения логики см. в статье [Создание приложения логики](../app-service-logic/app-service-logic-create-a-logic-app.md).
+- Build your business flow based on the data you get from Yammer. 
+- Use triggers for when there is a new message in a group, or a feed your following.
+- Use actions to post a message, get all messages, and more. These actions get a response, and then make the output available for other actions. For example, when a new message appears, you can send an email using Office 365.
 
-## Триггеры и действия
-Yammer предоставляет следующие триггеры и действия.
+To add an operation in logic apps, see [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-Триггер | Действия
+## <a name="triggers-and-actions"></a>Triggers and actions
+Yammer includes the following triggers and actions. 
+
+Trigger | Actions
 --- | ---
-<ul><li>При наличии нового сообщения в группе</li><li>При наличии нового сообщения в веб-канале, на который я подписан</li></ul>| <ul><li>Получение всех сообщений</li><li>Получение сообщений в группе</li><li>Получение сообщений из веб-канала, на который я подписан</li><li>Публикация сообщения</li><li>При наличии нового сообщения в группе</li><li>При наличии нового сообщения в веб-канале, на который я подписан</li></ul>
+<ul><li>When there is a new message in a group</li><li>When there is a new message in my Following feed</li></ul>| <ul><li>Get all messages</li><li>Gets messages in a group</li><li>Gets the messages from my Following feed</li><li>Post message</li><li>When there is a new message in a group</li><li>When there is a new message in my Following feed</li></ul>
 
-Все соединители поддерживают данные в форматах JSON и XML.
+All connectors support data in JSON and XML formats. 
 
-## Создание подключения к Yammer
-Чтобы использовать соединитель Yammer, сначала нужно создать **подключение**, а затем указать данные для приведенных ниже свойств.
+## <a name="create-a-connection-to-yammer"></a>Create a connection to Yammer
+To use the Yammer connector, you first create a **connection** then provide the details for these properties: 
 
-|Свойство| Обязательно|Описание|
+|Property| Required|Description|
 | ---|---|---|
-|токен|Да|Указание учетных данных Yammer|
+|Token|Yes|Provide Yammer Credentials|
 
->[AZURE.INCLUDE [Шаги по созданию подключения к Yammer](../../includes/connectors-create-api-yammer.md)]
-
-
->[AZURE.TIP] Это подключение можно использовать в других приложениях логики.
-
-## Справочник по REST API Yammer
-Эта документация предназначена для версии 1.0
+>[AZURE.INCLUDE [Steps to create a connection to Yammer](../../includes/connectors-create-api-yammer.md)]
 
 
-### Получение всех открытых сообщений в сети Yammer текущего пользователя
-Относится ко всем разговорам в веб-интерфейсе Yammer. ```GET: /messages.json```
+>[AZURE.TIP] You can use this connection in other logic apps.
 
-| Имя| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
+## <a name="yammer-rest-api-reference"></a>Yammer REST API reference
+This documentation is for version: 1.0
+
+
+### <a name="get-all-public-messages-in-the-logged-in-user's-yammer-network"></a>Get all public messages in the logged in user's Yammer network
+Corresponds to "All" conversations in the Yammer web interface.  
+```GET: /messages.json```
+
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|older\_then|целое число|Нет|запрос|Нет|Возвращает сообщения, которые старше идентификатора сообщения, указанного в виде числовой строки. Это полезно для разбивки сообщений на страницы. Например, если в данный момент вы посматриваете 20 сообщений и самым старым является номер 2912, к запросу можно добавить "?older\_than=2912", чтобы получить 20 сообщений, которые предшествовали просматриваемым.|
-|newer\_then|целое число|Нет|запрос|Нет|Возвращает сообщения, более новые, чем идентификатор сообщения, указанный в виде числовой строки. Необходимо использовать при опросе на наличие новых сообщений. Если вы просматриваете сообщения и самое последнее возвращенное сообщение имеет номер 3516, можно выполнить запрос с параметром "? newer\_than = 3516", чтобы не получать копии сообщений, уже отображаемых на странице.|
-|limit|целое число|Нет|запрос|Нет|Возвращает только указанное количество сообщений.|
-|page|целое число|Нет|запрос|Нет|Возвращает указанную страницу. Если возвращаемые данные превышают ограничение, это поле можно использовать для доступа к следующим далее страницам|
+|older_then|integer|no|query|none|Returns messages older than the message ID specified as a numeric string. This is useful for paginating messages. For example, if you’re currently viewing 20 messages and the oldest is number 2912, you could append “?older_than=2912″ to your request to get the 20 messages prior to those you’re seeing.|
+|newer_then|integer|no|query|none|Returns messages newer than the message ID specified as a numeric string. This should be used when polling for new messages. If you’re looking at messages, and the most recent message returned is 3516, you can make a request with the parameter “?newer_than=3516″ to ensure that you do not get duplicate copies of messages already on your page.|
+|limit|integer|no|query|none|Return only the specified number of messages.|
+|page|integer|no|query|none|Get the page specified. If returned data is greater than the limit, you can use this field to access subsequent pages|
 
 
-### Ответ
+### <a name="response"></a>Response
 
-|Имя|Описание|
+|Name|Description|
 |---|---|
-|200|ОК|
-|400|Ошибка запроса|
-|408|Истекло время ожидания запроса|
-|429|Слишком много запросов|
-|500|Внутренняя ошибка сервера. Произошла неизвестная ошибка|
-|503|Служба Yammer недоступна|
-|504|Истекло время ожидания шлюза|
-|по умолчанию|Операция завершилась ошибкой.|
+|200|OK|
+|400|Bad Request|
+|408|Request Timeout|
+|429|Too Many Requests|
+|500|Internal Server Error. Unknown error occurred|
+|503|Yammer Service Unavailable|
+|504|Gateway Timeout|
+|default|Operation Failed.|
 
 
-### Публикация сообщения в группе или веб-канале всей организации
-Если указан идентификатор группы, сообщение будет отправлено в указанную группу или опубликовано в веб-канале всей организации. ```POST: /messages.json```
+### <a name="post-a-message-to-a-group-or-all-company-feed"></a>Post a Message to a Group or All Company Feed
+If group ID is provided, message will be posted to the specified group else it will be posted in All Company Feed.    
+```POST: /messages.json``` 
 
-| Имя| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|input| |Да|текст|Нет|Опубликовать запрос сообщения|
+|input| |yes|body|none|Post Message Request|
 
 
-### Ответ
+### <a name="response"></a>Response
 
-|Имя|Описание|
+|Name|Description|
 |---|---|
-|201|Создано|
+|201|Created|
 
 
 
-## Определения объектов
+## <a name="object-definitions"></a>Object definitions
 
-#### Message: сообщение Yammer
+#### <a name="message:-yammer-message"></a>Message: Yammer Message
 
-| Имя | Тип данных | Обязательно |
+| Name | Data Type | Required |
 |---|---| --- | 
-|id|целое число|Нет|
-|content\_excerpt|строка|Нет|
-|sender\_id|целое число|Нет|
-|replied\_to\_id|целое число|Нет|
-|created\_at|строка|Нет|
-|network\_id|целое число|Нет|
-|message\_type|строка|Нет|
-|sender\_type|string|Нет|
-|url|строка|Нет|
-|web\_url|строка|Нет|
-|group\_id|целое число|Нет|
-|текст|не определено|Нет|
-|thread\_id|целое число|Нет|
-|direct\_message|Логическое|Нет|
-|client\_type|строка|Нет|
-|client\_url|строка|Нет|
-|язык|строка|Нет|
-|notified\_user\_ids|array|Нет|
-|privacy|string|Нет|
-|liked\_by|не определено|Нет|
-|system\_message|Логическое|Нет|
+|id|integer|no|
+|content_excerpt|string|no|
+|sender_id|integer|no|
+|replied_to_id|integer|no|
+|created_at|string|no|
+|network_id|integer|no|
+|message_type|string|no|
+|sender_type|string|no|
+|url|string|no|
+|web_url|string|no|
+|group_id|integer|no|
+|body|not defined|no|
+|thread_id|integer|no|
+|direct_message|boolean|no|
+|client_type|string|no|
+|client_url|string|no|
+|language|string|no|
+|notified_user_ids|array|no|
+|privacy|string|no|
+|liked_by|not defined|no|
+|system_message|boolean|no|
 
-#### PostOperationRequest: представляет запрос к соединителю Yammer на публикацию в Yammer
+#### <a name="postoperationrequest:-represents-a-post-request-for-yammer-connector-to-post-to-yammer"></a>PostOperationRequest: Represents a post request for Yammer Connector to post to yammer
 
-| Имя | Тип данных | Обязательно |
+| Name | Data Type | Required |
 |---|---| --- | 
-|текст|строка|Да|
-|group\_id|целое число|Нет|
-|replied\_to\_id|целое число|Нет|
-|direct\_to\_id|целое число|Нет|
-|broadcast|Логическое|Нет|
-|topic1|string|Нет|
-|topic2|строка|Нет|
-|topic3|string|Нет|
-|topic4|строка|Нет|
-|topic5|string|Нет|
-|topic6|string|Нет|
-|topic7|string|Нет|
-|topic8|строка|Нет|
-|topic9|строка|Нет|
-|topic10|строка|Нет|
-|topic11|string|Нет|
-|topic12|строка|Нет|
-|topic13|строка|Нет|
-|topic14|string|Нет|
-|topic15|строка|Нет|
-|topic16|строка|Нет|
-|topic17|string|Нет|
-|topic18|строка|Нет|
-|topic19|строка|Нет|
-|topic20|строка|Нет|
+|body|string|yes|
+|group_id|integer|no|
+|replied_to_id|integer|no|
+|direct_to_id|integer|no|
+|broadcast|boolean|no|
+|topic1|string|no|
+|topic2|string|no|
+|topic3|string|no|
+|topic4|string|no|
+|topic5|string|no|
+|topic6|string|no|
+|topic7|string|no|
+|topic8|string|no|
+|topic9|string|no|
+|topic10|string|no|
+|topic11|string|no|
+|topic12|string|no|
+|topic13|string|no|
+|topic14|string|no|
+|topic15|string|no|
+|topic16|string|no|
+|topic17|string|no|
+|topic18|string|no|
+|topic19|string|no|
+|topic20|string|no|
 
-#### MessageList: список сообщений
+#### <a name="messagelist:-list-of-messages"></a>MessageList: List of messages
 
-| Имя | Тип данных | Обязательно |
+| Name | Data Type | Required |
 |---|---| --- | 
-|messages|array|Нет|
+|messages|array|no|
 
 
-#### MessageBody: текст сообщения
+#### <a name="messagebody:-message-body"></a>MessageBody: Message Body
 
-| Имя | Тип данных | Обязательно |
+| Name | Data Type | Required |
 |---|---| --- | 
-|parsed|string|Нет|
-|plain|строка|Нет|
-|rich|строка|Нет|
+|parsed|string|no|
+|plain|string|no|
+|rich|string|no|
 
-#### LikedBy: понравилось пользователю
+#### <a name="likedby:-liked-by"></a>LikedBy: Liked By
 
-| Имя | Тип данных | Обязательно |
+| Name | Data Type | Required |
 |---|---| --- | 
-|count|целое число|Нет|
-|names|array|Нет|
+|count|integer|no|
+|names|array|no|
 
-#### YammmerEntity: понравилось пользователю
+#### <a name="yammmerentity:-liked-by"></a>YammmerEntity: Liked By
 
-| Имя | Тип данных | Обязательно |
+| Name | Data Type | Required |
 |---|---| --- | 
-|type|string|Нет|
-|id|целое число|Нет|
-|full\_name|строка|Нет|
+|type|string|no|
+|id|integer|no|
+|full_name|string|no|
 
 
-## Дальнейшие действия
-[Создание приложения логики](../app-service-logic/app-service-logic-create-a-logic-app.md).
+## <a name="next-steps"></a>Next Steps
+[Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 [1]: ./media/connectors-create-api-yammer/connectionconfig1.png
-[2]: ./media/connectors-create-api-yammer/connectionconfig2.png
+[2]: ./media/connectors-create-api-yammer/connectionconfig2.png 
 [3]: ./media/connectors-create-api-yammer/connectionconfig3.png
 [4]: ./media/connectors-create-api-yammer/connectionconfig4.png
 [5]: ./media/connectors-create-api-yammer/connectionconfig5.png
 
-<!---HONumber=AcomDC_0525_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

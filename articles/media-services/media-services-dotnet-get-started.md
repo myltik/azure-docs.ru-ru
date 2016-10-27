@@ -1,167 +1,170 @@
 <properties
-	pageTitle="Приступая к работе с доставкой содержимого по запросу с помощью компонента .NET | Azure"
-	description="В этом учебнике показаны шаги по реализации приложения доставки содержимого по запросу с помощью служб мультимедиа Azure и .NET."
-	services="media-services"
-	documentationCenter=""
-	authors="Juliako"
-	manager="erikre"
-	editor=""/>
+    pageTitle="Get started with delivering content on demand using .NET | Azure"
+    description="This tutorial walks you through the steps of implementing an on demand content delivery application with Azure Media Services using .NET."
+    services="media-services"
+    documentationCenter=""
+    authors="Juliako"
+    manager="erikre"
+    editor=""/>
 
 <tags
-	ms.service="media-services"
-	ms.workload="media"
-	ms.tgt_pltfrm="na"
-	ms.devlang="dotnet"
-	ms.topic="hero-article"
- 	ms.date="08/17/2016"
-	ms.author="juliako"/>
+    ms.service="media-services"
+    ms.workload="media"
+    ms.tgt_pltfrm="na"
+    ms.devlang="dotnet"
+    ms.topic="hero-article"
+    ms.date="10/11/2016"
+    ms.author="juliako"/>
 
 
-# Приступая к работе с доставкой содержимого по запросу с помощью пакета SDK для .NET
 
+# <a name="get-started-with-delivering-content-on-demand-using-.net-sdk"></a>Get started with delivering content on demand using .NET SDK
 
 [AZURE.INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
-
 >[AZURE.NOTE]
-Для работы с этим учебником требуется учетная запись Azure. Дополнительные сведения см. в разделе [Бесплатная пробная версия Azure](/pricing/free-trial/?WT.mc_id=A261C142F).
+> To complete this tutorial, you need an Azure account. For details, see [Azure Free Trial](/pricing/free-trial/?WT.mc_id=A261C142F). 
  
-##Обзор 
+##<a name="overview"></a>Overview 
 
-В этом учебнике содержатся шаги по реализации приложения доставки видео по запросу с помощью пакета SDK служб мультимедиа Azure для .NET.
-
-
-В учебнике описывается базовый рабочий процесс служба мультимедиа и наиболее распространенные объекты и задачи программирования, необходимые для разработки с использованием служб мультимедиа. По завершении работы с учебником вы сможете выполнить потоковую передачу и поэтапно скачать пример файла мультимедиа, который вы отправили, закодировали и скачали.
-
-## Что вы узнаете
-
-В этом руководстве показано, как выполнять следующие задачи:
-
-1.  Создание учетной записи служб мультимедиа (с помощью классического портала Azure).
-2.  Настройка конечной точки потоковой передачи (с помощью портала).
-3.  Создание и настройка проекта Visual Studio.
-5.  Подключение к учетной записи служб мультимедиа.
-6.  Создание нового актива и отправка видеофайла.
-7.  Кодирование исходного файла в набор MP4-файлов с адаптивным битрейтом.
-8.  Публикация ресурса-контейнера и получение URL-адресов для потоковой передачи и поэтапного скачивания.
-9.  Проверка посредством воспроизведения содержимого.
-
-## Предварительные требования
-
-Ниже перечислены необходимые условия для выполнения действий, описанных в этом учебнике.
-
-- Для работы с этим учебником требуется учетная запись Azure.
-	
-	Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе [Бесплатная пробная версия Azure](/pricing/free-trial/?WT.mc_id=A261C142F). Вы получаете кредиты, которые можно использовать, чтобы попробовать платные службы Azure. Даже после того как кредиты использованы, учетная запись остается за вами и вы можете использовать бесплатные службы и функции Azure, например компонент веб-приложений в службы приложений Azure.
-- Операционные системы: Windows 8 или более поздней версии, Windows 2008 R2, Windows 7.
-- .NET Framework 4.0 или более поздняя версия.
-- Visual Studio 2010 с пакетом обновления 1 (SP1) (Professional, Premium, Ultimate или Express) или более поздняя версия.
+This tutorial walks you through the steps of implementing a Video-on-Demand (VoD) content delivery application using Azure Media Services (AMS) SDK for .NET.
 
 
-##Скачивание образца
+The tutorial introduces the basic Media Services workflow and the most common programming objects and tasks required for Media Services development. At the completion of the tutorial, you will be able to stream or progressively download a sample media file that you uploaded, encoded, and downloaded.
 
-Скачать и запустить пример можно [здесь](https://azure.microsoft.com/documentation/samples/media-services-dotnet-on-demand-encoding-with-media-encoder-standard/).
+## <a name="what-you'll-learn"></a>What you'll learn
 
-##Создание учетной записи служб мультимедиа с помощью портала
+The tutorial shows how to accomplish the following tasks:
 
-1. На классическом портале Azure последовательно выберите **Создать**, **Служба мультимедиа**, **Быстрое создание**.
+1.  Create a Media Services account (using the Azure portal).
+2.  Configure streaming endpoint (using the Azure portal).
+3.  Create and configure a Visual Studio project.
+5.  Connect to the Media Services account.
+6.  Create a new asset and upload a video file.
+7.  Encode the source file into a set of adaptive bitrate MP4 files.
+8.  Publish the asset and get URLs for streaming and progressive download.
+9.  Test by playing your content.
 
-	![Быстрое создание служб мультимедиа](./media/media-services-dotnet-get-started/wams-QuickCreate.png)
+## <a name="prerequisites"></a>Prerequisites
 
-2. В поле **ИМЯ** введите имя новой учетной записи. Имя учетной записи служб мультимедиа может состоять из букв или цифр в нижнем регистре без пробелов и имеет длину 3 – 24 знака.
+The following are required to complete the tutorial.
 
-3. В поле **РЕГИОН** выберите географический регион, который будет использоваться для хранения записей метаданных вашей учетной записи служб мультимедиа. В раскрывающемся списке отображаются только доступные области служб мультимедиа.
-
-4. В поле **УЧЕТНАЯ ЗАПИСЬ ХРАНЕНИЯ** выберите учетную запись хранения, которая обеспечит хранилище BLOB-объектов для мультимедийного контента из учетной записи служб мультимедиа. Можно выбрать существующую учетную запись хранения в географическом регионе, где находится учетная запись служб носителей, или создать новую учетную запись хранения. Новая учетная запись хранения будет создана в том же регионе.
-
-5. Если была создана новая учетная запись хранения, в поле **ИМЯ НОВОЙ УЧЕТНОЙ ЗАПИСИ ХРАНЕНИЯ** введите имя для учетной записи хранения. В отношении учетных записей хранения действуют те же правила, что и для учетных записей служб носителей.
-
-6. Щелкните **Быстрое создание** в нижней части формы.
-
-Состояние процесса можно контролировать с помощью области сообщений в нижней части окна.
-
-После успешного создания учетной записи состояние изменится на **Активно**.
-
-В нижней части страницы появится кнопка **УПРАВЛЕНИЕ КЛЮЧАМИ**. При нажатии этой кнопки отобразится диалоговое окно с именем учетной записи служб мультимедиа, а также первичным и вторичным ключами. Для программного доступа к учетной записи служб мультимедиа потребуется имя учетной записи и сведения о первичном ключе.
-
-![Страница служб мультимедиа](./media/media-services-dotnet-get-started/wams-mediaservices-page.png)
-
-Если дважды щелкнуть имя учетной записи, по умолчанию откроется страница **Быстрый старт**. Эта страница позволяет выполнять некоторые задачи управления, которые также доступны на других страницах портала. Например, видеофайл можно загрузить как с этой страницы, так и со страницы содержимого.
-
-##Настройка конечной точки потоковой передачи с помощью портала
-
-При работе со службами мультимедиа Azure один из самых частых сценариев — доставка клиентам потоковой передачи с адаптивной скоростью. С помощью потоковой передачи с адаптивным битрейтом клиент может переключаться на потоковую передачу с более высоким или более низким битрейтом, так как видео отображается на основе текущей пропускной способности сети, загрузки ЦП и других факторов. Службы мультимедиа поддерживают следующие технологии потоковой передачи с адаптивной скоростью: потоковая трансляция HTTP (HLS), Smooth Streaming, MPEG DASH и HDS (только для владельцев лицензий Adobe PrimeTime/Access).
-
-Службы мультимедиа обеспечивают динамическую упаковку, которая позволяет доставлять закодированное содержимое MP4-файлов с адаптивным битрейтом или Smooth Streaming в форматах потоковой передачи с поддержкой служб мультимедиа (MPEG DASH, HLS, Smooth Streaming, HDS) без необходимости повторной упаковки в эти форматы потоковой передачи.
-
-Чтобы воспользоваться преимуществом динамической упаковки, необходимо выполнить следующие действия:
-
-- закодировать или перекодировать мезонинный (исходный) файл в набор файлов MP4 или Smooth Streaming с переменной скоростью (шаги кодирования показаны далее в этом руководстве);
-- получить по крайней мере одну единицу потоковой передачи для **конечной точки потоковой передачи**, из которой вы планируете доставлять содержимое.
-
-Благодаря динамической упаковке вы оплачиваете хранение файлов только в одном формате, так как службы мультимедиа автоматически подготавливают и передают содержимое в нужном формате, исходя из полученных от клиента запросов.
-
-Чтобы изменить число зарезервированных единиц кодирования:
-
-1. На [портале](https://manage.windowsazure.com/) щелкните **Службы мультимедиа**. Затем щелкните имя службы мультимедиа.
-
-2. Откройте страницу КОНЕЧНЫЕ ТОЧКИ ПОТОКОВОЙ ПЕРЕДАЧИ. Затем щелкните конечную точку, которую требуется изменить.
-
-3. Чтобы указать число единиц потоковой передачи, перейдите на вкладку «Масштаб» и переместите ползунок **Зарезервированная емкость**.
-
-	![Страница масштабирования](./media/media-services-dotnet-get-started/media-services-origin-scale.png)
-
-4. Нажмите кнопку **Сохранить**, чтобы сохранить изменения.
-
-Выделение новых единиц потоковой передачи занимает около 20 минут.
-
->[AZURE.NOTE] В настоящее время переход от любого положительного значения единиц потоковой передачи к нулевому может привести к отключению потоковой передачи на период до одного часа.
->
-> Для расчета затрат используется наибольшее число единиц, указанных для 24-часового периода. Дополнительные сведения о ценах см. в разделе [Сведения о ценах на службы мультимедиа](http://go.microsoft.com/fwlink/?LinkId=275107).
+- To complete this tutorial, you need an Azure account. 
+    
+    If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](/pricing/free-trial/?WT.mc_id=A261C142F). You get credits that can be used to try out paid Azure services. Even after the credits are used up, you can keep the account and use free Azure services and features, such as the Web Apps feature in Azure App Service.
+- Operating Systems: Windows 8 or later, Windows 2008 R2, Windows 7.
+- .NET Framework 4.0 or later
+- Visual Studio 2010 SP1 (Professional, Premium, Ultimate, or Express) or later versions.
 
 
+##<a name="download-sample"></a>Download sample
 
-##Создание и настройка проекта Visual Studio
+Get and run a sample from [here](https://azure.microsoft.com/documentation/samples/media-services-dotnet-on-demand-encoding-with-media-encoder-standard/).
 
-1. Создайте новое консольное приложение C# в Visual Studio 2013, Visual Studio 2012 или Visual Studio 2010 с пакетом обновления 1 (SP1). Введите значения в поля **Имя**, **Расположение** и **Имя решения**, а затем нажмите кнопку **ОК**.
+## <a name="create-an-azure-media-services-account-using-the-azure-portal"></a>Create an Azure Media Services account using the Azure portal
 
-2. Используйте пакет Nuget [windowsazure.mediaservices.extensions](https://www.nuget.org/packages/windowsazure.mediaservices.extensions), чтобы установить **расширения пакета SDK служб мультимедиа Azure для .NET**. Расширения пакета SDK .NET служб мультимедиа — это набор методов расширения и вспомогательных функций, которые упростят код и разработку с помощью служб мультимедиа. При установке этого пакета также устанавливается **пакет SDK служб мультимедиа для .NET** и добавляются все остальные необходимые зависимости.
+The steps in this section show how to create an AMS account.
 
-3. Добавьте ссылку на сборку System.Configuration. Эта сборка содержит класс **System.Configuration.ConfigurationManager**, используемый для доступа к файлам конфигурации (например, App.config).
+1. Log in at the [Azure portal](https://portal.azure.com/).
+2. Click **+New** > **Media + CDN** > **Media Services**.
 
-4. Откройте файл App.config (добавьте файл в проект, если он не был добавлен по умолчанию) и добавьте в него раздел *appSettings*. Установите значения для имени и ключа учетной записи служб мультимедиа Azure, как показано в следующем примере. Чтобы получить имя учетной записи и сведения о ее ключе, откройте классический портал Azure, выберите учетную запись служб мультимедиа и нажмите кнопку **Управление ключами**.
+    ![Media Services Create](./media/media-services-portal-vod-get-started/media-services-new1.png)
 
-		<configuration>
-		...
-		  <appSettings>
-		    <add key="MediaServicesAccountName" value="Media-Services-Account-Name" />
-		    <add key="MediaServicesAccountKey" value="Media-Services-Account-Key" />
-		  </appSettings>
-		  
-		</configuration>
+3. In **CREATE MEDIA SERVICES ACCOUNT** enter required values.
 
-5. Замените существующие инструкции **using** в начале файла Program.cs на следующий код.
+    ![Media Services Create](./media/media-services-portal-vod-get-started/media-services-new3.png)
+    
+    1. In **Account Name**, enter the name of the new AMS account. A Media Services account name is all lowercase numbers or letters with no spaces, and is 3 to 24 characters in length.
+    2. In Subscription, select among the different Azure subscriptions that you have access to.
+    
+    2. In **Resource Group**, select the new or existing resource.  A resource group is a collection of resources that share lifecycle, permissions, and policies. Learn more [here](resource-group-overview.md#resource-groups).
+    3. In **Location**,  select the geographic region is used to store the media and metadata records for your Media Services account. This  region is used to process and stream your media. Only the available Media Services regions appear in the drop-down list box. 
+    
+    3. In **Storage Account**, select a storage account to provide blob storage of the media content from your Media Services account. You can select an existing storage account in the same geographic region as your Media Services account, or you can create a storage account. A new storage account is created in the same region. The rules for storage account names are the same as for Media Services accounts.
 
-		using System;
-		using System.Collections.Generic;
-		using System.Linq;
-		using System.Text;
-		using System.Threading.Tasks;
-		using System.Configuration;
-		using System.Threading;
-		using System.IO;
-		using Microsoft.WindowsAzure.MediaServices.Client;
-		
+        Learn more about storage [here](storage-introduction.md).
 
-6. Создайте новую папку в каталоге проектов и скопируйте MP4- или WMV-файл, для которого нужно выполнить кодирование, потоковую передачу или поэтапное скачивание. В этом примере используется путь C:\\VideoFiles.
+    4. Select **Pin to dashboard** to see the progress of the account deployment.
+    
+7. Click **Create** at the bottom of the form.
 
-##Подключение к учетной записи служб мультимедиа
+    Once the account is successfully created, the status changes to **Running**. 
 
-Если вы используете службы мультимедиа с помощью .NET, то для большинства задач программирования этих служб следует использовать класс **CloudMediaContext**. Это могут быть такие задачи: подключение к учетной записи служб мультимедиа, создание, обновление и удаление различных объектов и получение доступа к этим объектам (ресурсам-контейнерам, файлам ресурсов-контейнеров, заданиям, политикам доступа, указателям и т. д.).
+    ![Media Services settings](./media/media-services-portal-vod-get-started/media-services-settings.png)
 
-Перезапишите класс "Program" с помощью следующего кода. В коде показано, как считывать значения подключения из файла App.config и как создать объект **CloudMediaContext** для подключения к службам мультимедиа. Дополнительные сведения о подключении к службам мультимедиа см. в статье [Подключение к службам мультимедиа с помощью пакета SDK служб мультимедиа для .NET](http://msdn.microsoft.com/library/azure/jj129571.aspx).
+    To manage your AMS account (for example, upload videos, encode assets, monitor job progress) use the **Settings** window.
 
-Функция **Main** вызывает методы, которые будут определены далее в этом разделе.
+## <a name="configure-streaming-endpoints-using-the-azure-portal"></a>Configure streaming endpoints using the Azure portal
+
+When working with Azure Media Services one of the most common scenarios is delivering video via adaptive bitrate streaming to your clients. Media Services supports the following adaptive bitrate streaming technologies: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH, and HDS (for Adobe PrimeTime/Access licensees only).
+
+Media Services provides dynamic packaging, which allows you to deliver your adaptive bitrate MP4  encoded content in streaming formats supported by Media Services (MPEG DASH, HLS, Smooth Streaming, HDS) just-in-time, without you having to store pre-packaged versions of each of these streaming formats.
+
+To take advantage of dynamic packaging, you need to do the following:
+
+- Encode your mezzanine (source) file into a set of adaptive bitrate MP4 files (the encoding steps are demonstrated later in this tutorial).  
+- Create at least one streaming unit for the *streaming endpoint* from which you plan to delivery your content. The steps below show how to change the number of streaming units.
+
+With dynamic packaging, you only need to store and pay for the files in single storage format and Media Services builds and serves the appropriate response based on requests from a client.
+
+To create and change the number of streaming reserved units, do the following:
+
+
+1. In the **Settings** window, click **Streaming endpoints**. 
+
+2. Click the default streaming endpoint. 
+
+    The **DEFAULT STREAMING ENDPOINT DETAILS** window appears.
+
+3. To specify the number of streaming units, slide the **Streaming units** slider.
+
+    ![Streaming units](./media/media-services-portal-vod-get-started/media-services-streaming-units.png)
+
+4. Click the **Save** button to save your changes.
+
+    >[AZURE.NOTE]The allocation of any new units can take up to 20 minutes to complete.
+
+##<a name="create-and-configure-a-visual-studio-project"></a>Create and configure a Visual Studio project
+
+1. Create a new C# Console Application in Visual Studio 2013, Visual Studio 2012, or Visual Studio 2010 SP1. Enter the **Name**, **Location**, and **Solution name**, and then click **OK**.
+
+2. Use the  [windowsazure.mediaservices.extensions](https://www.nuget.org/packages/windowsazure.mediaservices.extensions) NuGet package to install **Azure Media Services .NET SDK Extensions**.  The Media Services .NET SDK Extensions is a set of extension methods and helper functions that will simplify your code and make it easier to develop with Media Services. Installing this package, also installs **Media Services .NET SDK** and adds all other required dependencies.
+
+3. Add a reference to System.Configuration assembly. This assembly contains the **System.Configuration.ConfigurationManager** class that is used to access configuration files, for example, App.config.
+
+4. Open the App.config file (add the file to your project if it was not added by default) and add an *appSettings* section to the file. Set the values for your Azure Media Services account name and account key, as shown in the following example. To obtain the account name and key information, open the Azure Classic Portal, select your media services account, and then click the **MANAGE KEYS** button.
+
+        <configuration>
+        ...
+          <appSettings>
+            <add key="MediaServicesAccountName" value="Media-Services-Account-Name" />
+            <add key="MediaServicesAccountKey" value="Media-Services-Account-Key" />
+          </appSettings>
+          
+        </configuration>
+
+5. Overwrite the existing **using** statements at the beginning of the Program.cs file with the following code.
+
+        using System;
+        using System.Collections.Generic;
+        using System.Linq;
+        using System.Text;
+        using System.Threading.Tasks;
+        using System.Configuration;
+        using System.Threading;
+        using System.IO;
+        using Microsoft.WindowsAzure.MediaServices.Client;
+        
+
+6. Create a new folder under the projects directory and copy an .mp4 or .wmv file that you want to encode and stream or progressively download. In this example, the "C:\VideoFiles" path is used.
+
+##<a name="connect-to-the-media-services-account"></a>Connect to the Media Services account
+
+When using Media Services with .NET, you must use the **CloudMediaContext** class for most Media Services programming tasks: connecting to Media Services account; creating, updating, accessing, and deleting the following objects: assets, asset files, jobs, access policies, locators, etc.
+
+Overwrite the default Program class with the following code. The code demonstrates how to read the connection values from the App.config file and how to create the **CloudMediaContext** object in order to connect to Media Services. For more information about connecting to Media Services, see [Connecting to Media Services with the Media Services SDK for .NET](http://msdn.microsoft.com/library/azure/jj129571.aspx).
+
+The **Main** function calls methods that will be defined further in this section.
 
     class Program
     {
@@ -210,120 +213,122 @@
             }
         }
 
-##Создание нового актива и отправка видеофайла
+##<a name="create-a-new-asset-and-upload-a-video-file"></a>Create a new asset and upload a video file
 
-В службах мультимедиа цифровые файлы отправляются (или принимаются) в актив. Сущность **Asset** может содержать видео, аудио, изображения, коллекции эскизов, текстовые каналы и файлы скрытых субтитров (а также метаданные этих файлов). После отправки этих файлов содержимое сохраняется в безопасном расположении в облаке для дальнейшей обработки и потоковой передачи. Файлы в ресурсе называются **файлами ресурса**.
+In Media Services, you upload (or ingest) your digital files into an asset. The **Asset** entity can contain video, audio, images, thumbnail collections, text tracks, and closed caption files (and the metadata about these files.)  Once the files are uploaded, your content is stored securely in the cloud for further processing and streaming. The files in the asset are called **Asset Files**.
 
-Метод **UploadFile**, определенный ниже, вызывает **CreateFromFile** (этот метод определен в расширениях пакета SDK для .NET). **CreateFromFile** создает новый ресурс-контейнер, в который отправляется указанный исходный файл.
+The **UploadFile** method defined below calls **CreateFromFile** (defined in .NET SDK Extensions). **CreateFromFile** creates a new asset into which the specified source file is uploaded.
 
-Метод **CreateFromFile** получает параметры **AssetCreationOptions**, которые позволяют указать один из таких параметров создания ресурса-контейнера.
+The **CreateFromFile** method takes **AssetCreationOptions** which lets you specify one of the following asset creation options:
 
-- **None** — шифрование не используется. Это значение по умолчанию. Обратите внимание, что при использовании этого параметра содержимое не защищено при передаче и хранении. Используйте этот параметр, если MP4-файл планируется доставить с помощью поэтапного скачивания.
-- **StorageEncrypted**. Используйте этот параметр, чтобы локально зашифровать содержимое с помощью 256-битового шифрования AES, а затем отправить его в хранилище Azure для хранения в зашифрованном виде. Активы, защищенные с помощью шифрования хранилища, автоматически расшифровываются и помещаются в систему зашифрованных файлов до кодирования и при необходимости повторно кодируются до отправки в виде нового выходного актива. Шифрование хранилища чаще всего используется, если нужно защитить входные файлы мультимедиа высокого качества с помощью стойкого шифрования при хранении на диске.
-- **CommonEncryptionProtected**. Используйте этот параметр при отправке содержимого, которое уже зашифровано и защищено с помощью стандартного шифрования или PlayReady DRM (например, Smooth Streaming с защитой PlayReady DRM).
-- **EnvelopeEncryptionProtected**. Используйте этот параметр при отправке HLS с шифрованием AES. Обратите внимание, что файлы должны быть закодированы и зашифрованы с помощью Transform Manager.
+- **None** - No encryption is used. This is the default value. Note that when using this option, your content is not protected in transit or at rest in storage.
+If you plan to deliver an MP4 using progressive download, use this option.
+- **StorageEncrypted** - Use this option to encrypt your clear content locally using Advanced Encryption Standard (AES)-256 bit encryption, which then uploads it to Azure Storage where it is stored encrypted at rest. Assets protected with Storage Encryption are automatically unencrypted and placed in an encrypted file system prior to encoding, and optionally re-encrypted prior to uploading back as a new output asset. The primary use case for Storage Encryption is when you want to secure your high-quality input media files with strong encryption at rest on disk.
+- **CommonEncryptionProtected** - Use this option if you are uploading content that has already been encrypted and protected with Common Encryption or PlayReady DRM (for example, Smooth Streaming protected with PlayReady DRM).
+- **EnvelopeEncryptionProtected** – Use this option if you are uploading HLS encrypted with AES. Note that the files must have been encoded and encrypted by Transform Manager.
 
-Метод **CreateFromFile**, кроме того, позволяет указывать метод обратного вызова, чтобы сообщать о ходе отправки файла.
+The **CreateFromFile** method also lets you specify a callback in order to report the upload progress of the file.
 
-В следующем примере в качестве параметров ресурса-контейнера используется **None**.
+In the following example, we specify **None** for the asset options.
 
-Добавьте следующий метод в класс Program.
+Add the following method to the Program class.
 
-	static public IAsset UploadFile(string fileName, AssetCreationOptions options)
-	{
-	    IAsset inputAsset = _context.Assets.CreateFromFile(
-	        fileName,
-	        options,
-	        (af, p) =>
-	        {
-	            Console.WriteLine("Uploading '{0}' - Progress: {1:0.##}%", af.Name, p.Progress);
-	        });
+    static public IAsset UploadFile(string fileName, AssetCreationOptions options)
+    {
+        IAsset inputAsset = _context.Assets.CreateFromFile(
+            fileName,
+            options,
+            (af, p) =>
+            {
+                Console.WriteLine("Uploading '{0}' - Progress: {1:0.##}%", af.Name, p.Progress);
+            });
 
-	    Console.WriteLine("Asset {0} created.", inputAsset.Id);
+        Console.WriteLine("Asset {0} created.", inputAsset.Id);
 
-	    return inputAsset;
-	}
-
-
-##Кодирование исходного файла в набор MP4-файлов с адаптивным битрейтом
-
-После приема ресурсов-контейнеров в службы мультимедиа файлы мультимедиа можно кодировать, менять их формат, добавлять к ним водяные знаки и т. д. до их доставки клиентам. Эти действия запланированы и выполняются в нескольких экземплярах фоновых ролей для обеспечения высокой производительности и доступности. Эти действия называются заданиями, и каждое задание состоит из атомарных задач, которые выполняют фактическую работу в файле ресурса-контейнера.
-
-Как упоминалось ранее, один из наиболее распространенных сценариев при работе со службами мультимедиа Azure — доставка клиентам потоковой передачи с переменной скоростью. Службы мультимедиа могут динамически упаковывать набор MP4-файлов с адаптивным битрейтом в один из следующих форматов: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH и HDS (только для обладателей лицензии Adobe PrimeTime/Access).
-
-Чтобы воспользоваться преимуществом динамической упаковки, необходимо выполнить следующие действия:
-
-- закодировать или перекодировать мезонинный (исходный) файл в набор файлов MP4 или Smooth Streaming с переменной скоростью;
-- получить по крайней мере одну единицу потоковой передачи для конечной точки потоковой передачи, из которой вы планируете доставлять содержимое.
-
-В следующем коде показано, как отправить задание кодирования. Задание содержит одну задачу, которая определяет перекодировку мезонинного файла в набор MP4-файлов с переменной скоростью с помощью **Media Encoder Standard**. Код отправляет задание и ждет его выполнения.
-
-После выполнения заданий вы сможете выполнить потоковую передачу актива и поэтапное скачивание MP4-файлов, созданных в результате перекодирования. Обратите внимание, что вам не нужно получать единицы потоковой передачи, чтобы поэтапно скачать MP4-файлы.
-
-Добавьте следующий метод в класс Program.
-
-	static public IAsset EncodeToAdaptiveBitrateMP4s(IAsset asset, AssetCreationOptions options)
-	{
-	
-	    // Prepare a job with a single task to transcode the specified asset
-	    // into a multi-bitrate asset.
-	
-	    IJob job = _context.Jobs.CreateWithSingleTask(
-	        "Media Encoder Standard",
-	        "H264 Multiple Bitrate 720p",
-	        asset,
-	        "Adaptive Bitrate MP4",
-	        options);
-	
-	    Console.WriteLine("Submitting transcoding job...");
-	
-	
-	    // Submit the job and wait until it is completed.
-	    job.Submit();
-	
-	    job = job.StartExecutionProgressTask(
-	        j =>
-	        {
-	            Console.WriteLine("Job state: {0}", j.State);
-	            Console.WriteLine("Job progress: {0:0.##}%", j.GetOverallProgress());
-	        },
-	        CancellationToken.None).Result;
-	
-	    Console.WriteLine("Transcoding job finished.");
-	
-	    IAsset outputAsset = job.OutputMediaAssets[0];
-	
-	    return outputAsset;
-	}
-
-##Публикация ресурса-контейнера и получение URL-адресов для потоковой передачи и поэтапного скачивания
-
-Чтобы выполнить потоковую передачу ресурса-контейнера или скачать его, сначала необходимо "опубликовать" его, создав указатель. Указатели предоставляют доступ к файлам, содержащимся в активе. Службы мультимедиа поддерживают два типа указателей: указатели на OnDemandOrigin, использующиеся для потоковой передачи служб мультимедиа (например, MPEG DASH, HLS или Smooth Streaming), и указатели на подписанный URL-адрес, использующиеся для скачивания файлов мультимедиа.
-
-После создания указателей можно создать URL-адреса, которые используются для потоковой передачи или скачивания файлов.
+        return inputAsset;
+    }
 
 
-URL-адрес потоковой передачи для Smooth Streaming имеет следующий формат:
+##<a name="encode-the-source-file-into-a-set-of-adaptive-bitrate-mp4-files"></a>Encode the source file into a set of adaptive bitrate MP4 files
 
-	 {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest
+After ingesting assets into Media Services, media can be encoded, transmuxed, watermarked, and so on, before it is delivered to clients. These activities are scheduled and run against multiple background role instances to ensure high performance and availability. These activities are called Jobs, and each Job is composed of atomic Tasks that do the actual work on the Asset file.
 
-URL-адрес потоковой передачи для HLS имеет следующий формат:
+As was mentioned earlier, when working with Azure Media Services, one of the most common scenarios is delivering adaptive bitrate streaming to your clients. Media Services can dynamically package a set of adaptive bitrate MP4 files into one of the following formats: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH, and HDS (for Adobe PrimeTime/Access licensees only).
 
-	 {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=m3u8-aapl)
+To take advantage of dynamic packaging, you need to do the following:
 
-URL-адрес потоковой передачи для MPEG DASH имеет следующий формат:
+- Encode or transcode your mezzanine (source) file into a set of adaptive bitrate MP4 files or adaptive bitrate Smooth Streaming files.  
+- Get at least one streaming unit for the streaming endpoint from which you plan to delivery your content.
 
-	{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=mpd-time-csf)
+The following code shows how to submit an encoding job. The job contains one task that specifies to transcode the mezzanine file into a set of adaptive bitrate MP4s using **Media Encoder Standard**. The code submits the job and waits until it is completed.
 
-URL-адрес SAS, используемый для скачивания файлов, имеет следующий формат:
+Once the job is completed, you would be able to stream your asset or progressively download MP4 files that were created as a result of transcoding.
+Note that you do not need to have more than 0 streaming units in order to progressively download MP4 files.
 
-	{blob container name}/{asset name}/{file name}/{SAS signature}
+Add the following method to the Program class.
 
-Расширения пакета SDK .NET служб мультимедиа обеспечивают удобные вспомогательные методы, которые возвращают отформатированные URL-адреса для опубликованного актива.
+    static public IAsset EncodeToAdaptiveBitrateMP4s(IAsset asset, AssetCreationOptions options)
+    {
+    
+        // Prepare a job with a single task to transcode the specified asset
+        // into a multi-bitrate asset.
+    
+        IJob job = _context.Jobs.CreateWithSingleTask(
+            "Media Encoder Standard",
+            "H264 Multiple Bitrate 720p",
+            asset,
+            "Adaptive Bitrate MP4",
+            options);
+    
+        Console.WriteLine("Submitting transcoding job...");
+    
+    
+        // Submit the job and wait until it is completed.
+        job.Submit();
+    
+        job = job.StartExecutionProgressTask(
+            j =>
+            {
+                Console.WriteLine("Job state: {0}", j.State);
+                Console.WriteLine("Job progress: {0:0.##}%", j.GetOverallProgress());
+            },
+            CancellationToken.None).Result;
+    
+        Console.WriteLine("Transcoding job finished.");
+    
+        IAsset outputAsset = job.OutputMediaAssets[0];
+    
+        return outputAsset;
+    }
 
-Следующий код использует расширения SDK .NET при создании указателей и получении URL-адресов для потоковой передачи и поэтапного скачивания. Код также показывает, как скачать файлы в локальную папку.
+##<a name="publish-the-asset-and-get-urls-for-streaming-and-progressive-download"></a>Publish the asset and get URLs for streaming and progressive download
 
-Добавьте следующий метод в класс Program.
+To stream or download an asset, you first need to "publish" it by creating a locator. Locators provide access to files contained in the asset. Media Services supports two types of locators: OnDemandOrigin locators, used to stream media (for example, MPEG DASH, HLS, or Smooth Streaming) and Access Signature (SAS) locators, used to download media files.
+
+After you create the locators, you can build the URLs that are used to stream or download your files.
+
+
+A streaming URL for Smooth Streaming has the following format:
+
+     {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest
+
+A streaming URL for HLS has the following format:
+
+     {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=m3u8-aapl)
+
+A streaming URL for MPEG DASH has the following format:
+
+    {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=mpd-time-csf)
+
+A SAS URL used to download files has the following format:
+
+    {blob container name}/{asset name}/{file name}/{SAS signature}
+
+Media Services .NET SDK extensions provide convenient helper methods that return formatted URLs for the published asset.
+
+The following code uses .NET SDK Extensions to create locators and to get streaming and progressive download URLs. The code also shows how to download files to a local folder.
+
+Add the following method to the Program class.
 
     static public void PublishAssetGetURLs(IAsset asset)
     {
@@ -355,8 +360,8 @@ URL-адрес SAS, используемый для скачивания фай�
         Uri mpegDashUri = asset.GetMpegDashUri();
 
         // Get the URls for progressive download for each MP4 file that was generated as a result
-		// of encoding.
-		List<Uri> mp4ProgressiveDownloadUris = mp4AssetFiles.Select(af => af.GetSasUri()).ToList();
+        // of encoding.
+        List<Uri> mp4ProgressiveDownloadUris = mp4AssetFiles.Select(af => af.GetSasUri()).ToList();
 
 
         // Display  the streaming URLs.
@@ -366,7 +371,7 @@ URL-адрес SAS, используемый для скачивания фай�
         Console.WriteLine(mpegDashUri);
         Console.WriteLine();
 
-		// Display the URLs for progressive download.
+        // Display the URLs for progressive download.
         Console.WriteLine("Use the following URLs for progressive download.");
         mp4ProgressiveDownloadUris.ForEach(uri => Console.WriteLine(uri + "\n"));
         Console.WriteLine();
@@ -390,60 +395,60 @@ URL-адрес SAS, используемый для скачивания фай�
         Console.WriteLine("Output asset files available at '{0}'.", Path.GetFullPath(outputFolder));
     }
 
-##Проверка посредством воспроизведения содержимого  
+##<a name="test-by-playing-your-content"></a>Test by playing your content  
 
-После запуска программы, определенной в предыдущем разделе, в окне консоли отобразятся URL-адреса, аналогичные следующим.
+Once you run the program defined in the previous section, the URLs similar to the following will be displayed in the console window.
 
-URL-адреса адаптивной потоковой передачи:
+Adaptive streaming URLs:
 
 Smooth Streaming
 
-	http://amstestaccount001.streaming.mediaservices.windows.net/ebf733c4-3e2e-4a68-b67b-cc5159d1d7f2/BigBuckBunny.ism/manifest
+    http://amstestaccount001.streaming.mediaservices.windows.net/ebf733c4-3e2e-4a68-b67b-cc5159d1d7f2/BigBuckBunny.ism/manifest
 
 HLS
 
-	http://amstestaccount001.streaming.mediaservices.windows.net/ebf733c4-3e2e-4a68-b67b-cc5159d1d7f2/BigBuckBunny.ism/manifest(format=m3u8-aapl)
+    http://amstestaccount001.streaming.mediaservices.windows.net/ebf733c4-3e2e-4a68-b67b-cc5159d1d7f2/BigBuckBunny.ism/manifest(format=m3u8-aapl)
 
 MPEG DASH
 
-	http://amstestaccount001.streaming.mediaservices.windows.net/ebf733c4-3e2e-4a68-b67b-cc5159d1d7f2/BigBuckBunny.ism/manifest(format=mpd-time-csf)
+    http://amstestaccount001.streaming.mediaservices.windows.net/ebf733c4-3e2e-4a68-b67b-cc5159d1d7f2/BigBuckBunny.ism/manifest(format=mpd-time-csf)
 
-URL-адреса поэтапного скачивания (аудио и видео).
+Progressive download URLs (audio and video).
 
-	https://storagetestaccount001.blob.core.windows.net/asset-38058602-a4b8-4b33-b9f0-6880dc1490ea/BigBuckBunny_H264_650kbps_AAC_und_ch2_96kbps.mp4?sv=2012-02-12&sr=c&si=166d5154-b801-410b-a226-ee2f8eac1929&sig=P2iNZJAvAWpp%2Bj9yV6TQjoz5DIIaj7ve8ARynmEM6Xk%3D&se=2015-02-14T01:13:05Z
+    https://storagetestaccount001.blob.core.windows.net/asset-38058602-a4b8-4b33-b9f0-6880dc1490ea/BigBuckBunny_H264_650kbps_AAC_und_ch2_96kbps.mp4?sv=2012-02-12&sr=c&si=166d5154-b801-410b-a226-ee2f8eac1929&sig=P2iNZJAvAWpp%2Bj9yV6TQjoz5DIIaj7ve8ARynmEM6Xk%3D&se=2015-02-14T01:13:05Z
 
-	https://storagetestaccount001.blob.core.windows.net/asset-38058602-a4b8-4b33-b9f0-6880dc1490ea/BigBuckBunny_H264_400kbps_AAC_und_ch2_96kbps.mp4?sv=2012-02-12&sr=c&si=166d5154-b801-410b-a226-ee2f8eac1929&sig=P2iNZJAvAWpp%2Bj9yV6TQjoz5DIIaj7ve8ARynmEM6Xk%3D&se=2015-02-14T01:13:05Z
+    https://storagetestaccount001.blob.core.windows.net/asset-38058602-a4b8-4b33-b9f0-6880dc1490ea/BigBuckBunny_H264_400kbps_AAC_und_ch2_96kbps.mp4?sv=2012-02-12&sr=c&si=166d5154-b801-410b-a226-ee2f8eac1929&sig=P2iNZJAvAWpp%2Bj9yV6TQjoz5DIIaj7ve8ARynmEM6Xk%3D&se=2015-02-14T01:13:05Z
 
-	https://storagetestaccount001.blob.core.windows.net/asset-38058602-a4b8-4b33-b9f0-6880dc1490ea/BigBuckBunny_H264_3400kbps_AAC_und_ch2_96kbps.mp4?sv=2012-02-12&sr=c&si=166d5154-b801-410b-a226-ee2f8eac1929&sig=P2iNZJAvAWpp%2Bj9yV6TQjoz5DIIaj7ve8ARynmEM6Xk%3D&se=2015-02-14T01:13:05Z
+    https://storagetestaccount001.blob.core.windows.net/asset-38058602-a4b8-4b33-b9f0-6880dc1490ea/BigBuckBunny_H264_3400kbps_AAC_und_ch2_96kbps.mp4?sv=2012-02-12&sr=c&si=166d5154-b801-410b-a226-ee2f8eac1929&sig=P2iNZJAvAWpp%2Bj9yV6TQjoz5DIIaj7ve8ARynmEM6Xk%3D&se=2015-02-14T01:13:05Z
 
-	https://storagetestaccount001.blob.core.windows.net/asset-38058602-a4b8-4b33-b9f0-6880dc1490ea/BigBuckBunny_H264_2250kbps_AAC_und_ch2_96kbps.mp4?sv=2012-02-12&sr=c&si=166d5154-b801-410b-a226-ee2f8eac1929&sig=P2iNZJAvAWpp%2Bj9yV6TQjoz5DIIaj7ve8ARynmEM6Xk%3D&se=2015-02-14T01:13:05Z
+    https://storagetestaccount001.blob.core.windows.net/asset-38058602-a4b8-4b33-b9f0-6880dc1490ea/BigBuckBunny_H264_2250kbps_AAC_und_ch2_96kbps.mp4?sv=2012-02-12&sr=c&si=166d5154-b801-410b-a226-ee2f8eac1929&sig=P2iNZJAvAWpp%2Bj9yV6TQjoz5DIIaj7ve8ARynmEM6Xk%3D&se=2015-02-14T01:13:05Z
 
-	https://storagetestaccount001.blob.core.windows.net/asset-38058602-a4b8-4b33-b9f0-6880dc1490ea/BigBuckBunny_H264_1500kbps_AAC_und_ch2_96kbps.mp4?sv=2012-02-12&sr=c&si=166d5154-b801-410b-a226-ee2f8eac1929&sig=P2iNZJAvAWpp%2Bj9yV6TQjoz5DIIaj7ve8ARynmEM6Xk%3D&se=2015-02-14T01:13:05Z
+    https://storagetestaccount001.blob.core.windows.net/asset-38058602-a4b8-4b33-b9f0-6880dc1490ea/BigBuckBunny_H264_1500kbps_AAC_und_ch2_96kbps.mp4?sv=2012-02-12&sr=c&si=166d5154-b801-410b-a226-ee2f8eac1929&sig=P2iNZJAvAWpp%2Bj9yV6TQjoz5DIIaj7ve8ARynmEM6Xk%3D&se=2015-02-14T01:13:05Z
 
-	https://storagetestaccount001.blob.core.windows.net/asset-38058602-a4b8-4b33-b9f0-6880dc1490ea/BigBuckBunny_H264_1000kbps_AAC_und_ch2_96kbps.mp4?sv=2012-02-12&sr=c&si=166d5154-b801-410b-a226-ee2f8eac1929&sig=P2iNZJAvAWpp%2Bj9yV6TQjoz5DIIaj7ve8ARynmEM6Xk%3D&se=2015-02-14T01:13:05Z
+    https://storagetestaccount001.blob.core.windows.net/asset-38058602-a4b8-4b33-b9f0-6880dc1490ea/BigBuckBunny_H264_1000kbps_AAC_und_ch2_96kbps.mp4?sv=2012-02-12&sr=c&si=166d5154-b801-410b-a226-ee2f8eac1929&sig=P2iNZJAvAWpp%2Bj9yV6TQjoz5DIIaj7ve8ARynmEM6Xk%3D&se=2015-02-14T01:13:05Z
 
-	https://storagetestaccount001.blob.core.windows.net/asset-38058602-a4b8-4b33-b9f0-6880dc1490ea/BigBuckBunny_AAC_und_ch2_96kbps.mp4?sv=2012-02-12&sr=c&si=166d5154-b801-410b-a226-ee2f8eac1929&sig=P2iNZJAvAWpp%2Bj9yV6TQjoz5DIIaj7ve8ARynmEM6Xk%3D&se=2015-02-14T01:13:05Z
+    https://storagetestaccount001.blob.core.windows.net/asset-38058602-a4b8-4b33-b9f0-6880dc1490ea/BigBuckBunny_AAC_und_ch2_96kbps.mp4?sv=2012-02-12&sr=c&si=166d5154-b801-410b-a226-ee2f8eac1929&sig=P2iNZJAvAWpp%2Bj9yV6TQjoz5DIIaj7ve8ARynmEM6Xk%3D&se=2015-02-14T01:13:05Z
 
-	https://storagetestaccount001.blob.core.windows.net/asset-38058602-a4b8-4b33-b9f0-6880dc1490ea/BigBuckBunny_AAC_und_ch2_56kbps.mp4?sv=2012-02-12&sr=c&si=166d5154-b801-410b-a226-ee2f8eac1929&sig=P2iNZJAvAWpp%2Bj9yV6TQjoz5DIIaj7ve8ARynmEM6Xk%3D&se=2015-02-14T01:13:05Z
-
-
-Чтобы воспроизвести видео, используйте [Проигрыватель служб мультимедиа Azure](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
-
-Чтобы протестировать поэтапное скачивание, вставьте URL-адрес в браузер (например, Internet Explorer, Chrome или Safari).
+    https://storagetestaccount001.blob.core.windows.net/asset-38058602-a4b8-4b33-b9f0-6880dc1490ea/BigBuckBunny_AAC_und_ch2_56kbps.mp4?sv=2012-02-12&sr=c&si=166d5154-b801-410b-a226-ee2f8eac1929&sig=P2iNZJAvAWpp%2Bj9yV6TQjoz5DIIaj7ve8ARynmEM6Xk%3D&se=2015-02-14T01:13:05Z
 
 
-##Дальнейшие действия: схемы обучения работе со службами мультимедиа
+To stream you video, use [Azure Media Services Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
+
+To test progressive download, paste a URL into a browser (for example, Internet Explorer, Chrome, or Safari).
+
+
+##<a name="next-steps:-media-services-learning-paths"></a>Next Steps: Media Services learning paths
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-##Отзывы
+##<a name="provide-feedback"></a>Provide feedback
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 
-### Не нашли ответа?
+### <a name="looking-for-something-else?"></a>Looking for something else?
 
-Если содержание этого раздела не соответствует вашим ожиданиям или не содержит ответов на ваши вопросы, оставьте отзыв в обсуждении Disqus ниже.
+If this topic didn't contain what you were expecting, is missing something, or in some other way didn't meet your needs, please provide us with your feedback using the Disqus thread below.
 
 
 <!-- Anchors. -->
@@ -453,4 +458,8 @@ URL-адреса поэтапного скачивания (аудио и вид
   [Web Platform Installer]: http://go.microsoft.com/fwlink/?linkid=255386
   [Portal]: http://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

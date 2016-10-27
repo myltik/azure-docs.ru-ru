@@ -1,8 +1,11 @@
-Аналитика озера данных упрощает сложную задачу управления распределенной инфраструктурой и сложным кодом. Служба динамически выделяет ресурсы и позволяет работать с эксабайтами данных. После завершения задания служба автоматически освобождает ресурсы, в результате вы платите только за используемую вычислительную мощность. При увеличении или уменьшении объема хранимых данных или вычислительных ресурсов не нужно переписывать код. Многие используемые по умолчанию ограничения для подписки можно легко увеличить, обратившись в службу поддержки.
+Data Lake Analytics makes the complex task of managing distributed infrastructure and complex code easy. It dynamically provisions resources and lets you do analytics on exabytes of data. When the job completes, it winds down resources automatically, and you pay only for the processing power used. As you increase or decrease the size of data stored or the amount of compute used, you don’t have to rewrite code. Many of the default limits can be easily raised for your subscription by contacting support. 
 
-**Ресурс** | **Ограничение по умолчанию** | **Комментарии**
+**Resource** | **Default Limit** | **Comments**
 -------- | ------------- | -------------
-Максимальное количество одновременных заданий | 3 
-Максимальный параллелизм для учетной записи | 60 | Используйте любое сочетание не более 60 единиц параллелизма на три задания.
+max concurrent jobs | 3 
+Max parallelism per account | 60 | Use any combination of up to a maximum of 60 units of parallelism across three jobs.
 
-<!---HONumber=AcomDC_0622_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,7 +1,7 @@
 <properties
-   pageTitle="Проверка подлинности и авторизация в базе данных SQL: предоставление доступа | Microsoft Azure"
-   description="Дополнительные сведения об управлении безопасностью баз данных SQL, в частности о том, как управлять доступом к базе данных и защитить вход в систему с помощью учетной записи участника уровня сервера."
-   keywords="безопасность баз данных SQL, управление безопасностью баз данных, защита входа в систему, безопасность баз данных, доступ к базе данных"
+   pageTitle="SQL Database Authentication and Authorization: Granting Accessing | Microsoft Azure"
+   description="Learn about SQL Database security management, specifically how to manage database access and login security through the server-level principal account."
+   keywords="sql database security,database security management,login security,database security,database access"
    services="sql-database"
    documentationCenter=""
    authors="BYHAM"
@@ -18,61 +18,63 @@
    ms.date="09/14/2016"
    ms.author="rickbyh"/>
 
-# Проверка подлинности и авторизация в базе данных SQL: предоставление доступа 
+
+# <a name="sql-database-authentication-and-authorization:-granting-access"></a>SQL Database Authentication and Authorization: Granting Access 
 
 
 > [AZURE.SELECTOR]
-- [Учебник по началу работы](sql-database-get-started-security.md)
-- [Предоставление доступа](sql-database-manage-logins.md)
+- [Get started tutorial](sql-database-get-started-security.md)
+- [Grant access](sql-database-manage-logins.md)
 
 
-Сначала ознакомьтесь с принципами предоставления доступа к базе данных SQL для администраторов, пользователей без прав администратора, а также ролей.
+Start here for an overview of SQL Database access concepts for administrators, non-administrators, and roles.
 
-## Административные учетные записи с неограниченным доступом
+## <a name="unrestricted-administrative-accounts"></a>Unrestricted administrative accounts
 
-Для получения неограниченного доступа к виртуальной базе данных master и всем остальным пользовательским базам данных используются две административные учетные записи. Эти учетные записи называются учетными записями субъектов серверного уровня.
+There are two possible administrative accounts with unrestricted permissions for access to the virtual master database and all user databases. These accounts are called server-level principal accounts.
 
-### Учетная запись подписчика базы данных SQL Azure 
+### <a name="azure-sql-database-subscriber-account"></a>Azure SQL Database subscriber account 
 
-При создании логического экземпляра SQL создается единая учетная запись, которая называется учетной записью подписчика базы данных SQL. Эта учетная запись подключается с использованием проверки подлинности SQL Server (с предоставлением имени пользователя и пароля). Эта учетная запись является администратором для экземпляра логического сервера, а также для всех пользовательских баз данных, присоединенных к этому экземпляру. Разрешения учетной записи подписчика нельзя ограничить. Может существовать только одна такая учетная запись.
+A single login account is created when a logical SQL instance is created, called the SQL Database Subscriber Account. This account connects using SQL Server authentication (user name and password). This account is an administrator on the logical server instance and on all user databases attached to that instance. The permissions of the Subscriber Account cannot be restricted. Only one of these accounts can exist.
 
-### Администратор Azure Active Directory
-Одной учетной записи Azure Active Directory также можно предоставить права администратора. Эта учетная запись может быть отдельным пользователем Azure AD или группой Azure AD, в которую входит несколько пользователей Azure AD. Администратора Azure AD необходимо настраивать, только если вы хотите использовать проверку подлинности Windows для учетных записей Azure AD при подключении к базе данных SQL. Дополнительные сведения о настройке доступа Azure Active Directory см. в разделах [Подключение к базе данных SQL или хранилищу данных SQL c использованием проверки подлинности Azure Active Directory](sql-database-aad-authentication.md) и [Поддержка SSMS в Azure AD MFA для базы данных SQL и хранилища данных SQL](sql-database-ssms-mfa-authentication.md).
+### <a name="azure-active-directory-administrator"></a>Azure Active Directory administrator
+One Azure Active Directory account can also be configured as an administrator. This account can be an individual Azure AD User, or can be an Azure AD Group containing several Azure AD Users. It is optional to configure an Azure AD administrator, but an Azure AD administrator must be configured if you want to use Windows Authentication for Azure AD accounts to connect to SQL Database. For more information about configuring Azure Active Directory access, see [Connecting to SQL Database or SQL Data Warehouse By Using Azure Active Directory Authentication](sql-database-aad-authentication.md) and [SSMS support for Azure AD MFA with SQL Database and SQL Data Warehouse](sql-database-ssms-mfa-authentication.md).
 
-### Настройка брандмауэра
-Если настроен брандмауэр уровня сервера, то учетная запись подписчика Базы данных SQL Azure и учетная запись Azure Active Directory смогут подключаться к базе данных master и всем пользовательским базам данных. Брандмауэр серверного уровня можно настроить на портале. После подключения также можно настроить дополнительные правила брандмауэра уровня сервера с помощью инструкции Transact-SQL [sp\_set\_firewall\_rule](https://msdn.microsoft.com/library/dn270017.aspx). Дополнительные сведения о настройке брандмауэра см. в статье [Практическое руководство. Настройка брандмауэра базы данных SQL Azure с помощью портала Azure](sql-database-configure-firewall-settings.md).
+### <a name="configuring-the-firewall"></a>Configuring the firewall
+When the server-level firewall is configured, the Azure SQL Database Subscriber Account and the Azure Active Directory account can connect to the master database and all the user databases. The server-level firewall can be configured through the portal. Once a connection is made, additional server-level firewall rules can also be configured by using the [sp_set_firewall_rule](https://msdn.microsoft.com/library/dn270017.aspx) Transact-SQL statement. For more information about configuring the firewall see [How to: Configure an Azure SQL Database firewall using the Azure portal](sql-database-configure-firewall-settings.md).
 
-### Путь доступа администратора
+### <a name="administrator-access-path"></a>Administrator access path
 
-При правильной настройке брандмауэра серверного уровня учетная запись подписчика базы данных SQL и учетная запись администратора SQL Server Azure Active Directory смогут подключаться с помощью таких клиентских средств, как SQL Server Management Studio или SQL Server Data Tools. Все функции и возможности доступны только в последних версиях средств. На схеме ниже показана типичная конфигурация для двух учетных записей администраторов. ![Путь доступа администратора](./media/sql-database-manage-logins/1sql-db-administrator-access.png)
+When the server-level firewall is properly configured, the SQL Database Subscriber Account and the Azure Active Directory SQL Server Administrators can connect using client tools such as SQL Server Management Studio or SQL Server Data Tools. Only the latest tools provide all the features and capabilities. The following diagram shows a typical configuration for the two administrator accounts.
+    ![Administrator access path](./media/sql-database-manage-logins/1sql-db-administrator-access.png)
 
-При использовании открытого порта брандмауэра серверного уровня администраторы могут подключаться к любой базе данных SQL.
+When using an open port in the server-level firewall, administrators can connect to any SQL Database.
 
-### Подключение к базе данных с помощью SQL Server Management Studio
-Пошаговое руководство по подключению с помощью SQL Server Management Studio см. в статье [Подключение к базе данных SQL с помощью SQL Server Management Studio и выполнение пробного запроса T-SQL](sql-database-connect-query-ssms.md).
-
-
-> [AZURE.IMPORTANT] Чтобы обеспечить синхронизацию с обновлениями Microsoft Azure и Базой данных SQL, рекомендуется всегда использовать последнюю версию Management Studio. [Обновите среду SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
+### <a name="connecting-to-a-database-by-using-sql-server-management-studio"></a>Connecting to a database by using SQL Server Management Studio
+For a walk-through of connecting by using SQL Server Management Studio, see [Connect to SQL Database with SQL Server Management Studio and execute a sample T-SQL query](sql-database-connect-query-ssms.md).
 
 
-## Дополнительные специальные учетные записи
-База данных SQL позволяет использовать две административные роли с ограниченными правами в виртуальной базе данных master, к которой можно добавлять учетные записи пользователей.
+> [AZURE.IMPORTANT] It is recommended that you always use the latest version of Management Studio to remain synchronized with updates to Microsoft Azure and SQL Database. [Update SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
 
-### Создатели баз данных
-Учетные записи администраторов могут создавать новые базы данных. Чтобы создать дополнительную учетную запись, которая может создавать базы данных, создайте пользователя в базе данных master и добавьте его в специальную роль базы данных **dbmanager**. Пользователь может быть пользователем автономной базы данных или пользователем с именем входа SQL Server в виртуальную базу данных master.
 
-1.	С помощью учетной записи администратора подключитесь к виртуальной базе данных master.
-2.	Необязательный шаг. Создайте имя для входа для аутентификации SQL Server с помощью инструкции [CREATE LOGIN](https://msdn.microsoft.com/library/ms189751.aspx). Пример инструкции:
+## <a name="additional-special-accounts"></a>Additional special accounts
+SQL Database provide two restricted administrative roles in the virtual master database to which user accounts can be added.
+
+### <a name="database-creators"></a>Database creators
+The administrative accounts can create new databases. To create an additional account that can create databases you must create a user in master, and add the user to the special **dbmanager** database role. The user can be a contained database user, or a user based on a SQL Server login in the virtual master database.
+
+1.  Using an administrator account, connect to the virtual master database.
+2.  Optional step: Create a SQL Server authentication login, using the [CREATE LOGIN](https://msdn.microsoft.com/library/ms189751.aspx) statement. Sample statement:
 
      ```
      CREATE LOGIN Mary WITH PASSWORD = '<strong_password>';
      ```
 
-     > [AZURE.NOTE] Создавая имя для входа или пользователя автономной базы данных, используйте надежный пароль. Дополнительные сведения см. в разделе [Надежные пароли](https://msdn.microsoft.com/library/ms161962.aspx).
+     > [AZURE.NOTE] Use a strong password when creating a login or contained database user. For more information, see [Strong Passwords](https://msdn.microsoft.com/library/ms161962.aspx).
 
-    Для повышения производительности имена для входа (субъекты уровня сервера) временно кэшируются на уровне базы данных. Сведения об обновлении кэша аутентификации см. в статье [DBCC FLUSHAUTHCACHE](https://msdn.microsoft.com/library/mt627793.aspx).
+    To improve performance, logins (server-level principals) are temporarily cached at the database level. To refresh the authentication cache, see [DBCC FLUSHAUTHCACHE](https://msdn.microsoft.com/library/mt627793.aspx).
 
-3.	В виртуальной базе данных master создайте пользователя с помощью инструкции [CREATE USER](https://msdn.microsoft.com/library/ms173463.aspx). Пользователь может быть пользователем автономной базы данных проверки подлинности Azure Active Directory (если вы настроили среду для проверки подлинности Azure AD), пользователем автономной базы данных проверки подлинности SQL Server или пользователем проверки подлинности SQL Server с именем входа проверки подлинности SQL Server (созданным на предыдущем шаге). Примеры инструкций:
+3.  In the virtual master database, create a user by using the [CREATE USER](https://msdn.microsoft.com/library/ms173463.aspx) statement. The user can be an Azure Active Directory authentication contained database user (if you have configured your environment for Azure AD authentication), or a SQL Server authentication contained database user, or a SQL Server authentication user based on a SQL Server authentication login (created in the previous step.) Sample statements:
 
      ```
      CREATE USER [mike@contoso.com] FROM EXTERNAL PROVIDER;
@@ -80,87 +82,93 @@
      CREATE USER Mary FROM LOGIN Mary; 
      ```
 
-4.	Добавьте нового пользователя в роль базы данных **dbmanager** с помощью инструкции [ALTER ROLE](https://msdn.microsoft.com/library/ms189775.aspx). Примеры инструкций:
+4.  Add the new user, to the **dbmanager** database role by using the [ALTER ROLE](https://msdn.microsoft.com/library/ms189775.aspx) statement. Sample statements:
 
      ```
      ALTER ROLE dbmanager ADD MEMBER Mary; 
      ALTER ROLE dbmanager ADD MEMBER [mike@contoso.com];
      ```
 
-     > [AZURE.NOTE] Так как dbmanager — это роль базы данных в виртуальной базе данных master, вы можете назначить роль dbmanager только пользователю. Невозможно добавить имя входа серверного уровня в роль уровня базы данных.
+     > [AZURE.NOTE] The dbmanager is a database role in virtual master database so you can only add a user to the dbmanager role. You cannot add a server-level login to database-level role.
 
-5.	При необходимости настройте брандмауэр серверного уровня, чтобы разрешить подключение новому пользователю.
+5.  If necessary, configure the server-level firewall to allow the new user to connect.
 
-Теперь пользователь может подключаться к виртуальной базе данных master и создавать базы данных. Учетная запись, создавшая базу данных, становится владельцем базы данных.
+Now the user can connect to the virtual master database and can create new databases. The account creating the database becomes the owner of the database.
 
-### Диспетчеры входа
+### <a name="login-managers"></a>Login managers
 
-При желании можно выполнить те же действия (создание имени для входа и пользователя и назначение пользователю роли **loginmanager**), чтобы разрешить пользователю создавать имена для входа в виртуальную базу данных master. Обычно это не требуется, так как корпорация Microsoft рекомендует использовать пользователей автономной базы данных, аутентификация которых выполняется на уровне базы данных, а не пользователей с именами для входа. Дополнительные сведения см. в статье [Пользователи автономной базы данных — создание переносимой базы данных](https://msdn.microsoft.com/library/ff929188.aspx).
+If you wish, you can complete the same steps (create a login and user, and add a user to the **loginmanager** role) to enable a user to create new logins in the virtual master. Usually this is not necessary as Microsoft recommends using contained database users, which authenticate at the database-level instead of using users based on logins. For more information, see [Contained Database Users - Making Your Database Portable](https://msdn.microsoft.com/library/ff929188.aspx).
 
-## Пользователи без прав администратора
+## <a name="non-administrator-users"></a>Non-administrator users
 
-Как правило, учетным записям без прав администратора не требуется доступ к виртуальной базе данных master. Создайте пользователей автономной базы данных на уровне базы данных с помощью инструкции [CREATE USER (Transact-SQL)](https://msdn.microsoft.com/library/ms173463.aspx). Пользователь может быть пользователем автономной базы данных проверки подлинности Azure Active Directory (если вы настроили среду для проверки подлинности Azure AD), пользователем автономной базы данных проверки подлинности SQL Server или пользователем проверки подлинности SQL Server с именем входа проверки подлинности SQL Server (созданным на предыдущем шаге). Дополнительные сведения см. в статье [Пользователи автономной базы данных — создание переносимой базы данных](https://msdn.microsoft.com/library/ff929188.aspx).
+Generally, non-administrator accounts do not need access to the virtual master database. Create contained database users at the database level using the [CREATE USER (Transact-SQL)](https://msdn.microsoft.com/library/ms173463.aspx) statement. The user can be an Azure Active Directory authentication contained database user (if you have configured your environment for Azure AD authentication), or a SQL Server authentication contained database user, or a SQL Server authentication user based on a SQL Server authentication login (created in the previous step.) For more information, see [Contained Database Users - Making Your Database Portable](https://msdn.microsoft.com/library/ff929188.aspx). 
 
-Чтобы создать пользователей, подключитесь к базе данных и выполните инструкции, аналогичные приведенным ниже.
+To create users, connect to the database, and execute statements similar to the following examples:
 
 ```
 CREATE USER Mary FROM LOGIN Mary; 
 CREATE USER [mike@contoso.com] FROM EXTERNAL PROVIDER;
 ```
 
-Изначально создавать пользователей может только один администратор или владелец базы данных. Чтобы разрешить другим пользователям создавать пользователей, предоставьте выбранному пользователю разрешение `ALTER ANY USER` с помощью следующей инструкции.
+Initially, only one of the administrators or the owner of the database can create users. To authorize additional users to create new users, grant that selected user the `ALTER ANY USER` permission, by using a statement such as:
 
 ```
 GRANT ALTER ANY USER TO Mary;
 ```
 
-Чтобы предоставить другим пользователям полный доступ к базе данных, сделайте соответствующего пользователя участником фиксированной роли базы данных **db\_owner** с помощью инструкции `ALTER ROLE`.
+To give additional users full control of the database, make them a member of the **db_owner** fixed database role using the `ALTER ROLE` statement.
 
-> [AZURE.NOTE] Пользователей базы данных с именами для входа нужно создавать, если у вас есть пользователи аутентификации SQL Server, которым необходим доступ к нескольким базам данных. Пользователи с именам входа привязаны к имени входа и паролю этого имени входа. Пользователи автономной базы данных в отдельных базах данных являются отдельными сущностями с собственным паролем. Это может запутать пользователей автономной базы данных, если их пароли не одинаковы.
+> [AZURE.NOTE] The principal reason to create database users based on logins, is when you have SQL Server authentication users that need access to multiple databases. Users based on logins are tied to the login, and only one password that is maintained for that login. Contained database users in individual databases are each individual entities and each maintains its own password. This can confuse contained database users if they do not maintain their passwords as identical.
 
-### Настройка брандмауэра на уровне базы данных
+### <a name="configuring-the-database-level-firewall"></a>Configuring the database-level firewall
 
-Пользователям без прав администратора рекомендуется предоставлять доступ к нужным им базам данных только через брандмауэр. Вместо авторизации их IP-адресов с помощью брандмауэра уровня сервера и предоставления им доступа ко всем базам данных используйте инструкцию [sp\_set\_database\_firewall\_rule](https://msdn.microsoft.com/library/dn270010.aspx), чтобы настроить брандмауэр уровня базы данных. С помощью портала нельзя настроить брандмауэр уровня базы данных.
+As a best practice, non-administrator users should only have access through the firewall to the databases that they use. Instead of authorizing their IP addresses through the server-level firewall and giving them access to all databases, use the [sp_set_database_firewall_rule](https://msdn.microsoft.com/library/dn270010.aspx) statement to configure the database-level firewall. The database-level firewall cannot be configured by using the portal.
 
-### Путь доступа пользователя без прав администратора
+### <a name="non-administrator-access-path"></a>Non-administrator access path
 
-При правильной настройке брандмауэра уровня базы данных пользователи базы данных могут подключаться к базе данных с помощью таких клиентских средств, как SQL Server Management Studio или SQL Server Data Tools. Все функции и возможности доступны только в последних версиях средств. На следующей схеме показан типичный путь доступа пользователя без прав администратора. ![Путь доступа пользователя без прав администратора](./media/sql-database-manage-logins/2sql-db-nonadmin-access.png)
+When the database-level firewall is properly configured, the database users can connect using client tools such as SQL Server Management Studio or SQL Server Data Tools. Only the latest tools provide all the features and capabilities. The following diagram shows a typical non-administrator access path.
+![Non-administrator access path](./media/sql-database-manage-logins/2sql-db-nonadmin-access.png)
  
-## Группы и роли
-При эффективном управлении доступом используются разрешения, назначенные группам и ролям, а не отдельным пользователям. Например, при использовании аутентификации Azure Active Directory следуйте такой процедуре.
+## <a name="groups-and-roles"></a>Groups and roles
+Efficient access management uses permissions assigned to groups and roles instead of individual users. For example, when using Azure Active Directory authentication:
 
-- Включите пользователей Azure Active Directory в группу Azure Active Directory. Создайте пользователя автономной базы данных для группы. Назначьте одному или нескольким пользователям базы данных роль базы данных. Затем назначьте разрешения для роли базы данных.
+- Put Azure Active Directory users into an Azure Active Directory group. Create a contained database user for the group. Place one or more database users into a database role. And then assign permissions to the database role.
 
-Например, при использовании проверки подлинности SQL Server следуйте такой процедуре.
+When using SQL Server authentication:
 
-- Создайте пользователей автономной базы данных в базе данных. Назначьте одному или нескольким пользователям базы данных роль базы данных. Затем назначьте разрешения для роли базы данных.
+- Create contained database users in the database. Place one or more database users into a database role. And then assign permissions to the database role.
 
-Роли базы данных могут быть встроенными ролями, например **db\_owner**, **db\_ddladmin**, **db\_datawriter**, **db\_datareader**, **db\_denydatawriter** и **db\_denydatareader**. Роль **db\_owner** обычно используется для предоставления полных прав ограниченному числу пользователей. Другие фиксированные роли можно использовать для быстрого получения простых баз данных при разработке, но их не рекомендуется использовать для большинства рабочих баз данных. Например, фиксированная роль базы данных **db\_datareader** предоставляет доступ (как правило, строго обязательный) на чтение к каждой таблице в базе данных. Рекомендуется использовать инструкцию [CREATE ROLE](https://msdn.microsoft.com/library/ms187936.aspx), чтобы создавать пользовательские роли базы данных, а затем внимательно предоставлять каждой роли наименьший набор разрешений, необходимый для работы. Если пользователь является участником нескольких ролей, то ему предоставлены разрешения всех этих ролей.
+The database roles can be the built-in roles such as **db_owner**, **db_ddladmin**, **db_datawriter**, **db_datareader**, **db_denydatawriter**, and **db_denydatareader**. **db_owner** is commonly used to grant full permission to only a few users. The other fixed database roles are useful for getting a simple database in development quickly, but are not recommended for most production databases. For example, the **db_datareader** fixed database role grants read access to every table in the database, which is usually more than is strictly necessary. It is far better to use the [CREATE ROLE](https://msdn.microsoft.com/library/ms187936.aspx) statement to create your own user-defined database roles and carefully grant each role the least permissions necessary for the business need. When a user is a member of multiple roles, they aggregate the permissions of them all.
 
-## Разрешения
+## <a name="permissions"></a>Permissions
 
-Существует более 100 разрешений, которые можно по отдельности предоставлять или отменять в базе данных SQL. Многие эти разрешения являются частью других разрешений. Например, разрешение `UPDATE` на схеме включает в себя разрешение `UPDATE` для каждой таблицы в этой схеме. Как и в большинстве систем разрешений, отмена разрешения переопределяет предоставление. Так как некоторые разрешения включены в другие разрешения и их достаточно много, необходимо внимательно изучить их, чтобы спроектировать соответствующую систему разрешений, которая будет надежно защищать базу данных. Изучите список разрешений на странице [Permissions (Database Engine)](https://msdn.microsoft.com/library/ms191291.aspx) (Разрешения (ядро СУБД)) и ознакомьтесь с [графическим представлением](http://go.microsoft.com/fwlink/?LinkId=229142) разрешений.
-
-
-## Дальнейшие действия
-
-[Защита Базы данных SQL](sql-database-security.md)
-
-[Creating a Table (Tutorial) (Руководство: создание таблицы)](https://msdn.microsoft.com/library/ms365315.aspx)
-
-[Inserting and Updating Data in a Table (Tutorial) (Руководство: вставка и обновление данных в таблице)](https://msdn.microsoft.com/library/ms365309.aspx)
-
-[Reading the Data in a Table (Tutorial) (Руководство: чтение данных из таблицы)](https://msdn.microsoft.com/library/ms365310.aspx)
-
-[Creating views and stored procedures (Создание представлений и хранимых процедур)](https://msdn.microsoft.com/library/ms365311.aspx)
-
-[Granting Access to a Database Object (Предоставление доступа к объекту базы данных)](https://msdn.microsoft.com/library/ms365327.aspx)
+There are over 100 permissions that can be individually granted or denied in SQL Database. Many of these permissions are nested. For example, the `UPDATE` permission on a schema includes the `UPDATE` permission on each table within that schema. As in most permission systems, the denial of a permission overrides a grant. Because of the nested nature and the number of permissions, it can take careful study to design an appropriate permission system to properly protect your database. Start with the list of permissions at [Permissions (Database Engine)](https://msdn.microsoft.com/library/ms191291.aspx) and review the [poster size graphic](http://go.microsoft.com/fwlink/?LinkId=229142) of the permissions.
 
 
-## Дополнительные ресурсы
+## <a name="next-steps"></a>Next steps
 
-[Защита Базы данных SQL](sql-database-security.md)
+[Securing your SQL Database](sql-database-security.md)
 
-[Центр обеспечения безопасности для ядра СУБД SQL Server и базы данных Azure SQL](https://msdn.microsoft.com/library/bb510589.aspx)
+[Creating a Table \(Tutorial\)](https://msdn.microsoft.com/library/ms365315.aspx)
 
-<!---HONumber=AcomDC_0914_2016-->
+[Inserting and Updating Data in a Table \(Tutorial\)](https://msdn.microsoft.com/library/ms365309.aspx)
+
+[Reading the Data in a Table \(Tutorial\)](https://msdn.microsoft.com/library/ms365310.aspx)
+
+[Creating views and stored procedures](https://msdn.microsoft.com/library/ms365311.aspx)
+
+[Granting Access to a Database Object](https://msdn.microsoft.com/library/ms365327.aspx)
+
+
+## <a name="additional-resources"></a>Additional resources
+
+[Securing your SQL Database](sql-database-security.md)
+
+[Security Center for SQL Server Database Engine and Azure SQL Database](https://msdn.microsoft.com/library/bb510589.aspx) 
+
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

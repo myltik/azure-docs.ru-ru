@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Зависимости в шаблонах диспетчера ресурсов | Microsoft Azure"
-   description="В этой статье описан способ определения зависимостей между ресурсами во время развертывания для обеспечения правильного порядка развертывания ресурсов."
+   pageTitle="Dependencies in Resource Manager templates | Microsoft Azure"
+   description="Describes how to set one resource as dependent on another resource during deployment to ensure resources are deployed in the correct order."
    services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
@@ -16,17 +16,18 @@
    ms.date="09/12/2016"
    ms.author="tomfitz"/>
 
-# Определение зависимостей в шаблонах диспетчера ресурсов Azure
 
-У заданного ресурса могут быть другие ресурсы, которые должны существовать до его развертывания. Например, сервер SQL Server должен существовать до развертывания базы данных SQL. Эта связь определяется путем пометки одного ресурса как зависимого от другого. Как правило, зависимость определяется с помощью элемента **dependsOn**, однако это можно также сделать с помощью функции **reference**.
+# <a name="defining-dependencies-in-azure-resource-manager-templates"></a>Defining dependencies in Azure Resource Manager templates
 
-Диспетчер ресурсов оценивает зависимости между ресурсами и развертывает эти ресурсы согласно установленным зависимостям. Если ресурсы не зависят друг от друга, диспетчер ресурсов развертывает их параллельно.
+For a given resource, there can be other resources that must exist before the resource is deployed. For example, a SQL server must exist before attempting to deploy a SQL database. You define this relationship by marking one resource as dependent on the other resource. Typically, you define a dependency with the **dependsOn** element, but you can also define it through the **reference** function. 
 
-## Свойство dependsOn
+Resource Manager evaluates the dependencies between resources, and deploys them in their dependent order. When resources are not dependent on each other, Resource Manager deploys them in parallel.
 
-В шаблоне элемент dependsOn позволяет определить один ресурс как зависимый от одного или нескольких ресурсов. В качестве значения свойства может выступать список имен ресурсов с разделителями-запятыми.
+## <a name="dependson"></a>dependsOn
 
-В следующем примере показан масштабируемый набор виртуальных машин, который зависит от балансировщика нагрузки, виртуальная сеть и цикл, который создает несколько учетных записей хранения. Остальные ресурсы не показаны в этом примере, но они должны существовать в другом месте в шаблоне.
+Within your template, the dependsOn element enables you to define one resource as a dependent on one or more resources. Its value can be a comma-separated list of resource names. 
+
+The following example shows a virtual machine scale set that depends on a load balancer, virtual network, and a loop that creates multiple storage accounts. These other resources are not shown in the following example, but they would need to exist elsewhere in the template.
 
     {
       "type": "Microsoft.Compute/virtualMachineScaleSets",
@@ -44,17 +45,17 @@
       ...
     }
 
-Чтобы определить зависимость между ресурсом и ресурсами, которые создаются с помощью цикла копирования, укажите в значении элемента dependsOn имя цикла. Пример см. в статье [Создание нескольких экземпляров ресурсов в диспетчере ресурсов Azure](resource-group-create-multiple.md).
+To define a dependency between a resource and resources that are created through a copy loop, set the dependsOn element to name of the loop. For an example, see [Create multiple instances of resources in Azure Resource Manager](resource-group-create-multiple.md).
 
-Если вы склонны использовать свойство dependsOn для сопоставления связей между ресурсами, то вам важно понимать, зачем вы это делаете. Дело в том, что такое решение может негативно влиять на производительность развертывания. Например, для документирования связей между ресурсами использование свойства dependsOn будет неправильным решением. После развертывания невозможно запросить, какие ресурсы были определены в элементе dependsOn. Использование свойства dependsOn потенциально влияет на время развертывания, так как Resource Manager не может выполнять развертывание двух зависимых ресурсов параллельно. Для документирования связей между ресурсами воспользуйтесь [привязкой ресурсов](resource-group-link-resources.md).
+While you may be inclined to use dependsOn to map relationships between your resources, it's important to understand why you're doing it because it can impact the performance of your deployment. For example, to document how resources are interconnected, dependsOn is not the right approach. You cannot query which resources were defined in the dependsOn element after deployment. By using dependsOn, you potentially impact deployment time because Resource Manager does not deploy in parallel two resources that have a dependency. To document relationships between resources, instead use [resource linking](resource-group-link-resources.md).
 
-## Дочерние ресурсы
+## <a name="child-resources"></a>Child resources
 
-Свойство resources позволяет указать дочерние ресурсы, связанные с определяемым ресурсом. Дочерние ресурсы можно определять максимум на пяти нижестоящих уровнях. Важно отметить, что неявная зависимость между дочерним и родительским ресурсами не создается. Если вам нужно, чтобы дочерний ресурс был развернут после родительского ресурса, эту зависимость необходимо явно указать в свойстве dependsOn.
+The resources property allows you to specify child resources that are related to the resource being defined. Child resources can only be defined five levels deep. It is important to note that an implicit dependency is not created between a child resource and the parent resource. If you need the child resource to be deployed after the parent resource, you must explicitly state that dependency with the dependsOn property. 
 
-Каждый родительский ресурс принимает в качестве дочерних ресурсов только определенные типы ресурсов. Принимаемые типы ресурсов указаны в [схеме шаблона](https://github.com/Azure/azure-resource-manager-schemas) родительского ресурса. Имя типа дочернего ресурса содержит имя типа родительского ресурса, например: **Microsoft.Web/sites/config** и **Microsoft.Web/sites/extensions** являются дочерними ресурсами по отношению к **Microsoft.Web/sites**.
+Each parent resource accepts only certain resource types as child resources. The accepted resource types are specified in the [template schema](https://github.com/Azure/azure-resource-manager-schemas) of the parent resource. The name of child resource type includes the name of the parent resource type, such as **Microsoft.Web/sites/config** and **Microsoft.Web/sites/extensions** are both child resources of the **Microsoft.Web/sites**.
 
-В следующем примере показаны SQL Server и база данных SQL. Обратите внимание, что несмотря на то, что база данных является дочерним ресурсом по отношению к серверу, между базой данных SQL и сервером SQL Server определена явная зависимость.
+The following example shows a SQL server and SQL database. Notice that an explicit dependency is defined between the SQL database and SQL server, even though the database is a child of the server.
 
     "resources": [
       {
@@ -93,19 +94,24 @@
     ]
 
 
-## Функция reference
+## <a name="reference-function"></a>reference function
 
-[Функция reference](resource-group-template-functions.md#reference) позволяет выражению получать его значение из других пар "имя JSON — значение" или ресурсов среды выполнения. Выражения со ссылками неявно объявляют, что один ресурс зависит от другого.
+The [reference function](resource-group-template-functions.md#reference) enables an expression to derive its value from other JSON name and value pairs or runtime resources. Reference expressions implicitly declare that one resource depends on another. 
 
     reference('resourceName').propertyPath
 
-Зависимости можно указать как с помощью этой функции, так и с помощью свойства dependsOn, но использовать оба варианта для одного зависимого ресурса не нужно. По возможности используйте неявные ссылки, чтобы избежать случайного добавления ненужных зависимостей.
+You can use either this element or the dependsOn element to specify dependencies, but you do not need to use both for the same dependent resource. Whenever possible, use an implicit reference to avoid inadvertently adding an unnecessary dependency.
 
-Дополнительные сведения см. в разделе о [функции reference](resource-group-template-functions.md#reference).
+To learn more, see [reference function](resource-group-template-functions.md#reference).
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Next steps
 
-- Сведения о создании шаблонов диспетчера ресурсов Azure см. в статье [Создание шаблонов](resource-group-authoring-templates.md).
-- Список доступных в шаблоне функций см. в статье [Функции шаблонов](resource-group-template-functions.md).
+- To learn about creating Azure Resource Manager templates, see [Authoring templates](resource-group-authoring-templates.md). 
+- For a list of the available functions in a template, see [Template functions](resource-group-template-functions.md).
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

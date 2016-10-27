@@ -1,68 +1,77 @@
 <properties
-	pageTitle="Работа с соединителями прокси приложения Azure AD | Microsoft Azure"
-	description="Этот раздел описывает создание групп соединителей в прокси приложения Azure AD и управление ими."
-	services="active-directory"
-	documentationCenter=""
-	authors="kgremban"
-	manager="femila"
-	editor=""/>
+    pageTitle="Working with Azure AD Application Proxy connectors | Microsoft Azure"
+    description="Covers how to create and manage groups of connectors in Azure AD Application Proxy."
+    services="active-directory"
+    documentationCenter=""
+    authors="kgremban"
+    manager="femila"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/09/2016"
-	ms.author="kgremban"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/09/2016"
+    ms.author="kgremban"/>
 
 
-# Публикация приложений в отдельных сетях и расположениях с помощью групп соединителей
+
+# <a name="publish-applications-on-separate-networks-and-locations-using-connector-groups"></a>Publish applications on separate networks and locations using connector groups
 
 > [AZURE.SELECTOR]
-- [Портал Azure](active-directory-application-proxy-connectors-azure-portal.md)
-- [Классический портал Azure](active-directory-application-proxy-connectors.md)
+- [Azure portal](active-directory-application-proxy-connectors-azure-portal.md)
+- [Azure classic portal](active-directory-application-proxy-connectors.md)
 
 
-Группы соединителей удобно использовать в нескольких сценариях, включая следующие:
+Connector groups are useful for various scenarios, including:
 
-- Сайты с несколькими взаимосвязанными центрами обработки данных. В этом сценарии требуется передавать за пределы центров обработки данных минимальный объем трафика и не использовать перекрестные каналы связи между центрами, которые обычно дороги и имеют высокую задержку. Вы можете развернуть соединители в каждом центре обработки данных для обслуживания только приложений, которые находятся в центре обработки данных. Такой подход сводит к минимуму ссылки между центрами и предоставляет пользователям полностью прозрачное взаимодействие.
-- Управление приложениями, которые установлены в изолированных сетях, не являющихся частью главной корпоративной сети. Вы можете использовать группы соединителей для установки выделенных соединителей для изолированных сетей, чтобы ограничить область действия приложений соответствующей сетью.
-- Для приложений, установленных в IaaS для доступа к облаку, группы соединителей обеспечивают общую службу для защиты доступа ко всем приложениям. Группы соединителей не создают дополнительную зависимость для корпоративной сети и не разделяют взаимодействие с приложениями. Соединители можно установить в каждом облачном центре обработки данных для обслуживания только тех приложений, которые размещены в этой сети. Можно установить несколько соединителей для обеспечения высокой доступности.
-- Поддержка сред с несколькими лесами, в которых для леса можно развернуть отдельные соединители, обрабатывающие определенные приложения.
-- Группы соединителей могут применяться на сайтах аварийного восстановления для определения отработки отказа или в качестве резерва для основного сайта.
-- Группы соединителей также можно использовать для обслуживания нескольких компаний из одного клиента.
+- Sites with multiple interconnected datacenters. In this case, you want to keep as much traffic within the datacenter as possible because cross-datacenter links are usually expensive and slow. You can deploy connectors in each datacenter to serve only the applications that reside within the datacenter. This approach minimizes cross-datacenter links and provides an entirely transparent experience to your users.
+- Managing applications installed on isolated networks that are not part of the main corporate network. You can use connector groups to install dedicated connectors on isolated networks to also isolate applications to the network.
+- For applications installed on IaaS for cloud access, connector groups provide a common service to secure the access to all the apps. Connector groups don't create additional dependency on your corporate network, or fragment the app experience. Connectors can be installed on every cloud datacenter and serve only applications that reside in this network. You can install several connectors to achieve high availability.
+- Support for multi-forest environments in which specific connectors can be deployed per forest and set to serve specific applications.
+- Connector groups can be used in Disaster Recovery sites to either detect failover or as backup for the main site.
+- Connector groups can also be used to serve multiple companies from a single tenant.
 
-## Необходимое условие: создание соединителей
-Чтобы сгруппировать соединители, необходимо убедиться, что вы [установили несколько соединителей](active-directory-application-proxy-enable.md), после чего им нужно присвоить имена, а затем сгруппировать их. После этого их необходимо назначить конкретным приложениям.
+## <a name="prerequisite:-create-your-connectors"></a>Prerequisite: Create your connectors
+In order to group your connectors, you have to make sure you [installed multiple connectors](active-directory-application-proxy-enable.md), and that you name them and then group them. Finally you have to assign them to specific apps.
 
-## Шаг 1. Создание групп соединителей
-Можно создать любое число групп соединителей. Для создания группы соединителей используется классический портал Azure.
+## <a name="step-1:-create-connector-groups"></a>Step 1: Create connector groups
+You can create as many connector groups as you want. Connector group creation is accomplished in the Azure classic portal.
 
-1. Выберите свой каталог и щелкните **Настройка**. ![Снимок экрана: настройка прокси приложения — щелчок "Управление группами соединителей"](./media/active-directory-application-proxy-connectors/app_proxy_connectors_creategroup.png)
+1. Select your directory and click **Configure**.  
+    ![Application proxy, configure screenshot - click manage connector groups](./media/active-directory-application-proxy-connectors/app_proxy_connectors_creategroup.png)
 
-2. В разделе "Прокси приложения" щелкните **Управление группами соединителей** и создайте группу соединителей, указав ее имя. ![Снимок экрана групп соединителей прокси приложения: присвойте имя для новой группы](./media/active-directory-application-proxy-connectors/app_proxy_connectors_namegroup.png)
+2. Under Application Proxy, click **Manage Connector Groups** and create a new connector group by giving the group a name.  
+    ![Application proxy connector groups screenshot - name new group](./media/active-directory-application-proxy-connectors/app_proxy_connectors_namegroup.png)
 
-## Шаг 2. Назначение соединителей группам
-После создания групп соединителей переместите соединители в соответствующую группу.
+## <a name="step-2:-assign-connectors-to-your-groups"></a>Step 2: Assign connectors to your groups
+Once the connector groups are created, move the connectors to the appropriate group.
 
-1. В разделе **Прокси приложения** нажмите кнопку **Управление соединителями**.
-2. В столбце **Группа** выберите группу для каждого соединителя. Для того, чтобы соединители стали активными в новой группе, может потребоваться до 10 минут. ![Снимок экрана соединителей прокси приложения: выберите группу из раскрывающегося меню](./media/active-directory-application-proxy-connectors/app_proxy_connectors_connectorlist.png)
+1. Under **Application Proxy**, click **Manage Connectors**.
+2. Under **Group**, select the group you want for each connector. It might take the connectors up to 10 minutes to become active in the new group.  
+    ![Application proxy connectors screenshot - select group from dropdown menu](./media/active-directory-application-proxy-connectors/app_proxy_connectors_connectorlist.png)
 
-## Шаг 3. Назначение приложений группам соединителей
-Последний шаг — назначить каждое приложение той группе соединителей, которая будет его обслуживать.
+## <a name="step-3:-assign-applications-to-your-connector-groups"></a>Step 3: Assign applications to your connector groups
+The last step is to set each application to the connector group that will serve it.
 
-1. В своем каталоге на классическом портале Azure выберите приложение, которое необходимо назначить группе, и щелкните **Настройка**.
-2. В разделе **Группа соединителей** выберите группу, которую должно использовать приложение. Это изменение применяется немедленно. ![Снимок экрана группы соединителей прокси приложения: выберите группу из раскрывающегося меню](./media/active-directory-application-proxy-connectors/app_proxy_connectors_newgroup.png)
+1. In the Azure classic portal, in your directory, select the Application you want to assign to the group and click **Configure**.
+2. Under **Connector group**, select the group you want the application to use. This change is immediately applied.  
+    ![Application proxy connector group screenshot - select group from dropdown menu](./media/active-directory-application-proxy-connectors/app_proxy_connectors_newgroup.png)
 
 
-## Дополнительные материалы
+## <a name="see-also"></a>See also
 
-- [Включение прокси приложения](active-directory-application-proxy-enable.md)
-- [Включение единого входа](active-directory-application-proxy-sso-using-kcd.md)
-- [Включение условного доступа](active-directory-application-proxy-conditional-access.md)
-- [Устранение неполадок с прокси приложения](active-directory-application-proxy-troubleshoot.md)
+- [Enable Application Proxy](active-directory-application-proxy-enable.md)
+- [Enable single-sign on](active-directory-application-proxy-sso-using-kcd.md)
+- [Enable conditional access](active-directory-application-proxy-conditional-access.md)
+- [Troubleshoot issues you're having with Application Proxy](active-directory-application-proxy-troubleshoot.md)
 
-Последние новости и обновления см. в блоге, посвященном [прокси приложений](http://blogs.technet.com/b/applicationproxyblog/).
+For the latest news and updates, check out the [Application Proxy blog](http://blogs.technet.com/b/applicationproxyblog/)
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

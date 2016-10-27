@@ -1,23 +1,26 @@
-1. Перейдите обратно в диспетчер отказоустойчивости кластеров. Разверните **Роли** и выделите свою группу доступности. На вкладке **Ресурсы** щелкните правой кнопкой мыши имя прослушивателя и выберите "Свойства".
+1. Navigate back to Failover Cluster Manager.  Expand **Roles** and then highlight your Availability Group.  On the **Resources** tab, right-click the listener name and click Properties.
 
-1. Перейдите на вкладку **Зависимости**. Если в списке несколько ресурсов, убедитесь, что IP-адреса имеют зависимости OR, а не AND. Нажмите кнопку **ОК**.
+1. Click the **Dependencies** tab. If there are multiple resources listed, verify that the IP addresses have OR, not AND, dependencies.  Click **OK**.
 
-1. Щелкните правой кнопкой мыши имя прослушивателя и выберите **Подключить**.
+1. Right-click the listener name and click **Bring Online**.
 
-1. После подключения прослушивателя на вкладке **Ресурсы** щелкните правой кнопкой мыши группу доступности и выберите **Свойства**.
+1. Once the listener is online, from the **Resources** tab, right-click the availability group and click **Properties**.
 
-	![Настройка ресурса группы доступности](./media/virtual-machines-sql-server-configure-alwayson-availability-group-listener/IC678772.gif)
+    ![Configure the Availability Group Resource](./media/virtual-machines-sql-server-configure-alwayson-availability-group-listener/IC678772.gif)
 
-1. Создайте зависимость для ресурса имени прослушивателя (не имени ресурсов IP адреса). Нажмите кнопку **ОК**.
+1. Create a dependency on the listener name resource (not the IP address resources name). Click **OK**.
 
-	![Добавление зависимости к имени прослушивателя](./media/virtual-machines-sql-server-configure-alwayson-availability-group-listener/IC678773.gif)
+    ![Add Dependency on the Listener Name](./media/virtual-machines-sql-server-configure-alwayson-availability-group-listener/IC678773.gif)
 
-1. Запустите **SQL Server Management Studio** и подключитесь к основной реплике.
+1. Launch **SQL Server Management Studio** and connect to the primary replica.
 
-1. Перейдите в раздел **Высокий уровень доступности AlwaysOn** | **Группы доступности** | **<AvailabilityGroupName>** | **Прослушиватели группы доступности**.
+1. Navigate to **AlwaysOn High Availability** | **Availability Groups** | **<AvailabilityGroupName>** | **Availability Group Listeners**. 
 
-3. Теперь вы увидите имя прослушивателя, созданного в диспетчере отказоустойчивости кластеров. Щелкните правой кнопкой мыши имя прослушивателя и выберите **Свойства**.
+3. You should now see the listener name that you created in Failover Cluster Manager. Right-click the listener name and click **Properties**.
 
-1. В поле **Порт** укажите номер порта для прослушивателя группы доступности с помощью использованного ранее параметра $EndpointPort (в этом учебнике по умолчанию использовалось значение 1433) и нажмите кнопку **ОК**.
+1. In the **Port** box, specify the port number for the availability group listener by using the $EndpointPort you used earlier (in this tutorial, 1433 was the default), then click **OK**.
 
-<!---HONumber=Oct15_HO3-->
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,41 +1,42 @@
 <properties 
-	pageTitle="Создание ContentKey с использованием .NET" 
-	description="Узнайте, как создавать ключи содержимого, которые обеспечивают безопасный доступ к ресурсам." 
-	services="media-services" 
-	documentationCenter="" 
-	authors="Juliako" 
-	manager="erikre" 
-	editor=""/>
+    pageTitle="Создание ContentKey с использованием .NET" 
+    description="Узнайте, как создавать ключи содержимого, которые обеспечивают безопасный доступ к ресурсам." 
+    services="media-services" 
+    documentationCenter="" 
+    authors="Juliako" 
+    manager="erikre" 
+    editor=""/>
 
 <tags 
-	ms.service="media-services" 
-	ms.workload="media" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/26/2016"
-	ms.author="juliako"/>
+    ms.service="media-services" 
+    ms.workload="media" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="09/26/2016"
+    ms.author="juliako"/>
 
 
-#Создание ContentKey с использованием .NET
+
+#<a name="create-contentkeys-with-.net"></a>Создание ContentKey с использованием .NET
 
 > [AZURE.SELECTOR]
 - [REST](media-services-rest-create-contentkey.md)
 - [.NET](media-services-dotnet-create-contentkey.md)
 
-Службы мультимедиа позволяют создавать и доставлять зашифрованные ресурсы. **ContentKey** обеспечивает безопасный доступ к вашим **ресурсам-контейнерам**.
+Службы мультимедиа позволяют создавать и доставлять зашифрованные ресурсы. **ContentKey** обеспечивает безопасный доступ к вашим **ресурсам-контейнерам**. 
 
-При создании нового ресурса-контейнера (например, перед [передачей файлов](media-services-dotnet-upload-files.md)) можно указать следующие параметры шифрования: **StorageEncrypted**, **CommonEncryptionProtected** или **EnvelopeEncryptionProtected**.
+При создании нового ресурса-контейнера (например, перед [передачей файлов](media-services-dotnet-upload-files.md)) можно указать следующие параметры шифрования: **StorageEncrypted**, **CommonEncryptionProtected** или **EnvelopeEncryptionProtected**. 
 
-При доставке ресурсов-контейнеров клиентам можно [настроить динамическое шифрование таких ресурсов](media-services-dotnet-configure-asset-delivery-policy.md), используя один из двух следующих типов шифрования: **DynamicEnvelopeEncryption** или **DynamicCommonEncryption**.
+При доставке ресурсов-контейнеров в клиенты можно [настроить динамическое шифрование таких ресурсов](media-services-dotnet-configure-asset-delivery-policy.md), используя один из двух следующих типов шифрования: **DynamicEnvelopeEncryption** или **DynamicCommonEncryption**.
 
 Зашифрованные ресурсы-контейнеры должны быть связаны с сущностями **ContentKey**. В этой статье описано, как создать ключ содержимого.
 
 >[AZURE.NOTE] Когда ресурс-контейнер **StorageEncrypted** создается с помощью пакета SDK служб мультимедиа для .NET, ключ содержимого (**ContentKey**) создается и связывается с ресурсом-контейнером автоматически.
 
-##ContentKeyType
+##<a name="contentkeytype"></a>ContentKeyType
 
-Одно из значений, которые необходимо задать при создания ключа содержимого — тип ключа содержимого. Выберите одно из следующих значений.
+Одно из значений, которые необходимо задать при создания ключа содержимого — тип ключа содержимого. Выберите одно из следующих значений. 
 
     public enum ContentKeyType
     {
@@ -61,7 +62,7 @@
         EnvelopeEncryption = 4
     }
 
-##<a id="envelope_contentkey"></a>Создание ContentKey конвертного типа
+##<a name="<a-id="envelope_contentkey"></a>create-envelope-type-contentkey"></a><a id="envelope_contentkey"></a>Создание ContentKey конвертного типа
 
 В следующем фрагменте кода создается ключ содержимого конвертного типа шифрования. Затем ключ связывается с указанным ресурсом.
 
@@ -95,11 +96,11 @@
 
 вызывает
 
-	IContentKey key = CreateEnvelopeTypeContentKey(encryptedsset);
+    IContentKey key = CreateEnvelopeTypeContentKey(encryptedsset);
 
 
 
-##<a id="common_contentkey"></a>Создание ContentKey общего типа    
+##<a name="<a-id="common_contentkey"></a>create-common-type-contentkey"></a><a id="common_contentkey"></a>Создание ContentKey общего типа    
 
 В следующем фрагменте кода создается ключ содержимого общего типа шифрования. Затем ключ связывается с указанным ресурсом.
 
@@ -135,15 +136,19 @@
     }
 вызывает
 
-	IContentKey key = CreateCommonTypeContentKey(encryptedsset); 
+    IContentKey key = CreateCommonTypeContentKey(encryptedsset); 
 
 
-##Схемы обучения работе со службами мультимедиа
+##<a name="media-services-learning-paths"></a>Схемы обучения работе со службами мультимедиа
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-##Отзывы
+##<a name="provide-feedback"></a>Отзывы
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

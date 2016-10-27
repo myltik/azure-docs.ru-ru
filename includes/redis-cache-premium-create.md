@@ -1,11 +1,17 @@
-Для создания кэша уровня "Премиум" войдите на [портал Azure](https://portal.azure.com) и щелкните **Создать** > **Данные+хранилище** > **Кэш Redis**.
+To create a premium cache, sign-in to the [Azure portal](https://portal.azure.com) and click **New** > **Data + Storage** > **Redis Cache**.
 
-![Создание кэша](media/redis-cache-premium-create/redis-cache-new-cache-menu.png)
+![Create cache](media/redis-cache-premium-create/redis-cache-new-cache-menu.png)
 
->[AZURE.NOTE] Кэши можно создавать не только на портале Azure, но и с помощью шаблонов Resource Manager, PowerShell или интерфейса командной строки Azure. Дополнительные сведения см. в разделе [Создание кэша](../articles/redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache).
+>[AZURE.NOTE] In addition to creating caches in the Azure portal, you can also create them using Resource Manager templates, PowerShell, or Azure CLI. For more information, see [Create a cache](../articles/redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache).
 
-Чтобы настроить функции категории "Премиум", сначала выберите одну из ценовых категорий "Премиум" в колонке **Выбор ценовой категории**.
+To configure premium features, first select one of the premium pricing tiers in the **Choose your pricing tier** blade.
 
-![Выберите ценовую категорию](media/redis-cache-premium-create/redis-cache-premium-pricing-tier.png)
+![Choose your pricing tier](media/redis-cache-premium-create/redis-cache-premium-pricing-tier.png)
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

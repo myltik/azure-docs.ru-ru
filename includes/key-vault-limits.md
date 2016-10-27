@@ -1,12 +1,15 @@
 
-| Тип транзакции | Максимальное количество транзакций, разрешенных в течение 10 с, на хранилище для одного региона
+| Transactions Type | Max transactions allowed in 10 seconds, per vault per region
 --- | ---
-| HSM — CREATE KEY | 5
-| HSM — другие транзакции | 1000
+| HSM- CREATE KEY | 5
+| HSM- other transactions | 1000
 | Soft-key CREATE KEY | 10
-| Другие транзакции Soft-key | 1500
-| Все секреты, связанные с хранилищем транзакции | 2000
+| Soft-key other transactions | 1500
+| All secrets, vault related transactions | 2000
  
  
 
-<!---HONumber=Oct15_HO3-->
+
+<!--HONumber=Oct16_HO2-->
+
+

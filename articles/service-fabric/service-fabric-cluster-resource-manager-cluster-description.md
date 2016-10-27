@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Описание кластера для балансировщика ресурсов | Microsoft Azure"
-   description="Описание кластера Service Fabric посредством указания доменов сбоя, доменов обновления, свойств узлов и емкости узлов для диспетчера кластерных ресурсов."
+   pageTitle="Resource Balancer cluster description | Microsoft Azure"
+   description="Describing a Service Fabric cluster by specifying fault domains, upgrade domains, node properties, and node capacities to the Cluster Resource Manager."
    services="service-fabric"
    documentationCenter=".net"
    authors="masnider"
@@ -16,112 +16,114 @@
    ms.date="08/19/2016"
    ms.author="masnider"/>
 
-# Описание кластера Service Fabric
-Диспетчер Resource Manager кластера Service Fabric предоставляет несколько механизмов для описания кластера. Во время выполнения диспетчер кластерных ресурсов использует эту информацию, чтобы обеспечить высокую доступность служб, функционирующих в кластере, и в то же время гарантировать, что ресурсы в кластере используются должным образом.
 
-## Основные понятия
-Диспетчер кластерных ресурсов поддерживает некоторые функции, описывающие кластер:
+# <a name="describing-a-service-fabric-cluster"></a>Describing a service fabric cluster
+The Service Fabric Cluster Resource Manager provides several mechanisms for describing a cluster. During runtime, the Cluster Resource Manager uses this information to ensure high availability of the services running in the cluster while also ensuring that the resources in the cluster are being used appropriately.
 
-- Домены сбоя
-- Домены обновления
-- Свойства узла
-- Емкость узла
+## <a name="key-concepts"></a>Key concepts
+The Cluster Resource Manager supports several features that describe a cluster:
 
-## Домены сбоя
-Домен сбоя — это любая область координированного сбоя. Доменом сбоя является отдельный компьютер (так как его работа может остановиться по многим причинам — от сбоев питания и сбоев дисков до проблем встроенного ПО сетевой карты). Несколько компьютеров, подключенных к одному коммутатору Ethernet, находятся в одном домене сбоя, как если бы они были подключены к одному источнику питания. Так как они естественным образом пересекаются, домены сбоя по своей сути являются иерархическими и представлены в Service Fabric в виде кодов URI.
+- Fault Domains
+- Upgrade Domains
+- Node Properties
+- Node Capacities
 
-Если бы вы настраивали собственный кластер, вам нужно было бы подумать об этих различных областях сбоя и убедиться, что домены сбоя настроены правильно и Service Fabric знает, где размещение служб будет безопасным. Под "безопасным" размещением мы имеем в виду продуманное размещение, при котором отключение домена сбоя не приводит к выходу служб из строя (например, при неполадках в работе одного из выше перечисленных компонентов). В среде Azure мы используем данные домена сбоя, предоставляемые средой, для правильной настройки узлов в кластере от вашего имени. На следующем рисунке (рис. 7) мы для примера выделили цветом все сущности, которые объективно могут привести к появлению домена сбоя, и привели список всех доменов сбоя, которые появились в результате. В этом примере у нас есть центры обработки данных (DC), стойки (R) и колонки (B). Предположительно, если каждая колонка содержит несколько виртуальных машин, в иерархии домена сбоя может быть еще один уровень.
+## <a name="fault-domains"></a>Fault domains
+A fault domain is any area of coordinated failure. A single machine is a fault domain (since it alone can fail for a variety of reasons, from power supply failures to drive failures to bad NIC firmware). A bunch of machines connected to the same Ethernet switch are in the same fault domain, as would be those connected to a single source of power. Since it's natural for these to overlap, Fault Domains are inherently hierarchal and are represented as URIs in Service Fabric.
 
-![Узлы, организованные через домены сбоя][Image1]
+If you were setting up your own cluster you’d need to think about all of these different areas of failure and make sure that your fault domains were set up correctly so that Service Fabric would know where it was safe to place services. By “safe” we really mean smart – we don’t want to place services such that a loss of a fault domain (the failure of any of the components listed above, for example) causes the service to go down.  In the Azure environment we leverage the fault domain information provided by the environment in order to correctly configure the nodes in the cluster on your behalf.
+In the graphic below (Fig. 7) we color all of the entities that reasonably result in a fault domain as a simple example and list out all of the different fault domains that result. In this example, we have datacenters (DC), racks (R), and blades (B). Conceivably, if each blade holds more than one virtual machine, there could be another layer in the fault domain hierarchy.
 
- Во время выполнения диспетчер Resource Manager кластера Service Fabric анализирует домены сбоя в кластере и пытается распределить реплики для данной службы таким образом, чтобы все они находились в разных доменах сбоя. Этот процесс помогает сохранить доступность службы в случае отказа какого-либо домена сбоя (на любом уровне иерархии).
+![Nodes organized via fault domains][Image1]
 
- Для диспетчера кластерных ресурсов Service Fabric на самом деле не имеет значения количество уровней в иерархии. Однако так как ему нужно, чтобы потеря какой-либо части иерархии не влияла на кластер или службы, работающие в нем, то обычно рекомендуется, чтобы на каждом уровне глубины в домене сбоя имелось одинаковое количество компьютеров. Вследствие этого в конце дня один сегмент иерархии будет содержать не больше служб, чем другие.
+ During run time, the Service Fabric Cluster Resource Manager considers the fault domains in the cluster and attempts to spread out the replicas for a given service so that they are all in separate fault domains. This process helps ensure that in case of failure of any one fault domain (at any level in the hierarchy), that the availability of that service is not compromised.
 
- Из-за настройки кластера, в результате которого "дерево" доменов сбоя остается несбалансированным, диспетчеру кластерных ресурсов сложнее выяснить, где лучше расположить реплики. Это происходит в частности потому, что отказ отдельного домена может повлиять на доступность кластера, и поэтому диспетчер кластерных ресурсов лавирует между эффективным использованием компьютеров (размещая на них службы) в этом "сложном" домене и размещением служб таким образом, чтобы отказ домена не вызывал проблем.
+ Service Fabric’s Cluster Resource Manager doesn’t really care about how many layers there are in the hierarchy, however since it does try to ensure that the loss of any one portion of the hierarchy doesn’t impact the cluster or the services running on top of it, it is generally best if at each level of depth in the fault domain there are the same number of machines. This prevents one portion of the hierarchy from having to contain more services at the end of the day than others.
 
- На схеме ниже показаны примеры двух различных структур кластера: в одной узлы равномерно распределены между доменами сбоя, а во второй с одним доменом сбоя связано гораздо больше узлов, чем с другими доменами. Обратите внимание, что в Azure выбор узлов, которые будут связаны с доменом сбоя или доменом обновления, осуществляется автоматически, поэтому вы никогда не заметите такого дисбаланса. Однако если вам когда-нибудь придется настраивать собственный кластер локально или в другой среде, то это нужно будет учесть.
+ Configuring your cluster in such a way that the “tree” of fault domains is unbalanced makes it rather hard for the Cluster Resource Manager to figure out what the best allocation of replicas is, particularly since it means that the loss of a particular domain can overly impact the availability of the cluster – the Cluster Resource Manager is torn between using the machines in that “heavy” domain efficiently by placing services on them and placing services so that the loss of the domain doesn’t cause problems.
 
- ![Две различные структуры кластеров][Image2]
+ In the diagram below we show two different example cluster layouts, one where the nodes are well distributed across the fault domains, and another where one fault domain ends up with many more nodes.  Note that in Azure the choices about which nodes end up in which fault and upgrade domains is handled for you, so you should never see these sorts of imbalances. However, if you ever stand up your own cluster on-premise or in another environment, it’s something you have to think about.
 
-## Домены обновления
-Домены обновления — это еще одна функция, помогающая диспетчеру Resource Manager Service Fabric понять структуру кластера, чтобы заранее прогнозировать сбои. Домены обновления определяют области (наборы узлов), которые одновременно выйдут из строя во время обновления.
+ ![Two different cluster layouts][Image2]
 
-Домены обновления очень похожи на домены сбоя, но имеют ряд ключевых отличий. Во-первых, домены обновления обычно определяются политикой, тогда как домены сбоя тщательно определяются областями координированных сбоев (и, следовательно, структурой оборудования среды). В случае доменов обновления вы все-таки сможете решить, сколько их требуется. Еще одно различие заключается в том, что домены обновления (по крайней мере сегодня) не являются иерархическими: они больше похожи на простой тег, чем на иерархию.
+## <a name="upgrade-domains"></a>Upgrade domains
+Upgrade Domains are another feature that helps the Service Fabric Resource Manager to understand the layout of the cluster so that it can plan ahead for failures. Upgrade Domains define areas (sets of nodes, really) that will go down at the same time during an upgrade.
 
-На рисунке ниже показана вымышленная структура, где три домена обновления чередуются с тремя доменами сбоя. На нем также представлено одно возможное размещение трех разных реплик службы с отслеживанием состояния. Обратите внимание, что они находятся в разных доменах сбоя и обновления. Это означает, что если во время обновления службы произойдет отказ домена сбоя, то одна копия кода и данных в кластере будет выполняться и далее. В зависимости от потребностей этого может быть достаточно, однако вы, вероятно, заметите, что эта копия является старой (так как Service Fabric использует репликацию, основанную на кворуме). Чтобы действительно избежать простоев в случае двух сбоев, необходимо несколько реплик (как минимум пять).
+Upgrade Domains are a lot like Fault Domains, but with a couple key differences. First, Upgrade Domains are usually defined by policy; whereas Fault Domains are rigorously defined by the areas of coordinated failures (and hence usually the hardware layout of the environment). In the case of Upgrade Domains however you get to decide how many you want. Another difference is that (today at least) Upgrade Domains are not hierarchical – they are more like a simple tag than a hierarchy.
 
-![Размещение с доменами сбоя и обновления][Image3]
+The picture below shows a fictional setup where we have three upgrade domains striped across three fault domains. It also shows one possible placement for three different replicas of a stateful service. Note that they are all in different fault and upgrade domains. This means that we could lose a fault domain while in the middle of a service upgrade and there would still be one running copy of the code and data in the cluster. Depending on your needs this could be good enough, however you may notice though that this copy could be old (as Service Fabric uses quorum based replication). In order to truly survive two failures you’d need more replicas (five at a minimum).
 
-Наличие множества доменов обновления имеет свои преимущества и недостатки. Одно из преимуществ — то, что каждый этап обновления является фрагментированным и поэтому затрагивает меньшее количество узлов или служб. В результате за определенный момент времени необходимо перемещение меньшего количества служб, что обеспечивает меньшую текучесть системы и в целом повышает уровень надежности (так как любая неисправность затрагивает меньше служб). Недостатком при наличии большого количества доменов обновления является то, что Service Fabric проверяет работоспособность каждого домена обновления по мере его обновления и обеспечивает работоспособность соответствующего домена перед переходом к следующему. Цель этой проверки — убедиться, что у служб есть возможность стабилизации работы, а также проверить их работоспособность и выявить любые ошибки перед обновлением. Возникающие при этом негативные последствия допустимы, так как если выбран этот вариант, то неверные изменения не влияют слишком сильно на слишком большую часть службы в определенный момент времени.
+![Placement With Fault and Upgrade Domains][Image3]
 
-Слишком малое количество доменов обновления имеет свои побочные эффекты: во время остановки в работе и обновления каждого отдельного домена большинство общих возможностей недоступны. Например, при наличии только трех доменов обновления вы отключаете примерно треть возможностей службы или кластера в определенный момент времени. Это нежелательно, так как в кластере должно быть достаточно других ресурсов, чтобы они могли справиться с рабочей нагрузкой. Это значит, что в обычных условиях эти узлы загружены меньше, чем должны быть, что увеличивает расходы.
+There are pros and cons to having large numbers of upgrade domains – the pro is that each step of the upgrade is more granular and therefore affects a smaller number of nodes or services. This results in fewer services having to move at a time, introducing less churn into the system and overall improving reliability (since less of the service will be impacted by any issue). The downside of having many upgrade domains is that Service Fabric verifies the health of each Upgrade Domain as it is upgraded and ensures that the Upgrade Domain is healthy before moving on to the next Upgrade Domain. The goal of this check is to ensure that services have a chance to stabilize and that their health is validated before the upgrade proceeds, so that any issues are detected. The tradeoff is acceptable because it prevents bad changes from affecting too much of the service at a time.
 
-Фактических ограничений на общее количество доменов сбоя или обновления в среде либо же на то, как они перекрываются, не существует. Стандартными структурами являются соотношение 1:1 (каждый отдельный домен сбоя сопоставляется со своим собственным доменом обновления), домен обновления на узел (экземпляр физической или виртуальной ОС) и модель с "чередованием", или "матричная" модель, в которой домены сбоя и домены обновления образуют матрицу с компьютерами, расположенными по диагонали.
+Too few upgrade domains has its own side effects – while each individual upgrade domain is down and being upgraded a large portion of your overall capacity is unavailable. For example, if you only have three upgrade domains you are taking down about 1/3 of your overall service or cluster capacity at a time. This isn’t desirable as you have to have enough capacity in the rest of your cluster to cover the workload, meaning that in the normal case those nodes are less-loaded than they would otherwise be, increasing COGS.
 
-![Структуры доменов сбоя и обновления][Image4]
+There’s no real limit to the total number of fault or upgrade domains in an environment, or constraints on how they overlap. Common structures that we’ve seen are 1:1 (where each unique fault domain maps to its own upgrade domain as well), an Upgrade Domain per Node (physical or virtual OS instance), and a “striped” or “matrix” model where the Fault Domains and Upgrade Domains form a matrix with machines usually running down the diagonal.
 
-Ответа на вопрос о том, какая структура лучше, не существует, так как каждая из них имеет свои преимущества и недостатки. Например, модель "1 домен сбоя — 1 домен обновления" отличается простотой настройки, а модель "1 домен сбоя на узел" больше всего понравится тем, кто привык управлять небольшими наборами компьютеров, когда каждый из них отключается отдельно от остальных.
+![Fault and Upgrade Domain Layouts][Image4]
 
-Наиболее распространенной моделью (и именно ее мы используем для размещенных кластеров Azure Service Fabric) является матричная модель, в которой домены сбоя и домены обновления формируют таблицу и узлы располагаются по диагонали. То, как располагаются узлы в такой модели — плотно или разреженно, зависит от общего количества узлов по сравнению с количеством доменов сбоя и доменов обновления (иными словами, если кластер достаточно большой, все будет похоже на шаблон плотной матрицы, показанный в правом нижнем углу рис. 10).
+There’s no best answer which layout to choose, each has some pros and cons. For example, the 1FD:1UD model is fairly simple to set up, whereas the 1 UD per Node model is most like what people are used to from managing small sets of machines in the past where each would be taken down independently.
 
-## Ограничения доменов сбоя и обновления и соответствующее поведение
-Диспетчер кластерных ресурсов воспринимает попытку сбалансированного распределения службы между доменами сбоя и обновления как ограничение. Дополнительные сведения об ограничениях см. в [этой статье](service-fabric-cluster-resource-manager-management-integration.md). Ограничения доменов сбоя и обновления определяются следующим образом: "Для определенного раздела службы разница в количестве реплик между двумя доменами никогда не должна составлять *больше 1*". На практике это означает, что для определенной службы отдельные перемещения или изменения могут быть восприняты кластером как недопустимые, так как они нарушают ограничение доменов сбоя или обновления.
+The most common model (and the one that we use for the hosted Azure Service Fabric clusters) is the FD/UD matrix, where the FDs and UDs form a table and nodes are placed starting along the diagonal. Whether this ends up sparse or packed depends on the total number of nodes compared to the number of FDs and UDs (put differently, for sufficiently large clusters, almost everything ends up looking like the dense matrix pattern, shown in the bottom right option of Figure 10).
 
-Давайте рассмотрим один пример. Предположим, что у нас есть кластер с 6 узлами (У), на котором настроено 5 доменов сбоя (ДС) и 5 доменов обновления (ДО).
+## <a name="fault-and-upgrade-domain-constraints-and-resulting-behavior"></a>Fault and upgrade domain constraints and resulting behavior
+The Cluster Resource manager treats the desire to keep a service balanced across fault and upgrade domains as a constraint. You can find out more about constraints in [this article](service-fabric-cluster-resource-manager-management-integration.md). The fault and upgrade domain  constraints are defined as following: "For a given service partition there should never be a difference *greater than one* in the number of replicas between two domains."  Practically what this means is that for a given service certain movements or certain arrangements might not be valid in the cluster, because doing so would violate the fault or upgrade domain constraint.
 
-| |ДС0 |ДС1 |ДС2 |ДС3 |ДС4 |
+Let's take a look at one example. Let's say that we have a cluster with 6 nodes, configured with 5 fault domains and 5 upgrade domains.
+
+|       |FD0    |FD1    |FD2    |FD3    |FD4    |
 |-------|:-----:|:-----:|:-----:|:-----:|:-----:|
-| ДО0 |У1 | | | | |
-| ДО1 |У6 |У2 | | | |
-| ДО2 | | |У3 | | |
-| ДО3 | | | |У4 | |
-| ДО4 | | | | |У5 |
+| UD0   |N1     |       |       |       |       |
+| UD1   |N6     |N2     |       |       |       |
+| UD2   |       |       |N3     |       |       |
+| UD3   |       |       |       |N4     |       |
+| UD4   |       |       |       |       |N5     |
 
-Теперь предположим, что мы создаем службу с параметром TargetReplicaSetSize равным 5. Реплики размещаются на узлах У1-У5. Узел У6 фактически никогда не будет использован. Но почему? Давайте рассмотрим разницу между текущей структурой и тем, что произошло бы, если бы мы выбрали У6. Подумайте, как это относится к нашему определению ограничения доменов сбоя и обновления.
+Now let's say that we create a service with a TargetReplicaSetSize of 5. The replicas land on N1-N5. In fact, N6 will never get used. But why? Well let's take a look at the difference between the current layout and what would happen if we had chosen N6 instead, and think about how that relates to our definition of the FD and UD constraint.
 
-Ниже показана наша текущая структура и общее число реплик (Р) на домен сбоя и обновления.
+Here's the layout we got and the total number of replicas per fault and upgrade domain.
 
 
-| |ДС0 |ДС1 |ДС2 |ДС3 |ДС4 |Всего ДО|
+|       |FD0    |FD1    |FD2    |FD3    |FD4    |UDTotal|
 |-------|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|
-| ДО0 |Р1 | | | | |1 |
-| ДО1 | |Р2 | | | |1 |
-| ДО2 | | |Р3 | | |1 |
-| ДО3 | | | |Р4 | |1 |
-| ДО4 | | | | |Р5 |1 |
-|Всего ДС|1 |1 |1 |1 |1 |- |
+| UD0   |R1     |       |       |       |       |1      |
+| UD1   |       |R2     |       |       |       |1      |
+| UD2   |       |       |R3     |       |       |1      |
+| UD3   |       |       |       |R4     |       |1      |
+| UD4   |       |       |       |       |R5     |1      |
+|FDTotal|1      |1      |1      |1      |1      |-      |
 
-Обратите внимание, что такая структура является сбалансированной в плане распределения узлов на домен сбоя и домен обновления, а также в плане количества реплик на каждый из этих доменов. На каждый домен приходится одинаковое количество узлов и реплик.
+Note that this layout is balanced in terms of nodes per fault domain and upgrade domain, and it is also balanced in terms of the number of replicas per fault and upgrade domain. Each domain has the same number of nodes and the same number of replicas.
 
-Теперь давайте посмотрим, что произошло бы, если бы вместо У2, мы использовали У6. Как бы тогда распределялись реплики? Это выглядело бы примерно так:
+Now, let's take a look at what would happen if instead of N2, we'd used N6. How would the replicas be distributed then? Well, they'd look something like this:
 
-| |ДС0 |ДС1 |ДС2 |ДС3 |ДС4 |Всего ДО|
+|       |FD0    |FD1    |FD2    |FD3    |FD4    |UDTotal|
 |-------|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|
-| ДО0 |Р1 | | | | |1 |
-| ДО1 |Р5 | | | | |1 |
-| ДО2 | | |Р2 | | |1 |
-| ДО3 | | | |Р3 | |1 |
-| ДО4 | | | | |Р4 |1 |
-|Всего ДС|2 |0 |1 |1 |1 |- |
+| UD0   |R1     |       |       |       |       |1      |
+| UD1   |R5     |       |       |       |       |1      |
+| UD2   |       |       |R2     |       |       |1      |
+| UD3   |       |       |       |R3     |       |1      |
+| UD4   |       |       |       |       |R4     |1      |
+|FDTotal|2      |0      |1      |1      |1      |-      |
 
-При этом нарушается наше определение ограничения для доменов сбоя, так как на ДС0 приходится 2 реплики, а на ДС1 — 0. То есть разница составляет 2, и из-за этого диспетчер кластерных ресурсов не разрешит использовать такую расстановку. Аналогично, если бы мы выбрали узлы У2-6, то получили бы следующее:
+This violates our definition for the fault domain constraint, since FD0 has 2 replicas, while FD1 has 0, making the total difference 2 and thus the Cluster Resource Manager will not allow this arrangement. Similarly if we had picked N2-6 we'd get:
 
-| |ДС0 |ДС1 |ДС2 |ДС3 |ДС4 |Всего ДО|
+|       |FD0    |FD1    |FD2    |FD3    |FD4    |UDTotal|
 |-------|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|
-| ДО0 | | | | | |0 |
-| ДО1 |Р5 |Р1 | | | |2 |
-| ДО2 | | |Р2 | | |1 |
-| ДО3 | | | |Р3 | |1 |
-| ДО4 | | | | |Р4 |1 |
-|Всего ДС|1 |1 |1 |1 |1 |- |
+| UD0   |       |       |       |       |       |0      |
+| UD1   |R5     |R1     |       |       |       |2      |
+| UD2   |       |       |R2     |       |       |1      |
+| UD3   |       |       |       |R3     |       |1      |
+| UD4   |       |       |       |       |R4     |1      |
+|FDTotal|1      |1      |1      |1      |1      |-      |
 
-Такая структура является сбалансированной в плане распределения на домен сбоя, но нарушает ограничение для доменов обновления (так как на ДО0 приходится 0 реплик, а на ДО1 — 2), и поэтому такая расстановка является недопустимой.
+Which while balanced in terms of fault domains is violating the upgrade domain constraint (since UD0 has 0 replicas while UD1 has 2), and hence is invalid as well.
 
-## Настройка доменов сбоя и обновления
-Определение доменов сбоя и обновления выполняется автоматически в размещенных в Azure развертываниях Service Fabric. Service Fabric просто извлекает сведения о среде из Azure. В Azure сведения о домене сбоя и домене обновления выглядят как "один уровень", но на самом деле это инкапсулированная информация из нижних слоев Azure Stack и представление логических доменов сбоя и обновления с точки зрения пользователя.
+## <a name="configuring-fault-and-upgrade-domains"></a>Configuring fault and upgrade domains
+Defining Fault Domains and Upgrade Domains is done automatically in Azure hosted Service Fabric deployments; Service Fabric just picks up the environment information from Azure. In Azure both the fault and upgrade domain information looks “single level” but it really is encapsulating information from lower layers of the Azure stack and just presenting the logical fault and upgrade domains from the user’s perspective.
 
-Если вы настраиваете свой собственный кластер (или просто хотите попробовать запустить определенную топологию на компьютере разработки), необходимо самостоятельно предоставить сведения о доменах сбоя и обновления. В этом примере мы определяем кластер локальной разработки из 9 узлов, охватывающий три "центра обработки данных" (каждый с тремя стойками) и три домена обновления, чередующиеся с этими тремя центрами обработки данных. В шаблоне манифеста кластера это выглядит примерно так:
+If you’re standing up your own cluster (or just want to try running a particular topology on your development machine) you’ll need to provide the fault domain and upgrade domain information yourself. In this example we define a 9 node local development cluster that spans three “datacenters” (each with three racks), and three upgrade domains striped across those three datacenters. In the cluster manifest template, it looks something like this:
 
 ClusterManifest.xml
 
@@ -143,49 +145,49 @@ ClusterManifest.xml
     </WindowsServer>
   </Infrastructure>
 ```
-> [AZURE.NOTE] В развернутых службах Azure домены сбоя и обновления назначаются автоматически. Поэтому определение ваших узлов и ролей в параметре infrastructure для Azure не содержит данные о доменах сбоя и обновления.
+> [AZURE.NOTE] In Azure deployments, fault domains and upgrade domains are assigned by Azure. Therefore, the definition of your nodes and roles within the infrastructure option for Azure does not include fault domain or upgrade domain information.
 
-## Ограничения на размещение и свойства узлов
-Иногда (фактически большую часть времени) необходимо убеждаться, что некоторые рабочие нагрузки выполняются только на некоторых узлах или некоторых наборах узлов в кластере. Например, для одних рабочих нагрузок могут требоваться графические процессоры или накопители SSD, а для других — нет. Хорошим примером этого является практически каждая n-уровневая архитектура, где одни машины используются в качестве фронтальной или интерфейсной части приложения (и поэтому, очевидно, доступны через Интернет), тогда как остальные (часто с другими аппаратными ресурсами) служат для вычислений и хранения (как правило, они не доступны через Интернет). Service Fabric ожидает, что даже в мире микрослужб существуют случаи, когда определенные рабочие нагрузки должны выполняться на конкретных конфигурациях оборудования, например:
+## <a name="placement-constraints-and-node-properties"></a>Placement constraints and node properties
+Sometimes (in fact, most of the time) you’re going to want to ensure that certain workloads run only on certain nodes or certain sets of nodes in the cluster. For example, some workload may require GPUs or SSDs while others may not. A great example of this is pretty much every n-tier architecture out there, where certain machines serve as the front end/interface serving side of the application (and hence are probably exposed to the internet) while a different set (often with different hardware resources) handle the work of the compute or storage layers (and usually are not exposed to the internet). Service Fabric expects that even in a microservices world there are cases where particular workloads will need to run on particular hardware configurations, for example:
 
-- существующее n-уровневое приложение быстро перемещено в среду Service Fabric;
-- рабочая нагрузка должна выполняться на конкретном оборудовании для повышения производительности, масштабирования или изоляции;
--	рабочую нагрузку следует изолировать от других рабочих нагрузок по соображениям политики или потребления ресурсов.
+- an existing n-tier application has been “lifted and shifted” into a Service Fabric environment
+- a workload wants to run on specific hardware for performance, scale, or security isolation reasons
+-   A workload needs to be isolated from other workloads for policy or resource consumption reasons
 
-Для поддержки таких типов конфигурации Service Fabric имеет первоклассное понятие того, что называется "ограничениями на размещение". С помощью ограничений на размещение можно указать, где должны выполняться определенные службы. Набор ограничений расширяется пользователями, то есть можно добавлять теги к узлам с пользовательскими свойствами, а затем выбирать их.
+In order to support these sorts of configurations Service Fabric has a first class notion of what we call placement constraints. Placement constraints can be used to indicate where certain services should run. The set of constraints is extensible by users, meaning that people can tag nodes with custom properties and then select for those as well.
 
-![Разные рабочие нагрузки структуры кластера][Image5]
+![Cluster Layout Different Workloads][Image5]
 
-Различные теги "ключ-значение" на узлах называются *свойствами* размещения узла (или просто свойствами узла), а выражение в службе называется *ограничением* на размещение. В свойстве узла могут быть указаны значения string, bool или signed long. Ограничением может быть любой логический оператор, который работает с различными свойствами узла в кластере. Ниже приведены допустимые селекторы в этих логических операторах (которые являются строками).
+The different key/value tags on nodes are known as node placement *properties* (or just node properties), whereas the statement at the service is called a placement *constraint*. The value specified in the node property can be a string, bool, or signed long. The constraint can be any Boolean statement that operates on the different node properties in the cluster. The valid selectors in these boolean statements (which are strings) are:
 
-- Условные проверки для создания определенных операторов:
-  - "равно" ==
-  - "больше" >
-  - "меньше" <
-  - "не равно" !=
-  - "больше или равно" >=
-  - "меньше или равно" <=
-- Логические операторы для группирования и отрицания:
-  - "и" &&
-  - "или" ||
-  - "не" !
-- Скобки для группирования операций:
+- conditional checks for creating particular statements
+  - "equal to" ==
+  - "greater than" >
+  - "less than" <
+  - "not equal to" !=
+  - "greater than or equal to" >=
+  - "less than or equal to" <=
+- boolean statements for grouping and negation
+  - "and" &&
+  - "or" ||
+  - "not" !
+- parenthesis for grouping operations
   - ()
 
-  Ниже приведено несколько примеров основных операторов ограничения, использующих некоторые из выше перечисленных символов. Обратите внимание, что свойствами узла могут быть строки, логические или числовые значения.
+  Here are some examples of basic constraint statements that use some of the symbols above. Note that node properties can be strings, bools, or numerical values.   
 
   - "Foo >= 5"
   - "NodeColor != green"
   - "((OneProperty < 100) || ((AnotherProperty == false) && (OneProperty >= 100)))"
 
 
-Служба может быть размещена только на тех узлах, где оператор принимает общее значение True. Узлы без определенного свойства не совпадают с какими-либо ограничениями на размещение, содержащими это свойство.
+Only nodes where the overall statement evaluates to “True” can have the service placed on it. Nodes without a property defined do not match any placement constraint that contains that property.
 
-Кроме того, Service Fabric определяет некоторые свойства по умолчанию, которые могут использоваться автоматически, так что их не нужно задавать. На момент написания этой статьи свойствами по умолчанию, определенными в каждом узле, являются NodeType и NodeName. Например, ограничение на размещение можно записать в таком виде: "(NodeType == NodeType03)". В целом мы пришли к выводу, что NodeType — одно из самых распространенных свойств, так как обычно оно имеет соотношение 1:1 к типу компьютера, который, в свою очередь, соответствуют типу рабочей нагрузки в традиционной архитектуре n-уровневого приложения.
+Service Fabric also defines some default properties which can be used automatically without the user having to define them. As of this writing the default properties defined at each node are the NodeType and the NodeName. So for example you could write a placement constraint as "(NodeType == NodeType03)". Generally we have found NodeType to be one of the most commonly used properties, as it usually corresponds 1:1 with a type of a machine, which in turn correspond to a type of workload in a traditional n-tier application architecture.
 
-![Ограничения на размещение и свойства узлов][Image6]
+![Placement Constraints and Node Properties][Image6]
 
-Предположим, что для данного типа узла были определены следующие свойства узла: ClusterManifest.xml
+Let’s say that the following node properties were defined for a given node type: ClusterManifest.xml
 
 ```xml
     <NodeType Name="NodeType01">
@@ -197,7 +199,7 @@ ClusterManifest.xml
     </NodeType>
 ```
 
-Вы можете создать следующие ограничения на размещение службы:
+You can create service placement constraints for a service like this:
 
 C#
 
@@ -210,15 +212,15 @@ serviceDescription.PlacementConstraints = "(HasSSD == true && SomeProperty >= 4)
 await fabricClient.ServiceManager.CreateServiceAsync(serviceDescription);
 ```
 
-PowerShell:
+Powershell:
 
 ```posh
 New-ServiceFabricService -ApplicationName $applicationName -ServiceName $serviceName -ServiceTypeName $serviceType -Stateful -MinReplicaSetSize 2 -TargetReplicaSetSize 3 -PartitionSchemeSingleton -PlacementConstraint "HasSSD == true && SomeProperty >= 4"
 ```
 
-Если вы уверены, что все узлы NodeType01 являются допустимыми, то можно просто выбрать этот тип узла с помощью ограничения на размещение, как показано на рисунках выше.
+If you are sure that all nodes of NodeType01 are valid, you could also just select that node type, using placement constraints like those show in the pictures above.
 
-Одной замечательной особенностью ограничений на размещение службы является то, что они могут обновляться динамически во время выполнения. Поэтому если необходимо, то можно перемещать службу в кластере, добавлять и удалять требования и т. д. Service Fabric обеспечивает работу и доступность службы даже в том случае, если вносятся такие типы изменений.
+One of the cool things about a service’s placement constraints is that they can be updated dynamically during runtime. So if you need to, you can move a service around in the cluster, add and remove requirements, etc. Service Fabric takes care of ensuring that the service stays up and available even when these types of changes are ongoing.
 
 C#:
 
@@ -228,24 +230,24 @@ updateDescription.PlacementConstraints = "NodeType == NodeType01";
 await fabricClient.ServiceManager.UpdateServiceAsync(new Uri("fabric:/app/service"), updateDescription);
 ```
 
-PowerShell:
+Powershell:
 
 ```posh
 Update-ServiceFabricService -Stateful -ServiceName $serviceName -PlacementConstraints "NodeType == NodeType01"
 ```
 
-Ограничения на размещение (а также много других элементов управления оркестратора, о которых мы еще будем говорить) задаются для каждого именованного экземпляра службы. Обновления всегда заменяют (перезаписывают) свойства, заданные ранее.
+Placement constraints (along with many other orchestrator controls that we’re going to talk about) are specified for every different named service instance. Updates always take the place (overwrite) what was previously specified.
 
-Также стоит отметить, что сейчас свойства узла определяются вместе с кластером, следовательно, и обновить их можно только при обновлении кластера. При этом для обновления свойств каждый узел должен быть выведен из строя, а затем восстановлен.
+It is also worth noting that at this point the properties on a node are defined via the cluster definition and hence cannot be updated without an upgrade to the cluster and will require each node to go down and then come back up in order to refresh its properties.
 
-## Емкость
-Одна из важнейших задач любого оркестратора — помощь в управлении потреблением ресурсов в кластере. Если вам нужна эффективная работа служб, самый нежелательный сценарий — это когда есть несколько узлов с высокой нагрузкой (что приводит к конфликтам ресурсов и снижению производительности), а на других узлах нагрузка небольшая (лишние ресурсы). Но давайте подумаем о кое-чем более простом, чем балансировка (которой мы коснемся чуть позже). Как обеспечить достаточное количество ресурсов для узлов?
+## <a name="capacity"></a>Capacity
+One of the most important jobs of any orchestrator is to help manage resource consumption in the cluster. The last thing you want if you’re trying to run services efficiently is a bunch of nodes which are hot (leading to resource contention and poor performance) while others are cold (wasted resources). But let’s think even more basic than balancing (which we’ll get to in a minute) – what about just ensuring that nodes don’t run out of resources in the first place?
 
-В Service Fabric ресурсы представлены в виде "метрик". Метрики — это любые логические или физические ресурсы, которые нужно описать в Service Fabric. Метриками, например, являются атрибуты WorkQueueDepth или MemoryInMb. Метрики отличаются от ограничений на размещение и свойств узлов тем, что свойства узла — это обычно статические дескрипторы самих узлов, а метрики касаются ресурсов, находящихся на узлах и потребляемых службами в момент, когда они выполняются на узле. Поэтому свойством может быть, например, HasSSD со значением true или false, однако объем дискового пространства, доступного на SSD (и используемого службами), будет метрикой, например DriveSpaceInMb. В зависимости от емкости узла для атрибута DriveSpaceInMb задается объем общего места, свободного на диске, и службы будут сообщать, какая часть этой метрики используется во время выполнения.
+Service Fabric represents resources as “Metrics”. Metrics are any logical or physical resource that you want to describe to Service Fabric. Examples of metrics are things like “WorkQueueDepth” or “MemoryInMb”. Metrics are different from placements constraints and node properties in that node properties are generally static descriptors of the nodes themselves, whereas metrics are about resources that nodes have and that services consume when they are running on a node. So a property would be something like HasSSD and could be set to true or false, but the amount of space available on that SSD (and consumed by services) would be a metric like “DriveSpaceInMb”. Capacity on the node would set the “DriveSpaceInMb” to the amount of total non-reserved space on the drive, and services would report how much of the metric they used during runtime.
 
-При отключении *балансировки* всех ресурсов диспетчер кластерных ресурсов Service Fabric по-прежнему может гарантировать, что не превышена емкость ни одного узла (если только кластер в целом не слишком заполнен). Емкость — это другое *ограничение*, используемое диспетчером кластерных ресурсов, чтобы понять, какая часть ресурса используется на узле. На уровне службы и емкость, и потребление выражаются в виде метрик. Например, метрика может называться MemoryInMb. Определенный узел может иметь емкость (MemoryInMb) в размере 2048 МБ, в то время как определенная служба может сообщать, что в данный момент она потребляет 64 МБ от этой емкости.
+If you turned off all resource *balancing*, Service Fabric’s Cluster Resource Manager would still be able to ensure that no node ended up over its capacity (unless the cluster as a whole was too full). Capacity is another *constraint* which the Cluster Resource Manager uses to understand how much of a resource a node has. Both the capacity and the consumption at the service level are expressed in terms of metrics. So for example, the metric might be "MemoryInMb" - a given Node may have a capacity for MemoryInMb of 2048, while a given service can say it is currently consuming 64 of MemoryInMb.
 
-Во время выполнения диспетчер кластерных ресурсов отслеживает, какая часть каждого ресурса используется на каждом узле (определяется по объему), а какая — остается (определяется путем вычитания объявленного количества используемых ресурсов из общего количества ресурсов каждой службы). С помощью этой информации диспетчер Resource Manager платформы Service Fabric может определить, где следует разместить или куда переместить реплики так, чтобы не была превышена емкость узлов.
+During runtime, the Cluster Resource Manager tracks how much of each resource is present on each node (defined by its capacity) and how much is remaining (by subtracting any declared usage from each service). With this information, the Service Fabric Resource Manager can figure out where to place or move replicas so that nodes don’t go over capacity.
 
 C#:
 
@@ -260,15 +262,15 @@ serviceDescription.Metrics.Add(metric);
 await fabricClient.ServiceManager.CreateServiceAsync(serviceDescription);
 ```
 
-PowerShell:
+Powershell:
 
 ```posh
 New-ServiceFabricService -ApplicationName $applicationName -ServiceName $serviceName -ServiceTypeName $serviceTypeName –Stateful -MinReplicaSetSize 2 -TargetReplicaSetSize 3 -PartitionSchemeSingleton –Metric @("Memory,High,64,64)
 ```
 
-![Узлы кластера и емкость][Image7]
+![Cluster nodes and capacity][Image7]
 
-Это можно увидеть в манифесте кластера:
+You can see these in the cluster manifest:
 
 ClusterManifest.xml
 
@@ -281,19 +283,19 @@ ClusterManifest.xml
     </NodeType>
 ```
 
-Нагрузка службы может изменяться также динамически. Предположим, что нагрузка реплики изменилась с 64 на 1024, но оставшаяся емкость узла, на котором она выполнялась, на тот момент составляла только 512 (от метрики MemoryInMb). Поэтому место, где в данный момент расположена реплика или экземпляр, станет недопустимым, так как использование всех реплик и экземпляров на этом узле начнет превышать его емкость. Позже мы подробно поговорим о сценарии, в котором нагрузка может изменяться динамически, но, что касается емкости, обработка выполняется всегда одинаково: диспетчер кластерных ресурсов включается автоматически и уменьшает загруженность узла, перемещая реплики или экземпляры из этого узла на другие. При этом диспетчер кластерных ресурсов пытается свести к минимуму стоимость всех перемещений (мы вернемся к вопросу стоимости позже).
+It is also possible that a service’s load changes dynamically. Say that a replica's load changed from 64 to 1024, but the node it was running on at that time only had 512 (of the "MemoryInMb" metric) remaining. Because of this, where a replica or instance is currently placed becomes invalid since the combined usage of all of the replicas and instances on that node exceeds that node’s capacity. We’ll talk more about this scenario where load can change dynamically later, but as far as capacity goes it is handled the same way – the Cluster Resource Manager automatically kicks in and gets the node back below capacity by moving one or more of the replicas or instances on that node to different nodes. When doing this the Cluster Resource Manager tries to minimize the cost of all of the movements (we’ll come back to the notion of Cost later).
 
-## Емкость кластера
-Так как же предотвратить переполнение кластера в целом? Если используется динамическая нагрузка, сделать мы можем очень мало (так как у служб могут быть всплески нагрузки независимо от действий, предпринятых диспетчером кластерных ресурсов: например, кластер с большим резервом сегодня может оказаться довольно маломощным, если вы станете знамениты завтра). При этом существуют некоторые встроенные элементы управления, которые помогут избежать основных проблем. Первое, что можно сделать, — это предотвратить создание новых рабочих нагрузок, которые могут привести к переполнению кластера.
+## <a name="cluster-capacity"></a>Cluster capacity
+So how do we keep the overall cluster from being too full? Well, with dynamic load there’s actually not a lot we can do (since services can have their load spike independent of actions taken by the Cluster Resource Manager – your cluster with a lot of headroom today may be rather underpowered when you become famous tomorrow), but there are some controls that are baked in to prevent basic problems. The first thing we can do is prevent the creation of new workloads that would cause the cluster to become full.
 
-Предположим, что вы собираетесь создать простую службу без отслеживания состояния и что некоторые ее нагрузки связаны с кластером (больше о передаче данных о динамической нагрузке и нагрузке по умолчанию поговорим позже). Предположим, что этой службе нужны определенные ресурсы (например, место на диске) и что по умолчанию она будет использовать 5 единиц места на диске для каждого экземпляра службы. Вы хотите создать 3 экземпляра службы. Отлично! Это значит, что в кластере должно быть 15 единиц места на диске только для того, чтобы можно было создать эти экземпляры службы. Service Fabric постоянно подсчитывает общую емкость и потребление для каждой метрики, поэтому мы легко можем определить и отклонить вызов создания службы, если места недостаточно.
+Say that you go to create a simple stateless service and it has some load associated with it (more on default and dynamic load reporting later). For this service, let’s say that it cares about some resource (let’s say DiskSpace) and that by default it is going to consume 5 units of DiskSpace for every instance of the service. You want to create 3 instances of the service. Great! So that means that we need 15 units of DiskSpace to be present in the cluster in order for us to even be able to create these service instances. Service Fabric is continually calculating the overall capacity and consumption of each metric, so we can easily make the determination and reject the create service call if there’s insufficient space.
 
-Обратите внимание, что, так как единственным требованием является наличие 15 доступных единиц, пространство может быть распределено несколькими различными путями. Например, это может быть одна оставшаяся единица емкости на 15 различных узлах или три оставшиеся единицы емкости на 5 разных узлах и т. д. Если емкости недостаточно на трех разных узлах, Service Fabric реорганизует службы уже в кластере, чтобы освободить место на трех нужных узлах. Такие изменения почти всегда возможны, если только кластер не заполнен окончательно.
+Note that since the requirement is only that there be 15 units available, this space could be allocated many different ways; it could be one remaining unit of capacity on 15 different nodes, for example, or three remaining units of capacity on 5 different nodes, etc. If there isn’t sufficient capacity on three different nodes Service Fabric will reorganize the services already in the cluster in order to make room on the three necessary nodes. Such rearrangement is almost always possible unless the cluster as a whole is almost entirely full.
 
-## Емкость буфера
-Другая особенность, которая помогает пользователям управлять общей емкостью кластера, — добавление к емкости, выделенной на каждом узле, понятия зарезервированного буфера. Этот параметр является необязательным, но позволяет зарезервировать часть общей емкости узла только для размещения служб во время обновлений и отказов — тех случаев, где при иных обстоятельствах емкость кластера сокращается. Сегодня буфер глобально указан для каждой метрики для всех узлов в ClusterManifest. Значение, выбранное для зарезервированной емкости, будет в большей мере влиять на то, насколько ваши службы ограничены в ресурсах, а также на количество доменов сбоя и обновления, имеющихся в кластере. Обычно большее количество доменов сбоя и обновления означает, что можно выбрать меньшее значение буферизованной емкости, так как ожидается, что во время обновлений и сбоев может стать недоступной меньшая часть кластера. Обратите внимание, что указание процента свободного места имеет смысл, только если указана емкость узла для метрики.
+## <a name="buffered-capacity"></a>Buffered Capacity
+Another thing that helps people manage overall cluster capacity is the notion of some reserved buffer to the capacity specified at each node. This setting is optional, but allows people to reserve some portion of the overall node capacity so that it is only used to place services during upgrades and failures – cases where the capacity of the cluster is otherwise reduced. Today buffer is specified globally per metric for all nodes via the ClusterManifest. The value you pick for the reserved capacity will be a function of which resources your services are more constrained on, as well as the number of fault and upgrade domains you have in the cluster. Generally more fault and upgrade domains means that you can pick a lower number for your buffered capacity, as you will expect smaller amounts of your cluster to be unavailable during upgrades and failures. Note that specifying the buffer percentage only makes sense if you have also specified the node capacity for a metric.
 
-Пример указания емкости буфера:
+Here's an example of how to specify buffered capacity:
 
 ClusterManifest.xml
 
@@ -305,7 +307,7 @@ ClusterManifest.xml
         </Section>
 ```
 
-При недостаточной емкости буфера попытки создания новых служб завершаются сбоем. Поэтому в кластере сохраняется достаточно запасного дополнительного места, а обновления и сбои не приводят к тому, что превышается емкость узлов. Диспетчер кластерных ресурсов предоставляет массу сведений с помощью PowerShell и интерфейсов API запросов, позволяя видеть параметры емкости буфера, общую емкость и текущее потребление для каждой метрики, используемой кластером. Здесь мы видим пример таких сведений:
+The creation of new services will fail when the cluster is out of buffered capacity, ensuring that the cluster retains enough spare overhead such that upgrades and failures don’t result in nodes being actually over capacity. The Cluster Resource Manager exposes a lot of this information via PowerShell and the Query APIs, letting you see the buffered capacity settings, the total capacity, and the current consumption for every metric in use in the cluster. Here we see an example of that output:
 
 ```posh
 PS C:\Users\user> Get-ServiceFabricClusterLoadInformation
@@ -333,18 +335,22 @@ LoadMetricInformation     :
                             MaxNodeLoadNodeId     : 2cc648b6770be1bc9824fa995d5b68b1
 ```
 
-## Дальнейшие действия
-- Сведения об архитектуре и потоке информации в диспетчере кластерных ресурсов см. в [этой статье](service-fabric-cluster-resource-manager-architecture.md).
-- Определение метрик дефрагментации — один из способов объединения нагрузки на узлах вместо ее рассредоточения. Сведения о настройке дефрагментации см. в [этой статье](service-fabric-cluster-resource-manager-defragmentation-metrics.md).
-- Начните с самого начала, [изучив общие сведения о диспетчере кластерных ресурсов Service Fabric](service-fabric-cluster-resource-manager-introduction.md).
-- Чтобы узнать, как диспетчер кластерных ресурсов управляет нагрузкой кластера и балансирует ее, ознакомьтесь со статьей о [балансировке нагрузки](service-fabric-cluster-resource-manager-balancing.md).
+## <a name="next-steps"></a>Next steps
+- For information on the architecture and information flow within the Cluster Resource manager, check out [this article ](service-fabric-cluster-resource-manager-architecture.md)
+- Defining Defragmentation Metrics is one way to consolidate load on nodes instead of spreading it out. To learn how to configure defragmentation, refer to [this article](service-fabric-cluster-resource-manager-defragmentation-metrics.md)
+- Start from the beginning and [get an Introduction to the Service Fabric Cluster Resource Manager](service-fabric-cluster-resource-manager-introduction.md)
+- To find out about how the Cluster Resource Manager manages and balances load in the cluster, check out the article on [balancing load](service-fabric-cluster-resource-manager-balancing.md)
 
-[Image1]: ./media/service-fabric-cluster-resource-manager-cluster-description/cluster-fault-domains.png
-[Image2]: ./media/service-fabric-cluster-resource-manager-cluster-description/cluster-uneven-fault-domain-layout.png
-[Image3]: ./media/service-fabric-cluster-resource-manager-cluster-description/cluster-fault-and-upgrade-domains-with-placement.png
-[Image4]: ./media/service-fabric-cluster-resource-manager-cluster-description/cluster-fault-and-upgrade-domain-layout-strategies.png
-[Image5]: ./media/service-fabric-cluster-resource-manager-cluster-description/cluster-layout-different-workloads.png
-[Image6]: ./media/service-fabric-cluster-resource-manager-cluster-description/cluster-placement-constraints-node-properties.png
-[Image7]: ./media/service-fabric-cluster-resource-manager-cluster-description/cluster-nodes-and-capacity.png
+[Image1]:./media/service-fabric-cluster-resource-manager-cluster-description/cluster-fault-domains.png
+[Image2]:./media/service-fabric-cluster-resource-manager-cluster-description/cluster-uneven-fault-domain-layout.png
+[Image3]:./media/service-fabric-cluster-resource-manager-cluster-description/cluster-fault-and-upgrade-domains-with-placement.png
+[Image4]:./media/service-fabric-cluster-resource-manager-cluster-description/cluster-fault-and-upgrade-domain-layout-strategies.png
+[Image5]:./media/service-fabric-cluster-resource-manager-cluster-description/cluster-layout-different-workloads.png
+[Image6]:./media/service-fabric-cluster-resource-manager-cluster-description/cluster-placement-constraints-node-properties.png
+[Image7]:./media/service-fabric-cluster-resource-manager-cluster-description/cluster-nodes-and-capacity.png
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

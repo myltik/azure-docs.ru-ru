@@ -1,54 +1,59 @@
 <properties
-	pageTitle="Восстановление базы данных SQL Azure до момента времени в прошлом (на портале Azure) | Microsoft Azure"
-	description="Восстановление базы данных SQL Azure до момента времени в прошлом"
-	services="sql-database"
-	documentationCenter=""
-	authors="stevestein"
-	manager="jhubbard"
-	editor=""/>
+    pageTitle="Restore an Azure SQL Database to a previous point in time (Azure Portal) | Microsoft Azure"
+    description="Restore an Azure SQL Database to a previous point in time."
+    services="sql-database"
+    documentationCenter=""
+    authors="stevestein"
+    manager="jhubbard"
+    editor=""/>
 
 <tags
-	ms.service="sql-database"
-	ms.devlang="NA"
-	ms.date="07/17/2016"
-	ms.author="sstein"
-	ms.workload="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"/>
+    ms.service="sql-database"
+    ms.devlang="NA"
+    ms.date="07/17/2016"
+    ms.author="sstein"
+    ms.workload="NA"
+    ms.topic="article"
+    ms.tgt_pltfrm="NA"/>
 
 
-# Восстановление базы данных SQL Azure до момента времени в прошлом с помощью портала Azure
+
+# <a name="restore-an-azure-sql-database-to-a-previous-point-in-time-with-the-azure-portal"></a>Restore an Azure SQL Database to a previous point in time with the Azure Portal
 
 
 > [AZURE.SELECTOR]
-- [Обзор](sql-database-recovery-using-backups.md)
-- [Восстановление до точки во времени: PowerShell](sql-database-point-in-time-restore-powershell.md)
+- [Overview](sql-database-recovery-using-backups.md)
+- [Point-In-Time Restore: PowerShell](sql-database-point-in-time-restore-powershell.md)
 
-В этой статье объясняется, как восстановить базу данных до предшествующей точки во времени из [созданных автоматически резервных копий базы данных SQL](sql-database-automated-backups.md) с помощью портала Azure.
+This article shows you how to restore your database to an earlier point in time from [SQL Database automated backups](sql-database-automated-backups.md) using the Azure Portal.
 
-## Выбор базы данных для восстановления до момента времени в прошлом
+## <a name="select-a-database-to-restore-to-a-previous-point-in-time"></a>Select a database to restore to a previous point in time
 
-Чтобы восстановить базу данных на портале Azure, выполните следующие действия.
+To restore a database in the Azure Portal do the following:
 
-1.	Откройте [портал Azure](https://portal.azure.com).
-2.  В левой части экрана выберите **ОБЗОР** > **Базы данных SQL**.
-3.  Перейдите к базе данных, которую требуется восстановить, и выберите ее.
-4.  В верхней части колонки базы данных выберите **Восстановить**.
+1.  Open the [Azure Portal](https://portal.azure.com).
+2.  On the left side of the screen select **BROWSE** > **SQL databases**.
+3.  Navigate to the database you want to restore and select it.
+4.  At the top of your database's blade, select **Restore**:
 
-    ![Восстановление базы данных SQL Azure](./media/sql-database-point-in-time-restore-portal/restore.png)
+    ![Restore an Azure SQL database](./media/sql-database-point-in-time-restore-portal/restore.png)
 
-5.  Укажите имя базы данных, выберите момент времени и нажмите кнопку "ОК".
+5.  Specify a database name, point in time and then click Ok:
 
-    ![Восстановление базы данных SQL Azure](./media/sql-database-point-in-time-restore-portal/restore-details.png)
+    ![Restore an Azure SQL database](./media/sql-database-point-in-time-restore-portal/restore-details.png)
 
 
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Next steps
 
-- Сведения об обеспечении непрерывности бизнес-процессов и возможные сценарии описаны в [обзоре непрерывности бизнес-процессов](sql-database-business-continuity.md).
-- Чтобы узнать об автоматически создаваемых резервных копиях базы данных SQL Azure, ознакомьтесь с разделом [Общие сведения об автоматическом резервном копировании базы данных SQL](sql-database-automated-backups.md).
-- Чтобы узнать об использовании автоматически создаваемых резервных копий для восстановления, ознакомьтесь с [восстановлением базы данных из резервных копий, инициируемых службой](sql-database-recovery-using-backups.md).
-- Чтобы узнать о более быстрых вариантах восстановления, ознакомьтесь с [активной георепликацией](sql-database-geo-replication-overview.md).
-- Чтобы узнать об использовании автоматически создаваемых резервных копий для архивации, ознакомьтесь с [копированием базы данных](sql-database-copy.md).
+- For a business continuity overview and scenarios, see [Business continuity overview](sql-database-business-continuity.md)
+- To learn about Azure SQL Database automated backups, see [SQL Database automated backups](sql-database-automated-backups.md)
+- To learn about using automated backups for recovery, see [restore a database from the service-initiated backups](sql-database-recovery-using-backups.md)
+- To learn about faster recovery options, see [Active-Geo-Replication](sql-database-geo-replication-overview.md)  
+- To learn about using automated backups for archiving, see [database copy](sql-database-copy.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

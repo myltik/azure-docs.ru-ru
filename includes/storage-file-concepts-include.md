@@ -1,40 +1,44 @@
-## Что такое хранилище файлов Azure?
+## <a name="what-is-azure-file-storage?"></a>What is Azure File storage?
 
-Хранилище файлов предлагает совместно используемое хранилище для приложений, использующих стандартный протокол SMB 2.1 или SMB 3.0. Виртуальные машины и облачные службы Microsoft Azure могут использовать файловые данные компонентов приложений через подключенные ресурсы, а локальные приложения получают доступ к этим данным совместно с помощью API хранилища файлов.
+File storage offers shared storage for applications using the standard SMB 2.1 or SMB 3.0 protocol. Microsoft Azure virtual machines and cloud services can share file data across application components via mounted shares, and on-premises applications can access file data in a share via the File storage API.
 
-Приложения, работающие на виртуальных машинах Azure или облачных службах, могут подключать ресурсы хранилищ файлов для доступа к данным файлов, так же как это бы делало настольное приложение при подключении обычного ресурса SMB. Любое количество виртуальных машин Azure может одновременно подключаться и получать доступ к ресурсам хранилища файлов.
+Applications running in Azure virtual machines or cloud services can mount a File storage share to access file data, just as a desktop application would mount a typical SMB share. Any number of Azure virtual machines or roles can mount and access the File storage share simultaneously.
 
-Так как общая папка хранилища файлов представляют собой стандартную общую папку Azure, использующую протокол SMB, приложения, работающие в Azure, могут получать к ней доступ через файловые API ввода-вывода. Таким образом, разработчики могут использовать имеющиеся у них коды и навыки для миграции существующих приложений. IT-специалисты получают возможность использовать командлеты PowerShell для создания и подключения ресурсов хранилища файлов, а также управления им в качестве части администрирования приложений Azure. В данном руководстве будут приведены примеры и для первого и для второго.
+Since a File storage share is a standard file share in Azure using the SMB protocol, applications running in Azure can access data in the share via file I/O APIs. Developers can therefore leverage their existing code and skills to migrate existing applications. IT Pros can use PowerShell cmdlets to create, mount, and manage File storage shares as part of the administration of Azure applications. This guide will show examples of both.
 
-Наиболее частые способы использования хранилища файлов:
+Common uses of File storage include:
 
-- миграция локальных приложений, которые используют совместно используемые файлы, на виртуальные машины или облачные службы Azure без необходимости затратного переписывания кода;
-- хранение совместно используемых настроек приложений, например файлов конфигурации;
-- хранение диагностических данных, таких как журналы, метрики и аварийные дампы в совместно используемом расположении; 
-- хранение средств и утилит, необходимых для разработки и администрирования виртуальных машин или облачных служб Azure.
+- Migrating on-premises applications that rely on file shares to run on Azure virtual machines or cloud services, without expensive rewrites
+- Storing shared application settings, for example in configuration files
+- Storing diagnostic data such as logs, metrics, and crash dumps in a shared location 
+- Storing tools and utilities needed for developing or administering Azure virtual machines or cloud services
 
-## Основные понятия хранилища файлов
+## <a name="file-storage-concepts"></a>File storage concepts
 
-Хранилище файлов состоит из следующих компонентов:
+File storage contains the following components:
 
 ![files-concepts][files-concepts]
 
--   **Учетная запись хранения.** Весь доступ к хранилищу Azure осуществляется с помощью учетной записи хранения. Сведения о емкости учетной записи хранения см. на странице [Цели масштабируемости хранилища и производительности Azure](../articles/storage/storage-scalability-targets.md).
+-   **Storage Account:** All access to Azure Storage is done through a storage account. See [Azure Storage Scalability and Performance Targets](../articles/storage/storage-scalability-targets.md) for details about storage account capacity.
 
--   **Общая папка** — общая папка хранилища файлов представляет собой общую папку с файлами в Azure, использующую протокол SMB. Все каталоги и файлы должны быть созданы в родительской общей папке. Учетная запись может содержать любое количество общих папок, а общая папка может содержать любое количество файлов, общий размер которых не превышает 5 ТБ.
+-   **Share:** A File storage share is an SMB file share in Azure. 
+    All directories and files must be created in a parent share. An account can contain an unlimited number of shares, and a share can store an unlimited number of files, up to the 5 TB total capacity of the file share.
 
--   **Каталог** — необязательная иерархия каталогов.
+-   **Directory:** An optional hierarchy of directories. 
 
--	**Файл** — файл в совместно используемом ресурсе. Файлы могут иметь размер до 1 ТБ.
+-   **File:** A file in the share. A file may be up to 1 TB in size.
 
--   **Формат URL-адреса** — к файлам можно обратиться, используя следующий формат URL-адреса: https://`<storage
+-   **URL format:** Files are addressable using the following URL format:   
+    https://`<storage
     account>`.file.core.windows.net/`<share>`/`<directory/directories>`/`<file>`  
     
-    Следующий пример URL-адреса можно использовать для обращения к одному из файлов на схеме выше:
+    The following example URL could be used to address one of the files in the diagram above:  
     `http://samples.file.core.windows.net/logs/CustomLogs/Log1.txt`
 
-Дополнительные сведения о способе именования ресурсов, каталогов и файлов см. в разделе [Присвоение имен и ссылки на совместно используемые ресурсы, каталоги, файлы и метаданные](http://msdn.microsoft.com/library/azure/dn167011.aspx).
+For details about how to name shares, directories, and files, see [Naming and Referencing Shares, Directories, Files, and Metadata](http://msdn.microsoft.com/library/azure/dn167011.aspx).
 
 [files-concepts]: ./media/storage-file-concepts-include/files-concepts.png
 
-<!----HONumber=AcomDC_0204_2016-->
+<!--HONumber=Oct16_HO2-->
+
+

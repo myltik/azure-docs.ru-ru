@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Потоковая передача данных из Stream Analytics в хранилище озера данных | Azure"
-   description="Использование Azure Stream Analytics для потоковой передачи данных в хранилище озера данных Azure"
+   pageTitle="Stream data from Stream Analytics into Data Lake Store | Azure"
+   description="Use Azure Stream Analytics to stream data into Azure Data Lake Store"
    services="data-lake-store,stream-analytics" 
    documentationCenter=""
    authors="nitinme"
@@ -16,117 +16,122 @@
    ms.date="07/07/2016"
    ms.author="nitinme"/>
 
-# Потоковая передача данных из большого двоичного объекта службы хранилища Azure в хранилище озера данных с помощью Azure Stream Analytics
 
-Из этой статьи вы узнаете, как использовать хранилище озера данных Azure в качестве источника выходных данных для задания Azure Stream Analytics. В этой статье показан простой сценарий, в котором данные считываются из большого двоичного объекта службы хранилища Azure (входные данные) и записываются в хранилище озера данных (выходные данные).
+# <a name="stream-data-from-azure-storage-blob-into-data-lake-store-using-azure-stream-analytics"></a>Stream data from Azure Storage Blob into Data Lake Store using Azure Stream Analytics
 
->[AZURE.NOTE] В настоящий момент создание и настройка выходных данных Data Lake Store для Stream Analytics поддерживается только на [классическом портале Azure](https://manage.windowsazure.com). Поэтому в некоторых частях этого учебника будет использоваться классический портал Azure.
+In this article you will learn how to use Azure Data Lake Store as an output for an Azure Stream Analytics job. This article demonstrates a simple scenario that reads data from an Azure Storage blob (input) and writes the data to Data Lake Store (output).
 
-## Предварительные требования
+>[AZURE.NOTE] At this time, creation and configuration of Data Lake Store outputs for Stream Analytics is supported only in the [Azure Classic Portal](https://manage.windowsazure.com). Hence, some parts of this tutorial will use the Azure Classic Portal.
 
-Перед началом работы с этим учебником необходимо иметь следующее:
+## <a name="prerequisites"></a>Prerequisites
 
-- **Подписка Azure.**. См. [Бесплатная пробная версия Azure](https://azure.microsoft.com/pricing/free-trial/).
+Before you begin this tutorial, you must have the following:
 
-- **Настройте свою подписку Azure** для использования общедоступной предварительной версии Data Lake Store. См. [инструкции](data-lake-store-get-started-portal.md#signup).
+- **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 
-- **Учетная запись хранения Azure** Контейнер больших двоичных объектов из этой учетной записи будет использоваться для ввода данных для задания Stream Analytics. Для работы с этим учебником необходимо создать учетную запись хранилища с именем **datalakestoreasa**, а в ней — контейнер с именем **datalakestoreasacontainer**. После создания контейнера отправьте в него образец файла данных. Его можно получить из [репозитория Git озера данных Azure](https://github.com/Azure/usql/tree/master/Examples/Samples/Data/AmbulanceData/Drivers.txt). Чтобы отправить данные в контейнер больших двоичных объектов, можно использовать различные клиенты, например [обозреватель хранилищ Azure](http://storageexplorer.com/).
+- **Enable your Azure subscription** for Data Lake Store Public Preview. See [instructions](data-lake-store-get-started-portal.md#signup).
 
-	>[AZURE.NOTE] При создании учетной записи на портале Azure ее необходимо создать с **классической** моделью развертывания. Это обеспечит доступность учетной записи хранения с классического портала Azure, поскольку именно его мы используем для создания задания Stream Analytics. Инструкции по созданию учетной записи хранения на портале Azure с помощью классической модели развертывания см. в разделе [Создание учетной записи хранения Azure](../storage/storage-create-storage-account/#create-a-storage-account).
-	>
-	> Кроме того, учетную запись хранения можно создать на классическом портале Azure.
+- **Azure Storage account**. You will use a blob container from this account to input data for a Stream Analytics job. For this tutorial, assume you create a storage account called **datalakestoreasa** and a container within the account called **datalakestoreasacontainer**. Once you have created the container, upload a sample data file to it. You can get a sample data file from the [Azure Data Lake Git Repository](https://github.com/Azure/usql/tree/master/Examples/Samples/Data/AmbulanceData/Drivers.txt). You can use various clients, such as [Azure Storage Explorer](http://storageexplorer.com/), to upload data to a blob container.
 
-- **Учетная запись хранилища озера данных Azure**. Следуйте инструкциям в разделе [Приступая к работе с хранилищем озера данных Azure на портале Azure](data-lake-store-get-started-portal.md).
+    >[AZURE.NOTE] If you create the account from the Azure Portal, make sure you create it with the **Classic** deployment model. This ensures that the storage account can be accessed from the Azure Classic Portal, because that is what we use to create a Stream Analytics job. For instructions on how to create a storage account from the Azure Portal using the Classic deployment, see [Create an Azure Storage account](../storage/storage-create-storage-account/#create-a-storage-account).
+    >
+    > Or, you could create a storage account from the Azure Classic Portal.
+
+- **Azure Data Lake Store account**. Follow the instructions at [Get started with Azure Data Lake Store using the Azure Portal](data-lake-store-get-started-portal.md).  
 
 
-## Создание задания Stream Analytics
+## <a name="create-a-stream-analytics-job"></a>Create a Stream Analytics Job
 
-Для начала нужно создать задание Stream Analytics с источником входных данных и целевым объектом для выходных данных. В этом руководстве источником является контейнер больших двоичных объектов Azure, а целевым объектом — хранилище озера данных.
+You start by creating a Stream Analytics job that includes an input source and an output destination. For this tutorial, the source is an Azure blob container and the destination is Data Lake Store.
 
-1. Войдите на [классический портал Azure](https://manage.windowsazure.com).
+1. Sign on to the [Azure Classic Portal](https://manage.windowsazure.com).
 
-2. В правой нижней части окна последовательно щелкните **Создать**, **Службы данных**, **Stream Analytics**, **Быстрое создание**. Укажите значения, показанные на рисунке ниже, и выберите команду **Создать задание Stream Analytics**.
+2. From the bottom-left of the screen, click **New**, **Data Services**, **Stream Analytics**, **Quick Create**. Provide the values as shown below and then click **Create Stream Analytics Job**.
 
-	![Создание задания Stream Analytics](./media/data-lake-store-stream-analytics/create.job.png "Создание задания Stream Analytics")
+    ![Create a Stream Analytics Job](./media/data-lake-store-stream-analytics/create.job.png "Create a Stream Analytics job")
 
-## Создание входных данных большого двоичного объекта для задания
+## <a name="create-a-blob-input-for-the-job"></a>Create a Blob input for the job
 
-1. Откройте страницу задания Stream Analytics, перейдите на вкладку **Входные данные** и выберите команду **Добавить входные данные**, чтобы запустить мастер.
+1. Open the page for the Stream Analytics job, click the **Inputs** tab, and then click **Add an Input** to launch a wizard.
 
-2. На странице **Добавление входных данных в задание** выберите параметр **Поток данных** и щелкните стрелку "Далее".
+2. On the **Add an input to your job** page, select **Data stream**, and then click the forward arrow.
 
-	![Добавление входных данных в задание](./media/data-lake-store-stream-analytics/create.input.1.png "Добавление входных данных в задание")
+    ![Add an input to your job](./media/data-lake-store-stream-analytics/create.input.1.png "Add an input to your job")
 
-3. На странице **Добавление потока данных в задание** выберите параметр **Хранилище BLOB-объектов** и щелкните стрелку "Далее".
+3. On the **Add a data stream to your job** page, select **Blob storage**, and then click the forward arrow.
 
-	![Добавление потока данных в задание](./media/data-lake-store-stream-analytics/create.input.2.png "Добавление потока данных в задание")
+    ![Add a data stream to the job](./media/data-lake-store-stream-analytics/create.input.2.png "Add a data stream to the job")
 
-4. На странице **Настройки хранилища BLOB-объектов** укажите данные для хранилища, которое будет использоваться в качестве источника входных данных.
+4. On the **Blob storage settings** page, provide details for the blob storage that you will use as the input data source.
 
-	![Указание параметров хранилища BLOB-объекта](./media/data-lake-store-stream-analytics/create.input.3.png "Указание параметров хранилища BLOB-объекта")
+    ![Provide the blob storage settings](./media/data-lake-store-stream-analytics/create.input.3.png "Provide the blob storage settings")
 
-	* **Введите псевдоним входных данных**. Это уникальное имя для входных данных задания.
-	* **Выберите учетную запись хранения**. Убедитесь, что учетная запись хранения находится в той же области, что и задание Stream Analytics. Иначе вам придется заплатить за перемещение данных между регионами.
-	* **Укажите контейнер хранилища**. Можно создать новый контейнер или выбрать уже существующий.
+    * **Enter an input alias**. This is a unique name you provide for the job input.
+    * **Select a storage account**. Make sure the storage account is in the same region as the Stream Analytics job or you will incur additional cost of moving data between regions.
+    * **Provide a storage container**. You can choose to create a new container or select an existing container.
 
-	Щелкните стрелку «Далее».
+    Click the forward arrow.
 
-5. На странице **Параметры сериализации** выберите формат сериализации **CSV**, для разделителя выберите значение **табуляция**, а для кодировки — **UTF8**. Затем нажмите кнопку с галочкой.
+5. On the **Serialization settings** page, set the serialization format as **CSV**, delimiter as **tab**, encoding as **UTF8**, and then click the checkmark.
 
-	![Указание параметров сериализации](./media/data-lake-store-stream-analytics/create.input.4.png "Указание параметров сериализации")
+    ![Provide the serialization settings](./media/data-lake-store-stream-analytics/create.input.4.png "Provide the serialization settings")
 
-6. После завершения работы мастера входные данные большого двоичного объекта будут добавлены на вкладку **Входные данные**, а в столбце **Диагностика** должно отображаться значение **OК**. Можно также непосредственно проверить подключение ко входным данным. Для этого нажмите кнопку **Проверить подключение** внизу.
+6. Once you are done with the wizard, the blob input will be added under the **Inputs** tab and the **Diagnosis** column should show **OK**. You can also explicitly test the connection to the input by using the **Test Connection** button at the bottom.
 
-## Создание выходных данных хранилища озера данных для задания
+## <a name="create-a-data-lake-store-output-for-the-job"></a>Create a Data Lake Store output for the job
 
-1. Откройте страницу задания Stream Analytics, перейдите на вкладку **Выходные данные** и выберите команду **Добавить выходные данные**, чтобы запустить мастер.
+1. Open the page for the Stream Analytics job, click the **Outputs** tab, and then click **Add an Output** to launch a wizard.
 
-2. На странице **Добавление выходных данных в задание** выберите параметр **Хранилище озера данных** и щелкните стрелку "Далее".
+2. On the **Add an output to your job** page, select **Data Lake Store**, and then click the forward arrow.
 
-	![Добавление выходных данных в задание](./media/data-lake-store-stream-analytics/create.output.1.png "Добавление выходных данных в задание")
+    ![Add an output to your job](./media/data-lake-store-stream-analytics/create.output.1.png "Add an output to your job")
 
-3. Если учетная запись хранилища озера данных уже создана, на странице **Авторизация подключения** нажмите кнопку **Авторизовать сейчас**. Если у вас нет учетной записи, щелкните ссылку **Зарегистрируйтесь сейчас**, чтобы создать учетную запись. Предположим, у вас уже есть учетная запись хранилища озера данных (как указано в предварительных требованиях). Будет выполнена автоматическая авторизация с использованием учетных данных, которые использовались для входа на классический портал Azure.
+3. On the **Authorize connection** page, if you have already created a Data Lake Store account, click **Authorize Now**. Otherwise, click **Sign up now** to create a new account. For this tutorial, let us assume that you already have a Data Lake Store account created (as mentioned in the prerequisite). You will be automatically authorized using the credentials with which you signed into the Azure Classic Portal.
 
-	![Авторизация хранилища озера данных](./media/data-lake-store-stream-analytics/create.output.2.png "Авторизация хранилища озера данных")
+    ![Authorize Data Lake Store](./media/data-lake-store-stream-analytics/create.output.2.png "Authorize Data Lake Store")
 
-4. На странице **Параметры хранилища озера данных** введите сведения, как показано на снимке экрана ниже.
+4. On the **Data Lake Store Settings** page, enter the information as shown in the screen capture below.
 
-	![Указание параметров хранилища озера данных](./media/data-lake-store-stream-analytics/create.output.3.png "Указание параметров хранилища озера данных")
+    ![Specify Data Lake Store settings](./media/data-lake-store-stream-analytics/create.output.3.png "Specify Data Lake Store settings")
 
-	* **Введите псевдоним выходных данных**. Это уникальное имя для выходных данных задания.
-	* **Укажите учетную запись хранилища озера данных**. Она должна быть уже создана, как указано в предварительных требованиях.
-	* **Укажите шаблон префикса пути**. Он необходим для идентификации выходных файлов, которые записывает задание Stream Analytics в хранилище озера данных. Поскольку заголовки выходных данных, записываемых заданием, имеют формат GUID, добавление префикса поможет идентифицировать записанные выходные данные. Если в префикс необходимо включить метки даты и времени, добавьте в шаблон префикса элемент `{date}/{time}`. Если включить этот элемент, то поля **Формат даты** и **Формат времени** станут доступны, и вы сможете выбрать нужный формат.
+    * **Enter an output alias**. This is a unique name you provide for the job output.
+    * **Specify a Data Lake Store account**. You should have already created this, as mentioned in the prerequisite.
+    * **Specify a path prefix pattern**. This is required to identify the output files that are written to Data Lake Store by the Stream Analytics job. Because the titles of outputs written by the job are in a GUID format, including a prefix will help identify the written output. If you want to include a date and time stamp as part of the prefix make sure you include `{date}/{time}` in the prefix pattern. If you include this, the **Date Format **and **Time Format** fields are enabled and you can select the format of choice.
 
-	Щелкните стрелку «Далее».
+    Click the forward arrow.
 
-5. На странице **Параметры сериализации** выберите формат сериализации **CSV**, для разделителя выберите значение **табуляция**, а для кодировки — **UTF8**. Затем нажмите кнопку с галочкой.
+5. On the **Serialization settings** page, set the serialization format as **CSV**, delimiter as **tab**, encoding as **UTF8**, and then click the check mark.
 
-	![Указание формата выходных данных](./media/data-lake-store-stream-analytics/create.output.4.png "Указание формата выходных данных")
+    ![Specify the output format](./media/data-lake-store-stream-analytics/create.output.4.png "Specify the output format")
 
-6. После завершения работы мастера входные данные Data Lake Store будут добавлены на вкладку **Выходные данные**, а в столбце **Диагностика** должно отображаться значение **OК**. Можно также непосредственно проверить подключение к выходным данным. Для этого нажмите кнопку **Проверить подключение** внизу.
+6. Once you are done with the wizard, the Data Lake Store output will be added under the **Outputs** tab and the **Diagnosis** column should show **OK**. You can also explicitly test the connection to the output by using the **Test Connection** button at the bottom.
 
-## Выполнение задания Stream Analytics
+## <a name="run-the-stream-analytics-job"></a>Run the Stream Analytics job
 
-Чтобы выполнить задание Stream Analytics, необходимо выполнить запрос на вкладке "Запрос". В этом руководстве можно выполнить образец запроса, заменив заполнители псевдонимами входных и выходных данных, как показано на снимке экрана ниже.
+To run a Stream Analytics job, you must run a query from the Query tab. For this tutorial, you can run the sample query by replacing the placeholders with the job input and output aliases, as shown in the screen capture below.
 
-![Выполнение запроса](./media/data-lake-store-stream-analytics/run.query.png "Выполнение запроса")
+![Run query](./media/data-lake-store-stream-analytics/run.query.png "Run query")
 
-Нажмите кнопку **Сохранить** в нижней части экрана, а затем выберите команду **Запустить**. В диалоговом окне нажмите кнопку **Настраиваемое время** и выберите дату в прошлом, например **1/1/2016**. Нажмите кнопку с галочкой, чтобы запустить задание. Для запуска задания может потребоваться несколько минут.
+Click **Save** from the bottom of the screen, and then click **Start**. From the dialog box, select **Custom Time**, and then select a date from the past, such as **1/1/2016**. Click the check mark to start the job. It can take up to a couple minutes to start the job.
 
-![Настройка времени задания](./media/data-lake-store-stream-analytics/run.query.2.png "Настройка времени задания")
+![Set job time](./media/data-lake-store-stream-analytics/run.query.2.png "Set job time")
 
-После запуска задания перейдите на вкладку **Монитор**, чтобы просмотреть результат обработки данных.
+After the job starts, click the **Monitor** tab to see how the data was processed.
 
-![Отслеживание задания](./media/data-lake-store-stream-analytics/run.query.3.png "Отслеживание задания")
+![Monitor job](./media/data-lake-store-stream-analytics/run.query.3.png "Monitor job")
 
-Теперь с помощью [портала Azure](https://portal.azure.com) можно открыть учетную запись Data Lake Store и проверить, успешно ли записаны данные в эту учетную запись.
+Finally, you can use the [Azure Portal](https://portal.azure.com) to open your Data Lake Store account and verify whether the data was successfully written to the account.
 
-![Проверка выходных данных](./media/data-lake-store-stream-analytics/run.query.4.png "Проверка выходных данных")
+![Verify output](./media/data-lake-store-stream-analytics/run.query.4.png "Verify output")
 
-В области обозревателя данных можно увидеть, что выходные данные записаны в папку, указанную в параметрах выходных данных Data Lake Store (`streamanalytics/job/output/{date}/{time}`).
+In the Data Explorer pane, notice that the output is written to a folder as specified in the Data Lake Store output settings (`streamanalytics/job/output/{date}/{time}`).  
 
-## Дополнительные материалы
+## <a name="see-also"></a>See also
 
-* [Создание кластера HDInsight для работы с хранилищем озера данных](data-lake-store-hdinsight-hadoop-use-portal.md)
+* [Create an HDInsight cluster to use Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

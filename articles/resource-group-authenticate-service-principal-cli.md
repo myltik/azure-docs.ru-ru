@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Создание субъекта-службы с помощью интерфейса командной строки Azure | Microsoft Azure"
-   description="Использование командной строки Azure для создания приложения Active Directory и субъекта-службы с последующим предоставлением доступа к ресурсам с управлением доступом на основе ролей. В статье показано, как выполнять проверку подлинности приложения с помощью пароля или сертификата."
+   pageTitle="Create service principal with Azure CLI | Microsoft Azure"
+   description="Describes how to use Azure CLI to create an Active Directory application and service principal, and grant it access to resources through role-based access control. It shows how to authenticate application with a password or certificate."
    services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
@@ -13,70 +13,70 @@
    ms.topic="article"
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
-   ms.date="09/07/2016"
+   ms.date="09/30/2016"
    ms.author="tomfitz"/>
 
-# Использование интерфейса командной строки Azure для создания субъекта-службы и доступа к ресурсам
+
+# <a name="use-azure-cli-to-create-a-service-principal-to-access-resources"></a>Use Azure CLI to create a service principal to access resources
 
 > [AZURE.SELECTOR]
 - [PowerShell](resource-group-authenticate-service-principal.md)
-- [Интерфейс командной строки Azure](resource-group-authenticate-service-principal-cli.md)
-- [Портал](resource-group-create-service-principal-portal.md)
+- [Azure CLI](resource-group-authenticate-service-principal-cli.md)
+- [Portal](resource-group-create-service-principal-portal.md)
 
 
-При наличии приложения или скрипта, которому требуется доступ к ресурсам, вы, вероятно, не захотите, чтобы этот процесс осуществлялся под вашими учетными данными. Ваша учетная запись может иметь другие разрешения, необходимые для приложения, и использование ваших учетных данных приложением при изменении обязанностей будет нежелательным. Вместо этого для приложения можно создать удостоверение, содержащее учетные данные проверки подлинности и назначения ролей. При каждом запуске приложения выполняется автоматическая проверка подлинности с этими учетными данными. В этой статье показано, как настроить использование собственных учетных данных и удостоверения для приложения с помощью [интерфейса командной строки Azure (Azure CLI) для Mac, Linux и Windows](xplat-cli-install.md).
+When you have an application or script that needs to access resources, you most likely do not want to run this process under your own credentials. You may have different permissions that you want for the application, and you do not want the application to continue using your credentials if your responsibilities change. Instead, you create an identity for the application that includes authentication credentials and role assignments. Every time the app runs, it authenticates itself with these credentials. This topic shows you how to use [Azure CLI for Mac, Linux and Windows](xplat-cli-install.md) to set up an application to run under its own credentials and identity.
 
-В Azure CLI доступно два варианта проверки подлинности для приложения AD:
+With Azure CLI, you have two options for authenticating your AD application:
 
- - пароль
- - на основе сертификата.
+ - password
+ - certificate
 
-В этой статье показано, как применить оба варианта в Azure CLI. Если вам нужно выполнять вход в Azure с платформы для программирования (например, Python, Ruby или Node.js), мы советуем использовать проверку подлинности на основе пароля. Прежде чем решить, какой тип проверки подлинности использовать (сертификат или пароль), просмотрите примеры проверки подлинности на разных платформах в разделе [Примеры приложений](#sample-applications).
+This topic shows how to use both options in Azure CLI. If you intend to log in to Azure from a programming framework (such Python, Ruby, or Node.js), password authentication might be your best option. Before deciding whether to use a password or certificate, see the [Sample applications](#sample-applications) section for examples of authenticating in the different frameworks.
 
-## Основные понятия Active Directory
+## <a name="active-directory-concepts"></a>Active Directory concepts
 
-В этой статье вы создадите два объекта: приложение Active Directory (AD) и субъект-службу. Приложение AD является глобальным представлением вашего приложения. Оно содержит учетные данные (идентификатор приложения, а также пароль или сертификат). Субъект-служба — это локальное представление вашего приложения в Active Directory. Она содержит назначение роли. В этой статье описывается однотенантное приложение, используемое в пределах одной организации. Обычно однотенантная архитектура используется для создания бизнес-приложений в рамках организации. В однотенантном приложении содержится одно приложение AD и один субъект-служба.
+In this article, you create two objects - the Active Directory (AD) application and the service principal. The AD application is the global representation of your application. It contains the credentials (an application id and either a password or certificate). The service principal is the local representation of your application in an Active Directory. It contains the role assignment. This topic focuses on a single-tenant application where the application is intended to run within only one organization. You typically use single-tenant applications for line-of-business applications that run within your organization. In a single-tenant application, you have one AD app and one service principal.
 
-Вы, возможно, зададитесь вопросом, зачем нужно использовать оба объекта. Этот подход более рационален, когда речь идет о мультитенантных приложениях. Обычно в качестве мультитенантного приложения используется приложение на базе модели "программное обеспечение как услуга" (SaaS). Такое приложение работает в нескольких разных подписках. Мультитенантное приложение содержит одно приложение AD и несколько субъектов-служб (по одной на каждую учетную запись Active Directory, предоставляющую доступ к приложению). Сведения о настройке мультитенантного приложения см. в [руководстве разработчика по авторизации с помощью API Azure Resource Manager](resource-manager-api-authentication.md).
+You may be wondering - why do I need both objects? This approach makes more sense when you consider multi-tenant applications. You typically use multi-tenant applications for software-as-a-service (SaaS) applications, where your application runs in many different subscriptions. For multi-tenant applications, you have one AD app and multiple service principals (one in each Active Directory that grants access to the app). To set up a multi-tenant application, see [Developer's guide to authorization with the Azure Resource Manager API](resource-manager-api-authentication.md).
 
-## Необходимые разрешения
+## <a name="required-permissions"></a>Required permissions
 
-Для работы с этой статьей у вас должен быть достаточный уровень разрешений в подписке в Azure Active Directory и Azure. В частности, вы должны иметь право на создание приложения в Active Directory и назначение роли субъекту-службе.
+To complete this topic, you must have sufficient permissions in both your Azure Active Directory and your Azure subscription. Specifically, you must be able to create an app in the Active Directory, and assign the service principal to a role. 
 
-В Active Directory ваша учетная запись должна иметь права администратора (например, **глобального администратора** или **администратора пользователей**). Если вашей учетной записи назначена роль **пользователя**, вам нужно отправить запрос администратору на повышение уровня ваших разрешений.
+In your Active Directory, your account must be an administrator (such as **Global Admin** or **User Admin**). If your account is assigned to the **User** role, you need to have an administrator elevate your permissions.
 
-В вашей подписке учетная запись должна иметь доступ `Microsoft.Authorization/*/Write`, который предоставляется с ролью [владельца](./active-directory/role-based-access-built-in-roles.md#owner) или [администратора доступа пользователей](./active-directory/role-based-access-built-in-roles.md#user-access-administrator). Если вашей учетной записи назначена роль **участника**, вы получите сообщение об ошибке при попытке назначить роль субъекту-службе. Как и в предыдущем случае, администратор вашей подписки должен предоставить вам достаточный уровень разрешений для доступа.
+In your subscription, your account must have `Microsoft.Authorization/*/Write` access, which is granted through the [Owner](./active-directory/role-based-access-built-in-roles.md#owner) role or [User Access Administrator](./active-directory/role-based-access-built-in-roles.md#user-access-administrator) role. If your account is assigned to the **Contributor** role, you receive an error when attempting to assign the service principal to a role. Again, your subscription administrator must grant you sufficient access.
 
-Теперь перейдите к соответствующему разделу, чтобы выполнить проверку подлинности на основе [пароля](#create-service-principal-with-password) или [сертификата](#create-service-principal-with-certificate).
+Now, proceed to a section for either [password](#create-service-principal-with-password) or [certificate](#create-service-principal-with-certificate) authentication.
 
-## Создание субъекта-службы с использованием пароля
+## <a name="create-service-principal-with-password"></a>Create service principal with password
 
-В этом разделе содержатся инструкции, которые помогут вам:
+In this section, you perform the steps to create the AD application with a password, and assign the Reader role to the service principal.
 
-- создать приложение AD с паролем и субъектом-службой;
-- назначить роль "Читатель" субъекту-службе.
+Let's go through these steps.
 
-Чтобы быстро выполнить эти шаги, используйте следующие команды:
+1. Sign in to your account.
 
-    azure ad sp create -n exampleapp --home-page http://www.contoso.org --identifier-uris https://www.contoso.org/example -p <Your_Password>
-    azure role assignment create --objectId ff863613-e5e2-4a6b-af07-fff6f2de3f4e -o Reader -c /subscriptions/{subscriptionId}/
-
-Давайте остановимся на этих шагах подробнее, чтобы разобраться со всей процедурой.
-
-1. Войдите в свою учетную запись.
-
-        azure config mode arm
         azure login
 
-1. Создайте субъект-службу для своего приложения. Укажите отображаемое имя, универсальный код ресурса (URI) на странице, описывающей приложение, коды URI, идентифицирующие приложение, а также пароль для его удостоверения. Эта команда создает приложение AD и субъект-службу.
+1. You have two options for creating the AD application. You can either create the AD application and the service principal in one step, or create them separately. Create them in one step if you do not need specify a home page and identifier URIs for your app. Create them separately if you need to set these values for a web app. Both options are shown in this step.
 
-        azure ad sp create -n exampleapp --home-page http://www.contoso.org --identifier-uris https://www.contoso.org/example -p {your-password}
-        
-     Для однотенантных приложений коды URI не проверяются.
+     - To create the AD application and service principal in one step, provide the name of the app and a password, as shown in the following command:
      
-     Если ваша учетная запись не имеет [требуемых разрешений](#required-permissions) для Active Directory, вы увидите сообщение об ошибке с текстом "Authentication\_Unauthorized" (Аутентификация отклонена) или "No subscription found in the context" (В этом контексте подписки не обнаружены).
+            azure ad sp create -n exampleapp -p {your-password}     
+     
+     - To create the AD application separately, provide the name of the app, a home page URI, identifier URIs, and a password, as shown in the following command:
+     
+            azure ad app create -n exampleapp --home-page http://www.contoso.org --identifier-uris https://www.contoso.org/example -p <Your_Password>
+
+         The preceding command returns an AppId value. To create a service principal, provide that value as a parameter in the following command:
+     
+            azure ad sp create -a <AppId>
+     
+     If your account does not have the [required permissions](#required-permissions) on the Active Directory, you see an error message indicating "Authentication_Unauthorized" or "No subscription found in the context".
     
-     Возвращается новый субъект-служба. При предоставлении разрешений требуется идентификатор объекта. Имя субъекта-службы требуется для входа в систему.
+     For both options, the new service principal is returned. The **Object Id** is needed when granting permissions. The guid listed with the **Service Principal Names** is needed when logging in. This guid is the same value as the app id. In the sample applications, this value is referred to as the **Client ID**. 
     
         info:    Executing command ad sp create
         + Creating application exampleapp
@@ -88,23 +88,23 @@
         data:                             https://www.contoso.org/example
         info:    ad sp create command OK
 
-2. Предоставьте субъекту-службе разрешения на вашу подписку. В этом примере показано, как назначить субъекту-службе роль **читателя**, которая дает разрешение на чтение всех ресурсов в подписке. Сведения о других ролях см. в статье [RBAC: встроенные роли](./active-directory/role-based-access-built-in-roles.md). Для параметра **ServicePrincipalName** укажите значение **ObjectId**, которое использовалось при создании приложения.
+2. Grant the service principal permissions on your subscription. In this example, you add the service principal to the **Reader** role, which grants permission to read all resources in the subscription. For other roles, see [RBAC: Built-in roles](./active-directory/role-based-access-built-in-roles.md). For the **ServicePrincipalName** parameter, provide the **ObjectId** that you used when creating the application. 
 
         azure role assignment create --objectId ff863613-e5e2-4a6b-af07-fff6f2de3f4e -o Reader -c /subscriptions/{subscriptionId}/
 
-     Если у вашей учетной записи нет достаточных разрешений для назначения ролей, вы получите сообщение об ошибке. В нем будет указано, что у вашей учетной записи **нет разрешения на выполнение действия Microsoft.Authorization/roleAssignments/write в области /subscriptions/{guid}**.
+     If your account does not have sufficient permissions to assign a role, you see an error message. The message states your account **does not have authorization to perform action 'Microsoft.Authorization/roleAssignments/write' over scope '/subscriptions/{guid}'**. 
 
-Вот и все! Приложение AD и субъект-служба настроены. В следующем разделе показано, как выполнить вход с использованием учетных данных с помощью Azure CLI. Если необходимо использовать учетные данные в коде приложения, выполнять действия, описанные ниже, не требуется. Вы можете перейти к разделу [Примеры приложений](#sample-applications), где приведены примеры входа с использованием идентификатора приложения и пароля.
+That's it! Your AD application and service principal are set up. The next section shows you how to log in with the credential through Azure CLI. If you want to use the credential in your code application, you do not need to continue with this topic. You can jump to the [Sample applications](#sample-applications) for examples of logging in with your application id and password. 
 
-### Предоставление учетных данных через Azure CLI
+### <a name="provide-credentials-through-azure-cli"></a>Provide credentials through Azure CLI
 
-Теперь следует войти в систему от имени приложения для выполнения операций.
+Now, you need to log in as the application to perform operations.
 
-1. При каждом входе в приложение AD в качестве субъекта-службы необходимо указать идентификатор клиента каталога. Клиент — это экземпляр Active Directory. Чтобы получить идентификатор клиента для текущей аутентифицированной подписки, используйте следующую команду:
+1. Whenever you sign in as a service principal, you need to provide the tenant id of the directory for your AD app. A tenant is an instance of Active Directory. To retrieve the tenant id for your currently authenticated subscription, use:
 
         azure account show
 
-     Возвращаемые данные:
+     Which returns:
 
         info:    Executing command account show
         data:    Name                        : Windows Azure MSDN - Visual Studio Ultimate
@@ -114,55 +114,81 @@
         data:    Is Default                  : true
         ...
 
-     Если необходимо получить идентификатор клиента другой подписки, используйте следующую команду:
+     If you need to get the tenant id of another subscription, use the following command:
 
         azure account show -s {subscription-id}
 
-3. Выполните вход как субъект-служба.
+2. If you need to retrieve the client id to use for logging in, use:
 
-        azure login -u https://www.contoso.org/example --service-principal --tenant {tenant-id}
+        azure ad sp show -c exampleapp --json
 
-    Появится запрос на ввод пароля. Введите пароль, который вы задали при создании приложения AD.
+     The value to use for logging in is the guid listed in the service principal names.
+
+        [
+          {
+            "objectId": "ff863613-e5e2-4a6b-af07-fff6f2de3f4e",
+            "objectType": "ServicePrincipal",
+            "displayName": "exampleapp",
+            "appId": "7132aca4-1bdb-4238-ad81-996ff91d8db4",
+            "servicePrincipalNames": [
+              "https://www.contoso.org/example",
+              "7132aca4-1bdb-4238-ad81-996ff91d8db4"
+            ]
+          }
+        ]
+
+3. Log in as the service principal.
+
+        azure login -u 7132aca4-1bdb-4238-ad81-996ff91d8db4 --service-principal --tenant {tenant-id}
+
+    You are prompted for the password. Provide the password you specified when creating the AD application.
 
         info:    Executing command login
         Password: ********
 
-Теперь вы прошли проверку подлинности от имени субъекта-службы для созданного вами приложения.
+You are now authenticated as the service principal for the service principal that you created.
 
-## Создание субъекта-службы с использованием сертификата
+## <a name="create-service-principal-with-certificate"></a>Create service principal with certificate
 
-В этом разделе содержатся инструкции, которые помогут вам:
+In this section, you perform the steps to:
 
-- создать самозаверяющий сертификат;
-- создать приложение AD с сертификатом и субъектом-службой;
-- назначить роль "Читатель" субъекту-службе.
+- create a self-signed certificate
+- create the AD application with the certificate, and the service principal
+- assign the Reader role to the service principal
 
-Для выполнения этих действий в системе должен быть установлен [OpenSSL](http://www.openssl.org/).
+To complete these steps, you must have [OpenSSL](http://www.openssl.org/) installed.
 
-1. Создать самозаверяющий сертификат.
+1. Create a self-signed certificate.
 
         openssl req -x509 -days 3650 -newkey rsa:2048 -out cert.pem -nodes -subj '/CN=exampleapp'
 
-2. Объедините открытый и закрытый ключи.
+2. Combine the public and private keys.
 
         cat privkey.pem cert.pem > examplecert.pem
 
-3. Откройте файл **examplecert.pem** и найдите длинную последовательность символов между тегами **-----BEGIN CERTIFICATE-----** и **-----END CERTIFICATE-----**. Скопируйте данные сертификата. Во время создания субъекта-службы эти данные передаются в качестве параметра.
+3. Open the **examplecert.pem** file and look for the long sequence of characters between **-----BEGIN CERTIFICATE-----** and **-----END CERTIFICATE-----**. Copy the certificate data. You pass this data as a parameter when creating the service principal.
 
-1. Войдите в свою учетную запись.
+1. Sign in to your account.
 
-        azure config mode arm
         azure login
 
-1. Создайте субъект-службу для своего приложения. Укажите отображаемое имя, универсальный код ресурса (URI) на странице, описывающей приложение, коды URI, идентифицирующие приложение, а также скопированные данные сертификата. Эта команда создает приложение AD и субъект-службу.
+1. You have two options for creating the AD application. You can either create the AD application and the service principal in one step, or create them separately. Create them in one step if you do not need specify a home page and identifier URIs for your app. Create them separately if you need to set these values for a web app. Both options are shown in this step.
 
-        azure ad sp create -n "exampleapp" --home-page "https://www.contoso.org" -i "https://www.contoso.org/example" --key-value <certificate data>
-        
-     Для однотенантных приложений коды URI не проверяются.
+     - To create the AD application and service principal in one step, provide the name of the app and the certificate data, as shown in the following command:
      
-     Если ваша учетная запись не имеет [требуемых разрешений](#required-permissions) для Active Directory, вы увидите сообщение об ошибке с текстом "Authentication\_Unauthorized" (Аутентификация отклонена) или "No subscription found in the context" (В этом контексте подписки не обнаружены).
+            azure ad sp create -n exampleapp --cert-value <certificate data>
+     
+     - To create the AD application separately, provide the name of the app, a home page URI, identifier URIs, and the certificate data, as shown in the following command:
+     
+            azure ad app create -n exampleapp --home-page http://www.contoso.org --identifier-uris https://www.contoso.org/example --cert-value <certificate data>
+
+         The preceding command returns an AppId value. To create a service principal, provide that value as a parameter in the following command:
+     
+            azure ad sp create -a <AppId>
+  
+     If your account does not have the [required permissions](#required-permissions) on the Active Directory, you see an error message indicating "Authentication_Unauthorized" or "No subscription found in the context".
     
-     Возвращается новый субъект-служба. При предоставлении разрешений требуется идентификатор объекта.
+     For both options, the new service principal is returned. The Object Id is needed when granting permissions. The guid listed with the **Service Principal Names** is needed when logging in. This guid is the same value as the app id. In the sample applications, this value is referred to as the **Client ID**. 
     
         info:    Executing command ad sp create
         - Creating service principal for application 4fd39843-c338-417d-b549-a545f584a74+
@@ -173,21 +199,21 @@
         data:                      https://www.contoso.org/example
         info:    ad sp create command OK
         
-2. Предоставьте субъекту-службе разрешения на вашу подписку. В этом примере показано, как назначить субъекту-службе роль **читателя**, которая дает разрешение на чтение всех ресурсов в подписке. Сведения о других ролях см. в статье [RBAC: встроенные роли](./active-directory/role-based-access-built-in-roles.md). Для параметра **ServicePrincipalName** укажите значение **ObjectId**, которое использовалось при создании приложения.
+2. Grant the service principal permissions on your subscription. In this example, you add the service principal to the **Reader** role, which grants permission to read all resources in the subscription. For other roles, see [RBAC: Built-in roles](./active-directory/role-based-access-built-in-roles.md). For the **ServicePrincipalName** parameter, provide the **ObjectId** that you used when creating the application. 
 
         azure role assignment create --objectId 7dbc8265-51ed-4038-8e13-31948c7f4ce7 -o Reader -c /subscriptions/{subscriptionId}/
 
-     Если у вашей учетной записи нет достаточных разрешений для назначения ролей, вы получите сообщение об ошибке. В нем будет указано, что у вашей учетной записи **нет разрешения на выполнение действия Microsoft.Authorization/roleAssignments/write в области /subscriptions/{guid}**.
+     If your account does not have sufficient permissions to assign a role, you see an error message. The message states your account **does not have authorization to perform action 'Microsoft.Authorization/roleAssignments/write' over scope '/subscriptions/{guid}'**. 
 
-### Предоставление сертификата с помощью автоматизированного сценария для интерфейса командной строки Azure
+### <a name="provide-certificate-through-automated-azure-cli-script"></a>Provide certificate through automated Azure CLI script
 
-Теперь следует войти в систему от имени приложения для выполнения операций.
+Now, you need to log in as the application to perform operations.
 
-1. При каждом входе в приложение AD в качестве субъекта-службы необходимо указать идентификатор клиента каталога. Клиент — это экземпляр Active Directory. Чтобы получить идентификатор клиента для текущей аутентифицированной подписки, используйте следующую команду:
+1. Whenever you sign in as a service principal, you need to provide the tenant id of the directory for your AD app. A tenant is an instance of Active Directory. To retrieve the tenant id for your currently authenticated subscription, use:
 
         azure account show
 
-     Возвращаемые данные:
+     Which returns:
 
         info:    Executing command account show
         data:    Name                        : Windows Azure MSDN - Visual Studio Ultimate
@@ -197,57 +223,80 @@
         data:    Is Default                  : true
         ...
 
-     Если необходимо получить идентификатор клиента другой подписки, используйте следующую команду:
+     If you need to get the tenant id of another subscription, use the following command:
 
         azure account show -s {subscription-id}
 
-1. Чтобы получить отпечаток сертификата и удалить ненужные символы, используйте такую команду:
+1. To retrieve the certificate thumbprint and remove unneeded characters, use:
 
         openssl x509 -in "C:\certificates\examplecert.pem" -fingerprint -noout | sed 's/SHA1 Fingerprint=//g'  | sed 's/://g'
     
-     Возвращается значение отпечатка следующего вида:
+     Which returns a thumbprint value similar to:
 
         30996D9CE48A0B6E0CD49DBB9A48059BF9355851
 
-1. Выполните вход как субъект-служба.
+2. If you need to retrieve the client id to use for logging in, use:
 
-        azure login --service-principal --tenant {tenant-id} -u https://www.contoso.org/example --certificate-file C:\certificates\examplecert.pem --thumbprint {thumbprint}
+        azure ad sp show -c exampleapp
 
-После этого субъект-служба для созданного вами приложения Active Directory пройдет проверку подлинности.
+     The value to use for logging in is the guid listed in the service principal names.
 
-## Примеры приложений
+        [
+          {
+            "objectId": "7dbc8265-51ed-4038-8e13-31948c7f4ce7",
+            "objectType": "ServicePrincipal",
+            "displayName": "exampleapp",
+            "appId": "4fd39843-c338-417d-b549-a545f584a745",
+            "servicePrincipalNames": [
+              "https://www.contoso.org/example",
+              "4fd39843-c338-417d-b549-a545f584a745"
+            ]
+          }
+        ]
 
-Следующие примеры приложений демонстрируют вход в качестве субъекта-службы.
+1. Log in as the service principal.
+
+        azure login --service-principal --tenant {tenant-id} -u 4fd39843-c338-417d-b549-a545f584a745 --certificate-file C:\certificates\examplecert.pem --thumbprint {thumbprint}
+
+You are now authenticated as the service principal for the Active Directory application that you created.
+
+## <a name="sample-applications"></a>Sample applications
+
+The following sample applications show how to log in as the service principal.
 
 **.NET**
 
-- [Развертывание виртуальной машины с включенным протоколом SSH на основе шаблона с помощью .NET](https://azure.microsoft.com/documentation/samples/resource-manager-dotnet-template-deployment/)
-- [Управление ресурсами и группами ресурсов Azure с помощью .NET](https://azure.microsoft.com/documentation/samples/resource-manager-dotnet-resources-and-groups/)
+- [Deploy an SSH Enabled VM with a Template with .NET](https://azure.microsoft.com/documentation/samples/resource-manager-dotnet-template-deployment/)
+- [Manage Azure resources and resource groups with .NET](https://azure.microsoft.com/documentation/samples/resource-manager-dotnet-resources-and-groups/)
 
 **Java**
 
-- [Приступая к работе с ресурсами: развертывание с помощью шаблона Azure Resource Manager на Java](https://azure.microsoft.com/documentation/samples/resources-java-deploy-using-arm-template/)
-- [Приступая к работе с ресурсами: управление группой ресурсов на Java](https://azure.microsoft.com/documentation/samples/resources-java-manage-resource-group//)
+- [Getting Started with Resources - Deploy Using Azure Resource Manager Template - in Java](https://azure.microsoft.com/documentation/samples/resources-java-deploy-using-arm-template/)
+- [Getting Started with Resources - Manage Resource Group - in Java](https://azure.microsoft.com/documentation/samples/resources-java-manage-resource-group//)
 
 **Python**
 
-- [Развертывание виртуальной машины с включенным протоколом SSH на основе шаблона на Python](https://azure.microsoft.com/documentation/samples/resource-manager-python-template-deployment/)
-- [Управление ресурсами и группами ресурсов Azure с помощью Python](https://azure.microsoft.com/documentation/samples/resource-manager-python-resources-and-groups/)
+- [Deploy an SSH Enabled VM with a Template in Python](https://azure.microsoft.com/documentation/samples/resource-manager-python-template-deployment/)
+- [Managing Azure Resource and Resource Groups with Python](https://azure.microsoft.com/documentation/samples/resource-manager-python-resources-and-groups/)
 
 **Node.js**
 
-- [Развертывание виртуальной машины с включенным протоколом SSH на основе шаблона на Node.js](https://azure.microsoft.com/documentation/samples/resource-manager-node-template-deployment/)
-- [Управление ресурсами и группами ресурсов Azure с помощью Node.js](https://azure.microsoft.com/documentation/samples/resource-manager-node-resources-and-groups/)
+- [Deploy an SSH Enabled VM with a Template in Node.js](https://azure.microsoft.com/documentation/samples/resource-manager-node-template-deployment/)
+- [Manage Azure resources and resource groups with Node.js](https://azure.microsoft.com/documentation/samples/resource-manager-node-resources-and-groups/)
 
 **Ruby**
 
-- [Развертывание виртуальной машины с включенным протоколом SSH на основе шаблона на Ruby](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-template-deployment/)
-- [Управление ресурсами и группами ресурсов Azure с помощью Ruby](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-resources-and-groups/)
+- [Deploy an SSH Enabled VM with a Template in Ruby](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-template-deployment/)
+- [Managing Azure Resource and Resource Groups with Ruby](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-resources-and-groups/)
 
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Next Steps
   
-- Подробные инструкции по интеграции приложения в Azure для управления ресурсами см. в [руководстве разработчика по авторизации с помощью API Azure Resource Manager](resource-manager-api-authentication.md).
-- Дополнительные сведения об использовании сертификатов и Azure CLI см. в статье [Certificate-based auth with Azure Service Principals from Linux command line](http://blogs.msdn.com/b/arsen/archive/2015/09/18/certificate-based-auth-with-azure-service-principals-from-linux-command-line.aspx) (Проверка подлинности на основе сертификата для субъектов-служб Azure из командной строки Linux).
+- For detailed steps on integrating an application into Azure for managing resources, see [Developer's guide to authorization with the Azure Resource Manager API](resource-manager-api-authentication.md).
+- To get more information about using certificates and Azure CLI, see [Certificate-based authentication with Azure Service Principals from Linux command line](http://blogs.msdn.com/b/arsen/archive/2015/09/18/certificate-based-auth-with-azure-service-principals-from-linux-command-line.aspx). 
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

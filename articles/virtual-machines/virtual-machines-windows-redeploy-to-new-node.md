@@ -1,44 +1,48 @@
 <properties 
-	pageTitle="Повторное развертывание виртуальных машин Windows | Microsoft Azure" 
-	description="Повторное развертывание виртуальных машин Windows для устранения проблем с подключением к удаленному рабочему столу." 
-	services="virtual-machines-windows" 
-	documentationCenter="virtual-machines" 
-	authors="iainfoulds" 
-	manager="timlt"
-	tags="azure-resource-manager,top-support-issue" 
+    pageTitle="Redeploy Windows virtual machines | Microsoft Azure" 
+    description="Describes how to redeploy Windows virtual machines to mitigate RDP connection issues." 
+    services="virtual-machines-windows" 
+    documentationCenter="virtual-machines" 
+    authors="iainfoulds" 
+    manager="timlt"
+    tags="azure-resource-manager,top-support-issue" 
 />
-	
+    
 
 <tags 
-	ms.service="virtual-machines-windows" 
-	ms.devlang="na" 
-	ms.topic="support-article" 
-	ms.tgt_pltfrm="vm-windows"
-	ms.workload="infrastructure" 
-	ms.date="09/19/2016" 
-	ms.author="iainfou" 
+    ms.service="virtual-machines-windows" 
+    ms.devlang="na" 
+    ms.topic="support-article" 
+    ms.tgt_pltfrm="vm-windows"
+    ms.workload="infrastructure" 
+    ms.date="09/19/2016" 
+    ms.author="iainfou" 
 />
 
 
-# Повторное развертывание виртуальной машины на новом узле Azure
 
-Если вам не удается подключиться к удаленному рабочему столу или получить доступ к приложению на виртуальной машине Microsoft Azure, можно попробовать повторно развернуть виртуальную машину. При повторном развертывании виртуальная машина перемещается на новый узел в рамках инфраструктуры Azure. Там она снова включается с сохранением всех параметров конфигурации и связанных ресурсов. В этой статье показано, как повторно развернуть виртуальную машину с помощью Azure PowerShell или портала Azure.
+# <a name="redeploy-virtual-machine-to-new-azure-node"></a>Redeploy virtual machine to new Azure node
 
-> [AZURE.NOTE] После развертывания временный диск будет удален, а связанные с виртуальным сетевым интерфейсом динамические IP-адреса будут обновлены.
+If you have been facing difficulties troubleshooting Remote Desktop (RDP) connection or application access to Windows-based Azure virtual machine (VM), redeploying the VM may help. When you redeploy a VM, it moves the VM to a new node within the Azure infrastructure and then powers it back on, retaining all your configuration options and associated resources. This article shows you how to redeploy a VM using Azure PowerShell or the Azure portal.
 
-## Использование Azure PowerShell
+> [AZURE.NOTE] After you redeploy a VM, the temporary disk is lost and dynamic IP addresses associated with virtual network interface are updated. 
 
-Убедитесь, что на компьютере установлена последняя версия Azure PowerShell 1.x. Дополнительные сведения см. в статье [Установка и настройка Azure PowerShell](../powershell-install-configure.md).
+## <a name="using-azure-powershell"></a>Using Azure PowerShell
 
-Используйте эту команду Azure PowerShell для повторного развертывания виртуальной машины.
+Make sure you have the latest Azure PowerShell 1.x installed on your machine. For more information, see [How to install and configure Azure PowerShell](../powershell-install-configure.md).
 
-	Set-AzureRmVM -Redeploy -ResourceGroupName $rgname -Name $vmname 
+Use this Azure PowerShell command to redeploy your virtual machine:
+
+    Set-AzureRmVM -Redeploy -ResourceGroupName $rgname -Name $vmname 
 
 
 [AZURE.INCLUDE [virtual-machines-common-redeploy-to-new-node](../../includes/virtual-machines-common-redeploy-to-new-node.md)]
 
 
-## Дальнейшие действия
-При проблемах с подключением к виртуальной машине ознакомьтесь со статьями [Устранение неполадок с подключением к удаленному рабочему столу на виртуальной машине Azure под управлением Windows](virtual-machines-windows-troubleshoot-rdp-connection.md) и [Подробная диагностика подключений к удаленному рабочему столу виртуальной машины Azure под управлением Windows](virtual-machines-windows-detailed-troubleshoot-rdp.md). При проблемах с доступом к приложению, выполняющемуся в виртуальной машине, ознакомьтесь со статьей [Устранение неполадок доступа к приложению, выполняющемуся в виртуальной машине Azure](virtual-machines-windows-troubleshoot-app-connection.md).
+## <a name="next-steps"></a>Next steps
+If you are having issues connecting to your VM, you can find specific help on [troubleshooting RDP connections](virtual-machines-windows-troubleshoot-rdp-connection.md) or [detailed RDP troubleshooting steps](virtual-machines-windows-detailed-troubleshoot-rdp.md). If you cannot access an application running on your VM, you can also read [application troubleshooting issues](virtual-machines-windows-troubleshoot-app-connection.md).
 
-<!---HONumber=AcomDC_0921_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

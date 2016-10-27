@@ -1,128 +1,139 @@
 <properties 
-    pageTitle="Руководство. Интеграция Azure Active Directory с Lucidchart | Microsoft Azure" 
-    description="Узнайте, как использовать Lucidchart вместе с Azure Active Directory для реализации единого входа, автоматической подготовки и выполнения других задач." 
+    pageTitle="Tutorial: Azure Active Directory integration with Lucidchart | Microsoft Azure" 
+    description="Learn how to use Lucidchart with Azure Active Directory to enable single sign-on, automated provisioning, and more!" 
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
-	manager="femila"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="07/08/2016" 
+    ms.date="09/29/2016" 
     ms.author="jeedes" />
 
-#Руководство. Интеграция Azure Active Directory с Lucidchart
+
+#<a name="tutorial:-azure-active-directory-integration-with-lucidchart"></a>Tutorial: Azure Active Directory integration with Lucidchart
   
-Цель данного руководства — показать интеграцию Azure и Lucidchart. Сценарий, описанный в этом учебнике, предполагает, что у вас уже имеется:
+The objective of this tutorial is to show the integration of Azure and Lucidchart.  
+The scenario outlined in this tutorial assumes that you already have the following items:
 
--   Действующая подписка на Azure
--   Подписка с поддержкой единого входа Lucidchart
+-   A valid Azure subscription
+-   A Lucidchart single sign-on enabled subscription
   
-После завершения этого руководства пользователи Azure AD, назначенные Lucidchart, будут иметь возможность единого входа в приложение на веб-сайте компании Lucidchart (вход, инициированный поставщиком услуг) или с помощью инструкций из статьи [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
+After completing this tutorial, the Azure AD users you have assigned to Lucidchart will be able to single sign into the application at your Lucidchart company site (service provider initiated sign on), or using the [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
   
-Сценарий, описанный в этом учебнике, состоит из следующих блоков:
+The scenario outlined in this tutorial consists of the following building blocks:
 
-1.  Включение интеграции приложений для Lucidchart
-2.  Настройка единого входа
-3.  Настройка подготовки учетных записей пользователей
-4.  Назначение пользователей
+1.  Enabling the application integration for Lucidchart
+2.  Configuring single sign-on
+3.  Configuring user provisioning
+4.  Assigning users
 
-![Сценарий](./media/active-directory-saas-lucidchart-tutorial/IC791183.png "Сценарий")
-##Включение интеграции приложений для Lucidchart
+![Scenario](./media/active-directory-saas-lucidchart-tutorial/IC791183.png "Scenario")
+##<a name="enabling-the-application-integration-for-lucidchart"></a>Enabling the application integration for Lucidchart
   
-В этом разделе показано, как включить интеграцию приложений для Lucidchart.
+The objective of this section is to outline how to enable the application integration for Lucidchart.
 
-###Чтобы включить интеграцию приложений для Lucidchart, выполните следующие действия.
+###<a name="to-enable-the-application-integration-for-lucidchart,-perform-the-following-steps:"></a>To enable the application integration for Lucidchart, perform the following steps:
 
-1.  На классическом портале Azure в области навигации слева щелкните **Active Directory**.
+1.  In the Azure classic portal, on the left navigation pane, click **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-lucidchart-tutorial/IC700993.png "Active Directory")
 
-2.  Из списка **Каталог** выберите каталог, для которого нужно включить интеграцию каталогов.
+2.  From the **Directory** list, select the directory for which you want to enable directory integration.
 
-3.  Чтобы открыть представление приложений, в представлении каталога нажмите **Приложения** в верхнем меню.
+3.  To open the applications view, in the directory view, click **Applications** in the top menu.
 
-    ![Приложения](./media/active-directory-saas-lucidchart-tutorial/IC700994.png "Приложения")
+    ![Applications](./media/active-directory-saas-lucidchart-tutorial/IC700994.png "Applications")
 
-4.  В нижней части страницы нажмите кнопку **Добавить**.
+4.  Click **Add** at the bottom of the page.
 
-    ![Добавление приложения](./media/active-directory-saas-lucidchart-tutorial/IC749321.png "Добавление приложения")
+    ![Add application](./media/active-directory-saas-lucidchart-tutorial/IC749321.png "Add application")
 
-5.  В диалоговом окне **Что необходимо сделать?** нажмите **Добавить приложение из коллекции**.
+5.  On the **What do you want to do** dialog, click **Add an application from the gallery**.
 
-    ![Добавить приложение из коллекции](./media/active-directory-saas-lucidchart-tutorial/IC749322.png "Добавить приложение из коллекции")
+    ![Add an application from gallerry](./media/active-directory-saas-lucidchart-tutorial/IC749322.png "Add an application from gallerry")
 
-6.  В **поле поиска** введите **Lucidchart**.
+6.  In the **search box**, type **Lucidchart**.
 
-    ![Коллекция приложений](./media/active-directory-saas-lucidchart-tutorial/IC791184.png "Коллекция приложений")
+    ![Application Gallery](./media/active-directory-saas-lucidchart-tutorial/IC791184.png "Application Gallery")
 
-7.  В области результатов выберите **Lucidchart** и нажмите кнопку **Завершить**, чтобы добавить приложение.
+7.  In the results pane, select **Lucidchart**, and then click **Complete** to add the application.
 
     ![Lucidchart](./media/active-directory-saas-lucidchart-tutorial/IC791185.png "Lucidchart")
-##Настройка единого входа
+##<a name="configuring-single-sign-on"></a>Configuring single sign-on
   
-В этом разделе показано, как разрешить пользователям проходить проверку подлинности в Lucidchart со своей учетной записью Azure AD, используя федерацию на основе протокола SAML.
+The objective of this section is to outline how to enable users to authenticate to Lucidchart with their account in Azure AD using federation based on the SAML protocol.
 
-###Чтобы настроить единый вход, выполните следующие действия.
+###<a name="to-configure-single-sign-on,-perform-the-following-steps:"></a>To configure single sign-on, perform the following steps:
 
-1.  На странице интеграции с приложением **Lucidchart** классического портала Azure щелкните **Настройка единого входа**, чтобы открыть диалоговое окно **Настройка единого входа**.
+1.  In the Azure classic portal, on the **Lucidchart** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
 
-    ![Настройка единого входа](./media/active-directory-saas-lucidchart-tutorial/IC791186.png "Настройка единого входа")
+    ![Configure Single Sign-On](./media/active-directory-saas-lucidchart-tutorial/IC791186.png "Configure Single Sign-On")
 
-2.  На странице **Как пользователи должны входить в Lucidchart?** выберите **Единый вход Microsoft Azure AD** и нажмите кнопку **Далее**.
+2.  On the **How would you like users to sign on to Lucidchart** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
-    ![Настройка единого входа](./media/active-directory-saas-lucidchart-tutorial/IC791187.png "Настройка единого входа")
+    ![Configure Single Sign-On](./media/active-directory-saas-lucidchart-tutorial/IC791187.png "Configure Single Sign-On")
 
-3.  На странице **Настроить URL-адрес приложения** в текстовом поле **URL-адрес входа в Lucidchart** введите URL-адрес, используемый вашими пользователями для входа в приложение Lucidchart (например, "*https://chart2.office.lucidchart.com/saml/sso/azure*"), и нажмите кнопку **Далее**.
+3.  On the **Configure App URL** page, in the **Lucidchart Sign On URL** textbox, type the URL used by your users to sign on to your Lucidchart application (e.g.: "*https://chart2.office.lucidchart.com/saml/sso/azure*"), and then click **Next**.
 
-    ![Настройка URL-адреса приложения](./media/active-directory-saas-lucidchart-tutorial/IC791188.png "Настройка URL-адреса приложения")
+    ![Configure App URL](./media/active-directory-saas-lucidchart-tutorial/IC791188.png "Configure App URL")
 
-4.  На странице **Настройка единого входа в Lucidchart** нажмите кнопку **Загрузить метаданные** для скачивания метаданных, а затем сохраните файл данных локально на компьютере.
+4.  On the **Configure single sign-on at Lucidchart** page, to download your metadata, click **Download metadata**, and then save the data file locally on your computer.
 
-    ![Настройка единого входа](./media/active-directory-saas-lucidchart-tutorial/IC791189.png "Настройка единого входа")
+    ![Configure Single Sign-On](./media/active-directory-saas-lucidchart-tutorial/IC791189.png "Configure Single Sign-On")
 
-5.  В другом окне веб-браузера зайдите на веб-сайт компании Lucidchart в качестве администратора.
+5.  In a different web browser window, log into your Lucidchart company site as an administrator.
 
-6.  В верхнем меню нажмите пункт **Группа**.
+6.  In the menu on the top, click **Team**.
 
-    ![Группа](./media/active-directory-saas-lucidchart-tutorial/IC791190.png "Группа")
+    ![Team](./media/active-directory-saas-lucidchart-tutorial/IC791190.png "Team")
 
-7.  Выберите **Приложение > Управление SAML**.
+7.  Click **Application \> Manage SAML**.
 
-    ![Управление SAML](./media/active-directory-saas-lucidchart-tutorial/IC791191.png "Управление SAML")
+    ![Manage SAML](./media/active-directory-saas-lucidchart-tutorial/IC791191.png "Manage SAML")
 
-8.  На странице диалогового окна **Параметры проверки подлинности SAML** выполните следующие действия.
+8.  On the **SAML Authentication Settings** dialog page, perform the following steps:
 
-    1.  Выберите **Включить проверку подлинности SAML**, а затем нажмите **Необязательно**. ![Параметры проверки подлинности SAML](./media/active-directory-saas-lucidchart-tutorial/IC791192.png "Параметры проверки подлинности SAML")
-    2.  В текстовом поле **Домен** введите домен и нажмите **Изменить сертификат**. ![Изменить сертификат](./media/active-directory-saas-lucidchart-tutorial/IC791193.png "Изменить сертификат")
-    3.  Откройте скачанный файл метаданных, скопируйте его содержимое и вставьте его в текстовое поле **Отправка метаданных**. ![Отправка метаданных](./media/active-directory-saas-lucidchart-tutorial/IC791194.png "Отправка метаданных")
-    4.  Выберите **Автоматически добавить нового пользователя в группу**, а затем нажмите кнопку **Сохранить изменения**. ![Сохранить изменения](./media/active-directory-saas-lucidchart-tutorial/IC791195.png "Сохранить изменения")
+    1.  Select **Enable SAML Authentication**, and then click **Optional**.
+        ![SAML Authentication Settings](./media/active-directory-saas-lucidchart-tutorial/IC791192.png "SAML Authentication Settings")
+    2.  In the **Domain** textbox, type your domain, and then click **Change Certificate**.
+        ![Change Certificate](./media/active-directory-saas-lucidchart-tutorial/IC791193.png "Change Certificate")
+    3.  Open your downloaded metadata file, copy the content, and then paste it into the **Upload Metadata** textbox.
+        ![Upload Metadata](./media/active-directory-saas-lucidchart-tutorial/IC791194.png "Upload Metadata")
+    4.  Select **Automatically Add new user to the team**, and then click **Save changes**.
+        ![Save Changes](./media/active-directory-saas-lucidchart-tutorial/IC791195.png "Save Changes")
 
-9.  Выберите подтверждение конфигурации единого входа, а затем нажмите кнопку **Завершить**, чтобы закрыть диалоговое окно **Настройка единого входа**.
+9.  Select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
 
-    ![Настройка единого входа](./media/active-directory-saas-lucidchart-tutorial/IC791196.png "Настройка единого входа")
-##Настройка подготовки учетных записей пользователей
+    ![Configure Single Sign-On](./media/active-directory-saas-lucidchart-tutorial/IC791196.png "Configure Single Sign-On")
+##<a name="configuring-user-provisioning"></a>Configuring user provisioning
   
-Элемент действия для настройки подготовки пользователей в Lucidchart отсутствует. Когда назначенный пользователь пытается войти в Lucidchart с помощью панели доступа, Lucidchart проверяет, существует ли данный пользователь. Если учетная запись пользователя отсутствует, Lucidchart автоматически создает ее.
-##Назначение пользователей
+There is no action item for you to configure user provisioning to Lucidchart.  
+When an assigned user tries to log into Lucidchart using the access panel, Lucidchart checks whether the user exists.  
+If there is no user account available yet, it is automatically created by Lucidchart.
+##<a name="assigning-users"></a>Assigning users
   
-Чтобы проверить свою конфигурацию, предоставьте пользователям Azure AD, которые должны использовать приложение, доступ путем их назначения.
+To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.
 
-###Чтобы назначить пользователей Lucidchart, выполните следующие действия.
+###<a name="to-assign-users-to-lucidchart,-perform-the-following-steps:"></a>To assign users to Lucidchart, perform the following steps:
 
-1.  На классическом портале Azure создайте тестовую учетную запись.
+1.  In the Azure classic portal, create a test account.
 
-2.  На странице интеграции с приложением **Lucidchart** щелкните **Назначить пользователей**.
+2.  On the **Lucidchart **application integration page, click **Assign users**.
 
-    ![Назначить пользователей](./media/active-directory-saas-lucidchart-tutorial/IC791197.png "Назначить пользователей")
+    ![Assign Users](./media/active-directory-saas-lucidchart-tutorial/IC791197.png "Assign Users")
 
-3.  Выберите тестового пользователя, нажмите кнопку **Назначить**, а затем — **Да**, чтобы подтвердить назначение.
+3.  Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.
 
-    ![Да](./media/active-directory-saas-lucidchart-tutorial/IC767830.png "Да")
+    ![Yes](./media/active-directory-saas-lucidchart-tutorial/IC767830.png "Yes")
   
-Если вы хотите проверить параметры единого входа, откройте панель доступа. Дополнительные сведения о панели доступа см. в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
+If you want to test your single sign-on settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0713_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

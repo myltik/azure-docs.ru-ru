@@ -1,45 +1,46 @@
 <properties
-	pageTitle="Azure Active Directory B2C | Microsoft Azure"
-	description="В статье описываются типы маркеров, выпускаемых в Azure Active Directory B2C."
-	services="active-directory-b2c"
-	documentationCenter=""
-	authors="dstrockis"
-	manager="msmbaldwin"
-	editor=""/>
+    pageTitle="Azure Active Directory B2C | Microsoft Azure"
+    description="The types of tokens issued in the Azure Active Directory B2C."
+    services="active-directory-b2c"
+    documentationCenter=""
+    authors="dstrockis"
+    manager="mbaldwin"
+    editor=""/>
 
 <tags
-	ms.service="active-directory-b2c"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/22/2016"
-	ms.author="dastrock"/>
+    ms.service="active-directory-b2c"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="07/22/2016"
+    ms.author="dastrock"/>
 
 
-# Azure AD B2C: справочник по маркерам
 
-При обработке каждого [потока проверки подлинности](active-directory-b2c-apps.md) Azure Active Directory (Azure AD) B2C создает маркеры безопасности различных типов. В этом документе описывается формат, характеристики безопасности и содержимое каждого типа маркера.
+# <a name="azure-ad-b2c:-token-reference"></a>Azure AD B2C: Token reference
 
-## Типы маркеров
+Azure Active Directory (Azure AD) B2C emits several types of security tokens as it processes each [authentication flow](active-directory-b2c-apps.md). This document describes the format, security characteristics, and contents of each type of token.
 
-Служба Azure AD B2C поддерживает [протокол авторизации OAuth 2.0](active-directory-b2c-reference-protocols.md), использующий как маркеры доступа, так и маркеры обновления. Она также поддерживает проверку подлинности и вход с помощью [OpenID Connect](active-directory-b2c-reference-protocols.md), вводя третий тип маркера — маркер идентификации. Каждый из этих маркеров представляется как "токен носителя".
+## <a name="types-of-tokens"></a>Types of tokens
 
-Токен носителя — это упрощенный маркер безопасности, предоставляющий доступ носителю к защищенному ресурсу. В этом смысле носителем является любая сторона, которая может предъявить маркер. Перед получением токена носителя сторона должна пройти проверку подлинности в Azure AD. Однако если не выполняются действия, необходимые для защиты маркера во время его передачи и хранения, то его может перехватить и использовать несанкционированная сторона. У некоторых маркеров безопасности есть встроенный механизм, который предотвращает их использование несанкционированными сторонами, но токены носителя не имеют такого механизма. Они должны передаваться по защищенному каналу, например по протоколу TLS (HTTPS).
+Azure AD B2C supports the [OAuth 2.0 authorization protocol](active-directory-b2c-reference-protocols.md), which makes use of both access tokens and refresh tokens. It also supports authentication and sign-in via [OpenID Connect](active-directory-b2c-reference-protocols.md), which introduces a third type of token: the ID token. Each of these tokens is represented as a bearer token.
 
-Если токен носителя передается вне зашифрованного канала, злоумышленник может использовать атаку "злоумышленник в середине", чтобы получить токен и использовать его для несанкционированного доступа к защищенному ресурсу. Те же принципы безопасности применяются при сохранении или кэшировании токенов носителя для последующего использования. Необходимо всегда проверять, что приложение передает и сохраняет токены носителя безопасным образом.
+A bearer token is a lightweight security token that grants the "bearer" access to a protected resource. The bearer is any party that can present the token. Azure AD must first authenticate a party before it can receive a bearer token. But if the required steps are not taken to secure the token in transmission and storage, it can be intercepted and used by an unintended party. Some security tokens have a built-in mechanism for preventing unauthorized parties from using them, but bearer tokens do not have this mechanism. They must be transported in a secure channel, such as transport layer security (HTTPS).
 
-Дополнительные сведения о безопасности во время применения токенов носителя см. в документе [RFC 6750 Section 5](http://tools.ietf.org/html/rfc6750) (RFC 6750, раздел 5).
+If a bearer token is transmitted outside a secure channel, a malicious party can use a man-in-the-middle attack to acquire the token and use it to gain unauthorized access to a protected resource. The same security principles apply when bearer tokens are stored or cached for later use. Always ensure that your app transmits and stores bearer tokens in a secure manner.
 
-Многие маркеры, которые выпускает служба Azure AD B2C, реализуются как веб-маркеры JSON (JWT). Маркер JWT — это компактное и безопасное для URL-адреса средство передачи информации между двумя сторонами. Маркеры JWT содержат сведения, называемые утверждениями. Это утверждения со сведениями о носителе и о субъекте маркера. Утверждения в маркерах JWT — это объекты JSON, закодированные и сериализованные для передачи. Так как формируемые службой Azure AD B2C маркеры JWT подписываются, но не шифруются, их содержимое можно легко изучить с целью отладки. Это можно сделать с помощью нескольких средств, включая [calebb.net](http://calebb.net). Дополнительные сведения о маркерах JWT см. в [спецификациях по маркерам JWT](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html).
+For additional security considerations on bearer tokens, see [RFC 6750 Section 5](http://tools.ietf.org/html/rfc6750).
 
-### Маркеры идентификации
+Many of the tokens that Azure AD B2C issues are implemented as JSON web tokens (JWTs). A JWT is a compact, URL-safe means of transferring information between two parties. JWTs contain information known as claims. These are assertions of information about the bearer and the subject of the token. The claims in JWTs are JSON objects that are encoded and serialized for transmission. Because the JWTs issued by Azure AD B2C are signed but not encrypted, you can easily inspect the contents of a JWT to debug it. Several tools are available that can do this, including [calebb.net](http://calebb.net). For more information about JWTs, refer to [JWT specifications](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html).
 
-Маркеры идентификации — это разновидность маркеров безопасности, которые приложение получает от конечных точек Azure AD B2C `authorize` и `token`. Они представлены в виде [маркеров JWT](#types-of-tokens) и содержат утверждения, которые можно использовать для идентификации пользователей приложения. Если они получены из конечной точки `authorize`, маркеры идентификации часто используются для входа пользователей в веб-приложение. Если они получены из конечной точки `token`, маркеры идентификации могут отправляться в HTTP-запросах во время обмена данными между двумя компонентами одного и того же приложения или службы. Утверждения, которые содержит маркер идентификации, вы можете использовать по своему усмотрению. Обычно они отображают сведения учетной записи или на их основе предоставляется доступ к приложению.
+### <a name="id-tokens"></a>ID tokens
 
-На текущий момент маркеры идентификации подписываются, но не шифруются. Когда приложение или API получает маркер идентификации, они [проверяют его подпись](#token-validation), чтобы подтвердить подлинность маркера. Приложение или интерфейс API должны также проверить несколько утверждений в маркере, чтобы подтвердить его действительность. Утверждения, которые проверяет приложение, зависят от требований сценария, но некоторые [стандартные проверки утверждений](#token-validation) приложение должно выполнять в каждом сценарии.
+An ID token is a form of security token that your app receives from the Azure AD B2C `authorize` and `token` endpoints. ID tokens are represented as [JWTs](#types-of-tokens), and they contain claims that you can use to identify users in your app. When ID tokens are acquired from the `authorize` endpoint, they are often used to sign in users to web applications. When ID tokens are acquired from the `token` endpoint, they can be sent in HTTP requests during communication between two components of the same application or service. You can use the claims in an ID token as you see fit. They are commonly used to display account information or to make access control decisions in an app.  
 
-#### Пример маркера идентификации
+ID tokens are signed, but they are not encrypted at this time. When your app or API receives an ID token, it must [validate the signature](#token-validation) to prove that the token is authentic. Your app or API must also validate a few claims in the token to prove that it is valid. Depending on the scenario requirements, the claims validated by an app can vary, but your app must perform some [common claim validations](#token-validation) in every scenario.
+
+#### <a name="sample-id-token"></a>Sample ID token
 ```
 // Line breaks for display purposes only
 
@@ -57,105 +58,109 @@ CQhoFA
 
 ```
 
-### Маркеры доступа
+### <a name="access-tokens"></a>Access tokens
 
-Маркер доступа — это также разновидность маркеров безопасности, которые приложение получает от конечных точек Azure AD B2C `authorize` и `token`. Они представлены в виде [маркеров JWT](#types-of-tokens) и содержат утверждения, которые можно использовать для идентификации пользователей в веб-службах и интерфейсах API.
+An access token is also a form of security token that your app receives from the Azure AD B2C `authorize` and `token` endpoints. Access tokens are also represented as [JWTs](#types-of-tokens), and they contain claims that you can use to identify users in your web services & APIs.
 
-В настоящее время маркеры доступа подписываются, но не шифруются. Они очень похожи на маркеры идентификации. Маркеры доступа используются для предоставления доступа к веб-службам и интерфейсам API, а также для идентификации и проверки подлинности пользователя в этих службах. Однако они не предоставляют утверждений авторизации в этих службах. Иными словами, утверждение `scp` в маркерах доступа не ограничивает и не представляет доступ, который предоставлен субъекту маркера.
+Access tokens are signed, but they are not encrypted at this time - and very similar to id tokens.  Access tokens should be used to provide access to web services & APIs and to identify & authenticate the user in those services.  However, they do not provide any assertion of authorization at those services.  That is to say that the `scp` claim in access tokens does not limit or otherwise represent the access that the subject of the token has been granted.
 
-Когда API получает маркер доступа, он [проверяет его подпись](#token-validation), чтобы подтвердить подлинность маркера. API должен также проверить несколько утверждений в маркере, чтобы подтвердить его действительность. Утверждения, которые проверяет приложение, зависят от требований сценария, но некоторые [стандартные проверки утверждений](#token-validation) приложение должно выполнять в каждом сценарии.
+When your API receives an access token, it must [validate the signature](#token-validation) to prove that the token is authentic. Your API must also validate a few claims in the token to prove that it is valid. Depending on the scenario requirements, the claims validated by an app can vary, but your app must perform some [common claim validations](#token-validation) in every scenario.
 
-### Утверждения в маркерах идентификации и доступа
+### <a name="claims-in-id-&-access-tokens"></a>Claims in ID & Access Tokens
 
-Используя Azure AD B2C, вы можете точно контролировать содержимое маркеров. Вы можете настроить [политики](active-directory-b2c-reference-policies.md) для отправки определенных наборов пользовательских данных в утверждениях, которые необходимы для работы приложения. Эти утверждения могут включать в себя стандартные свойства, например свойства `displayName` и `emailAddress` пользователя. Кроме того, они могут содержать [настраиваемые пользовательские атрибуты](active-directory-b2c-reference-custom-attr.md), которые вы можете задать в каталоге B2C. Каждый маркер идентификации и доступа, который вы получите, будет содержать набор утверждений, связанных с безопасностью. С помощью этих утверждений ваши приложения могут безопасно проверять подлинность пользователей и запросов.
+When you use Azure AD B2C, you have fine-grained control over the content of your tokens. You can configure [policies](active-directory-b2c-reference-policies.md) to send certain sets of user data in claims that your app requires for its operations. These claims can include standard properties such as the user's `displayName` and `emailAddress`. They can also include [custom user attributes](active-directory-b2c-reference-custom-attr.md) that you can define in your B2C directory. Every ID & access token that you receive will contain a certain set of security-related claims. Your applications can use these claims to securely authenticate users and requests.
 
-Обратите внимание, что утверждения в маркерах идентификации не возвращаются в определенном порядке. Кроме того, новые утверждения могут появиться в маркерах идентификации в любое время. По мере появления новых утверждений ваше приложение не должно прерывать работу. В таблице приводятся утверждения, содержащиеся в маркерах идентификации и доступа, которые выдает служба Azure AD B2C. Все дополнительные утверждения определяются политиками. В целях обучения попробуйте изучить утверждения в примере маркера идентификации, вставив его в [calebb.net](http://calebb.net). Дополнительные сведения можно найти в [спецификации по OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html).
+Note that the claims in ID tokens are not returned in any particular order. In addition, new claims can be introduced in ID tokens at any time. Your app should not break as new claims are introduced. Here are the claims that you expect to exist in ID & access tokens issued by Azure AD B2C. Any additional claims will be determined by policies. For practice, try inspecting the claims in the sample ID token by pasting it into [calebb.net](http://calebb.net). Further details can be found in the [OpenID Connect specification](http://openid.net/specs/openid-connect-core-1_0.html).
 
-| Имя | Утверждение | Пример значения | Описание |
+| Name | Claim | Example value | Description |
 | ----------------------- | ------------------------------- | ------------ | --------------------------------- |
-| Аудитория | `aud` | `90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6` | Утверждение "Аудитория" обозначает целевого получателя маркера. В Azure AD B2C "Аудитория" — это маркер идентификации приложения, назначенный на портале регистрации приложений. Приложение должно проверить это значение и отклонить маркер, если он ему не соответствует. |
-| Issuer | `iss` | `https://login.microsoftonline.com/775527ff-9a37-4307-8b3d-cc311f58d925/v2.0/` | Это утверждение обозначает службу токенов безопасности (STS), которая создает и возвращает маркер. Кроме того, оно определяет, в каком каталоге Azure AD пользователь прошел проверку подлинности. Приложение должно проверить утверждение издателя и убедиться, что маркер пришел от конечной точки версии 2.0. |
-| Время выдачи | `iat` | `1438535543` | Это утверждение обозначает время выдачи маркера в виде времени эпохи. |
-| Время окончания срока действия | `exp` | `1438539443` | Утверждение "Время окончания срока действия" обозначает (в виде времени эпохи) время, когда маркер становится недействительным. Приложение должно использовать это утверждение для проверки действительности срока действия маркера. |
-| Не ранее | `nbf` | `1438535543` | Это утверждение обозначает время, когда начинается срок действия маркера (указанное в виде времени эпохи). Оно обычно совпадает со временем выдачи маркера. Приложение должно использовать это утверждение для проверки действительности срока действия маркера. |
-| Версия | `ver` | `1.0` | Версия маркера идентификации, заданная службой Azure AD. |
-| Хэш-код | `c_hash` | `SGCPtt01wxwfgnYZy2VJtQ` | Хэш-код включается в состав маркеров идентификации, только если маркер выдан вместе с кодом авторизации OAuth 2.0. Хэш-код можно использовать для проверки подлинности кода авторизации. Дополнительные сведения о выполнении этой проверки можно найти в [спецификации по OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html). |
-| Хэш маркера доступа | `at_hash` | `SGCPtt01wxwfgnYZy2VJtQ` | Хэш маркера доступа включается в состав маркеров идентификации, только если этот маркер выдан вместе с маркером доступа OAuth 2.0. Его можно использовать для проверки подлинности маркера доступа. Дополнительные сведения о выполнении этой проверки см. в [спецификации по OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html). |
-| Специальное утверждение | `nonce` | `12345` | Nonce — это стратегия, которая используется для предотвращения атак повторного воспроизведения маркера. Приложение может указать специальное утверждение в запросе авторизации с помощью параметра запроса `nonce`. Значение, указанное вами в запросе, будет использовано без изменений только в утверждении `nonce` маркера идентификации. Таким образом приложение проверит это значение на соответствие значению, указанному в запросе, который связывает сеанс приложения с определенным маркером идентификации. Приложение должно выполнять эту проверку во время проверки маркера идентификации. |
-| Субъект | `sub` | `Not supported currently. Use oid claim.` | Субъект, в отношении которого маркер подтверждает сведения, например пользователь приложения. Это значение является неизменяемым и не может быть переназначено или повторно использовано. Это значение можно использовать для безопасных проверок авторизации, например, когда маркер используется для доступа к ресурсу. Однако утверждение субъекта еще не реализовано в Azure AD B2C. Вместо того чтобы использовать утверждения субъекта для авторизации, настройте политики так, чтобы они содержали утверждение идентификатора объекта `oid`, и используйте это значение для идентификации пользователей. |
-| Ссылка на класс контекста проверки подлинности | `acr` | `b2c_1_sign_in` | Это имя политики, которая использовалась для получения маркера идентификации. |
-| Время проверки подлинности | `auth_time` | `1438535543` | Данное утверждение — это время, когда пользователь в последний раз вводил учетные данные. Время отображается виде времени эпохи. |
+| Audience | `aud` | `90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6` | An audience claim identifies the intended recipient of the token. For Azure AD B2C, the audience is your app's Application ID, as assigned to your app in the app registration portal. Your app should validate this value and reject the token if it does not match. |
+| Issuer | `iss` | `https://login.microsoftonline.com/775527ff-9a37-4307-8b3d-cc311f58d925/v2.0/` | This claim identifies the security token service (STS) that constructs and returns the token. It also identifies the Azure AD directory in which the user was authenticated. Your app should validate the issuer claim to ensure that the token came from the v2.0 endpoint. |
+| Issued at | `iat` | `1438535543` | This claim is the time at which the token was issued, represented in epoch time. |
+| Expiration time | `exp` | `1438539443` | The expiration time claim is the time at which the token becomes invalid, represented in epoch time. Your app should use this claim to verify the validity of the token lifetime.  |
+| Not before | `nbf` | `1438535543` | This claim is the time at which the token becomes valid, represented in epoch time. This is usually the same as the time the token was issued. Your app should use this claim to verify the validity of the token lifetime.  |
+| Version | `ver` | `1.0` | This is the version of the ID token, as defined by Azure AD. |
+| Code hash | `c_hash` | `SGCPtt01wxwfgnYZy2VJtQ` | A code hash is included in an ID token only when the token is issued together with an OAuth 2.0 authorization code. A code hash can be used to validate the authenticity of an authorization code. See the [OpenID Connect specification](http://openid.net/specs/openid-connect-core-1_0.html) for more details on how to perform this validation. |
+| Access token hash | `at_hash` | `SGCPtt01wxwfgnYZy2VJtQ` | An access token hash is included in an ID token only when the token is issued together with an OAuth 2.0 access token. An access token hash can be used to validate the authenticity of an access token. See the [OpenID Connect specification](http://openid.net/specs/openid-connect-core-1_0.html) for more details on how to perform this validation. |
+| Nonce | `nonce` | `12345` | A nonce is a strategy used to mitigate token replay attacks. Your app can specify a nonce in an authorization request by using the `nonce` query parameter. The value you provide in the request will be emitted unmodified in the `nonce` claim of an ID token only. This allows your app to verify the value against the value it specified on the request, which associates the app's session with a given ID token. Your app should perform this validation during the ID token validation process. |
+| Subject | `sub` | `Not supported currently. Use oid claim.` | This is a principal about which the token asserts information, such as the user of an app. This value is immutable and cannot be reassigned or reused. It can be used to perform authorization checks safely, such as when the token is used to access a resource. However, the subject claim is not yet implemented in the Azure AD B2C. You should configure your policies to include the object ID `oid` claim and use its value to identify users, rather than use the subject claim for authorization. |
+| Authentication context class reference | `acr` | `b2c_1_sign_in` | This is the name of the policy that was used to acquire the ID token.  |
+| Authentication time | `auth_time` | `1438535543` | This claim is the time at which a user last entered credentials, represented in epoch time. |
 
 
-### Маркеры обновления
+### <a name="refresh-tokens"></a>Refresh tokens
 
-Маркеры обновления — это маркеры безопасности, которые приложение может использовать для получения новых маркеров идентификации и маркеров доступа в потоке OAuth 2.0. За счет этого приложение может получить длительный доступ к ресурсам от лица пользователя без участия самого пользователя.
+Refresh tokens are security tokens that your app can use to acquire new ID tokens and access tokens in an OAuth 2.0 flow. They provide your app with long-term access to resources on behalf of users without requiring interaction with those users.
 
-Чтобы получить маркер обновления в ответе маркера, приложение должно запросить область `offline_acesss`. Для получения дополнительных сведений об области `offline_access` обратитесь к [Справочнику по протоколу Azure AD B2C](active-directory-b2c-reference-protocols.md).
+To receive a refresh token in a token response, your app must request the `offline_acesss` scope. To learn more about the `offline_access` scope, refer to the [Azure AD B2C protocol reference](active-directory-b2c-reference-protocols.md).
 
-Маркеры обновления абсолютно непрозрачны для приложения и всегда будут таковыми. Их выдает служба Azure AD, и только эта служба может их проверять и интерпретировать. Они действительны в течение продолжительного времени, но при создании приложения не следует ожидать, что маркер обновления будет действителен в течение определенного периода времени. Маркеры обновления могут стать недействительными в любое время по разным причинам. Единственный способ, с помощью которого приложение может выяснить, является ли маркер действительным, — попытаться использовать его путем отправки запроса маркера Azure AD.
+Refresh tokens are, and will always be, completely opaque to your app. They are issued by Azure AD and can be inspected and interpreted only by Azure AD. They are long-lived, but your app should not be written with the expectation that a refresh token will last for a specific period of time. Refresh tokens can be invalidated at any moment for a variety of reasons. The only way for your app to know if a refresh token is valid is to attempt to redeem it by making a token request to Azure AD.
 
-При обмене маркера обновления на новый маркер (если приложению предоставлена область `offline_access`) вы получите новый маркер обновления в ответе маркера. Только что выданный маркер обновления следует сохранить. Он должен заменить собой маркер обновления, который вы использовали в запросе в прошлый раз. Такой подход обеспечит максимальный срок действия маркеров обновления.
+When you redeem a refresh token for a new token (and if your app has been granted the `offline_access` scope), you will receive a new refresh token in the token response. You should save the newly issued refresh token. It should replace the refresh token you previously used in the request. This helps guarantee that your refresh tokens remain valid for as long as possible.
 
-## Проверка маркеров
+## <a name="token-validation"></a>Token validation
 
-Для проверки маркера приложение должно проверить подпись маркера и содержащиеся в нем утверждения.
+To validate a token, your app should check both the signature and claims of the token.
 
-Для проверки маркеров JWT доступны многие библиотеки с открытым исходным кодом в зависимости от выбранного языка. Мы рекомендуем изучить различные библиотеки, а не реализовывать логику проверки самостоятельно. Из этого руководства вы узнаете, как правильно использовать эти библиотеки.
+Many open source libraries are available for validating JWTs, depending on your preferred language. We recommend that you explore those options rather than implement your own validation logic. The information in this guide can help you learn how to properly use those libraries.
 
-### Проверка подписи
-Маркер JWT содержит три сегмента, разделенных знаком `.`. Первый сегмент — это **заголовок**, второй — **текст**, а третий — **подпись**. Сегмент подписи можно использовать для проверки подлинности маркера, чтобы приложение доверяло ему.
+### <a name="validate-the-signature"></a>Validate the signature
+A JWT contains three segments, separated by the `.` character. The first segment is the **header**, the second is the **body**, and the third is the **signature**. The signature segment can be used to validate the authenticity of the token so that it can be trusted by your app.
 
-Маркеры Azure AD B2C подписываются при помощи стандартных отраслевых алгоритмов асимметричного шифрования, таких как RSA 256. Заголовок маркера содержит сведения о ключе и методе шифрования, используемых для подписания маркера:
+Azure AD B2C tokens are signed by using industry-standard asymmetric encryption algorithms, such as RSA 256. The header of the token contains information about the key and encryption method used to sign the token:
 
 ```
 {
-		"typ": "JWT",
-		"alg": "RS256",
-		"kid": "GvnPApfWMdLRi8PDmisFn7bprKg"
+        "typ": "JWT",
+        "alg": "RS256",
+        "kid": "GvnPApfWMdLRi8PDmisFn7bprKg"
 }
 ```
 
-Утверждение `alg` обозначает алгоритм, с помощью которого был подписан маркер. Утверждение `kid` обозначает конкретный открытый ключ, с помощью которого был подписан маркер.
+The `alg` claim indicates the algorithm that was used to sign the token. The `kid` claim indicates the particular public key that was used to sign the token.
 
-Azure AD может в любой момент времени подписать маркер с использованием любой пары открытого и закрытого ключей из определенного набора пар. Azure AD периодически изменяет возможный набор ключей, поэтому при создании приложения необходимо обеспечить автоматическую обработку подобных изменений ключей. Рекомендуем проверять наличие обновлений открытых ключей, которые использует служба Azure AD, каждые 24 часа.
+At any given time, Azure AD may sign a token by using any one of a certain set of public-private key pairs. Azure AD rotates the possible set of keys periodically, so your app should be written to handle those key changes automatically. A reasonable frequency to check for updates to the public keys used by Azure AD is every 24 hours.
 
-Служба Azure AD B2C имеет конечную точку метаданных OpenID Connect. Это позволяет приложениям получать сведения об Azure AD B2C во время выполнения. Эти сведения включают конечные точки, содержимое маркеров и ключи подписи маркеров. Для каждой политики в каталоге B2C есть собственный документ метаданных JSON. Например, документ метаданных для политики `b2c_1_sign_in` находится в каталоге `fabrikamb2c.onmicrosoft.com` по адресу:
+Azure AD B2C has an OpenID Connect metadata endpoint. This allows apps to fetch information about Azure AD B2C at runtime. This information includes endpoints, token contents, and token signing keys. Your B2C directory contains a JSON metadata document for each policy. For example, the metadata document for the `b2c_1_sign_in` policy in the `fabrikamb2c.onmicrosoft.com` is located at:
 
 ```
 https://login.microsoftonline.com/fabrikamb2c.onmicrosoft.com/v2.0/.well-known/openid-configuration?p=b2c_1_sign_in
 ```
 
-`fabrikamb2c.onmicrosoft.com` — это каталог B2C, используемый для проверки подлинности пользователя, а `b2c_1_sign_in` — это политика, используемая для получения маркера. Чтобы определить, какая политика была использована для подписи маркера (а также определить, откуда необходимо получать метаданные), можно воспользоваться одним из двух вариантов. Сначала имя политики включается в утверждение `acr` маркера. Утверждения из тела маркера JWT можно проанализировать, декодировав тело маркера с помощью кодировки base-64 и десериализации полученной строки JSON. Утверждение `acr` будет представлять собой имя политики, которая использовалась для выдачи маркера. Другой вариант — закодировать политику в значении параметра `state` при отправке запроса и затем декодировать ее, чтобы определить, какая политика была использована. Каждый из этих методов является допустимым.
+`fabrikamb2c.onmicrosoft.com` is the B2C directory used to authenticate the user, and `b2c_1_sign_in` is the policy used to acquire the token. To determine which policy was used to sign a token (and where to go to fetch the metadata), you have two options. First, the policy name is included in the `acr` claim in the token. You can parse claims out of the body of the JWT by base-64 decoding the body and deserializing the JSON string that results. The `acr` claim will be the name of the policy that was used to issue the token.  Your other option is to encode the policy in the value of the `state` parameter when you issue the request, and then decode it to determine which policy was used. Either method is valid.
 
-Документ метаданных является объектом JSON, содержащим важные сведения. К ним относится расположение конечных точек, необходимых для проверки подлинности OpenID Connect. Эти сведения включают в себя также код `jwks_uri`, который указывает расположение набора открытых ключей, использованных для подписания маркеров. Это расположение представлено ниже, но лучше получить его динамически с помощью документа метаданных и анализа `jwks_uri`:
+The metadata document is a JSON object that contains several useful pieces of information. These include the location of the endpoints required to perform OpenID Connect authentication. They also include `jwks_uri`, which gives the location of the set of public keys that are used to sign tokens. That location is provided here, but it is best to fetch the location dynamically by using the metadata document and parsing out `jwks_uri`:
 
 ```
 https://login.microsoftonline.com/fabrikamb2c.onmicrosoft.com/discovery/v2.0/keys?p=b2c_1_sign_in
 ```
 
-Документ JSON, расположенный по этому URL-адресу, содержит все сведения об открытых ключах, используемые в конкретный момент времени. Приложение может использовать утверждение `kid` в заголовке маркера JWT, чтобы выбрать открытый ключ в этом документе JSON, использованный для подписания определенного маркера. Затем оно может проверить подпись с использованием правильного открытого ключа и указанного алгоритма.
+The JSON document located at this URL contains all of the public key information in use at a particular moment. Your app can use the `kid` claim in the JWT header to select the public key in the JSON document that is used to sign a particular token. It can then perform signature validation by using the correct public key and the indicated algorithm.
 
-Описание выполнения проверки выходит за рамки этого документа. Вы можете использовать для выполнения проверки многие библиотеки с открытым исходным кодом.
+A description of how to perform signature validation is outside the scope of this document. Many open source libraries are available to help you with this if you need it.
 
-### Проверка утверждений
-Когда приложение или API получает маркер идентификации, они также должны выполнить несколько проверок утверждений в этом маркере. Помимо прочего, к этим утверждениям относятся:
+### <a name="validate-the-claims"></a>Validate the claims
+When your app or API receives an ID token, it should also perform several checks against the claims in the ID token. These include, but are not limited to:
 
-- Утверждение **Аудитория**. Необходимо для подтверждения того, что маркер идентификации действительно должен был быть выдан вашему приложению.
-- Утверждения **Не ранее** и **Время окончания срока действия**. Необходимы для подтверждения того, что срок действия маркера идентификации не истек.
-- Утверждение **Издатель**. Помогает убедиться в том, что маркер выдала приложению служба Azure AD.
-- **Nonce** — это стратегия, с помощью которой можно предотвратить атаки повторного воспроизведения маркера.
+- The **audience** claim: This verifies that the ID token was intended to be given to your app.
+- The **not before** and **expiration time** claims: These verify that the ID token has not expired.
+- The **issuer** claim: This verifies that the token was issued to your app by Azure AD.
+- The **nonce**: This is a strategy for token replay attack mitigation.
 
-Полный список проверок, которые должно выполнять приложение, см. в [спецификации OpenID Connect](https://openid.net). Подробные сведения об ожидаемых значениях для этих утверждений можно найти выше в разделе, посвященном [маркерам](#types-of-tokens).
+For a full list of validations your app should perform, please refer to the [OpenID Connect specification](https://openid.net). Details of the expected values for these claims are included in the preceding [token section](#types-of-tokens).  
 
-## Время существования маркеров
+## <a name="token-lifetimes"></a>Token lifetimes
 
-Доступны следующие сроки существования маркеров. Они могут пригодиться при разработке и отладке приложений. Обратите внимание, что при создании приложения не следует ожидать постоянства какого-либо из указанных сроков. Они могут и будут изменяться. Дополнительные сведения о настройке времени существования маркеров в Azure AD B2C см. [здесь](active-directory-b2c-token-session-sso.md).
+The following token lifetimes are provided to further your knowledge. They can help you when you develop and debug apps. Note that your apps should not be written to expect any of these lifetimes to remain constant. They can and will change.  You can read more about the customization of token lifetimes in Azure AD B2C [here](active-directory-b2c-token-session-sso.md).
 
-| токен | Срок действия | Описание |
+| Token | Lifetime | Description |
 | ----------------------- | ------------------------------- | ------------ |
-| Маркеры идентификации | Один час | Маркеры идентификации обычно действительны в течение часа. В течение этого срока ваше веб-приложение может создать свои сеансы с пользователями (рекомендуется). Кроме того, вы можете выбрать другой срок существования сеанса. Если приложению необходимо получить новый маркер идентификации, оно должно просто создать новый запрос входа в Azure AD. Если в браузере у пользователя есть действительный сеанс Azure AD, повторный ввод учетных данных может не потребоваться. |
-| Маркеры обновления | До 14 дней | Один маркер обновления действителен до 14 дней. Тем не менее маркер обновления может стать недопустимым в любое время и по любым причинам. Приложению следует пытаться использовать маркер обновления до тех пор, пока запрос не завершится ошибкой или приложение не заменит существующий маркер обновления новым. Кроме того, маркер обновления может стать недействительным, если последний раз пользователь вводил учетные данные 90 дней назад. |
-| Коды авторизации | 5 минут | Коды авторизации специально обладают коротким сроком действия. После получения их следует незамедлительно обменять на маркеры доступа, маркеры идентификации или маркеры обновления. |
+| ID tokens | One hour | ID tokens are typically valid for an hour. Your web app can use this lifetime to maintain its own sessions with users (recommended). You can also choose a different session lifetime. If your app needs to get a new ID token, it simply needs to make a new sign-in request to Azure AD. If a user has a valid browser session with Azure AD, that user may not be required to enter credentials again. |
+| Refresh tokens | Up to 14 days | A single refresh token is valid for a maximum of 14 days. However, a refresh token may become invalid at any time for any number of reasons. Your app should continue to try to use a refresh token until the request fails, or until your app replaces the refresh token with a new one.  A refresh token also can become invalid if 90 days has passed since the user last entered credentials. |
+| Authorization codes | Five minutes | Authorization codes are intentionally short-lived. They should be redeemed immediately for access tokens, ID tokens, or refresh tokens when they are received. |
 
-<!---HONumber=AcomDC_0727_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

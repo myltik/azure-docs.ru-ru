@@ -1,250 +1,257 @@
 <properties
-	pageTitle="Шифрование на стороне клиента с помощью Java для службы хранилища Microsoft Azure | Microsoft Azure"
-	description="Клиентская библиотека хранилища Azure для Java поддерживает шифрование на стороне клиента, а также интеграцию с хранилищем ключей Azure для обеспечения максимальной защиты ваших приложений службы хранилища Azure."
-	services="storage"
-	documentationCenter="java"
-	authors="dineshmurthy"
-	manager="jahogg"
-	editor="tysonn"/>
+    pageTitle="Client-Side Encryption with Java for Microsoft Azure Storage | Microsoft Azure"
+    description="The Azure Storage Client Library for Java supports client-side encryption and integration with Azure Key Vault for maximum security for your Azure Storage applications."
+    services="storage"
+    documentationCenter="java"
+    authors="dineshmurthy"
+    manager="jahogg"
+    editor="tysonn"/>
 
 <tags
-	ms.service="storage"
-	ms.workload="storage"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/20/2016"
-	ms.author="dineshm;robinsh"/>
+    ms.service="storage"
+    ms.workload="storage"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/18/2016"
+    ms.author="dineshm"/>
 
 
-# Шифрование на стороне клиента с помощью Java для службы хранилища Microsoft Azure   
+
+# <a name="client-side-encryption-with-java-for-microsoft-azure-storage"></a>Client-Side Encryption with Java for Microsoft Azure Storage   
 
 [AZURE.INCLUDE [storage-selector-client-side-encryption-include](../../includes/storage-selector-client-side-encryption-include.md)]
 
-## Обзор  
+## <a name="overview"></a>Overview  
 
-[Клиентская библиотека службы хранилища Azure для Java](http://mvnrepository.com/artifact/com.microsoft.azure/azure-storage) поддерживает шифрование данных в клиентских приложениях перед их отправкой в службу хранилища Azure и их расшифровку во время скачивания клиентом. Библиотека также поддерживает интеграцию с [хранилищем ключей Azure](https://azure.microsoft.com/services/key-vault/) для управления ключами учетной записи хранения.
+The [Azure Storage Client Library for Java](http://mvnrepository.com/artifact/com.microsoft.azure/azure-storage) supports encrypting data within client applications before uploading to Azure Storage, and decrypting data while downloading to the client. The library also supports integration with [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) for storage account key management.
 
-## Шифрование и расшифровка методом конвертов    
-Для шифрования и расшифровки используется конвертный метод.
+## <a name="encryption-and-decryption-via-the-envelope-technique"></a>Encryption and decryption via the envelope technique    
+The processes of encryption and decryption follow the envelope technique.  
 
-### Шифрование конвертным методом  
-Шифрование конвертным методом выполняется следующим образом.
+### <a name="encryption-via-the-envelope-technique"></a>Encryption via the envelope technique  
+Encryption via the envelope technique works in the following way:  
 
-1.	Клиентская библиотека хранилища Azure создает ключ шифрования содержимого (CEK), который является симметричным ключом для однократного использования.
+1.  The Azure storage client library generates a content encryption key (CEK), which is a one-time-use symmetric key.  
 
-2.	Данные пользователя шифруются с помощью этого ключа CEK.
+2.  User data is encrypted using this CEK.   
 
-3.	Ключ CEK, в свою очередь, шифруется с помощью ключа шифрования ключа KEK. KEK определяется идентификатором ключа и может быть парой асимметричных ключей или симметричным ключом. Им можно управлять локально, а также хранить его в хранилище ключей Azure. Сама клиентская библиотека хранилища не имеет доступа к ключу KEK. Библиотека вызывает алгоритм шифрования ключа, который обеспечивается хранилищем ключей. Пользователи могут при необходимости использовать настраиваемые поставщики для шифрования и расшифровки ключа.
+3.  The CEK is then wrapped (encrypted) using the key encryption key (KEK). The KEK is identified by a key identifier and can be an asymmetric key pair or a symmetric key and can be managed locally or stored in Azure Key Vaults.  
+The storage client library itself never has access to KEK. The library invokes the key wrapping algorithm that is provided by Key Vault. Users can choose to use custom providers for key wrapping/unwrapping if desired.  
 
-4.	Зашифрованные данные затем передаются в службу хранилища Azure. Зашифрованный ключ вместе с дополнительными метаданными шифрования хранится как метаданные (в большом двоичном объекте) или вставляется в зашифрованные данные (сообщения в очереди и табличные сущности).
+4.  The encrypted data is then uploaded to the Azure Storage service. The wrapped key along with some additional encryption metadata is either stored as metadata (on a blob) or interpolated with the encrypted data (queue messages and table entities).
 
-### Расшифровка конвертным методом  
-Расшифровка конвертным методом выполняется следующим образом.
+### <a name="decryption-via-the-envelope-technique"></a>Decryption via the envelope technique  
+Decryption via the envelope technique works in the following way:  
 
-1.	Клиентская библиотека предполагает, что пользователь управляет ключом шифрования ключа KEK локально или через хранилище ключей Azure. Пользователь может не знать, какой именно ключ использовался для шифрования. Вместо этого достаточно настроить и использовать сопоставитель ключей, который будет распознавать разные идентификаторы ключей.
+1.  The client library assumes that the user is managing the key encryption key (KEK) either locally or in Azure Key Vaults. The user does not need to know the specific key that was used for encryption. Instead, a key resolver which resolves different key identifiers to keys can be set up and used.  
 
-2.	Клиентская библиотека скачивает зашифрованные данные вместе с данными шифрования, которые хранятся в службе.
+2.  The client library downloads the encrypted data along with any encryption material that is stored on the service.  
 
-3.	Зашифрованный ключ шифрования содержимого CEK расшифровывается с помощью ключа шифрования ключа KEK. Клиентская библиотека не имеет доступа к ключу KEK. Клиентская библиотека вызывает пользовательский алгоритм или алгоритм расшифровки поставщика хранилища ключей.
+3.  The wrapped content encryption key (CEK) is then unwrapped (decrypted) using the key encryption key (KEK). Here again, the client library does not have access to KEK. It simply invokes the custom or Key Vault provider’s unwrapping algorithm.  
 
-4.	Затем ключ шифрования содержимого CEK используется для расшифровки зашифрованных пользовательских данных.
+4.  The content encryption key (CEK) is then used to decrypt the encrypted user data.
 
-## Механизм шифрования  
-Клиентская библиотека хранилища использует алгоритм [AES](http://en.wikipedia.org/wiki/Advanced_Encryption_Standard) для шифрования данных пользователя. Говоря более конкретно, это режим [цепочки цифровых блоков или CBC](http://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher-block_chaining_.28CBC.29) вместе с AES. Каждая служба работает по-разному, поэтому каждая служба рассматривается отдельно.
+## <a name="encryption-mechanism"></a>Encryption Mechanism  
+The storage client library uses [AES](http://en.wikipedia.org/wiki/Advanced_Encryption_Standard) in order to encrypt user data. Specifically, [Cipher Block Chaining (CBC)](http://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher-block_chaining_.28CBC.29) mode with AES. Each service works somewhat differently, so we will discuss each of them here.
 
-### BLOB-объекты  
-Клиентская библиотека в настоящий момент полностью поддерживает только шифрование больших двоичных объектов. В частности, шифрование поддерживается, когда пользователи применяют методы **upload*** или метод **openOutputStream**. Что касается загрузок, то поддерживаются как полные, так и диапазонные загрузки.
+### <a name="blobs"></a>Blobs  
+The client library currently supports encryption of whole blobs only. Specifically, encryption is supported when users use the **upload*** methods or the **openOutputStream** method. For downloads, both complete and range downloads are supported.  
 
-Во время шифрования клиентская библиотека создает случайный вектор инициализации IV размером 16 байт, случайный ключ шифрования содержимого CEK размером 32 байта и выполняет конвертное шифрование данных большого двоичного объекта, используя полученную информацию. Затем зашифрованный ключ CEK и дополнительные метаданные шифрования сохраняются в службе как метаданные большого двоичного объекта вместе с зашифрованным большим двоичным объектом.
+During encryption, the client library will generate a random Initialization Vector (IV) of 16 bytes, together with a random content encryption key (CEK) of 32 bytes, and perform envelope encryption of the blob data using this information. The wrapped CEK and some additional encryption metadata are then stored as blob metadata along with the encrypted blob on the service.
 
->[AZURE.WARNING] Если вы изменяете или загружаете собственные метаданные для большого двоичного объекта, нужно убедиться, что данные сохранены. Если загрузить новые метаданные без этих метаданных, зашифрованный ключ CEK, ключ IV и другие метаданные будут утеряны, а без них получить содержимое большого двоичного объекта невозможно.
+>[AZURE.WARNING] If you are editing or uploading your own metadata for the blob, you need to ensure that this metadata is preserved. If you upload new metadata without this metadata, the wrapped CEK, IV and other metadata will be lost and the blob content will never be retrievable again.
 
-Скачивание зашифрованного большого двоичного объекта предполагает получение всего его содержимого с помощью удобных методов **download*/openInputStream**. Зашифрованный ключ CEK расшифровывается и используется вместе с ключом IV (который в данном случае хранится как метаданные большого двоичного объекта) для передачи расшифрованных данных обратно пользователям.
+Downloading an encrypted blob involves retrieving the content of the entire blob using the **download*/openInputStream** convenience methods. The wrapped CEK is unwrapped and used together with the IV (stored as blob metadata in this case) to return the decrypted data to the users.
 
-Скачивание произвольного диапазона (с помощью методов **downloadRange***) из зашифрованного большого двоичного объекта предполагает настройку диапазона на стороне пользователя, чтобы получить небольшой объем дополнительных данных, которые помогут расшифровать запрошенный диапазон.
+Downloading an arbitrary range (**downloadRange*** methods) in the encrypted blob involves adjusting the range provided by users in order to get a small amount of additional data that can be used to successfully decrypt the requested range.  
 
-Все типы больших двоичных объектов (блочные, страничные и инкрементируемые) могут быть зашифрованы и расшифрованы с помощью этой схемы.
+All blob types (block blobs, page blobs, and append blobs) can be encrypted/decrypted using this scheme.
 
-### Очереди  
-Поскольку очередь сообщений может иметь любой формат, клиентская библиотека определяет нестандартный формат, который включает вектор инициализации IV и зашифрованный ключ шифрования содержимого CEK в текст сообщения.
+### <a name="queues"></a>Queues  
+Since queue messages can be of any format, the client library defines a custom format that includes the Initialization Vector (IV) and the encrypted content encryption key (CEK) in the message text.  
 
-Во время шифрования клиентская библиотека создает случайный ключ IV размером 16 байт, случайный ключ CEK размером 32 байта и выполняет конвертное шифрование текста сообщения очереди, используя полученную информацию. Зашифрованный ключ CEK и дополнительные метаданные шифрования добавляются в зашифрованное сообщение очереди. Это измененное сообщение (показано ниже) сохраняется в службе.
+During encryption, the client library generates a random IV of 16 bytes along with a random CEK of 32 bytes and performs envelope encryption of the queue message text using this information. The wrapped CEK and some additional encryption metadata are then added to the encrypted queue message. This modified message (shown below) is stored on the service.
 
-	<MessageText>{"EncryptedMessageContents":"6kOu8Rq1C3+M1QO4alKLmWthWXSmHV3mEfxBAgP9QGTU++MKn2uPq3t2UjF1DO6w","EncryptionData":{…}}</MessageText>
+    <MessageText>{"EncryptedMessageContents":"6kOu8Rq1C3+M1QO4alKLmWthWXSmHV3mEfxBAgP9QGTU++MKn2uPq3t2UjF1DO6w","EncryptionData":{…}}</MessageText>
 
-Во время расшифровки зашифрованный ключ извлекается из сообщения очереди и расшифровывается. Ключ IV также извлекается из сообщения очереди и используется вместе с расшифрованным ключом для расшифровки данных сообщения очереди. Обратите внимание, что размер метаданных шифрования очень мал (не более 500 байт), поэтому, хотя этот их размер учитывается при подсчете максимального размера в 64 КБ для сообщения очереди, этим размером данных можно пренебречь.
+During decryption, the wrapped key is extracted from the queue message and unwrapped. The IV is also extracted from the queue message and used along with the unwrapped key to decrypt the queue message data. Note that the encryption metadata is small (under 500 bytes), so while it does count toward the 64KB limit for a queue message, the impact should be manageable.
 
-### Таблицы  
-Клиентская библиотека поддерживает шифрование свойств сущности для операций вставки и замены.
+### <a name="tables"></a>Tables  
+The client library supports encryption of entity properties for insert and replace operations.
 
->[AZURE.NOTE] Слияние в настоящее время не поддерживается. Поскольку подмножество свойств могло уже быть зашифровано с помощью другого ключа, простое слияние новых свойств и обновление метаданных приведет к потере данных. Для слияния требуется либо сначала прочитать данные существующей сущности в службе, либо использовать новый ключ для каждого свойства, однако оба способа не подходят из-за низкой эффективности.
+>[AZURE.NOTE] Merge is not currently supported. Since a subset of properties may have been encrypted previously using a different key, simply merging the new properties and updating the metadata will result in data loss. Merging either requires making extra service calls to read the pre-existing entity from the service, or using a new key per property, both of which are not suitable for performance reasons.
 
-Шифрование табличных данных выполняется следующим образом.
+Table data encryption works as follows:  
 
-1.	Пользователи указывают свойства, которые следует зашифровать.
+1.  Users specify the properties to be encrypted.  
 
-2.	Клиентская библиотека создает случайный вектор инициализации IV размером 16 байт и произвольный ключ шифрования содержимого CEK размером 32 байта для каждой сущности и выполняет конвертное шифрование для отдельных свойств, которые следует зашифровать путем создания нового ключа IV для каждого свойства. Зашифрованное свойство хранится в виде двоичных данных.
+2.  The client library generates a random Initialization Vector (IV) of 16 bytes along with a random content encryption key (CEK) of 32 bytes for every entity, and performs envelope encryption on the individual properties to be encrypted by deriving a new IV per property. The encrypted property is stored as binary data.  
 
-3.	Затем зашифрованный ключ CEK и дополнительные метаданные шифрования сохраняются в виде двух дополнительных зарезервированных свойств. Первое зарезервированное свойство (\_ClientEncryptionMetadata1) — это строковое свойство, которое содержит информацию о ключе IV, версию и зашифрованный ключ. Второе зарезервированное свойство (\_ClientEncryptionMetadata2) — это двоичное свойство, которое содержит информацию о зашифрованных свойствах. Сведения в этом втором свойстве (\_ClientEncryptionMetadata2) сами по себе зашифрованы.
+3.  The wrapped CEK and some additional encryption metadata are then stored as two additional reserved properties. The first reserved property (_ClientEncryptionMetadata1) is a string property that holds the information about IV, version, and wrapped key. The second reserved property (_ClientEncryptionMetadata2) is a binary property that holds the information about the properties that are encrypted. The information in this second property (_ClientEncryptionMetadata2) is itself encrypted.  
 
-4.	Из-за этих двух дополнительных зарезервированных свойств, необходимых для шифрования, пользователи могут иметь только 250 пользовательских свойств вместо 252. Общий размер сущности должен быть меньше 1 МБ.
+4.  Due to these additional reserved properties required for encryption, users may now have only 250 custom properties instead of 252. The total size of the entity must be less than 1MB.  
 
-	Обратите внимание, что зашифрованы могут быть только строковые свойства. Если необходимо зашифровать другие типы свойств, их необходимо преобразовать в строки. Зашифрованные строки хранятся в службе в виде двоичных свойств. Они преобразуются обратно в строки после расшифровки.
+    Note that only string properties can be encrypted. If other types of properties are to be encrypted, they must be converted to strings. The encrypted strings are stored on the service as binary properties, and they are converted back to strings after decryption.
 
-	Что касается таблиц, то в дополнение к политике шифрования пользователи должны указать свойства, которые необходимо зашифровать. Это можно сделать путем указания атрибута [Encrypt] \(для сущностей POCO, которые являются производными от TableEntity) или с помощью сопоставителя шифрования в параметрах запроса. Сопоставитель шифрования — это делегат, который получает ключ раздела, ключ строки и имя свойства, а затем возвращает логическое значение, которое указывает, следует ли это свойство шифровать. Во время шифрования клиентская библиотека использует эти сведения, чтобы решить, следует ли шифровать свойство перед отправкой. Делегат также обеспечивает возможность логики в отношении того, как шифруются свойства. (Например, если значение равно X, то шифровать свойство А; в противном случае шифровать свойства А и В.) Обратите внимание, что нет необходимости предоставлять эти сведения при чтении или выполнении запросов к сущностям.
+    For tables, in addition to the encryption policy, users must specify the properties to be encrypted. This can be done by either specifying an [Encrypt] attribute (for POCO entities that derive from TableEntity) or an encryption resolver in request options. An encryption resolver is a delegate that takes a partition key, row key, and property name and returns a boolean that indicates whether that property should be encrypted. During encryption, the client library will use this information to decide whether a property should be encrypted while writing to the wire. The delegate also provides for the possibility of logic around how properties are encrypted. (For example, if X, then encrypt property A; otherwise encrypt properties A and B.) Note that it is not necessary to provide this information while reading or querying entities.
 
-### Пакетные операции  
-В пакетных операциях один ключ KEK используется для всех строк операции, поскольку клиентская библиотека допускает использование только одного объекта параметров (и, следовательно, одну политику или ключ KEK) на одну пакетную операцию. Однако клиентская библиотека создает новый случайный ключ IV и случайный ключ CEK на каждую строку в пакете. Пользователи могут также выбрать шифрование других свойств для каждой операции в пакете, определив это поведение в сопоставителе шифрования.
+### <a name="batch-operations"></a>Batch Operations  
+In batch operations, the same KEK will be used across all the rows in that batch operation because the client library only allows one options object (and hence one policy/KEK) per batch operation. However, the client library will internally generate a new random IV and random CEK per row in the batch. Users can also choose to encrypt different properties for every operation in the batch by defining this behavior in the encryption resolver.
 
-### Запросы  
-Чтобы выполнять операции запроса, следует указать сопоставитель ключа, который способен распознавать все ключи в результирующем наборе. Если сущность в результате запроса не может быть разрешена для поставщика, клиентская библиотека выдаст ошибку. Для запроса, который обращается к серверу, клиентская библиотека добавляет по умолчанию специальные свойства метаданных шифрования (\_ClientEncryptionMetadata1 и \_ClientEncryptionMetadata2) к выбранным столбцам.
+### <a name="queries"></a>Queries  
+To perform query operations, you must specify a key resolver that is able to resolve all the keys in the result set. If an entity contained in the query result cannot be resolved to a provider, the client library will throw an error. For any query that performs server side projections, the client library will add the special encryption metadata properties (_ClientEncryptionMetadata1 and _ClientEncryptionMetadata2) by default to the selected columns.
 
-## Хранилище ключей Azure  
-Хранилище ключей Azure помогает защитить криптографические ключи и секреты, используемые облачными приложениями и службами. Хранилище ключей Azure позволяет шифровать ключи и секреты (например, ключи проверки подлинности, ключи учетных записей хранения, ключи шифрования данных, PFX-файлы и пароли), используя ключи, защищенные аппаратными модулями безопасности. Дополнительные сведения см. в статье [Что такое хранилище ключей Azure?](../key-vault/key-vault-whatis.md).
+## <a name="azure-key-vault"></a>Azure Key Vault  
+Azure Key Vault helps safeguard cryptographic keys and secrets used by cloud applications and services. By using Azure Key Vault, users can encrypt keys and secrets (such as authentication keys, storage account keys, data encryption keys, .PFX files, and passwords) by using keys that are protected by hardware security modules (HSMs). For more information, see [What is Azure Key Vault?](../key-vault/key-vault-whatis.md).
 
-Клиентская библиотека хранилища использует основную библиотеку хранилища ключей для обеспечения общей платформы для управления ключами в Azure. Пользователи также получают дополнительное преимущество от использования библиотеки хранилища ключей. Библиотека расширений предоставляет полезные функции для локальных и облачных поставщиков ключей с простым и симметричным алгоритмом (RSA), а также функции агрегирования и кэширования.
+The storage client library uses the Key Vault core library in order to provide a common framework across Azure for managing keys. Users also get the additional benefit of using the Key Vault extensions library. The extensions library provides useful functionality around simple and seamless Symmetric/RSA local and cloud key providers as well as with aggregation and caching.
 
-### Интерфейс и зависимости  
-Существует три пакета хранилища ключей:
+### <a name="interface-and-dependencies"></a>Interface and dependencies  
+There are three Key Vault packages:  
 
-- azure-keyvault-core содержит IKey и IKeyResolver. Это небольшой пакет без зависимостей. Клиентская библиотека хранилища для Java определяет это как зависимость.
-- azure-keyvault содержит клиентское REST-приложение хранилища ключей.
-- azure-keyvault-extensions содержит код расширения, который включает реализации криптографических алгоритмов, а также ключи RSAKey и SymmetricKey. Пакет зависит от пространств имен Core и KeyVault и обеспечивает функции, которые позволяют определить составной сопоставитель (когда пользователи используют несколько поставщиков ключей) и сопоставитель ключа кэширования. Клиентская библиотека хранилища не зависит напрямую от этого пакета, однако, если пользователь хочет использовать хранилище ключей Azure для хранения ключей или расширения хранилища ключей для работы с локальными и облачными поставщиками служб шифрования, потребуется этот пакет.
+- azure-keyvault-core contains the IKey and IKeyResolver. It is a small package with no dependencies. The storage client library for Java defines it as a dependency.
+- azure-keyvault contains the Key Vault REST client.  
+- azure-keyvault-extensions contains extension code that includes implementations of cryptographic algorithms and an RSAKey and a SymmetricKey. It depends on the Core and KeyVault namespaces and provides functionality to define an aggregate resolver (when users want to use multiple key providers) and a caching key resolver. Although the storage client library does not directly depend on this package, if users wish to use Azure Key Vault to store their keys or to use the Key Vault extensions to consume the local and cloud cryptographic providers, they will need this package.  
 
-  Хранилище ключей разработано для главных ключей, и ограничения регулирования, связанные с хранилищем ключей, учитывают это. При выполнении шифрования на стороне клиента с помощью хранилища ключей предпочтительный способ — использовать симметричные главные ключи, которые хранятся в качестве секретов в хранилище ключей, и кэшировать их локально. Рекомендуется придерживаться следующих правил.
+  Key Vault is designed for high-value master keys, and throttling limits per Key Vault are designed with this in mind. When performing client-side encryption with Key Vault, the preferred model is to use symmetric master keys stored as secrets in Key Vault and cached locally. Users must do the following:  
 
-1.	Создайте секрет без подключения к сети и загрузите его в хранилище ключей.
+1.  Create a secret offline and upload it to Key Vault.  
 
-2.	Используйте базовый идентификатор секрета в качестве параметра для разрешения текущей версии секрета для шифрования и кэшируйте эту информацию локально. Используйте параметр CachingKeyResolver для кэширования; пользователи не должны реализовывать собственную логику кэширования.
+2.  Use the secret's base identifier as a parameter to resolve the current version of the secret for encryption and cache this information locally. Use CachingKeyResolver for caching; users are not expected to implement their own caching logic.  
 
-3.	Во время создания политики шифрования используйте кэширующий сопоставитель в качестве входных данных. Дополнительные сведения об использовании хранилища ключей см. в разделе с примерами кода шифрования. <Исправить URL-адрес>
+3.  Use the caching resolver as an input while creating the encryption policy.
+More information regarding Key Vault usage can be found in the encryption code samples. <fix URL>  
 
-## Рекомендации  
-Шифрование поддерживается только клиентской библиотекой хранилища для Java.
+## <a name="best-practices"></a>Best practices  
+Encryption support is available only in the storage client library for Java.
 
->[AZURE.IMPORTANT] Учтите следующие важные моменты при использовании шифрования на стороне клиента.
+>[AZURE.IMPORTANT] Be aware of these important points when using client-side encryption:
 >  
->- При чтении или записи в зашифрованном большом двоичном объекте используйте команды загрузки полного большого двоичного объекта и команды диапазонной либо полной выгрузки. Избегайте написания зашифрованного большого двоичного объекта с помощью операций протокола, таких как Put Block, Put Block List, Write Pages, Clear Pages или Append Block, иначе это может привести к повреждению зашифрованного большого двоичного объекта, что сделает его нечитабельным.
+>- When reading from or writing to an encrypted blob, use whole blob upload commands and range/whole blob download commands. Avoid writing to an encrypted blob using protocol operations such as Put Block, Put Block List, Write Pages, Clear Pages, or Append Block; otherwise you may corrupt the encrypted blob and make it unreadable.
 >
->- Для таблиц существуют аналогичные ограничения. Будьте внимательны и не обновляйте зашифрованные свойства без обновления метаданных шифрования.
+>- For tables, a similar constraint exists. Be careful to not update encrypted properties without updating the encryption metadata.  
 >
->- Если задать метаданные в зашифрованном большом двоичном объекте, могут быть перезаписаны метаданные, относящиеся к шифрованию и необходимые для расшифровки, поскольку настройку метаданных добавить нельзя. Это также касается моментальных снимков. Не указывайте метаданные во время создания моментального снимка зашифрованного большого двоичного объекта. Если необходимо задать метаданные, нужно сначала вызвать метод **downloadAttributes** для получения текущих метаданных шифрования и избегать параллельных операций записи во время установки метаданных.
+>- If you set metadata on the encrypted blob, you may overwrite the encryption-related metadata required for decryption, since setting metadata is not additive. This is also true for snapshots; avoid specifying metadata while creating a snapshot of an encrypted blob. If metadata must be set, be sure to call the **downloadAttributes** method first to get the current encryption metadata, and avoid concurrent writes while metadata is being set.  
 >
->- Включите флаг **requireEncryption** в параметрах запроса по умолчанию для пользователей, которые должны работать только с зашифрованными данными. См. дополнительные сведения ниже.
+>- Enable the **requireEncryption** flag in the default request options for users that should work only with encrypted data. See below for more info.  
 
-## API-интерфейс клиента / интерфейс  
-При создании объекта EncryptionPolicy пользователи могут предоставить только ключ (который реализует IKey), только сопоставитель (который реализует IKeyResolver) или оба этих объекта. IKey — это базовый тип ключа, который идентифицируется с помощью идентификатора ключа и который обеспечивает логику для шифрования и расшифровки. IKeyResolver используется для сопоставления ключа во время расшифровки. IKeyResolver определяет метод, который возвращает IKey в зависимости от идентификатора ключа. В результате пользователи могут выбирать между несколькими ключами, которые хранятся в разных местах.
+## <a name="client-api-/-interface"></a>Client API / Interface  
+While creating an EncryptionPolicy object, users can provide only a Key (implementing IKey), only a resolver (implementing IKeyResolver), or both. IKey is the basic key type that is identified using a key identifier and that provides the logic for wrapping/unwrapping. IKeyResolver is used to resolve a key during the decryption process. It defines a ResolveKey method that returns an IKey given a key identifier. This provides users the ability to choose between multiple keys that are managed in multiple locations.
 
-- Для шифрования ключ используется всегда, при этом отсутствие ключа приведет к возникновению ошибки.
-- Для расшифровки:
-	- Сопоставитель ключа вызывается, если он нужен для получения ключа. Если сопоставитель указан, но он не имеет данных, сопоставимых с идентификатором ключа, возникает ошибка.
-	- Если сопоставитель не указан, но указан ключ, ключ используется, если его идентификатор соответствует требуемому идентификатору ключа. Если идентификатор не совпадает, выдается ошибка.
+- For encryption, the key is used always and the absence of a key will result in an error.  
+- For decryption:  
+    - The key resolver is invoked if specified to get the key. If the resolver is specified but does not have a mapping for the key identifier, an error is thrown.  
+    - If resolver is not specified but a key is specified, the key is used if its identifier matches the required key identifier. If the identifier does not match, an error is thrown.  
 
-	  В статье с [примерами шифрования](https://github.com/Azure/azure-storage-net/tree/master/Samples/GettingStarted/EncryptionSamples) <исправить URL-адрес> показан подробный комплексный сценарий для больших двоичных объектов, очередей, таблиц и интеграции хранилища ключей.
+      The [encryption samples](https://github.com/Azure/azure-storage-net/tree/master/Samples/GettingStarted/EncryptionSamples) <fix URL>demonstrate a more detailed end-to-end scenario for blobs, queues and tables, along with Key Vault integration.
 
-### Режим RequireEncryption  
-При необходимости можно включить режим работы, где все передачи и загрузки должны быть зашифрованы. В этом режиме все попытки клиента передать данные без политики шифрования или загрузить данные, которые не зашифрованы в службе, закончатся ошибкой. Это поведение контролирует флаг **requireEncryption** объекта параметров запроса. Если приложение будет шифровать все объекты из службы хранилища Azure, то можно задать свойство **requireEncryption** в параметрах запроса по умолчанию для объекта клиента службы.
+### <a name="requireencryption-mode"></a>RequireEncryption mode  
+Users can optionally enable a mode of operation where all uploads and downloads must be encrypted. In this mode, attempts to upload data without an encryption policy or download data that is not encrypted on the service will fail on the client. The **requireEncryption** flag of the request options object controls this behavior. If your application will encrypt all objects stored in Azure Storage, then you can set the **requireEncryption** property on the default request options for the service client object.   
 
-Например, используйте для **CloudBlobClient.getDefaultRequestOptions().setRequireEncryption(true)**, чтобы требовать шифрования всех операций с большими двоичными объектами, выполненных посредством этого объекта клиента.
+For example, use **CloudBlobClient.getDefaultRequestOptions().setRequireEncryption(true)** to require encryption for all blob operations performed through that client object.
 
-### Шифрование службы BLOB-объектов  
-Создайте объект **BlobEncryptionPolicy** и задайте его в параметрах запроса (для каждого API или на уровне клиента с помощью параметра **DefaultRequestOptions**). Все остальные задачи решаются клиентской библиотекой.
+### <a name="blob-service-encryption"></a>Blob service encryption  
+Create a **BlobEncryptionPolicy** object and set it in the request options (per API or at a client level by using **DefaultRequestOptions**). Everything else will be handled by the client library internally.
 
-	// Create the IKey used for encryption.
-	RsaKey key = new RsaKey("private:key1" /* key identifier */);
+    // Create the IKey used for encryption.
+    RsaKey key = new RsaKey("private:key1" /* key identifier */);
 
-	// Create the encryption policy to be used for upload and download.
-	BlobEncryptionPolicy policy = new BlobEncryptionPolicy(key, null);
+    // Create the encryption policy to be used for upload and download.
+    BlobEncryptionPolicy policy = new BlobEncryptionPolicy(key, null);
 
-	// Set the encryption policy on the request options.
-	BlobRequestOptions options = new BlobRequestOptions();
-	options.setEncryptionPolicy(policy);
+    // Set the encryption policy on the request options.
+    BlobRequestOptions options = new BlobRequestOptions();
+    options.setEncryptionPolicy(policy);
 
-	// Upload the encrypted contents to the blob.
-	blob.upload(stream, size, null, options, null);
+    // Upload the encrypted contents to the blob.
+    blob.upload(stream, size, null, options, null);
 
-	// Download and decrypt the encrypted contents from the blob.
-	ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-	blob.download(outputStream, null, options, null);
+    // Download and decrypt the encrypted contents from the blob.
+    ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+    blob.download(outputStream, null, options, null);
 
-### Шифрование службы очередей  
-Создайте объект **QueueEncryptionPolicy** и задайте его в параметрах запроса (для каждого API или на уровне клиента с помощью параметра **DefaultRequestOptions**). Все остальные задачи решаются клиентской библиотекой.
+### <a name="queue-service-encryption"></a>Queue service encryption  
+Create a **QueueEncryptionPolicy** object and set it in the request options (per API or at a client level by using **DefaultRequestOptions**). Everything else will be handled by the client library internally.
 
-	// Create the IKey used for encryption.
-	RsaKey key = new RsaKey("private:key1" /* key identifier */);
+    // Create the IKey used for encryption.
+    RsaKey key = new RsaKey("private:key1" /* key identifier */);
 
-	// Create the encryption policy to be used for upload and download.
-	QueueEncryptionPolicy policy = new QueueEncryptionPolicy(key, null);
+    // Create the encryption policy to be used for upload and download.
+    QueueEncryptionPolicy policy = new QueueEncryptionPolicy(key, null);
 
-	// Add message
-	QueueRequestOptions options = new QueueRequestOptions();
-	options.setEncryptionPolicy(policy);
+    // Add message
+    QueueRequestOptions options = new QueueRequestOptions();
+    options.setEncryptionPolicy(policy);
 
-	queue.addMessage(message, 0, 0, options, null);
+    queue.addMessage(message, 0, 0, options, null);
 
-	// Retrieve message
-	CloudQueueMessage retrMessage = queue.retrieveMessage(30, options, null);
+    // Retrieve message
+    CloudQueueMessage retrMessage = queue.retrieveMessage(30, options, null);
 
-### Шифрование службы таблиц  
-Помимо создания политики шифрования и настройки параметров запроса необходимо указать **EncryptionResolver** в **TableRequestOptions** или задать атрибут [Encrypt] для методов задания и считывания сущности.
+### <a name="table-service-encryption"></a>Table service encryption  
+In addition to creating an encryption policy and setting it on request options, you must either specify an **EncryptionResolver** in **TableRequestOptions**, or set the [Encrypt] attribute on the entity’s getter and setter.
 
-### Использование сопоставителя  
+### <a name="using-the-resolver"></a>Using the resolver  
 
-	// Create the IKey used for encryption.
-	RsaKey key = new RsaKey("private:key1" /* key identifier */);
+    // Create the IKey used for encryption.
+    RsaKey key = new RsaKey("private:key1" /* key identifier */);
 
-	// Create the encryption policy to be used for upload and download.
-	TableEncryptionPolicy policy = new TableEncryptionPolicy(key, null);
+    // Create the encryption policy to be used for upload and download.
+    TableEncryptionPolicy policy = new TableEncryptionPolicy(key, null);
 
-	TableRequestOptions options = new TableRequestOptions()
-	options.setEncryptionPolicy(policy);
-	options.setEncryptionResolver(new EncryptionResolver() {
-	    public boolean encryptionResolver(String pk, String rk, String key) {
-        	if (key == "foo")
-        	{
-	            return true;
-        	}
-        	return false;
-    	}
-	});
+    TableRequestOptions options = new TableRequestOptions()
+    options.setEncryptionPolicy(policy);
+    options.setEncryptionResolver(new EncryptionResolver() {
+        public boolean encryptionResolver(String pk, String rk, String key) {
+            if (key == "foo")
+            {
+                return true;
+            }
+            return false;
+        }
+    });
 
-	// Insert Entity
-	currentTable.execute(TableOperation.insert(ent), options, null);
+    // Insert Entity
+    currentTable.execute(TableOperation.insert(ent), options, null);
 
-	// Retrieve Entity
-	// No need to specify an encryption resolver for retrieve
-	TableRequestOptions retrieveOptions = new TableRequestOptions()
-	retrieveOptions.setEncryptionPolicy(policy);
+    // Retrieve Entity
+    // No need to specify an encryption resolver for retrieve
+    TableRequestOptions retrieveOptions = new TableRequestOptions()
+    retrieveOptions.setEncryptionPolicy(policy);
 
-	TableOperation operation = TableOperation.retrieve(ent.PartitionKey, ent.RowKey, DynamicTableEntity.class);
-	TableResult result = currentTable.execute(operation, retrieveOptions, null);
+    TableOperation operation = TableOperation.retrieve(ent.PartitionKey, ent.RowKey, DynamicTableEntity.class);
+    TableResult result = currentTable.execute(operation, retrieveOptions, null);
 
-### Использование атрибутов  
-Как было показано выше, если сущность реализует TableEntity, методы задания и считывания свойства можно определить с помощью атрибута [Encrypt], а не с помощью **EncryptionResolver**.
+### <a name="using-attributes"></a>Using attributes  
+As mentioned above, if the entity implements TableEntity, then the properties getter and setter can be decorated with the [Encrypt] attribute instead of specifying the **EncryptionResolver**.
 
-	private string encryptedProperty1;
+    private string encryptedProperty1;
 
-	@Encrypt
-	public String getEncryptedProperty1 () {
-	    return this.encryptedProperty1;
-	}
+    @Encrypt
+    public String getEncryptedProperty1 () {
+        return this.encryptedProperty1;
+    }
 
-	@Encrypt
-	public void setEncryptedProperty1(final String encryptedProperty1) {
-	    this.encryptedProperty1 = encryptedProperty1;
-	}
+    @Encrypt
+    public void setEncryptedProperty1(final String encryptedProperty1) {
+        this.encryptedProperty1 = encryptedProperty1;
+    }
 
-## Шифрование и производительность  
-Обратите внимание, что шифрование результатов анализа данных хранилища отрицательно влияет на производительность. Ключ содержимого и вектор инициализации необходимо создать, само содержимое — зашифровать, а дополнительные метаданные — отформатировать и передать. Эти издержки зависят от объема шифруемых данных. Мы рекомендуем клиентам всегда тестировать свои приложения для повышения производительности во время разработки.
+## <a name="encryption-and-performance"></a>Encryption and performance  
+Note that encrypting your storage data results in additional performance overhead. The content key and IV must be generated, the content itself must be encrypted, and additional meta-data must be formatted and uploaded. This overhead will vary depending on the quantity of data being encrypted. We recommend that customers always test their applications for performance during development.
 
-## Дальнейшие действия  
+## <a name="next-steps"></a>Next steps  
 
-- Скачайте [клиентскую библиотеку хранилища Azure для пакета Maven Java](http://mvnrepository.com/artifact/com.microsoft.azure/azure-storage).
-- Скачайте [клиентскую библиотеку хранилища Azure для исходного кода Java из GitHub](https://github.com/Azure/azure-storage-java).
-- Скачайте библиотеку Maven хранилища ключей Azure для пакетов Maven Java.
-	- [Основной](http://mvnrepository.com/artifact/com.microsoft.azure/azure-keyvault-core) пакет.
-	- [Клиентский](http://mvnrepository.com/artifact/com.microsoft.azure/azure-keyvault) пакет.
-- Просмотрите [документацию по хранилищу ключей Azure](../key-vault/key-vault-whatis.md).
+- Download the [Azure Storage Client Library for Java Maven package](http://mvnrepository.com/artifact/com.microsoft.azure/azure-storage)  
+- Download the [Azure Storage Client Library for Java Source Code from GitHub](https://github.com/Azure/azure-storage-java)   
+- Download the Azure Key Vault Maven Library for Java Maven packages:
+    - [Core](http://mvnrepository.com/artifact/com.microsoft.azure/azure-keyvault-core) package
+    - [Client](http://mvnrepository.com/artifact/com.microsoft.azure/azure-keyvault) package
+- Visit the [Azure Key Vault Documentation](../key-vault/key-vault-whatis.md)  
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

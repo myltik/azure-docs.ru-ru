@@ -1,50 +1,56 @@
 <properties
-	pageTitle="Обзорная схема возможностей Студии машинного обучения | Microsoft Azure"
-	description="Печатная схема возможностей Студии машинного обучения Azure, демонстрирующая варианты использования Студии для разработки экспериментальной программы прогнозной аналитики и введения ее в эксплуатацию в облаке Azure."
-	keywords="студия машинного обучения, обзорная схема, скачивание"
-	services="machine-learning"
-	documentationCenter=""
-	authors="hning86"
-	manager="jhubbard"
-	editor="cgronlun"/>
+    pageTitle="Overview diagram of Machine Learning Studio capabilities | Microsoft Azure"
+    description="A printable diagram of the capabilities of Azure Machine Learning Studio, demonstrating how to use Studio to develop a predictive analytics experiment and operationalize it in the Azure cloud."
+    keywords="machine learning studio,overview diagram,download"
+    services="machine-learning"
+    documentationCenter=""
+    authors="hning86"
+    manager="jhubbard"
+    editor="cgronlun"/>
 
 <tags
-	ms.service="machine-learning"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="09/21/2016"
-	ms.author="haining;garye" />
+    ms.service="machine-learning"
+    ms.workload="data-services"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="09/21/2016"
+    ms.author="haining;garye" />
 
 
-# Обзорная схема возможностей Студии машинного обучения Azure
 
-Схема **Обзор возможностей Студии машинного обучения Microsoft Azure** предоставляет высокоуровневый обзор вариантов использования Студии машинного обучения для разработки модели прогнозной аналитики и введения ее в эксплуатацию в облаке Azure.
+# <a name="overview-diagram-of-azure-machine-learning-studio-capabilities"></a>Overview diagram of Azure Machine Learning Studio capabilities
 
-[Студия машинного обучения Azure](https://studio.azureml.net/) имеет доступ к большому количеству алгоритмов машинного обучения, а также модулей, упрощающих ввод, вывод, подготовку и визуализацию данных. С помощью этих компонентов можно разработать экспериментальную программу прогнозной аналитики, выполнить на ней итерацию и использовать ее для обучения своей модели. Затем одним щелчком вы можете ввести свою модель в эксплуатацию в облаке Azure, чтобы использовать ее при оценке новых данных.
+The **Microsoft Azure Machine Learning Studio Capabilities Overview** diagram gives you a high-level overview of how you can use Machine Learning Studio to develop a predictive analytics model and operationalize it in the Azure cloud.
 
-На этой схеме показаны способы взаимодействия всех компонентов.
+[Azure Machine Learning Studio](https://studio.azureml.net/) has available a large number of machine learning algorithms, along with modules that help with data input, output, preparation, and visualization. Using these components you can develop a predictive analytics experiment, iterate on it, and use it to train your model.
+Then with one click you can operationalize your model in the Azure cloud so that it can be used to score new data.
 
-> [AZURE.NOTE] Ознакомьтесь с разделом [Памятка по алгоритмам машинного обучения для Студии машинного обучения Microsoft Azure](machine-learning-algorithm-cheat-sheet.md), чтобы узнать дополнительную информацию по навигации и выбору алгоритмов машинного обучения, доступных в Студии машинного обучения.
+This diagram shows how all those pieces fit together.
 
-## Скачивание обзорной схемы Студии машинного обучения
+> [AZURE.NOTE] See [Machine learning algorithm cheat sheet for Microsoft Azure Machine Learning Studio](machine-learning-algorithm-cheat-sheet.md) for additional help in navigating through and choosing the machine learning algorithms available in Machine Learning Studio.
 
-Скачайте схему **Обзор возможностей Студии машинного обучения Microsoft Azure** и получите высокоуровневое представление о возможностях Студии машинного обучения. Чтобы держать схему под рукой, распечатайте ее в формате 11 x 17 дюймов (27,94 x 43,18 см).
+## <a name="download-the-machine-learning-studio-overview-diagram"></a>Download the Machine Learning Studio overview diagram
 
-**Скачайте схему здесь: [Обзор возможностей Студии машинного обучения Microsoft Azure](http://download.microsoft.com/download/C/4/6/C4606116-522F-428A-BE04-B6D3213E9E52/ml_studio_overview_v1.1.pdf)**.
+Download the **Microsoft Azure Machine Learning Studio Capabilities Overview** diagram and get a high-level view of the capabilities of Machine Learning Studio. To keep it nearby, you can print the diagram in tabloid size (11 x 17 in.).
 
-![Обзор возможностей Студии машинного обучения Microsoft Azure][studio-overview]
+**Download the diagram here: [Microsoft Azure Machine Learning Studio Capabilities Overview](http://download.microsoft.com/download/C/4/6/C4606116-522F-428A-BE04-B6D3213E9E52/ml_studio_overview_v1.1.pdf)**
+
+![Microsoft Azure Machine Learning Studio Capabilities Overview][studio-overview]
 
 [studio-overview]: ./media/machine-learning-studio-overview-diagram/ml_studio_overview_v1.1.png
 
 
-## Дополнительная справка по Студии машинного обучения
+## <a name="more-help-with-machine-learning-studio"></a>More help with Machine Learning Studio
 
-* Обзор машинного обучения Microsoft Azure можно найти в разделе [Введение в машинное обучение в Microsoft Azure](machine-learning-what-is-machine-learning.md).
-* Обзор Студии машинного обучения можно найти в разделе [Что такое Студия машинного обучения Azure](machine-learning-what-is-ml-studio.md).
-* Подробное описание алгоритмов машинного обучения, доступных в Студии машинного обучения, можно найти в разделе [Выбор алгоритмов машинного обучения Microsoft Azure](machine-learning-algorithm-choice.md).
+* For an overview of Microsoft Azure Machine Learning, see [Introduction to machine learning on Microsoft Azure](machine-learning-what-is-machine-learning.md)
+* For an overview of Machine Learning Studio, see [What is Azure Machine Learning Studio?](machine-learning-what-is-ml-studio.md).
+* For a detailed discussion of the machine learning algorithms available in Machine Learning Studio, see [How to choose algorithms for Microsoft Azure Machine Learning](machine-learning-algorithm-choice.md).
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

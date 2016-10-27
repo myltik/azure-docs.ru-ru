@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Создание заметок к источникам данных | Microsoft Azure"
-   description="В статье описывается создание заметок к ресурсам данных в каталоге данных Azure, включая добавление понятных имен, тегов, описаний и экспертных мнений."
+   pageTitle="How to annotate data sources | Microsoft Azure"
+   description="How-to article highlighting how to annotate data assets in Azure Data Catalog, including friendly names, tags, descriptions, and experts."
    services="data-catalog"
    documentationCenter=""
    authors="steelanddata"
@@ -17,50 +17,56 @@
    ms.author="maroche"/>
 
 
-# Создание заметок к источникам данных
 
-## Введение
-**Каталог данных Microsoft Azure** — это полностью управляемая облачная служба, выполняющая функции систем регистрации и обнаружения корпоративных источников данных. Проще говоря, каталог данных помогает пользователям находить, оценивать и использовать источники данных, что, в свою очередь, повышает ценность имеющейся информации для организации. Если источник данных зарегистрирован в каталоге данных, его метаданные копируются и индексируются службой, но на этом работа с ними не заканчивается. Каталог данных дает пользователям возможность предоставлять свои собственные описательные метаданные (например, описания и метки) для дополнения метаданных, полученных из источника данных. Таким образом, источник данных будет понятен большему количеству пользователей.
+# <a name="how-to-annotate-data-sources"></a>How to annotate data sources
 
-## Создание заметок и совместная работа над метаданными
-У каждого есть свое мнение. И это хорошо. Каталог данных создан с расчетом на то, что у каждого пользователя есть своя точка зрения на корпоративные источники данных, которая может быть обоснованной. Рассмотрим следующие сценарии.
+## <a name="introduction"></a>Introduction
+**Microsoft Azure Data Catalog** is a fully managed cloud service that serves as a system of registration and system of discovery for enterprise data sources. In other words, Data Catalog is all about helping people discover, understand, and use data sources, and helping organizations to get more value from their existing data. When a data source is registered with Data Catalog, its metadata is copied and indexed by the service, but the story doesn’t end there. Data Catalog allows users to provide their own descriptive metadata – such as descriptions and tags – to supplement the metadata extracted from the data source, and to make the data source more understandable to more people.
 
-* Системный администратор знает о соглашениях об уровне обслуживания для серверов или служб, где размещен источник данных.
-* Администратор базы данных знает о расписании резервного копирования для каждой базы данных, а также о разрешенных окнах обработки для извлечения, преобразования и загрузки данных.
-* Владелец системы знает о процессе создания пользовательского запроса на доступ к источнику данных.
-* Администратор данных знает о том, насколько ресурсы и атрибуты в источнике данных соответствуют корпоративной модели данных.
-* Аналитик знает о том, как данные используются в контексте поддерживаемых им бизнес-процессов.
+## <a name="annotation-and-crowdsourcing"></a>Annotation and crowdsourcing
+Everyone has an opinion. And this is a good thing.
+Data Catalog recognizes that different users have different perspectives on enterprise data sources, and that each of these perspectives can be valuable. Consider the following scenario:
 
-Каждая из этих точек зрения является ценной, поэтому в каталоге данных используется подход, опирающийся на совместную работу над метаданными, что делает возможным сбор всех данных с их последующим использованием для получения полной картины зарегистрированных источников данных. С помощью портала каталога данных каждый пользователь может не только добавлять и редактировать свои аннотации, но и просматривать аннотации, предоставляемые другими пользователями.
+* The system administrator knows the service level agreement for the servers or services that host the data source.
+* The database administrator knows the backup schedule for each database, and the allowed ETL processing windows.
+* The system owner knows the process for users to request access to the data source.
+* The data steward knows how the assets and attributes in the data source map to the enterprise data model.
+* The analyst knows how the data is used in the context of the business processes he supports.
 
-## Разные типы заметок
-Каталог данных поддерживает следующие типы аннотаций:
+Each of these perspectives is valuable, and Data Catalog uses a crowdsourcing approach to metadata that allows each one to be captured and used to provide a complete picture of registered data sources. Using the Data Catalog portal, each user can add and edit his own annotations, while being able to view annotations provided by other users.
 
-| Заметка | Примечания |
+## <a name="different-types-of-annotations"></a>Different types of annotations
+Data Catalog supports the following types of annotations:
+
+| Annotation     | Notes                                                                                                                                                                                                                                                                                                                                                           |
 |----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Понятное имя | Понятные имена могут присваиваться на уровне данных ресурса, чтобы сделать ресурсы данных более понятными. Понятные имена особенно полезны, если имя базового объекта зашифровано, сокращено или ничего не значит для пользователей. |
-| Описание | Описания могут присваиваться на уровне ресурса данных, а также атрибута или столбца. Описания — это краткая текстовая заметка в свободной форме, описывающая точку зрения пользователя на содержание или использование определенного ресурса данных. |
-| Теги (теги пользователя) | Теги могут присваиваться на уровне ресурса данных, а также атрибута или столбца. Теги пользователя — это пользовательские метки, которые можно использовать для классификации атрибутов или ресурсов данных. |
-| Теги (теги глоссария) | Теги могут присваиваться на уровне ресурса данных, а также атрибута или столбца. Теги глоссария — это централизованно определенные термины глоссария, которые можно использовать для категоризации атрибутов или ресурсов данных с помощью бизнес-таксономии. Дополнительные сведения см. в статье [Как настроить бизнес-глоссарий для регулируемого добавления тегов](data-catalog-how-to-business-glossary.md). |
-| Эксперты | Сведения на уровне ресурса данных могут предоставляться экспертами. Эксперты — это пользователи или группы, предоставляющие экспертное мнение о данных. Эксперты могут выступать в качестве источника информации для пользователей, которые обнаруживают зарегистрированные источники данных, но не получают ответы на свои вопросы на основе существующих комментариев. |
-| Запрос доступа | Запрос на доступ к информации может предоставляться на уровне ресурса данных. Речь идет об информации, предназначенной для пользователей, которые обнаружили источник данных, но еще не имеют права доступа к нему. Пользователи могут ввести адрес электронной почты пользователя или группы, предоставляющей доступ, а также URL-адрес процесса или средства, к которым требуется получить доступ. Кроме того, они могут ввести описание процесса в виде текста. |
-| Документация | Сведения на уровне ресурса данных могут содержаться в документации. В документации содержится информация в формате RTF, в том числе ссылки и изображения. Это могут быть любые сведения, не содержащиеся в описаниях и тегах. |
+| Friendly name  | Friendly names can be supplied at the data asset level, to make the data assets more easily understood. Friendly names are most useful when the underlying object name is cryptic, abbreviated or otherwise not meaningful to users.                                                                                                                            |
+| Description    | Descriptions can be supplied at the data asset and attribute / column levels. Descriptions are free-form short text annotations that describe the user’s perspective on the data asset or its use.                                                                                                                                                              |
+| Tags (user tags)          | Tags can be supplied at the data asset and attribute / column levels. User tags are user-defined labels that can be used to categorize data assets or attributes.                                                                                                                                                                                                    |
+| Tags (glossary tags)          | Tags can be supplied at the data asset and attribute / column levels. Glossary tags are centrally-defined glossary terms that can be used to categorize data assets or attributes using a common business taxonomy. For more information see  [How to set up the Business Glossary for Governed Tagging](data-catalog-how-to-business-glossary.md)                                                                                                                                                                                                    |
+| Experts        | Experts can be supplied at the data asset level. Experts identify users or groups with expert perspectives on the data and can serve as points of contact for users who discover the registered data sources and have questions that are not answered by the existing annotations.  |
+| Request access | Request access information can be supplied at the data asset level. This information is for users who discover a data source that they do not yet have permissions to access. Users can enter the email address of the user or group who grants access, the URL of the process or tool that users need to gain access, or can enter the process itself as text. |
+| Documentation | Documentation can be supplied at the data asset level. Asset documentation is rich text information that can include links and images, and which can provide any information not conveyed through descriptions and tags. |
 
 
-## Создание заметок к нескольким ресурсам
-При выборе нескольких ресурсов данных на портале каталога данных пользователи могут создавать аннотации ко всем выбранным ресурсам одновременно. Заметки применяются ко всем выбранным ресурсам. Они позволяют выбрать и указать согласованное описание и наборы тегов и экспертов для связанных ресурсов данных.
+## <a name="annotating-multiple-assets"></a>Annotating multiple assets
+When selecting multiple data assets in the Data Catalog portal, users can annotate all selected assets in a single operation. Annotations will apply to all selected assets, making it easy to select and provide a consistent description and sets of tags and experts for related data assets.
 
-> [AZURE.NOTE] Теги и эксперты также могут предоставляться при регистрации ресурсов данных с помощью средства регистрации источников данных каталога данных.
+> [AZURE.NOTE] Tags and experts can also be provided when registering data assets using the Data Catalog data source registration tool.
 
-При выборе нескольких таблиц и представлений на портале каталога данных будут отображаться только столбцы, которые одновременно включают все выбранные ресурсы данных. Это позволяет пользователям вводить теги и описания для всех столбцов с одинаковым именем для всех выбранных ресурсов.
+When selecting multiple tables and views, only columns that all selected data assets have in common will be displayed in the Data Catalog portal. This allows users to provide tags and descriptions for all columns with the same name for all selected assets.
 
-## Заметки и поиск
-Предоставленные пользователями метаданные индексируются так же, как и добавленные в индекс поиска каталога данных метаданные, полученные из источника данных во время регистрации. Это означает, что заметки не просто описывают обнаруживаемые пользователями данные, проливая свет на их содержание. Они также упрощают процесс обнаружения описанных ресурсов данных в ходе поиска с использованием терминов, понятных для пользователей.
+## <a name="annotations-and-discovery"></a>Annotations and discovery
+Just as the metadata extracted from the data source during registration is added to the Data Catalog search index, user-supplied metadata is also indexed. This means that not only do annotations make it easier for users to understand the data they discover, annotations also make it easier for users to discover the annotated data assets by searching using the terms that make sense to them.
 
-## Сводка
-Регистрация источников данных в каталоге данных позволяет быстрее обнаруживать эти данные благодаря тому, что из источника в службу каталога копируются структурные и описательные метаданные. После регистрации источника данных пользователи могут оставлять аннотации, упрощающие обнаружение и понимание информации, представленной на портале каталога данных.
+## <a name="summary"></a>Summary
+Registering a data source with Data Catalog makes that data discoverable by copying structural and descriptive metadata from the data source into the Catalog service. Once a data source has been registered, users can provide annotations to make easier to discover and understand from within the Data Catalog portal.
 
-## Дополнительные материалы
-- Пошаговые инструкции по аннотированию источников данных см. в руководстве [Начало работы с каталогом данных Azure](data-catalog-get-started.md).
+## <a name="see-also"></a>See also
+- [Get Started with Azure Data Catalog](data-catalog-get-started.md) tutorial for step-by-step details about how to annotate data sources.
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

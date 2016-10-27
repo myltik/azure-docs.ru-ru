@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Запросы к хранилищу данных SQL Azure (sqlcmd) | Microsoft Azure"
-   description="Выполнение запросов к хранилищу данных SQL Azure с помощью служебной программы командной строки sqlcmd."
+   pageTitle="Query Azure SQL Data Warehouse (sqlcmd)| Microsoft Azure"
+   description="Querying Azure SQL Data Warehouse with the sqlcmd Command-line Utility."
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="sonyam"
@@ -16,50 +16,51 @@
    ms.date="09/06/2016"
    ms.author="barbkess;sonyama"/>
 
-# Запросы к хранилищу данных SQL Azure (sqlcmd)
+
+# <a name="query-azure-sql-data-warehouse-(sqlcmd)"></a>Query Azure SQL Data Warehouse (sqlcmd)
 
 > [AZURE.SELECTOR]
 - [Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
-- [Машинное обучение Azure](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
+- [Azure Machine Learning](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
 - [Visual Studio](sql-data-warehouse-query-visual-studio.md)
-- [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md)
+- [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md) 
 
-В этом пошаговом руководстве показано, как создавать запросы к хранилищу данных SQL Azure с помощью служебной программы командной строки [sqlcmd][].
+This walkthrough uses the [sqlcmd][] command-line utility to query an Azure SQL Data Warehouse.  
 
-## 1\. Подключение
+## <a name="1.-connect"></a>1. Connect
 
-Чтобы начать использовать [sqlcmd][], откройте командную строку и введите **sqlcmd** и строку подключения к базе данных хранилища данных SQL. В строке подключения обязательно укажите следующие параметры.
+To get started with [sqlcmd][], open the command prompt and enter **sqlcmd** followed by the connection string for your SQL Data Warehouse database. The connection string requires the following parameters:
 
-+ **Server (-S):** сервер в виде `<`имя сервера`>`.database.windows.net
-+ **Database (-d)**. Имя базы данных.
-+ **Enable Quoted Identifiers (-I)** — для подключения к экземпляру хранилища данных SQL необходимо включить заключенные в кавычки идентификаторы.
++ **Server (-S):** Server in the form `<`Server Name`>`.database.windows.net
++ **Database (-d):** Database name.
++ **Enable Quoted Identifiers (-I):** Quoted identifiers must be enabled to connect to a SQL Data Warehouse instance.
 
-Чтобы использовать проверку подлинности SQL Server, необходимо добавить параметры имени пользователя и пароля.
+To use SQL Server Authentication, you need to add the username/password parameters:
 
-+ **User (-U)** — пользователь сервера в формате `<`Пользователь`>`.
-+ **Password (-P)** — пароль, связанный с пользователем.
++ **User (-U):** Server user in the form `<`User`>`
++ **Password (-P):** Password associated with the user.
 
-Например, строка подключения может выглядеть так:
+For example, your connection string might look like the following:
 
 ```sql
 C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@ssword -I
 ```
 
-Чтобы использовать встроенную проверку подлинности Azure Active Directory, необходимо добавить параметры Azure Active Directory.
+To use Azure Active Directory Integrated authentication, you need to add the Azure Active Directory parameters:
 
-+ **Проверки подлинности Azure Active Directory (-G):** — использовать Azure Active Directory для проверки подлинности.
++ **Azure Active Directory Authentication (-G):** use Azure Active Directory for authentication
 
-Например, строка подключения может выглядеть так:
+For example, your connection string might look like the following:
 
 ```sql
 C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -G -I
 ```
 
-> [AZURE.NOTE] Необходимо [включить проверку подлинности Azure Active Directory](sql-data-warehouse-authentication.md), чтобы выполнять проверку подлинности с помощью Active Directory.
+> [AZURE.NOTE] You need to [enable Azure Active Directory Authentication](sql-data-warehouse-authentication.md) to authenticate using Active Directory.
 
-## 2) Запрос
+## <a name="2.-query"></a>2. Query
 
-После подключения можно подавать любые поддерживаемые инструкции Transact-SQL для экземпляра. В этом примере запросы отправляются в интерактивном режиме.
+After connection, you can issue any supported Transact-SQL statements against the instance.  In this example, queries are submitted in interactive mode.
 
 ```sql
 C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@ssword -I
@@ -68,7 +69,7 @@ C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@s
 3> QUIT
 ```
 
-В следующих примерах показано, как выполнить запросы в пакетном режиме, используя параметр -Q или передав SQL программе sqlcmd.
+These next examples show how you can run your queries in batch mode using the -Q option or piping your SQL to sqlcmd.
 
 ```sql
 sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@ssword -I -Q "SELECT name FROM sys.tables;"
@@ -78,9 +79,9 @@ sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@sswor
 "SELECT name FROM sys.tables;" | sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@ssword -I > .\tables.out
 ```
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Next steps
 
-Дополнительные сведения о параметрах, доступных в sqlcmd, см. в [документации по sqlcmd][sqlcmd].
+See [sqlcmd documentation][sqlcmd] for more about details about the options available in sqlcmd.
 
 <!--Image references-->
 
@@ -92,4 +93,8 @@ sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@sswor
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0907_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

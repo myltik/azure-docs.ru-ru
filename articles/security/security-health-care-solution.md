@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Практическое руководство по разработке в Azure безопасных решений в сфере здравоохранения | Microsoft Azure"
-   description=" Эта статья поможет вам понять, как повысить безопасность решений в сфере здравоохранения с помощью настраиваемых служб и компонентов Azure. "
+   pageTitle="A practical guide to designing secure health care solutions in Azure | Microsoft Azure"
+   description=" This article helps you understand how to improve security for your health care solutions by using the Azure services and features that you configure. "
    services="security"
    documentationCenter="na"
    authors="TomShinder"
@@ -16,16 +16,22 @@
    ms.date="09/06/2016"
    ms.author="terrylan"/>
 
-# Практическое руководство по разработке безопасных решений в сфере здравоохранения в Azure
 
-Многие компании, запускающие проекты в сфере здравоохранения, системотехнические предприятия (SI), независимые поставщики программного обеспечения (ISV) и медицинские организации планируют переход на платформу Azure. Всем им требуется руководство, которое поможет им освоить средства управления безопасностью, удовлетворяющие специфическим отраслевыми и нормативными требованиям.
+# <a name="a-practical-guide-to-designing-secure-health-care-solutions-in-azure"></a>A practical guide to designing secure health care solutions in Azure
 
-[Практическое руководство по разработке безопасных решений в сфере здравоохранения в Microsoft Azure](https://aka.ms/azureindustrysecurity) поможет вам понять, как можно улучшить защиту решений с помощью служб и функций Azure, которые можно настроить в соответствии со своими требованиями. Содержимое разбито на три части.
+Health industry startups, system integrators (SIs), independent software vendors (ISVs), and healthcare organizations considering a move to Azure are looking for guidance that helps them incorporate security controls to meet their compliance obligations.
 
-1. Рекомендации по использованию облачных решений, включая технологии управления рисками и разделения ответственности, создание системы управления безопасностью информации и разработка стандартных эксплуатационных процедур, а также сведения об отраслевых стандартах и местных нормативах.
-2. Ключевые принципы безопасности в соответствии со стандартами управления информационной безопасностью, включая ISO 27001, а также стандартные процессы разработки, включая жизненный цикл разработки защищенных приложений (Майкрософт) (SDL).
-3. Применение ключевых принципов в сценариях с примерами настройки с учетом архитектуры решений, когда требования к решениям применяются в соответствии со стандартами управления информационной безопасностью.
+[A Practical Guide to Designing Secure Health Care Solutions in Microsoft Azure](https://aka.ms/azureindustrysecurity) helps you understand how you can improve security for your solutions by using the Azure services and features that you can configure based on your requirements.
+The content is divided into three major sections:
 
-Мы надеемся, что наши [практические рекомендации по разработке безопасных решений в сфере здравоохранения](https://aka.ms/azureindustrysecurity) окажутся полезными для вас. А если у вас возникнут вопросы или предложения, оставьте нам свой комментарий ниже.
+1. Considerations guidance for using cloud technology, including risk management, shared responsibility, establishing an information security management system, understanding industry and local regulations, and establishing standard operating procedures.
+2. Key security principles that are both aligned to a standard information security management standard, such as ISO 27001, and standard development processes, such as Microsoft’s Security Development Lifecycle (SDL).
+3. Applying the key principles to use cases by demonstrating alignment from a solution architect perspective, where requirements for the solutions are aligned to the information security management standard.
 
-<!---HONumber=AcomDC_0907_2016-->
+We hope you find [A Practical Guide to Designing Secure Health Care Solutions](https://aka.ms/azureindustrysecurity) helpful and if you have any questions or suggestions, let us know by leaving a comment below.
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

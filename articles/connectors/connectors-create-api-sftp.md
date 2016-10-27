@@ -1,10 +1,10 @@
 <properties
-pageTitle="Сведения об использовании соединителя SFTP в приложениях логики | Microsoft Azure"
-description="Создание приложений логики с помощью службы приложений Azure. Подключитесь к API SFTP, чтобы отправлять и получать файлы. Вы можете выполнять различные операции, например создавать, обновлять, получать или удалять файлы."
-services="logic-apps"	
-documentationCenter=".net,nodejs,java" 	
-authors="msftman"	
-manager="erikre"	
+pageTitle="Learn how to use the SFTP connector in your logic apps | Microsoft Azure"
+description="Create logic apps with Azure App service. Connect to SFTP API to send and receive files. You can perform various operations such as create, update, get or delete files."
+services="logic-apps"   
+documentationCenter=".net,nodejs,java"  
+authors="msftman"   
+manager="erikre"    
 editor=""
 tags="connectors" />
 
@@ -17,398 +17,399 @@ ms.workload="integration"
 ms.date="07/20/2016"
 ms.author="deonhe"/>
 
-# Начало работы с соединителем SFTP
 
-Используйте соединитель SFTP, чтобы получить доступ к учетной записи SFTP для отправки и получения файлов. Вы можете выполнять различные операции, например создавать, обновлять, получать или удалять файлы.
+# <a name="get-started-with-the-sftp-connector"></a>Get started with the SFTP connector
 
-Чтобы использовать [соединитель](./apis-list.md), сначала нужно создать приложение логики. Вы можете начать с [создания приложения логики](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Use the SFTP connector to access an SFTP account to send and receive files. You can perform various operations such as create, update, get or delete files.  
 
-## Подключение к SFTP
+To use [any connector](./apis-list.md), you first need to create a logic app. You can get started by [creating a logic app now](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-Чтобы обеспечить доступ приложения логики к какой-либо службе, сначала необходимо создать *подключение* к этой службе. Таким образом вы установите [подключение](./connectors-overview.md) между приложением логики и другой службой.
+## <a name="connect-to-sftp"></a>Connect to SFTP
 
-### Создание подключения к SFTP
+Before your logic app can access any service, you first need to create a *connection* to the service. A [connection](./connectors-overview.md) provides connectivity between a logic app and another service.  
 
->[AZURE.INCLUDE [Шаги по созданию подключения к SFTP](../../includes/connectors-create-api-sftp.md)]
+### <a name="create-a-connection-to-sftp"></a>Create a connection to SFTP
 
-## Использование триггера SFTP
+>[AZURE.INCLUDE [Steps to create a connection to SFTP](../../includes/connectors-create-api-sftp.md)]
 
-Триггер — это событие, которое можно использовать для запуска рабочего процесса, определенного в приложении логики. Дополнительные сведения о триггерах см. [здесь](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
+## <a name="use-an-sftp-trigger"></a>Use an SFTP trigger
 
-Из этого примера вы узнаете, как использовать триггер **SFTP - When a file is added or modified** (SFTP — при добавлении или изменении файла) для запуска рабочего процесса приложения логики при добавлении или изменении файла на SFTP-сервере. Из этого примера вы также узнаете, как добавить условие, которое проверяет содержимое нового или измененного файла, и принимает решение извлечь файл, если содержимое файла указывает, что он должен быть извлечен перед использованием содержимого. Наконец, вы узнаете, как добавить действие, которое извлекает содержимое файла и помещает извлеченное содержимое в папку на SFTP-сервере.
+A trigger is an event that can be used to start the workflow defined in a logic app. [Learn more about triggers](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).  
 
-В контексте предприятия можно использовать этот триггер, чтобы отслеживать в папке SFTP новые файлы, представляющие заказы от клиентов. Также вы можете использовать действие соединителя SFTP **Get file content** (Получить содержимое файла), чтобы получить содержимое заказа для дальнейшей обработки и хранения в базе данных заказов.
+In this example, I will show you how to use the **SFTP - When a file is added or modified** trigger to initiate a logic app workflow when a file is added to, or modified on, an SFTP server. In the example, you will also learn how to add a condition that checks the contents of the new or modified file and make a decision to extract the file if its contents indicate that it  should be extracted before using the contents. Finally, you will learn how to add an action to extract the contents of a file and place the extracted contents in a folder on the SFTP server. 
 
->[AZURE.INCLUDE [Действия по созданию триггера SFTP](../../includes/connectors-create-api-sftp-trigger.md)]
+In an enterprise example, you could use this trigger to monitor an SFTP folder for new files that represent orders from customers.  You could then use an SFTP connector action such as **Get file content** to get the contents of the order for further processing and storage in your orders database.
 
-## Добавление условия
+>[AZURE.INCLUDE [Steps to create an SFTP trigger](../../includes/connectors-create-api-sftp-trigger.md)]
 
->[AZURE.INCLUDE [Действия по добавлению условия](../../includes/connectors-create-api-sftp-condition.md)]
+## <a name="add-a-condition"></a>Add a condition
 
-## Использование действия SFTP
+>[AZURE.INCLUDE [Steps to add a condition](../../includes/connectors-create-api-sftp-condition.md)]
 
-Действие — это операция, выполняемая рабочим процессом, определенным в приложении логики. Дополнительные сведения о действиях см. [здесь](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
+## <a name="use-an-sftp-action"></a>Use an SFTP action
 
->[AZURE.INCLUDE [Действия по созданию действия SFTP](../../includes/connectors-create-api-sftp-action.md)]
+An action is an operation carried out by the workflow defined in a logic app. [Learn more about actions](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).  
+
+>[AZURE.INCLUDE [Steps to create an SFTP action](../../includes/connectors-create-api-sftp-action.md)]
 
 
-## Технические сведения
+## <a name="technical-details"></a>Technical Details
 
-Ниже приведены сведения о триггерах, действиях и ответах, которые поддерживает это подключение.
+Here are the details about the triggers, actions and responses that this connection supports:
 
-## Триггеры SFTP
+## <a name="sftp-triggers"></a>SFTP triggers
 
-В SFTP доступны следующие триггеры.
+SFTP has the following trigger(s):  
 
-|Триггер | Описание|
+|Trigger | Description|
 |--- | ---|
-|[When a file is added or modified](connectors-create-api-sftp.md#when-a-file-is-added-or-modified) (При добавлении или изменении файла)|Активирует поток при добавлении или изменении файла в папке.|
+|[When a file is added or modified](connectors-create-api-sftp.md#when-a-file-is-added-or-modified)|This operation triggers a flow when a file is added or modified in a folder.|
 
 
-## Действия SFTP
+## <a name="sftp-actions"></a>SFTP actions
 
-Соединитель SFTP предоставляет следующие действия.
+SFTP has the following actions:
 
 
-|Действие|Описание|
+|Action|Description|
 |--- | ---|
-|[Get file metadata (Получение метаданных файла)](connectors-create-api-sftp.md#get-file-metadata)|Извлекает метаданные файла с помощью идентификатора файла.|
-|[Обновление файла](connectors-create-api-sftp.md#update-file)|Обновляет содержимое файла.|
-|[Удаление файла](connectors-create-api-sftp.md#delete-file)|Удаляет файл.|
-|[Получение метаданных файла с помощью пути](connectors-create-api-sftp.md#get-file-metadata-using-path)|Извлекает метаданные файла с помощью пути к файлу.|
-|[Получение содержимого файла с помощью пути](connectors-create-api-sftp.md#get-file-content-using-path)|Извлекает содержимое файла с помощью пути к файлу.|
-|[Получение содержимого файла](connectors-create-api-sftp.md#get-file-content)|Извлекает содержимое файла с помощью идентификатора файла.|
-|[Создание файла](connectors-create-api-sftp.md#create-file)|Загружает файл на SFTP-сервер.|
-|[Копирование файла](connectors-create-api-sftp.md#copy-file)|Загружает файл на SFTP-сервер.|
-|[List files in folder (Вывод списка файлов в папке)](connectors-create-api-sftp.md#list-files-in-folder)|Возвращает файлы, содержащиеся в папке.|
-|[List files in root folder (Вывод списка файлов в корневой папке)](connectors-create-api-sftp.md#list-files-in-root-folder)|Возвращает файлы в корневой папке.|
-|[Извлечение папки](connectors-create-api-sftp.md#extract-folder)|Извлекает файл архива в папку (например, ZIP-файл).|
-### Сведения о действиях
+|[Get file metadata](connectors-create-api-sftp.md#get-file-metadata)|This operation gets file metadata using the file id.|
+|[Update file](connectors-create-api-sftp.md#update-file)|This operation updates the file content.|
+|[Delete file](connectors-create-api-sftp.md#delete-file)|This operation deletes a file.|
+|[Get file metadata using path](connectors-create-api-sftp.md#get-file-metadata-using-path)|This operation gets file metadata using the file path.|
+|[Get file content using path](connectors-create-api-sftp.md#get-file-content-using-path)|This operation gets file contents using the file path.|
+|[Get file content](connectors-create-api-sftp.md#get-file-content)|This operation gets file contents using the file id.|
+|[Create file](connectors-create-api-sftp.md#create-file)|This operation uploads a file to an SFTP server.|
+|[Copy file](connectors-create-api-sftp.md#copy-file)|This operation copies a file to an SFTP server.|
+|[List files in folder](connectors-create-api-sftp.md#list-files-in-folder)|This operation gets files contained in a folder.|
+|[List files in root folder](connectors-create-api-sftp.md#list-files-in-root-folder)|This operation gets the files in the root folder.|
+|[Extract folder](connectors-create-api-sftp.md#extract-folder)|This operation extracts an archive file into a folder (example: .zip).|
+### <a name="action-details"></a>Action details
 
-Ниже приведены подробные сведения о действиях и триггерах этого соединителя, а также ответы на них.
-
-
-
-### Get file metadata (Получение метаданных файла)
-Извлекает метаданные файла с помощью идентификатора файла.
+Here are the details for the actions and triggers for this connector, along with their responses:
 
 
-|Имя свойства| Отображаемое имя|Описание|
+
+### <a name="get-file-metadata"></a>Get file metadata
+This operation gets file metadata using the file id. 
+
+
+|Property Name| Display Name|Description|
 | ---|---|---|
-|id*|Файл|Укажите файл|
+|id*|File|Specify the file|
 
-Звездочка (*) означает, что свойство является обязательным.
+An * indicates that a property is required
 
-#### Сведения о выходных данных
+#### <a name="output-details"></a>Output Details
 
 BlobMetadata
 
 
-| Имя свойства | Тип данных |
+| Property Name | Data Type |
 |---|---|---|
-|Идентификатор|строка|
-|Имя|строка|
-|DisplayName|строка|
-|Путь|строка|
-|LastModified|строка|
-|Размер|целое число|
-|MediaType|строка|
-|IsFolder|Логическое|
+|Id|string|
+|Name|string|
+|DisplayName|string|
+|Path|string|
+|LastModified|string|
+|Size|integer|
+|MediaType|string|
+|IsFolder|boolean|
 |ETag|string|
 |FileLocator|string|
 
 
 
 
-### Обновление файла
-Обновляет содержимое файла.
+### <a name="update-file"></a>Update file
+This operation updates the file content. 
 
 
-|Имя свойства| Отображаемое имя|Описание|
+|Property Name| Display Name|Description|
 | ---|---|---|
-|id*|Файл|Укажите файл|
-|body*|содержимое файла;|Содержимое обновляемого файла|
+|id*|File|Specify the file|
+|body*|File content|Content of the file to update|
 
-Звездочка (*) означает, что свойство является обязательным.
+An * indicates that a property is required
 
-#### Сведения о выходных данных
+#### <a name="output-details"></a>Output Details
 
 BlobMetadata
 
 
-| Имя свойства | Тип данных |
+| Property Name | Data Type |
 |---|---|---|
-|Идентификатор|строка|
-|Имя|строка|
-|DisplayName|строка|
-|Путь|строка|
-|LastModified|строка|
-|Размер|целое число|
-|MediaType|строка|
-|IsFolder|Логическое|
+|Id|string|
+|Name|string|
+|DisplayName|string|
+|Path|string|
+|LastModified|string|
+|Size|integer|
+|MediaType|string|
+|IsFolder|boolean|
 |ETag|string|
 |FileLocator|string|
 
 
 
 
-### Удаление файла
-Удаляет файл.
+### <a name="delete-file"></a>Delete file
+This operation deletes a file. 
 
 
-|Имя свойства| Отображаемое имя|Описание|
+|Property Name| Display Name|Description|
 | ---|---|---|
-|id*|Файл|Укажите файл|
+|id*|File|Specify the file|
 
-Звездочка (*) означает, что свойство является обязательным.
-
-
+An * indicates that a property is required
 
 
-### Получение метаданных файла с помощью пути
-Извлекает метаданные файла с помощью пути к файлу.
 
 
-|Имя свойства| Отображаемое имя|Описание|
+### <a name="get-file-metadata-using-path"></a>Get file metadata using path
+This operation gets file metadata using the file path. 
+
+
+|Property Name| Display Name|Description|
 | ---|---|---|
-|path*|Путь к файлу|Уникальный путь к файлу|
+|path*|File path|Unique path of the file|
 
-Звездочка (*) означает, что свойство является обязательным.
+An * indicates that a property is required
 
-#### Сведения о выходных данных
+#### <a name="output-details"></a>Output Details
 
 BlobMetadata
 
 
-| Имя свойства | Тип данных |
+| Property Name | Data Type |
 |---|---|---|
-|Идентификатор|строка|
-|Имя|строка|
-|DisplayName|строка|
-|Путь|строка|
-|LastModified|строка|
-|Размер|целое число|
-|MediaType|строка|
-|IsFolder|Логическое|
+|Id|string|
+|Name|string|
+|DisplayName|string|
+|Path|string|
+|LastModified|string|
+|Size|integer|
+|MediaType|string|
+|IsFolder|boolean|
 |ETag|string|
 |FileLocator|string|
 
 
 
 
-### Получение содержимого файла с помощью пути
-Извлекает содержимое файла с помощью пути к файлу.
+### <a name="get-file-content-using-path"></a>Get file content using path
+This operation gets file contents using the file path. 
 
 
-|Имя свойства| Отображаемое имя|Описание|
+|Property Name| Display Name|Description|
 | ---|---|---|
-|path*|Путь к файлу|Уникальный путь к файлу|
+|path*|File path|Unique path of the file|
 
-Звездочка (*) означает, что свойство является обязательным.
-
-
+An * indicates that a property is required
 
 
-### Получение содержимого файла
-Извлекает содержимое файла с помощью идентификатора файла.
 
 
-|Имя свойства| Отображаемое имя|Описание|
+### <a name="get-file-content"></a>Get file content
+This operation gets file contents using the file id. 
+
+
+|Property Name| Display Name|Description|
 | ---|---|---|
-|id*|Файл|Укажите файл|
+|id*|File|Specify the file|
 
-Звездочка (*) означает, что свойство является обязательным.
-
-
+An * indicates that a property is required
 
 
-### Создание файла
-Загружает файл на SFTP-сервер.
 
 
-|Имя свойства| Отображаемое имя|Описание|
+### <a name="create-file"></a>Create file
+This operation uploads a file to an SFTP server. 
+
+
+|Property Name| Display Name|Description|
 | ---|---|---|
-|folderPath*|Путь к папке|Уникальный путь к папке|
-|name*|Имя файла|Имя файла|
-|body*|содержимое файла;|Содержимое создаваемого файла|
+|folderPath*|Folder path|Unique path of the folder|
+|name*|File name|Name of the file|
+|body*|File content|Content of the file to create|
 
-Звездочка (*) означает, что свойство является обязательным.
+An * indicates that a property is required
 
-#### Сведения о выходных данных
+#### <a name="output-details"></a>Output Details
 
 BlobMetadata
 
 
-|| Имя свойства | Тип данных |
+|| Property Name | Data Type |
 |---|---|---|
-|Идентификатор|строка|
-|Имя|строка|
-|DisplayName|строка|
-|Путь|строка|
-|LastModified|строка|
-|Размер|целое число|
-|MediaType|строка|
-|IsFolder|Логическое|
+|Id|string|
+|Name|string|
+|DisplayName|string|
+|Path|string|
+|LastModified|string|
+|Size|integer|
+|MediaType|string|
+|IsFolder|boolean|
 |ETag|string|
 |FileLocator|string|
 
 
 
 
-### Копирование файла
-Загружает файл на SFTP-сервер.
+### <a name="copy-file"></a>Copy file
+This operation copies a file to an SFTP server. 
 
 
-|Имя свойства| Отображаемое имя|Описание|
+|Property Name| Display Name|Description|
 | ---|---|---|
-|source*|Путь к исходному файлу|Путь к исходному файлу|
-|destination*|Путь к конечному файлу|Путь к конечному файлу, включая имя файла|
-|перезаписать|Перезаписать?|Перезаписывает конечный файл, если задано значение "true"|
+|source*|Source file path|Path to the source file|
+|destination*|Destination file path|Path to the destination file, including file name|
+|overwrite|Overwrite?|Overwrites the destination file if set to 'true'|
 
-Звездочка (*) означает, что свойство является обязательным.
+An * indicates that a property is required
 
-#### Сведения о выходных данных
+#### <a name="output-details"></a>Output Details
 
 BlobMetadata
 
 
-| Имя свойства | Тип данных |
+| Property Name | Data Type |
 |---|---|---|
-|Идентификатор|строка|
-|Имя|строка|
-|DisplayName|строка|
-|Путь|строка|
-|LastModified|строка|
-|Размер|целое число|
-|MediaType|строка|
-|IsFolder|Логическое|
+|Id|string|
+|Name|string|
+|DisplayName|string|
+|Path|string|
+|LastModified|string|
+|Size|integer|
+|MediaType|string|
+|IsFolder|boolean|
 |ETag|string|
 |FileLocator|string|
 
 
 
 
-### When a file is added or modified (При добавлении или изменении файла)
-Активирует поток при добавлении или изменении файла в папке.
+### <a name="when-a-file-is-added-or-modified"></a>When a file is added or modified
+This operation triggers a flow when a file is added or modified in a folder. 
 
 
-|Имя свойства| Отображаемое имя|Описание|
+|Property Name| Display Name|Description|
 | ---|---|---|
-|folderId*|Папка|Укажите папку|
+|folderId*|Folder|Specify a folder|
 
-Звездочка (*) означает, что свойство является обязательным.
-
-
+An * indicates that a property is required
 
 
-### List files in folder (Вывод списка файлов в папке)
-Возвращает файлы, содержащиеся в папке.
 
 
-|Имя свойства| Отображаемое имя|Описание|
+### <a name="list-files-in-folder"></a>List files in folder
+This operation gets files contained in a folder. 
+
+
+|Property Name| Display Name|Description|
 | ---|---|---|
-|id*|Папка|Укажите папку|
+|id*|Folder|Specify the folder|
 
-Звездочка (*) означает, что свойство является обязательным.
+An * indicates that a property is required
 
 
 
-#### Сведения о выходных данных
+#### <a name="output-details"></a>Output Details
 
 BlobMetadata
 
 
-| Имя свойства | Тип данных |
+| Property Name | Data Type |
 |---|---|---|
-|Идентификатор|строка|
-|Имя|строка|
-|DisplayName|строка|
-|Путь|строка|
-|LastModified|строка|
-|Размер|целое число|
-|MediaType|строка|
-|IsFolder|Логическое|
+|Id|string|
+|Name|string|
+|DisplayName|string|
+|Path|string|
+|LastModified|string|
+|Size|integer|
+|MediaType|string|
+|IsFolder|boolean|
 |ETag|string|
 |FileLocator|string|
 
 
 
 
-### List files in root folder (Вывод списка файлов в корневой папке)
-Возвращает файлы в корневой папке.
+### <a name="list-files-in-root-folder"></a>List files in root folder
+This operation gets the files in the root folder. 
 
 
-Для этого вызова параметры отсутствуют
+There are no parameters for this call
 
-#### Сведения о выходных данных
+#### <a name="output-details"></a>Output Details
 
 BlobMetadata
 
 
-| Имя свойства | Тип данных |
+| Property Name | Data Type |
 |---|---|---|
-|Идентификатор|строка|
-|Имя|строка|
-|DisplayName|строка|
-|Путь|строка|
-|LastModified|строка|
-|Размер|целое число|
-|MediaType|строка|
-|IsFolder|Логическое|
+|Id|string|
+|Name|string|
+|DisplayName|string|
+|Path|string|
+|LastModified|string|
+|Size|integer|
+|MediaType|string|
+|IsFolder|boolean|
 |ETag|string|
 |FileLocator|string|
 
 
 
 
-### Извлечение папки
-Извлекает файл архива в папку (например, ZIP-файл).
+### <a name="extract-folder"></a>Extract folder
+This operation extracts an archive file into a folder (example: .zip). 
 
 
-|Имя свойства| Отображаемое имя|Описание|
+|Property Name| Display Name|Description|
 | ---|---|---|
-|source*|Путь к исходному файлу архива|Путь к файлу архива|
-|destination*|Путь к конечной папке|Путь к конечной папке|
-|перезаписать|Перезаписать?|Перезаписывает конечные файлы, если задано значение "true"|
+|source*|Source archive file path|Path to the archive file|
+|destination*|Destination folder path|Path to the destination folder|
+|overwrite|Overwrite?|Overwrites the destination files if set to 'true'|
 
-Звездочка (*) означает, что свойство является обязательным.
+An * indicates that a property is required
 
 
 
-#### Сведения о выходных данных
+#### <a name="output-details"></a>Output Details
 
 BlobMetadata
 
 
-| Имя свойства | Тип данных |
+| Property Name | Data Type |
 |---|---|---|
-|Идентификатор|строка|
-|Имя|строка|
-|DisplayName|строка|
-|Путь|строка|
-|LastModified|строка|
-|Размер|целое число|
-|MediaType|строка|
-|IsFolder|Логическое|
+|Id|string|
+|Name|string|
+|DisplayName|string|
+|Path|string|
+|LastModified|string|
+|Size|integer|
+|MediaType|string|
+|IsFolder|boolean|
 |ETag|string|
 |FileLocator|string|
 
 
 
-## Ответы HTTP
+## <a name="http-responses"></a>HTTP responses
 
-Описанные выше действия и триггеры могут возвращать один или несколько кодов состояния HTTP, которые приведены ниже.
+The actions and triggers above can return one or more of the following HTTP status codes: 
 
-|Имя|Описание|
+|Name|Description|
 |---|---|
-|200|ОК|
-|202|Принято|
-|400|Ошибка запроса|
-|401|Не авторизовано|
-|403|Запрещено|
-|404|Не найдено|
-|500|Внутренняя ошибка сервера. Произошла неизвестная ошибка.|
-|по умолчанию|Операция завершилась ошибкой.|
+|200|OK|
+|202|Accepted|
+|400|Bad Request|
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
+|500|Internal Server Error. Unknown error occurred.|
+|default|Operation Failed.|
 
 
 
@@ -416,7 +417,10 @@ BlobMetadata
 
 
 
-## Дальнейшие действия
-[Создайте приложение логики](../app-service-logic/app-service-logic-create-a-logic-app.md)
+## <a name="next-steps"></a>Next Steps
+[Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!----HONumber=AcomDC_0803_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

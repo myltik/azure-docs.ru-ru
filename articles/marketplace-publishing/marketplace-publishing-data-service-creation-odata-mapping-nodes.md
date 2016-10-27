@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Руководство по созданию службы данных для Marketplace | Microsoft Azure"
-   description="Подробные инструкции по созданию, сертификации и развертыванию службы данных для продажи в Azure Marketplace."
+   pageTitle="Guide to creating a Data Service for the  Marketplace | Microsoft Azure"
+   description="Detailed instructions of how to create, certify and deploy a Data Service for purchase on the Azure Marketplace."
    services="marketplace-publishing"
    documentationCenter=""
    authors="HannibalSII"
@@ -16,75 +16,78 @@
       ms.date="08/26/2016"
       ms.author="hascipio; avikova" />
 
-# Общее представление о схеме узлов для сопоставления существующей веб-службы с OData с помощью языка CSDL
 
->[AZURE.IMPORTANT] **В настоящее время мы больше не подключаем новые издатели служб данных. Новые службы данных не будут утверждены для добавления в список.** Если вы хотите опубликовать бизнес-приложение SaaS на AppSource, то можете ознакомиться с дополнительными сведениями [здесь](https://appsource.microsoft.com/partners). Если вы хотите опубликовать приложения IaaS или службу разработчика в Azure Marketplace, то можете найти дополнительные сведения [здесь](https://azure.microsoft.com/marketplace/programs/certified/).
+# <a name="understanding-the-nodes-schema-for-mapping-an-existing-web-service-to-odata-through-csdl"></a>Understanding the nodes schema for mapping an existing web service to OData through CSDL
 
-В этом документе поясняется структура узла для сопоставления протокола OData и CSDL. Следует отметить, что структура узла представляет собой XML-документ правильного формата. Поэтому при разработке сопоставления OData применяются корневая, родительская и дочерняя схемы.
+>[AZURE.IMPORTANT] **At this time we are no longer onboarding any new Data Service publishers. New dataservices will not get approved for listing.** If you have a SaaS business application you would like to publish on AppSource you can find more information [here](https://appsource.microsoft.com/partners). If you have an IaaS applications or developer service you would like to publish on Azure Marketplace you can find more information [here](https://azure.microsoft.com/marketplace/programs/certified/).
 
-## Пропускаемые элементы
-Ниже приведены элементы CSDL высокого уровня (узлы XML), которые не будут использоваться серверной службой Azure Marketplace во время импорта метаданных веб-служб. Они могут присутствовать, но будут пропущены.
+This document will help clarify the node structure for mapping an OData protocol to CSDL. It is important to note that the node structure is well formed XML. So root, parent, and child schema is applicable when designing your OData mapping.
 
-| Элемент | Область |
+## <a name="ignored-elements"></a>Ignored elements
+The following are the high level CSDL elements (XML nodes) that are not going to be used by the Azure Marketplace backend during the import of the web service’s metadata. They can be present but will be ignored.
+
+| Element | Scope |
 |----|----|
-| Элемент Using | Узел, подузлы и все атрибуты |
-| Элемент Documentation | Узел, подузлы и все атрибуты |
-| ComplexType | Узел, подузлы и все атрибуты |
-| Элемент Association | Узел, подузлы и все атрибуты |
-| Свойство Extended | Узел, подузлы и все атрибуты |
-| EntityContainer | Пропускаемые атрибуты: *extends* и *AssociationSet* |
-| Схема | Пропускаемые атрибуты: *Namespace* |
-| FunctionImport | Пропускаемые атрибуты: *Mode* (предполагается использование значения по умолчанию: ln) |
-| EntityType | Пропускаемые подузлы: *Key* и *PropertyRef* |
+| Using Element | The node, sub nodes and all attributes |
+| Documentation Element | The node, sub nodes and all attributes |
+| ComplexType | The node, sub nodes and all attributes |
+| Association Element | The node, sub nodes and all attributes |
+| Extended Property | The node, sub nodes and all attributes |
+| EntityContainer | Only the following attributes are ignored: *extends* and *AssociationSet* |
+| Schema | Only the following attributes are ignored: *Namespace* |
+| FunctionImport | Only the following attributes are ignored: *Mode* (default value of ln is assumed) |
+| EntityType | Only the following sub nodes are ignored: *Key* and *PropertyRef* |
 
-Ниже подробно описаны изменения (добавляемые и пропускаемые элементы) различных узлов XML на языке CSDL.
+The following describes the changes (added and ignored elements) to the various CSDL XML nodes in detail.
 
-## Узел FunctionImport
-Узел FunctionImport представляет один URL-адрес (точку входа), который предоставляет службу пользователю. Он позволяет описать способ обращения к URL-адресу, доступные пользователю параметры и способ предоставления этих параметров.
+## <a name="functionimport-node"></a>FunctionImport node
+A FunctionImport node represents one URL (entry point) that exposes a service to the end-user. The node allows describing how the URL is addressed, which parameters are available to the end-user and how these parameters are provided.
 
-Подробные сведения об этом узле можно найти [здесь][MSDNFunctionImportLink].
+Details about this node are found at [here][MSDNFunctionImportLink]
 
-[MSDNFunctionImportLink]: (https://msdn.microsoft.com/library/cc716710(v=vs.100).aspx)
+[MSDNFunctionImportLink]:(https://msdn.microsoft.com/library/cc716710(v=vs.100).aspx)
 
-Ниже приведены дополнительные атрибуты (или дополнения к атрибутам), предоставляемые узлом FunctionImport.
+The following are the additional attributes (or additions to attributes) that are exposed by the FunctionImport node:
 
-**d:BaseUri** — шаблон URI для ресурса REST, предоставляемый Marketplace. Marketplace использует этот шаблон для создания запросов к веб-службе REST. Шаблон URI содержит заполнители параметров в форме {parameterName}, где parameterName — имя параметра. Например, apiVersion={apiVersion}. Параметры могут отображаться в качестве параметров URI или в качестве части пути URI. Если они отображаются в пути, они всегда являются обязательными (не могут быть помечены, как допускающие значение NULL). *Пример:* `d:BaseUri="http://api.MyWeb.com/Site/{url}/v1/visits?start={start}&amp;end={end}&amp;ApiKey=3fadcaa&amp;Format=XML"`
+**d:BaseUri** -
+The URI template for the REST resource that is exposed to Marketplace. Marketplace uses the template to construct queries against the REST web service. The URI template contains placeholders for the parameters in the form of {parameterName}, where parameterName is the name of the parameter. Ex. apiVersion={apiVersion}.
+Parameters are allowed to appear as URI parameters or as part of the URI path. In the case of the appearance in the path they are always mandatory (can’t be marked as nullable). *Example:* `d:BaseUri="http://api.MyWeb.com/Site/{url}/v1/visits?start={start}&amp;end={end}&amp;ApiKey=3fadcaa&amp;Format=XML"`
 
-**Name** — имя импортируемой функции. Не может совпадать с другими определенными именами в CSDL. Например, Name="GetModelUsageFile".
+**Name** - The name of the imported function.  Cannot be the same as other defined names in the CSDL.  Ex. Name="GetModelUsageFile"
 
-**EntitySet** *(необязательно)* — если функция возвращает коллекцию типов сущностей, значение **EntitySet** должно представлять собой набор сущностей, к которому относится коллекция. В противном случае атрибут **EntitySet** не должен использоваться. *Пример:* `EntitySet="GetUsageStatisticsEntitySet"`
+**EntitySet** *(optional)* - If the function returns a collection of entity types, the value of the **EntitySet** must be the entity set to which the collection belongs. Otherwise, the **EntitySet** attribute must not be used. *Example:* `EntitySet="GetUsageStatisticsEntitySet"`
 
-**ReturnType** *(необязательно)* — задает тип элементов, возвращаемых URI. Не используйте этот атрибут, если функция не возвращает значение. Ниже приведены поддерживающиеся типы.
+**ReturnType** *(Optional)* - Specifies the type of elements returned by the URI.  Do not use this attribute if the function does not return a value. The following are the supported types:
 
- - **Collection (<имя\_типа\_сущности>)** — определяет коллекцию определенных типов сущностей. Имя указано в атрибуте Name узла EntityType. Например, Collection(WXC.HourlyResult).
- - **Raw (<тип\_MIME>)** — определяет необработанный документ или большой двоичный объект, возвращаемый пользователю. Например, Raw(image/jpeg). Другие примеры:
+ - **Collection (<Entity type name>)**: specifies a collection of defined entity types. The name is present in the Name attribute of the EntityType node. An example is Collection(WXC.HourlyResult).
+ - **Raw (<mime type>)**: specifies a raw document/blob that is returned to the user. An example is Raw(image/jpeg) Other examples:
 
-  - ReturnType="Raw(text/plain)";
-  - ReturnType="Collection(sage.DeleteAllUsageFilesEntity)"*.
+  - ReturnType="Raw(text/plain)"
+  - ReturnType="Collection(sage.DeleteAllUsageFilesEntity)"*
 
-**d:Paging** — задает способ обработки разбиения по страницам ресурсом REST. Значения параметров задаются в фигурных скобках, например, page={$page}&itemsperpage={$size}. Доступны следующие варианты:
+**d:Paging** - Specifies how paging is handled by the REST resource. The parameter values are used within curly braches, e.g. page={$page}&itemsperpage={$size} The options available are:
 
-- **None** — разбиение на страницы недоступно.
-- **Skip** — разбиение на страницы выражается с помощью логических значений skip и take (вверху). skip перескакивает через M элементов, а take возвращает следующие N элементов. Значение параметра: $skip.
-- **Take** — take возвращает следующие N элементов. Значение параметра: $take.
-- **PageSize** — разбиение на страницы выражается с помощью логических значений page и size (количество элементов на страницу). page представляет текущую страницу, которая возвращается. Значение параметра: $page.
-- **Size** — size представляет количество элементов, возвращаемых для каждой страницы. Значение параметра: $size.
+- **None:** no paging is available
+- **Skip:** paging is expressed through a logical “skip” and “take” (top). Skip jumps over M elements and take then returns the next N elements. Parameter value: $skip
+- **Take:** Take returns the next N elements. Parameter value: $take
+- **PageSize:** paging is expressed through a logical page and size (items per page). Page represents the current page that is returned. Parameter value: $page
+- **Size:** size represents the number of items returned for each page. Parameter value: $size
 
-**d:AllowedHttpMethods** *(необязательно)* — указывает, какие команды обрабатываются ресурсом REST. Кроме того, этот атрибут ограничивает допустимые команды заданными значениями. По умолчанию используется POST. *Пример:* `d:AllowedHttpMethods="GET"`. Доступны следующие варианты:
+**d:AllowedHttpMethods** *(Optional)* - Specifies which verb is handled by the REST resource. Also, restricts accepted verb to the specified value.  Default = POST.  *Example:* `d:AllowedHttpMethods="GET"` The options available are:
 
-- **GET** — обычно используется для возврата данных.
-- **POST** — обычно используется для вставки новых данных.
-- **PUT** — обычно используется для обновления данных.
-- **DELETE** — используется для удаления данных.
+- **GET:** usually used to return data
+- **POST:** usually used to insert new data
+- **PUT:** usually used to update data
+- **DELETE:** used to delete data
 
-Ниже перечислены дополнительные дочерние узлы (не описанные в документации CSDL) в узле FunctionImport.
+Additional child nodes (not covered by the CSDL documentation) within the FunctionImport node are:
 
-**d:RequestBody** *(необязательно)* — текст запроса, который используется для указания, что запрос ожидает отправки текста. В тексте запроса можно указать параметры. Они задаются в фигурных скобках, например {parameterName}. Эти параметры сопоставляются из входных данных пользователя с текстом, передаваемым в службу поставщика содержимого. Элемент RequestBody обладает атрибутом с именем httpMethod. Этот атрибут допускает два значения.
+**d:RequestBody** *(Optional)* - The request body is used to indicate that the request expects a body to be sent. Parameters can be given within the request body. They are expressed within curly brackets, e.g. {parameterName}. These parameters are mapped from the user input into the body that is transferred to the content provider’s service. The requestBody element has an attribute with name httpMethod. The attribute allows two values:
 
-- **POST** — используется при запросе HTTP POST.
-- **GET** — используется при запросе HTTP GET.
+- **POST:** Used if the request is a HTTP POST
+- **GET:** Used if the request is a HTTP GET
 
-	Пример:
+    Example:
 
         `<d:RequestBody d:httpMethod="POST">
         <![CDATA[
@@ -96,92 +99,92 @@
         ]]>
         </d:RequestBody>`
 
-**d:Namespaces** и **d:Namespace** — этот узел описывает пространства имен, которые определяются в данных XML, возвращаемых при импорте функции (конечная точка URI). Данные XML, возвращаемые серверной службой, могут содержать любое количество пространств имен, необходимых, чтобы различать возвращаемое содержимое. **При использовании в запросах d:Map или d:Map XPath все эти пространства имен должны быть перечислены.** Узел d:Namespaces содержит набор или список узлов d:Namespace. В каждом из них отображается одно пространство имен, используемое в ответе серверной службы. Ниже перечислены атрибуты узла d:Namespace.
+**d:Namespaces** and **d:Namespace** - This node describes the namespaces that are defined in the XML that is returned by the function import (URI endpoint). The XML that is returned by the backend service might contain any number of namespaces to differentiate the content that is returned. **All of these namespaces, if used in d:Map or d:Match XPath queries need to be listed.** The d:Namespaces node contains a set/list of d:Namespace nodes. Each of them lists one namespace used in the backend service response. The following are the attribute of the d:Namespace node:
 
--	**d:Prefix** — префикс пространства имен в том виде, в котором он отображается в результатах XML, возвращенных службой, например, f:FirstName, f:LastName, где f — это префикс.
-- **d:Uri** — полный URI пространства имен, используемого в документе результата. Он представляет значение, в которое разрешается префикс во время выполнения.
+-   **d:Prefix:** The prefix for the namespace, as seen in the XML results returned by the service, e.g. f:FirstName, f:LastName, where f is the prefix.
+- **d:Uri:** The full URI of the namespace used in the result document. It represents the value that the prefix is resolved to at runtime.
 
-**d:ErrorHandling** *(необязательно)* — узел содержит условия обработки ошибок. Каждое из условий сопоставляется с результатом, возвращаемым службой поставщика содержимого. Если условие соответствует предложенному коду ошибки HTTP, пользователю возвращается сообщение об ошибке.
+**d:ErrorHandling** *(Optional)* - This node contains conditions for error handling. Each of the conditions is validated against the result that is returned by the content provider’s service. If a condition matches the proposed HTTP error code an error message is returned to the end-user.
 
-**d:ErrorHandling** *(необязательно)* и **d:Condition** *(необязательно)* — узел условия содержит одно условие, которое проверяется в результате, возвращаемом службой поставщика содержимого. Ниже перечислены **обязательные** атрибуты.
+**d:ErrorHandling** *(Optional)* and **d:Condition** *(Optional)* - A condition node holds one condition that is checked in the result returned by the content provider’s service. The following are the **required** attributes:
 
-- **d:Match** — выражение XPath, которое проверяет, содержится ли заданный узел или значение в выходных данных XML поставщика содержимого. Выражение XPath выполняется применительно к выходным данным. Если условие совпало, возвращается значение true, а если нет — false.
-- **d:HttpStatusCode** — код состояния HTTP, который должен возвращать Marketplace в случае совпадения условия. Marketplace сообщает пользователю об ошибках с помощью кодов состояния HTTP. Список кодов состояния HTTP можно найти по адресу http://en.wikipedia.org/wiki/HTTP_status_code.
-- **d:ErrorMessage** — возвращаемое пользователю сообщение об ошибке, содержащее код состояния HTTP. Это должно быть понятное сообщение об ошибке, не содержащее секретных данных.
+- **d:Match:** An XPath expression that validates whether a given node/value is present in the content provider’s output XML. The XPath is run against the output and should return true if the condition is a match or false otherwise.
+- **d:HttpStatusCode:** The HTTP status code that should be returned by Marketplace in the case the condition matches. Marketplace signalizes errors to the user through HTTP status codes. A list of HTTP status codes are available at http://en.wikipedia.org/wiki/HTTP_status_code
+- **d:ErrorMessage:** The error message that is returned – with the HTTP status code – to the end-user. This should be a friendly error message that doesn’t contain any secrets.
 
-**d:Title** *(необязательно)* — позволяет описать заголовок функции. Источником значения в заголовке функции является:
+**d:Title** *(Optional)* - Allows describing the title of the function. The value for the title is coming from
 
-- необязательный атрибут сопоставления (xpath), который указывает, в каком месте ответа, возвращенного на запрос службы, находится заголовок;
-- заголовок, указанный в качестве значения узла.
+- The optional map attribute (an xpath) which specifies where to find the title in the response returned from the service request.
+- -Or - The title specified as value of the node.
 
-**d:Rights** *(необязательно)* — права (например, авторские права), связанные с функцией. Источником значения для прав является:
+**d:Rights** *(Optional)* - The rights (e.g. copyright) associated with the function. The value for the rights is coming from:
 
-- необязательный атрибут сопоставления (xpath), который указывает, в каком месте ответа, возвращенного на запрос службы, находятся права;
--	права, указанные в качестве значения узла.
+- The optional map attribute (an xpath) which specifies where to find the rights in the response returned from the service request.
+-   -Or - The rights specified as value of the node.
 
-**d:Description** *(необязательно)* — краткое описание функции. Источником значения в описании является:
+**d:Description** *(Optional)* - A short description for the function. The value for the description is coming from
 
-- необязательный атрибут сопоставления (xpath), который указывает, в каком месте ответа, возвращенного на запрос службы, находится описание;
-- описание, указанное в качестве значения узла.
+- The optional map attribute (an xpath) which specifies where to find the description in the response returned from the service request.
+- -Or – The description specified as value of the node.
 
-**d:EmitSelfLink** — *см. пример выше «FunctionImport для разбиения возвращаемых данных на страницы»*.
+**d:EmitSelfLink** - *See above example "FunctionImport for 'Paging' through returned data"*
 
-**d:EncodeParameterValue** — дополнительное расширение OData.
+**d:EncodeParameterValue** - Optional extension to OData
 
-**d:QueryResourceCost** — дополнительное расширение OData.
+**d:QueryResourceCost** - Optional extension to OData
 
-**d:Map** — дополнительное расширение OData.
+**d:Map** - Optional extension to OData
 
-**d:Headers** — дополнительное расширение OData.
+**d:Headers** - Optional extension to OData
 
-**d:Headers** — дополнительное расширение OData.
+**d:Headers** - Optional extension to OData
 
-**d:Value** — дополнительное расширение OData.
+**d:Value** - Optional extension to OData
 
-**d:HttpStatusCode** — дополнительное расширение OData.
+**d:HttpStatusCode** - Optional extension to OData
 
-**d:ErrorMessage** — дополнительное расширение OData.
+**d:ErrorMessage** - Optional Extension to OData
 
-## Узел параметра
+## <a name="parameter-node"></a>Parameter node
 
-Этот узел представляет один параметр, который предоставляется как часть шаблона URI или текста запроса, который был указан в узле FunctionImport.
+This node represents one parameter that is exposed as part of the URI template / request body that has been specified in the FunctionImport node.
 
-Страницу с полезными сведениями об узле Parameter Element см. [здесь](http://msdn.microsoft.com/library/ee473431.aspx). (Используйте раскрывающийся список **Другие версии**, чтобы выбрать для просмотра документацию по другой версии.) *Пример:* `<Parameter Name="Query" Nullable="false" Mode="In" Type="String" d:Description="Query" d:SampleValues="Rudy Duck" d:EncodeParameterValue="true" MaxLength="255" FixedLength="false" Unicode="false" annotation:StoreGeneratedPattern="Identity"/>`
+A very helpful details document page about the “Parameter Element” node is found at [here](http://msdn.microsoft.com/library/ee473431.aspx)  (Use the **Other Version** dropdown to select a different version if necessary to view the documentation). *Example:* `<Parameter Name="Query" Nullable="false" Mode="In" Type="String" d:Description="Query" d:SampleValues="Rudy Duck" d:EncodeParameterValue="true" MaxLength="255" FixedLength="false" Unicode="false" annotation:StoreGeneratedPattern="Identity"/>`
 
-| Атрибут параметра | Обязательный | Значение |
+| Parameter Attribute | Is Required | Value |
 |----|----|----|
-| Имя | Да | Имя параметра. Учитывается регистр. Соответствует регистру BaseUri. **Пример** `<Property Name="IsDormant" Type="Byte" />` |
-| Тип | Да | Тип параметра. Значение должно представлять собой **EDMSimpleType** или сложный тип в рамках модели. Дополнительные сведения см. в разделе «6 поддерживаемых параметров и типов свойств». (Учитывается регистр. Первый символ — прописная буква, все остальные — строчные.) Дополнительные сведения см. в разделе [Типы концептуальной модели][MSDNParameterLink]. **Пример:** `<Property Name="LimitedPartnershipID " Type="Int32" />` |
-| Режим | Нет | **In**, Out или InOut в зависимости от того, является ли параметр входным, выходным или параметром ввода-вывода. (В Azure Marketplace доступен только In.) **Пример:** `<Parameter Name="StudentID" Mode="In" Type="Int32" />` |
-| MaxLength | Нет | Максимально допустимая длина параметра. **Пример** `<Property Name="URI" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />` |
-| Precision | Нет | Точность параметра. **Пример** `<Property Name="PreviousDate" Type="DateTime" Precision="0" />` |
-| Масштаб | Нет | Масштаб параметра. **Пример** `<Property Name="SICCode" Type="Decimal" Precision="10" Scale="0" />` |
+| Name | Yes | The name of the parameter. Case sensitive!  Match the BaseUri case. **Example:** `<Property Name="IsDormant" Type="Byte" />` |
+| Type | Yes | The parameter type. The value must be an **EDMSimpleType** or a complex type that is within the scope of the model. For more information, see “6 Supported Parameter/Property types”.  (Case Sensitive! First char is uppercase, rest are lower case.)  Also see,  [Conceptual Model Types (CSDL)][MSDNParameterLink]. **Example:** `<Property Name="LimitedPartnershipID " Type="Int32" />` |
+| Mode | No | **In**, Out, or InOut depending on whether the parameter is an input, output, or input/output parameter. (Only “IN” is available in Azure Marketplace.) **Example:** `<Parameter Name="StudentID" Mode="In" Type="Int32" />` |
+| MaxLength | No | The maximum allowed length of the parameter. **Example:** `<Property Name="URI" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />` |
+| Precision | No | The precision of the parameter. **Example:** `<Property Name="PreviousDate" Type="DateTime" Precision="0" />` |
+| Scale | No | The scale of the parameter. **Example:** `<Property Name="SICCode" Type="Decimal" Precision="10" Scale="0" />` |
 
-[MSDNParameterLink]: (http://msdn.microsoft.com/library/bb399548(v=VS.100).aspx)
+[MSDNParameterLink]:(http://msdn.microsoft.com/library/bb399548(v=VS.100).aspx)
 
-Ниже перечислены атрибуты, которые были добавлены в спецификации языка CSDL.
+The following are the attributes that have been added to the CSDL specification:
 
-| Атрибут параметра | Описание |
+| Parameter Attribute | Description |
 |----|----|
-| **d:Regex** *(необязательно)* | Оператор регулярных выражений, используемый для проверки входных значений параметра. Если входное значение не соответствует оператору, значение отклоняется. Это также позволяет задать набор возможных значений, например ^[0-9]+?$, чтобы разрешить использование только чисел. **Пример** `<Parameter Name="name" Mode="In" Type="String" d:Nullable="false" d:Regex="^[a-zA-Z]*$" d:Description="A name that cannot contain any spaces or non-alpha non-English characters" d:SampleValues="George|John|Thomas|James"/>` |
-| **d:Enum** *(необязательно)* | Отделенный вертикальной чертой список значений, допустимых для параметра. Тип значений должен совпадать с определенным типом параметра. Пример: `english|metric|raw`. Перечисление будет отображаться как доступный для выбора раскрывающийся список параметров в пользовательском интерфейсе (обозреватель служб). **Пример:** `<Parameter Name="Duration" Type="String" Mode="In" Nullable="true" d:Enum="1year|5years|10years"/>` |
-| **d: Nullable** *(необязательно)* | Позволяет определить, может ли параметр иметь значение NULL. Значение по умолчанию — true. Однако параметры, предоставляемые как часть пути в шаблоне URI, не могут принимать значение NULL. Если для этих параметров в атрибуте задано значение false, входные данные пользователя переопределяются. **Пример** `<Parameter Name="BikeType" Type="String" Mode="In" Nullable="false"/>` |
-| **d:SampleValue** *(необязательно)* | Пример значения, который отображается в виде сообщения клиенту в пользовательском интерфейсе. Чтобы добавить несколько значений, воспользуйтесь списком значений, разделенных вертикальной чертой, т. е. `a|b|c` **Пример:** `<Parameter Name="BikeOwner" Type="String" Mode="In" d:SampleValues="George|John|Thomas|James"/>` |
+| **d:Regex** *(Optional)* | A regex statement used to validate the input value for the parameter. If the input value doesn’t match the statement the value is rejected. This allows to specify also a set of possible values, e.g. ^[0-9]+?$ to only allow numbers. **Example:** `<Parameter Name="name" Mode="In" Type="String" d:Nullable="false" d:Regex="^[a-zA-Z]*$" d:Description="A name that cannot contain any spaces or non-alpha non-English characters" d:SampleValues="George|John|Thomas|James"/>` |
+| **d:Enum** *(Optional)* | A pipe separated list of values valid for the parameter. The type of the values needs to match the defined type of the parameter. Example: `english|metric|raw`. Enum will display as a selectable dropdown list of parameters in the UI (service explorer). **Example:** `<Parameter Name="Duration" Type="String" Mode="In" Nullable="true" d:Enum="1year|5years|10years"/>` |
+| **d:Nullable** *(Optional)* | Allows defining whether a parameter can be null. The default is: true. However, parameters that are exposed as part of the path in the URI template can’t be null. When the attribute is set to false for these parameters – the user input is overridden. **Example:** `<Parameter Name="BikeType" Type="String" Mode="In" Nullable="false"/>` |
+| **d:SampleValue** *(Optional)* | A sample value to display as a note to the Client in the UI.  It is possible to add several values by using a pipe separated list, i.e. `a|b|c` **Example:** `<Parameter Name="BikeOwner" Type="String" Mode="In" d:SampleValues="George|John|Thomas|James"/>` |
 
-## Узел EntityType
+## <a name="entitytype-node"></a>EntityType node
 
-Этот узел представляет один из типов, возвращаемых пользователю из Marketplace. Он также содержит сопоставление выходных данных, возвращенных службой поставщика содержимого, со значениями, которые возвращаются пользователю.
+This node represents one of the types that are returned from Marketplace to the end user. It also contains the mapping from the output that is returned by the content provider’s service to the values that are returned to the end-user.
 
-Сведения об этом узле см. [здесь](http://msdn.microsoft.com/library/bb399206.aspx). (Используйте раскрывающийся список **Другие версии**, чтобы выбрать для просмотра документацию по другой версии.)
+Details about this node are found at [here](http://msdn.microsoft.com/library/bb399206.aspx) (Use the **Other Version** dropdown to select a different version if necessary to view the documentation.)
 
-| Имя атрибута | Обязательный | Значение |
+| Attribute Name | Is Required | Value |
 |----|----|----|
-| Имя | Да | Имя типа сущности. **Пример** `<EntityType Name="ListOfAllEntities" d:Map="//EntityModel">` |
-| BaseType | Нет | Имя другого типа сущности, который является базовым типом определяемого типа сущности. **Пример:** `<EntityType Name="PhoneRecord" BaseType="dqs:RequestRecord">` |
+| Name | Yes | The name of the entity type. **Example:** `<EntityType Name="ListOfAllEntities" d:Map="//EntityModel">` |
+| BaseType | No | The name of another entity type that is the base type of the entity type that is being defined. **Example:** `<EntityType Name="PhoneRecord" BaseType="dqs:RequestRecord">` |
 
-Ниже перечислены атрибуты, которые были добавлены в спецификации языка CSDL.
+The following are the attributes that have been added to the CSDL specification:
 
-**d:Map** — выражение XPath, которое выполняется применительно к выходным данным службы. Здесь предполагается, что выходные данные службы содержат набор повторяющихся элементов, как при использовании ATOM, где есть набор повторяющихся входных узлов. Каждый из повторяющихся узлов содержит одну запись. XPath задается для указания отдельного повторяющегося узла в результате службы поставщика содержимого, содержащего значения для отдельной записи. Пример выходных данных из службы:
+**d:Map** - An XPath expression executed against the service output. The assumption here is that the service output contains a set of elements that repeat, like an ATOM feed where there is a set of entry nodes that repeat. Each of these repeating nodes contains one record. The XPath is then specified to point at the individual repeating node in the content provider’s service result that holds the values for an individual record. Example output from the service:
 
         `<foo>
           <bar> … content … </bar>
@@ -189,37 +192,38 @@
           <bar> … content … </bar>
         </foo>`
 
-В этом случае выражение XPath выглядело бы, как /foo/bar, так как каждый узел bar является повторяющимся узлом в выходных данных, содержащим фактические данные, возвращаемые пользователю.
+The XPath expression would be /foo/bar because each of the bar node is the repeating node in the output and it contains the actual content that is returned to the end-user.
 
-**Key** — Marketplace пропускает этот атрибут. Веб-службы на основе REST обычно не предоставляют первичный ключ.
+**Key** - This attribute is ignored by Marketplace. REST based web services, in general don’t expose a primary key.
 
 
-## Узел Property
+## <a name="property-node"></a>Property node
 
-Этот узел содержит одно свойство записи.
+This node contains one property of the record.
 
-Сведения об этом узле см. по адресу [http://msdn.microsoft.com/library/bb399546.aspx](http://msdn.microsoft.com/library/bb399546.aspx). (Используйте раскрывающийся список **Другие версии**, чтобы выбрать другую версию, необходимую для просмотра документации.) *Пример:* `<EntityType Name="MetaDataEntityType" d:Map="/MyXMLPath">
-        <Property Name="Name" 	Type="String" Nullable="true" d:Map="./Service/Name" d:IsPrimaryKey="true" DefaultValue=”Joe Doh” MaxLength="25" FixedLength="true" />
-		...
+Details about this node are found at [http://msdn.microsoft.com/library/bb399546.aspx](http://msdn.microsoft.com/library/bb399546.aspx) (Use the **Other Version** dropdown to select a different version if necessary to view the documentation.) *Example:*
+        `<EntityType Name="MetaDataEntityType" d:Map="/MyXMLPath">
+        <Property Name="Name"   Type="String" Nullable="true" d:Map="./Service/Name" d:IsPrimaryKey="true" DefaultValue=”Joe Doh” MaxLength="25" FixedLength="true" />
+        ...
         </EntityType>`
 
-| AttributeName | Обязательно | Значение |
+| AttributeName | Required | Value |
 |----|----|----|
-| Name (Имя) | Да | Имя свойства. |
-| Тип | Да | Тип значения свойства. Тип значения свойства должен представлять собой **EDMSimpleType** или сложный тип (указано в полном имени) в рамках модели. Дополнительные сведения см. в разделе «Типы концептуальной модели». |
-| Nullable | Нет | **True** (значение по умолчанию) или **False** в зависимости от того, может ли свойство иметь значение NULL. Примечание. В версии языка CSDL, указанной в пространстве имен [http://schemas.microsoft.com/ado/2006/04/edm](http://schemas.microsoft.com/ado/2006/04/edm), для свойства сложного типа должно быть задано Nullable="False". |
-| DefaultValue | Нет | Значение свойства по умолчанию. |
-|MaxLength | Нет | Максимальная длина значения свойства. |
-| FixedLength | Нет | **True** или **False** в зависимости от того, будет ли значение свойства храниться в виде строки с фиксированной длиной. |
-| Precision | Нет | Обозначает максимальное количество цифр, сохраняемых в числовом значении. |
-| Масштаб | Нет | Максимальное количество десятичных разрядов, сохраняемых в числовом значении. |
-| Unicode | Нет | **True** или **False** в зависимости от того, будет ли значение свойства храниться в виде строки Юникода. |
-| Collation | Нет | Строка, указывающая порядок сортировки, используемый в источнике данных. |
-| ConcurrencyMode | Нет | **None** (значение по умолчанию) или **Fixed**. Если задано значение **Fixed**, значение свойства будет использоваться при выполнении проверок оптимистичного параллелизма. |
+| Name | Yes | The name of the property. |
+| Type | Yes | The type of the property value. The property value type must be an **EDMSimpleType** or a complex type (indicated by a fully-qualified name) that is within scope of the model. For more information, see Conceptual Model Types (CSDL). |
+| Nullable | No | **True** (the default value) or **False** depending on whether the property can have a null value. Note: In the version of CSDL indicated by the [http://schemas.microsoft.com/ado/2006/04/edm](http://schemas.microsoft.com/ado/2006/04/edm) namespace, a complex type property must have Nullable="False". |
+| DefaultValue | No | The default value of the property. |
+|MaxLength | No | The maximum length of the property value. |
+| FixedLength | No | **True** or **False** depending on whether the property value will be stored as a fiexed length string. |
+| Precision | No | Refers to the maximum number of digits to retain in the numeric value. |
+| Scale | No | Maximum number of decimal places to retain in the numeric value. |
+| Unicode | No | **True** or **False** depending on whether the property value be stored as a Unicode string. |
+| Collation | No | A string that specifies the collating sequence to be used in the data source. |
+| ConcurrencyMode | No | **None** (the default value) or **Fixed**. If the value is set to **Fixed**, the property value will be used in optimistic concurrency checks. |
 
-Ниже перечислены дополнительные атрибуты, которые были добавлены в спецификации языка CSDL.
+The following are the additional attributes that have been added to the CSDL specification:
 
-**d:Map** — выражение XPath, которое выполняется применительно к выходным данным службы и извлекает одно свойство выходных данных. Указанное выражение XPath соотносится с повторяющимся узлом, который был выбран в XPath узла EntityType. Можно также указать абсолютное выражение XPath, чтобы разрешить включение статических ресурсов в каждый из выходных узлов, например, заявление об авторских правах, которое содержится только в одном месте выходных данных исходной службы, но которое должно присутствовать в каждой строке выходных данных OData. Пример из службы:
+**d:Map** - XPath expression executed against the service output and extracts one property of the output. The XPath specified is relative to the repeating node that has been selected in the EntityType node’s XPath. It is also possible to specify an absolute XPath to allow including a static resource in each of the output nodes, like for example a copyright statement that is only found once in the original service output but should be present in each of the rows in the OData output. Example from the service:
 
         `<foo>
           <bar>
@@ -229,50 +233,54 @@
           </bar>
         </foo>`
 
-Здесь выражение XPath будет выглядеть, как ./bar/baz0 для получения узла baz0 от службы поставщика содержимого.
+The XPath expression here would be ./bar/baz0 to get the baz0 node from the content provider’s service.
 
-**d:CharMaxLength** — можно задать максимальную длину для типа строки. См. пример DataService CSDL.
+**d:CharMaxLength** - For string type, you can specify the max length. See DataService CSDL Example
 
-**d:IsPrimaryKey** — указывает, является ли столбец первичным ключом в таблице или представлении. См. пример DataService CSDL.
+**d:IsPrimaryKey** - Indicates if the column is the Primary key in the table/view. See DataService CSDL Example.
 
-**d:isExposed** — определяет, предоставляется ли схема таблицы (обычно задается значение true). См. пример DataService CSDL.
+**d:isExposed** - Determines if the table schema is exposed (generally true). See DataService CSDL Example
 
-**d:IsView** *(необязательно)* — задается значение true, если основывается на представлении, а не на таблице. См. пример DataService CSDL.
+**d:IsView** *(Optional)* - true if this is based on a view rather than a table.  See DataService CSDL Example
 
-**d:Tableschema** — см. пример DataService CSDL.
+**d:Tableschema** - See DataService CSDL Example
 
-**d:ColumnName** — имя столбца в таблице или представлении. См. пример DataService CSDL.
+**d:ColumnName** - Is the name of the column in the table/view.  See DataService CSDL Example
 
-**d:IsReturned** — логическое значение, определяющее, предоставляет ли служба это значение клиенту. См. пример DataService CSDL.
+**d:IsReturned** - Is the Boolean that determines if the Service exposes this value to the client.  See DataService CSDL Example
 
-**d:IsQueryable** — логическое значение, определяющее, можно ли использовать столбец в запросе к базе данных. См. пример DataService CSDL.
+**d:IsQueryable** - Is the Boolean that determines if the column can be used in a database query.   See DataService CSDL Example
 
-**d:OrdinalPosition** — числовое значение положения столбца, x, в таблице или представлении, где x может иметь значение от 1 до числа столбцов в таблице. См. пример DataService CSDL.
+**d:OrdinalPosition** - Is the column’s numerical position of appearance, x, in the table or the view, where x is from 1 to the number of columns in the table.  See DataService CSDL Example
 
-**d:DatabaseDataType** — тип данных столбца в базе данных, то есть тип данных SQL. См. пример DataService CSDL.
+**d:DatabaseDataType** - Is the data type of the column in the database, i.e. SQL data type. See DataService CSDL Example
 
-## Поддерживаемые типы параметров и свойств
-Ниже приведены поддерживаемые типы параметров и свойств. (Учитывается регистр.)
+## <a name="supported-parameters/property-types"></a>Supported Parameters/Property Types
+The following are the supported types for parameters and properties. (Case sensitive)
 
-| Примитивные типы | Описание |
+| Primitive Types | Description |
 |----|----|
-| Null | Отсутствие значения |
-| Логический | Представляет математическое понятие двоичной логики|
-| Byte | 8-разрядное целое значение без знака|
-|DateTime| Представляет дату и время с диапазоном значений от 12:00:00 полночь 1 января 1753 г. н. э. до 11:59:59 пополудни, декабрь 9999 г. н. э.|
-|Decimal | Представляет числовые значения с фиксированной точностью и масштабом. Этот тип может описывать числовые значения в диапазоне от отрицательного значения 10^255 + 1 до положительного 10^255 -1|
-| Double | Представляет число с плавающей запятой с точностью в 15 цифр, которое может представлять значения в диапазоне примерно от ± 2.23e -308 до ± 1.79e +308 **Из-за проблемы с экспортом в Excel необходимо использовать десятичные числа**|
-| Single | Представляет число с плавающей запятой с точностью в 7 цифр, которое может представлять значения в диапазоне примерно от ± 1.18e -38 до ± 3.40e +38|
-|Guid |Представляет 16-байтовое (128-разрядное) значение уникального идентификатора |
-|Int16|Представляет 16-разрядное целое значение со знаком |
-|Int32|Представляет 32-разрядное целое значение со знаком |
-|Int64|Представляет 64-разрядное целое значение со знаком |
-|Строка | Представляет символьные данные фиксированной или переменной длины |
+| Null | Represents the absence of a value |
+| Boolean | Represents the mathematical concept of binary-valued logic|
+| Byte | Unsigned 8-bit integer value|
+|DateTime| Represents date and time with values ranging from 12:00:00 midnight, January 1, 1753 A.D. through 11:59:59 P.M, December 9999 A.D.|
+|Decimal | Represents numeric values with fixed precision and scale. This type can describe a numeric value ranging from negative 10^255 + 1 to positive 10^255 -1|
+| Double | Represents a floating point number with 15 digits precision that can represent values with approximate range of ± 2.23e -308 through ± 1.79e +308. **Use Decimal due to Exel export issue**|
+| Single | Represents a floating point number with 7 digits precision that can represent values with approximate range of ± 1.18e -38 through ± 3.40e +38|
+|Guid |Represents a 16-byte (128-bit) unique identifier value |
+|Int16|Represents a signed 16-bit integer value |
+|Int32|Represents a signed 32-bit integer value |
+|Int64|Represents a signed 64-bit integer value |
+|String | Represents fixed- or variable-length character data |
 
 
-## См. также
-- Если вы хотите понять процесс и смысл сопоставления OData, см. статью [Сопоставление OData для службы данных](marketplace-publishing-data-service-creation-odata-mapping.md), где приводятся определения, структуры и инструкции.
-- Если вы хотите поработать с примерами, см. статью [Примеры сопоставления OData для службы данных](marketplace-publishing-data-service-creation-odata-mapping-examples.md), где приводятся примеры кода вместе с объяснением синтаксиса и контекста.
-- Чтобы вернуться к указанному пути для публикации службы данных в Azure Marketplace, см. статью [Руководство по публикации службы данных](marketplace-publishing-data-service-creation.md).
+## <a name="see-also"></a>See Also
+- If you are interested in understanding the overall OData mapping process and purpose, read this article [Data Service OData Mapping](marketplace-publishing-data-service-creation-odata-mapping.md) to review definitions, structures, and instructions.
+- If you are interested in reviewing examples, read this article [Data Service OData Mapping Examples](marketplace-publishing-data-service-creation-odata-mapping-examples.md) to see sample code and understand code syntax and context.
+- To return to the prescribed path for publishing a Data Service to the Azure Marketplace, read this article [Data Service Publishing Guide](marketplace-publishing-data-service-creation.md).
 
-<!---HONumber=AcomDC_0831_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

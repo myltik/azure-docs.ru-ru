@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Просмотр операций развертывания с помощью портала Azure | Microsoft Azure"
-   description="Описывается использование портала Azure для обнаружения ошибок Resource Manager."
+   pageTitle="View deployment operations with portal | Microsoft Azure"
+   description="Describes how to use the Azure portal to detect errors from Resource Manager deployment."
    services="azure-resource-manager,virtual-machines"
    documentationCenter=""
    tags="top-support-issue"
@@ -17,94 +17,99 @@
    ms.date="06/15/2016"
    ms.author="tomfitz"/>
 
-# Просмотр операций развертывания с помощью портала Azure
+
+# <a name="view-deployment-operations-with-azure-portal"></a>View deployment operations with Azure Portal
 
 > [AZURE.SELECTOR]
-- [Портал](resource-manager-troubleshoot-deployments-portal.md)
+- [Portal](resource-manager-troubleshoot-deployments-portal.md)
 - [PowerShell](resource-manager-troubleshoot-deployments-powershell.md)
-- [Интерфейс командной строки Azure](resource-manager-troubleshoot-deployments-cli.md)
-- [ИНТЕРФЕЙС REST API](resource-manager-troubleshoot-deployments-rest.md)
+- [Azure CLI](resource-manager-troubleshoot-deployments-cli.md)
+- [REST API](resource-manager-troubleshoot-deployments-rest.md)
 
-Вы можете просматривать операции развертывания на портале Azure. Чаще всего необходимость просмотреть операции возникает, если во время развертывания произошла ошибка. Таким образом, эта статья посвящена просмотру операций, которые завершились с ошибкой. Портал Azure предоставляет интерфейс, который позволяет легко находить ошибки и определять возможные действия по их устранению.
+You can view the operations for a deployment through the Azure portal. You may be most interested in viewing the operations when you have received an error during deployment so this article focuses on viewing operations that have failed. The portal provides an interface that enables you to easily find the errors and determine potential fixes.
 
 [AZURE.INCLUDE [resource-manager-troubleshoot-introduction](../includes/resource-manager-troubleshoot-introduction.md)]
 
-## Использование операций развертывания для устранения неполадок
+## <a name="use-deployment-operations-to-troubleshoot"></a>Use deployment operations to troubleshoot
 
-Для просмотра операций развертывания выполните следующие действия:
+To see the deployment operations, use the following steps:
 
-1. Для группы ресурсов, участвующих в развертывании, обратите внимание на состояние последнего развертывания. Можно выбрать этот статус, чтобы получить дополнительные сведения.
+1. For the resource group involved in the deployment, notice the status of the last deployment. You can select this status to get more details.
 
-    ![состояние развертывания](./media/resource-manager-troubleshoot-deployments-portal/deployment-status.png)
+    ![deployment status](./media/resource-manager-troubleshoot-deployments-portal/deployment-status.png)
 
-2. Вы увидите историю последних развертываний. Выберите развертывание, которое завершилось неудачно.
+2. You will see the recent deployment history. Select the deployment that failed.
 
-    ![состояние развертывания](./media/resource-manager-troubleshoot-deployments-portal/select-deployment.png)
+    ![deployment status](./media/resource-manager-troubleshoot-deployments-portal/select-deployment.png)
 
-3. Щелкните сообщение **Сбой. Щелкните здесь, чтобы узнать больше**, чтобы просмотреть сведения о причине сбоя развертывания. На рисунке ниже видно, что сбой произошел, потому что DNS-запись не является уникальной.
+3. Select **Failed. Click here for details** to see a description of why the deployment failed. In the image below, the DNS record is not unique.  
 
-    ![просмотр неудачного развертывания](./media/resource-manager-troubleshoot-deployments-portal/view-error.png)
+    ![view failed deployment](./media/resource-manager-troubleshoot-deployments-portal/view-error.png)
 
-    Описания в этом сообщении об ошибке должно быть достаточно, чтобы приступить к устранению неполадки. Однако если вы хотите узнать, какие задачи выполнены, вы можете просмотреть операции, как описано ниже.
+    This error message should be enough for you to begin troubleshooting. However, if you need more details about which tasks were completed, you can view the operations as shown in the following steps.
 
-4. Все операции развертывания отображаются в колонке **Развертывание**. Чтобы просмотреть сведения о конкретной операции, выберите ее.
+4. You can view all of the deployment operations in the **Deployment** blade. Select any operation to see more details.
 
-    ![просмотр операций](./media/resource-manager-troubleshoot-deployments-portal/view-operations.png)
+    ![view operations](./media/resource-manager-troubleshoot-deployments-portal/view-operations.png)
 
-    На рисунке выше видно, что созданы учетная запись хранения, виртуальная сеть и группа доступности. Операция создания общедоступного IP-адреса завершилась сбоем, а попытки создать другие ресурсы не были предприняты.
+    In this case, you see that the storage account, virtual network, and availability set were successfully created. The public IP address failed, and other resources were not attempted.
 
-5. Чтобы просмотреть события развертывания, щелкните **События**.
+5. You can view events for the deployment by selecting **Events**.
 
-    ![просмотр событий](./media/resource-manager-troubleshoot-deployments-portal/view-events.png)
+    ![view events](./media/resource-manager-troubleshoot-deployments-portal/view-events.png)
 
-6. В открывшемся окне отобразятся все события развертывания. Чтобы просмотреть дополнительные сведения о конкретном событии, выберите его.
+6. You see all of the events for the deployment and select any one for more details.
 
-    ![просмотр событий](./media/resource-manager-troubleshoot-deployments-portal/see-all-events.png)
+    ![see events](./media/resource-manager-troubleshoot-deployments-portal/see-all-events.png)
 
-## Использование журналов аудита для устранения неполадок
+## <a name="use-audit-logs-to-troubleshoot"></a>Use audit logs to troubleshoot
 
 [AZURE.INCLUDE [resource-manager-audit-limitations](../includes/resource-manager-audit-limitations.md)]
 
-Чтобы просмотреть ошибки развернутой службы, выполните следующее.
+To see errors for a deployment, use the following steps:
 
-1. Чтобы просмотреть журналы аудита для группы ресурсов, выберите **Журналы аудита**.
+1. View the audit logs for a resource group by selecting **Audit Logs**.
 
-    ![выбор журналов аудита](./media/resource-manager-troubleshoot-deployments-portal/select-audit-logs.png)
+    ![select audit logs](./media/resource-manager-troubleshoot-deployments-portal/select-audit-logs.png)
 
-2. В колонке **Журналы аудита** приводится сводка последних операций для всех групп ресурсов в вашей подписке. Она включает графическое представление времени и состояния операций, а также список операций.
+2. In the **Audit Logs** blade, you will see a summary of recent operations for all of the resource groups in your subscription. It includes a graphical representation of the time and status of the operations, as well as a list of the operations.
 
-    ![отображение действий](./media/resource-manager-troubleshoot-deployments-portal/audit-summary.png)
+    ![show actions](./media/resource-manager-troubleshoot-deployments-portal/audit-summary.png)
 
-3. Отображаемые журналы аудита можно отфильтровать по определенным условиям. В верхней части колонки **Журналы аудита** выберите **Фильтр**.
+3. You can filter your view of the audit logs to focus on particular conditions. Select **Filter** at the top of the **Audit logs** blade.
 
-    ![фильтрация журналов](./media/resource-manager-troubleshoot-deployments-portal/filter-logs.png)
+    ![filter logs](./media/resource-manager-troubleshoot-deployments-portal/filter-logs.png)
 
-4. В колонке **Фильтр** выберите условия для ограничения отображаемых журналов аудита только теми операциями, которые требуется просмотреть. Например, можно отфильтровать операции так, что будут показаны ошибки только для группы ресурсов.
+4. From the **Filter** blade, select conditions to restrict your view of the audit logs to only those operations you want to see. For example, you can filter operations to only display errors for the resource group.
 
-    ![установка параметров фильтра](./media/resource-manager-troubleshoot-deployments-portal/set-filter.png)
+    ![set filter options](./media/resource-manager-troubleshoot-deployments-portal/set-filter.png)
 
-5. Можно включить дополнительную фильтрацию операций, установив интервал времени. На следующем рисунке представление фильтруется до конкретного интервала в 20 минут.
+5. You can further filter operations by setting a time span. The following image filters the view to a particular 20-minute timespan.
 
-    ![установка интервала](./media/resource-manager-troubleshoot-deployments-portal/select-time.png)
+    ![set time](./media/resource-manager-troubleshoot-deployments-portal/select-time.png)
 
-6. В списке можно выбрать любую из операций. Выберите операцию, содержащую ошибку, которую вы хотите исследовать.
+6. You can select any of the operations in the list. Pick the operation that contains the error you wish to research.
 
-    ![выбор операции](./media/resource-manager-troubleshoot-deployments-portal/select-operation.png)
+    ![select operation](./media/resource-manager-troubleshoot-deployments-portal/select-operation.png)
   
-7. Вы увидите все события для этой операции. Обратите внимание на **идентификатор корреляции** в сводке. Этот идентификатор используется для отслеживания связанных событий. Он может быть полезным при работе с технической поддержкой для устранения проблемы. Вы можете выбрать любое из событий, чтобы просмотреть сведения о нем.
+7. You will see all of the events for that operation. Notice the **Correlation IDS** in the summary. This ID is used to track related events. It can be helpful when working with technical support to troubleshoot an issue. You can select any of event to see details about the event.
 
-    ![выбор события](./media/resource-manager-troubleshoot-deployments-portal/select-event.png)
+    ![select event](./media/resource-manager-troubleshoot-deployments-portal/select-event.png)
 
-8. Вы увидите сведения о событии. В частности, обратите внимание на раздел **Свойства**, содержащий сведения об ошибке.
+8. You will see details about the event. In particular, pay attention to the **Properties** for information about the error.
 
-    ![отображение сведений журнала аудита](./media/resource-manager-troubleshoot-deployments-portal/audit-details.png)
+    ![show audit log details](./media/resource-manager-troubleshoot-deployments-portal/audit-details.png)
 
-Параметры фильтра, примененные к журналу аудита, сохраняются до следующего просмотра этого журнала, поэтому можно расширить эти критерии для увеличения количества отображаемых операций.
+The filter you applied to the audit log is retained the next time you view it, so you may need to change those values to broaden your view of the operations.
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Next steps
 
-- Сведения об устранении некоторых ошибок развертывания см. в статье [Устранение распространенных ошибок при развертывании ресурсов в Azure с помощью Azure Resource Manager](resource-manager-common-deployment-errors.md).
-- Дополнительные сведения об использовании журналов аудита для отслеживания других типов действий см. в разделе [Операции аудита с помощью Resource Manager](resource-group-audit.md).
-- Чтобы проверить развернутую службу перед ее выполнением, см. раздел [Развертывание ресурсов с использованием шаблонов Azure Resource Manager](resource-group-template-deploy.md).
+- For help with resolving particular deployment errors, see [Resolve common errors when deploying resources to Azure with Azure Resource Manager](resource-manager-common-deployment-errors.md).
+- To learn about using the audit logs to monitor other types of actions, see [Audit operations with Resource Manager](resource-group-audit.md).
+- To validate your deployment prior to executing it, see [Deploy a resource group with Azure Resource Manager template](resource-group-template-deploy.md).
 
-<!---HONumber=AcomDC_0622_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,46 +1,51 @@
 <properties
-	pageTitle="Управление службой Azure RemoteApp с помощью службы автоматизации Azure | Microsoft Azure"
-	description="Способы использования службы автоматизации Azure для управления удаленными приложениями Azure RemoteApp."
-	services="automation"
-	documentationCenter=""
-	authors="mgoedtel"
-	manager="jwhit"
-	editor=""/>
+    pageTitle="Manage Azure RemoteApp using Azure Automation | Microsoft Azure"
+    description="Learn about how the Azure Automation service can be used to manage Azure RemoteApp."
+    services="automation"
+    documentationCenter=""
+    authors="mgoedtel"
+    manager="jwhit"
+    editor=""/>
 
 <tags
-	ms.service="automation"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/15/2016"
-	ms.author="magoedte;csand"/>
+    ms.service="automation"
+    ms.workload="tbd"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="08/15/2016"
+    ms.author="magoedte;csand"/>
 
-#Управление удаленными приложениями Azure RemoteApp с помощью службы автоматизации Azure
+
+#<a name="managing-azure-remoteapp-using-azure-automation"></a>Managing Azure RemoteApp using Azure Automation
 
 > [AZURE.IMPORTANT]
-Мы выводим удаленное приложение Azure RemoteApp из эксплуатации. Дополнительные сведения см. в [объявлении](https://go.microsoft.com/fwlink/?linkid=821148).
+> Azure RemoteApp is being discontinued. Read the [announcement](https://go.microsoft.com/fwlink/?linkid=821148) for details.
 
-В этом руководстве представлена служба автоматизации Azure и описано, как ее использовать, чтобы упростить управление удаленными приложениями Azure RemoteApp.
+This guide will introduce you to the Azure Automation service, and how it can be used to simplify management of Azure RemoteApp.
 
-## Что такое служба автоматизации Azure
+## <a name="what-is-azure-automation?"></a>What is Azure Automation?
 
-[Служба автоматизации Azure](../automation/automation-intro.md) — это служба Azure для упрощения управления облаком путем автоматизации процессов. С помощью службы автоматизации Azure часто повторяющиеся задачи, которые выполняются вручную, требуют много времени и подвержены ошибкам, можно автоматизировать для повышения надежности, эффективности и экономии времени в вашей организации.
+[Azure Automation](../automation/automation-intro.md) is an Azure service for simplifying cloud management through process automation. Using Azure Automation, manual, frequently-repeated, long-running, and error-prone tasks can be automated to increase reliability, efficiency, and time to value for your organization.
 
-Служба автоматизации Azure предоставляет высоконадежную и высокодоступную подсистему выполнения рабочих процессов, которая масштабируется в соответствии с вашими задачами. В службе автоматизации Azure процессы могут быть обработаны вручную, сторонними системами или по расписанию, чтобы задачи выполнялись только при необходимости.
+Azure Automation provides a highly-reliable, highly-available workflow execution engine that scales to meet your needs. In Azure Automation, processes can be kicked off manually, by 3rd-party systems, or at scheduled intervals so that tasks happen exactly when needed.
 
-Уменьшите операционные затраты и освободите ИТ-сотрудников и DevOps для работы над повышением бизнес-ценности ПО и автоматизации задач управления облаком в службе автоматизации Azure.
-
-
-## Как служба автоматизации Azure может помочь управлять удаленными приложениями Azure
-
-Служба автоматизации Azure может управлять удаленными приложениями RemoteApp с помощью командлетов PowerShell, которые доступны в [средствах Azure PowerShell](https://msdn.microsoft.com/library/azure/jj156055.aspx). В службе автоматизации Azure эти командлеты PowerShell для удаленных приложений RemoteApp уже сразу доступны, поэтому все задачи управления RemoteApp можно выполнять из службы. Вы также можете связать эти командлеты в службе автоматизации Azure с командлетами для других служб Azure, чтобы автоматизировать сложные задачи в службах Azure и системах сторонних производителей.
+Reduce operational overhead and free up IT and DevOps staff to focus on work that adds business value by moving your cloud management tasks to be run automatically by Azure Automation.
 
 
-## Дальнейшие действия
+## <a name="how-can-azure-automation-help-manage-azure-remoteapp?"></a>How can Azure Automation help manage Azure RemoteApp?
 
-Теперь, когда вы познакомились с основами службы автоматизации Azure и способами ее использования для управления удаленными приложениями Azure, пройдите по ссылкам, чтобы получить дополнительные сведения о службе автоматизации Azure.
+RemoteApp can be managed in Azure Automation by using the PowerShell cmdlets that are available in the [Azure PowerShell tools](https://msdn.microsoft.com/library/azure/jj156055.aspx). Azure Automation has these RemoteApp PowerShell cmdlets available out of the box, so that you can perform all of your RemoteApp management tasks within the service. You can also pair these cmdlets in Azure Automation with the cmdlets for other Azure services, to automate complex tasks across Azure services and 3rd party systems.
 
-* См. [Учебник по началу работы](../automation/automation-first-runbook-graphical.md) в службе автоматизации Azure
 
-<!---HONumber=AcomDC_0817_2016-->
+## <a name="next-steps"></a>Next steps
+
+Now that you've learned the basics of Azure Automation and how it can be used to manage Azure RemoteApp, follow these links to learn more about Azure Automation.
+
+* See the Azure Automation [Getting Started Tutorial](../automation/automation-first-runbook-graphical.md)
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,90 +1,93 @@
-## Azure DNS
+## <a name="azure-dns"></a>Azure DNS
 
-Azure DNS является службой размещения для доменов DNS, предоставляющей разрешение имен с помощью инфраструктуры Microsoft Azure.
+Azure DNS is a hosting service for DNS domains, providing name resolution using Microsoft Azure infrastructure.
 
 
-| Свойство | Описание | Образец значения |
+| Property | Description | Sample Value |
 |---|---|---|
-| **DNSzones** | Информация о зоне домена для размещения записей DNS определенного домена. | /subscriptions/{guid}/.../providers/Microsoft.Network/dnszones/contoso.com"| 
+| **DNSzones** | Domain zone information to host DNS records of a particular domain | /subscriptions/{guid}/.../providers/Microsoft.Network/dnszones/contoso.com"| 
 
 
-### Наборы записей DNS
+### <a name="dns-record-sets"></a>DNS record sets
 
-Зоны DNS имеют дочерний объект, называемый набором записей. Наборы записей представляют собой упорядоченную по типу коллекцию записей узла для зоны DNS. Типы записей: A, AAAA, CNAME, MX, NS, SOA, SRV и TXT.
+DNS zones have a child object named record set. Record sets are a collection of host records by type for a DNS zone. Record types are A, AAAA, CNAME, MX, NS, SOA,SRV and TXT.
 
-| Свойство | Описание | Образец значения |
+| Property | Description | Sample value |
 |---|---|---|
-| Файл , | Тип записи IPv4 | /subscriptions/{guid}/.../providers/Microsoft.Network/dnszones/contoso.com/A/www |
-| AAAA | Тип записи IPv6| /subscriptions/{guid}/.../providers/Microsoft.Network/dnszones/contoso.com/AAAA/hostrecord |
-| CNAME | Тип записи канонического имени <sup>1</sup> | /subscriptions/{guid}/.../providers/Microsoft.Network/dnszones/contoso.com/CNAME/www |
-| MX | Тип записи почты | /subscriptions/{guid}/.../providers/Microsoft.Network/dnszones/contoso.com/MX/mail |
-| NS | Тип записи имени сервера | /subscriptions/{guid}/.../providers/Microsoft.Network/dnszones/contoso.com/NS/ |
-| SOA | Тип записи SOA (начальная запись зоны) <sup>2</sup> | /subscriptions/{guid}/.../providers/Microsoft.Network/dnszones/contoso.com/SOA |
-| SRV | Тип записи службы | /subscriptions/{guid}/.../providers/Microsoft.Network/dnszones/contoso.com/SRV |
+| A | IPv4 record type | /subscriptions/{guid}/.../providers/Microsoft.Network/dnszones/contoso.com/A/www |
+| AAAA | IPv6 record type| /subscriptions/{guid}/.../providers/Microsoft.Network/dnszones/contoso.com/AAAA/hostrecord |
+| CNAME | canonical name record type <sup>1</sup> | /subscriptions/{guid}/.../providers/Microsoft.Network/dnszones/contoso.com/CNAME/www |
+| MX | mail record type | /subscriptions/{guid}/.../providers/Microsoft.Network/dnszones/contoso.com/MX/mail |
+| NS | name server record type | /subscriptions/{guid}/.../providers/Microsoft.Network/dnszones/contoso.com/NS/ |
+| SOA | Start of Authority record type <sup>2</sup> | /subscriptions/{guid}/.../providers/Microsoft.Network/dnszones/contoso.com/SOA |
+| SRV | service record type | /subscriptions/{guid}/.../providers/Microsoft.Network/dnszones/contoso.com/SRV |
 
-<sup>1</sup> допускает только одно значение на каждый набор записей.
+<sup>1</sup> only allows one value per record set.
 
-<sup>2</sup> допускает только один тип записи SOA на каждую зону DNS.
+<sup>2</sup> only allows one record type SOA per DNS zone. 
 
-Пример зоны DNS в формате Json:
+Sample of DNS zone in Json format:
 
-	{
-	  "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json",
-	  "contentVersion": "1.0.0.0",
-	  "parameters": {
-	    "newZoneName": {
-	      "type": "String",
-	      "metadata": {
-	          "description": "The name of the DNS zone to be created."
-	      }
-	    },
-	    "newRecordName": {
-	      "type": "String",
-	      "defaultValue": "www",
-	      "metadata": {
-	          "description": "The name of the DNS record to be created.  The name is relative to the zone, not the FQDN."
-	      }
-	    }
-	  },
-	  "resources": 
-	  [
-	    {
-	      "type": "microsoft.network/dnszones",
-	      "name": "[parameters('newZoneName')]",
-	      "apiVersion": "2015-05-04-preview",
-	      "location": "global",
-	      "properties": {
-	      }
-	    },
-	    {
-	      "type": "microsoft.network/dnszones/a",
-		  "name": "[concat(parameters('newZoneName'), concat('/', parameters('newRecordName')))]",
-      	"apiVersion": "2015-05-04-preview",
-      	"location": "global",
-	  	"properties": 
-	  	{
-        	"TTL": 3600,
-			"ARecords": 
-			[
-			    {
-				    "ipv4Address": "1.2.3.4"
-				},
-				{
-				    "ipv4Address": "1.2.3.5"
-				}
-			]
-	  	},
-	  	"dependsOn": [
-        	"[concat('Microsoft.Network/dnszones/', parameters('newZoneName'))]"
-      	]
-    	}
-	  	]
-	}
+    {
+      "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "newZoneName": {
+          "type": "String",
+          "metadata": {
+              "description": "The name of the DNS zone to be created."
+          }
+        },
+        "newRecordName": {
+          "type": "String",
+          "defaultValue": "www",
+          "metadata": {
+              "description": "The name of the DNS record to be created.  The name is relative to the zone, not the FQDN."
+          }
+        }
+      },
+      "resources": 
+      [
+        {
+          "type": "microsoft.network/dnszones",
+          "name": "[parameters('newZoneName')]",
+          "apiVersion": "2015-05-04-preview",
+          "location": "global",
+          "properties": {
+          }
+        },
+        {
+          "type": "microsoft.network/dnszones/a",
+          "name": "[concat(parameters('newZoneName'), concat('/', parameters('newRecordName')))]",
+        "apiVersion": "2015-05-04-preview",
+        "location": "global",
+        "properties": 
+        {
+            "TTL": 3600,
+            "ARecords": 
+            [
+                {
+                    "ipv4Address": "1.2.3.4"
+                },
+                {
+                    "ipv4Address": "1.2.3.5"
+                }
+            ]
+        },
+        "dependsOn": [
+            "[concat('Microsoft.Network/dnszones/', parameters('newZoneName'))]"
+        ]
+        }
+        ]
+    }
 
-## Дополнительные ресурсы
+## <a name="additional-resources"></a>Additional resources
 
-Ознакомьтесь с [документацией по REST API для зон DNS ](https://msdn.microsoft.com/library/azure/mt130626.aspx), чтобы получить дополнительные сведения.
+Read the [REST API documentation for DNS zones ](https://msdn.microsoft.com/library/azure/mt130626.aspx) for more information.
 
-Ознакомьтесь с [документацией по REST API для наборов записей DNS ](https://msdn.microsoft.com/library/azure/mt130627.aspx), чтобы получить дополнительные сведения.
+Read the [REST API documentation for DNS record sets](https://msdn.microsoft.com/library/azure/mt130627.aspx) for more information.
 
-<!---HONumber=AcomDC_0128_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

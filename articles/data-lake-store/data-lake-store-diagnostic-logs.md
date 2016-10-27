@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Просмотр журналов диагностики Azure Data Lake Store | Microsoft Azure" 
-   description="Узнайте, как настроить журналы диагностики для Azure Data Lake Store и просматривать их. " 
+   pageTitle="Viewing diagnostic logs for Azure Data Lake Store | Microsoft Azure" 
+   description="Understand how to setup and access diagnostic logs for Azure Data Lake Store " 
    services="data-lake-store" 
    documentationCenter="" 
    authors="nitinme" 
@@ -13,183 +13,189 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="07/19/2016"
+   ms.date="10/05/2016"
    ms.author="nitinme"/>
 
-# Доступ к журналам диагностики Azure Data Lake Store
 
-Узнайте, как включить ведение журнала диагностики для учетной записи Data Lake Store и просматривать журналы, собранные для этой учетной записи.
+# <a name="accessing-diagnostic-logs-for-azure-data-lake-store"></a>Accessing diagnostic logs for Azure Data Lake Store
 
-Организации могут включить ведение журнала диагностики для учетной записи Azure Data Lake Store, чтобы собирать журналы аудита доступа к данным, содержащие такие сведения, как список пользователей, обращавшихся к данным, частота доступа к данным, объем данных в учетной записи и т. д.
+Learn about how to enable diagnostic logging for your Data Lake Store account and how to view the logs collected for your account.
 
-## Предварительные требования
+Organizations can enable diagnostic logging for their Azure Data Lake Store account to collect data access audit trails that provides information such as list of users accessing the data, how frequently the data is accessed, how much data is stored in the account, etc.
 
-- **Подписка Azure.**. См. [Бесплатная пробная версия Azure](https://azure.microsoft.com/pricing/free-trial/).
-- **Настройте свою подписку Azure** для использования общедоступной предварительной версии Data Lake Store. См. [инструкции](data-lake-store-get-started-portal.md#signup).
-- **Учетная запись хранилища озера данных Azure**. Следуйте инструкциям в разделе [Приступая к работе с хранилищем озера данных Azure на портале Azure](data-lake-store-get-started-portal.md).
+## <a name="prerequisites"></a>Prerequisites
 
-## Включение ведения журнала диагностики для учетной записи Data Lake Store
+- **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 
-1. Перейдите на новый [портал Azure](https://portal.azure.com).
+- **Azure Data Lake Store account**. Follow the instructions at [Get started with Azure Data Lake Store using the Azure Portal](data-lake-store-get-started-portal.md).
 
-2. Откройте свою учетную запись Data Lake Store. В колонке учетной записи Data Lake Store выберите **Параметры**, а затем щелкните **Параметры диагностики**.
+## <a name="enable-diagnostic-logging-for-your-data-lake-store-account"></a>Enable diagnostic logging for your Data Lake Store account
 
-3. В колонке **Диагностика** внесите следующие изменения, чтобы настроить ведение журнала диагностики.
+1. Sign on to the new [Azure Portal](https://portal.azure.com).
 
-	![Включение ведения журналов диагностики](./media/data-lake-store-diagnostic-logs/enable-diagnostic-logs.png "Включение ведения журнала диагностики для веб-приложений в службе приложений Azure")
+2. Open your Data Lake Store account, and from your Data Lake Store account blade, click **Settings**, and then click **Diagnostic Settings**.
 
-	* Чтобы включить ведение журналов диагностики, для параметра **Состояние** установите значение **Включено**.
-	* Можно выбрать хранение и обработку данных одним из двух способов.
-		* Выберите параметр **Export to Event Hub** (Экспорт в концентратор событий), чтобы передавать поток данных журнала в концентратор событий Azure. Чаще всего этот параметр используется, если имеется конвейер последующей обработки для анализа входящих журналов в режиме реального времени. При выборе этого параметра необходимо указать сведения о концентраторе событий Azure, который вы хотите использовать.
-		* Выберите параметр **Export to Storage Account** (Экспорт в учетную запись хранения), чтобы сохранять журналы в учетную запись хранения Azure. Используйте этот параметр, если вы хотите архивировать данные для последующей пакетной обработки. Если выбран этот параметр, то необходимо указать учетную запись хранения Azure для сохранения журналов.
-	* Укажите, хотите ли вы получить журналы аудита или журналы запросов, либо и те, и другие.
-	* Укажите число дней, в течение которых должны храниться данные.
-	* Щелкните **Сохранить**.
+3. In the **Diagnostic** blade, make the following changes to configure diagnostic logging.
 
-Включив параметры диагностики, вы сможете просматривать журналы на вкладке **Журналы диагностики**.
+    ![Enable diagnostic logging](./media/data-lake-store-diagnostic-logs/enable-diagnostic-logs.png "Enable diagnostic logs")
 
-## Просмотр журналов диагностики для учетной записи Data Lake Store
+    * Set **Status** to **On** to enable diagnostic logging.
+    * You can choose to store/process the data in two different ways.
+        * Select the option to **Export to Event Hub** to stream log data to an Azure Event Hub. Most likely you will use this option if you have a downstream processing pipeline to analyze incoming logs at real time. If you select this option, you must provide the details for the Azure Event Hub you want to use.
+        * Select the option to **Export to Storage Account** to store logs to an Azure Storage account. You use this option if you want to archive the data that will be batch-processed at a later date. If you select this option you must provide an Azure Storage account to save the logs to.
+    * Specify whether you want to get audit logs or request logs or both.
+    * Specify the number of days for which the data must be retained.
+    * Click **Save**.
 
-Существует два способа просмотра данных журнала для учетной записи Data Lake Store:
+Once you have enabled diagnostic settings, you can watch the logs in the **Diagnostic Logs** tab.
 
-* из представления параметров учетной записи Data Lake Store;
-* из учетной записи хранения Azure, в которой хранятся данные.
+## <a name="view-diagnostic-logs-for-your-data-lake-store-account"></a>View diagnostic logs for your Data Lake Store account
 
-### Использование представления параметров Data Lake Store
+There are two ways to view the log data for your Data Lake Store account.
 
-1. В колонке **Параметры** учетной записи Data Lake Store щелкните **Журналы диагностики**.
+* From the Data Lake Store account settings view
+* From the Azure Storage account where the data is stored
 
-	![Просмотр ведения журнала диагностики](./media/data-lake-store-diagnostic-logs/view-diagnostic-logs.png "Просмотр журналов диагностики")
+### <a name="using-the-data-lake-store-settings-view"></a>Using the Data Lake Store Settings view
 
-2. В колонке **Журналы диагностики** должны отображаться журналы, упорядоченные по категориям **Журналы аудита** и **Журналы запросов**.
-	* В журналы запросов записываются все запросы API к учетной записи Data Lake Store.
-	* Журналы аудита похожи на журналы запросов, но содержат более подробную статистику операций с учетной записью Data Lake Store. Например, вызов API для одной передачи в журнале запросов может породить несколько операций добавления в журналах аудита.
+1. From your Data Lake Store account **Settings** blade, click **Diagnostic Logs**.
 
-3. Щелкните ссылку **Скачать** для каждой записи журнала, чтобы скачать журналы.
+    ![View diagnostic logging](./media/data-lake-store-diagnostic-logs/view-diagnostic-logs.png "View diagnostic logs") 
 
-### Использование учетной записи хранения Azure, в которой хранятся данные
+2. In the **Diagnostic Logs** blade, you should see the logs categorized by **Audit Logs** and **Request Logs**.
+    * Request logs capture every API request made on the Data Lake Store account.
+    * Audit Logs are similar to request Logs but provide a much more detailed breakdown of the operations being performed on the Data Lake Store account. For example, a single upload API call in request logs might result in multiple "Append" operations in the audit logs.
 
-1. Откройте колонку учетной записи хранения Azure, связанную с Data Lake Store для ведения журнала, и щелкните "BLOB-объекты". В колонке **Служба BLOB-объектов** отображается два контейнера.
+3. Click the **Download** link against each log entry to download the logs.
 
-	![Просмотр ведения журнала диагностики](./media/data-lake-store-diagnostic-logs/view-diagnostic-logs-storage-account.png "Просмотр журналов диагностики")
+### <a name="from-the-azure-storage-account-that-contains-log-data"></a>From the Azure Storage account that contains log data
 
-	* В контейнере **insights-logs-audit** содержатся журналы аудита.
-	* В контейнере **insights-logs-requests** содержатся журналы запросов.
+1. Open the Azure Storage account blade associated with Data Lake Store for logging, and then click Blobs. The **Blob service** blade lists two containers.
 
-2. Журналы в этих контейнерах хранятся с использованием следующей структуры:
+    ![View diagnostic logging](./media/data-lake-store-diagnostic-logs/view-diagnostic-logs-storage-account.png "View diagnostic logs")
 
-	![Просмотр ведения журнала диагностики](./media/data-lake-store-diagnostic-logs/view-diagnostic-logs-storage-account-structure.png "Просмотр журналов диагностики")
+    * The container **insights-logs-audit** contains the audit logs.
+    * The container **insights-logs-requests** contains the request logs.
 
-	Например, полный путь к журналу аудита может выглядеть таким образом: `https://adllogs.blob.core.windows.net/insights-logs-audit/resourceId=/SUBSCRIPTIONS/<sub-id>/RESOURCEGROUPS/myresourcegroup/PROVIDERS/MICROSOFT.DATALAKESTORE/ACCOUNTS/mydatalakestore/y=2016/m=07/d=18/h=04/m=00/PT1H.json`
+2. Within these containers, the logs are stored under the following structure.
 
-	Аналогично, полный путь к журналу запросов может выглядеть так: `https://adllogs.blob.core.windows.net/insights-logs-requests/resourceId=/SUBSCRIPTIONS/<sub-id>/RESOURCEGROUPS/myresourcegroup/PROVIDERS/MICROSOFT.DATALAKESTORE/ACCOUNTS/mydatalakestore/y=2016/m=07/d=18/h=14/m=00/PT1H.json`
+    ![View diagnostic logging](./media/data-lake-store-diagnostic-logs/view-diagnostic-logs-storage-account-structure.png "View diagnostic logs")
 
-## Описание структуры данных журнала
+    As an example, the complete path to an audit log could be `https://adllogs.blob.core.windows.net/insights-logs-audit/resourceId=/SUBSCRIPTIONS/<sub-id>/RESOURCEGROUPS/myresourcegroup/PROVIDERS/MICROSOFT.DATALAKESTORE/ACCOUNTS/mydatalakestore/y=2016/m=07/d=18/h=04/m=00/PT1H.json`
 
-В журналах аудита и запросов используется формат JSON. В этом разделе мы рассмотрим структуру JSON для журналов запросов и аудита.
+    Similary, the complete path to a request log could be `https://adllogs.blob.core.windows.net/insights-logs-requests/resourceId=/SUBSCRIPTIONS/<sub-id>/RESOURCEGROUPS/myresourcegroup/PROVIDERS/MICROSOFT.DATALAKESTORE/ACCOUNTS/mydatalakestore/y=2016/m=07/d=18/h=14/m=00/PT1H.json`
 
-### Журналы запросов
+## <a name="understand-the-structure-of-the-log-data"></a>Understand the structure of the log data
 
-Ниже приведен пример записи журнала запросов в формате JSON. Каждый большой двоичный объект имеет один корневой объект под названием **records**, который содержит массив объектов журнала.
+The audit and request logs are in a JSON format. In this section, we look at the structure of JSON for request and audit logs.
 
-	{
-	"records": 
-	  [		
-		. . . .
-		,
-		{
-			 "time": "2016-07-07T21:02:53.456Z",
-			 "resourceId": "/SUBSCRIPTIONS/<subscription_id>/RESOURCEGROUPS/<resource_group_name>/PROVIDERS/MICROSOFT.DATALAKESTORE/ACCOUNTS/<data_lake_store_account_name>",
-			 "category": "Requests",
-			 "operationName": "GETCustomerIngressEgress",
-			 "resultType": "200",
-			 "callerIpAddress": "::ffff:1.1.1.1",
-			 "correlationId": "4a11c709-05f5-417c-a98d-6e81b3e29c58",
-			 "identity": "1808bd5f-62af-45f4-89d8-03c5e81bac30",
-			 "properties": {"HttpMethod":"GET","Path":"/webhdfs/v1/Samples/Outputs/Drivers.csv","RequestContentLength":0,"ClientRequestId":"3b7adbd9-3519-4f28-a61c-bd89506163b8","StartTime":"2016-07-07T21:02:52.472Z","EndTime":"2016-07-07T21:02:53.456Z"}
-		}
-		,
-		. . . .
-	  ]
-	}
+### <a name="request-logs"></a>Request logs
 
-#### Схема журнала запросов
+Here's a sample entry in the JSON-formatted request log. Each blob has one root object called **records** that contains an array of log objects.
 
-| Name (Имя) | Тип | Описание |
+    {
+    "records": 
+      [     
+        . . . .
+        ,
+        {
+             "time": "2016-07-07T21:02:53.456Z",
+             "resourceId": "/SUBSCRIPTIONS/<subscription_id>/RESOURCEGROUPS/<resource_group_name>/PROVIDERS/MICROSOFT.DATALAKESTORE/ACCOUNTS/<data_lake_store_account_name>",
+             "category": "Requests",
+             "operationName": "GETCustomerIngressEgress",
+             "resultType": "200",
+             "callerIpAddress": "::ffff:1.1.1.1",
+             "correlationId": "4a11c709-05f5-417c-a98d-6e81b3e29c58",
+             "identity": "1808bd5f-62af-45f4-89d8-03c5e81bac30",
+             "properties": {"HttpMethod":"GET","Path":"/webhdfs/v1/Samples/Outputs/Drivers.csv","RequestContentLength":0,"ClientRequestId":"3b7adbd9-3519-4f28-a61c-bd89506163b8","StartTime":"2016-07-07T21:02:52.472Z","EndTime":"2016-07-07T21:02:53.456Z"}
+        }
+        ,
+        . . . .
+      ]
+    }
+
+#### <a name="request-log-schema"></a>Request log schema
+
+| Name            | Type   | Description                                                                    |
 |-----------------|--------|--------------------------------------------------------------------------------|
-| Twitter в режиме реального | Строковый | Метка времени журнала (в формате UTC). |
-| resourceId | Строка | Идентификатор ресурса, с которым была выполнена операция. |
-| category | Строка | Категория журнала. Например, **Requests**. |
-| operationName | Строковый | Имя операции, добавленной в журнал. Например, getfilestatus. |
-| resultType | Строка | Состояние операции. Например, 200. |
-| callerIpAddress | Строка | IP-адрес клиента, отправившего запрос. |
-| correlationId | Строка | Идентификатор журнала, который можно использовать для формирования набора связанных записей журнала. |
-| identity | Объект | Идентификатор, для которого был создан журнал. |
-| properties | JSON | Дополнительные сведения см. ниже. |
+| time            | String | The timestamp (in UTC) of the log                                              |
+| resourceId      | String | The ID of the resource that operation took place on                            |
+| category        | String | The log category. For example, **Requests**.                                   |
+| operationName   | String | Name of the operation that is logged. For example, getfilestatus.              |
+| resultType      | String | The status of the operation, For example, 200.                                 |
+| callerIpAddress | String | The IP address of the client making the request                                |
+| correlationId   | String | The id of the log that can used to group together a set of related log entries |
+| identity        | Object | The identity that generated the log                                            |
+| properties      | JSON   | See below for details                                                          |
 
-#### Схема свойств журнала запросов
+#### <a name="request-log-properties-schema"></a>Request log properties schema
 
-| Имя | Тип | Описание |
+| Name                 | Type   | Description                                               |
 |----------------------|--------|-----------------------------------------------------------|
-| HttpMethod | Строка | Метод HTTP, использованный для операции. Например, GET. |
-| Путь | Строковый | Путь выполнения операции. |
-| RequestContentLength | int | Длина содержимого HTTP-запроса. |
-| ClientRequestId | Строковый | Идентификатор, однозначно определяющий данный запрос. |
-| StartTime | Строка | Время получения запроса сервером. |
-| EndTime | Строковый | Время отправки ответа сервером. |
+| HttpMethod           | String | The HTTP Method used for the operation. For example, GET. |
+| Path                 | String | The path the operation was performed on                   |
+| RequestContentLength | int    | The content length of the HTTP request                    |
+| ClientRequestId      | String | The Id that uniquely identifies this request              |
+| StartTime            | String | The time at which the server received the request         |
+| EndTime              | String | The time at which the server sent a response              |
 
-### Журналы аудита
+### <a name="audit-logs"></a>Audit logs
 
-Ниже приведен пример записи журнала аудита в формате JSON. Каждый большой двоичный объект имеет один корневой объект под названием **records**, который содержит массив объектов журнала.
+Here's a sample entry in the JSON-formatted audit log. Each blob has one root object called **records** that contains an array of log objects
 
-	{
-	"records": 
-	  [		
-		. . . .
-		,
-		{
-			 "time": "2016-07-08T19:08:59.359Z",
-			 "resourceId": "/SUBSCRIPTIONS/<subscription_id>/RESOURCEGROUPS/<resource_group_name>/PROVIDERS/MICROSOFT.DATALAKESTORE/ACCOUNTS/<data_lake_store_account_name>",
-			 "category": "Audit",
-			 "operationName": "SeOpenStream",
-			 "resultType": "0",
-			 "correlationId": "381110fc03534e1cb99ec52376ceebdf;Append_BrEKAmg;25.66.9.145",
-			 "identity": "A9DAFFAF-FFEE-4BB5-A4A0-1B6CBBF24355",
-			 "properties": {"StreamName":"adl://<data_lake_store_account_name>.azuredatalakestore.net/logs.csv"}
-		}
-		,
-		. . . .
-	  ]
-	}
+    {
+    "records": 
+      [     
+        . . . .
+        ,
+        {
+             "time": "2016-07-08T19:08:59.359Z",
+             "resourceId": "/SUBSCRIPTIONS/<subscription_id>/RESOURCEGROUPS/<resource_group_name>/PROVIDERS/MICROSOFT.DATALAKESTORE/ACCOUNTS/<data_lake_store_account_name>",
+             "category": "Audit",
+             "operationName": "SeOpenStream",
+             "resultType": "0",
+             "correlationId": "381110fc03534e1cb99ec52376ceebdf;Append_BrEKAmg;25.66.9.145",
+             "identity": "A9DAFFAF-FFEE-4BB5-A4A0-1B6CBBF24355",
+             "properties": {"StreamName":"adl://<data_lake_store_account_name>.azuredatalakestore.net/logs.csv"}
+        }
+        ,
+        . . . .
+      ]
+    }
 
-#### Схема журнала аудита
+#### <a name="audit-log-schema"></a>Audit log schema
 
-| Имя | Тип | Описание |
+| Name            | Type   | Description                                                                    |
 |-----------------|--------|--------------------------------------------------------------------------------|
-| Twitter в режиме реального | Строковый | Метка времени журнала (в формате UTC). |
-| resourceId | Строка | Идентификатор ресурса, с которым была выполнена операция. |
-| category | Строка | Категория журнала. Например, **Audit**. |
-| operationName | Строковый | Имя операции, добавленной в журнал. Например, getfilestatus. |
-| resultType | Строка | Состояние операции. Например, 200. |
-| correlationId | Строка | Идентификатор журнала, который можно использовать для формирования набора связанных записей журнала. |
-| identity | Объект | Идентификатор, для которого был создан журнал. |
-| properties | JSON | Дополнительные сведения см. ниже. |
+| time            | String | The timestamp (in UTC) of the log                                              |
+| resourceId      | String | The ID of the resource that operation took place on                            |
+| category        | String | The log category. For example, **Audit**.                                      |
+| operationName   | String | Name of the operation that is logged. For example, getfilestatus.              |
+| resultType      | String | The status of the operation, For example, 200.                                 |
+| correlationId   | String | The id of the log that can used to group together a set of related log entries |
+| identity        | Object | The identity that generated the log                                            |
+| properties      | JSON   | See below for details                                                          |
 
-#### Схема свойств журнала аудита
+#### <a name="audit-log-properties-schema"></a>Audit log properties schema
 
-| Имя | Тип | Описание |
+| Name       | Type   | Description                              |
 |------------|--------|------------------------------------------|
-| StreamName | Строка | Путь выполнения операции. |
+| StreamName | String | The path the operation was performed on  |
 
 
-## Примеры обработки данных журнала
+## <a name="samples-to-process-the-log-data"></a>Samples to process the log data
 
-В Azure Data Lake Store есть пример обработки и анализа данных журнала. Этот пример можно найти по адресу [https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample](https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample).
+Azure Data Lake Store provides a sample on how to process and analyze the log data. You can find the sample at [https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample](https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample). 
 
 
-## Дополнительные материалы
+## <a name="see-also"></a>See also
 
-- [Обзор хранилища озера данных Azure](data-lake-store-overview.md)
-- [Защита данных в хранилище озера данных](data-lake-store-secure-data.md)
+- [Overview of Azure Data Lake Store](data-lake-store-overview.md)
+- [Secure data in Data Lake Store](data-lake-store-secure-data.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,36 +1,39 @@
-Эмулятор хранения поддерживает одну предопределенную учетную запись и известный ключ аутентификации для аутентификации с помощью общего ключа. Эти учетная запись и ключ — единственные разрешенные учетные данные общего ключа для использования с эмулятором хранения. К ним относятся:
+The storage emulator supports a single fixed account and a well-known authentication key for Shared Key authentication. This account and key are the only Shared Key credentials permitted for use with the storage emulator. They are:
 
     Account name: devstoreaccount1
     Account key: Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==
     
-> [AZURE.NOTE]Ключ аутентификации, поддерживаемый эмулятором хранения, предназначен только для тестирования работы клиентского кода. Его использование не гарантирует защиту. Нельзя использовать рабочую учетную запись хранения и ключ для эмулятора хранения. Учтите также, что не следует использовать учетную запись разработки с рабочими данными.
+> [AZURE.NOTE] The authentication key supported by the storage emulator is intended only for testing the functionality of your client authentication code. It does not serve any security purpose. You cannot use your production storage account and key with the storage emulator. Also note that you should not use the development account with production data.
 >
-> Обратите внимание, что эмулятор хранения поддерживает подключения только по протоколу HTTP. Тем не менее, для доступа к ресурсам в рабочей учетной записи хранения Azure рекомендуется использовать протокол HTTPS.
+> Note that the storage emulator supports connection via HTTP only. However, HTTPS is the recommended protocol for accessing resources in an Azure production storage account.
  
-#### Подключение к учетной записи эмулятора с помощью ярлыка
+#### <a name="connect-to-the-emulator-account-using-a-shortcut"></a>Connect to the emulator account using a shortcut
 
-Самый простой способ подключиться к эмулятору хранения из приложения — настроить строку подключения в файле конфигурации приложения, на которое ссылается ярлык: `UseDevelopmentStorage=true`. Ниже приведен пример строки подключения к эмулятору хранения в файле app.config:
+The easiest way to connect to the storage emulator from your application is to configure a connection string from within your application's configuration file that references the shortcut `UseDevelopmentStorage=true`. Here's an example of a connection string to the storage emulator in an app.config file: 
 
     <appSettings>
       <add key="StorageConnectionString" value="UseDevelopmentStorage=true" />
     </appSettings>
 
-#### Подключение к учетной записи эмулятора с помощью известного имени и ключа учетной записи
+#### <a name="connect-to-the-emulator-account-using-the-well-known-account-name-and-key"></a>Connect to the emulator account using the well-known account name and key
 
-Обратите внимание, что для создания строки подключения, которая содержит ссылку на имя учетной записи и ключ эмулятора, в строке подключения следует указать конечные точки для каждой службы, которую нужно использовать из эмулятора. Это необходимо, чтобы строка подключения содержала ссылки на конечные точки эмулятора, которые отличаются от конечных точек рабочей учетной записи хранения. Например, значение строки подключения будет выглядеть следующим образом:
+To create a connection string that references the emulator account name and key, note that you must specify the endpoints for each of the services that you wish to use from the emulator in the connection string. This is necessary so that the connection string will reference the emulator endpoints, which are different than those for a production storage account. For example, the value of your connection string will look like this:
 
-	DefaultEndpointsProtocol=http;AccountName=devstoreaccount1;
-	AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==;
+    DefaultEndpointsProtocol=http;AccountName=devstoreaccount1;
+    AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==;
     BlobEndpoint=http://127.0.0.1:10000/devstoreaccount1;
     TableEndpoint=http://127.0.0.1:10002/devstoreaccount1;
     QueueEndpoint=http://127.0.0.1:10001/devstoreaccount1; 
 
-Это значение идентично показанному выше ярлыку (`UseDevelopmentStorage=true`).
+This value is identical to the shortcut shown above, `UseDevelopmentStorage=true`.
 
-#### Указание прокси-сервера HTTP
+#### <a name="specify-an-http-proxy"></a>Specify an HTTP proxy
 
-Если вы тестируете службу на эмуляторе хранения, можно также указать прокси-сервер HTTP. Это может быть полезно для отслеживания HTTP-запросов и ответов при отладке операций со службами хранилища. Чтобы указать прокси-сервер, добавьте параметр `DevelopmentStorageProxyUri` в строку подключения и присвойте ему значение URI прокси-сервера. В качестве примера приведена строка подключения, которая указывает эмулятор хранения и задает прокси-сервер HTTP:
+You can also specify an HTTP proxy to use when you're testing your service against the storage emulator. This can be useful for observing HTTP requests and responses while you're debugging operations against the storage services. To specify a proxy, add the `DevelopmentStorageProxyUri` option to the connection string, and set its value to the proxy URI. For example, here is a connection string that points to the storage emulator and configures an HTTP proxy:
 
     UseDevelopmentStorage=true;DevelopmentStorageProxyUri=http://myProxyUri
 
-<!---HONumber=Oct15_HO3-->
+
+<!--HONumber=Oct16_HO2-->
+
+

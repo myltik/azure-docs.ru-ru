@@ -1,26 +1,31 @@
 <properties
-	pageTitle="Развертывание приложений в службе приложений Azure"
-	description="Узнайте, как развертывать приложения для работы службы приложений"
-	keywords="служба приложений, служба приложений azure, развертывание"
-	services="app-service"
-	documentationCenter=""
-	authors="dariagrigoriu"
-	manager="wpickett"
-	editor=""/>
+    pageTitle="Deploying Applications to Azure App Service"
+    description="Learn how to Deploy applications to App Service work"
+    keywords="app service, azure app service, deploying, deployment"
+    services="app-service"
+    documentationCenter=""
+    authors="dariagrigoriu"
+    manager="wpickett"
+    editor=""/>
 
 <tags
-	ms.service="app-service"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="02/09/2016"
-	ms.author="dariagrigoriu"/>
+    ms.service="app-service"
+    ms.workload="na"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="02/09/2016"
+    ms.author="dariagrigoriu"/>
 
-# Общие сведения о развертывании службы приложений Azure
 
-Служба приложений Azure предоставляет широкий, интегрированный набор функций для создания эффективных и гибких рабочих процессов развертывания. При развертывании приложений можно использовать такие возможности, как непрерывная интеграция, публикация из локальной системы управления версиями, WebDeploy и FTP. Рекомендуемый метод развертывания рабочих приложений — переключение областей развертывания. Слоты развертывания представляют собой промежуточные среды и среды развертывания, связанные с рабочими приложениями. Слоты развертывания можно настраивать и направлять на веб-трафик, требующий проверки, а трафик по запросу переключать на развертывание в рабочей среде без какого-либо простоя и автоматического прогрева. Этапы рабочего процесса развертывания легко автоматизируются с помощью таких систем, как служба управления выпусками Visual Studio. Это обеспечивает координацию с другими ресурсами решения \(например хранилищем данных\), а также повторяемость и репликацию в различных единицах развертывания.
+# <a name="azure-app-service-deployment-overview"></a>Azure App Service Deployment Overview
+
+Azure App Service provides a rich and integrated feature set to support creating powerful and flexible deployment workflows. App deployment can leverage options that include continuous integration or local source control publishing, WebDeploy, and FTP. The recommended method for production app deployment is deployment slot swap. Deployment slots represent staging and integration environments associated with production apps. Deployment slots can be configured and targeted with web traffic for validation, and traffic can be swapped on demand for deployment to production with no down time and automated warm-up. The steps of a deployment workflow can be easily automated via release management products such as Visual Studio Release Management. This is useful for coordination with other solution resources (e.g. data store), recurrence, and replication across multiple units of deployment. 
 
 [AZURE.INCLUDE [app-service-blueprint-deployment](../../includes/app-service-blueprint-deployment.md)]
 
-<!---HONumber=AcomDC_0413_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

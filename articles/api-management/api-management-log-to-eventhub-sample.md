@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Мониторинг API-интерфейсов с помощью службы управления API Azure, концентраторов событий и Runscope"
-    description="Пример приложения, демонстрирующий политику регистрации в концентраторе событий посредством подключения службы управления API Azure, концентраторов событий Azure и службы Runscope для регистрации и мониторинга HTTP-запросов"
+    pageTitle="Monitor your APIs with Azure API Management, Event Hubs and Runscope"
+    description="Sample application demonstrating the log-to-eventhub policy by connecting Azure API Management, Azure Event Hubs and Runscope for HTTP  logging and monitoring"
     services="api-management"
     documentationCenter=""
     authors="darrelmiller"
@@ -13,37 +13,38 @@
     ms.tgt_pltfrm="na"
     ms.devlang="dotnet"
     ms.topic="article"
-    ms.date="08/09/2016"
+    ms.date="10/25/2016"
     ms.author="darrmi"/>
 
-# Мониторинг API-интерфейсов с помощью службы управления API Azure, концентраторов событий и Runscope
 
-[Служба управления API](api-management-key-concepts.md) предоставляет множество возможностей для улучшения обработки HTTP-запросов, адресованных API-интерфейсу HTTP. Однако запросы и ответы существуют очень недолго. Созданный запрос проходит через службу управления API на серверный API вашей службы. API обрабатывает запрос и отправляет ответ обратно потребителю API. Служба управления API частично сохраняет важные статистические данные об API-интерфейсах и отображает их на панели мониторинга портала издателя, но вся остальная информация теряется безвозвратно.
+# <a name="monitor-your-apis-with-azure-api-management,-event-hubs-and-runscope"></a>Monitor your APIs with Azure API Management, Event Hubs and Runscope
 
-Вы можете использовать [политику](api-management-howto-policies.md) [регистрации в концентраторах событий](https://msdn.microsoft.com/library/azure/dn894085.aspx#log-to-eventhub), чтобы служба управления API отправляла любые нужные сведения о запросе и ответе в [концентратор событий Azure](../event-hubs/event-hubs-what-is-event-hubs.md). Существует ряд причин для создания событий из сообщений HTTP, отправляемых в API-интерфейсы. В частности, это происходит при создании журнала аудита обновлений, анализе использования, оповещении об исключениях или интеграции служб сторонних поставщиков.
+The [API Management service](api-management-key-concepts.md) provides many capabilities to enhance the processing of HTTP requests sent to your HTTP API. However, the existence of the requests and responses are transient. The request is made and it flows through the API Management service to your backend API. Your API processes the request and a response flows back through to the API consumer. The API Management service keeps some important statistics about the APIs for display in the Publisher portal dashboard, but beyond that, the details are gone.
 
-В этой статье мы покажем, как зафиксировать полное сообщение о запросе и ответе HTTP, как отправить это сообщение в концентратор событий, а затем передать его в сторонние службы, которые выполняют ведение журналов и мониторинг HTTP-запросов.
+By using the [log-to-eventhub](https://msdn.microsoft.com/library/azure/dn894085.aspx#log-to-eventhub) [policy](api-management-howto-policies.md) in the API Management service you can send any details from the request and response to an [Azure Event Hub](../event-hubs/event-hubs-what-is-event-hubs.md). There are a variety of reasons why you may want to generate events from HTTP messages being sent to your APIs. Some examples include audit trail of updates, usage analytics, exception alerting and 3rd party integrations.   
 
-## Почему лучше отправлять сообщения из службы управления API?
-Конечно, можно создать ПО промежуточного слоя HTTP, которое может подключаться к платформам HTTP API для фиксации HTTP-запросов и ответов и их передачи в системы ведения журналов и мониторинга. Но у этого подхода есть недостатки: ПО промежуточного слоя HTTP должно интегрироваться с серверной частью API и соответствовать платформе, на которой размещен API-интерфейс. Если используется несколько API, ПО промежуточного слоя следует развернуть на каждом из них. Зачастую серверный API-интерфейс невозможно обновить по той или иной причине.
+This article demonstrates how to capture the entire HTTP request and response message, send it to an Event Hub and then relay that message to a third party service that provides HTTP logging and monitoring services.
 
-Служба управления API Azure предоставляет вам централизованное решение для интеграции с инфраструктурой ведения журналов, не зависящее от платформы. Также оно обеспечит хорошую масштабируемость, в том числе благодаря возможностям [георепликации](api-management-howto-deploy-multi-region.md) службы управления API Azure.
+## <a name="why-send-from-api-management-service?"></a>Why Send From API Management Service?
+It is possible to write HTTP middleware that can plug into HTTP API frameworks to capture HTTP requests and responses and feed them into logging and monitoring systems. The downside to this approach is the HTTP middleware needs to be integrated into the backend API and must match the platform of the API. If there are multiple APIs then each one must deploy the middleware. Often there are reasons why backend APIs cannot be updated.
 
-## Почему лучше отправлять сообщения в концентратор событий Azure?
-Вполне логичным будет вопрос, почему создаваемая политика должна использовать концентраторы событий Azure. Есть много различных служб, в которых можно регистрировать запросы. Что мешает отправлять запросы сразу конечному получателю? Такой вариант возможен. Однако при отправке запросов на регистрацию из службы управления API следует учитывать влияние сообщений журнала на производительность API. Постепенное увеличение нагрузки можно компенсировать, увеличив количество доступных экземпляров компонентов системы или используя георепликацию. Но короткие пиковые скачки трафика могут привести к существенной задержке запросов, если при увеличении нагрузки замедляется обработка запросов к инфраструктуре ведения журнала.
+Using the Azure API Management service to integrate with logging infrastructure provides a centralized and platform-independent solution. It is also scalable, in part due to the [geo-replication](api-management-howto-deploy-multi-region.md) capabilities of Azure API Management.
 
-Концентраторы событий Azure рассчитаны на огромные объемы входящих данных. Их пропускная способность существенно превышает возможности большинства API-процессов по обработке HTTP-запросов. Концентратор событий выполняет роль сложного буфера между службой управления API и инфраструктурой, которая хранит и обрабатывает сообщения. Это гарантирует, что ограничения инфраструктуры ведения журналов не повлияют на производительность API.
+## <a name="why-send-to-an-azure-event-hub?"></a>Why send to an Azure Event Hub?
+It is a reasonable to ask, why create a policy that is specific to Azure Event Hubs? There are many different places where I might want to log my requests. Why not just send the requests directly to the final destination?  That is an option. However, when making logging requests from an API management service, it is necessary to consider how logging messages will impact the performance of the API. Gradual increases in load can be handled by increasing available instances of system components or by taking advantage of geo-replication. However, short spikes in traffic can cause requests to be significantly delayed if requests to logging infrastructure start to slow under load.
 
-Данные, переданные в концентратор событий, сохраняются там и ожидают обработки со стороны потребителей концентратора событий. Для концентратора событий не имеет значения, как будет обработано сообщение, — он просто гарантирует успешную доставку сообщения.
+The Azure Event Hubs is designed to ingress huge volumes of data, with capacity for dealing with a far higher number of events than the number of HTTP requests most APIs process. The Event Hub acts as a kind of sophisticated buffer between your API management service and the infrastructure that will store and process the messages. This ensures that your API performance will not suffer due to the logging infrastructure.  
 
-Концентраторы событий могут выполнять потоковую передачу событий сразу нескольким группам потребителей. Это позволяет обрабатывать события совершенно различными системами. Благодаря этому можно реализовать множество сценариев интеграции без увеличения задержек на обработку запросов в службе управления API. Службе в любом случае достаточно создать только одно событие.
+Once the data has been passed to an Event Hub it is persisted and will wait for Event Hub consumers to process it. The Event Hub does not care how it will be processed, it just cares about making sure the message will be successfully delivered.     
 
-## Политика отправки сообщений приложений и сообщений HTTP
-Концентратор событий принимает данные события в виде простой строки с произвольным содержимым. Чтобы сформировать HTTP-запрос и отправить его в концентраторы событий, следует дополнить строку информацией о запросе или ответе. В таких случаях можно повторно использовать уже существующий формат, чтобы не писать новый код для синтаксического анализа. Сначала я подумал, что для отправки запросов и ответов HTTP подойдет формат [HAR](http://www.softwareishard.com/blog/har-12-spec/). Но этот формат оптимизирован для сохранения последовательности HTTP-запросов в формате JSON. Он содержит несколько обязательных элементов, которые создают излишние сложности при передаче HTTP-сообщения по сети.
+Event Hubs have the ability to stream events to multiple consumer groups. This allows events to be processed by completely different systems. This enables supporting many integration scenarios without putting addition delays on the processing of the API request within the API Management service as only one event needs to be generated.
 
-Еще один вариант — тип носителя `application/http`, описанный в спецификации HTTP [RFC 7230](http://tools.ietf.org/html/rfc7230). Этот тип носителя имеет точно такой же формат, как и обычные HTTP-сообщения, отправляемые по сети, но позволяет разместить сообщение целиком в тексте другого HTTP-запроса. В нашем случае в тексте запроса мы и будем отправлять сообщение в концентратор событий. В библиотеках [клиента Microsoft ASP.NET Web API 2.2](https://www.nuget.org/packages/Microsoft.AspNet.WebApi.Client/) уже есть средство синтаксического анализа для этого формата, которое преобразует его в собственные объекты `HttpRequestMessage` и `HttpResponseMessage`.
+## <a name="a-policy-to-send-application/http-messages"></a>A policy to send application/http messages
+An Event Hub accepts event data as a simple string. The contents of that string are completely up to you. To be able to package up an HTTP request and send it off to Event Hubs we need to format the string with the request or response information. In situations like this, if there is an existing format we can reuse, then we may not have to write our own parsing code. Initially I considered using the [HAR](http://www.softwareishard.com/blog/har-12-spec/) for sending HTTP requests and responses. However, this format is optimized for storing a sequence of HTTP requests in a JSON based format. It contained a number of mandatory elements that added unnecessary complexity for the scenario of passing the HTTP message over the wire.  
 
-Чтобы создать такое сообщение, следует воспользоваться [выражениями политики](https://msdn.microsoft.com/library/azure/dn910913.aspx) службы управления API Azure, которые используют синтаксис C#. Приведенная ниже политика будет отправлять сообщение с HTTP-запросом в концентраторы событий Azure.
+An alternative option was to use the `application/http` media type as described in the HTTP specification [RFC 7230](http://tools.ietf.org/html/rfc7230). This media type uses the exact same format that is used to actually send HTTP messages over the wire, but the entire message can be put in the body of another HTTP request. In our case we are just going to use the body as our message to send to Event Hubs. Conveniently, there is a parser that exists in [Microsoft ASP.NET Web API 2.2 Client](https://www.nuget.org/packages/Microsoft.AspNet.WebApi.Client/) libraries that can parse this format and convert it into the native `HttpRequestMessage` and `HttpResponseMessage` objects.
+
+To be able to create this message we need to take advantage of C# based [Policy expressions](https://msdn.microsoft.com/library/azure/dn910913.aspx) in Azure API Management. Here is the policy which sends a HTTP request message to Azure Event Hubs.
 
        <log-to-eventhub logger-id="conferencelogger" partition-id="0">
        @{
@@ -69,30 +70,30 @@
        }
        </log-to-eventhub>
 
-### Объявление политики
-Некоторые элементы этого выражения политики следует разъяснить. Политика регистрации в концентраторе событий имеет атрибут logger-id, который обозначает средство ведения журнала, созданное в службе управления API. Подробные сведения о том, как в службе управления API настроить средство ведения журналов в концентраторах событий, можно найти в документе [Регистрация событий в концентраторах событий Azure в службе управления API Azure](api-management-howto-log-event-hubs.md). Второй (необязательный) атрибут сообщает концентраторам событий, в каком разделе нужно хранить сообщение. Концентраторы событий используют разделы для поддержки масштабируемости. Для работы требуется не меньше двух разделов. Правильная последовательность доставки сообщений гарантируется только в пределах раздела. Если не указать, в каком разделе концентратор событий должен разместить сообщение, он будет использовать их поочередно для равномерного распределения нагрузки. Но это может привести к тому, что сообщения будут обрабатываться не по порядку.
+### <a name="policy-declaration"></a>Policy declaration
+There a few particular things worth mentioning about this policy expression. The log-to-eventhub policy has an attribute called logger-id which refers to the name of logger that has been created within the API Management service. The details of how to setup an Event Hub logger in the API Management service can be found in the document [How to log events to Azure Event Hubs in Azure API Management](api-management-howto-log-event-hubs.md). The second attribute is an optional parameter that instructs Event Hubs which partition to store the message in. Event Hubs use partitions to enable scalabilty and require a minimum of two. The ordered delivery of messages is only guaranteed within a partition. If we do not instruct Event Hub in which partition to place the message, it will use a round-robin algorithm to distribute the load. However, that may cause some of our messages to be processed out of order.  
 
-### Разделы
-Чтобы обеспечить правильный порядок доставки сообщений потребителям, не теряя при этом преимущества распределения нагрузки по разделам, я решил отправлять сообщения с HTTP-запросами в один раздел, а сообщения с ответами — в другой. Это обеспечит равномерное распределение нагрузки и одновременно гарантирует, что все запросы и ответы будут обрабатываться по порядку. Может случиться так, что ответ будет обработан раньше соответствующего запроса, но это не проблема. У нас есть отдельный механизм сопоставления запросов и ответов, и мы доподлинно знаем, что запросы всегда поступают раньше ответов.
+### <a name="partitions"></a>Partitions
+To ensure our messages are delivered to consumers in order and take advantage of the load distribution capability of partitions, I chose to send HTTP request messages to one partition and HTTP response messages to a second partition. This will ensure an even load distribution and we can guarantee that all requests will be consumed in order and all responses will be consumed in order. It is possible for a response to be consumed before the corresponding request, but as that is not a problem as we have a different mechanism for correlating requests to responses and we know that requests always come before responses.
 
-### Полезные данные HTTP
-После создания `requestLine` мы проверяем, нужно ли обрезать текст запроса. Длина текста запроса ограничена 1024 символами. Это значение можно увеличить, но размер одного сообщения для концентратора событий не может превышать 256 КБ, поэтому есть вероятность, что некоторые HTTP-запросы не поместятся в одно сообщение. При ведении журнала и анализе значительный объем информации можно получить уже из строки запроса HTTP и заголовка. Кроме того, многие запросы к API имеют сравнительно короткий текст. Таким образом, потеря полезной информации от усечения больших фрагментов будет пренебрежимо мала по сравнению с экономией затрат на передачу, обработку и хранение полного текста запроса. И еще одно замечание об обработке текста запроса: в метод As<string>() необходимо передать значение `true`, так как мы можем читать текст запроса, но его должна прочитать еще и API серверной части. Если передать в этот метод значение true, текст запроса сохраняется в буфере и может быть прочитан повторно. Об этом особенно важно помнить, если ваш API передает файлы очень большого объема или долгие опросы. В таких случаях лучше вовсе не читать текст запроса.
+### <a name="http-payloads"></a>HTTP payloads
+After building the `requestLine` we check to see if the request body should be truncated. The request body is truncated to only 1024. This could be increased, however individual Event Hub messages are limited to 256KB, so it is likely that some HTTP message bodies will not fit in a single message. When doing logging and analytics a significant amount of information can be derived from just the HTTP request line and headers. Also, many API requests only return small bodies and so the loss of information value by truncating large bodies is fairly minimal in comparison to the reduction in transfer, processing and storage costs to keep all body contents. One final note about processing the body is that we need to pass `true` to the As<string>() method because we are reading the body contents, but was also want the backend API to be able to read the body. By passing true to this method we cause the body to be buffered so that it can be read a second time. This is important to be aware of if you have an API that does uploading of very large files or uses long polling. In these cases it would be best to avoid reading the body at all.   
 
-### HTTP-заголовки
-HTTP-заголовки можно поместить в сообщение в простом формате пар «ключ — значение». Мы решили исключить из обработки некоторые поля с секретной информацией, чтобы избежать утечки учетных данных. Для анализа ключи API и другие учетные данные, скорее всего, не потребуются. Если позднее нам нужно будет проанализировать работу конкретного пользователя или конкретного продукта, мы можем получить нужные данные из объекта `context` и добавить их в сообщение.
-### Метаданные сообщения
-В полном тексте сообщения, которое будет отправлено в концентратор событий, первая строка не является частью сообщения `application/http`. В первой строке содержатся дополнительные метаданные. Они указывают, является ли сообщение запросом или ответом, и содержат идентификатор сообщения, по которому можно сопоставить запросы и ответы. Идентификатор сообщения создается с помощью другой политики, которая выглядит следующим образом:
+### <a name="http-headers"></a>HTTP headers
+HTTP Headers can be simply transferred over into the message format in a simple key/value pair format. We have chosen to strip out certain security sensitive fields, to avoid unnecessarily leaking credential information. It is unlikely that API keys and other credentials would be used for analytics purposes. If we wish to do analysis on the user and the particular product they are using then we could get that from the `context` object and add that to the message.     
+### <a name="message-metadata"></a>Message Metadata
+When building the complete message to send to the event hub, the first line is not actually part of the `application/http` message. The first line is additional metadata consisting of whether the message is a request or response message and a message id which is used to correlate requests to responses. The message id is created by using another policy that looks like this:
 
     <set-variable name="message-id" value="@(Guid.NewGuid())" />
 
-Мы могли бы создать сообщение с запросом, сохранить его в переменной до получения ответа, а затем отправить запрос и ответ в одном сообщении. Но раздельная отправка запроса и ответа с общим идентификатором для их сопоставления позволяет варьировать размер сообщения. Также мы получаем возможность использовать преимущества нескольких разделов с сохранением порядка сообщений. Кроме того, так мы быстрее увидим поступивший запрос в панели мониторинга журналов. Также возможны ситуации, когда допустимый ответ вообще не отправляется в концентратор событий, например в случае неустранимой ошибки запроса в службе управления API. В этом случае мы по крайней мере будем иметь в журнале запись о запросе.
+We could have created the request message, stored that in a variable until the response was returned and then simply sent the request and response as a single message. However, by sending the request and response independently and using a message id to correlate the two, we get a bit more flexibility in the message size, the ability to take advantage of multiple partitions whilst maintaining message order and the request will appear in our logging dashboard sooner. There also may be some scenarios where a valid response is never sent to the event hub, possibly due to a fatal request error in the API Management service, but we still will have a record of the request.
 
-Политика отправки HTTP-сообщения с ответом выглядит почти так же, как политика для запроса. Вот полная конфигурация этой политики:
+The policy to send the response HTTP message looks very similar to the request and so the complete policy configuration looks like this:
 
       <policies>
-      	<inbound>
-      		<set-variable name="message-id" value="@(Guid.NewGuid())" />
-      		<log-to-eventhub logger-id="conferencelogger" partition-id="0">
+        <inbound>
+            <set-variable name="message-id" value="@(Guid.NewGuid())" />
+            <log-to-eventhub logger-id="conferencelogger" partition-id="0">
               @{
                   var requestLine = string.Format("{0} {1} HTTP/1.1\r\n",
                                                               context.Request.Method,
@@ -115,12 +116,12 @@ HTTP-заголовки можно поместить в сообщение в �
                                       + requestLine + headerString + "\r\n" + body;
               }
           </log-to-eventhub>
-      	</inbound>
-      	<backend>
-      		<forward-request follow-redirects="true" />
-      	</backend>
-      	<outbound>
-      		<log-to-eventhub logger-id="conferencelogger" partition-id="1">
+        </inbound>
+        <backend>
+            <forward-request follow-redirects="true" />
+        </backend>
+        <outbound>
+            <log-to-eventhub logger-id="conferencelogger" partition-id="1">
               @{
                   var statusLine = string.Format("HTTP/1.1 {0} {1}\r\n",
                                                       context.Response.StatusCode,
@@ -142,19 +143,19 @@ HTTP-заголовки можно поместить в сообщение в �
                                       + statusLine + headerString + "\r\n" + body;
              }
           </log-to-eventhub>
-      	</outbound>
+        </outbound>
       </policies>
 
-Политика `set-variable` создает значение, которое политика `log-to-eventhub` может использовать в разделах `<inbound>` и `<outbound>`.
+The `set-variable` policy creates a value that is accessible by both the `log-to-eventhub` policy in the `<inbound>` section and the `<outbound>` section.  
 
-## Получение событий от концентраторов событий
-События из концентратора событий Azure поступают через [протокол AMQP](http://www.amqp.org/). Команда служебной шины Microsoft предоставила в открытом доступе клиентские библиотеки, которые упрощают обработку событий. Служба поддерживает два различных подхода: *прямой потребитель* и класс `EventProcessorHost`. Примеры использования этих подходов можно найти в [руководстве по программированию концентраторов событий](../event-hubs/event-hubs-programming-guide.md). Вкратце рассмотрим различия между ними. `Direct Consumer` дает вам полный контроль, а `EventProcessorHost` берет часть работы на себя, но делает некоторые предположения о том, как вы будете обрабатывать события.
+## <a name="receiving-events-from-event-hubs"></a>Receiving events from Event Hubs
+Events from Azure Event Hub are received using the [AMQP protocol](http://www.amqp.org/). The Microsoft Service Bus team have made client libraries available to make the consuming events easier. There are two different approaches supported, one is being a *Direct Consumer* and the other is using the `EventProcessorHost` class. Examples of these two approaches can be found in the [Event Hubs Programming Guide](../event-hubs/event-hubs-programming-guide.md). The short version of the differences is, `Direct Consumer` gives you complete control and the `EventProcessorHost` does some of the plumbing work for you but makes certain assumptions about how you will process those events.  
 
-### EventProcessorHost
-В этом примере мы для простоты будем использовать `EventProcessorHost`, хоть это и не лучший выбор в данном случае. Класс `EventProcessorHost` выполняет самую сложную работу по управлению потоками для конкретного класса обработчика событий. Но в нашем случае мы просто преобразуем сообщение в другой формат и передаем его в другую службу, используя асинхронный метод. У нас нет необходимости обновлять общее состояние, и нет риска возникновения проблем с потоками. В большинстве случаев класс `EventProcessorHost` будет оптимальным вариантом, как минимум самым простым в использовании.
+### <a name="eventprocessorhost"></a>EventProcessorHost
+In this sample, we will use the `EventProcessorHost` for simplicity, however it may not the best choice for this particular scenario. `EventProcessorHost` does the hard work of making sure you don't have to worry about threading issues within a particular event processor class. However, in our scenario, we are simply converting the message to another format and passing it along to another service using an async method. There is no need for updating shared state and therefore no risk of threading issues. For most scenarios, `EventProcessorHost` is probably the best choice and it is certainly the easier option.     
 
-### IEventProcessor
-Основной задачей при использовании `EventProcessorHost` является реализация интерфейса `IEventProcessor`, который содержит метод `ProcessEventAsync`. Суть этого метода показана ниже.
+### <a name="ieventprocessor"></a>IEventProcessor
+The central concept when using `EventProcessorHost` is to create a an implementation of the `IEventProcessor` interface which contains the method `ProcessEventAsync`. The essence of that method is shown here:
 
   async Task IEventProcessor.ProcessEventsAsync(PartitionContext context, IEnumerable<EventData> messages) {
 
@@ -175,10 +176,10 @@ HTTP-заголовки можно поместить в сообщение в �
             ... checkpointing code snipped ...
         }
 
-Список объектов EventData передается в наш метод, где мы последовательно перебираем элементы этого списка. Содержимое каждого метода преобразуется в объект HttpMessage, и этот объект передается в экземпляр IHttpMessageProcessor.
+A list of EventData objects are passed into the method and we iterate over that list. The bytes of each method are parsed into a HttpMessage object and that object is passed to an instance of IHttpMessageProcessor.
 
-### HttpMessage
-Экземпляр `HttpMessage` содержит три фрагмента данных:
+### <a name="httpmessage"></a>HttpMessage
+The `HttpMessage` instance contains three pieces of data:
 
       public class HttpMessage
        {
@@ -191,16 +192,16 @@ HTTP-заголовки можно поместить в сообщение в �
 
       }
 
-Экземпляр `HttpMessage` содержит идентификатор GUID `MessageId`, который позволяет связать HTTP-запрос с соответствующим ответом, а также логическое значение, которое сообщает, содержит ли этот объект экземпляр HttpRequestMessage и HttpResponseMessage. Я применил встроенные классы HTTP из `System.Net.Http`, что позволило воспользоваться кодом синтаксического анализа `application/http`, который включен в `System.Net.Http.Formatting`.
+The `HttpMessage` instance contains a `MessageId` GUID that allows us to connect the HTTP request to the corresponding HTTP response and a boolean value that identifies if the object contains an instance of a HttpRequestMessage and HttpResponseMessage. By using the built in HTTP classes from `System.Net.Http`, I was able to take advantage of the `application/http` parsing code that is included in `System.Net.Http.Formatting`.  
 
-### IHttpMessageProcessor
-Затем экземпляр `HttpMessage` передается в реализацию `IHttpMessageProcessor`, который я создал в качестве интерфейса, чтобы отделить получение и интерпретацию события из концентратора событий Azure от фактической обработки этого события.
+### <a name="ihttpmessageprocessor"></a>IHttpMessageProcessor
+The `HttpMessage` instance is then forwarded to implementation of `IHttpMessageProcessor` which is an interface I created to decouple the receiving and interpretation of the event from Azure Event Hub and the actual processing of it.
 
 
-## Пересылка сообщения HTTP
-Я решил, что в нашем примере будет интересно использовать отправку HTTP-запроса в [Runscope](http://www.runscope.com). Runscope — это облачная служба, предназначенная для отладки, регистрации и мониторинга HTTP-запросов. У службы есть бесплатный уровень, поэтому ее легко испытать в работе. Мы сможем в реальном времени отслеживать HTTP-запросы, которые проходят через службу управления API.
+## <a name="forwarding-the-http-message"></a>Forwarding the HTTP message
+For this sample, I decided it would be interesting to push the HTTP Request over to [Runscope](http://www.runscope.com). Runscope is a cloud based service that specializes in HTTP debugging, logging and monitoring. They have a free tier, so it is easy to try and it allows us to see the HTTP requests in real-time flowing through our API Management service.
 
-Реализация `IHttpMessageProcessor` выглядит следующим образом:
+The `IHttpMessageProcessor` implementation looks like this,
 
       public class RunscopeHttpMessageProcessor : IHttpMessageProcessor
        {
@@ -243,29 +244,32 @@ HTTP-заголовки можно поместить в сообщение в �
            }
        }
 
-Я воспользовался [существующей клиентской библиотекой для службы Runscope](http://www.nuget.org/packages/Runscope.net.hapikit/0.9.0-alpha), которая позволяет легко передавать в эту службу экземпляры `HttpRequestMessage` и `HttpResponseMessage`. Чтобы получить доступ к Runscope API, нужна учетная запись и ключ API. Инструкции по получению ключа API см. в видео [Создание приложений для доступа к API Runscope](http://blog.runscope.com/posts/creating-applications-to-access-the-runscope-api).
+I was able to take advantage of an [existing client library for Runscope](http://www.nuget.org/packages/Runscope.net.hapikit/0.9.0-alpha) that makes it easy to push `HttpRequestMessage` and `HttpResponseMessage` instances up into their service. In order to access the Runscope API you will need an account and an API Key. Instructions for getting an API key can be found in the [Creating Applications to Access Runscope API](http://blog.runscope.com/posts/creating-applications-to-access-the-runscope-api) screencast.
 
-## Полный пример
-[Исходный код](https://github.com/darrelmiller/ApimEventProcessor) и тесты для этого примера доступны на GitHub. Чтобы запустить этот пример, вам потребуются [служба управления API](api-management-get-started.md), [подключенный к ней концентратор событий](api-management-howto-log-event-hubs.md) и [учетная запись хранения](../storage/storage-create-storage-account.md).
+## <a name="complete-sample"></a>Complete sample
+The [source code](https://github.com/darrelmiller/ApimEventProcessor) and tests for the sample are on Github. You will need an [API Management Service](api-management-get-started.md), [a connected Event Hub](api-management-howto-log-event-hubs.md), and a [Storage Account](../storage/storage-create-storage-account.md) to run the sample for yourself.   
 
-Пример представляет собой простое консольное приложение, которое прослушивает события, поступающие от концентратора событий, преобразует их в объекты `HttpRequestMessage` и `HttpResponseMessage`, а затем пересылает их на API-интерфейс Runscope.
+The sample is just a simple Console application that listens for events coming from Event Hub, converts them into a `HttpRequestMessage` and `HttpResponseMessage` objects and then forwards them on to the Runscope API.
 
-На анимированном изображении ниже вы видите запрос к API на портале разработчика, получение, обработку и пересылку сообщений в консольном приложении, а также запрос и ответ, отображающиеся в инспекторе трафика Runscope.
+In the following animated image, you can see a request being made to an API in the Developer Portal, the Console application showing the message being received, processed and forwarded and then the request and response showing up in the Runscope Traffic inspector.
 
-![Демонстрация передачи запроса в Runscope](./media/api-management-log-to-eventhub-sample/apim-eventhub-runscope.gif)
+![Demonstration of request being forwarded to Runscope](./media/api-management-log-to-eventhub-sample/apim-eventhub-runscope.gif)
 
-## Сводка
-Служба управления API Azure — это идеальное место для фиксации HTTP-трафика, поступающего на API-интерфейсы и в обратном направлении. Концентраторы событий Azure — это высокомасштабируемое недорогое решение, которое собирает информацию о трафике и передает ее в системы дополнительной обработки для регистрации, мониторинга и сложного анализа. Для подключения к сторонним системам мониторинга трафика, например Runscope, потребуется всего несколько десятков строк кода.
+## <a name="summary"></a>Summary
+Azure API Management service provides an ideal place to capture the HTTP traffic travelling to and from your APIs. Azure Event Hubs is a highly scalable, low cost solution for capturing that traffic and feeding it into secondary processing systems for logging, monitoring and other sophisticated analytics. Connecting to 3rd party traffic monitoring systems like Runscope is a simple as a few dozen lines of code.
 
-## Дальнейшие действия
--	Дополнительная информация о концентраторах событий Azure
-	-	[Приступая к работе с концентраторами событий Azure](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
-	-	[Прием сообщений через EventProcessorHost](../event-hubs/event-hubs-csharp-ephcs-getstarted.md#receive-messages-with-eventprocessorhost)
-	-	[Руководство по программированию концентраторов событий](../event-hubs/event-hubs-programming-guide.md)
--	Дополнительные сведения об интеграции службы управления API и концентраторов событий
-	-	[Как регистрировать события в концентраторах событий Azure в службе управления Azure API](api-management-howto-log-event-hubs.md)
-	-	[Справочник по сущности "Средство ведения журнала"](https://msdn.microsoft.com/library/azure/mt592020.aspx)
-	-	[Справочник по политике регистрации в концентраторе событий](https://msdn.microsoft.com/library/azure/dn894085.aspx#log-to-eventhub)
-	
+## <a name="next-steps"></a>Next steps
+-   Learn more about Azure Event Hubs
+    -   [Get started with Azure Event Hubs](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
+    -   [Receive messages with EventProcessorHost](../event-hubs/event-hubs-csharp-ephcs-getstarted.md#receive-messages-with-eventprocessorhost)
+    -   [Event Hubs programming guide](../event-hubs/event-hubs-programming-guide.md)
+-   Learn more about API Management and Event Hubs integration
+    -   [How to log events to Azure Event Hubs in Azure API Management](api-management-howto-log-event-hubs.md)
+    -   [Logger entity reference](https://msdn.microsoft.com/library/azure/mt592020.aspx)
+    -   [log-to-eventhub policy reference](https://msdn.microsoft.com/library/azure/dn894085.aspx#log-to-eventhub)
+    
 
-<!---HONumber=AcomDC_0810_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

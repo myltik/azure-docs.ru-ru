@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Распространенные причины перезапуска ролей облачных служб | Microsoft Azure"
-   description="Внезапный перезапуск роли облачной службы может привести к длительному простою. Ниже приведены некоторые распространенные проблемы, вызывающие перезапуск ролей. Эти сведения могут помочь сократить время простоя."
+   pageTitle="Common causes of Cloud Service roles recycling | Microsoft Azure"
+   description="A cloud service role that suddenly recycles can cause significant downtime. Here are some common issues that cause roles to be recycled, which may help you reduce downtime."
    services="cloud-services"
    documentationCenter=""
    authors="simonxjx"
@@ -16,63 +16,69 @@
    ms.date="09/02/2016"
    ms.author="v-six" />
 
-# Распространенные проблемы, вызывающие перезапуск ролей
 
-В этой статье рассматриваются некоторые распространенные причины проблем с развертыванием, а также советы по их устранению. На наличие проблем с приложением указывает то, что экземпляр роли не запускается или циклически переключается между состояниями "Инициализация", "Занято" и "Остановлено".
+# <a name="common-issues-that-cause-roles-to-recycle"></a>Common issues that cause roles to recycle
+
+This article discusses some of the common causes of deployment problems and provides troubleshooting tips to help you resolve these problems. An indication that a problem exists with an application is when the role instance fails to start, or it cycles between the initializing, busy, and stopping states.
 
 [AZURE.INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
-## Отсутствующие зависимости среды выполнения
+## <a name="missing-runtime-dependencies"></a>Missing runtime dependencies
 
-Если роль в приложении использует какую-либо сборку, которая не является частью управляемой библиотеки Azure или платформы .NET Framework, необходимо явно включить эту сборку в пакет приложения. Имейте в виду, что другие платформы Майкрософт недоступны в Azure по умолчанию. Если ваша роль использует такую платформу, необходимо добавить эти сборки в пакет приложения.
+If a role in your application relies on any assembly that is not part of the .NET Framework or the Azure managed library, you must explicitly include that assembly in the application package. Keep in mind that other Microsoft frameworks are not available on Azure by default. If your role relies on such a framework, you must add those assemblies to the application package.
 
-Перед сборкой и упаковкой приложения проверьте следующее.
+Before you build and package your application, verify the following:
 
-- При работе в Visual Studio убедитесь, что свойство **Копировать локально** имеет значение **True** для каждой упоминаемой в проекте сборки, которая не является частью пакета SDK для Azure или платформы .NET Framework.
+- If using Visual studio, make sure the **Copy Local** property is set to **True** for each referenced assembly in your project that is not part of the Azure SDK or the .NET Framework.
 
-- Убедитесь, что файл web.config не ссылается на любые неиспользуемые сборки в элементе compilation.
+- Make sure the web.config file does not reference any unused assemblies in the compilation element.
 
-- Параметр **Действие при сборке** для каждого CSHTML-файла имеет значение **Содержимое**. Это обеспечивает правильное отображение файлов в пакете, а также позволяет указать в этом пакете другие файлы, на которые есть ссылки.
+- The **Build Action** of every .cshtml file is set to **Content**. This ensures that the files will appear correctly in the package and enables other referenced files to appear in the package.
 
-## Сборка нацелена на неверную платформу.
+## <a name="assembly-targets-wrong-platform"></a>Assembly targets wrong platform
 
-Azure является 64-разрядной средой. Таким образом, сборки .NET, скомпилированные для 32-разрядной среды, не будут работать в Azure.
+Azure is a 64-bit environment. Therefore, .NET assemblies compiled for a 32-bit target won't work on Azure.
 
-## Роль вызывает необработанные исключения во время инициализации или остановки.
+## <a name="role-throws-unhandled-exceptions-while-initializing-or-stopping"></a>Role throws unhandled exceptions while initializing or stopping
 
-Любые исключения, выдаваемые методами класса [RoleEntryPoint], к которым относятся [OnStart], [OnStop] и [Run], являются необработанными. В случае возникновения необработанного исключения в одном из этих методов роль будет перезапущена. Если роль постоянно перезапускается, возможно, она вызывает необработанное исключение при каждой попытке запуска.
+Any exceptions that are thrown by the methods of the [RoleEntryPoint] class, which includes the [OnStart], [OnStop], and [Run] methods, are unhandled exceptions. If an unhandled exception occurs in one of these methods, the role will recycle. If the role is recycling repeatedly, it may be throwing an unhandled exception each time it tries to start.
 
-## Роль возвращается из метода Run.
+## <a name="role-returns-from-run-method"></a>Role returns from Run method
 
-Метод [Run] должен работать постоянно. Если ваш код переопределяет метод [Run], он должен постоянно находиться в режиме ожидания. В случае возврата метода [Run] роль перезапускается.
+The [Run] method is intended to run indefinitely. If your code overrides the [Run] method, it should sleep indefinitely. If the [Run] method returns, the role recycles.
 
-## Неверный параметр DiagnosticsConnectionString
+## <a name="incorrect-diagnosticsconnectionstring-setting"></a>Incorrect DiagnosticsConnectionString setting
 
-Если приложение использует систему диагностики Azure, то в CSCFG-файле необходимо указать параметр конфигурации `DiagnosticsConnectionString`. Этот параметр должен указывать HTTPS-подключение к вашей учетной записи хранения в Azure.
+If application uses Azure Diagnostics, your service configuration file must specify the `DiagnosticsConnectionString` configuration setting. This setting should specify an HTTPS connection to your storage account in Azure.
 
-Чтобы убедиться в правильности параметра `DiagnosticsConnectionString` перед развертыванием пакета приложения в Azure, проверьте следующее.
+To ensure that your `DiagnosticsConnectionString` setting is correct before you deploy your application package to Azure, verify the following:  
 
-- Параметр `DiagnosticsConnectionString` указывает на действительную учетную запись хранения в Azure. По умолчанию этот параметр указывает на эмулированную учетную запись хранения, поэтому необходимо явным образом изменить его перед развертыванием пакета приложения. Если этого не сделать, то при попытке экземпляра роли запустить монитор диагностики возникает исключение. Это может вызвать бесконечный перезапуск экземпляра роли.
+- The `DiagnosticsConnectionString` setting points to a valid storage account in Azure.  
+  By default, this setting points to the emulated storage account, so you must explicitly change this setting before you deploy your application package. If you do not change this setting, an exception is thrown when the role instance attempts to start the diagnostic monitor. This may cause the role instance to recycle indefinitely.
 
-- Строку подключения следует указывать в определенном [формате](../storage/storage-configure-connection-string.md). (необходимо задать протокол HTTPS). Замените *MyAccountName* именем своей учетной записи хранения, а *MyAccountKey* — своим ключом доступа:
+- The connection string is specified in the following [format](../storage/storage-configure-connection-string.md). (The protocol must be specified as HTTPS.) Replace *MyAccountName* with the name of your storage account, and *MyAccountKey* with your access key:    
 
         DefaultEndpointsProtocol=https;AccountName=MyAccountName;AccountKey=MyAccountKey
 
-  Если вы разрабатываете приложение с помощью инструментов Azure для Microsoft Visual Studio, чтобы задать это значение, можно использовать [страницы свойств](https://msdn.microsoft.com/library/ee405486).
+  If you are developing your application by using Azure Tools for Microsoft Visual Studio, you can use the [property pages](https://msdn.microsoft.com/library/ee405486) to set this value.
 
-## Экспортированный сертификат не содержит закрытый ключ.
+## <a name="exported-certificate-does-not-include-private-key"></a>Exported certificate does not include private key
 
-Чтобы запустить веб-роль с SSL, необходимо убедиться, что экспортированный сертификат управления содержит закрытый ключ. При использовании *диспетчера сертификатов Windows* для экспорта сертификата обязательно выберите **Да** в качестве значения параметра **Экспорт закрытого ключа**. Сертификат следует экспортировать в формате PFX, так как в настоящее время поддерживается только он.
+To run a web role under SSL, you must ensure that your exported management certificate includes the private key. If you use the *Windows Certificate Manager* to export the certificate, be sure to select **Yes** for the **Export the private key** option. The certificate must be exported in the PFX format, which is the only format currently supported.
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Next steps
 
-Просмотрите дополнительные [статьи об устранении неполадок](https://azure.microsoft.com/documentation/articles/?tag=top-support-issue&product=cloud-services) в облачных службах.
+View more [troubleshooting articles](https://azure.microsoft.com/documentation/articles/?tag=top-support-issue&product=cloud-services) for cloud services.
 
-Дополнительные сценарии перезапуска ролей см. в [серии статей в блоге Кевина Уильямсона](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx).
+View more role recycling scenarios at [Kevin Williamson's blog series](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx).
 
 [RoleEntryPoint]: https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleentrypoint.aspx
 [OnStart]: https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleentrypoint.onstart.aspx
 [OnStop]: https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleentrypoint.onstop.aspx
 [Run]: https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx
 
-<!---HONumber=AcomDC_0907_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

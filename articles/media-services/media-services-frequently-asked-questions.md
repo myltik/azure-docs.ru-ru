@@ -1,86 +1,91 @@
 <properties 
-	pageTitle="Часто задаваемые вопросы | Microsoft Azure" 
-	description="Часто задаваемые вопросы (FAQ)" 
-	services="media-services" 
-	documentationCenter="" 
-	authors="Juliako" 
-	manager="erikre" 
-	editor=""/>
+    pageTitle="Frequently asked questions | Microsoft Azure" 
+    description="Frequently asked questions (FAQs)" 
+    services="media-services" 
+    documentationCenter="" 
+    authors="Juliako" 
+    manager="erikre" 
+    editor=""/>
 
 <tags 
-	ms.service="media-services" 
-	ms.workload="media" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/19/2016" 
-	ms.author="juliako"/>
-
-
-#Часто задаваемые вопросы
-
-##Общие часто задаваемые вопросы об AMS и ответы на них
-
-Вопрос. Как осуществляется масштабирование индексирования?
-
-Ответ. Зарезервированные единицы одинаковы для задач кодирования и индексирования. Следуйте инструкциям в разделе [Масштабирование зарезервированных единиц кодирования](media-services-scale-media-processing-overview.md). **Обратите внимание**, что производительность индексирования не зависит от типа зарезервированных единиц.
-
-Вопрос. Видео отправлено, закодировано и опубликовано. Почему видео не воспроизводится?
-
-Ответ. Чаще всего это вызвано отсутствием по крайней мере одной зарезервированной единицы потоковой передачи, выделенной для конечной точки потоковой передачи, из которой выполняется попытка воспроизведения. Следуйте инструкциям в разделе [Масштабирование зарезервированных единиц потоковой передачи](media-services-portal-scale-streaming-endpoints.md).
-
-Вопрос. Можно ли объединять видео в динамическом потоке?
-
-Ответ. Объединение видео в динамических потоках в настоящее время не поддерживается в службах мультимедиа Azure, поэтому необходимо объединить видео заранее на локальном компьютере.
-
-Вопрос. Можно ли использовать Azure CDN с динамической потоковой передачей?
-
-Ответ. Службы мультимедиа поддерживают интеграцию с Azure CDN (дополнительные сведения см. в разделе [Управление конечными точками потоковой передачи в учетной записи служб мультимедиа](media-services-portal-manage-streaming-endpoints.md)). Вы можете использовать динамическую потоковую передачу с CDN. Службы мультимедиа Azure предоставляют выходные данные в форматах Smooth Streaming, HLS и MPEG-DASH. Все они используют протокол HTTP для передачи данных, а также кэширование HTTP. При динамической потоковой передаче фактические аудио- или видеоданные делятся на фрагменты, которые кэшируются в сети CDN. Обновлять необходимо только данные манифеста. CDN периодически обновляет данные манифеста.
-
-Вопрос. Службы мультимедиа Azure поддерживают хранение изображений?
-
-Ответ. Если вы хотите просто хранить JPEG- или PNG-изображения, используйте для этого хранилище двоичных объектов Azure. Не имеет смысла хранить их в вашей учетной записи служб мультимедиа, если вы не хотите связать их с видео- или аудиоресурсами. Или вам может понадобиться использовать наложение изображений в видеокодировщике. Стандартный кодировщик мультимедиа поддерживает наложение изображений на видео, поэтому JPEG и PNG указаны как поддерживаемые форматы входных данных. Дополнительные сведения см. в разделе [Создание наложений](media-services-custom-mes-presets-with-dotnet.md#overlay).
-
-Вопрос. Как можно скопировать активы из одной учетной записи служб мультимедиа в другую?
-
-Ответ. Для копирования ресурсов-контейнер из одной учетной записи служб мультимедиа в другую с помощью .NET используйте метод расширения [IAsset.Copy](https://github.com/Azure/azure-sdk-for-media-services-extensions/blob/dev/MediaServices.Client.Extensions/IAssetExtensions.cs#L354), доступный в репозитории [Расширения пакета SDK служб мультимедиа Azure для .NET](https://github.com/Azure/azure-sdk-for-media-services-extensions/). Дополнительные сведения см. в [этой](https://social.msdn.microsoft.com/Forums/azure/28912d5d-6733-41c1-b27d-5d5dff2695ca/migrate-media-services-across-subscription?forum=MediaServices) теме форума.
-
-Вопрос. Какие знаки поддерживаются в именах файлов при работе с AMS?
-
-Ответ. При создании URL-адресов для потоковой передачи содержимого службы мультимедиа используют значение свойства IAssetFile.Name (например, http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.). Поэтому кодирование с помощью знака процента не допускается. Значение свойства **Name** не может содержать следующие [символы, зарезервированные для кодирования с помощью знака процента](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters): !*'();:@&=+$,/?%#". Кроме того, может использоваться только один символ "." для расширения имени файла.
-
-
-Вопрос. Как можно подключиться с помощью REST?
-
-Ответ. После успешного подключения к https://media.windows.net вы получите ошибку 301 (перенаправление), в которой будет указан другой универсальный код ресурса (URI) служб мультимедиа. Последующие вызовы необходимо осуществлять к новому универсальному коду ресурса (URI), как описано в статье [Подключение к службам мультимедиа с помощью REST API](media-services-rest-connect-programmatically.md).
-
-
-Вопрос. Как повернуть видео в процессе кодирования?
-
-Ответ. [Стандартный кодировщик служб мультимедиа](media-services-dotnet-encode-with-media-encoder-standard.md) поддерживает поворот на 90, 180 или 270 градусов. По умолчанию задается значение Auto, при котором система пытается обнаружить метаданные поворота во входящем файле MP4/MOV и обеспечить соответствующую компенсацию. Включите следующий элемент **Sources** в одну из предустановок JSON, определенных [здесь](http://msdn.microsoft.com/library/azure/mt269960.aspx):
-	
-	"Version": 1.0,
-	"Sources": [
-	{
-	  "Streams": [],
-	  "Filters": {
-	    "Rotation": "90"
-	  }
-	}
-	],
-	"Codecs": [
-	
-	...
+    ms.service="media-services" 
+    ms.workload="media" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="09/19/2016" 
+    ms.author="juliako"/>
 
 
 
+#<a name="frequently-asked-questions"></a>Frequently asked questions
 
-##Схемы обучения работе со службами мультимедиа
+##<a name="general-ams-faqs"></a>General AMS FAQs
+
+Q: How do you scale indexing?
+
+A: The reserved units are the same for Encoding and Indexing tasks. Follow instructions on [How to Scale Encoding Reserved Units](media-services-scale-media-processing-overview.md). **Note** that Indexer performance is not affected by Reserved Unit Type.
+
+Q: I uploaded, encoded, and published a video. What would be the reason the video does not play when I try to stream it?
+
+A: One of the most common reasons is you do not have at least one reserved streaming unit allocated on the streaming endpoint from which you are trying to playback.  Follow instructions on [How to Scale Streaming Reserved Units](media-services-portal-scale-streaming-endpoints.md).
+
+Q: Can I do compositing on a live stream?
+
+A: Compositing on live streams is currently not offered in Azure Media Services, so you would need to pre-compose on your computer.
+
+Q: Can I use Azure CDN with Live Streaming?
+
+A: Media Services supports integration with Azure CDN (for more information, see [How to Manage Streaming Endpoints in a Media Services Account](media-services-portal-manage-streaming-endpoints.md)).  You can use Live streaming with CDN. Azure Media Services provides Smooth Streaming, HLS and MPEG-DASH outputs. All these formats use HTTP for transferring data and get benefits of HTTP caching. In live streaming actual video/audio data is divided to fragments and this individual fragments get cached in CDN. Only data needs to be refreshed is the manifest data. CDN periodically refreshes manifest data.
+
+Q: Does Azure Media services support storing images?
+
+A: If you are just looking to store JPEG or PNG images, you should keep those in Azure Blob Storage. There is no benefit to putting them in your Media Services account unless you want to keep them associated with your Video or Audio Assets. Or if you might have a need to use the images as overlays in the video encoder.Media Encoder Standard supports overlaying images on top of videos, and that is what it lists JPEG and PNG as supported input formats. For more information, see [Creating Overlays](media-services-custom-mes-presets-with-dotnet.md#overlay).
+
+Q: How can I copy assets from one Media Services account to another.
+
+A: To copy assets from one Media Services account to another using .NET, use [IAsset.Copy](https://github.com/Azure/azure-sdk-for-media-services-extensions/blob/dev/MediaServices.Client.Extensions/IAssetExtensions.cs#L354) extension method available in the [Azure Media Services .NET SDK Extensions](https://github.com/Azure/azure-sdk-for-media-services-extensions/) repository. For more information, see [this](https://social.msdn.microsoft.com/Forums/azure/28912d5d-6733-41c1-b27d-5d5dff2695ca/migrate-media-services-across-subscription?forum=MediaServices) forum thread.
+
+Q: What are the supported characters for naming files when working with AMS?
+
+A: Media Services uses the value of the IAssetFile.Name property when building URLs for the streaming content (for example, http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.) For this reason, percent-encoding is not allowed. The value of the **Name** property cannot have any of the following [percent-encoding-reserved characters](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters): !*'();:@&=+$,/?%#[]". Also, there can only be one ‘.’ for the file name extension.
+
+
+Q: How to connect using REST?
+
+A: After successfully connecting to https://media.windows.net, you will receive a 301 redirect specifying another Media Services URI. You must make subsequent calls to the new URI as described in [Connecting to Media Services using REST API](media-services-rest-connect-programmatically.md). 
+
+
+Q: How can I rotate a video during the encoding process.
+
+A: The [Media Encoder Standard](media-services-dotnet-encode-with-media-encoder-standard.md) supports rotation by angles of 90/180/270. The default behavior is "Auto", where it tries to detect the rotation metadata in the incoming MP4/MOV file and compensate for it. Include the following **Sources** element to one of the json presets defined [here](http://msdn.microsoft.com/library/azure/mt269960.aspx):
+    
+    "Version": 1.0,
+    "Sources": [
+    {
+      "Streams": [],
+      "Filters": {
+        "Rotation": "90"
+      }
+    }
+    ],
+    "Codecs": [
+    
+    ...
+
+
+
+
+##<a name="media-services-learning-paths"></a>Media Services learning paths
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-##Отзывы
+##<a name="provide-feedback"></a>Provide feedback
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,42 +1,47 @@
 <properties
-	pageTitle="Просмотр всех корпоративных приложений, которыми вы можете управлять в предварительной версии Azure Active Directory | Microsoft Azure"
-	description="Узнайте, как просмотреть список корпоративных приложений, на управление которыми в Azure Active Directory у вас есть разрешение."
-	services="active-directory"
-	documentationCenter=""
-	authors="curtand"
-	manager="femila"
-	editor=""/>
+    pageTitle="View all the enterprise apps that I can manage in Azure Active Directory preview | Microsoft Azure"
+    description="How to see a list of the enterprise apps that you have the permissions to manage in Azure Active Directory"
+    services="active-directory"
+    documentationCenter=""
+    authors="curtand"
+    manager="femila"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/12/2016"
-	ms.author="curtand"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/30/2016"
+    ms.author="curtand"/>
 
-# Просмотр всех корпоративных приложений, которыми вы можете управлять в предварительной версии Azure Active Directory
 
-Вы можете управлять корпоративными приложениями в предварительной версии Azure Active Directory (Azure AD). [Что есть в предварительной версии?](active-directory-preview-explainer.md) Можно просмотреть приложения, которыми вы можете управлять, назначить приложению пользователей или группы, хранить для приложения такие свойства, как имя приложения и логотип, и даже отключить приложение, чтобы пользователи не могли в него войти.
+# <a name="view-all-the-enterprise-apps-that-i-can-manage-in-azure-active-directory-preview"></a>View all the enterprise apps that I can manage in Azure Active Directory preview
 
-## Как можно просмотреть мои приложения?
+You can manage your enterprise applications in the Azure Active Directory (Azure AD) preview. [What's in the preview?](active-directory-preview-explainer.md) This includes viewing the apps you can manage, assigning users or groups to an app, maintaining properties for the app such as the application name/logo, and even disabling an application so that no users can sign in to it.
 
-1. Войдите на [портал Azure](https://portal.azure.com) с помощью учетной записи глобального администратора каталога.
+## <a name="how-do-i-view-all-my-apps?"></a>How do I view all my apps?
 
-2. Выберите **Больше служб**, введите **Azure Active Directory** в текстовое поле, а затем нажмите клавишу **ВВОД**.
+1. Sign in to the [Azure portal](https://portal.azure.com) with an account that's a global admin for the directory.
 
-3. В колонке **Azure Active Directory** — ***имя\_каталога*** (то есть в колонке Azure AD для каталога, которым вы управляете) выберите **Корпоративные приложения**.
+2. Select **More services**, enter **Azure Active Directory** in the text box, and then select **Enter**.
 
-	![Открытие колонки "Корпоративные приложения"](./media/active-directory-coreapps-view-azure-portal/open-enterprise-apps.png)
+3. On the **Azure Active Directory -** ***directoryname*** blade (that is, the Azure AD blade for the directory you are managing), select **Enterprise applications**.
 
-4. В колонке **Корпоративные приложения** выберите **Все приложения**. В этой колонке можно выбрать приложения для управления, изменить отображаемые столбцы или отфильтровать список, чтобы найти нужное приложение (например, можно отобразить только отключенные приложения).
+    ![Opening Enterprise apps](./media/active-directory-coreapps-view-azure-portal/open-enterprise-apps.png)
 
-## Дальнейшие действия
+4. On the **Enterprise applications** blade, select **All applications**. From this blade you can select apps to manage, change the displayed columns, or filter the list to find that app you want (for example, to view only disabled apps).
 
-- [Назначение корпоративному приложению пользователя или группы](active-directory-coreapps-assign-user-azure-portal.md)
-- [Удаление назначения пользователя или группы из корпоративного приложения](active-directory-coreapps-remove-assignment-user-azure-portal.md)
-- [Отключение входа пользователя в корпоративное приложение](active-directory-coreapps-disable-app-azure-portal.md)
-- [Изменение имени или логотипа корпоративного приложения](active-directory-coreapps-change-app-logo-azure-portal.md)
+## <a name="next-steps"></a>Next steps
 
-<!---HONumber=AcomDC_0914_2016-->
+- [Assign a user or group to an enterprise app](active-directory-coreapps-assign-user-azure-portal.md)
+- [Remove a user or group assignment from an enterprise app](active-directory-coreapps-remove-assignment-azure-portal.md)
+- [Disable user sign-ins for an enterprise app](active-directory-coreapps-disable-app-azure-portal.md)
+- [Change the name or logo of an enterprise app](active-directory-coreapps-change-app-logo-user-azure-portal.md)
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

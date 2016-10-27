@@ -1,11 +1,20 @@
-### Предварительные требования
-- Учетная запись [Yammer](https://www.yammer.com/) 
+### <a name="prerequisites"></a>Prerequisites
+- A [Yammer](https://www.yammer.com/) account 
 
-Прежде чем использовать учетную запись Yammer в приложении логики, необходимо авторизовать приложение логики для подключения к вашей учетной записи Yammer. К счастью, это можно легко сделать из приложения логики на портале Azure.
+Before you can use your Yammer account in a Logic app, you must authorize the Logic app to connect to your Yammer account. Fortunately, you can do this easily from within your Logic app on the Azure Portal. 
 
-Ниже приведены указания по авторизации приложения логики для подключения к учетной записи Yammer.
+Here are the steps to authorize your Logic app to connect to your Yammer account:
 
-1. Чтобы создать подключение к Yammer, в конструкторе приложений логики в раскрывающемся списке выберите параметр **Show Microsoft managed APIs** (Показать управляемые API Microsoft), а затем введите в поле поиска *Yammer*. Выберите триггер или действие: ![](./media/connectors-create-api-yammer/yammer-1.png)
-2. Если вы ранее не создавали подключения к Yammer, вам будет предложено ввести учетные данные Yammer. Эти учетные данные будут использоваться для авторизации приложения логики, чтобы оно могло подключиться и получить доступ к данным вашей учетной записи Yammer. ![](./media/connectors-create-api-yammer/yammer-2.png)
-3. Укажите имя пользователя и пароль своей учетной записи Yammer, чтобы авторизовать приложение логики: ![](./media/connectors-create-api-yammer/yammer-3.png)   
-4. Подключение создано, и теперь вы можете перейти к другим действиям в приложении логики. ![](./media/connectors-create-api-yammer/yammer-4.png)   
+1. To create a connection to Yammer, in the Logic app designer, select **Show Microsoft managed APIs** in the drop down list then enter *Yammer* in the search box. Select the trigger or action you'll like to use:  
+  ![](./media/connectors-create-api-yammer/yammer-1.png)
+2. If you haven't created any connections to Yammer before, you'll get prompted to provide your Yammer credentials. These credentials will be used to authorize your Logic app to connect to, and access your Yammer account's data:  
+  ![](./media/connectors-create-api-yammer/yammer-2.png)
+3. Provide your Yammer user name and password to authorize your Logic app:  
+  ![](./media/connectors-create-api-yammer/yammer-3.png)   
+4. Notice the connection has been created and you are now free to proceed with the other steps in your Logic app:  
+  ![](./media/connectors-create-api-yammer/yammer-4.png)   
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,22 +1,23 @@
 <properties 
-	pageTitle="Настройка кодировщика Telestream Wirecast для отправки односкоростного обновляющегося потока | Microsoft Azure" 
-	description="В этой статье показано, как настроить динамический кодировщик Wirecast для отправки односкоростного потока в каналы AMS, которые выполняют кодирование в реальном времени. " 
-	services="media-services" 
-	documentationCenter="" 
-	authors="Juliako" 
-	manager="erikre" 
-	editor=""/>
+    pageTitle="Configure the Telestream Wirecast encoder to send a single bitrate live stream | Microsoft Azure" 
+    description="This topic shows how to configure the Wirecast live encoder to send a single bitrate stream to AMS channels that are enabled for live encoding. " 
+    services="media-services" 
+    documentationCenter="" 
+    authors="Juliako" 
+    manager="erikre" 
+    editor=""/>
 
 <tags 
-	ms.service="media-services" 
-	ms.workload="media" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="ne" 
-	ms.topic="article" 
-	ms.date="09/19/2016"
-	ms.author="juliako;cenkdin;anilmur"/>
+    ms.service="media-services" 
+    ms.workload="media" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="ne" 
+    ms.topic="article" 
+    ms.date="10/12/2016"
+    ms.author="juliako;cenkdin;anilmur"/>
 
-#Использование кодировщика Wirecast для отправки односкоростного обновляющегося потока
+
+#<a name="use-the-wirecast-encoder-to-send-a-single-bitrate-live-stream"></a>Use the Wirecast encoder to send a single bitrate live stream
 
 > [AZURE.SELECTOR]
 - [Wirecast](media-services-configure-wirecast-live-encoder.md)
@@ -24,160 +25,166 @@
 - [Tricaster](media-services-configure-tricaster-live-encoder.md)
 - [FMLE](media-services-configure-fmle-live-encoder.md)
 
-В этой статье показано, как настроить динамический кодировщик [Telestream Wirecast](http://www.telestream.net/wirecast/overview.htm) для отправки односкоростного потока в каналы AMS, которые выполняют кодирование в реальном времени. Дополнительные сведения см. в разделе [Работа с каналами, выполняющими кодирование в реальном времени с помощью служб мультимедиа Azure](media-services-manage-live-encoder-enabled-channels.md).
+This topic shows how to configure the [Telestream Wirecast](http://www.telestream.net/wirecast/overview.htm) live encoder to send a single bitrate stream to AMS channels that are enabled for live encoding.  For more information, see [Working with Channels that are Enabled to Perform Live Encoding with Azure Media Services](media-services-manage-live-encoder-enabled-channels.md).
 
-В этом учебнике показано, как управлять службами мультимедиа Azure (AMS) с помощью Обозревателя служб мультимедиа Azure. Это средство запускается только на компьютерах с ОС Windows. Если вы используете Mac или Linux, воспользуйтесь классическим порталом Azure для создания [каналов](media-services-portal-creating-live-encoder-enabled-channel.md#create-a-channel) и [программ](media-services-portal-creating-live-encoder-enabled-channel.md#create-and-manage-a-program).
-
-
-##Предварительные требования
-
-- [Создание учетной записи служб мультимедиа Azure](media-services-create-account.md)
-- Убедитесь, что запущена конечная точка потоковой трансляции как минимум с одной выделенной единицей потоковой трансляции. Дополнительные сведения см. в разделе [Управление конечными точками потоковой передачи в учетной записи служб мультимедиа](media-services-portal-manage-streaming-endpoints.md)
-- Установите последнюю версию средства [AMSE](https://github.com/Azure/Azure-Media-Services-Explorer).
-- Запустите его и подключитесь к учетной записи AMS.
-
-##Советы
-
-- По возможности используйте проводное подключение к Интернету.
-- Для получения необходимой пропускной способности рекомендуется удвоить скорость потоковой передачи. Хотя это требование не является обязательным, оно поможет уменьшить влияние перегрузки сети на пропускную способность.
-- При использовании программных кодировщиков закройте все ненужные программы.
+This tutorial shows how to manage Azure Media Services (AMS) with Azure Media Services Explorer (AMSE) tool. This tool only runs on Windows PC. If you are on Mac or Linux, use the Azure portal to create [channels](media-services-portal-creating-live-encoder-enabled-channel.md#create-a-channel) and [programs](media-services-portal-creating-live-encoder-enabled-channel.md#create-and-manage-a-program).
 
 
-## Создание канала
+##<a name="prerequisites"></a>Prerequisites
 
-1.  В средстве AMSE перейдите на вкладку **Поток** и щелкните правой кнопкой мыши в области канала. Выберите **Создать канал...** в меню.
+- [Create an Azure Media Services account](media-services-portal-create-account.md)
+- Ensure there is a Streaming Endpoint running with at least one streaming unit allocated. For more information, see [Manage Streaming Endpoints in a Media Services Account](media-services-portal-manage-streaming-endpoints.md)
+- Install the latest version of the [AMSE](https://github.com/Azure/Azure-Media-Services-Explorer) tool.
+- Launch the tool and connect to your AMS account.
+
+##<a name="tips"></a>Tips
+
+- Whenever possible, use a hardwired internet connection.
+- A good rule of thumb when determining bandwidth requirements is to double the streaming bitrates. While this is not a mandatory requirement, it will help mitigate the impact of network congestion.
+- When using software based encoders, close out any unnecessary programs.
+
+
+## <a name="create-a-channel"></a>Create a channel
+
+1.  In the AMSE tool, navigate to the **Live** tab, and right click within the channel area. Select **Create channel…** from the menu.
 
 ![wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast1.png)
 
-2. Укажите имя канала, поле описания является необязательным. В разделе «Параметры каналов» для параметра «Кодирование в реальном времени» установите значение **Стандартное**, а для параметра «Входной протокол» — значение **RTMP**. Остальные параметры можно оставить без изменений.
+2. Specify a channel name, the description field is optional. Under Channel Settings, select **Standard** for the Live Encoding option, with the Input Protocol set to **RTMP**. You can leave all other settings as is.
 
 
-Убедитесь, что флажок **Start the new channel now** (Сразу запустить новый канал) установлен.
+Make sure the **Start the new channel now** is selected.
 
-3. Щелкните **Создать канал**. ![wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast2.png)
+3. Click **Create Channel**.
+![wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast2.png)
 
->[AZURE.NOTE] На запуск канала может потребоваться до 20 минут.
+>[AZURE.NOTE] The channel can take as long as 20 minutes to start.
 
-Во время запуска канала можно [настроить кодировщик](media-services-configure-wirecast-live-encoder.md#configure_wirecast_rtmp).
+While the channel is starting you can [configure the encoder](media-services-configure-wirecast-live-encoder.md#configure_wirecast_rtmp).
 
->[AZURE.IMPORTANT] Обратите внимание, что тарификация начинается сразу же после перехода канала в состояние готовности. Дополнительные сведения см. в разделе [Состояния канала](media-services-manage-live-encoder-enabled-channels.md#states).
+>[AZURE.IMPORTANT] Note that billing starts as soon as Channel goes into a ready state. For more information, see [Channel's states](media-services-manage-live-encoder-enabled-channels.md#states).
 
-##<a id=configure_wirecast_rtmp></a>Настройка кодировщика Telestream Wirecast
+##<a name="<a-id=configure_wirecast_rtmp></a>configure-the-telestream-wirecast-encoder"></a><a id=configure_wirecast_rtmp></a>Configure the Telestream Wirecast encoder
 
-В этом руководстве используются следующие параметры вывода. В оставшейся части этого раздела этапы настройки описываются более подробно.
+In this tutorial the following output settings are used. The rest of this section describes configuration steps in more detail. 
 
-**Видео:**
+**Video**:
  
-- Кодек: H.264
-- Профиль: High (уровень 4.0)
-- Скорость: 5000 Кбит/с
-- Опорный кадр: 2 секунды (60 секунд)
-- Частота кадров: 30
+- Codec: H.264 
+- Profile: High (Level 4.0) 
+- Bitrate: 5000 kbps 
+- Keyframe: 2 seconds (60 seconds) 
+- Frame Rate: 30
  
-**Звук:**
+**Audio**:
 
-- Кодек: AAC (LC)
-- Скорость: 192 Кбит/с
-- Частота выборки: 44,1 кГц
+- Codec: AAC (LC) 
+- Bitrate: 192 kbps 
+- Sample Rate: 44.1 kHz
 
 
-###Этапы настройки
+###<a name="configuration-steps"></a>Configuration steps
 
-1. Откройте приложение Telestream Wirecast на используемом компьютере и настройте его для потоковой передачи RTMP.
-2. Настройте выходные параметры, перейдя на вкладку **Output** (Вывод) и выбрав **Output Settings…** (Параметры вывода).
-	
-	Убедитесь, что в поле **Output Destination** (Назначение вывода) выбрано значение **RTMP Server** (Сервер RTMP).
-3. Нажмите кнопку **ОК**.
-4. На странице параметров для поля **Destination** (Назначение) задайте значение **Azure Media Services** (Службы мультимедиа Azure).
+1. Open the Telestream Wirecast application on the machine being used, and set up for RTMP streaming.
+2. Configure the output by navigating to the **Output** tab and selecting **Output Settings…**.
+    
+    Make sure the **Output Destination** is set to **RTMP Server**.
+3. Click **OK**.
+4. On the settings page, set the **Destination** field to be **Azure Media Services**.
  
-	В поле «Профиль кодировки» будет выбран профиль **Azure H.264 720 p 16:9 (1280 x 720)**. Чтобы настроить эти параметры, выберите значок шестеренки справа от раскрывающегося списка и затем выберите **New Preset** (Новая предустановка).
+    The Encoding profile is pre-selected to **Azure H.264 720p 16:9 (1280x720)**. To customize these settings, select the gear icon to the right of the drop down, and then choose **New Preset**.
 
-	![wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast3.png)
+    ![wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast3.png)
 
-5. Настройка предустановок кодировщика.
+5. Configure encoder presets.
 
-	Задайте имя набора параметров и проверьте следующие рекомендуемые параметры:
+    Name the preset, and check for the following recommended settings:
 
-	**Видео**
-	
-	- Кодировщик: MainConcept H.264
-	- Кадров в секунду: 30
-	- Средняя скорость: 5000 кбит/сек (это значение можно изменить в зависимости от ограничений сети)
-	- Профиль: основной
-	- Ключевой кадр: каждые 60 кадров
+    **Video**
+    
+    - Encoder: MainConcept H.264
+    - Frames per Second: 30
+    - Average bit rate: 5000 kbits/sec (Can be adjusted based on network limitations)
+    - Profile: Main
+    - Key frame every: 60 frames
 
-	**Звук:**
+    **Audio**
 
-	- Конечная скорость: 192 Кбит/сек
-	- Частота выборки: 44,100 кГц
-	 
-	![wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast4.png)
+    - Target bit rate: 192 kbits/sec
+    - Sample Rate: 44.100 kHz
+     
+    ![wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast4.png)
 
-6. Нажмите кнопку **Save** (Сохранить).
+6. Press **Save**.
 
-	Созданный профиль теперь доступен для выбора в поле «Профиль кодировки».
+    The Encoding field now has the newly created profile available for selection. 
 
-	Убедитесь, что выбран новый профиль.
+    Make sure the new profile is selected.
 
-7. Получите входной URL-адрес канала, чтобы назначить его **конечной точке RTMP** Wirecast.
-	
-	Перейдите обратно в средство AMSE и проверьте состояние запуска канала. После изменения состояния с **Starting** (Запуск) на **Running** (Выполняется) вы сможете получить входной URL-адрес.
-	  
-	Когда канал запустится, щелкните правой кнопкой мыши имя канала, перейдите вниз к элементу **Скопировать входной URL-адрес в буфер обмена** и выберите **Основной входной URL-адрес**.
-	
-	![wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast6.png)
+7. Get the channel's input URL in order to assign it to the Wirecast **RTMP Endpoint**.
+    
+    Navigate back to the AMSE tool, and check on the channel completion status. Once the State has changed from **Starting** to **Running**, you can get the input URL.
+      
+    When the channel is running, right click the channel name, navigate down to hover over **Copy Input URL to clipboard** and then select **Primary Input  URL**.  
+    
+    ![wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast6.png)
 
-8. В окне **Output Settings** (Параметры вывода) Wirecast вставьте этот адрес в поле **Address** (Адрес) раздела параметров вывода и укажите имя потока.
+8. In the Wirecast **Output Settings** window, paste this information in the **Address** field of the output section, and assign a stream name. 
 
 
-	![wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast5.png)
+    ![wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast5.png)
 
-9. Нажмите кнопку **ОК**.
+9. Select **OK**.
 
-10. В главном окне **Wirecast** подтвердите готовность источников ввода для видео и звука и щелкните **Stream** (Потоковая передача) в верхнем левом углу.
+10. On the main **Wirecast** screen, confirm input sources for video and audio are ready and then hit **Stream** in the top left hand corner.
 
-	![wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast7.png)
+    ![wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast7.png)
 
->[AZURE.IMPORTANT] Перед нажатием кнопки **Stream** (Потоковая передача) вы **должны** убедиться, что канал готов. Кроме того, не оставляйте канал в состоянии готовности без входного потока более 15 минут.
+>[AZURE.IMPORTANT] Before you click **Stream**, you **must** ensure that the Channel is ready. 
+>Also, make sure not to leave the Channel in a ready state without an input contribution feed for longer than > 15 minutes.
 
-##Проверка воспроизведения
+##<a name="test-playback"></a>Test playback
   
-1. Перейдите в средство AMSE и щелкните правой кнопкой мыши на канале, который необходимо проверить. В меню наведите указатель мыши на пункт **Playback the Preview** (Воспроизведение для предварительного просмотра) и выберите **with Azure Media Player** (с помощью мультимедиапроигрывателя Azure).
+1. Navigate to the AMSE tool, and right click the channel to be tested. From the menu, hover over **Playback the Preview** and select **with Azure Media Player**.  
 
-	![wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast8.png)
+    ![wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast8.png)
 
-Если поток отображается в проигрывателе, то кодировщик правильно настроен для подключения к AMS.
+If the stream appears in the player, then the encoder has been properly configured to connect to AMS. 
 
-При получении ошибки необходимо сбросить канал и настроить параметры кодировщика. Рекомендации см. в разделе [Устранение неполадок](media-services-troubleshooting-live-streaming.md).
+If an error is received, the channel will need to be reset and encoder settings adjusted. Please see the [troubleshooting](media-services-troubleshooting-live-streaming.md) topic for guidance.  
 
-##Создание программы
+##<a name="create-a-program"></a>Create a program
 
-1. После проверки воспроизведения канала создайте программу. На вкладке **Live** (Передача) в инструменте AMSE щелкните правой кнопкой мыши в области программы и выберите **Create New Program** (Создать новую программу).
+1. Once channel playback is confirmed, create a program. Under the **Live** tab in the AMSE tool, right click within the program area and select **Create New Program**.  
 
-	![wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast9.png)
+    ![wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast9.png)
 
-2. Укажите имя программы и при необходимости измените параметр **Archive Window Length** (Длительность окна архивации) (по умолчанию она составляет 4 часа). Также можно указать расположение для хранения или оставить значение по умолчанию.
-3. Установите флажок **Start the Program now** (Запустить программу сейчас).
-4. Щелкните **Create Program** (Создать программу).
+2. Name the program and, if needed, adjust the **Archive Window Length** (which defaults to 4 hours). You can also specify a storage location or leave as the default.  
+3. Check the **Start the Program now** box.
+4. Click **Create Program**.  
   
-	Примечание. Создание программы занимает меньше времени, чем создание канала.
+    Note: Program creation takes less time than channel creation.    
  
-5. После запуска программы проверьте воспроизведение, щелкнув правой кнопкой мыши программу, перейдя к пункту **Playback the program(s)** (Воспроизвести программы) и выбрав **with Azure Media Player** (с помощью мультимедиапроигрывателя Azure).
-6. После проверки снова щелкните правой кнопкой мыши на программе и выберите **Копировать выходной URL-адрес в буфер обмена** (или получите этот адрес с помощью пункта меню **Сведения о программе и параметры**).
+5. Once the program is running, confirm playback by right clicking the program and navigating to **Playback the program(s)** and then selecting **with Azure Media Player**.  
+6. Once confirmed, right click the program again and select **Copy the Output URL to Clipboard** (or retrieve this information from the **Program information and settings** option from the menu). 
 
-Теперь поток можно внедрить в проигрыватель или транслировать аудитории для просмотра в режиме реального времени.
+The stream is now ready to be embedded in a player, or distributed to an audience for live viewing.  
 
 
-## Устранение неполадок
+## <a name="troubleshooting"></a>Troubleshooting
  
-Рекомендации см. в разделе [Устранение неполадок](media-services-troubleshooting-live-streaming.md).
+Please see the [troubleshooting](media-services-troubleshooting-live-streaming.md) topic for guidance. 
 
-##Схемы обучения работе со службами мультимедиа
+##<a name="media-services-learning-paths"></a>Media Services learning paths
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-##Отзывы
+##<a name="provide-feedback"></a>Provide feedback
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

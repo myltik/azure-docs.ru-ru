@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Группа безопасности сети"
-   description="Эта статья содержит сведения о распределенном брандмауэре в Azure, использующем группы безопасности сети (NSG), и использовании групп безопасности сети для изоляции и контроля потоков трафика в виртуальных сетях."
+   pageTitle="What is a Network Security Group (NSG)"
+   description="Learn about the distributed firewall in Azure using Network Security Groups (NSGs), and how to use NSGs to isolate and control traffic flow within your virtual networks (VNets)."
    services="virtual-network"
    documentationCenter="na"
    authors="jimdial"
@@ -15,271 +15,276 @@
    ms.date="02/11/2016"
    ms.author="jdial" />
 
-# Группа безопасности сети
 
-Группа безопасности сети (NSG) содержит перечень правил списка управления доступом (ACL), которые разрешают или запрещают сетевой трафик на экземпляры виртуальных машин в виртуальной сети. Группы безопасности сети можно связать с подсетями или отдельными экземплярами виртуальных машин в одной из подсетей. Когда группа безопасности сети связана с подсетью, правила списка управления доступом применяются ко всем экземплярам виртуальной машины в этой подсети. Кроме того, трафик на отдельные виртуальные машины можно дополнительно ограничить, связав группу безопасности сети непосредственно с нужной виртуальной машиной.
+# <a name="what-is-a-network-security-group-(nsg)?"></a>What is a Network Security Group (NSG)?
 
-## Ресурс NSG
+Network security group (NSG) contains a list of Access Control List (ACL) rules that allow or deny network traffic to your VM instances in a Virtual Network. NSGs can be associated with either subnets or individual VM instances within that subnet. When a NSG is associated with a subnet, the ACL rules apply to all the VM instances in that subnet. In addition, traffic to an individual VM can be restricted further by associating a NSG directly to that VM.
 
-Группы безопасности сети содержат следующие свойства.
+## <a name="nsg-resource"></a>NSG resource
 
-|Свойство|Описание|Ограничения|Рекомендации|
+NSGs contain the following properties.
+
+|Property|Description|Constraints|Considerations|
 |---|---|---|---|
-|Имя|Имя группы безопасности сети|Должно быть уникальным в пределах региона.<br/>Может содержать буквы, цифры, символы подчеркивания, точки и дефисы.<br/>Должно начинаться с буквы или цифры.<br/>Должно заканчиваться буквой, цифрой или символом подчеркивания.<br/>Может содержать до 80 символов.|Так как может потребоваться создать несколько групп NSG, убедитесь, что соглашение об именовании позволяет легко определить назначение ваших групп NSG.|
-|Регион|Регион Azure, в котором размещается группа NSG|Группы NSG можно применять только к ресурсам в пределах региона, в котором они созданы.|Дополнительную информацию о том, сколько групп NSG может содержать регион, см. в разделе [Ограничения](#Limits) ниже.|
-|Группа ресурсов|Группа ресурсов, к которой относится группа NSG|Несмотря на то, что группа NSG входит в определенную группу ресурсов, ее можно связать с ресурсами в любой другой группе при условии, что ресурс находится в одном регионе Azure с группой NSG.|Группы ресурсов используются для одновременного управления несколькими ресурсами как единицей развертывания.<br/>Группу безопасности сети можно сгруппировать со связанными ресурсами.|
-|Правила|Правила, которые определяют разрешенный и запрещенный трафик||Дополнительную информацию см. в разделе [Правила групп безопасности сети (NSG)](#Nsg-rules) ниже.| 
+|Name|Name for the NSG|Must be unique within the region<br/>Can contain letters, numbers, underscores, periods and hyphens<br/>Must start with a letter or number<br/>Must end with a letter, number, or underscore<br/>Can have up to 80 characters|Since you may need to create several NSGs, make sure you have a naming convention that makes it easy to identify the function of your NSGs|
+|Region|Azure region where the NSG is hosted|NSGs can only be applied to resources within the region it is created|See [limits](#Limits) below to understand how many NSGs you can have in a region|
+|Resource group|Resource group the NSG belongs to|Although an NSG belongs to a resource group, it can be associated to resources in any resource group, as long as the resource is part of the same Azure region as the NSG|Resource groups are used to manage multiple resources together, as a deployment unit<br/>You may consider grouping the NSG with resources it is associated to|
+|Rules|Rules that define what traffic is allowed, or denied||See [NSG rules](#Nsg-rules) below| 
 
->[AZURE.NOTE] На одном экземпляре виртуальной машины нельзя одновременно использовать списки ACL для конечных точек и группы NSG. Если вам нужна группа NSG, но у вас уже есть список ACL для конечных точек, сначала удалите этот список. Сведения о том, как это сделать, см. в статье [Управление списками управления доступом для конечных точек с помощью PowerShell](virtual-networks-acl-powershell.md).
+>[AZURE.NOTE] Endpoint-based ACLs and network security groups are not supported on the same VM instance. If you want to use an NSG and have an endpoint ACL already in place, first remove the endpoint ACL. For information about how to do this, see [Managing Access Control Lists (ACLs) for Endpoints by using PowerShell](virtual-networks-acl-powershell.md).
 
-### Правила групп безопасности сети (NSG)
+### <a name="nsg-rules"></a>NSG rules
 
-Правила групп NSG содержат следующие свойства.
+NSG rules contain the following properties.
 
-|Свойство|Описание|Ограничения|Рекомендации|
+|Property|Description|Constraints|Considerations|
 |---|---|---|---|
-|**Имя**|Имя правила|Должно быть уникальным в пределах региона.<br/>Может содержать буквы, цифры, символы подчеркивания, точки и дефисы.<br/>Должно начинаться с буквы или цифры.<br/>Должно заканчиваться буквой, цифрой или символом подчеркивания.<br/>Может содержать до 80 символов.|Группа NSG может содержать несколько правил. Поэтому обязательно придерживайтесь соглашения об именовании, которое позволяет судить о функции правила.|
-|**Протокол**|Протокол правила для сопоставления.|TCP, UDP или *|Использование * в качестве протокола включает использование протокола ICMP (только трафик Восток — Запад), а также UDP и TCP, и может сократить необходимое количество правил.<br/>Вместе с тем использование * может быть слишком широким, поэтому используйте его только при необходимости.|
-|**Диапазон исходных портов**|Диапазон портов источника правила для сопоставления.|Один номер порта от 1 до 65535, диапазон портов (т. е. от 1 до 65635) или * (все порты).|Исходные порты могут быть временными. Если клиентская программа не использует определенный порт, в большинстве случаев следует использовать "*".<br/>Старайтесь использовать диапазоны портов, где это возможно, чтобы не задавать несколько правил.<br/>Несколько портов или диапазонов портов нельзя группировать, указывая их через запятую.
-|**Диапазон конечных портов**|Диапазон портов назначения правила для сопоставления.|Один номер порта от 1 до 65535, диапазон портов (т. е. от 1 до 65535) или "*" (все порты).|Старайтесь использовать диапазоны портов, где это возможно, чтобы не задавать несколько правил.<br/>Несколько портов или диапазонов портов нельзя группировать, указывая их через запятую.
-|**Префикс исходного адреса**|Префикс исходного адреса или тег правила для сопоставления|Один IP-адрес (т. е. 10.10.10.10), IP-подсеть (т. е. 192.168.1.0/24), [тег по умолчанию](#default-tags) или * (для всех адресов).|Чтобы уменьшить количество правил, лучше всего использовать диапазоны, теги по умолчанию и символ *.|
-|**Префикс адреса назначения**|Префикс конечного адреса или тег правила для сопоставления|Один IP-адрес (т. е. 10.10.10.10), IP-подсеть (т. е. 192.168.1.0/24), [тег по умолчанию](#default-tags) или * (для всех адресов).|Чтобы уменьшить количество правил, лучше всего использовать диапазоны, теги по умолчанию и символ *.|
-|**Направление**|Направление трафика правила для сопоставления.|inbound или outbound|Правила входящего и исходящего трафика обрабатываются отдельно, в зависимости от направления.|
-|**Приоритет**|Правила проверяются в порядке приоритета. Когда применяется правило, соответствие другим правилам не проверяется.|Значение в диапазоне от 100 до 4096.|Рекомендуем создавать правила перехода через 100 для каждого правила, чтобы оставить место для новых правил, появляющихся между существующими правилами.|
-|**Access**|Тип доступа, применяемый при соответствии правилу.|allow или deny|Не забывайте: если разрешающее правило для пакета не найдено, пакет отбрасывается.|
+|**Name**|Name for the rule|Must be unique within the region<br/>Can contain letters, numbers, underscores, periods and hyphens<br/>Must start with a letter or number<br/>Must end with a letter, number, or underscore<br/>Can have up to 80 characters|You may have several rules within an NSG, so make sure you follow a naming convention that allows you to identify the function of your rule|
+|**Protocol**|Protocol to match for the rule|TCP, UDP, or \*|Using \* as a protocol includes ICMP (East-West traffic only), as well as UDP and TCP and may reduce the number of rules you need<br/>At the same time, using \* might be too broad an approach, so make sure you only use when really necessary|
+|**Source port range**|Source port range to match for the rule|Single port number from 1 to 65535, port range (i.e. 1-65635), or \* (for all ports)|Source ports could be ephemeral. Unless your client program is using a specific port, please use "*" in most cases.<br/>Try to use port ranges as much as possible to avoid the need for multiple rules<br/>Multiple ports or port ranges cannot be grouped by a comma
+|**Destination port range**|Destination port range to match for the rule|Single port number from 1 to 65535, port range (i.e. 1-65535), or \* (for all ports)|Try to use port ranges as much as possible to avoid the need for multiple rules<br/>Multiple ports or port ranges cannot be grouped by a comma
+|**Source address prefix**|Source address prefix or tag to match for the rule|Single IP address (i.e. 10.10.10.10), IP subnet (i.e. 192.168.1.0/24), [default tag](#default-tags), or * (for all addresses)|Consider using ranges, default tags, and * to reduce the number of rules|
+|**Destination address prefix**|Destination address prefix or tag to match for the rule|single IP address (i.e. 10.10.10.10), IP subnet (i.e. 192.168.1.0/24), [default tag](#default-tags), or * (for all addresses)|Consider using ranges, default tags, and * to reduce the number of rules|
+|**Direction**|Direction of traffic to match for the rule|inbound or outbound|Inbound and outbound rules are processed separately, based on direction|
+|**Priority**|Rules are checked in the order of priority, once a rule applies, no more rules are tested for matching|Number between 100 and 4096|Consider creating rules jumping priorities by 100 for each rule, to leave space for new rules to come between existing rules|
+|**Access**|Type of access to apply if the rule matches|allow or deny|Keep in mind that if an allow rule is not found for a packet, the packet is dropped|
 
-Группы безопасности сети содержат два набора правил: для входящего и исходящего трафика. Приоритет для правила должен быть уникальным в пределах каждого набора.
+NSGs contain two sets of rules: inbound and outbound. The priority for a rule must be unique within each set. 
 
-![Обработка правил NSG](./media/virtual-network-nsg-overview/figure3.png)
+![NSG rule processing](./media/virtual-network-nsg-overview/figure3.png) 
 
-На рисунке выше показано, как обрабатываются правила NSG.
+The figure above shows how NSG rules are processed.
 
-### Теги по умолчанию
+### <a name="default-tags"></a>Default Tags
 
-Теги по умолчанию — это системные идентификаторы для определения категорий IP-адресов. Для свойств **префикс исходного адреса** и **префикс конечного адреса** можно использовать теги по умолчанию. Существует три доступных тега по умолчанию.
+Default tags are system-provided identifiers to address a category of IP addresses. You can use default tags in the **source address prefix** and **destination address prefix** properties of any rule. There are three default tags you can use.
 
-- **VIRTUAL\_NETWORK**. Это тег по умолчанию, обозначающий все адресное пространство сети. Он включает адресное пространство виртуальной сети (диапазоны CIDR, определенные в Azure) и все адресное пространство подключенных локальных сетей и виртуальных сетей Azure.
+- **VIRTUAL_NETWORK:** This default tag denotes all of your network address space. It includes the virtual network address space (CIDR ranges defined in Azure) as well as all connected on-premises address spaces and connected Azure VNets (local networks).
 
-- **AZURE\_LOADBALANCER**. Это тег по умолчанию, обозначающий балансировщик нагрузки для инфраструктуры Azure. Он преобразуется в IP-адрес центра обработки данных Azure, где инициируются проверки работоспособности Azure.
+- **AZURE_LOADBALANCER:** This default tag denotes Azure’s Infrastructure load balancer. This will translate to an Azure datacenter IP where Azure’s health probes originate.
 
-- **INTERNET**. Это тег по умолчанию, обозначающий пространство IP-адресов, которые находятся за пределами виртуальной сети и к которым можно получить доступ из общедоступного сегмента Интернета. К этому диапазону относится также [пространство общедоступных IP-адресов, принадлежащее Azure](https://www.microsoft.com/download/details.aspx?id=41653).
+- **INTERNET:** This default tag denotes the IP address space that is outside the virtual network and reachable by public Internet. This range includes [Azure owned public IP space](https://www.microsoft.com/download/details.aspx?id=41653) as well.
 
-### Правила по умолчанию
+### <a name="default-rules"></a>Default Rules
 
-Все группы NSG содержат набор правил по умолчанию. Эти правила нельзя удалить, но у них самый низкий приоритет, поэтому их можно переопределить, создав другие правила.
+All NSGs contain a set of default rules. The default rules cannot be deleted, but because they are assigned the lowest priority, they can be overridden by the rules that you create. 
 
-Как показано в таблице правил по умолчанию ниже, входящий и исходящий трафик виртуальной сети разрешен в обоих направлениях. По умолчанию исходящий трафик в Интернет разрешен, входящий трафик из Интернета заблокирован. Существует правило по умолчанию, которое разрешает балансировщику нагрузки Azure инициировать проверку работоспособности виртуальных машин и экземпляров роли. Это правило можно переопределить, если набор балансировки нагрузки не используется.
+As illustrated by the default rules below, traffic originating and ending in a virtual network is allowed both in Inbound and Outbound directions. While connectivity to the Internet is allowed for Outbound direction, it is by default blocked for Inbound direction. There is a default rule to allow Azure’s load balancer to probe the health of your VMs and role instances. You can override this rule, if you are not using a load balanced set.
 
-**Правила по умолчанию для входящего трафика**
+**Inbound default rules**
 
-| Имя | Приоритет | Исходный IP-адрес | Исходный порт | Конечный IP-адрес | Конечный порт | Протокол | Доступ |
+| Name                              | Priority | Source IP          | Source Port | Destination IP  | Destination Port | Protocol | Access |
 |-----------------------------------|----------|--------------------|-------------|-----------------|------------------|----------|--------|
-| РАЗРЕШИТЬ ВХОДЯЩИЙ ТРАФИК ВИРТУАЛЬНОЙ СЕТИ | 65000 | VIRTUAL\_NETWORK | * | VIRTUAL\_NETWORK | * | * | РАЗРЕШИТЬ |
-| РАЗРЕШИТЬ ВХОДЯЩИЙ ТРАФИК БАЛАНСИРОВЩИКА НАГРУЗКИ AZURE | 65001 | AZURE\_LOADBALANCER | * | * | * | * | РАЗРЕШИТЬ |
-| ЗАПРЕТИТЬ ВЕСЬ ВХОДЯЩИЙ ТРАФИК | 65500 | * | * | * | * | * | ЗАПРЕТИТЬ |
+| ALLOW VNET INBOUND                | 65000    | VIRTUAL_NETWORK    | *           | VIRTUAL_NETWORK | *                | *        | ALLOW  |
+| ALLOW AZURE LOAD BALANCER INBOUND | 65001    | AZURE_LOADBALANCER | *           | *               | *                | *        | ALLOW  |
+| DENY ALL INBOUND                  | 65500    | *                  | *           | *               | *                | *        | DENY   |
 
-**Правила по умолчанию для исходящего трафика**
+**Outbound default rules**
 
-| Имя | Приоритет | Исходный IP-адрес | Исходный порт | Конечный IP-адрес | Конечный порт | Протокол | Доступ |
+| Name                    | Priority | Source IP       | Source Port | Destination IP  | Destination Port | Protocol | Access |
 |-------------------------|----------|-----------------|-------------|-----------------|------------------|----------|--------|
-| РАЗРЕШИТЬ ИСХОДЯЩИЙ ТРАФИК ВИРТУАЛЬНОЙ СЕТИ | 65000 | VIRTUAL\_NETWORK | * | VIRTUAL\_NETWORK | * | * | РАЗРЕШИТЬ |
-| РАЗРЕШИТЬ ИСХОДЯЩИЙ ИНТЕРНЕТ-ТРАФИК | 65001 | * | * | ИНТЕРНЕТ | * | * | РАЗРЕШИТЬ |
-| ЗАПРЕТИТЬ ВЕСЬ ИСХОДЯЩИЙ ТРАФИК | 65500 | * | * | * | * | * | ЗАПРЕТИТЬ |
+| ALLOW VNET OUTBOUND     | 65000    | VIRTUAL_NETWORK | *           | VIRTUAL_NETWORK | *                | *        | ALLOW  |
+| ALLOW INTERNET OUTBOUND | 65001    | *               | *           | INTERNET        | *                | *        | ALLOW  |
+| DENY ALL OUTBOUND       | 65500    | *               | *           | *               | *                | *        | DENY   |
 
-## Связывание групп NSG
+## <a name="associating-nsgs"></a>Associating NSGs
 
-Группу NSG можно связать с виртуальными машинами, сетевыми адаптерами и подсетями. Выбор зависит от используемой модели развертывания.
+You can associate an NSG to VMs, NICs, and subnets, depending on the deployment model you are using.
 
 [AZURE.INCLUDE [learn-about-deployment-models-both-include.md](../../includes/learn-about-deployment-models-both-include.md)]
  
-- **Связывание группы NSG с виртуальной машиной (только для классических развертываний).** При связывании группы безопасности сети с виртуальной машиной правила доступа к сети в этой группе NSG применяются ко всему входящему и исходящему трафику данной виртуальной машины.
+- **Associating an NSG to a VM (classic deployments only).** When you associate an NSG to a VM, the network access rules in the NSG are applied to all traffic that destined and leaving the VM. 
 
-- **Связывание группы NSG с сетевой картой (только для развертываний диспетчера ресурсов).** При связывании группы безопасности сети с сетевой картой правила доступа к сети в этой группе NSG применяются только для данной сетевой карты. Это означает, что, если группа NSG применяется к одной сетевой карте на виртуальной машине с несколькими сетевыми картами, она не затрагивает трафик других сетевых карт.
+- **Associating an NSG to a NIC (Resource Manager deployments only).** When you associate an NSG to a NIC, the network access rules in the NSG are applied only to that NIC. That means that in a multi-NIC VM, if an NSG is applied to a single NIC, it does not affect traffic bound to other NICs. 
 
-- **Связывание группы NSG с подсетью (все развертывания)**. При связывании группы NSG с подсетью правила доступа к сети этой группы NSG применяются ко всем ресурсам IaaS и PaaS в данной подсети.
+- **Associating an NSG to a subnet (all deployments)**. When you associate an NSG to a subnet, the network access rules in the NSG are applied to all the IaaS and PaaS resources in the subnet. 
 
-Различные группы NSG можно связать с виртуальной машиной (или сетевой картой в зависимости от модели развертывания) и подсетью, с которой связана сетевая карта или виртуальная машина. В этом случае все правила доступа к сети применяются к трафику в каждой группе безопасности сети в следующем порядке.
+You can associate different NSGs to a VM (or NIC, depending on the deployment model) and the subnet that a NIC or VM is bound to. When that happens, all network access rules are applied to the traffic, by priority in each NSG,  in the following order:
 
-- **Входящий трафик**
-	1. Группа NSG применяется к подсети.
-	
-           Если NSG подсети имеет соответствующее правило для блокировки трафика, пакет будет удален.
-	2. NSG применяется к сетевой карте (диспетчеру ресурсов) или виртуальной машине (классическое развертывание).
-	   
-           Если NSG виртуальной машины или сетевой карты имеет соответствующее правило для блокировки трафика, пакет будет удален на виртуальной машине или сетевой карте, несмотря на то что NSG подсети имеет соответствующее правило, разрешающее трафик.
-- **Исходящий трафик**
-	1. NSG применяется к сетевой карте (диспетчеру ресурсов) или виртуальной машине (классическое развертывание).
-	  
-           Если NSG виртуальной машины или сетевой карты имеет соответствующее правило для блокировки трафика, пакет будет удален.
-	2. Группа NSG применяется к подсети.
-	   
-           Если NSG подсети имеет соответствующее правило для блокировки трафика, пакет будет удален, несмотря на то что NSG виртуальной машины или сетевой карты имеет соответствующее правило, разрешающее трафик.
+- **Inbound traffic**
+    1. NSG applied to subnet. 
+    
+           If subnet NSG has a matching rule to deny traffic, packet will be dropped here.
+    2. NSG applied to NIC (Resource Manager) or VM (classic). 
+       
+           If VM\NIC NSG has a matching rule to deny traffic, packet will be dropped at VM\NIC, although subnet NSG has a matching rule to allow traffic.
+- **Outbound traffic**
+    1. NSG applied to NIC (Resource Manager) or VM (classic). 
+      
+           If VM\NIC NSG has a matching rule to deny traffic, packet will be dropped here.
+    2. NSG applied to subnet.
+       
+           If subnet NSG has a matching rule to deny traffic, packet will be dropped here, although VM\NIC NSG has a matching rule to allow traffic.
 
-	![Списки ACL группы NSG](./media/virtual-network-nsg-overview/figure2.png)
+    ![NSG ACLs](./media/virtual-network-nsg-overview/figure2.png)
 
->[AZURE.NOTE] Хотя к подсети, виртуальной машине или сетевой карте можно привязать только одну группу безопасности сети, ту же самую группу NSG можно связать с любым необходимым количеством ресурсов.
+>[AZURE.NOTE] Although you can only associate a single NSG to a subnet, VM, or NIC; you can associate the same NSG to as many resources as you want.
 
-## Реализация
-Группы безопасности сети можно реализовать в классической модели развертывания или в модели развертывания диспетчера ресурсов с помощью различных средств, перечисленных ниже.
+## <a name="implementation"></a>Implementation
+You can implement NSGs in the classic or Resource Manager deployment models using the different tools listed below.
 
-|Средство развертывания|Классический|Диспетчер ресурсов|
+|Deployment tool|Classic|Resource Manager|
 |---|---|---|
-|Классический портал.|![Нет](./media/virtual-network-nsg-overview/red.png)|![Нет](./media/virtual-network-nsg-overview/red.png)|
-|Портал Azure|![Да](./media/virtual-network-nsg-overview/green.png)|[![Да][green]](virtual-networks-create-nsg-arm-pportal.md)|
-|PowerShell|[![Да][green]](virtual-networks-create-nsg-classic-ps.md)|[![Да][green]](virtual-networks-create-nsg-arm-ps.md)|
-|Инфраструктура CLI Azure|[![Да][green]](virtual-networks-create-nsg-classic-cli.md)|[![Да][green]](virtual-networks-create-nsg-arm-cli.md)|
-|Шаблон ARM|![Нет](./media/virtual-network-nsg-overview/red.png)|[![Да][green]](virtual-networks-create-nsg-arm-template.md)|
+|Classic portal|![No](./media/virtual-network-nsg-overview/red.png)|![No](./media/virtual-network-nsg-overview/red.png)|
+|Azure portal|![Yes](./media/virtual-network-nsg-overview/green.png)|[![Yes][green]](virtual-networks-create-nsg-arm-pportal.md)|
+|PowerShell|[![Yes][green]](virtual-networks-create-nsg-classic-ps.md)|[![Yes][green]](virtual-networks-create-nsg-arm-ps.md)|
+|Azure CLI|[![Yes][green]](virtual-networks-create-nsg-classic-cli.md)|[![Yes][green]](virtual-networks-create-nsg-arm-cli.md)|
+|ARM template|![No](./media/virtual-network-nsg-overview/red.png)|[![Yes][green]](virtual-networks-create-nsg-arm-template.md)|
 
-|**Ключ**|![Да](./media/virtual-network-nsg-overview/green.png) Поддерживается.|![Нет](./media/virtual-network-nsg-overview/red.png) Не поддерживается.|
+|**Key**|![Yes](./media/virtual-network-nsg-overview/green.png) Supported.|![No](./media/virtual-network-nsg-overview/red.png) Not Supported.|
 |---|---|---|
 
-## Планирование
+## <a name="planning"></a>Planning
 
-Перед реализацией групп NSG необходимо ответить на следующие вопросы.
+Before implementing NSGs, you need to answer the questions below:   
 
-1. Для каких типов ресурсов необходимо фильтровать входящий и исходящий трафик (для сетевых карт на одной виртуальной машине, виртуальных машин и других ресурсов, к примеру облачных служб или сред службы приложений, подключенных к той же подсети, или трафик между ресурсами, которые подключены к разным подсетям)?
+1. What types of resources do you want to filter traffic to or from (NICs in the same VM, VMs or other resources such as cloud services or application service environments connected to the same subnet, or between resources connected to different subnets)?
 
-2. Все ли ресурсы, для которых необходимо фильтровать входящий и исходящий трафик, подключены к подсетям в существующих виртуальных сетях, или они будут подключены к новым виртуальным сетям или подсетям?
+2. Are the resources you want to filter traffic to/from connected to subnets in existing VNets or will they be connected to new VNets or subnets?
  
-Дополнительные сведения о планировании сетевой безопасности в Azure см. в статье [Облачные службы Microsoft Cloud и сетевая безопасность](../best-practices-network-security.md).
+For more information on planning for network security in Azure, read the [best practices for cloud services and network security](../best-practices-network-security.md). 
 
-## Рекомендации по проектированию
+## <a name="design-considerations"></a>Design considerations
 
-Если вы знаете ответы на вопросы из раздела [Планирование](#Planning), перед определением групп NSG просмотрите следующую таблицу.
+Once you know the answers to the questions in the [Planning](#Planning) section, review the following before defining your NSGs.
 
-### Ограничения
+### <a name="limits"></a>Limits
 
-При разработке групп NSG необходимо учитывать следующие ограничения.
+You need to consider the following limits when designing your NSGs.
 
-|**Описание**|**Ограничение по умолчанию**|**Последствия**|
+|**Description**|**Default Limit**|**Implications**|
 |---|---|---|
-|Количество групп NSG, которые можно связать с подсетью, виртуальной машиной или сетевой картой|1|Это означает, что нельзя объединять группы NSG. Убедитесь, что все правила, необходимые для данного набора ресурсов, находятся в одной NSG.|
-|Число групп NSG в регионе на подписку|100|По умолчанию для каждой виртуальной машины, создаваемой на портале Azure, создается новая группа NSG. Если вы разрешите это поведение по умолчанию, очень быстро останетесь без групп NSG. Во время разработки следует учитывать это ограничение и при необходимости распределить ресурсы между несколькими регионами или подписками. |
-|Правил группы NSG на группу NSG|200|Чтобы не превысить это ограничение, используйте широкий диапазон IP-адресов и портов. |
+|Number of NSGs you can associate to a subnet, VM, or NIC|1|This means you cannot combine NSGs. Ensure all the rules needed for a given set of resources are included in a single NSG.|
+|NSGs per region per subscription|100|By default, a new NSG is created for each VM you create in the Azure portal. If you allow this default behavior, you will run out of NSGs quickly. Make sure you keep this limit in mind during your design, and separate your resources into multiple regions or subscriptions if necessary. |
+|NSG rules per NSG|200|Use a broad range of IP and ports to ensure you do not go over this limit. |
 
->[AZURE.IMPORTANT] Перед разработкой решения обязательно ознакомьтесь со всеми [ограничениями, касающимися сетевых служб в Azure](../azure-subscription-service-limits.md#networking-limits). Некоторые ограничения можно увеличить, отправив запрос в службу поддержки.
+>[AZURE.IMPORTANT] Make sure you view all the [limits related to networking services in Azure](../azure-subscription-service-limits.md#networking-limits) before designing your solution. Some limits can be increased by opening a support ticket.
 
-### Разработка виртуальных сетей и подсетей
+### <a name="vnet-and-subnet-design"></a>VNet and subnet design
 
-Так как группы NSG могут применяться к подсетям, можно свести к минимуму количество групп NSG. Для этого ресурсы следует сгруппировать по подсетям и применить к подсетям группы NSG. Если вы захотите применить группы NSG к подсетям, может оказаться, что существующие виртуальные сети и подсети определены без учета групп NSG. Возможно, потребуется задать новые виртуальные сети и подсети для поддержки вашей схемы группы NSG. Затем разверните новые ресурсы в новых подсетях. После этого можно определяться со стратегией миграции для перемещения существующих ресурсов в новые подсети.
+Since NSGs can be applied to subnets, you can minimize the number of NSGs by grouping your resources by subnet, and applying NSGs to subnets.  If you decide to apply NSGs to subnets, you may find that existing VNets and subnets you have were not defined with NSGs in mind. You may need to define new VNets and subnets to support your NSG design. And deploy your new resources to your new subnets. You could then define a migration strategy to move existing resources to the new subnets. 
 
-### Специальные правила
+### <a name="special-rules"></a>Special rules
 
-Необходимо учитывать особые правила, приведенные ниже. Убедитесь, что вы не заблокировали трафик, разрешенный этими правилами, в противном случае инфраструктура не сможет взаимодействовать с основными службами Azure.
+You need to take into account the special rules listed below. Make sure you do not block traffic allowed by those rules, otherwise your infrastructure will not be able to communicate with essential Azure services.
 
-- **Виртуальный IP-адрес главного узла**. Базовые службы инфраструктуры, например DHCP, DNS и служба наблюдение за работоспособностью системы, работают через IP-адрес виртуализированного узла 168.63.129.16. Этот общедоступный IP-адрес принадлежит корпорации Майкрософт. Он является единственным виртуализированным IP-адресом, используемым для этих целей во всех регионах. Адрес сопоставляется с физическим IP-адресом сервера (главного узла), на котором размещена виртуальная машина. Главный узел выполняет функции ретранслятора DHCP, рекурсивного сопоставителя DNS-имен и источника проб работоспособности, инициируемых балансировщиком нагрузки и виртуальными машинами. Обмен данными с этим IP-адресом не является атакой.
+- **Virtual IP of the Host Node:** Basic infrastructure services such as DHCP, DNS, and Health monitoring are provided through the virtualized host IP address 168.63.129.16. This public IP address belongs to Microsoft and will be the only virtualized IP address used in all regions for this purpose. This IP address maps to the physical IP address of the server machine (host node) hosting the virtual machine. The host node acts as the DHCP relay, the DNS recursive resolver, and the probe source for the load balancer health probe and the machine health probe. Communication to this IP address should not be considered as an attack.
 
-- **Лицензирование (служба управления ключами)**. Для используемых на виртуальных машинах образов Windows требуется лицензия. С этой целью на соответствующие серверы узлов, на которых работает служба управления ключами, отправляется запрос на получение лицензии. Для этого всегда используется исходящий порт 1688.
+- **Licensing (Key Management Service):** Windows images running in the virtual machines should be licensed. To do this, a licensing request is sent to the Key Management Service host servers that handle such queries. This will always be on outbound port 1688.
 
-### ICMP-трафик
+### <a name="icmp-traffic"></a>ICMP traffic
 
-Текущие правила NSG разрешают использовать только протоколы *TCP* и *UDP*. Для *ICMP* нет отдельного тега. Тем не менее по умолчанию ICMP-трафик в виртуальной сети разрешен правилом для входящего трафика виртуальной сети (правило по умолчанию 65000 для входящего трафика). Оно разрешает входящий и исходящий трафик в виртуальной сети на любом порту и по любому протоколу.
+The current NSG rules only allow for protocols *TCP* or *UDP*. There is not a specific tag for *ICMP*. However, ICMP traffic is allowed within a Virtual Network by default through the Inbound VNet rule(Default rule 65000 inbound) that allows traffic from/to any port and protocol within the VNet.
 
-### Подсети
+### <a name="subnets"></a>Subnets
 
-- Определите, сколько уровней необходимо для вашей рабочей нагрузки. Каждый уровень можно изолировать с помощью подсети, применив к ней группу NSG.
-- Если необходимо реализовать подсеть для VPN-шлюза или канала ExpressRoute, ни в коем случае **НЕ** применяйте группу NSG к этой подсети. Если это сделать, подключение по виртуальной сети или между локальными сетями будет невозможно установить.
-- Если необходимо реализовать виртуальное устройство, убедитесь, что развертываете устройство в его собственной подсети. Тогда определенные пользователем маршруты будут работать правильно. Можно реализовать группу NSG на уровне подсети для фильтрации входящего и исходящего трафика подсети. Дополнительные сведения об [управлении потоком трафика и использовании виртуальных устройств](virtual-networks-udr-overview.md).
+- Consider the number of tiers your workload requires. Each tier can be isolated by using a subnet, with an NSG applied to the subnet. 
+- If you need to implement a subnet for a VPN gateway, or ExpressRoute circuit, make sure you do **NOT** apply an NSG to that subnet. If you do so, your cross VNet or cross premises connectivity will not work.
+- If you need to implement a virtual appliance, make sure you deploy the virtual appliance on its own subnet, so that your User Defined Routes (UDRs) can work correctly. You can implement a subnet level NSG to filter traffic in and out of this subnet. Learn more about [how to control traffic flow and use virtual appliances](virtual-networks-udr-overview.md).
 
-### Балансировщики нагрузки
+### <a name="load-balancers"></a>Load balancers
 
-- Рассмотрите правила балансировки нагрузки и преобразования сетевых адресов для балансировщиков нагрузки, используемых рабочими нагрузками. Эти правила привязаны к внутреннему пулу, содержащему сетевые карты (развертывания диспетчера ресурсов) или экземпляры ВМ или ролей (классические развертывания). Рассмотрите возможность создания группы NSG для всех внутренних пулов. Так будет разрешаться только трафик на основе правил, реализованных в балансировщиках нагрузки. Это гарантирует, что трафик, приходящий на внутренний пул напрямую, минуя балансировщик нагрузки, также фильтруется.
-- В классическом развертывании создайте конечные точки, сопоставляющие порты на балансировщике нагрузки с портами на виртуальных машинах или экземплярах ролей. Можно также создать собственный отдельный общедоступный балансировщик нагрузки в развертывании диспетчера ресурсов. Если вы ограничиваете трафик к экземплярам ВМ и ролей во внутреннем пуле на балансировщике нагрузки с помощью групп NSG, имейте в виду, что порт назначения для входящего трафика является действительным портом на экземпляре ВМ или роли, а не портом балансировщика нагрузки. Кроме того, не забывайте, что порт источника и адрес для подключения к ВМ являются портом и адресом удаленного компьютера в Интернете, а не балансировщика нагрузки.
-- Как и в случае с общедоступными балансировщиками нагрузки, создавая группы NSG для фильтрации трафика, проходящего через внутренний балансировщик нагрузки, имейте в виду, что порт источника и применяемый диапазон адресов принадлежат компьютеру, от которого поступил вызов, а не балансировщику нагрузки. Порт назначения и диапазон адресов связаны с компьютером, получающим трафик, а не с балансировщиком нагрузки.
+- Consider the load balancing and NAT rules for each load balancer being used by each of your workloads.These rules are bound to a back end pool that contains NICs (Resource Manager deployments) or VMs/role instances (classic deployments). Consider creating an NSG for each back end pool, allowing only traffic mapped through the rules implemented in the load balancers. That guarantees that traffic coming to the backend pool directly, without passing through the load balancer, is also filtered.
+- In classic deployments, you create endpoints that map ports on a load balancer to ports on your VMs or role instances. You can also create your own individual public facing load balancer in a Resource Manager deployment. If you are restricting traffic to VMs and role instances that are part of a backend pool in a load balancer by using NSGs, keep in mind that the destination port for the incoming traffic is the actual port in the VM or role instance, not the port exposed by the load balancer. Also keep in mind that the source port and address for the connection to the VM is a port and address on the remote computer in the Internet, not the port and address exposed by the load balancer.
+- Similar to public facing load balancers, when you create NSGs to filter traffic coming through an internal load balancer (ILB), you need to understand that the source port and address range applied are the ones from the computer originating the call, not the load balancer. And the destination port and address range are related to the computer receiving the traffic, not the load balancer.
 
-### Другие
+### <a name="other"></a>Other
 
-- На одном экземпляре виртуальной машины нельзя одновременно использовать списки управления доступом для конечных точек и групп NSG. Если вам нужна группа NSG, но у вас уже есть список ACL для конечных точек, сначала удалите этот список. Сведения о том, как это сделать, см. в статье [Управление списками управления доступом для конечных точек с помощью PowerShell](virtual-networks-acl-powershell.md).
-- В модели развертывания диспетчера ресурсов можно использовать группу NSG, связанную с сетевой картой, для виртуальных машин с несколькими сетевыми картами. Так ими можно будет управлять (через удаленный доступ) с помощью сетевой карты и, следовательно, разделить трафик.
-- Как и при использовании балансировщиков нагрузки, во время фильтрации трафика из других виртуальных сетей необходимо использовать диапазон адресов источника удаленного компьютера, а не шлюза для подключения виртуальных сетей.
-- Многим службам Azure не удается подключиться к виртуальным сетям Azure. Поэтому их входящий и исходящий трафик невозможно отфильтровать с помощью групп NSG. Чтобы определить, возможно ли подключиться к виртуальным сетям, прочтите документацию по используемым службам.
+- Endpoint-based ACLs and NSGs are not supported on the same VM instance. If you want to use an NSG and have an endpoint ACL already in place, first remove the endpoint ACL. For information about how to do this, see [Manage endpoint ACLs](virtual-networks-acl-powershell.md).
+- In the Resource Manager deployment model, you can use an NSG associated to a NIC for VMs with multiple NICs to enable management (remote access) by NIC, therefore segregating traffic.
+- Similar to the use of load balancers, when filtering traffic from other VNets, you must use the source address range of the remote computer, not the gateway connecting the VNets.
+- Many Azure services cannot be connected to Azure Virtual Networks and therefore, traffic to and from them cannot be filtered with NSGs.  Read the documentation for the services you use to determine whether or not they can be connected to VNets.
 
-## Пример развертывания
+## <a name="sample-deployment"></a>Sample deployment
 
-Чтобы на практике проиллюстрировать все описанное в этой статье, зададим группы NSG для фильтрации сетевого трафика для двухуровневого решения рабочей нагрузки со следующими требованиями:
+To illustrate the application of the information in this article, we’ll define NSGs to filter network traffic for a two tier workload solution with the following requirements:
 
-1. Разделение трафика между внешним интерфейсом (веб-серверами Windows) и серверной частью (серверами баз данных SQL).
-2. Правила балансировки нагрузки, перенаправляющие трафик, который поступает на балансировщик нагрузки, на все веб-сервера на порте 80.
-3. Правила преобразования сетевых адресов, перенаправляющие трафик, который поступает на порт 50001 балансировщика нагрузки, а затем на порт 3389 только одной ВМ в подсети переднего плана.
-4. Отсутствие доступа из Интернета к виртуальным машинам в подсети переднего плана или внутренней подсети (если это не противоречит требованию 1).
-5. Отсутствие доступа к Интернету из подсети переднего плана или внутренней подсети.
-6. Доступ к порту 3389 любого веб-сервера в подсети переднего плана для трафика, поступающего из этой же подсети.
-7. Доступ к порту 3389 всех виртуальных машин SQL Server во внутренней подсети только из подсети переднего плана.
-8. Доступ к порту 1433 всех виртуальных машин SQL Server во внутренней подсети только из подсети переднего плана.
-9. Разделение трафика управления (порт 3389) и трафика базы данных (1433) на разные сетевые карты на виртуальных машинах внутренней подсети.
+1. Separation of traffic between front end (Windows web servers) and back end (SQL database servers).
+2. Load balancing rules forwarding traffic to the load balancer to all web servers on port 80.
+3. NAT rules forwarding traffic coming in port 50001 on load balancer to port 3389 on only one VM in the front end.
+4. No access to the front end or back end VMs from the Internet, with exception of requirement number 1.
+5. No access from the front end or back end to the Internet.
+6. Access to port 3389 to any web server in the front end, for traffic coming from the front end subnet itself.
+7. Access to port 3389 to all SQL Server VMs in the back end from the front end subnet only.
+8. Access to port 1433 to all SQL Server VMs in the back end from the front end subnet only.
+9. Separation of management traffic (port 3389) and database traffic (1433) on different NICs in the back end VMs.
 
-![Группы NSG](./media/virtual-network-nsg-overview/figure1.png)
+![NSGs](./media/virtual-network-nsg-overview/figure1.png)
 
-Как видно из схемы выше, *Web1* и *Web2* — виртуальные машины, подключенные к подсети *FrontEnd*, а *DB1* и *DB2* — виртуальные машины, подключенные к подсети *BackEnd*. Обе подсети являются частью виртуальной сети *TestVNet*. Все ресурсы назначены региону Azure *Запад США*.
+As seen in the diagram above, the *Web1* and *Web2* VMs are connected to the *FrontEnd* subnet, and the *DB1* and *DB2* VMs are connected to the *BackEnd* subnet.  Both subnets are part of the *TestVNet* VNet. All resources are assigned to the *West US* Azure region.
 
-Требования к 1–6 (за исключением 3), приведенные выше, касаются только пространства подсетей. Чтобы свести к минимуму число правил, необходимых для каждой группы NSG, и упростить добавление в подсети дополнительных ВМ, имеющих дело с теми же типами рабочих нагрузок, что и уже имеющиеся ВМ, можно реализовать группы NSG следующего уровня.
+Requirements 1-6 (with exception of 3) above are all confined to subnet spaces. To minimize the number of rules required for each NSG, and to make it easy to add additional VMs to the subnets running the same workload types as the existing VMs, we can implement the following subnet level NSGs.
 
-### Группы NSG для подсети FrontEnd
+### <a name="nsg-for-frontend-subnet"></a>NSG for FrontEnd subnet
 
-**Правила для входящего трафика**
+**Incoming rules**
 
-|правило;|Access|Приоритет|Диапазон адресов источника|Порт источника|Диапазон адресов назначения|Порт назначения|Протокол|
+|Rule|Access|Priority|Source address range|Source port|Destination address range|Destination port|Protocol|
 |---|---|---|---|---|---|---|---|
-|Разрешение HTTP|Разрешение|100|ИНТЕРНЕТ|*|*|80|TCP|
-|Разрешение RDP из FrontEnd|Разрешение|200|192\.168.1.0/24|*|*|3389|TCP|
-|Запрещение трафика из Интернета|Запрет|300|ИНТЕРНЕТ|*|*|*|TCP|
+|allow HTTP|Allow|100|INTERNET|\*|\*|80|TCP|
+|allow RDP from FrontEnd|Allow|200|192.168.1.0/24|\*|\*|3389|TCP|
+|deny anything from Internet|Deny|300|INTERNET|\*|\*|\*|TCP|
 
-**Правила для исходящего трафика**
+**Outgoing rules**
 
-|правило;|Access|Приоритет|Диапазон адресов источника|Порт источника|Диапазон адресов назначения|Порт назначения|Протокол|
+|Rule|Access|Priority|Source address range|Source port|Destination address range|Destination port|Protocol|
 |---|---|---|---|---|---|---|---|
-|Запрет Интернета|Запрет|100|*|*|ИНТЕРНЕТ|*|*|
+|deny Internet|Deny|100|\*|\*|INTERNET|\*|\*|
 
-### Группа NSG для подсети BackEnd
+### <a name="nsg-for-backend-subnet"></a>NSG for BackEnd subnet
 
-**Правила для входящего трафика**
+**Incoming rules**
 
-|правило;|Access|Приоритет|Диапазон адресов источника|Порт источника|Диапазон адресов назначения|Порт назначения|Протокол|
+|Rule|Access|Priority|Source address range|Source port|Destination address range|Destination port|Protocol|
 |---|---|---|---|---|---|---|---|
-|Запрет Интернета|Запрет|100|ИНТЕРНЕТ|*|*|*|*|
+|deny Internet|Deny|100|INTERNET|\*|\*|\*|\*|
 
-**Правила для исходящего трафика**
+**Outgoing rules**
 
-|правило;|Access|Приоритет|Диапазон адресов источника|Порт источника|Диапазон адресов назначения|Порт назначения|Протокол|
+|Rule|Access|Priority|Source address range|Source port|Destination address range|Destination port|Protocol|
 |---|---|---|---|---|---|---|---|
-|Запрет Интернета|Запрет|100|*|*|ИНТЕРНЕТ|*|*|
+|deny Internet|Deny|100|\*|\*|INTERNET|\*|\*|
 
-### Группа NSG для одной ВМ (сетевая карта) в подсети FrontEnd для RDP из Интернета
+### <a name="nsg-for-single-vm-(nic)-in-frontend-for-rdp-from-internet"></a>NSG for single VM (NIC) in FrontEnd for RDP from Internet
 
-**Правила для входящего трафика**
+**Incoming rules**
 
-|правило;|Access|Приоритет|Диапазон адресов источника|Порт источника|Диапазон адресов назначения|Порт назначения|Протокол|
+|Rule|Access|Priority|Source address range|Source port|Destination address range|Destination port|Protocol|
 |---|---|---|---|---|---|---|---|
-|Разрешение RDP из Интернета|Разрешение|100|ИНТЕРНЕТ|*|\*|3389|TCP|
+|allow RDP from Internet|Allow|100|INTERNET|*|\*|3389|TCP|
 
->[AZURE.NOTE] Обратите внимание, что для балансировщика нагрузки диапазоном исходных адресов в этом правиле является **Интернет**, а не виртуальный IP-адрес, а исходным портом является **\***, а не 500001. Не путайте правила преобразования сетевых адресов или правила балансировки нагрузки с правилами групп NSG. Правила NSG всегда связаны с исходным источником и конечным получателем трафика **БЕЗ** балансировщика нагрузки между ними.
+>[AZURE.NOTE] Notice how the source address range for this rule is **Internet**, and not the VIP for the load balancer; the source port is **\***, not 500001. Do not get confused between NAT rules/load balancing rules and NSG rules. The NSG rules are always related to the original source and final destination of traffic, **NOT** the load balancer between the two. 
 
-### Группа NSG для управления сетевыми картами в BackEnd
+### <a name="nsg-for-management-nics-in-backend"></a>NSG for management NICs in BackEnd
 
-**Правила для входящего трафика**
+**Incoming rules**
 
-|правило;|Access|Приоритет|Диапазон адресов источника|Порт источника|Диапазон адресов назначения|Порт назначения|Протокол|
+|Rule|Access|Priority|Source address range|Source port|Destination address range|Destination port|Protocol|
 |---|---|---|---|---|---|---|---|
-|Разрешение RDP из интерфейсной подсети|Разрешение|100|192\.168.1.0/24|*|\*|3389|TCP|
+|allow RDP from front end|Allow|100|192.168.1.0/24|*|\*|3389|TCP|
 
-### Группа NSG для сетевых карт доступа к базам данных во внутренней подсети
+### <a name="nsg-for-database-access-nics-in-back-end"></a>NSG for database access NICs in back end
 
-**Правила для входящего трафика**
+**Incoming rules**
 
-|правило;|Access|Приоритет|Диапазон адресов источника|Порт источника|Диапазон адресов назначения|Порт назначения|Протокол|
+|Rule|Access|Priority|Source address range|Source port|Destination address range|Destination port|Protocol|
 |---|---|---|---|---|---|---|---|
-|Разрешение SQL из интерфейсной подсети|Разрешение|100|192\.168.1.0/24|*|\*|1433|TCP|
+|allow SQL from front end|Allow|100|192.168.1.0/24|*|\*|1433|TCP|
 
-Некоторые указанные выше группы NSG требуют связывания с отдельными сетевыми картами. Этот сценарий необходимо развертывать в диспетчере ресурсов. Обратите внимание, что правила для уровней подсетей и сетевых карт объединяются в зависимости от их применения.
+Since some of the NSGs above need to be associated to individual NICs, you need to deploy this scenario as a Resource Manager deployment. Notice how rules are combined for subnet and NIC level, depending on how they need to be applied. 
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Next steps
 
-- [Развертывание групп безопасности сети в классической модели развертывания](virtual-networks-create-nsg-classic-ps.md).
-- [Развертывание групп безопасности сети в диспетчере ресурсов](virtual-networks-create-nsg-arm-pportal.md).
-- [Управление журналами групп безопасности сети](virtual-network-nsg-manage-log.md).
+- [Deploy NSGs in the classic deployment model](virtual-networks-create-nsg-classic-ps.md).
+- [Deploy NSGs in Resource Manager](virtual-networks-create-nsg-arm-pportal.md).
+- [Manage NSG logs](virtual-network-nsg-manage-log.md).
 
 [green]: ./media/virtual-network-nsg-overview/green.png
 [yellow]: ./media/virtual-network-nsg-overview/yellow.png
 [red]: ./media/virtual-network-nsg-overview/red.png
 
-<!---HONumber=AcomDC_0907_2016--->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

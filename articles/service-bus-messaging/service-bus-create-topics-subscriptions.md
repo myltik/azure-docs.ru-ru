@@ -1,25 +1,26 @@
 <properties 
     pageTitle="Создание приложений, использующих разделы и подписки служебной шины | Microsoft Azure"
     description="Вводная информация о возможностях публикации и подписки, предлагаемых в разделах и подписках служебной шины."
-    services="service-bus-messaging"
+    services="service-bus"
     documentationCenter="na"
     authors="sethmanheim"
     manager="timlt"
     editor="" />
 <tags 
-    ms.service="service-bus-messaging"
+    ms.service="service-bus"
     ms.devlang="na"
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="na"
-    ms.date="06/21/2016"
+    ms.date="10/04/2016"
     ms.author="sethm" />
 
-# Создание приложений, использующих разделы и подписки служебной шины
+
+# <a name="create-applications-that-use-service-bus-topics-and-subscriptions"></a>Создание приложений, использующих разделы и подписки служебной шины
 
 Служебная шина Azure поддерживает набор облачных технологий промежуточного уровня, ориентированных на обработку сообщений. Эти технологии представлены надежными очередями сообщений, а также возможностями публикации и подписки в рамках обмена сообщениями. Эта статья основана на сведениях, представленных в статье [Создание приложений, использующих очереди служебной шины](service-bus-create-queues.md), и содержит вводную информацию о возможностях публикации и подписки, предлагаемые разделами служебной шины.
 
-## Развитие сценария розничной торговли
+## <a name="evolving-retail-scenario"></a>Развитие сценария розничной торговли
 
 В этой статье продолжает использоваться сценарий розничной торговли, который описан в статье [Создание приложений, использующих очереди служебной шины](service-bus-create-queues.md). Напомним, что данные о продажах из отдельных точек продаж (POS) должны направляться в систему управления запасами, которая использует эти данные для определения момента пополнения запасов. Каждый терминал POS сообщает данные о продажах путем отправки сообщений в очередь **DataCollectionQueue**, в которой эти сообщения хранятся до их получения системой управления запасами, как показано ниже:
 
@@ -45,13 +46,13 @@
 
 В такой конфигурации каждое сообщение из терминалов POS доступно обеим подпискам — **Панель мониторинга** и **Запасы**.
 
-## Покажите мне код
+## <a name="show-me-the-code"></a>Покажите мне код
 
 В статье [Создание приложений, использующих очереди служебной шины](service-bus-create-queues.md) описаны регистрация учетной записи Azure и создание пространства имен службы. Чтобы использовать пространство имен служебной шины, приложение должно ссылаться на сборку служебной шины, а именно Microsoft.ServiceBus.dll. Самым простым способом сослаться на зависимости служебной шины является установка [пакета Nuget](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) служебной шины. Эта сборка также доступна в составе пакета SDK Azure. Ее можно загрузить на [странице загрузки пакета SDK Azure](https://azure.microsoft.com/downloads/).
 
-### Создание раздела и подписок
+### <a name="create-the-topic-and-subscriptions"></a>Создание раздела и подписок
 
-Операции управления для сущностей обмена сообщениями служебной шины (очередей и разделов публикации и подписки) выполняются с помощью класса [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx). Для создания экземпляра [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx) для определенного пространства имен необходимы соответствующие учетные данные. Служебная шина использует модель безопасности на основе [подписи общего доступа (SAS)](../service-bus/service-bus-sas-overview.md). Класс [TokenProvider](https://msdn.microsoft.com/library/azure/microsoft.servicebus.tokenprovider.aspx) представляет поставщика маркеров безопасности со встроенными методами фабрики, которые возвращают несколько хорошо известных поставщиков маркеров. Для хранения учетных данных SAS мы будем использовать метод [CreateSharedAccessSignatureTokenProvider](https://msdn.microsoft.com/library/azure/microsoft.servicebus.tokenprovider.createsharedaccesssignaturetokenprovider.aspx). Затем экземпляр [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx) объединяется с базовым адресом пространства имен служебной шины и поставщиком маркеров.
+Операции управления для сущностей обмена сообщениями служебной шины (очередей и разделов публикации и подписки) выполняются с помощью класса [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx). Для создания экземпляра [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx) для определенного пространства имен необходимы соответствующие учетные данные. Служебная шина использует модель безопасности на основе [подписанного URL-адреса](service-bus-sas-overview.md) (SAS). Класс [TokenProvider](https://msdn.microsoft.com/library/azure/microsoft.servicebus.tokenprovider.aspx) представляет поставщика маркеров безопасности со встроенными методами фабрики, которые возвращают несколько хорошо известных поставщиков маркеров. Для хранения учетных данных SAS мы будем использовать метод [CreateSharedAccessSignatureTokenProvider](https://msdn.microsoft.com/library/azure/microsoft.servicebus.tokenprovider.createsharedaccesssignaturetokenprovider.aspx). Затем экземпляр [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx) объединяется с базовым адресом пространства имен служебной шины и поставщиком маркеров.
 
 Класс [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx) предоставляет методы для создания, перечисления и удаления сущностей обмена сообщениями. Приведенный здесь код иллюстрирует создание и использование экземпляра [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx) для создания раздела **DataCollectionTopic**.
 
@@ -73,15 +74,15 @@ namespaceManager.CreateSubscription("DataCollectionTopic", "Inventory");
 namespaceManager.CreateSubscription("DataCollectionTopic", "Dashboard");
 ```
 
-### Отправка сообщений в раздел
+### <a name="send-messages-to-the-topic"></a>Отправка сообщений в раздел
 
-Для выполнения операций над сущностями служебной шины, например для отправки и получения сообщений, приложение сначала должно создать объект [MessagingFactory](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingfactory.aspx). Аналогично классу [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx) экземпляр [MessagingFactory](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingfactory.aspx) создается на основе базового адреса пространства имен службы и поставщика маркеров.
+Для выполнения операций над сущностями служебной шины, например для отправки и получения сообщений, приложение сначала должно создать объект [MessagingFactory](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingfactory.aspx). По аналогии с классом [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx) экземпляр [MessagingFactory](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingfactory.aspx) создается на основе базового адреса пространства имен службы и поставщика маркеров.
 
 ```
 MessagingFactory factory = MessagingFactory.Create(uri, tokenProvider);
 ```
 
-Сообщения, отправляемые в разделы служебной шины и получаемые из них, представляют собой экземпляры класса [BrokeredMessage](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx). Этот класс состоит из набора стандартных свойств (таких как [Label](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.label.aspx) и [TimeToLive](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.timetolive.aspx)), словаря, в котором хранятся свойства приложения, и набора произвольных данных приложения. Приложение может задать набор произвольных данных, передав любой сериализуемый объект, который будет использовать [DataContractSerializer](https://msdn.microsoft.com/library/azure/system.runtime.serialization.datacontractserializer.aspx) для сериализации объекта. (В следующем примере передается объект **SalesData**, представляющий данные о продажах от терминала POS). Также можно предоставить объект [Stream](https://msdn.microsoft.com/library/azure/system.io.stream.aspx).
+Сообщения, отправляемые в разделы служебной шины и получаемые из них, представляют собой экземпляры класса [BrokeredMessage](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx). Этот класс состоит из набора стандартных свойств (таких как [Label](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.label.aspx) и [TimeToLive](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.timetolive.aspx)), словаря, в котором хранятся свойства приложения, и набора произвольных данных приложения. Приложение может задать набор произвольных данных, передав любой сериализуемый объект, который будет использовать [DataContractSerializer](https://msdn.microsoft.com/library/azure/system.runtime.serialization.datacontractserializer.aspx) для сериализации объекта. (В следующем примере передается объект **SalesData**, представляющий данные о продажах от терминала POS.) Также можно предоставить объект [Stream](https://msdn.microsoft.com/library/azure/system.io.stream.aspx).
 
 ```
 BrokeredMessage bm = new BrokeredMessage(salesData);
@@ -90,14 +91,14 @@ bm.Properties["StoreName"] = "Redmond";
 bm.Properties["MachineID"] = "POS_1";
 ```
 
-Самый простой способ отправки сообщений в раздел — с помощью метода [CreateMessageSender](https://msdn.microsoft.com/library/azure/hh322659.aspx) создать объект [MessageSender](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagesender.aspx) прямо из экземпляра [MessagingFactory](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingfactory.aspx).
+Самый простой способ отправки сообщений в раздел — с помощью метода [CreateMessageSender](https://msdn.microsoft.com/library/azure/hh322659.aspx) создать объект [MessageSender](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagesender.aspx) прямо в экземпляре класса [MessagingFactory](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingfactory.aspx).
 
 ```
 MessageSender sender = factory.CreateMessageSender("DataCollectionTopic");
 sender.Send(bm);
 ```
 
-### Получение сообщений из подписки
+### <a name="receive-messages-from-a-subscription"></a>Получение сообщений из подписки
 
 По аналогии с использованием очередей для получения сообщений из подписки можно использовать объект [MessageReceiver](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagereceiver.aspx), который создается непосредственно в [MessagingFactory](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingfactory.aspx) с помощью [CreateMessageReceiver](https://msdn.microsoft.com/library/azure/hh322642.aspx). Можно использовать один из двух различных режимов получения (**ReceiveAndDelete** и **PeekLock**), как описано в статье [Создание приложений, использующих очереди служебной шины](service-bus-create-queues.md).
 
@@ -117,15 +118,15 @@ catch (Exception e)
 }
 ```
 
-## Фильтры подписки
+## <a name="subscription-filters"></a>Фильтры подписки
 
 Пока в этом сценарии все сообщения, отправляемые в раздел, становились доступными для всех зарегистрированных подписок. Ключевая фраза здесь "становились доступными". Хотя подпискам служебной шины доступны все сообщения, отправленные в раздел, при желании в виртуальную очередь подписки можно скопировать только часть этих сообщений. Это возможно благодаря использованию *фильтров* подписок. При создании подписки можно указать критерий фильтра в форме предиката в стиле SQL92, который работает со свойствами сообщения: как с системными свойствами (например, [Label](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.label.aspx)), так и со свойствами приложения, такими как **StoreName** в предыдущем примере.
 
-Для развития сценария с целью это проиллюстрировать в наш сценарий розничной торговли добавляется второе хранилище. Данные о продажах со всех терминалов POS из обоих хранилищ по-прежнему должны направляться в централизованную систему управления запасами, но менеджера хранилища, использующего панель мониторинга, интересует только производительность этого хранилища. Для достижения этой цели можно использовать фильтрацию подписок. Обратите внимание, что при публикации сообщений терминалами POS они устанавливают свойство приложения **StoreName** для этих сообщений. Предположим, что у нас есть два хранилища **Redmond** и **Seattle**. В этом случае терминалы POS в первом хранилище устанавливают значение **StoreName** в своих сообщениях в **Redmond**, а терминалы во втором хранилище устанавливают значение свойства **StoreName** в **Seattle**. Диспетчеру хранилища Redmond нужны только данные от своих терминалов POS. Система выглядит следующим образом:
+Для развития сценария с целью это проиллюстрировать в наш сценарий розничной торговли добавляется второе хранилище. Данные о продажах со всех терминалов POS из обоих хранилищ по-прежнему должны направляться в централизованную систему управления запасами, но менеджера хранилища, использующего панель мониторинга, интересует только производительность этого хранилища. Для достижения этой цели можно использовать фильтрацию подписок. Обратите внимание, что при публикации сообщений терминалами POS они устанавливают свойство приложения **StoreName** для этих сообщений. Предположим, что у нас есть два хранилища — **Redmond** и **Seattle**. В этом случае терминалы POS в первом хранилище устанавливают значение параметра **StoreName** в своих сообщениях в **Redmond**, а терминалы во втором хранилище устанавливают значение параметра **StoreName** в **Seattle**. Диспетчеру хранилища Redmond нужны только данные от своих терминалов POS. Система выглядит следующим образом:
 
 ![Служебная шина 4](./media/service-bus-create-topics-subscriptions/IC657167.gif)
 
-Чтобы настроить этот маршрут, создайте подписку **Панель мониторинга** следующим образом.
+Чтобы настроить этот маршрут, создайте подписку **Панель мониторинга** следующим образом:
 
 ```
 SqlFilter dashboardFilter = new SqlFilter("StoreName = 'Redmond'");
@@ -134,9 +135,9 @@ namespaceManager.CreateSubscription("DataCollectionTopic", "Dashboard", dashboar
 
 Благодаря этому фильтру подписки в виртуальную очередь подписки **Панель мониторинга** копируются только сообщения со свойством **StoreName**, для которого задано значение **Redmond**. Но этим возможности фильтрации подписок не ограничиваются. Приложения могут иметь несколько правил фильтрации для каждой подписки, а также возможность изменять свойства сообщения при его попадании в виртуальную очередь подписки.
 
-## Сводка
+## <a name="summary"></a>Сводка
 
-Все причины использования очередей, описанные в статье [Создание приложений, использующих очереди служебной шины](service-bus-create-queues.md), также применимы и к разделам. К ним, в частности, относятся следующие:
+Все причины использования очередей, описанные в статье [Создание приложений, использующих очереди служебной шины](service-bus-create-queues.md), применимы и к разделам. К ним, в частности, относятся следующие:
 
 - Временное разделение – производители (отправители) и потребители (получатели) не должны находиться в сети одновременно.
 
@@ -146,8 +147,11 @@ namespaceManager.CreateSubscription("DataCollectionTopic", "Dashboard", dashboar
 
 - Слабая взаимозависимость — сеть обмена сообщениями можно развивать, не затрагивая существующие конечные точки: например, добавляя подписки или изменяя фильтры для раздела для подключения новых потребителей.
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Дальнейшие действия
 
 Сведения об использовании очередей в сценарии розничных точек продаж см. в статье [Создание приложений, использующих очереди служебной шины](service-bus-create-queues.md).
 
-<!---HONumber=AcomDC_0928_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

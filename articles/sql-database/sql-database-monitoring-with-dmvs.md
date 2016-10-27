@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Мониторинг базы данных SQL Azure с помощью динамических представлений управления | Microsoft Azure"
-   description="Узнайте, как выявлять и диагностировать распространенные проблемы производительности с помощью динамических представлений управления для мониторинга Базы данных SQL Microsoft Azure."
+   pageTitle="Monitoring Azure SQL Database Using Dynamic Management Views | Microsoft Azure"
+   description="Learn how to detect and diagnose common performance problems by using dynamic management views to monitor Microsoft Azure SQL Database."
    services="sql-database"
    documentationCenter=""
    authors="CarlRabeler"
@@ -17,29 +17,31 @@
    ms.date="09/20/2016"
    ms.author="carlrab"/>
 
-# Мониторинг базы данных SQL Azure с помощью динамических представлений управления
 
-База данных SQL Microsoft Azure предлагает ряд динамических представлений управления для диагностирования проблем производительности, которые могут быть вызваны заблокированными или долго выполняющимися запросами, узкими местами ресурсов, непродуманным планом запросов и т. д. Этот раздел содержит информацию о том, как выявлять распространенные проблемы производительности с помощью динамических административных представлений.
+# <a name="monitoring-azure-sql-database-using-dynamic-management-views"></a>Monitoring Azure SQL Database using dynamic management views
 
-База данных SQL частично поддерживает три категории динамических представлений управления:
+Microsoft Azure SQL Database enables a subset of dynamic management views to diagnose performance problems, which might be caused by blocked or long-running queries, resource bottlenecks, poor query plans, and so on. This topic provides information on how to detect common performance problems by using dynamic management views.
 
-- динамические представления управления, относящиеся к базам данных;
-- динамические представления управления, относящиеся к выполнению;
-- динамические представления управления, относящиеся к транзакциям.
+SQL Database partially supports three categories of dynamic management views:
 
-Подробные сведения о динамических представлениях управления см. в разделе [Динамические административные представления и функции (Transact-SQL)](https://msdn.microsoft.com/library/ms188754.aspx) электронной документации на SQL Server.
+- Database-related dynamic management views.
+- Execution-related dynamic management views.
+- Transaction-related dynamic management views.
 
-## Разрешения
+For detailed information on dynamic management views, see [Dynamic Management Views and Functions (Transact-SQL)](https://msdn.microsoft.com/library/ms188754.aspx) in SQL Server Books Online.
 
-В Базе данных SQL для запроса динамического представления управления требуется наличие разрешений **VIEW DATABASE STATE**. Разрешение **VIEW DATABASE STATE** возвращает сведения обо всех объектах в текущей базе данных. Чтобы предоставить разрешение **VIEW DATABASE STATE** определенному пользователю базы данных, выполните следующий запрос:
+## <a name="permissions"></a>Permissions
+
+In SQL Database, querying a dynamic management view requires **VIEW DATABASE STATE** permissions. The **VIEW DATABASE STATE** permission returns information about all objects within the current database.
+To grant the **VIEW DATABASE STATE** permission to a specific database user, run the following query:
 
 ```GRANT VIEW DATABASE STATE TO database_user; ```
 
-В экземпляре локального сервера SQL Server динамические административные представления возвращают сведения о состоянии сервера. В базе данных SQL они возвращают сведения только о текущей логической базе данных.
+In an instance of on-premises SQL Server, dynamic management views return server state information. In SQL Database, they return information regarding your current logical database only.
 
-## Вычисление размера базы данных
+## <a name="calculating-database-size"></a>Calculating database size
 
-Следующий запрос возвращает размер базы данных в мегабайтах:
+The following query returns the size of your database (in megabytes):
 
 ```
 -- Calculates the size of the database.
@@ -48,7 +50,7 @@ FROM sys.dm_db_partition_stats;
 GO
 ```
 
-Следующий запрос возвращает размер отдельных объектов базы данных в мегабайтах:
+The following query returns the size of individual objects (in megabytes) in your database:
 
 ```
 -- Calculates the size of individual database objects.
@@ -59,9 +61,10 @@ GROUP BY sys.objects.name;
 GO
 ```
 
-## Мониторинг подключений
+## <a name="monitoring-connections"></a>Monitoring connections
 
-Для получения информации о подключениях, установленных к определенному серверу базы данных SQL Azure, можно использовать представление [sys.dm\_exec\_connection](https://msdn.microsoft.com/library/ms181509.aspx). Кроме того, представление [sys.dm\_exec\_sessions](https://msdn.microsoft.com/library/ms176013.aspx) может оказаться полезным при получении сведений обо всех активных подключениях пользователя и внутренних задачах. Следующий запрос получает информацию о текущем подключении:
+You can use the [sys.dm_exec_connections](https://msdn.microsoft.com/library/ms181509.aspx) view to retrieve information about the connections established to a specific Azure SQL Database server and the details of each connection. In addition, the [sys.dm_exec_sessions](https://msdn.microsoft.com/library/ms176013.aspx) view is helpful when retrieving information about all active user connections and internal tasks.
+The following query retrieves information on the current connection:
 
 ```
 SELECT
@@ -76,15 +79,15 @@ JOIN sys.dm_exec_sessions AS s
 WHERE c.session_id = @@SPID;
 ```
 
-> [AZURE.NOTE] Если при выполнении представлений **sys.dm\_exec\_requests** и **sys.dm\_exec\_sessions** у вас есть разрешение **VIEW DATABASE STATE** для базы данных, то вы увидите все выполняющиеся сеансы в базе данных. В противном случае вы увидите только текущий сеанс.
+> [AZURE.NOTE] When executing the **sys.dm_exec_requests** and **sys.dm_exec_sessions views**, if you have **VIEW DATABASE STATE** permission on the database, you see all executing sessions on the database; otherwise, you see only the current session.
 
-## Мониторинг производительности запросов
+## <a name="monitoring-query-performance"></a>Monitoring query performance
 
-Медленные или длительные запросы могут потреблять значительные системные ресурсы. В этом разделе показано, как использовать динамические представления управления для выявления нескольких распространенных проблем производительности запросов. Статья [Устранение неполадок производительности в SQL Server 2008](http://download.microsoft.com/download/D/B/D/DBDE7972-1EB9-470A-BA18-58849DB3EB3B/TShootPerfProbs2008.docx) на веб-сайте Microsoft TechNet — не новый, но по-прежнему полезный справочник по устранению неполадок.
+Slow or long running queries can consume significant system resources. This section demonstrates how to use dynamic management views to detect a few common query performance problems. An older but still helpful reference for troubleshooting, is the [Troubleshooting Performance Problems in SQL Server 2008](http://download.microsoft.com/download/D/B/D/DBDE7972-1EB9-470A-BA18-58849DB3EB3B/TShootPerfProbs2008.docx) article on Microsoft TechNet.
 
-### Поиск верхних N запросов
+### <a name="finding-top-n-queries"></a>Finding top N queries
 
-В следующем примере возвращаются сведения о пяти первых запросах, отсортированных по среднему времени ЦП. В этом примере выполняется сбор запросов по хэшу запроса, то есть логически схожие запросы группируются по общему потреблению ресурсов.
+The following example returns information about the top five queries ranked by average CPU time. This example aggregates the queries according to their query hash, so that logically equivalent queries are grouped by their cumulative resource consumption.
 
 ```
 SELECT TOP 5 query_stats.query_hash AS "Query Hash",
@@ -103,13 +106,13 @@ GROUP BY query_stats.query_hash
 ORDER BY 2 DESC;
 ```
 
-### Мониторинг заблокированных запросов
+### <a name="monitoring-blocked-queries"></a>Monitoring blocked queries
 
-Медленные или длительные запросы могут вызывать избыточное потребление ресурсов, что приводит к блокировке запросов. Причиной блокировки может быть неэффективная структура приложений, неудачные планы запросов, отсутствие полезных индексов и т. д. Представление sys.dm\_tran\_locks можно использовать для получения сведений о текущих блокировках в Базе данных SQL Azure. Пример кода см. в разделе [sys.dm\_tran\_locks (Transact-SQL)](https://msdn.microsoft.com/library/ms190345.aspx) в электронной документации на SQL Server.
+Slow or long-running queries can contribute to excessive resource consumption and be the consequence of blocked queries. The cause of the blocking can be poor application design, bad query plans, the lack of useful indexes, and so on. You can use the sys.dm_tran_locks view to get information about the current locking activity in your Azure SQL Database. For example code, see [sys.dm_tran_locks (Transact-SQL)](https://msdn.microsoft.com/library/ms190345.aspx) in SQL Server Books Online.
 
-### Мониторинг планов запросов
+### <a name="monitoring-query-plans"></a>Monitoring query plans
 
-Неэффективный план запросов может повысить потребление ресурсов ЦП. В следующем примере представление [sys.dm\_exec\_query\_stats](https://msdn.microsoft.com/library/ms189741.aspx) используется, чтобы определить, какой запрос использует наибольшее количество ресурсов ЦП.
+An inefficient query plan also may increase CPU consumption. The following example uses the [sys.dm_exec_query_stats](https://msdn.microsoft.com/library/ms189741.aspx) view to determine which query uses the most cumulative CPU.
 
 ```
 SELECT
@@ -131,8 +134,12 @@ FROM
 ORDER BY highest_cpu_queries.total_worker_time DESC;
 ```
 
-## Дополнительные материалы
+## <a name="see-also"></a>See also
 
-[Введение в базы данных SQL](sql-database-technical-overview.md)
+[Introduction to SQL Database](sql-database-technical-overview.md)
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

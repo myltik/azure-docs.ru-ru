@@ -1,93 +1,99 @@
 <properties 
-	pageTitle="Знакомство с кэшем Redis для Azure уровня Премиум | Microsoft Azure" 
-	description="Узнайте, как создать сохраняемость Redis, кластеризацию Redis и поддержку виртуальных сетей и управлять ими для экземпляров кэша Redis для Azure уровня Премиум" 
-	services="redis-cache" 
-	documentationCenter="" 
-	authors="steved0x" 
-	manager="douge" 
-	editor=""/>
+    pageTitle="Introduction to the Azure Redis Cache Premium tier | Microsoft Azure" 
+    description="Learn how to create and manage Redis Persistence, Redis clustering, and VNET support for your Premium tier Azure Redis Cache instances" 
+    services="redis-cache" 
+    documentationCenter="" 
+    authors="steved0x" 
+    manager="douge" 
+    editor=""/>
 
 <tags 
-	ms.service="cache" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="cache-redis" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/15/2016" 
-	ms.author="sdanie"/>
+    ms.service="cache" 
+    ms.workload="tbd" 
+    ms.tgt_pltfrm="cache-redis" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="09/15/2016" 
+    ms.author="sdanie"/>
 
-# Знакомство с кэшем Redis для Azure уровня Премиум
-Кэш Redis для Azure — это распределенный управляемый кэш, который позволяет создавать быстрые приложения с высокой степенью масштабируемости благодаря тому, что обеспечивается сверхбыстрый доступ к данным.
 
-Новый уровень "Премиум" предназначен для работы в корпоративной среде — он включает в себя все функции уровня "Стандартный", а также предлагает и дополнительные возможности, такие как повышенная производительность, повышенные рабочие нагрузки, аварийное восстановление, импорт, экспорт и усиленная безопасность. Далее вы узнаете о дополнительных возможностях кэша уровня Премиум.
+# <a name="introduction-to-the-azure-redis-cache-premium-tier"></a>Introduction to the Azure Redis Cache Premium tier
+Azure Redis Cache is a distributed, managed cache that helps you build highly scalable and responsive applications by providing super-fast access to your data. 
 
-## Повышенная производительность по сравнению с уровнем Стандартный или Базовый.
-**Повышенная производительность по сравнению с уровнем Стандартный или Базовый.** Кэши уровня Премиум разворачиваются на оборудовании с более быстрыми процессорами и обеспечивают лучшую производительность по сравнению с уровнями Базовый и Стандартный. Кэши уровня Премиум обладают более высокой пропускной способностью и меньшей задержкой.
+The new Premium-tier is an Enterprise ready tier, which includes all the Standard-tier features and more, such as better performance, bigger workloads, disaster recovery, import/export, and enhanced security. Continue reading to learn more about the additional features of the Premium cache tier.
 
-**Пропускная способность кэша одинакового размера для уровня Премиум выше, чем для уровня Стандартный.** Например, для кэша размером 53 ГБ пропускная способность категории P4 (Премиум) составляет 250 тысяч запросов в секунду, а для категории C6 (Стандартный) — 150 тысяч.
+## <a name="better-performance-compared-to-standard-or-basic-tier"></a>Better performance compared to Standard or Basic tier
+**Better performance over Standard or Basic tier.** Caches in the Premium tier are deployed on hardware which has faster processors and gives better performance compared to the Basic or Standard Tier. Premium tier Caches have higher throughput and lower latencies. 
 
-Дополнительные сведения о размере, пропускной способности и полосе пропускания для кэшей уровня "Премиум" см. в статье [Кэш Redis для Azure. Вопросы и ответы](cache-faq.md#what-redis-cache-offering-and-size-should-i-use).
+**Throughput for the same sized Cache is higher in Premium as compared to Standard tier.** For example, the throughput of a 53 GB P4 (Premium) cache is 250K requests per second as compared to 150K for C6 (Standard).
 
-## Сохраняемость данных Redis
-Уровень Премиум позволяет сохранить данные кэша в учетной записи хранения Azure. В кэше Базовый и Стандартный все данные хранятся только в памяти. При возникновении проблем с базовой инфраструктурой это может привести к потере данных. Для повышения устойчивости к потере данных рекомендуется использовать функцию постоянного хранения данных Redis уровня Премиум. Кэш Redis для Azure предлагает варианты [сохраняемости данных Redis](http://redis.io/topics/persistence) RDB и AOF (ожидается в ближайшее время).
+For more information about size, throughput, and bandwidth with premium caches, see [Azure Redis Cache FAQ](cache-faq.md#what-redis-cache-offering-and-size-should-i-use)
 
-Инструкции по настройке сохраняемости см. в разделе [Настройка сохраняемости для кэша Redis для Azure уровня Премиум](cache-how-to-premium-persistence.md).
+## <a name="redis-data-persistence"></a>Redis data persistence
+The Premium tier allows you to persist the cache data in an Azure Storage account. In a Basic/Standard cache all the data is stored only in memory. In case of underlying infrastructure issues there can be potential data loss. We recommend using the Redis data persistence feature in the Premium tier to increase resiliency against data loss. Azure Redis Cache offers RDB and AOF (coming soon) options in [Redis persistence](http://redis.io/topics/persistence). 
 
-##Кластер Redis
-Если вы хотите создать кэш размером более 53 ГБ или сегментировать данные по нескольким узлам Redis, можно воспользоваться кластеризацией Redis, которая доступна на уровне Премиум. Каждый узел состоит из управляемой Azure пары кэшей (основной кэш и реплика) для обеспечения высокой доступности.
+For instructions on configuring persistence, see [How to configure persistence for a Premium Azure Redis Cache](cache-how-to-premium-persistence.md).
 
-**Кластеризация Redis обеспечивает максимальные показатели масштабирования и пропускной способности.** Пропускная способность линейно увеличивается по мере увеличения числа сегментов (узлов) в кластере. Например. Если создать кластер P4 из 10 сегментов, то доступная пропускная способность будет составлять 250 КБ * 10 = 2,5 млн. запросов в секунду. Дополнительные сведения о размере и пропускной способности для кэшей уровня Премиум см. в разделе [Часто задаваемые вопросы о кэше Redis для Azure](cache-faq.md#what-redis-cache-offering-and-size-should-i-use).
+##<a name="redis-cluster"></a>Redis cluster
+If you want to create caches larger than 53 GB or want to shard data across multiple Redis nodes, you can use Redis clustering which is available in the Premium tier. Each node consists of a primary/replica cache pair managed by Azure for high availability. 
 
-Сведения о начале работы с кластеризацией см. в разделе [Настройка кластеризации для кэша Redis для Azure уровня Премиум](cache-how-to-premium-clustering.md).
+**Redis clustering gives you maximum scale and throughput.** Throughput increases linearly as you increase the number of shards (nodes) in the cluster. Eg. If you create a P4 cluster of 10 shards, then the available throughput is 250K *10 = 2.5 Million requests per second. Please see the [Azure Redis Cache FAQ](cache-faq.md#what-redis-cache-offering-and-size-should-i-use) for more details about size, throughput, and bandwidth with premium caches.
 
-##Усиленная безопасность и изоляция
+To get started with clustering, see [How to configure clustering for a Premium Azure Redis Cache](cache-how-to-premium-clustering.md).
 
-Кэши, созданные на уровне Базовый или Стандартный, доступны в общедоступном сегменте Интернета. Доступ к кэшу ограничивается с помощью ключа доступа. На уровне Премиум вы можете предоставлять доступ к кэшу только клиентам из определенной сети. Кэш Redis можно развернуть в [виртуальной сети Azure (VNet)](https://azure.microsoft.com/services/virtual-network/). Вы можете использовать все возможности виртуальной сети, например подсети, политики контроля доступа и другие функции, для дальнейшего ограничения доступа к Redis.
+##<a name="enhanced-security-and-isolation"></a>Enhanced security and isolation
 
-Дополнительные сведения см. в разделе [Настройка поддержки виртуальной сети для кэша Redis для Azure уровня Премиум](cache-how-to-premium-vnet.md).
+Caches created in the Basic or Standard tier are accessible on the public internet. Access to the Cache is restricted based on the access key. With the Premium tier you can further ensure that only clients within a specified network can access the Cache. You can deploy Redis Cache in an [Azure Virtual Network (VNet)](https://azure.microsoft.com/services/virtual-network/). You can use all the features of VNet such as subnets, access control policies, and other features to further restrict access to Redis.
 
-## Импорт и экспорт
+For more information, see [How to configure Virtual Network support for a Premium Azure Redis Cache](cache-how-to-premium-vnet.md).
 
-Функция импорта/экспорта является операцией управления данными в кэше Redis для Azure, которая позволяет импортировать данные в кэш Redis для Azure или экспортировать их оттуда путем импорта и экспорта моментального снимка базы данных кэша Redis (RDB) из кэша уровня "Премиум" в страничный BLOB-объект в учетной записи хранения Azure. Это дает возможность переключаться между различными экземплярами кэша Redis для Azure или заполнять кэш данными перед использованием.
+## <a name="import/export"></a>Import/Export
 
-Импорт можно использовать для переноса RDB-файлов, совместимых с Redis, с сервера Redis, запущенного в любом облаке или любой среде, включая Redis в Linux, Windows, или у любого поставщика облачных служб, такого как Amazon Web Services и другие. Импорт данных позволяет легко создать кэш, предварительно заполненный данными. Во время импорта кэш Redis для Azure загружает RDB-файлы из службы хранилища Azure в память, а затем вставляет в кэш ключи.
+Import/Export is an Azure Redis Cache data management operation which allows you to import data into Azure Redis Cache or export data from Azure Redis Cache by importing and exporting a Redis Cache Database (RDB) snapshot from a premium cache to a page blob in an Azure Storage Account. This enables you to migrate between different Azure Redis Cache instances or populate the cache with data before use.
 
-Экспорт позволяет экспортировать данные, хранящиеся в кэше Redis для Azure, в RDB-файлы, совместимые с Redis. Эту функцию можно использовать для перемещения данных из одного экземпляра кэша Redis для Azure в другой или на другой сервер Redis. Во время экспорта на виртуальной машине, где размещается экземпляр сервера кэша Redis для Azure, создается временный файл, который отправляется в заданную учетную запись хранения. После успешного или неудачного завершения операции экспорта этот временный файл удаляется.
+Import can be used to bring Redis compatible RDB file(s) from any Redis server running in any cloud or environment, including Redis running on Linux, Windows, or any cloud provider such as Amazon Web Services and others. Importing data is an easy way to create a cache with pre-populated data. During the import process, Azure Redis Cache loads the RDB files from Azure storage into memory and then inserts the keys into the cache.
 
-Дополнительные сведения см. в статье [Как импортировать данные из кэша Redis для Azure и экспортировать данные из него](cache-how-to-import-export-data.md).
+Export allows you to export the data stored in Azure Redis Cache to Redis compatible RDB file(s). You can use this feature to move data from one Azure Redis Cache instance to another or to another Redis server. During the export process, a temporary file is created on the VM that hosts the Azure Redis Cache server instance, and the file is uploaded to the designated storage account. When the export operation completes with either a status of success or failure, the temporary file is deleted.
 
-## Reboot
+For more information, see [How to import data into and export data from Azure Redis Cache](cache-how-to-import-export-data.md).
 
-Уровень "Премиум" позволяет выполнять перезагрузку одного или нескольких узлов кэша по запросу. Это позволяет протестировать приложение на устойчивость в случае сбоя. Можно перезагрузить перечисленные ниже.
+## <a name="reboot"></a>Reboot
 
--	Главный узел кэша.
--	Подчиненный узел кэша.
--	Главный и подчиненный узлы кэша.
--	При использовании кэша уровня "Премиум" с кластеризацией можно перезагрузить главный, подчиненный или оба узла, задействовав отдельные сегменты кэша.
+The premium tier allows you to reboot one or more nodes of your cache on-demand. This allows you to test your application for resiliency in the event of a failure. You can reboot the following nodes.
 
-Дополнительные сведения см. в разделах [Перезагрузка](cache-administration.md#reboot) и [Часто задаваемые вопросы о перезагрузке](cache-administration.md#reboot-faq).
+-   Master node of your cache
+-   Slave node of your cache
+-   Both master and slave nodes of your cache
+-   When using a premium cache with clustering, you can reboot the master, slave, or both nodes for individual shards in the cache
 
-## Планирование обновлений
+For more information, see [Reboot](cache-administration.md#reboot) and [Reboot FAQ](cache-administration.md#reboot-faq).
 
-Функция планирования обновлений позволяет указать период обслуживания для кэша. Если задан период обслуживания, то любые обновления сервера Redis выполняются в этот период. Чтобы назначить период обслуживания, выберите необходимые дни и укажите время начала периода обслуживания в каждый из дней. Обратите внимание, что время периода обслуживания указывается в формате UTC.
+## <a name="schedule-updates"></a>Schedule updates
 
-Дополнительные сведения см. в разделах [Планирование обновлений](cache-administration.md#schedule-updates) и [Часто задаваемые вопросы о планировании обновлений](cache-administration.md#schedule-updates-faq).
+The scheduled updates feature allows you to designate a maintenance window for your cache. When the maintenance window is specified, any Redis server updates are made during this window. To designate a maintenance window, select the desired days and specify the maintenance window start hour for each day. Note that the maintenance window time is in UTC. 
 
->[AZURE.NOTE] В запланированный период обслуживания выполняются только обновления сервера Redis. Этот период обслуживания не распространяется на обновления Azure или обновления операционной системы виртуальной машины.
+For more information, see [Schedule updates](cache-administration.md#schedule-updates) and [Schedule updates FAQ](cache-administration.md#schedule-updates-faq).
 
-## Масштабирование до уровня "Премиум"
+>[AZURE.NOTE] Only Redis server updates are made during the scheduled maintenance window. The maintenance window does not apply to Azure updates or updates to the VM operating system.
 
-Для масштабирования до уровня "Премиум" просто выберите один из таких уровней в колонке **Смена ценовой категории**. Также можно масштабировать кэш до уровня "Премиум" с помощью PowerShell или интерфейса командной строки. Пошаговые инструкции см. в разделах [Масштабирование кэша Redis для Azure](cache-how-to-scale.md) и [Автоматизация операции масштабирования](cache-how-to-scale.md#how-to-automate-a-scaling-operation).
+## <a name="to-scale-to-the-premium-tier"></a>To scale to the premium tier
 
-## Дальнейшие действия
+To scale to the premium tier, simply choose one of the premium tiers in the **Change pricing tier** blade. You can also scale your cache to the premium tier using PowerShell and CLI. For step-by-step instructions, see [How to Scale Azure Redis Cache](cache-how-to-scale.md) and [How to automate a scaling operation](cache-how-to-scale.md#how-to-automate-a-scaling-operation).
 
-Создание кэша и знакомство с новыми возможностями уровня Премиум.
+## <a name="next-steps"></a>Next steps
 
--	[Настройка сохраняемости для кэша Redis для Azure уровня Премиум](cache-how-to-premium-persistence.md)
--	[Настройка поддержки виртуальной сети для кэша Redis для Azure уровня Премиум](cache-how-to-premium-vnet.md)
--	[Настройка кластеризации для кэша Redis для Azure уровня Премиум](cache-how-to-premium-clustering.md)
--	[Как импортировать данные из кэша Redis для Azure и экспортировать данные из него](cache-how-to-import-export-data.md)
--	[Администрирование кэша Redis для Azure](cache-administration.md)
+Create a cache and explore the new premium tier features.
+
+-   [How to configure persistence for a Premium Azure Redis Cache](cache-how-to-premium-persistence.md)
+-   [How to configure Virtual Network support for a Premium Azure Redis Cache](cache-how-to-premium-vnet.md)
+-   [How to configure clustering for a Premium Azure Redis Cache](cache-how-to-premium-clustering.md)
+-   [How to import data into and export data from Azure Redis Cache](cache-how-to-import-export-data.md)
+-   [How to administer Azure Redis Cache](cache-administration.md)
   
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

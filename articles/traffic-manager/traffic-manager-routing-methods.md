@@ -1,129 +1,127 @@
-<properties 
-   pageTitle="Диспетчер трафика — маршрутизация трафика | Microsoft Azure"
-   description="Эта статья поможет вам разобраться в различных методах маршрутизации трафика, используемых диспетчером трафика."
-   services="traffic-manager"
-   documentationCenter=""
-   authors="sdwheeler"
-   manager="carmonm"
-   editor="tysonn" />
-<tags 
-   ms.service="traffic-manager"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="05/25/2016"
-   ms.author="sewhee" />
-
-# Методы маршрутизации трафика диспетчером трафика
-
-На этой странице описываются методы маршрутизации трафика, поддерживаемые диспетчером трафика Azure. Они используются для направления пользователей к правильной конечной точке службы.
-
-> [AZURE.NOTE] В API Azure Resource Manager (ARM) для диспетчера трафика и API управления службами Azure (ASM) используется разная терминология. Это изменение было внесено после отзыва клиента для повышения наглядности и уменьшения распространенных недоразумений. На этой странице мы будем использовать терминологию ARM. Различия описаны ниже.
-
->- В ARM используется термин "метод маршрутизации трафика" для описания алгоритма определения конечной точки, к которой должен быть направлен пользователь в конкретный момент времени. В ASM это называется методом балансировки нагрузки.
-
->- В ARM используется термин "со взвешиванием", относящийся к методу маршрутизации трафика, который распределяет трафик по всем доступным конечным точкам согласно весу, определенному для каждой из них. В ASM это называется циклическим перебором.
->- В ARM используется термин "по приоритету", относящийся к методу маршрутизации трафика, который направляет весь трафик в первую доступную конечную точку из упорядоченного списка. В ASM это называется отработкой отказа.
-
-> Во всех случаях единственное отличие заключается в названии. Нет никакой разницы в функциональности.
+<properties
+    pageTitle="Traffic Manager - traffic routing methods | Microsoft Azure"
+    description="This articles will help you understand the different traffic routing methods used by Traffic Manager"
+    services="traffic-manager"
+    documentationCenter=""
+    authors="sdwheeler"
+    manager="carmonm"
+    editor=""
+/>
+<tags
+    ms.service="traffic-manager"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="infrastructure-services"
+    ms.date="10/11/2016"
+    ms.author="sewhee"
+/>
 
 
-Диспетчер трафика Azure поддерживает множество алгоритмов маршрутизации пользователей к различным конечным точкам службы. Они называются методами маршрутизации трафика. Метод маршрутизации трафика применяется к каждому полученному запросу DNS, чтобы определить, какую конечную точку нужно вернуть в ответе DNS.
+# <a name="traffic-manager-traffic-routing-methods"></a>Traffic Manager traffic-routing methods
 
-В диспетчере трафика доступно три метода маршрутизации трафика.
+Azure Traffic Manager supports three traffic-routing methods to determine how to route network traffic to the various service endpoints. Traffic Manager applies the traffic-routing method to each DNS query it receives. The traffic-routing method determines which endpoint returned in the DNS response.
 
-- **По приоритету**. Выберите метод "По приоритету", если требуется использовать первичную конечную точку службы для всего трафика и предоставить резервные конечные точки на случай, если первичная или какие-либо резервные конечные точки станут недоступны. Дополнительные сведения см. в разделе [Метод маршрутизации трафика по приоритету](#priority-traffic-routing-method).
+The Azure Resource Manager support for Traffic Manager uses different terminology than the classic deployment model. The following table shows the differences between the Resource Manager and Classic terms:
 
-- **Со взвешиванием**. Выберите метод "Со взвешиванием", если требуется распределить трафик между несколькими конечными точками равномерно либо согласно определяемым вами весовым коэффициентам. Дополнительные сведения см. в разделе [Метод маршрутизации трафика со взвешиванием](#weighted-traffic-routing-method).
+| Resource Manager term | Classic term |
+|-----------------------|--------------|
+| Traffic-routing method | Load-balancing method |
+| Priority method | Failover method |
+| Weighted method | Round-robin method |
+| Performance method | Performance method |
 
-- **Производительность**. Выберите метод "Производительность", если конечные точки размещены в разных географических расположениях и нужно, чтобы клиенты использовали "ближайшие" с точки зрения минимальных задержек сети конечные точки. Дополнительные сведения см. в разделе [Метод маршрутизации трафика для повышения производительности](#performance-traffic-routing-method).
+Based on customer feedback, we changed the terminology to improve clarity and reduce common misunderstandings. There is no difference in functionality.
 
-> [AZURE.NOTE] Все профили диспетчера трафика включают в себя постоянный мониторинг работоспособности конечных точек и их автоматическую отработку отказа. Эти функции поддерживаются для всех методов маршрутизации трафика. Дополнительные сведения см. в разделе [О мониторинге диспетчера трафика](traffic-manager-monitoring.md).
+There are three traffic routing methods available in Traffic Manager:
 
-Отдельный профиль диспетчера трафика может использовать только один метод маршрутизации трафика. В любое время для профиля можно выбрать другой метод маршрутизации трафика. Изменения применяются в течение минуты, не приводя к простою. Методы маршрутизации трафика можно комбинировать с помощью вложенных профилей диспетчера трафика. Это позволяет создавать сложные и гибкие конфигурации маршрутизации трафика в соответствии с потребностями более крупных и сложных приложений. Дополнительную информацию см. в разделе [Вложенные профили диспетчера трафика](traffic-manager-nested-profiles.md).
+- **Priority:** Select 'Priority' when you want to use a primary service endpoint for all traffic, and provide backups in case the primary or the backup endpoints are unavailable.
+- **Weighted:** Select 'Weighted' when you want to distribute traffic across a set of endpoints, either evenly or according to weights, which you define.
+- **Performance:** Select 'Performance' when you have endpoints in different geographic locations and you want end users to use the "closest" endpoint in terms of the lowest network latency.
 
-## Метод маршрутизации трафика по приоритету
+All Traffic Manager profiles include monitoring of endpoint health and automatic endpoint failover. For more information, see [Traffic Manager Endpoint Monitoring](traffic-manager-monitoring.md). A single Traffic Manager profile can use only one traffic routing method. You can select a different traffic routing method for your profile at any time. Changes are applied within one minute, and no downtime is incurred. Traffic-routing methods can be combined by using nested Traffic Manager profiles. Nesting enables sophisticated and flexible traffic-routing configurations that meet the needs of larger, complex applications. For more information, see [nested Traffic Manager profiles](traffic-manager-nested-profiles.md).
 
-Нередко организация стремится обеспечить надежность своих служб, предоставляя для этого одну или нескольких резервных служб на случай, если основная служба выйдет из строя. Метод маршрутизации трафика "По приоритету" позволяет клиентам Azure легко реализовать эту схему отработки отказа.
+## <a name="priority-traffic-routing-method"></a>Priority traffic-routing method
 
-![Диспетчер трафика Azure: метод маршрутизации трафика по приоритету][1]
+Often an organization wants to provide reliability for its services by deploying one or more backup services in case their primary service goes down. The 'Priority' traffic-routing method allows Azure customers to easily implement this failover pattern.
 
-В профиле диспетчера трафика настроен упорядоченный список конечных точек службы. По умолчанию весь трафик пользователей отправляется в первичную конечную точку (с наивысшим приоритетом). Если первичная конечная точка становится недоступна (согласно настроенному состоянию "Включено" или "Отключено" и текущим данным мониторинга конечных точек), то пользователи направляются ко вторичной конечной точке. Если и первичная, и вторичная конечные точки становятся недоступны, трафик направляется к третьей и т. д.
+![Azure Traffic Manager 'Priority' traffic-routing method][1]
 
-Настройка приоритетов конечных точек выполняется по-разному в интерфейсах API ARM (и на новом портале Azure) и интерфейсах API ASM (и на классическом портале).
+The Traffic Manager profile contains a prioritized list of service endpoints. By default, Traffic Manager sends all traffic to the primary (highest-priority) endpoint. If the primary endpoint is not available, Traffic Manager routes the traffic to the second endpoint. If both the primary and secondary endpoints are not available, the traffic goes to the third, and so on. Availability of the endpoint is based on the configured status (enabled or disabled) and the ongoing endpoint monitoring.
 
-- В интерфейсах API ARM приоритет конечной точки настраивается явно, с помощью свойства priority, определяемого для каждой конечной точки. Это свойство должно иметь значение от 1 до 1000, и чем ниже значение, тем выше приоритет. У двух конечных точек не может быть одинаковый приоритет. Данное свойство является необязательным. Если оно не указано, для конечной точки задается приоритет по умолчанию в соответствии с ее расположением в профиле.
+### <a name="configuring-endpoints"></a>Configuring endpoints
 
-- В интерфейсах API ASM приоритет конечной точки настраивается не явно, а на основе порядка, в котором перечислены конечные точки в определении профиля. Кроме того, вы можете настроить порядок отработки отказа на классическом портале Azure, на странице "Конфигурация" профиля.
+With Azure Resource Manager, you configure the endpoint priority explicitly using the 'priority' property for each endpoint. This property is a value between 1 and 1000. Lower values represent a higher priority. Endpoints cannot share priority values. Setting the property is optional. When omitted, a default priority based on the endpoint order is used.
 
-## Метод маршрутизации трафика со взвешиванием
+With the Classic interface, the endpoint priority is configured implicitly. The priority is based on the order in which the endpoints are listed in the profile definition.
 
-Распространенный подход к обеспечению высокого уровня доступности и максимального использования службы — предоставить набор конечных точек и распределять трафик по всем конечным точкам равномерно или согласно предварительно определенным весовым коэффициентам. Это обеспечивает метод маршрутизации трафика "Со взвешиванием".
+## <a name="weighted-traffic-routing-method"></a>Weighted traffic-routing method
 
-![Диспетчер трафика Azure: метод маршрутизации трафика со взвешиванием][2]
+The 'Weighted' traffic-routing method allows you to distribute traffic evenly or to use a pre-defined weighting.
 
-В случае использования метода маршрутизации трафика со взвешиванием при настройке профиля диспетчера трафика каждой конечной точке назначается вес. Вес — это целое число от 1 до 1000. Этот параметр является необязательным, если он не указан, по умолчанию вес равен 1.
-  
-Трафик пользователей распределяется по всем доступным конечным точкам службы (согласно настроенному состоянию "Включено" или "Отключено" и текущим данным мониторинга конечных точек). Для каждого полученного запроса DNS доступная конечная точка выбирается произвольно, с вероятностью, вычисляемой на основе веса, назначенного этой конечной точке и другим доступным конечным точкам.
+![Azure Traffic Manager 'Weighted' traffic-routing method][2]
 
-Если указать одинаковый вес для всех конечных точек, то трафик будет распределен равномерно. Это идеально подходит для согласованного использования набора идентичных конечных точек. Если задать больший (или меньший) вес для определенных конечных точек, они будут чаще (или реже) возвращаться в ответах DNS и, таким образом, чаще (или реже) получать трафик. Это позволяет реализовать ряд полезных сценариев.
+In the Weighted traffic-routing method, you assign a weight to each endpoint in the Traffic Manager profile configuration. The weight is an integer from 1 to 1000. This parameter is optional. If omitted, Traffic Managers uses a default weight of '1'.
 
-- Постепенное обновление приложения: направляйте часть трафика в новую конечную точку и постепенно доведите объем трафика до 100 %.
+For each DNS query received, Traffic Manager randomly chooses an available endpoint. The probability of choosing an endpoint is based on the weights assigned to all available endpoints. Using the same weight across all endpoints results in an even traffic distribution. Using higher or lower weights on specific endpoints causes those endpoints to be returned more or less frequently in the DNS responses.
 
-- Миграция приложений в Azure: создайте профиль с конечными точками Azure и внешними конечными точками и укажите вес трафика, который направляется в каждую конечную точку.
+The weighted method enables some useful scenarios:
 
-- Повышение в облако для получения дополнительной емкости: быстро расширьте локальное развертывание в облако, изменив профиль диспетчера трафика. Если вам требуется дополнительная емкость в облаке, добавьте конечные точки и укажите, какая часть трафика направляется на ту или иную конечную точку.
+- Gradual application upgrade: Allocate a percentage of traffic to route to a new endpoint, and gradually increase the traffic over time to 100%.
+- Application migration to Azure: Create a profile with both Azure and external endpoints. Adjust the weight of the endpoints to prefer the new endpoints.
+- Cloud-bursting for additional capacity: Quickly expand an on-premises deployment into the cloud by putting it behind a Traffic Manager profile. When you need extra capacity in the cloud, you can add or enable more endpoints and specify what portion of traffic goes to each endpoint.
 
-Маршрутизацию трафика со взвешиванием можно настроить на новом портале Azure, однако на классическом портале нельзя настроить веса. Ее можно также настроить с помощью ARM и ASM, используя Azure PowerShell, Azure CLI и интерфейсы REST API Azure.
+The new Azure portal supports the configuration of weighted traffic routing. Weights cannot be configured in the Classic portal. You can also configure weights using the Resource Manager and classic versions of Azure PowerShell, CLI, and the REST APIs.
 
-Примечание. Ответы DNS кэшируются клиентами и рекурсивными DNS-серверами, которые используются этими клиентами для выполнения запросов DNS. Важно понимать потенциальное воздействие этого кэширования на распределение трафика со взвешиванием. Если число клиентов и рекурсивных DNS-серверов велико, как в случае типичных приложений для Интернета, распределение трафика работает ожидаемым образом. Тем не менее при небольшом числе клиентов или рекурсивных DNS-серверов данное кэширование может значительно исказить распределение трафика. Вот некоторые наиболее распространенные случаи, в которых это может происходить:
+It is important to understand that DNS responses are cached by clients and by the recursive DNS servers that the clients use to resolve DNS names. This caching can have an impact on weighted traffic distributions. When the number of clients and recursive DNS servers is large, traffic distribution works as expected. However, when the number of clients or recursive DNS servers is small, caching can significantly skew the traffic distribution.
 
-- среды для разработки и тестирования;
-- обмен данных между приложениями;
-- приложения, предназначенные для узкого круга пользователей, использующих общую инфраструктуру рекурсивных DNS-серверов, например сотрудников организации.
+Common use cases include:
 
-Такое воздействие кэширования DNS характерно для всех систем маршрутизации трафика на основе DNS, а не только для диспетчера трафика. В некоторых случаях может помочь явная очистка кэша DNS. В других случаях более подходящим может оказаться альтернативный метод маршрутизации трафика.
+- Development and testing environments
+- Application-to-application communications
+- Applications aimed at a narrow user-base that share a common recursive DNS infrastructure (for example, employees of company connecting through a proxy)
 
-## Метод маршрутизации трафика для повышения производительности
+These DNS caching effects are common to all DNS-based traffic routing systems, not just Azure Traffic Manager. In some cases, explicitly clearing the DNS cache may provide a workaround. In other cases, an alternative traffic-routing method may be more appropriate.
 
-Скорость реагирования многих приложений можно повысить, развернув конечные точки в двух или больше расположениях по всему миру и направляя пользователей к ближайшему к ним расположению. Для этого и предназначен метод маршрутизации трафика "Производительность".
+## <a name="performance-traffic-routing-method"></a>Performance traffic-routing method
 
-![Диспетчер трафика Azure: метод маршрутизации трафика для повышения производительности][3]
+Deploying endpoints in two or more locations across the globe can improve the responsiveness of many applications by routing traffic to the location that is 'closest' to you. The 'Performance' traffic-routing method provides this capability.
 
-Чтобы обеспечить максимальную скорость реагирования, "ближайшая" конечная точка не обязательно должна быть ближайшей с точки зрения географического расстояния. Вместо этого метод маршрутизации трафика "Производительность" определяет, какая конечная точка является ближайшей к пользователю согласно измеренной задержке сети. Она определяется таблицей задержек Интернета, в которой отражается время кругового пути между диапазонами IP-адресов и каждым центром обработки данных Azure.
+![Azure Traffic Manager 'Performance' traffic-routing method][3]
 
-Диспетчер трафика проверяет каждый входящий запрос DNS и ищет исходный IP-адрес этого запроса в таблице задержек Интернета. Так определяется задержка между этим IP-адресом и каждым центром обработки данных Azure. Затем диспетчер трафика выбирает, какая из доступных конечных точек (согласно настроенному состоянию "Включено" или "Отключено" и текущим данным мониторинга конечных точек) имеет наименьшую задержку, и возвращает эту конечную точку в ответе DNS. Таким образом пользователь направляется в конечную точку, которая обеспечивает наименьшую задержку и, следовательно, максимальную производительность.
+The 'closest' endpoint is not necessarily closest as measured by geographic distance. Instead, the 'Performance' traffic-routing method determines the closest endpoint by measuring network latency. Traffic Manager maintains an Internet Latency Table to track the round-trip time between IP address ranges and each Azure datacenter.
 
-Как описано в разделе [Как работает диспетчер трафика](traffic-manager-how-traffic-manager-works.md), диспетчер трафика не получает запросы DNS от пользователей напрямую. Вместо этого он получает их от рекурсивной службы DNS, использование которой настроено для них. Таким образом IP-адрес, используемый для определения "ближайшей" конечной точки, это не IP-адрес пользователя, а IP-адрес рекурсивной службы DNS. На практике для этой цели данный IP-адрес является хорошим прокси-сервером для пользователя.
+Traffic Manager looks up the source IP address of the incoming DNS request in the Internet Latency Table. Traffic Manager chooses an available endpoint in the Azure datacenter that has the lowest latency for that IP address range, then returns that endpoint in the DNS response.
 
-Чтобы учесть изменения в глобальной сети Интернет и добавление новых регионов Azure, диспетчер трафика регулярно обновляет таблицу задержек Интернета, которую он использует. Однако так нельзя в режиме реального времени учесть изменения производительности или загрузки в Интернете.
+As explained in [How Traffic Manager Works](traffic-manager-how-traffic-manager-works.md), Traffic Manager does not receive DNS queries directly from clients. Rather, DNS queries come from the recursive DNS service that the clients are configured to use. Therefore, the IP address used to determine the 'closest' endpoint is not the client's IP address, but it is the IP address of the recursive DNS service. In practice, this IP address is a good proxy for the client.
 
-При маршрутизации трафика для повышения производительности не учитывается нагрузка на определенную конечную точку службы, хотя диспетчер трафика отслеживает конечные точки и не будет включать их в ответы на запросы DNS, если они недоступны.
+Traffic Manager regularly updates the Internet Latency Table to account for changes in the global Internet and new Azure regions. However, application performance varies based on real-time variations in load across the Internet. Performance traffic-routing does not monitor load on a given service endpoint. However, if an endpoint becomes unavailable, Traffic Manager does not it in DNS query responses.
 
-Примечания:
+Points to note:
 
-- Если профиль содержит несколько конечных точек, расположенных в одном регионе Azure, то трафик, направленный в этот регион, распределяется равномерно между доступными конечными точками (согласно настроенному состоянию "Включено" или "Отключено" и текущим данным мониторинга конечных точек). Если требуется иначе распределять трафик в регионе, это можно сделать с помощью [вложенных профилей диспетчера трафика](traffic-manager-nested-profiles.md).
+- If your profile contains multiple endpoints in the same Azure region, then Traffic Manager distributes traffic evenly across the available endpoints in that region. If you prefer a different traffic distribution within a region, you can use [nested Traffic Manager profiles](traffic-manager-nested-profiles.md).
 
-- Если функциональность всех включенных конечных точек в заданном регионе Azure понизится (согласно текущим данным мониторинга конечных точек), то трафик этих конечных точек будет распределяться по всем прочим доступным конечным точкам, которые указаны в профиле, а не только по соседним или ближайшим конечным точкам. Это помогает избежать каскадных сбоев, которые потенциально могут возникнуть при перегрузке ближайшей конечной точки. Если вы предпочитаете определить последовательность отработки отказа конечных точек, это можно сделать с помощью [вложенных профилей диспетчера трафика](traffic-manager-nested-profiles.md).
+- If all enabled endpoints in a given Azure region are degraded, Traffic Manager distributes traffic across all other available endpoints instead of the next-closest endpoint. This logic prevents a cascading failure from occurring by not overloading the next-closest endpoint. If you want to define a preferred failover sequence, use [nested Traffic Manager profiles](traffic-manager-nested-profiles.md).
 
-- При использовании метода маршрутизации трафика для повышения производительности с внешними или вложенными конечными точками потребуется указать их расположение. Выберите ближайший к вашему развертыванию регион Azure. Выбрать можно из регионов Azure, так как это расположения, совместимые с таблицы задержек Интернета.
+- When using the Performance traffic routing method with external endpoints or nested endpoints, you need to specify the location of those endpoints. Choose the Azure region closest to your deployment. Those locations are the values supported by the Internet Latency Table.
 
-- Алгоритм, по которому выбирается конечная точка, возвращаемая заданному пользователю, является детерминированным, то есть исключающим случайность. Повторные запросы DNS от одного клиента будут направляться к той же конечной точке. Однако не следует рассчитывать, что метод маршрутизации трафика для повышения производительности всегда будет направлять определенного пользователя в конкретное развертывание (что может потребоваться, например, если данные этого пользователя хранятся только в одном расположении). Причина этого в том, что когда пользователи находятся в пути, они обычно используют другие рекурсивные DNS-серверы, и поэтому могут быть перенаправлены к другой конечной точке. Кроме того, на выбор конечных точек могут влиять обновления таблицы задержек Интернета.
+- The algorithm that chooses the endpoint is deterministic. Repeated DNS queries from the same client are directed to the same endpoint. Typically, clients use different recursive DNS servers when traveling. The client may be routed to a different endpoint. Routing can also be affected by updates to the Internet Latency Table. Therefore, the Performance traffic-routing method does not guarantee that a client is always routed to the same endpoint.
 
-- После обновления таблицы задержек Интернета вы можете заметить, что некоторые клиенты стали направляться к другой конечной точке. Число затронутых пользователей должно быть минимальным. Это пользователи, маршрутизация для которых была уточнена согласно текущим данным задержек. Данные обновления необходимы, чтобы обеспечить точность маршрутизации трафика для повышения производительности, так как Интернет постоянно развивается.
+- When the Internet Latency Table changes, you may notice that some clients are directed to a different endpoint. This routing change is more accurate based on current latency data. These updates are essential to maintain the accuracy of Performance traffic-routing as the Internet continually evolves.
 
+## <a name="next-steps"></a>Next steps
 
-## Дальнейшие действия
+Learn how to develop high-availability applications using [Traffic Manager endpoint monitoring](traffic-manager-monitoring.md)
 
-Узнайте, как разрабатывать высокодоступные приложения с помощью [мониторинга конечных точек диспетчером трафика](traffic-manager-monitoring.md).
-
-Узнайте, как [создать профиль диспетчера трафика](traffic-manager-manage-profiles.md).
-
+Learn how to [create a Traffic Manager profile](traffic-manager-manage-profiles.md)
 
 <!--Image references-->
 [1]: ./media/traffic-manager-routing-methods/priority.png
 [2]: ./media/traffic-manager-routing-methods/weighted.png
 [3]: ./media/traffic-manager-routing-methods/performance.png
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

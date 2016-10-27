@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Действия, доступные благодаря Testability | Microsoft Azure"
-   description="В этой статье рассматриваются действия по тестированию, доступные в Microsoft Azure Service Fabric."
+   pageTitle="Testability action | Microsoft Azure"
+   description="This article talks about the testability actions found in Microsoft Azure Service Fabric."
    services="service-fabric"
    documentationCenter=".net"
    authors="motanv"
@@ -13,62 +13,63 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/08/2016"
+   ms.date="10/03/2016"
    ms.author="motanv;heeldin"/>
 
-# Действия, доступные благодаря Testability
-Для моделирования ненадежной инфраструктуры платформа Azure Service Fabric предоставляет разработчику несколько способов имитации различных реалистичных ошибок и переходов. Такие действия доступны благодаря компоненту Testability. Эти действия представляют из себя интерфейсы API низкого уровня, которые вызывают определенную ошибку, смену состояния или проверку. Сочетая эти действия, вы можете создать комплексные сценарии тестирования своих служб.
 
-В платформе Service Fabric доступны несколько распространенных сценариев тестирования, которые состоят из этих действий. Настоятельно рекомендуется использовать эти встроенные сценарии, тщательно подобранные для тестирования распространенных смен состояний и ошибок. Тем не менее действия можно использовать для создания настраиваемых сценариев тестирования, отличающихся расширенными возможностями по сравнению со встроенными сценариями или специально настроенных для вашего приложения.
+# <a name="testability-actions"></a>Testability actions
+In order to simulate an unreliable infrastructure, Azure Service Fabric provides you, the developer, with ways to simulate various real-world failures and state transitions. These are exposed as testability actions. The actions are the low-level APIs that cause a specific fault injection, state transition, or validation. By combining these actions, you can write comprehensive test scenarios for your services.
 
-Реализации действий на языке C# представлены в сборке System.Fabric.dll. Модуль PowerShell Service Fabric находится в сборке Microsoft.ServiceFabric.Powershell.dll. В процессе установки среды выполнения устанавливается модуль PowerShell Service Fabric, обеспечивающий легкость использования решений.
+Service Fabric provides some common test scenarios composed of these actions. We highly recommend that you utilize these built-in scenarios, which are carefully chosen to test common state transitions and failure cases. However, actions can be used to create custom test scenarios when you want to add coverage for scenarios that are not covered by the built-in scenarios yet or that are custom tailored for your application.
 
-## Нормальные и ненормальные ошибки
-Действия, доступные благодаря Testability, делятся на две основных части.
+C# implementations of the actions are found in the System.Fabric.dll assembly. The System Fabric PowerShell module is found in the Microsoft.ServiceFabric.Powershell.dll assembly. As part of runtime installation, the ServiceFabric PowerShell module is installed to allow for ease of use.
 
-* Ненормальные ошибки. Эти сбои имитируют ошибки, такие как перезагрузки компьютеров и аварийное завершение процессов. В случае таких ошибок контекст выполнения процесса немедленно прерывается. Это означает, что очистка состояния возможна только после повторного запуска приложения.
+## <a name="graceful-vs.-ungraceful-fault-actions"></a>Graceful vs. ungraceful fault actions
+Testability actions are classified into two major buckets:
 
-* Нормальные ошибки. Эти сбои имитируют нормальные действия, такие как перемещение реплик и операции удаления, инициированные балансировкой нагрузки. В таких случаях служба получает уведомление о закрытии и может выполнить очистку состояния перед завершением работы.
+* Ungraceful faults: These faults simulate failures like machine restarts and process crashes. In such cases of failures, the execution context of process stops abruptly. This means no cleanup of the state can run before the application starts up again.
 
-Для повышения качества выполняйте службы и рабочие нагрузки бизнеса при вызове различных нормальных и ненормальных ошибок. При ненормальных ошибках возникают сценарии, при которых процессы служб неожиданно прерываются посреди рабочих процессов. Таким образом можно проверить путь восстановления после восстановления реплики службы платформой Service Fabric. Это поможет проверить согласованность данных и правильность состояния службы после ошибок. Другой набор сбоев (нормальные ошибки) позволяет проверить, правильно ли реагирует служба на перемещение реплики платформой Service Fabric. Это обеспечит тестирование отмены операций в методе RunAsync. Служба должна проверить, правильно ли устанавливаемый маркер отмены сохраняет данные о своем состоянии и выходит из метода RunAsync.
+* Graceful faults: These faults simulate graceful actions like replica moves and drops triggered by load balancing. In such cases, the service gets a notification of the close and can clean up the state before exiting.
 
-## Список действий, доступных благодаря Testability
+For better quality validation, run the service and business workload while inducing various graceful and ungraceful faults. Ungraceful faults exercise scenarios where the service process abruptly exits in the middle of some workflow. This tests  the recovery path once the service replica is restored by Service Fabric. This will help test data consistency and whether the service state is maintained correctly after failures. The other set of failures (the graceful failures) test that the service correctly reacts to replicas being moved around by Service Fabric. This tests handling of cancellation in the RunAsync method. The service needs to check for the cancellation token being set, correctly save its state, and exit the RunAsync method.
 
-| Действие | Описание | Управляемый интерфейс API | Командлет PowerShell | Нормальная или ненормальная ошибка |
+## <a name="testability-actions-list"></a>Testability actions list
+
+| Action | Description | Managed API | PowerShell cmdlet | Graceful/ungraceful faults |
 |---------|-------------|-------------|-------------------|------------------------------|
-|CleanTestState| Удаляет все данные о состоянии тестирования из кластера в случае неправильного завершения работы тестового драйвера. | CleanTestStateAsync | Remove-ServiceFabricTestState | Не применяется |
-| InvokeDataLoss | Приводит к потере данных в разделе службы. | InvokeDataLossAsync | Invoke-ServiceFabricPartitionDataLoss | Нормальная |
-| InvokeQuorumLoss | Приводит к потере кворума в указанном разделе службы с отслеживанием состояния. | InvokeQuorumLossAsync | Invoke-ServiceFabricQuorumLoss | Нормальная |
-| Move Primary | Перемещает заданную первичную реплику службы с отслеживанием состояния на указанный узел кластера. | MovePrimaryAsync | Move-ServiceFabricPrimaryReplica | Нормальная |
-| Move Secondary | Перемещая текущую вторичную реплику службы с отслеживанием состояния на другой узел кластера. | MoveSecondaryAsync | Move-ServiceFabricSecondaryReplica | Нормальная |
-| RemoveReplica | Имитирует ошибку реплики путем удаления реплики из кластера. Это приведет к закрытию реплики и переходу к роли "None" с удалением всех данных о состоянии из кластера. | RemoveReplicaAsync | Remove-ServiceFabricReplica | Нормальная |
-| RestartDeployedCodePackage | Имитирует ошибку процесса пакета кода путем перезапуска пакета кода, развернутого на узле в кластере. Это приводит к прерыванию процесса пакета кода, который перезапустит все реплики пользовательской службы, размещенные в этом процессе. | RestartDeployedCodePackageAsync | Restart-ServiceFabricDeployedCodePackage | Ненормальная |
-| RestartNode | Имитирует ошибку узла кластера Service Fabric путем перезапуска узла. | RestartNodeAsync | Restart-ServiceFabricNode | Ненормальная |
-| RestartPartition | Имитирует сценарий отключения центра обработки данных или кластера путем перезапуска некоторых или всех реплик раздела. | RestartPartitionAsync | Restart-ServiceFabricPartition | Нормальная |
-| RestartReplica | Имитирует ошибку реплики путем перезапуска материализованной реплики в кластере с последующим закрытием и открытием реплики. | RestartReplicaAsync | Restart-ServiceFabricReplica | Нормальная |
-| StartNode | Запускает узел в кластере, который уже остановлен. | StartNodeAsync | Start-ServiceFabricNode | Не применяется |
-| StopNode | Имитирует ошибку узла, останавливая его работу в кластере. Узел начнет работу только после вызова StartNode. | StopNodeAsync | Stop-ServiceFabricNode | Ненормальная |
-| ValidateApplication | Проверяет доступность и работоспособность всех служб Service Fabric в приложении обычно после инициирования ошибки в системе. | ValidateApplicationAsync | Test-ServiceFabricApplication | Не применяется |
-| ValidateService | Проверяет доступность и работоспособность службы Service Fabric обычно после инициирования ошибки в системе. | ValidateServiceAsync | Test-ServiceFabricService | Не применяется |
+|CleanTestState| Removes all the test state from the cluster in case of a bad shutdown of the test driver. | CleanTestStateAsync | Remove-ServiceFabricTestState | Not applicable |
+| InvokeDataLoss | Induces data loss into a service partition. | InvokeDataLossAsync | Invoke-ServiceFabricPartitionDataLoss | Graceful |
+| InvokeQuorumLoss | Puts a given stateful service partition into quorum loss. | InvokeQuorumLossAsync | Invoke-ServiceFabricQuorumLoss | Graceful |
+| Move Primary | Moves the specified primary replica of a stateful service to the specified cluster node. | MovePrimaryAsync | Move-ServiceFabricPrimaryReplica | Graceful |
+| Move Secondary | Moves the current secondary replica of a stateful service to a different cluster node. | MoveSecondaryAsync | Move-ServiceFabricSecondaryReplica | Graceful |
+| RemoveReplica | Simulates a replica failure by removing a replica from a cluster. This will close the replica and will transition it to role 'None', removing all of its state from the cluster. | RemoveReplicaAsync | Remove-ServiceFabricReplica | Graceful |
+| RestartDeployedCodePackage | Simulates a code package process failure by restarting a code package deployed on a node in a cluster. This aborts the code package process, which will restart all the user service replicas hosted in that process. | RestartDeployedCodePackageAsync | Restart-ServiceFabricDeployedCodePackage | Ungraceful |
+| RestartNode | Simulates a Service Fabric cluster node failure by restarting a node. | RestartNodeAsync | Restart-ServiceFabricNode | Ungraceful |
+| RestartPartition | Simulates a datacenter blackout or cluster blackout scenario by restarting some or all replicas of a partition. | RestartPartitionAsync | Restart-ServiceFabricPartition | Graceful |
+| RestartReplica | Simulates a replica failure by restarting a persisted replica in a cluster, closing the replica and then reopening it. | RestartReplicaAsync | Restart-ServiceFabricReplica | Graceful |
+| StartNode | Starts a node in a cluster that is already stopped. | StartNodeAsync | Start-ServiceFabricNode | Not applicable |
+| StopNode | Simulates a node failure by stopping a node in a cluster. The node will stay down until StartNode is called. | StopNodeAsync | Stop-ServiceFabricNode | Ungraceful |
+| ValidateApplication | Validates the availability and health of all Service Fabric services within an application, usually after inducing some fault into the system. | ValidateApplicationAsync | Test-ServiceFabricApplication | Not applicable |
+| ValidateService | Validates the availability and health of a Service Fabric service, usually after inducing some fault into the system. | ValidateServiceAsync | Test-ServiceFabricService | Not applicable |
 
-## Выполнение действия тестирования с помощью PowerShell
+## <a name="running-a-testability-action-using-powershell"></a>Running a testability action using PowerShell
 
-В этом учебнике показано, как выполнить действие, доступное благодаря Testability, с помощью PowerShell. Вы узнаете, как выполнить такое действие для тестирования локального (содержащего одно поле) кластера или кластера Azure. Microsoft.Fabric.Powershell.dll — модуль PowerShell Service Fabric — устанавливается автоматически при установке MSI Microsoft Service Fabric. Этот модуль автоматически загружается при открытии командной строки PowerShell.
+This tutorial shows you how to run a testability action by using PowerShell. You will learn how to run a testability action against a local (one-box) cluster or an Azure cluster. Microsoft.Fabric.Powershell.dll--the Service Fabric PowerShell module--is installed automatically when you install the Microsoft Service Fabric MSI. The module is loaded automatically when you open a PowerShell prompt.
 
-Разделы учебника
+Tutorial segments:
 
-- [Выполнение действия для кластера с одним полем](#run-an-action-against-a-one-box-cluster)
-- [Выполнение действия для кластера Azure](#run-an-action-against-an-azure-cluster)
+- [Run an action against a one-box cluster](#run-an-action-against-a-one-box-cluster)
+- [Run an action against an Azure cluster](#run-an-action-against-an-azure-cluster)
 
-### Выполнение действия для кластера с одним полем
+### <a name="run-an-action-against-a-one-box-cluster"></a>Run an action against a one-box cluster
 
-Чтобы выполнить действие, доступное благодаря Testability, для тестирования локального кластера, сначала необходимо подключиться к кластеру и открыть командную строку PowerShell в режиме администратора. Рассмотрим действие **Restart-ServiceFabricNode**.
+To run a testability action against a local cluster, first connect to the cluster and open the PowerShell prompt in administrator mode. Let us look at the **Restart-ServiceFabricNode** action.
 
 ```powershell
 Restart-ServiceFabricNode -NodeName Node1 -CompletionMode DoNotVerify
 ```
 
-Здесь действие **Restart-ServiceFabricNode** выполняется на узле с именем Node1. Режим завершения указывает, что не нужно проверять успешность выполнения действия по перезапуску узла. Указание для режима завершения значения Verify приведет к проверке успешности выполнения действия по перезапуску. Вместо того чтобы использовать имя узла, вы можете следующим образом указать узел с помощью ключа раздела и типа реплики:
+Here the action **Restart-ServiceFabricNode** is being run on a node named "Node1". The completion mode specifies that it should not verify whether the restart-node action actually succeeded. Specifying the completion mode as "Verify" will cause it to verify whether the restart action actually succeeded. Instead of directly specifying the node by its name, you can specify it via a partition key and the kind of replica, as follows:
 
 ```powershell
 Restart-ServiceFabricNode -ReplicaKindPrimary  -PartitionKindNamed -PartitionKey Partition3 -CompletionMode Verify
@@ -83,35 +84,36 @@ Connect-ServiceFabricCluster $connection
 Restart-ServiceFabricNode -NodeName $nodeName -CompletionMode DoNotVerify
 ```
 
-Действие **Restart-ServiceFabricNode** следует использовать для перезапуска узла Service Fabric в кластере. Это остановит процесс Fabric.exe, что приведет к перезапуску всей системной службы и реплик пользовательской службы, размещенных на этом узле. Использование этого интерфейса API для тестирования службы помогает обнаружить ошибки в путях восстановления при отработке отказа. Это позволяет имитировать ошибки узлов в кластере.
+**Restart-ServiceFabricNode** should be used to restart a Service Fabric node in a cluster. This will stop the Fabric.exe process, which will restart all of the system service and user service replicas hosted on that node. Using this API to test your service helps uncover bugs along the failover recovery paths. It helps simulate node failures in the cluster.
 
-На следующем снимке экрана приведена команда Testability **Restart-ServiceFabricNode** в действии.
+The following screenshot shows the **Restart-ServiceFabricNode** testability command in action.
 
 ![](media/service-fabric-testability-actions/Restart-ServiceFabricNode.png)
 
-Выходные данные первой команды **Get-ServiceFabricNode** (командлет из модуля Service Fabric PowerShell) показывают, что в локальном кластере есть пять узлов с именами от Node.1 до Node.5. После выполнения командлета **Restart-ServiceFabricNode** (действия, доступного благодаря Testability) на узле с именем Node.4 мы увидим, что время работы узла сброшено.
+The output of the first **Get-ServiceFabricNode** (a cmdlet from the Service Fabric PowerShell module) shows that the local cluster has five nodes: Node.1 to Node.5. After the testability action (cmdlet) **Restart-ServiceFabricNode** is executed on the node, named Node.4, we see that the node's uptime has been reset.
 
-### Выполнение действия для кластера Azure
+### <a name="run-an-action-against-an-azure-cluster"></a>Run an action against an Azure cluster
 
-Выполнение действия, доступного благодаря Testability, в кластере Azure с помощью PowerShell аналогично выполнению этого действия в локальном кластере. Единственная разница в том, что перед выполнением действия необходимо подключиться не к локальному кластеру, а к кластеру Azure.
+Running a testability action (by using PowerShell) against an Azure cluster is similar to running the action against a local cluster. The only difference is that before you can run the action, instead of connecting to the local cluster, you need to connect to the Azure cluster first.
 
-## Выполнение действия, доступного благодаря Testability, с помощью C&#35;
+## <a name="running-a-testability-action-using-c&#35;"></a>Running a testability action using C&#35;
 
-Чтобы выполнить такое действие с использованием языка C#, сначала необходимо подключиться к кластеру с помощью FabricClient. Затем следует получить параметры, необходимые для выполнения действия. Для выполнения одного действия можно использовать различные параметры. Один из способов выполнить действие RestartServiceFabricNode — используя сведения об узле (имя узла и идентификатор экземпляра узла) в кластере.
+To run a testability action by using C#, first you need to connect to the cluster by using FabricClient. Then obtain the parameters needed to run the action. Different parameters can be used to run the same action.
+Looking at the RestartServiceFabricNode action, one way to run it is by using the node information (node name and node instance ID) in the cluster.
 
 ```csharp
 RestartNodeAsync(nodeName, nodeInstanceId, completeMode, operationTimeout, CancellationToken.None)
 ```
 
-Описание параметров
+Parameter explanation:
 
-- **Режим завершения** указывает, что режиму не нужно проверять успешность выполнения действия по перезапуску. Указание для режима завершения значения Verify приведет к проверке успешности выполнения действия по перезапуску.
-- **OperationTimeout** задает количество времени для выполнения операции до создания исключения TimeoutException.
-- **CancellationToken** позволяет отменить ожидающий вызов.
+- **CompleteMode** specifies that the mode should not verify whether the restart action actually succeeded. Specifying the completion mode as "Verify" will cause it to verify whether the restart action actually succeeded.  
+- **OperationTimeout** sets the amount of time for the operation to finish before a TimeoutException exception is thrown.
+- **CancellationToken** enables a pending call to be canceled.
 
-Вместо того чтобы использовать имя узла, вы можете указать узел с помощью ключа раздела и типа реплики.
+Instead of directly specifying the node by its name, you can specify it via a partition key and the kind of replica.
 
-Дополнительные сведения: [PartitionSelector и ReplicaSelector](#partition_replica_selector).
+For further information, see [PartitionSelector and ReplicaSelector](#partition_replica_selector).
 
 
 ```csharp
@@ -180,12 +182,12 @@ class Test
 }
 ```
 
-## PartitionSelector и ReplicaSelector
+## <a name="partitionselector-and-replicaselector"></a>PartitionSelector and ReplicaSelector
 
-### PartitionSelector
-PartitionSelector — это вспомогательное средство, представленное в модуле Testability, позволяющее выбрать определенный раздел, который следует протестировать. Это приложение можно использовать для выбора определенного раздела, если вам заранее известен идентификатор раздела. Кроме того, можно указать ключ раздела, чтобы операция сопоставила идентификатор раздела внутренне. Кроме того, можно выбрать случайный раздел.
+### <a name="partitionselector"></a>PartitionSelector
+PartitionSelector is a helper exposed in testability and is used to select a specific partition on which to perform any of the testability actions. It can be used to select a specific partition if the partition ID is known beforehand. Or, you can provide the partition key and the operation will resolve the partition ID internally. You also have the option of selecting a random partition.
 
-Для использования этой возможности создайте объект PartitionSelector и выберите раздел с помощью одного из методов Select*, а затем передайте объект PartitionSelector в интерфейс API, которому он требуется. Если выбор не сделан, по умолчанию выбирается случайный раздел.
+To use this helper, create the PartitionSelector object and select the partition by using one of the Select* methods. Then pass in the PartitionSelector object to the API that requires it. If no option is selected, it defaults to a random partition.
 
 ```csharp
 Uri serviceName = new Uri("fabric:/samples/InMemoryToDoListApp/InMemoryToDoListService");
@@ -206,10 +208,10 @@ PartitionSelector namedPartitionSelector = PartitionSelector.PartitionKeyOf(serv
 PartitionSelector uniformIntPartitionSelector = PartitionSelector.PartitionKeyOf(serviceName, partitionKeyUniformInt64);
 ```
 
-### ReplicaSelector
-ReplicaSelector — это вспомогательное средство, представленное в модуле Testability, позволяющее выбрать реплику, которую следует протестировать. Это приложение можно использовать для выбора реплики, если вам заранее известен идентификатор реплики. Кроме того, вы можете выбрать первичную или случайную вторичную реплику. ReplicaSelector создается на основе объекта PartitionSelector, поэтому необходимо выбрать как реплику, так и раздел, в котором вы хотите выполнить операцию по тестированию.
+### <a name="replicaselector"></a>ReplicaSelector
+ReplicaSelector is a helper exposed in testability and is used to help select a replica on which to perform any of the testability actions. It can be used to select a specific replica if the replica ID is known beforehand. In addition, you have the option of selecting a primary replica or a random secondary. ReplicaSelector derives from PartitionSelector, so you need to select both the replica and the partition on which you wish to perform the testability operation.
 
-Для использования этого вспомогательного метода создайте объект ReplicaSelector и укажите способ выбора реплики и раздела. Затем этот объект можно передать в интерфейс API, которому он требуется. Если выбор не сделан, по умолчанию выбираются случайная реплика и случайный раздел.
+To use this helper, create a ReplicaSelector object and set the way you want to select the replica and the partition. You can then pass it into the API that requires it. If no option is selected, it defaults to a random replica and random partition.
 
 ```csharp
 Guid partitionIdGuid = new Guid("8fb7ebcc-56ee-4862-9cc0-7c6421e68829");
@@ -229,11 +231,15 @@ ReplicaSelector replicaByIdSelector = ReplicaSelector.ReplicaIdOf(partitionSelec
 ReplicaSelector secondaryReplicaSelector = ReplicaSelector.RandomSecondaryOf(partitionSelector);
 ```
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Next steps
 
-- [Сценарии Testability](service-fabric-testability-scenarios.md)
-- Тестирование службы
-   - [Моделирование ошибок во время рабочих нагрузок службы](service-fabric-testability-workload-tests.md)
-   - [Ошибки обмена данными между службами](service-fabric-testability-scenarios-service-communication.md)
+- [Testability scenarios](service-fabric-testability-scenarios.md)
+- How to test your service
+   - [Simulate failures during service workloads](service-fabric-testability-workload-tests.md)
+   - [Service-to-service communication failures](service-fabric-testability-scenarios-service-communication.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

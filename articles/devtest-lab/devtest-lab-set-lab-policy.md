@@ -1,140 +1,146 @@
 <properties
-	pageTitle="Определение политик лаборатории в Azure DevTest Labs | Microsoft Azure"
-	description="Узнайте, как определить политики лаборатории, такие как размеры виртуальных машин, максимальное количество виртуальных машин для каждого пользователя и автоматизация завершения работы."
-	services="devtest-lab,virtual-machines"
-	documentationCenter="na"
-	authors="tomarcher"
-	manager="douge"
-	editor=""/>
+    pageTitle="Define lab policies in Azure DevTest Labs| Microsoft Azure"
+    description="Learn how to define lab policies such as VM sizes, maximum VMs per user, and shutdown automation."
+    services="devtest-lab,virtual-machines"
+    documentationCenter="na"
+    authors="tomarcher"
+    manager="douge"
+    editor=""/>
 
 <tags
-	ms.service="devtest-lab"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/12/2016"
-	ms.author="tarcher"/>
+    ms.service="devtest-lab"
+    ms.workload="na"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/12/2016"
+    ms.author="tarcher"/>
 
-# Определение политик лаборатории в Azure DevTest Labs
+
+# <a name="define-lab-policies-in-azure-devtest-labs"></a>Define lab policies in Azure DevTest Labs
 
 > [AZURE.VIDEO how-to-set-vm-policies-in-a-devtest-lab]
 
-Azure DevTest Labs позволяет указать основные политики, которые помогают контролировать затраты и свести к минимуму излишние траты в лабораториях. Эти политики лаборатории могут определять максимальное число виртуальных машин, создаваемых на пользователя и лабораторию, и различные параметры автоматического завершения работы и автоматического запуска.
+Azure DevTest Labs enables you to specify key policies that help you to control cost and minimize waste in your labs. These lab policies include the maximum number of VMs created per user and per lab, and various auto-shutdown and auto-start options. 
 
-## Оценка политик лаборатории в Azure DevTest Labs
+## <a name="accessing-a-lab's-policies-in-azure-devtest-labs"></a>Accessing a lab's policies in Azure DevTest Labs
 
-Ниже приведены инструкции по настройке политик для лаборатории в Azure DevTest Labs.
+The following steps guide you through setting up policies for a lab in Azure DevTest Labs:
 
-Чтобы просмотреть (и изменить) политики для лаборатории, выполните следующее.
+To view (and change) the policies for a lab, follow these steps:
 
-1. Войдите на [портал Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Sign in to the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Щелкните **Другие службы**, а затем выберите в списке **DevTest Labs**.
+1. Select **More services**, and then select **DevTest Labs** from the list.
 
-1. Из списка лабораторий выберите нужную лабораторию.
+1. From the list of labs, select the desired lab.   
 
-1. Выберите **Параметры политики**.
+1. Select **Policy settings**.
 
-1. Колонка **Параметры политики** содержит меню параметров, которые можно задать.
+1. The **Policy settings** blade contains a menu of settings that you can specify: 
 
-	![Колонка "Параметры политики"](./media/devtest-lab-set-lab-policy/policies.png)
+    ![Policy settings blade](./media/devtest-lab-set-lab-policy/policies.png)
 
-	Чтобы узнать больше о настройке политики, выберите ее из следующего списка.
+    To learn more about setting a policy, select it from the following list:
 
-	- [Allowed virtual machine sizes](#set-allowed-virtual-machine-sizes) (Допустимые размеры виртуальных машин). Выберите список размеров виртуальных машин, допустимых в лаборатории. Пользователь может создавать виртуальные машины только из этого списка.
+    - [Allowed virtual machine sizes](#set-allowed-virtual-machine-sizes) - Select the list of VM sizes allowed in the lab. A user can create VMs only from this list.
 
-	- [Virtual machines per user](#set-virtual-machines-per-user) (Количество виртуальных машин на пользователя). Укажите максимальное число виртуальных машин, которые может создать пользователь.
+    - [Virtual machines per user](#set-virtual-machines-per-user) - Specify the maximum number of VMs that can be created by a user. 
 
-	- [Virtual machines per lab](#set-virtual-machines-per-lab) (Количество виртуальных машин на лабораторию). Укажите максимальное число виртуальных машин, которые можно создать для лаборатории.
+    - [Virtual machines per lab](#set-virtual-machines-per-lab) - Specify the maximum number of VMs that can be created for a lab. 
 
-	- [Auto-shutdown](#set-auto-shutdown) (Автоматическое завершение работы). Укажите время автоматического завершения работы виртуальных машин в текущей лаборатории.
+    - [Auto-shutdown](#set-auto-shutdown) - Specify the time when the current lab's VMs automatically shut down.
 
-	- [Auto-start](#set-auto-start) (Автоматический запуск). Укажите время автоматического запуска виртуальных машин в текущей лаборатории.
+    - [Auto-start](#set-auto-start) - Specify the time when the current lab's VMs automatically start up.
 
-## Настройка допустимых размеров виртуальных машин
+## <a name="set-allowed-virtual-machine-sizes"></a>Set allowed virtual machine sizes
 
-Политика для настройки допустимых размеров виртуальных машин помогает сократить издержки, позволяя указывать, какие размеры виртуальных машин допускаются в лаборатории. Если эта политика включена, для создания виртуальных машин можно использовать размеры виртуальных машин только из этого списка.
+The policy for setting the allowed VM sizes helps to minimize lab waste by enabling you to specify which VM sizes are allowed in the lab. If this policy is activated, only VM sizes from this list can be used to create VMs.
 
-1. В колонке лаборатории **Параметры политики** выберите **Allowed virtual machines sizes** (Допустимые размеры виртуальных машин).
+1. On the lab's **Policy settings** blade, select **Allowed virtual machines sizes**.
 
-	![Политика "Allowed virtual machines sizes" (Допустимые размеры виртуальных машин)](./media/devtest-lab-set-lab-policy/allowed-vm-sizes.png)
+    ![Allowed virtual machines sizes](./media/devtest-lab-set-lab-policy/allowed-vm-sizes.png)
  
-1. Щелкните **On** (Вкл.), чтобы включить эту политику, или **Off** (Выкл.), чтобы отключить ее.
+1. Select **On** to enable this policy, and **Off** to disable it.
 
-1. Если эта политика включена, выберите один или несколько размеров виртуальных машин, которые могут быть созданы в лаборатории.
+1. If you enable this policy, select one or more VM sizes that can be created in your lab.
 
-1. Щелкните **Сохранить**.
+1. Select **Save**.
 
-## Настройка количества виртуальных машин на пользователя
+## <a name="set-virtual-machines-per-user"></a>Set virtual machines per user
 
-Политика для **Virtual machines per user** (Количество виртуальных машин на пользователя) позволяет указать максимальное число виртуальных машин, которые может создать отдельный пользователь. Если пользователь пытается создать виртуальную машину в случае достижения ограничения для пользователя, то выводится сообщение об ошибке, информирующее о невозможности создания виртуальной машины.
+The policy for **Virtual machines per user** allows you to specify the maximum number of VMs that can be created by an individual user. If a user attempts to create a VM when the user limit has been met, an error message indicates that the VM cannot be created. 
 
-1. В колонке лаборатории **Параметры политики** выберите **Virtual machines per user** (Количество виртуальных машин на пользователя).
+1. On the lab's **Policy settings** blade, select **Virtual machines per user**.
 
-	![Политика "Virtual machines per user" (Количество виртуальных машин на пользователя)](./media/devtest-lab-set-lab-policy/max-vms-per-user.png)
+    ![Virtual machines per user](./media/devtest-lab-set-lab-policy/max-vms-per-user.png)
 
-1. Щелкните **On** (Вкл.), чтобы включить эту политику, или **Off** (Выкл.), чтобы отключить ее.
+1. Select **On** to enable this policy, and **Off** to disable it.
 
-1. Если вы включили эту политику, то введите максимальное количество виртуальных машин, которые может создать пользователь. При вводе недопустимого числа в пользовательском интерфейсе будет отображено максимально допустимое значение для данного поля.
+1. If you enable this policy, enter a numeric value indicating the maximum number of VMs that can be created by a user. If you enter a number that is not valid, the UI displays the maximum number allowed for this field.
 
-1. Щелкните **Сохранить**.
+1. Select **Save**.
 
-## Настройка количества виртуальных машин на лабораторию
+## <a name="set-virtual-machines-per-lab"></a>Set virtual machines per lab
 
-Политика для **Virtual machines per lab** (Количество виртуальных машин на лабораторию) позволяет указать максимальное число виртуальных машин, которые можно создать для текущей лаборатории. Если пользователь пытается создать виртуальную машину в случае достижения ограничения для лаборатории, то выводится сообщение об ошибке, информирующее о невозможности создания виртуальной машины.
+The policy for **Virtual machines per lab** allows you to specify the maximum number of VMs that can be created for the current lab. If a user attempts to create a VM when the lab limit has been met, an error message indicates that the VM cannot be created. 
 
-1. В колонке лаборатории **Параметры политики** выберите **Virtual machines per lab** (Количество виртуальных машин на лабораторию).
+1. On the lab's **Policy settings** blade, select **Virtual machines per lab**.
 
-	![Политика "Virtual machines per lab" (Количество виртуальных машин на лабораторию)](./media/devtest-lab-set-lab-policy/total-vms-allowed.png)
+    ![Virtual machines per lab](./media/devtest-lab-set-lab-policy/total-vms-allowed.png)
 
-1. Щелкните **On** (Вкл.), чтобы включить эту политику, или **Off** (Выкл.), чтобы отключить ее.
+1. Select **On** to enable this policy, and **Off** to disable it.
 
-1. Если вы включили эту политику, то введите максимальное количество виртуальных машин, которые можно создать для текущей лаборатории. При вводе недопустимого числа в пользовательском интерфейсе будет отображено максимально допустимое значение для данного поля.
+1. If you enable this policy, enter a numeric value indicating the maximum number of VMs that can be created for the current lab. If you enter a number that is not valid, the UI displays the maximum number allowed for this field.
 
-1. Щелкните **Сохранить**.
+1. Select **Save**.
 
-## Настройка автоматического завершения работы
+## <a name="set-auto-shutdown"></a>Set auto-shutdown
 
-Политика автоматического завершения работы помогает сократить издержки, позволяя указывать время выключения виртуальных машин в этой лаборатории.
+The auto-shutdown policy helps to minimize lab waste by allowing you to specify the time that this lab's VMs shut down.
 
-1. В колонке лаборатории **Параметры политики** выберите **Auto-shutdown** (Автоматическое завершение работы).
+1. On the lab's **Policy settings** blade, select **Auto-shutdown**.
 
-	![Политика "Auto-shutdown" (Автоматическое завершение работы)](./media/devtest-lab-set-lab-policy/auto-shutdown.png)
+    ![Auto-shutdown](./media/devtest-lab-set-lab-policy/auto-shutdown.png)
 
-1. Щелкните **On** (Вкл.), чтобы включить эту политику, или **Off** (Выкл.), чтобы отключить ее.
+1. Select **On** to enable this policy, and **Off** to disable it.
 
-1. Если эта политика включена, укажите местное время завершения работы всех виртуальных машин в текущей лаборатории.
+1. If you enable this policy, specify the local time to shut down all VMs in the current lab.
 
-1. Щелкните **Сохранить**.
+1. Select **Save**.
 
-1. По умолчанию после включения эта политика применяется ко всем виртуальным машинам в текущей лаборатории. Чтобы удалить этот параметр из конкретной виртуальной машины, откройте колонку виртуальной машины и измените значение параметра **Auto-shutdown** (Автоматическое завершение работы).
+1. By default, once enabled, this policy applies to all VMs in the current lab. To remove this setting from a specific VM, open the VM's blade and change its **Auto-shutdown** setting 
 
-## Настройка автоматического запуска
+## <a name="set-auto-start"></a>Set auto-start
 
-Политика автоматического запуска позволяет указать время запуска виртуальных машин в текущей среде.
+The auto-start policy allows you to specify when the VMs in the current lab should be started.  
 
-1. В колонке лаборатории **Параметры политики** выберите **Auto-start** (Автоматический запуск).
+1. On the lab's **Policy settings** blade, select **Auto-start**.
 
-	![Политика "Auto-start" (Автоматический запуск)](./media/devtest-lab-set-lab-policy/auto-start.png)
+    ![Auto-start](./media/devtest-lab-set-lab-policy/auto-start.png)
 
-1. Щелкните **On** (Вкл.), чтобы включить эту политику, или **Off** (Выкл.), чтобы отключить ее.
+1. Select **On** to enable this policy, and **Off** to disable it.
 
-1. Если вы включили эту политику, укажите местное время запланированного запуска и дни недели, к которым применяется это время.
+1. If you enable this policy, specify the local scheduled start time and the days of the week for which the time applies. 
 
-1. Щелкните **Сохранить**.
+1. Select **Save**.
 
-1. После включения эта политика не применяется автоматически к виртуальным машинам в текущей лаборатории. Чтобы применить этот параметр к конкретной виртуальной машине, откройте колонку виртуальной машины и измените значение параметра **Auto-start** (Автоматический запуск).
+1. Once enabled, this policy is not automatically applied to any VMs in the current lab. To apply this setting to a specific VM, open the VM's blade and change its **Auto-start** setting 
 
 [AZURE.INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Next steps
 
-После определения и применения различных параметров политики виртуальных машин для лаборатории можно выполнить следующие задачи.
+Once you've defined and applied the various VM policy settings for your lab, here are some things to try next:
 
-- В статье о **настройке управления затратами** демонстрируется, как использовать диаграмму [Помесячная тенденция изменения расчетной стоимости](./devtest-lab-configure-cost-management.md) для просмотра расчетной стоимости на данный момент для текущего месяца, а также прогнозируемой стоимости на конец месяца.
-- [Создание пользовательского образа](./devtest-lab-create-template.md). При создании виртуальной машины необходимо указать базовый образ виртуальной машины, который может представлять собой пользовательский образ или образ из Marketplace. В этой статье показано, как создать настраиваемый образ из VHD-файла.
-- [Настройка образов Marketplace](./devtest-lab-configure-marketplace-images.md). Azure DevTest Labs поддерживает создание виртуальных машин на основе образов Azure Marketplace. В этой статье показано, как определить, какие образы Azure Marketplace (если таковые имеются) можно использовать при создании виртуальных машин в лаборатории.
-- [Добавление виртуальной машины с артефактами в лабораторию](./devtest-lab-add-vm-with-artifacts.md). В этой статье рассказывается, как создать виртуальную машину из базового образа (пользовательского или из Marketplace) и работать с артефактами виртуальной машины.
+- [Configure cost management](./devtest-lab-configure-cost-management.md) - Illustrates how to use the **Monthly Estimated Cost Trend** chart  
+to view the current month's estimated cost-to-date and the projected end-of-month cost.
+- [Create custom image](./devtest-lab-create-template.md) - When you create a VM, you specify a base, which can be either a custom image or a Marketplace image. This article illustrates how to create a custom image from a VHD file.
+- [Configure Marketplace images](./devtest-lab-configure-marketplace-images.md) - Azure DevTest Labs supports creating VMs based on Azure Marketplace images. This article illustrates how to specify which, if any, Azure Marketplace images can be used when creating VMs in a lab.
+- [Create a VM in a lab](./devtest-lab-add-vm-with-artifacts.md) - Illustrates how to create a VM from a base image (either custom or Marketplace), and how to work with artifacts in your VM.
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,58 +1,61 @@
-## Настройка PowerShell для шаблонов диспетчера ресурсов
+## <a name="setting-up-powershell-for-resource-manager-templates"></a>Setting up PowerShell for Resource Manager templates
 
-Чтобы использовать Azure PowerShell с диспетчером ресурсов, необходимы правильные версии Windows PowerShell и Azure PowerShell.
+Before you can use Azure PowerShell with Resource Manager, you will need to have the right Windows PowerShell and Azure PowerShell versions.
 
-### Проверка версий PowerShell
+### <a name="verify-powershell-versions"></a>Verify PowerShell versions
 
-Убедитесь, что Windows PowerShell имеет версию 3.0 или 4.0. Чтобы узнать версию Windows PowerShell, введите в командной строке Windows PowerShell такую команду:
+Verify you have Windows PowerShell version 3.0 or 4.0. To find the version of Windows PowerShell, type this command at a Windows PowerShell command prompt.
 
-	$PSVersionTable
+    $PSVersionTable
 
-Появятся такие сведения:
+You will receive the following type of information:
 
-	Name                           Value
-	----                           -----
-	PSVersion                      3.0
-	WSManStackVersion              3.0
-	SerializationVersion           1.1.0.1
-	CLRVersion                     4.0.30319.18444
-	BuildVersion                   6.2.9200.16481
-	PSCompatibleVersions           {1.0, 2.0, 3.0}
-	PSRemotingProtocolVersion      2.2
+    Name                           Value
+    ----                           -----
+    PSVersion                      3.0
+    WSManStackVersion              3.0
+    SerializationVersion           1.1.0.1
+    CLRVersion                     4.0.30319.18444
+    BuildVersion                   6.2.9200.16481
+    PSCompatibleVersions           {1.0, 2.0, 3.0}
+    PSRemotingProtocolVersion      2.2
 
 
-Убедитесь, что в строке **PSVersion** указано значение 3.0 или 4.0. Если указано другое значение, см. статью [Windows Management Framework 3.0](http://www.microsoft.com/download/details.aspx?id=34595) или [Windows Management Framework 4.0](http://www.microsoft.com/download/details.aspx?id=40855).
+Verify that the value of **PSVersion** is 3.0 or 4.0. If not, see [Windows Management Framework 3.0](http://www.microsoft.com/download/details.aspx?id=34595) or [Windows Management Framework 4.0](http://www.microsoft.com/download/details.aspx?id=40855).
 
-### Настройка учетной записи и подписки Azure
+### <a name="set-your-azure-account-and-subscription"></a>Set your Azure account and subscription
 
-Если у вас нет подписки Azure, вы можете [активировать преимущества для подписчиков MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) или [зарегистрироваться в бесплатной пробной версии](https://azure.microsoft.com/pricing/free-trial/).
+If you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free trial](https://azure.microsoft.com/pricing/free-trial/).
 
-Откройте окно командной строки Azure PowerShell и войдите в систему Azure с помощью такой команды:
+Open an Azure PowerShell command prompt and log on to Azure with this command.
 
-	Login-AzureRmAccount
+    Login-AzureRmAccount
 
-Если у вас есть несколько подписок Azure, их список можно получить с помощью такой команды:
+If you have multiple Azure subscriptions, you can list your Azure subscriptions with this command.
 
-	Get-AzureRmSubscription
+    Get-AzureRmSubscription
 
-Появятся такие сведения:
+You will receive the following type of information:
 
-	SubscriptionId            : fd22919d-eaca-4f2b-841a-e4ac6770g92e
-	SubscriptionName          : Visual Studio Ultimate with MSDN
-	Environment               : AzureCloud
-	SupportedModes            : AzureServiceManagement,AzureResourceManager
-	DefaultAccount            : johndoe@contoso.com
-	Accounts                  : {johndoe@contoso.com}
-	IsDefault                 : True
-	IsCurrent                 : True
-	CurrentStorageAccountName :
-	TenantId                  : 32fa88b4-86f1-419f-93ab-2d7ce016dba7
+    SubscriptionId            : fd22919d-eaca-4f2b-841a-e4ac6770g92e
+    SubscriptionName          : Visual Studio Ultimate with MSDN
+    Environment               : AzureCloud
+    SupportedModes            : AzureServiceManagement,AzureResourceManager
+    DefaultAccount            : johndoe@contoso.com
+    Accounts                  : {johndoe@contoso.com}
+    IsDefault                 : True
+    IsCurrent                 : True
+    CurrentStorageAccountName :
+    TenantId                  : 32fa88b4-86f1-419f-93ab-2d7ce016dba7
 
-Укажите текущую подписку Azure, выполнив в командной строке Azure PowerShell такие команды: Замените все содержимое внутри кавычек, включая символы < and >, правильным именем.
+You can set the current Azure subscription by running these commands at the Azure PowerShell command prompt. Replace everything within the quotes, including the < and > characters, with the correct name.
 
-	$subscr="<SubscriptionName from the display of Get-AzureRmSubscription>"
-	Select-AzureRmSubscription -SubscriptionName $subscr -Current
+    $subscr="<SubscriptionName from the display of Get-AzureRmSubscription>"
+    Select-AzureRmSubscription -SubscriptionName $subscr -Current
 
-Дополнительные сведения о подписках и учетных записях Azure см. в разделе [Подключение к подписке](powershell-install-configure.md#Connect).
+For more information about Azure subscriptions and accounts, see [How to: Connect to your subscription](powershell-install-configure.md#Connect).
 
-<!---HONumber=AcomDC_0128_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

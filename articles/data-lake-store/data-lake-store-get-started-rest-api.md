@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Начало работы с хранилищем озера данных Azure с помощью интерфейсов REST API| Microsoft Azure" 
-   description="Использование интерфейсов REST API WebHDFS для выполнения операций в хранилище озера данных" 
+   pageTitle="Get started with Data Lake Store using REST API| Microsoft Azure" 
+   description="Use WebHDFS REST APIs to perform operations on Data Lake Store" 
    services="data-lake-store" 
    documentationCenter="" 
    authors="nitinme" 
@@ -16,254 +16,259 @@
    ms.date="09/27/2016"
    ms.author="nitinme"/>
 
-# Начало работы с хранилищем озера данных Azure с помощью интерфейсов REST API
+
+# <a name="get-started-with-azure-data-lake-store-using-rest-apis"></a>Get started with Azure Data Lake Store using REST APIs
 
 > [AZURE.SELECTOR]
-- [Портал](data-lake-store-get-started-portal.md)
+- [Portal](data-lake-store-get-started-portal.md)
 - [PowerShell](data-lake-store-get-started-powershell.md)
-- [Пакет SDK для .NET](data-lake-store-get-started-net-sdk.md)
-- [Пакет SDK для Java](data-lake-store-get-started-java-sdk.md)
-- [ИНТЕРФЕЙС REST API](data-lake-store-get-started-rest-api.md)
-- [Интерфейс командной строки Azure](data-lake-store-get-started-cli.md)
+- [.NET SDK](data-lake-store-get-started-net-sdk.md)
+- [Java SDK](data-lake-store-get-started-java-sdk.md)
+- [REST API](data-lake-store-get-started-rest-api.md)
+- [Azure CLI](data-lake-store-get-started-cli.md)
 - [Node.js](data-lake-store-manage-use-nodejs.md)
 
-В этой статье содержатся сведения об использовании интерфейсов REST API WebHDFS и REST API хранилища озера данных для управления учетными записями, а также для выполнения операций файловой системы в хранилище озера данных Azure. Хранилище озера данных располагает собственными интерфейсами REST API для операций управления учетными записями. Однако поскольку хранилище озера данных совместимо с экосистемой HDFS и Hadoop, оно поддерживает использование интерфейсов REST AP WebHDFS для выполнения операций файловой системы.
+In this article, you will learn how to use WebHDFS REST APIs and Data Lake Store REST APIs to perform account management as well as filesystem operations on Azure Data Lake Store. Azure Data Lake Store exposes its own REST APIs for account management operations. However, because Data Lake Store is compatible with HDFS and Hadoop ecosystem, it supports using WebHDFS REST APIs for filesystem operations.
 
->[AZURE.NOTE] Подробные сведения о поддержке REST API для хранилища озера данных см. в [справочнике по REST API хранилища озера данных Azure](https://msdn.microsoft.com/library/mt693424.aspx).
+>[AZURE.NOTE] For detailed information on the REST API support for Data Lake Store, see [Azure Data Lake Store REST API Reference](https://msdn.microsoft.com/library/mt693424.aspx).
 
-## Предварительные требования
+## <a name="prerequisites"></a>Prerequisites
 
-- **Подписка Azure.**. См. [Бесплатная пробная версия Azure](https://azure.microsoft.com/pricing/free-trial/).
+- **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 
-- **Создание приложения Azure Active Directory**. Это приложение будет использоваться для проверки подлинности приложения Data Lake Store в Azure AD. Существуют разные способы проверки подлинности приложения с помощью Azure AD: **проверка подлинности пользователя** или **проверка подлинности со взаимодействием между службами**. Инструкции и дополнительные сведения о проверке подлинности см. в статье [Authenticate with Data Lake Store using Azure Active Directory](data-lake-store-authenticate-using-active-directory.md) (Проверка подлинности приложений Data Lake Store с помощью Azure Active Directory).
+- **Create an Azure Active Directory Application**. You use the Azure AD application to authenticate the Data Lake Store application with Azure AD. There are different approaches to authenticate with Azure AD, which are **end-user authentication** or **service-to-service authentication**. For instructions and more information on how to authenticate, see [Authenticate with Data Lake Store using Azure Active Directory](data-lake-store-authenticate-using-active-directory.md).
 
-- [cURL](http://curl.haxx.se/). В этой статье для демонстрации вызовов REST API к учетной записи хранения озера данных используется cURL.
+- [cURL](http://curl.haxx.se/). This article uses cURL to demonstrate how to make REST API calls against a Data Lake Store account.
 
-## Как выполнить аутентификацию с помощью Azure Active Directory?
+## <a name="how-do-i-authenticate-using-azure-active-directory?"></a>How do I authenticate using Azure Active Directory?
 
-Существует два способа проверки подлинности с помощью Azure Active Directory.
+You can use two approaches to authenticate using Azure Active Directory.
 
-### Проверка подлинности пользователя (интерактивная)
+### <a name="end-user-authentication-(interactive)"></a>End-user authentication (interactive)
 
-В этом сценарии приложение предлагает пользователю войти в систему, и все операции выполняются в контексте пользователя. Выполните следующие действия для использования интерактивной аутентификации.
+In this scenario, the application prompts the user to log in and all the operations are performed in the context of the user. Perform the following steps for interactive authentication.
 
-1. В приложении перенаправьте пользователя на следующий URL-адрес.
+1. Through your application, redirect the user to the following URL:
 
-		https://login.microsoftonline.com/<TENANT-ID>/oauth2/authorize?client_id=<CLIENT-ID>&response_type=code&redirect_uri=<REDIRECT-URI>
+        https://login.microsoftonline.com/<TENANT-ID>/oauth2/authorize?client_id=<CLIENT-ID>&response_type=code&redirect_uri=<REDIRECT-URI>
 
-	>[AZURE.NOTE] \<REDIRECT-URI> должен быть закодирован для использования в URL-адресе. То есть для https://localhost используйте `https%3A%2F%2Flocalhost`.
+    >[AZURE.NOTE] \<REDIRECT-URI> needs to be encoded for use in a URL. So, for https://localhost, use `https%3A%2F%2Flocalhost`)
 
-	В целях обучения можно заменить значения заполнителей в URL-адресе выше и вставить его в адресную строку веб-браузера. Вы перейдете на страницу аутентификации с помощью учетной записи Azure. После входа в систему вы увидите ответ в адресной строке браузера. Ответ имеет следующий формат.
-		
-		http://localhost/?code=<AUTHORIZATION-CODE>&session_state=<GUID>
+    For the purpose of this tutorial, you can replace the placeholder values in the URL above and paste it in a web browser's address bar. You will be redirected to authenticate using your Azure login. Once you succesfully log in, the response is displayed in the browser's address bar. The response will be in the following format:
+        
+        http://localhost/?code=<AUTHORIZATION-CODE>&session_state=<GUID>
 
-2. Запишите код авторизации из ответа. В этом учебнике вы можете скопировать код авторизации из адресной строки веб-браузера и передать его в запрос POST к конечной точке маркера, как показано ниже.
+2. Capture the authorization code from the response. For this tutorial, you can copy the authorization code from the address bar of the web browser and pass it in the POST request to the token endpoint, as shown below:
 
-		curl -X POST https://login.microsoftonline.com/<TENANT-ID>/oauth2/token \
+        curl -X POST https://login.microsoftonline.com/<TENANT-ID>/oauth2/token \
         -F redirect_uri=<REDIRECT-URI> \
         -F grant_type=authorization_code \
         -F resource=https://management.core.windows.net/ \
         -F client_id=<CLIENT-ID> \
         -F code=<AUTHORIZATION-CODE>
 
-	>[AZURE.NOTE] В этом случае кодировать \<REDIRECT-URI> не нужно.
+    >[AZURE.NOTE] In this case, the \<REDIRECT-URI> need not be encoded.
 
-3. Ответ является объектом JSON, содержащим маркер доступа (например, `"access_token": "<ACCESS_TOKEN>"`) и маркер обновления (например, `"refresh_token": "<REFRESH_TOKEN>"`). Приложение использует маркер доступа для обращения к хранилищу озера данных Azure, а маркер обновления — для получения другого маркера доступа, когда срок действия текущего маркера доступа истечет.
+3. The response is a JSON object that contains an access token (e.g., `"access_token": "<ACCESS_TOKEN>"`) and a refresh token (e.g., `"refresh_token": "<REFRESH_TOKEN>"`). Your application uses the access token when accessing Azure Data Lake Store and the refresh token to get another access token when an access token expires.
 
-		{"token_type":"Bearer","scope":"user_impersonation","expires_in":"3599","expires_on":"1461865782","not_before":	"1461861882","resource":"https://management.core.windows.net/","access_token":"<REDACTED>","refresh_token":"<REDACTED>","id_token":"<REDACTED>"}
+        {"token_type":"Bearer","scope":"user_impersonation","expires_in":"3599","expires_on":"1461865782","not_before": "1461861882","resource":"https://management.core.windows.net/","access_token":"<REDACTED>","refresh_token":"<REDACTED>","id_token":"<REDACTED>"}
 
-4.  По истечении срока действия маркера доступа можно запросить новый маркер доступа, используя маркер обновления, как показано ниже.
+4.  When the access token expires, you can request a new access token using the refresh token, as shown below:
 
-		 curl -X POST https://login.microsoftonline.com/<TENANT-ID>/oauth2/token  \
-      		-F grant_type=refresh_token \
-      		-F resource=https://management.core.windows.net/ \
-      		-F client_id=<CLIENT-ID> \
-      		-F refresh_token=<REFRESH-TOKEN>
+         curl -X POST https://login.microsoftonline.com/<TENANT-ID>/oauth2/token  \
+            -F grant_type=refresh_token \
+            -F resource=https://management.core.windows.net/ \
+            -F client_id=<CLIENT-ID> \
+            -F refresh_token=<REFRESH-TOKEN>
  
-Дополнительные сведения об интерактивной проверке подлинности пользователей см. в статье [Авторизация доступа к веб-приложениям с помощью OAuth 2.0 и Azure Active Directory](https://msdn.microsoft.com/library/azure/dn645542.aspx).
+For more information on interactive user authentication, see [Authorization code grant flow](https://msdn.microsoft.com/library/azure/dn645542.aspx).
 
-### Проверка подлинности с взаимодействием между службами (неинтерактивная)
+### <a name="service-to-service-authentication-(non-interactive)"></a>Service-to-service authentication (non-interactive)
 
-В этом сценарии приложение предоставляет свои собственные учетные данные для выполнения операций. Для этого необходимо отправить запрос POST, аналогичный показанному ниже.
+In this scenario, the the application provides its own credentials to perform the operations. For this, you must issue a POST request like the one shown below. 
 
-	curl -X POST https://login.microsoftonline.com/<TENANT-ID>/oauth2/token  \
+    curl -X POST https://login.microsoftonline.com/<TENANT-ID>/oauth2/token  \
       -F grant_type=client_credentials \
       -F resource=https://management.core.windows.net/ \
       -F client_id=<CLIENT-ID> \
       -F client_secret=<AUTH-KEY>
 
-Выходные данные этого запроса будут содержать маркер авторизации (обозначен `access-token` в приведенных ниже выходных данных) для дальнейшей передачи в вызовах REST API. Сохраните этот маркер в текстовый файл. Он потребуется в данной статье позднее.
+The output of this request will include an authorization token (denoted by `access-token` in the output below) that you will subsequently pass with your REST API calls. Save this authentication token in a text file; you will need this later in this article.
 
-	{"token_type":"Bearer","expires_in":"3599","expires_on":"1458245447","not_before":"1458241547","resource":"https://management.core.windows.net/","access_token":"<REDACTED>"}
+    {"token_type":"Bearer","expires_in":"3599","expires_on":"1458245447","not_before":"1458241547","resource":"https://management.core.windows.net/","access_token":"<REDACTED>"}
 
-В этой статье используется **неинтерактивный** подход. Дополнительные сведения о неинтерактивном подходе (вызовы между службами) см. в [этой статье](https://msdn.microsoft.com/library/azure/dn645543.aspx).
+This article uses the **non-interactive** approach. For more information on non-interactive (service-to-service calls), see [Service to service calls using credentials](https://msdn.microsoft.com/library/azure/dn645543.aspx).
 
-## Создание учетной записи хранения озера данных
+## <a name="create-a-data-lake-store-account"></a>Create a Data Lake Store account
 
-Эта операция основана на вызове REST API, определенном [здесь](https://msdn.microsoft.com/library/mt694078.aspx).
+This operation is based on the REST API call defined [here](https://msdn.microsoft.com/library/mt694078.aspx).
 
-Используйте следующую команду cURL: Замените **<yourstorename>** именем своего хранилища Data Lake Store.
+Use the following cURL command. Replace **\<yourstorename>** with your Data Lake Store name.
 
-	curl -i -X PUT -H "Authorization: Bearer <REDACTED>" -H "Content-Type: application/json" https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.DataLakeStore/accounts/<yourstorename>?api-version=2015-10-01-preview -d@"C:\temp\input.json"
+    curl -i -X PUT -H "Authorization: Bearer <REDACTED>" -H "Content-Type: application/json" https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.DataLakeStore/accounts/<yourstorename>?api-version=2015-10-01-preview -d@"C:\temp\input.json"
 
-В приведенной выше команде замените <`REDACTED`> полученным ранее маркером авторизации. Полезные данные запроса для этой команды находятся в файле **input.json**, предоставленном для параметра `-d` выше. Содержимое файла input.json выглядит следующим образом:
+In the above command, replace \<`REDACTED`\> with the authorization token you retrieved earlier. The request payload for this command is contained in the **input.json** file that is provided for the `-d` parameter above. The contents of the input.json file resemble the following:
 
-	{
-	"location": "eastus2",
-	"tags": {
-		"department": "finance"
-		},
-	"properties": {}
-	}	
+    {
+    "location": "eastus2",
+    "tags": {
+        "department": "finance"
+        },
+    "properties": {}
+    }   
 
-## Создание папок в учетной записи хранения озера данных
+## <a name="create-folders-in-a-data-lake-store-account"></a>Create folders in a Data Lake Store account
 
-Эта операция основана на вызове REST API WebHDFS, определенном [здесь](http://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#Make_a_Directory).
+This operation is based on the WebHDFS REST API call defined [here](http://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#Make_a_Directory).
 
-Используйте следующую команду cURL: Замените **<yourstorename>** именем своего хранилища Data Lake Store.
+Use the following cURL command. Replace **\<yourstorename>** with your Data Lake Store name.
 
-	curl -i -X PUT -H "Authorization: Bearer <REDACTED>" -d "" https://<yourstorename>.azuredatalakestore.net/webhdfs/v1/mytempdir/?op=MKDIRS
+    curl -i -X PUT -H "Authorization: Bearer <REDACTED>" -d "" https://<yourstorename>.azuredatalakestore.net/webhdfs/v1/mytempdir/?op=MKDIRS
 
-В приведенной выше команде замените <`REDACTED`> полученным ранее маркером авторизации. Эта команда создает каталог с именем **mytempdir** в корневой папке учетной записи Data Lake Store.
+In the above command, replace \<`REDACTED`\> with the authorization token you retrieved earlier. This command creates a directory called **mytempdir** under the root folder of your Data Lake Store account.
 
-В случае успешного завершения операции будет отображен примерно следующий ответ:
+You should see a response like this if the operation completes successfully:
 
-	{"boolean":true}
+    {"boolean":true}
 
-## Вывод списка папок в учетной записи хранения озера данных
+## <a name="list-folders-in-a-data-lake-store-account"></a>List folders in a Data Lake Store account
 
-Эта операция основана на вызове REST API WebHDFS, определенном [здесь](http://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#List_a_Directory).
+This operation is based on the WebHDFS REST API call defined [here](http://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#List_a_Directory).
 
-Используйте следующую команду cURL: Замените **<yourstorename>** именем своего хранилища Data Lake Store.
+Use the following cURL command. Replace **\<yourstorename>** with your Data Lake Store name.
 
-	curl -i -X GET -H "Authorization: Bearer <REDACTED>" https://<yourstorename>.azuredatalakestore.net/webhdfs/v1/?op=LISTSTATUS
+    curl -i -X GET -H "Authorization: Bearer <REDACTED>" https://<yourstorename>.azuredatalakestore.net/webhdfs/v1/?op=LISTSTATUS
 
-В приведенной выше команде замените <`REDACTED`> полученным ранее маркером авторизации.
+In the above command, replace \<`REDACTED`\> with the authorization token you retrieved earlier.
 
-В случае успешного завершения операции будет отображен примерно следующий ответ:
+You should see a response like this if the operation completes successfully:
 
-	{
-	"FileStatuses": {
-		"FileStatus": [{
-			"length": 0,
-			"pathSuffix": "mytempdir",
-			"type": "DIRECTORY",
-			"blockSize": 268435456,
-			"accessTime": 1458324719512,
-			"modificationTime": 1458324719512,
-			"replication": 0,
-			"permission": "777",
-			"owner": "NotSupportYet",
-			"group": "NotSupportYet"
-		}]
-	}
-	}
+    {
+    "FileStatuses": {
+        "FileStatus": [{
+            "length": 0,
+            "pathSuffix": "mytempdir",
+            "type": "DIRECTORY",
+            "blockSize": 268435456,
+            "accessTime": 1458324719512,
+            "modificationTime": 1458324719512,
+            "replication": 0,
+            "permission": "777",
+            "owner": "NotSupportYet",
+            "group": "NotSupportYet"
+        }]
+    }
+    }
 
-## Отправка данных в учетную запись хранения озера данных Azure
+## <a name="upload-data-into-a-data-lake-store-account"></a>Upload data into a Data Lake Store account
 
-Эта операция основана на вызове REST API WebHDFS, определенном [здесь](http://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#Create_and_Write_to_a_File).
+This operation is based on the WebHDFS REST API call defined [here](http://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#Create_and_Write_to_a_File).
 
-Процесс отправки данных с помощью REST API WebHDFS состоит из двух этапов, как описано ниже.
+Uploading data using the WebHDFS REST API is a two-step process, as explained below.
 
-1. Отправьте запрос HTTP PUT, не высылая нужные данные файла. В следующей команде замените **<yourstorename>** именем своего хранилища Data Lake Store.
+1. Submit a HTTP PUT request without sending the file data to be uploaded. In the following command, replace **\<yourstorename>** with your Data Lake Store name.
 
-		curl -i -X PUT -H "Authorization: Bearer <REDACTED>" -d "" https://<yourstorename>.azuredatalakestore.net/webhdfs/v1/mytempdir/?op=CREATE
+        curl -i -X PUT -H "Authorization: Bearer <REDACTED>" -d "" https://<yourstorename>.azuredatalakestore.net/webhdfs/v1/mytempdir/?op=CREATE
 
-	Выходные данные этой команды будут содержать временный URL-адрес перенаправления, аналогичный показанному ниже.
+    The output for this command will be contain a temporary redirect URL, like the one shown below.
 
-		HTTP/1.1 100 Continue
+        HTTP/1.1 100 Continue
 
-		HTTP/1.1 307 Temporary Redirect
-		...
-		...
-		Location: https://<yourstorename>.azuredatalakestore.net/webhdfs/v1/mytempdir/somerandomfile.txt?op=CREATE&write=true
-		...
-		...
+        HTTP/1.1 307 Temporary Redirect
+        ...
+        ...
+        Location: https://<yourstorename>.azuredatalakestore.net/webhdfs/v1/mytempdir/somerandomfile.txt?op=CREATE&write=true
+        ...
+        ...
 
-2. Теперь необходимо отправить другой HTTP-запрос PUT по URL-адресу, указанному для свойства **Расположение** в ответе. Замените **<yourstorename>** именем своего хранилища Data Lake Store.
+2. You must now submit another HTTP PUT request against the URL listed for the **Location** property in the response. Replace **\<yourstorename>** with your Data Lake Store name.
 
-		curl -i -X PUT -T myinputfile.txt -H "Authorization: Bearer <REDACTED>" https://<yourstorename>.azuredatalakestore.net/webhdfs/v1/mytempdir/myinputfile.txt?op=CREATE&write=true
+        curl -i -X PUT -T myinputfile.txt -H "Authorization: Bearer <REDACTED>" https://<yourstorename>.azuredatalakestore.net/webhdfs/v1/mytempdir/myinputfile.txt?op=CREATE&write=true
 
-	Результат будет выглядеть примерно так:
+    The output will be similar to the following:
 
-		HTTP/1.1 100 Continue
+        HTTP/1.1 100 Continue
 
-		HTTP/1.1 201 Created
-		...
-		...
+        HTTP/1.1 201 Created
+        ...
+        ...
 
-## Чтение данных из учетной записи хранения озера данных
+## <a name="read-data-from-a-data-lake-store-account"></a>Read data from a Data Lake Store account
 
-Эта операция основана на вызове REST API WebHDFS, определенном [здесь](http://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#Open_and_Read_a_File).
+This operation is based on the WebHDFS REST API call defined [here](http://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#Open_and_Read_a_File).
 
-Процесс чтения данных из учетной записи хранения озера данных состоит из двух этапов.
+Reading data from a Data Lake Store account is a two-step process.
 
-* Сначала следует отправить запрос GET к конечной точке `https://<yourstorename>.azuredatalakestore.net/webhdfs/v1/mytempdir/myinputfile.txt?op=OPEN`. Будет возвращено расположение для отправки следующего запроса GET.
-* Затем нужно отправить запрос GET к конечной точке `https://<yourstorename>.azuredatalakestore.net/webhdfs/v1/mytempdir/myinputfile.txt?op=OPEN&read=true`. Будет отображено содержимое файла.
+* You first submit a GET request against the endpoint `https://<yourstorename>.azuredatalakestore.net/webhdfs/v1/mytempdir/myinputfile.txt?op=OPEN`. This will return a location to submit the next GET request to.
+* You then submit the GET request against the endpoint `https://<yourstorename>.azuredatalakestore.net/webhdfs/v1/mytempdir/myinputfile.txt?op=OPEN&read=true`. This will display the contents of the file.
 
-Однако поскольку на первом и втором этапе применяются одинаковые входные параметры, для отправки первого запроса можно использовать параметр `-L`. Параметр `-L` фактически объединяет два запроса в один, а также позволяет cURL повторно отправить запрос к новому расположению. И, наконец, отображаются выходные данные всех вызовов запросов, как показано ниже. Замените **<yourstorename>** именем своего хранилища Data Lake Store.
+However, because there is no difference in the input parameters between the first and the second step, you can use the `-L` parameter to submit the first request. `-L` option essentially combines two requests into one and will make cURL redo the request on the new location. Finally, the output from all the request calls is displayed, like shown below. Replace **\<yourstorename>** with your Data Lake Store name.
 
-	curl -i -L GET -H "Authorization: Bearer <REDACTED>" https://<yourstorename>.azuredatalakestore.net/webhdfs/v1/mytempdir/myinputfile.txt?op=OPEN
+    curl -i -L GET -H "Authorization: Bearer <REDACTED>" https://<yourstorename>.azuredatalakestore.net/webhdfs/v1/mytempdir/myinputfile.txt?op=OPEN
 
-Должен отобразиться результат, аналогичный приведенному ниже:
+You should see an output similar to the following:
 
-	HTTP/1.1 307 Temporary Redirect
-	...
-	Location: https://<yourstorename>.azuredatalakestore.net/webhdfs/v1/mytempdir/somerandomfile.txt?op=OPEN&read=true
-	...
-	
-	HTTP/1.1 200 OK
-	...
-	
-	Hello, Data Lake Store user!
+    HTTP/1.1 307 Temporary Redirect
+    ...
+    Location: https://<yourstorename>.azuredatalakestore.net/webhdfs/v1/mytempdir/somerandomfile.txt?op=OPEN&read=true
+    ...
+    
+    HTTP/1.1 200 OK
+    ...
+    
+    Hello, Data Lake Store user!
 
-## Переименование файла в учетной записи хранения озера данных
+## <a name="rename-a-file-in-a-data-lake-store-account"></a>Rename a file in a Data Lake Store account
 
-Эта операция основана на вызове REST API WebHDFS, определенном [здесь](http://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#Rename_a_FileDirectory).
+This operation is based on the WebHDFS REST API call defined [here](http://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#Rename_a_FileDirectory).
 
-Чтобы переименовать файл, используйте следующую команду cURL: Замените **<yourstorename>** именем своего хранилища Data Lake Store.
+Use the following cURL command to rename a file. Replace **\<yourstorename>** with your Data Lake Store name.
 
-	curl -i -X PUT -H "Authorization: Bearer <REDACTED>" -d "" https://<yourstorename>.azuredatalakestore.net/webhdfs/v1/mytempdir/myinputfile.txt?op=RENAME&destination=/mytempdir/myinputfile1.txt
+    curl -i -X PUT -H "Authorization: Bearer <REDACTED>" -d "" https://<yourstorename>.azuredatalakestore.net/webhdfs/v1/mytempdir/myinputfile.txt?op=RENAME&destination=/mytempdir/myinputfile1.txt
 
-Должен отобразиться результат, аналогичный приведенному ниже:
+You should see an output similar to the following:
 
-	HTTP/1.1 200 OK
-	...
-	
-	{"boolean":true}
+    HTTP/1.1 200 OK
+    ...
+    
+    {"boolean":true}
 
-## Удаление файла из учетной записи хранения озера данных
+## <a name="delete-a-file-from-a-data-lake-store-account"></a>Delete a file from a Data Lake Store account
 
-Эта операция основана на вызове REST API WebHDFS, определенном [здесь](http://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#Delete_a_FileDirectory).
+This operation is based on the WebHDFS REST API call defined [here](http://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#Delete_a_FileDirectory).
 
-Чтобы удалить файл, используйте следующую команду cURL: Замените **<yourstorename>** именем своего хранилища Data Lake Store.
+Use the following cURL command to delete a file. Replace **\<yourstorename>** with your Data Lake Store name.
 
-	curl -i -X DELETE -H "Authorization: Bearer <REDACTED>" https://<yourstorename>.azuredatalakestore.net/webhdfs/v1/mytempdir/myinputfile1.txt?op=DELETE
+    curl -i -X DELETE -H "Authorization: Bearer <REDACTED>" https://<yourstorename>.azuredatalakestore.net/webhdfs/v1/mytempdir/myinputfile1.txt?op=DELETE
 
-Вы должны увидеть подобные выходные данные:
+You should see an output like the following:
 
-	HTTP/1.1 200 OK
-	...
-	
-	{"boolean":true}
+    HTTP/1.1 200 OK
+    ...
+    
+    {"boolean":true}
 
-## Удаление учетной записи хранения озера данных
+## <a name="delete-a-data-lake-store-account"></a>Delete a Data Lake Store account
 
-Эта операция основана на вызове REST API, определенном [здесь](https://msdn.microsoft.com/library/mt694075.aspx).
+This operation is based on the REST API call defined [here](https://msdn.microsoft.com/library/mt694075.aspx).
 
-Чтобы удалить учетную запись хранилища озера данных, используйте следующую команду cURL: Замените **<yourstorename>** именем своего хранилища Data Lake Store.
+Use the following cURL command to delete a Data Lake Store account. Replace **\<yourstorename>** with your Data Lake Store name.
 
-	curl -i -X DELETE -H "Authorization: Bearer <REDACTED>" https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.DataLakeStore/accounts/<yourstorename>?api-version=2015-10-01-preview
+    curl -i -X DELETE -H "Authorization: Bearer <REDACTED>" https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.DataLakeStore/accounts/<yourstorename>?api-version=2015-10-01-preview
 
-Вы должны увидеть подобные выходные данные:
+You should see an output like the following:
 
-	HTTP/1.1 200 OK
-	...
-	...
+    HTTP/1.1 200 OK
+    ...
+    ...
 
-## Дополнительные материалы
+## <a name="see-also"></a>See also
 
-- [Приложения больших данных с открытым исходным кодом, которые работают с хранилищем озера данных Azure](data-lake-store-compatible-oss-other-applications.md)
+- [Open Source Big Data applications compatible with Azure Data Lake Store](data-lake-store-compatible-oss-other-applications.md)
  
 
-<!---HONumber=AcomDC_1005_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

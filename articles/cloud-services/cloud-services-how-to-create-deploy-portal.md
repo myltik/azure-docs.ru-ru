@@ -1,119 +1,126 @@
 <properties
-	pageTitle="Создание и развертывание облачной службы | Microsoft Azure"
-	description="Узнайте, как создать и развернуть облачную службу с помощью портала Azure."
-	services="cloud-services"
-	documentationCenter=""
-	authors="Thraka"
-	manager="timlt"
-	editor=""/>
+    pageTitle="How to create and deploy a cloud service | Microsoft Azure"
+    description="Learn how to create and deploy a cloud service using the Azure portal."
+    services="cloud-services"
+    documentationCenter=""
+    authors="Thraka"
+    manager="timlt"
+    editor=""/>
 
 <tags
-	ms.service="cloud-services"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/05/2016"
-	ms.author="adegeo"/>
+    ms.service="cloud-services"
+    ms.workload="tbd"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/11/2016"
+    ms.author="adegeo"/>
 
 
 
 
-# Создание и развертывание облачной службы
+
+# <a name="how-to-create-and-deploy-a-cloud-service"></a>How to create and deploy a cloud service
 
 > [AZURE.SELECTOR]
-- [Портал Azure](cloud-services-how-to-create-deploy-portal.md)
-- [Классический портал Azure](cloud-services-how-to-create-deploy.md)
+- [Azure portal](cloud-services-how-to-create-deploy-portal.md)
+- [Azure classic portal](cloud-services-how-to-create-deploy.md)
 
-Портал Azure предоставляет два способа создания и развертывания облачной службы: *быстрое создание* и *настраиваемое создание*.
+The Azure portal provides two ways for you to create and deploy a cloud service: *Quick Create* and *Custom Create*.
 
-В этой статье описывается быстрое создание облачной службы с последующим развертыванием соответствующего ей пакета в Azure с помощью функции **Отправка**. При выборе этого способа на портале Azure отображаются все необходимые для работы ссылки. Чтобы одновременно выполнить развертывание создаваемой облачной службы, воспользуйтесь функцией Настраиваемое создание.
+This article explains how to use the Quick Create method to create a new cloud service and then use **Upload** to upload and deploy a cloud service package in Azure. When you use this method, the Azure portal makes available convenient links for completing all requirements as you go. If you're ready to deploy your cloud service when you create it, you can do both at the same time using Custom Create.
 
-> [AZURE.NOTE] Если вы планируете опубликовать облачную службу из Visual Studio Team Services (VSTS), воспользуйтесь функцией «Быстрое создание», а затем настройте публикацию VSTS на странице «Быстрый запуск» Azure или на панели мониторинга. Дополнительные сведения см. в разделе [Непрерывная доставка в Azure с использованием Visual Studio Team Service][TFSTutorialForCloudService], а также в справке для страницы **Быстрый запуск**.
+> [AZURE.NOTE] If you plan to publish your cloud service from Visual Studio Team Services (VSTS), use Quick Create, and then set up VSTS publishing from the Azure Quickstart or the dashboard. For more information, see [Continuous Delivery to Azure by Using Visual Studio Team Services][TFSTutorialForCloudService], or see help for the **Quick Start** page.
 
-## Основные понятия
-Для развертывания приложения в качестве облачной службы в Azure необходимы три компонента:
+## <a name="concepts"></a>Concepts
+Three components are required to deploy an application as a cloud service in Azure:
 
-- **Определение службы**. Файл определения службы (CSDEF-файл), задающий модель службы и некоторое количество ролей.
+- **Service Definition**  
+  The cloud service definition file (.csdef) defines the service model, including the number of roles.
 
-- **Конфигурация службы**. Файл конфигурации службы (CSCFG-файл), предоставляющий параметры конфигурации для облачной службы и отдельных ролей, включая число экземпляров ролей.
+- **Service Configuration**  
+  The cloud service configuration file (.cscfg) provides configuration settings for the cloud service and individual roles, including the number of role instances.
 
-- **Пакет службы**. Пакет службы (с расширением CSPKG) содержит код и конфигурации приложений, а также файл определения службы.
+- **Service Package**  
+  The service package (.cspkg) contains the application code and configurations and the service definition file.
 
-Дополнительную информацию об этих компонентах и создании пакета см. [здесь](cloud-services-model-and-package.md).
+You can learn more about these and how to create a package [here](cloud-services-model-and-package.md).
 
-## Подготовка приложения
-Перед развертыванием облачной службы необходимо создать пакет облачной службы (CSPKG-файл) на основе кода приложения и файл конфигурации облачной службы (CSCFG). Инструменты для подготовки необходимых файлов развертывания находятся в пакете SDK для Azure. Этот пакет можно установить со страницы [Загрузки Azure](https://azure.microsoft.com/downloads/) на языке, выбранном для разработки кода приложения.
+## <a name="prepare-your-app"></a>Prepare your app
+Before you can deploy a cloud service, you must create the cloud service package (.cspkg) from your application code and a cloud service configuration file (.cscfg). The Azure SDK provides tools for preparing these required deployment files. You can install the SDK from the [Azure Downloads](https://azure.microsoft.com/downloads/) page, in the language in which you prefer to develop your application code.
 
-Перед экспортом пакета службы необходимо отдельно настроить три компонента облачной службы:
+Three cloud service features require special configurations before you export a service package:
 
-- Если в развертываемой облачной службе будет применяться SSL-шифрование данных, [настройте приложение](cloud-services-configure-ssl-certificate-portal.md#modify) для поддержки SSL.
+- If you want to deploy a cloud service that uses Secure Sockets Layer (SSL) for data encryption, [configure your application](cloud-services-configure-ssl-certificate-portal.md#modify) for SSL.
 
-- Если будут использоваться подключения к удаленному рабочему столу для экземпляров роли, [настройте роли](cloud-services-role-enable-remote-desktop.md) для удаленного рабочего стола. Это можно сделать только на классическом портале.
+- If you want to configure Remote Desktop connections to role instances, [configure the roles](cloud-services-role-enable-remote-desktop.md) for Remote Desktop. This can only be done in the classic portal.
 
-- Чтобы включить подробный мониторинг для веб-службы, настройте для нее систему диагностики Azure. *Минимальный мониторинг* (по умолчанию) реализуется на основе счетчиков производительности основной операционной системы, собирающих данные для экземпляров ролей (виртуальные машины). *В рамках подробного мониторинга* для более тщательного анализа проблем обработки приложений отслеживаются дополнительные метрики в экземплярах ролей. Дополнительную информацию о включении диагностики в Azure см. в разделе [Включение диагностики в Azure](cloud-services-dotnet-diagnostics.md).
+- If you want to configure verbose monitoring for your cloud service, enable Azure Diagnostics for the cloud service. *Minimal monitoring* (the default monitoring level) uses performance counters gathered from the host operating systems for role instances (virtual machines). *Verbose monitoring* gathers additional metrics based on performance data within the role instances to enable closer analysis of issues that occur during application processing. To find out how to enable Azure Diagnostics, see [Enabling diagnostics in Azure](cloud-services-dotnet-diagnostics.md).
 
-Чтобы создать облачную службу с развертыванием веб-ролей или рабочих ролей, необходимо [создать соответствующий пакет службы](cloud-services-model-and-package.md#servicepackagecspkg).
+To create a cloud service with deployments of web roles or worker roles, you must [create the service package](cloud-services-model-and-package.md#servicepackagecspkg).
 
-## Перед началом работы
+## <a name="before-you-begin"></a>Before you begin
 
-- Если пакет SDK для Azure не установлен, щелкните **Установить пакет Azure SDK**. Откроется страница [Загрузки Azure](https://azure.microsoft.com/downloads/), откуда можно скачать пакет SDK для языка, выбранного для разработки кода приложения. (Также это можно сделать позднее.)
+- If you haven't installed the Azure SDK, click **Install Azure SDK** to open the [Azure Downloads page](https://azure.microsoft.com/downloads/), and then download the SDK for the language in which you prefer to develop your code. (You'll have an opportunity to do this later.)
 
-- Для экземпляров роли с сертификатами создайте сертификаты. В облачных службах используется PFX-файл с закрытым ключом. [Сертификаты можно отправить в Azure]() как при создании, так и при развертывании облачной службы.
+- If any role instances require a certificate, create the certificates. Cloud services require a .pfx file with a private key. [You can upload the certificates to Azure]() as you create and deploy the cloud service.
 
-- Если планируется развертывание облачной службы в территориальной группе, создайте соответствующую группу. Территориальные группы предназначены для развертывания облачной и других служб Azure в одном расположении региона. Чтобы создать такую группу, откройте область **Сети** классического портала Azure и перейдите на страницу **Территориальные группы**.
-
-
-## Создание и развертывание
-
-1. Войдите на [портал Azure](https://portal.azure.com/).
-2. Щелкните **Создать > Виртуальные машины**, затем прокрутите вниз и щелкните **Облачная служба**.
-
-    ![Публикация облачной службы](media/cloud-services-how-to-create-deploy-portal/create-cloud-service.png)
-
-3. В нижней части страницы сведений нажмите кнопку **Создать**.
-4. В колонке новой **облачной службы** введите **DNS-имя**.
-5. Создайте новую **группу ресурсов** или выберите существующую.
-6. Выберите **расположение**.
-7. Щелкните **Пакет**. Откроется колонка **Отправить пакет**. Заполните обязательные поля.
-
-     Если какая-либо из ролей содержит отдельный экземпляр, убедитесь, что установлен флажок **Развернуть, даже если одна или несколько ролей содержат отдельный экземпляр**.
-
-8. Убедитесь, что установлен флажок **Запустить развертывание**.
-9. Щелкните **ОК**. Колонка **Отправить пакет** закроется.
-10. Если у вас нет сертификатов, нажмите кнопку **Создать**.
-
-    ![Публикация облачной службы](media/cloud-services-how-to-create-deploy-portal/select-package.png)
-
-## Загрузить сертификат
-
-Если пакет развертывания был [настроен для использования сертификатов](cloud-services-configure-ssl-certificate-portal.md#modify), теперь можно передать сертификат.
-
-1. Выберите **Сертификаты** и в колонке **Добавить сертификаты** выберите PFX-файл SSL-сертификата и укажите **Пароль** сертификата.
-2. Щелкните **Присоединить сертификат** и нажмите кнопку **ОК** в колонке **Добавить сертификаты**.
-3. Щелкните **Создать** в колонке **Облачная служба**. Когда развертывание получит статус **Готово** можно выполнять следующие шаги.
-
-    ![Публикация облачной службы](media/cloud-services-how-to-create-deploy-portal/attach-cert.png)
+- If you plan to deploy the cloud service to an affinity group, create the affinity group. You can use an affinity group to deploy your cloud service and other Azure services to the same location in a region. You can create the affinity group in the **Networks** area of the Azure classic portal, on the **Affinity Groups** page.
 
 
-## Проверка успешного завершения развертывания
+## <a name="create-and-deploy"></a>Create and deploy
 
-1. Щелкните экземпляр облачной службы.
+1. Log in to the [Azure portal](https://portal.azure.com/).
+2. Click **New > Virtual Machines**, and then scroll down to and click **Cloud Service**.
 
-	В строке состояния должна отображаться информация о том, что служба **Запущена**.
+    ![Publish your cloud service](media/cloud-services-how-to-create-deploy-portal/create-cloud-service.png)
 
-2. В разделе **Основное** щелкните **URL-адрес сайта**, чтобы открыть облачную службу в веб-браузере.
+3. At the bottom of the information page that displays, click **Create**. 
+4. In the new **Cloud Service** blade, enter a value for the **DNS name**.
+5. Create a new **Resource Group** or select an existing one.
+6. Select a **Location**.
+7. Click **Package**. This will open the **Upload a package** blade. Fill in the required fields.  
 
-    ![CloudServices\_QuickGlance](./media/cloud-services-how-to-create-deploy-portal/running.png)
+     If any of your roles contain a single instance, ensure **Deploy even if one or more roles contain a single instance** is selected.
+
+8. Make sure that **Start deployment** is selected.
+9. Click **OK** which will close the **Upload a package** blade.
+10. If you do not have any certificates to add, click **Create**.
+
+    ![Publish your cloud service](media/cloud-services-how-to-create-deploy-portal/select-package.png)
+
+## <a name="upload-a-certificate"></a>Upload a certificate
+
+If your deployment package was [configured to use certificates](cloud-services-configure-ssl-certificate-portal.md#modify), you can upload the certificate now.
+
+1. Select **Certificates**, and on the **Add certificates** blade, select the SSL certificate .pfx file, and then provide the **Password** for the certificate,
+2. Click **Attach certificate**, and then click **OK** on the **Add certificates** blade.
+3. Click **Create** on the **Cloud Service** blade. When the deployment has reached the **Ready** status, you can proceed to the next steps.
+
+    ![Publish your cloud service](media/cloud-services-how-to-create-deploy-portal/attach-cert.png)
+
+
+## <a name="verify-your-deployment-completed-successfully"></a>Verify your deployment completed successfully
+
+1. Click the cloud service instance.
+
+    The status should show that the service is **Running**.
+
+2. Under **Essentials**, click the **Site URL** to open your cloud service in a web browser.
+
+    ![CloudServices_QuickGlance](./media/cloud-services-how-to-create-deploy-portal/running.png)
 
 
 [TFSTutorialForCloudService]: http://go.microsoft.com/fwlink/?LinkID=251796
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Next steps
 
-* [Общая настройка облачной службы](cloud-services-how-to-configure-portal.md).
-* Настройка [пользовательского имени домена](cloud-services-custom-domain-name-portal.md).
-* [Управление облачной службой](cloud-services-how-to-manage-portal.md).
-* Настройка [SSL-сертификатов](cloud-services-configure-ssl-certificate-portal.md).
+* [General configuration of your cloud service](cloud-services-how-to-configure-portal.md).
+* Configure a [custom domain name](cloud-services-custom-domain-name-portal.md).
+* [Manage your cloud service](cloud-services-how-to-manage-portal.md).
+* Configure [ssl certificates](cloud-services-configure-ssl-certificate-portal.md).
 
-<!---HONumber=AcomDC_0706_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

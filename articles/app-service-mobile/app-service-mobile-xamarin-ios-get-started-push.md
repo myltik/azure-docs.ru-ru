@@ -1,66 +1,67 @@
 <properties
-	pageTitle="Добавление push-уведомлений в приложение Xamarin.iOS с помощью службы приложений Azure"
-	description="Использование службы приложений Azure для отправки push-уведомлений в приложение Xamarin.iOS"
-	services="app-service\mobile"
-	documentationCenter="xamarin"
-	authors="wesmc7777"
-	manager="dwrede"
-	editor=""/>
+    pageTitle="Add push notifications to your Xamarin.iOS app with Azure App Service"
+    description="Learn how to use Azure App Service to send push notifications to your Xamarin.iOS app"
+    services="app-service\mobile"
+    documentationCenter="xamarin"
+    authors="adrianhall"
+    manager="dwrede"
+    editor=""/>
 
 <tags
-	ms.service="app-service-mobile"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-xamarin-ios"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="08/19/2016"
-	ms.author="wesmc"/>
+    ms.service="app-service-mobile"
+    ms.workload="mobile"
+    ms.tgt_pltfrm="mobile-xamarin-ios"
+    ms.devlang="dotnet"
+    ms.topic="article"
+    ms.date="10/01/2016"
+    ms.author="adrianha"/>
 
-# Добавление push-уведомлений в приложение Xamarin.iOS
+
+# <a name="add-push-notifications-to-your-xamarin.ios-app"></a>Add push notifications to your Xamarin.iOS App
 
 [AZURE.INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
 
-##Обзор
+##<a name="overview"></a>Overview
 
-Этот учебник использует материал [краткого руководства по Xamarin.iOS](app-service-mobile-xamarin-ios-get-started.md), который необходимо предварительно изучить. В нем описывается добавление push-уведомлений в проект учебника по [быстрому запуску Xamarin.iOS], чтобы при вставке каждой новой записи отправлялось push-уведомление. Если вы не используете скачанный проект сервера быстрого запуска, в проект необходимо добавить пакет расширений для push-уведомлений. Дополнительную информацию о пакетах расширений для сервера см. в статье [Работа с пакетом SDK для внутреннего сервера .NET для мобильных приложений Azure](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
+This tutorial is based on the [Xamarin.iOS quickstart](app-service-mobile-xamarin-ios-get-started.md) tutorial, which you must complete first. You will add push notifications to the Xamarin.iOS quick start project so that every time a record is inserted, a push notification is sent. If you do not use the downloaded quick start server project, you must add the push notification extension package to your project. For more information about server extension packages, see [Work with the .NET backend server SDK for Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
 
-##Предварительные требования
+##<a name="prerequisites"></a>Prerequisites
 
-* Ознакомьтесь с [кратким руководством по Xamarin.iOS](app-service-mobile-xamarin-ios-get-started.md).
+* Complete the [Xamarin.iOS quickstart](app-service-mobile-xamarin-ios-get-started.md) tutorial.
 
-* Физическое устройство iOS. Push-уведомления не поддерживаются в симуляторе iOS.
+* A physical iOS device. Push notifications are not supported by the iOS simulator.
 
-##Зарегистрируйте приложение для push-уведомлений на портале разработчика Apple.
+##<a name="register-the-app-for-push-notifications-on-apple's-developer-portal"></a>Register the app for push notifications on Apple's developer portal
 
-[AZURE.INCLUDE [Включение push-уведомлений Apple через концентраторы уведомлений Xamarin](../../includes/notification-hubs-xamarin-enable-apple-push-notifications.md)]
+[AZURE.INCLUDE [Notification Hubs Xamarin Enable Apple Push Notifications](../../includes/notification-hubs-xamarin-enable-apple-push-notifications.md)]
 
-##Настройка мобильного приложения для отправки push-уведомлений
+##<a name="configure-your-mobile-app-to-send-push-notifications"></a>Configure your Mobile App to send push notifications
 
-Чтобы настроить в приложении отправку уведомлений, создайте новый центр уведомлений и настройте его для работы со службами уведомлений платформы, которые будут использоваться.
+To configure your app to send notifications, create a new hub and configure it for the platform notification services that you will use.
 
-1. На [портале Azure](https://portal.azure.com/) выберите **Обзор** > **Мобильные приложения** > ваше мобильное приложение > **Параметры** > **Мобильные службы** > **Push-уведомления** > **Концентратор уведомлений** > **+ Концентратор уведомлений**, а затем укажите имя и пространство имен для нового концентратора уведомлений и нажмите кнопку **ОК**.
+1. In the [Azure portal](https://portal.azure.com/), click **Browse** > **Mobile Apps** > your Mobile App > **Settings** > **Mobile** > **Push** > **Notification Hub** > **+ Notification Hub**, and provide a name and namespace for a new notification hub, and then click the **OK** button.
 
-	![](./media/app-service-mobile-xamarin-ios-get-started-push/mobile-app-configure-notification-hub.png)
+    ![](./media/app-service-mobile-xamarin-ios-get-started-push/mobile-app-configure-notification-hub.png)
 
-2. В колонке «Создание концентратора уведомлений» нажмите кнопку **Создать**.
+2. In the Create Notification Hub blade, click **Create**.
 
-3. Выберите **Push-уведомления** > **Apple (APNS)** > **Отправка сертификата**. Отправьте экспортированный ранее P12-файл сертификата push-уведомлений. Если вы создали сертификат push-уведомлений для разработки и тестирования, не забудьте выбрать параметр **Песочница**. В противном случае выберите параметр **Рабочая среда**.
+3. Click **Push** > **Apple (APNS)** > **Upload Certificate**. Upload the .p12 push certificate file you exported earlier.  Make sure to select **Sandbox** if you created a development push certificate for development and testing.  Otherwise, choose **Production**.
 
-	![](./media/app-service-mobile-xamarin-ios-get-started-push/mobile-app-upload-apns-cert.png)
+    ![](./media/app-service-mobile-xamarin-ios-get-started-push/mobile-app-upload-apns-cert.png)
 
-Теперь ваша служба настроена для работы с push-уведомлениями в iOS.
+Your service is now configured to work with push notifications on iOS.
 
-##Обновление серверного проекта для отправки push-уведомлений
+##<a name="update-the-server-project-to-send-push-notifications"></a>Update the server project to send push notifications
 
 [AZURE.INCLUDE [app-service-mobile-update-server-project-for-push-template](../../includes/app-service-mobile-update-server-project-for-push-template.md)]
 
-##Настройка проекта Xamarin.iOS
+##<a name="configure-your-xamarin.ios-project"></a>Configure your Xamarin.iOS project
 
 [AZURE.INCLUDE [app-service-mobile-xamarin-ios-configure-project](../../includes/app-service-mobile-xamarin-ios-configure-project.md)]
 
-##Добавление push-уведомлений в приложение
+##<a name="add-push-notifications-to-your-app"></a>Add push notifications to your app
 
-1. В **QSTodoService** добавьте следующее свойство, чтобы **AppDelegate** мог получить мобильный клиент:
+1. In **QSTodoService**, add the following property so that **AppDelegate** can acquire the mobile client:
 
             public MobileServiceClient GetClient {
             get
@@ -73,12 +74,12 @@
             }
         }
 
-1. Добавьте следующий оператор `using` в верхнюю часть файла **AppDelegate.cs**.
+1. Add the following `using` statement to the top of the **AppDelegate.cs** file.
 
-		using Microsoft.WindowsAzure.MobileServices;
-		using Newtonsoft.Json.Linq;
+        using Microsoft.WindowsAzure.MobileServices;
+        using Newtonsoft.Json.Linq;
 
-2. В **AppDelegate** переопределите событие **FinishedLaunching**:
+2. In **AppDelegate**, override the **FinishedLaunching** event:
 
         public override bool FinishedLaunching(UIApplication application, NSDictionary launchOptions)
         {
@@ -95,16 +96,16 @@
             return true;
         }
 
-3. В том же файле переопределите событие **RegisteredForRemoteNotifications**. В этом коде регистрируется простое шаблонное уведомление, которое будет рассылаться сервером по всем поддерживаемым платформам.
+3. In the same file, override the **RegisteredForRemoteNotifications** event. In this code you are registering for a simple template notification that will be sent across all supported platforms by the server.
 
-	Дополнительные сведения о шаблонах центров уведомлений см. в статье [Шаблоны](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md).
+    For more information on templates with Notification Hubs, see [Templates](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md).
 
 
         public override void RegisteredForRemoteNotifications(UIApplication application, NSData deviceToken)
         {
             MobileServiceClient client = QSTodoService.DefaultService.GetClient;
 
-            const string templateBodyAPNS = "{"aps":{"alert":"$(messageParam)"}}";
+            const string templateBodyAPNS = "{\"aps\":{\"alert\":\"$(messageParam)\"}}";
 
             JObject templates = new JObject();
             templates["genericMessage"] = new JObject
@@ -118,7 +119,7 @@
         }
 
 
-4. Затем переопределите событие **DidReceivedRemoteNotification**:
+4. Then, override the **DidReceivedRemoteNotification** event:
 
         public override void DidReceiveRemoteNotification (UIApplication application, NSDictionary userInfo, Action<UIBackgroundFetchResult> completionHandler)
         {
@@ -136,24 +137,31 @@
             }
         }
 
-Ваше приложение теперь обновлено для поддержки push-уведомлений.
+Your app is now updated to support push notifications.
 
-## <a name="test"></a>Тестирование push-уведомлений в приложении
+## <a name="<a-name="test"></a>test-push-notifications-in-your-app"></a><a name="test"></a>Test push notifications in your app
 
-1. Нажмите кнопку **Выполнить**, чтобы построить проект и запустить приложение на устройстве с iOS, а затем нажмите кнопку **ОК**, чтобы разрешить прием push-уведомлений.
+1. Press the **Run** button to build the project and start the app in an iOS capable device, then click **OK** to accept push notifications.
 
-	> [AZURE.NOTE] Необходимо явно разрешить прием push-уведомлений от вашего приложения. Этот запрос отображается только при первом запуске приложения.
+    > [AZURE.NOTE] You must explicitly accept push notifications from your app. This request only occurs the first time that the app runs.
 
-2. В приложении введите задачу, а затем щелкните значок плюса (**+**).
+2. In the app, type a task, and then click the plus (**+**) icon.
 
-3. Убедитесь, что уведомление получено, а затем нажмите кнопку **ОК**, чтобы закрыть его.
+3. Verify that a notification is received, then click **OK** to dismiss the notification.
 
-4. Повторите шаг 2 и сразу закройте приложение, затем убедитесь, что уведомление отображается.
+4. Repeat step 2 and immediately close the app, then verify that a notification is shown.
 
-Вы успешно завершили ознакомление с данным учебником.
+You have successfully completed this tutorial.
 
 <!-- Images. -->
 
 <!-- URLs. -->
 
-<!---HONumber=AcomDC_0907_2016-->
+
+
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

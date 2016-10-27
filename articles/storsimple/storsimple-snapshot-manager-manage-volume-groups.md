@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Группы томов диспетчера моментальных снимков StorSimple | Microsoft Azure"
-   description="Узнайте, как использовать оснастку консоли MMC ";Диспетчер моментальных снимков StorSimple"; для создания групп томов и управления ими."
+   pageTitle="StorSimple Snapshot Manager volume groups | Microsoft Azure"
+   description="Describes how to use the StorSimple Snapshot Manager MMC snap-in to create and manage volume groups."
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
@@ -15,136 +15,141 @@
    ms.date="04/18/2016"
    ms.author="v-sharos" />
 
-# Создание групп томов и управление ими с помощью диспетчера моментальных снимков StorSimple
 
-## Обзор
+# <a name="use-storsimple-snapshot-manager-to-create-and-manage-volume-groups"></a>Use StorSimple Snapshot Manager to create and manage volume groups
 
-Узел **Группы томов** на панели **Область** позволяет назначить тома группам томов, просмотреть сведения о группе томов, запланировать операции архивации и внести изменения в группы томов.
+## <a name="overview"></a>Overview
 
-Группы томов — это пулы связанных томов, которые используются для обеспечения согласованности резервных копий с приложениями. Дополнительные сведения см. в разделах [Томы и группы томов](storsimple-what-is-snapshot-manager.md#volumes-and-volume-groups), а также [Интеграция со службой теневого копирования томов Windows](storsimple-what-is-snapshot-manager.md#integration-with-windows-volume-shadow-copy-service).
+You can use the **Volume Groups** node on the **Scope** pane to assign volumes to volume groups, view information about a volume group, schedule backups, and edit volume groups. 
+
+Volume groups are pools of related volumes used to ensure that backups are application-consistent. For more information, see [Volumes and volume groups](storsimple-what-is-snapshot-manager.md#volumes-and-volume-groups) and [Integration with Windows Volume Shadow Copy Service](storsimple-what-is-snapshot-manager.md#integration-with-windows-volume-shadow-copy-service).
 
 >[AZURE.IMPORTANT] 
 >
-> * У всех томов в группе томов должен быть один поставщик облачной службы.
+> * All volumes in a volume group must come from a single cloud service provider.
 > 
-> * Настраивая группы томов, не размещайте в одной группе томов общие тома кластера (CSV) и тома других типов. Диспетчер моментальных снимков StorSimple не поддерживает совместное использование общих томов кластера и томов других типов в одном моментальном снимке.
+> * When you configure volume groups, do not mix cluster-shared volumes (CSVs) and non-CSVs in the same volume group. StorSimple Snapshot Manager does not support a mix of CSVs and non-CSVs in the same snapshot.
  
-![Узел "Группы томов"](./media/storsimple-snapshot-manager-manage-volume-groups/HCS_SSM_Volume_groups.png)
+![Volume groups node](./media/storsimple-snapshot-manager-manage-volume-groups/HCS_SSM_Volume_groups.png)
 
-**Рисунок 1. Узел "Группы томов" диспетчера моментальных снимков StorSimple**
+**Figure 1: StorSimple Snapshot Manager Volume Groups node** 
 
-В этом учебнике объясняется, как использовать диспетчер моментальных снимков StorSimple для выполнения таких задач:
+This tutorial explains how you can use StorSimple Snapshot Manager to:
 
-- просмотр сведений о группах томов; 
-- создание группы томов;
-- архивация группы томов;
-- внесение изменений в группу томов;
-- удаление группы томов.
+- View information about your volume groups 
+- Create a volume group
+- Back up a volume group
+- Edit a volume group
+- Delete a volume group
 
-Все эти действия также можно выполнить на панели **Действия**.
+All of these actions are also available on the **Actions** pane.
  
-## Просмотр групп томов
+## <a name="view-volume-groups"></a>View volume groups
 
-Если щелкнуть узел **Группы томов**, на панели **Результаты** отобразятся указанные ниже сведения о каждой группе томов в зависимости от того, какие столбцы вы выбрали. (Столбцы на панели **Результаты** можно настраивать. (Щелкните правой кнопкой мыши узел **Тома**, а затем последовательно выберите пункты **Вид** и **Добавить или удалить столбцы**.)
+If you click the **Volume Groups** node, the **Results** pane shows the following information about each volume group, depending on the column selections you make. (The columns in the **Results** pane are configurable. Right-click the **Volumes** node, select **View**, and then select **Add/Remove Columns**.)
 
-Столбец "Результаты" | Описание 
+Results column | Description 
 :--------------|:------------ 
-Имя | Столбец **Имя** содержит имя группы томов.
-Приложение | В столбце **Приложения** указано количество модулей записи VSS, которые в настоящее время установлены и запущены на узле Windows.
-Выбрано | В столбце **Выбрано** указывается количество томов в группе томов. Ноль (0) значит, что с томами в группе томов не связано ни одно приложение.
-Импортировано | В столбце **Импортировано** отображается количество импортированных томов. Если задано значение **True**, этот столбец указывает, что группа томов импортирована из классического портала Azure, а не создана в диспетчере моментальных снимков StorSimple.
+Name           | The **Name** column contains the name of the volume group.
+Application    | The **Applications** column shows the number of VSS writers currently installed and running on the Windows host.
+Selected       | The **Selected** column shows the number of volumes that are contained in the volume group. A zero (0) indicates that no application is associated with the volumes in the volume group.
+Imported       | The **Imported** column shows the number of imported volumes. When set to **True**, this column indicates that a volume group was imported from the Azure classic portal and was not created in StorSimple Snapshot Manager.
  
->[AZURE.NOTE] Группы томов диспетчера моментальных снимков StorSimple также отображаются на вкладке **Политики архивации** на классическом портале Azure.
+>[AZURE.NOTE] StorSimple Snapshot Manager volume groups are also displayed on the **Backup Policies** tab in the Azure classic portal.
  
-## создание группы томов;
+## <a name="create-a-volume-group"></a>Create a volume group
 
-Выполните указанные ниже действия, чтобы создать группу томов.
+Use the following procedure to create a volume group.
 
-#### Создание группы томов
+#### <a name="to-create-a-volume-group"></a>To create a volume group
 
-1. Щелкните соответствующий значок на рабочем столе, чтобы запустить диспетчер моментальных снимков StorSimple. 
+1. Click the desktop icon to start StorSimple Snapshot Manager. 
 
-2. На панели **Область** щелкните правой кнопкой мыши **Группы томов** и выберите пункт **Создать группу томов**.
+2. In the **Scope** pane, right-click **Volume Groups**, and then click **Create Volume Group**. 
 
-    ![Создание группы томов](./media/storsimple-snapshot-manager-manage-volume-groups/HCS_SSM_Create_volume_group.png)
+    ![Create volume group](./media/storsimple-snapshot-manager-manage-volume-groups/HCS_SSM_Create_volume_group.png)
  
-    Откроется диалоговое окно **Создание группы томов**.
+    The **Create a volume group** dialog box appears. 
 
-    ![Диалоговое окно "Создание группы томов"](./media/storsimple-snapshot-manager-manage-volume-groups/HCS_SSM_CreateVolumeGroup_dialog.png)
+    ![Create a volume group dialog](./media/storsimple-snapshot-manager-manage-volume-groups/HCS_SSM_CreateVolumeGroup_dialog.png) 
 
-3.  Введите следующие сведения:
+3.  Enter the following information: 
 
-    1. В поле **Имя** введите уникальное имя новой группы томов. 
+    1. In the **Name** box, type a unique name for the new volume group. 
 
-    2. В поле **Приложения** выберите приложения, связанные с томами, которые будут добавлены в группу томов.
+    2. In the **Applications** box, select applications associated with the volumes that you will be adding to the volume group. 
 
-        В поле **Приложения** указаны только те приложения, которые используют тома StorSimple и для которых активированы модули записи VSS. Модуль записи VSS включается, только если все тома, известные ему, представляют собой тома StorSimple. Если оставить поле "Приложения" пустым, не будет установлено ни одно приложение, использующее тома Azure StorSimple и содержащее поддерживаемые модули записи VSS. (В настоящее время Azure StorSimple поддерживает Microsoft Exchange и SQL Server.) Дополнительные сведения о модулях записи VSS см. в разделе [Интеграция со службой теневого копирования томов Windows](storsimple-what-is-snapshot-manager.md#integration-with-windows-volume-shadow-copy-service).
+        The **Applications** box lists only those applications that use StorSimple volumes and have VSS writers enabled for them. A VSS writer is enabled only if all the volumes that the writer is aware of are StorSimple volumes. If the Applications box is empty, then no applications that use Azure StorSimple volumes and have supported VSS writers are installed. (Currently, Azure StorSimple supports Microsoft Exchange and SQL Server.) For more information about VSS writers, see [Integration with Windows Volume Shadow Copy Service](storsimple-what-is-snapshot-manager.md#integration-with-windows-volume-shadow-copy-service).
 
-        При выборе приложения будут автоматически выбраны все тома, связанные с ним. И наоборот, если выбрать тома, связанные с определенным приложением, приложение будет автоматически выбрано в поле **Приложения**.
+        If you select an application, all volumes associated with it are automatically selected. Conversely, if you select volumes associated with a specific application, the application is automatically selected in the **Applications** box. 
 
-    3. В поле **Тома** выберите тома StorSimple, которые нужно добавить в группу томов.
+    3. In the **Volumes** box, select StorSimple volumes to add to the volume group. 
 
-      - Вы можете включить тома с одним или несколькими разделами. (Тома с несколькими разделами могут представлять собой динамические или основные диски с несколькими разделами.) Том с несколькими разделами рассматривается как единое целое. Таким образом, если добавить в группу томов только один из разделов, одновременно в нее будут автоматически добавлены все другие разделы. Том с несколькими разделами по-прежнему будет считаться единым целым даже после добавления в группу томов.
+      - You can include volumes with single or multiple partitions. (Multiple partition volumes can be dynamic disks or basic disks with multiple partitions.) A volume that contains multiple partitions is treated as a single unit. Consequently, if you add only one of the partitions to a volume group, all the other partitions are automatically added to that volume group at the same time. After you add a multiple partition volume to a volume group, the multiple partition volume continues to be treated as a single unit.
 
-      - Вы можете создать пустые группы томов, не назначая им каких-либо томов.
+      - You can create empty volume groups by not assigning any volumes to them. 
 
-      - Не размещайте в одной группе томов общие тома кластера (CSV) и тома других типов. Диспетчер моментальных снимков StorSimple не поддерживает совместное использование общих томов кластера (CSV) и томов других типов в одном моментальном снимке.
+      - Do not mix cluster-shared volumes (CSVs) and non-CSVs in the same volume group. StorSimple Snapshot Manager does not support a mix of CSV volumes and non-CSV volumes in the same snapshot. 
 
-4. Нажмите кнопку **ОК**, чтобы сохранить группу томов.
+4. Click **OK** to save the volume group.
 
-## архивация группы томов;
+## <a name="back-up-a-volume-group"></a>Back up a volume group
 
-Выполните указанные ниже действия, чтобы архивировать группу томов.
+Use the following procedure to back up a volume group.
 
-#### Архивация группы томов
+#### <a name="to-back-up-a-volume-group"></a>To back up a volume group
 
-1. Щелкните соответствующий значок на рабочем столе, чтобы запустить диспетчер моментальных снимков StorSimple.
+1. Click the desktop icon to start StorSimple Snapshot Manager.
 
-2. На панели **Область** разверните узел **Группы томов**, щелкните правой кнопкой мыши имя группы томов и выберите пункт **Создать резервную копию**.
+2. In the **Scope** pane, expand the **Volume Groups** node, right-click a volume group name, and then click **Take Backup**. 
 
-    ![Немедленная архивация группы томов](./media/storsimple-snapshot-manager-manage-volume-groups/HCS_SSM_Take_backup.png)
+    ![Back up volume group immediately](./media/storsimple-snapshot-manager-manage-volume-groups/HCS_SSM_Take_backup.png)
 
-3. В диалоговом окне **Создание резервной копии** выберите пункт **Локальный моментальный снимок** или **Облачный моментальный снимок**, а затем нажмите кнопку **Создать**.
+3. In the **Take Backup** dialog box, select **Local Snapshot** or **Cloud Snapshot**, and then click **Create**. 
 
-    ![Диалоговое окно "Создание резервной копии"](./media/storsimple-snapshot-manager-manage-volume-groups/HCS_SSM_TakeBackup_dialog.png)
+    ![Take backup dialog](./media/storsimple-snapshot-manager-manage-volume-groups/HCS_SSM_TakeBackup_dialog.png) 
 
-4. Чтобы убедиться, что архивация запущена, разверните узел **Задания** и щелкните **Выполняются**. Операция архивации должна быть указана в списке.
+4. To confirm that the backup is running, expand the **Jobs** node, and then click **Running**. The backup should be listed.
 
-5. Чтобы просмотреть созданный моментальный снимок, последовательно разверните узел **Каталог архивов** и имя группы томов, а затем щелкните **Локальный моментальный снимок** или **Облачный моментальный снимок**. Если операция архивации успешно завершена, она будет указана в списке.
+5. To view the completed snapshot, expand the **Backup Catalog** node, expand the volume group name, and then click **Local Snapshot** or **Cloud Snapshot**. The backup will be listed if it finished successfully. 
 
-## Внесение изменений в группу томов
+## <a name="edit-a-volume-group"></a>Edit a volume group
 
-Выполните указанные ниже действия, чтобы внести изменения в группу томов.
+Use the following procedure to edit a volume group.
 
-#### Внесение изменений в группу томов
+#### <a name="to-edit-a-volume-group"></a>To edit a volume group
 
-1. Щелкните соответствующий значок на рабочем столе, чтобы запустить диспетчер моментальных снимков StorSimple.
+1. Click the desktop icon to start StorSimple Snapshot Manager.
 
-2. На панели **Область** разверните узел **Группы томов**, щелкните правой кнопкой мыши имя группы томов и выберите пункт **Изменить**.
+2. In the **Scope** pane, expand the **Volume Groups** node, right-click a volume group name, and then click **Edit**. 
 
-3. Откроется диалоговое окно **Создание группы томов**. Вы можете изменить значения в полях **Имя**, **Приложения** и **Тома**.
+3. The **Create a volume group **dialog box appears. You can change the **Name**, **Applications**, and **Volumes** entries. 
 
-4. Нажмите кнопку **ОК**, чтобы сохранить изменения.
+4. Click **OK** to save your changes.
 
-## Удаление группы томов
+## <a name="delete-a-volume-group"></a>Delete a volume group
 
-Выполните указанные ниже действия, чтобы удалить группу томов.
+Use the following procedure to delete a volume group. 
 
->[AZURE.WARNING] Вместе с ней также будут удалены все связанные резервные копии.
+>[AZURE.WARNING] This also deletes all the backups associated with the volume group.
 
-#### Удаление группы томов
+#### <a name="to-delete-a-volume-group"></a>To delete a volume group
 
-1. Щелкните соответствующий значок на рабочем столе, чтобы запустить диспетчер моментальных снимков StorSimple. 
+1. Click the desktop icon to start StorSimple Snapshot Manager. 
 
-2. На панели **Область** разверните узел **Группы томов**, щелкните правой кнопкой мыши имя группы томов и выберите пункт **Удалить**.
+2. In the **Scope** pane, expand the **Volume Groups** node, right-click a volume group name, and then click **Delete**. 
 
-3. Откроется диалоговое окно **Удаление группы томов**. Введите **Confirm** (Подтверждаю) в текстовое поле и нажмите кнопку **ОК**.
+3. The **Delete Volume Group** dialog box appears. Type **Confirm** in the text box, and then click **OK**. 
 
-    Удаленная группа томов исчезнет из списка на панели **Результаты**, а все резервные копии, связанные с этой группой, будут удалены из каталога архивов.
+    The deleted volume group vanishes from the list in the **Results** pane and all backups that are associated with that volume group are deleted from the backup catalog.
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Next steps
 
-- Узнайте, как [использовать диспетчер моментальных снимков StorSimple для администрирования решения StorSimple](storsimple-snapshot-manager-admin.md).
-- Узнайте, как [создавать политики архивации и управлять ими с помощью диспетчера моментальных снимков StorSimple](storsimple-snapshot-manager-manage-backup-policies.md).
+- Learn how to [use StorSimple Snapshot Manager to administer your StorSimple solution](storsimple-snapshot-manager-admin.md).
+- Learn how to [use StorSimple Snapshot Manager to create and manage backup policies](storsimple-snapshot-manager-manage-backup-policies.md).
 
-<!---HONumber=AcomDC_0511_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

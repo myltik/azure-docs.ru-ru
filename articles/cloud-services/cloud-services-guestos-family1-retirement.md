@@ -1,9 +1,9 @@
 <properties
-   pageTitle="Уведомление о прекращении использования семейства версий 1 гостевой операционной системы | Microsoft Azure"
-   description="Содержит сведения о времени прекращения использования семейства версий 1 гостевой операционной системы и о том, как определить, повлияло ли это на вас"
+   pageTitle="Guest OS family 1 retirement notice | Microsoft Azure"
+   description="Provides information about when the Azure Guest OS Family 1 retirement happened and how to determine if you are affected"
    services="cloud-services"
    documentationCenter="na"
-   authors="yuemlu"
+   authors="raiye"
    manager="timlt"
    editor=""/>
 
@@ -13,33 +13,34 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd"
-   ms.date="06/10/2016"
-   ms.author="yuemlu"/>
-
-
-
-# Уведомление о прекращении использования семейства версий 1 гостевой ОС
-
-О прекращении использования семейства версий 1 операционной системы было впервые объявлено 1 июня 2013 г.
-
-**2 сентября 2014 г.** Официально прекращено использование семейства версий 1.x гостевой ОС Azure, основанной на ОС Windows Server 2008. Все попытки развертывать новые и обновлять существующие службы, используя операционную систему из семейства версий 1, приведут к сбою с ошибкой, в которой сообщается о прекращении использования семейства версий 1 гостевой ОС.
-
-**3 ноября 2014 г.** Закончилась расширенная поддержка и полностью прекращено использование семейства версий 1 гостевой ОС. Будут затронуты все службы, использующие семейство версий 1. Эти службы могут быть остановлены в любом момент. Не гарантируется, что службы будут работать далее, если самостоятельно не обновить их вручную.
-
-С дополнительными вопросами обращайтесь на [форумы облачных служб](http://social.msdn.microsoft.com/Forums/home?forum=windowsazuredevelopment&filter=alltypes&sort=lastpostdesc) или в [службу поддержки Azure](https://azure.microsoft.com/support/options/).
+   ms.date="10/24/2016"
+   ms.author="raiye"/>
 
 
 
 
-## Влияет ли это на вас?
+# <a name="guest-os-family-1-retirement-notice"></a>Guest OS Family 1 retirement notice
 
-Это влияет на ваши облачные службы в одном из следующих случаев:
+The retirement of OS Family 1 was first announced on June 1, 2013.
 
-1. Если явным образом указано значение "osFamily = "1" в файле ServiceConfiguration.cscfg облачной службы.
-2. Если не указано явным образом значение для osFamily в файле ServiceConfiguration.cscfg облачной службы. В настоящий момент в такой ситуации системой используется значение по умолчанию, равное "1".
-3. На классическом портале Azure в качестве семейства версий вашей операционной системы на виртуальной машине указано "Windows Server 2008".
+**Sept 2, 2014** The Azure Guest operating system (Guest OS) Family 1.x, which is based on the Windows Server 2008 operating system, was officially retired. All attempts to deploy new services or upgrade existing services using Family 1 will fail with an error message informing you that the Guest OS Family 1 has been retired.
 
-Чтобы узнать, какие облачные службы работают под управлением какого семейства версий ОС, можно запустить указанный ниже сценарий в Azure PowerShell, однако сначала необходимо [настроить Azure PowerShell](../powershell-install-configure.md). Дополнительную информацию о сценарии см. в разделе [Окончание срока жизни семейства версий 1 гостевой ОС Azure, июнь 2014 г.](http://blogs.msdn.com/b/ryberry/archive/2014/04/02/azure-guest-os-family-1-end-of-life-june-2014.aspx)
+**November 3, 2014** Extended support for Guest OS Family 1 ended and it is fully retired. All services still on Family 1 will be impacted. We may stop those services at any time. There is no guarantee your services will continue to run unless you manually upgrade them yourself.
+
+If you have additional questions, please visit the [Cloud Services Forums](http://social.msdn.microsoft.com/Forums/home?forum=windowsazuredevelopment&filter=alltypes&sort=lastpostdesc) or [contact Azure support](https://azure.microsoft.com/support/options/).
+
+
+
+
+## <a name="are-you-affected?"></a>Are you affected?
+
+Your Cloud Services are affected if any one of the following applies:
+
+1. You have a value of "osFamily = "1" explicitly specified in the ServiceConfiguration.cscfg file for your Cloud Service.
+2. You do not have a value for osFamily explicitly specified in the ServiceConfiguration.cscfg file for your Cloud Service. Currently, the system uses the default value of "1" in this case.
+3. The Azure classic portal lists your Guest Operating System family value as "Windows Server 2008".
+
+To find which of your cloud services are running which OS Family, you can run the script below in Azure PowerShell, though you must [set up Azure PowerShell](../powershell-install-configure.md) first. For additional details on the script, see [Azure Guest OS Family 1 End of Life: June 2014](http://blogs.msdn.com/b/ryberry/archive/2014/04/02/azure-guest-os-family-1-end-of-life-june-2014.aspx). 
 
 ```Powershell
 foreach($subscription in Get-AzureSubscription) {
@@ -51,34 +52,38 @@ foreach($subscription in Get-AzureSubscription) {
 }
 ```
 
-Прекращение использования семейства версий 1 операционной системы повлияет на облачные службы, если столбец "osFamily" в выходных данных скрипта является пустым или содержит значение "1".
+Your cloud services will be impacted by OS Family 1 retirement if the osFamily column in the script output is empty or contains a "1".
 
-## Рекомендации в случае, если на вас это влияет
+## <a name="recommendations-if-you-are-affected"></a>Recommendations if you are affected
 
-Рекомендуется перенести роли облачных служб в одно из поддерживаемых семейств версий гостевой ОС:
+We recommend you migrate your Cloud Service roles to one of the supported Guest OS Families:
 
-**Семейство версий 4.x гостевой ОС** — Windows Server 2012 R2 *(рекомендуется)*
+**Guest OS family 4.x** - Windows Server 2012 R2 *(recommended)*
 
-1. Убедитесь, что приложение использует пакет SDK 2.1 или более поздней версии с платформой .NET Framework 4.0, 4.5 или 4.5.1.
-2. Задайте для атрибута "osFamily" значение "4" в файле ServiceConfiguration.cscfg и повторно разверните облачную службу.
-
-
-**Семейство версий 3.x гостевой ОС** — Windows Server 2012
-
-1. Убедитесь, что приложение использует пакет SDK 1.8 или более поздней версии с платформой .NET Framework 4.0 или 4.5.
-2. Задайте для атрибута osFamily значение «3» в файле ServiceConfiguration.cscfg и повторно разверните облачную службу.
+1. Ensure that your application is using SDK 2.1 or later with .NET framework 4.0, 4.5 or 4.5.1.
+2. Set the osFamily attribute to “4” in the ServiceConfiguration.cscfg file, and redeploy your cloud service.
 
 
-**Семейство версий 2.x гостевой ОС** — Windows Server 2008 R2
+**Guest OS family 3.x** - Windows Server 2012
 
-1. Убедитесь, что приложение использует пакет SDK 1.3 или более поздней версии с платформой .NET Framework 3.5 или 4.0.
-2. Задайте для атрибута "osFamily" значение "2" в файле ServiceConfiguration.cscfg и повторно разверните облачную службу.
+1. Ensure that your application is using SDK 1.8 or later with .NET framework 4.0 or 4.5.
+2. Set the osFamily attribute to “3” in the ServiceConfiguration.cscfg file, and redeploy your cloud service.
 
 
-## Расширенная поддержка семейства версий 1 гостевой ОС окончена 3 ноября 2014 г.
-Облачные службы в семействе версий 1 гостевой ОС более не поддерживаются. Переходите на использование операционной системы из более старшего семейства версий, чем семейство 1, чтобы избежать прерывания службы.
+**Guest OS family 2.x** - Windows Server 2008 R2
 
-## Дальнейшие действия
-Просмотрите последние [выпуски гостевой ОС](cloud-services-guestos-update-matrix.md).
+1. Ensure that your application is using SDK 1.3 and above with .NET framework 3.5 or 4.0.
+2. Set the osFamily attribute to "2" in the ServiceConfiguration.cscfg file, and redeploy your cloud service.
 
-<!---HONumber=AcomDC_0615_2016-->
+
+## <a name="extended-support-for-guest-os-family-1-ended-nov-3,-2014"></a>Extended Support for Guest OS Family 1 ended Nov 3, 2014
+Cloud services on Guest OS family 1 are no longer supported. Please migrate off family 1 as soon as possible to avoid service disruption.  
+
+## <a name="next-steps"></a>Next steps
+Review the latest [Guest OS releases](cloud-services-guestos-update-matrix.md).
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

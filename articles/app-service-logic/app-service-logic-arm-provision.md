@@ -1,61 +1,62 @@
 <properties 
-	pageTitle="Создание приложения логики с помощью шаблонов диспетчера ресурсов Azure в службе приложений Azure | Microsoft Azure" 
-	description="Использование шаблона диспетчера ресурсов Azure для развертывания пустого приложения логики для определения рабочих процессов." 
-	services="logic-apps" 
-	documentationCenter="" 
-	authors="MSFTMan" 
-	manager="erikre" 
-	editor=""/>
+    pageTitle="Create a Logic App using Azure Resource Manager templates in Azure App Service | Microsoft Azure" 
+    description="Use an Azure Resource Manager template to deploy an empty Logic App for defining workflows." 
+    services="logic-apps" 
+    documentationCenter="" 
+    authors="MSFTMan" 
+    manager="erikre" 
+    editor=""/>
 
 <tags 
-	ms.service="logic-apps" 
-	ms.workload="integration" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/25/2016" 
-	ms.author="deonhe"/>
+    ms.service="logic-apps" 
+    ms.workload="integration" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="07/25/2016" 
+    ms.author="deonhe"/>
 
-# Создание приложения логики с помощью шаблона
 
-Применение шаблона диспетчера ресурсов Azure для создания пустого приложения логики, которое можно использовать для определения рабочих процессов. Вы определите развертываемые ресурсы и параметры, указываемые при развертывании. Этот шаблон можно использовать для собственных развертываний или настроить его в соответствии с вашими требованиями.
+# <a name="create-a-logic-app-using-a-template"></a>Create a Logic App using a template
 
-Дополнительную информацию о свойствах приложения логики см. в статье [API управления рабочим процессом с помощью приложения логики](https://msdn.microsoft.com/library/azure/mt643788.aspx).
+Use an Azure Resource Manager template to create an empty logic app that can be used to define workflows. You can define which resources are deployed and how to define parameters that are specified when the deployment is executed. You can use this template for your own deployments, or customize it to meet your requirements.
 
-Примеры собственно определения см. в статье [Создание определений приложений логики](app-service-logic-author-definitions.md).
+For more details on the Logic app properties, see [Logic App Workflow Management API](https://msdn.microsoft.com/library/azure/mt643788.aspx). 
 
-Дополнительную информацию о создании шаблонов см. в статье [Создание шаблонов диспетчера ресурсов Azure](../resource-group-authoring-templates.md).
+For examples of the definition itself, see [Author Logic App definitions](app-service-logic-author-definitions.md). 
 
-Полный шаблон см. в разделе [Шаблон приложения логики](https://github.com/Azure/azure-quickstart-templates/blob/master/101-logic-app-create/azuredeploy.json).
+For more information about creating templates, see [Authoring Azure Resource Manager Templates](../resource-group-authoring-templates.md).
 
-## Что именно развертывается
+For the complete template, see [Logic App template](https://github.com/Azure/azure-quickstart-templates/blob/master/101-logic-app-create/azuredeploy.json).
 
-С помощью этого шаблона развертывается приложение логики.
+## <a name="what-you-will-deploy"></a>What you will deploy
 
-Чтобы выполнить развертывание автоматически, нажмите следующую кнопку.
+With this template, you deploy a logic app.
 
-[![Развертывание в Azure](media/app-service-logic-arm-provision/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-logic-app-create%2Fazuredeploy.json)
+To run the deployment automatically, select the following button:  
 
-## Параметры
+[![Deploy to Azure](media/app-service-logic-arm-provision/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-logic-app-create%2Fazuredeploy.json)
+
+## <a name="parameters"></a>Parameters
 
 [AZURE.INCLUDE [app-service-logic-deploy-parameters](../../includes/app-service-logic-deploy-parameters.md)]
 
-### testUri
+### <a name="testuri"></a>testUri
 
      "testUri": {
         "type": "string",
-        "defaultValue": "http://azure.microsoft.com/status/feed/"
+        "defaultValue": "http://azure.microsoft.com/en-us/status/feed/"
       }
     
-## Развертываемые ресурсы
+## <a name="resources-to-deploy"></a>Resources to deploy
 
-### Приложение логики
+### <a name="logic-app"></a>Logic app
 
-Создает приложение логики.
+Creates the logic app.
 
-В шаблонах используется значение параметра для имени приложения логики. Параметр задает в качестве расположения приложения логики то же расположение, что и у группы ресурсов.
+The templates uses a parameter value for the logic app name. It sets the location of the logic app to the same location as the resource group. 
 
-Это определение будет выполняться один раз в час, проверяя расположение, указанное в параметре **testUri**.
+This particular definition runs once an hour, and pings the location specified in the **testUri** parameter. 
 
     {
       "type": "Microsoft.Logic/workflows",
@@ -101,19 +102,23 @@
     }
 
 
-## Команды для выполнения развертывания
+## <a name="commands-to-run-deployment"></a>Commands to run deployment
 
 [AZURE.INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
 
-### PowerShell
+### <a name="powershell"></a>PowerShell
 
     New-AzureRmResourceGroupDeployment -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-logic-app-create/azuredeploy.json -ResourceGroupName ExampleDeployGroup
 
-### Инфраструктура CLI Azure
+### <a name="azure-cli"></a>Azure CLI
 
     azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-logic-app-create/azuredeploy.json -g ExampleDeployGroup
 
 
  
 
-<!---HONumber=AcomDC_0803_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

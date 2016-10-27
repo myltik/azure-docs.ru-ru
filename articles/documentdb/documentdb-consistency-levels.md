@@ -1,122 +1,133 @@
 <properties
-	pageTitle="Уровни согласованности в DocumentDB | Microsoft Azure"
-	description="В DocumentDB есть четыре уровня согласованности, что позволяет сбалансировать компромиссы между согласованностью в конечном итоге, доступностью и задержками."
-	keywords="окончательная согласованность, documentdb, azure, Microsoft azure"
-	services="documentdb"
-	authors="mimig1"
-	manager="jhubbard"
-	editor="cgronlun"
-	documentationCenter=""/>
+    pageTitle="Consistency levels in DocumentDB | Microsoft Azure"
+    description="DocumentDB has four consistency levels to help balance eventual consistency, availability, and latency trade-offs."
+    keywords="eventual consistency, documentdb, azure, Microsoft azure"
+    services="documentdb"
+    authors="syamkmsft"
+    manager="jhubbard"
+    editor="cgronlun"
+    documentationCenter=""/>
 
 <tags
-	ms.service="documentdb"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/24/2016"
-	ms.author="mimig"/>
+    ms.service="documentdb"
+    ms.workload="data-services"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="08/24/2016"
+    ms.author="syamk"/>
 
-# Уровни согласованности в DocumentDB
 
-Служба Azure DocumentDB была разработана "с нуля", при этом в ее основу заложены возможности глобального распространения данных. Она предлагает гарантии прогнозируемой низкой задержки, соглашение об уровне обслуживания, обеспечивающее 99,99 % доступности, и нескольких четко определенных моделей нестрогой согласованности. Сейчас DocumentDB поддерживает четыре уровня согласованности: строгий, с ограниченным устареванием, уровня сеанса и согласованность в конечном счете. Помимо **строгой** модели и модели **согласованности в конечном счете**, обычно предусмотренных в других базах данных NoSQL, DocumentDB также предлагает две тщательно кодифицированные и реализованные практически модели согласованности — **ограниченное устаревание** и **уровня сеанса**, эффективность которых была подтверждена реальными случаями использования. Все вместе эти четыре уровня согласованности позволяют принимать обоснованные компромиссы между показателями согласованности, доступности и задержки.
+# <a name="consistency-levels-in-documentdb"></a>Consistency levels in DocumentDB
 
-## Область действия согласованности
+Azure DocumentDB is designed from the ground up with global distribution in mind. It is designed to offer predictable low latency guarantees, a 99.99% availability SLA, and multiple well-defined relaxed consistency models. Currently, DocumentDB provides four consistency levels: strong, bounded-staleness, session, and eventual. Besides the **strong** and the **eventual consistency** models commonly offered by other NoSQL databases, DocumentDB also offers two carefully codified and operationalized consistency models – **bounded staleness** and **session**, and has validated their usefulness against real world use cases. Collectively these four consistency levels enable you to make well-reasoned trade-offs between consistency, availability, and latency. 
 
-Степень детализации согласованности ограничивается запросом одного пользователя. Запрос записи может соответствовать транзакции Insert, Replace, Upsert или Delete (с выполнением или без выполнения связанного триггера, активируемого до или после транзакции). Или же запрос записи может соответствовать транзакционному выполнению хранимой процедуры JavaScript, оперирующей с несколькими документами в секции. Как и запись, транзакция чтения или запроса также ограничена одним запросом пользователя. Пользователю может потребоваться разбить на страницы большой результирующий набор, охватывающий нескольких секций, но каждая транзакция чтения ограничена одной страницей и обслуживается в одной секции.
+## <a name="scope-of-consistency"></a>Scope of consistency
 
-## Уровни согласованности
+The granularity of consistency is scoped to a single user request. A write request may correspond to an insert, replace, upsert, or delete transaction (with or without the execution of an associated pre or post trigger). Or a write request may correspond to the transactional execution of a JavaScript stored procedure operating over multiple documents within a partition. As with the writes, a read/query transaction is also scoped to a single user request. The user may be required to paginate over a large result-set, spanning multiple partitions, but each read transaction is scoped to a single page and served from within a single partition.
 
-Вы можете настроить уровень согласованности по умолчанию для учетной записи базы данных, который будет распространяться на все коллекции (через все базы данных) под вашей учетной записью базы данных. По умолчанию все операции чтения и запросов к определенным пользователем ресурсам будут использовать уровень согласованности по умолчанию, заданный в учетной записи базы данных. Тем не менее можно снизить уровень согласованности конкретного запроса (на чтение или операцию), задав заголовок запроса [[x-ms-consistency-level]](https://msdn.microsoft.com/library/azure/mt632096.aspx). Существует четыре типа уровней согласованности, поддерживаемых протоколом репликации DocumentDB, которые обеспечивают четкий компромисс между определенными гарантиями целостности и производительности, как описано ниже.
+## <a name="consistency-levels"></a>Consistency levels
 
-![DocumentDB предлагает несколько четко определенных моделей согласованности (нестрогой) на ваш выбор.][1]
+You can configure a default consistency level on your database account that applies to all the collections (across all of the databases) under your database account. By default, all reads and queries issued against the user defined resources will use the default consistency level specified on the database account. However, you can relax the consistency level of a specific read/query request by specifying the [[x-ms-consistency-level]](https://msdn.microsoft.com/library/azure/mt632096.aspx) request header. There are four types of consistency levels supported by the DocumentDB replication protocol that provide a clear trade-off between specific consistency guarantees and performance, as described below.
 
-**Уровень согласованности Strong (сильная)**:
+![DocumentDB offers multiple, well defined (relaxed) consistency models to choose from][1]
 
-- Строгая согласованность предлагает гарантию [линеаризации](https://aphyr.com/posts/313-strong-consistency-models), обеспечивающую возвращение самой последней версии документа операциями чтения.
-- Сильный уровень согласованности гарантирует, что операция записи отображается только после ее завершения большинством необходимого набора реплик. Операция записи либо синхронно фиксируется первичной репликой и кворумом вторичных реплик, либо прерывается. Операция чтения всегда признается большинством кворума чтения, клиент никогда не сможет увидеть незафиксированную или частичную запись и всегда гарантированно считает последние подтвержденные записанные данные.
-- Учетную запись DocumentDB, настроенную для использования строгой согласованности, нельзя связать более чем с одним регионом Azure.
-- Затраты на операцию чтения (в используемых [единицах запроса](documentdb-request-units.md)) при строгой согласованности выше, чем при согласованности уровня сеанса и согласованности в конечном счете, но не отличаются от затрат при согласованности с ограниченным устареванием.
+**Strong**: 
+
+- Strong consistency offers a [linearizability](https://aphyr.com/posts/313-strong-consistency-models) guarantee with the reads guaranteed to return the most recent version of a document. 
+- Strong consistency guarantees that a write is only visible after it is committed durably by the majority quorum of replicas. A write is either synchronously committed durably by both the primary and the quorum of secondaries, or it is aborted. A read is always acknowledged by the majority read quorum, a client can never see an uncommitted or partial write and is always guaranteed to read the latest acknowledged write. 
+- DocumentDB accounts that are configured to use strong consistency cannot associate more than one Azure region with their DocumentDB account. 
+- The cost of a read operation (in terms of [request units](documentdb-request-units.md) consumed) with strong consistency is higher than session and eventual, but the same as bounded staleness.
  
 
-**Ограниченное устаревание**
+**Bounded staleness**: 
 
-- Согласованность с ограниченным устареванием гарантирует, что операции чтения могут отставать от записи не более чем на *K* версий или префиксов документа или на интервал времени *t*.
-- Следовательно, при выборе ограниченного устаревания это самое "устаревание" можно настроить двумя способами.
-    - Можно указать количество *K* версий документа, на которое операции чтения могут отставать от операций записи.
-    - Можно задать интервал времени *t*.
-- Согласованность с ограниченным устареванием обеспечивает общий глобальный порядок в пределах "окна устаревания". Обратите внимание, что гарантии монотонных операций чтения в регионе существуют как в пределах "окна устаревания", так и вне его.
-- Модель ограниченного устаревания обеспечивает более надежную гарантию согласованности, чем согласованность уровня сеанса и согласованность в конечном счете. Для глобально распределенных приложений мы рекомендуем использовать ограниченное устаревание в ситуациях, где требуется строгая согласованность, но при этом необходима доступность порядка 99,99 % и низкая задержка.
-- С учетными записями DocumentDB, для которых настроена согласованность с ограниченным устареванием, можно связать любое количество регионов Azure.
-- Затраты на операцию чтения (в используемых единицах запроса) с ограниченным устареванием выше, чем при согласованности уровня сеанса и согласованности в конечном счете, но не отличаются от затрат при строгой согласованности.
+- Bounded staleness consistency guarantees that the reads may lag behind writes by at most *K* versions or prefixes of a document or *t* time-interval. 
+- Consequently, when choosing bounded staleness, the “staleness” can be configured in two ways: 
+    - Number of versions *K* of the document by which the reads lag behind the writes
+    - Time interval *t* 
+- Bounded staleness offers total global order except within the “staleness window”. Note that the monotonic read guarantees exists within a region both inside and outside the “staleness window”. 
+- Bounded staleness provides a stronger consistency guarantee than session or eventual consistency. For globally distributed applications, we recommend you use bounded staleness for scenarios where you would like to have strong consistency but also want 99.99% availability and low latency. 
+- DocumentDB accounts that are configured with bounded staleness consistency can associate any number of Azure regions with their DocumentDB account. 
+- The cost of a read operation (in terms of RUs consumed) with bounded staleness is higher than session and eventual consistency, but the same as strong consistency.
 
-**Уровень согласованности Session (сеанс)**:
+**Session**: 
 
-- В отличие от глобальных моделей согласованности, предлагаемых уровнями строгой согласованности и согласованности с ограниченным устареванием, согласованность уровня сеанса ограничена сеансом клиента.
-- Согласованность уровня сеанса идеально подходит для всех сценариев, включающих в себя сеанс устройства или пользователя, так как она гарантирует монотонное чтение и монотонную запись, а также гарантирует чтение собственных записей (RYW).
-- Согласованность уровня сеанса обеспечивает предсказуемую согласованность для сеанса и максимальную пропускную способность, предлагая самые низкие задержки при записи и чтении.
-- С учетными записями DocumentDB, для которых настроена согласованность уровня сеанса, можно связать любое количество регионов Azure.
-- Затраты на операцию чтения (в используемых единицах запроса) для модели согласованности уровня сеанса меньше, чем для строгой согласованности или согласованности с ограниченным устареванием, но больше, чем для согласованности в конечном счете.
+- Unlike the global consistency models offered by strong and bounded staleness consistency levels, session consistency is scoped to a client session. 
+- Session consistency is ideal for all scenarios where a device or user session is involved since it guarantees monotonic reads, monotonic writes, and read your own writes (RYW) guarantees. 
+- Session consistency provides predictable consistency for a session, and maximum read throughput while offering the lowest latency writes and reads. 
+- DocumentDB accounts that are configured with session consistency can associate any number of Azure regions with their DocumentDB account. 
+- The cost of a read operation (in terms of RUs consumed) with session consistency level is less than strong and bounded staleness, but more than eventual consistency
  
 
-**Уровень согласованности Eventual (в конечном счете)**:
+**Eventual**: 
 
-- Согласованность в конечном итоге гарантирует, что в отсутствие каких-либо последующих операций записи реплики в группе в конечном счете сходятся.
-- Согласованность в конечном счете является самой нестрогой формой согласованности, при которой клиент может получить значения, которые являются более старыми по отношению к полученным ранее.
-- Согласованность «в конечном счете» оказывается самой слабо связанной согласованностью чтения, но предлагает наименьшую задержку как для чтения, так и для записи.
-- С учетными записями DocumentDB, для которых настроена согласованность в конечном счете, можно связать любое количество регионов Azure.
-- Затраты на операцию чтения (в используемых единицах запроса) для уровня согласованности в конечном счете являются самыми низкими среди уровней согласованности DocumentDB.
+- Eventual consistency guarantees that in absence of any further writes, the replicas within the group will eventually converge. 
+- Eventual consistency is the weakest form of consistency where a client may get the values that are older than the ones it had seen before.
+- Eventual consistency provides the weakest read consistency but offers the lowest latency for both reads and writes.
+- DocumentDB accounts that are configured with eventual consistency can associate any number of Azure regions with their DocumentDB account. 
+- The cost of a read operation (in terms of RUs consumed) with the eventual consistency level is the lowest of all the DocumentDB consistency levels.
 
 
-## Гарантии согласованности
+## <a name="consistency-guarantees"></a>Consistency guarantees
 
-В следующей таблице указаны различные гарантии согласованности, соответствующие четырем уровням согласованности.
+The following table captures various consistency guarantees corresponding to the four consistency levels.
 
-| Гарантия | Строгая | Ограниченное запаздывание | Сеанс | В конечном счете |
+| Guarantee                                                         |    Strong                                       |    Bounded Staleness                                                                           |    Session                                       |    Eventual                                 |
 |----------------------------------------------------------|-------------------------------------------------|------------------------------------------------------------------------------------------------|--------------------------------------------------|--------------------------------------------------|
-| **Общий глобальный порядок** | Да | Да, вне "окна устаревания". | Нет, частичный "сеансовый" порядок. | Нет |
-| **Гарантируется согласованность префиксов** | Да | Да | Да | Да |
-| **Монотонное чтение** | Да | Да, в регионах вне "окна устаревания" и постоянно в регионе. | Да, для заданного сеанса. | Нет |
-| **Монотонная запись** | Да | Да | Да | Да |
-| **Чтение своих записей** | Да | Да | Да (в регионе записи). | Нет |
+|    **Total global order**                                |    Yes                                          |    Yes, outside of the “staleness window”                                                      |    No, partial “session” order                   |    No                                            |
+|    **Consistent prefix guarantee**                       |    Yes                                          |    Yes                                                                                         |    Yes                                           |    Yes                                           |
+|    **Monotonic reads**                                   |    Yes                                          |    Yes, across   regions outside of the staleness window and within a region all the time.     |    Yes, for the given session                    |    No                                            |
+|    **Monotonic writes**                                  |    Yes                                          |    Yes                                                                                         |    Yes                                           |    Yes                                           |
+|    **Read your writes**                                  |    Yes                                          |    Yes                                                                                         |    Yes (in the write region)                      |    No                                            |
 
 
-## Настройка уровня согласованности по умолчанию
+## <a name="configuring-the-default-consistency-level"></a>Configuring the default consistency level
 
-1.  На навигационной панели [портала Azure](https://portal.azure.com/) щелкните **DocumentDB (NoSQL)**.
+1.  In the [Azure portal](https://portal.azure.com/), in the Jumpbar, click **DocumentDB (NoSQL)**.
 
-2. В колонке **DocumentDB (NoSQL)** выберите учетную запись базы данных для изменения.
+2. In the **DocumentDB (NoSQL)** blade, select the database account to modify.
 
-3. В колонке учетной записи щелкните **Согласованность по умолчанию**.
+3. In the account blade, click **Default consistency**.
 
 
-4. В колонке **Согласованность по умолчанию** выберите новый уровень согласованности и щелкните **Сохранить**.
+4. In the **Default Consistency** blade, select the new consistency level and click **Save**.
 
-	![Снимок экрана, на котором показан значок "Параметры" и запись "Согласованность по умолчанию"](./media/documentdb-consistency-levels/database-consistency-level-1.png)
+    ![Screen shot highlighting the Settings icon and Default Consistency entry](./media/documentdb-consistency-levels/database-consistency-level-1.png)
 
-## Уровни согласованности для запросов
+## <a name="consistency-levels-for-queries"></a>Consistency levels for queries
 
-По умолчанию для определенных пользователем ресурсов уровень согласованности запросов совпадает с уровнем согласованности операций чтения. По умолчанию индекс обновляется синхронно при каждой операции вставки, замены или удаления документа в коллекции. Это позволяет выполнять запросы с уровнем согласованности, как и в документе. В то время как служба DocumentDB оптимизирована для операций записи и поддерживает устойчивые объемы операций записи документов, синхронное обслуживание индекса и обслуживание согласованных запросов, вы можете настроить определенные коллекции для отложенного обновления их ​​индексов. Отложенное индексирование еще больше повышает производительность операций записи и идеально подходит для сценариев пакетной вставки, прежде всего для чтения больших объемов данных.
+By default, for user defined resources, the consistency level for queries is the same as the consistency level for reads. By default, the index is updated synchronously on each insert, replace, or delete of a document to the collection. This enables the queries to honor the same consistency level as that of the document reads. While DocumentDB is write optimized and supports sustained volumes of document writes, synchronous index maintenance and serving consistent queries, you can configure certain collections to update their index lazily. Lazy indexing further boosts the write performance and is ideal for bulk ingestion scenarios when a workload is primarily read-heavy.  
 
-Режим индексирования|	Операции чтения|	Запросы  
+Indexing Mode|  Reads|  Queries  
 -------------|-------|---------
-Режим согласованности (по умолчанию)|	Можно выбрать строгую согласованность, согласованность с ограниченным устареванием, согласованность уровня сеанса и согласованность в конечном счете.|	Можно выбрать строгую согласованность, согласованность с ограниченным устареванием, согласованность уровня сеанса и согласованность в конечном счете.|
-Отложенная|	Можно выбрать строгую согласованность, согласованность с ограниченным устареванием, согласованность уровня сеанса и согласованность в конечном счете.|	В конечном счете  
+Consistent (default)|   Select from strong, bounded staleness, session, or eventual|    Select from strong, bounded staleness, session, or eventual|
+Lazy|   Select from strong, bounded staleness, session, or eventual|    Eventual  
 
-Как и для запросов на чтение, можно снизить уровень согласованности конкретного запроса, задав заголовок запроса [x-ms-consistency-level](https://msdn.microsoft.com/library/azure/mt632096.aspx).
+As with read requests, you can lower the consistency level of a specific query request by specifying the [x-ms-consistency-level](https://msdn.microsoft.com/library/azure/mt632096.aspx) request header.
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Next steps
 
-Если вы хотите получить дополнительные сведения об уровнях согласованности и компромиссах, рекомендуем ознакомиться со следующими ресурсами:
+If you'd like to do more reading about consistency levels and tradeoffs, we recommend the following resources:
 
--	Даг Терри. Объяснение согласованности при репликации данных на примере бейсбола (видео). [https://www.youtube.com/watch?v=gluIh8zd26I](https://www.youtube.com/watch?v=gluIh8zd26I)
--	Даг Терри. Объяснение согласованности при репликации данных на примере игры в бейсбол (Replicated Data Consistency explained through baseball). [http://research.microsoft.com/pubs/157411/ConsistencyAndBaseballReport.pdf](http://research.microsoft.com/pubs/157411/ConsistencyAndBaseballReport.pdf)
--	Даг Терри. Гарантии на уровне сеанса для репликации слабо согласованных данных. [http://dl.acm.org/citation.cfm?id=383631](http://dl.acm.org/citation.cfm?id=383631)
--	Дэниэл Абади. Компромиссы согласованности в современных распределенных системах проектирования баз данных: распределенных: ограничением является частью статьи: теорема CAP — это только начало...". [http://computer.org/csdl/mags/co/2012/02/mco2012020037-abs.html](http://computer.org/csdl/mags/co/2012/02/mco2012020037-abs.html)
--	Питер Бейлис, Шиварам Венкатараман, Майкл Дж. Франклин, Джозеф М. Хеллерштейн, Ион Стойка (Peter Bailis, Shivaram Venkataraman, Michael J. Franklin, Joseph M. Hellerstein, Ion Stoica). Вероятностное ограниченное запаздывание (PBS) для практических неполных кворумов. (Probabilistic Bounded Staleness (PBS) for Practical Partial Quorums.) [http://vldb.org/pvldb/vol5/p776\_peterbailis\_vldb2012.pdf](http://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf)
--	Вернер Вогелс. Возвращаясь к вопросу о согласованности в конечном счете. (Eventual Consistent - Revisited.). [http://allthingsdistributed.com/2008/12/eventually\_consistent.html](http://allthingsdistributed.com/2008/12/eventually_consistent.html)
+-   Doug Terry. Replicated Data Consistency explained through baseball (video).   
+[https://www.youtube.com/watch?v=gluIh8zd26I](https://www.youtube.com/watch?v=gluIh8zd26I)
+-   Doug Terry. Replicated Data Consistency explained through baseball.   
+[http://research.microsoft.com/pubs/157411/ConsistencyAndBaseballReport.pdf](http://research.microsoft.com/pubs/157411/ConsistencyAndBaseballReport.pdf)
+-   Doug Terry. Session Guarantees for Weakly Consistent Replicated Data.   
+[http://dl.acm.org/citation.cfm?id=383631](http://dl.acm.org/citation.cfm?id=383631)
+-   Daniel Abadi. Consistency Tradeoffs in Modern Distributed Database Systems Design: CAP is only part of the story”.   
+[http://computer.org/csdl/mags/co/2012/02/mco2012020037-abs.html](http://computer.org/csdl/mags/co/2012/02/mco2012020037-abs.html)
+-   Peter Bailis, Shivaram Venkataraman, Michael J. Franklin, Joseph M. Hellerstein, Ion Stoica. Probabilistic Bounded Staleness (PBS) for Practical Partial Quorums.   
+[http://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf](http://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf)
+-   Werner Vogels. Eventual Consistent - Revisited.    
+[http://allthingsdistributed.com/2008/12/eventually_consistent.html](http://allthingsdistributed.com/2008/12/eventually_consistent.html)
 
 
 [1]: ./media/documentdb-consistency-levels/consistency-tradeoffs.png
 
-<!---HONumber=AcomDC_0831_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

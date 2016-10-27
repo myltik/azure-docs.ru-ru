@@ -1,5 +1,9 @@
-Можно создавать виртуальные машины (VM) в Azure и предоставлять к ним доступ через Интернет с помощью общедоступного IP-адреса. По умолчанию общедоступные IP-адреса являются динамическими, и адреса, связанные с ними, могут измениться при удалении виртуальной машины. Чтобы гарантировать, что виртуальная машина всегда использует один и тот же общедоступный IP-адрес, необходимо создать статический общедоступный IP-адрес.
+You can create virtual machines (VMs) in Azure and expose them to the public Internet by using a public IP address. By default, Public IPs are dynamic and the address associated to them may change when the VM is deleted. To guarantee that the VM always uses the same public IP address, you need to create a static Public IP. 
 
-Прежде чем реализовать статические общедоступные IP-адреса в виртуальных машинах, необходимо понимать, когда можно использовать статические общедоступные IP-адреса, и как это делать. Прочитайте [обзор IP-адресации](../articles/virtual-network/virtual-network-ip-addresses-overview-arm.md), чтобы больше узнать об IP-адресации в Azure.
+Before you can implement static Public IPs in VMs, it is necessary to understand when you can use static Public IPs, and how they are used. Read the [IP addressing overview](../articles/virtual-network/virtual-network-ip-addresses-overview-arm.md) to learn more about IP addressing in Azure.
 
-<!---HONumber=AcomDC_0323_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

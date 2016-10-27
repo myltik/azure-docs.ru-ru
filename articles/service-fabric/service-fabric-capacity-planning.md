@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Планирование емкости для приложений Service Fabric | Microsoft Azure"
-   description="Описание процедуры определения количество вычислительных узлов, необходимых для приложения Service Fabric."
+   pageTitle="Capacity planning for Service Fabric apps | Microsoft Azure"
+   description="Describes how to identify the number of compute nodes required for a Service Fabric application"
    services="service-fabric"
    documentationCenter=".net"
    authors="mani-ramaswamy"
@@ -17,24 +17,25 @@
    ms.author="subramar"/>
 
 
-# Планирование емкости для приложений Service Fabric
+
+# <a name="capacity-planning-for-service-fabric-applications"></a>Capacity planning for Service Fabric applications
 
 
-В этом документе содержатся сведения об определении объема ресурсов (ЦП, ОЗУ, дискового хранилища), необходимых для выполнения приложений Service Fabric. Чаще всего требования к ресурсам со временем меняются. Как правило, при разработке или тестировании службы требуется незначительное количество ресурсов. Но при переходе в рабочую среду и росте популярности приложения объем ресурсов возрастает. При проектировании приложения следует рассмотреть требования в долгосрочной перспективе и принять решения, которые позволят масштабировать службу в соответствии с возросшими требованиями клиентов.
+This document teaches you how to estimate the amount of resources (CPUs, RAM, disk storage) you need to run your Azure Service Fabric applications. It is common for your resource requirements to change over time. You typically require few resources as you develop/test your service, and then require more resources as you go into production and your application grows in popularity. When you design your application, think through the long-term requirements and make choices that allow your service to scale to meet high customer demand.
 
- Создавая кластер Service Fabric, вы решаете, какого типа виртуальные машины будут входить в его состав. Каждая виртуальная машина имеет ограниченный объем ресурсов в виде ЦП (ядра и быстродействие), пропускной способности сети, ОЗУ и дискового пространства. По мере расширения службы можно выполнить обновление до виртуальных машин с более высоким объемом и/или добавить в кластер дополнительные виртуальные машины. Чтобы решить последнюю задачу, необходимо первоначально так разработать службу, чтобы она смогла поддерживать преимущества новых виртуальных машин, динамически добавляемых в кластер.
+ When you create a Service Fabric cluster, you decide what kinds of virtual machines (VMs) make up the cluster. Each VM comes with a limited amount of resources in the form of CPUs (cores and speed), network bandwidth, RAM, and disk storage. As your service grows over time, you can upgrade to VMs that offer greater resources and/or add more VMs to your cluster. To do the latter, you must architect your service initially so it can take advantage of new VMs that get dynamically added to the cluster.
 
-Некоторые службы управляют слишком малым объемом данных на самих виртуальных машинах либо не управляют вообще ничем. Следовательно, при планировании загрузки для этих служб следует главным образом сосредоточиться на производительности, то есть нужно выбрать ЦП виртуальных машин с соответствующим числом ядер и тактовой частотой. Кроме того, также следует учесть пропускную способность сети, включая частоту передачи данных и объем передаваемых данных. Если по мере увеличения степени использования функционирование службы должно оставаться на высоком уровне, в кластер можно добавить дополнительные виртуальные машины и обеспечить балансировку сетевых запросов на всех виртуальных машинах.
+Some services manage little to no data on the VMs themselves. Therefore, capacity planning for these services should focus primarily on performance, which means selecting the appropriate CPUs (cores and speed) of the VMs. In addition, you should consider network bandwidth, including how frequently network transfers are occurring and how much data is being transferred. If your service needs to perform well as service usage increases, you can add more VMs to the cluster and load balance the network requests across all the VMs.
 
-При планировании загрузки для служб, управляющих большим объемом данных на виртуальных машинах, особое внимание следует уделить размеру. Поэтому необходимо тщательно обдумать выделение виртуальной машине требуемого объема ОЗУ и дискового пространства. В системе управления виртуальной памятью Windows дисковое пространство выглядит как ОЗУ в коде приложения. Кроме того, среда выполнения Service Fabric предоставляет функцию Smart Paging, оставляя в памяти горячие (часто используемые) данные и перемещая холодные (редко используемые) данные на диск. Это позволяет приложениям использовать больше памяти, чем доступно физически на виртуальной машине. Увеличение объема памяти просто приводит к увеличению производительности, так как виртуальная машина может содержать больше дискового пространства в ОЗУ. У выбранной виртуальной машины должен быть достаточно большой диск для хранения данных, которые должны размещаться на этой виртуальной машине. Аналогично, у виртуальной машины должен быть достаточный объем оперативной памяти для обеспечения нужной вам производительности. По мере увеличения объема данных службы в кластер можно добавить дополнительные виртуальные машины и секционировать данные на всех виртуальных машинах.
+For services that manage large amounts of data on the VMs, capacity planning should focus primarily on size. Thus, you should carefully consider the capacity of the VM's RAM and disk storage. The virtual memory management system in Windows makes disk space look like RAM to application code. In addition, the Service Fabric runtime provides smart paging keeping only hot data in memory and moving the cold data to disk. Applications can thus use more memory than is physically available on the VM. Having more RAM simply increases performance, since the VM can keep more disk storage in RAM. The VM you select should have a disk large enough to store the data that you want on the VM. Similarly, the VM should have enough RAM to provide you with the performance you desire. If your service's data grows over time, you can add more VMs to the cluster and partition the data across all the VMs.
 
-## Определение количества необходимых узлов
+## <a name="determine-how-many-nodes-you-need"></a>Determine how many nodes you need
 
-Секционирование службы позволяет развернуть данные службы. Дополнительные сведения о секционировании см. в разделе [Секционирование служб Reliable Services в Service Fabric](service-fabric-concepts-partitioning.md). Каждая секция должна помещаться на одной виртуальной машине. Однако на одной виртуальной машине также можно разместить несколько небольших секций. Следовательно, наличие большего количества небольших секций обеспечивает большую гибкость, чем небольшое количество более крупных секций. Компромисс заключается в том, что значительное количество секций увеличивает нагрузку на платформу Service Fabric, поэтому вы не можете выполнять транзакционные операции между секциями. Если коду службы часто требуется доступ к фрагментам данных, расположенным в разных секциях, увеличивается объем потенциального сетевого трафика. При разработке службы следует внимательно рассмотреть эти преимущества и недостатки, чтобы в результате прийти к эффективной стратегии секционирования.
+Partitioning your service allows you to scale out your service's data. For more information on partitioning, see [Partitioning Service Fabric](service-fabric-concepts-partitioning.md). Each partition must fit within a single VM, but multiple (small) partitions can be placed on a single VM. So, having more small partitions gives you greater flexibility than having a few larger partitions. The trade-off is that having lots of partitions increases Service Fabric overhead and you cannot perform transacted operations across partitions. There is also more potential network traffic if your service code frequently needs to access pieces of data that live in different partitions. When designing your service, you should carefully consider these pros and cons to arrive at an effective partitioning strategy.
 
-Предположим, что приложение имеет одну службу с отслеживанием состояния, размер хранилища которой будет предположительно увеличиваться до DB\_Size ГБ в год. Вам нужно добавить несколько приложений (и секций), так как ваше решение за год расширилось. Коэффициент репликации (RF), который определяет число реплик службы, влияющее на итоговое значение DB\_Size. Итоговое значение DB\_Size всех реплик равно произведению коэффициента репликации и значения DB\_Size. Значение Node\_Size представляет дисковое пространство/ОЗУ для каждого узла, используемого для службы. Для наилучшей производительности значение DB\_Size должно соответствовать памяти в кластере, а значение Node\_Size — ОЗУ виртуальной машины. Выделяя значение Node\_Size, превышающее емкость ОЗУ, вы полагаетесь на функцию подкачки, предоставляемую средой выполнения Service Fabric. Поэтому производительность может оказаться неоптимальной, если все данные будут считаться горячими (после подкачки данных). Однако для многих служб, активно использующих только часть данных, этот подход является более экономичным.
+Let's assume your application has a single stateful service that has a store size that you expect to grow to DB_Size GB in a year. You are willing to add more applications (and partitions) as you experience growth beyond that year.  The replication factor (RF), which determines the number of replicas for your service impacts the total DB_Size. The total DB_Size across all replicas is the Replication Factor multiplied by DB_Size.  Node_Size represents the disk space/RAM per node you want to use for your service. For best performance, the DB_Size should fit into memory across the cluster, and a Node_Size that is around the RAM of the VM should be chosen. By allocating a Node_Size that is larger than the RAM capacity, you are relying on the paging provided by the Service Fabric runtime. Thus, your performance may not be optimal if your entire data is considered to be hot (since then the data is paged in/out). However, for many services where only a fraction of the data is hot, it is more cost-effective.
 
-Количество узлов, необходимое для достижения максимальной производительности, можно вычислить следующим образом.
+The number of nodes required for maximum performance can be computed as follows:
 
 ```
 Number of Nodes = (DB_Size * RF)/Node_Size
@@ -42,30 +43,30 @@ Number of Nodes = (DB_Size * RF)/Node_Size
 ```
 
 
-## Действия с учетом расширения службы
+## <a name="account-for-growth"></a>Account for growth
 
-Чтобы вычислить количество узлов, вы можете использовать ожидаемое значение DB\_Size для своей службы в дополнение к исходному значению DB\_Size. По мере роста службы увеличивайте количество узлов, чтобы избежать их избыточной подготовки. Количество секций должно быть основано на количестве узлов, необходимых для работы службы на максимально эффективном уровне.
+You may want to compute the number of nodes based on the DB_Size that you expect your service to grow to, in addition to the DB_Size that you began with. Then, grow the number of nodes as your service grows so that you are not over-provisioning the number of nodes. But the number of partitions should be based on the number of nodes that are needed when you're running your service at maximum growth.
 
-Рекомендуется иметь несколько дополнительных виртуальных машин под рукой, чтобы справляться с любыми непредвиденными скачками нагрузки или сбоями (например, при отказе нескольких виртуальных машин). Хотя дополнительные ресурсы следует определить согласно ожидаемым скачкам нагрузки, для начала можно зарезервировать несколько дополнительных виртуальных машин (дополнительно 5–10 %).
+It is good to have some extra machines available at any time so that you can handle any unexpected spikes or failure (for example, if a few VMs go down).  While the extra capacity should be determined by using your expected spikes, a starting point is to reserve a few extra VMs (5-10 percent extra).
 
-Изложенное выше предполагает, что у вас есть одна служба с отслеживанием состояния. Если у вас их несколько, то необходимо добавить в уравнение значение DB\_Size, связанное с другими службами. Кроме того, можно отдельно вычислить количество узлов для каждой службы с отслеживанием состояния. У службы могут быть реплики или секции, которые не сбалансированы. Имейте в виду, что одни секции также могут содержать больше данных, чем другие. Дополнительные сведения о секционировании см. в [статье с рекомендациями по секционированию](service-fabric-concepts-partitioning.md). Тем не менее приведенное выше уравнение не зависит от количества секций или реплик, так как Service Fabric обеспечивает оптимальное распределение реплик между узлами.
-
-
-## Использование таблицы для расчета стоимости
-
-Теперь давайте введем несколько реальных чисел в нашу формулу. В [этом примере таблицы](https://servicefabricsdkstorage.blob.core.windows.net/publicrelease/SF%20VM%20Cost%20calculator-NEW.xlsx) показано планирование емкости для приложения, содержащего три типа объектов данных. Для каждого объекта мы приблизительно определяем его размер и планируемое количество объектов. Мы также выбираем требуемое количество реплик каждого типа объекта. Таблица вычисляет общий объем памяти для хранения в кластере.
-
-Затем мы вводим размер виртуальной машины и ежемесячные расходы. В зависимости от размера виртуальной машины в таблице выводится минимальное количество секций, на которые необходимо разбить данные для физического размещения на узлах. В соответствии с конкретными вычислениями вашего приложения и потребностями сетевого трафика может потребоваться дополнительное количество секций. В таблице показано увеличение количества секций, управляющих объектами профиля пользователя, от 1 до 6.
-
-Теперь на основе этой информации понятно, что вы можете физически получить все данные с нужными разделами и репликами в кластере с 26 узлами. Однако, так как этот кластер плотно упакован, могут потребоваться дополнительные узлы для обработки сбоев и обновлений. В таблице также показано, что наличие более 57 узлов не дает дополнительных преимуществ — у вас просто будут пустые узлы. Опять же, может потребоваться более 57 узлов для обслуживания сбоев и обновлений узлов. Таблицу можно настроить в соответствии с конкретными потребностями.
-
-![Таблица для расчета стоимости][Image1]
+The preceding assumes a single stateful service. If you have more than one stateful service, you have to add the DB_Size associated with the other services into the equation. Alternatively, you can compute the number of nodes separately for each stateful service.  Your service may have replicas or partitions that aren't balanced. Keep in mind that partitions may also have more data than others. For more information on partitioning, see [partitioning article on best practices](service-fabric-concepts-partitioning.md). However, the preceding equation is partition and replica agnostic, because Service Fabric ensures that the replicas are spread out among the nodes in an optimized manner.
 
 
+## <a name="use-a-spreadsheet-for-cost-calculation"></a>Use a spreadsheet for cost calculation
 
-## Дальнейшие действия
+Now let's put some real numbers in the formula. An [example spreadsheet](https://servicefabricsdkstorage.blob.core.windows.net/publicrelease/SF%20VM%20Cost%20calculator-NEW.xlsx) shows how to plan the capacity for an application that contains three types of data objects. For each object, we approximate its size and how many objects we expect to have. We also select how many replicas we want of each object type. The spreadsheet calculates the total amount of memory to be stored in the cluster.
 
-Дополнительные сведения о секционировании служб см. в статье [Секционирование служб Reliable Services в Service Fabric][10].
+Then we enter a VM size and monthly cost. Based on the VM size, the spreadsheet tells you the minimum number of partitions you must use to split your data to physically fit on the nodes. You may desire a larger number of partitions to accommodate your application's specific computation and network traffic needs. The spreadsheet shows the number of partitions that are managing the user profile objects has increased from one to six.
+
+Now, based on all this information, the spreadsheet shows that you could physically get all the data with the desired partitions and replicas on a 26-node cluster. However, this cluster would be densely packed, so you may want some additional nodes to accommodate node failures and upgrades. The spreadsheet also shows that having more than 57 nodes provides no additional value because you would have empty nodes. Again, you may want to go above 57 nodes anyway to accommodate node failures and upgrades. You can tweak the spreadsheet to match your application's specific needs.   
+
+![Spreadsheet for cost calculation][Image1]
+
+
+
+## <a name="next-steps"></a>Next steps
+
+Check out [Partitioning Service Fabric services][10] to learn more about partitioning your service.
 
 
 
@@ -75,4 +76,8 @@ Number of Nodes = (DB_Size * RF)/Node_Size
 <!--Link references--In actual articles, you only need a single period before the slash-->
 [10]: service-fabric-concepts-partitioning.md
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

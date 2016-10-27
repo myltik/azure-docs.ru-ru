@@ -1,78 +1,93 @@
 <properties 
-	pageTitle="Создание решений ";бизнес-бизнес"; с помощью пакета интеграции Enterprise | Служба приложений Microsoft Azure | Microsoft Azure" 
-	description="Сведения о получении данных с помощью функций ";бизнес-бизнес"; пакета интеграции Enterprise" 
-	services="logic-apps" 
-	documentationCenter=".net,nodejs,java"
-	authors="msftman" 
-	manager="erikre" 
-	editor="cgronlun"/>
+    pageTitle="Creating B2B solutions with Enterprise Integration Pack | Microsoft Azure App Service | Microsoft Azure" 
+    description="Learn about receiving data using the B2B features of the Enterprise Integration Pack" 
+    services="logic-apps" 
+    documentationCenter=".net,nodejs,java"
+    authors="msftman" 
+    manager="erikre" 
+    editor="cgronlun"/>
 
 <tags 
-	ms.service="logic-apps" 
-	ms.workload="integration" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/08/2016" 
-	ms.author="deonhe"/>
+    ms.service="logic-apps" 
+    ms.workload="integration" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="07/08/2016" 
+    ms.author="deonhe"/>
 
-# Сведения о получении данных с помощью функций "бизнес-бизнес" пакета интеграции Enterprise#
 
-## Обзор ##
+# <a name="learn-about-receiving-data-using-the-b2b-features-of-the-enterprise-integration-pack#"></a>Learn about receiving data using the B2B features of the Enterprise Integration Pack#
 
-Данный документ является частью пакета интеграции Enterprise для приложений логики. Ознакомьтесь с обзором, чтобы больше узнать о [возможностях пакета интеграции Enterprise](./app-service-logic-enterprise-integration-overview.md).
+## <a name="overview"></a>Overview ##
 
-## Предварительные требования ##
+This document is part of the Logic Apps Enterprise Integration Pack. Check out the overview to learn more about the [capabilities of the Enterprise Integration Pack](./app-service-logic-enterprise-integration-overview.md).
 
-Чтобы использовать действия AS2 и X12, потребуется учетная запись интеграции Enterprise.
+## <a name="prerequisites"></a>Prerequisites ##
 
-[Как создать учетную запись интеграции Enterprise](./app-service-logic-enterprise-integration-accounts.md)
+To use the AS2 and X12 actions you will need an Enterprise Integration Account
 
-## Как использовать соединители "бизнес-бизнес" для приложений логики ##
+[How to create an Enterprise Integration Account](./app-service-logic-enterprise-integration-accounts.md)
 
-После того, как вы создали учетную запись интеграции и добавили партнеры и соглашения, можно приступить к созданию приложения логики, реализующего рабочий процесс "бизнес-бизнес" (B2B).
+## <a name="how-to-use-the-logic-apps-b2b-connectors"></a>How to use the Logic Apps B2B connectors ##
 
-В этом пошаговом руководстве показано, как использовать действия AS2 и X12 для создания приложения логики "бизнес-бизнес", которое получает данные от торгового партнера.
+Once you have created an integration account and added partners and agreements to it you are ready to create a Logic App that implements a business to business (B2B) workflow.
 
-1. Создайте новое приложение логики и [свяжите его с учетной записью интеграции](./app-service-logic-enterprise-integration-accounts.md).
-2. Добавьте триггер **Request - When an HTTP request is received** (Запрос: при получении HTTP-запроса) в свое приложение логики. ![](./media/app-service-logic-enterprise-integration-b2b/flatfile-1.png)
-3. Добавьте действие **Decode AS2** (Декодирование AS2), щелкнув **Добавить действие**. ![](./media/app-service-logic-enterprise-integration-b2b/transform-2.png)
-4. Введите слово **as2** в поле поиска, чтобы отфильтровать все действия и оставить только те, которые вы хотите использовать. ![](./media/app-service-logic-enterprise-integration-b2b/b2b-5.png)
-6. Выберите действие **AS2 - Decode AS2 message** (AS2: декодирование сообщений AS2). ![](./media/app-service-logic-enterprise-integration-b2b/b2b-6.png)
-7. Добавьте **текст**, принимаемый в качестве входных данных, как показано ниже. В этом примере выберите текст HTTP-запроса, активировавшего приложение логики. В качестве альтернативы можно ввести выражение для ввода заголовков в поле **HEADERS** (Заголовки).
+In this walkthru you'll see how to use the AS2 and X12 actions to create a business to business Logic App that receives data from a trading partner.
+
+1. Create a new Logic app and [link it to your integration account](./app-service-logic-enterprise-integration-accounts.md).  
+2. Add a **Request - When an HTTP request is received** trigger to your Logic app  
+![](./media/app-service-logic-enterprise-integration-b2b/flatfile-1.png)  
+3. Add the **Decode AS2** action by first selecting **Add an action**  
+![](./media/app-service-logic-enterprise-integration-b2b/transform-2.png)  
+4. Enter the word **as2** in the search box in order to filter all the actions to the one that you want to use  
+![](./media/app-service-logic-enterprise-integration-b2b/b2b-5.png)  
+6. Select the **AS2 - Decode AS2 message** action  
+![](./media/app-service-logic-enterprise-integration-b2b/b2b-6.png)  
+7. As shown, add the **Body** that you will take as input. In this example, select the body of the HTTP request that triggered the Logic app. You can alternatively enter an expression to input the headers in the**HEADERS** field:
 
     @triggerOutputs()['headers']
 
-8. Добавьте обязательные **заголовки** для AS2. Они будут добавлены в заголовки HTTP-запроса. В этом примере выберите заголовки HTTP-запроса, активировавшего приложение логики.
-9. Теперь добавьте действие "Decode X12 message" (Декодирование сообщения X12), повторно щелкнув **Добавить действие**. ![](./media/app-service-logic-enterprise-integration-b2b/b2b-9.png)
-10. Введите слово **x12** в поле поиска, чтобы отфильтровать все действия и оставить только те, которые вы хотите использовать. ![](./media/app-service-logic-enterprise-integration-b2b/b2b-10.png)
-11. Выберите действие **X12 - Decode X12 message** (X12: декодирование сообщений X12), чтобы добавить его в приложение логики. ![](./media/app-service-logic-enterprise-integration-b2b/b2b-as2message.png)
-12. Теперь нужно указать входные данные для этого действия. Это будут выходные данные приведенного выше действия AS2. Фактическое содержимое сообщения находится в объекте JSON в кодировке Base64. Поэтому в качестве входных данных необходимо указать выражение. Введите следующее выражение в поле входных данных ** FLAT FILE MESSAGE TO DECODE** (Неструктурированный файл сообщения X12 для декодирования).
+8. Add the **Headers** that are required for AS2. These will be in the HTTP request headers. In this example, select the headers of the HTTP request that triggered the Logic app.
+9. Now add the Decode X12 message action by again selecting **Add an action**  
+![](./media/app-service-logic-enterprise-integration-b2b/b2b-9.png)   
+10. Enter the word **x12** in the search box in order to filter all the actions to the one that you want to use  
+![](./media/app-service-logic-enterprise-integration-b2b/b2b-10.png)  
+11. Select the **X12 - Decode X12 message** action to add it to the Logic app  
+![](./media/app-service-logic-enterprise-integration-b2b/b2b-as2message.png)  
+12. You now need to specify the input to this action which will be the output of the AS2 action above. The actual message content is in a JSON object and is base64 encoded. You therefore need to specify an expression as the input so enter the following expression in the **X12 FLAT FILE MESSAGE TO DECODE** input field  
 
-    @base64ToString(body('Decode\_AS2\_message')?['AS2Message']?['Content'])
+    @base64ToString(body('Decode_AS2_message')?['AS2Message']?['Content'])  
 
-13. Это действие будет декодировать данные X12, полученные от торгового партнера, и выводить число элементов в объекте JSON. Чтобы сообщать партнеру о получении данных, можно отправлять ему ответ, содержащий уведомление о состоянии сообщения AS2 (MDN), в действии ответа HTTP.
-14. Добавьте действие **Response** (Ответ), щелкнув **Добавить действие**. ![](./media/app-service-logic-enterprise-integration-b2b/b2b-14.png)
-15. Введите слово **response** в поле поиска, чтобы отфильтровать все действия и оставить только те, которые вы хотите использовать. ![](./media/app-service-logic-enterprise-integration-b2b/b2b-15.png)
-16. Выберите действие **Response** (Ответ), чтобы добавить его. ![](./media/app-service-logic-enterprise-integration-b2b/b2b-16.png)
-17. Задайте значение поля **BODY** (Текст) ответа, используя следующее выражение для доступа к уведомлению MDN из выходных данных действия **Decode X12 message** (Декодирование действия X12).
+13. This step will decode the X12 data received from the trading partner and will output a number of items in a JSON object. In order to let the partner know of the receipt of the data you can send back a response containing the AS2 Message Disposition Notification (MDN) in an HTTP Response Action  
+14. Add the **Response** action by selecting **Add an action**   
+![](./media/app-service-logic-enterprise-integration-b2b/b2b-14.png)  
+15. Enter the word **response** in the search box in order to filter all the actions to the one that you want to use  
+![](./media/app-service-logic-enterprise-integration-b2b/b2b-15.png)  
+16. Select the **Response** action to add it  
+![](./media/app-service-logic-enterprise-integration-b2b/b2b-16.png)  
+17. Set the response **BODY** field by using the following expression to access the MDN from the output of the **Decode X12 message** action  
 
-    @base64ToString(body('Decode\_AS2\_message')?['OutgoingMdn']?['Content'])
+    @base64ToString(body('Decode_AS2_message')?['OutgoingMdn']?['Content'])  
 
-![](./media/app-service-logic-enterprise-integration-b2b/b2b-17.png)
-18. Сохраните результаты своих действий. ![](./media/app-service-logic-enterprise-integration-b2b/transform-5.png)
+![](./media/app-service-logic-enterprise-integration-b2b/b2b-17.png)  
+18. Save your work  
+![](./media/app-service-logic-enterprise-integration-b2b/transform-5.png)  
 
-На этом настройка приложения логики "бизнес-бизнес" завершена. В случае реального приложения может потребоваться сохранить декодированные данные X12 в бизнес-приложении или хранилище данных. Можно легко добавить дополнительные действия для этого или запрограммировать пользовательские интерфейсы API для подключения к вашим собственным бизнес-приложениям, а затем использовать эти API в приложении логики.
+At this point, you are finished setting up your B2B Logic app. In a real world application, you may want to store the decoded X12 data in an LOB application or data store. You can easily add further actions to do this or write custom APIs to connect to your own LOB applications and use these APIs in your Logic app.
 
-## Функции и варианты использования ##
+## <a name="features-and-use-cases"></a>Features and use cases ##
 
-- С помощью действий декодирования и кодирования AS2 и X12 можно получать данные от торговых партнеров и отправлять данные им, используя стандартные протоколы и приложения логики.
-- При необходимости AS2 и X12 (вместе или по отдельности) можно использовать для обмена данными с торговыми партнерами.
-- Действия "бизнес-бизнес" упрощают создание партнеров и соглашений в учетной записи интеграции и их использование в приложениях логики.
-- Расширяя возможности приложения логики с помощью дополнительных действий, можно отправлять и получать данные из других приложений и служб, таких как SalesForce.
+- The AS2 and X12 decode and encode actions allow you to receive data from and send data to trading partners using industry standard protocols using Logic apps  
+- You can use AS2 and X12 with or without each other to exchange data with trading partners as required
+- The B2B actions make it easy to create partners and agreements in the Integration Account and consume them in a Logic app  
+- By extending your Logic app with other actions you can send and receive data to and from other applications and services such as SalesForce  
 
-## Подробнее ##
+## <a name="learn-more"></a>Learn more ##
 
-[Узнайте больше о пакете интеграции Enterprise](./app-service-logic-enterprise-integration-overview.md).
+[Learn more about the Enterprise Integration Pack](./app-service-logic-enterprise-integration-overview.md)  
 
-<!---HONumber=AcomDC_0914_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

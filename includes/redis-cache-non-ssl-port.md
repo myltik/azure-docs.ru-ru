@@ -1,5 +1,9 @@
-Чтобы включить порт без SSL, [откройте](../articles/redis-cache/cache-configure.md#configure-redis-cache-settings) свой кэш на [портале Azure](https://portal.azure.com) и выберите **Параметры > Дополнительные параметры**. Выберите значение **Нет** для параметра **Разрешить доступ только по SSL** в колонке **Дополнительные параметры**, а затем щелкните **Сохранить**.
+To enable the non-SSL port, [browse](../articles/redis-cache/cache-configure.md#configure-redis-cache-settings) to your cache in the [Azure portal](https://portal.azure.com) and click **Settings > Advanced settings**. Click **No** for **Allow access only via SSL** on the **Advanced settings blade** and then click **Save**.
 
-![Параметры кэша Redis](media/redis-cache-non-ssl-port/redis-cache-non-ssl-port.png)
+![Redis cache settings](media/redis-cache-non-ssl-port/redis-cache-non-ssl-port.png)
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,98 +1,103 @@
 <properties
-	pageTitle="Шаблон мультитенантного веб-приложения | Microsoft Azure"
-	description="Найдите обзоры архитектуры и шаблоны разработки, описывающие, как реализовать мультитенантное веб-приложение в Azure."
-	services=""
-	documentationCenter=".net"
-	authors="wadepickett" 
-	manager="wpickett"
-	editor=""/>
+    pageTitle="Multi-Tenant Web Application Pattern | Microsoft Azure"
+    description="Find architectural overviews and design patterns that describe how to implement a multi-tenant web application on Azure."
+    services=""
+    documentationCenter=".net"
+    authors="wadepickett" 
+    manager="wpickett"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="06/05/2015"
-	ms.author="wpickett"/>
-
-# Мультитенантные приложения Azure
-
-Мультитенантное приложение – это общий ресурс, который позволяет разделять пользователей или "клиентов" для просмотра приложения, как будто каждый пользователь является его владельцем. Типичный сценарий, связанный с мультитенатным приложением: все пользователи приложения могут настроить под себя интерфейс, однако во всем остальном приложение должно соответствовать одним и тем же бизнес-требованиям. Примерами крупных мультитенатных приложений являются Office 365, Outlook.com и visualstudio.com.
-
-С точки зрения поставщика приложения преимущества мультитенантности связаны в основном с оптимизацией работы и расходов. Одна версия приложения может соответствовать потребностям многих клиентов/заказчиков, что позволяет консолидировать задачи системного администрирования, такие как мониторинг, настройка производительности, поддержка программного обеспечения и резервное копирование данных.
-
-Ниже приведен список наиболее значимых целей и требований с точки зрения поставщика.
-
-- **Подготовка**. Необходимо иметь возможность подготавливать новых клиентов для приложения. Для мультитенантных приложений с большим количеством клиентов, как правило, необходимо автоматизировать этот процесс, включив возможность самостоятельной подготовки.
-- **Возможность поддержки**. Необходимо иметь возможность обновить приложение и выполнить другие задачи поддержки во время использования приложением несколькими клиентами.
-- **Мониторинг**. Необходимо иметь возможность постоянного мониторинга приложения для определения любых проблем и их эффективного устранения. Это включает мониторинг использования приложения каждым клиентом.
-
-Правильно реализованного мультитенантное приложение предоставляет пользователям следующие преимущества.
-
-- **Изоляция**. Действия отдельных клиентов не влияют на использование приложений приложения другими клиентами. Клиенты не могут получить доступ к данным друг друга. С точки зрения клиента он имеет эксклюзивный доступ к приложению.
-- **Доступность**. Отдельные клиенты нуждаются в постоянной доступности приложения, возможно, с определением гарантии в соглашении об уровне обслуживания. Опять же, действия других клиентов не должны влиять на доступность приложения.
-- **Масштабируемость**. Приложение масштабируется для соответствия требованиям отдельных клиентов. Присутствие и действия других клиентов не должны влиять на производительность приложения.
-- **Расходы**. Расходы ниже, чем при использовании выделенного для одного клиента приложения, так как мультитенантность позволяет совместное использование ресурсов.
-- **Возможность настройки**. Возможность настройки приложения для отдельного клиента различными способами, например путем добавления и удаления функциональных возможностей, изменения цветов и логотипов или даже добавления собственного кода или сценария.
-
-В целом, для предоставления масштабируемой службы следует учитывать различные факторы, однако существует также ряд целей и требований, которые являются общими для многих мультитенатных приложений. Некоторые могут не быть связаны с определенными сценариями, а важность отдельных целей и требований будут различаться в каждом сценарии. Как поставщик мультитенатных приложений вы также будете иметь определенные цели и требования, такие как выполнение требований клиентов, обеспечение прибыли, выставление счетов, предоставление различных уровней обслуживаний, подготовка, поддержка, мониторинг и автоматизация.
-
-Дополнительные сведения о дополнительных аспектах разработки мультитенантного приложения см. в разделе [Размещение мультитенантного приложения в Azure][] Сведения о распространенных шаблонах архитектуры данных для мультитенантных приложений базы данных SaaS см. в статье [Шаблоны разработки для мультитенантных приложений SaaS с использованием базы данных Azure SQL](./sql-database/sql-database-design-patterns-multi-tenancy-saas-applications.md).
-
-Azure предоставляет различные функциональные возможности, которые позволяют устранить основные проблемы, возникающие при разработке мультитенантной системы.
-
-**Изоляция**
-
-- Сегментация клиентов веб-сайта с помощью заголовков узла как при использовании SSL-подключений, так и при их отсутствии.
-- Сегментация клиентов веб-сайтов с помощью параметров запросов.
-- Веб-службы в рабочих ролях.
-	- Рабочие роли, которые, как правило, обрабатывают данные на серверной стороне приложения.
-	- Веб-роли, которые, как правило, функционируют как интерфейсные части приложений.
-
-**Хранилище**
-
-Управление данными, такое как база данных SQL Azure, или службы хранилища Azure, такие как служба таблиц, которая предоставляет службы хранилища для больших объемов неструктурированных данных, и служба BLOB-объектов, которая предоставляет возможности хранения больших объемов неструктурированных текстовых или двоичных данных, таких как видео, аудио и изображения.
-
-- Обеспечение защиты мультитенантных данных в базе данных SQL в соответствии с учетными данными входа каждого клиента на сервер SQL Server.
-- Использование таблиц Azure для ресурсов приложения. Путем определения политики доступа на уровне контейнера можно регулировать разрешения без необходимости формирования нового URL-адреса для ресурсов, защищенных подписями общего доступа.
-- Очереди Azure для ресурсов приложения. Очереди Azure часто используются для выполнения обработки от имени клиентов, однако также могут быть использованы для распределения работы, необходимой для подготовки и управления.
-- Очереди Service Bus для ресурсов приложения, которые передают работу в общую службу. Можно использовать отдельную очередь, где каждый клиент-отправитель может иметь разрешения (по требованиям ACS) только на передачу данных в эту очередь, тогда как только получатели из службы могут иметь разрешение на прием из очереди данных, поступающих от нескольких клиентов.
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="dotnet"
+    ms.topic="article"
+    ms.date="06/05/2015"
+    ms.author="wpickett"/>
 
 
-**Службы подключения и безопасности**
+# <a name="multitenant-applications-in-azure"></a>Multitenant Applications in Azure
 
-- Azure Service Bus — это инфраструктура обмена сообщениями, которая размещается между приложениями и позволяет им обмениваться сообщениями в слабосвязанной конфигурации для улучшения масштабирования и устойчивости.
+A multitenant application is a shared resource that allows separate users, or "tenants," to view the application as though it was their own. A typical scenario that lends itself to a multitenant application is one in which all users of the application may wish to customize the user experience but otherwise have the same basic business requirements. Examples of large multitenant applications are Office 365, Outlook.com, and visualstudio.com.
 
-**Сетевые службы**
+From an application provider's perspective, the benefits of multitenancy mostly relate to operational and cost efficiencies. One version of your application can meet the needs of many tenants/customers, allowing consolidation of system administration tasks such as monitoring, performance tuning, software maintenance, and data backups.
 
-Azure предоставляет несколько сетевых служб, поддерживающих проверку подлинности и повышающих управляемость размещенных приложений. В число этих служб входят следующие:
+The following provides a list of the most significant goals and requirements from a provider's perspective.
 
-- Виртуальная сеть Azure позволяет подготавливать виртуальные частные сети (VPN) в Azure, управлять ими, а также обеспечить безопасный канал с локальной ИТ-инфраструктурой.
-- Диспетчер трафика (Traffic Manager) виртуальных сетей обеспечивает балансировку нагрузки по входящему трафику между несколькими размещенными службами Azure независимо от того, работают они в одном центре обработки данных или распределены по всему миру.
-- Azure Active Directory (Azure AD) — это современная служба на основе интерфейса REST, которая предоставляет возможности для управления идентификацией и доступом в облачных приложениях. Использование Azure AD для ресурсов приложения Azure AD для предоставления простого способа проверки подлинности и авторизации пользователей для получения доступа к веб-приложениям и службам, одновременно позволяя реализовывать функциональные возможности проверки подлинности и авторизации в своем коде.
-- Azure Service Bus предоставляет возможность безопасного обмена сообщениями и передачи данных для распределенных и гибридных приложений, например связи между размещенными в Azure приложениями и локальными приложениями и службами без необходимости в использовании комплексных инфраструктур брандмауэра и безопасности. С помощью службы ретрансляции Service Bus для ресурсов приложений. Службы, которые являются конечными точками, могут принадлежать клиенту (например, размещены вне системы, например на локальных ресурсах), или могут подготавливаться специально для клиента (так как между ними передаются конфиденциальные данные, относящиеся к каждому клиенту).
+- **Provisioning**: You must be able to provision new tenants for the application.  For multitenant applications with a large number of tenants, it is usually necessary to automate this process by enabling self-service provisioning.
+- **Maintainability**: You must be able to upgrade the application and perform other maintenance tasks while multiple tenants are using it.
+- **Monitoring**: You must be able to monitor the application at all times to identify any problems and to troubleshoot them. This includes monitoring how each tenant is using the application.
+
+A properly implemented multitenant application provides the following benefits to users.
+
+- **Isolation**: The activities of individual tenants do not affect the use of the application by other tenants. Tenants cannot access each other's data. It appears to the tenant as though they have exclusive use of the application.
+- **Availability**: Individual tenants want the application to be constantly available, perhaps with guarantees defined in an SLA. Again, the activities of other tenants should not affect the availability of the application.
+- **Scalability**: The application scales to meet the demand of individual tenants. The presence and actions of other tenants should not affect the performance of the application.
+- **Costs**: Costs are lower than running a dedicated, single-tenant application because multi-tenancy enables the sharing of resources.
+- **Customizability**. The ability to customize the application for an individual tenant in various ways such as adding or removing features, changing colors and logos, or even adding their own code or script.
+
+In short, while there are many considerations that you must take into account to provide a highly scalable service, there are also a number of the goals and requirements that are common to many multitenant applications. Some may not be relevant in specific scenarios, and the importance of individual goals and requirements will differ in each scenario. As a provider of the multitenant application, you will also have goals and requirements such as, meeting the tenants' goals and requirements, profitability, billing, multiple service levels, provisioning, maintainability monitoring, and automation.
+
+For more information on additional design considerations of a multitenant application, see [Hosting a Multi-Tenant Application on Azure][]. For information on common data architecture patterns of multi-tenant software-as-a-service (SaaS) database applications, see [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](./sql-database/sql-database-design-patterns-multi-tenancy-saas-applications.md). 
+
+Azure provides many features that allow you to address the key problems encountered when designing a multitenant system.
+
+**Isolation**
+
+- Segment Website Tenants by Host Headers with or without SSL communication
+- Segment Website Tenants by Query Parameters
+- Web Services in Worker Roles
+    - Worker Roles. that typically process data on the backend of an application.
+    - Web Roles that typically act as the frontend for applications.
+
+**Storage**
+
+Data management such as Azure SQL Database or Azure Storage services such as the Table service which provides services for storage of large amounts of unstructured data and the Blob service which provides services to store large amounts of unstructured text or binary data such as video, audio and images.
+
+- Securing Multitenant Data in SQL Database appropriate per-tenant SQL Server logins.
+- Using Azure Tables for Application Resources By specifying a container level access policy, you can the ability to adjust permissions without having to issue new URL's for the resources protected with shared access signatures.
+- Azure Queues for Application Resources Azure queues are commonly used to drive processing on behalf of tenants, but may also be used to distribute work required for provisioning or management.
+- Service Bus Queues for Application Resources that pushes work to a shared a service, you can use a single queue where each tenant sender only has permissions (as derived from claims issued from ACS) to push to that queue, while only the receivers from the service have permission to pull from the queue the data coming from multiple tenants.
+
+
+**Connection and Security Services**
+
+- Azure Service Bus, a messaging infrastructure that sits between applications allowing them to exchange messages in a loosely coupled way for improved scale and resiliency.
+
+**Networking Services**
+
+Azure provides several networking services that support authentication, and improve manageability of your hosted applications. These services include the following:
+
+- Azure Virtual Network lets you provision and manage virtual private networks (VPNs) in Azure as well as securely link these with on-premises IT infrastructure.
+- Virtual Network Traffic Manager allows you to load balance incoming traffic across multiple hosted Azure services whether they're running in the same datacenter or across different datacenters around the world.
+- Azure Active Directory (Azure AD) is a modern, REST-based service that provides identity management and access control capabilities for your cloud applications. Using Azure AD for Application Resources Azure AD to provides an easy way of authenticating and authorizing users to gain access to your web applications and services while allowing the features of authentication and authorization to be factored out of your code.
+- Azure Service Bus provides a secure messaging and data flow capability for distributed and hybrid applications, such as communication between Azure hosted applications and on-premises applications and services, without requiring complex firewall and security infrastructures. Using Service Bus Relay for Application Resources to The services that are exposed as endpoints may belong to the tenant (for example, hosted outside of the system, such as on-premise), or they may be services provisioned specifically for the tenant (because sensitive, tenant-specific data travels across them).
 
 
 
-**Подготовка ресурсов**
+**Provisioning Resources**
 
-Azure предоставляет ряд способов подготовки новых клиентов приложения. Для мультитенатных приложений с большим количеством клиентов, как правило, необходимо автоматизировать этот процесс, включив возможность самостоятельной подготовки.
+Azure provides a number of ways provision new tenants for the application. For multitenant applications with a large number of tenants, it is usually necessary to automate this process by enabling self-service provisioning.
 
-- Рабочие роли позволяют подготовить и отменить подготовку ресурсов для каждого клиента (например, при регистрации или отмене регистрации клиентов), собирать показатели для использования этих данных, а также управлять масштабированием по определенному расписанию или в ответ на пересечение порогового значения или ключевого показателя производительности. Эта же роль может использоваться для передачи обновлений и модернизаций в решение.
-- BLOB-объекты Azure могут использоваться для подготовки вычислительных ресурсов или предварительно инициализированных ресурсов хранения для новых клиентов, обеспечивая при этом политики доступа на уровне контейнера для защиты пакетов, VHD-образов и других ресурсов вычислительных служб.
-- Возможности подготовки ресурсов баз данных SQL для клиентов включают следующие:
+- Worker roles allow you to provision and de-provision per tenant resources (such as when a new tenant signs-up or cancels), collect metrics for metering use, and manage scale following a certain schedule or in response to the crossing of thresholds of key performance indicators. This same role may also be used to push out updates and upgrades to the solution.
+- Azure Blobs can be used to provision compute or pre-initialized storage resources for new tenants while providing container level access policies to protect the compute service Packages, VHD images and other resources.
+- Options for provisioning SQL Database resources for a tenant include:
 
-	- 	DDL в сценариях или в виде встроенных ресурсов в сборках
-	- 	Пакеты SQL Server 2008 R2, развернутые программными средствами.
-	- 	Копирование из главной справочной базы данных
-	- 	Использование импорта и экспорта базы данных для подготовки новых баз данных из файла.
+    -   DDL in scripts or embedded as resources within assemblies
+    -   SQL Server 2008 R2 DAC Packages deployed programmatically.
+    -   Copying from a master reference database
+    -   Using database Import and Export to provision new databases from a file.
 
 
 
 <!--links-->
 
-[Размещение мультитенантного приложения в Azure]: http://msdn.microsoft.com/library/hh534480.aspx
+[Hosting a Multi-Tenant Application on Azure]: http://msdn.microsoft.com/library/hh534480.aspx
 [Designing Multitenant Applications on Azure]: http://msdn.microsoft.com/library/windowsazure/hh689716
 
-<!---HONumber=AcomDC_0615_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

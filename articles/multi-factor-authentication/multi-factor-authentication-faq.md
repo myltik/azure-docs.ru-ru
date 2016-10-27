@@ -1,188 +1,185 @@
 <properties
-	pageTitle="Часто задаваемые вопросы о службе Azure Multi-Factor Authentication"
-	description="Содержит список часто задаваемых вопросов и ответов о Azure Multi-Factor Authentication. Multi-factor Authentication — это метод проверки личности пользователя, при котором используются дополнительные средства, а не только имя пользователя и пароль. Данный метод обеспечивает дополнительный уровень защиты входа пользователей в систему и транзакций."
-	services="multi-factor-authentication"
-	documentationCenter=""
-	authors="kgremban"
-	manager="femila"
-	editor="curtand"/>
+    pageTitle="Azure Multi-Factor Authentication FAQ"
+    description="Provides a list of frequently asked questions and answers related to Azure Multi-Factor Authentication. Multi-Factor Authentication is a method of verifying a user's identity that requires more than a user name and password. It provides an additional layer of security to user sign-in and transactions."
+    services="multi-factor-authentication"
+    documentationCenter=""
+    authors="kgremban"
+    manager="femila"
+    editor="yossib"/>
 
 <tags
-	ms.service="multi-factor-authentication"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/22/2016"
-	ms.author="kgremban"/>
-
-# Часто задаваемые вопросы о службе Azure Multi-Factor Authentication
+    ms.service="multi-factor-authentication"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/13/2016"
+    ms.author="kgremban"/>
 
 
-Это ответы на часто задаваемые вопросы о Azure Multi-Factor Authentication и использовании службы Multi-Factor Authentication, включая вопросы о модели выставления счетов и удобстве использования.
-
-## Общие сведения
-
-**В. Где я могу получить справочные сведения о службе Azure Multi-Factor Authentication?**
-
-- [Поиск в базе знаний службы технической поддержки Майкрософт](https://www.microsoft.com/ru-RU/Search/result.aspx?form=mssupport&q=phonefactor&form=mssupport)
-
-  В базе знаний можно искать решения для распространенных технических проблем.
-
-- [Форумы по Microsoft Azure Active Directory](https://social.msdn.microsoft.com/Forums/azure/home?forum=WindowsAzureAD)
-
-  [На форумах по Azure Active Directory](https://social.msdn.microsoft.com/Forums/azure/newthread?category=windowsazureplatform&forum=WindowsAzureAD&prof=required) вы можете искать и просматривать ответы участников сообщества на технические вопросы, а также задавать собственные.
-
-- [Сброс паролей](mailto:phonefactorsupport@microsoft.com)
-
-  Если вы являетесь клиентом устаревшей версии PhoneFactor и у вас есть вопросы по сбросу пароля или вам нужна помощь, используйте ссылку [сброс пароля](mailto:phonefactorsupport@microsoft.com), чтобы открыть обращение в службу поддержки.
-
-- [Служба поддержки клиентов сервера Azure Multi-Factor Authentication (PhoneFactor)](https://support.microsoft.com/oas/default.aspx?prid=14947)
-
-  По этой ссылке вы можете связаться со специалистом службы технической поддержки Майкрософт. Они зададут вам несколько вопросов, чтобы определить способы поддержки. Это может быть отправка инструкций по электронной почте, отправка информации в сети или помощь по телефону.
+# <a name="azure-multi-factor-authentication-faq"></a>Azure Multi-Factor Authentication FAQ
 
 
+This FAQ answers common questions about Azure Multi-Factor Authentication and using the Multi-Factor Authentication service, including questions about the billing model and usability.
 
-**В. Каким образом сервер Azure Multi-Factor Authentication обрабатывает данные пользователей?**
+## <a name="general"></a>General
 
-При использовании сервера Multi-Factor Authentication (MFA) данные пользователей хранятся только на локальных серверах. В облаке данные пользователя постоянно не хранятся. Когда пользователь проходит двухфакторную проверку подлинности, сервер Multi-Factor Authentication отправляет данные в облачную службу Azure Multi-Factor Authentication для выполнения аутентификации. При отправке запросов на аутентификацию в облачную службу в них и в журналы добавляются данные из указанных ниже полей, что позволяет использовать их в отчетах клиентов об аутентификации или использовании. Некоторые поля являются необязательными, и их можно настроить на сервере Multi-Factor Authentication. Для обмена данными между сервером Multi-Factor Authentication и облачной службой Multi-Factor Authentication используются протокол SSL или TLS и исходящие подключения через порт 443. Ниже приведены поля данных, включаемые в журналы двухфакторной проверки подлинности.
+**Q: How does Azure Multi-Factor Authentication Server handle user data?**
 
-- **Уникальный идентификатор** (имя пользователя или идентификатор локального сервера Multi-Factor Authentication).
-- **Имя и фамилия** (необязательно).
-- **Адрес электронной почты** (необязательно).
-- **Номер телефона** (при аутентификации посредством голосового вызова или SMS).
-- **Маркер устройства** (при аутентификации с помощью мобильного приложения).
-- **Режим проверки подлинности**
-- **Результат проверки подлинности**
-- **Имя сервера Multi-Factor Authentication.**
-- **IP-адрес сервера Multi-Factor Authentication.**
-- **IP-адрес клиента** (если он доступен).
+With Multi-Factor Authentication Server, user data is stored only on the on-premises servers. No persistent user data is stored in the cloud. When the user performs two-step verification, Multi-Factor Authentication Server sends data to the Azure Multi-Factor Authentication cloud service for authentication. Communication between Multi-Factor Authentication Server and the Multi-Factor Authentication cloud service uses Secure Sockets Layer (SSL) or Transport Layer Security (TLS) over port 443 outbound.
 
+When authentication requests are sent to the cloud service, data is collected for authentication and usage reports. Data fields included in two-step verification logs are as follows:
 
+- **Unique ID** (either user name or on-premises Multi-Factor Authentication Server ID)
+- **First and Last Name** (optional)
+- **Email Address** (optional)
+- **Phone Number** (when using a voice call or SMS authentication)
+- **Device Token** (when using mobile app authentication)
+- **Authentication Mode**
+- **Authentication Result**
+- **Multi-Factor Authentication Server Name**
+- **Multi-Factor Authentication Server IP**
+- **Client IP** (if available)
 
-Кроме указанных выше полей, результат аутентификации (пройдена или получен отказ) и причины отказов также хранятся с данными аутентификации и могут быть получены из отчетов об аутентификации или использовании.
+The optional fields can be configured in Multi-Factor Authentication Server.
 
-
-
-
-## Выставление счетов
-
-**В. Будет ли с моей организации взиматься плата за телефонные звонки или текстовые сообщения, используемые для проверки подлинности пользователей?**
-
-Все издержки покрываются платой за использование службы в расчете на пользователя или на отдельные проверки подлинности. С организаций не взимается плата за отдельные телефонные звонки или текстовые сообщения пользователям в рамках функционирования Azure Multi-Factor Authentication. Операторы телефонной связи могут взимать с владельцев телефонов плату, связанную с роумингом или другими затратами на получение телефонных вызовов или текстовых сообщений.
-
-**В. Каким образом организации выставляются счета за использование Azure Multi-Factor Authentication?**
-
-Azure Multi-Factor Authentication предоставляется в виде автономной службы с возможностью оплаты по пользователям и по операциям аутентификации или в составе пакетов Azure Active Directory Premium, Enterprise Mobility Suite и Enterprise Cloud Suite. Автономная служба доступна на основе модели использования с ежемесячной тарификацией согласно денежным обязательствам Azure или по годовой лицензии на каждого пользователя, доступной через соглашение Microsoft Enterprise, программу лицензирования Microsoft Open License Program, программу для поставщиков облачных решений (Майкрософт) или напрямую.
-
->[AZURE.IMPORTANT]
-Регионы Австралии доступны клиентам, имеющим бизнес в Австралии или Новой Зеландии.
-
-Модель выставления счетов | Цена
-------------- | ------------- |
-Оплата по пользователям (денежные обязательства Azure)| 1,40 доллара в месяц (неограниченное число событий проверки подлинности)
-Оплата по проверкам подлинности (денежные обязательства Azure)|1,40 доллара за 10 проверок подлинности
-Годовая лицензия на пользователя (прямая)|1,40 доллара в месяц (неограниченное число событий проверки подлинности)
-Годовая лицензия на пользователя (корпоративное лицензирование)|Обратитесь к своему представителю по [соглашению Enterprise](https://www.microsoft.com/ru-RU/licensing/licensing-programs/enterprise.aspx).
-
-**В. Как выставляются счета при расчете на пользователя: на основе количества пользователей, для которых настроено использование Multi-Factor Authentication, или на основе количества пользователей, выполняющих проверки?**
-
-При выставлении счетов учитывается количество пользователей, для которых настроено использование Multi-Factor Authentication.
-
-**В. Как выставляются счета за использование Multi-Factor Authentication?**
-
-Если в организации используется модель выставления счетов и использования по пользователям или операциям аутентификации, то администратор организации выбирает тип использования, когда создает поставщик Multi-Factor Authentication на классическом портале Azure. Счета за этот ресурс выставляются в подписке Azure организации, точно так же, как и за виртуальные машины, веб-сайты и т. п. При использовании модели лицензирования лицензии Azure Multi-Factor Authentication приобретаются и затем назначаются пользователям, так же, как в Office 365 и других продуктах, распространяемых по подписке.
-
-**В. Существует ли бесплатная версия Azure Multi-Factor Authentication для администраторов?**
-
-Определенный набор возможностей Azure Multi-Factor Authentication под названием "Multi-Factor Authentication для администраторов Azure" предлагается бесплатно участникам группы глобальных администраторов Azure в том случае, если поставщик Azure Multi-Factor Authentication на основе использования не был привязан к соответствующему экземпляру Azure Active Directory. Благодаря установке новой версии поставщика Multi-Factor Authentication все администраторы и пользователи в каталоге, для которых настроено использование Multi-Factor Authentication, получают возможность использовать полную версию Azure Multi-Factor Authentication.
-
-**В. Существует ли бесплатная версия Azure Multi-Factor Authentication для пользователей Office 365?**
-
-Определенный набор возможностей Azure Multi-Factor Authentication под названием "Multi-Factor Authentication для Office 365" предлагается бесплатно пользователям, которым назначена лицензия Office 365, в том случае, если поставщик Azure Multi-Factor Authentication на основе использования не был привязан к соответствующему экземпляру Azure Active Directory. Благодаря установке новой версии поставщика Multi-Factor Authentication все администраторы и пользователи в каталоге, для которых настроено использование Multi-Factor Authentication, получают возможность использовать полную версию Azure Multi-Factor Authentication.
-
-**В. Может ли моя организация переключаться между моделями оплаты за использование "по пользователям" и "по операциям аутентификации"?**
-
-Ваша организация выбирает модель выставления счетов при создании ресурса. После подготовки ресурса изменить модель выставления счетов невозможно. Тем не менее можно создать новый ресурс Multi-Factor Authentication для замены исходного ресурса. Следует учитывать, что пользовательские настройки и параметры конфигурации не могут быть переданы в новый ресурс.
-
-**В. Может ли моя организация в любой момент переключиться между моделью выставления счетов за использование и моделью лицензирования?**
-
-Ваша организация может приобрести лицензии Azure Multi-Factor Authentication, Azure Active Directory Premium, Enterprise Mobility Suite и Enterprise Cloud Suite в любое время. При добавлении лицензий в каталог, у которого уже есть поставщик Azure Multi-Factor Authentication с моделью выставления счетов по пользователям, выставляемые счета за использование корректируются в сторону уменьшения согласно числу приобретенных лицензий. Если всем пользователям, для которых настроено использование Multi-Factor Authentication, назначить лицензии, то администратор сможет удалить поставщик Azure Multi-Factor Authentication. Организация не может одновременно использовать модель выставления счетов за использование по операциям аутентификации и модель лицензирования. Если поставщик Multi-Factor Authentication с моделью выставления счетов по операциям аутентификации привязан к каталогу, то организации выставляются счета за все запросы проверки Multi-Factor Authentication независимо от количества приобретенных лицензий.
-
-**В. Должна ли моя организация использовать и синхронизировать удостоверения для использования Azure Multi-Factor Authentication?**
-
-Если организация использует модель выставления счетов за использование, то применять Azure Active Directory не требуется. Связывание поставщика Multi-Factor Authentication с каталогом не обязательно. Если ваша организация не привязана к каталогу, то она может локально развернуть сервер Azure Multi-Factor Authentication или пакет SDK для Azure Multi-Factor Authentication. При использовании модели лицензирования применять Azure Active Directory обязательно, так как лицензии, приобретенные и назначенные пользователям в каталоге, добавляются в этот каталог.
+The verification result (success or denial), and the reason if it was denied, is stored with the authentication data and is available in authentication and usage reports.
 
 
-## Удобство использования
+## <a name="billing"></a>Billing
 
-**В. Что делать пользователю, если он не получил ответ на свой звонок или не может воспользоваться телефоном?**
+Most billing questions can be answered by referring to the [Multi-Factor Authentication Pricing page](https://azure.microsoft.com/pricing/details/multi-factor-authentication/).
 
-Если ранее пользователь указал в настройках, что будет использовать запасной телефон, то ему следует повторить попытку, выбрав этот телефон на странице входа в ответ на запрос. Если у пользователя не настроен другой метод, то ему следует обратиться к администратору организации и попросить его обновить номер основного телефона пользователя (мобильного или рабочего).
+**Q: Is my organization charged for phone calls or text messages used to authenticate my users?**
+
+Organizations are not charged for individual phone calls placed or text messages sent to users through Azure Multi-Factor Authentication. Phone owners might be charged for the phone calls or text messages they receive, according to their personal phone service.
+
+**Q: Does the per-user billing model charge based on the number of users who are configured to use Multi-Factor Authentication or the number of users who perform verifications?**
+
+Billing is based on the number of users configured to use Multi-Factor Authentication.
+
+**Q: How does Multi-Factor Authentication billing work?**
+
+When you use the "per user" or "per authentication" model, Azure MFA is a consumption-based resource. Any charges are billed to the organization’s Azure subscription just like virtual machines, websites, etc.
+
+When you use the license model, Azure Multi-Factor Authentication licenses are purchased and then assigned to users, just like for Office 365 and other subscription products.
+
+**Q: Is there a free version of Azure Multi-Factor Authentication for administrators?**
+
+In some instances, yes. Multi-Factor Authentication for Azure Administrators offers a subset of Azure MFA features at no cost. This offer applies to members of the Azure Global Administrators group in Azure Active Directory instances that aren't linked to a consumption-based Azure Multi-Factor Authentication provider. Using a Multi-Factor Authentication provider upgrades all admins and users in the directory who are configured to use Multi-Factor Authentication to the full version of Azure Multi-Factor Authentication.
+
+**Q: Is there a free version of Azure Multi-Factor Authentication for Office 365 users?**
+
+In some instances, yes. Multi-Factor Authentication for Office 365 offers a subset of Azure MFA features at no cost. This offer applies to users who have an Office 365 license assigned, when a consumption-based Azure Multi-Factor Authentication provider has not been linked to the corresponding instance of Azure Active Directory. Using the Multi-Factor Authentication provider upgrades all admins and users in the directory who are configured to use Multi-Factor Authentication to the full version of Azure Multi-Factor Authentication.
+
+**Q: Can my organization switch between per-user and per-authentication consumption billing models at any time?**
+
+Your organization chooses a billing model when it creates a resource. You cannot change a billing model after the resource is provisioned. You can, however, create another Multi-Factor Authentication resource to replace the original. User settings and configuration options cannot be transferred to the new resource.
+
+**Q: Can my organization switch between the consumption billing and license model at any time?**
+
+When licenses are added to a directory that already has a per-user Azure Multi-Factor Authentication provider, consumption-based billing is decremented by the number of licenses owned. If all users configured to use Multi-Factor Authentication have licenses assigned, the administrator can delete the Azure Multi-Factor Authentication provider.
+
+You cannot mix per-authentication consumption billing with a license model. When a per-authentication Multi-Factor Authentication provider is linked to a directory, the organization is billed for all Multi-Factor Authentication verification requests, regardless of any licenses owned.
+
+**Q: Does my organization have to use and synchronize identities to use Azure Multi-Factor Authentication?**
+
+When an organization uses a consumption-based billing model, Azure Active Directory is not required. Linking a Multi-Factor Authentication provider to a directory is optional. If your organization is not linked to a directory, it can deploy Azure Multi-Factor Authentication Server or the Azure Multi-Factor Authentication SDK on-premises.
+
+Azure Active Directory is required for the license model because licenses are added to the directory when you purchase and assign them to users in the directory.
 
 
-**В. Что делать администратору, если к нему обращается пользователь насчет учетной записи, к которой больше не имеет доступ?**
+## <a name="usability"></a>Usability
 
-Администратор может сбросить настройки учетной записи пользователя, попросив его снова пройти процесс регистрации. Узнайте больше об [управлении параметрами пользователей и устройств в облаке с помощью Azure Multi-Factor Authentication](multi-factor-authentication-manage-users-and-devices.md).
+**Q: What does a user do if they don’t receive a response on their phone, or if the phone is not available to the user?**
 
-**В. Что делать администратору в случае утери или кражи телефона пользователя, использующего пароли приложений?**
-
-Администратор может удалить все пароли приложений пользователя, чтобы предотвратить несанкционированный доступ. После получения нового устройства пользователь сможет создать их заново. Узнайте больше об [управлении параметрами пользователей и устройств в облаке с помощью Azure Multi-Factor Authentication](multi-factor-authentication-manage-users-and-devices.md).
-
-**В. Что если пользователь не может войти в небраузерные приложения?**
-
-- Для входа в некоторые небраузерные приложения пользователю, для которого настроено использование Multi-Factor Authentication, требуется пароль приложения.
-- Пользователю нужно очистить (удалить) сведения для входа в систему, перезапустить приложение и войти в него, используя свое имя пользователя и пароль приложения.
-
-Вы можете узнать больше о создании паролей приложений и получить [помощь по работе с ними](multi-factor-authentication-end-user-app-passwords.md).
+If the user has configured a backup phone, they should try again and select that phone when prompted on the sign-in page. If the user doesn’t have another method configured, the organization's administrator can update the number assigned to the user's primary phone.
 
 
->[AZURE.NOTE] Современная аутентификация для клиентов Office 2013
+**Q: What does the administrator do if a user contacts the administrator about an account that the user can no longer access?**
+
+The administrator can reset the user's account by asking them to go through the registration process again. Learn more about [managing user and device settings with Azure Multi-Factor Authentication in the cloud](multi-factor-authentication-manage-users-and-devices.md).
+
+**Q: What does an administrator do if a user's phone that is using app passwords is lost or stolen?**
+
+The administrator can delete all the user's app passwords to prevent unauthorized access. After the user has a replacement device, the user can recreate the passwords. Learn more about [managing user and device settings with Azure Multi-Factor Authentication in the cloud](multi-factor-authentication-manage-users-and-devices.md).
+
+**Q: What if the user can't sign in to non-browser apps?**
+
+A user who is configured to use Multi-Factor Authentication requires an app password to sign in to some non-browser apps. A user needs to clear (delete) sign-in information, restart the app, and sign in by using their user name and app password.
+
+Get more information about creating app passwords and other [help with app passwords](multi-factor-authentication-end-user-app-passwords.md).
+
+
+>[AZURE.NOTE] Modern authentication for Office 2013 clients
 >
-> Клиенты Office 2013 (включая Outlook) поддерживают новые протоколы аутентификации. Вы можете настроить Office 2013 для поддержки Multi-Factor Authentication. После этого клиентам Office 2013 не потребуется использовать пароли приложений. Дополнительные сведения см. в записи блога [Office 2013 modern authentication public preview announced](https://blogs.office.com/2015/03/23/office-2013-modern-authentication-public-preview-announced/) (Анонсирована общедоступная предварительная версия современной аутентификации Office 2013).
+> Office 2013 clients (including Outlook) support new authentication protocols. You can configure Office 2013 to support Multi-Factor Authentication. After you configure Office 2013, app passwords are not required for Office 2013 clients. For more information, see the [Office 2013 modern authentication public preview announcement](https://blogs.office.com/2015/03/23/office-2013-modern-authentication-public-preview-announced/).
 
-**В. Что делать пользователю, если текстовое сообщение не приходит или при ответе на двустороннее текстовое сообщение истекает время ожидания проверки?**
+**Q: What does a user do if the user does not receive a text message, or if the user replies to a two-way text message but the verification times out?**
 
-Служба Azure Multi-Factor Authentication отправляет текстовые сообщения через SMS-агрегаторы. На надежность доставки и получения текстовых сообщений может повлиять множество факторов, например используемый агрегатор, страна назначения, оператор мобильной связи пользователя и сила сигнала. Ввиду этих факторов доставка текстовых сообщений и получение ответных SMS при использовании двусторонних SMS не гарантируется. Мы рекомендуем использовать одностороннее, а не двустороннее SMS, когда это возможно. Одностороннее SMS более надежное и не требует оплаты международной пересылки SMS, когда вы отвечаете на текстовое сообщение, отправленное из другой страны.
+Deliver of text messages, and receipt of replies in two-way SMS is not guaranteed because there are uncontrollable factors that might affect the reliability of the service. These factors include the destination country, the mobile phone carrier, and the signal strength.
 
-В некоторых странах или регионах, например в США и Канаде, проверки с помощью текстовых сообщений более надежны. Пользователям, которые при использовании Azure Multi-Factor Authentication испытывают трудности с получением текстовых сообщений, рекомендуется выбрать метод с применением мобильного приложения или телефонного вызова. Метод аутентификации с помощью мобильного приложения очень удобен, так как пользователь может получать уведомления мобильного приложения и по сети мобильной связи, и по сети Wi-Fi. Кроме того, секретный код мобильного приложения отображается даже в том случае, если сигнал в устройстве вообще отсутствует. Приложение Microsoft Authenticator доступно для платформ [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072) и [IOS](http://go.microsoft.com/fwlink/?Linkid=825073).
+Users who experience difficulty reliably receiving text messages should select the mobile app or phone call method instead. The mobile app can receive notifications both over cellular and Wi-Fi connections. In addition, the mobile app can generate verification codes even when the device has no signal at all. The Microsoft Authenticator app is available for [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072), and [IOS](http://go.microsoft.com/fwlink/?Linkid=825073).
 
-**В. Можно ли использовать аппаратные ключи с сервером Azure Multi-Factor Authentication?**
-
-При использовании сервера Azure Multi-Factor Authentication можно импортировать сторонние токены OATH с одноразовыми паролями с ограниченным сроком действия (TOTP) и затем использовать их для Multi-Factor Authentication. Поддерживается импорт сторонних токенов TOTP OATH в старом формате PSKC, которые Gemalto может создавать для своих нужд, а также импорт токенов в формате CSV. Если импортируются токены в формате CSV, то CSV-файл должен содержать серийный номер, секретный ключ в формате Base32 и интервал времени (обычно 30 секунд).
-
-Можно использовать токены ActiveIdentity TOTP OATH, если имеется возможность поместить файл секретного ключа в CSV-файл, который можно импортировать на сервер Azure Multi-Factor Authentication. Вы можете использовать токены OATH со службами федерации Active Directory Federation (AD FS), протоколом RADIUS, когда клиентская система может обрабатывать ответы на запрос доступа, и с аутентификацией на основе форм IIS.
-
-**В. Можно ли использовать сервер Azure Multi-Factor Authentication для защиты служб терминалов?**
-
-Да, но если вы используете Windows Server 2012 R2 или более позднюю версию, то это можно сделать только с помощью шлюза удаленных рабочих столов.
-
-Изменения системы безопасности в Windows Server 2012 R2 изменили способ подключения сервера Azure Multi-Factor Authentication к пакету безопасности локальной системы безопасности, используемый в Windows Server 2012 и более ранних версиях. Для версий служб терминалов, используемых в Windows 2012 и более ранних версиях, можно просто [защитить приложение с помощью аутентификации Windows](multi-factor-authentication-get-started-server-windows.md#to-secure-an-application-with-windows-authentication-use-the-following-procedure). Если вы используете Windows Server 2012 R2, вам потребуется использовать шлюз удаленных рабочих столов.
-
-**В. Почему пользователь получает вызов Multi-Factor Authentication от анонимного абонента после настройки идентификации вызывающего абонента?**
-
-Когда вызовы Multi-Factor Authentication осуществляются по телефонной сети общего пользования, иногда они передаются через оператора, который не поддерживает идентификацию вызывающего абонента. По этой причине идентификация вызывающего абонента не гарантируется, хотя система Multi-Factor Authentication всегда отправляет соответствующий идентификатор.
+If you must use text messages, we recommend using one-way SMS rather than two-way SMS when possible. One-way SMS is more reliable and it prevents users from incurring global SMS charges from replying to a text message that was sent from another country.
 
 
-## Ошибки
+**Q: Can I use hardware tokens with Azure Multi-Factor Authentication Server?**
 
-**В. Что делать пользователю, если он видит сообщение об ошибке "Authentication request is not for an activated account" (Запрос аутентификации не предназначен для активированной учетной записи), когда проходит аутентификацию с помощью уведомлений мобильного приложения?**
+If you are using Azure Multi-Factor Authentication Server, you can import third-party Open Authentication (OATH) time-based, one-time password (TOTP) tokens, and then use them for two-step verification.
 
-Следуйте приведенной ниже процедуре.
+You can use ActiveIdentity tokens that are OATH TOTP tokens if you put the secret key file in a CSV file and import to Azure Multi-Factor Authentication Server. You can use OATH tokens with Active Directory Federation Services (ADFS), Remote Authentication Dial-In User Service (RADIUS) when the client system can process access challenge responses, and Internet Information Server (IIS) forms-based authentication.
 
-1. Перейдите к [профилю портала Azure](https://account.activedirectory.windowsazure.com/profile/) и выполните вход с учетной записью своей организации.
-2. При необходимости щелкните **Other verification options** (Другие способы проверки) и выберите другой вариант для проверки учетной записи.
-3. Щелкните **Дополнительная проверка безопасности**.
-4. Удалите существующую учетную запись из мобильного приложения.
-5. Нажмите кнопку **Настроить** и следуйте инструкциям по перенастройке мобильного приложения.
+You can import third-part OATH TOTP tokens with the following formats:  
+- Portable Symmetric Key Container (PSKC)  
+- CSV if the file contains a serial number, a secret key in Base 32 format, and a time interval  
+
+**Q: Can I use Azure Multi-Factor Authentication Server to secure Terminal Services?**
+
+Yes, but, if you are using Windows Server 2012 R2 or later, only by using Remote Desktop Gateway (RD Gateway).
+
+Security changes in Windows Server 2012 R2 have changed the way that Azure Multi-Factor Authentication Server connects to the Local Security Authority (LSA) security package in Windows Server 2012 and earlier versions. For versions of Terminal Services in Windows Server 2012 or earlier, you can [secure an application with Windows Authentication](multi-factor-authentication-get-started-server-windows.md#to-secure-an-application-with-windows-authentication-use-the-following-procedure). If you are using Windows Server 2012 R2, you need RD Gateway.
+
+**Q: Why would a user receive a Multi-Factor Authentication call from an anonymous caller after setting up caller ID?**
+
+When Multi-Factor Authentication calls are placed through the public telephone network, sometimes they are routed through a carrier that doesn't support caller ID. Because of this, caller ID is not guaranteed, even though the Multi-Factor Authentication system always sends it.
+
+
+## <a name="errors"></a>Errors
+
+**Q: What should users do if they see an “Authentication request is not for an activated account” error message when using mobile app notifications?**
+
+Tell them to follow this procedure to remove their account from the mobile app, then add it again:
+
+1. Go to [your Azure portal profile](https://account.activedirectory.windowsazure.com/profile/) and sign in with your organizational account.
+2. Select **Additional Security Verification**.
+4. Remove the existing account from the mobile app.
+5. Click **Configure**, and then follow the instructions to reconfigure the mobile app.
+
+
+**Q: What should users do if they see a 0x800434D4L error message when signing in to a non-browser application?**
+
+Currently, a user can use additional security verification only with applications and services that the user can access through a browser. Non-browser applications (also referred to as *rich client applications*) that are installed on a local computer, such as Windows PowerShell, doesn't work with accounts that require additional security verification. In this case, the user might see the application generate an 0x800434D4L error.
+
+A workaround for this is to have separate user accounts for admin-related and non-admin operations. Later, you can link mailboxes between your admin account and non-admin account so that you can sign in to Outlook by using your non-admin account. For more details about this, learn how to [give an administrator the ability to open and view the contents of a user's mailbox](http://help.outlook.com/141/gg709759.aspx?sl=1).
+
+## <a name="next-steps"></a>Next steps
+
+If your question isn't answered here, please leave it in the comments at the bottom of the page. Or, here are some additional options for getting help:
+
+
+**Q: How can I get help with Azure Multi-Factor Authentication?**
+
+- Search the [Microsoft Support Knowledge Base](https://www.microsoft.com/en-us/Search/result.aspx?form=mssupport&q=phonefactor&form=mssupport) for solutions to common technical issues.
+
+- Search for and browse technical questions and answers from the community, or ask your own question in the [Azure Active Directory forums](https://social.msdn.microsoft.com/Forums/azure/newthread?category=windowsazureplatform&forum=WindowsAzureAD&prof=required).
+
+- If you're a legacy PhoneFactor customer and you have questions or need help resetting a password, use the [password reset](mailto:phonefactorsupport@microsoft.com) link to open a support case.
+
+- Contact a support professional through [Azure Multi-Factor Authentication Server (PhoneFactor) support](https://support.microsoft.com/oas/default.aspx?prid=14947). When contacting us, it's helpful if you can include as much information about your issue as possible. Information you can supply includes the page where you saw the error, the specific error code, the specific session ID, and the ID of the user who saw the error.
 
 
 
+<!--HONumber=Oct16_HO2-->
 
-**В. Что делать пользователю, если он видит сообщение об ошибке 0x800434D4L, когда пытается войти с использованием небраузерного приложения?**
 
-В настоящее время пользователь может использовать дополнительную проверку безопасности только с приложениями и службами, к которым он имеет доступ через браузер. Небраузерные приложения (также называемые *полнофункциональными клиентскими приложениями*), которые установлены на локальном компьютере (как, например, Windows PowerShell), не будут работать с учетными записями, для которых требуется дополнительная проверка безопасности. В этом случае пользователь может видеть сообщение приложения об ошибке 0x800434D4L.
-
-Для устранения этой проблемы нужно использовать отдельные учетные записи пользователя для операций администрирования и для операций, не связанных с администрированием. Позже вы сможете связать почтовые ящики с этими учетными записями, чтобы иметь возможность входить в Outlook с помощью учетной записи без привилегий администратора. Чтобы больше узнать об этом, ознакомьтесь с [предоставлением администратору возможности открывать и просматривать содержимое почтового ящика пользователя](http://help.outlook.com/141/gg709759.aspx?sl=1).
-
-<!---HONumber=AcomDC_0921_2016-->

@@ -1,22 +1,22 @@
-Убедитесь, что вы уже создали пространство имен служебной шины, как показано [здесь][namespace-how-to].
+Please ensure that you have already created a Service Bus namespace, as shown [here][namespace-how-to].
 
-1. Войдите на [портал Azure][azure-portal].
+1. Log on to the [Azure portal][azure-portal].
 
-2. На портале в области навигации слева щелкните элемент **Служебная шина**.
+2. In the left navigation pane of the portal, click **Service Bus**.
 
-3. Выберите пространство имен, в котором вы хотите создать очередь. В нашем примере это **nstest1**.
+3. Select the namespace that you would like to create the queue in. In this case, it is **nstest1**.
 
-    ![Создание очереди][createqueue1]
+    ![Create a queue][createqueue1]
 
-4. В колонке **Пространство имен служебной шины** выберите **Очереди**, а затем щелкните **Добавить очередь**.
+4. In the **Service Bus namespace** blade, select **Queues**, then click **Add queue**.
 
-    ![Выберите "Очереди"][createqueue2]
+    ![Select Queues][createqueue2]
 
-5. Введите **имя очереди**, а другие значения оставьте в том виде, в котором они заданы по умолчанию.
+5. Enter the **Queue Name** and leave the other values with their defaults.
 
-    ![Нажмите кнопку "Создать"][createqueue3]
+    ![Select New][createqueue3]
 
-7. Щелкните кнопку **Создать** в нижней части колонки.
+7. At the bottom of the blade, click **Create**.
 
 [createqueue1]: ./media/service-bus-create-queue-portal/create-queue1.png
 [createqueue2]: ./media/service-bus-create-queue-portal/create-queue2.png
@@ -25,4 +25,6 @@
 [namespace-how-to]: ../articles/service-bus/service-bus-create-namespace-portal.md
 [azure-portal]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0824_2016-->
+<!--HONumber=Oct16_HO2-->
+
+

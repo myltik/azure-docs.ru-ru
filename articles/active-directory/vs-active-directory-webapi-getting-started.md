@@ -1,32 +1,36 @@
 <properties 
-	pageTitle="Начало работы с Azure Active Directory и подключенными службами Visual Studio (проекты WebApi) | Microsoft Azure" 
-	description="Как начать использовать Azure Active Directory в проектах WebApi после подключения или создания Azure AD с помощью подключенных служб Visual Studio" 
+    pageTitle="Get Started with Azure Active Directory and Visual Studio connected services (WebApi projects) | Microsoft Azure" 
+    description="How to get started using Azure Active Directory in WebApi projects after connecting to or creating an Azure AD using Visual Studio connected services" 
   services="active-directory"
-	documentationCenter="" 
-	authors="TomArcher" 
-	manager="douge" 
-	editor=""/>
+    documentationCenter="" 
+    authors="TomArcher" 
+    manager="douge" 
+    editor=""/>
   
 <tags 
-	ms.service="active-directory" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="vs-getting-started" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/15/2016"
-	ms.author="tarcher"/>
+    ms.service="active-directory" 
+    ms.workload="web" 
+    ms.tgt_pltfrm="vs-getting-started" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="08/15/2016"
+    ms.author="tarcher"/>
 
-# Начало работы с Azure Active Directory и подключенными службами Visual Studio (проекты WebApi)
+
+# <a name="get-started-with-azure-active-directory-and-visual-studio-connected-services-(webapi-projects)"></a>Get Started with Azure Active Directory and Visual Studio connected services (WebApi projects)
 
 > [AZURE.SELECTOR]
-> - [Приступая к работе](vs-active-directory-webapi-getting-started.md)
-> - [Что произошло?](vs-active-directory-webapi-what-happened.md)
+> - [Getting Started](vs-active-directory-webapi-getting-started.md)
+> - [What Happened](vs-active-directory-webapi-what-happened.md)
 
-##Требование проверки подлинности для доступа к контроллерам
+##<a name="requiring-authentication-to-access-controllers"></a>Requiring authentication to access controllers
  
-Ко всем контроллерам в проекте добавлен атрибут **Authorize**. Этот атрибут обеспечивает проверку подлинности пользователей перед их доступом к интерфейсам API, которые определяются этими контроллерам. Для анонимного доступа к контроллеру удалить с него этот атрибут. Если необходимо задать разрешения на более детальном уровне, примените атрибут к каждому методу, требующему проверки подлинности, а не к классу контроллера.
+All controllers in your project were adorned with the **Authorize** attribute. This attribute will require the user to be authenticated before accessing the APIs defined by these controllers. To allow the controller to be accessed anonymously, remove this attribute from the controller. If you want to set the permissions at a more granular level, apply the attribute to each method that requires authorization instead of applying it to the controller class.
 
-[Дополнительная информация о службе Azure Active Directory](https://azure.microsoft.com/services/active-directory/)
+[Learn more about Azure Active Directory](https://azure.microsoft.com/services/active-directory/)
  
 
-<!---HONumber=AcomDC_0817_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

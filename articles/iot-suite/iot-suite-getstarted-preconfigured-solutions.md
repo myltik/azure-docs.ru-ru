@@ -1,12 +1,12 @@
 <properties
-	pageTitle="Приступая к работе с решениями с предварительно заданными параметрами | Microsoft Azure"
-	description="Следуйте инструкциям этого учебника, чтобы научиться развертывать предварительно настроенные решения набора IoT Microsoft Azure"
-	services=""
+    pageTitle="Get started with preconfigured solutions | Microsoft Azure"
+    description="Follow this tutorial to learn how to deploy an Azure IoT Suite preconfigured solution."
+    services=""
     suite="iot-suite"
-	documentationCenter=""
-	authors="dominicbetts"
-	manager="timlt"
-	editor=""/>
+    documentationCenter=""
+    authors="dominicbetts"
+    manager="timlt"
+    editor=""/>
 
 <tags
      ms.service="iot-suite"
@@ -17,201 +17,202 @@
      ms.date="08/16/2016"
      ms.author="dobett"/>
 
-# Учебник: начало работы с предварительно настроенными решениями
 
-## Введение
+# <a name="tutorial:-get-started-with-the-preconfigured-solutions"></a>Tutorial: Get started with the preconfigured solutions
 
-Набор [предварительно настроенных решений][lnk-preconfigured-solutions] Azure IoT включает несколько служб Azure IoT, которые используются при создании комплексных решений для реализации распространенных бизнес-сценариев IoT. Предварительно настроенное решение для *удаленного мониторинга* подключается к устройствам и отслеживает их работу. Это решение можно использовать, чтобы анализировать поток данных, поступающих с устройств, и улучшать результаты работы компании, организовав автоматическое реагирование процессов на этот поток данных.
+## <a name="introduction"></a>Introduction
 
-В этом руководстве показано, как подготовить предварительно настроенное решение для удаленного мониторинга. Кроме того, здесь описываются основные функции этого решения. Многие функции доступны на панели мониторинга решения, которая развертывается вместе с предварительно настроенным решением:
+Azure IoT Suite [preconfigured solutions][lnk-preconfigured-solutions] combine multiple Azure IoT services to deliver end-to-end solutions that implement common IoT business scenarios. The *remote monitoring* preconfigured solution connects to and monitors your devices. You can use the solution to analyze the stream of data from your devices and to improve business outcomes by making processes respond automatically to that stream of data.
 
-![Панель мониторинга предварительно настроенного решения для удаленного мониторинга][img-dashboard]
+This tutorial shows you how to provision the remote monitoring preconfigured solution. It also walks you through the basic features of the remote monitoring solution. You can access many of these features through the solution dashboard that deploys along with the preconfigured solution:
 
-Для работы с этим руководством требуется активная подписка Azure.
+![Remote monitoring preconfigured solution dashboard][img-dashboard]
 
-> [AZURE.NOTE]  Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе [Бесплатная пробная версия Azure][lnk_free_trial].
+To complete this tutorial, you need an active Azure subscription.
+
+> [AZURE.NOTE]  If you don’t have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial][lnk_free_trial].
 
 [AZURE.INCLUDE [iot-suite-provision-remote-monitoring](../../includes/iot-suite-provision-remote-monitoring.md)]
 
-## Просмотр панели мониторинга решения
+## <a name="view-the-solution-dashboard"></a>View the solution dashboard
 
-Панель мониторинга решения позволяет управлять развернутым решением. Например, можно просматривать данные телеметрии, добавлять устройства и настраивать правила.
+The solution dashboard enables you to manage the deployed solution. For example, you can view telemetry, add devices, and configure rules.
 
-1.  Когда подготовка завершится и на плитке предварительно настроенного решения появится надпись **Готово**, нажмите кнопку **Запустить**. Панель мониторинга решения откроется на новой вкладке.
+1.  When the provisioning is complete and the tile for your preconfigured solution indicates **Ready**, click **Launch** to open your remote monitoring solution portal in a new tab.
 
-    ![Запуск предварительно настроенного решения][img-launch-solution]
+    ![Launch the preconfigured solution][img-launch-solution]
 
-2.  По умолчанию на портале решения отображается *панель мониторинга решения*. В меню слева можно выбрать другие представления.
+2.  By default, the solution portal shows the *solution dashboard*. You can select other views using the left-hand menu.
 
-    ![Панель мониторинга предварительно настроенного решения для удаленного мониторинга][img-dashboard]
+    ![Remote monitoring preconfigured solution dashboard][img-dashboard]
 
-На панели мониторинга отображаются следующие сведения:
+The dashboard displays the following information:
 
-- На карте показано расположение каждого устройства, подключенного к решению. При первом запуске решения отобразятся четыре виртуальных устройства, реализованных в виде веб-заданий Azure. Для отображения сведений на карте в решении используется интерфейс API для Карт Bing.
-- На панели **История телеметрии** отображаются графики влажности и температуры с выбранного устройства в близком к реальному времени, а также сводные данные, например максимальное, минимальное и среднее значения влажности.
-- На панели **История оповещений** отображаются последние события, когда значение телеметрии превышает пороговое значение. В дополнение к оповещениям, созданным в предварительно настроенном решении, можно задать собственные оповещения.
+- The map displays the location of each device connected to the solution. When you first run the solution, there are four simulated devices. The simulated devices are implemented as Azure WebJobs, and the solution uses the Bing Maps API to plot information on the map.
+- The **Telemetry History** panel plots humidity and temperature telemetry from a selected device in near real time and displays aggregate data such as maximum, minimum, and average humidity.
+- The **Alarm History** panel shows recent alarm events when a telemetry value has exceeded a threshold. You can define your own alarms in addition to the examples created by the preconfigured solution.
 
-## Просмотр списка устройств
+## <a name="view-the-device-list"></a>View the device list
 
-В списке устройств показаны все зарегистрированные устройства в решении. Вы можете просматривать и редактировать метаданные устройства, добавлять или удалять устройства и отправлять команды на устройства.
+The device list shows all the registered devices in the solution. You view and edit device metadata, add or remove devices, and send commands to devices.
 
-1.  В меню слева щелкните **Устройства**, чтобы перейти к *списку устройств* этого решения.
+1.  Click **Devices** in the left-hand menu to show the *device list* for this solution.
 
-    ![Список устройств на панели мониторинга][img-devicelist]
+    ![Device list in dashboard][img-devicelist]
 
-2.  Список устройств отображает четыре имитации устройств, созданные в ходе подготовки.
+2.  The device list shows that there are four simulated devices created by the provisioning process.
 
-3.  Чтобы просмотреть сведения об устройстве, щелкните его в списке устройств.
+3.  Click a device in the device list to view the device details.
 
-    .![Сведения об устройствах на панели мониторинга][img-devicedetails]
+    ![Device details in dashboard][img-devicedetails]
 
-На панели **Сведения об устройстве** есть три раздела.
+The **Device Details** panel contains three sections:
 
-- В разделе **Действия** перечислены действия, которые можно выполнить с устройством. Если отключить устройство, оно больше не сможет отправлять данные телеметрии или получать команды. После отключения устройство можно включить снова. Вы можете добавить связанное с устройством правило, которое будет активировать оповещение, когда значение телеметрии превысит пороговое значение. Кроме того, на устройство можно отправлять команды. При первом подключении устройства к решению отправляются сведения о командах, на которые оно может отвечать.
-- В разделе **Свойства устройства** приведены метаданные устройства. Некоторые метаданные берутся из самого устройства (например, производитель), а некоторые генерируются решением (например, время создания). Данные в этом разделе можно изменить.
-- В разделе **Ключи проверки подлинности** перечислены ключи, которые устройство может использовать для проверки подлинности в решении.
+- The **Actions** section lists the actions you can perform on the device. If you disable the device, it is no longer allowed to send telemetry or receive commands. If you disable a device, you can then enable it again. You can add a rule associated with the device that triggers an alarm when a telemetry value exceeds a threshold. You can also send a command to a device. When a device first connects, it tells the solution the commands it can respond to.
+- The **Device Properties** section lists the device metadata. Some of this metadata comes from the device itself (such as the manufacturer) and some is generated by the solution (such as the created time). You can edit the device metadata from here.
+- The **Authentication Keys** section lists the keys the device can use to authenticate with the solution.
 
-## Отправка команды устройству
+## <a name="send-a-command-to-a-device"></a>Send a command to a device
 
-На панели сведений об устройствах показаны все команды, которые поддерживает конкретное устройство. Здесь также можно отправлять команды устройству. При первом запуске устройство отправляет решению сведения о командах, которые оно поддерживает.
+The device details pane shows all the commands that a specific device supports and enables you to send commands to a device. When a device first starts, it sends information about the commands it supports to the solution.
 
-1.  В области сведений о выбранном устройстве щелкните **Команды**.
+1.  Click **Commands** in the device details pane for the selected device.
 
-    ![Команды устройств на панели мониторинга][img-devicecommands]
+    ![Device commands in dashboard][img-devicecommands]
 
-2.  В списке команд выберите **PingDevice**.
+2.  Select **PingDevice** from the command list.
 
-3.  Щелкните **Отправить команду**.
+3.  Click **Send Command**.
 
-4.  В журнале команд отобразится состояние команды.
+4.  You can see the status of the command in the command history.
 
-    ![Состояние команды на панели мониторинга][img-pingcommand]
+    ![Command status in dashboard][img-pingcommand]
 
-Решение отслеживает состояние каждой отправляемой команды. Изначальное состояние команды — **Ожидание**. Когда устройство сообщает о выполнении команды, значение состояния изменяется на **Успешно**.
+The solution tracks the status of each command it sends. Initially the result is **Pending**. When the device reports that it has executed the command, the result is set to **Success**.
 
-## Добавление нового виртуального устройства
+## <a name="add-a-new-simulated-device"></a>Add a new simulated device
 
-При развертывании предварительно настроенного решения автоматически подготавливаются четыре примера устройств, которые можно увидеть в списке устройств. Это *виртуальные устройства*, работающие в веб-задании Azure. Виртуальные устройства позволяют легко экспериментировать с предварительно настроенным решением без развертывания физических устройств. Если вы хотите подключить к решению физическое устройство, см. руководство [Подключение устройства к предварительно настроенному решению для удаленного мониторинга (Windows)][lnk-connect-rm].
+When you deploy the preconfigured solution, you automatically provision the four sample devices you can see in the device list. These devices are *simulated devices* running in an Azure WebJob. Simulated devices make it easy for you to experiment with the preconfigured solution without the need to deploy real, physical devices. If you do want to connect a real device to the solution, see the [Connect your device to the remote monitoring preconfigured solution][lnk-connect-rm] tutorial.
 
-Далее объясняется, как добавить виртуальное устройство к решению.
+The following steps show you how to add a simulated device to the solution:
 
-1.  Вернитесь к списку устройств.
+1.  Navigate back to the device list.
 
-2.  В левом нижнем углу щелкните **+ Add a Device** (+ Добавить устройство), чтобы добавить устройство.
+2.  Click **+ Add A Device** in the bottom left corner to add a device.
 
-    .![Добавление устройства в предварительно настроенное решение][img-adddevice]
+    ![Add a device to the preconfigured solution][img-adddevice]
 
-3.  На плитке **Имитация устройства** щелкните **Добавить**.
+3.  Click **Add New** on the **Simulated Device** tile.
 
-    ![Настройка сведений о новом устройстве на панели мониторинга][img-addnew]
+    ![Set new device details in dashboard][img-addnew]
     
-    Помимо создания виртуального устройства, можно также добавить физическое устройство на панели **Пользовательское устройство**. Дополнительные сведения о подключении к решению физических устройств см. в статье [Подключение устройства к предварительно настроенному решению для удаленного мониторинга (Windows)][lnk-connect-rm].
+    In addition to creating a new simulated device, you can also add a physical device if you choose to create a **Custom Device**. To learn more about connecting physical devices to the solution, see [Connect your device to the IoT Suite remote monitoring preconfigured solution][lnk-connect-rm].
 
-4.  Выберите пункт **Задать идентификатор устройства самостоятельно** и укажите имя уникального идентификатора устройства: **mydevice\_01**.
+4.  Select **Let me define my own Device ID**, and enter a unique device ID name such as **mydevice_01**.
 
-5.  Щелкните **Создать**.
+5.  Click **Create**.
 
-    .![Сохранение нового устройства][img-definedevice]
+    ![Save a new device][img-definedevice]
 
-6. На шаге 3 действия **Add a simulated device** (Добавить имитацию устройства) щелкните **Готово**, чтобы вернуться к списку устройств.
+6. In step 3 of **Add a simulated device**, click **Done** to return to the device list.
 
-7. В списке устройств состояние устройства изменится на **Работает**.
+7. You can view your device **Running** in the device list.
 
-    ![Просмотр нового устройства в списке устройств][img-runningnew]
+    ![View new device in device list][img-runningnew]
 
-8. На панели мониторинга можно просмотреть данные телеметрии нового виртуального устройства:
+8. You can also view the simulated telemetry from your new device on the dashboard:
 
-    ![Просмотр данных телеметрии с нового устройства][img-runningnew-2]
+    ![View telemetry from new device][img-runningnew-2]
 
-## Изменение метаданных устройства
+## <a name="edit-the-device-metadata"></a>Edit the device metadata
 
-Когда устройство впервые подключается к решению, оно отправляет tve свои метаданные. Если вы измените метаданные устройства через панель мониторинга решения, решение отправит новые значения метаданных на устройство, а также сохранит их в своей базе данных DocumentDB. Дополнительные сведения см. в разделе [Реестр удостоверений устройств и DocumentDB][lnk-devicemetadata].
+When a device first connects to the solution, it sends its metadata to the solution. When you edit the device metadata through the solution dashboard, it sends the new metadata values to the device and stores the new values in the solution DocumentDB database. For more information, see [Device identity registry and DocumentDB][lnk-devicemetadata].
 
-1.  Вернитесь к списку устройств.
+1.  Navigate back to the device list.
 
-2.  Выберите новое устройство в **списке устройств** и нажмите кнопку **Изменить**, чтобы изменить **свойства устройства**.
+2.  Select your new device in the **Devices List**, and then click **Edit** to edit the **Device Properties**:
 
-    ![Изменение метаданных устройства][img-editdevice]
+    ![Edit device metadata][img-editdevice]
 
-3. Прокрутите вниз и измените значения широты и долготы. Затем нажмите кнопку **Сохранить изменения в реестре устройства**.
+3. Scroll down and make a change to the latitude and longitude vales. Then click **Save changes to device registry**.
 
-    ![Изменение метаданных устройства][img-editdevice2]
+    ![Edit device metadata][img-editdevice2]
 
-4. Вернувшись на панель мониторинга, вы увидите, что расположение устройства на карте изменилось:
+4. Navigate back to the dashboard, the location of device has changed on the map:
 
-    ![Изменение метаданных устройства][img-editdevice3]
+    ![Edit device metadata][img-editdevice3]
 
-## Добавление правила для нового устройства
+## <a name="add-a-rule-for-the-new-device"></a>Add a rule for the new device
 
-Только что созданное устройство пока не регулируется никакими правилами. В этом разделе описано, как добавить правило, которое активирует оповещение, если значение температуры, сообщаемое новым устройством, превышает 47 градусов. Прежде чем добавить правило, зайдите в раздел истории телеметрии на панели мониторинга и убедитесь, что температура нового устройства никогда не превышает 45 градусов.
+There are no rules for the new device you just added. In this section, you add a rule that triggers an alarm when the temperature reported by the new device exceeds 47 degrees. Before you start, notice that the telemetry history for the new device on the dashboard shows the device temperature never exceeds 45 degrees.
 
-1.  Вернитесь к списку устройств.
+1.  Navigate back to the device list.
 
-2.  Чтобы добавить для устройства правило, выберите новое устройство в **списке устройств** и нажмите кнопку **Добавить правило**.
+2.  Select your new device in the **Devices List**, and then click **Add rule** to add a rule for the device.
 
-3. В окне создания правила в поле данных выберите значение **Температура** и укажите **AlarmTemp** в качестве выходных данных правила при превышении 47 градусов.
+3. Create a rule that uses **Temperature** as the data field and uses **AlarmTemp** as the output when the temperature exceeds 47 degrees:
 
-    ![Добавление правила устройства][img-adddevicerule]
+    ![Add a device rule][img-adddevicerule]
 
-4. Чтобы сохранить изменения, нажмите кнопку **Сохранить и просмотреть правила**.
+4. Click **Save and View Rules** to save your changes.
 
-5.  В области сведений о новом устройстве щелкните **Команды**.
+5.  Click **Commands** in the device details pane for the new device.
 
-    ![Добавление правила устройства][img-adddevicerule2]
+    ![Add a device rule][img-adddevicerule2]
 
-6.  В списке команд выберите **ChangeSetPointTemp** и укажите в поле **SetPointTemp** значение 45. Нажмите кнопку **Отправить команду**.
+6.  Select **ChangeSetPointTemp** from the command list and set **SetPointTemp** to 45. Then click **Send Command**:
 
-    ![Добавление правила устройства][img-adddevicerule3]
+    ![Add a device rule][img-adddevicerule3]
 
-7.  Вернитесь на панель мониторинга решения. Вскоре, когда температура, сообщаемая новым устройством, превысит пороговое значение в 47 градусов, на панели **Журнал оповещений** появится новая запись.
+7.  Navigate back to the solution dashboard. After a short time, you will see a new entry in the **Alarm History** pane when the temperature reported by your new device exceeds the 47-degree threshold:
 
-    .![Добавление правила устройства][img-adddevicerule4]
+    ![Add a device rule][img-adddevicerule4]
 
-8. На странице **Правила** панели мониторинга можно просматривать и изменять все правила.
+8. You can review and edit all your rules on the **Rules** page of the dashboard:
 
-    ![Список правил устройства][img-rules]
+    ![List device rules][img-rules]
 
-9. На странице **Действия** панели мониторинга можно просматривать и изменять все действия, которые могут быть предприняты при выполнении условия, заданного правилом.
+9. You can review and edit all the actions that can be taken in response to a rule on the **Actions** page of the dashboard:
 
-    ![Список действий с устройством][img-actions]
+    ![List device actions][img-actions]
 
-> [AZURE.NOTE] Можно определить действия, при которых будут отправляться сообщения электронной почты или SMS в случае выполнения условия, заданного правилом. Кроме того, действия можно интегрировать с бизнес-системой с помощью [приложения логики][lnk-logic-apps]. Дополнительные сведения см. в статье [Руководство. Подключение приложения логики к предварительно настроенному решению для удаленного мониторинга Azure IoT Suite][lnk-logicapptutorial].
+> [AZURE.NOTE] It is possible to define actions that can send an email message or SMS in response to a rule or integrate with a line-of-business system through a [Logic App][lnk-logic-apps]. For more information, see the [Connect Logic App to your Azure IoT Suite Remote Monitoring preconfigured solution][lnk-logicapptutorial].
 
-## Другие возможности
+## <a name="other-features"></a>Other features
 
-На портале решения можно искать устройства с определенными характеристиками, например номер модели:
+Using the solution portal you can search for devices with specific characteristics such as a model number:
 
-![Поиск устройства][img-search]
+![Search for a device][img-search]
 
-Можно отключить устройство, а после отключения его можно удалить.
+You can disable a device, and after it is disabled you can remove it:
 
-![Отключение и удаление устройства][img-disable]
+![Disable and remove a device][img-disable]
 
-## Сопутствующие ресурсы
+## <a name="behind-the-scenes"></a>Behind the scenes
 
-При развертывании предварительно настроенного решения создается несколько ресурсов в выбранной подписке Azure. Эти ресурсы можно просмотреть на [портале Azure][lnk-portal]. Имя **группы ресурсов**, создаваемой при развертывании, зависит от имени, выбранного для предварительно настроенного решения.
+When you deploy a preconfigured solution, the deployment process creates multiple resources in the Azure subscription you selected. You can view these resources in the Azure [portal][lnk-portal]. The deployment process creates a **resource group** with a name based on the name you choose for your preconfigured solution:
 
-![Предварительно настроенное решение на портале Azure][img-portal]
+![Preconfigured solution in the Azure portal][img-portal]
 
-Параметры каждого ресурса можно просмотреть, выбрав его в списке в группе ресурсов.
+You can view the settings of each resource by selecting it in the list of resources in the resource group.
 
-Можно также просмотреть исходный код предварительно настроенного решения. Исходный код предварительно настроенного решения для удаленного мониторинга находится в репозитории GitHub [azure-iot-remote-monitoring][lnk-rmgithub].
+You can also view the source code for the preconfigured solution. The remote monitoring preconfigured solution source code is in the [azure-iot-remote-monitoring][lnk-rmgithub] GitHub repository:
 
-- В папке **DeviceAdministration** содержится исходный код для панели мониторинга.
-- В папке **Simulator** содержится исходный код для виртуального устройства.
-- В папке **EventProcessor** содержится исходный код для фонового процесса, который обрабатывает входящие данные телеметрии.
+- The **DeviceAdministration** folder contains the source code for the dashboard.
+- The **Simulator** folder contains the source code for the simulated device.
+- The **EventProcessor** folder contains the source code for the back-end process that handles the incoming telemetry.
 
-Завершив работу, можно удалить предварительно настроенное решение из подписки Azure на сайте [azureiotsuite.com][lnk-azureiotsuite]. На этом сайте можно легко удалить все ресурсы, подготовленные при создании предварительно настроенного решения.
+When you are done, you can delete the preconfigured solution from your Azure subscription on the [azureiotsuite.com][lnk-azureiotsuite] site. This site enables you to easily delete all the resources that were provisioned when you created the preconfigured solution.
 
-> [AZURE.NOTE] Чтобы полностью удалить все ресурсы, связанные с предварительно настроенным решением, а не просто группу ресурсов на портале, удалите эти ресурсы на сайте [azureiotsuite.com][lnk-azureiotsuite].
+> [AZURE.NOTE] To ensure that you delete everything related to the preconfigured solution, delete it on the [azureiotsuite.com][lnk-azureiotsuite] site and do not simply delete the resource group in the portal.
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Next Steps
 
-Теперь, когда вы развернули рабочее предварительно настроенное решение, вы можете продолжить знакомство с IoT Suite. См. следующие статьи.
+Now that you’ve deployed a working preconfigured solution, you can continue getting started with IoT Suite by reading the following articles:
 
-- [Пошаговое руководство по работе с настроенным решением для удаленного мониторинга][lnk-rm-walkthrough]
-- [Подключение устройства к предварительно настроенному решению для удаленного мониторинга][lnk-connect-rm]
-- [Разрешения на сайте azureiotsuite.com][lnk-permissions]
+- [Remote monitoring preconfigured solution walkthrough][lnk-rm-walkthrough]
+- [Connect your device to the remote monitoring preconfigured solution][lnk-connect-rm]
+- [Permissions on the azureiotsuite.com site][lnk-permissions]
 
 [img-launch-solution]: media/iot-suite-getstarted-preconfigured-solutions/launch.png
 [img-dashboard]: media/iot-suite-getstarted-preconfigured-solutions/dashboard.png
@@ -249,4 +250,8 @@
 [lnk-connect-rm]: iot-suite-connecting-devices.md
 [lnk-permissions]: iot-suite-permissions.md
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

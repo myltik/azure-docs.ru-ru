@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Балансирование нагрузки в кластере с помощью диспетчера кластерных ресурсов Azure Service Fabric | Microsoft Azure"
-   description="Общие сведения о распределении нагрузки в кластере с помощью диспетчера кластерных ресурсов Azure Service Fabric."
+   pageTitle="Balancing Your Cluster With the Azure Service Fabric Cluster Resource Manager | Microsoft Azure"
+   description="An introduction to balancing your cluster with the Service Fabric Cluster Resource Manager."
    services="service-fabric"
    documentationCenter=".net"
    authors="masnider"
@@ -16,17 +16,18 @@
    ms.date="08/19/2016"
    ms.author="masnider"/>
 
-# Балансировка кластера Service Fabric
-Диспетчер кластерных ресурсов Service Fabric позволяет формировать отчеты о динамической нагрузке, реагировать на изменения в кластере, корректировать нарушения ограничений и перераспределять кластер, если это необходимо. Но как часто выполняются эти действия и что их активирует? С этим связано несколько элементов управления.
 
-Первый набор элементов управления балансировкой — это набор таймеров. Они определяют, как часто диспетчер кластерных ресурсов должен проверять состояние кластера и принимать необходимые меры. Существует три разных категории работ, каждая из которых имеет собственные таймеры. К ним относятся:
+# <a name="balancing-your-service-fabric-cluster"></a>Balancing your service fabric cluster
+The Service Fabric Cluster Resource Manager allows reporting dynamic load, reacting to changes in the cluster, correcting constraint violations, and rebalancing the cluster if necessary. But how often does it do these things, and what triggers it? There are several controls related to this.
 
-1.	Размещение: на этом этапе происходит размещение отсутствующих метрик с отслеживанием состояния или без. Сюда входят как новые службы, так и работа с репликами с отслеживанием состояния или экземплярами без отслеживания состояния, которые породили сбой и нуждаются в повторном создании. Тут же выполняется удаление реплик и экземпляров.
-2.	Проверка ограничений: на этом этапе проверяются и устраняются нарушения различных ограничений (правил) размещения в системе. Примеры правил — это контроль за тем, чтобы не превышалась емкость узлов и соблюдались ограничения на размещение службы (подробнее этот момент мы обсудим позднее).
-3.	Балансировка: на этом этапе проверяется необходимость упреждающего перераспределения нагрузки с учетом требуемого уровня нагрузки для различных метрик, а также поиск оптимально сбалансированной структуры кластера.
+The first set of controls around balancing are a set of timers. These timers govern how often the Cluster Resource Manager examines the state of the cluster for things that need to be addressed. There are three different categories of work, each with their own corresponding timer. They are:
 
-## Настройка этапов и таймеров диспетчера кластерных ресурсов
-Каждым из типов исправлений, которые может внести диспетчер кластерных ресурсов, управляет соответствующий таймер, который определяет частоту исправлений. Например, размещение новой рабочей нагрузки служб в кластере может выполняться только раз в час (что позволит группировать такие задачи), а регулярная проверка балансировки — через определенное количество секунд. При каждом срабатывании таймера задача добавляется в расписание. По умолчанию диспетчер кластерных ресурсов сканирует состояние кластера и применяет обновления (объединяя все изменения, произошедшие с момента последнего сканирования; например, он может выявить, что узел стал неработоспособен) каждую 1/10 секунды, устанавливает флаги проверки размещения и ограничений каждую секунду, а флаг балансировки — каждые 5 секунд.
+1.  Placement – this stage deals with placing any stateful replicas or stateless instances which are missing. This covers both new services and handling stateful replicas or stateless instances which have failed and need to be recreated. Deleting and dropping replicas or instances is also handled here.
+2.  Constraint Checks – this stage checks for and corrects violations of the different placement constraints (rules) within the system. Examples of rules are things like ensuring that nodes are not over capacity and that a service’s placement constraints (more on these later) are met.
+3.  Balancing – this stage checks to see if proactive rebalancing is necessary based on the configured desired level of balance for different metrics, and if so attempts to find an arrangement in the cluster that is more balanced.
+
+## <a name="configuring-cluster-resource-manager-steps-and-timers"></a>Configuring Cluster Resource Manager Steps and Timers
+Each of these different types of corrections the Cluster Resource Manager can make is controlled by a different timer which governs its frequency. So for example, if you only want to deal with placing new service workloads in the cluster every hour (to batch them up), but want regular balancing checks every few seconds, you can configure that behavior. When each timer fires, the task is scheduled. By default the Resource Manager scans its state and applies updates (batching all the changes that have occurred since the last scan, like noticing that a node is down) every 1/10th of a second, sets the placement and constraint check flags every second, and the balancing flag every 5 seconds.
 
 ClusterManifest.xml:
 
@@ -39,14 +40,14 @@ ClusterManifest.xml:
         </Section>
 ```
 
-Сегодня мы выполняем только одно из этих действий одновременно, т. е. выполняем их последовательно (вот почему мы называем эти конфигурации "минимальными интервалами"). В результате прежде чем, например, перейти к балансировке кластера, мы выполняем ожидающие запросы на создание новых реплик. Как видно по интервалам времени, заданным по умолчанию, сканирование и проверку необходимости каких-либо мер можно выполнять очень часто. В этом случае набор изменений в конце цикла будет меньше: нам не нужно несколько часов сканировать изменения в кластере и пытаться исправить их все одновременно. Мы делаем это по мере необходимости, иногда прибегая к пакетной обработке, если изменения происходят одновременно. Таким образом, диспетчер ресурсов Service Fabric чутко реагирует на все, что происходит в кластере.
+Today we only perform one of these actions at a time, sequentially (that’s why we refer to these configurations as “minimum intervals”)). This is so that, for example, we’ve already responded to any pending requests to create new replicas before we move on to balancing the cluster. As you can see by the default time intervals specified, we can scan and check for anything we need to do very frequently, meaning that the set of changes we make at the end of each step is usually smaller: we’re not scanning through hours of changes in the cluster and trying to correct them all at once, we are trying to handle things more or less as they happen but with some batching when many things happen at the same time. This makes the Service Fabric resource manager very responsive to things that happen in the cluster.
 
-Хотя большинство этих задач просты (если нарушены ограничения, то их следует исправить, если должны быть созданы службы, то их следует создать), диспетчеру кластерных ресурсов нужны некоторые дополнительные сведения, чтобы выявить дисбаланс кластера. Для этого используются два других элемента конфигурации: *пороговые значения балансировки* и *пороговые значения активности*.
+While most of these tasks are straightforward (if there are constraint violations, fix them, if there are services to be created, create them), the Cluster Resource Manager also needs some additional information to determine if the cluster imbalanced. For that we have two other pieces of configuration: *Balancing Thresholds* and *Activity Thresholds*.
 
-## Пороговые значения балансировки
-Пороговое значение балансировки является основным элементом управления для активации упреждающего перераспределения (помните, что таймер просто задает периодичность проверок, выполняемых диспетчером кластерных ресурсов, т. е. его наличие не значит, что что-то произойдет). Пороговое значение балансировки определяет, насколько несбалансированным должен быть кластер по определенной метрике, чтобы диспетчер кластерных ресурсов признал его таковым и активировал балансировку.
+## <a name="balancing-thresholds"></a>Balancing thresholds
+A Balancing Threshold is the main control for triggering proactive rebalancing (remember that the timer is just for how often the Cluster Resource Manager should check - it doesn't mean that anything will happen). The Balancing Threshold defines how imbalanced the cluster needs to be for a specific metric in order for the Cluster Resource Manager to consider it imbalanced and trigger balancing.
 
-Пороговые значения балансировки задаются в определении кластера на основе метрик. Дополнительные сведения о метриках см. в [этой статье](service-fabric-cluster-resource-manager-metrics.md).
+Balancing Thresholds are defined on a per-metric basis as a part of the cluster definition. For more information on metrics check out [this article](service-fabric-cluster-resource-manager-metrics.md).
 
 ClusterManifest.xml
 
@@ -57,26 +58,26 @@ ClusterManifest.xml
     </Section>
 ```
 
-Пороговое значение балансировки для метрики представляет собой коэффициент. Если результат деления объема нагрузки на наиболее загруженном узле на объем нагрузки на наименее загруженном узле превышает это число, то кластер считается несбалансированным, и при следующей проверке диспетчер кластерных ресурсов активирует балансировку (по умолчанию она выполняется каждые 5 минут; частотой управляет параметр MinLoadBalancingInterval, как показано выше).
+The Balancing Threshold for a metric is a ratio. If the amount of load on the most loaded node divided by the amount of load on the least loaded node exceeds this number, then the cluster is considered imbalanced and balancing will be triggered the next time the Cluster Resource Manager checks (by default, ever 5 seconds, as governed by the MinLoadBalancingInterval, shown above).
 
-![Пример порогового значения балансировки][Image1]
+![Balancing Threshold Example][Image1]
 
-В этом простом примере каждая служба использует одну единицу определенной метрики. В верхнем примере максимальная нагрузка на узле составляет 5, а минимальная — 2. Предположим, что пороговое значение балансировки для метрики — 3. Поэтому в приведенном примере кластер считается сбалансированным, и при проверке диспетчером кластерных ресурсов балансировка активирована не будет (так как коэффициент в кластере 5 / 2 = 2,5, что меньше указанного порогового значения балансировки, равного 3).
+In this simple example each service is consuming one unit of some metric. In the top example, the maximum load on a node is 5 and the minimum is 2. Let’s say that the balancing threshold for this metric is 3. Therefore, in the top example, the cluster is considered balanced and no balancing will be triggered when the Cluster Resource Manager checks (since the ratio in the cluster is 5/2 = 2.5 and that is less than the specified balancing threshold of 3).
 
-В примере ниже максимальная нагрузка на узле составляет 10, а минимальная — 2 (значит, коэффициент будет равен 5). Это значит, что желаемое пороговое значение балансировки для этой метрики, равное 3, превышено. В результате при следующем срабатывании таймера будет запланирован запуск глобального перераспределения кластера. Обратите внимание, что активация поиска балансировки вовсе не означает, что что-либо будет перемещено. Иногда кластер несбалансирован, но улучшить ситуацию невозможно. Однако в нашей ситуации (по крайней мере по умолчанию) часть нагрузки почти наверняка будет распределена на Node3. Обратите внимание: так как мы не используем "жадный" подход, часть нагрузки также может быть распределена на Node2, что позволит минимизировать общую разницу между узлами, однако основная часть нагрузки перейдет на Node3.
+In the bottom example, the max load on a node is 10, while the minimum is 2, resulting in a ratio of 5. This puts the cluster over the designed balancing threshold of 3 for that metric. As a result, a global rebalancing run will be scheduled next time the balancing timer fires. Note that just because a balancing search is kicked off doesn't mean anything will move - sometimes the cluster is imbalanced but the situation can't be improved - but in a situation like this one (at least by default) some the load will almost certainly be distributed to Node3. Note that since we are not using a greedy approach some load could also be distributed to Node2 since that would result in minimization of the overall differences between nodes, but we would expect that the majority of the load would flow to Node3.
 
-![Действия в примере порогового значения балансировки][Image2]
+![Balancing Threshold Example Actions][Image2]
 
-Обратите внимание, что выход за нижнее пороговое значение балансировки не является основной целью. Пороговые значения балансировки — это просто *триггеры*, которые сообщают диспетчеру кластерных ресурсов о том, что нужно проверить кластер на предмет возможных улучшений.
+Note that getting below the balancing threshold is not an explicit goal – Balancing Thresholds are just a *trigger* that tells the Cluster Resource Manager that it should look into the cluster to determine what improvements it can make, if any.
 
-## Пороговые значения активности
-Иногда узлы могут быть относительно несбалансированными, даже если *общий* объем нагрузки в кластере небольшой. Это может быть связано с временем суток или с тем, что кластер только что создан и проходит начальную загрузку. В любом случае, вы можете не захотеть тратить время на балансировку кластера, так как польза будет минимальной — сетевые и вычислительные ресурсы будут потрачены на простую перетасовку нагрузки, не влияющую на результат. Так как этого нужно избегать, в диспетчере кластерных ресурсов существует еще один элемент управления, который называется пороговым значением активности. Он позволяет указать абсолютную нижнюю границу активности — когда на узле выполняется хотя бы этот объем нагрузки, балансировка не запускается, даже если пороговое значение балансировки превышено.
+## <a name="activity-thresholds"></a>Activity thresholds
+Sometimes, although nodes are relatively imbalanced, the *total* amount of load in the cluster is low. This could be just because of the time of day, or because the cluster is new and just getting bootstrapped. In either case, you may not want to spend time balancing the cluster because there’s actually very little to be gained – you’ll just be spending network and compute resources to move things around, without making any absolute difference. Because we want to avoid doing this, there’s another control inside of the Resource Manager, known as Activity Thresholds, which allows you to specify some absolute lower bound for activity – if no node has at least this much load then balancing will not be triggered even if the Balancing Threshold is met.
 
-В качестве примера предположим, что у нас есть отчеты с указанным ниже объемом использования ресурсов на узлах. Допустим, пороговое значение балансировки для этой метрики по-прежнему равно 3, но теперь у нас есть пороговое значение активности, которое составляет 1536. В первом случае согласно пороговому значению балансировки кластер несбалансирован, однако ни один узел не превышает пороговое значение активности, поэтому все остается как есть. В примере ниже Node1 заметно превысил пороговое значения активности, поэтому будет запущена балансировка (так как превышены пороговые значения балансировки и активности для метрики).
+As an example let’s say that we have reports with the following totals for consumption on these nodes. Let’s also say that we retain our Balancing Threshold of 3 for this metric, but now we also have an Activity Threshold of 1536. In the first case, while the cluster is imbalanced per the Balancing Threshold no node meets that minimum Activity Threshold, so we leave things alone. In the bottom example, Node1 is way over the Activity Threshold, so balancing will be performed (since both the Balancing Threshold and the Activity Threshold for the metric are exceeded)
 
-![Пример порогового значения активности][Image3]
+![Activity Threshold Example][Image3]
 
-Как и пороговые значения балансировки, пороговые значения активности определяются в определении кластера на основе метрик:
+Just like Balancing Thresholds, Activity Thresholds are defined per-metric via the cluster definition:
 
 ClusterManifest.xml
 
@@ -86,33 +87,37 @@ ClusterManifest.xml
     </Section>
 ```
 
-Обратите внимание, что пороговые значения балансировки и активности привязаны к метрике. Балансировка запускается только тогда, когда оба пороговых значения превышены по отношению к метрике. То есть если превышено пороговое значение балансировки для памяти и пороговое значение активности для ЦП, балансировка не запускается, если не превышены другие пороговые значения (пороговое значение балансировки для ЦП и пороговое значение активности для памяти).
+Note that balancing and activity thresholds are both tied to the metric - balancing will only be triggered if both balancing and activity thresholds are exceeded for the same metric. Thus, if we exceed the Balancing Threshold for Memory and the Activity Threshold for CPU, balancing will not trigger as long as the remaining thresholds (Balancing Threshold for CPU and Activity Threshold for Memory) are not exceeded.
 
-## Одновременная балансировка служб
-Следует отметить, что несбалансированность кластера определяется по общему состоянию кластера, а устраняется путем перемещения реплик или экземпляров отдельных служб. Звучит разумно, не правда ли? Если память накапливается в одном узле, в этом могут участвовать сразу несколько реплик или экземпляров. Это значит, что может потребоваться переместить все реплики с отслеживанием состояния или экземпляры без отслеживания состояния, которые пользуются несбалансированной метрикой.
+## <a name="balancing-services-together"></a>Balancing services together
+Something that’s interesting to note is that whether the cluster is imbalanced or not is a cluster-wide decision, but the way we go about fixing it is moving individual service replicas and instances around. This makes sense, right? If memory is stacked up on one node, multiple replicas or instances could be contributing to it, so it could require moving any of the stateful replicas or stateless instances that use the affected, imbalanced metric.
 
-Время от времени клиенты по телефону или через форму связи сообщают нам о перемещении службы, которая не была несбалансированной. Почему служба может перемещаться между узлами, даже если все метрики этой службы отлично сбалансированы, в то время как существует другой дисбаланс? Давайте разберемся.
+Occasionally though a customer will call us up or file a ticket saying that a service that wasn’t imbalanced got moved. How could it happen that a service gets moved around even if all of that service’s metrics were balanced, even perfectly so, at the time of the other imbalance? Let’s see!
 
-Возьмем для примера четыре службы: S1, S2, S3 и S4. S1 использует метрики M1 и M2, S2 — метрики M2 и M3, S3 — метрики M3 и M4, а S4 — какую-то метрику M99. Понимаете, к чему все это ведет? Возникает цепочка. С точки зрения диспетчера кластерных ресурсов мы имеем дело не с четырьмя независимыми службами, а с набором связанных служб (S1, S2 и S3) и одной отдельной службой.
+Take for example four services, Service1, Service2, Service3, and Service4. Service1 reports against metrics Metric1 and Metric2, Service2 against Metric2 and Mmetric3, Service3 against Metric3 and Metric4, and Service4 against some metric Metric99. Surely you can see where we’re going here. We have a chain! From the perspective of the Cluster Resource Manager, we don’t really have four independent services, we have a bunch of services that are related (Service1, Service2, and Service3) and one that is off on its own.
 
-![Одновременная балансировка служб][Image4]
+![Balancing Services Together][Image4]
 
-Таким образом, дисбаланс в метрике M1 может вызвать перемещение реплик или экземпляров, относящихся к службе S3. Обычно эти перемещения довольно ограничены, но могут быть и более масштабны в зависимости от того, насколько несбалансирована метрика M1 и какие изменения потребуются в кластере для того, чтобы ее устранить. Кроме того, можно с уверенностью сказать, что дисбаланс в метриках M1, M2 и M3 не вызовет перемещения службы S4 — оно не имеет смысла, так как перемещение реплик или экземпляров службы S4 никак не повлияет на баланс метрик M1, M2 и M3.
+So it is possible that an imbalance in Metric1 can cause replicas or instances belonging to Service3 to move around. Usually these movements are pretty limited, but can be larger depending on exactly how imbalanced Metric1 got and what changes were necessary in the cluster in order to correct it. We can also say with certainty that an imbalance in Metrics 1, 2, or 3 will never cause movements in Service4 – there’d be no point since moving the replicas or instances belonging to Service4 around can do absolutely nothing to impact the balance of Metrics 1, 2, or 3.
 
-При каждом запуске диспетчер кластерных ресурсов автоматически определяет, какие службы связаны, так как службы могут добавляться и удаляться, а конфигурации их метрик — изменяться. Например, между запусками балансировки конфигурация службы S2 может быть изменена для удаления из нее метрики M2. Тогда связь между службами S1 и S2 будет разорвана. В этом случае две группы служб превратятся в три:
+The Cluster Resource Manager automatically figures out what services are related, since services may have been added, removed, or had their metric configuration change – for example, between two runs of balancing Service2 may have been reconfigured to remove Metric2. This breaks the chain between Service1 and Service2. Now instead of two groups of services, you have three:
 
-![Одновременная балансировка служб][Image5]
+![Balancing Services Together][Image5]
 
-## Дальнейшие действия
-- Метрики показывают, как диспетчер кластерных ресурсов Service Fabric управляет потреблением и емкостью в кластере. Дополнительные сведения о метриках и их настройке см. в [этой статье](service-fabric-cluster-resource-manager-metrics.md).
-- Стоимость перемещения — один из способов сообщить диспетчеру кластерных ресурсов, что некоторые службы перемещать затратнее, чем остальные. Чтобы больше узнать о стоимости перемещения, см. [эту статью](service-fabric-cluster-resource-manager-movement-cost.md).
-- В диспетчере кластерных ресурсов имеется несколько регулировок, которые можно настроить, чтобы замедлить отток в кластере. Обычно они не требуется, но при необходимости узнать о регулировках можно [здесь](service-fabric-cluster-resource-manager-advanced-throttling.md).
+## <a name="next-steps"></a>Next steps
+- Metrics are how the Service Fabric Cluster Resource Manger manages consumption and capacity in the cluster. To learn more about them and how to configure them check out [this article](service-fabric-cluster-resource-manager-metrics.md)
+- Movement Cost is one way of signaling to the Cluster Resource Manager that certain services are more expensive to move than others. To learn more about movement cost, refer to [this article](service-fabric-cluster-resource-manager-movement-cost.md)
+- The Cluster Resource Manager has several throttles that you can configure to slow down churn in the cluster. They're not normally necessary, but if you need them you can learn about them [here](service-fabric-cluster-resource-manager-advanced-throttling.md)
 
 
-[Image1]: ./media/service-fabric-cluster-resource-manager-balancing/cluster-resrouce-manager-balancing-thresholds.png
-[Image2]: ./media/service-fabric-cluster-resource-manager-balancing/cluster-resource-manager-balancing-threshold-triggered-results.png
-[Image3]: ./media/service-fabric-cluster-resource-manager-balancing/cluster-resource-manager-activity-thresholds.png
-[Image4]: ./media/service-fabric-cluster-resource-manager-balancing/cluster-resource-manager-balancing-services-together1.png
-[Image5]: ./media/service-fabric-cluster-resource-manager-balancing/cluster-resource-manager-balancing-services-together2.png
+[Image1]:./media/service-fabric-cluster-resource-manager-balancing/cluster-resrouce-manager-balancing-thresholds.png
+[Image2]:./media/service-fabric-cluster-resource-manager-balancing/cluster-resource-manager-balancing-threshold-triggered-results.png
+[Image3]:./media/service-fabric-cluster-resource-manager-balancing/cluster-resource-manager-activity-thresholds.png
+[Image4]:./media/service-fabric-cluster-resource-manager-balancing/cluster-resource-manager-balancing-services-together1.png
+[Image5]:./media/service-fabric-cluster-resource-manager-balancing/cluster-resource-manager-balancing-services-together2.png
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

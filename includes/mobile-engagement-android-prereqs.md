@@ -1,3 +1,8 @@
-Прежде чем приступать к этому руководству, необходимо изучить руководство [по началу работы](../articles/mobile-engagement/mobile-engagement-android-get-started.md).
+Before starting this tutorial, you must first complete the [Getting Started](../articles/mobile-engagement/mobile-engagement-android-get-started.md) tutorial.
 
-> [AZURE.IMPORTANT] Минимальный уровень пакета API SDK Android должен быть 10 или выше (Android 2.3.3 ил выше).
+> [AZURE.IMPORTANT] Your minimum Android SDK API level must be 10 or higher (Android 2.3.3 or higher).
+
+
+<!--HONumber=Oct16_HO2-->
+
+

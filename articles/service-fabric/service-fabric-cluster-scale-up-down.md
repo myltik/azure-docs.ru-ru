@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Масштабирование кластера Service Fabric | Microsoft Azure"
-   description="Масштабирование кластера Service Fabric путем настройки правил автомасштабирования для каждого типа узла или набора масштабирования виртуальных машин. Добавление узлов в кластер Service Fabric"
+   pageTitle="Scale a Service Fabric cluster in or out | Microsoft Azure"
+   description="Scale a Service Fabric cluster in or out to match demand by setting auto-scale rules for each node type/VM scale set. Add or remove nodes to a Service Fabric cluster"
    services="service-fabric"
    documentationCenter=".net"
    authors="ChackDan"
@@ -17,17 +17,18 @@
    ms.author="chackdan"/>
 
 
-# Масштабирование кластера Service Fabric с помощью правил автомасштабирования
 
-Наборы масштабирования виртуальных машин относятся к вычислительным ресурсам Azure. Их можно использовать для развертывания коллекции виртуальных машин и управления ею как набором. Каждый тип узла, определенный в кластере Service Fabric, настроен как отдельный набор масштабирования виртуальных машин. Каждый тип узла поддерживает возможность независимого масштабирования, имеет разные наборы открытых портов и собственные метрики емкости. Дополнительные сведения о типах узлов Service Fabric см. в этом [документе](service-fabric-cluster-nodetypes.md). Так как типы узлов Service Fabric в вашем кластере состоят из наборов масштабирования виртуальных машин на сервере, для каждого такого типа узлов или набора масштабирования необходимо настроить правила автомасштабирования.
+# <a name="scale-a-service-fabric-cluster-in-or-out-using-auto-scale-rules"></a>Scale a Service Fabric cluster in or out using auto-scale rules
 
->[AZURE.NOTE] Ваша подписка должна включать в себя достаточное количество ядер для добавления виртуальных машин IaaS, которые войдут в состав этого кластера. В настоящее время проверка модели не предусмотрена, поэтому в случае, если лимиты квоты будут нарушены, во время развертывания произойдет сбой.
+Virtual machine scale sets are an Azure compute resource that you can use to deploy and manage a collection of virtual machines as a set. Every node type that is defined in a Service Fabric cluster is set up as a separate VM scale set. Each node type can then be scaled in or out independently, have different sets of ports open, and can have different capacity metrics. Read more about it in the [Service Fabric nodetypes](service-fabric-cluster-nodetypes.md) document. Since the Service Fabric node types in your cluster are made of VM scale sets at the backend, you need to set up auto-scale rules for each node type/VM scale set.
 
-## Выбор типа узла или масштабирования набора виртуальных машин для масштабирования
+>[AZURE.NOTE] Your subscription must have enough cores to add the new VMs that make up this cluster. There is no model validation currently, so you get a deployment time failure, if any of the quota limits are hit.
 
-В настоящее время настроить правила автомасштабирования для наборов масштабирования виртуальных машин с помощью портала нельзя, поэтому мы используем Azure PowerShell (версии 1.0 или более поздней), чтобы сформировать список узлов и добавить в них правила автомасштабирования.
+## <a name="choose-the-node-type/vm-scale-set-to-scale"></a>Choose the node type/VM scale set to scale
 
-Чтобы получить список наборов масштабирования виртуальных машин в составе кластера, выполните следующие командлеты:
+Currently, you are not able to specify the auto-scale rules for VM scale sets using the portal, so let us use Azure PowerShell (1.0+) to list the node types and then add auto-scale rules to them.
+
+To get the list of VM scale set that make up your cluster, run the following cmdlets:
 
 ```powershell
 Get-AzureRmResource -ResourceGroupName <RGname> -ResourceType Microsoft.Compute/VirtualMachineScaleSets
@@ -35,77 +36,82 @@ Get-AzureRmResource -ResourceGroupName <RGname> -ResourceType Microsoft.Compute/
 Get-AzureRmVmss -ResourceGroupName <RGname> -VMScaleSetName <VM Scale Set name>
 ```
 
-## Настройка правил автомасштабирования для типа узлов или набора масштабирования виртуальных машин
+## <a name="set-auto-scale-rules-for-the-node-type/vm-scale-set"></a>Set auto-scale rules for the node type/VM scale set
 
-Если кластер содержит несколько типов узлов, то эту процедуру необходимо выполнить для каждого типа узла или набора масштабирования виртуальных машин, который нужно масштабировать. Перед настройкой автомасштабирования обратите внимание на необходимое количество узлов. Минимальное количество узлов, необходимое для основного типа узлов, зависит от выбранного уровня надежности. См. дополнительные сведения об [уровнях надежности](service-fabric-cluster-capacity.md).
+If your cluster has multiple node types, then repeat this for each node types/VM scale sets that you want to scale (in or out). Take into account the number of nodes that you must have before you set up auto-scaling. The minimum number of nodes that you must have for the primary node type is driven by the reliability level you have chosen. Read more about [reliability levels](service-fabric-cluster-capacity.md).
 
->[AZURE.NOTE]  Уменьшение масштаба типа первичного узла до уровня ниже минимального приведет к нестабильности или сбою кластера. Это может вызвать потерю данных в приложениях или системных службах.
+>[AZURE.NOTE]  Scaling down the primary node type to less than the minimum number make the cluster unstable or bring it down. This could result in data loss for your applications and for the system services.
 
-В настоящее время функция автомасштабирования не зависит от уровня нагрузки, который приложения сообщают Service Fabric. В связи с этим автомасштабирование регулируется исключительно счетчиками производительности, которые отправляются каждым экземпляром наборов масштабирования виртуальных машин.
+Currently the auto-scale feature is not driven by the loads that your applications may be reporting to Service Fabric. So at this time the auto-scale you get is purely driven by the performance counters that are emitted by each of the VM scale set instances.  
 
-Настройте автомасштабирование для каждого набора масштабирования виртуальных машин согласно [этим инструкциям](../virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview.md).
+Follow these instructions [to set up auto-scale for each VM scale set](../virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview.md).
 
->[AZURE.NOTE] Если тип узла имеет уровень надежности Gold или Silver, то в сценарии уменьшения масштаба необходимо вызывать [командлет Remove-ServiceFabricNodeState](https://msdn.microsoft.com/library/azure/mt125993.aspx) с именем соответствующего узла.
+>[AZURE.NOTE] In a scale down scenario, unless your node type has a durability level of Gold or Silver you need to call the [Remove-ServiceFabricNodeState cmdlet](https://msdn.microsoft.com/library/azure/mt125993.aspx) with the appropriate node name.
 
-## Добавление виртуальных машин в тип узла или набор масштабирования виртуальных машин
+## <a name="manually-add-vms-to-a-node-type/vm-scale-set"></a>Manually add VMs to a node type/VM scale set
 
-Выберите пример из [коллекции шаблонов быстрого запуска](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-scale-existing) и следуйте прилагающимся инструкциям, чтобы изменить число виртуальных машин в каждом типе узла.
+Follow the sample/instructions in the [quick start template gallery](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-scale-existing) to change the number of VMs in each Nodetype. 
 
->[AZURE.NOTE] Добавление виртуальных машин занимает некоторое время, поэтому не ожидайте, что они будут добавлены мгновенно. Поэтому правильно планируйте временные рамки добавления емкости и учитывайте, что прежде чем емкость виртуальной машины станет доступна для размещения реплик или экземпляров службы, пройдет не меньше 10 минут.
+>[AZURE.NOTE] Adding of VMs takes time, so do not expect the additions to be instantaneous. So plan to add capacity well in time, to allow for over 10 minutes before the VM capacity is available for the replicas/ service instances to get placed.
 
-## Удаление виртуальных машин из типа первичного узла или набора масштабирования виртуальных машин
+## <a name="manually-remove-vms-from-the-primary-node-type/vm-scale-set"></a>Manually remove VMs from the primary node type/VM scale set
 
->[AZURE.NOTE] Системные службы Service Fabric запускаются в кластере на узле первичного типа. Поэтому никогда не следует уменьшать число экземпляров узлов этих типов до значения меньше гарантируемого уровнем надежности, завершая работу этих узлов или уменьшая масштаб кластера. Ознакомьтесь с дополнительными сведениями об уровнях надежности [здесь](service-fabric-cluster-capacity.md).
+>[AZURE.NOTE] The service fabric system services run in the Primary node type in your cluster. So should never shut down or scale down the number of instances in that node types less than what the reliability tier warrants. Refer to [the details on reliability tiers here](service-fabric-cluster-capacity.md). 
 
-Необходимо выполнить следующие шаги с одним экземпляром виртуальной машины за раз. Это позволит корректно завершить работу системных служб (и ваших служб с отслеживанием состояния) на удаляемом экземпляре виртуальной машины и создать новые реплики на других узлах.
+You need to execute the following steps one VM instance at a time. This allows for the system services (and your stateful services) to be shut down gracefully on the VM instance you are removing and new replicas created on other nodes.
 
-1. Выполните [Disable-ServiceFabricNode](https://msdn.microsoft.com/library/mt125852.aspx) с намерением RemoveNode для отключения узла, который вы собираетесь удалить (самый верхний экземпляр в этом типе узла).
+1. Run [Disable-ServiceFabricNode](https://msdn.microsoft.com/library/mt125852.aspx) with intent ‘RemoveNode’ to disable the node you’re going to remove (the highest instance in that node type).
 
-2. Выполните [Get-ServiceFabricNode](https://msdn.microsoft.com/library/mt125856.aspx), чтобы убедиться в том, что узел действительно перешел в отключенное состояние. Если это не так, подождите, пока узел не будет отключен. Эту операцию невозможно ускорить.
+2. Run [Get-ServiceFabricNode](https://msdn.microsoft.com/library/mt125856.aspx) to make sure that the node has indeed transitioned to disabled. If not, wait until the node is disabled. You cannot hurry this step.
 
-2. Выберите пример из [коллекции шаблонов быстрого запуска](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-scale-existing) и следуйте прилагающимся инструкциям, чтобы изменить число виртуальных машин на одну в этом типе узла. Удаляется самый верхний экземпляр виртуальной машины.
+2. Follow the sample/instructions in the [quick start template gallery](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-scale-existing) to change the number of VMs by one in that Nodetype. The instance removed is the highest VM instance. 
 
-3. При необходимости повторите шаги 1–3, но никогда не следует уменьшать число экземпляров в типах первичных узлов до значения меньше гарантируемого уровнем надежности. Ознакомьтесь с дополнительными сведениями об уровнях надежности [здесь](service-fabric-cluster-capacity.md).
+3. Repeat steps 1 through 3 as needed, but never scale down the number of instances in the primary node types less than what the reliability tier warrants. Refer to [the details on reliability tiers here](service-fabric-cluster-capacity.md). 
 
-## Удаление виртуальных машин из типа вторичного узла или набора масштабирования виртуальных машин
+## <a name="manually-remove-vms-from-the-non-primary-node-type/vm-scale-set"></a>Manually remove VMs from the non-primary node type/VM scale set
 
->[AZURE.NOTE] Для службы с отслеживанием состояния необходимо определенное количество узлов, которые постоянно доступны и работают, чтобы поддерживать доступность этой службы и сохранять ее состояние. Требуется как минимум количество узлов, равное количеству целевых наборов реплик секции или службы.
+>[AZURE.NOTE] For a stateful service, you need a certain number of nodes to be always up to maintain availability and preserve state of your service. At the very minimum, you need the number of nodes equal to the target replica set count of the partition/service. 
 
-Необходимо выполнить следующие шаги с одним экземпляром виртуальной машины за раз. Это позволит корректно завершить работу системных служб (и ваших служб с отслеживанием состояния) на удаляемом экземпляре виртуальной машины и создать новые реплики в других расположениях.
+You need the execute the following steps one VM instance at a time. This allows for the system services (and your stateful services) to be shut down gracefully on the VM instance you are removing and new replicas created else where.
 
-1. Выполните [Disable-ServiceFabricNode](https://msdn.microsoft.com/library/mt125852.aspx) с намерением RemoveNode для отключения узла, который вы собираетесь удалить (самый верхний экземпляр в этом типе узла).
+1. Run [Disable-ServiceFabricNode](https://msdn.microsoft.com/library/mt125852.aspx) with intent ‘RemoveNode’ to disable the node you’re going to remove (the highest instance in that node type).
 
-2. Выполните [Get-ServiceFabricNode](https://msdn.microsoft.com/library/mt125856.aspx), чтобы убедиться в том, что узел действительно перешел в отключенное состояние. Если это не так, подождите, пока узел не отключится. Эту операцию невозможно ускорить.
+2. Run [Get-ServiceFabricNode](https://msdn.microsoft.com/library/mt125856.aspx) to make sure that the node has indeed transitioned to disabled. If not wait till the node is disabled. You cannot hurry this step.
 
-2. Выберите пример из [коллекции шаблонов быстрого запуска](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-scale-existing) и следуйте прилагающимся инструкциям, чтобы изменить число виртуальных машин на одну в этом типе узла. Будет удален самый верхний экземпляр виртуальной машины.
+2. Follow the sample/instructions in the [quick start template gallery](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-scale-existing) to change the number of VMs by one in that Nodetype. This will now remove the highest VM instance. 
 
-3. При необходимости повторите шаги 1–3, но никогда не следует уменьшать число экземпляров в типах первичных узлов до значения меньше гарантируемого уровнем надежности. Ознакомьтесь с дополнительными сведениями об уровнях надежности [здесь](service-fabric-cluster-capacity.md).
+3. Repeat steps 1 through 3 as needed, but never scale down the number of instances in the primary node types less than what the reliability tier warrants. Refer to [the details on reliability tiers here](service-fabric-cluster-capacity.md).
 
-## Возможные варианты поведения в обозревателе Service Fabric
+## <a name="behaviors-you-may-observe-in-service-fabric-explorer"></a>Behaviors you may observe in Service Fabric Explorer
 
-При вертикальном масштабировании кластер Service Fabric Explorer отражает число узлов (экземпляров наборов масштабирования виртуальных машин), которые входят в кластер. Тем не менее при уменьшении масштаба кластера удаленный узел или экземпляр виртуальной машины будет отображаться как неработоспособный, если не вызвать [командлет Remove-ServiceFabricNodeState](https://msdn.microsoft.com/library/mt125993.aspx) с именем соответствующего узла.
+When you scale up a cluster the Service Fabric Explorer will reflect the number of nodes (VM scale set instances) that are part of the cluster.  However, when you scale a cluster down you will see the removed node/VM instance displayed in an unhealthy state unless you call [Remove-ServiceFabricNodeState cmd](https://msdn.microsoft.com/library/mt125993.aspx) with the appropriate node name.   
 
-Вот как объясняется это поведение.
+Here is the explanation for this behavior.
 
-Узлы, перечисленные в Service Fabric Explorer, отражают то, что системным службам Service Fabric (в частности FM) известно о числе узлов в кластере. При уменьшении масштаба набора масштабирования виртуальных машин виртуальная машина удаляется, но системная служба FM считает, что узел (сопоставленный с удаленной виртуальной машиной) вернется. В связи с этим Service Fabric Explorer продолжает отображать этот узел (хотя состояние работоспособности может быть ошибочным или неизвестным).
+The nodes listed in Service Fabric Explorer are a reflection of what the Service Fabric system services (FM specifically) knows about the number of nodes the cluster had/has. When you scale the VM scale set down, the VM was deleted but FM system service still thinks that the node (that was mapped to the VM that was deleted) will come back. So Service Fabric Explorer continues to display that node (though the health state may be error or unknown).
 
-Проверить удаление узла при удалении виртуальной машины можно двумя способами:
+In order to make sure that a node is removed when a VM is removed, you have two options:
 
-1) Выбрать уровень надежности Gold или Silver (будет доступно в ближайшее время) для типов узлов в кластере — это обеспечит интеграцию инфраструктуры. При уменьшении масштаба узлы будут удаляться из состояния системных служб (FM) автоматически. Дополнительные сведения об уровнях надежности см. [здесь](service-fabric-cluster-capacity.md).
+1) Choose a durability level of Gold or Silver (available soon) for the node types in your cluster, which gives you the infrastructure integration. Which will then automatically remove the nodes from our system services (FM) state when you scale down.
+Refer to [the details on durability levels here](service-fabric-cluster-capacity.md)
 
-2) После уменьшения масштаба экземпляра виртуальной машины необходимо вызвать [командлет Remove-ServiceFabricNodeState](https://msdn.microsoft.com/library/mt125993.aspx).
+2) Once the VM instance has been scaled down, you need to call the [Remove-ServiceFabricNodeState cmdlet](https://msdn.microsoft.com/library/mt125993.aspx).
 
->[AZURE.NOTE] Для постоянной работы кластеров Service Fabric требуется определенное количество узлов, чтобы все время поддерживать доступность и сохранять состояние, которое называется "поддержание кворума". Поэтому обычно не рекомендуется завершать работу всех компьютеров в кластере, пока не будет выполнена [полная архивация состояния](service-fabric-reliable-services-backup-restore.md), так как это может быть небезопасно.
+>[AZURE.NOTE] Service Fabric clusters require a certain number of nodes to be up at all the time in order to maintain availability and preserve state - referred to as "maintaining quorum." So, it is typically unsafe to shut down all the machines in the cluster unless you have first performed a [full backup of your state](service-fabric-reliable-services-backup-restore.md).
 
-## Дальнейшие действия
-Дополнительные сведения о планировании емкости кластера, обновлении кластера и секционировании служб см. в следующих статьях:
+## <a name="next-steps"></a>Next steps
+Read the following to also learn about planning cluster capacity, upgrading a cluster, and partitioning services:
 
-- [Планирование емкости кластера](service-fabric-cluster-capacity.md)
-- [Обновления кластера](service-fabric-cluster-upgrade.md)
-- [Секционирование служб с отслеживанием состояния для максимального масштабирования](service-fabric-concepts-partitioning.md)
+- [Plan your cluster capacity](service-fabric-cluster-capacity.md)
+- [Cluster upgrades](service-fabric-cluster-upgrade.md)
+- [Partition stateful services for maximum scale](service-fabric-concepts-partitioning.md)
 
 <!--Image references-->
 [BrowseServiceFabricClusterResource]: ./media/service-fabric-cluster-scale-up-down/BrowseServiceFabricClusterResource.png
 [ClusterResources]: ./media/service-fabric-cluster-scale-up-down/ClusterResources.png
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

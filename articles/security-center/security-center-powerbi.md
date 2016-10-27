@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Анализ данных центра безопасности Azure с помощью Power BI | Microsoft Azure"
-   description="Пакет содержимого центра безопасности Azure для Power BI позволяет легко обнаруживать предупреждения и рекомендации системы безопасности, а также информацию об атакуемых ресурсах и тенденциях на основе набора данных, созданного для ваших отчетов."
+   pageTitle="Get insights from Azure Security Center data with Power BI| Microsoft Azure"
+   description="The Azure Security Center Power BI content pack makes it easy to find  security alerts, recommendations, attacked resources and trends, based on a dataset that has been created for your reporting."
    services="security-center"
    documentationCenter="na"
    authors="YuriDio"
@@ -16,103 +16,108 @@
    ms.date="09/22/2016"
    ms.author="yurid"/>
 
-# Анализ данных центра безопасности Azure с помощью Power BI
-[Панель мониторинга Power BI](http://aka.ms/azure-security-center-power-bi) в центре безопасности Azure позволяет визуализировать, анализировать и фильтровать рекомендации и предупреждения безопасности из любого источника, включая ваше мобильное устройство. С помощью панели мониторинга Power BI можно выявлять тенденции и схемы атак, просматривая предупреждения безопасности по ресурсам или IP-адресам источников, а неустраненные угрозы безопасности — по ресурсам или времени возникновения.
 
-Вы также можете составлять эффективные комбинации, объединяя рекомендации и предупреждения центра безопасности с другими данными, включая данные [журналов аудита Azure](https://powerbi.microsoft.com/blog/monitor-azure-audit-logs-with-power-bi/) и [аудита базы данных SQL Azure](https://powerbi.microsoft.com/blog/monitor-your-azure-sql-database-auditing-activity-with-power-bi/). Эти данные доступны на информационных панелях Power BI, и их также можно экспортировать в Excel для быстрого создания отчетов о состоянии безопасности облачных ресурсов.
+# <a name="get-insights-from-azure-security-center-data-with-power-bi"></a>Get insights from Azure Security Center data with Power BI
+The [Power BI Dashboard](http://aka.ms/azure-security-center-power-bi) for Azure Security Center enables you to visualize, analyze, and filter recommendations and security alerts from anywhere, including your mobile device. Use the Power BI dashboard to reveal trends and attack patterns - view security alerts by resource or source IP address and unaddressed security risks by resource or age. 
 
-##Доступ к Power BI с помощью панели мониторинга центра безопасности Azure
-Для доступа к отчетам Power BI также можно использовать панель мониторинга центра безопасности Azure. Для этого выполните следующие действия.
+You can also mash up Security Center recommendations and security alerts with other data in interesting ways, for example using data from [Azure Audit Logs](https://powerbi.microsoft.com/blog/monitor-azure-audit-logs-with-power-bi/) and [Azure SQL Database Auditing](https://powerbi.microsoft.com/blog/monitor-your-azure-sql-database-auditing-activity-with-power-bi/). Both offer Power BI Dashboards, and you can also export this data to Excel for easy reporting on the security state of your cloud resources.
 
-1. На панели мониторинга **центра безопасности Azure** нажмите кнопку **Просмотреть в Power BI**.
+##<a name="using-azure-security-center-dashboard-to-access-power-bi"></a>Using Azure Security Center dashboard to access Power BI
+You can also use the Azure Security Center dashboard to access Power BI reports. Follow the steps to perform this task: 
 
-	.![Подключение к центру безопасности Azure с помощью Power BI](./media/security-center-powerbi/security-center-powerbi-fig1-new10.png)
+1. In the **Azure Security Center** dashboard, click **Explore in Power BI** button.
 
-2. Справа откроется колонка **Просмотреть в Power BI**, как показано ниже.
+    ![Connect to Azure Security Center using Power BI](./media/security-center-powerbi/security-center-powerbi-fig1-new10.png) 
 
-	.![Подключение к центру безопасности Azure с помощью Power BI](./media/security-center-powerbi/security-center-powerbi-fig1-new2.png)
+2. The **Explore in Power BI** blade opens on the right side as shown in the following screen:
 
-3. При создании информационной панели Power BI впервые в колонке **Просмотреть в Power BI** можно выбрать один из следующих вариантов.
+    ![Connect to Azure Security Center using Power BI](./media/security-center-powerbi/security-center-powerbi-fig1-new2.png)
 
-	- **Security insights dashboard** (Информационная панель "Сведения о безопасности"). Это информационная панель, предоставляющая сведения о состоянии безопасности, потоках и событиях обнаружения. Этот вариант рекомендуется использовать при разработке и операциях, так как при этом требуется анализировать состояние безопасности и обнаруженные оповещения в рамках подписок.
-	- **Policy management dashboard** (Информационная панель "Управление политиками"). Эта информационная панель используется для просмотра политик управления и принудительного применения. Этот вариант рекомендуется использовать для центральных ИТ-отделов, которые более сосредоточены на задачах управления. С помощью информационной панели управления политикой можно отслеживать соблюдение политики безопасности в рамках организации.
-	- Если у вас уже есть информационная панель Power BI, выберите **Go to your current Power BI dashboard** (Перейти к текущей информационной панели Power BI).
+3. If you are creating the Power BI dashboard for the first time, you can choose one of the following options in the **Explore in Power BI** blade: 
 
-4. Для примера выберите **панель мониторинга со сведениями о безопасности**. Если вы впервые создаете информационную панель Power BI для центра безопасности, вам будет предложено установить пакет содержимого. Нажмите кнопку **Получить** в окне **Content packs for Power BI** (Пакеты содержимого для Power BI), как показано ниже.
+    - **Security insights dashboard**: choose this option if you want to create a dashboard that includes security status, threads, and detections. This option is a more common for DevOps role that is responsible for analyzing their protection status and detected alerts across subscriptions.
+    - **Policy management dashboard**: choose this option if you want to explore management and enforcement policy.  This option is a more common for Central IT who are more focused on governance. They can use this dashboard to gain visibility and insights on security policy adherence across their organization.
+    - If you already have a Power BI dashboard, click **Go to your current Power BI dashboard**.
 
-	.![Информационная панель со сведениями о безопасности в центре безопасности Azure](./media/security-center-powerbi/security-center-powerbi-fig1-new3.png)
+4. For this example, click **Security insights dashboard** option. If this is the first time, you are creating a Power BI dashboard for Security Center you are prompted to install the content pack. Click **Get** button in the **Content packs for Power BI** window as shown in the following screen:
 
-5. Откроется окно **Connect to Azure Security Center Security Insights** (Подключение к сведениям о безопасности центра безопасности Azure). Убедитесь, что для параметра **Метод проверки подлинности** выбрано значение **oAuth2** (см. ниже), и нажмите кнопку **Войти**.
-	
-	![Аутентификация](./media/security-center-powerbi/security-center-powerbi-fig1-new4.png)
+    ![Azure Security Center Security Insights dashboard](./media/security-center-powerbi/security-center-powerbi-fig1-new3.png)
 
-6. Возможно, вам потребуется снова пройти проверку подлинности с учетными данными Azure. После проверки подлинности будет создана панель мониторинга. Затем вы увидите отчет со структурой, похожей на следующую:
+5. The **Connect to Azure Security Center Security Insights** window appear. Make sure the **Authentication** method is **oAuth2** as shown below and click **Sign in** button.
+    
+    ![Authentication](./media/security-center-powerbi/security-center-powerbi-fig1-new4.png)
 
-	![Панель мониторинга Power BI](./media/security-center-powerbi/security-center-powerbi-fig1-new5.png)
+6. You may be asked to authenticate again with your Azure credentials. After authenticating your dashboard will be created. Once the dashboard is created you see a report with the similar structure as shown in the following screen:
+
+    ![Power BI Dashboard](./media/security-center-powerbi/security-center-powerbi-fig1-new5.png)
 
 
-> [AZURE.NOTE] Запланировано ежедневное обновление отчетов. Дополнительные сведения о способах устранения неполадок в случае сбоя обновления см. в статье [Potential Refresh Issues with the Azure Security Center Power BI](https://blogs.msdn.microsoft.com/azuresecurity/2016/04/07/azure-security-center-power-bi-refresh-fails/) (Возможные проблемы с обновлением Power BI для центра безопасности Azure).
+> [AZURE.NOTE] A refresh of the report is scheduled to take place on a daily basis. In case you experience a failure on this refresh, read [Potential Refresh Issues with the Azure Security Center Power BI](https://blogs.msdn.microsoft.com/azuresecurity/2016/04/07/azure-security-center-power-bi-refresh-fails/), for more information on how to troubleshoot.
 
-Здесь сразу можно увидеть количество предупреждений и рекомендаций системы безопасности, а также количество виртуальных машин, баз данных SQL Azure и сетевых ресурсов, которые отслеживаются в центре безопасности Azure.
+Here you can see the number of security alerts and recommendations, as well as the number of VMs, Azure SQL databases, and network resources being monitored by Azure Security Center.
 
-Ссылка на центр безопасности Azure перенаправит вас на портал Azure. Диаграммы — это удобное средство для визуализации таких сведений о рекомендациях и предупреждениях системы безопасности:
+A link to Azure Security Center redirects you to the Azure portal. The charts make it easy to visualize information about security recommendations and alerts, including:
 
-- сведения о работоспособности системы безопасности ресурсов;
-- ожидающие рекомендации;
-- Рекомендации по виртуальным машинам
-- предупреждения по времени;
-- атакуемые ресурсы;
-- атакуемые IP-адреса.
+- Resource Security State
+- Pending Recommendations
+- VM Recommendations
+- Alerts over Time
+- Attacked Resources
+- Attacked IPs
 
-В диаграммах предусмотрены дополнительные возможности для анализа данных. Щелкните плитку, чтобы просмотреть более подробные сведения. Например, на плитке **состояния системы безопасности ресурсов** отображаются дополнительные сведения об ожидающих рекомендациях по ресурсам, как показано ниже.
+Behind each chart, there are additional insights. Select a tile to see more information. For example, the **Resource Security State** tile shows you additional details about pending recommendations by resources as shown in the following screen:
 
-.![Рекомендации](./media/security-center-powerbi/security-center-powerbi-fig1-new6.png)
+![Recommendations](./media/security-center-powerbi/security-center-powerbi-fig1-new6.png)
 
-Если щелкнуть любую строку этого графика, остальные станут неактивными, что позволит вам сосредоточиться на интересующих вас данных. Чтобы вернуться на панель мониторинга, щелкните **Центр безопасности Azure** под элементом **Панели мониторинга** в левой части этой страницы.
+If you click on any line of this graph, the others are going to gray out and you focus only on the one you selected. To return to the dashboard, click **Azure Security Center** under the **Dashboards** option on the left pane of this page.
 
-> [AZURE.NOTE] Если вы хотите настроить отчет, добавив дополнительные поля или изменив существующие визуальные элементы, можно отредактировать имеющийся отчет. Дополнительные сведения см. в статье [Взаимодействие с отчетом в режиме редактирования в Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-interact-with-a-report-in-editing-view/).
+> [AZURE.NOTE] If you’d like to customize your reports by adding additional fields or changing existing visuals, you can edit the report. Read [Interact with a report in Editing View in Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-interact-with-a-report-in-editing-view/) for more information.
 
-Если щелкнуть плитки **предупреждений по времени, атакуемых ресурсов** и **IP-адресов злоумышленников**, отобразятся похожие данные. Это происходит, так как в отчете о **ресурсах, подвергающихся атаке**, собраны сведения об этих трех переменных, как показано ниже.
+The **Alerts over Time, Attacked Resources** and **Attacker IPs** tiles will have the similar output when you click on each one of it. This happens because the report aggregates information regarding all those three variables and calls it **Resources under Attack** as shown in the following screen:
 
-.![Отчет Resources under attack (Ресурсы, подвергающиеся атаке)](./media/security-center-powerbi/security-center-powerbi-fig1-new7.png)
+![Resources under attack](./media/security-center-powerbi/security-center-powerbi-fig1-new7.png)
 
-На этом этапе вы можете сохранить копию отчета, а также распечатать его или опубликовать в Интернете, используя параметры в меню **Файл**.
+At this point you can also save a copy of this report, print it or publish it on the web by using the options available in the **File** menu.
 
-.![Меню «Файл»](./media/security-center-powerbi/security-center-powerbi-fig8.png)
+![File menu](./media/security-center-powerbi/security-center-powerbi-fig8.png)
 
-## Оценка данных центра безопасности Azure с помощью служб Power BI
+## <a name="exploring-your-azure-security-center-data-with-power-bi-services"></a>Exploring your Azure Security Center data with Power BI services
 
-Подключитесь к [пакету содержимого Power BI](https://msit.powerbi.com/groups/me/getdata/services) в Power BI и выполните следующие действия:
+Connect to the [Power BI Content Pack Services](https://msit.powerbi.com/groups/me/getdata/services) in Power BI and execute the following steps:
 
-1. В окне **Content Pack for Power BI** (Пакет содержимого для Power BI) будут отображаться два параметра, как показано ниже.
+1. In the **Content Pack for Power BI** window you will see two options as shown below.
 
-	.![Окно Content Pack for Power BI (Пакет содержимого для Power BI)](./media/security-center-powerbi/security-center-powerbi-fig1-new.png)
+    ![Content pack for Power BI](./media/security-center-powerbi/security-center-powerbi-fig1-new.png)
 
-	>[AZURE.NOTE] Если вы уже выполнили инструкции из первой части этой статьи, вы увидите только один параметр, отвечающий за управление политикой центра безопасности Azure.
+    >[AZURE.NOTE] If already executed the first part of this article you will see only one option, which is Azure Security Center Policy Management.
 
-2. Теперь нажмите кнопку **Получить** на плитке **управления политикой центра безопасности Azure**.
+2. For the purpose of this example, click **Get** in the **Azure Security Center Policy Management** tile.
 
-3. В окне **Connect to Azure Security Center Policy Management** (Подключение к управлению политикой центра безопасности Azure) в раскрывающемся списке **Метод проверки подлинности** выберите **oAuth2**, как показано ниже, и нажмите кнопку **Войти**.
+3. In the **Connect to Azure Security Center Policy Management** window, make sure to select **oAuth2** under **Authentication Method** drop down as shown below and click **Sign in** button.
 
-	![Окно "Управление политикой"](./media/security-center-powerbi/security-center-powerbi-fig1-new8.png)
+    ![Policy Management window](./media/security-center-powerbi/security-center-powerbi-fig1-new8.png)
 
-4. Вы перейдете на страницу проверки подлинности, где потребуется ввести учетные данные, используемые для подключения к центру безопасности Azure. Когда проверка подлинности будет завершена, Power BI начнет импорт данных для создания отчетов. В это время в правом углу окна браузера может появиться следующее сообщение:
+4. You will be redirected to an authentication page where you should type the credentials that you are using to connect to Azure Security Center. After the authentication process is complete, Power BI will start importing data to build your reports. During this time you may see the following message on the right corner of your browser:
 
-	.![Подключение к центру безопасности Azure с помощью Power BI](./media/security-center-powerbi/security-center-powerbi-fig4.png)
+    ![Connect to Azure Security Center using Power BI](./media/security-center-powerbi/security-center-powerbi-fig4.png)
 
-	>[AZURE.NOTE] Первое создание информационной панели занимает больше времени, чем обычно, особенно в сценариях с несколькими подписками.
+    >[AZURE.NOTE] when the dashboard is being created for the first time it can take longer than usual, mainly for scenarios where you have multiple subscriptions. 
 
-5. Когда процесс будет завершен, загрузится информационная панель Power BI центра безопасности Azure с отчетом **управления политиками**, который будет выглядеть примерно следующим образом.
+5. Once the process is finished, your Azure Security Center Power BI dashboard will load with the **Policy Management** report similar to the one shown below:
 
-	![Панель мониторинга "Управление политикой"](./media/security-center-powerbi/security-center-powerbi-fig1-new9.png)
+    ![Policy Management dashboard](./media/security-center-powerbi/security-center-powerbi-fig1-new9.png)
 
-## Дополнительные материалы
-В этом документе описывается, как использовать Power BI для анализа данных центра безопасности Azure. Дополнительные сведения о Центре безопасности Azure см. в следующих статьях:
+## <a name="see-also"></a>See also
+In this document, you learned how to use Power BI in Azure Security Center. To learn more about Azure Security Center, see the following:
 
-- [Руководство по планированию использования центра безопасности Azure и работе в нем](security-center-planning-and-operations-guide.md) — узнайте, как спланировать переход к использованию центра безопасности Azure.
-- [Настройка политик безопасности в Центре безопасности Azure](security-center-policies.md) — узнайте, как настроить параметры безопасности в Центре безопасности Azure.
-- [Управление оповещениями безопасности в центре безопасности Azure и реагирование на них](security-center-managing-and-responding-alerts.md). Узнайте, как управлять оповещениями системы безопасности и реагировать на них.
-- [Центр безопасности Azure: часто задаваемые вопросы](security-center-faq.md). Часто задаваемые вопросы об использовании этой службы.
-- [Блог по безопасности Azure](http://blogs.msdn.com/b/azuresecurity/). Записи блога, посвященные безопасности и соответствию требованиям в Azure.
+- [Azure Security Center Planning and Operations Guide](security-center-planning-and-operations-guide.md) — Learn how to plan Azure Security Center adoption.
+- [Setting security policies in Azure Security Center](security-center-policies.md) — Learn how to configure security settings in Azure Security Center
+- [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md) — Learn how to manage and respond to security alerts
+- [Azure Security Center FAQ](security-center-faq.md) — Find frequently asked questions about using the service
+- [Azure Security Blog](http://blogs.msdn.com/b/azuresecurity/) — Find blog posts about Azure security and compliance
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

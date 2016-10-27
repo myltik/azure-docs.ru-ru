@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Управление DNS-серверами, используемыми виртуальной сетью"
-   description="Узнайте, как добавлять и удалять DNS-серверы в виртуальной сети (VNet)."
+   pageTitle="Manage DNS servers used by a virtual network (VNet)"
+   description="Learn how to add and remove DNS servers in a virtual network (vnet)"
    services="virtual-network"
    documentationCenter="na"
    authors="jimdial"
@@ -15,46 +15,51 @@
    ms.date="03/15/2016"
    ms.author="jdial" />
 
-# Управление DNS-серверами, используемыми виртуальной сетью
 
-Списком DNS-серверов, которые используются в виртуальной сети, можно управлять с помощью портала управления или файла конфигурации сети. Для каждой виртуальной сети можно добавить до 12 DNS-серверов. При указании DNS-серверов важно убедиться, что они размещены в списке в правильном порядке для вашей среды. Списки DNS-серверов не работают по принципу циклического перебора. Серверы используются в том порядке, в котором они указаны. Если первый DNS-сервер в списке доступен, клиент будет использовать его вне зависимости от того, работает DNS-сервер правильно или нет. Чтобы изменить порядок DNS-серверов для виртуальной сети, удалите их из списка и добавьте обратно в требуемом порядке.
+# <a name="manage-dns-servers-used-by-a-virtual-network-(vnet)"></a>Manage DNS servers used by a virtual network (VNet)
 
->[AZURE.WARNING] После обновления списка DNS необходимо перезагрузить виртуальные машины, расположенные в виртуальной сети, чтобы они приняли новые параметры DNS-сервера. До перезагрузки виртуальные машины будут продолжать использовать текущую конфигурацию.
+You can manage the list of DNS servers used in a VNet in the Management Portal, or in the network configuration file. You can add up to 12 DNS servers for each VNet. When specifying DNS servers, it's important to verify that you list your DNS servers in the correct order for your environment. DNS server lists do not work round-robin. They are used in the order that they are specified. If the first DNS server on the list is able to be reached, the client will use that DNS server regardless of whether the DNS server is functioning properly or not. To change the DNS server order for your virtual network, remove the DNS servers from the list and add them back in the order that you want.
 
-## Изменение списка DNS-серверов для виртуальной сети с помощью портала управления
+>[AZURE.WARNING] After the DNS list has been updated, you must restart the virtual machines located in your virtual network so that they pick up the new DNS server settings. Virtual machines will continue to use their current configuration until they are restarted.
 
-1. Войдите на **портал управления**.
+## <a name="edit-a-dns-server-list-for-a-virtual-network-using-the-management-portal"></a>Edit a DNS server list for a virtual network using the Management Portal
 
-1. В области навигации выберите **Сети**, а затем в столбце **Имя** щелкните имя виртуальной сети.
+1. Log on to the **Management Portal**.
 
-1. Нажмите **Настроить**.
+1. In the navigation pane, click **Networks**, and then click the name of your virtual network in the **Name** column.
 
-1. В разделе **DNS-серверы** можно:
+1. Click **Configure**.
 
-	- **Зарегистрировать (добавить) новый DNS-сервер**. Просто введите имя и IP-адрес в соответствующих полях. DNS-сервер будет добавлен в список DNS-серверов для виртуальной сети и зарегистрирован в Azure.
+1. In **DNS Servers**, you can configure the following:
 
-	- **Добавить DNS-сервер, который был зарегистрирован ранее**. Если DNS-сервер уже зарегистрирован в Azure, его можно выбрать в списке серверов.
+    - **To register (add) a new DNS server –** Simply type the name and IP address in the boxes. This adds a DNS server to your virtual network DNS Servers list and also registers the DNS server with Azure.
 
-	- **Удалить DNS-сервер из виртуальной сети**. Нажмите кнопку X рядом с сервером, который требуется удалить. Обратите внимание, что сервер будет удален только из списка данной виртуальной сети. DNS-сервер остается зарегистрированным в Azure и может использоваться в других виртуальных сетях. Чтобы удалить DNS-сервер из подписки, перейдите на страницу **Сети -> DNS-серверы**.
+    - **To add a DNS server that was previously registered –** If you already registered a DNS server with Azure, you can select it from the pre-populated list.
 
-	- **Изменить порядок DNS-серверов**. Удалите все DNS-серверы в списке, а затем добавьте их обратно в требуемом порядке. Помните, что к списку DNS-серверов не применяется принцип циклического перебора.
+    - **To remove a DNS server from your virtual network –** Click the X next to the server you want to remove. Note that this only removes the server from this virtual network list. The DNS server remains registered in Azure for your other virtual networks to use. To delete a DNS server from your subscription, go to the **Networks ->DNS Servers** page.
 
-	- **Переименовать DNS-сервер**. Выделите DNS-сервер в списке и введите новое имя. При этом в службе Azure будет зарегистрирован новый DNS-сервер, который также будет добавлен в список DNS-серверов для вашей виртуальной сети. Старый DNS-сервер и его IP-адрес останутся зарегистрированными в Azure. Его можно удалить на странице **DNS-серверы**, если он не используется в других виртуальных сетях.
+    - **To re-order DNS servers –** Remove all of the DNS servers that are listed, and then add them back in in the order that you want. Remember that this is not a round-robin DNS list.
 
-1. Нажмите кнопку **Сохранить** внизу страницы, чтобы сохранить новую конфигурацию DNS-серверов.
+    - **To rename a DNS server –** Highlight the DNS server in the list, then type the new name. This will register a new DNS server in Azure, as well as add it to the DNS Servers list for your virtual network. The old DNS server and its IP address will remain registered with Azure. You can delete it on the **DNS Servers** page if you are not using it for any other virtual networks.
 
-1. Перезапустите виртуальные машины в виртуальной сети, чтобы они приняли новые параметры DNS.
+1. Click **Save** at the bottom of the page to save your new DNS servers configuration.
 
-## Изменение списка DNS-серверов с помощью файла конфигурации сети
+1. Restart the virtual machines located in the virtual network to allow them to acquire the new DNS settings.
 
-Чтобы изменить список DNS-серверов с помощью файла конфигурации сети, сначала на портале управления экспортируйте параметры конфигурации. Затем измените файл конфигурации сети и импортируйте его обратно через портал управления. Ниже приведен краткий список действий для выполнения этой процедуры.
+## <a name="edit-a-dns-server-list-using-a-network-configuration-file"></a>Edit a DNS server list using a network configuration file
 
-1. Экспортируйте параметры виртуальной сети в файл конфигурации. Дополнительные сведения об экспортировании параметров конфигурации сети и соответствующие инструкции см. в статье [Экспорт параметров виртуальной сети в файл конфигурации сети](virtual-networks-using-network-configuration-file.md).
+To edit a DNS server list by using a network configuration file, you'll first export your configuration settings from the Management Portal. You'll then edit the network configuration file and import it back through the Management Portal. Below is a high-level list of steps to complete this process.
 
-1. Укажите данные DNS-сервера для виртуальной сети. Дополнительные сведения об определении DNS-сервера см. в статье [Задание параметров DNS в файле конфигурации виртуальной сети](virtual-networks-specifying-a-dns-settings-in-a-virtual-network-configuration-file.md). Дополнительные сведения о файлах конфигурации сети см. в статьях [Схема конфигурации виртуальной сети Microsoft Azure](https://msdn.microsoft.com/library/azure/jj157100.aspx) и [Настройка виртуальной сети с помощью файлов конфигурации](virtual-networks-using-network-configuration-file.md).
+1. Export your virtual network settings to a network configuration file. For more information and steps to export your network configuration settings, see [Export Virtual Network Settings to a Network Configuration File](virtual-networks-using-network-configuration-file.md).
 
-1. Импортируйте файл конфигурации сети. Дополнительные сведения об импортировании файла конфигурации сети и соответствующие инструкции см. в статье [Импорт файла конфигурации сети](virtual-networks-using-network-configuration-file.md).
+1. Specify the DNS server information for your virtual network. For more information about specifying a DNS server, see [Specifying a DNS Server in a Virtual Network Configuration File](virtual-networks-specifying-a-dns-settings-in-a-virtual-network-configuration-file.md). For additional information about network configuration files, see [Azure Virtual Network Configuration Schema](https://msdn.microsoft.com/library/azure/jj157100.aspx) and [Configure a Virtual Network Using a Network Configuration File](virtual-networks-using-network-configuration-file.md).
 
-1. Перезапустите виртуальные машины в виртуальной сети, чтобы они приняли новые параметры DNS.
+1. Import the network configuration file. For more information and steps to import your network configuration file, see [Import a Network Configuration File](virtual-networks-using-network-configuration-file.md).
 
-<!---HONumber=AcomDC_0810_2016-->
+1. Restart the virtual machines located in the virtual network to allow them to acquire the new DNS settings.
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

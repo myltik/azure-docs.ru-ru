@@ -1,241 +1,242 @@
 <properties
-	pageTitle="Использование подчиненного подключаемого модуля Azure на сервере непрерывной интеграции Jenkins | Microsoft Azure"
-	description="Описание использования подчиненного подключаемого модуля Azure на сервере непрерывной интеграции Jenkins."
-	services="virtual-machines-linux"
-	documentationCenter=""
-	authors="rmcmurray"
-	manager="wpickett"
-	editor="" />
+    pageTitle="How to use the Azure slave plug-in with Jenkins Continuous Integration | Microsoft Azure"
+    description="Describes how to use the Azure slave plug-in with Jenkins Continuous Integration."
+    services="virtual-machines-linux"
+    documentationCenter=""
+    authors="rmcmurray"
+    manager="wpickett"
+    editor="" />
 
 <tags
-	ms.service="virtual-machines-linux"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-multiple"
-	ms.devlang="java"
-	ms.topic="article"
-	ms.date="09/20/2016"
-	ms.author="robmcm"/>
+    ms.service="virtual-machines-linux"
+    ms.workload="infrastructure-services"
+    ms.tgt_pltfrm="vm-multiple"
+    ms.devlang="java"
+    ms.topic="article"
+    ms.date="09/20/2016"
+    ms.author="robmcm"/>
 
-# Использование подчиненного подключаемого модуля Azure на сервере непрерывной интеграции Jenkins
 
-С помощью подчиненного подключаемого модуля Azure для Jenkins можно подготовить подчиненные узлы в Azure при запуске распределенных сборок.
+# <a name="how-to-use-the-azure-slave-plug-in-with-jenkins-continuous-integration"></a>How to use the Azure slave plug-in with Jenkins Continuous Integration
 
-## Установка подчиненного подключаемого модуля Azure
+You can use the Azure slave plug-in for Jenkins to provision slave nodes on Azure when running distributed builds.
 
-1. На панели мониторинга Jenkins щелкните **Manage Jenkins** (Управление Jenkins).
+## <a name="install-the-azure-slave-plug-in"></a>Install the Azure slave plug-in
 
-1. На странице **Manage Jenkins** (Управление Jenkins) щелкните **Manage Plugins** (Управление подключаемыми модулями).
+1. In the Jenkins dashboard, click **Manage Jenkins**.
 
-1. Перейдите на вкладку **Available** (Доступный).
+1. On the **Manage Jenkins** page, click **Manage Plugins**.
 
-1. В поле фильтра над списком доступных подключаемых модулей введите **Azure**, чтобы ограничить список соответствующими подключаемыми модулями.
+1. Click the **Available** tab.
 
-    Кроме того, вы можете выполнить поиск в прокручиваемом списке доступных подключаемых модулей. Подчиненный подключаемый модуль Azure находится в разделе **Cluster Management and Distributed Build** (Управление кластерами и распределенная сборка).
+1. In the filter field above the list of available plug-ins, type **Azure** to limit the list to relevant plug-ins.
 
-1. Установите флажок **Azure Slave Plugin** (Подчиненный подключаемый модуль Azure).
+    If you opt to scroll through the list of available plug-ins, you will find the Azure slave plug-in under the **Cluster Management and Distributed Build** section.
 
-1. Щелкните **Install without restart** (Установить без перезагрузки) или **Download now and install after restart** (Загрузить сейчас и установить позднее).
+1. Select the **Azure Slave Plugin** check box.
 
-Теперь, когда подключаемый модуль установлен, необходимо настроить его с помощью профиля подписки Azure и создать шаблон, который будет использоваться при создании виртуальной машины для подчиненного узла.
+1. Click **Install without restart** or **Download now and install after restart**.
 
+Now that the plug-in is installed, the next steps are to configure the plug-in with your Azure subscription profile and to create a template that will be used in creating the virtual machine for the slave node.
 
-## Настройка подчиненного подключаемого модуля Azure с помощью профиля подписки
 
-Профиль подписки, также называемый настройками публикации, представляет собой XML-файл, содержащий защищенные учетные данные и некоторые дополнительные сведения, необходимые для использования Azure в среде разработки. Для настройки подчиненного подключаемого модуля Azure необходимы следующие данные:
+## <a name="configure-the-azure-slave-plug-in-with-your-subscription-profile"></a>Configure the Azure slave plug-in with your subscription profile
 
-* идентификатор подписки;
-* сертификат управления подпиской.
+A subscription profile, also referred to as publish settings, is an XML file that contains secure credentials and some additional information you'll need to work with Azure in your development environment. To configure the Azure slave plug-in, you need:
 
-Эти сведения можно найти в [профиле подписки]. Ниже приведен пример профиля подписки.
+* Your subscription id
+* A management certificate for your subscription
 
-	<?xml version="1.0" encoding="utf-8"?>
+These can be found in your [subscription profile]. Below is an example of a subscription profile.
 
-		<PublishData>
+    <?xml version="1.0" encoding="utf-8"?>
 
-  		<PublishProfile SchemaVersion="2.0" PublishMethod="AzureServiceManagementAPI">
+        <PublishData>
 
-    	<Subscription
+        <PublishProfile SchemaVersion="2.0" PublishMethod="AzureServiceManagementAPI">
 
-      		ServiceManagementUrl="https://management.core.windows.net"
+        <Subscription
 
-      		Id="<Subscription ID value>"
+            ServiceManagementUrl="https://management.core.windows.net"
 
-      		Name="Pay-As-You-Go"
-			ManagementCertificate="<Management certificate value>" />
+            Id="<Subscription ID value>"
 
-  		</PublishProfile>
+            Name="Pay-As-You-Go"
+            ManagementCertificate="<Management certificate value>" />
 
-	</PublishData>
+        </PublishProfile>
 
-После создания профиля подписки выполните перечисленные ниже действия, чтобы настроить подчиненный подключаемый модуль Azure.
+    </PublishData>
 
-1. На панели мониторинга Jenkins щелкните **Manage Jenkins** (Управление Jenkins).
+After you have your subscription profile, follow these steps to configure the Azure slave plug-in:
 
-1. Щелкните **Configure System** (Настройка системы).
+1. In the Jenkins dashboard, click **Manage Jenkins**.
 
-1. Прокрутите страницу вниз до раздела **Cloud** (Облако).
+1. Click **Configure System**.
 
-1. Щелкните **Add new cloud > Microsoft Azure** (Добавить новое облако > Microsoft Azure).
+1. Scroll down the page to find the **Cloud** section.
 
-    ![раздел «Облако»][cloud section]
+1. Click **Add new cloud > Microsoft Azure**.
 
-    Появятся поля, в которые необходимо ввести сведения о подписке.
+    ![cloud section][cloud section]
 
-    ![конфигурация подписки][subscription configuration]
+    This will show the fields where you need to enter your subscription details.
 
-1. Скопируйте идентификатор подписки и сертификат управления из профиля подписки и вставьте их в соответствующие поля.
+    ![subscription configuration][subscription configuration]
 
-    При копировании идентификатора подписки и сертификата управления не копируйте кавычки, в которые заключены значения.
+1. Copy the subscription id and management certificate values from your subscription profile and paste them in the appropriate fields.
 
-1. Щелкните **Verify configuration** (Проверить конфигурацию).
+    When copying the subscription id and management certificate, do not include the quotes that enclose the values.
 
-1. После проверки правильности конфигурации щелкните **Save** (Сохранить).
+1. Click **Verify Configuration**.
 
-## Настройка шаблона виртуальной машины для подчиненного подключаемого модуля Azure
+1. When the configuration is verified to be correct, click **Save**.
 
-Шаблон виртуальной машины определяет параметры, которые подключаемый модуль будет использовать для создания подчиненного узла в Azure. Далее мы создадим шаблон для виртуальной машины Ubuntu.
+## <a name="set-up-a-virtual-machine-template-for-the-azure-slave-plug-in"></a>Set up a virtual machine template for the Azure slave plug-in
 
-1. На панели мониторинга Jenkins щелкните **Manage Jenkins** (Управление Jenkins).
+A virtual machine template defines the parameters that the plug-in will use to create a slave node on Azure. In the following steps, we'll create a template for an Ubuntu virtual machine.
 
-1. Щелкните **Configure System** (Настройка системы).
+1. In the Jenkins dashboard, click **Manage Jenkins**.
 
-1. Прокрутите страницу вниз до раздела **Cloud** (Облако).
+1. Click **Configure System**.
 
-1. В разделе **Cloud** найдите элемент **Add Azure Virtual Machine Template** (Добавить шаблон виртуальной машины Azure) и нажмите кнопку **Add** (Добавить).
+1. Scroll down the page to find the **Cloud** section.
 
-    ![добавление шаблона виртуальной машины][add vm template]
+1. In the **Cloud** section, find **Add Azure Virtual Machine Template**, and then click **Add**.
 
-    Появятся поля, в которые необходимо ввести сведения о создаваемом шаблоне.
+    ![add vm template][add vm template]
 
-    ![форма для ввода общих настроек][blank general configuration]
+    This will show the fields where you enter details about the template you are creating.
 
-1. В поле **Name** (Имя) введите имя облачной службы Azure. Если введенное имя ссылается на уже существующую облачную службу, виртуальная машина будет подготовлена именно в этой службе. В противном случае Azure создаст новую службу.
+    ![blank general configuration][blank general configuration]
 
-1. В поле **Description** (Описание) введите описание создаваемого вами шаблона. Это описание будет использоваться только в информационных целях и не будет учитываться при подготовке виртуальной машины.
+1. In the **Name** box, enter an Azure cloud service name. If the name you entered refers to an existing cloud service, the virtual machine will be provisioned in that service. Otherwise, Azure will create a new one.
 
-1. Поле **Labels** (Метки) предназначено для идентификации создаваемого вами шаблона и используется для обращения к шаблону при создании задания Jenkins. В нашем случае в этом поле указываем **linux**.
+1. In the **Description** box, enter text that describes the template you are creating. This is only for your records and is not used in provisioning a virtual machine.
 
-1. В списке **Region** (Регион) выберите регион, где будет создана виртуальная машина.
+1. The **Labels** box is used to identify the template you are creating and is subsequently used to reference the template when creating a Jenkins job. For our purpose, enter **linux** in this box.
 
-1. В списке **Virtual Machine Size** (Размер виртуальной машины) выберите необходимый размер.
+1. In the **Region** list, click the region where the virtual machine will be created.
 
-1. В поле **Storage Account Name** (Имя учетной записи хранения) укажите учетную запись хранения, где будет создана виртуальная машина. Убедитесь, что она находится в одном регионе с облачной службой, которую вы собираетесь использовать. Если вы хотите создать новое хранилище, оставьте это поле пустым.
+1. In the **Virtual Machine Size** list, click the appropriate size.
 
-1. Время хранения — это время в минутах, которое должно пройти до удаления неактивного подчиненного модуля из Jenkins. Оставьте значение по умолчанию 60. Кроме того, вы можете не удалять неактивный подчиненный модуль, а просто отключить его. Для этого установите флажок **Shutdown Only (Do Not Delete) After Retention Time** (Отключить (не удалять) по истечении времени хранения).
+1. In the **Storage Account Name** box, specify a storage account where the virtual machine will be created. Make sure that it is in the same region as the cloud service you'll be using. If you want new storage to be created, you can leave this box blank.
 
-1. В списке **Usage** (Использование) выберите условие для использования этого подчиненного узла. На этом этапе выберите вариант **Utilize this node as much as possible** (Использовать этот узел постоянно).
+1. Retention time specifies the number of minutes before Jenkins deletes an idle slave. Leave this at the default value of 60. You can also choose to shut down the slave instead of deleting it when it's idle. To do that, select the **Shutdown Only (Do Not Delete) After Retention Time** check box.
 
-    На этом этапе заполняемая форма будет выглядеть примерно так.
+1. In the **Usage** list, click the appropriate condition when this slave node will be used. For now, click **Utilize this node as much as possible**.
 
-    ![конфигурация общего шаблона контрольной точки][checkpoint general template config]
+    At this point, your form should look somewhat similar to this:
 
-    На следующем этапе вы должны предоставить подробную информацию об образе операционной системы, в которой вы хотите создать подчиненный модуль.
+    ![checkpoint general template config][checkpoint general template config]
 
-1. В поле **Image Family or Id** (Семейство или идентификатор образа) укажите, какой образ системы будет установлен на вашей виртуальной машине. Выберите образ из списка семейств или укажите пользовательский вариант.
+    The next step is to provide details about the operating system image that you want your slave to be created in.
 
-    Если вы хотите выбрать образ из списка семейств, введите первую букву имени семейства (с учетом регистра). Например, если вы введете **U**, появится список семейств Ubuntu Server. При подготовке виртуальной машины Jenkins будет использовать последнюю версию образа системы из семейства, выбранного в списке.
+1. In the **Image Family or Id** box, you have to specify what system image will be installed on your virtual machine. You can either select from a list of image families or specify a custom image.
 
-    ![образец списка образов ОС][OS Image list sample]
+    If you want to select from a list of image families, enter the first character (case-sensitive) of the image family name. For instance, typing **U** will bring up a list of Ubuntu Server families. After you select from the list, Jenkins will use the latest version of that system image from that family when provisioning your virtual machine.
 
-    Если вы хотите использовать пользовательский образ, введите его имя. Имена пользовательских образов не отображаются в списке, поэтому имя необходимо ввести правильно.
+    ![OS Image list sample][OS Image list sample]
 
-    В данном примере при вводе буквы **U** открывается список образов Ubuntu и мы выбираем вариант **Ubuntu Server 14.04 LTS**.
+    If you have a custom image that you want to use instead, enter the name of that custom image. Custom image names are not shown in a list, so you have to ensure that the name is entered correctly.
 
-1. В списке **Launch Method** (Метод запуска) выберите **SSH**.
+    For this tutorial, type **U** to bring up a list of Ubuntu images, and then click **Ubuntu Server 14.04 LTS**.
 
-1. Скопируйте приведенный ниже сценарий и вставьте его в поле **Init script** (Сценарий инициализации).
+1. In the **Launch Method** list, click **SSH**.
 
-		# Install Java
+1. Copy the script below and paste it in the **Init Script** box.
 
-		sudo apt-get -y update
+        # Install Java
 
-		sudo apt-get install -y openjdk-7-jdk
+        sudo apt-get -y update
 
-		sudo apt-get -y update --fix-missing
+        sudo apt-get install -y openjdk-7-jdk
 
-		sudo apt-get install -y openjdk-7-jdk
+        sudo apt-get -y update --fix-missing
 
-		# Install git
+        sudo apt-get install -y openjdk-7-jdk
 
-		sudo apt-get install -y git
+        # Install git
 
-		#Install ant
+        sudo apt-get install -y git
 
-		sudo apt-get install -y ant
+        #Install ant
 
-		sudo apt-get -y update --fix-missing
+        sudo apt-get install -y ant
 
-		sudo apt-get install -y ant
+        sudo apt-get -y update --fix-missing
 
-    Сценарий инициализации будет выполнен после создания виртуальной машины. В этом примере сценарий устанавливает Java, Git и Ant.
+        sudo apt-get install -y ant
 
-1. В полях **Username** (Имя пользователя) и **Password** (Пароль) введите значения для учетной записи администратора, которая будет создана на вашей виртуальной машине.
+    The init script will be executed after the virtual machine is created. In this example, the script installs Java, Git, and ant.
 
-1. Чтобы проверить допустимость указанных параметров, щелкните **Verify Template** (Проверить шаблон).
+1. In the **Username** and **Password** boxes, enter your preferred values for the administrator account that will be created on your virtual machine.
 
-1. Щелкните **Сохранить**.
+1. Click **Verify Template** to check if the parameters you specified are valid.
 
+1. Click **Save**.
 
-## Создание задания Jenkins, выполняемого в подчиненном узле в Azure
 
-В этом разделе вы узнаете о том, как создать задачу Jenkins, которая должна выполняться в подчиненном узле в Azure. Чтобы следить за этим процессом в реальном времени, создайте собственный проект на GitHub.
+## <a name="create-a-jenkins-job-that-runs-on-a-slave-node-on-azure"></a>Create a Jenkins job that runs on a slave node on Azure
 
-1. На панели мониторинга Jenkins щелкните элемент **New Item** (Создать элемент).
+In this section, you'll be creating a Jenkins task that will run on a slave node on Azure. You'll need to have your own project up on GitHub to follow along.
 
-1. Введите название создаваемой задачи.
+1. In the Jenkins dashboard, click **New Item**.
 
-1. В качестве типа проекта выберите **Freestyle project** (Любой проект).
+1. Enter a name for the task you are creating.
 
-1. Нажмите кнопку **ОК**.
+1. For the project type, click **Freestyle project**.
 
-1. На странице настройки задания выберите **Restrict where this project can be run** (Ограничения для запуска этого проекта).
+1. Click **Ok**.
 
-1. В поле **Label Expression** (Выражение метки) введите **linux**. В предыдущем разделе мы создали шаблон подчиненного модуля, который мы назвали **linux**. Сейчас мы указываем именно его.
+1. In the task configuration page, select **Restrict where this project can be run**.
 
-1. В поле **Build** (Сборка) щелкните **Add build step** (Добавить шаг сборки) и выберите **Execute shell** (Запустить оболочку).
+1. In the **Label Expression** box, enter **linux**. In the previous section, we created a slave template that we named **linux**, which is what we're specifying here.
 
-1. В показанном ниже сценарии вместо **(имени учетной записи github)**, **(названия проекта)** и **(каталога проекта)** укажите соответствующие значения и вставьте измененный сценарий в появившуюся текстовую область.
+1. In the **Build** section, click **Add build step** and select **Execute shell**.
 
-		# Clone from git repo
+1. Edit the following script, replacing **(your GitHub account name)**, **(your project name)**, and **(your project directory)** with appropriate values, and paste the edited script in the text area that appears.
 
-		currentDir="$PWD"
+        # Clone from git repo
 
-		if [ -e (your project directory) ]; then
+        currentDir="$PWD"
 
-  			cd (your project directory)
+        if [ -e (your project directory) ]; then
 
-  			git pull origin master
+            cd (your project directory)
 
-		else
+            git pull origin master
 
-  			git clone https://github.com/(your GitHub account name)/(your project name).git
+        else
 
-		fi
+            git clone https://github.com/(your GitHub account name)/(your project name).git
 
-		# change directory to project
+        fi
 
-		cd $currentDir/(your project directory)
+        # change directory to project
 
-		#Execute build task
+        cd $currentDir/(your project directory)
 
-		ant
+        #Execute build task
 
-1. Щелкните **Сохранить**.
+        ant
 
-1. На панели мониторинга Jenkins наведите указатель мыши на созданную задачу и щелкните стрелку раскрывающегося списка, чтобы отобразить параметры задачи.
+1. Click **Save**.
 
-1. Щелкните **Build now** (Собрать).
+1. In the Jenkins dashboard, hover over the task you just created and click the drop-down arrow to display task options.
 
-Затем на основании шаблона, созданного в предыдущем разделе, Jenkins создаст подчиненный узел и выполнит сценарий, который вы указали на этапе сборки данной задачи.
+1. Click **Build now**.
 
-## Дальнейшие действия
+Jenkins will then create a slave node by using the template created in the previous section and execute the script you specified in the build step for this task.
 
-Дополнительные сведения об использовании Azure с Java см. в [центре разработчиков Java для Azure].
+## <a name="next-steps"></a>Next Steps
+
+For more information about using Azure with Java, see the [Azure Java Developer Center].
 
 <!-- URL List -->
 
-[центре разработчиков Java для Azure]: https://azure.microsoft.com/develop/java/
-[профиле подписки]: http://go.microsoft.com/fwlink/?LinkID=396395
+[Azure Java Developer Center]: https://azure.microsoft.com/develop/java/
+[subscription profile]: http://go.microsoft.com/fwlink/?LinkID=396395
 
 <!-- IMG List -->
 
@@ -246,4 +247,7 @@
 [checkpoint general template config]: ./media/virtual-machines-azure-slave-plugin-for-jenkins/jenkins-slave-template-general-configuration.png
 [OS Image list sample]: ./media/virtual-machines-azure-slave-plugin-for-jenkins/jenkins-os-family-list-sample.png
 
-<!---HONumber=AcomDC_0921_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

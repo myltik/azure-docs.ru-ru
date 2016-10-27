@@ -1,195 +1,200 @@
 <properties
-	pageTitle="Анализ производительности узла Edge в CDN Azure | Microsoft Azure"
-	description="Анализ производительности узла Edge в сети CDN Microsoft Azure Аналитика производительности узла Edge предоставляет подробные сведения о трафике и использовании пропускной способности в сети CDN."
-	services="cdn"
-	documentationCenter=""
-	authors="camsoper"
-	manager="erikre"
-	editor=""/>
+    pageTitle="Analyze Edge Performance in Azure CDN | Microsoft Azure"
+    description="Analyze edge node performance in Microsoft Azure CDN. Edge Performance Analytics provides granular information traffic and bandwidth usage for the CDN."
+    services="cdn"
+    documentationCenter=""
+    authors="camsoper"
+    manager="erikre"
+    editor=""/>
 
 <tags
-	ms.service="cdn"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/28/2016"
-	ms.author="casoper"/>
+    ms.service="cdn"
+    ms.workload="tbd"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="07/28/2016"
+    ms.author="casoper"/>
 
-# Анализ производительности узла Edge в сети CDN Microsoft Azure
+
+# <a name="analyze-edge-node-performance-in-microsoft-azure-cdn"></a>Analyze edge node performance in Microsoft Azure CDN
 
 [AZURE.INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
 
-## Обзор
-Аналитика производительности узла Edge предоставляет подробные сведения о трафике и использовании пропускной способности в сети CDN. Эти сведения можно использовать для создания статистики роста популярности, которая позволяет оценить порядок кэширования и доставки ресурсов вашим клиентам. В свою очередь, на основании этого вы можете формировать стратегии оптимизации доставки содержимого и определять проблемы, решение которых позволит использовать CDN более эффективно. В результате вы можете не просто повысить производительность доставки данных, но и снизить затраты, связанные с CDN.
+## <a name="overview"></a>Overview
+Edge performance analytics provides granular information traffic and bandwidth usage for the CDN. This information can then be used to generate trending statistics, which allow you to gain insight on how your assets are being cached and delivered to your clients. In turn, this allows you to form a strategy on how to optimize the delivery of your content and to determine what issues should be tackled to better leverage the CDN. As a result, not only will you be able to improve data delivery performance, but you will also be able to reduce your CDN costs.
 
-> [AZURE.NOTE] Во всех отчетах при указании даты и времени используется формат UTC/GMT.
+> [AZURE.NOTE] All reports use UTC/GMT notation when specifying a date/time.
 
-## Коллекция отчетов и журналов
+## <a name="reports-and-log-collection"></a>Reports and log collection
 
-Прежде чем средства аналитики производительности Edge смогут формировать отчеты, потребуется собрать данные об активности в сети CDN. Процесс сбора данных происходит один раз в день и охватывает действия, произошедшие за предыдущий день. Это означает, что приводимая в отчетах статистика отражает результаты за день с обработанными данными и не обязательно полностью отражает результаты текущего дня. Основная функция этих отчетов – оценка производительности. Их не следует использовать для выставления счетов или определения точных числовых показателей.
+CDN activity data must be collected by the Edge Performance Analytics module before it can generate reports on it. This collection process occurs once a day and it covers the activity that took place during the previous day. This means that a report's statistics represent a sample of the day's statistics at the time it was processed, and do not necessarily contain the complete set of data for the current day. The primary function of these reports is to assess performance. They should not be used for billing purposes or exact numeric statistics.
 
-> [AZURE.NOTE] Необработанные данные, на основании которых формируются отчеты производительности Edge, доступны на период не менее 90 дней.
+> [AZURE.NOTE] The raw data from which Edge Performance Analytic reports are generated is available for at least 90 days.
 
-## Панель мониторинга
+## <a name="dashboard"></a>Dashboard
 
-Панель мониторинга средств аналитики производительности Edge позволяет анализировать текущий и прошлый трафик в сети CDN в виде диаграмм и статистических данных. Вы можете использовать эту панель для определения текущих и долгосрочных тенденций в скорости передачи данных в сети CDN для своей учетной записи.
+The Edge Performance Analytics dashboard tracks current and historical CDN traffic through a chart and statistics. Use this dashboard to detect recent and long-term trends on the performance of CDN traffic for your account.
 
-Составные элементы панели мониторинга.
+This dashboard consists of:
 
-* Интерактивная диаграмма с ключевыми показателями и тенденциями.
-* Временная шкала с расшифровкой долгосрочных шаблонов для ключевых показателей и тенденций.
-* Ключевые показатели и статистические сведения о повышении качества передачи данных в сети CDN с точки зрения общей производительности, использования ресурсов и эффективности.
+* An interactive chart that allows the visualization of key metrics and trends.
+* A timeline that provides a sense of long term patterns for key metrics and trends.
+* Key metrics and statistical information on how our CDN network improves site traffic as measured by overall performance, usage, and efficiency.
 
-### Доступ к панели мониторинга производительности Edge
+### <a name="accessing-the-edge-performance-dashboard"></a>Accessing the edge performance dashboard
 
-1. В колонке профиля CDN нажмите кнопку **Управление**.
+1. From the CDN profile blade, click the **Manage** button.
 
-	![Кнопка «Управление» в колонке профиля CDN](./media/cdn-edge-performance/cdn-manage-btn.png)
+    ![CDN profile blade manage button](./media/cdn-edge-performance/cdn-manage-btn.png)
 
-	Откроется портал управления CDN.
+    The CDN management portal opens.
 
-2. Наведите указатель на вкладку **Аналитика**, а затем – на всплывающее окно **Аналитика производительности Edge**. Щелкните **Панель мониторинга**.
+2. Hover over the **Analytics** tab, then hover over the **Edge Perfomance Analytics** flyout.  Click on **Dashboard**.
 
-	Откроется панель мониторинга аналитики Edge.
+    The edge node analytics dashboard is displayed.
 
-### Диаграмма
+### <a name="chart"></a>Chart
 
-Панель мониторинга содержит диаграмму отслеживания показателей за указанный период времени, выбранный на шкале времени непосредственно под диаграммой. Под диаграммой находится временная шкала с диапазоном, соответствующим двум последним годам работы сети CDN.
+The dashboard contains a chart that tracks a metric over the time period selected in the timeline that appears directly below it.  A timeline that graphs up to the last two years of CDN activity is displayed directly below the chart.
 
-#### Использование диаграммы
+#### <a name="using-the-chart"></a>Using the chart
 
-* По умолчанию строится диаграмма коэффициента эффективности кэша за последние 30 дней.
-* Эта диаграмма создается на основании ежедневных данных.
-* При наведении курсора на отрезок вы увидите дату и значение показателя на эту дату.
-* Выберите «Выделять выходные дни», чтобы затенить на диаграмме вертикальные отрезки, соответствующие выходным дням. Этот подход удобен для определения шаблонов трафика в выходные дни.
-* Выберите «Данные за прошлый год», чтобы наложить данные за предыдущий год на аналогичный период текущего года. Этот тип сравнения позволяет определить долгосрочные закономерности использования сети CDN. В правом верхнем углу диаграммы находится блок условных обозначений с определением цветов для всех отрезков диаграммы.
+* By default, the cache efficiency rate for the last 30 days will be charted.
+* This chart is generated from data collated on a daily basis.
+* Hovering over a day on the line graph will indicate a date and the value of the metric on that date.
+* Click Highlight Weekends to toggle an overlay of light gray vertical bars that represent weekends onto the chart. This type of overlay is useful for identifying traffic patterns over weekends.
+* Click View One Year Ago to toggle an overlay of the previous year's activity over the same time period onto the chart. This type of comparison provides insight into long-term CDN usage patterns. The upper-right hand corner of the chart contains a legend that indicates the color code for each line graph.
 
-#### Обновление диаграммы
+#### <a name="updating-the-chart"></a>Updating the chart
 
-* Диапазон времени. Выполните одно из следующих действий.
-	* Выберите нужный диапазон на временной шкале. Диаграмма будет обновлена в соответствии с данными выбранного периода.
-	* Дважды щелкните диаграмму, чтобы отобразить все данные (максимум два года).
-* Показатели. Щелкните значок диаграммы рядом с нужным показателем. Диаграмма и временная шкала будут обновлены на основании данных для выбранной метрики.
+* Time Range: Perform one of the following:
+    * Select the desired region in the timeline. The chart will be updated with data that corresponds to the selected time period.
+    * Double-click the chart to display all available historical data up to a maximum of two years.
+* Metric: Click the chart icon that appears next to the desired metric. The chart and the timeline will be refreshed with data for the corresponding metric.
 
 
-### Ключевые метрики и статистика
+### <a name="key-metrics-and-statistics"></a>Key metrics and statistics
 
-#### Показатели эффективности
+#### <a name="efficiency-metrics"></a>Efficiency metrics
 
-Эти показатели предназначены для определения возможностей повышения эффективности кэша. Повышение эффективности кэша дает следующие преимущества.
+The purpose of these metrics is to see whether cache efficiency can be improved. The main benefits derived from cache efficiency are:
 
-* Снижение нагрузки на сервере-источнике, что позволяет:
-	* улучшить производительность веб-сервера;
-	* снизить эксплуатационные расходы.
-* Повышение скорости доставки данных за счет увеличения количества запросов, обрабатываемых непосредственно в сети CDN.
+* Reduced load on the origin server which may lead to:
+    * Better web server performance.
+    * Reduced operational costs.
+* Improved data delivery acceleration since more requests will be served directly from the CDN.
 
-Поле | Описание
+Field | Description
 ------|------------
-Эффективность кэша | Указывает процент переданных данных, обработанных из кэша. Этот показатель определяет объем кэшированного содержимого, отправленного непосредственно из сети CDN (серверов Edge) источникам запросов (например, веб-браузерам).
-Количество переходов | Указывает процент запросов, обработанных из кэша. Этот показатель определяет объем кэшированного содержимого, отправленного непосредственно из сети CDN (серверов Edge) источникам запросов (например, веб-браузерам).
-% удаленных байтов – конфигурация без кэша | Указывает процент трафика, направленного с серверов-источников в сеть CDN (серверы Edge), который не будет кэшироваться из-за включенного параметра «Не использовать кэш» (обработчик правил HTTP).
-% удаленных байтов – кэш с истекшим сроком | Указывает процент трафика, переданного с серверов-источников в сеть CDN (серверы Edge) в результате повторной проверки устаревшего содержимого.
+Cache Efficiency | Indicates the percentage of data transferred that was served from cache. This metric measures when a cached version of the requested content was served directly from the CDN (edge servers) to requesters (e.g., web browser)
+Hit Rate | Indicates the percentage of requests that were served from cache. This metric measures when a cached version of the requested content was served directly from the CDN (edge servers) to requesters (e.g., web browser).
+% of Remote Bytes - No Cache Config | Indicates the percentage of traffic that was served from origin servers to the CDN (edge servers) that will not be cached as a result of the Bypass Cache feature (HTTP Rules Engine).
+% of Remote Bytes - Expired Cache | Indicates the percentage of traffic that was served from origin servers to the CDN (edge servers) as a result of stale content revalidation.
 
-#### Показатели использования
+#### <a name="usage-metrics"></a>Usage metrics
 
-Эти показатели позволяют оценить эффективность следующих методов сокращения затрат.
+The purpose of these metrics is to provide insight into the following cost-cutting measures:
 
-* Снижение эксплуатационных расходов в сети CDN.
-* Сокращение расходов на CDN за счет эффективного использования кэша и алгоритмов сжатия.
+* Minimizing operational costs through the CDN.
+* Reducing CDN expenditures through cache efficiency and compression.
 
-> [AZURE.NOTE] Значения объема трафика показывают исходные данные, используемые для расчета коэффициентов и процентов. Для клиентов с большими объемами трафика эти значения могут отражать лишь часть всех объемов.
+> [AZURE.NOTE] Traffic volume numbers represent traffic that was used in calculations of ratios and percentages, and may only show a portion of the total traffic for high-volume customers.
 
-Поле | Описание
+Field | Description
 ------|------------
-Отправлено байт, в среднем | Указывает среднее число байтов, переданных для каждого запроса, обслуженного в сети CDN (серверов Edge), источникам запросов (например, веб-браузерам).
-Байты при конфигурации без кэша | Указывает процент трафика, переданного из сети CDN (серверов Edge) источникам запросов (например, веб-браузерам) и не кэшированного из-за включения параметра «Не использовать кэш».
-Сжатые байты | Указывает процент трафика, отправленного из сети CDN (серверов Edge) источникам запросов (например, веб-браузерам) в сжатом формате.
-Отправлено байт | Указывает объем данных в байтах, которые были доставлены из сети CDN (серверов Edge) источникам запросов (например, веб-браузерам).  
-Получено байт | Указывает объем данных в байтах, отправленных источниками запросов (например, веб-браузерами) в сеть CDN (на серверы Edge).
-Удаленные байты | Указывает объем данных в байтах, отправленных из сети CDN или серверов-источников клиента в сеть CDN (на серверы Edge).
+Ave Bytes Out | Indicates the average number of bytes transferred for each request served from the CDN (edge servers) to the requester (e.g., web browser).
+No Cache Config Byte Rate | Indicates the percentage of traffic served from the CDN (edge servers) to the requester (e.g., web browser) that will not be cached due to the Bypass Cache feature.
+Compressed Byte Rate | Indicates the percentage of traffic sent from the CDN (edge servers) to requesters (e.g., web browser) in a compressed format.
+Bytes Out | Indicates the amount of data, in bytes, that were delivered from the CDN (edge servers) to the requester (e.g., web browser).  
+Bytes In | Indicates the amount of data, in bytes, sent from requesters (e.g., web browser) to the CDN (edge servers).
+Bytes Remote | Indicates the amount of data, in bytes, sent from CDN and customer origin servers to the CDN (edge servers).
 
-#### Метрики производительности
+#### <a name="performance-metrics"></a>Performance Metrics
 
-Эти показатели предназначены для отслеживания общей производительности сети CDN для всего трафика.
+The purpose of these metrics is to track overall CDN performance for your traffic.
 
-Поле | Описание
+Field | Description
 ------|------------
-Скорость передачи | Указывает среднюю скорость передачи содержимого из сети CDN источникам запросов.
-Длительность | Указывает среднее время в миллисекундах, затраченное на доставку ресурсов источникам запросов (например, веб-браузерам).
-Скорость сжатых запросов | Указывает процент переходов, переданных из сети CDN (серверов Edge) источникам запросов (например, веб-браузерам) в сжатом формате.
-Частота ошибок 4xx | Указывает процент переходов, создавших код состояния 4xx.
-Частота ошибок 5xx | Указывает процент переходов, создавших код состояния 5xx.
-Попадания | Указывает количество запросов к содержимому сети CDN.
+Transfer Rate | Indicates the average rate at which content was transferred from the CDN to a requester.
+Duration | Indicates the average time, in milliseconds, it took to deliver an asset to a requester (e.g., web browser).
+Compressed Request Rate | Indicates the percentage of hits that were delivered from the CDN (edge servers) to the requester (e.g., web browser) in a compressed format.
+4xx Error Rate | Indicates the percentage of hits that generated a 4xx status code.
+5xx Error Rate | Indicates the percentage of hits that generated a 5xx status code.
+Hits | Indicates the number of requests for CDN content.
 
-#### Показатели безопасного трафика
+#### <a name="secure-traffic-metrics"></a>Secure Traffic Metrics
 
-Эти показатели предназначены для отслеживания производительности сети CDN в отношении HTTP-трафика.
+The purpose of these metrics is to track CDN performance for HTTPS traffic.
 
-Поле | Описание
+Field | Description
 ------|------------
-Эффективность безопасного кэша | Указывает процент данных, переданных для HTTPS-запросов и обработанных из кэша. Этот показатель определяет объем кэшированного содержимого, отправленного непосредственно из сети CDN (серверов Edge) источникам запросов (например, веб-браузерам) по протоколу HTTPS.
-Скорость безопасной передачи | Указывает среднюю скорость передачи содержимого из сети CDN (серверов Edge) источникам запросов (например, веб-браузерам) по протоколу HTTPS.
-Средняя безопасная длительность | Указывает среднее время в миллисекундах, затраченное на доставку ресурсов источникам запросов (например, веб-браузерам) по протоколу HTTPS.
-Безопасные переходы | Указывает количество HTTPS-запросов к содержимому сети CDN.
-Безопасно отправлено байт, в среднем | Указывает объем HTTPS-трафика в байтах, которые были доставлены из сети CDN (серверов Edge) источникам запросов (например, веб-браузерам).
+Secure Cache Efficiency | Indicates the percentage of data transferred for HTTPS requests that were served from cache. This metric measures when a cached version of the requested content was served directly from the CDN (edge servers) to requesters (e.g., web browser) over HTTPS.
+Secure Transfer Rate | Indicates the average rate at which content was transferred from the CDN (edge servers) to requesters (e.g., web servers) over HTTPS.
+Average Secure Duration | Indicates the average time, in milliseconds, it took to deliver an asset to a requester (e.g., web browser) over HTTPS.
+Secure Hits | Indicates the number of HTTPS requests for CDN content.
+Secure Bytes Out | Indicates the amount of HTTPS traffic, in bytes, that were delivered from the CDN (edge servers) to the requester (e.g., web browser).
 
-## Отчеты
+## <a name="reports"></a>Reports
 
-Каждый отчет из этого модуля содержит диаграмму и статистику использования пропускной способности и трафика для различных показателей (например, кодов состояния HTTP, кодов состояния кэша, запрашиваемых URL-адресов и т.д.). Эта информация может использоваться для более подробного анализа предоставления содержимого клиентам и точной настройки поведения сети CDN с целью ускорения доставки данных.
+Each report in this module contains a chart and statistics on bandwidth and traffic usage for different types of metrics (e.g., HTTP status codes, cache status codes, request URL, etc.). This information may be used to delve deeper into how content is being served to your clients and to fine-tune CDN behavior to improve data delivery performance.
 
-### Доступ к отчетам по производительности Edge
+### <a name="accessing-the-edge-performance-reports"></a>Accessing the edge performance reports
 
-1. В колонке профиля CDN нажмите кнопку **Управление**.
+1. From the CDN profile blade, click the **Manage** button.
 
-	![Кнопка «Управление» в колонке профиля CDN](./media/cdn-edge-performance/cdn-manage-btn.png)
+    ![CDN profile blade manage button](./media/cdn-edge-performance/cdn-manage-btn.png)
 
-	Откроется портал управления CDN.
+    The CDN management portal opens.
 
-2. Наведите указатель на вкладку **Аналитика**, а затем – на всплывающее окно **Аналитика производительности Edge**. Щелкните **Большой HTTP-объект**.
+2. Hover over the **Analytics** tab, then hover over the **Edge Perfomance Analytics** flyout.  Click on **HTTP Large Object**.
 
-	Откроется экран аналитических отчетов Edge.
+    The edge node analytics reports screen is displayed.
 
-Отчет | Описание
+Report | Description
 -------|------------
-Сводка по дням | Позволяет просматривать тенденции ежедневного трафика за определенный период времени. Каждый отрезок на диаграмме соответствует определенной дате. Размер отрезка указывает число переходов за соответствующий день.
-Сводка по часам | Позволяет просматривать тенденции трафика за определенный период времени с разбивкой по часам. Каждый отрезок на диаграмме соответствует одному часу определенного дня. Размер отрезка указывает число переходов за соответствующий час.
-Протоколы | Отображает распределение трафика между протоколами HTTP и HTTPS. Кольцевой график показывает процент переходов для каждого типа протокола.
-Методы HTTP | Позволяет быстро ознакомиться с HTTP-методами для запроса ваших данных. Как правило, к самым распространенным HTTP-методам относятся GET, HEAD и POST. Кольцевой график показывает процент переходов для каждого типа HTTP-методов.
-URL-адреса | Содержит диаграмму с 10 самыми популярными URL-адресами. Каждому URL-адресу соответствует один отрезок. Высота отрезка показывает число переходов для определенного URL-адреса за период отчета. Непосредственно под диаграммой отображается статистика для 100 основных URL-адресов.
-Имена CNAME | Содержит диаграмму с 10 основными именами CNAME, используемыми для доступа к ресурсам за период отчета. Непосредственно под диаграммой отображается статистика для 100 основных имен CNAME.
-Источники | Содержит диаграмму с 10 основными серверами-источниками сети CDN или клиента, из которых запрашивались ресурсы за определенный период времени. Непосредственно под диаграммой отображается статистика для 100 основных серверов-источников CDN или клиента. В качестве имени серверов-источников клиента указывается значение, определенное в параметре имени каталога.
-Географические точки присутствия | Показывает, какая часть трафика направляется через определенную точку присутствия. Точке присутствия из сети CDN соответствует трехбуквенное обозначение.
-Клиенты | Содержит график с 10 основными клиентами, которые запрашивали ресурсы за определенный период времени. В этом отчете все запросы, поступившие с одного IP-адреса, считаются запросами от одного клиента. Непосредственно под диаграммой отображается статистика для 100 основных клиентов. Этот отчет можно использовать для определения шаблонов загрузки для основных клиентов.
-Состояния кэша | Предоставляет расшифровку поведения при кэшировании, которая поможет улучшить впечатления от использования. Поскольку наибольшая производительность возникает при наличии попаданий в кэш, вы можете оптимизировать скорость предоставления данных, сведя к минимуму непопадания и попадания, потерявшие актуальность.
-Сведения о NONE | Содержит диаграмму с 10 основными URL-адресами ресурсов, для которых в течение определенного периода времени не выполнялись проверки свежести кэша. Непосредственно под диаграммой отображается статистика для 100 основных URL-адресов этих типов ресурсов.
-Сведения о CONFIG\_NOCACHE | Содержит диаграмму с 10 основными URL-адресами ресурсов, которые не были кэшированы из-за конфигурации CDN клиента. Эти типы ресурсов обслуживаются непосредственно на сервере-источнике. Непосредственно под диаграммой отображается статистика для 100 основных URL-адресов этих типов ресурсов.
-Сведения о UNCACHEABLE | Содержит диаграмму с 10 основными URL-адресами ресурсов, которые не были кэшированы из-за данных в заголовке запроса. Непосредственно под диаграммой отображается статистика для 100 основных URL-адресов этих типов ресурсов.
-Сведения о TCP\_HIT | Содержит диаграмму с 10 основными URL-адресами ресурсов, которые были обработаны мгновенно при помощи кэша. Непосредственно под диаграммой отображается статистика для 100 основных URL-адресов этих типов ресурсов.
-Сведения о TCP\_MISS | Содержит диаграмму с 10 основными URL-адресами ресурсов с состоянием кэша TCP\_MISS. Непосредственно под диаграммой отображается статистика для 100 основных URL-адресов этих типов ресурсов.
-Сведения о TCP\_EXPIRED\_HIT | Содержит диаграмму с 10 основными URL-адресами ресурсов с устаревшим кэшем, которые были обработаны непосредственно из точки присутствия. Непосредственно под диаграммой отображается статистика для 100 основных URL-адресов этих типов ресурсов.
-Сведения о TCP\_EXPIRED\_MISS | Содержит диаграмму с 10 основными URL-адресами ресурсов с устаревшим кэшем, для которых требуется получение новой версии с сервера-источника. Непосредственно под диаграммой отображается статистика для 100 основных URL-адресов этих типов ресурсов.
-Сведения о TCP\_CLIENT\_REFRESH\_MISS | Содержит линейчатую диаграмму с 10 основными URL-адресами ресурсов, полученных с сервера-источника благодаря запросу от клиента, запрещающему кэширование. Непосредственно под диаграммой отображается статистика для 100 основных URL-адресов этих типов запросов.
-Типы клиентских запросов | Указывает типы запросов, отправленных HTTP-клиентами (например, браузерами). Этот отчет включает кольцевую диаграмму со сведениями об обработке запросов. Под диаграммой отображаются сведения о пропускной способности и трафике для каждого типа запроса.
-Агент пользователя | Содержит линейчатую диаграмму с 10 основными пользовательскими агентами, используемыми для доступа к содержимому через сеть CDN. Как правило, агент пользователя является веб-браузером, проигрывателем или браузером мобильного телефона. Непосредственно под диаграммой отображается статистика для 100 основных агентов.
-Источники ссылок | Содержит линейчатую диаграмму с 10 основными источниками ссылок на содержимое, к которому осуществляется доступ через сеть CDN. Как правило, источник ссылок – это URL-адрес веб-страницы или ресурса со ссылкой на ваше содержимое. Под диаграммой приводятся подробные сведения об основных 100 источниках ссылок.
-Типы сжатия | Содержит кольцевую диаграмму с разбивкой запрашиваемых ресурсов по признаку сжатия на серверах Edge. Процент сжатых ресурсов распределяется по типу сжатия. Под диаграммой приводятся подробные сведения обо всех типах и состояниях сжатия.
-Типы файлов | Содержит линейчатую диаграмму с 10 основными файлами, запрашиваемыми через сеть CDN для вашей учетной записи. В этом отчете тип файла определяется расширением файла ресурса и MIME-типом (например, .html [text/html], .htm [text/html], .aspx [text/htm] и т.д.). Под диаграммой приводятся подробные сведения об основных 100 типах файлов.
-Уникальные файлы | Содержит диаграмму, которая выводит общее количество уникальных ресурсов, запрошенных за каждый день определенного периода времени.
-Сводка по маркерам проверки подлинности | Содержит круговую диаграмму с краткой информацией о доступе к запрошенным ресурсам с проверкой подлинности на основе маркеров. На диаграмме защищенные ресурсы отображаются в соответствии с результатами попытки проверки подлинности.
-Сведения об отказе доступа с маркером проверки подлинности | Содержит линейчатую диаграмму с 10 основными запросами, которые были отклонены по результатам проверки подлинности на основе маркеров.
-Коды ответов HTTP | Отчет о кодах состояния HTTP (например, «200 ОК», «403 Запрещено», «404 Не найдено» и т.д.), отправленных вашим HTTP-клиентам серверами Edge. Круговая диаграмма позволяет быстро оценить обработку ресурсов. Под диаграммой отображаются подробные статистические данные по каждому ответу.
-Ошибки 404 | Содержит линейчатую диаграмму с 10 основными запросами, приводящими к коду ответа «404 Не найдено».
-Ошибки 403 | Содержит линейчатую диаграмму с 10 основными запросами, приводящими к коду ответа «403 Запрещено». Код ответа «403 Запрещено» отображается, если сервер-источник клиента или наш сервер Edge в точке доступности отклоняет запрос.
-Ошибки 4xx | Содержит линейчатую диаграмму с 10 основными запросами, приводящими к кодам ответа из диапазона 400. Этот отчет не включает ошибки «403 Не найдено» и «404 Запрещено». Обычно код ответа 4xx отображается, если запрос отклоняется из-за ошибки клиента.
-Ошибки 504 | Содержит линейчатую диаграмму с 10 основными запросами, приводящими к коду ответа «504 Истекло время ожидания шлюза». Код ответа «504 Истекло время ожидания шлюза» отображается, если при попытке связи прокси-сервера HTTP с другим сервером истекает время ожидания. В сети CDN код «504 Истекло время ожидания шлюза» обычно отображается, когда серверу Edge не удается установить связь с сервером-источником клиента.
-Ошибки 502 | Содержит линейчатую диаграмму с 10 основными запросами, приводящими к коду ответа «502 Недопустимый шлюз». Код ошибки «502 Недопустимый шлюз» обычно отображается при сбое протокола HTTP между сервером и прокси-сервером HTTP. В сети CDN код «502 Недопустимый шлюз» обычно отображается, когда сервер-источник клиента возвращает серверу Edge недопустимый ответ. Ответ является недопустимым, если он не полный или если из него не удается извлечь данные.
-Ошибки 5xx | Содержит линейчатую диаграмму с 10 основными запросами, приводящими к кодам ответа из диапазона 500. Этот отчет не включает коды ответов «502 Недопустимый шлюз» и «504 Истекло время ожидания шлюза».
+Daily Summary | Allows you to view daily traffic trends over a specified time period. Each bar on this graph represents a particular date. The size of the bar indicates the total number of hits that occurred on that date.
+Hourly Summary | Allows you to view hourly traffic trends over a specified time period. Each bar on this graph represents a single hour on a particular date. The size of the bar indicates the total number of hits that occurred during that hour.
+Protocols | Displays the breakdown of traffic between the HTTP and HTTPS protocols. A donut chart indicates the percentage of hits that occurred for each type of protocol.
+HTTP Methods | Allows you to get a quick sense of which HTTP methods are being used to request your data. Typically, the most common HTTP request methods are GET, HEAD, and POST. A donut chart indicates the percentage of hits that occurred for each type of HTTP request method.
+URLs | Contains a graph that displays the top 10 requested URLs. A bar is displayed for each URL. The height of the bar indicates how many hits that particular URL has generated over the time span covered by the report. Statistics for the top 100 requested URLs are displayed directly below this graph.
+CNAMEs | Contains a graph that displays the top 10 CNAMEs used to request assets over the time span of a report. Statistics for the top 100 requested CNAMEs are displayed directly below this graph.
+Origins | Contains a graph that displays the top 10 CDN or customer origin servers from which assets were requested over a specified period of time. Statistics for the top 100 requested CDN or customer origin servers are displayed directly below this graph. Customer origin servers are identified by the name defined in the Directory Name option.
+Geo POPs | Shows how much of your traffic is being routed through a particular point-of-presence (POP). The three-letter abbreviation represents a POP in our CDN network.
+Clients | Contains a graph that displays the top 10 clients that requested assets over a specified period of time. For the purposes of this report, all requests that originate from the same IP address are considered to be from the same client. Statistics for the top 100 clients are displayed directly below this graph. This report is useful for determining download activity patterns for your top clients.
+Cache Statuses | Gives a detailed breakdown of cache behavior, which may reveal approaches for improving the overall end-user experience. Since the fastest performance comes from cache hits, you can optimize data delivery speeds by minimizing cache misses and expired cache hits.
+NONE Details | Contains a graph that displays the top 10 URLs for assets for which cache content freshness was not checked over a specified period of time. Statistics for the top 100 URLs for these types of assets are displayed directly below this graph.
+CONFIG_NOCACHE Details | Contains a graph that displays the top 10 URLs for assets that were not cached due to the customer's CDN configuration. These types of assets were served directly from the origin server. Statistics for the top 100 URLs for these types of assets are displayed directly below this graph.
+UNCACHEABLE Details | Contains a graph that displays the top 10 URLs for assets that could not be cached due to request header data. Statistics for the top 100 URLs for these types of assets are displayed directly below this graph.
+TCP_HIT Details | Contains a graph that displays the top 10 URLs for assets that are served immediately from cache. Statistics for the top 100 URLs for these types of assets are displayed directly below this graph.
+TCP_MISS Details | Contains a graph that displays the top 10 URLs for assets that have a cache status of TCP_MISS. Statistics for the top 100 URLs for these types of assets are displayed directly below this graph.
+TCP_EXPIRED_HIT Details | Contains a graph that displays the top 10 URLs for stale assets that were served directly from the POP. Statistics for the top 100 URLs for these types of assets are displayed directly below this graph.
+TCP_EXPIRED_MISS Details | Contains a graph that displays the top 10 URLs for stale assets for which a new version had to be retrieved from the origin server. Statistics for the top 100 URLs for these types of assets are displayed directly below this graph.
+TCP_CLIENT_REFRESH_MISS Details | Contains a bar chart that displays the top 10 URLs for assets were retrieved from an origin server due to a no-cache request from the client. Statistics for the top 100 URLs for these types of requests are displayed directly below this chart.
+Client Request Types | Indicates the type of requests that were made by HTTP clients (e.g., browsers). This report includes a donut chart that provides a sense as to how requests are being handled. Bandwidth and traffic information for each request type is displayed below the chart.
+User Agent | Contains a bar graph displaying the top 10 user agents to request your content through our CDN. Typically, a user agent is a web browser, media player, or a mobile phone browser. Statistics for the top 100 user agents are displayed directly below this chart.
+Referrers | Contains a bar graph displaying the top 10 referrers to content accessed through our CDN. Typically, a referrer is the URL of the web page or resource that links to your content. Detailed information is provided below the graph for the top 100 referrers.
+Compression Types | Contains a donut chart that breaks down requested assets by whether they were compressed by our edge servers. The percentage of compressed assets is broken down by the type of compression used. Detailed information is provided below the graph for each compression type and status.
+File Types | Contains a bar graph that displays the top 10 file types that have been requested through our CDN for your account. For the purposes of this report, a file type is defined by the asset's file name extension and Internet media type (e.g., .html \[text/html\], .htm \[text/html\], .aspx \[text/html\], etc.). Detailed information is provided below the graph for the top 100 file types.
+Unique Files | Contains a graph that plots the total number of unique assets that were requested on a particular day over a specified period of time.
+Token Auth Summary | Contains a pie chart that provides a quick overview on whether requested assets were protected by Token-Based Authentication. Protected assets are displayed in the chart according to the results of their attempted authentication.
+Token Auth Deny Details | Contains a bar graph that allows you to view the top 10 requests that were denied due to Token-Based Authentication.
+HTTP Response Codes | Provides a breakdown of the HTTP status codes (e.g., 200 OK, 403 Forbidden, 404 Not Found, etc.) that were delivered to your HTTP clients by our edge servers. A pie chart allows you to quickly assess how your assets were served. Detailed statistical data is provided for each response code below the graph.
+404 Errors | Contains a bar graph that allows you to view the top 10 requests that resulted in a 404 Not Found response code.
+403 Errors | Contains a bar graph that allows you to view the top 10 requests that resulted in a 403 Forbidden response code. A 403 Forbidden response code occurs when a request is denied by a customer origin server or an edge server on our POP.
+4xx Errors | Contains a bar graph that allows you to view the top 10 requests that resulted in a response code in the 400 range. Excluded from this report are 403 Not Found and 404 Forbidden response codes. Typically, a 4xx response code occurs when a request is denied as a result of a client error.
+504 Errors | Contains a bar graph that allows you to view the top 10 requests that resulted in a 504 Gateway Timeout response code. A 504 Gateway Timeout response code occurs when a timeout occurs when an HTTP proxy is trying to communicate with another server. In the case of our CDN, a 504 Gateway Timeout response code typically occurs when an edge server is unable to establish communication with a customer origin server.
+502 Errors | Contains a bar graph that allows you to view the top 10 requests that resulted in a 502 Bad Gateway response code. A 502 Bad Gateway response code occurs when an HTTP protocol failure occurs between a server and an HTTP proxy. In the case of our CDN, a 502 Bad Gateway response code typically occurs when a customer origin server returns an invalid response to an edge server. A response is invalid if it cannot be parsed or if it is incomplete.
+5xx Errors | Contains a bar graph that allows you to view the top 10 requests that resulted in a response code in the 500 range.  Excluded from this report are 502 Bad Gateway and 504 Gateway Timeout response codes.
 
-## См. также
-* [Обзор Azure CDN](cdn-overview.md)
-* [Статистика сети CDN Microsoft Azure в режиме реального времени](cdn-real-time-stats.md)
-* [Переопределение стандартного поведения через HTTP с помощью обработчика правил](cdn-rules-engine.md)
-* [Расширенные HTTP-отчеты](cdn-advanced-http-reports.md)
+## <a name="see-also"></a>See also
+* [Azure CDN Overview](cdn-overview.md)
+* [Real-time stats in Microsoft Azure CDN](cdn-real-time-stats.md)
+* [Overriding default HTTP behavior using the rules engine](cdn-rules-engine.md)
+* [Advanced HTTP Reports](cdn-advanced-http-reports.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

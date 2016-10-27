@@ -1,43 +1,44 @@
 <properties
-	pageTitle="Когда следует использовать NoSQL и SQL | Microsoft Azure"
-	description="Сравните преимущества использования нереляционных решений NoSQL и решений SQL. Узнайте, какое решение в наибольшей степени соответствует вашим потребностям — службы Microsoft Azure NoSQL или SQL Server."
-	keywords="NoSQL и SQL, когда следует использовать NoSQL, SQL и NoSQL"
-	services="documentdb"
-	documentationCenter=""
-	authors="mimig1"
-	manager="jhubbard"
-	editor=""/>
+    pageTitle="When to use NoSQL vs SQL | Microsoft Azure"
+    description="Compare the benefits of using NoSQL non-relational solutions versus SQL solutions. Learn whether one of the Microsoft Azure NoSQL services or SQL Server best fits your scenario."
+    keywords="nosql vs sql, when to use NoSQL, sql vs nosql"
+    services="documentdb"
+    documentationCenter=""
+    authors="mimig1"
+    manager="jhubbard"
+    editor=""/>
 
 <tags
-	ms.service="documentdb"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="dotnet"
-	ms.topic="article" 
-	ms.date="06/24/2016"
-	ms.author="mimig"/>
+    ms.service="documentdb"
+    ms.workload="data-services"
+    ms.tgt_pltfrm="na"
+    ms.devlang="dotnet"
+    ms.topic="article" 
+    ms.date="06/24/2016"
+    ms.author="mimig"/>
 
-# Базы данных NoSQL и SQL
 
-Сервер SQL Server и реляционные базы данных (реляционные СУБД) считаются самыми надежными уже более 20 лет. Однако возросшая потребность в быстрой обработке больших объемов данных разных типов привела к изменению самого характера требований к хранилищам данных со стороны разработчиков приложений. В ходе реализации этого сценария стали популярными базы данных NoSQL, которые обеспечивают хранение неструктурированных и разнородных данных в нужном масштабе.
+# <a name="nosql-vs-sql"></a>NoSQL vs SQL
 
-NoSQL — это категория баз данных, которые заметно отличаются от баз данных SQL. NoSQL часто используется для описания систем управления данными, которые не относятся к SQL, или подхода к управлению данными, который предусматривает использование не только SQL. Существует ряд технологий категории NoSQL, включая базы данных документов, хранилища пар "ключ — значение", хранилища семейств столбцов, а также графовые базы данных, которые часто используются в играх, приложениях для работы с социальными сетями и приложениях IoT.
+SQL Server and relational databases (RDBMS) have been the go-to databases for over 20 years. However, the increased need to process higher volumes and varieties of data at a rapid rate has altered the nature of data storage needs for application developers. In order to enable this scenario, NoSQL databases that enable storing unstructured and heterogeneous data at scale have gained in popularity. 
 
-![NoSQL и SQL: обзорная схема с распространенными сценариями и моделями данных](./media/documentdb-nosql-vs-sql/nosql-vs-sql-overview.png)
+NoSQL is a category of databases distinctly different from SQL databases. NoSQL is often used to refer to data management systems that are “Not SQL” or an approach to data management that includes “Not only SQL". There are a number of technologies in the NoSQL category, including document databases, key value stores, column family stores, and graph databases, which are popular with gaming, social, and IoT apps.
 
-В этой статье описаны различия между базами данных SQL и NoSQL, а также изложены общие сведения о предложениях SQL и NoSQL от Майкрософт.
+![NoSQL vs SQL overview diagram demonstrating common scenarios and data models](./media/documentdb-nosql-vs-sql/nosql-vs-sql-overview.png)
 
-## Когда используются базы данных NoSQL?
+The goal of this article is to help you learn about the differences between NoSQL and SQL, and provide you with an introduction to the NoSQL and SQL offerings from Microsoft.  
 
-Предположим, вы создаете новую социальную сеть (сайт). Пользователи могут создавать записи, а также добавлять к ним изображения, видео и музыку. Другие пользователи могут комментировать эти записи, а также оценивать их с помощью отметок "Нравится". На целевой странице будет расположен канал записей, которыми пользователи смогут делиться и с которыми они смогут взаимодействовать.
+## <a name="when-to-use-nosql?"></a>When to use NoSQL?
 
-Так как вы будете хранить эти данные? Если вы знакомы с SQL, возможно, вы уже начали строить подобную схему:
+Let's imagine you're building a new social engagement site. Users can create posts and add pictures, videos and music to them. Other users can comment on the posts and give points (likes) to rate the posts. The landing page will have a feed of posts that users can share and interact with. 
 
-![NoSQL и SQL: схема с реляционной моделью данных для социальной сети (сайта)](./media/documentdb-nosql-vs-sql/nosql-vs-sql-social.png)
+So how do you store this data? If you're familiar with SQL, you might start drawing something like this:
 
-Пока что все выглядит неплохо, но теперь представьте себе структуру отдельной записи, а также способ ее отображения. Если вы хотите отобразить запись и связанные изображения, аудио, видео, комментарии, отметки и сведения о пользователе на веб-сайте или в приложении, только для получения содержимого вам нужно выполнить запрос к восьми объединениям таблиц. А теперь представьте поток записей, которые динамически загружаются и отображаются на экране, и вы поймете, что для выполнения этой задачи необходимы тысячи запросов к большому количеству объединений.
+![NoSQL vs SQL diagram showing the relational data model for a social engagement site](./media/documentdb-nosql-vs-sql/nosql-vs-sql-social.png)
 
-Теперь для хранения данных вы можете использовать реляционные решения, например, SQL Server. Но есть еще один вариант, который упрощает этот подход. Это база данных NoSQL. Когда вы преобразуете запись в документ JSON, как показано ниже, сохраняя его в DocumentDB, службе базы данных документов Azure NoSQL, вы можете повысить производительность и получить запись полностью с помощью одного запроса и без объединений. Это гораздо более простой и эффективный способ.
+So far, so good, but now think about the structure of a single post and how to display it. If you want to show the post and the associated images, audio, video, comments, points, and user info on a website or application, you'd have to perform a query with eight table joins just to retrieve the content. Now imagine a stream of posts that dynamically load and appear on the screen and you can easily predict that it's going to require thousands of queries and many joins to complete the task.
+
+Now you could use a relational solution like SQL Server to store the data - but there's another option, a NoSQL option that simplifies the approach. By transforming the post into a JSON document like the following and storing it in DocumentDB, an Azure NoSQL document database service, you can increase performance and retrieve the whole post with one query and no joins. It's a simpler, more straightforward, and more performant result.
 
     {
         "id":"ew12-res2-234e-544f",
@@ -56,78 +57,83 @@ NoSQL — это категория баз данных, которые заме
         ]
     }
 
-Кроме того, эти данные можно секционировать по идентификатору записи, что обеспечивает естественное масштабирование данных с учетом характеристик NoSQL. Также системы NoSQL позволяют разработчикам ослаблять согласованность, предоставляя приложения с более высоким уровнем доступности. Наконец, это решение не обязывает разработчиков определять, администрировать и обслуживать схемы на уровне данных, обеспечивая быструю итерацию.
+In addition, this data can be partitioned by post id allowing the data to scale out naturally and take advantage of NoSQL scale characteristics. Also NoSQL systems allow developers to loosen consistency and offer highly available apps.  Finally, this solution does not require developers to define, manage and maintain schema in the data tier allowing for rapid iteration.
 
-Это решение также можно создать с помощью других служб Azure.
+You can then build on this solution using other Azure services:
 
-- [Служба поиска Аzure](https://azure.microsoft.com/services/search/) может использоваться для предоставления пользователям возможности поиска записей через веб-приложения.
-- [Службы приложений Аzure](https://azure.microsoft.com/services/app-service/) могут использоваться для размещения приложений и фоновых процессов.
-- [Хранилище BLOB-объектов Azure](https://azure.microsoft.com/services/storage/) может использоваться для хранения полных профилей пользователя, включая образы.
-- [База данных SQL Аzure](https://azure.microsoft.com/services/sql-database/) позволяет хранить большие объемы данных, включая учетные данные и данные для аналитики использования.
-- [Машинное обучение Аzure](https://azure.microsoft.com/services/machine-learning/) позволяет накапливать знания и аналитику, которые могут использоваться для предоставления отзывов и доставки соответствующего содержимого соответствующим пользователям.
+- [Azure Search](https://azure.microsoft.com/services/search/) can be used via the web app to enable users to search for posts.
+- [Azure App Services](https://azure.microsoft.com/services/app-service/) can be used to host applications and background processes.
+- [Azure Blob Storage](https://azure.microsoft.com/services/storage/) can be used to store full user profiles including images.
+- [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) can be used to store massive amounts of data such as login information, and data for usage analytics.
+- [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/)  can be used to build knowledge and intelligence that can provide feedback to the process and help deliver the right content to the right users.
 
-Такая социальная сеть, представленная в виде сайта, является всего лишь одним из примеров использования базы данных NoSQL в качестве модели данных. Дополнительные сведения об этом сценарии и о моделировании данных для использования DocumentDB в приложениях социальных сетей, см. в статье [Going social with DocumentDB](documentdb-social-media-apps.md) (Создание социальных сетей с помощью DocumentDB).
+This social engagement site is just one one scenario in which a NoSQL database is the right data model for the job. If you're interested in reading more about this scenario and how to model your data for DocumentDB in social media applications, see [Going social with DocumentDB](documentdb-social-media-apps.md). 
 
-## Сравнение баз данных NoSQL и SQL
+## <a name="nosql-vs-sql-comparison"></a>NoSQL vs SQL comparison
 
-В следующей таблице приведены основные различия между базами данных NoSQL и SQL.
+The following table compares the main differences between NoSQL and SQL. 
 
-![NoSQL и SQL: схема, описывающая использование NoSQL и SQL NoSQL и SQL: сравнение](./media/documentdb-nosql-vs-sql/nosql-vs-sql-comparison.png)
+![NoSQL vs SQL diagram showing when to use NoSQL and when to use SQL. SQL vs NoSQL comparison](./media/documentdb-nosql-vs-sql/nosql-vs-sql-comparison.png)
 
-Если база данных NoSQL соответствует вашим требованиям, перейдите к следующему разделу, чтобы получить дополнительные сведения о службах NoSQL, доступных в Azure. Если же вам больше подходят базы данных SQL, перейдите к разделу с описанием [предложений Microsoft SQL](#what-are-the-microsoft-sql-offerings).
+If a NoSQL database best suits your requirements, continue to the next section to learn more about the NoSQL services available from Azure. Otherwise, if a SQL database best suits your needs, skip to [What are the Microsoft SQL offerings?](#what-are-the-microsoft-sql-offerings)
 
-## Предложения NoSQL, доступные в Microsoft Azure
+## <a name="what-are-the-microsoft-azure-nosql-offerings?"></a>What are the Microsoft Azure NoSQL offerings?
 
-Azure предоставляет четыре полностью управляемые службы NoSQL.
+Azure has four fully-managed NoSQL services: 
 
 - [Azure DocumentDB](https://azure.microsoft.com/services/documentdb/)
-- [Хранилище таблиц Azure](https://azure.microsoft.com/services/storage/)
-- [Azure HBase как часть HDInsight](https://azure.microsoft.com/services/hdinsight/)
-- [кэш Azure Redis](https://azure.microsoft.com/services/cache/)
+- [Azure Table Storage](https://azure.microsoft.com/services/storage/)
+- [Azure HBase as a part of HDInsight](https://azure.microsoft.com/services/hdinsight/)
+- [Azure Redis Cache](https://azure.microsoft.com/services/cache/)
 
-В таблице ниже приведены основные отличия каждой службы. Какая служба соответствует потребностям вашего приложения?
+The following comparison chart maps out the key differentiators for each service. Which one most accurately describes the needs of your application? 
 
-![NoSQL и SQL: схема, описывающая использование предложений NoSQL в Microsoft Azure (DocumentDB, хранилище таблиц, HBase как часть HDInsight, кэш Redis)](./media/documentdb-nosql-vs-sql/nosql-vs-sql-documentdb-storage-hbase-hdinsight-redis-cache.png)
+![NoSQL vs SQL diagram showing when to use NoSQL offerings from Microsoft Azure, including DocumentDB, Table Storage, HBase as a part of HDInsight, and Redis Cache](./media/documentdb-nosql-vs-sql/nosql-vs-sql-documentdb-storage-hbase-hdinsight-redis-cache.png)
 
-Если для вашего приложения можно использовать одну или несколько служб, ознакомьтесь со следующими ресурсами.
+If one or more of these services might meet the needs of your application, learn more with the following resources: 
 
-- [Схема обучения для DocumentDB](https://azure.microsoft.com/documentation/learning-paths/documentdb/) и [Распространенные примеры использования DocumentDB](documentdb-use-cases.md)
-- [Приступая к работе с хранилищем таблиц Azure с помощью .NET](../storage/storage-dotnet-how-to-use-tables.md)
-- [Что такое HBase в HDInsight](../hdinsight/hdinsight-hbase-overview.md)
-- [Схема обучения для кэша Redis](https://azure.microsoft.com/documentation/learning-paths/redis-cache/)
+- [DocumentDB learning path](https://azure.microsoft.com/documentation/learning-paths/documentdb/) and [DocumentDB use cases](documentdb-use-cases.md)
+- [Get started with Azure table storage](../storage/storage-dotnet-how-to-use-tables.md)
+- [What is HBase in HDInsight](../hdinsight/hdinsight-hbase-overview.md)
+- [Redis Cache learning path](https://azure.microsoft.com/documentation/learning-paths/redis-cache/)
 
-Затем перейдите к разделу [Дальнейшие действия](#next-steps), чтобы узнать о бесплатной пробной версии.
+Then go to [Next steps](#next-steps) for free trial information.
 
-## Предложения Microsoft SQL
+## <a name="what-are-the-microsoft-sql-offerings?"></a>What are the Microsoft SQL offerings?
 
-Доступны пять предложений Microsoft SQL:
+Microsoft has five SQL offerings: 
 
-- [база данных SQL Azure;](https://azure.microsoft.com/services/sql-database/)
-- [SQL Server на виртуальных машинах Azure](https://azure.microsoft.com/services/virtual-machines/sql-server/)
+- [Azure SQL Database](https://azure.microsoft.com/services/sql-database/)
+- [SQL Server on Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/sql-server/)
 - [SQL Server](https://www.microsoft.com/server-cloud/products/sql-server-2016/)
-- [Хранилище данных SQL (предварительная версия)](https://azure.microsoft.com/services/sql-data-warehouse/)
-- [Система Analytics Platform System (на локальном устройстве)](https://www.microsoft.com/ru-RU/server-cloud/products/analytics-platform-system/)
+- [Azure SQL Data Warehouse (Preview)](https://azure.microsoft.com/services/sql-data-warehouse/)
+- [Analytics Platform System (on-premises appliance)](https://www.microsoft.com/en-us/server-cloud/products/analytics-platform-system/)
 
-Дополнительные сведения о разнице в использовании SQL Server на виртуальной машине и базы данных SQL см. в статье [Вы можете выбрать компонент SQL Server в облаке: база данных SQL Azure (PaaS) или SQL Server на виртуальных машинах Azure (IaaS)](../sql-database/sql-database-paas-vs-sql-server-iaas.md).
+If you're interested in SQL Server on a Virtual Machine or SQL Database, then read [Choose a cloud SQL Server option: Azure SQL (PaaS) Database or SQL Server on Azure VMs (IaaS)](../sql-database/sql-database-paas-vs-sql-server-iaas.md) to learn more about the differences between the two.
 
-Если вы склоняетесь к использованию SQL, перейдите [сюда](https://www.microsoft.com/server-cloud/products/), чтобы получить дополнительные сведения о продуктах и службах Microsoft SQL.
+If SQL sounds like the best option, then go to [SQL Server](https://www.microsoft.com/server-cloud/products/) to learn more about what our Microsoft SQL products and services have to offer.
 
-Затем перейдите к разделу [Дальнейшие действия](#next-steps), в котором приведены ссылки на бесплатную пробную и ознакомительную версии.
+Then go to [Next steps](#next-steps) for free trial and evaluation links.
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Next steps
 
-Предлагаем вам ознакомиться с нашими продуктами SQL и NoSQL, поработав с ними бесплатно.
+We invite you to learn more about our SQL and NoSQL products by trying them out for free. 
 
-- Как и в случае с другими службами Azure, вы можете зарегистрироваться для получения [бесплатной пробной версии сроком на один месяц](https://azure.microsoft.com/pricing/free-trial/). Кроме того, вы получите 200 долларов США на использование любой из служб Azure.
+- For all Azure services, you can sign up for a [free one-month trial](https://azure.microsoft.com/pricing/free-trial/) and receive $200 to spend on any of the Azure services.
     - [Azure DocumentDB](https://azure.microsoft.com/services/documentdb/)
-    - [Azure HBase как часть HDInsight](https://azure.microsoft.com/services/hdinsight/)
-    - [кэш Azure Redis](https://azure.microsoft.com/services/cache/)
-    - [Хранилище данных SQL (предварительная версия)](https://azure.microsoft.com/services/sql-data-warehouse/)
-    - [база данных SQL Azure;](https://azure.microsoft.com/services/sql-database/)
-    - [Хранилище таблиц Azure](https://azure.microsoft.com/services/storage/)
+    - [Azure HBase as a part of HDInsight](https://azure.microsoft.com/services/hdinsight/)
+    - [Azure Redis Cache](https://azure.microsoft.com/services/cache/)
+    - [Azure SQL Data Warehouse (Preview)](https://azure.microsoft.com/services/sql-data-warehouse/)
+    - [Azure SQL Database](https://azure.microsoft.com/services/sql-database/)
+    - [Azure Table Storage](https://azure.microsoft.com/services/storage/)
 
-- Вы можете запустить [ознакомительную версию SQL Server 2016 на виртуальной машине](https://azure.microsoft.com/marketplace/partners/microsoft/sqlserver2016ctp33evaluationwindowsserver2012r2/) или скачать [ознакомительную версию SQL Server](https://www.microsoft.com/ru-RU/evalcenter/evaluate-sql-server-2016).
+- You can spin up an [evaluation version of SQL Server 2016 on a virtual machine](https://azure.microsoft.com/marketplace/partners/microsoft/sqlserver2016ctp33evaluationwindowsserver2012r2/) or download an [evaluation version of SQL Server](https://www.microsoft.com/en-us/evalcenter/evaluate-sql-server-2016).
     - [SQL Server](https://www.microsoft.com/server-cloud/products/sql-server-2016/)
-    - [SQL Server на виртуальных машинах Azure](https://azure.microsoft.com/services/virtual-machines/sql-server/)
+    - [SQL Server on Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/sql-server/)
 
-<!---HONumber=AcomDC_0727_2016-->
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

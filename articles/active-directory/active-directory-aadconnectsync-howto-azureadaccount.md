@@ -1,48 +1,58 @@
 <properties
-	pageTitle="Синхронизация Azure AD Connect: управление учетной записью службы Azure AD | Microsoft Azure"
-	description="В этой статье описывается процедура восстановления учетной записи службы Azure AD."
-	services="active-directory"
-    keywords="AADSTS70002, AADSTS50054 Как сбросить пароль для учетной записи службы соединителя синхронизации Azure AD Connect"
-	documentationCenter=""
-	authors="andkjell"
-	manager="femila"
-	editor=""/>
+    pageTitle="Azure AD Connect sync: How to manage the Azure AD service account | Microsoft Azure"
+    description="This topic documents how to restore the Azure AD service account."
+    services="active-directory"
+    keywords="AADSTS70002, AADSTS50054, How to reset the password for the Azure AD Connect sync Connector service account"
+    documentationCenter=""
+    authors="andkjell"
+    manager="femila"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/01/2016"
-	ms.author="andkjell"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/01/2016"
+    ms.author="billmath"/>
 
-# Синхронизация Azure AD Connect: управление учетной записью службы Azure AD
-Учетная запись службы, используемая соединителем Azure AD, как правило, не нуждается в обслуживании. Если требуется сбросить ее учетные данные, в этой статье вы найдете необходимые сведения. Например, это потребуется, если глобальный администратор по ошибке сбросит пароль учетной записи службы с помощью PowerShell.
 
-## Сброс учетных данных
-Если учетная запись службы, определенная в соединителе Azure AD, не может связаться с Azure AD из-за проблем с проверкой подлинности, можно сбросить пароль.
+# <a name="azure-ad-connect-sync:-how-to-manage-the-azure-ad-service-account"></a>Azure AD Connect sync: How to manage the Azure AD service account
+The service account used by the Azure AD Connector is supposed to be service free. If you need to reset its credentials, then this topic is for you. For example, if a Global Administrator has by mistake reset the password on the service account using PowerShell.
 
-1. Войдите на сервер синхронизации Azure AD Connect и запустите PowerShell.
-2. Запустите `Add-ADSyncAADServiceAccount`. ![Командлет PowerShell addadsyncaadserviceaccount](./media/active-directory-aadconnectsync-howto-azureadaccount/addadsyncaadserviceaccount.png)
-3. Введите учетные данные глобального администратора Azure AD.
+## <a name="reset-the-credentials"></a>Reset the credentials
+If the service account defined on the Azure AD Connector cannot contact Azure AD due to authentication problems, the password can be reset.
 
-Этот командлет сбрасывает пароль для учетной записи службы и обновляет его в Azure AD и в модуле синхронизации.
+1. Sign in to the Azure AD Connect sync server and start PowerShell.
+2. Run `Add-ADSyncAADServiceAccount`.  
+![PowerShell cmdlet addadsyncaadserviceaccount](./media/active-directory-aadconnectsync-howto-azureadaccount/addadsyncaadserviceaccount.png)
+3. Provide Azure AD Global admin credentials.
 
-## Известные проблемы, которые можно решить с помощью описанных действий
-Ниже представлен список обнаруженных пользователями ошибок, которые можно исправить путем сброса учетных данных учетной записи службы Azure AD.
+This cmdlet resets the password for the service account and update it both in Azure AD and in the sync engine.
+
+## <a name="known-issues-these-steps-can-solve"></a>Known issues these steps can solve
+This section is a list of errors reported by customers that were fixed by a credentials reset on the Azure AD service account.
 
 -----------
-Событие 6900 Сервер обнаружил непредвиденную ошибку при обработке уведомления об изменении пароля. AADSTS70002: ошибка при проверке учетных данных. AADSTS50054: старый пароль используется для проверки подлинности.
+Event 6900  
+The server encountered an unexpected error while processing a password change notification:  
+AADSTS70002: Error validating credentials. AADSTS50054: Old password is used for authentication.
 
 ----------
-Событие 659 Произошла ошибка при получении конфигурации синхронизации политики паролей. Microsoft.IdentityModel.Clients.ActiveDirectory.AdalServiceException. AADSTS70002: ошибка при проверке учетных данных. AADSTS50054: старый пароль используется для проверки подлинности.
+Event 659  
+Error while retrieving password policy sync configuration. Microsoft.IdentityModel.Clients.ActiveDirectory.AdalServiceException:  
+AADSTS70002: Error validating credentials. AADSTS50054: Old password is used for authentication.
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Next steps
 
-**Обзорные статьи**
+**Overview topics**
 
-- [Службы синхронизации Azure AD Connect: общие сведений о синхронизации и ее настройка](active-directory-aadconnectsync-whatis.md)
-- [Интеграция локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md)
+- [Azure AD Connect sync: Understand and customize synchronization](active-directory-aadconnectsync-whatis.md)
+- [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0907_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

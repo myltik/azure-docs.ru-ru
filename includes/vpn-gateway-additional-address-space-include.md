@@ -1,18 +1,21 @@
-### Добавление адресного пространства
+### <a name="to-add-address-space"></a>To add address space
 
-1. Чтобы добавить дополнительное адресное пространство, нажмите кнопку **Все параметры**. Откроется колонка **Параметры**. 
+1. To add additional address space, click **All settings** to open the **Settings** blade. 
 
-2. В колонке **Параметры** щелкните **Адресное пространство**. Откроется колонка адресного пространства. Добавьте дополнительное пространство и в верхней части колонки нажмите кнопку **Сохранить**.
+2. On the **Settings** blade, click **Address space** to open the Address space blade. Add the additional address space in this blade, and then click **Save** at the top of the blade.
 
-	![Добавление адресного пространства](./media/vpn-gateway-additional-address-space-include/address400.png)
+    ![Add address space](./media/vpn-gateway-additional-address-space-include/address400.png)
 
-### Добавление подсетей 
+### <a name="to-add-subnets"></a>To add subnets 
 
-1. Чтобы добавить в адресные пространства дополнительные подсети, в колонке **Параметры** щелкните **Подсети**. Откроется колонка **Подсети**. 
+1. To add additional subnets to your address spaces, in the **Settings** blade, click **Subnets** to open the **Subnets** blade. 
 
-2. В колонке подсетей щелкните **Добавить**. Откроется колонка **Добавление подсети**. Укажите имя новой подсети и ее диапазон адресов, а затем в нижней части колонки нажмите кнопку **ОК**. Когда подсеть будет создана, в колонке подсетей вы сможете просмотреть все подсети виртуальной сети.
+2. In the Subnets blade, click **Add** to open the **Add subnet** blade. Name your new subnet and specify the address range, and then click **OK** at the bottom of the blade. Once a subnet has been created, you can use the subnets blade to view all of your subnets for a VNet.
 
 
-	![Параметры подсети](./media/vpn-gateway-additional-address-space-include/addsubnet250.png)
+    ![Subnet settings](./media/vpn-gateway-additional-address-space-include/addsubnet250.png)       
 
-<!---HONumber=AcomDC_0406_2016---->
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,6 +1,6 @@
 <properties
-pageTitle="Использование пользовательского интерфейса Tez в HDInsight на платформе Windows | Azure"
-description="Узнайте, как отладить задания Tez в HDInsight на платформе Windows с помощью пользовательского интерфейса Tez."
+pageTitle="Use Tez UI with Windows-based HDInsight | Azure"
+description="Learn how to use the Tez UI to debug Tez jobs on Windows-based HDInsight HDInsight."
 services="hdinsight"
 documentationCenter=""
 authors="Blackmist"
@@ -13,138 +13,143 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
-ms.date="07/19/2016"
+ms.date="10/04/2016"
 ms.author="larryfr"/>
 
-# Отладка заданий Tez в HDInsight на платформе Windows с помощью пользовательского интерфейса Tez
 
-Пользовательский веб-интерфейс Tez является веб-страницей, которую можно использовать для получения общих сведений о заданиях и отладки заданий, использующих Tez в качестве подсистемы выполнения на кластерах HDInsight под управлением Windows. Пользовательский интерфейс Tez позволяет визуализировать задание в виде схемы связанных элементов, выполнять детализацию каждого элемента и получать статистические данные и данные журнала.
+# <a name="use-the-tez-ui-to-debug-tez-jobs-on-windows-based-hdinsight"></a>Use the Tez UI to debug Tez Jobs on Windows-based HDInsight
 
-> [AZURE.NOTE] Информация, приведенная в этом документе, относится только к кластерам HDInsight под управлением Windows. Сведения о просмотре и отладке Tez в HDInsight на платформе Linux см. в статье [Отладка заданий Tez в HDInsight с помощью представлений Ambari](hdinsight-debug-ambari-tez-view.md).
+The Tez UI is a web page that can be used to understand and debug jobs that use Tez as the execution engine on Windows-based HDInsight clusters. The Tez UI allows you to visualize the job as a graph of connected items, drill into each item, and retrieve statistics and logging information.
 
-##Предварительные требования
+> [AZURE.NOTE] The information in this document is specific to Windows-based HDInsight clusters. For information on viewing and debugging Tez on Linux-based HDInsight, see [Use Ambari Views to debug Tez jobs on HDInsight](hdinsight-debug-ambari-tez-view.md).
 
-* Кластер HDInsight на платформе Windows Инструкции по созданию кластера см. в статье [Приступая к работе с HDInsight на платформе Windows](hdinsight-hadoop-tutorial-get-started-windows.md).
+## <a name="prerequisites"></a>Prerequisites
 
-    > [AZURE.IMPORTANT] Пользовательский интерфейс Tez доступен только на кластерах HDInsight под управлением Windows, созданных после 8 февраля 2016.
+* A Windows-based HDInsight cluster. For steps on creating a new cluster, see [Get started using Windows-based HDInsight](hdinsight-hadoop-tutorial-get-started-windows.md).
 
-* Клиент удаленного рабочего стола под управлением Windows.
+    > [AZURE.IMPORTANT] The Tez UI is only available on Windows-based HDInsight clusters created after February 8th, 2016.
 
-##Общие сведения о Tez
+* A Windows-based Remote Desktop client.
 
-Tez — это расширяемая платформа для обработки данных в Hadoop, которая характеризуется более высокими скоростями по сравнению с традиционной обработкой MapReduce. Для кластеров HDInsight под управлением Windows это необязательная подсистема, которую можно включить для Hive с помощью следующей команды рамках запроса Hive:
+## <a name="understanding-tez"></a>Understanding Tez
+
+Tez is an extensible framework for data processing in Hadoop that provides greater speeds than traditional MapReduce processing. For Windows-based HDInsight clusters, it is an optional engine that you can enable for Hive by using the following command as part of your Hive query:
 
     set hive.execution.engine=tez;
 
-При отправке работы в Tez подсистема создает направленный ациклический граф (DAG), описывающий порядок выполнения действий, необходимых для задания. Отдельные действия называются вершинами и выполняют часть всего задания. Фактическое выполнение работы, описываемое вершиной, называется задачей и может быть распределено среди нескольких узлов кластера.
+When work is submitted to Tez, it creates a Directed Acyclic Graph (DAG) that describes the order of execution of the actions required by the job. Individual actions are called vertices, and execute a piece of the overall job. The actual execution of the work described by a vertex is called a task, and may be distributed across multiple nodes in the cluster.
 
-###Общие сведения о пользовательском интерфейсе Tez
+### <a name="understanding-the-tez-ui"></a>Understanding the Tez UI
 
-Пользовательский интерфейс Tez — это веб-страница, содержащая сведения о процессах, которые выполняются или выполнялись ранее с использованием Tez. Здесь можно просмотреть созданный Tez граф DAG, его распределение по кластерам, а также увидеть счетчики, например с данными о памяти, используемой задачами и вершинами, и сведения об ошибках. Отображаемые сведения могут быть полезными в следующих сценариях.
+The Tez UI is a web page provides information on processes that are running, or have previously ran using Tez. It allows you to view the DAG generated by Tez, how it is distributed across clusters, counters such as memory used by tasks and vertices, and error information. It may offer useful information in the following scenarios:
 
-* Мониторинг длительных процессов, просмотр хода выполнения задач map и reduce.
+* Monitoring long-running processes, viewing the progress of map and reduce tasks.
 
-* Анализ исторических данных успешных или неудачных процессов для получения сведений о причинах сбоев и возможностях улучшения обработки.
+* Analyzing historical data for successful or failed processes to learn how processing could be improved or why it failed.
 
-##Создание DAG
+## <a name="generate-a-dag"></a>Generate a DAG
 
-Пользовательский интерфейс Tez будет содержать данные только в том случае, если задание, которое использует подсистему Tez, выполняется в данный момент или было выполнено ранее. Простые запросы Hive обычно можно разрешить без использования Tez, однако эта подсистема потребуется для работы с более сложными запросами, которые выполняют фильтрацию, группировку, упорядочение, соединения и т. д.
+The Tez UI will only contain data if a job that uses the Tez engine is currently running, or has been ran in the past. Simple Hive queries can usually be resolved without using Tez, however more complex queries that do filtering, grouping, ordering, joins, etc. will usually require Tez.
 
-Приведенные ниже действия предназначены для запуска запроса Hive, выполняемого с помощью Tez.
+Use the following steps to run a Hive query that will execute using Tez.
 
-1. Откройте веб-браузер и перейдите по адресу https://CLUSTERNAME.azurehdinsight.net, где __CLUSTERNAME__ — это имя вашего кластера HDInsight.
+1. In a web browser, navigate to https://CLUSTERNAME.azurehdinsight.net, where __CLUSTERNAME__ is the name of your HDInsight cluster.
 
-2. В меню в верхней части страницы выберите __Редактор Hive__. Появится страница со следующим примером запроса:
+2. From the menu at the top of the page, select the __Hive Editor__. This will display a page with the following example query.
 
         Select * from hivesampletable
 
-    Сотрите пример запроса и замените его следующим:
+    Erase the example query and replace it with the following.
 
         set hive.execution.engine=tez;
         select market, state, country from hivesampletable where deviceplatform='Android' group by market, country, state;
 
-3. Нажмите кнопку __Отправить__. В разделе __Сеанс задания__ в нижней части страницы будет отображаться состояние запроса. После изменения состояния на __Завершено__ щелкните ссылку __Просмотр сведений__, чтобы просмотреть результаты. __Выходные данные задания__ должны иметь вид, аналогичный приведенному ниже:
+3. Select the __Submit__ button. The __Job Session__ section at the bottom of the page will display the status of the query. Once the status changes to __Completed__, select the __View Details__ link to view the results. The __Job Output__ should be similar to the following:
         
         en-GB   Hessen      Germany
         en-GB   Kingston    Jamaica
         en-GB   Nairobi Area    Kenya
 
-##Использование пользовательского интерфейса Tez
+## <a name="use-the-tez-ui"></a>Use the Tez UI
 
-> [AZURE.NOTE] Пользовательский интерфейс Tez доступен только с рабочего стола головных узлов кластера, поэтому для подключения к этим узлам необходимо использовать удаленный рабочий стол.
+> [AZURE.NOTE] The Tez UI is only available from the desktop of the cluster head nodes, so you must use Remote Desktop to connect to the head nodes.
 
-1. На [портале Azure](https://portal.azure.com) выберите свой кластер HDInsight. В верхней части колонки HDInsight щелкните значок __Удаленный рабочий стол__. Появится колонка удаленного рабочего стола.
+1. From the [Azure portal](https://portal.azure.com), select your HDInsight cluster. From the top of the HDInsight blade, select the __Remote Desktop__ icon. This will display the remote desktop blade
 
-    ![Значок удаленного рабочего стола](./media/hdinsight-debug-tez-ui/remotedesktopicon.png)
+    ![Remote desktop icon](./media/hdinsight-debug-tez-ui/remotedesktopicon.png)
 
-2. В колонке удаленного рабочего стола щелкните __Подключить__, чтобы подключиться к головному узлу кластера. При появлении запроса используйте имя пользователя удаленного рабочего стола и пароль для кластера, чтобы проверить подлинность подключения.
+2. From the Remote Desktop blade, select __Connect__ to connect to the cluster head node. When prompted, use the cluster Remote Desktop user name and password to authenticate the connection.
 
-    ![Значок подключения к удаленному рабочему столу](./media/hdinsight-debug-tez-ui/remotedesktopconnect.png)
+    ![Remote desktop connect icon](./media/hdinsight-debug-tez-ui/remotedesktopconnect.png)
 
-    > [AZURE.NOTE] Если вы подключение к удаленному рабочему столу не включено, укажите имя пользователя, пароль и дату окончания срока действия, а затем выберите __Включить__, чтобы включить подключение. После его включения выполните предыдущие шаги для подключения к удаленному рабочему столу.
+    > [AZURE.NOTE] If you have not enabled Remote Desktop connectivity, provide a user name, password, and expiration date, then select __Enable__ to enable Remote Desktop. Once it has been enabled, use the previous steps to connect.
 
-3. Затем на удаленном рабочем столе откройте Internet Explorer, щелкните значок шестеренки в правом верхнем углу браузера и выберите __Параметры режима представления совместимости__.
+3. Once connected, open Internet Explorer on the remote desktop, select the gear icon in the upper right of the browser, and then select __Compatibility View Settings__.
 
-4. В нижней части __Параметры просмотра в режиме представления совместимости__ снимите флажок __Отображать сайты интрасети в режиме совместимости__ и __Использовать списки совместимости Майкрософт__, а затем нажмите кнопку __Закрыть__.
+4. From the bottom of __Compatibility View Settings__, clear the check box for __Display intranet sites in Compatibility View__ and __Use Microsoft compatibility lists__, and then select __Close__.
 
-5. Запустите Internet Explorer и перейдите на страницу http://headnodehost:8188/tezui/#/. Отобразится веб-интерфейс Tez.
+5. In Internet Explorer, browse to http://headnodehost:8188/tezui/#/. This will display the Tez UI
 
-    ![Пользовательский интерфейс Tez](./media/hdinsight-debug-tez-ui/tezui.png)
+    ![Tez UI](./media/hdinsight-debug-tez-ui/tezui.png)
 
-    После загрузки пользовательского интерфейса Tez вы увидите список DAG, которые работают в данный момент или работали в кластере. В представлении по умолчанию находятся такие столбцы, как "Имя Dag", "ИД", "Отправитель", "Состояние", "Время начала", "Время окончания", "Продолжительность", "ИД приложения" и "Очередь". Чтобы добавить дополнительные столбцы, воспользуйтесь значком шестеренки в правом углу страницы.
+    When the Tez UI loads, you will see a list of DAGs that are currently running, or have been ran on the cluster. The default view includes the Dag Name, Id, Submitter, Status, Start Time, End Time, Duration, Application ID, and Queue. More columns can be added using the gear icon at the right of the page.
 
-    Если у вас имеется только одна запись, она будет использоваться для запроса, выполненного в предыдущем разделе. При наличии нескольких записей можно выполнить поиск, введя условие поиска в полях над DAG и нажав клавишу __ВВОД__.
+    If you have only one entry, it will be for the query that you ran in the previous section. If you have multiple entries, you can search by entering search criteria in the fields above the DAGs, then hit __Enter__.
 
-4. Выберите __Имя Dag__ для самой последней записи DAG. Появятся сведения о DAG, а также возможность скачивания ZIP-архива JSON-файлов, содержащих информацию о DAG.
+4. Select the __Dag Name__ for the most recent DAG entry. This will display information about the DAG, as well as the option to download a zip of JSON files that contain information about the DAG.
 
-    ![Сведения о DAG](./media/hdinsight-debug-tez-ui/dagdetails.png)
+    ![DAG Details](./media/hdinsight-debug-tez-ui/dagdetails.png)
 
-5. Над разделом __Сведения о DAG__ находится несколько ссылок для отображения сведений о DAG.
+5. Above the __DAG Details__ are several links that can be used to display information about the DAG.
 
-    * __Счетчики DAG__ — отображение сведений о счетчиках для этого DAG.
+    * __DAG Counters__ displays counters information for this DAG.
     
-    * __Графическое представление__ — отображение графического представления этого DAG.
+    * __Graphical View__ displays a graphical representation of this DAG.
     
-    * __Все вершины__ — отображение списка вершин в этом DAG.
+    * __All Vertices__ displays a list of the vertices in this DAG.
     
-    * __Все задачи__ — отображение списка задач для всех вершин в этом DAG.
+    * __All Tasks__ displays a list of the tasks for all vertices in this DAG.
     
-    * __Все попытки выполнения задач__ — отображение сведений о попытках выполнения задач для этого DAG.
+    * __All TaskAttempts__ displays information about the attempts to run tasks for this DAG.
     
-    > [AZURE.NOTE] При просмотре столбцов "Вершины", "Задачи" и "Попытки выполнения задач" обратите внимание на ссылки для просмотра __счетчиков__ и __просмотра или загрузки журналов__ для каждой строки.
+    > [AZURE.NOTE] If you scroll the column display for Vertices, Tasks and TaskAttempts, notice that there are links to view __counters__ and __view or download logs__ for each row.
 
-    Если при выполнении задания произошел сбой, в столбце "Сведения о DAG" будет отображаться состояние FAILED (Ошибка), а также ссылки на сведения о неудачной задаче. Под сведениями о DAG будут отображаться диагностические данные.
+    If there was a failure with the job, the DAG Details will display a status of FAILED, along with links to information about the failed task. Diagnostics information will be displayed beneath the DAG details.
 
-7. Выберите __Графическое представление__. Появится графическое представление DAG. Помещайте указатель мыши над каждой вершиной в представлении, чтобы получить о ней сведения.
+7. Select __Graphical View__. This displays a graphical representation of the DAG. You can place the mouse over each vertex in the view to display information about it.
 
-    ![Графическое представление](./media/hdinsight-debug-tez-ui/dagdiagram.png)
+    ![Graphical view](./media/hdinsight-debug-tez-ui/dagdiagram.png)
 
-8. Если щелкнуть вершину, загрузятся __сведения о вершине__ для этого элемента. Щелкните вершину __Map 1__, чтобы вывести подробные сведения для этого элемента. Щелкните __Подтвердить__ для подтверждения навигации.
+8. Clicking on a vertex will load the __Vertex Details__ for that item. Click on the __Map 1__ vertex to display details for this item. Select __Confirm__ to confirm the navigation.
 
-    ![Сведения о вершинах](./media/hdinsight-debug-tez-ui/vertexdetails.png)
+    ![Vertex details](./media/hdinsight-debug-tez-ui/vertexdetails.png)
 
-9. Обратите внимание, что в верхней части страницы находятся ссылки, связанные с вершинами и задачами.
+9. Note that you now have links at the top of the page that are related to vertices and tasks.
 
-    > [AZURE.NOTE] Эту страницу также можно открыть другим способом: вернитесь к столбцу __Сведения о DAG__, выберите __Сведения о вершине__, а затем вершину __Map 1__.
+    > [AZURE.NOTE] You can also arrive at this page by going back to __DAG Details__, selecting __Vertex Details__, and then selecting the __Map 1__ vertex.
 
-    * __Счетчики вершины__ — отображение сведений о счетчиках для этой вершины.
+    * __Vertex Counters__ displays counter information for this vertex.
     
-    * __Задачи__ — отображение задач для этой вершины.
+    * __Tasks__ displays tasks for this vertex.
     
-    * __Попытки выполнения задач__ — отображение сведений о попытках выполнения задач для этой вершины.
+    * __Task Attempts__ displays information about attempts to run tasks for this vertex.
     
-    * __Источники и приемники__ — отображение источников и приемников данных для этой вершины.
+    * __Sources & Sinks__ displays data sources and sinks for this vertex.
 
-    > [AZURE.NOTE] Как и в предыдущем меню, можно прокрутить отображение столбцов "Задачи", "Попытки выполнения задач" и "Источники и приемники" для отображения ссылок на дополнительные сведения для каждого элемента.
+    > [AZURE.NOTE] As with the previous menu, you can scroll the column display for Tasks, Task Attempts, and Sources & Sinks__ to display links to more information for each item.
 
-10. Выберите __Задачи__, а затем элемент с именем __00_000000_\_. Откроется окно __Сведения о задаче__ для этой задачи. В этом окне можно просмотреть __счетчики задачи__ и __попытки выполнения задачи\_\_.
+10. Select __Tasks__, and then select the item named __00_000000__. This will display __Task Details__ for this task. From this screen, you can view __Task Counters__ and __Task Attempts__.
 
-    ![Сведения о задаче](./media/hdinsight-debug-tez-ui/taskdetails.png)
+    ![Task details](./media/hdinsight-debug-tez-ui/taskdetails.png)
 
-##Дальнейшие действия
+## <a name="next-steps"></a>Next Steps
 
-Теперь, когда вы поняли, как работать с представлением Tez, узнайте больше об [использовании Hive в HDInsight](hdinsight-use-hive.md).
+Now that you have learned how to use the Tez view, learn more about [Using Hive on HDInsight](hdinsight-use-hive.md).
 
-Более подробные технические сведения о Tez см. на [странице Tez на сайте Hortonworks](http://hortonworks.com/hadoop/tez/).
+For more detailed technical information on Tez, see the [Tez page at Hortonworks](http://hortonworks.com/hadoop/tez/).
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

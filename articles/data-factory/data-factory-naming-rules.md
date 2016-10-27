@@ -1,30 +1,34 @@
 <properties 
-	pageTitle="Фабрика данных — правила именования | Microsoft Azure" 
-	description="Описывает правила именования для сущностей фабрик данных." 
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
-	editor="monicar"/>
+    pageTitle="Data Factory - Naming Rules | Microsoft Azure" 
+    description="Describes naming rules for Data Factory entities." 
+    services="data-factory" 
+    documentationCenter="" 
+    authors="sharonlo101" 
+    manager="jhubbard" 
+    editor="monicar"/>
 
 <tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/12/2016" 
-	ms.author="spelluru"/>
-
-# Фабрика данных Azure — правила именования 
-В следующей таблице приведены правила именования для артефактов фабрики данных.
+    ms.service="data-factory" 
+    ms.workload="data-services" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="09/12/2016" 
+    ms.author="shlo"/>
 
 
+# <a name="azure-data-factory---naming-rules"></a>Azure Data Factory - Naming Rules 
+The following table provides naming rules for Data Factory artifacts.
 
-Имя | Уникальность имени | Проверки
+
+
+Name | Name Uniqueness | Validation Checks
 :--- | :-------------- | :----------------
-Фабрика данных | Уникально в рамках Microsoft Azure. Регистр в именах не учитывается, т. е. MyDF и mydf ссылаются на одну и ту же фабрику данных. |<ul><li>Каждая фабрика данных привязывается только к одной подписке Azure.</li><li>Имена объектов должны начинаться с буквы или цифры и могут содержать только буквы, цифры и тире (-).</li><li>Перед каждым знаком тире (-) и после него должна стоять буква или цифра. Последовательные тире в именах контейнеров использовать нельзя.</li><li>Имя может содержать от 3 до 63 знаков.</li></ul>
-Связанные службы/таблицы/конвейеры | Уникально в рамках фабрики данных. Регистр в именах не учитывается. | <ul><li>Максимальное количество знаков в имени таблицы: 260.</li><li>Имена объектов должны начинаться с буквы, цифры или знака подчеркивания (\_).</li><li>Следующие знаки не допускаются: ".", "+", "?", "/", "<", ">", "*", "%", "&", ":", "\"</li></ul>
-Группа ресурсов | Уникально в рамках Microsoft Azure. Регистр в именах не учитывается. | <ul><li>Максимальное количество символов: 1000.</li><li>Имя может содержать буквы, цифры и следующие символы: - (дефис), \_ (нижнее подчеркивание), , (запятая), . (точка).</li></ul>
+Data Factory | Unique across Microsoft Azure. Names are case-insensitive, that is, MyDF and mydf refer to the same data factory. |<ul><li>Each data factory is tied to exactly one Azure subscription.</li><li>Object names must start with a letter or a number, and can contain only letters, numbers, and the dash (-) character.</li><li>Every dash (-) character must be immediately preceded and followed by a letter or a number. Consecutive dashes are not permitted in container names.</li><li>Name can be 3-63 characters long.</li></ul>
+Linked Services/Tables/Pipelines | Unique with in a data factory. Names are case-insensitive. | <ul><li>Maximum number of characters in a table name: 260.</li><li>Object names must start with a letter number, or an underscore (_).</li><li>Following characters are not allowed: “.”, “+”, “?”, “/”, “<”, ”>”,”*”,”%”,”&”,”:”,”\\”</li></ul>
+Resource Group | Unique across Microsoft Azure. Names are case-insensitive. | <ul><li>Maximum number of characters: 1000.</li><li>Name can contain letters, digits, and the following characters: “-”, “_”, “,” and “.”.</li></ul>
 
-<!---HONumber=AcomDC_0914_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

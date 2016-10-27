@@ -1,16 +1,18 @@
-Давайте добавим триггер.
+Let's add a trigger.
 
-1. Введите *sftp* в поле поиска в конструкторе приложений логики, а затем выберите триггер **SFTP - When a file is added or modified** (SFTP — при добавлении или изменении файла).  
-![Триггер SFTP, изображение 1](./media/connectors-create-api-sftp/trigger-1.png)  
-- Откроется элемент управления **When a file is added or modified** (При добавлении или изменении файла).  
-![Триггер SFTP, изображение 2](./media/connectors-create-api-sftp/trigger-2.png)  
-- Щелкните **…** в правой части элемента управления. Откроется элемент управления средства выбора папок.  
-![Триггер SFTP, изображение 3](./media/connectors-create-api-sftp/action-1.png)  
-- Выберите **SFTP**, чтобы выбрать корневую папку для отслеживания наличия новых или измененных файлов. Обратите внимание, что теперь она отображается в элементе управления **Папка**.  
-![Триггер SFTP, изображение 4](./media/connectors-create-api-sftp/action-2.png)  
+1. Enter *sftp* in the search box on the logic apps designer then select the **SFTP - When a file is added or modified**  trigger   
+![SFTP trigger image 1](./media/connectors-create-api-sftp/trigger-1.png)  
+- The **When a file is added or modified** control opens up  
+![SFTP trigger image 2](./media/connectors-create-api-sftp/trigger-2.png)  
+- Select the **...** located on the right side of the control. This opens the folder picker control  
+![SFTP trigger image 3](./media/connectors-create-api-sftp/action-1.png)  
+- Select the **SFTP** to select the root folder as the folder to monitor for new or modified files. Notice the root folder is now displayed in the **Folder** control.  
+![SFTP trigger image 4](./media/connectors-create-api-sftp/action-2.png)   
 
-На этом этапе для приложения логики настроен триггер, который будет активировать другие триггеры и действия в рабочем процессе при изменении или создании файла в указанной папке SFTP.
+At this point, your logic app has been configured with a trigger that will begin a run of the other triggers and actions in the workflow when a file is either modified or created in the specific SFTP folder. 
 
->[AZURE.NOTE]Чтобы приложение логики функционировало, оно должно содержать по крайней мере один триггер и одно действие. Шаги по добавлению действия описаны в следующем разделе.
+>[AZURE.NOTE]For a logic app to be functional, it must contain at least one trigger and one action. Follow the steps in the next section to add an action.  
 
-<!---HONumber=AcomDC_0727_2016-->
+<!--HONumber=Oct16_HO2-->
+
+

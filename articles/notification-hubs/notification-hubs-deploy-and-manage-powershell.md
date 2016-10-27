@@ -1,51 +1,52 @@
 <properties 
-	pageTitle="Развертывание и управление центров уведомлений с помощью PowerShell" 
-	description="Создание и управление центрами уведомлений с помощью PowerShell в целях автоматизации" 
-	services="notification-hubs" 
-	documentationCenter="" 
-	authors="wesmc7777" 
-	manager="erikre" 
-	editor="" />
+    pageTitle="Развертывание и управление центров уведомлений с помощью PowerShell" 
+    description="Создание и управление центрами уведомлений с помощью PowerShell в целях автоматизации" 
+    services="notification-hubs" 
+    documentationCenter="" 
+    authors="wesmc7777" 
+    manager="erikre" 
+    editor="" />
 
 <tags 
-	ms.service="notification-hubs" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="powershell" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/29/2016" 
-	ms.author="wesmc"/>
+    ms.service="notification-hubs" 
+    ms.workload="mobile" 
+    ms.tgt_pltfrm="powershell" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="06/29/2016" 
+    ms.author="wesmc"/>
 
-# Развертывание и управление центров уведомлений с помощью PowerShell
 
-##Обзор
+# <a name="deploy-and-manage-notification-hubs-using-powershell"></a>Развертывание и управление центров уведомлений с помощью PowerShell
+
+##<a name="overview"></a>Обзор
 
 В этой статье рассказывается, как создать и управлять центрами уведомлений Azure с помощью PowerShell. В этом разделе рассматриваются следующие общие задачи автоматизации.
 
 + Создание центра уведомлений
 + Настройка учетных данных
 
-Если необходимо создать новое пространство имен служебной шины для ваших центров уведомлений, см. [Управление Service Bus с помощью PowerShell](../service-bus/service-bus-powershell-how-to-provision.md).
+Если необходимо создать новое пространство имен служебной шины для ваших центров уведомлений, см. статью [Управление служебной шиной с помощью PowerShell](../service-bus-messaging/service-bus-powershell-how-to-provision.md).
 
 Управление центрами уведомлений не поддерживается напрямую с помощью командлетов, включенных в Azure PowerShell. Лучше всего для PowerShell указать сборку Microsoft.Azure.NotificationHubs.dll. Сборка входит в состав [пакета NuGet для центров уведомлений Microsoft Azure](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
 
 
-## Предварительные требования
+## <a name="prerequisites"></a>Предварительные требования
 
 Перед началом работы с этой статьей необходимо иметь следующее:
 
-- Подписка Azure. Azure — это платформа на основе подписок. Дополнительные сведения о получении подписки см. в разделах [Варианты приобретения], [Предложения для участников] или [Бесплатное пробное использование].
+- Подписка Azure. Azure — это платформа на основе подписок. Дополнительные сведения о получении подписки см. на страницах [Как приобрести Azure], [Предложения для участников] или [Создайте бесплатную учетную запись Azure уже сегодня].
 
-- Компьютер с Azure PowerShell. Инструкции см. в разделе [Установка и настройка Azure PowerShell].
+- Компьютер с Azure PowerShell. Инструкции см. в статье [Установка и настройка Azure PowerShell].
 
 - Общее представление о сценариях PowerShell, пакетах NuGet и платформе .NET Framework.
 
 
-## Добавление ссылки на сборку .NET для Service Bus
+## <a name="including-a-reference-to-the-.net-assembly-for-service-bus"></a>Добавление ссылки на сборку .NET для Service Bus
 
 Управление центрами уведомлений Azure еще не включено в командлеты PowerShell в Azure PowerShell. Для подготовки центров уведомлений можно использовать клиент .NET, содержащийся в [пакете NuGet для центров уведомлений Microsoft Azure](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
 
-Сначала убедитесь, что сценарий может найти сборку **Microsoft.Azure.NotificationHubs.dll**, которая устанавливается как пакет NuGet в проекте Visual Studio. Для гибкости сценарий выполняет такие действия:
+Сначала убедитесь, что сценарий может найти сборку **Microsoft.Azure.NotificationHubs.dll** , которая устанавливается как пакет NuGet в проекте Visual Studio. Для гибкости сценарий выполняет такие действия:
 
 1. Определяет путь, по которому он был вызван.
 2. Проходит по пути и находит папку с именем `packages`. Эта папка создается при установке пакетов NuGet для проектов Visual Studio.
@@ -74,11 +75,11 @@ catch [System.Exception]
 }
 ```
 
-## Создание класса NamespaceManager
+## <a name="create-the-namespacemanager-class"></a>Создание класса NamespaceManager
 
-Для подготовки центров уведомлений создайте экземпляр класса [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.azure.notificationhubs.namespacemanager.aspx) из пакета SDK.
+Для подготовки центров уведомлений создайте экземпляр класса [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.azure.notificationhubs.namespacemanager.aspx) из пакета SDK. 
 
-Получить правило авторизации для указания строки подключения можно с помощью командлета [Get-AzureSBAuthorizationRule] в составе Azure PowerShell. Ссылка на экземпляр `NamespaceManager` будет сохранена в переменной `$NamespaceManager`. Для подготовки центра уведомлений будет использоваться `$NamespaceManager`.
+Получить правило авторизации для указания строки подключения можно с помощью командлета [Get-AzureSBAuthorizationRule] в составе Azure PowerShell. Ссылка на экземпляр `NamespaceManager` будет сохранена в переменной `$NamespaceManager`. Для подготовки центра уведомлений будет использоваться `$NamespaceManager` .
 
 ``` powershell
 $sbr = Get-AzureSBAuthorizationRule -Namespace $Namespace
@@ -89,18 +90,18 @@ Write-Output "NamespaceManager object for the [$Namespace] namespace has been su
 ```
 
 
-## Подготовка нового центра уведомлений 
+## <a name="provisioning-a-new-notification-hub"></a>Подготовка нового центра уведомлений 
 
 Для подготовки нового центра уведомлений используйте [API .NET для центров уведомлений].
 
-В этой части сценария выполняется настройка четырех локальных переменных.
+В этой части сценария выполняется настройка четырех локальных переменных. 
 
-1. `$Namespace`: присвойте имя пространства имен, в котором нужно создать центр уведомлений.
-2. `$Path`: присвойте путь к имени нового центра уведомлений. Например, MyHub.
-3. `$WnsPackageSid`: присвойте идентификатор безопасности пакета для своего приложения для Windows из [Центра разработки для Windows](http://go.microsoft.com/fwlink/p/?linkid=266582&clcid=0x409).
+1. `$Namespace` : присвойте имя пространства имен, в котором нужно создать центр уведомлений.
+2. `$Path` : присвойте путь к имени нового центра уведомлений.  Например, MyHub.    
+3. `$WnsPackageSid` : присвойте идентификатор безопасности пакета для своего приложения для Windows из [Центра разработки для Windows](http://go.microsoft.com/fwlink/p/?linkid=266582&clcid=0x409).
 4. `$WnsSecretkey`: присвойте значение секретного ключа для своего приложения Windows из [Центра разработки для Windows](http://go.microsoft.com/fwlink/p/?linkid=266582&clcid=0x409).
 
-Эти переменные используются для подключения к пространству имен и создания нового центра уведомлений, настроенного для обработки уведомлений от служб уведомлений Windows (WNS) с использованием учетных данных WNS для приложения для Windows. Сведения о получении идентификатора безопасности пакета и секретного ключа см. в учебнике [Приступая к работе с центрами уведомлений](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md).
+Эти переменные используются для подключения к пространству имен и создания нового центра уведомлений, настроенного для обработки уведомлений от служб уведомлений Windows (WNS) с использованием учетных данных WNS для приложения для Windows. Сведения о получении идентификатора безопасности пакета и секретного ключа см. в статье [Начало работы с Центрами уведомлений для приложений универсальной платформы Windows](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md). 
 
 + Фрагмент сценария использует объект `NamespaceManager` для проверки существования центра уведомлений, идентифицируемого по `$Path`.
 
@@ -152,9 +153,9 @@ else
 
 
 
-## Дополнительные ресурсы
+## <a name="additional-resources"></a>Дополнительные ресурсы
 
-- [Управление служебной шиной с помощью PowerShell](../service-bus/service-bus-powershell-how-to-provision.md)
+- [Управление служебной шиной с помощью PowerShell](../service-bus-messaging/service-bus-powershell-how-to-provision.md)
 - [Как создать запросы, разделы и подписки Service Bus с помощью сценария PowerShell](http://blogs.msdn.com/b/paolos/archive/2014/12/02/how-to-create-a-service-bus-queues-topics-and-subscriptions-using-a-powershell-script.aspx)
 - [Как создать пространство имен и концентратор событий служебной шины с помощью сценария PowerShell](http://blogs.msdn.com/b/paolos/archive/2014/12/01/how-to-create-a-service-bus-namespace-and-an-event-hub-using-a-powershell-script.aspx)
 
@@ -162,9 +163,9 @@ else
 - [Сценарии PowerShell для Service Bus](https://code.msdn.microsoft.com/windowsazure/Service-Bus-PowerShell-a46b7059)
  
 
-[Варианты приобретения]: http://azure.microsoft.com/pricing/purchase-options/
+[Как приобрести Azure]: http://azure.microsoft.com/pricing/purchase-options/
 [Предложения для участников]: http://azure.microsoft.com/pricing/member-offers/
-[Бесплатное пробное использование]: http://azure.microsoft.com/pricing/free-trial/
+[бесплатной пробной версии]: http://azure.microsoft.com/pricing/free-trial/
 [Установка и настройка Azure PowerShell]: ../powershell-install-configure.md
 [API .NET для центров уведомлений]: https://msdn.microsoft.com/library/azure/mt414893.aspx
 [Get-AzureSBNamespace]: https://msdn.microsoft.com/library/azure/dn495122.aspx
@@ -172,4 +173,8 @@ else
 [Get-AzureSBAuthorizationRule]: https://msdn.microsoft.com/library/azure/dn495113.aspx
  
 
-<!---HONumber=AcomDC_0706_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

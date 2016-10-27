@@ -1,94 +1,98 @@
 <properties
-	pageTitle="Рекомендации по решениям для хранения данных | Microsoft Azure"
-	description="Изучите основные рекомендации по проектированию и реализации, касающиеся развертывания решений для хранения данных в службах инфраструктуры Azure."
-	documentationCenter=""
-	services="virtual-machines-linux"
-	authors="iainfoulds"
-	manager="timlt"
-	editor=""
-	tags="azure-resource-manager"/>
+    pageTitle="Storage Solutions Guidelines | Microsoft Azure"
+    description="Learn about the key design and implementation guidelines for deploying storage solutions in Azure infrastructure services."
+    documentationCenter=""
+    services="virtual-machines-linux"
+    authors="iainfoulds"
+    manager="timlt"
+    editor=""
+    tags="azure-resource-manager"/>
 
 <tags
-	ms.service="virtual-machines-linux"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-linux"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/08/2016"
-	ms.author="iainfou"/>
-
-# Рекомендации по инфраструктуре хранилища
-
-[AZURE.INCLUDE [virtual-machines-linux-infrastructure-guidelines-intro](../../includes/virtual-machines-linux-infrastructure-guidelines-intro.md)]
-
-Эта статья посвящена требованиям к хранилищу и вопросам проектирования, связанным с обеспечением оптимальной производительности виртуальных машин.
+    ms.service="virtual-machines-linux"
+    ms.workload="infrastructure-services"
+    ms.tgt_pltfrm="vm-linux"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/08/2016"
+    ms.author="iainfou"/>
 
 
-## Рекомендации по реализации хранилища
+# <a name="storage-infrastructure-guidelines"></a>Storage infrastructure guidelines
 
-Решения
+[AZURE.INCLUDE [virtual-machines-linux-infrastructure-guidelines-intro](../../includes/virtual-machines-linux-infrastructure-guidelines-intro.md)] 
 
-- Для рабочей нагрузки необходимо использовать хранилище уровня "Стандартный" или "Премиум"?
-- Требуется ли чередование для создания дисков размером более 1023 ТБ?
-- Требуется ли чередование дисков, чтобы обеспечить оптимальную производительность ввода-вывода для рабочей нагрузки?
-- Какие учетные записи хранения необходимы для размещения рабочей нагрузки в ИТ-среде или ИТ-инфраструктуры?
-
-Задачи
-
-- Просмотрите требования к вводу-выводу разворачиваемых приложений и спланируйте нужное количество и тип учетных записей хранения.
-- Создать набор учетных записей хранения с использованием соглашения об именовании. Можно использовать интерфейс командной строки Azure (Azure CLI) или портал.
+This article focuses on understanding storage needs and design considerations for achieving optimum virtual machine (VM) performance.
 
 
-## Хранилище
+## <a name="implementation-guidelines-for-storage"></a>Implementation guidelines for storage
 
-Служба хранилища Azure — ключевая составляющая в развертывании виртуальных машин и приложений и управлении ими. Служба хранилища Azure предоставляет службы для хранения файловых данных, неструктурированных данных и сообщений, а также является частью инфраструктуры, обслуживающей виртуальные машины.
+Decisions:
 
-Для обслуживания виртуальных машин доступны учетные записи хранения двух типов.
+- Do you need to use Standard or Premium storage for your workload?
+- Do you need disk striping to create disks larger than 1023 GB?
+- Do you need disk striping to achieve optimal I/O performance for your workload?
+- What set of storage accounts do you need to host your IT workload or infrastructure?
 
-- Учетная запись хранения уровня "Стандартный" предоставляет доступ к хранилищу BLOB-объектов (которое используется для хранения дисков виртуальных машин Azure), хранилищу таблиц, хранилищу очередей и хранилищу файлов.
-- Учетные записи [хранения уровня "Премиум"](../storage/storage-premium-storage.md) обеспечивают высокопроизводительные диски с малой задержкой для рабочих нагрузок с интенсивным вводом-выводом, например для рабочих нагрузок в сегментированных кластерах MongoDB. В настоящее время хранилище уровня "Премиум" поддерживает только диски виртуальных машин Azure.
+Tasks:
 
-Azure создает виртуальные машины с диском операционной системы, временным диском и любым количеством дополнительных дисков данных (которые могут и отсутствовать). Диск операционной системы и диски данных — страничные BLOB-объекты Azure, тогда как временный диск хранится на локальном узле, на котором запущена виртуальная машина. Будьте внимательны при проектировании приложений, использующих только этот временный диск для временных данных, так как во время события обслуживания виртуальная машина может быть перенесена между узлами. При этом все данные, хранящиеся на временном диске, будут потеряны.
-
-Базовая среда службы хранилища Azure обеспечивает устойчивость и высокий уровень доступности. Это гарантирует защиту данных от внепланового обслуживания или сбоев оборудования. При разработке среды службы хранилища Azure можно выбрать способ репликации хранилища виртуальной машины:
-
-- локально в пределах заданного центра обработки данных Azure;
-- между центрами обработки данных Azure в пределах заданного региона;
-- между центрами обработки данных Azure из разных регионов.
-
-Вы можете больше узнать о [возможностях репликации для обеспечения высокого уровня доступности](../storage/storage-introduction.md#replication-for-durability-and-high-availability).
-
-Максимальный размер дисков операционной системы и дисков данных составляет 1023 гигабайта (ГБ). Максимальный размер большого двоичного объекта составляет 1024 ГБ, и он должен содержать метаданные (нижний колонтитул) VHD-файла (ГБ — это 1024<sup>3</sup> байтов). Чтобы преодолеть это ограничение, можно использовать диспетчер логических томов (LVM), чтобы сформировать пулы дисков данных, представляющие логические тома более 1023 ГБ для виртуальной машины.
-
-Существуют некоторые ограничения масштабируемости, накладываемые при проектировании развертываний службы хранилища Azure. Дополнительные сведения об этом см. в статье [Подписка Azure, границы, квоты и ограничения службы](azure-subscription-service-limits.md#storage-limits). См. также статью [Целевые показатели масштабируемости и производительности хранилища Azure](../storage/storage-scalability-targets.md).
-
-Что касается хранилища приложений, можно хранить неструктурированные данные объектов, таких как документы, изображения, резервные копии, данные конфигурации, журналы и т. д., используя хранилище BLOB-объектов. Вместо того, чтобы записывать данные на виртуальный диск, подключенный к виртуальной машине, приложение может записывать их непосредственно в хранилище BLOB-объектов Azure. Хранилище BLOB-объектов также предоставляет функцию ["горячего" и "холодного" уровней хранилища](../storage/storage-blob-storage-tiers.md), которую можно использовать в зависимости от требований к доступности и ограничений затрат.
+- Review I/O demands of the applications you are deploying and plan the appropriate number and type of storage accounts.
+- Create the set of storage accounts using your naming convention. You can use the Azure CLI or the portal.
 
 
-## Диски с чередованием
-Использование чередования для дисков данных, помимо возможности создавать диски размером более 1023 ГБ, во многих случаях увеличивает производительность благодаря тому, что для единого тома хранилища используются несколько больших двоичных объектов. При чередовании дисков операции ввода-вывода для одного логического диска могут выполняться параллельно.
+## <a name="storage"></a>Storage
 
-Azure накладывает ограничения на количество дисков данных и пропускную способность в зависимости от размера виртуальной машины. Дополнительную информацию см. в статье [Размеры виртуальных машин](virtual-machines-linux-sizes.md).
+Azure Storage is a key part of deploying and managing virtual machines (VMs) and applications. Azure Storage provides services for storing file data, unstructured data, and messages, and it is also part of the infrastructure supporting VMs.
 
-При использовании чередования дисков данных Azure придерживайтесь следующих рекомендаций:
+There are two types of storage accounts available for supporting VMs:
 
-- Диски данных всегда должны иметь максимальный размер (1023 ГБ).
-- Подключайте столько дисков данных, сколько позволяет размер виртуальной машины.
-- Используйте LVM.
-- Избегайте использовать параметры кэширования дисков данных Azure (для политики кэширования нужно выбрать параметр "Нет").
+- Standard storage accounts give you access to blob storage (used for storing Azure VM disks), table storage, queue storage, and file storage.
+- [Premium storage](../storage/storage-premium-storage.md) accounts deliver high-performance, low-latency disk support for I/O intensive workloads, such as MongoDB Sharded cluster. Premium storage currently supports Azure VM disks only.
 
-Дополнительные сведения см. в статье [Настройка диспетчера логических томов на виртуальной машине Linux в Azure](virtual-machines-linux-configure-lvm.md).
+Azure creates VMs with an operating system disk, a temporary disk, and zero or more optional data disks. The operating system disk and data disks are Azure page blobs, whereas the temporary disk is stored locally on the node where the machine lives. Take care when designing applications to only use this temporary disk for non-persistent data as the VM may be migrated between hosts during a maintenance event. Any data stored on the temporary disk would be lost.
+
+Durability and high availability is provided by the underlying Azure Storage environment to ensure that your data remains protected against unplanned maintenance or hardware failures. As you design your Azure Storage environment, you can choose to replicate VM storage:
+
+- locally within a given Azure datacenter
+- across Azure datacenters within a given region
+- across Azure datacenters across different regions.
+
+You can read [more about the replication options for high availability](../storage/storage-introduction.md#replication-for-durability-and-high-availability).
+
+Operating system disks and data disks have a maximum size of 1023 gigabytes (GB). The maximum size of a blob is 1024 GB and that must contain the metadata (footer) of the VHD file (a GB is 1024<sup>3</sup> bytes). You can use Logical Volume Manager (LVM) to surpass this limit by pooling together data disks to present logical volumes larger than 1023GB to your VM.
+
+There are some scalability limits when designing your Azure Storage deployments - see [Microsoft Azure subscription and service limits, quotas, and constraints](azure-subscription-service-limits.md#storage-limits) for more details. Also see [Azure storage scalability and performance targets](../storage/storage-scalability-targets.md).
+
+For application storage, you can store unstructured object data such as documents, images, backups, configuration data, logs, etc. using blob storage. Rather than your application writing to a virtual disk attached to the VM, the application can write directly to Azure blob storage. Blob storage also provides the option of [hot and cool storage tiers](../storage/storage-blob-storage-tiers.md) depending on your availability needs and cost constraints.
 
 
-## Несколько учетных записей хранения
+## <a name="striped-disks"></a>Striped disks
+Besides allowing you to create disks larger than 1023 GB, in many instances, using striping for data disks enhances performance by allowing multiple blobs to back the storage for a single volume. With striping, the I/O required to write and read data from a single logical disk proceeds in parallel.
 
-При проектировании среды службы хранилища Azure вы можете использовать несколько учетных записей хранения, так как количество развертываемых виртуальных машин может увеличиться. Такой подход помогает распределить операции ввода-вывода по базовой инфраструктуре службы хранилища Azure, чтобы обеспечить оптимальную производительность виртуальных машин и приложений. При проектировании развертываемых приложений учтите требования к вводу-выводу каждой виртуальной машины и равномерно распределите их между учетными записями хранения Azure. Старайтесь избегать группирования всех виртуальных машин с высокой интенсивностью ввода-вывода всего лишь в одной или двух учетных записях хранения.
+Azure imposes limits on the number of data disks and amount of bandwidth available, depending on the VM size. For details, see [Sizes for virtual machines](virtual-machines-linux-sizes.md).
 
-Дополнительную информацию о возможностях ввода-вывода различных вариантов службы хранилища Azure и некоторые рекомендуемые максимальные значения можно найти в статье [Целевые показатели масштабируемости и производительности службы хранилища Azure](../storage/storage-scalability-targets.md).
+If you are using disk striping for Azure data disks, consider the following guidelines:
+
+- Data disks should always be the maximum size (1023 GB).
+- Attach the maximum data disks allowed for the VM size.
+- Use LVM.
+- Avoid using Azure data disk caching options (caching policy = None).
+
+For more information, see [Configuring LVM on a Linux VM](virtual-machines-linux-configure-lvm.md).
 
 
-## Дальнейшие действия
+## <a name="multiple-storage-accounts"></a>Multiple storage accounts
 
-[AZURE.INCLUDE [virtual-machines-linux-infrastructure-guidelines-next-steps](../../includes/virtual-machines-linux-infrastructure-guidelines-next-steps.md)]
+When designing your Azure Storage environment, you can use multiple storage accounts as the number of VMs you deploy increases. This approach helps distribute out the I/O across the underlying Azure Storage infrastructure to maintain optimum performance for your VMs and applications. As you design the applications that you are deploying, consider the I/O requirements each VM has and balance out those VMs across Azure Storage accounts. Try to avoid grouping all the high I/O demanding VMs in to just one or two storage accounts.
 
-<!---HONumber=AcomDC_0914_2016-->
+For more information about the I/O capabilities of the different Azure Storage options and some recommend maximums, see [Azure storage scalability and performance targets](../storage/storage-scalability-targets.md).
+
+
+## <a name="next-steps"></a>Next steps
+
+[AZURE.INCLUDE [virtual-machines-linux-infrastructure-guidelines-next-steps](../../includes/virtual-machines-linux-infrastructure-guidelines-next-steps.md)] 
+
+
+<!--HONumber=Oct16_HO2-->
+
+

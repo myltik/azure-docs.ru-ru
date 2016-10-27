@@ -16,7 +16,8 @@
    ms.date="09/24/2016"
    ms.author="rortloff;barbkess;sonyama"/>
 
-# Начало работы с прозрачным шифрованием данных (TDE)
+
+# <a name="get-started-with-transparent-data-encryption-(tde)"></a>Начало работы с прозрачным шифрованием данных (TDE)
 
 
 > [AZURE.SELECTOR]
@@ -25,11 +26,11 @@
 - [Шифрование (портал)](sql-data-warehouse-encryption-tde.md)
 - [Шифрование (T-SQL)](sql-data-warehouse-encryption-tde-tsql.md)
 
-## Необходимые права
+## <a name="required-permssions"></a>Необходимые права
 
 Чтобы включить прозрачное шифрование данных, необходимо иметь права администратора или участника роли dbmanager.
 
-## Включение шифрования
+## <a name="enabling-encryption"></a>Включение шифрования
 
 Чтобы включить прозрачное шифрование данных для хранилища данных SQL, сделайте следующее.
 
@@ -40,7 +41,7 @@
 ALTER DATABASE [AdventureWorks] SET ENCRYPTION ON;
 ```
 
-## Отключение шифрования
+## <a name="disabling-encryption"></a>Отключение шифрования
 
 Чтобы отключить прозрачное шифрование данных для хранилища данных SQL, сделайте следующее.
 
@@ -53,7 +54,7 @@ ALTER DATABASE [AdventureWorks] SET ENCRYPTION OFF;
 
 > [AZURE.NOTE] Прежде чем вносить изменения в параметры прозрачного шифрования данных, работу приостановленного хранилища данных SQL нужно возобновить.
 
-## Проверка шифрования
+## <a name="verifying-encryption"></a>Проверка шифрования
 
 Чтобы проверить состояние шифрования для хранилища данных SQL, выполните указанные ниже действия.
 
@@ -62,27 +63,31 @@ ALTER DATABASE [AdventureWorks] SET ENCRYPTION OFF;
 
 ```sql
 SELECT
-	[name],
-	[is_encrypted]
+    [name],
+    [is_encrypted]
 FROM
-	sys.databases;
+    sys.databases;
 ```
 
 Результат ```1``` означает зашифрованную, а ```0``` — незашифрованную базу данных.
 
-## Динамические административные представления шифрования  
+## <a name="encryption-dmvs"></a>Динамические административные представления шифрования  
 
-- [sys.databases][]
-- [sys.dm\_pdw\_nodes\_database\_encryption\_keys][]
+- [sys.databases][] 
+- [sys.dm_pdw_nodes_database_encryption_keys][]
 
 
 <!--Anchors-->
-[Transparent Data Encryption (TDE)]: https://msdn.microsoft.com/library/bb934049.aspx
-[sys.databases]: http://msdn.microsoft.com/library/ms178534.aspx
-[sys.dm\_pdw\_nodes\_database\_encryption\_keys]: https://msdn.microsoft.com/library/mt203922.aspx
+[Прозрачное шифрование данных (TDE)]: https://msdn.microsoft.com/library/bb934049.aspx
+[sys.databases]: http://msdn.microsoft.com/library/ms178534.aspx  
+[sys.dm_pdw_nodes_database_encryption_keys]: https://msdn.microsoft.com/library/mt203922.aspx  
 
 <!--Image references-->
 
 <!--Link references-->
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,6 +1,6 @@
 <properties
- pageTitle="Пошаговое руководство по предварительно настроенному решению удаленного мониторинга | Microsoft Azure"
- description="Описание предварительно настроенного решения удаленного мониторинга Azure IoT и его архитектура."
+ pageTitle="Remote Monitoring preconfigured solution walkthrough | Microsoft Azure"
+ description="A description of the Azure IoT preconfigured solution remote monitoring and its architecture."
  services=""
  suite="iot-suite"
  documentationCenter=""
@@ -17,89 +17,90 @@
  ms.date="08/17/2016"
  ms.author="dobett"/>
 
-# Пошаговое руководство по работе с настроенным решением для удаленного мониторинга
 
-## Введение
+# <a name="remote-monitoring-preconfigured-solution-walkthrough"></a>Remote monitoring preconfigured solution walkthrough
 
-[Предварительно настроенное решение][lnk-preconfigured-solutions] удаленного мониторинга набора IoT Suite — это реализация решения комплексного мониторинга для сценария с использованием нескольких компьютеров в удаленных расположениях. Это решение объединяет основные службы Azure, чтобы обеспечить универсальную реализацию бизнес-сценария. Вы можете использовать его в качестве отправной точки для своей собственной реализации. Решение можно [настроить][lnk-customize] в соответствии с потребностями конкретной организации.
+## <a name="introduction"></a>Introduction
 
-В этой статье рассматриваются некоторые основные компоненты решения для удаленного мониторинга, чтобы вы смогли представить, как оно работает. Эти знания помогут вам:
+The IoT Suite remote monitoring [preconfigured solution][lnk-preconfigured-solutions] is an implementation of an end-to-end monitoring solution for multiple machines running in remote locations. The solution combines key Azure services to provide a generic implementation of the business scenario and you can use it as a starting point for your own implementation. You can [customize][lnk-customize] the solution to meet your own specific business requirements.
 
-- устранить проблемы, возникшие с решением;
-- спланировать настройку решения в соответствии с определенными требованиями;
-- спроектировать собственное решение IoT, использующее службы Azure.
+This article walks you through some of the key elements of the remote monitoring solution to enable you to understand how it works. This knowledge helps you to:
 
-## Логическая архитектура
+- Troubleshoot issues in the solution.
+- Plan how to customize to the solution to meet your own specific requirements. 
+- Design your own IoT solution that uses Azure services.
 
-На следующей диаграмме показаны логические компоненты предварительно настроенного решения.
+## <a name="logical-architecture"></a>Logical architecture
 
-.![Логическая архитектура](media/iot-suite-remote-monitoring-sample-walkthrough/remote-monitoring-architecture.png)
+The following diagram outlines the logical components of the preconfigured solution:
+
+![Logical architecture](media/iot-suite-remote-monitoring-sample-walkthrough/remote-monitoring-architecture.png)
 
 
-## Виртуальные устройства
+## <a name="simulated-devices"></a>Simulated devices
 
-В настроенном решении виртуальное устройство представляет собой устройство охлаждения (например, кондиционер воздуха в помещении или установку кондиционирования воздуха объекта). При развертывании предварительно настроенного решения вы также автоматически подготавливаете четыре виртуальных устройства, которые выполняются в [веб-задании Azure][lnk-webjobs]. Эти устройства упрощают изучение поведения решения, не требуя развертывания физических устройств. Сведения о развертывании физического устройства см. в руководстве [Подключение устройства к предварительно настроенному решению для удаленного мониторинга (Windows)][lnk-connect-rm].
+In the preconfigured solution, the simulated device represents a cooling device (such as a building air conditioner or facility air handling unit). When you deploy the preconfigured solution, you also automatically provision four simulated devices that run in an [Azure WebJob][lnk-webjobs]. The simulated devices make it easy for you to explore the behavior of the solution without the need to deploy any physical devices. To deploy a real physical device, see the [Connect your device to the remote monitoring preconfigured solution][lnk-connect-rm] tutorial.
 
-Каждое виртуальное устройство может отправлять следующие типы сообщений в центр IoT.
+Each simulated device can send the following message types to IoT Hub:
 
-| Сообщение | Описание |
+| Message  | Description |
 |----------|-------------|
-| Запуск | При запуске устройство отправляет в серверную часть сообщение со **сведениями об устройстве**. Например, идентификатор устройства, метаданные устройства, список поддерживаемых команд и текущую конфигурацию. |
-| Присутствие | Устройство периодически отправляет сообщение о **присутствии**, чтобы сообщить, может ли оно определить присутствие датчика. |
-| Телеметрия | Устройство периодически отправляет сообщение **телеметрии** со значениями температуры и влажности, полученными от виртуальных датчиков. |
+| Startup  | When the device starts, it sends a **device-info** message containing information about itself to the back end. This data includes the device id, the device metadata, a list of the commands the device supports, and the current configuration of the device. |
+| Presence | A device periodically sends a **presence** message to report whether the device can sense the presence of a sensor. |
+| Telemetry | A device periodically sends a **telemetry** message that reports simulated values for the temperature and humidity collected from the device's simulated sensors. |
 
 
-В сообщении со **сведениями об устройстве** виртуальные устройства отправляют следующие свойства.
+The simulated devices send the following device properties in a **device-info** message:
 
-| Свойство | Назначение |
+| Property               |  Purpose |
 |------------------------|--------- |
-| Идентификатор устройства. | Идентификатор, предоставленный или назначенный при создании устройства в решении. |
-| Производитель | Производитель устройства |
-| Номер модели | Номер модели устройства |
-| Серийный номер | Серийный номер устройства |
-| Встроенное ПО | Текущая версия встроенного ПО на устройстве |
-| Платформа | Архитектура платформы устройства |
-| Процессор | Процессор, управляющий устройством |
-| Установленное ОЗУ | Объем ОЗУ, установленного на устройстве |
-| Состояние включенного центра | Свойство состояния центра IoT устройства |
-| Время создания | Время создания устройства в решении |
-| Время обновления | Время последнего обновления свойств устройства |
-| Широта | Широта расположения устройства |
-| Долгота | Долгота расположения устройства |
+| Device ID              | Id that is either provided or assigned when a device is created in the solution. |
+| Manufacturer           | Device manufacturer |
+| Model Number           | Model number of the device |
+| Serial Number          | Serial number of the device |
+| Firmware               | Current version of firmware on the device |
+| Platform               | Platform architecture of the device |
+| Processor              | Processor running the device |
+| Installed RAM          | Amount of RAM installed on the device |
+| Hub Enabled State      | IoT Hub state property of the device |
+| Created Time           | Time the device was created in the solution |
+| Updated Time           | Last time properties were updated for the device |
+| Latitude               | Latitude location of the device |
+| Longitude              | Longitude location of the device |
 
-Симулятор заполняет эти свойства в виртуальных устройствах образцами данных. Каждый раз, когда симулятор инициализирует виртуальное устройство, оно отправляет предварительно определенные метаданные в центр IoT. Обратите внимание, что это приводит к перезаписи обновлений всех метаданных, выполненных на портале устройства.
+The simulator seeds these properties in simulated devices with sample values.  Each time the simulator initializes a simulated device, the device posts the pre-defined metadata to IoT Hub. Note how this overwrites any metadata updates made in the device portal.
 
 
-Виртуальные устройства могут обрабатывать следующие команды, отправляемые с панели мониторинга решения через центр IoT.
+The simulated devices can handle the following commands sent from the solution dashboard through the IoT hub:
 
-| Команда | Описание |
+| Command                | Description                                         |
 |------------------------|-----------------------------------------------------|
-| PingDevice | Отправляет на устройство _ping-запрос_ для проверки его активности |
-| StartTelemetry | Запускает отправку данных телеметрии устройством |
-| StopTelemetry | Останавливает отправку данных телеметрии устройством |
-| ChangeSetPointTemp | Изменяет значение заданной точки, вокруг которой формируются случайные данные |
-| DiagnosticTelemetry | Вызывает отправку симулятором устройства дополнительного значения телеметрии (externalTemp) |
-| ChangeDeviceState | Изменяет свойство расширенного состояния устройства и отправляет с устройства сообщение со сведениями об устройстве |
+| PingDevice             | Sends a _ping_ to the device to check it is alive   |
+| StartTelemetry         | Starts the device sending telemetry                 |
+| StopTelemetry          | Stops the device from sending telemetry             |
+| ChangeSetPointTemp     | Changes the set point value around which the random data is generated |
+| DiagnosticTelemetry    | Triggers the device simulator to send an additional telemetry value (externalTemp) |
+| ChangeDeviceState      | Changes an extended state property for the device and sends the device info message from the device |
 
-Подтверждение команды устройством в серверной части решения осуществляется через центр IoT.
+The device command acknowledgment to the solution back end is provided through the IoT hub.
 
-## Центр IoT
+## <a name="iot-hub"></a>IoT Hub
 
-[Центр IoT][lnk-iothub] принимает данные, отправленные с устройств в облако, и предоставляет к ним доступ заданиям Azure Stream Analytics (ASA). Кроме того, центр IoT отправляет на устройства команды от имени портала устройства. Каждый поток заданий ASA использует отдельную группу потребителей центра IoT для считывания потока сообщений с устройств.
+The [IoT hub][lnk-iothub] ingests data sent from the devices into the cloud and makes it available to the Azure Stream Analytics (ASA) jobs. IoT hub also sends commands to your devices on behalf of the device portal. Each stream ASA job uses a separate IoT Hub consumer group to read the stream of messages from your devices.
 
-## Azure Stream Analytics
+## <a name="azure-stream-analytics"></a>Azure Stream Analytics
 
-В решении удаленного мониторинга [Azure Stream Analytics][lnk-asa] отправляет сообщения, полученные с устройств в центре IoT, другим компонентам серверной части для обработки или хранения. Каждое задание ASA выполняет определенные функции в зависимости от содержимого сообщений.
+In the remote monitoring solution, [Azure Stream Analytics][lnk-asa] (ASA) dispatches device messages received by the IoT hub to other back-end components for processing or storage. Different ASA jobs perform specific functions based on the content of the messages.
 
-**Задание 1. Сведения об устройстве**. Фильтрует сообщения со сведениями об устройстве из входящего потока сообщений и отправляет их в конечную точку концентратора событий. Устройство отправляет сообщения с информацией об устройстве при запуске и в ответ на команду **SendDeviceInfo**. Чтобы определить сообщения со **сведениями об устройстве**, задание использует следующее определение запроса.
+**Job 1: Device Info** filters device information messages from the incoming message stream and sends them to an Event Hub endpoint. A device sends device information messages at startup and in response to a **SendDeviceInfo** command. This job uses the following query definition to identify **device-info** messages:
 
 ```
 SELECT * FROM DeviceDataStream Partition By PartitionId WHERE  ObjectType = 'DeviceInfo'
 ```
 
-Это задание отправляет выходные данные в концентратор событий для дальнейшей обработки.
+This job sends its output to an Event Hub for further processing.
 
-**Задание 2. Правила**. Оценивает входящие телеметрические значения температуры и влажности и сравнивает с пороговым значением для устройства. Пороговые значения задаются в редакторе правил, доступном на панели мониторинга решения. Каждая пара "устройство/значение" хранится с меткой времени в большом двоичном объекте, который считывается обработчиком Stream Analytics как **ссылочные данные**. Задание сравнивает все непустые значения с заданным пороговым значением для устройства. Если значение превышает условие ">", задание выводит событие **оповещения**, которое сигнализирует, что пороговое значение превышено, и указывает устройство, значение и метку времени. Чтобы определить сообщения телеметрии, которые должны активировать оповещение, задание использует следующее определение запроса:
+**Job 2: Rules** evaluates incoming temperature and humidity telemetry values against per-device thresholds. Threshold values are set in the rules editor available in the solution dashboard. Each device/value pair is stored by timestamp in a blob which Stream Analytics reads in as **Reference Data**. The job compares any non-empty value against the set threshold for the device. If it exceeds the '>' condition, the job outputs an **alarm** event that indicates that the threshold is exceeded and provides the device, value, and timestamp values. This job uses the following query definition to identify telemetry messages that should trigger an alarm:
 
 ```
 WITH AlarmsData AS 
@@ -140,9 +141,9 @@ INTO DeviceRulesHub
 FROM AlarmsData
 ```
 
-Задание отправляет выходные данные в концентратор событий для дальнейшей обработки и сохраняет сведения о каждом оповещении в хранилище BLOB-объектов, откуда их может считывать панель мониторинга решения.
+The job sends its output to an Event Hub for further processing and saves details of each alert to blob storage from where the solution dashboard can read the alert information.
 
-**Задание 3. Телеметрия**. Работает на входящем потоке телеметрии устройства, используя два метода. Первый отправляет все сообщения телеметрии с устройств в постоянное хранилище BLOB-объектов для долгосрочного хранения. Второй вычисляет среднее, минимальное и максимальное значения влажности в течение пятиминутного скользящего окна, а потом отправляет эти данные в хранилище BLOB-объектов. Панель мониторинга решения считывает данные телеметрии из хранилища BLOB-объектов, чтобы заполнить диаграммы. Это задание использует следующее определение запроса:
+**Job 3: Telemetry** operates on the incoming device telemetry stream in two ways. The first sends all telemetry messages from the devices to persistent blob storage for long-term storage. The second computes average, minimum, and maximum humidity values over a five-minute sliding window and sends this data to blob storage. The solution dashboard reads the telemetry data from blob storage to populate the charts. This job uses the following query definition:
 
 ```
 WITH 
@@ -185,52 +186,52 @@ GROUP BY
     SlidingWindow (mi, 5)
 ```
 
-## Концентраторы событий
+## <a name="event-hubs"></a>Event Hubs
 
-Задания ASA **Сведения об устройстве** и **Правила** выводят данные в концентраторы событий, чтобы надежно перенаправить их в **обработчик событий**, запущенный в веб-задании.
+The **device info** and **rules** ASA jobs output their data to Event Hubs to reliably forward on to the **Event Processor** running in the WebJob.
 
-## Хранилище Azure
+## <a name="azure-storage"></a>Azure storage
 
-Решение использует хранилище BLOB-объектов Azure, чтобы сохранять все необработанные и сводные данные телеметрии с устройств в решении. Панель мониторинга считывает данные телеметрии из хранилища BLOB-объектов, чтобы заполнить диаграммы. Чтобы отобразить оповещения, панель мониторинга считывает данные из хранилища BLOB-объектов, регистрирующего события превышения настроенных пороговых значений телеметрии. Решение также использует хранилище BLOB-объектов для записи пороговых значений, которые пользователь задал на панели мониторинга.
+The solution uses Azure blob storage to persist all the raw and summarized telemetry data from the devices in the solution. The dashboard reads the telemetry data from blob storage to populate the charts. To display alerts, the dashboard reads the data from blob storage that records when telemetry values exceeded the configured threshold values. The solution also uses blob storage to record the threshold values you set in the dashboard.
 
-## Веб-задания
+## <a name="webjobs"></a>WebJobs
 
-В дополнение к размещению симуляторов устройств в веб-заданиях решения также размещается **обработчик событий**, работающий в веб-задании Azure, который обрабатывает сообщения с информацией об устройствах и ответы команд. Он использует следующую информацию:
+In addition to hosting the device simulators, the WebJobs in the solution also host the **Event Processor** running in an Azure WebJob that handles device information messages and command responses. It uses:
 
-- информационные сообщения устройства для обновления реестра устройства (хранится в базе данных DocumentDB) с текущей информацией об устройстве;
-- сообщения об ответе на команды для обновления журнала команд устройства (хранится в базе данных DocumentDB).
+- Device information messages to update the device registry (stored in the DocumentDB database) with the current device information.
+- Command response messages to update the device command history (stored in the DocumentDB database).
 
-## DocumentDB
+## <a name="documentdb"></a>DocumentDB
 
-Решение использует базу данных DocumentDB для хранения сведений о подключенных к нему устройствах, например метаданных устройства и журнала команд, отправленных на устройства с панели мониторинга.
+The solution uses a DocumentDB database to store information about the devices connected to the solution. This information includes device metadata and the history of commands sent to devices from the dashboard.
 
-## веб-приложений:
+## <a name="web-apps"></a>Web apps
 
-### Панель удаленного мониторинга
-Эта страница в веб-приложении использует элементы управления JavaScript PowerBI (см. в [репозитории визуальных элементов PowerBI](https://www.github.com/Microsoft/PowerBI-visuals)) для визуализации данных телеметрии с устройств. Решение использует задание телеметрии ASA для записи данных телеметрии в хранилище BLOB-объектов.
+### <a name="remote-monitoring-dashboard"></a>Remote monitoring dashboard
+This page in the web application uses PowerBI javascript controls (See [PowerBI-visuals repo](https://www.github.com/Microsoft/PowerBI-visuals)) to visualize the telemetry data from the devices. The solution uses the ASA telemetry job to write the telemetry data to blob storage.
 
 
-### Портал администрирования устройства
+### <a name="device-administration-portal"></a>Device administration portal
 
-Это веб-приложение позволяет выполнять следующие действия.
+This web app enables you to:
 
-- Подготовка нового устройства. Это действие задает уникальный идентификатор устройства и создает ключ проверки подлинности. Сведения об устройстве записываются в реестр удостоверений центра IoT и базу данных DocumentDB определенного решения.
-- Управление свойствами устройства. Это действие выполняет просмотр имеющихся свойств и их обновление.
-- Отправка команд на устройство.
-- Просмотр журнала команд для устройства.
-- Включение и отключение устройств.
+- Provision a new device. This action sets the unique device id and generates the authentication key. It writes information about the device to both the IoT Hub identity registry and the solution-specific DocumentDB database.
+- Manage device properties. This action includes viewing existing properties and updating with new properties.
+- Send commands to a device.
+- View the command history for a device.
+- Enable and disable devices.
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Next steps
 
-В записях блога на сайте TechNet приведены дополнительные сведения о предварительно настроенном решении удаленного мониторинга:
+The following TechNet blog posts provide more detail about the remote monitoring preconfigured solution:
 
-- [IoT Suite - Under The Hood - Remote Monitoring (IoT Suite. Как работает удаленный мониторинг).](http://social.technet.microsoft.com/wiki/contents/articles/32941.iot-suite-under-the-hood-remote-monitoring.aspx)
-- [IoT Suite - Remote Monitoring - Adding Live and Simulated Devices (IoT Suite. Удаленный мониторинг: добавление реальных и виртуальных устройств).](http://social.technet.microsoft.com/wiki/contents/articles/32975.iot-suite-remote-monitoring-adding-live-and-simulated-devices.aspx)
+- [IoT Suite - Under The Hood - Remote Monitoring](http://social.technet.microsoft.com/wiki/contents/articles/32941.iot-suite-under-the-hood-remote-monitoring.aspx)
+- [IoT Suite - Remote Monitoring - Adding Live and Simulated Devices](http://social.technet.microsoft.com/wiki/contents/articles/32975.iot-suite-remote-monitoring-adding-live-and-simulated-devices.aspx)
 
-Дополнительные сведения об IoT Suite см. в следующих статьях.
+You can continue getting started with IoT Suite by reading the following articles:
 
-- [Подключение устройства к предварительно настроенному решению для удаленного мониторинга][lnk-connect-rm]
-- [Разрешения на сайте azureiotsuite.com][lnk-permissions]
+- [Connect your device to the remote monitoring preconfigured solution][lnk-connect-rm]
+- [Permissions on the azureiotsuite.com site][lnk-permissions]
 
 [lnk-preconfigured-solutions]: iot-suite-what-are-preconfigured-solutions.md
 [lnk-customize]: iot-suite-guidance-on-customizing-preconfigured-solutions.md
@@ -240,4 +241,7 @@ GROUP BY
 [lnk-connect-rm]: iot-suite-connecting-devices.md
 [lnk-permissions]: iot-suite-permissions.md
 
-<!---HONumber=AcomDC_0817_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Регистрация данных из хранилища озера данных в каталоге данных Azure | Azure"
-   description="Регистрация данных из хранилища озера данных в каталоге данных Azure"
+   pageTitle="Register data from Data Lake Store in Azure Data Catalog | Azure"
+   description="Register data from Data Lake Store in Azure Data Catalog"
    services="data-lake-store,data-catalog" 
    documentationCenter=""
    authors="nitinme"
@@ -16,82 +16,87 @@
    ms.date="08/02/2016"
    ms.author="nitinme"/>
 
-# Регистрация данных из хранилища озера данных в каталоге данных Azure
 
-В этой статье вы узнаете, как интегрировать хранилище озера данных Azure с каталогом данных Azure, чтобы в организации можно было обнаруживать данные с помощью интеграции с каталогом данных. Дополнительные сведения о каталогизации данных см. в разделе [Каталог данных Azure](../data-catalog/data-catalog-what-is-data-catalog.md). Чтобы понять, в каких сценариях можно использовать каталог данных, см. раздел [Типичные сценарии каталога данных Azure](../data-catalog/data-catalog-common-scenarios.md).
+# <a name="register-data-from-data-lake-store-in-azure-data-catalog"></a>Register data from Data Lake Store in Azure Data Catalog
 
-## Предварительные требования
+In this article you will learn how to integrate Azure Data Lake Store with Azure Data Catalog to make your data discoverable within an organization by integrating it with Data Catalog. For more information on cataloging data, see [Azure Data Catalog](../data-catalog/data-catalog-what-is-data-catalog.md). To understand scenarios in which you can use Data Catalog, see [Azure Data Catalog common scenarios](../data-catalog/data-catalog-common-scenarios.md).
 
-Перед началом работы с этим учебником необходимо иметь следующее:
+## <a name="prerequisites"></a>Prerequisites
 
-- **Подписка Azure.**. См. [Бесплатная пробная версия Azure](https://azure.microsoft.com/pricing/free-trial/).
+Before you begin this tutorial, you must have the following:
 
-- **Настройте свою подписку Azure** для использования общедоступной предварительной версии Data Lake Store. См. [инструкции](data-lake-store-get-started-portal.md#signup).
+- **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 
-- **Учетная запись хранилища озера данных Azure**. Следуйте инструкциям в разделе [Приступая к работе с хранилищем озера данных Azure на портале Azure](data-lake-store-get-started-portal.md). Давайте в целях этого учебника создадим учетную запись хранилища данных озера и назовем ее **datacatalogstore**.
+- **Enable your Azure subscription** for Data Lake Store Public Preview. See [instructions](data-lake-store-get-started-portal.md#signup).
 
-	После создания учетной записи передайте в нее пример набора данных. В этом учебнике мы передадим CSV-файлы в папку **AmbulanceData** в [репозитории Git озера данных Azure](https://github.com/Azure/usql/tree/master/Examples/Samples/Data/AmbulanceData/). Чтобы передать данные в контейнер больших двоичных объектов, можно использовать различные клиенты, например [обозреватель хранилищ Azure](http://storageexplorer.com/).
+- **Azure Data Lake Store account**. Follow the instructions at [Get started with Azure Data Lake Store using the Azure Portal](data-lake-store-get-started-portal.md). For this tutorial, let us create a Data Lake Store account called **datacatalogstore**. 
 
-- **Каталог данных Azure**. В организации уже должен быть создан каталог данных Azure. Для каждой организации допускается только один каталог.
+    Once you have created the account, upload a sample data set to it. For this tutorial, let us upload all the .csv files under the **AmbulanceData** folder in the [Azure Data Lake Git Repository](https://github.com/Azure/usql/tree/master/Examples/Samples/Data/AmbulanceData/). You can use various clients, such as [Azure Storage Explorer](http://storageexplorer.com/), to upload data to a blob container.
 
-## Регистрация хранилища озера данных в качестве источника для каталога данных
+- **Azure Data Catalog**. Your organization must already have an Azure Data Catalog created for your organization. Only one catalog is allowed for each organization.
+
+## <a name="register-data-lake-store-as-a-source-for-data-catalog"></a>Register Data Lake Store as a source for Data Catalog
 
 >[AZURE.VIDEO adcwithadl] 
 
-1. Перейдите на страницу `https://azure.microsoft.com/services/data-catalog` и щелкните **Начало работы**.
+1. Go to `https://azure.microsoft.com/services/data-catalog`, and click **Get started**.
 
-2. Войдите на портал каталога данных Azure и щелкните **Опубликовать данные**.
+2. Log into the Azure Data Catalog portal, and click **Publish data**.
 
-	![Регистрация источника данных](./media/data-lake-store-with-data-catalog/register-data-source.png "Регистрация источника данных")
+    ![Register a data source](./media/data-lake-store-with-data-catalog/register-data-source.png "Register a data source")
 
-3. На следующей странице щелкните **Запустить приложение**. На ваш компьютер будет скачан файл манифеста приложения. Дважды щелкните этот файл манифеста, чтобы запустить приложение.
+3. On the next page, click **Launch Application**. This will download the application manifest file on your computer. Double-click the manifest file to start the application.
 
-4. На странице "Приветствие" щелкните **Войти** и введите учетные данные.
+4. On the Welcome page, click **Sign in**, and enter your credentials.
 
-	![Экран приветствия](./media/data-lake-store-with-data-catalog/welcome.screen.png "Экран приветствия")
+    ![Welcome screen](./media/data-lake-store-with-data-catalog/welcome.screen.png "Welcome screen")
 
-5. На странице "Выбор источника данных" выберите **Озеро данных Azure**, а затем нажмите кнопку **Далее**.
+5. On the Select a Data Source page, select **Azure Data Lake**, and then click **Next**.
 
-	![Выберите источник данных](./media/data-lake-store-with-data-catalog/select-source.png "Выберите источник данных")
+    ![Select data source](./media/data-lake-store-with-data-catalog/select-source.png "Select data source")
 
-6. На следующей странице укажите имя учетной записи хранилища озера данных, которую необходимо зарегистрировать в каталоге данных. Оставьте значения по умолчанию для остальных параметров и щелкните **Подключиться**.
+6. On the next page, provide the Data Lake Store account name that you want to register in Data Catalog. Leave the other options as default and then click **Connect**.
 
-	![Подключение к источнику данных](./media/data-lake-store-with-data-catalog/connect-to-source.png "Подключение к источнику данных")
+    ![Connect to data source](./media/data-lake-store-with-data-catalog/connect-to-source.png "Connect to data source")
 
-7. Следующую страницу можно разделить на следующие области.
+7. The next page can be divided into the following segments.
 
-	а. Поле **Иерархия серверов** представляет структуру папки учетной записи хранилища озера данных. **$Root** представляет корень учетной записи хранилища озера данных, а **AmbulanceData** представляет папку, созданную в корне учетной записи хранилища озера данных.
+    a. The **Server Hierarchy** box represents the Data Lake Store account folder structure. **$Root** represents the Data Lake Store account root, and **AmbulanceData** represents the folder created in the root of the Data Lake Store account.
 
-	b. В поле **Доступные объекты** перечислены файлы и папки, расположенные в папке **AmbulanceData**.
+    b. The **Available objects** box lists the files and folders under the **AmbulanceData** folder.
 
-	c. В поле **Объекты для регистрации** перечислены файлы и папки, которые вы хотите зарегистрировать в каталоге данных Azure.
+    c. **Objects to be registered box** lists the files and folders that you want to register in Azure Data Catalog.
 
-	![Просмотр структуры данных](./media/data-lake-store-with-data-catalog/view-data-structure.png "Просмотр структуры данных")
+    ![View data structure](./media/data-lake-store-with-data-catalog/view-data-structure.png "View data structure")
 
-8. В рамках этого учебника необходимо зарегистрировать все файлы в каталоге. Для этого нажмите кнопку (![Перемещение объектов](./media/data-lake-store-with-data-catalog/move-objects.png "Перемещение объектов")), чтобы переместить все файлы в поле **Объекты для регистрации**.
+8. For this tutorial, you should register all the files in the directory. For that, click the (![move objects](./media/data-lake-store-with-data-catalog/move-objects.png "Move objects")) button to move all the files to **Objects to be registered** box. 
 
-	Так как данные будут зарегистрированы в каталоге данных на уровне всей организации, рекомендуется добавить какие-либо метаданные, которые позже можно будет использовать для быстрого поиска данных. Скажем, можно добавить электронный адрес владельца данных (например, того, кто передает данные) или добавить тег для идентификации данных. На снимке экрана ниже показан тег, добавляемый к данным.
+    Because the data will be registered in an organization-wide data catalog, it is a recommened approach to add some metadata which you can later use to quickly locate the data. For example, you can add an e-mail address for the data owner (for example, one who is uploading the data) or add a tag to identify the data. The screen capture below shows a tag that we add to the data.
 
-	![Просмотр структуры данных](./media/data-lake-store-with-data-catalog/view-selected-data-structure.png "Просмотр структуры данных")
+    ![View data structure](./media/data-lake-store-with-data-catalog/view-selected-data-structure.png "View data structure")
 
-	Щелкните **Зарегистрировать**.
+    Click **Register**.
 
-8. На следующем снимке экрана показано, что данные успешно зарегистрированы в каталоге данных.
+8. The following screen capture denotes that the data is successfully registered in the Data Catalog.
 
-	![Регистрация завершена](./media/data-lake-store-with-data-catalog/registration-complete.png "Просмотр структуры данных")
+    ![Registration complete](./media/data-lake-store-with-data-catalog/registration-complete.png "View data structure")
 
-9. Щелкните **Просмотреть портал**, чтобы вернуться на портал каталога данных и убедиться, что теперь вы можете обращаться к зарегистрированным данным на портале. Для поиска данных можно использовать тег, который вы добавили при регистрации данных.
+9. Click **View Portal** to go back to the Data Catalog portal and verify that you can now access the registered data from the portal. To search the data, you can use the tag you used while registering the data.
 
-	![Поиск данных в каталоге](./media/data-lake-store-with-data-catalog/search-data-in-catalog.png "Поиск данных в каталоге")
+    ![Search data in catalog](./media/data-lake-store-with-data-catalog/search-data-in-catalog.png "Search data in catalog")
 
-10. Теперь можно выполнять такие операции, как добавление аннотаций и документации к данным. Дополнительные сведения см. по следующим ссылкам.
-	* [Создание заметок к источникам данных](../data-catalog/data-catalog-how-to-annotate.md)
-	* [Создание документации по источникам данных](../data-catalog/data-catalog-how-to-documentation.md)
+10. You can now perform operations like adding annotations and documentation to the data. For more information, see the following links.
+    * [Annotate data sources in Data Catalog](../data-catalog/data-catalog-how-to-annotate.md)
+    * [Document data sources in Data Catalog](../data-catalog/data-catalog-how-to-documentation.md)
 
-## Дополнительные материалы
+## <a name="see-also"></a>See also
 
-* [Создание заметок к источникам данных](../data-catalog/data-catalog-how-to-annotate.md)
-* [Создание документации по источникам данных](../data-catalog/data-catalog-how-to-documentation.md)
-* [Интеграция хранилища озера данных с другими службами Azure](data-lake-store-integrate-with-other-services.md)
+* [Annotate data sources in Data Catalog](../data-catalog/data-catalog-how-to-annotate.md)
+* [Document data sources in Data Catalog](../data-catalog/data-catalog-how-to-documentation.md)
+* [Integrate Data Lake Store with other Azure services](data-lake-store-integrate-with-other-services.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

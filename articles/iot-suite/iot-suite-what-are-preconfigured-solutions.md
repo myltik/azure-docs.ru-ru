@@ -1,6 +1,6 @@
 <properties
- pageTitle="Предварительно настроенные решения IoT Azure | Microsoft Azure"
- description="Описание предварительно настроенных решений IoT Azure и их архитектуры со ссылками на дополнительные ресурсы."
+ pageTitle="Azure IoT preconfigured solutions | Microsoft Azure"
+ description="A description of the Azure IoT preconfigured solutions and their architecture with links to additional resources."
  services=""
  suite="iot-suite"
  documentationCenter=""
@@ -17,107 +17,108 @@
  ms.date="08/09/2016"
  ms.author="dobett"/>
 
-# Что такое предварительно настроенные решения Azure IoT Suite?
 
-Предварительно настроенные решения Azure IoT Suite — это реализация стандартных шаблонов Центра Интернета вещей, которые вы можете развернуть в Azure в рамках своей подписки. Предварительно настроенные решения можно использовать:
+# <a name="what-are-the-azure-iot-suite-preconfigured-solutions?"></a>What are the Azure IoT Suite preconfigured solutions?
 
-- в качестве отправной точки для собственных решений IoT;
-- для ознакомления с распространенными шаблонами, которые используются при проектировании и разработке решений IoT.
+The Azure IoT Suite preconfigured solutions are implementations of common IoT solution patterns that you can deploy to Azure using your subscription. You can use the preconfigured solutions:
 
-Каждое предварительно настроенное решение — это полная комплексная реализация, в которой для создания данных телеметрии используются виртуальные устройства.
+- As a starting point for your own IoT solutions.
+- To learn about common patterns in IoT solution design and development.
 
-Наряду с развертыванием и запуском решений в Azure можно загрузить полный исходный код, а затем настраивать и расширять решение в соответствии с конкретными требованиями IoT.
+Each preconfigured solution is a complete, end-to-end implementation that uses simulated devices to generate telemetry.
 
-> [AZURE.NOTE] Чтобы развернуть одно из предварительно настроенных решений, посетите страницу [Microsoft Azure IoT Suite][lnk-azureiotsuite]. В [руководстве по началу работы с предварительно настроенными решениями IoT][lnk-getstarted-preconfigured] подробно описывается, как развернуть и запустить одно из таких решений.
+In addition to deploying and running the solutions in Azure, you can download the complete source code and then customize and extend the solution to meet your specific IoT requirements.
 
-В следующей таблице показано соответствие этих решений конкретным функциям IoT.
+> [AZURE.NOTE] To deploy one of the preconfigured solutions, visit [Microsoft Azure IoT Suite][lnk-azureiotsuite]. The article [Get started with the IoT preconfigured solutions][lnk-getstarted-preconfigured] provides more information about how to deploy and run one of the solutions.
 
-| Решение | Прием данных | Идентификация устройства | Команды и управление | Правила и действия | Прогнозная аналитика |
+The following table shows how the solutions map to specific IoT features:
+
+| Solution | Data Ingestion | Device Identity | Command and Control | Rules and Actions | Predictive Analytics |
 |------------------------|-----|-----|-----|-----|-----|
-| [Удаленный мониторинг][lnk-getstarted-preconfigured] | Да | Да | Да | Да | — |
-| [Прогнозное обслуживание][lnk-predictive-maintenance] | Да | Да | Да | Да | Да |
+| [Remote monitoring][lnk-getstarted-preconfigured] | Yes | Yes | Yes | Yes | -   |
+| [Predictive maintenance][lnk-predictive-maintenance] | Yes | Yes | Yes | Yes | Yes |
 
-- *Прием данных*: прием данных в облако в нужном масштабе.
-- *Удостоверение устройства*: управление уникальными идентификаторами всех подключенных устройств.
-- *Команды и управление*: отправка сообщений на устройство из облака для выполнения определенных действий.
-- *Правила и действия*: правила используются в серверной части решения для операций с определенными данными, отправляемыми с устройства в облако.
-- *Прогнозная аналитика*: данные, отправляемые с устройства в облако, анализируются в серверной части решения, что позволяет предсказать время выполнения определенных действий. Пример — анализ данных телеметрии, поступающих от двигателя самолета, который позволяет определить время обслуживания двигателя.
+- *Data ingestion*: Ingress of data at scale to the cloud.
+- *Device identity*: Manage unique identities of every connected device.
+- *Command and control*: Send messages to a device from the cloud to cause the device to take some action.
+- *Rules and actions*: The solution back end uses rules to act on specific device-to-cloud data.
+- *Predictive analytics*: The solution back end applies analyzes device-to-cloud data to predict when specific actions should take place. For example, analyzing aircraft engine telemetry to determine when engine maintenance is due.
 
-## Обзор предварительно настроенного решения для удаленного мониторинга
+## <a name="remote-monitoring-preconfigured-solution-overview"></a>Remote Monitoring preconfigured solution overview
 
-В этой статье мы решили обсудить предварительно настроенное решение для удаленного мониторинга, чтобы проиллюстрировать основные элементы проектирования, используемые другими решениями.
+We have chosen to discuss the remote monitoring preconfigured solution in this article because it illustrates many common design elements that the other solutions share.
 
-На следующей схеме представлены основные элементы решения для удаленного мониторинга. Дополнительные сведения об этих элементах приведены в разделах ниже.
+The following diagram illustrates the key elements of the remote monitoring solution. The sections below provide more information about these elements.
 
-![Архитектура предварительно настроенного решения удаленного мониторинга][img-remote-monitoring-arch]
+![Remote Monitoring preconfigured solution architecture][img-remote-monitoring-arch]
 
-## Устройства
+## <a name="devices"></a>Devices
 
-Когда вы развертываете предварительно настроенные решения удаленного мониторинга, для такого решения заранее подготавливаются четыре виртуальных устройства, которые имитируют устройство охлаждения. Эти виртуальные устройства имеют встроенную модель, которая передает сведения о температуре и влажности в виде данных телеметрии. Эти устройства включены, чтобы проиллюстрировать сквозной поток данных, проходящих через решение. Кроме того, это удобный источник данных телеметрии и целевой объект для команд, который могут использовать разработчики серверной части в качестве отправной точки при создании собственной реализации.
+When you deploy the remote monitoring preconfigured solution, four simulated devices are pre-provisioned in the solution that simulate a cooling device. These simulated devices have a built-in temperature and humidity model that emits telemetry. These simulated devices are included to illustrate the end-to-end flow of data through the solution, and to provide a convenient source of telemetry and a target for commands if you are a back-end developer using the solution as a starting point for a custom implementation.
 
-Когда устройство впервые подключается к центру IoT в рамках предварительно настроенного решения удаленного мониторинга, оно отправляет в центр IoT информационное сообщение. В сообщении содержится список команд, на которые устройство может отвечать. Эти команды представлены ниже.
+When a device first connects to IoT Hub in the remote monitoring preconfigured solution, the device information message sent to the IoT hub enumerates the list of commands that the device can respond to. In the remote monitoring preconfigured solution, the commands are: 
 
-- *Проверка связи с устройством* — устройство отвечает на эту команду подтверждением. Так вы можете убедиться, что устройство по-прежнему активно и находится в состоянии прослушивания.
-- *Начать сбор данных телеметрии* — сообщает устройству о начале отправки данных телеметрии.
-- *Завершить сбор данных телеметрии* — сообщает устройству о завершении отправки данных телеметрии.
-- *Изменить заданную температуру* — контролирует имитированные данные телеметрии (значения температуры), отправляемые устройством. Эта команда используется при тестировании логики серверной части.
-- *Диагностические данные телеметрии* — определяет, должно ли устройство отправить сведения о наружной температуре в качестве данных телеметрии.
-- *Изменить состояние устройства* — задает свойство метаданных состояния устройства, о которых сообщает устройство. Эта команда используется при тестировании логики серверной части.
+- *Ping Device*: The device responds to this command with an acknowledgement. This is useful for checking that the device is still active and listening.
+- *Start Telemetry*: Instructs the device to start sending telemetry.
+- *Stop Telemetry*: Instructs the device to stop sending telemetry.
+- *Change Set Point Temperature*: Controls the simulated temperature telemetry values the device sends. This is useful for testing back-end logic.
+- *Diagnostic Telemetry*: Controls if the device should send the external temperature as telemetry.
+- *Change Device State*.: Sets the device state metadata property that the device reports. This is useful for testing back-end logic.
 
-В решение можно добавить дополнительные виртуальные устройства, которые будут передавать аналогичные данные телеметрии и реагировать на одни и те же команды.
+You can add more simulated devices to the solution that emit the same telemetry and respond to the same commands. 
 
-## Центр IoT
+## <a name="iot-hub"></a>IoT Hub
 
-В этом предварительно настроенном решении экземпляр центра IoT соответствует *облачному шлюзу* в стандартной [архитектуре решения IoT][lnk-what-is-azure-iot].
+In this preconfigured solution, the IoT Hub instance corresponds to the *Cloud Gateway* in a typical [IoT solution architecture][lnk-what-is-azure-iot].
 
-Центр IoT получает данные телеметрии с устройства через одну конечную точку. Центр IoT также поддерживает отдельные конечные точки устройства, через которые каждое устройство может получать отправляемые ему команды.
+An IoT hub receives telemetry from the devices at a single endpoint. An IoT hub also maintains device specific endpoints where each devices can retrieve the commands that are sent to it.
 
-Центр IoT предоставляет доступ к полученным данным телеметрии через конечную точку для чтения таких данных на стороне службы.
+The IoT hub makes the received telemetry available through the service-side telemetry read endpoint.
 
-## Azure Stream Analytics
+## <a name="azure-stream-analytics"></a>Azure Stream Analytics
 
-В предварительно настроенном решении используются три задания службы [Azure Stream Analytics][lnk-asa] \(ASA), которые фильтруют поток поступающих с устройств телеметрических данных.
+The preconfigured solution uses three [Azure Stream Analytics][lnk-asa] (ASA) jobs to filter the telemetry stream from the devices:
 
 
-- *Задание отправки сведений об устройстве*. Выводит данные в концентратор событий, который перенаправляет сообщения, связанные с регистрацией устройства (отправляются при первом подключении такого устройства или в ответ на команду **Изменить состояние устройства**), в реестр устройств решения (база данных DocumentDB).
-- *Задание отправки данных телеметрии*. Отправляет все необработанные данные телеметрии в хранилище BLOB-объектов, где они автономно хранятся в неструктурированном виде, а также вычисляет значения сводных данных телеметрии, отображаемых на панели мониторинга решения.
-- *Задание выполнения правил*. Отфильтровывает поток данных телеметрии, отсеивая значения, превышающие пороговые значения настроенных правил, а также выводит данные в концентратор событий. Когда правило выполняется, в представлении панели мониторинга на портале решения это событие отображается в виде новой строки в таблице журнала оповещений. Кроме того, запускается действие на основе параметров, определенных в представлениях "Правила" и "Действия" на портале решения.
+- *DeviceInfo job* - outputs data to an Event hub that routes device registration specific messages, sent when a device first connects or in response to a **Change device state** command, to the solution device registry (a DocumentDB database). 
+- *Telemetry job* - sends all raw telemetry to Azure blob storage for cold storage and calculates telemetry aggregations that display in the solution dashboard.
+- *Rules job* - filters the telemetry stream for values that exceed any rule thresholds and outputs the data to an Event hub. When a rule fires, the solution portal dashboard view displays this event as a new row in the alarm history table and triggers an action based on the settings defined on the Rules and Actions views in the solution portal.
 
-В этом предварительно настроенном решении задания ASA образуют **серверную часть решения IoT** в стандартной [архитектуре решения IoT][lnk-what-is-azure-iot].
+In this preconfigured solution, the ASA jobs form part of to the **IoT solution back end** in a typical [IoT solution architecture][lnk-what-is-azure-iot].
 
-## Обработчик событий
+## <a name="event-processor"></a>Event processor
 
-В этом предварительно настроенном решении обработчик событий формирует **серверную часть решения IoT** в стандартной [архитектуре решения IoT][lnk-what-is-azure-iot].
+In this preconfigured solution, the event processor forms part of the **IoT solution back end** in a typical [IoT solution architecture][lnk-what-is-azure-iot].
 
-**Задание отправки данных телеметрии** и **задание выполнения правил** отправляют свои выходные данные в концентраторы событий, чтобы эти данные перенаправлялись в другие службы серверной части. Для чтения сообщений из этих концентраторов событий в решении используется экземпляр [EventProcessorHost][lnk-event-processor], который выполняется в рамках [веб-задания][lnk-web-job]. **EventProcessorHost** использует данные **задания отправки данных телеметрии**, чтобы обновить данные устройства в базе данных DocumentDB, а также использует данные **задания выполнения правил**, чтобы вызвать приложение логики и обновить предупреждения, отображаемые на портале решения.
+The **DeviceInfo** and **Rules** ASA jobs send their output to Event hubs for delivery to other back end services. The solution uses an [EventPocessorHost][lnk-event-processor] instance, running in a [WebJob][lnk-web-job], to read the messages from these Event hubs. The **EventProcessorHost** uses the **DeviceInfo** data to update the device data in the DocumentDB database, and uses the **Rules** data to invoke the Logic app and update the alerts display in the solution portal.
 
-## Реестр удостоверений устройств и DocumentDB
+## <a name="device-identity-registry-and-documentdb"></a>Device identity registry and DocumentDB
 
-Каждый центр IoT включает [реестр удостоверений устройств][lnk-identity-registry], в котором хранятся ключи устройств. Центр IoT использует эти сведения для проверки подлинности устройств: для подключения к концентратору устройство должно иметь действительный ключ и оно должно быть зарегистрированным.
+Every IoT hub includes a [device identity registry][lnk-identity-registry] that stores device keys. IoT Hub uses this information authenticate devices - a device must be registered and have a valid key before it can connect to the hub.
 
-Это решение содержит дополнительные сведения об устройствах, включая сведения о состоянии, поддерживаемых командах и другие метаданные. Для хранения собственных данных об этом устройстве решение использует базу данных DocumentDB. Портал решения извлекает данные из базы данных DocumentDB для отображения и редактирования.
+This solution stores additional information about devices such as their state, the commands they support, and other metadata. The solution uses a DocumentDB database to store this solution-specific device data and the solution portal retrieves data from this DocumentDB database for display and editing.
 
-Решение также должно обеспечивать синхронизацию данных в реестре удостоверений устройств с содержимым базы данных DocumentDB. Для управления синхронизацией экземпляр **EventProcessorHost** использует данные **задания отправки данных телеметрии** Stream Analytics.
+The solution must also keep the information in the device identity registry synchronized with the contents of the DocumentDB database. The **EventProcessorHost** uses the data from **DeviceInfo** stream analytics job to manage the synchronization.
 
-## Портал решения
+## <a name="solution-portal"></a>Solution portal
 
-![Панель мониторинга решения][img-dashboard]
+![Solution dashboard][img-dashboard]
 
-Портал решения представляет собой веб-интерфейс, разворачиваемый в облаке в составе предварительно настроенного решения. Он позволяет:
+The solution portal is a web-based UI that is deployed to the cloud as part of the preconfigured solution. It enables you to:
 
-- просматривать данные телеметрии и историю оповещений на панели мониторинга;
-- подготавливать новые устройства;
-- осуществлять управление и мониторинг устройств;
-- отправлять команды на определенные устройства;
-- управлять правилами и действиями.
+- View telemetry and alarm history in a dashboard.
+- Provision new devices.
+- Manage and monitor devices.
+- Send commands to specific devices.
+- Manage rules and actions.
 
-В этом предварительно настроенном решении портал представляет собой часть **серверного решения IoT**, а также часть системы, отвечающую за **обработку данных и подключение к устройствам организации**, в стандартной [архитектуре решения IoT][lnk-what-is-azure-iot].
+In this preconfigured solution, the solution portal forms part of the **IoT solution back end** and part of the **Processing and business connectivity** in the typical [IoT solution architecture][lnk-what-is-azure-iot].
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Next steps
 
-Дополнительные сведения об архитектурах решений IoT см. в документе [Эталонная архитектура служб IoT Microsoft Azure][lnk-refarch].
+For more information about IoT solution architectures, see [Microsoft Azure IoT services: Reference Architecture][lnk-refarch].
 
-Теперь вы знаете, что такое предварительно настроенное решение, и можете приступить к развертыванию предварительно настроенного решения для *удаленного мониторинга*. См. статью [Начало работы с предварительно настроенными решениями][lnk-getstarted-preconfigured].
+Now you know what a preconfigured solution is, you can get started by deploying the *remote monitoring* preconfigured solution: [Get started with the preconfigured solutions][lnk-getstarted-preconfigured].
 
 [img-remote-monitoring-arch]: ./media/iot-suite-what-are-preconfigured-solutions/remote-monitoring-arch1.png
 [img-dashboard]: ./media/iot-suite-what-are-preconfigured-solutions/dashboard.png
@@ -131,4 +132,7 @@
 [lnk-refarch]: http://download.microsoft.com/download/A/4/D/A4DAD253-BC21-41D3-B9D9-87D2AE6F0719/Microsoft_Azure_IoT_Reference_Architecture.pdf
 [lnk-getstarted-preconfigured]: iot-suite-getstarted-preconfigured-solutions.md
 
-<!---HONumber=AcomDC_1005_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

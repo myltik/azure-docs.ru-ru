@@ -1,6 +1,6 @@
 <properties 
-    pageTitle="Руководство. Интеграция Azure Active Directory с Mindflash | Microsoft Azure" 
-    description="Узнайте, как использовать Mindflash с Azure Active Directory для включения единого входа, автоматической подготовки пользователей и выполнения других задач." 
+    pageTitle="Tutorial: Azure Active Directory integration with Mindflash | Microsoft Azure" 
+    description="Learn how to use Mindflash with Azure Active Directory to enable single sign-on, automated provisioning, and more!" 
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
@@ -11,125 +11,131 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="07/08/2016" 
+    ms.date="09/29/2016" 
     ms.author="jeedes" />
 
-#Руководство. Интеграция Azure Active Directory с Mindflash
+
+#<a name="tutorial:-azure-active-directory-integration-with-mindflash"></a>Tutorial: Azure Active Directory integration with Mindflash
   
-Цель данного руководства — продемонстрировать интеграцию Azure и Mindflash. Сценарий, описанный в этом учебнике, предполагает, что у вас уже имеется:
+The objective of this tutorial is to show the integration of Azure and Mindflash.  
+The scenario outlined in this tutorial assumes that you already have the following items:
 
--   Действующая подписка на Azure
--   Подписка на Mindflash с поддержкой единого входа
+-   A valid Azure subscription
+-   A Mindflash single sign-on enabled subscription
   
-После завершения этого руководства пользователи Azure AD, назначенные Mindflash, будут иметь возможность единого входа в приложение на веб-сайте компании Mindflash (вход, инициированный поставщиком услуг) или с помощью инструкций из статьи [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
+After completing this tutorial, the Azure AD users you have assigned to Mindflash will be able to single sign into the application at your Mindflash company site (service provider initiated sign on), or using the [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
   
-Сценарий, описанный в этом учебнике, состоит из следующих блоков:
+The scenario outlined in this tutorial consists of the following building blocks:
 
-1.  Включение интеграции приложений для Mindflash
-2.  Настройка единого входа
-3.  Настройка подготовки учетных записей пользователей
-4.  Назначение пользователей
+1.  Enabling the application integration for Mindflash
+2.  Configuring single sign-on
+3.  Configuring user provisioning
+4.  Assigning users
 
-![Сценарий](./media/active-directory-saas-mindflash-tutorial/IC787132.png "Сценарий")
-##Включение интеграции приложений для Mindflash
+![Scenario](./media/active-directory-saas-mindflash-tutorial/IC787132.png "Scenario")
+##<a name="enabling-the-application-integration-for-mindflash"></a>Enabling the application integration for Mindflash
   
-В этом разделе показано, как включить интеграцию приложений для Mindflash.
+The objective of this section is to outline how to enable the application integration for Mindflash.
 
-###Чтобы включить интеграцию приложений для Mindflash, выполните следующие действия.
+###<a name="to-enable-the-application-integration-for-mindflash,-perform-the-following-steps:"></a>To enable the application integration for Mindflash, perform the following steps:
 
-1.  На классическом портале Azure в области навигации слева щелкните **Active Directory**.
+1.  In the Azure classic portal, on the left navigation pane, click **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-mindflash-tutorial/IC700993.png "Active Directory")
 
-2.  Из списка **Каталог** выберите каталог, для которого нужно включить интеграцию каталогов.
+2.  From the **Directory** list, select the directory for which you want to enable directory integration.
 
-3.  Чтобы открыть представление приложений, в представлении каталога нажмите **Приложения** в верхнем меню.
+3.  To open the applications view, in the directory view, click **Applications** in the top menu.
 
-    ![Приложения](./media/active-directory-saas-mindflash-tutorial/IC700994.png "Приложения")
+    ![Applications](./media/active-directory-saas-mindflash-tutorial/IC700994.png "Applications")
 
-4.  В нижней части страницы нажмите кнопку **Добавить**.
+4.  Click **Add** at the bottom of the page.
 
-    ![Добавление приложения](./media/active-directory-saas-mindflash-tutorial/IC749321.png "Добавление приложения")
+    ![Add application](./media/active-directory-saas-mindflash-tutorial/IC749321.png "Add application")
 
-5.  В диалоговом окне **Что необходимо сделать?** нажмите **Добавить приложение из коллекции**.
+5.  On the **What do you want to do** dialog, click **Add an application from the gallery**.
 
-    ![Добавить приложение из коллекции](./media/active-directory-saas-mindflash-tutorial/IC749322.png "Добавить приложение из коллекции")
+    ![Add an application from gallerry](./media/active-directory-saas-mindflash-tutorial/IC749322.png "Add an application from gallerry")
 
-6.  В **поле поиска** введите **Mindflash**.
+6.  In the **search box**, type **Mindflash**.
 
-    ![Коллекция приложений](./media/active-directory-saas-mindflash-tutorial/IC787133.png "Коллекция приложений")
+    ![Application Gallery](./media/active-directory-saas-mindflash-tutorial/IC787133.png "Application Gallery")
 
-7.  В области результатов выберите **Mindflash** и нажмите кнопку **Завершить**, чтобы добавить приложение.
+7.  In the results pane, select **Mindflash**, and then click **Complete** to add the application.
 
     ![Mindflash](./media/active-directory-saas-mindflash-tutorial/IC787134.png "Mindflash")
-##Настройка единого входа
+##<a name="configuring-single-sign-on"></a>Configuring single sign-on
   
-В этом разделе показано, как разрешить пользователям проходить проверку подлинности в Mindflash со своей учетной записью Azure AD, используя федерацию на основе протокола SAML.
+The objective of this section is to outline how to enable users to authenticate to Mindflash with their account in Azure AD using federation based on the SAML protocol.
 
-###Чтобы настроить единый вход, выполните следующие действия.
+###<a name="to-configure-single-sign-on,-perform-the-following-steps:"></a>To configure single sign-on, perform the following steps:
 
-1.  На странице интеграции с приложением **Mindflash** классического портала Azure щелкните **Настройка единого входа**, чтобы открыть диалоговое окно **Настройка единого входа**.
+1.  In the Azure classic portal, on the **Mindflash** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
 
-    ![Настройка единого входа](./media/active-directory-saas-mindflash-tutorial/IC787135.png "Настройка единого входа")
+    ![Configure Single Sign-On](./media/active-directory-saas-mindflash-tutorial/IC787135.png "Configure Single Sign-On")
 
-2.  На странице **Как пользователи должны входить в Mindflash?** выберите **Единый вход Microsoft Azure AD** и нажмите кнопку **Далее**.
+2.  On the **How would you like users to sign on to Mindflash** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
-    ![Настройка единого входа](./media/active-directory-saas-mindflash-tutorial/IC787136.png "Настройка единого входа")
+    ![Configure Single Sign-On](./media/active-directory-saas-mindflash-tutorial/IC787136.png "Configure Single Sign-On")
 
-3.  На странице **Настроить URL-адрес приложения** в текстовом поле **URL-адрес для входа** введите свой URL-адрес в формате "*http://company.mindflash.com*", а затем нажмите кнопку **Далее**.
+3.  On the **Configure App URL** page, in the **Sign On URL** textbox, type your URL using the following pattern "*http://company.mindflash.com*", and then click **Next**.
 
-    ![Настройка URL-адреса приложения](./media/active-directory-saas-mindflash-tutorial/IC787137.png "Настройка URL-адреса приложения")
+    ![Configure App URL](./media/active-directory-saas-mindflash-tutorial/IC787137.png "Configure App URL")
 
-4.  На странице **Настройка единого входа в Mindflash** нажмите кнопку **Загрузить метаданные**, а затем сохраните файл метаданных на локальном компьютере.
+4.  On the **Configure single sign-on at Mindflash** page, click **Download metadata**, and then save the metadata file on your computer.
 
-    ![Настройка единого входа](./media/active-directory-saas-mindflash-tutorial/IC787138.png "Настройка единого входа")
+    ![Configure Single Sign-On](./media/active-directory-saas-mindflash-tutorial/IC787138.png "Configure Single Sign-On")
 
-5.  Отправьте файл метаданных в службу поддержки Mindflash.
+5.  Send the metadatafile to the Mindflash support team.
 
-    >[AZURE.NOTE] Настройка единого входа должна выполняться службой поддержки Mindflash. Сразу же после завершения настройки вы получите уведомление.
+    >[AZURE.NOTE] The single sign-on configuration has to be performed by the Mindflash support team. You will get a notification as soon as the configuration has been completed.
 
-6.  На классическом портале Azure выберите подтверждение конфигурации единого входа, а затем нажмите кнопку **Завершить**, чтобы закрыть диалоговое окно **Настройка единого входа**.
+6.  On the Azure classic portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
 
-    ![Настройка единого входа](./media/active-directory-saas-mindflash-tutorial/IC787139.png "Настройка единого входа")
-##Настройка подготовки учетных записей пользователей
+    ![Configure Single Sign-On](./media/active-directory-saas-mindflash-tutorial/IC787139.png "Configure Single Sign-On")
+##<a name="configuring-user-provisioning"></a>Configuring user provisioning
   
-Чтобы разрешить пользователям Azure AD вход в Mindflash, они должны быть подготовлены для Mindflash. В случае с Mindflash подготовка выполняется вручную.
+In order to enable Azure AD users to log into Mindflash, they must be provisioned into Mindflash.  
+In the case of Mindflash, provisioning is a manual task.
 
-###Чтобы подготовить учетные записи пользователей, выполните следующие действия.
+###<a name="to-provision-a-user-accounts,-perform-the-following-steps:"></a>To provision a user accounts, perform the following steps:
 
-1.  Выполните вход в **Mindflash** на веб-сайте компании в качестве администратора.
+1.  Log in to your **Mindflash** company site as an administrator.
 
-2.  Перейдите в раздел **Управление пользователями**.
+2.  Go to **Manage Users**.
 
-    ![Управление пользователями](./media/active-directory-saas-mindflash-tutorial/IC787140.png "Управление пользователями")
+    ![Manage Users](./media/active-directory-saas-mindflash-tutorial/IC787140.png "Manage Users")
 
-3.  Нажмите **Добавить пользователей**, затем нажмите **Создать**.
+3.  Click the **Add Users**, and then click **New**.
 
-4.  В разделе **Добавление новых пользователей** выполните следующие действия.
+4.  In the **Add New Users** section, perform the following steps:
 
-    ![Добавить новых пользователей](./media/active-directory-saas-mindflash-tutorial/IC787141.png "Добавить новых пользователей")
+    ![Add New Users](./media/active-directory-saas-mindflash-tutorial/IC787141.png "Add New Users")
 
-    1.  Заполните текстовые поля **Имя**, **Фамилия** и **Электронная почта** данными действующей учетной записи AAD, которую необходимо подготовить.
-    2.  Щелкните **Добавить**.
+    1.  Type the **First name**, **Last name** and **Email** of a valid AAD account you want to provision into the related textboxes.
+    2.  Click **Add**.
 
->[AZURE.NOTE]Для подготовки учетных записей пользователей AAD можно использовать любые другие средства создания учетных записей Mindflash или API, предоставляемое Mindflash.
+>[AZURE.NOTE]You can use any other Mindflash user account creation tools or APIs provided by Mindflash to provision AAD user accounts.
 
-##Назначение пользователей
+##<a name="assigning-users"></a>Assigning users
   
-Чтобы проверить свою конфигурацию, предоставьте пользователям Azure AD, которые должны использовать приложение, доступ путем их назначения.
+To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.
 
-###Чтобы назначить пользователей Mindflash, выполните следующие действия.
+###<a name="to-assign-users-to-mindflash,-perform-the-following-steps:"></a>To assign users to Mindflash, perform the following steps:
 
-1.  На классическом портале Azure создайте тестовую учетную запись.
+1.  In the Azure classic portal, create a test account.
 
-2.  На странице интеграции с приложением **Mindflash** щелкните **Назначить пользователей**.
+2.  On the **Mindflash **application integration page, click **Assign users**.
 
-    ![Назначить пользователей](./media/active-directory-saas-mindflash-tutorial/IC787142.png "Назначить пользователей")
+    ![Assign users](./media/active-directory-saas-mindflash-tutorial/IC787142.png "Assign users")
 
-3.  Выберите тестового пользователя, нажмите кнопку **Назначить**, а затем — **Да**, чтобы подтвердить назначение.
+3.  Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.
 
-    ![Да](./media/active-directory-saas-mindflash-tutorial/IC767830.png "Да")
+    ![Yes](./media/active-directory-saas-mindflash-tutorial/IC767830.png "Yes")
   
-Если вы хотите проверить параметры единого входа, откройте панель доступа. Дополнительные сведения о панели доступа см. в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
+If you want to test your single sign-on settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0713_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

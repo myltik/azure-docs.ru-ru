@@ -1,42 +1,43 @@
 <properties
-	pageTitle="Применение политик к виртуальным машинам Azure Resource Manager | Microsoft Azure"
-	description="Как применить политику к виртуальной машине Azure Resource Manager на основе Linux"
-	services="virtual-machines-linux"
-	documentationCenter=""
-	authors="singhkays"
-	manager="timlt"
-	editor=""
-	tags="azure-resource-manager"/>
+    pageTitle="Apply policies to Azure Resource Manager Virtual Machines | Microsoft Azure"
+    description="How to apply a policy to an Azure Resource Manager Linux Virtual Machine"
+    services="virtual-machines-linux"
+    documentationCenter=""
+    authors="singhkays"
+    manager="timlt"
+    editor=""
+    tags="azure-resource-manager"/>
 
 <tags
-	ms.service="virtual-machines-linux"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-linux"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="04/13/2016"
-	ms.author="singhkay"/>
+    ms.service="virtual-machines-linux"
+    ms.workload="infrastructure-services"
+    ms.tgt_pltfrm="vm-linux"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="04/13/2016"
+    ms.author="singhkay"/>
 
-# Применение политик к виртуальным машинам Azure Resource Manager
 
-С помощью политик организация может обеспечить выполнение различных норм и правил во всей организации. Обязательные для выполнения стандарты поведения помогают снизить риск, что способствует успешной деятельности организации. В этой статье мы расскажем, как определить требуемое поведение для виртуальных машин вашей организации с помощью политик Azure Resource Manager.
+# <a name="apply-policies-to-azure-resource-manager-virtual-machines"></a>Apply policies to Azure Resource Manager Virtual Machines
 
-Ниже представлены шаги для реализации вертикального масштабирования.
+By using policies, an organization can enforce various conventions and rules throughout the enterprise. Enforcement of the desired behavior can help mitigate risk while contributing to the success of the organization. In this article, we will describe how you can use Azure Resource Manager policies to define the desired behavior for your organization’s Virtual Machines.
 
-1. Политика Azure Resource Manager 101
-2. Определение политики для виртуальной машины
-3. Создание политики
-4. Применение политики
+The outline for the steps to accomplish this is as below
 
-## Политика Azure Resource Manager 101
+1. Azure Resource Manager Policy 101
+2. Define a policy for your Virtual Machine
+3. Create the policy
+4. Apply the policy
 
-Чтобы начать работу с политиками диспетчера ресурсов Azure, рекомендуется прочесть статью ниже, а затем выполнить действия, описанные в этой статье. В статье ниже описываются базовое определение, структура и оценка политики, а также приводятся различные примеры определений политики.
+## <a name="azure-resource-manager-policy-101"></a>Azure Resource Manager Policy 101
 
-* [Применение политик для управления ресурсами и контроля доступа](../resource-manager-policy.md)
+For getting started with Azure Resource Manager policies, we recommend reading the article below and then continuing with the steps in this article. The article below describes the basic definition and structure of a policy, how policies get evaluated and gives various examples of policy definitions.
 
-## Определение политики для виртуальной машины
+* [Use Policy to manage resources and control access](../resource-manager-policy.md)
 
-Один из самых распространенных сценариев для организации состоит в том, что пользователям разрешается создавать виртуальные машины только на основе заданного набора операционных систем, которые были протестированы на совместимость с бизнес-приложением. С помощью политики Azure Resource Manager эту задачу можно выполнить за несколько шагов. В данном примере политики мы собираемся разрешить только создание виртуальных машин на основе Ubuntu 14.04.2-LTS. Определение политики приведено ниже.
+## <a name="define-a-policy-for-your-virtual-machine"></a>Define a policy for your Virtual Machine
+
+One of the common scenarios for an enterprise might be to only allow their users to create Virtual Machines from specific operating systems that have been tested to be compatible with a LOB application. Using an Azure Resource Manager policy this task can be accomplished in a few steps. In this policy example, we are going to allow only Ubuntu 14.04.2-LTS Virtual Machines to be created. The policy definition looks like below
 
 ```
 "if": {
@@ -70,7 +71,7 @@
 }
 ```
 
-Приведенную выше политику можно легко превратить в сценарий, в котором для виртуальной машины разрешается использовать любой образ Ubuntu LTS. Для этого выполните следующее изменение:
+The above policy can easily be modified to a scenario where you might want to allow any Ubuntu LTS image to be used for a Virtual Machine deployment with the below change
 
 ```
 {
@@ -79,31 +80,35 @@
 }
 ```
 
-#### Поля свойств виртуальной машины
+#### <a name="virtual-machine-property-fields"></a>Virtual Machine Property Fields
 
-В следующей таблице описываются свойства виртуальной машины, которые можно использовать в качестве полей в определении политики. Дополнительные сведения о полях политики см. в следующей статье:
+The table below describes the Virtual Machine properties that can be used as fields in your policy definition. For more on policy fields, see the article below:
 
-* [Поля и источники](../resource-manager-policy.md#fields-and-sources)
+* [Fields and Sources](../resource-manager-policy.md#fields-and-sources)
 
 
-| Имя поля | Description (Описание) |
+| Field Name     | Description                                        |
 |----------------|----------------------------------------------------|
-| imagePublisher | Указывает издателя образа |
-| imageOffer | Указывает предложение для выбранного издателя образа |
-| imageSku | Указывает номер SKU для выбранного предложения |
-| imageVersion | Указывает версию образа для выбранного номера SKU |
+| imagePublisher | Specifies the publisher of the image               |
+| imageOffer     | Specifies the offer for the chosen image publisher |
+| imageSku       | Specifies the SKU for the chosen offer             |
+| imageVersion   | Specifies the image version for the chosen SKU     |
 
-## Создание политики
+## <a name="create-the-policy"></a>Create the Policy
 
-Политику можно легко создать напрямую в API REST или с помощью командлетов PowerShell. Для создания политики обратитесь к следующей статье:
+A policy can easily be created using the REST API directly or the PowerShell cmdlets. For creating the policy, see the article below:
 
-* [Создание политики](../resource-manager-policy.md#creating-a-policy)
+* [Creating a Policy](../resource-manager-policy.md#creating-a-policy)
 
 
-## Применение политики
+## <a name="apply-the-policy"></a>Apply the Policy
 
-После создания политики необходимо применить ее к заданной области. Областью может быть подписка, группа ресурсов или даже ресурс. Для применения политики обратитесь к следующей статье:
+After creating the policy you’ll need to apply it on a defined scope. The scope can be a subscription, resource group or even the resource. For applying the policy, see the article below:
 
-* [Создание политики](../resource-manager-policy.md#applying-a-policy)
+* [Creating a Policy](../resource-manager-policy.md#applying-a-policy)
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

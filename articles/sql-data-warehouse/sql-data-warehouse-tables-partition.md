@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Секционирование таблиц в хранилище данных SQL | Microsoft Azure"
-   description="Начало работы с секционированием таблиц в хранилище данных SQL Azure."
+   pageTitle="Partitioning tables in SQL Data Warehouse | Microsoft Azure"
+   description="Getting started with table partitioning in Azure SQL Data Warehouse."
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="jrowlandjones"
@@ -16,44 +16,45 @@
    ms.date="07/18/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
-# Секционирование таблиц в хранилище данных SQL
+
+# <a name="partitioning-tables-in-sql-data-warehouse"></a>Partitioning tables in SQL Data Warehouse
 
 > [AZURE.SELECTOR]
-- [Обзор][]
-- [Типы данных][]
-- [Распределение][]
-- [Индекс][]
-- [Секция][]
-- [Статистика][]
-- [Временные таблицы][]
+- [Overview][]
+- [Data Types][]
+- [Distribute][]
+- [Index][]
+- [Partition][]
+- [Statistics][]
+- [Temporary][]
 
-Секционирование поддерживается для всех типов таблиц хранилища данных SQL, включая таблицы с кластеризованным индексом Columnstore, кластеризованным индексом и кучу. Секционирование также поддерживается для всех типов распределения, включая распределение с помощью хэша или методом циклического перебора. Путем секционирования данные можно разделить на маленькие группы. В большинстве случаев секционирование осуществляется по столбцу дат.
+Partitioning is supported on all SQL Data Warehouse table types; including clustered columnstore, clustered index, and heap.  Partitioning is also supported on all distribution types, including both hash or round robin distributed.  Partitioning enables you to divide your data into smaller groups of data and in most cases, partitioning is done on a date column.
 
-## Преимущества секционирования
+## <a name="benefits-of-partitioning"></a>Benefits of partitioning
 
-Секционирование позволяет упростить операции обслуживания данных и повысить производительность запросов. Однако не всегда можно получить оба преимущества. Это зависит от способа загрузки данных и возможности использования одного столбца для обоих целей, так как секционирование может быть выполнено только по одному столбцу.
+Partitioning can benefit data maintenance and query performance.  Whether it benefits both or just one is dependent on how data is loaded and whether the same column can be used for both purposes, since partitioning can only be done on one column.
 
-### Преимущества для нагрузок
+### <a name="benefits-to-loads"></a>Benefits to loads
 
-Основное преимущество секционирования в хранилище данных SQL — повышение эффективности и производительности загрузки данных с помощью удаления, переключения и объединения секций. В большинстве случаев данные секционируются по столбцу даты, тесно связанному с последовательностью загрузки данных в базу данных. Одно из наиболее значительных преимуществ использования секций для управления данными — то, что журнал транзакций вести не обязательно. Хотя намного проще использовать обычные операции вставки, обновления и удаления данных, которые не требуют много внимания и усилий, применение секционирования при загрузке может существенно повысить производительность.
+The primary benefit of partitioning in SQL Data Warehouse is improve the efficiency and performance of loading data by use of partition deletion, switching and merging.  In most cases data is partitioned on a date column that is closely tied to the sequence which the data is loaded to the database.  One of the greatest benefits of using partitions to maintain data it the avoidance of transaction logging.  While simply inserting, updating or deleting data can be the most straightforward approach, with a little thought and effort, using partitioning during your load process can substantially improve performance.
 
-С помощью переключения секций можно быстро удалить или заменить часть таблицы. Например, таблица фактов по продажам может содержать только данные за последние 36 месяцев. В конце каждого месяца данные о продажах за самый давний месяц удаляются из таблицы. Удалить эти данные можно с использованием инструкции DELETE. Тем не менее построчное удаление большого объема данных с помощью инструкции DELETE может занять очень много времени, а также создать риск больших транзакций, для отката которых в случае неполадки также понадобится продолжительное время. Более оптимальный подход — просто удалить самую давнюю секцию данных. Если удаление отдельных строк может занять несколько часов, то удаление всей секции — несколько секунд.
+Partition switching can be used to quickly remove or replace a section of a table.  For example, a sales fact table might contain just data for the past 36 months.  At the end of every month, the oldest month of sales data is deleted from the table.  This data could be deleted by using a delete statement to delete the data for the oldest month.  However, deleting a large amount of data row-by-row with a delete statement can take a very long time, as well as create the risk of large transactions which could take a long time to rollback if something goes wrong.  A more optimal approach is to simply drop the oldest partition of data.  Where deleting the individual rows could take hours, deleting an entire partition could take seconds.
 
-### Преимущества для запросов
+### <a name="benefits-to-queries"></a>Benefits to queries
 
-С помощью секционирования также можно повысить производительность запросов. Если при выполнении запроса к секционированному столбцу применяется фильтр, проверка ограничивается только подходящими секциями, которые могут составлять небольшое подмножество данных. Таким образом, вся таблица не будет отсканирована. С появлением кластеризованных индексов Columnstore преимущества производительности исключений предикатов менее существенны, но в некоторых случаях они могут быть эффективны для запросов. Например, если таблица фактов по продажам разделена на 36 месяцев с помощью поля дат продаж, запросы, выполняющие фильтрацию на основе даты продажи, могут пропускать секции, которые не соответствуют условиям фильтра.
+Partitioning can also be used to improve query performance.  If a query applies a filter on a partitioned column, this can limit the scan to only the qualifying partitions which may be a much smaller subset of the data, avoiding a full table scan.  With the introduction of clustered columnstore indexes, the predicate elimination performance benefits are less beneficial, but in some cases there can be a benefit to queries.  For example, if the sales fact table is partitioned into 36 months using the sales date field, then queries that filter on the sale date can skip searching in partitions that don’t match the filter.
 
-## Руководство по определению размеров секции
+## <a name="partition-sizing-guidance"></a>Partition sizing guidance
 
-Хотя секционирование повышает производительность в ряде сценариев, в некоторых случаях создание таблицы со **слишком большим количеством** секций может повлечь снижение производительности. В частности, это свойственно для таблиц с кластеризированными индексами Columnstore. Чтобы секционирование было эффективным, нужно понимать, когда следует его использовать и сколько секций необходимо создать. Нет твердо установленного правила, регламентирующего количество секций. Это зависит от данных и числа секций, в которые одновременно выполняется загрузка. Однако рекомендуется добавлять десятки или сотни секций, а не тысячи.
+While partitioning can be used to improve performance some scenarios, creating a table with **too many** partitions can hurt performance under some circumstances.  These concerns are especially true for clustered columnstore tables.  For partitioning to be helpful, it is important to understand when to use partitioning and the number of partitions to create.  There is no hard fast rule as to how many partitions are too many, it depends on your data and how many partitions you are loading to simultaneously.  But as a general rule of thumb, think of adding 10s to 100s of partitions, not 1000s.
 
-При секционировании таблиц с **кластеризованными индексами Columnstore** важно учитывать, сколько строк будет содержать каждая секция. Для оптимального сжатия и производительности таких таблиц требуется как минимум 1 миллион строк на одно распределение и одну секцию. Еще до создания секций хранилище данных SQL делит каждую таблицу на 60 распределенных баз данных. Таким образом, секционирование таблицы выступает дополнением к распределениям, созданным в фоновом режиме. Вернемся к нашему примеру. Если таблица фактов по продажам содержит 36 секций по месяцам, а хранилище данных SQL содержит 60 распределений, то за каждый месяц в таблице должно содержаться 60 миллионов строк, то есть 2,1 миллиарда строк при заполнении данных за все месяцы. Если количество строк в таблице гораздо меньше рекомендуемого минимума на одну секцию, следует использовать меньше секций, чтобы увеличить количество строк в каждой из них. См. также статью об [индексировании][Index], в которой рассматриваются запросы, которые можно выполнять в хранилище данных SQL, чтобы оценить качество кластеризованных индексов Columnstore.
+When creating partitioning on **clustered columnstore** tables, it is important to consider how many rows will land in each partition.  For optimal compression and performance of clustered columnstore tables, a minimum of 1 million rows per distribution and partition is needed.  Before partitions are created, SQL Data Warehouse already divides each table into 60 distributed databases.  Any partitioning added to a table is in addition to the distributions created behind the scenes.  Using this example, if the sales fact table contained 36 monthly partitions, and given that SQL Data Warehouse has 60 distributions, then the sales fact table should contain 60 million rows per month, or 2.1 billion rows when all months are populated.  If a table contains significantly less rows than the recommended minimum number of rows per partition, consider using fewer partitions in order to make increase the number of rows per partition.  Also see the [Indexing][Index] article which includes queries that can be run on SQL Data Warehouse to assess the quality of cluster columnstore indexes.
 
-## Отличие синтаксиса от SQL Server
+## <a name="syntax-difference-from-sql-server"></a>Syntax difference from SQL Server
 
-В хранилище данных SQL применяется упрощенное определение секций, которое несколько отличается от аналогичного определения в SQL Server. В хранилище данных SQL функции и схемы секционирования используются не так, как в SQL Server. Вам нужно только определить секционированный столбец и граничные точки. Хотя синтаксис секционирования может немного отличаться от синтаксиса SQL Server, основные понятия одинаковые. В SQL Server и хранилище данных SQL поддерживается по одному секционированному столбцу на таблицу, которую можно секционировать по диапазонам. Дополнительные сведения о секционировании см. в статье [Секционированные таблицы и индексы][].
+SQL Data Warehouse introduces a simplified definition of partitions which is slightly different from SQL Server.  Partitioning functions and schemes are not used in SQL Data Warehouse as they are in SQL Server.  Instead, all you need to do is identify partitioned column and the boundary points.  While the syntax of partitioning may be slightly different from SQL Server, the basic concepts are the same.  SQL Server and SQL Data Warehouse support one partition column per table, which can be ranged partition.  To learn more about partitioning, see [Partitioned Tables and Indexes][].
 
-В приведенном ниже примере секционирования хранилища данных SQL с помощью инструкции [CREATE TABLE][] таблица FactInternetSales разбивается по столбцу OrderDateKey.
+The below example of a SQL Data Warehouse partitioned [CREATE TABLE][] statement, partitions the FactInternetSales table on the OrderDateKey column:
 
 ```sql
 CREATE TABLE [dbo].[FactInternetSales]
@@ -79,14 +80,14 @@ WITH
 ;
 ```
 
-## Перенос секционирования из SQL Server
+## <a name="migrating-partitioning-from-sql-server"></a>Migrating partitioning from SQL Server
 
-Чтобы перенести определения секций SQL Server в хранилище данных SQL, нужно сделать следующее:
+To migrate SQL Server partition definitions to SQL Data Warehouse simply:
 
-- удалить [схему секционирования][] SQL Server;
-- добавить определение [функции секционирования][] в инструкцию CREATE TABLE.
+- Eliminate the SQL Server [partition scheme][].
+- Add the [partition function][] definition to your CREATE TABLE.
 
-Если вы переносите секционированную таблицу из экземпляра SQL Server, количество строк в каждой секции можно запросить с помощью приведенного ниже алгоритма SQL. Имейте в виду, что если в хранилище данных SQL используется такая же степень детализации секционирования, то количество строк в секции уменьшится в 60 раз.
+If you are migrating a partitioned table from a SQL Server instance the below SQL can help you to interrogate the number of rows that are in each partition.  Keep in mind that if the same partitioning granularity is used on SQL Data Warehouse, the number of rows per partition will decrease by a factor of 60.  
 
 ```sql
 -- Partition information for a SQL Server Database
@@ -122,39 +123,39 @@ GROUP BY    s.[name]
 ;
 ```
 
-## Управление рабочей нагрузкой
+## <a name="workload-management"></a>Workload management
 
-Последнее, что необходимо учитывать при принятии решения о секции таблицы, это [управление рабочими нагрузками][]. Управление рабочими нагрузками в хранилище данных SQL — это главным образом управление памятью и параллелизмом. В хранилище данных SQL максимальный объем памяти, выделяемой для каждого распределения во время выполнения запроса, регулируется классами ресурсов. Теоретически размер секций будет определен с учетом других факторов, таких как объем памяти, необходимый для создания кластеризованных индексов Columnstore. Кластеризованные индексы Columnstore наиболее эффективны, когда для них выделяется больший объем памяти. Поэтому необходимо убедиться, что при перестроении индекса секции отсутствует нехватка памяти. Увеличить объем памяти для запроса можно, переключившись с роли по умолчанию (smallrc) на другую роль, например largerc.
+One final piece consideration to factor in to the table partition decision is [workload management][].  Workload management in SQL Data Warehouse is primarily the management of memory and concurrency.  In SQL Data Warehouse the maximum memory allocated to each distribution during query execution is governed resource classes.  Ideally your partitions will be sized in consideration of other factors like the memory needs of building clustered columnstore indexes.  Clustered columnstore indexes benefit greatly when they are allocated more memory.  Therefore, you will want to ensure that a partition index rebuild is not starved of memory. Increasing the amount of memory available to your query can be achieved by switching from the default role, smallrc, to one of the other roles such as largerc.
 
-Информацию о выделении памяти для каждого распределения можно получить с помощью запроса к динамическим административным представлениям регулятора ресурсов. На самом деле выделение памяти будет меньше, чем цифры ниже. Информация приведена на уровне рекомендации, ее можно использовать при планировании размера секций для операций управления данными. Старайтесь избегать изменения размеров секций за пределы выделенной памяти, предоставляемой классом очень больших ресурсов. Если размер секций превышает эту цифру, возникает риск нехватки памяти, что, в свою очередь, приводит к менее оптимальному сжатию.
+Information on the allocation of memory per distribution is available by querying the resource governor dynamic management views. In reality your memory grant will be less than the figures below. However, this provides a level of guidance that you can use when sizing your partitions for data management operations.  Try to avoid sizing your partitions beyond the memory grant provided by the extra large resource class. If your partitions grow beyond this figure you run the risk of memory pressure which in turn leads to less optimal compression.
 
 ```sql
-SELECT  rp.[name]								AS [pool_name]
-,       rp.[max_memory_kb]						AS [max_memory_kb]
-,       rp.[max_memory_kb]/1024					AS [max_memory_mb]
-,       rp.[max_memory_kb]/1048576				AS [mex_memory_gb]
-,       rp.[max_memory_percent]					AS [max_memory_percent]
-,       wg.[name]								AS [group_name]
-,       wg.[importance]							AS [group_importance]
-,       wg.[request_max_memory_grant_percent]	AS [request_max_memory_grant_percent]
-FROM    sys.dm_pdw_nodes_resource_governor_workload_groups	wg
-JOIN    sys.dm_pdw_nodes_resource_governor_resource_pools	rp ON wg.[pool_id] = rp.[pool_id]
+SELECT  rp.[name]                               AS [pool_name]
+,       rp.[max_memory_kb]                      AS [max_memory_kb]
+,       rp.[max_memory_kb]/1024                 AS [max_memory_mb]
+,       rp.[max_memory_kb]/1048576              AS [mex_memory_gb]
+,       rp.[max_memory_percent]                 AS [max_memory_percent]
+,       wg.[name]                               AS [group_name]
+,       wg.[importance]                         AS [group_importance]
+,       wg.[request_max_memory_grant_percent]   AS [request_max_memory_grant_percent]
+FROM    sys.dm_pdw_nodes_resource_governor_workload_groups  wg
+JOIN    sys.dm_pdw_nodes_resource_governor_resource_pools   rp ON wg.[pool_id] = rp.[pool_id]
 WHERE   wg.[name] like 'SloDWGroup%'
 AND     rp.[name]    = 'SloDWPool'
 ;
 ```
 
-## Переключение секций
+## <a name="partition-switching"></a>Partition switching
 
-Хранилище данных SQL поддерживает разбиение, слияние и переключение секций. Для каждой из этих функций используется инструкция [ALTER TABLE][].
+SQL Data Warehouse supports partition splitting, merging, and switching. Each of these functions is excuted using the [ALTER TABLE][] statement.
 
-Для переключения секций между двумя таблицами необходимо убедиться, что секции выровнены по соответствующим границам и их определения таблиц совпадают. Не допускаются ограничения CHECK для задания диапазона значений в таблице, исходная таблица должна содержать те же границы секций, что и целевая таблица. Если это не так, переключение секций завершится ошибкой, так как метаданные не будут синхронизированы.
+To switch partitions between two tables you must ensure that the partitions align on their respective boundaries and that the table definitions match. As check constraints are not available to enforce the range of values in a table the source table must contain the same partition boundaries as the target table. If this is not the case, then the partition switch will fail as the partition metadata will not be synchronized.
 
-### Как разделить секцию, которая содержит данные
+### <a name="how-to-split-a-partition-that-contains-data"></a>How to split a partition that contains data
 
-Наиболее эффективный способ разделения секции, которая уже содержит данные, — использовать инструкцию `CTAS`. Если секционированная таблица является кластеризованным индексом columnstore, то секция таблицы должна быть пустой, прежде чем она может быть разделена.
+The most efficient method to split a partition that already contains data is to use a `CTAS` statement. If the partitioned table is a clustered columnstore then the table partition must be empty before it can be split.
 
-Ниже приведен пример секционированной таблицы columnstore, содержащей по одной строке в каждой секции:
+Below is a sample partitioned columnstore table containing one row in each partition:
 
 ```sql
 CREATE TABLE [dbo].[FactInternetSales]
@@ -187,9 +188,9 @@ VALUES (1,20000101,1,1,1,1,1,1);
 CREATE STATISTICS Stat_dbo_FactInternetSales_OrderDateKey ON dbo.FactInternetSales(OrderDateKey);
 ```
 
-> [AZURE.NOTE] Создавая объект статистики, мы обеспечиваем более точные метаданные таблицы. Если пропустить создание объекта статистики, хранилище данных SQL будет использовать значения по умолчанию. Чтобы ознакомиться с информацией о статистике, см. раздел [Статистика][].
+> [AZURE.NOTE] By Creating the statistic object, we ensure that table metadata is more accurate. If we omit creating statistics, then SQL Data Warehouse will use default values. For details on statistics please review [statistics][].
 
-Далее мы можем выполнить запрос числа строк, воспользовавшись представлением каталога `sys.partitions`.
+We can then query for the row count using the `sys.partitions` catalog view:
 
 ```sql
 SELECT  QUOTENAME(s.[name])+'.'+QUOTENAME(t.[name]) as Table_name
@@ -206,15 +207,15 @@ WHERE t.[name] = 'FactInternetSales'
 ;
 ```
 
-Если мы попытаемся разделить эту таблицу, появится сообщение об ошибке:
+If we try to split this table, we will get an error:
 
 ```sql
 ALTER TABLE FactInternetSales SPLIT RANGE (20010101);
 ```
 
-Сообщение 35346, уровень 15, состояние 1, строка 44. Использование предложения SPLIT в инструкции ALTER PARTITION привело к ошибке, поскольку секция непустая. Если для таблицы существует индекс columnstore, разделить можно только пустые секции. Рекомендуется отключить индекс columnstore перед выполнением инструкции ALTER PARTITION, а после завершения ALTER PARTITION перестроить индекс columnstore.
+Msg 35346, Level 15, State 1, Line 44 SPLIT clause of ALTER PARTITION statement failed because the partition is not empty.  Only empty partitions can be split in when a columnstore index exists on the table. Consider disabling the columnstore index before issuing the ALTER PARTITION statement, then rebuilding the columnstore index after ALTER PARTITION is complete.
 
-Однако можно использовать `CTAS`, чтобы создать новую таблицу для хранения наших данных.
+However, we can use `CTAS` to create a new table to hold our data.
 
 ```sql
 CREATE TABLE dbo.FactInternetSales_20000101
@@ -232,7 +233,7 @@ WHERE   1=2
 ;
 ```
 
-Так как границы секций выровнены, переключение разрешено. Это позволит оставить исходную таблицу с пустым разделом, который мы впоследствии сможем разделить.
+As the partition boundaries are aligned a switch is permitted. This will leave the source table with an empty partition that we can subsequently split.
 
 ```sql
 ALTER TABLE FactInternetSales SWITCH PARTITION 2 TO  FactInternetSales_20000101 PARTITION 2;
@@ -240,7 +241,7 @@ ALTER TABLE FactInternetSales SWITCH PARTITION 2 TO  FactInternetSales_20000101 
 ALTER TABLE FactInternetSales SPLIT RANGE (20010101);
 ```
 
-Все, что осталось сделать, — выровнять наши данные по новым границам секции границы с помощью `CTAS` и переключить данные обратно в основную таблицу.
+All that is left to do is to align our data to the new partition boundaries using `CTAS` and switch our data back in to the main table
 
 ```sql
 CREATE TABLE [dbo].[FactInternetSales_20000101_20010101]
@@ -261,17 +262,17 @@ AND     [OrderDateKey] <  20010101
 ALTER TABLE dbo.FactInternetSales_20000101_20010101 SWITCH PARTITION 2 TO dbo.FactInternetSales PARTITION 2;
 ```
 
-После завершения перемещение данных рекомендуется обновить статистику для целевой таблицы, чтобы убедиться, что она точно отражает новое распределение данных в соответствующих разделах:
+Once you have completed the movement of the data it is a good idea to refresh the statistics on the target table to ensure they accurately reflect the new distribution of the data in their respective partitions:
 
 ```sql
 UPDATE STATISTICS [dbo].[FactInternetSales];
 ```
 
-### Система управления версиями секционирования таблиц
+### <a name="table-partitioning-source-control"></a>Table partitioning source control
 
-Чтобы избежать **порчи** определения таблицы в системе управления версиями, можно рассмотреть следующий метод:
+To avoid your table definition from **rusting** in your source control system you may want to consider the following approach:
 
-1. Создайте таблицу как секционированную, но без значений секций.
+1. Create the table as a partitioned table but with no partition values
 
 ```sql
 CREATE TABLE [dbo].[FactInternetSales]
@@ -295,7 +296,7 @@ WITH
 ;
 ```
 
-2. Выполните `SPLIT` таблицы в процессе развертывания:
+2. `SPLIT` the table as part of the deployment process:
 
 ```sql
 -- Create a table containing the partition boundaries
@@ -348,39 +349,37 @@ END
 DROP TABLE #partitions;
 ```
 
-При таком подходе код остается статическим в системе управления версиями, а значения границ секционирования могут быть динамическими и со временем развиваться вместе с хранилищем.
+With this approach the code in source control remains static and the partitioning boundary values are allowed to be dynamic; evolving with the warehouse over time.
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Next steps
 
-Дополнительные сведения см. в статьях, посвященных [общим сведениям о таблицах][Overview], [типам данных таблиц][Data Types], [распределению таблицы][Distribute], [индексированию таблицы][Index], [управлению статистикой таблиц][Statistics] и [временным таблицам][Temporary]. Дополнительные рекомендации см. в статье [Рекомендации по использованию хранилища данных SQL Azure][].
+To learn more, see the articles on [Table Overview][Overview], [Table Data Types][Data Types], [Distributing a Table][Distribute], [Indexing a Table][Index], [Maintaining Table Statistics][Statistics] and [Temporary Tables][Temporary].  For more about best practices, see [SQL Data Warehouse Best Practices][].
 
 <!--Image references-->
 
 <!--Article references-->
 [Overview]: ./sql-data-warehouse-tables-overview.md
-[Обзор]: ./sql-data-warehouse-tables-overview.md
 [Data Types]: ./sql-data-warehouse-tables-data-types.md
-[Типы данных]: ./sql-data-warehouse-tables-data-types.md
 [Distribute]: ./sql-data-warehouse-tables-distribute.md
-[Распределение]: ./sql-data-warehouse-tables-distribute.md
 [Index]: ./sql-data-warehouse-tables-index.md
-[Индекс]: ./sql-data-warehouse-tables-index.md
-[Секция]: ./sql-data-warehouse-tables-partition.md
+[Partition]: ./sql-data-warehouse-tables-partition.md
 [Statistics]: ./sql-data-warehouse-tables-statistics.md
-[Статистика]: ./sql-data-warehouse-tables-statistics.md
 [Temporary]: ./sql-data-warehouse-tables-temporary.md
-[Временные таблицы]: ./sql-data-warehouse-tables-temporary.md
-[управление рабочими нагрузками]: ./sql-data-warehouse-develop-concurrency.md
-[Рекомендации по использованию хранилища данных SQL Azure]: ./sql-data-warehouse-best-practices.md
+[workload management]: ./sql-data-warehouse-develop-concurrency.md
+[SQL Data Warehouse Best Practices]: ./sql-data-warehouse-best-practices.md
 
 <!-- MSDN Articles -->
-[Секционированные таблицы и индексы]: https://msdn.microsoft.com/library/ms190787.aspx
-[ALTER TABLE]: https://msdn.microsoft.com/ru-RU/library/ms190273.aspx
+[Partitioned Tables and Indexes]: https://msdn.microsoft.com/library/ms190787.aspx
+[ALTER TABLE]: https://msdn.microsoft.com/en-us/library/ms190273.aspx
 [CREATE TABLE]: https://msdn.microsoft.com/library/mt203953.aspx
-[функции секционирования]: https://msdn.microsoft.com/library/ms187802.aspx
-[схему секционирования]: https://msdn.microsoft.com/library/ms179854.aspx
+[partition function]: https://msdn.microsoft.com/library/ms187802.aspx
+[partition scheme]: https://msdn.microsoft.com/library/ms179854.aspx
 
 
 <!-- Other web references -->
 
-<!---HONumber=AcomDC_0720_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,116 +1,123 @@
 <properties
-	pageTitle="Создание пула эластичных баз данных на портале Azure | Microsoft Azure"
-	description="Добавление масштабируемого пула эластичных баз данных в конфигурацию баз данных SQL для упрощения администрирования и распределения ресурсов между несколькими базами данных."
-	keywords="эластичная база данных, конфигурация базы данных"
-	services="sql-database"
-	documentationCenter=""
-	authors="ninarn"
-	manager="jhubbard"
-	editor=""/>
+    pageTitle="Create a new elastic pool with the Azure portal | Microsoft Azure"
+    description="How to add a scalable elastic database pool to your SQL database configuration for easier administration and resource sharing across many databases."
+    keywords="scalable database,database configuration"
+    services="sql-database"
+    documentationCenter=""
+    authors="ninarn"
+    manager="jhubbard"
+    editor=""/>
 
 <tags
-	ms.service="sql-database"
-	ms.devlang="NA"
-	ms.date="07/20/2016"
-	ms.author="ninarn"
-	ms.workload="data-management"
-	ms.topic="get-started-article"
-	ms.tgt_pltfrm="NA"/>
+    ms.service="sql-database"
+    ms.devlang="NA"
+    ms.date="07/20/2016"
+    ms.author="ninarn"
+    ms.workload="data-management"
+    ms.topic="get-started-article"
+    ms.tgt_pltfrm="NA"/>
 
 
-# Создание пула эластичных баз данных на портале Azure
+
+# <a name="create-a-new-elastic-database-pool-with-the-azure-portal"></a>Create a new elastic database pool with the Azure portal
 
 > [AZURE.SELECTOR]
-- [Портал Azure](sql-database-elastic-pool-create-portal.md)
+- [Azure portal](sql-database-elastic-pool-create-portal.md)
 - [PowerShell](sql-database-elastic-pool-create-powershell.md)
 - [C#](sql-database-elastic-pool-create-csharp.md)
 
-В этой статье описано создание масштабируемого [пула эластичных баз данных](sql-database-elastic-pool.md) с помощью [портала Azure](https://portal.azure.com/). Пул можно создать двумя способами. Если вы знаете требуемые настройки пула, вы можете создать его с нуля, или же можно следовать рекомендациям службы. База данных SQL автоматически предоставляет интеллектуальные рекомендации по настройке пула, если это экономически выгодно для вас с учетом последних данных телеметрии об использовании базы данных.
+This article shows you how to create a scalable [elastic database pool](sql-database-elastic-pool.md) with the [Azure portal](https://portal.azure.com/). There are two ways you can create a pool. You can do it from scratch if you know the pool setup you want, or start with a recommendation from the service. SQL Database has built-in intelligence that recommends a pool setup if it's more cost-efficient for you based on the past usage telemetry for your databases.
 
-На сервер можно добавить несколько пулов, но в один и тот же пул нельзя добавлять базы данных с разных серверов. Чтобы создать пул, требуется по крайней мере одна база данных на сервере версии 12. Если ее нет, см. статью [о создании первой базы данных SQL Azure](sql-database-get-started.md). Вы можете создать пул с одной базой данных, но экономически выгодными являются только пулы с несколькими базами данных. См. статью [Вопросы цены и производительности для пула эластичных баз данных](sql-database-elastic-pool-guidance.md).
+You can add multiple pools to a server, but you can't add databases from different servers into the same pool. To create a pool, you need at least one database in a V12 server. If you don't have one, see [Create your first Azure SQL database](sql-database-get-started.md). You can create a pool with only one database, but pools are only cost-efficient with multiple databases. See [Price and performance considerations for an elastic database pool](sql-database-elastic-pool-guidance.md).
 
-> [AZURE.NOTE] Пулы эластичных БД общедоступны во всех регионах Azure, кроме западной Индии, где сейчас доступна только предварительная версия. Общедоступные пулы эластичных БД появятся в этом регионе в самое ближайшее время.
+> [AZURE.NOTE] Elastic pools are generally available (GA) in all Azure regions except West India where it is currently in preview.  GA of elastic pools in this region will occur as soon as possible. 
 
-## Шаг 1. Создание пула
+## <a name="step-1:-create-a-new-pool"></a>Step 1: Create a new pool
 
-В этой статье объясняется, как создать пул в колонке существующего **сервера** на портале. Это самый простой способ перемещения существующих баз данных в пул.
+This article shows how to create a new pool from an existing **server** blade in the portal, which is the easiest way to move existing databases into a pool. 
 
-> [AZURE.NOTE] Даже если у вас нет сервера, вы также можете создать пул в колонке **Пулы эластичных БД SQL**. (Для этого под списком в левой части портала последовательно выберите **Обзор** **>** **Пулы эластичных БД SQL**). Чтобы создать сервер во время рабочего процесса подготовки пула, в колонке **Пулы эластичных БД SQL** щелкните **Добавить** и следуйте инструкциям.
+> [AZURE.NOTE] Whether you already have a server or not, you can also create a new pool from the **SQL elastic pools** blade (below the list on the left side of the portal, click **Browse** **>** **SQL elastic pools**). Clicking **+Add** on the **SQL elastic pools** blade provides steps to create a new server during the pool provisioning workflow.
 
-1. На [портале Azure](http://portal.azure.com/) под списком в левой части последовательно выберите **Обзор** **>** **Серверы SQL Server**, а затем щелкните сервер, содержащий базы данных, которые нужно добавить в пул.
-2. Щелкните **Создать пул**.
+1. In the [Azure portal](http://portal.azure.com/) below the list on the left side, click **Browse** **>** **SQL servers**, and then click the server that contains the databases you want to add to a pool.
+2. Click **New pool**.
 
-    ![Добавление пула на сервер](./media/sql-database-elastic-pool-create-portal/new-pool.png)
+    ![Add pool to a server](./media/sql-database-elastic-pool-create-portal/new-pool.png)
 
-    **-ИЛИ-**
+    **-OR-**
 
-    Возможно, вы увидите сообщение о наличии рекомендуемых пулов эластичных баз данных для сервера (только версии 12). Щелкните сообщение, чтобы просмотреть рекомендуемые пулы в зависимости от телеметрии использования базы данных за прошедший период, и выберите уровень, чтобы увидеть подробности и настроить пул. В разделе [Общие сведения о рекомендациях для пула](#understand-pool-recommendations) далее в этой статье объясняется, как создаются рекомендации.
+    You may see a message saying there are recommended elastic database pools for the server (V12 only). Click the message to see the recommended pools based on historical database usage telemetry, and then click the tier to see more details and customize the pool. See [Understand pool recommendations](#understand-pool-recommendations) later in this topic for how the recommendation is made.
 
-    ![рекомендуемый пул](./media/sql-database-elastic-pool-create-portal/recommended-pool.png)
+    ![recommended pool](./media/sql-database-elastic-pool-create-portal/recommended-pool.png)
 
-    Появится колонка **Пул эластичных баз данных **, в которой можно настроить пул. Если вы выбрали **Создать пул** на предыдущем шаге, в разделе **Ценовая категория** портал выберет **пул Standard**, а также уникальное **имя** и конфигурацию по умолчанию для пула. Если вы выберете рекомендуемый пул, рекомендуемый уровень и конфигурация пула также будут выбраны, но вы сможете их изменить.
+    The **Elastic database pool** blade appears, which is where you'll set up your pool. If you clicked **New pool** in the previous step, the portal chooses a **Standard pool** under **Pricing tier**, a unique **Name** for the pool, and a default configuration for the pool. If you chose a recommended pool, the recommended tier and configuration of the pool are already chosen, but you can still change them.
 
-    ![Настройка эластичного пула](./media/sql-database-elastic-pool-create-portal/configure-elastic-pool.png)
+    ![Configure elastic pool](./media/sql-database-elastic-pool-create-portal/configure-elastic-pool.png)
 
-3. Укажите имя для пула эластичных БД или оставьте значение по умолчанию.
+3. Specify a name for the elastic pool, or leave it as the default.
 
-## Шаг 2. Выбор ценовой категории
+## <a name="step-2:-choose-a-pricing-tier"></a>Step 2: Choose a pricing tier
 
-Ценовая категория пула определяет функции, которые будут доступны для эластичных баз данных в пуле, максимальное количество единиц eDTU (eDTU MAX) и объем хранилища (в гигабайтах) для каждой базы данных. Дополнительные сведения см. в статье "Уровни служб".
+The pool's pricing tier determines the features available to the elastic databases in the pool, and the maximum number of eDTUs (eDTU MAX), and storage (GBs) available to each database. For details, see Service Tiers.
 
-Чтобы изменить ценовую категорию для пула, щелкните **Ценовая категория**, укажите нужную категорию и нажмите кнопку **Выбрать**.
+To change the pricing tier for the pool, click **Pricing tier**, click the pricing tier your want, and then click **Select**.
 
-> [AZURE.IMPORTANT] Если вы выбрали ценовую категорию и подтвердили изменения нажатием кнопки **ОК** на последнем шаге, изменить ценовую категорию пула будет невозможно. Чтобы изменить ценовую категорию для существующего пула эластичных баз данных, создайте пул эластичных баз данных в нужной ценовой категории и перенесите эластичные базы данных в этот пул.
+> [AZURE.IMPORTANT] After you choose the pricing tier and commit your changes by clicking **OK** in the last step, you won't be able to change the pricing tier of the pool. To change the pricing tier for an existing elastic pool create a new elastic pool in the desired pricing tier and migrate the elastic databases to this new pool.
 
-![Выберите ценовую категорию](./media/sql-database-elastic-pool-create-portal/pricing-tier.png)
+![Select a pricing tier](./media/sql-database-elastic-pool-create-portal/pricing-tier.png)
 
-## Шаг 3. Настройка пула
+## <a name="step-3:-configure-the-pool"></a>Step 3: Configure the pool
 
-Задав ценовую категорию, щелкните "Настроить пул" (для пула, в который добавлены базы данных) и укажите значения eDTU и объема хранилища (в ГБ) для пула, а также максимальное и минимальное значение eDTU для эластичных баз данных в пуле.
+After setting the pricing tier, click Configure pool where you add databases, set pool eDTUs and storage (pool GBs), and where you set the min and max eDTUs for the elastic databases in the pool.
 
-1. Щелкните **Настроить пул**.
-2. Выберите базы данных, которые нужно добавить в пул. Этот шаг является необязательным при создании пула. Базы данных можно добавить после создания пула. Чтобы добавить базы данных, щелкните **Добавить базу данных**, выберите базы данных, которые требуется добавить, и нажмите кнопку **Выбрать**.
+1. Click **Configure pool**
+2. Select the databases you want to add to the pool. This step is optional while creating the pool. Databases can be added after the pool has been created.
+    To add databases, click **Add database**, click the databases that you want to add, and then click the **Select** button.
 
-    ![Добавление баз данных](./media/sql-database-elastic-pool-create-portal/add-databases.png)
+    ![Add databases](./media/sql-database-elastic-pool-create-portal/add-databases.png)
 
-    Если базы данных, с которыми вы работаете, содержат достаточно данных телеметрии об использовании за прошедший период, обновления графика **Estimated eDTU and GB usage** (Примерный объем использования eDTU и ГБ) и линейчатой диаграммы **Actual eDTU usage** (Фактический объем использования eDTU) помогут вам выбрать нужную конфигурацию. Кроме того, служба может предоставить вам рекомендации, которые помогут выбрать правильный размер пула. См. раздел [Динамические рекомендации](#dynamic-recommendations).
+    If the databases you're working with have enough historical usage telemetry, the **Estimated eDTU and GB usage** graph and the **Actual eDTU usage** bar chart update to help you make configuration decisions. Also, the service may give you a recommendation message to help you right-size the pool. See [Dynamic Recommendations](#dynamic-recommendations).
 
-3. Используя элементы управления на странице **Настройка пула**, изучите параметры и настройте пул. Дополнительные сведения об ограничениях для каждого уровня обслуживания см. в разделе [eDTU и размеры хранилища для эластичных баз данных и пулов эластичных баз данных](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools-and-elastic-databases). Подробные рекомендации по выбору правильного размера пула см. в статье [Когда следует использовать пул эластичных баз данных?](sql-database-elastic-pool-guidance.md) Дополнительные сведения о параметрах пула см. в разделе [Свойства эластичного пула баз данных](sql-database-elastic-pool.md#elastic-database-pool-properties).
+3. Use the controls on the **Configure pool** page to explore settings and configure your pool. See [Elastic pools limits](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools-and-elastic-databases) for more detail about limits for each service tier, and see [Price and performance considerations for elastic database pools](sql-database-elastic-pool-guidance.md) for detailed guidance on right-sizing a pool. For more details about pool settings, see [Elastic database pool properties](sql-database-elastic-pool.md#elastic-database-pool-properties).
 
-	![Настройка эластичного пула](./media/sql-database-elastic-pool-create-portal/configure-performance.png)
+    ![Configure Elastic Pool](./media/sql-database-elastic-pool-create-portal/configure-performance.png)
 
-4. После изменения параметров щелкните **Выбрать** в колонке **Настройка пула**.
-5. Нажмите кнопку **ОК**, чтобы создать пул.
+4. Click **Select** in the **Configure Pool** blade after changing settings.
+5. Click **OK** to create the pool.
 
 
-## Общие сведения о рекомендациях для пула
+## <a name="understand-pool-recommendations"></a>Understand pool recommendations
 
-Служба базы данных SQL оценивает историю использования и рекомендует один или несколько пулов, если этот вариант экономичнее, чем отдельные базы данных. Для предоставления каждой рекомендации используется уникальное подмножество баз данных на сервере, которое лучше всего подходит для формирования пула.
+The SQL Database service evaluates usage history and recommends one or more pools when it is more cost-effective than using single databases. Each recommendation is configured with a unique subset of the server's databases that best fit the pool.
 
-![рекомендуемый пул](./media/sql-database-elastic-pool-create-portal/recommended-pool.png)
+![recommended pool](./media/sql-database-elastic-pool-create-portal/recommended-pool.png)  
 
-Рекомендация для пула включает следующие аспекты:
+The pool recommendation comprises:
 
-- ценовая категория для пула ("Базовый", "Стандартный" или "Премиум");
-- соответствующее количество **единиц eDTU пула** (также называемое максимальным количеством единиц eDTU для одного пула);
-- **максимальное** и **минимальное количество единиц eDTU** для каждой базы данных;
-- список рекомендуемых баз данных для пула.
+- A pricing tier for the pool (Basic, Standard, or Premium)
+- Appropriate **POOL eDTUs** (also called Max eDTUs per pool)
+- The **eDTU MAX** and **eDTU Min** per database
+- The list of recommended databases for the pool
 
-При составлении рекомендаций для пула служба учитывает данные телеметрии за последние 30 дней. Чтобы база данных рассматривалась для включения в пул эластичных баз данных, она должна существовать не менее 7 дней. Базы данных, которые уже находятся в пуле эластичных баз данных, не рассматриваются в качестве кандидатов для рекомендуемого добавления в пул.
+The service takes the last 30 days of telemetry into account when recommending pools. For a database to be considered as a candidate for an elastic database pool it must exist for at least 7 days. Databases that are already in an elastic database pool are not considered as candidates for elastic database pool recommendations.
 
-Служба оценивает потребность в ресурсах и экономичность перемещения каждой отдельной базы данных на каждом уровне службы в пулы того же уровня. Например, все базы данных Standard на сервере оцениваются на предмет возможности их добавления в пул эластичных баз данных уровня Standard. Это означает, что служба не предоставляет кросс-уровневые рекомендации, такие как перемещение базы данных Standard в пул Premium.
+The service evaluates resource needs and cost effectiveness of moving the single databases in each service tier into pools of the same tier. For example, all Standard databases on a server are assessed for their fit into a Standard Elastic Pool. This means the service does not make cross-tier recommendations such as moving a Standard database into a Premium pool.
 
-### Динамические рекомендации
+### <a name="dynamic-recommendations"></a>Dynamic recommendations
 
-Когда базы данных будут добавлены в пул, на основе сведений об использовании выбранных баз данных будут динамически создаваться рекомендации. Эти рекомендации будут отображены в диаграмме использования (со значениями eDTU и ГБ), а также на баннере рекомендации в верхней части колонки **Настройка пула**. Эти рекомендации помогут создать пул, оптимизированный для конкретных баз данных.
+After adding databases to the pool, recommendations will be dynamically generated based on the historical usage of the databases you have selected. These recommendations will be shown in the eDTU and GB usage chart as well as in a recommendation banner at the top of the **Configure pool** blade. These recommendations are intended to assist you in creating a pool optimized for your specific databases.
 
-![динамические рекомендации](./media/sql-database-elastic-pool-create-portal/dynamic-recommendation.png)
+![dynamic recommendations](./media/sql-database-elastic-pool-create-portal/dynamic-recommendation.png)
 
-## Дополнительные ресурсы
+## <a name="additional-resources"></a>Additional resources
 
-- [Monitor, manage, and size an elastic database pool with the Azure portal (Мониторинг и изменение размера пула эластичных баз данных и управление им с помощью портала Azure)](sql-database-elastic-pool-manage-portal.md)
-- [Monitor and manage an elastic database pool (PowerShell) (Мониторинг пула эластичных баз данных и управление им с помощью PowerShell)](sql-database-elastic-pool-manage-powershell.md)
-- [Создание базы данных SQL и управление ею с помощью C#](sql-database-elastic-pool-manage-csharp.md)
-- [Общие сведения о возможностях эластичных баз данных](sql-database-elastic-scale-introduction.md)
+- [Manage a SQL Database elastic pool with the portal](sql-database-elastic-pool-manage-portal.md)
+- [Manage a SQL Database elastic pool with PowerShell](sql-database-elastic-pool-manage-powershell.md)
+- [Manage a SQL Database elastic pool with C#](sql-database-elastic-pool-manage-csharp.md)
+- [Scaling out with Azure SQL Database](sql-database-elastic-scale-introduction.md) 
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

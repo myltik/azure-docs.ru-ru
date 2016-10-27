@@ -1,5 +1,10 @@
-> [AZURE.IMPORTANT] Поддержка управления ресурсами HDInsight с помощью диспетчера служб Azure (ASM) через Azure PowerShell и интерфейс командной строки Azure (CLI) объявлена __устаревшей__ и будет удалена с 1 января 2017 г. В действиях, описанных в данном документе, применяются новые команды Azure CLI и командлеты Azure PowerShell, которые работают с Azure Resource Manager (ARM).
+> [AZURE.IMPORTANT] Support for managing HDInsight resources using Azure Service Manager (ASM) through Azure PowerShell and the Azure CLI is __deprecated__, and will be removed by January 1, 2017. The steps in this document use the new Azure PowerShell cmdlets and Azure CLI commands that work with Azure Resource Manager (ARM).
 >
-> Чтобы установить последнюю версию Azure PowerShell и Azure CLI, выполните действия, описанные в статьях [Установка и настройка Azure CLI](../articles/xplat-cli-install.md) или [Установка и настройка Azure PowerShell](../articles/powershell-install-configure.md). Если у вас есть сценарии, в которые нужно добавить новые командлеты или команды CLI, см. статью [Переход к средствам разработки на основе Azure Resource Manager для кластеров HDInsight](../articles/hdinsight/hdinsight-hadoop-development-using-azure-resource-manager.md).
+> Please follow the steps in the [Install and Configure Azure CLI](../articles/xplat-cli-install.md) and [Install and Configure Azure PowerShell](../articles/powershell-install-configure.md)  to install the latest version of Azure PowerShell and the Azure CLI. If you have existing scripts that need to be modified to use the new cmdlets or new CLI commands, see [Migrating to Azure Resource Manager-based development tools for HDInsight clusters](../articles/hdinsight/hdinsight-hadoop-development-using-azure-resource-manager.md) for more information.
+
+
+
+
+<!--HONumber=Oct16_HO2-->
 
 

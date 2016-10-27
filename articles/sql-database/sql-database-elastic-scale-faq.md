@@ -1,59 +1,63 @@
 <properties 
-	pageTitle="Вопросы и ответы об эластичном масштабировании SQL Azure | Microsoft Azure" 
-	description="Часто задаваемые вопросы об эластичном масштабировании базы данных SQL Azure." 
-	services="sql-database" 
-	documentationCenter="" 
-	manager="jhubbard" 
-	authors="ddove" 
-	editor=""/>
+    pageTitle="Azure SQL Elastic Scale FAQ | Microsoft Azure" 
+    description="Frequently Asked Questions about Azure SQL Database Elastic Scale." 
+    services="sql-database" 
+    documentationCenter="" 
+    manager="jhubbard" 
+    authors="ddove" 
+    editor=""/>
 
 <tags 
-	ms.service="sql-database" 
-	ms.workload="sql-database" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/03/2016" 
-	ms.author="ddove"/>
+    ms.service="sql-database" 
+    ms.workload="sql-database" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="05/03/2016" 
+    ms.author="ddove"/>
 
-# Вопросы и ответы по инструментам эластичных баз данных 
 
-#### На каждый сегмент приходится по одному клиенту, но нет ключа сегментирования. Как заполнить ключ сегментирования для сведений схемы?
+# <a name="elastic-database-tools-faq"></a>Elastic database tools FAQ 
 
-Объект сведений схемы используется только в сценариях разделения и слияния. Если приложение изначально однотенантное, инструмент разбиения и объединения для него не требуется, поэтому заполнять объект данных схемы не нужно.
+#### <a name="if-i-have-a-single-tenant-per-shard-and-no-sharding-key,-how-do-i-populate-the-sharding-key-for-the-schema-info?"></a>If I have a single-tenant per shard and no sharding key, how do I populate the sharding key for the schema info?
 
-#### База данных подготовлена, и уже назначен диспетчер Shard Map Manager. Как зарегистрировать эту новую базу данных как сегмент?
+The schema info object is only used to split merge scenarios. If an application is inherently single-tenant, then it does not require the Split Merge tool and thus there is no need to populate the schema info object.
 
-См. статью **[Добавление сегмента в приложения с помощью клиентской библиотеки эластичной базы данных](sql-database-elastic-scale-add-a-shard.md)**.
+#### <a name="i’ve-provisioned-a-database-and-i-already-have-a-shard-map-manager,-how-do-i-register-this-new-database-as-a-shard?"></a>I’ve provisioned a database and I already have a Shard Map Manager, how do I register this new database as a shard?
 
-#### Какова стоимость инструментов эластичных баз данных
+Please see **[Adding a shard to an application using the elastic database client library](sql-database-elastic-scale-add-a-shard.md)**. 
 
-Плата за использование клиентской библиотеки эластичной базы данных не взимается. Оплачивать нужно только доступ к базам данных SQL Azure, используемым для сегментов и диспетчера сопоставления сегментов, а также для веб-ролей и рабочих ролей, подготовленных для инструмента разбиения и объединения.
+#### <a name="how-much-do-elastic-database-tools-cost?"></a>How much do elastic database tools cost?
 
-#### Почему мои учетные данные не работают при добавлении сегмента с другого сервера?
-Не используйте учетные данные в формате User ID=username@servername; мы советуем использовать простой формат User ID = username. Кроме того, убедитесь, что у имени пользователя username есть разрешения на доступ к сегменту.
+Using the elastic database client library does not incur any costs. Costs accrue only for the Azure SQL databases that you use for shards and the Shard Map Manager, as well as the web/worker roles you provision for the Split Merge tool.
 
-#### Нужно ли создавать диспетчер Shard Map Manager и заполнять сегменты при каждом запуске приложений?
+#### <a name="why-are-my-credentials-not-working-when-i-add-a-shard-from-a-different-server?"></a>Why are my credentials not working when I add a shard from a different server?
+Do not use credentials in the form of “User ID=username@servername”, instead simply use “User ID = username”.  Also, be sure that the “username” login has permissions on the shard.
 
-Нет. Диспетчер сопоставления сегментов (например, **[ShardMapManagerFactory.CreateSqlShardMapManager](http://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.createsqlshardmapmanager.aspx)**) создается только один раз. Во время запуска приложение должно вызывать диспетчер **[ShardMapManagerFactory.TryGetSqlShardMapManager()](http://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.trygetsqlshardmapmanager.aspx)**. На один домен приложения должен приходиться один такой вызов.
+#### <a name="do-i-need-to-create-a-shard-map-manager-and-populate-shards-every-time-i-start-my-applications?"></a>Do I need to create a Shard Map Manager and populate shards every time I start my applications?
 
-#### У меня есть вопросы об использовании инструментов эластичной базы данных. Как найти ответы? 
+No—the creation of the Shard Map Manager (for example, **[ShardMapManagerFactory.CreateSqlShardMapManager](http://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.createsqlshardmapmanager.aspx)**) is a one-time operation.  Your application should use the call **[ShardMapManagerFactory.TryGetSqlShardMapManager()](http://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.trygetsqlshardmapmanager.aspx)** at application start-up time.  There should only one such call per application domain.
 
-Задайте нам свои вопросы на [форуме, посвященном Базе данных SQL Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted).
+#### <a name="i-have-questions-about-using-elastic-database-tools,-how-do-i-get-them-answered?"></a>I have questions about using elastic database tools, how do I get them answered? 
 
-#### При подключении к базе данных с помощью ключа сегментирования все равно удается запрашивать данные для других ключей сегментирования в том же сегменте. Так и должно быть?
+Please reach out to us on the [Azure SQL Database forum](https://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted).
 
-Интерфейсы API гибкого масштабирования позволяют подключаться к нужным базам данных с помощью ключа сегментирования, но не обеспечивают фильтрацию этих ключей. Добавьте предложения **WHERE** к своему запросу, чтобы ограничить масштаб до соответствующего ключа сегментирования, если потребуется.
+#### <a name="when-i-get-a-database-connection-using-a-sharding-key,-i-can-still-query-data-for-other-sharding-keys-on-the-same-shard.-is-this-by-design?"></a>When I get a database connection using a sharding key, I can still query data for other sharding keys on the same shard.  Is this by design?
 
-#### Можно ли использовать разные выпуски базы данных Azure для каждого сегмента моего набора сегментов?
+The Elastic Scale APIs give you a connection to the correct database for your sharding key, but do not provide sharding key filtering.  Add **WHERE** clauses to your query to restrict the scope to the provided sharding key, if necessary.
 
-Да. Ваш сегмент является отдельной базой данных и поэтому один сегмент может быть выпуском Premium, тогда как другой — выпуском Standard. Кроме того, выпуск сегмента можно многократно масштабировать во время срока жизни сегмента.
+#### <a name="can-i-use-a-different-azure-database-edition-for-each-shard-in-my-shard-set?"></a>Can I use a different Azure Database edition for each shard in my shard set?
 
-#### Подготавливает (или удаляет) ли инструмент разбиения и объединения базу данных в процессе разбиения или объединения? 
+Yes, a shard is an individual database, and thus one shard could be a Premium edition while another be a Standard edition. Further, the edition of a shard can scale up or down multiple times during the lifetime of the shard.
 
-Нет. Для выполнения операций **разбиения** целевая база данных должна существовать в пределах соответствующей схемы и быть зарегистрированной в диспетчере сопоставления сегментов. Для выполнения операций **объединения** необходимо удалить сегмент из диспетчера сопоставления сегментов, а затем удалить базу данных.
+#### <a name="does-the-split-merge-tool-provision-(or-delete)-a-database-during-a-split-or-merge-operation?"></a>Does the Split Merge tool provision (or delete) a database during a split or merge operation? 
+
+No. For **split** operations, the target database must exist with the appropriate schema and be registered with the Shard Map Manager.  For **merge** operations, you must delete the shard from the shard map manager and then delete the database.
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
  
 
-<!---HONumber=AcomDC_0601_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

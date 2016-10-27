@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Просмотр операций развертывания с помощью интерфейса командной строки Azure | Microsoft Azure"
-   description="Описывается использование интерфейса командной строки Azure для обнаружения и устранения проблем развертывания Resource Manager."
+   pageTitle="View deployment operations with Azure CLI | Microsoft Azure"
+   description="Describes how to use the Azure CLI to detect issues from Resource Manager deployment."
    services="azure-resource-manager,virtual-machines"
    documentationCenter=""
    tags="top-support-issue"
@@ -17,31 +17,32 @@
    ms.date="08/15/2016"
    ms.author="tomfitz"/>
 
-# Просмотр операций развертывания с помощью интерфейса командной строки Azure
+
+# <a name="view-deployment-operations-with-azure-cli"></a>View deployment operations with Azure CLI
 
 > [AZURE.SELECTOR]
-- [Портал](resource-manager-troubleshoot-deployments-portal.md)
+- [Portal](resource-manager-troubleshoot-deployments-portal.md)
 - [PowerShell](resource-manager-troubleshoot-deployments-powershell.md)
-- [Интерфейс командной строки Azure](resource-manager-troubleshoot-deployments-cli.md)
-- [ИНТЕРФЕЙС REST API](resource-manager-troubleshoot-deployments-rest.md)
+- [Azure CLI](resource-manager-troubleshoot-deployments-cli.md)
+- [REST API](resource-manager-troubleshoot-deployments-rest.md)
 
-Если при развертывании ресурсов в Azure возникнет ошибка, вам потребуются дополнительные сведения о выполненных операциях развертывания. Azure CLI предоставляет команды, которые позволяют находить ошибки и определять возможные действия по их исправлению.
+If you've received an error when deploying resources to Azure, you may want to see more details about the deployment operations that were executed. Azure CLI provides commands that enable you to find the errors and determine potential fixes.
 
 [AZURE.INCLUDE [resource-manager-troubleshoot-introduction](../includes/resource-manager-troubleshoot-introduction.md)]
 
-Проверка шаблона и инфраструктуры перед развертыванием помогает избежать некоторых ошибок. Вы также можете добавлять в журнал дополнительные сведения о запросах и ответах во время развертывания, которые позже могут быть полезны при устранении неполадок. Чтобы узнать о проверке и добавлении в журнал сведений о запросах и ответах, ознакомьтесь с разделом [Развертывание ресурсов с использованием шаблонов Azure Resource Manager](resource-group-template-deploy-cli.md).
+You can avoid some errors by validating your template and infrastructure before deployment. You can also log additional request and response information during deployment that may be helpful later for troubleshooting. To learn about validating, and logging request and response information, see [Deploy a resource group with Azure Resource Manager template](resource-group-template-deploy-cli.md).
 
-## Использование журналов аудита для устранения неполадок
+## <a name="use-audit-logs-to-troubleshoot"></a>Use audit logs to troubleshoot
 
 [AZURE.INCLUDE [resource-manager-audit-limitations](../includes/resource-manager-audit-limitations.md)]
 
-Чтобы просмотреть ошибки развернутой службы, выполните следующее.
+To see errors for a deployment, use the following steps:
 
-1. Чтобы просмотреть журналы аудита, выполните команду **azure group log show**. Для получения журнала только для последнего развертывания можно указать параметр **--last-deployment**.
+1. To see the audit logs, run the **azure group log show** command. You can include the **--last-deployment** option to retrieve only the log for the most recent deployment.
 
         azure group log show ExampleGroup --last-deployment
 
-2. Команда **azure group log show** возвращает большой объем данных. Для устранения неполадок обычно необходимо сосредоточиться на операции, выполнить которую не удалось. Следующий сценарий использует параметр **--json** и служебную программу JSON [jq](https://stedolan.github.io/jq/) для поиска ошибок развертывания в журнале.
+2. The **azure group log show** command returns a lot of information. For troubleshooting, you usually want to focus on operations that failed. The following script uses the **--json** option and the [jq](https://stedolan.github.io/jq/) JSON utility to search the log for deployment failures.
 
         azure group log show ExampleGroup --json | jq '.[] | select(.status.value == "Failed")'
         
@@ -75,24 +76,24 @@
         },
         "properties": {
           "statusCode": "Conflict",
-          "statusMessage": "{"Code":"Conflict","Message":"Website with given name mysite already exists.","Target":null,"Details":[{"Message":"Website with given name
-            mysite already exists."},{"Code":"Conflict"},{"ErrorEntity":{"Code":"Conflict","Message":"Website with given name mysite already exists.","ExtendedCode":
-            "54001","MessageTemplate":"Website with given name {0} already exists.","Parameters":["mysite"],"InnerErrors":null}}],"Innererror":null}"
+          "statusMessage": "{\"Code\":\"Conflict\",\"Message\":\"Website with given name mysite already exists.\",\"Target\":null,\"Details\":[{\"Message\":\"Website with given name
+            mysite already exists.\"},{\"Code\":\"Conflict\"},{\"ErrorEntity\":{\"Code\":\"Conflict\",\"Message\":\"Website with given name mysite already exists.\",\"ExtendedCode\":
+            \"54001\",\"MessageTemplate\":\"Website with given name {0} already exists.\",\"Parameters\":[\"mysite\"],\"InnerErrors\":null}}],\"Innererror\":null}"
         },
         ...
 
-    Вы увидите, что в разделе **Свойства** отражаются сведения json о неудачной операции.
+    You can see **properties** includes information in json about the failed operation.
 
-    Для получения более подробных сведений из журналов можно использовать параметры **--verbose** и **-vv**. Используйте параметр **--verbose**, чтобы отобразить шаги, которые проходят операции на `stdout`. Для получения полной истории запроса используйте параметр **-vv**. В сообщениях часто содержатся важные сведения о причинах ошибок.
+    You can use the **--verbose** and **-vv** options to see more information from the logs.  Use the **--verbose** option to display the steps the operations go through on `stdout`. For a complete request history, use the **-vv** option. The messages often provide vital clues about the cause of any failures.
 
-3. Чтобы сосредоточиться на сообщении о состоянии неудачных записей, используйте следующую команду.
+3. To focus on the status message for failed entries, use the following command:
 
-        azure group log show ExampleGroup --json | jq -r ".[] | select(.status.value == "Failed") | .properties.statusMessage"
+        azure group log show ExampleGroup --json | jq -r ".[] | select(.status.value == \"Failed\") | .properties.statusMessage"
 
 
-## Использование операций развертывания для устранения неполадок
+## <a name="use-deployment-operations-to-troubleshoot"></a>Use deployment operations to troubleshoot
 
-1. Общее состояние развернутой службы можно получить с помощью команды **azure group deployment show**. В следующем примере развертывание завершилось неудачно.
+1. Get the overall status of a deployment with the **azure group deployment show** command. In the example below the deployment has failed.
 
         azure group deployment show --resource-group ExampleGroup --name ExampleDeployment
         
@@ -112,15 +113,19 @@
         data:    workerSize       String  0
         info:    group deployment show command OK
 
-2. Чтобы просмотреть сообщение о завершившихся сбоем операциях развертывания, используйте следующую команду.
+2. To see the message for failed operations for a deployment, use:
 
-        azure group deployment operation list --resource-group ExampleGroup --name ExampleDeployment --json  | jq ".[] | select(.properties.provisioningState == "Failed") | .properties.statusMessage.Message"
+        azure group deployment operation list --resource-group ExampleGroup --name ExampleDeployment --json  | jq ".[] | select(.properties.provisioningState == \"Failed\") | .properties.statusMessage.Message"
 
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Next steps
 
-- Сведения об устранении некоторых ошибок развертывания см. в разделе [Устранение распространенных ошибок при развертывании ресурсов в Azure с помощью Azure Resource Manager](resource-manager-common-deployment-errors.md).
-- Дополнительные сведения об использовании журналов аудита для отслеживания других типов действий см. в разделе [Операции аудита с помощью диспетчера ресурсов](resource-group-audit.md).
-- Чтобы проверить развернутую службу перед ее выполнением, см. статью [Развертывание ресурсов с использованием шаблонов Resource Manager и Azure PowerShell](resource-group-template-deploy.md).
+- For help with resolving particular deployment errors, see [Resolve common errors when deploying resources to Azure with Azure Resource Manager](resource-manager-common-deployment-errors.md).
+- To learn about using the audit logs to monitor other types of actions, see [Audit operations with Resource Manager](resource-group-audit.md).
+- To validate your deployment before executing it, see [Deploy a resource group with Azure Resource Manager template](resource-group-template-deploy.md).
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

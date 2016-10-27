@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Диспетчер кластерных ресурсов Service Fabric: стоимость перемещения | Microsoft Azure"
-   description="Общие сведения о стоимости перемещения служб Service Fabric."
+   pageTitle="Service Fabric Cluster Resource Manager: Movement cost | Microsoft Azure"
+   description="Overview of movement cost for Service Fabric services"
    services="service-fabric"
    documentationCenter=".net"
    authors="masnider"
@@ -16,38 +16,43 @@
    ms.date="08/19/2016"
    ms.author="masnider"/>
 
-# Влияние стоимости перемещения службы на выбор диспетчера кластерных ресурсов
-Важным фактором, который принимаемым во внимание при попытке определить, какие изменения вносить в кластер и как оценить данное решения, является общая стоимость реализации этого решения.
 
-Как минимум перемещение экземпляров службы или реплик требует затрат процессорного времени и пропускной способности сети. Для служб с отслеживанием состояния также оплачивается объем пространства на диске, необходимый для создания копии состояния перед завершением работы старых реплик. Разумеется, нужно свести к минимуму затраты на любое решение, представленное диспетчером кластерных ресурсов Azure Service Fabric. Но при этом не хотелось бы игнорировать решения, которые могли бы значительно улучшить распределение ресурсов кластера.
+# <a name="service-movement-cost-for-influencing-cluster-resource-manager-choices"></a>Service movement cost for influencing Cluster Resource Manager choices
+An important factor to consider when you're trying to determine what changes to make to a cluster and the score of a solution is the overall cost of achieving that solution.
 
-В диспетчере кластерных ресурсов есть два способа вычисления затрат и их ограничения, применяемых даже при попытке управлять кластером в соответствии с другими его целями. Во-первых, когда диспетчер кластерных ресурсов планирует новый макет для кластера, он подсчитывает каждое действие, которое потребуется выполнить. В самом простом случае, если вы получите два решения примерно с одинаковым общим балансом (оценкой), то сможете просто выбрать решение с наиболее низкими затратами (общим числом перемещений).
+Moving service instances or replicas costs CPU time and network bandwidth at a minimum. For stateful services, it also costs the amount of space on disk that you need to create a copy of the state before shutting down old replicas. Clearly you’d want to minimize the cost of any solution that Azure Service Fabric Cluster Resource Manager comes up with. But you also don’t want to ignore solutions that would significantly improve the allocation of resources in the cluster.
 
-Этот метод превосходно работает. Но, как и в случае нагрузок по умолчанию или статических нагрузок, маловероятно, что в любой сложной системе все будут перемещения равнозначны. Некоторые могут быть намного более затратными.
+Cluster Resource Manager has two ways of computing costs and limiting them, even while it tries to manage the cluster according to its other goals. The first is that when Cluster Resource Manager is planning a new layout for the cluster, it counts every move that it would make. In a simple case, if you get two solutions with about the same overall balance (score) at the end, then take the one with the lowest cost (total number of moves).
 
-## Изменение стоимости перемещения реплики и факторы, которые следует учитывать
-Как и при создании отчетов о нагрузке (еще одна функция диспетчера кластерных ресурсов), вы предоставляете службе возможность самостоятельно сообщать о том, насколько затратно ее перемещать в определенный момент времени.
+This works pretty well. But as with default or static loads, it's unlikely in any complex system that all moves are equal. Some are likely to be much more expensive.
 
-Код:
+## <a name="changing-a-replica's-move-cost-and-factors-to-consider"></a>Changing a replica's move cost and factors to consider
+As with reporting load (another feature of Cluster Resource Manager), you give the service a way of self-reporting how costly the service is to move at a particular time.
+
+Code:
 
 ```csharp
 this.ServicePartition.ReportMoveCost(MoveCost.Medium);
 ```
 
-MoveCost имеет четыре уровня: Zero, Low, Medium и High. Все эти уровни определены относительно друг друга, кроме уровня Zero. Zero означает, что перемещение реплики бесплатно и не должно учитываться при оценке решения. Если настроить стоимость перемещения High, это *не* гарантирует, что реплика не будет перемещена. Просто она не будет перемещена без веской причины.
+MoveCost has four levels: Zero, Low, Medium, and High. These are relative to each other, except for Zero. Zero means that moving a replica is free and should not count against the score of the solution. Setting your move cost to High is *not* a guarantee that the replica won’t move, just that it won't be moved unless there’s a good reason to.
 
-![Влияние стоимости перемещения на выбор реплик для перемещения.][Image1]
+![Move cost as a factor in selecting replicas for movement][Image1]
 
-Параметр MoveCost помогает найти решения, которые в целом приводят к меньшему прерыванию работы и позволяют легче достичь равноценного баланса. Понятие стоимости службы может зависеть от многих факторов. Ниже перечислены наиболее распространенные факторы, учитываемые при вычислении стоимости перемещения.
+MoveCost helps you find the solutions that cause the least disruption overall and are easiest to achieve while still arriving at equivalent balance. A service’s notion of cost can be relative to many things. The most common factors in calculating your move cost are:
 
-- Объем данных состояния или информации, перемещаемой для службы.
-- Стоимость отключения клиентов. Стоимость перемещения первичной реплики будет выше, чем стоимость перемещения вторичной реплики.
-- Стоимость прерывания текущих операций. Некоторые операции уровня хранилища данных или операции, выполняемые по вызову клиента, являются дорогостоящими. После определенного момента вы не станете останавливать их, если только это не вынужденная мера. Поэтому во время эксплуатации вы увеличиваете стоимость, чтобы уменьшить вероятность перемещения реплики или экземпляра службы. А после завершения операции восстанавливаете ее обычное значение.
+- The amount of state or data that the service has to move.
+- The cost of disconnection of clients. The cost of moving a primary replica is usually higher than the cost of moving a secondary replica.
+- The cost of interrupting an in-flight operation. Some operations at the data store level or operations performed in response to a client call are costly. After a certain point, you don’t want to stop them if you don’t have to. So for the duration of the operation, you bump up the cost to reduce the likelihood that the service replica or instance will move. When the operation is done, you put it back to normal.
 
-## Дальнейшие действия
-- С помощью метрик диспетчер кластерных ресурсов Service Fabric управляет потреблением и емкостью в кластере. Чтобы узнать больше о метрик и их настройке, ознакомьтесь с разделом [Управление потреблением ресурсов и нагрузкой в Service Fabric с помощью метрик](service-fabric-cluster-resource-manager-metrics.md).
-- Чтобы узнать, как диспетчер кластерных ресурсов управляет нагрузкой кластера и балансирует ее, ознакомьтесь со статьей [Балансировка кластера Service Fabric](service-fabric-cluster-resource-manager-balancing.md).
+## <a name="next-steps"></a>Next steps
+- Service Fabric Cluster Resource Manger uses metrics to manage consumption and capacity in the cluster. To learn more about metrics and how to configure them, check out [Managing resource consumption and load in Service Fabric with metrics](service-fabric-cluster-resource-manager-metrics.md).
+- To learn about how the Cluster Resource Manager manages and balances load in the cluster, check out [Balancing your Service Fabric cluster](service-fabric-cluster-resource-manager-balancing.md).
 
-[Image1]: ./media/service-fabric-cluster-resource-manager-movement-cost/service-most-cost-example.png
+[Image1]:./media/service-fabric-cluster-resource-manager-movement-cost/service-most-cost-example.png
 
-<!---HONumber=AcomDC_0831_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

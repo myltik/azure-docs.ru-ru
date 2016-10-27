@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Анализ данных с помощью машинного обучения Azure | Microsoft Azure"
-   description="Создание прогнозной модели машинного обучения с помощью машинного обучения Azure и данных из хранилища данных SQL Azure."
+   pageTitle="Analyze data with Azure Machine Learning | Microsoft Azure"
+   description="Use Azure Machine Learning to build a predictive machine learning model based on data stored in Azure SQL Data Warehouse."
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="kevinvngo"
@@ -16,33 +16,34 @@
    ms.date="09/14/2016"
    ms.author="kevin;barbkess;sonyama"/>
 
-# Анализ данных с помощью машинного обучения Azure
+
+# <a name="analyze-data-with-azure-machine-learning"></a>Analyze data with Azure Machine Learning
 
 > [AZURE.SELECTOR]
 - [Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
-- [Машинное обучение Azure](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
+- [Azure Machine Learning](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
 - [Visual Studio](sql-data-warehouse-query-visual-studio.md)
-- [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md)
+- [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md) 
 
-В этом руководстве показано, как построить прогнозную модель машинного обучения с помощью машинного обучения Azure и данных из хранилища данных SQL Azure. В частности, мы создадим кампанию целевого маркетинга для Adventure Works (магазин велосипедов). Для этого мы составим прогноз вероятности того, что клиент купит велосипед.
+This tutorial uses Azure Machine Learning to build a predictive machine learning model based on data stored in Azure SQL Data Warehouse. Specifically, this builds a targeted marketing campaign for Adventure Works, the bike shop, by predicting if a customer is likely to buy a bike or not.
 
 > [AZURE.VIDEO integrating-azure-machine-learning-with-azure-sql-data-warehouse]
 
 
-## Предварительные требования
-Для выполнения этих действий необходимо иметь следующее:
+## <a name="prerequisites"></a>Prerequisites
+To step through this tutorial, you need:
 
-- Хранилище данных SQL, в которое предварительно загружены демонстрационные данные AdventureWorksDW. Чтобы сделать это, ознакомьтесь со статьей [Создание хранилища данных SQL Azure][] и выберите загрузку демонстрационных данных. Если хранилище данных уже существует, но не содержит демонстрационные данные, вы можете [загрузить их вручную][].
+- A SQL Data Warehouse pre-loaded with AdventureWorksDW sample data. To provision this, see [Create a SQL Data Warehouse][] and choose to load the sample data. If you already have a data warehouse but do not have sample data, you can [load sample data manually][].
 
-## 1\. Получение данных
-Данные содержатся в представлении dbo.vTargetMail базы данных AdventureWorksDW. Чтобы считать эти данные, сделайте следующее.
+## <a name="1.-get-data"></a>1. Get data
+The data is in the dbo.vTargetMail view in the AdventureWorksDW database. To read this data:
 
-1. Войдите в [Студию машинного обучения Azure][] и щелкните «Мои эксперименты».
-2. Щелкните **+СОЗДАТЬ** и выберите **Пустой эксперимент**.
-3. Введите для своего эксперимента имя «Целевой маркетинг».
-4. Перетащите модуль **чтения** из области модулей на холст.
-5. Укажите сведения о базе данных хранилища данных SQL на панели свойств.
-6. Создайте **запрос** к базе данных на чтение нужных данных.
+1. Sign into [Azure Machine Learning studio][] and click on my experiments.
+2. Click **+NEW** and select **Blank Experiment**.
+3. Enter a name for your experiment: Targeted Marketing.
+4. Drag the **Reader** module from the modules pane into the canvas.
+5. Specify the details of your SQL Data Warehouse database in the Properties pane.
+6. Specify the database **query** to read the data of interest.
 
 ```sql
 SELECT [CustomerKey]
@@ -64,55 +65,66 @@ SELECT [CustomerKey]
 FROM [dbo].[vTargetMail]
 ```
 
-Запустите эксперимент, щелкнув элемент **Пуск** под холстом эксперимента. ![Запуск эксперимента][1]
+Run the experiment by clicking **Run** under the experiment canvas.
+![Run the experiment][1]
 
 
-Когда эксперимент будет завершен, щелкните порт вывода в нижней части модуля чтения и выберите **Отобразить**, чтобы просмотреть импортированные данные ![Просмотр импортированных данных][3]
+After the experiment finishes running successfully, click the output port at the bottom of the Reader module and select **Visualize** to see the imported data.
+![View imported data][3]
 
 
-## 2) Очистка данных
-Чтобы очистить данные, мы удалим некоторые столбцы, которые не являются значимыми для этой модели. Для этого:
+## <a name="2.-clean-the-data"></a>2. Clean the data
+To clean the data, drop some columns that are not relevant for the model. To do this:
 
-1. Перетащите на холст модуль **Столбцы проекта**.
-2. Щелкните на панели свойств **Запустить средство выбора столбцов**, чтобы указать столбцы, которые вы хотите удалить ![Столбцы проекта][4]
+1. Drag the **Project Columns** module into the canvas.
+2. Click **Launch column selector** in the Properties pane to specify which columns you wish to drop.
+![Project Columns][4]
 
-3. Исключите два столбца: CustomerAlternateKey и GeographyKey. ![Удаление ненужных столбцов][5]
-
-
-## 3\. Построение модели
-Мы выполним разбивку данных в соотношении 80 к 20: 80 % для подготовки модели машинного обучения и 20 % для проверки модели. Для этой задачи бинарной классификации будут использоваться двухклассовые алгоритмы.
-
-1. Перетащите модуль **разбивки** на холст.
-2. На панели свойств в поле «Доля строк в первом наборе выходных данных» введите значение 0,8. ![Разделение данных на обучающую и тестовую выборки][6]
-3. Перетащите на холст модуль **Двухклассовое увеличивающееся дерево принятия решений**.
-4. Перетащите на холст модуль **Обучение модели** и укажите входные данные. В области «Свойства» щелкните **Запустить средство выбора столбцов**.
-      - Первый входной набор данных: алгоритм ML.
-      - Второй входной набор данных: данные для обучения алгоритму. ![Подключение модуля «Обучение модели»][7]
-5. Выберите столбец **BikeBuyer** в качестве прогнозируемого. ![Выбор столбца для прогнозирования][8]
+3. Exclude two columns: CustomerAlternateKey and GeographyKey.
+![Remove unnecessary columns][5]
 
 
-## 4\. Оценка модели
-Теперь мы протестируем эффективность модели с использованием тестовых данных. Мы сравним наш алгоритм выбора с другими алгоритмами и посмотрим, какой работает лучше.
+## <a name="3.-build-the-model"></a>3. Build the model
+We will split the data 80-20: 80% to train a machine learning model and 20% to test the model. We will make use of the “Two-Class” algorithms for this binary classification problem.
 
-1. Перетащите на холст модуль **Оценка модели**. Первый входной набор данных: обученная модель. Второй входной набор данных: тестовые данные ![Оценка модели][9]
-2. Перетащите на холст эксперимента модуль **Двухклассная точечная машина Байеса**. Мы сравним производительность этого алгоритма в сравнении с алгоритмом увеличивающегося дерева принятия решений.
-3. Скопируйте и вставьте модули «Обучение модели» и «Оценка модели» на холсте.
-4. Перетащите на холст модуль **Оценка модели** для сравнения двух алгоритмов.
-5. **Запустите** эксперимент. ![Запуск эксперимента][10]
-6. Щелкните правой кнопкой мыши порт вывода модуля «Анализ модели», а затем щелкните «Отобразить». ![Отображение результатов классификации][11]
+1. Drag the **Split** module into the canvas.
+2. Enter 0.8 for Fraction of rows in the first output dataset in the Properties pane.
+![Split data into training and test set][6]
+3. Drag the **Two-Class Boosted Decision Tree** module into the canvas.
+4. Drag the **Train Model** module into the canvas and specify the inputs. Then, click **Launch column selector** in the Properties pane.
+      - First input: ML algorithm.
+      - Second input: Data to train the algorithm on.
+![Connect the Train Model module][7]
+5. Select the **BikeBuyer** column as the column to predict.
+![Select Column to predict][8]
 
-Отображенные метрики представляют собой ROC-кривую, lift-кривую, а также диаграмму соотношения полноты и точности. При изучении этих метрик становится понятно, что первая модель является более эффективной, чем вторая. Чтобы узнать прогнозные значения первой модели, щелкните порт вывода модуля «Оценка модели» и щелкните «Отобразить». ![Отображение результатов вычисления][12]
 
-Вы увидите два дополнительных столбца, добавленные в тестовый набор данных.
+## <a name="4.-score-the-model"></a>4. Score the model
+Now, we will test how the model performs on test data. We will compare the algorithm of our choice with a different algorithm to see which performs better.
 
-- Оценка вероятности: вероятность того, что клиент является покупателем велосипеда.
-- Метка оценки: выполненная моделью классификация — покупатель велосипеда (1) или нет (0). Порог вероятности для маркировки равен 50 % и может быть изменен.
+1. Drag **Score Model** module into the canvas.
+    First input: Trained model Second input: Test data ![Score the model][9]
+2. Drag the **Two-Class Bayes Point Machine** into the experiment canvas. We will compare how this algorithm performs in comparison to the Two-Class Boosted Decision Tree.
+3. Copy and Paste the modules Train Model and Score Model in the canvas.
+4. Drag the **Evaluate Model** module into the canvas to compare the two algorithms.
+5. **Run** the experiment.
+![Run the experiment][10]
+6. Click the output port at the bottom of the Evaluate Model module and click Visualize.
+![Visualize evaluation results][11]
 
-Сравнение столбца BikeBuyer (фактическое значение) и столбца «Метка оценки» (прогнозное значение) позволяет оценить эффективность выполнения модели. В дальнейшем эту модель можно использовать для прогнозирования количества новых клиентов. Вы можете затем опубликовать эту модель как веб-службу или записать результаты в хранилище данных SQL.
+The metrics provided are the ROC curve, precision-recall diagram and lift curve. Looking at these metrics, we can see that the first model performed better than the second one. To look at the what the first model predicted, click on output port of the Score Model and click Visualize.
+![Visualize score results][12]
 
-## Дальнейшие действия
+You will see two more columns added to your test dataset.
 
-Дополнительные сведения о создании прогнозных моделей машинного обучения см. в статье [Введение в машинное обучение в Azure][].
+- Scored Probabilities: the likelihood that a customer is a bike buyer.
+- Scored Labels: the classification done by the model – bike buyer (1) or not (0). This probability threshold for labeling is set to 50% and can be adjusted.
+
+Comparing the column BikeBuyer (actual) with the Scored Labels (prediction), you can see how well the model has performed. As next steps, you can use this model to make predictions for new customers and publish this model as a web service or write results back to SQL Data Warehouse.
+
+## <a name="next-steps"></a>Next steps
+
+To learn more about building predictive machine learning models, refer to [Introduction to Machine Learning on Azure][].
 
 <!--Image references-->
 [1]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img1_reader.png
@@ -130,9 +142,13 @@ FROM [dbo].[vTargetMail]
 
 
 <!--Article references-->
-[Студию машинного обучения Azure]: https://studio.azureml.net/
-[Введение в машинное обучение в Azure]: https://azure.microsoft.com/documentation/articles/machine-learning-what-is-machine-learning/
-[загрузить их вручную]: sql-data-warehouse-load-sample-databases.md
-[Создание хранилища данных SQL Azure]: sql-data-warehouse-get-started-provision.md
+[Azure Machine Learning studio]:https://studio.azureml.net/
+[Introduction to Machine Learning on Azure]:https://azure.microsoft.com/documentation/articles/machine-learning-what-is-machine-learning/
+[load sample data manually]: sql-data-warehouse-load-sample-databases.md
+[Create a SQL Data Warehouse]: sql-data-warehouse-get-started-provision.md
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

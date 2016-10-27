@@ -1,10 +1,10 @@
 <properties 
-    pageTitle="Пропускная способность сети Azure RemoteApp — общие рекомендации | Microsoft Azure"
-	description="Описание общих рекомендаций по пропускной способности сети для приложений и коллекций Azure RemoteApp."
-	services="remoteapp"
-	documentationCenter="" 
-	authors="lizap" 
-	manager="mbaldwin" />
+    pageTitle="Azure RemoteApp network bandwidth - general guidelines | Microsoft Azure"
+    description="Understand some basic network bandwidth guidelines for your Azure RemoteApp collections and apps."
+    services="remoteapp"
+    documentationCenter="" 
+    authors="lizap" 
+    manager="mbaldwin" />
 
 <tags 
     ms.service="remoteapp" 
@@ -15,35 +15,39 @@
     ms.date="08/15/2016" 
     ms.author="elizapo" />
     
-# Пропускная способность сети Azure RemoteApp — общие рекомендации (если невозможно провести свои тесты)
+
+# <a name="azure-remoteapp-network-bandwidth---general-guidelines-(if-you-can't-test-your-own)"></a>Azure RemoteApp network bandwidth - general guidelines (if you can't test your own)
 
 > [AZURE.IMPORTANT]
-Мы выводим удаленное приложение Azure RemoteApp из эксплуатации. Дополнительные сведения см. в [объявлении](https://go.microsoft.com/fwlink/?linkid=821148).
+> Azure RemoteApp is being discontinued. Read the [announcement](https://go.microsoft.com/fwlink/?linkid=821148) for details.
 
-Если у вас нет времени или возможностей для выполнения [тестов пропускной способности сети](remoteapp-bandwidthtests.md) Azure RemoteApp, ниже приведено несколько общих рекомендаций, которые помогут оценить пропускную способность сети на пользователя.
+If you do not have the time or capability to run the [network bandwidth tests](remoteapp-bandwidthtests.md) for Azure RemoteApp, here are some fairly generic guidelines that can help you estimate network bandwidth per user.
 
-Если имеется смесь таких сценариев, мы рекомендуем использовать для современных подключенных к Интернету приложений в удаленной среде пропускную способность НЕ МЕНЕЕ 10 МБ/с. (Хотя, как уже было сказано, это обеспечивает взаимодействие с пользователем лишь на приемлемом уровне.)
+If you have a mix of these scenarios, we don't recommend anything less than (or equal to) 10 MB/s as the MINIMUM network bandwidth for modern Internet-connected apps in a remote environment. (Although, as discussed, this will not guarantee a better than average user experience.)
 
-## Сложный PowerPoint, простой PowerPoint
+## <a name="complex-powerpoint,-simple-powerpoint"></a>Complex PowerPoint, simple PowerPoint
 
-Лучше всего Azure RemoteApp работает в локальной сети 100 МБ/с. При сетевом профиле 10 МБ/с, когда дрожание свыше 120 мс составляет более 5 %, взаимодействие с пользователем осуществляется на среднем уровне. На скорости 1 МБ/с возникает бликование, например во время показа слайдов, и пользователь может вообще не замечать анимированные переходы из-за пропуска кадров.
+Azure RemoteApp does best on 100 MB LAN. At the 10 MB/s network profile, when jitter above 120 ms is more than 5%, the user will see an average experience. At 1 MB/s the different is glaring - for example, in a slide show, the user might not see animated transitions at all because frames are skipped.
 
-## Internet Explorer, смешанный PDF, PDF, текст
+## <a name="internet-explorer,-mixed-pdf,-pdf,-text"></a>Internet Explorer, mixed PDF, PDF, Text
 
-По большинству показателей сетевой профиль 10 МБ/с близок к локальной сети. Скорость 1 МБ/с обеспечивает нормальную работу, однако при прокрутке экрана с изображениями может возникать дрожание.
+10 MB/s network profile is close to LAN in most aspects. 1 MB/s will provide an OK experience, although there may be some jitter when a user scrolls while there are images on the screen.
 
-## Видео в формате Flash (YouTube)
+## <a name="flash-video-(youtube)"></a>Flash video (YouTube)
 
-Локальная сеть 100 МБ/с обеспечивает наилучшее, а 10 МБ/с — приемлемое качество работы (то есть частота кадров остается допустимой, но увеличивается дрожание). При скорости 1 МБ/с дрожание достигает очень высокого уровня и становится заметным.
+100 MB/s LAN provides the best experience, while 10 MB/s is acceptable (meaning we keep up with the frame rate but jitter increases). At 1 MB/s, jitter is very high and noticeable.
 
-## Ввод в Word (удаленный ввод в Word)
-Это сценарий отличается низким использованием пропускной способности. При 256 КБ/с обеспечивается качество работы, сопоставимое с локальной сетью.
+## <a name="word-typing-(word-remote-input)"></a>Word typing (Word remote input)
+This is a low-bandwidth usage scenario. At 256 KB/s we provide as good of an experience as LAN.
 
-## Подробнее
-- [Оценка использования пропускной способности сети Azure RemoteApp](remoteapp-bandwidth.md)
+## <a name="learn-more"></a>Learn more
+- [Estimate Azure RemoteApp network bandwidth usage](remoteapp-bandwidth.md)
 
-- [Azure RemoteApp — как пропускная способность сети и качество взаимодействия связаны друг с другом?](remoteapp-bandwidthexperience.md)
+- [Azure RemoteApp - how do network bandwidth and quality of experience work together?](remoteapp-bandwidthexperience.md)
 
-- [Azure RemoteApp — тест использования пропускной способности сети в рамках распространенных сценариев](remoteapp-bandwidthtests.md)
+- [Azure RemoteApp - tseting your network bandwidth usage with some common scenarios](remoteapp-bandwidthtests.md)
 
-<!---HONumber=AcomDC_0817_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

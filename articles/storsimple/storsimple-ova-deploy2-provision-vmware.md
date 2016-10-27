@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Развертывание виртуального массива StorSimple — подготовка в VMware"
-   description="Это второе руководство из серии, посвященной развертыванию виртуального массива StorSimple, в котором описывается подготовка виртуального устройства в VMware."
+   pageTitle="Deploy StorSimple Virtual Array - Provision in VMware"
+   description="This second tutorial in StorSimple Virtual Array deployment series involves provisioning a virtual device in VMware."
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
@@ -17,294 +17,300 @@
    ms.author="alkohli"/>
 
 
-# Развертывание виртуального массива StorSimple — подготовка виртуального массива в VMware
+
+# <a name="deploy-storsimple-virtual-array---provision-a-virtual-array-in-vmware"></a>Deploy StorSimple Virtual Array - Provision a Virtual Array in VMware
 
 ![](./media/storsimple-ova-deploy2-provision-vmware/vmware4.png)
 
-## Обзор 
-Этот учебник по подготовке относится к виртуальным массивам StorSimple \(также известным как локальные виртуальные устройства StorSimple или виртуальные устройства StorSimple\) общедоступной версии, выпущенной в марте 2016 года. В руководстве описана подготовка и подключение виртуального массива StorSimple в главной системе под управлением VMware ESXi 5.5 и более поздних версий. Эта статья относятся к развертыванию виртуальных массивов StorSimple на классическом портале Azure, а также в облаке Microsoft Azure для государственных организаций.
+## <a name="overview"></a>Overview 
+This provisioning tutorial applies to StorSimple Virtual Arrays (also known as StorSimple on-premises virtual devices or StorSimple virtual devices) running March 2016 general availability (GA) release. This tutorial describes how to provision and connect to a StorSimple Virtual Array on a host system running VMware ESXi 5.5 and above. This article applies to the deployment of StorSimple Virtual Arrays in Azure classic portal as well as Microsoft Azure Government Cloud.
 
-Для подготовки и подключения виртуального устройства требуются права администратора. Подготовка и начальная настройка могут занять около 10 минут.
+You will need administrator privileges to provision and connect to a virtual device. The provisioning and initial setup can take around 10 minutes to complete.
 
 
-## Предварительные требования к подготовке
+## <a name="provisioning-prerequisites"></a>Provisioning prerequisites
 
-Здесь указаны все предварительные требования для подготовки виртуального устройства в главной системе под управлением VMware ESXi 5.5 и более поздних версий.
+Here you will find the prerequisites to provision a virtual device on a host system running VMware ESXi 5.5 and above.
 
-### Для службы Диспетчера StorSimple
+### <a name="for-the-storsimple-manager-service"></a>For the StorSimple Manager service
 
-Перед тем как начать, убедитесь в следующем.
+Before you begin, make sure that:
 
--   Выполнены все инструкции из статьи [Deploy StorSimple Virtual Array — Prepare the portal](storsimple-ova-deploy1-portal-prep.md).
+-   You have completed all the steps in [Prepare the portal for StorSimple Virtual Array](storsimple-ova-deploy1-portal-prep.md).
 
--   Образ виртуального устройства для VMware скачан с портала Azure. Дополнительные сведения см. в разделе [Шаг 3. Скачивание образа виртуального устройства](storsimple-ova-deploy1-portal-prep.md#step-3-download-the-virtual-device-image).
+-   You have downloaded the virtual device image for VMware from the Azure portal. For more information, see [Step 3: Download the virtual device image](storsimple-ova-deploy1-portal-prep.md#step-3-download-the-virtual-device-image).
 
-### Для виртуального устройства StorSimple 
+### <a name="for-the-storsimple-virtual-device"></a>For the StorSimple virtual device 
 
-Перед развертыванием виртуального устройства нужно выполнить указанные ниже условия.
+Before you deploy a virtual device, make sure that:
 
--   У вас есть доступ к главной системе под управлением Hyper-V \(2008 R2 или более поздней версии\), которую можно использовать для подготовки устройства.
+-   You have access to a host system running Hyper-V (2008 R2 or later) that can be used to a provision a device.
 
--   ОС сервера виртуальных машин должна быть в состоянии выделить указанные ниже ресурсы для подготовки виртуального устройства к работе.
+-   The host system is able to dedicate the following resources to provision your virtual device:
 
-	-   Не менее 4 ядер.
+    -   A minimum of 4 cores.
 
-	-   Не менее 8 ГБ ОЗУ.
+    -   At least 8 GB of RAM.
 
-	-   Один сетевой интерфейс.
+    -   One network interface.
 
-	-   Виртуальный диск размером 500 ГБ для системных данных.
+    -   A 500 GB virtual disk for system data.
 
-### Для сети в центре обработки данных 
+### <a name="for-the-network-in-datacenter"></a>For the network in datacenter 
 
-Перед тем как начать, убедитесь в следующем.
+Before you begin, make sure that:
 
--   Вы изучили сетевые требования к развертыванию виртуального устройства StorSimple и настроили сеть центра обработки данных в соответствии с требованиями. Дополнительные сведения см. в статье [Системные требования для виртуального массива StorSimplе](storsimple-ova-system-requirements.md).
+-   You have reviewed the networking requirements to deploy a StorSimple virtual device and configured the datacenter network as per the requirements. For more information, see [StorSimple Virtual Array system requirements](storsimple-ova-system-requirements.md).
 
-## Пошаговая подготовка 
+## <a name="step-by-step-provisioning"></a>Step-by-step provisioning 
 
-Для подготовки виртуального устройства и подключения к нему необходимо выполнить указанные ниже действия.
+To provision and connect to a virtual device, you will need to perform the following steps:
 
-1.  Убедитесь, что главная система обладает достаточными ресурсами для соответствия минимальным требованиям к виртуальному устройству.
+1.  Ensure that the host system has sufficient resources to meet the minimum virtual device requirements.
 
-2.  Подготовьте виртуальное устройство в низкоуровневой оболочке.
+2.  Provision a virtual device in your hypervisor.
 
-3.  Запустите виртуальное устройство и получите IP-адрес.
+3.  Start the virtual device and get the IP address.
 
-## Шаг 1. Обеспечение соответствия главной системы минимальным требованиям к виртуальному устройству
+## <a name="step-1:-ensure-host-system-meets-minimum-virtual-device-requirements"></a>Step 1: Ensure host system meets minimum virtual device requirements
 
-Для создания виртуального устройства необходимы такие компоненты:
+To create a virtual device, you will need:
 
--   Доступ к главной системе под управлением VMware ESXi Server 5.5 и более поздних версий.
+-   Access to a host system running VMware ESXi Server 5.5 and above.
 
--   Наличие в системе клиента VMware vSphere для управления узлом ESXi.
+-   VMware vSphere client on your system to manage the ESXi host.
 
-	-   Не менее 4 ядер.
+    -   A minimum of 4 cores.
 
-	-   Не менее 8 ГБ ОЗУ;
+    -   At least 8 GB of RAM.
 
-	-   Один сетевой интерфейс, подключенный к сети с маршрутизацией трафика в Интернет. Для оптимальной работы устройства минимальная пропускная способность интернет-канала должна составлять 5 Мбит/с.
+    -   One network interface connected to the network capable of routing traffic to Internet. The minimum Internet bandwidth should be 5 Mbps to allow for optimal working of the device.
 
-	-   Виртуальный диск данных размером 500 ГБ.
+    -   A 500 GB virtual disk for data.
 
-## Шаг 2. Подготовка виртуального устройства в низкоуровневой оболочке
+## <a name="step-2:-provision-a-virtual-device-in-hypervisor"></a>Step 2: Provision a virtual device in hypervisor
 
-Для подготовки виртуального устройства в низкоуровневой оболочке выполните указанные ниже действия.
+Perform the following steps to provision a virtual device in your hypervisor.
 
-1.  Скопируйте образ виртуального устройства в систему. Это образ, скачанный с классического портала Azure. 
-	1.  Убедитесь, что это последний скачанный вами файл образа. Если вы уже скачивали образ, скачайте его снова, чтобы убедиться, что у вас его последняя версия. Последний образ состоит из двух файлов \(вместо одного\).
-	2.  Запишите расположение, в которое был скопирован образ. Эти сведения потребуются вам позднее.
+1.  Copy the virtual device image on your system. This is the image that you have downloaded through the Azure classic portal. 
+    1.  Ensure that this is the latest image file that you have downloaded. If you downloaded the image earlier, download it again to ensure you have the latest image. The latest image has two files (instead of one).
+    2.  Make a note of the location where you copied the image as you will be using this later in the procedure.
 
-2.  Войдите на сервер ESXi, используя клиент vSphere. Для создания виртуальной машины требуются права администратора.
+2.  Log into the ESXi server using the vSphere client. You will need to have administrator privileges to create a virtual machine.
 
-	![](./media/storsimple-ova-deploy2-provision-vmware/image1.png)
+    ![](./media/storsimple-ova-deploy2-provision-vmware/image1.png)
 
-1.  В разделе Inventory \(Инвентаризация\) клиента vSphere на панели слева выберите сервер ESXi.
+1.  In the vSphere client, in the inventory section in the left pane, select the ESXi Server.
 
-	![](./media/storsimple-ova-deploy2-provision-vmware/image2.png)
+    ![](./media/storsimple-ova-deploy2-provision-vmware/image2.png)
 
-1.  Сначала необходимо отправить файл VMDK на сервер ESXi. Перейдите на вкладку **Конфигурация** на панели справа. В списке **Hardware** \(Оборудование\) выберите пункт **Storage** \(Хранилище\).
+1.  You will first upload the VMDK to the ESXi server. Navigate to the **Configuration** tab in the right pane. Under **Hardware**, select **Storage**.
 
-	![](./media/storsimple-ova-deploy2-provision-vmware/image3.png)
+    ![](./media/storsimple-ova-deploy2-provision-vmware/image3.png)
 
-1.  На панели справа в разделе **Datastores** \(Хранилища данных\) выберите хранилище данных, в которое необходимо отправить VMDK-файл. В хранилище данных должно быть достаточно свободного пространства для дисков операционной системы и данных.
+1.  In the right pane, under **Datastores**, select the datastore where you want to upload the VMDK. The datastore must have enough free space for the OS and data disks.
 
-	![](./media/storsimple-ova-deploy2-provision-vmware/image4.png)
+    ![](./media/storsimple-ova-deploy2-provision-vmware/image4.png)
 
-1.  Щелкните правой кнопкой мыши и выберите пункт **Browse Datastore** \(Обзор хранилища данных\).
+1.  Right click and select **Browse Datastore**.
 
-	![](./media/storsimple-ova-deploy2-provision-vmware/image5.png)
+    ![](./media/storsimple-ova-deploy2-provision-vmware/image5.png)
 
-1.  Отобразится окно **Datastore Browser** \(Браузер хранилища данных\).
+1.  A **Datastore Browser** window will appear.
 
-	![](./media/storsimple-ova-deploy2-provision-vmware/image6.png)
+    ![](./media/storsimple-ova-deploy2-provision-vmware/image6.png)
 
-1.  На панели инструментов щелкните значок ![](./media/storsimple-ova-deploy2-provision-vmware/image7.png), чтобы создать новую папку. Укажите имя папки и запишите его. Это имя будет использоваться позднее при создании виртуальной машины \(рекомендуется\). Нажмите кнопку **ОК**.
+1.  In the tool bar, click ![](./media/storsimple-ova-deploy2-provision-vmware/image7.png) icon to create a new folder. Specify the folder name and make a note of it. You will use this folder name later when creating a virtual machine (recommended best practice). Click **OK**.
 
-	![](./media/storsimple-ova-deploy2-provision-vmware/image8.png)
+    ![](./media/storsimple-ova-deploy2-provision-vmware/image8.png)
 
-1.  На панели слева в окне **Datastore Browser** \(Браузер хранилища данных\) появится новая папка.
+1.  The new folder will appear in the left pane of the **Datastore Browser**.
 
-	![](./media/storsimple-ova-deploy2-provision-vmware/image9.png)
+    ![](./media/storsimple-ova-deploy2-provision-vmware/image9.png)
 
-1.  Щелкните значок отправки ![](./media/storsimple-ova-deploy2-provision-vmware/image10.png) и выберите команду **Upload File** \(Отправить файл\).
+1.  Click the Upload icon ![](./media/storsimple-ova-deploy2-provision-vmware/image10.png) and select **Upload File**.
 
-	![](./media/storsimple-ova-deploy2-provision-vmware/image11.png)
+    ![](./media/storsimple-ova-deploy2-provision-vmware/image11.png)
 
-1.  Теперь необходимо найти скачанные VMDK-файлы и указать их. Будет два файла. Выберите файл для передачи.
+1.  You should now browse and point to the VMDK files that you downloaded. There will be two files. Select a file to upload.
 
-	![](./media/storsimple-ova-deploy2-provision-vmware/image12m.png)
+    ![](./media/storsimple-ova-deploy2-provision-vmware/image12m.png)
 
-1.  Щелкните **Открыть**. Начнется отправка файла VMDK в указанное хранилище данных. Отправка файла может занять несколько минут.
+1.  Click **Open**. This will now start the upload of the VMDK file to the specified datastore. It may take several minutes for the file to upload.
 
 
-1.  По завершении передачи файл появится в созданной папке в хранилище данных.
+1.  After the upload is complete, you will see the file in the datastore in the folder you created. 
 
-	![](./media/storsimple-ova-deploy2-provision-vmware/image14.png)
+    ![](./media/storsimple-ova-deploy2-provision-vmware/image14.png)
 
-	Теперь необходимо будет передать второй VMDK-файл в то же хранилище данных.
+    You will now need to upload the second VMDK file to the same datastore.
 
-1.  Вернитесь в окно клиента vSphere. Выбрав сервер ESXi, щелкните правой кнопкой мыши и выберите пункт **New Virtual Machine** \(Создать виртуальную машину\).
+1.  Return to the vSphere client window. With ESXi server selected, right-click and select **New Virtual Machine**.
 
-	![](./media/storsimple-ova-deploy2-provision-vmware/image15.png)
+    ![](./media/storsimple-ova-deploy2-provision-vmware/image15.png)
 
-1.  Отобразится окно **Create New Virtual Machine** \(Создание виртуальной машины\). На странице **Configuration** \(Конфигурация\) выберите параметр **Custom** \(Настраиваемая\). Нажмите кнопку **Next** \(Далее\).
-![](./media/storsimple-ova-deploy2-provision-vmware/image16.png)
+1.  A **Create New Virtual Machine** window will appear. On the **Configuration** page, select the **Custom** option. Click **Next**.
+    ![](./media/storsimple-ova-deploy2-provision-vmware/image16.png)
 
-2.  На странице **Name and Location** \(Имя и расположение\) укажите имя виртуальной машины. Имя должно соответствовать имени папки \(рекомендуется\), указанному ранее на шаге 8.
+2.  On the **Name and Location** page, specify the name of your virtual machine. This name should match the folder name (recommended best practice) you specified earlier in Step 8.
 
-	![](./media/storsimple-ova-deploy2-provision-vmware/image17.png)
+    ![](./media/storsimple-ova-deploy2-provision-vmware/image17.png)
 
-1.  На странице **Storage** \(Хранилище\) выберите хранилище данных, которое будет использоваться для подготовки виртуальной машины.
+1.  On the **Storage** page, select a datastore you want to use to provision your VM.
 
-	![](./media/storsimple-ova-deploy2-provision-vmware/image18.png)
+    ![](./media/storsimple-ova-deploy2-provision-vmware/image18.png)
 
-1.  На странице **Virtual Machine Version** \(Версия виртуальной машины\) выберите параметр **Virtual Machine Version: 8** \(Версия виртуальной машины: 8\). Обратите внимание, что поддерживаются все версии 8–11.
+1.  On the **Virtual Machine Version** page, select **Virtual Machine Version: 8**. Note that versions 8 to 11 are all supported.
 
-	![](./media/storsimple-ova-deploy2-provision-vmware/image19.png)
+    ![](./media/storsimple-ova-deploy2-provision-vmware/image19.png)
 
-1.  На странице **Guest Operating System** \(Операционная система на виртуальной машине\) задайте для параметра **Guest Operating System** \(Операционная система на виртуальной машине\) значение **Windows**. Для параметра **Version** \(Версия\) в раскрывающемся списке выберите значение **Microsoft Windows Server 2012 \(64-bit\)** \(Microsoft Windows Server 2012 \(64-разрядная версия\)\).
+1.  On the **Guest Operating System** page, select the **Guest Operating System** as **Windows**. For **Version**, from the dropdown list, select **Microsoft Windows Server 2012 (64-bit)**.
 
-	![](./media/storsimple-ova-deploy2-provision-vmware/image20.png)
+    ![](./media/storsimple-ova-deploy2-provision-vmware/image20.png)
 
-1.  На странице **CPUs** \(Процессоры\) настройте параметры **Number of virtual sockets** \(Количество виртуальных сокетов\) и **Number of cores per virtual socket** \(Количество ядер на виртуальный сокет\) таким образом, чтобы значение параметра **Total number of cores** \(Общее количество ядер\) было не меньше 4. Нажмите кнопку **Далее**.
+1.  On the **CPUs** page, adjust the **Number of virtual sockets** and **Number of cores per virtual socket** so that the **Total number of cores** is 4 (or more). Click **Next**.
 
-	![](./media/storsimple-ova-deploy2-provision-vmware/image21.png)
+    ![](./media/storsimple-ova-deploy2-provision-vmware/image21.png)
 
-1.  На странице **Memory** \(Память\) укажите 8 ГБ \(или больше\) ОЗУ. Нажмите кнопку **Далее**.
+1.  On the **Memory** page, specify 8 GB (or more) of RAM. Click **Next**.
 
-	![](./media/storsimple-ova-deploy2-provision-vmware/image22.png)
+    ![](./media/storsimple-ova-deploy2-provision-vmware/image22.png)
 
-1.  На странице **Network** \(Сеть\) укажите количество сетевых интерфейсов. Минимальное требование — один сетевой интерфейс.
+1.  On the **Network** page, specify the number of the network interfaces. The minimum requirement is one network interface.
 
-	![](./media/storsimple-ova-deploy2-provision-vmware/image23.png)
+    ![](./media/storsimple-ova-deploy2-provision-vmware/image23.png)
 
-1.  На странице **SCSI Controller** \(SCSI-контроллер\) примите значение по умолчанию **LSI Logic SAS controller** \(SAS-контроллер с логикой LSI\).
+1.  On the **SCSI Controller** page, accept the default **LSI Logic SAS controller**.
 
-	![](./media/storsimple-ova-deploy2-provision-vmware/image24.png)
+    ![](./media/storsimple-ova-deploy2-provision-vmware/image24.png)
 
-1.  На странице **Select a Disk** \(Выбор диска\) выберите параметр **Use an existing virtual disk** \(Использовать существующий виртуальный диск\). Нажмите кнопку **Далее**.
+1.  On the **Select a Disk** page, choose **Use an existing virtual disk**. Click **Next**.
 
-	![](./media/storsimple-ova-deploy2-provision-vmware/image25.png)
+    ![](./media/storsimple-ova-deploy2-provision-vmware/image25.png)
 
-1.  На странице **Select Existing Disk** \(Выбор существующего диска\) в разделе **Disk File Path** \(Путь к файлу диска\) нажмите кнопку **Browse** \(Обзор\). Откроется диалоговое окно **Browse Datastores** \(Обзор хранилищ данных\). Перейдите к расположению, в которое был передан файл VMDK. Теперь вы увидите в хранилище данных только один файл, так как два файла, которые вы передали, были объединены. Выберите файл и нажмите кнопку **ОК**. Нажмите кнопку **Далее**.
+1.  On the **Select Existing Disk** page, under **Disk File Path**, click **Browse**. This opens a **Browse Datastores** dialog. Navigate to the location where you uploaded the VMDK. You will now see only one file in the datastore as the two files that you initially uploaded have been merged. Select the file and click **OK**. Click **Next**.
 
-	![](./media/storsimple-ova-deploy2-provision-vmware/image26.png)
+    ![](./media/storsimple-ova-deploy2-provision-vmware/image26.png)
 
-1.  На странице **Advanced Options** \(Дополнительные параметры\) примите параметры по умолчанию и нажмите кнопку **Next** \(Далее\).
+1.  On the **Advanced Options** page, accept the default and click **Next**.
 
-	![](./media/storsimple-ova-deploy2-provision-vmware/image27.png)
+    ![](./media/storsimple-ova-deploy2-provision-vmware/image27.png)
 
-1.  На странице **Ready to Complete** \(Все готово к выполнению\) проверьте все параметры, связанные с новой виртуальной машиной. Установите флажок **Edit the virtual machine settings before completion** \(Изменить параметры виртуальной машины перед выполнением\). Нажмите кнопку **Продолжить**.
+1.  On the **Ready to Complete** page, review all the settings associated with the new virtual machine. Check **Edit the virtual machine settings before completion**. Click **Continue**.
 
-	![](./media/storsimple-ova-deploy2-provision-vmware/image28.png)
+    ![](./media/storsimple-ova-deploy2-provision-vmware/image28.png)
 
-1.  На странице **Virtual Machines Properties** \(Свойства виртуальной машины\) на вкладке **Hardware** \(Оборудование\) найдите оборудование устройства. Выберите пункт **New Hard Disk** \(Новый жесткий диск\). Щелкните **Добавить**.
+1.  On the **Virtual Machines Properties** page, in the **Hardware** tab, locate the device hardware. Select **New Hard Disk**. Click **Add**.
 
-	![](./media/storsimple-ova-deploy2-provision-vmware/image29.png)
+    ![](./media/storsimple-ova-deploy2-provision-vmware/image29.png)
 
-1.  Откроется окно **Add Hardware** \(Установка оборудования\). На странице **Device Type** \(Тип устройства\) в разделе **Choose the type of device you wish to add** \(Выберите тип устройства, которое нужно добавить\) выберите **Hard Disk** \(Жесткий диск\) и нажмите кнопку **Next** \(Далее\).
+1.  This brings up the **Add Hardware** window. On the **Device Type** page, under **Choose the type of device you wish to add**, select **Hard Disk** and click **Next**.
 
-	![](./media/storsimple-ova-deploy2-provision-vmware/image30.png)
+    ![](./media/storsimple-ova-deploy2-provision-vmware/image30.png)
 
-1.  На странице **Select a Disk** \(Выбор диска\) выберите параметр **Create a new virtual disk** \(Создать новый виртуальный диск\). Нажмите кнопку **Далее**.
+1.  On the **Select a Disk** page, choose **Create a new virtual disk**. Click **Next**.
 
-	![](./media/storsimple-ova-deploy2-provision-vmware/image31.png)
+    ![](./media/storsimple-ova-deploy2-provision-vmware/image31.png)
 
-1.  На странице **Create a Disk** \(Создание диска\) измените значение параметра **Disk Size** \(Размер диска\) на 500 ГБ \(или более\). В разделе **Disk Provisioning** \(Подготовка диска\) выберите пункт **Thin Provision** \(Тонкая подготовка\). Нажмите кнопку **Далее**.
+1.  On the **Create a Disk** page, change the **Disk Size** to 500 GB (or more). Under **Disk Provisioning**, select **Thin Provision**. Click **Next**.
 
-	![](./media/storsimple-ova-deploy2-provision-vmware/image32.png)
+    ![](./media/storsimple-ova-deploy2-provision-vmware/image32.png)
 
-1.  На странице **Advanced Options** \(Дополнительные параметры\) примите параметры по умолчанию.
+1.  On the **Advanced Options** page, accept the default.
 
-	![](./media/storsimple-ova-deploy2-provision-vmware/image33.png)
+    ![](./media/storsimple-ova-deploy2-provision-vmware/image33.png)
 
-1.  На странице **Ready to Complete** \(Все готово к выполнению\) проверьте параметры диска. Нажмите кнопку **Готово**
+1.  On the **Ready to Complete** page, review the disk options. Click **Finish**.
 
-	![](./media/storsimple-ova-deploy2-provision-vmware/image34.png)
+    ![](./media/storsimple-ova-deploy2-provision-vmware/image34.png)
 
-1.  Снова откроется страница свойств виртуальной машины. На виртуальную машину будет добавлен новый жесткий диск. Нажмите кнопку **Готово**
+1.  You will now return to the Virtual Machine Properties page. A new hard disk is added to your virtual machine. Click **Finish**.
   
-	![](./media/storsimple-ova-deploy2-provision-vmware/image35.png)
+    ![](./media/storsimple-ova-deploy2-provision-vmware/image35.png)
 
-2.  Выбрав свою виртуальную машину на панели справа, перейдите на вкладку **Summary** \(Сводка\). Проверьте параметры виртуальной машины.
+2.  With your virtual machine selected in the right pane, navigate to the **Summary** tab. Review the settings for your virtual machine.
 
-	![](./media/storsimple-ova-deploy2-provision-vmware/image36.png)
+    ![](./media/storsimple-ova-deploy2-provision-vmware/image36.png)
 
-Теперь виртуальная машина подготовлена. Следующий шаг — запуск машины и получение IP-адреса.
+Your virtual machine is now provisioned. The next step is to power on this machine and get the IP address.
 
-## Шаг 3. Запуск виртуального устройства и получение IP-адреса
+## <a name="step-3:-start-the-virtual-device-and-get-the-ip"></a>Step 3: Start the virtual device and get the IP
 
-Чтобы запустить виртуальное устройство и подключиться к нему, сделайте следующее.
+Perform the following steps to start your virtual device and connect to it.
 
-#### Запуск виртуального устройства
+#### <a name="to-start-the-virtual-device"></a>To start the virtual device
 
-1.  Запустите виртуальное устройство. В диспетчере конфигураций vSphere на панели слева выберите устройство и щелкните правой кнопкой мыши, чтобы открыть контекстное меню. Выберите пункт **Power** \(Питание\), а затем — пункт **Power on** \(Включить\). Виртуальная машина включится. Сведения о состоянии можно просмотреть в нижней панели **Recent Tasks** \(Последние задачи\) клиента vSphere.
+1.  Start the virtual device. In the vSphere Configuration Manager, in the left pane, select your device and right-click to bring up the context menu. Select **Power** and then select **Power on**. This should power on your virtual machine. You can view the status in the bottom **Recent Tasks** pane of the vSphere client.
 
-	![](./media/storsimple-ova-deploy2-provision-vmware/image37.png)
+    ![](./media/storsimple-ova-deploy2-provision-vmware/image37.png)
 
-1.  Настройка может занять несколько минут. После запуска устройства перейдите на вкладку **Console** \(Консоль\). Чтобы войти в устройство, нажмите CTRL+ALT+DEL. Также можно установить курсор в окно консоли и нажать CTRL+ALT+INS. По умолчанию используются имя пользователя *StorSimpleAdmin* и пароль *Password1*.
+1.  The setup tasks will take a few minutes to complete. Once the device is running, navigate to the **Console** tab. Send Ctrl+Alt+Delete to log into the device. Alternatively, you can point the cursor on the console window and press Ctrl+Alt+Insert. The default user is *StorSimpleAdmin* and the default password is *Password1*.
 
-	![](./media/storsimple-ova-deploy2-provision-vmware/image38.png)
+    ![](./media/storsimple-ova-deploy2-provision-vmware/image38.png)
 
-1.  В целях безопасности срок действия пароля администратора устройства истекает после первого входа в систему. Вам будет предложено изменить пароль.
+1.  For security reasons, the device administrator password expires at the first log on. You will be prompted to change the password.
 
-	![](./media/storsimple-ova-deploy2-provision-vmware/image39.png)
+    ![](./media/storsimple-ova-deploy2-provision-vmware/image39.png)
 
-1.  Введите пароль длиной не менее 8 символов. Пароль должен соответствовать по крайней мере 3 из 4 следующих требований: наличие букв в верхнем и нижнем регистре, цифр и специальных символов. Повторно введите пароль для подтверждения. Вы получите уведомление об изменении пароля.
+1.  Enter a password that contains at least 8 characters. The password must contain 3 out of 4 of these requirements: uppercase, lowercase, numeric, and special characters. Reenter the password to confirm it. You will be notified that the password has changed.
 
-	![](./media/storsimple-ova-deploy2-provision-vmware/image40.png)
+    ![](./media/storsimple-ova-deploy2-provision-vmware/image40.png)
 
-1.  После успешного изменения пароля может быть выполнен перезапуск виртуального устройства. Дождитесь завершения перезапуска. Возможно, отобразится консоль устройства Windows PowerShell с индикатором выполнения.
+1.  After the password is successfully changed, the virtual device may reboot. Wait for the reboot to complete. The Windows PowerShell console of the device may be displayed along with a progress bar.
 
-	![](./media/storsimple-ova-deploy2-provision-vmware/image41.png)
+    ![](./media/storsimple-ova-deploy2-provision-vmware/image41.png)
 
-1.  Шаги 6–8 применяются только при загрузке в среде без DHCP. Если вы работаете в среде DHCP, пропустите эти шаги и перейдите к шагу 9. Если устройство загружено в среде без DHCP, отобразится следующий экран.
+1.  Steps 6-8 only apply when booting up in a non DHCP environment. If you are in a DHCP environment, then skip these steps and go to step 9. If you booted up your device in non DHCP environment, you will see the following screen. 
 
-	![](./media/storsimple-ova-deploy2-provision-vmware/image42m.png)
+    ![](./media/storsimple-ova-deploy2-provision-vmware/image42m.png)
 
-	Теперь необходимо настроить сеть.
+    You will now need to configure the network.
 
-1.  Используйте команду `Get-HcsIpAddress` для получения списка сетевых интерфейсов, включенных на виртуальном устройстве. Если на устройстве включен один сетевой интерфейс, по умолчанию ему назначается имя `Ethernet`.
+1.  Use the `Get-HcsIpAddress` command to list the network interfaces enabled on your virtual device. If your device has a single network interface enabled, the default name assigned to this interface is `Ethernet`.
 
-	![](./media/storsimple-ova-deploy2-provision-vmware/image43m.png)
+    ![](./media/storsimple-ova-deploy2-provision-vmware/image43m.png)
 
-1.  Для настройки сети используйте командлет `Set-HcsIpAddress`. Пример приведен ниже.
+1.  Use the `Set-HcsIpAddress` cmdlet to configure the network. An example is shown below:
 
 
     `Set-HcsIpAddress –Name Ethernet –IpAddress 10.161.22.90 –Netmask 255.255.255.0 –Gateway 10.161.22.1`
 
-	![](./media/storsimple-ova-deploy2-provision-vmware/image44.png)
+    ![](./media/storsimple-ova-deploy2-provision-vmware/image44.png)
 
-1.  По завершении начальной установки и загрузки устройства отобразится текст его баннера. Для управления устройством запишите IP-адрес и URL-адрес, отображающиеся в тексте баннера. Этот IP-адрес используется для подключения к веб-интерфейсу виртуального устройства, а также для выполнения локальной установки и регистрации.
+1.  After the initial setup is complete and the device has booted up, you will see the device banner text. Make a note of the IP address and the URL displayed in the banner text to manage the device. You will use this IP address to connect to the web UI of your virtual device and complete the local setup and registration.
 
-	![](./media/storsimple-ova-deploy2-provision-vmware/image45.png)
-
-
-1. \(Необязательно.\) Выполните этот шаг только в том случае, если вы развертываете устройство в облаке для государственных организаций. Теперь на устройстве нужно включить режим FIPS \(федеральный стандарт обработки информации США\). Стандарт FIPS 140 определяет криптографические алгоритмы, утвержденные для использования в компьютерных системах федеральной власти США для защиты конфиденциальных данных.
-	1. Чтобы включить режим FIPS, выполните следующий командлет.
-		
-		`Enter-HcsFIPSMode`
-
-	2. Перезагрузите устройство после включения режима FIPS, чтобы криптографические проверки вступили в силу.
-
-		> [AZURE.NOTE] Можно включить или отключить режим FIPS на устройстве. Поочередное использование устройства в режиме FIPS и без него без перезагрузки не поддерживается.
+    ![](./media/storsimple-ova-deploy2-provision-vmware/image45.png)
 
 
-Если устройство не соответствует минимальным требованиям к конфигурации, в тексте баннера отобразится сообщение об ошибке \(см. ниже\). Потребуется изменить конфигурацию устройства и привести его ресурсы в соответствие с минимальными требованиями. Затем можно выполнить перезапуск и установить подключение к устройству. Минимальные требования к конфигурации см. в разделе [Шаг 1. Обеспечение соответствия главной системы минимальным требованиям к виртуальному устройству](#step-1-ensure-host-system-meets-minimum-virtual-device-requirements).
+1. (Optional) Perform this step only if you are deploying your device in the Government Cloud. You will now enable the United States Federal Information Processing Standard (FIPS) mode on your device. The FIPS 140 standard defines cryptographic algorithms approved for use by US Federal government computer systems for the protection of sensitive data.
+    1. To enable the FIPS mode, run the following cmdlet:
+        
+        `Enter-HcsFIPSMode`
+
+    2. Reboot your device after you have enabled the FIPS mode so that the cryptographic validations take effect.
+
+        > [AZURE.NOTE] You can either enable or disable FIPS mode on your device. Alternating the device between FIPS and non-FIPS mode is not supported.
+
+
+If your device does not meet the minimum configuration requirements, you will see an error in the banner text (shown below). You will need to modify the device configuration so that it has adequate resources to meet the minimum requirements. You can then restart and connect to the device. Refer to the minimum configuration requirements in [Step 1: Ensure that the host system meets minimum virtual device requirements](#step-1-ensure-host-system-meets-minimum-virtual-device-requirements).
 
 ![](./media/storsimple-ova-deploy2-provision-vmware/image46.png)
 
-При возникновении любой другой ошибки во время начальной настройки с помощью локального веб-интерфейса см. сведения о соответствующих рабочих процессах в статье [Использование пользовательского веб-интерфейса для администрирования виртуального массива StorSimple](storsimple-ova-web-ui-admin.md).
+If you face any other error during the initial configuration using the local web UI, refer to the following workflows in [Manage your StorSimple Virtual Array using the local web UI](storsimple-ova-web-ui-admin.md).
 
--   Выполните диагностические тесты для [устранения неполадок при настройке веб-интерфейса](storsimple-ova-web-ui-admin.md#troubleshoot-web-ui-setup-errors).
+-   Run diagnostic tests to [troubleshoot web UI setup](storsimple-ova-web-ui-admin.md#troubleshoot-web-ui-setup-errors).
 
--   [Создайте пакет журнала и просмотрите файлы журнала](storsimple-ova-web-ui-admin.md#generate-a-log-package).
+-   [Generate log package and view log files](storsimple-ova-web-ui-admin.md#generate-a-log-package)..
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Next steps
 
--   [Deploy StorSimple Virtual Array - Set up as file server \(Preview\) \(Развертывание виртуального массива StorSimple — настройка в качестве файлового сервера \(предварительная версия\)\)](storsimple-ova-deploy3-fs-setup.md)
+-   [Set up your StorSimple Virtual Array as a file server](storsimple-ova-deploy3-fs-setup.md)
 
--   [Deploy StorSimple Virtual Array – Set up your virtual device as an iSCSI server \(preview\) \(Развертывание виртуального массива StorSimple — настройка в качестве сервера iSCSI \(предварительная версия\)\)](storsimple-ova-deploy3-iscsi-setup.md)
+-   [Set up your StorSimple Virtual Array as an iSCSI server](storsimple-ova-deploy3-iscsi-setup.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

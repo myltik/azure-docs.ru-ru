@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Управление группами безопасности сети с помощью портала предварительной версии в Resource Manager | Microsoft Azure"
-   description="Дополнительные сведения об управлении существующими группами безопасности сети с помощью портала предварительной версии в Resource Manager"
+   pageTitle="Manage NSGs using the preview portal in Resource Manager | Microsoft Azure"
+   description="Learn how to manage exising NSGs using the preview portal in Resource Manager"
    services="virtual-network"
    documentationCenter="na"
    authors="jimdial"
@@ -17,174 +17,179 @@
    ms.date="03/14/2016"
    ms.author="jdial" />
 
-# Управление сетевыми группами безопасности с помощью портала предварительной версии
+
+# <a name="manage-nsgs-using-the-preview-portal"></a>Manage NSGs using the preview portal
 
 > [AZURE.SELECTOR]
-- [Портал](virtual-network-manage-nsg-arm-portal.md)
+- [Portal](virtual-network-manage-nsg-arm-portal.md)
 - [PowerShell](virtual-network-manage-nsg-arm-ps.md)
-- [Интерфейс командной строки Azure](virtual-network-manage-nsg-arm-cli.md)
+- [Azure CLI](virtual-network-manage-nsg-arm-cli.md)
 
 [AZURE.INCLUDE [virtual-network-manage-nsg-intro-include.md](../../includes/virtual-network-manage-nsg-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] Классическая модель развертывания.
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] classic deployment model.
 
 [AZURE.INCLUDE [virtual-network-manage-nsg-arm-scenario-include.md](../../includes/virtual-network-manage-nsg-arm-scenario-include.md)]
 
-## Извлечение информации
+## <a name="retrieve-information"></a>Retrieve Information
 
-Вы можете просмотреть существующие группы безопасности сети, получить правила для существующей группы и узнать, с какими ресурсами она связана.
+You can view your existing NSGs, retrieve rules for an existing NSG, and find out what resources an NSG is associated to.
 
-### Просмотр существующих групп безопасности сети
-Чтобы просмотреть список всех существующих групп безопасности сети в подписке, выполните следующие действия.
+### <a name="view-existing-nsgs"></a>View existing NSGs
+To view all existing NSGs in a subscription, follow the steps below.
 
-1. В браузере откройте страницу http://portal.azure.com и при необходимости войдите в свою учетную запись Azure.
-2. Выберите пункты **Обзор>** > **Сетевые группы безопасности**.
+1. From a browser, navigate to http://portal.azure.com and, if necessary, sign in with your Azure account.
+2. Click **Browse >** > **Network security groups**.
 
-![Портал Azure — группы безопасности сети](./media/virtual-network-manage-nsg-arm-portal/figure1.png)
+![Azure portal - NSGs](./media/virtual-network-manage-nsg-arm-portal/figure1.png)
 
-3. Проверьте список группы безопасности сети в **группы безопасности сети** колонки.
+3. Check the list of NSGs in the **Network security groups** blade.
 
-![Портал Azure — группы безопасности сети](./media/virtual-network-manage-nsg-arm-portal/figure2.png)
+![Azure portal - NSGs](./media/virtual-network-manage-nsg-arm-portal/figure2.png)
 
-Чтобы просмотреть список групп безопасности сети в группе ресурсов **RG-NSG**, выполните следующие действия.
+To view the list of NSGs in the **RG-NSG** resource group, follow the steps below. 
 
-1. Выберите пункты **Группы ресурсов >** > **RG-NSG** > **...**.
+1. Click **Resource groups >** > **RG-NSG** > **...**.
 
-![Портал Azure — группы безопасности сети](./media/virtual-network-manage-nsg-arm-portal/figure3.png)
+![Azure portal - NSGs](./media/virtual-network-manage-nsg-arm-portal/figure3.png)
 
-2. В список ресурсов найдите элементы со значком NSG, как показано в колонке **Ресурсы** ниже.
+2. In the list of resources, look for items displaying the NSG icon, as shown in the **Resources** blade below.
 
-![Портал Azure — группы безопасности сети](./media/virtual-network-manage-nsg-arm-portal/figure4.png)
-		 
-### Перечисление всех правил для группы безопасности сети
+![Azure portal - NSGs](./media/virtual-network-manage-nsg-arm-portal/figure4.png)
+         
+### <a name="list-all-rules-for-an-nsg"></a>List all rules for an NSG
 
-Чтобы просмотреть правила группы безопасности сети с именем **NSG-FrontEnd**, выполните шаги ниже.
+To view the rules of an NSG named **NSG-FrontEnd**, follow the steps below. 
 
-1. В колонке **Сетевые группы безопасности** или **Ресурсы**, как показано выше, щелкните **NSG-FrontEnd**.
-2. На вкладке **Параметры** выберите **Правила безопасности для входящего трафика**.
+1. From the **Network security groups** blade, or the **Resources** blade shown above, click **NSG-FrontEnd**.
+2. In the **Settings** tab, click **Inbound security rules**.
 
-![Портал Azure — группы безопасности сети](./media/virtual-network-manage-nsg-arm-portal/figure5.png)
+![Azure portal - NSGs](./media/virtual-network-manage-nsg-arm-portal/figure5.png)
 
-3. Колонка **Правила безопасности для входящего трафика** отображается, как показано ниже.
+3. The **Inbound security rules** blade is displayed as shown below.
 
-![Портал Azure — группы безопасности сети](./media/virtual-network-manage-nsg-arm-portal/figure6.png)
+![Azure portal - NSGs](./media/virtual-network-manage-nsg-arm-portal/figure6.png)
 
-4. На вкладке **Параметры** выберите **Правила безопасности для исходящего трафика**, чтобы просмотреть правила для исходящего трафика.
+4. In the **Settings** tab, click **Outbound security rules** to see the outbound rules.
 
->[AZURE.NOTE] Чтобы просмотреть правила по умолчанию, щелкните значок **Правила по умолчанию** в верхней части колонки, где показаны правила.
+>[AZURE.NOTE] To view default rules, click the **Default rules** icon at the top of the blade that displays the rules.
 
-### Просмотр связей для группы безопасности сети
+### <a name="view-nsgs-associations"></a>View NSGs associations
 
-Чтобы просмотреть, с какими ресурсами связана группа безопасности сети **NSG-FrontEnd**, выполните шаги ниже.
+To view what resources the **NSG-FrontEnd** NSG is associate with, follow the steps below.
 
-1. В колонке **Сетевые группы безопасности** или **Ресурсы**, как показано выше, щелкните **NSG-FrontEnd**.
-2. На вкладке **Параметры** щелкните **Подсети**, чтобы узнать, какие подсети связаны с группой безопасности сети.
+1. From the **Network security groups** blade, or the **Resources** blade shown above, click **NSG-FrontEnd**.
+2. In the **Settings** tab, click **Subnets** to view what subnets are associated to the NSG.
 
-![Портал Azure — группы безопасности сети](./media/virtual-network-manage-nsg-arm-portal/figure7.png)
+![Azure portal - NSGs](./media/virtual-network-manage-nsg-arm-portal/figure7.png)
 
-3. На вкладке **Параметры** щелкните **Сетевые интерфейсы**, чтобы узнать, какие сетевые адаптеры связаны с группой безопасности сети.
+3. In the **Settings** tab, click **Network interfaces** to view what NICs are associated to the NSG.
 
-## Управление правилами
+## <a name="manage-rules"></a>Manage rules
 
-Можно добавлять правила для существующей группы безопасности сети, изменять существующие правила и удалять их.
+You can add rules to an existing NSG, edit existing rules, and remove rules.
 
-### Добавление правила
+### <a name="add-a-rule"></a>Add a rule
 
-Чтобы добавить правило, разрешающее **входящий** трафик через порт **443** с любого компьютера в группу безопасности сети **NSG-FrontEnd**, выполните шаги ниже.
+To add a rule allowing **inbound** traffic to port **443** from any machine to the **NSG-FrontEnd** NSG, follow the steps below.
 
-1. В колонке **Сетевые группы безопасности** или **Ресурсы**, как показано выше, щелкните **NSG-FrontEnd**.
-2. На вкладке **Параметры** выберите **Правила безопасности для входящего трафика**.
-3. В колонке **Правила безопасности для входящего трафика** нажмите кнопку **Добавить**. Затем в колонке **Добавить правило безопасности для входящего трафика** введите значения, как показано ниже, и нажмите кнопку **ОК**.
+1. From the **Network security groups** blade, or the **Resources** blade shown above, click **NSG-FrontEnd**.
+2. In the **Settings** tab, click **Inbound security rules**.
+3. In the **Inbound security rules** blade, click **Add**. Then, in the **Add inbound security rule** blade, fill the values as shown below, and then click **OK**.
 
-![Портал Azure — группы безопасности сети](./media/virtual-network-manage-nsg-arm-portal/figure8.png)
+![Azure portal - NSGs](./media/virtual-network-manage-nsg-arm-portal/figure8.png)
 
-4. Через несколько секунд вы сможете увидеть новое правило в колонке **Правила безопасности для входящего трафика**.
+4. After a few seconds, notice the new rule in the **Inbound security rules** blade.
 
-![Портал Azure — группы безопасности сети](./media/virtual-network-manage-nsg-arm-portal/figure9.png)
+![Azure portal - NSGs](./media/virtual-network-manage-nsg-arm-portal/figure9.png)
 
-### Изменение правила
+### <a name="change-a-rule"></a>Change a rule
 
-Чтобы изменить ранее созданное правило, разрешающее входящий трафик только из **Интернета**, выполните шаги ниже.
+To change the rule created above to allow inbound traffic from the **Internet** only, follow the steps below.
 
-1. В колонке **Сетевые группы безопасности** или **Ресурсы**, как показано выше, щелкните **NSG-FrontEnd**.
-2. На вкладке **Параметры** щелкните созданное ранее правило.
-3. В колонке **allow-https** измените свойство **Source**, как показано ниже, а затем нажмите кнопку **Сохранить**.
+1. From the **Network security groups** blade, or the **Resources** blade shown above, click **NSG-FrontEnd**.
+2. In the **Settings** tab, click the rule created above.
+3. In the **allow-https** blade, change the **Source** property as shown below, and then click **Save**.
 
-![Портал Azure — группы безопасности сети](./media/virtual-network-manage-nsg-arm-portal/figure10.png)
+![Azure portal - NSGs](./media/virtual-network-manage-nsg-arm-portal/figure10.png)
 
-### Удаление правила
+### <a name="delete-a-rule"></a>Delete a rule
 
-Чтобы удалить созданное выше правило, выполните следующие действия.
+To delete the rule created above, follow the steps below.
 
-1. В колонке **Сетевые группы безопасности** или **Ресурсы**, как показано выше, щелкните **NSG-FrontEnd**.
-2. На вкладке **Параметры** щелкните созданное ранее правило.
-3. В колонке **allow-https** нажмите кнопку **Удалить**, а затем — кнопку **Да**.
+1. From the **Network security groups** blade, or the **Resources** blade shown above, click **NSG-FrontEnd**.
+2. In the **Settings** tab, click the rule created above.
+3. In the **allow-https** blade, click **Delete**, and then click **Yes**.
 
-![Портал Azure — группы безопасности сети](./media/virtual-network-manage-nsg-arm-portal/figure11.png)
+![Azure portal - NSGs](./media/virtual-network-manage-nsg-arm-portal/figure11.png)
 
-## Управление связями
+## <a name="manage-associations"></a>Manage associations
 
-Группу безопасности сети можно связать с сетевыми адаптерами и подсетями. Можно также отменить связь группы безопасности сети с любым ресурсом.
+You can associate an NSG to subnets and NICs. You can also dissociate an NSG from any resource it's associated to.
 
-### Связывание группы безопасности сети с сетевым адаптером
+### <a name="associate-an-nsg-to-a-nic"></a>Associate an NSG to a NIC
 
-Чтобы связать группу безопасности сети **NSG-FrontEnd** с сетевым адаптером **TestNICWeb1**, выполните шаги ниже.
+To associate the **NSG-FrontEnd** NSG to the **TestNICWeb1** NIC, follow the steps below.
 
-1. В колонке **Сетевые группы безопасности** или **Ресурсы**, как показано выше, щелкните **NSG-FrontEnd**.
-2. На вкладке **Параметры** щелкните пункты **Сетевые интерфейсы** > **Связать** > **TestNICWeb1**.
+1. From the **Network security groups** blade, or the **Resources** blade shown above, click **NSG-FrontEnd**.
+2. In the **Settings** tab, click **Network interfaces** > **Associate** > **TestNICWeb1**.
 
-![Портал Azure — группы безопасности сети](./media/virtual-network-manage-nsg-arm-portal/figure12.png)
+![Azure portal - NSGs](./media/virtual-network-manage-nsg-arm-portal/figure12.png)
 
-### Отмена связи с сетевым адаптером для группы безопасности сети
+### <a name="dissociate-an-nsg-from-a-nic"></a>Dissociate an NSG from a NIC
 
-Чтобы отвязать группу безопасности сети **NSG-FrontEnd** от сетевого адаптера **TestNICWeb1**, выполните шаги ниже.
+To dissociate the **NSG-FrontEnd** NSG from the **TestNICWeb1** NIC, follow the steps below.
 
-1. На портале Azure выберите пункты **Группы ресурсов >** > **RG-NSG** > **...** > **TestNICWeb1**.
-2. В колонке **TestNICWeb1** выберите пункты **Изменить группу...** > **Нет**.
+1. From the Azure portal, click **Resource groups >** > **RG-NSG** > **...** > **TestNICWeb1**.
+2. In the **TestNICWeb1** blade, click **Change security...** > **None**.
 
-![Портал Azure — группы безопасности сети](./media/virtual-network-manage-nsg-arm-portal/figure13.png)
+![Azure portal - NSGs](./media/virtual-network-manage-nsg-arm-portal/figure13.png)
 
->[AZURE.NOTE] Можно также использовать эту колонку для связывания сетевого адаптера с существующей группой безопасности сети.
+>[AZURE.NOTE] You can also use this blade to associate the NIC to any existing NSG.
 
-### Отмена связи с подсетью для группы безопасности сети
+### <a name="dissociate-an-nsg-from-a-subnet"></a>Dissociate an NSG from a subnet
 
-Чтобы отвязать группу безопасности сети **NSG-FrontEnd** от подсети **FrontEnd**, выполните шаги ниже.
+To dissociate the **NSG-FrontEnd** NSG from the **FrontEnd** subnet, follow the steps below.
 
-1. На портале Azure выберите пункты **Группы ресурсов >** > **RG-NSG** > **...** > **TestVNet**.
-2. В колонке **Параметры** выберите пункты **Подсети** > **FrontEnd** > **Группа безопасности сети** > **Нет**.
+1. From the Azure portal, click **Resource groups >** > **RG-NSG** > **...** > **TestVNet**.
+2. In the **Settings** blade, click **Subnets** > **FrontEnd** > **Network security group** > **None**.
 
-![Портал Azure — группы безопасности сети](./media/virtual-network-manage-nsg-arm-portal/figure14.png)
+![Azure portal - NSGs](./media/virtual-network-manage-nsg-arm-portal/figure14.png)
 
-3. В колонке **FrontEnd** нажмите кнопку **Сохранить**.
+3. In the **FrontEnd** blade, click **Save**.
 
-![Портал Azure — группы безопасности сети](./media/virtual-network-manage-nsg-arm-portal/figure15.png)
+![Azure portal - NSGs](./media/virtual-network-manage-nsg-arm-portal/figure15.png)
 
-### Связывание группы NSG с подсетью
+### <a name="associate-an-nsg-to-a-subnet"></a>Associate an NSG to a subnet
 
-Чтобы снова связать группу безопасности сети **NSG-FrontEnd** с подсетью **FrontEnd**, выполните шаги ниже.
+To associate the **NSG-FrontEnd** NSG to the **FronEnd** subnet again, follow the steps below.
 
-1. На портале Azure выберите пункты **Группы ресурсов >** > **RG-NSG** > **...** > **TestVNet**.
-2. В колонке **Параметры** выберите пункты **Подсети** > **FrontEnd** > **Группа безопасности сети** > **NSG-FrontEnd**.
-3. В колонке **FrontEnd** нажмите кнопку **Сохранить**.
+1. From the Azure portal, click **Resource groups >** > **RG-NSG** > **...** > **TestVNet**.
+2. In the **Settings** blade, click **Subnets** > **FrontEnd** > **Network security group** > **NSG-FrontEnd**.
+3. In the **FrontEnd** blade, click **Save**.
 
->[AZURE.NOTE] Можно также связать группу безопасности сети с подсетью в колонке **Параметры** этой группы.
+>[AZURE.NOTE] You can also associate an NSG to a subnet from thh NSG's **Settings** blade.
 
-## Удаление группы NSG
+## <a name="delete-an-nsg"></a>Delete an NSG
 
-Группу безопасности сети можно удалить только в том случае, если она не связана с ресурсами. Чтобы удалить группу безопасности сети, выполните следующие действия.
+You can only delete an NSG if it's not associated to any resource. To delete an NSG, follow the steps below.
 
-1. На портале Azure выберите пункты **Группы ресурсов >** > **RG-NSG** > **...** > **NSG-FrontEnd**.
-2. В колонке **Параметры** выберите **Сетевые интерфейсы**.
-3. Если в списке есть сетевые адаптеры, щелкните один из них и выполните шаг 2 из раздела [Отмена связи с сетевым адаптером для группы безопасности сети](#Dissociate-an-NSG-from-a-NIC).
-4. Повторите шаг 3 для каждого сетевого адаптера.
-5. В колонке **Параметры** щелкните **Подсети**.
-6. Если в списке есть подсети, щелкните одну из них и выполните шаги 2 и 3 из раздела [Отмена связи с подсетью для группы безопасности сети](#Dissociate-an-NSG-from-a-subnet).
-7. Прокрутите страницу влево к колонке **NSG-FrontEnd** и нажмите кнопки **Удалить** > **Да**.
+1. From the Azure portal, click **Resource groups >** > **RG-NSG** > **...** > **NSG-FrontEnd**.
+2. In the **Settings** blade, click **Network interfaces**.
+3. If there are any NICs listed, click the NIC, and follow step 2 in [Dissociate an NSG from a NIC](#Dissociate-an-NSG-from-a-NIC).
+4. Repeat step 3 for each NIC.
+5. In the **Settings** blade, click **Subnets**.
+6. If there are any subnets listed, click the subnet and follow steps 2 and 3 in [Dissociate an NSG from a subnet](#Dissociate-an-NSG-from-a-subnet).
+7. Scrolls left to the **NSG-FrontEnd** blade, then click **Delete** > **Yes**.
 
-[Портал Azure — группы безопасности сети](./media/virtual-network-manage-nsg-arm-portal/figure16.png)
+[Azure portal - NSGs](./media/virtual-network-manage-nsg-arm-portal/figure16.png)
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Next steps
 
-- [Включите ведение журнала](virtual-network-nsg-manage-log.md) для групп безопасности сети.
+- [Enable logging](virtual-network-nsg-manage-log.md) for NSGs.
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

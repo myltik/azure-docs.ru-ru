@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Настройка DNS между двумя виртуальными сетями Azure | Microsoft Azure" 
-   description="Узнайте, как настроить VPN-подключения и разрешение имени домена между двумя виртуальными сетями и как настроить географическую репликацию HBase." 
+   pageTitle="Configure DNS between two Azure virtual networks | Microsoft Azure" 
+   description="Learn how to configure VPN connections and domain name resolution between two virtual networks, and how to configure HBase geo-replication." 
    services="hdinsight,virtual-network" 
    documentationCenter="" 
    authors="mumian" 
@@ -16,210 +16,215 @@
    ms.date="06/28/2016"
    ms.author="jgao"/>
 
-# Настройка DNS между двумя виртуальными сетями Azure
+
+# <a name="configure-dns-between-two-azure-virtual-networks"></a>Configure DNS between two Azure virtual networks
 
 > [AZURE.SELECTOR]
-- [Настройка подключения VPN](../hdinsight-hbase-geo-replication-configure-VNETs.md)
-- [Настройка DNS](hdinsight-hbase-geo-replication-configure-DNS.md)
-- [Настройка репликации HBase](hdinsight-hbase-geo-replication.md)
+- [Configure VPN connectivity](../hdinsight-hbase-geo-replication-configure-vnets.md)
+- [Configure DNS](hdinsight-hbase-geo-replication-configure-dns.md)
+- [Configure HBase replication](hdinsight-hbase-geo-replication.md) 
 
 
-Узнайте, как добавить и настроить DNS-серверы в виртуальных сетях Azure для обработки разрешения имен в пределах виртуальных сетей и между ними.
+Learn how to add and configure DNS servers to Azure virtual networks to handle name resolution within and across the virtual networks.
 
-Этот учебник является второй частью [серии][hdinsight-hbase-geo-replication] по созданию географической репликации HBase:
+This tutorial is the second part of the [series][hdinsight-hbase-geo-replication] on creating HBase geo-replication:
 
-- [Настройка VPN-подключения между двумя виртуальными сетями][hdinsight-hbase-geo-replication-vnet]
-- Настройка DNS для виртуальных сетей (данный учебник)
-- [Настройка георепликации HBase][hdinsight-hbase-geo-replication]
+- [Configure a VPN connectivity between two virtual networks][hdinsight-hbase-geo-replication-vnet]
+- Configure DNS for the virtual networks (this tutorial)
+- [Configure HBase geo replication][hdinsight-hbase-geo-replication]
 
 
-На следующей схеме показаны две виртуальные сети, созданные вами в разделе [Настройка VPN-подключения между двумя виртуальными сетями][hdinsight-hbase-geo-replication-vnet]\:
+The following diagram illustrates the two virtual networks you created in [Configure a VPN connectivity between two virtual networks][hdinsight-hbase-geo-replication-vnet]:
 
-![Схема виртуальной сети репликации HBase в HDInsight][img-vnet-diagram]
+![HDInsight HBase replication virtual network diagram][img-vnet-diagram]
 
-##Предварительные требования
-Перед началом работы с этим учебником необходимо иметь следующее:
+##<a name="prerequisites"></a>Prerequisites
+Before you begin this tutorial, you must have the following:
 
-- **Подписка Azure.**. См. [Бесплатная пробная версия Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
-- **Рабочая станция с Azure PowerShell.**.
+- **A workstation with Azure PowerShell**.
 
-	Перед выполнением сценариев PowerShell убедитесь, что вы подключены к подписке Azure, с помощью следующего командлета.
+    Before running PowerShell scripts, make sure you are connected to your Azure subscription using the following cmdlet:
 
-		Add-AzureAccount
+        Add-AzureAccount
 
-	При наличии нескольких подписок Azure используется следующий командлет для установки текущей подписки:
+    If you have multiple Azure subscriptions, use the following cmdlet to set the current subscription:
 
-		Select-AzureSubscription <AzureSubscriptionName>
-		
-	[AZURE.INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
+        Select-AzureSubscription <AzureSubscriptionName>
+        
+    [AZURE.INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
-- **Две виртуальные сети Azure с VPN-подключением**. Инструкции см. в разделе [Настройка VPN-подключения между двумя виртуальными сетями Azure][hdinsight-hbase-geo-replication-vnet].
+- **Two Azure virtual network with VPN connectivity**.  For instructions, see [Configure a VPN connection between two Azure virtual networks][hdinsight-hbase-geo-replication-vnet].
 
->[AZURE.NOTE] Имена служб Azure и имена виртуальных машин должны быть уникальными. В этом учебнике используется имя Contoso-[имя службы или виртуальной машины Azure]-[EU/US]. Например, Contoso-VNet-EU — это виртуальная сеть Azure в центре обработки данных, расположенном в Северной Европе; Contoso-DNS-US — виртуальная машина DNS-сервера в центре обработки данных, расположенном на востоке США. Вам необходимо создать собственные имена.
+>[AZURE.NOTE] Azure service names and virtual machine names must be unique. The name used in this tutorial is Contoso-[Azure Service/VM name]-[EU/US]. For example, Contoso-VNet-EU is the Azure virtual network in the North Europe data center; Contoso-DNS-US is the DNS server VM in the East U.S. data center. You must come up with your own names.
  
  
-##Создание виртуальных машин Azure для использования в качестве DNS-серверов
+##<a name="create-azure-virtual-machines-to-be-used-as-dns-servers"></a>Create Azure virtual machines to be used as DNS servers
 
-**Создание виртуальной машины в пределах Contoso-VNet-EU, называемой Contoso-DNS-EU**
+**To create a virtual machine within Contoso-VNet-EU, called Contoso-DNS-EU**
 
-1.	Щелкните **СОЗДАТЬ**, **ВЫЧИСЛЕНИЕ**, **ВИРТУАЛЬНАЯ МАШИНА**, **ИЗ КОЛЛЕКЦИИ**.
-2.	Выберите **Центр обработки данных Windows Server 2012 R2**.
-3.	Введите:
-	- **ИМЯ ВИРТУАЛЬНОЙ МАШИНЫ**: Contoso-DNS-EU
-	- **НОВОЕ ИМЯ ПОЛЬЗОВАТЕЛЯ**:
-	- **НОВЫЙ ПАРОЛЬ**:
-4.	Введите:
-	- **ОБЛАЧНАЯ СЛУЖБА**: создайте новую облачную службу
-	- **РЕГИОН/ТЕРРИТОРИАЛЬНАЯ ГРУППА/ВИРТУАЛЬНАЯ СЕТЬ**: (выберите Contoso-VNet-EU)
-	- **ПОДСЕТИ ВИРТУАЛЬНОЙ СЕТИ**: Subnet-1
-	- **УЧЕТНАЯ ЗАПИСЬ ХРАНЕНИЯ**: Использовать автоматически созданную учетную запись хранения
-	
-		Имя облачной службы будет таким же, как имя виртуальной машины. В этом случае это ЕС Contoso-DNS. Для последующих виртуальных машин можно выбрать ту же облачную службу. Все виртуальные машины в той же облачной службе совместно используют ту же виртуальную сеть и суффикс домена.
+1.  Click **NEW**, **COMPUTE**, **VIRTUAL MACHINE**, **FROM GALLERY**.
+2.  Choose **Windows Server 2012 R2 Datacenter**.
+3.  Enter:
+    - **VIRTUAL MACHINE NAME**: Contoso-DNS-EU
+    - **NEW USER NAME**: 
+    - **NEW PASSWORD**: 
+4.  Enter:
+    - **CLOUD SERVICE**: Create a new cloud service
+    - **REGION/AFFINITY GROUP/VIRTUAL NETWORK**: (Select Contoso-VNet-EU)
+    - **VIRTUAL NETWORK SUBNETS**: Subnet-1
+    - **STORAGE ACCOUNT**: Use an automatically generated storage account
+    
+        The cloud service name will be the same as the virtual machine name. In this case, that is Contoso-DNS-EU. For subsequent virtual machines, I can choose to use the same cloud service.  All the virtual machines under the same cloud service share the same virtual network and domain suffix.
 
-		Учетная запись хранения используется для хранения файла образа виртуальной машины.
-	- **КОНЕЧНЫЕ ТОЧКИ**: (прокрутите вниз и выберите **DNS**)
+        The storage account is used to store the virtual machine image file. 
+    - **ENDPOINTS**: (scroll down and select **DNS**) 
 
-После создания виртуальной машины узнайте, внутренний IP-адрес и внешний IP-адрес.
+After the virtual machine is created, find out the internal IP and external IP.
 
-1.	Щелкните имя виртуальной машины — **Contoso-DNS-EU**.
-2.	Щелкните **Панель мониторинга**.
-3.	Запишите:
-	- ОБЩЕДОСТУПНЫЙ ВИРТУАЛЬНЫЙ IP-АДРЕС
-	- ВНУТРЕННИЙ IP-АДРЕС
-
-
-**Создание виртуальной машины в пределах Contoso-VNet-US, называемой Contoso-DNS-US**
-
-- Повторите ту же процедуру для создания виртуальной машины со следующими значениями:
-	- ИМЯ ВИРТУАЛЬНОЙ МАШИНЫ: Contoso-DNS-US
-	- РЕГИОН/ТЕРРИТОРИАЛЬНАЯ ГРУППА/ВИРТУАЛЬНАЯ СЕТЬ: выберите Contoso-VNET-US
-	- ПОДСЕТИ ВИРТУАЛЬНОЙ СЕТИ: Subnet-1
-	- УЧЕБНАЯ ЗАПИСЬ ХРАНЕНИЯ: Использовать автоматически созданную учетную запись хранения
-	- КОНЕЧНЫЕ ТОЧКИ: (выберите DNS)
-
-##Задайте статические IP-адреса для двух виртуальных машин
-
-DNS-серверам требуются статические IP-адреса. Это действие нельзя выполнить на классическом портале Azure. Вы будете использовать Azure PowerShell.
-
-**Настройка статического IP-адреса для двух виртуальных машин**
-
-1. Откройте интегрированную среду сценариев Windows PowerShell.
-2. Выполните следующие командлеты.
-
-		Add-AzureAccount
-		Select-AzureSubscription [YourAzureSubscriptionName]
-		
-		Get-AzureVM -ServiceName Contoso-DNS-EU -Name Contoso-DNS-EU | Set-AzureStaticVNetIP -IPAddress 10.1.0.4 | Update-AzureVM
-		Get-AzureVM -ServiceName Contoso-DNS-US -Name Contoso-DNS-US | Set-AzureStaticVNetIP -IPAddress 10.2.0.4 | Update-AzureVM 
-
-	ServiceName — имя облачной службы. Поскольку DNS-сервер является первой виртуальной машиной облачной службы, имя облачной службы совпадает с именем виртуальной машины.
-
-	Может быть необходимо обновить ServiceName и Name для соответствия имеющимся у вас именам.
+1.  Click the virtual machine name, **Contoso-DNS-EU**.
+2.  Click **DashBoard**.
+3.  Write down:
+    - PUBLIC VIRTUAL IP ADDRESS
+    - INTERNAL IP ADDRESS
 
 
-##Добавление роли DNS-сервера для двух виртуальных машин
+**To create a virtual machine within Contoso-VNet-US, called Contoso-DNS-US** 
 
-**Добавление роли DNS-сервера для Contoso-DNS-EU**
+- Repeat the same procedure to create a virtual machine with the following values:
+    - VIRTUAL MACHINE NAME: Contoso-DNS-US
+    - REGION/AFFINITY GROUP/VIRTUAL NETWORK: Select Contoso-VNET-US
+    - VIRTUAL NETWORK SUBNETS: Subnet-1
+    - STORAGE ACCOUNT: Use an automatically generated storage account
+    - ENDPOINTS: (select DNS)
 
-1.	В левой части классического портала Azure щелкните **Виртуальные машины**.
-2.	Щелкните **Contoso-DNS-EU**.
-3.	Щелкните **ПАНЕЛЬ МОНИТОРИНГА** в верхней части страницы.
-4.	Щелкните **ПОДКЛЮЧЕНИЕ** снизу и следуйте инструкциям для подключения к виртуальной машине через RDP.
-2.	В рамках сеанса RDP нажмите кнопку Windows в левом нижнем углу, чтобы открыть начальный экран.
-3.	Щелкните плитку **Диспетчер серверов**.
-4.	Щелкните **Добавить роли и компоненты**.
-5.	Нажмите кнопку **Далее**.
-6.	Выберите **Role-based or feature-based installation** (Установка на основе ролей или функций), а затем нажмите **Next**.
-7.	Выберите виртуальную машину DNS (она должна быть уже выделена), а затем нажмите кнопку **Далее**.
-8.	Установите флажок **DNS-сервер**.
-9.	Нажмите **Добавить компоненты**, а затем **Продолжить**.
-10.	Нажмите кнопку **Далее** три раза, а затем нажмите **Установить**.
+##<a name="set-static-ip-addresses-for-the-two-virtual-machines"></a>Set static IP addresses for the two virtual machines
 
-**Добавление роли DNS-сервера для Contoso-DNS-US**
+DNS servers requires static IP addresses.  This step can't be done from the Azure Classic Portal. You will use Azure PowerShell.
 
-- Повторите шаги, чтобы добавить роль DNS для **Contoso-DNS-US**.
+**To configure static IP address for the two virtual machines**
 
-##Назначение DNS-серверов виртуальным сетям
+1. Open Windows PowerShell ISE.
+2. Run the following cmdlets.  
 
-**Регистрация двух DNS-серверов**
+        Add-AzureAccount
+        Select-AzureSubscription [YourAzureSubscriptionName]
+        
+        Get-AzureVM -ServiceName Contoso-DNS-EU -Name Contoso-DNS-EU | Set-AzureStaticVNetIP -IPAddress 10.1.0.4 | Update-AzureVM
+        Get-AzureVM -ServiceName Contoso-DNS-US -Name Contoso-DNS-US | Set-AzureStaticVNetIP -IPAddress 10.2.0.4 | Update-AzureVM 
 
-1.	На классическом портале Azure нажмите **Создать**, **СЕТЕВЫЕ СЛУЖБЫ**, **ВИРТУАЛЬНАЯ СЕТЬ**, **ЗАРЕГИСТРИРОВАТЬ DNS-СЕРВЕР**.
-2.	Введите:
-	- **ИМЯ**: Contoso-DNS-EU
-	- **IP-АДРЕС DNS-СЕРВЕРА**: 10.1.0.4 — IP-адрес должен соответствовать IP-адресу виртуальной машины DNS-сервера.
-	 
-3.	Повторите процесс для регистрации Contoso-DNS-US со следующими параметрами:
-	- **ИМЯ**: Contoso-DNS-US
-	- **IP-АДРЕС DNS-СЕРВЕРА**: 10.2.0.4
+    ServiceName is the cloud service name. Because the DNS server is the first virtual machine of the cloud service, the cloud service name is the same as the virtual machine name.
 
-**Назначение двух DNS-серверов двум виртуальным сетям**
-
-1.	Щелкните **Сети** в левой области на классическом портале.
-2.	Щелкните **Contoso-VNet-EU**.
-3.	Нажмите **НАСТРОИТЬ**.
-4.	Выберите **Contoso-DNS-EU** в разделе **DNS-серверы**.
-5.	Нажмите кнопку **СОХРАНИТЬ** внизу страницы, а затем кнопку **Да** для подтверждения.
-6.	Повторите процедуру, чтобы назначить DNS-сервер **Contoso-DNS-US** виртуальной сети **Contoso-DNS-US**.
-
-Все виртуальные машины, которые были развернуты в виртуальных сетях, необходимо перезагрузить для обновления конфигурации DNS-серверов.
-
-**Перезагрузка виртуальных машин**
-
-1. В левой части классического портала Azure щелкните **Виртуальные машины**.
-2. Щелкните **Contoso-DNS-EU**.
-3. Щелкните **Панель мониторинга** в верхней части страницы.
-4. Щелкните **ПЕРЕЗАПУСТИТЬ** внизу.
-5. Повторите те же действия для перезагрузки **Contoso-DNS-US**.
+    You might need to update ServiceName and Name to match the names that you have.
 
 
-##Настройка DNS-серверов условной пересылки
+##<a name="add-the-dns-server-role-the-two-virtual-machines"></a>Add the DNS Server role the two virtual machines
 
-DNS-сервер в каждой виртуальной сети может разрешать имена DNS только в пределах этой виртуальной сети. Необходимо настроить сервер условной пересылки, указывающий на одноранговый DNS-сервер, для разрешения имен в одноранговой виртуальной сети.
+**To add the DNS Server role for Contoso-DNS-EU**
 
-Чтобы настроить сервер условной пересылки, необходимо знать суффиксы доменов двух DNS-серверов. DNS-суффиксы могут различаться в зависимости от конфигурации облачных служб, которая использовалась при создании виртуальных машин. Для каждого DNS-суффикса, используемого в виртуальной сети, необходимо добавить сервер условной пересылки.
+1.  From the Azure Classic Portal, click **Virtual Machines** on the left. 
+2.  Click **Contoso-DNS-EU**.
+3.  Click **DASHBOARD** from the top.
+4.  Click **CONNECT** from the bottom and follow the instructions to connect to the virtual machine via RDP.
+2.  Within the RDP session, click the Windows button on the bottom left corner to open the Start screen.
+3.  Click the **Server Manager** tile.
+4.  Click **Add Roles and Features**.
+5.  Click **Next**
+6.  Select **Role-based or feature-based installation**, and then click **Next**.
+7.  Select your DNS virtual machine (it shall be highlighted already), and then click **Next**.
+8.  Check **DNS Server**.
+9.  Click **Add Features**, and then click **Continue**.
+10. Click **Next** three times, and then click **Install**. 
 
-**Поиск суффиксов доменов двух DNS-серверов**
+**To add the DNS Server role for Contoso-DNS-US**
 
-1. Выполните вход RDP в **Contoso-DNS-EU**.
-2. Откройте консоль Windows PowerShell или командную строку.
-3. Запустите **ipconfig** и запишите **DNS-суффикс, зависящий от подключения**.
-4. Не закрывайте сеанс RDP, он будет по-прежнему нужен.
-5. Повторите шаги, чтобы узнать **DNS-суффикс, зависящий от подключения** для **Contoso-HBase-US**.
+- Repeat the steps to add DNS role to **Contoso-DNS-US**.
+
+##<a name="assign-dns-servers-to-the-virtual-networks"></a>Assign DNS servers to the virtual networks
+
+**To register the two DNS servers**
+
+1.  From the Azure Classic Portal, click **NEW**, **NETWORK SERVICES**, **VIRTUAL NETWORK**, **REGISTER DNS SERVER**.
+2.  Enter:
+    - **NAME**: Contoso-DNS-EU
+    - **DNS SERVER IP ADDRESS**: 10.1.0.4 – the IP address must matching the DNS server virtual machine IP address.
+     
+3.  Repeat the process to register Contoso-DNS-US with the following settings:
+    - **NAME**: Contoso-DNS-US
+    - **DNS SERVER IP ADDRESS**: 10.2.0.4
+
+**To assign the two DNS servers to the two virtual networks**
+
+1.  Click **Networks** from the left pane in the Classic Portal.
+2.  Click **Contoso-VNet-EU**.
+3.  Click **CONFIGURE**.
+4.  Select **Contoso-DNS-EU** in the **dns servers** section.
+5.  Click **SAVE** on the bottom of the page, and click **Yes** to confirm.
+6.  Repeat the process to assign the **Contoso-DNS-US** DNS server to the **Contoso-VNet-US** virtual network.
+
+All the virtual machines that have been deployed to the virtual networks must be rebooted to update the DNS server configuration.
+
+**To reboot the virtual machines**
+
+1. From the Azure Classic Portal, click **Virtual Machines** on the left.
+2. Click **Contoso-DNS-EU**.
+3. Click **Dashboard** from the top.
+4. Click **RESTART** on the bottom.
+5. Repeat the same steps to reboot **Contoso-DNS-US**.
 
 
-**Настройка DNS-серверов пересылки**
+##<a name="configure-dns-conditional-forwarders"></a>Configure DNS conditional forwarders
+
+The DNS server on each virtual network can only resolve DNS names within that virtual network. You need to configure a conditional forwarder to point to the peer DNS server for name resolutions in the peer virtual network.
+
+To configure conditional forwarder, you need to know the domain suffixes of the two DNS servers. The DNS suffixes can be different depending on the Cloud Services configuration you used when you created the virtual machines. For each DNS suffix used in the virtual network, you must add a conditional forwarder. 
+
+**To find the domain suffixes of the two DNS servers**
+
+1. RDP into **Contoso-DNS-EU**.
+2. Open Windows PowerShell console, or command prompt.
+3. Run **ipconfig**, and write down **Connection-specific DNS suffix**.
+4. Do not close the RDP session, you will still need it. 
+5. Repeat the same steps to find out the **Connection-specific DNS suffix** of **Contoso-DNS-US**.
+
+
+**To configure DNS forwarders**
  
-1.	Из сеанса подключения RDP к **Contoso-DNS-EU** нажмите клавишу Windows в левом нижнем углу.
-2.	Щелкните **Администрирование**.
-3.	Щелкните **DNS**.
-4.	В левой области разверните **DSN**, **Contoso-DNS-EU**.
-5.	Введите следующие сведения:
-	- **DNS-домен**: введите DNS-суффикс Contoso-DNS-US. Например: Contoso-DNS-US.b5.internal.cloudapp.net.
-	- **IP-адреса главных серверов**: введите 10.2.0.4 (IP-адрес Contoso-DNS-US).
-6.	Нажмите клавишу **ENTER**, а затем нажмите кнопку **ОК**. Теперь можно будет разрешить IP-адрес Contoso-DNS-US из Contoso-DNS-EU.
-7.	Повторите шаги, чтобы добавить DNS-сервер условной пересылки в службу DNS на виртуальной машине Contoso-DNS-US со следующими значениями:
-	- **DNS-домен**: введите DNS-суффикс Contoso-DNS-EU.
-	- **IP-адреса главных серверов**: введите 10.2.0.4 (IP-адрес Contoso-DNS-EU).
+1.  From the RDP session to **Contoso-DNS-EU**, click the Windows key on the lower left.
+2.  Click **Administrative Tools**.
+3.  Click **DNS**.
+4.  In the left pane, expand **DSN**, **Contoso-DNS-EU**.
+5.  Enter the following information:
+    - **DNS Domain**: enter the DNS suffix of the Contoso-DNS-US. For example: Contoso-DNS-US.b5.internal.cloudapp.net.
+    - **IP addresses of the master servers**: enter 10.2.0.4, which is the Contoso-DNS-US’s IP address.
+6.  Press **ENTER**, and then click **OK**.  Now you will be able to resolve the Contoso-DNS-US’s IP address from Contoso-DNS-EU.
+7.  Repeat the steps to add a DNS forwarder to the DNS service on the Contoso-DNS-US virtual machine with the following values:
+    - **DNS Domain**: enter the DNS suffix of the Contoso-DNS-EU. 
+    - **IP addresses of the master servers**: enter 10.2.0.4, which is the Contoso-DNS-EU’s IP address.
 
-##Проверка разрешения имен между виртуальными сетями
+##<a name="test-the-name-resolution-across-the-virtual-networks"></a>Test the name resolution across the virtual networks
 
-Теперь можно протестировать разрешение имен хостов между виртуальными сетями По умолчанию команда ping блокируется брандмауэром. С помощью nslookup можно разрешать виртуальные машины DNS-серверов виртуальных машин (необходимо использовать полное доменное имя) в одноранговых сетях.
+Now you can test host name resolution across the virtual networks. Ping is blocked by firewall by default.  You can use nslookup to resolve the DNS server virtual machines (you must use FQDN) in the peer networks.  
 
 
-##Дальнейшие действия
+##<a name="next-steps"></a>Next Steps
 
-В этом учебнике вы узнали, как настроить разрешение имен между виртуальными сетями с использованием VPN-подключений. Две оставшиеся статьи в серии описывают следующие темы:
+In this tutorial, you have learned how to configure name resolution across virtual networks with VPN connections. The other two articles in the series cover:
 
-- [Настройка VPN-подключения между двумя виртуальными сетями Azure][hdinsight-hbase-geo-replication-vnet]
-- [Настройка георепликации HBase][hdinsight-hbase-geo-replication]
+- [Configure a VPN connection between two Azure virtual networks][hdinsight-hbase-geo-replication-vnet]
+- [Configure HBase geo replication][hdinsight-hbase-geo-replication]
 
 
 
 [hdinsight-hbase-geo-replication]: hdinsight-hbase-geo-replication.md
-[hdinsight-hbase-geo-replication-vnet]: hdinsight-hbase-geo-replication-configure-VNets.md
+[hdinsight-hbase-geo-replication-vnet]: hdinsight-hbase-geo-replication-configure-vnets.md
 [powershell-install]: powershell-install-configure.md
 
-[img-vnet-diagram]: ./media/hdinsight-hbase-geo-replication-configure-DNS/HDInsight.HBase.VPN.diagram.png
+[img-vnet-diagram]: ./media/hdinsight-hbase-geo-replication-configure-DNS/HDInsight.HBase.VPN.diagram.png 
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

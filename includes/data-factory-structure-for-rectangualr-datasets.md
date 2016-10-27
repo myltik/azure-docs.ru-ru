@@ -1,16 +1,16 @@
-## Указание определения структуры для прямоугольных наборов данных
-Раздел structure в JSON наборов данных является **необязательным** для прямоугольных таблиц (со строками и столбцами) и содержит коллекцию столбцов для таблицы. Раздел structure следует использовать либо для указания сведений о типе при преобразовании типов, либо при выполнении сопоставления столбцов. В следующих разделах эти функции описаны более подробно.
+## <a name="specifying-structure-definition-for-rectangular-datasets"></a>Specifying structure definition for rectangular datasets
+The structure section in the datasets JSON is an **optional** section for rectangular tables (with rows & columns) and contains a collection of columns for the table. You will use the structure section for either providing type information for type conversions or doing column mappings. The following sections describe these features in detail. 
 
-У каждого столбца есть приведенные ниже свойства.
+Each column contains the following properties:
 
-| Свойство | Описание | Обязательно |
+| Property | Description | Required |
 | -------- | ----------- | -------- |
-| name | Имя столбца. | Да |
-| type | Тип данных столбца. Для получения дополнительных сведений о том, когда следует указывать информацию о типе, см. раздел преобразований типов. | Нет |
-| culture | Язык и региональные параметры на основе .NET, используемые при указании типа, если это тип .NET Datetime или Datetimeoffset. Значение по умолчанию — ru-RU. | Нет |
-| свойства | Строка формата, используемая при указании типа, если это тип .NET Datetime или Datetimeoffset. | Нет |
+| name | Name of the column. | Yes |
+| type | Data type of the column. See type conversions section below for more details regarding when should you specify type information | No |
+| culture | .NET based culture to be used when type is specified and is .NET type Datetime or Datetimeoffset. Default is “en-us”.  | No |
+| format | Format string to be used when type is specified and is .NET type Datetime or Datetimeoffset. | No |
 
-В следующем примере показан JSON раздела structure для таблицы, в которой имеются три столбца — userid, name и lastlogindate.
+The following sample shows the structure section JSON for a table that has three columns userid, name, and lastlogindate.
 
     "structure": 
     [
@@ -19,32 +19,36 @@
         { "name": "lastlogindate"}
     ],
 
-Используйте приведенные ниже рекомендации о том, когда следует включать информацию о структуре и что включать в раздел **structure**.
+Please use the following guidelines for when to include “structure” information and what to include in the **structure** section.
 
-- **Для структурированных источников данных**, в которых наряду с данными хранятся схема данных и информация о типах (такие источники, как SQL Server, Oracle, таблица Azure и т. п.), раздел structure следует указывать только в случае, если требуется выполнить сопоставление определенных исходных столбцов с конкретными столбцами в приемнике, а их имена различаются (см. подробные сведения в разделе сопоставления столбцов ниже).
+- **For structured data sources** that store data schema and type information along with the data itself (sources like SQL Server, Oracle, Azure table etc.), you should specify the “structure” section only if you want do column mapping of specific source columns to specific columns in sink and their names are not the same (see details in column mapping section below). 
 
-	Как было упомянуто выше, информация о типах является необязательной в разделе structure. Для структурированных источников информация о типах уже доступна в определении набора данных в хранилище данных, поэтому ее не следует включать при добавлении раздела structure.
-- **Для схемы на основе считываемых источников данных (а именно большого двоичного объекта Azure)** вы можете выбрать хранение данных без сохранения какой-либо схемы или информации о типах вместе с ними. Для таких типов источников данных раздел structure нужно добавлять в следующих двух случаях:
-	- нужно сопоставить столбцы;
-	- если набор данных является источником в действии копирования, вы можете указать сведения о типах в разделе structure, и фабрика данных будет использовать эти сведения для преобразования в собственные типы для приемника. Дополнительные сведения см. в статье [Перемещение данных в BLOB-объект Azure и из него](../articles/data-factory/data-factory-azure-blob-connector.md).
+    As mentioned above, the type information is optional in “structure” section. For structured sources, type information is already available as part of dataset definition in the data store, so you should not include type information when you do include the “structure” section.
+- **For schema on read data sources (specifically Azure blob)**  you can choose to store data without storing any schema or type information with the data. For these types of data sources you should include “structure” in the following 2 cases:
+    - You want to do column mapping.
+    - When the dataset is a source in a Copy activity, you can provide type information in “structure” and data factory will use this type information for conversion to native types for the sink. See [Move data to and from Azure Blob](../articles/data-factory/data-factory-azure-blob-connector.md) article for more information.
 
-### Поддерживаемые типы на основе .NET 
-Фабрика данных поддерживает следующие CLS-совместимые значения типов на основе .NET, когда нужно предоставлять информацию о типах в разделе structure для схемы по считываемым источникам данных, таким как BLOB-объект Azure.
+### <a name="supported-.net-based-types"></a>Supported .NET-based types 
+Data factory supports the following CLS compliant .NET based type values for providing type information in “structure” for schema on read data sources like Azure blob.
 
 - Int16
-- Int32
+- Int32 
 - Int64
 - Single
 - Double
 - Decimal
-- Byte
+- Byte[]
 - Bool
-- Строка
+- String 
 - Guid
 - Datetime
 - Datetimeoffset
-- Timespan
+- Timespan 
 
-Чтобы упростить разбор пользовательской строки Datetime, для типов Datetime и Datetimeoffset можно при необходимости указать также строки culture и format. См. пример преобразования типа ниже.
+For Datetime & Datetimeoffset you can also optionally specify “culture” & “format” string to facilitate parsing of your custom Datetime string. See sample for type conversion below.
 
-<!---HONumber=AcomDC_0720_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Обзор Reliable Actors Service Fabric | Microsoft Azure"
-   description="Общие сведения о модели программирования на основе субъектов Reliable Actors Service Fabric."
+   pageTitle="Service Fabric Reliable Actors Overview | Microsoft Azure"
+   description="Introduction to the Service Fabric Reliable Actors programming model."
    services="service-fabric"
    documentationCenter=".net"
    authors="vturecek"
@@ -13,79 +13,80 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/06/2016"
+   ms.date="10/19/2016"
    ms.author="vturecek"/>
 
-# Общие сведения о надежных субъектах Service Fabric
 
-Субъекты Reliable Actors — это платформа приложений Service Fabric, основанная на шаблоне [виртуальных субъектов](http://research.microsoft.com/ru-RU/projects/orleans/). API субъектов Reliable Actors предоставляет однопоточную модель программирования, основанную на той надежности и масштабируемости, которые гарантирует Service Fabric.
+# <a name="introduction-to-service-fabric-reliable-actors"></a>Introduction to Service Fabric Reliable Actors
 
-## Что представляют собой субъекты?
-Субъект — это изолированная, независимая единица вычислений и состояния с однопоточным выполнением. [Шаблон субъектов](https://en.wikipedia.org/wiki/Actor_model) — это модель вычислений для параллельных или распределенных систем, в которой несколько субъектов могут выполняться одновременно и независимо друг от друга. Субъекты могут взаимодействовать друг с другом и создавать новые субъекты.
+Reliable Actors is a Service Fabric application framework based on the [Virtual Actor](http://research.microsoft.com/en-us/projects/orleans/) pattern. The Reliable Actors API provides a single-threaded programming model built on the scalability and reliability guarantees provided by Service Fabric.
 
-### Когда следует использовать субъекты Reliable Actors
+## <a name="what-are-actors?"></a>What are Actors?
+An actor is an isolated, independent unit of compute and state with single-threaded execution. The [actor pattern](https://en.wikipedia.org/wiki/Actor_model) is a computational model for concurrent or distributed systems in which a large number of these actors can execute simultaneously and independently of each other. Actors can communicate with each other and they can create more actors.
 
-Субъекты Reliable Actors Service Fabric — это реализация шаблона проектирования субъектов. Как и в случае с любым другим шаблоном проектирования программного обеспечения, решение о выборе того или иного шаблона зависит от того, соответствует ли он проблеме проектирования программного обеспечения.
+### <a name="when-to-use-reliable-actors"></a>When to use Reliable Actors
 
-Несмотря на то, что шаблон проектирования субъектов может соответствовать целому ряду проблем и сценариев распределенных систем, необходимо тщательно анализировать ограничения шаблона и платформу, на которой они реализуются. В частности следует учесть, подойдет ли шаблон субъекта для моделирования проблемы или сценария, если:
+Service Fabric Reliable Actors is an implementation of the actor design pattern. As with any software design pattern, the decision whether to use a specific pattern is made based on whether or not a software design problem fits the pattern.
 
- - Проблемное пространство включает множество (тысячи и больше) небольших независимых и изолированных единиц состояния и логики.
+Although the actor design pattern can be a good fit to a number of distributed systems problems and scenarios, careful consideration of the constraints of the pattern and the framework implementing it must be made. As general guidance, consider the actor pattern to model your problem or scenario if:
 
- - Вы собираетесь работать с однопоточными объектами, которые не требуют значительного взаимодействия с внешними компонентами, включая запросы состояния в пределах определенного набора субъектов.
+ - Your problem space involves a large number (thousands or more) of small, independent, and isolated units of state and logic.
 
- - Экземпляры субъекта не должны блокировать вызывающие объекты с непредсказуемыми задержками, выполняя операции ввода-вывода.
+ - You want to work with single-threaded objects that do not require significant interaction from external components, including querying state across a set of actors.
 
-## Субъекты в Service Fabric
+ - Your actor instances won't block callers with unpredictable delays by issuing I/O operations.
 
-В Service Fabric субъекты реализуются на платформе субъектов Reliable Actors: платформа приложений на основе шаблона субъекта опирается на [службы Reliable Services Service Fabric](service-fabric-reliable-services-introduction.md). Каждая написанный вами субъект Reliable Actor фактически представляет собой секционированную надежную службу Reliable Service с отслеживанием состояния.
+## <a name="actors-in-service-fabric"></a>Actors in Service Fabric
 
-Аналогично объектам .NET, которые являются экземплярами типа .NET, каждый субъект определяется как экземпляр типа субъекта. Предположим, есть тип субъекта, который реализует функции калькулятора, и есть много субъектов этого типа, распределенных по разным узлам кластера. У каждого такого субъекта есть уникальный идентификатор.
+In Service Fabric, actors are implemented in the Reliable Actors framework: An actor-pattern-based application framework built on top of [Service Fabric Reliable Services](service-fabric-reliable-services-introduction.md). Each Reliable Actor service you write is actually a partitioned, stateful Reliable Service.
 
-### Срок действия субъекта
+Every actor is defined as an instance of an actor type, identical to the way a .NET object is an instance of a .NET type. For example, there may be an actor type that implements the functionality of a calculator and there could be many actors of that type that are distributed on various nodes across a cluster. Each such actor is uniquely identified by an actor ID.
 
-Субъекты Service Fabric виртуальные. Это означает, что срок их действия не привязан к их представлению в памяти. В результате их не требуется создавать и удалять в явном виде. Получив запрос с идентификатором субъекта, среда выполнения субъектов Reliable Actors автоматически активирует соответствующий субъект. Если субъект не используется в течение определенного времени, среда выполнения субъектов Reliable Actors удаляет выполняемый в памяти объект как мусор. Существование субъекта также будет учитываться на случай необходимости в его повторной активации в будущем. Дополнительные сведения см. в статье [Жизненный цикл субъектов и сбор мусора](service-fabric-reliable-actors-lifecycle.md).
+### <a name="actor-lifetime"></a>Actor Lifetime
 
-Это абстрактное представление жизненного цикла виртуальных субъектов включает ряд предупреждений, связанных с моделью виртуальных субъектов; время от времени реализация субъектов Reliable Actors отклоняется от этой модели.
+Service Fabric actors are virtual, meaning that their lifetime is not tied to their in-memory representation. As a result, they do not need to be explicitly created or destroyed. The Reliable Actors runtime automatically activates an actor the first time it receives a request for that actor ID. If an actor is not used for a period of time, the Reliable Actors runtime garbage-collects the in-memory object. It will also maintain knowledge of the actor's existence should it need to be reactivated later. For more details, see [Actor lifecycle and garbage collection](service-fabric-reliable-actors-lifecycle.md).
 
- - Как только на идентификатор субъекта отправляется сообщение, этот субъект автоматически активируется (и формируется объект субъекта). По прошествии определенного периода времени объект субъекта удаляется. В дальнейшем, если идентификатор этого субъекта используется снова, формируется новый объект субъекта. Если состояние субъекта сохраняется в диспетчере состояний, оно хранится дольше, чем жизненный цикл объекта.
+This virtual actor lifetime abstraction carries some caveats as a result of the virtual actor model, and in fact the Reliable Actors implementation deviates at times from this model.
+
+ - An actor is automatically activated (causing an actor object to be constructed) the first time a message is sent to its actor ID. After some period of time, the actor object is garbage collected. In the future, using the actor ID again, causes a new actor object to be constructed. An actor's state outlives the object's lifetime when stored in the state manager.
  
- - Вызов любого метода субъекта с идентификатором субъекта активирует этот субъект. По этой причине среда выполнения неявно вызывает конструктор соответствующих типов субъектов. Таким образом, код клиента не может передать параметры в конструктор типа субъекта, хотя параметры могут передаваться в конструктор субъекта самой службой. В результате, если субъекту требуются параметры инициализации от клиента, к моменту вызова других методов он может быть сформирован в частично инициализированном состоянии. Ни одной точки входа для активации субъекта со стороны клиента нет.
+ - Calling any actor method for an actor ID activates that actor. For this reason, actor types have their constructor called implicitly by the runtime. Therefore, client code cannot pass parameters to the actor type's constructor, although parameters may be passed to the actor's constructor by the service itself. The result is that actors may be constructed in a partially-initialized state by the time other methods are called on it, if the actor requires initialization parameters from the client. There is no single entry point for the activation of an actor from the client.
 
- - Несмотря на то, что субъекты Reliable Actors неявно создают объекты, напрямую удалить субъект и его состояние нельзя.
+ - Although Reliable Actors implicitly create actor objects; you do have the ability to explicitly delete an actor and its state. 
 
-### Распространение и отработка отказа
+### <a name="distribution-and-failover"></a>Distribution and failover
 
-Для обеспечения масштабируемости и надежности Service Fabric распределяет субъекты по кластеру и автоматически переносит их с неисправных узлов в работоспособные по мере необходимости. Это абстрактное представление [секционированной службы Reliable Service с отслеживанием состояния](./service-fabric-concepts-partitioning.md). Распределение, масштабируемость, надежность и автоматическая отработка отказа достигаются благодаря тому, что субъекты выполняются в службе Reliable Services с отслеживанием состояния, которая называется *службой субъектов*.
+To provide scalability and reliability, Service Fabric distributes actors throughout the cluster and automatically migrates them from failed nodes to healthy ones as required. This is an abstraction over a [partitioned, stateful Reliable Service](./service-fabric-concepts-partitioning.md). Distribution, scalability, reliability, and automatic failover are all provided by virtue of the fact that actors are running inside a stateful Reliable Service called the *Actor Service*. 
 
-Субъекты распределяются по секциям службы субъектов, а секции — по узлам в кластере Service Fabric. Каждая секция службы содержит набор субъектов. Service Fabric управляет распространением этих секций и отработкой отказа, если в них возникают сбои.
+Actors are distributed across the partitions of the Actor Service, and those partitions are distributed across the nodes in a Service Fabric cluster. Each service partition contains a set of actors. Service Fabric manages distribution and failover of the service partitions. 
 
-Например, служба субъектов с девятью разделами, развернутая на три узла с размещением секций субъектов, по умолчанию будет распространяться следующим образом:
+For example, an actor service with nine partitions deployed to three nodes using the default actor partition placement would be distributed thusly:
 
-![Распространение субъектов Reliable Actors][2]
+![Reliable Actors distribution][2]
 
-Схемой разделов и параметрами диапазона ключей управляет платформа субъектов. Это упрощает работу, но требует внимания к следующим моментам:
+The Actor Framework manages partition scheme and key range settings for you. This simplifies some choices but also carries some consideration:
 
- - Службы Reliable Services позволяют выбрать схему секционирования, диапазон ключей (если используется схема секционирования по диапазону) и количество разделов. Субъекты Reliable Actors ограничиваются схемой секционирования по диапазону (универсальной схемой Int64) и требуют полного диапазона ключей Int64.
+ - Reliable Services allows you to choose a partitioning scheme, key range (when using a range partitioning scheme), and partition count. Reliable Actors is restricted to the range partitioning scheme (the uniform Int64 scheme) and requires you use the full Int64 key range.
  
- - По умолчанию субъекты равномерно распределяются между секциями в случайном порядке.
+ - By default, actors are randomly placed into partitions resulting in uniform distribution. 
  
- - Поскольку субъекты размещаются случайным образом, для выполняемых ими операций, включая сериализацию и десериализацию данных по вызовам методов, задержкам и нагрузке, всегда будет требоваться подключение к сети.
+ - Because actors are randomly placed, it should be expected that actor operations will always require network communication, including serialization and deserialization of method call data, incurring latency and overhead.
  
- - В более сложных сценариях размещение субъектов в секциях можно контролировать, сопоставляя идентификаторы субъектов Int64 с определенными секциями, однако это может привести к неравномерному распределению субъектов между секциями.
+ - In advanced scenarios, it is possible to control actor partition placement by using Int64 actor IDs that map to specific partitions. However, doing so can result in an unbalanced distribution of actors across partitions. 
 
-Дополнительные сведения о секционировании служб субъектов см. в разделе, посвященном [основным принципам секционирования субъектов](service-fabric-reliable-actors-platform.md#service-fabric-partition-concepts-for-actors).
+For more information on how actor services are partitioned, refer to [partitioning concepts for actors](service-fabric-reliable-actors-platform.md#service-fabric-partition-concepts-for-actors). 
 
-### Обмен данными с субъектами
-Взаимодействия субъектов определяются в интерфейсе, который совместно используют субъект, реализующий этот интерфейс, и клиент, который получает прокси для субъекта через этот интерфейс. Поскольку этот интерфейс используется для асинхронного вызова методов субъектов, необходимо использовать методы, возвращающие задачи.
+### <a name="actor-communication"></a>Actor communication
+Actor interactions are defined in an interface that is shared by the actor that implements the interface, and the client that gets a proxy to an actor via the same interface. Because this interface is used to invoke actor methods asynchronously, every method on the interface must be Task-returning.
 
-Вызовы методов и получение их ответов обязательно ведут к обработке сетевых запросов в кластере. Поэтому возвращаемые типы результата задач и аргументы должны поддерживать сериализацию с помощью платформы. В частности, они должны быть [сериализуемыми по контракту данных](service-fabric-reliable-actors-notes-on-actor-type-serialization.md).
+Method invocations and their responses ultimately result in network requests across the cluster, so the arguments and the result types of the tasks that they return must be serializable by the platform. In particular, they must be [data contract serializable](service-fabric-reliable-actors-notes-on-actor-type-serialization.md).
 
-#### Прокси-объект субъекта
-Клиентский API субъектов Reliable Actors обеспечивает обмен данными между клиентом и экземпляром субъекта. Для обмена данными с субъектом клиент создает для него прокси-объект, реализующий интерфейс субъекта. Клиент взаимодействует с субъектом, вызывая методы через прокси-объект. Прокси-объект субъекта можно использовать для обмена данными как между клиентом и субъектом, так и между субъектами.
+#### <a name="the-actor-proxy"></a>The actor proxy
+The Reliable Actors client API provides communication between an actor instance and an actor client. To communicate with an actor, a client creates an actor proxy object that implements the actor interface. The client interacts with the actor by invoking methods on the proxy object. The actor proxy can be used for client-to-actor and actor-to-actor communication. 
 
 ```csharp
 // Create a randomly distributed actor ID
-ActorId actorId = ActorId.NewId();
+ActorId actorId = ActorId.CreateRandom();
 
 // This only creates a proxy object, it does not activate an actor or invoke any methods yet.
 IMyActor myActor = ActorProxy.Create<IMyActor>(actorId, new Uri("fabric:/MyApp/MyActorService"));
@@ -94,68 +95,72 @@ IMyActor myActor = ActorProxy.Create<IMyActor>(actorId, new Uri("fabric:/MyApp/M
 await myActor.DoWorkAsync();
 ```
 
-Обратите внимание на два фрагмента данных, используемых для создания прокси-объекта субъекта. Это идентификатор субъекта и имя приложения. Идентификатор субъекта однозначно определяет субъект, а имя приложения определяет [приложение Service Fabric](service-fabric-reliable-actors-platform.md#service-fabric-application-model-concepts-for-actors), в котором развернут субъект.
+Note that the two pieces of information used to create the actor proxy object are the actor ID and the application name. The actor ID uniquely identifies the actor, while the application name identifies the [Service Fabric application](service-fabric-reliable-actors-platform.md#service-fabric-application-model-concepts-for-actors) where the actor is deployed.
 
-Класс `ActorProxy` на стороне клиента выполняет необходимое разрешение, чтобы найти субъект по идентификатору и открыть канал связи с ним. Класс `ActorProxy` также повторяет попытку поиска субъекта при сбоях связи и отработках отказов. В результате доставка сообщений имеет следующие характеристики:
+The `ActorProxy` class on the client side performs the necessary resolution to locate the actor by ID and open a communication channel with it. The `ActorProxy` also retries to locate the actor in the cases of communication failures and failovers. As a result, message delivery has the following characteristics:
 
- - Доставка сообщений не гарантируется.
- - Субъекты могут получать дубликаты сообщений от одного и того же клиента.
+ - Message delivery is best effort.
+ - Actors may receive duplicate messages from the same client.
 
-### Параллелизм
+### <a name="concurrency"></a>Concurrency
 
-В среде выполнения субъектов Reliable Actors для доступа к методам субъектов используется простая модель поочередности. Это означает, что в конкретный момент времени в коде объекта субъекта может быть активен только один поток. Поочередный доступ значительно упрощает параллельные системы, поскольку снимает необходимость в механизмах синхронизации для доступа к данным. Это также означает, что системы нужно проектировать с учетом однопоточного доступа для каждого экземпляра субъекта.
+The Reliable Actors runtime provides a simple turn-based access model for accessing actor methods. This means that no more than one thread can be active inside an actor object's code at any time. Turn-based access greatly simplifies concurrent systems as there is no need for synchronization mechanisms for data access. It also means systems must be designed with special considerations for the single-threaded access nature of each actor instance.
 
- - Экземпляр одного субъекта не может обрабатывать больше одного запроса за раз. Если экземпляр субъекта предназначен для обработки одновременных запросов, он может создавать проблемы для пропускной способности.
- - Субъекты могут блокировать друг друга, если между двумя субъектами выполняется круговой запрос и в это время в один их них поступает внешний запрос. Для предотвращения взаимных блокировок среда выполнения субъектов автоматически завершает вызовы субъекта и отправляет вызывающему объекту исключение.
+ - A single actor instance cannot process more than one request at a time. An actor instance can cause a throughput bottleneck if it is expected to handle concurrent requests. 
+ - Actors can deadlock on each other if there is a circular request between two actors while an external request is made to one of the actors simultaneously. The actor runtime will automatically time out on actor calls and throw an exception to the caller to interrupt possible deadlock situations.
 
-![Обмен данными между субъектами Reliable Actors][3]
+![Reliable Actors communication][3]
 
-#### Поочередный доступ
+#### <a name="turn-based-access"></a>Turn-based access
 
-Очередь подразумевает не только полное выполнение метода субъекта в ответ на запрос от других субъектов или клиентов, но и полное выполнение обратного вызова [по таймеру или напоминанию](service-fabric-reliable-actors-timers-reminders.md). Несмотря на то что эти методы и обратные вызовы являются асинхронными, среда выполнения субъектов не позволяет чередовать их. Для смены очереди предыдущее действие должно быть завершено полностью. Другими словами, чтобы можно было вызвать новый метод или выполнить другой обратный вызов, выполняемые сейчас метод субъекта или обратный вызов (по таймеру или напоминанию) должны быть завершены. Метод или обратный вызов считается завершенным, если его выполнение завершено, а задача, возвращаемая методом или обратным вызовом, выполнена. Следует подчеркнуть, что пошаговый параллелизм касается разных методов, таймеров и обратных вызовов.
+A turn consists of the complete execution of an actor method in response to a request from other actors or clients, or the complete execution of a [timer/reminder](service-fabric-reliable-actors-timers-reminders.md) callback. Even though these methods and callbacks are asynchronous, the Actors runtime does not interleave them. A turn must be fully finished before a new turn is allowed. In other words, an actor method or timer/reminder callback that is currently executing must be fully finished before a new call to a method or callback is allowed. A method or callback is considered to have finished if the execution has returned from the method or callback and the task returned by the method or callback has finished. It is worth emphasizing that turn-based concurrency is respected even across different methods, timers, and callbacks.
 
-Среда выполнения субъектов принудительно обеспечивает поочередный параллелизм за счет получения блокировки конкретного субъекта в начале очереди и ее освобождения после того, как выполняемое в очереди действие будет завершено. Таким образом, поочередный параллелизм обеспечивается на уровне отдельного субъекта, а не для всех субъектов сразу. Разные субъекты могут одновременно и независимо выполнять методы субъектов и обратные вызовы по таймеру или напоминанию.
+The Actors runtime enforces turn-based concurrency by acquiring a per-actor lock at the beginning of a turn and releasing the lock at the end of the turn. Thus, turn-based concurrency is enforced on a per-actor basis and not across actors. Actor methods and timer/reminder callbacks can execute simultaneously on behalf of different actors.
 
-Проиллюстрируем эти понятия на примере. Рассмотрим тип субъекта, который реализует два асинхронных метода (назовем их *Method1* и *Method2*), таймер и напоминание. На схеме ниже показана временная шкала выполнения этих методов и обратных вызовов от имени субъектов *ActorId1* и *ActorId2*, относящихся к этому типу субъекта.
+The following example illustrates the above concepts. Consider an actor type that implements two asynchronous methods (say, *Method1* and *Method2*), a timer, and a reminder. The diagram below shows an example of a timeline for the execution of these methods and callbacks on behalf of two actors (*ActorId1* and *ActorId2*) that belong to this actor type.
 
-![Доступ и пошаговый параллелизм в среде выполнения Reliable Actors][1]
+![Reliable Actors runtime turn-based concurrency and access][1]
 
-В схеме используются следующие обозначения:
+This diagram follows these conventions:
 
-- Каждая вертикальная линия обозначает логический поток выполнения метода или функции обратного вызова от имени определенного субъекта.
-- Отмеченные на них события происходят в хронологическом порядке, при этом новые события размещены под старыми.
-- Временные шкалы, относящиеся к разным субъектам, нарисованы разными цветами.
-- Для обозначения периода блокировки субъекта, получаемой методом или функцией обратного вызова, используется выделение цветом.
+- Each vertical line shows the logical flow of execution of a method or a callback on behalf of a particular actor.
+- The events marked on each vertical line occur in chronological order, with newer events occurring below older ones.
+- Different colors are used for timelines corresponding to different actors.
+- Highlighting is used to indicate the duration for which the per-actor lock is held on behalf of a method or callback.
 
-Необходимо учитывать следующие важные моменты.
+Some important points to consider:
 
-- Когда выполняется *Method1* от имени субъекта *ActorId2* в ответ на запрос клиента *xyz789*, поступает другой запрос от клиента *abc123*, который тоже требует выполнения метода *Method1* субъектом *ActorId2*. Выполнение второго метода *Method1* не начинается до завершения первого. Аналогичным образом напоминание, зарегистрированное субъектом *ActorId2*, срабатывает во время выполнения метода *Method1* в ответ на запрос клиента *xyz789*. Обратный вызов по напоминанию будет выполнен только после того, как оба метода *Method1* будут выполнены. Такое поведение обусловлено тем, что для субъекта *ActorId2* работает принцип поочередного параллелизма.
-- Кроме того, этот принцип применяется для субъекта *ActorId1*. Это видно по последовательному выполнению методов *Method1* и *Method2*, а также обратного вызова по таймеру от имени субъекта *ActorId1*.
-- Выполнение метода *Method1* от имени субъекта *ActorId1* перекрывается с выполнением того же метода от имени субъекта *ActorId2*. Это связано с тем, что пошаговый параллелизм применяется только для одного субъекта, а не для всех субъектов сразу.
-- В некоторых случаях возвращаемая выполняющимися методами или обратными вызовами задача `Task` завершается только после возврата метода. В других случаях задача `Task` завершается к моменту возврата метода или обратного вызова. В любом случае разблокирование субъектов происходит только после возврата метода или обратного вызова, а также по завершении `Task`.
+- While *Method1* is executing on behalf of *ActorId2* in response to client request *xyz789*, another client request (*abc123*) arrives that also requires *Method1* to be executed by *ActorId2*. However, the second execution of *Method1* does not begin until the prior execution has finished. Similarly, a reminder registered by *ActorId2* fires while *Method1* is being executed in response to client request *xyz789*. The reminder callback is executed only after both executions of *Method1* are complete. All of this is due to turn-based concurrency being enforced for *ActorId2*.
+- Similarly, turn-based concurrency is also enforced for *ActorId1*, as demonstrated by the execution of *Method1*, *Method2*, and the timer callback on behalf of *ActorId1* happening in a serial fashion.
+- Execution of *Method1* on behalf of *ActorId1* overlaps with its execution on behalf of *ActorId2*. This is because turn-based concurrency is enforced only within an actor and not across actors.
+- In some of the method/callback executions, the `Task` returned by the method/callback finishes after the method returns. In some others, the `Task` has already finished by the time the method/callback returns. In both cases, the per-actor lock is released only after both the method/callback returns and the `Task` finishes.
 
-#### Повторный вход
+#### <a name="reentrancy"></a>Reentrancy
 
-Среда выполнения субъектов по умолчанию поддерживает для субъектов повторный вход. Это означает, что, если метод *ActorA* вызывает метод для *ActorB*, который вызывает другой метод для *ActorA*, второй метод может быть вызван, так как он является частью логического контекста цепочки вызовов. Все вызовы с таймерами и напоминаниями начинаются с нового логического контекста вызова. Дополнительные сведения см. в статье [Повторный вход субъектов Reliable Actors](service-fabric-reliable-actors-reentrancy.md).
+The Actors runtime allows reentrancy by default. This means that if an actor method of *Actor A* calls a method on *Actor B*, which in turn calls another method on *Actor A*, that method is allowed to run. This is because it is part of the same logical call-chain context. All timer and reminder calls start with the new logical call context. See the [Reliable Actors reentrancy](service-fabric-reliable-actors-reentrancy.md) for more details.
 
-#### Область гарантий параллелизма
+#### <a name="scope-of-concurrency-guarantees"></a>Scope of concurrency guarantees
 
-Среда выполнения субъектов предоставляет гарантии повторного входа в ситуациях, когда она управляет вызовом методов, например методов, которые вызываются в ответ на запрос клиента, а также обратных вызовов по таймеру и напоминанию. Тем не менее если код субъекта напрямую вызывает эти методы вне механизмов, предоставляемых средой выполнения субъектов, то среда выполнения не предоставляет никаких гарантий параллелизма. Например, среда выполнения не предоставляет таких гарантий, если метод вызывается в контексте некоторой задачи, которая не связана с задачей, возвращаемой методами субъекта. Если метод вызывается из потока, который субъект создает самостоятельно, среда выполнения также не предоставляет таких гарантий. Таким образом, для выполнения фоновых операций субъектам следует использовать [таймеры или напоминания](service-fabric-reliable-actors-timers-reminders.md), в которых соблюдаются принципы пошагового параллелизма.
+The Actors runtime provides these concurrency guarantees in situations where it controls the invocation of these methods. For example, it provides these guarantees for the method invocations that are done in response to a client request, as well as for timer and reminder callbacks. However, if the actor code directly invokes these methods outside of the mechanisms provided by the Actors runtime, then the runtime cannot provide any concurrency guarantees. For example, if the method is invoked in the context of some task that is not associated with the task returned by the actor methods, then the runtime cannot provide concurrency guarantees. If the method is invoked from a thread that the actor creates on its own, then the runtime also cannot provide concurrency guarantees. Therefore, to perform background operations, actors should use [actor timers and actor reminders](service-fabric-reliable-actors-timers-reminders.md) that respect turn-based concurrency.
 
-## Дальнейшие действия
- - [Начало работы с субъектами Reliable Actors](service-fabric-reliable-actors-get-started.md)
- - [Использование платформы Service Fabric надежными субъектами](service-fabric-reliable-actors-platform.md)
- - [Управление состоянием субъекта](service-fabric-reliable-actors-state-management.md)
- - [Жизненный цикл субъектов и сбор мусора](service-fabric-reliable-actors-lifecycle.md)
- - [Таймеры и напоминания субъекта](service-fabric-reliable-actors-timers-reminders.md)
- - [События субъекта](service-fabric-reliable-actors-events.md)
- - [Повторный вход субъекта](service-fabric-reliable-actors-reentrancy.md)
- - [Полиморфизм субъекта и объектно-ориентированные шаблоны проектирования](service-fabric-reliable-actors-polymorphism.md)
- - [Диагностика и мониторинг производительности в Reliable Actors](service-fabric-reliable-actors-diagnostics.md)
+## <a name="next-steps"></a>Next steps
+ - [Getting started with Reliable Actors](service-fabric-reliable-actors-get-started.md)
+ - [How Reliable Actors use the Service Fabric platform](service-fabric-reliable-actors-platform.md)
+ - [Actor state management](service-fabric-reliable-actors-state-management.md)
+ - [Actor lifecycle and garbage collection](service-fabric-reliable-actors-lifecycle.md)
+ - [Actor timers and reminders](service-fabric-reliable-actors-timers-reminders.md)
+ - [Actor events](service-fabric-reliable-actors-events.md)
+ - [Actor reentrancy](service-fabric-reliable-actors-reentrancy.md)
+ - [Actor polymorphism and object-oriented design patterns](service-fabric-reliable-actors-polymorphism.md)
+ - [Actor diagnostics and performance monitoring](service-fabric-reliable-actors-diagnostics.md)
 
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-introduction/concurrency.png
 [2]: ./media/service-fabric-reliable-actors-introduction/distribution.png
 [3]: ./media/service-fabric-reliable-actors-introduction/actor-communication.png
 
-<!---HONumber=AcomDC_0713_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

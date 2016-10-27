@@ -1,247 +1,250 @@
 <properties
-	pageTitle="Обновление пароля с помощью Azure Active Directory | Microsoft Azure"
-	description="Узнайте, как пройти регистрацию для сброса пароля, а также как изменить или сбросить пароль, если вы забыли его."
-	services="active-directory"
-	documentationCenter=""
-	authors="asteen"
-	manager="femila"
-	editor="curtand"/>
+    pageTitle="How to update your own password using Azure Active Directory| Microsoft Azure"
+    description="Learn that ways you can register for password reset, how to change your password, and how to reset your own password in case you ever forget it."
+    services="active-directory"
+    documentationCenter=""
+    authors="asteen"
+    manager="femila"
+    editor="curtand"/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/30/2016"
-	ms.author="asteen"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="08/30/2016"
+    ms.author="asteen"/>
 
-# Как изменить свой пароль
-Если вы не знаете, что можно сделать с паролем рабочей или учебной учетной записи, эта статья — для вас. Прочитав ее, вы научитесь выполнять стандартные действия, включая смену и сброс пароля, а также регистрацию для сброса.
 
-* [**Как пройти регистрацию для сброса пароля**](#dont-lose-access-to-your-account)
-* [**Как изменить пароль в Office 365**](#how-to-change-your-password-from-o365)
-* [**Как изменить пароль на панели доступа**](#how-to-change-your-password-from-the-access-panel)
-* [**Как сбросить свой пароль**](#how-to-reset-your-password)
-* [**Как разблокировать учетную запись**](#how-to-unlock-your-account)
-* [**Распространенные проблемы и способы их устранения**](#common-problems-and-their-solutions)
+# <a name="how-to-update-your-own-password"></a>How to update your own password
+If you are unsure how to manage your work or school account password, you've come to the right place!  Read below to learn how to perform common steps, like changing a password, resetting a password, or registering for password reset.
 
-## Как пройти регистрацию для сброса пароля
+* [**Don’t lose access to your account!**](#dont-lose-access-to-your-account)
+* [**How to change your password from Office 365**](#how-to-change-your-password-from-o365)
+* [**How to change your password from the access panel**](#how-to-change-your-password-from-the-access-panel)
+* [**How to reset your password**](#how-to-reset-your-password)
+* [**How to unlock your account**](#how-to-unlock-your-account)
+* [**Common problems and their solutions**](#common-problems-and-their-solutions)
+
+## <a name="don’t-lose-access-to-your-account!"></a>Don’t lose access to your account!
 
 > [AZURE.IMPORTANT]
-**Почему я это вижу?** Если вы попали сюда, переходя по ссылке, скорее всего, ваш администратор настроил регистрацию пользователей для сброса пароля, используемого для доступа к приложению. Вам может понадобиться предоставить номер телефона или адрес электронной почты, либо ввести контрольный вопрос. Не волнуйтесь — мы не будем использовать эти сведения для рассылки спама; это нужно для защиты вашей учетной записи. Приведенные ниже инструкции помогут вам выполнить все необходимые действия.
+> **Why am I seeing this?** If you followed a link to get here, you're probably seeing this because your administrator requires you to register for password reset to gain access to your app. You might be asked for phone or email information, or to set up security questions.  Don’t worry – we won’t use this information to spam you, just to keep your account more secure. The steps presented here should help you to reach your goal.
 
-Самый быстрый способ регистрации для сброса пароля — переход по адресу [http://aka.ms/ssprsetup](http://aka.ms/ssprsetup).
+The fastest way to register for password reset is to go to [http://aka.ms/ssprsetup](http://aka.ms/ssprsetup).  
 
- 1. Откройте страницу [http://aka.ms/ssprsetup](http://aka.ms/ssprsetup).
- 2. Введите имя пользователя и пароль.
- 3. Выберите нужный вариант, щелкнув **настроить сейчас**. В этом примере я продемонстрирую регистрацию **номера телефона для проверки подлинности**.
+ 1. Navigate to [http://aka.ms/ssprsetup](http://aka.ms/ssprsetup).
+ 2. Enter your username and password.
+ 3. Choose an option to register for by clicking **set it up now**.  In this case, I'll demonstrate registering my **authentication phone**.
 
     ![][011]
 
- 4. Выберите в раскрывающемся списке код страны и введите **полный номер телефона с кодом города**.
+ 4. Select your country code from the dropdown and enter your **full phone number + area code**.
 
-    ![][012] ![][013]
+    ![][012]
+    ![][013]
 
- 5. Выберите один из вариантов: **Отправить SMS** или **Позвонить**. В нашем примере я выберу **Отправить SMS**. На мой телефон будет прислан код из 6 цифр. Подождите, пока на телефон придет сообщение с кодом.
+ 5. Select one of the **text me** or **call me** options.  In this case, I'll select **text me**, which will send a 6 digit code to my phone.  Wait for the code to arrive on your phone.
 
     ![][014]
 
- 6. Когда вы получите код, введите его в поле ввода и нажмите кнопку "Проверить".
- 7. Вы увидите надпись **Спасибо**. Все готово! Теперь вы в любой момент сможете использовать зарегистрированный способ сброса пароля, открыв страницу [https://passwordreset.microsoftonline.com](https://passwordreset.microsoftonline.com).
+ 6. Once the code arrives, enter it into the input box, and then click "verify."
+ 7. When you see **thanks**, that's it! Now you can use what you registered for to reset your password at any time by going to [https://passwordreset.microsoftonline.com](https://passwordreset.microsoftonline.com).
 
     ![][015]
 
- >[AZURE.IMPORTANT] Если администратор разрешает зарегистрировать несколько методов, мы настоятельно рекомендуем зарегистрировать резервный метод на тот случай, если телефон или доступ к электронной почте будут утрачены.
+ >[AZURE.IMPORTANT] If your admin lets you register for more than one option, we highly recommend you also register a back-up option in case you lose your phone or access to your email.
 
-## Как изменить пароль в Office 365
-Чтобы изменить пароль рабочей или учебной учетной записи в Office 365, выполните следующие действия. Если вы забыли пароль и хотите сбросить его, выполните другую процедуру, которая описана [здесь](#how-to-reset-your-password).
+## <a name="how-to-change-your-password-from-o365"></a>How to change your password from O365
+Follow the steps below to change your work or school account password in Office 365.  If you have forgotten your password and want to reset it, follow the steps [here](#how-to-reset-your-password).
 
- 1. Войдите в Office 365, используя рабочую или учебную учетную запись.
- 2. Последовательно выберите пункты **Параметры** > **Параметры Office 365** > **Пароль** > **Изменить пароль**.
- 3. Введите старый пароль, затем введите новый пароль и подтвердите его.
- 4. Щелкните **Сохранить**.
+ 1. Sign in to Office 365 with your work or school account.
+ 2. Go to **Settings** > **Office 365 settings** > **Password** > **Change password**.
+ 3. Type your old password, and then type a new password and confirm it.
+ 4. Click **Save**.
 
-Дополнительные сведения можно найти в [центре документации Office 365](https://support.office.com/article/Change-my-password-in-Office-365-for-business-d1efbaee-63a7-4c08-ab1d-71bf932bbb5d).
+You can read more about this on the [Office 365 documentation center](https://support.office.com/article/Change-my-password-in-Office-365-for-business-d1efbaee-63a7-4c08-ab1d-71bf932bbb5d).
 
-## Как изменить пароль на панели доступа
-Чтобы изменить пароль рабочей или учебной учетной записи на [панели доступа](https://myapps.microsoft.com), выполните следующие действия. Если вы забыли пароль и хотите сбросить его, выполните другую процедуру, которая описана [здесь](#how-to-reset-your-password).
+## <a name="how-to-change-your-password-from-the-access-panel"></a>How to change your password from the access panel
+Follow the steps below to change your work or school account password from the [Access Panel](https://myapps.microsoft.com).  If you have forgotten your password and want to reset it, follow the steps [here](#how-to-reset-your-password).
 
- 1. Войдите в https://myapps.microsoft.com с помощью рабочей или учебной учетной записи.
- 2. Щелкните вкладку **Профиль**.
- 3. Щелкните плитку **Сменить пароль** в правой части экрана.
- 4. Введите старый пароль, затем введите новый пароль и подтвердите его.
- 5. Нажмите кнопку **Submit** (Отправить).
+ 1. Sign into https://myapps.microsoft.com with your work or school account.
+ 2. Click on the **profile** tab.
+ 3. Click on the **change my password** tile on the right hand side of the screen.
+ 4. Type your old password, and then type a new password and confirm it.
+ 5. Click **Submit**.
 
- У вас возникли сложности при смене пароля? Ниже описаны [распространенные проблемы и способы их устранения](#common-problems-and-their-solutions).
+ Run into a problem changing your password?  Read about [common problems and their solutions](#common-problems-and-their-solutions).
 
-## Как сбросить свой пароль
+## <a name="how-to-reset-your-password"></a>How to reset your password
 
 
-Чтобы изменить пароль рабочей или учебной учетной записи на любой странице входа, выполните следующие действия.
+Follow the steps below to reset your work or school account password from any work or school account sign in screen.
 
->[AZURE.IMPORTANT] Эта функция будет доступна только в том случае, если ее включил администратор. Если функция не включена для вашей учетной записи, вы увидите соответствующее сообщение. В этом случае можно связаться с администратором, щелкнув ссылку "Обратитесь к своему администратору", чтобы попросить его разблокировать учетную запись.
+>[AZURE.IMPORTANT] This feature is only available to you if your admin has turned it on. If it's not turned on, you'll see a message indicating your account is not enabled for this feature.  You can use the "contact your administrator" link in this case to get in touch with your admin to unlock your account.
 >
-> Если функция для вашей учетной записи включена, для ее использования следует выполнить вход. Это можно сделать здесь: http://aka.ms/ssprsetup.
+> If your admin has enabled you for this feature, you'll first need to sign up before you can use it. You can do that here: http://aka.ms/ssprsetup.
 
 
- 1. На странице входа в рабочую или учебную учетную запись щелкните ссылку, которая называется примерно так: "Не можете войти в свою учетную запись?" или "Забыли пароль?". Также можно прямо отсюда перейти к странице https://passwordreset.microsoftonline.com.
+ 1. On the any work or school account sign-in page, click on one of the "can't access your account?" or "forgot your password?" links, or navigate to https://passwordreset.microsoftonline.com directly.
 
     ![][001]
 
- 2. На странице "who are you?" (кто вы?) введите идентификатор рабочей или учебной учетной записи, а также ответьте на запрос CAPTCHA.
+ 2. On the "who are you?" page, enter your work or school account ID and prove you aren't a robot by passing the CAPTCHA challenge.
 
     ![][002]
 
- 3. Нажмите кнопку «Далее».
- 4. Выберите метод сброса пароля. В зависимости от того, как администратор настроил систему, здесь может быть любой из следующих вариантов.
-     * **Отправить письмо на дополнительный адрес электронной почты** — отправка сообщения электронной почты с кодом из 6 цифр на ваш **запасной адрес электронной почты** или **адрес электронной почты для проверки подлинности** (на ваш выбор).
-	 * **Отправить текстовое сообщение на мобильный телефон** — отправка SMS с кодом из 6 цифр на ваш **мобильный телефон** или **телефон для проверки подлинности** (на ваш выбор).
-	 * **Позвонить на мой мобильный телефон** — голосовой звонок на ваш **мобильный телефон** или **телефон для проверки подлинности** (на ваш выбор). Для подтверждения нажмите на телефоне кнопку *#*.
-	 * **Позвонить на мой рабочий телефон** — голосовой звонок на ваш **рабочий телефон**. Для подтверждения нажмите на телефоне кнопку *#*.
-	 * **Ответить на вопросы безопасности** — отображает секретные вопросы, которые вы ранее зарегистрировали. Ответьте на эти вопросы.
+ 3. Click the "next" button.
+ 4. Choose an option to reset your password.  Depending on how your admin has configured the system, you might see one or more of the following choices:
+     * **Email my alternate email** - sends an email with a 6 digit code to either your **alternate email** or **authentication email** (you choose).
+     * **Text my mobile phone** - texts your phone with a 6 digit code to either your **mobile phone** or **authentication email** (you choose).
+     * **Call my mobile phone** - calls your **mobile phone** or **authentication phone** (you choose) - press the *#* key to verify the call.
+     * **Call my office phone** - calls your **office phone** - press the *#* key to verify the call.
+     * **Answer my security questions** - displays your pre-registered security questions for you to answer.
 
     ![][003]
 
- 5. В нашем примере мы используем вариант «Отправить текстовое сообщение на мобильный телефон». Если используется любой вариант с телефоном, перед отправкой запроса нужно будет подтвердить номер телефона. Введите полный номер телефона и нажмите кнопку **Далее**. Если номер правильный, служба отправит на него сообщение.
+ 5. We'll use the "text my mobile phone" option as an example.  If you are using a phone based option, you'll need to verify your phone number before we'll send a text.  Enter your full phone number and then click **Next** to verify it's correct and send a text.
 
     ![][004]
 
- 6. Когда вы получите сообщение, найдите код подтверждения в тексте сообщения. Не перепутайте его с номером отправителя сообщения! Иногда SMS-сообщения приходят через несколько минут. Возможно, вы даже успеете выпить кофе.
+ 6. When you receive the text, make sure you use the verification code in the message body, not the number the code was sent from.  It might take a few minutes to get the text, so grab a coffee!
 
     ![][009]
 
- 8. Теперь в поле ввода на странице наберите код, который только что получили на телефон.
+ 8. Now, enter the code you just received on your phone into the input box on the page.
 
     ![][005]
 
- 9. Возможно, администратор настроил двухэтапную проверку. Если это так, повторите процесс с шага 4, выбрав другой метод проверки.
- 10. На экране «Выбрать новый пароль» введите новый пароль, затем введите его еще раз и нажмите кнопку **Готово**.
+ 9. Your admin may require a second verification step, in which case repeat step 4 with a different option selected.
+ 10. On the "choose a new password" screen, select a new password and confirm your choice, then click **Finish**.
 
-    ![][006] ![][007]
+    ![][006]
+    ![][007]
 
- 11. Если после этого вы увидите страницу успешного завершения, значит, все в порядке! Теперь можно входить с новым паролем.
+ 11. Once you see the success page, you are good to go!  You can now sign in with your new password.
 
     ![][008]
 
-У вас возникли сложности при сбросе пароля? Ниже описаны [распространенные проблемы и способы их устранения](#common-problems-and-their-solutions).
+Run into a problem resetting your password?  Read about [common problems and their solutions](#common-problems-and-their-solutions).
 
-## Как разблокировать учетную запись
-Чтобы разблокировать рабочую или учебную учетную запись с любой страницы входа, выполните следующие действия. **Примечание. Учетную запись удастся разблокировать только в том случае, если она заблокирована локально.**
+## <a name="how-to-unlock-your-account"></a>How to unlock your account
+Follow the steps below to unlock your local account from any work or school account sign in screen.  **Note: You will only be able to unlock your account if it has been locked on-premises.**
 
->[AZURE.IMPORTANT] Эта функция будет доступна только в том случае, если ее включил администратор. Если функция не включена для вашей учетной записи, вы увидите соответствующее сообщение. В этом случае можно связаться с администратором, щелкнув ссылку "Обратитесь к своему администратору", чтобы попросить его разблокировать учетную запись.
+>[AZURE.IMPORTANT] This feature is only available to you if your admin has turned it on.  If it's not turned on, you'll see a message indicating your account is not enabled for this feature.  You can use the "contact your administrator" link in this case to get in touch with your admin to unlock your account.
 >
-> Если функция для вашей учетной записи включена, для ее использования следует выполнить вход. Это можно сделать здесь: http://aka.ms/ssprsetup.
+> If your admin has enabled you for this feature, you'll first need to sign up before you can use it.  You can do that here: http://aka.ms/ssprsetup.
 
 
- 1. На странице входа в рабочую или учебную учетную запись щелкните ссылку, которая называется примерно так: «Не можете войти в свою учетную запись?» или «Забыли пароль?». Также можно прямо отсюда перейти к странице https://passwordreset.microsoftonline.com.
+ 1. On the any work or school account sign in page, click on one of the "can't access your account?" or "forgot your password?" links, or navigate to https://passwordreset.microsoftonline.com directly.
 
     ![][001]
 
- 2. На странице "who are you?" (кто вы?) введите идентификатор рабочей или учебной учетной записи, а также ответьте на запрос CAPTCHA.
+ 2. On the "who are you?" page, enter your work or school account ID and prove you aren't a robot by passing the CAPTCHA challenge.
 
     ![][002]
 
- 3. Нажмите кнопку «Далее».
- 4. Выберите метод разблокировки учетной записи. В зависимости от того, как администратор настроил систему, здесь может быть любой из следующих вариантов.
-     * **Отправить письмо на дополнительный адрес электронной почты** — отправка сообщения электронной почты с кодом из 6 цифр на ваш **запасной адрес электронной почты** или **адрес электронной почты для проверки подлинности** (на ваш выбор).
-	 * **Отправить текстовое сообщение на мобильный телефон** — отправка SMS с кодом из 6 цифр на ваш **мобильный телефон** или **телефон для проверки подлинности** (на ваш выбор).
-	 * **Позвонить на мой мобильный телефон** — голосовой звонок на ваш **мобильный телефон** или **телефон для проверки подлинности** (на ваш выбор). Для подтверждения нажмите на телефоне кнопку *#*.
-	 * **Позвонить на мой рабочий телефон** — голосовой звонок на ваш **рабочий телефон**. Для подтверждения нажмите на телефоне кнопку *#*.
-	 * **Ответить на вопросы безопасности** — отображает секретные вопросы, которые вы ранее зарегистрировали. Ответьте на эти вопросы.
+ 3. Click the "next" button.
+ 4. Choose an option to unlock your account.  Depending on how your admin has configured the system, you might see one or more of the following choices:
+     * **Email my alternate email** - sends an email with a 6 digit code to either your **alternate email** or **authentication email** (you choose).
+     * **Text my mobile phone** - texts your phone with a 6 digit code to either your **mobile phone** or **authentication email** (you choose).
+     * **Call my mobile phone** - calls your **mobile phone** or **authentication phone** (you choose) - press the *#* key to verify the call.
+     * **Call my office phone** - calls your **office phone** - press the *#* key to verify the call.
+     * **Answer my security questions** - displays your pre-registered security questions for you to answer.
 
     ![][003]
 
- 5. В нашем примере мы используем вариант «Отправить текстовое сообщение на мобильный телефон». Если используется любой вариант с телефоном, перед отправкой запроса нужно будет подтвердить номер телефона. Введите полный номер телефона и нажмите кнопку **Далее**. Если номер правильный, служба отправит на него сообщение.
+ 5. We'll use the "text my mobile phone" option as an example.  If you are using a phone based option, you'll need to verify your phone number before we'll send a text.  Enter your full phone number and then click **Next** to verify it's correct and send a text.
 
     ![][004]
 
- 6. Когда вы получите сообщение, найдите код подтверждения в тексте сообщения. Не перепутайте его с номером отправителя сообщения! Иногда SMS-сообщения приходят через несколько минут. Возможно, вы даже успеете выпить кофе.
+ 6. When you receive the text, make sure you use the verification code in the message body, not the number the code was sent from.  It might take a few minutes to get the text, so grab a coffee!
 
     ![][009]
 
- 8. Теперь в поле ввода на странице наберите код, который только что получили на телефон.
+ 8. Now, enter the code you just received on your phone into the input box on the page.
 
     ![][005]
 
- 9. Возможно, администратор настроил двухэтапную проверку. Если это так, повторите процесс с шага 4, выбрав другой метод проверки.
+ 9. Your admin may require a second verification step, in which case you must repeat step 4 with a different option selected.
 
- 11. Если после этого вы увидите страницу успешного завершения, значит, все в порядке! Теперь ваша локальная учетная запись разблокирована. Вы снова можете войти в нее.
+ 11. Once you see the success page, you are good to go!  Your on-premises account has been unlocked and you can now sign in once more.
 
     ![][010]
 
- >[AZURE.IMPORTANT] Убедитесь, что на всех устройствах сохранен актуальный пароль. Частой причиной блокировки бывает приложение, которое пытается входить со старым паролем (например, почтовый клиент на смартфоне).
+ >[AZURE.IMPORTANT] Make sure you update all your devices to your newest password, as often times a rogue app with an old password (like your phone email client) can be the culprit behind why your account got locked out in the first place.
 
-У вас возникли сложности при разблокировке учетной записи? Ниже описаны [распространенные проблемы и способы их устранения](#common-problems-and-their-solutions).
+Run into a problem unlocking your account?  Read about [common problems and their solutions](#common-problems-and-their-solutions).
 
-## Распространенные проблемы и способы их устранения
-Ниже описаны ошибки, которые встречаются чаще всего, и подсказки по их устранению.
+## <a name="common-problems-and-their-solutions"></a>Common problems and their solutions
+Here are some common error cases and their solutions:
 
 <table>
           <tbody><tr>
             <td>
               <p>
-                <strong>Ситуация ошибки</strong>
+                <strong>Error Case</strong>
               </p>
             </td>
             <td>
               <p>
-                <strong>Какую ошибку вы видите?</strong>
+                <strong>What error do you see?</strong>
               </p>
             </td>
             <td>
               <p>
-                <strong>Решение</strong>
+                <strong>Solution</strong>
               </p>
             </td>
           </tr>
           <tr>
             <td>
-              <p>Я вижу страницу «Обратитесь к администратору» после ввода идентификатора пользователя.</p>
+              <p>I get a "please contact your admin" page after entering my user ID</p>
             </td>
             <td>
-              <p>Обратитесь к администратору <br><br>Мы выяснили, что корпорация Майкрософт не управляет паролем от вашей учетной записи. Соответственно, мы не можем автоматически сбросить ваш пароль. <br><br>Чтобы узнать, что делать дальше, обратитесь к администратору или в службу технической поддержки. </p>
+              <p>Please contact your admin <br><br>We've detected that your user account password is not managed by Microsoft. As a result, we are unable to automatically reset your password. <br><br>You will need to contact your admin or helpdesk for any further assistance. </p>
             </td>
             <td>
-              <p>Вы видите это сообщение, так как администратор управляет вашим паролем в локальной среде и запретил сбрасывать пароль с помощью страницы <b>Нет доступа к учетной записи</b>. <br><br> Для сброса пароля обратитесь к администратору лично. Также сообщите ему, что вы хотите использовать функцию сброса пароля через Office&#160;365, и попросите включить для вас такую возможность.</p>
+              <p>You are seeing this message because your administrator manages your password in your on-premises environment and does not allow you to reset your password from the <b>Can't access your account link</b>. <br><br> To reset your password, please contact your administrator directly for help, and let him or her know you want to reset your password from Office 365 so he or she can enable this feature for you.</p>
             </td>
           </tr>
           <tr>
             <td>
-              <p>После ввода идентификатора пользователя я вижу ошибку «Для вашей учетной записи запрещен сброс пароля».</p>
+              <p>I get a "your account is not enabled for password reset" error after entering my user ID</p>
             </td>
             <td>
-              <p>Для вашей учетной записи запрещен сброс пароля<br><br>К сожалению, администратор не установил для вашей учетной записи возможность использовать эту службу.<br><br> Если хотите, мы можем обратиться к администратору вашей организации для сброса вашего пароля.</p>
+              <p>Your account is not enabled for password reset<br><br>We're sorry, but your administrator has not set up your account for use with this service.<br><br> If you'd like, we can contact an administrator in your organization to reset your password for you.</p>
             </td>
             <td>
-              <p>Вы видите это сообщение, так как администратор запретил сбрасывать пароль с помощью страницы <b>Нет доступа к учетной записи</b> для всех членов вашей организации или для вас лично. <br><br> Для сброса пароля щелкните ссылку <b>Связаться с администратором</b>, чтобы отправить администратору сообщение по электронной почте. Также сообщите ему, что вы хотите использовать функцию сброса пароля через Office&#160;365, и попросите включить для вас такую возможность.</p>
+              <p>You are seeing this message because your administrator has not enabled password reset for your organization from the <b>Can't access your account</b> link, or hasn't licensed you to use the feature. <br><br> To reset your password, click the <b>contact an administrator</b> link to send an email to your company's admin, and let him or her know you want to reset your password from Office 365 so he or she can enable this feature for you.</p>
             </td>
           </tr>
-		  <tr>
+          <tr>
             <td>
-              <p>После ввода идентификатора пользователя я вижу ошибку «Не удалось проверить учетную запись».</p>
+              <p>I get a "we could not verify your account" error after entering my user ID</p>
             </td>
             <td>
-              <p>Не удалось проверить учетную запись<br><br>Если хотите, мы можем обратиться к администратору вашей организации для сброса вашего пароля. </p>
+              <p>We could not verify your account<br><br>If you'd like, we can contact an administrator in your organization to reset your password for you. </p>
             </td>
             <td>
-              <p>Вы видите это сообщение потому, что имеете возможность сбрасывать пароль, но не прошли регистрацию для использования этой службы. Регистрацию для сброса пароля вы можете пройти на странице http://aka.ms/ssprsetup после того, как восстановите доступ к своей учетной записи. <br><br> Для сброса пароля нажмите ссылку <b>Связаться с администратором</b>, чтобы отправить администратору сообщение по электронной почте.</p>
+              <p>You are seeing this message because you are enabled for password reset, but you have not registered to use the service.  To register for password reset, go to http://aka.ms/ssprsetup after you have regained access to your account. <br><br> To reset your password, click the <b>contact an administrator</b> link to send an email to your company's admin.</p>
             </td>
           </tr>
         </tbody></table>
 
 
-## Ссылки на документацию по сбросу паролей
-Ниже приведены ссылки на все страницы документации по службе сброса паролей Azure AD.
+## <a name="links-to-password-reset-documentation"></a>Links to password reset documentation
+Below are links to all of the Azure AD Password Reset documentation pages:
 
-* [**Как работает служба**](active-directory-passwords-how-it-works.md) — узнайте, из каких шести компонентов состоит служба и за что отвечает каждый из них.
-* [**Приступая к работе**](active-directory-passwords-getting-started.md) — узнайте, как предоставить пользователям возможность сбрасывать и менять свои облачные и локальные пароли.
-* [**Настройка**](active-directory-passwords-customize.md) — узнайте, как настроить оформление и функциональность службы в соответствии с потребностями организации.
-* [**Рекомендации**](active-directory-passwords-best-practices.md) — узнайте, как быстро развернуть службу и эффективно управлять паролями в организации.
-* [**Аналитика**](active-directory-passwords-get-insights.md) — узнайте об интегрированных функциях отчетности.
-* [**Часто задаваемые вопросы**](active-directory-passwords-faq.md) — ознакомьтесь с ответами на часто задаваемые вопросы.
-* [**Устранение неполадок**](active-directory-passwords-troubleshoot.md) — узнайте, как быстро устранять проблемы, связанные со службой.
-* [**Дополнительные сведения**](active-directory-passwords-learn-more.md) — ознакомьтесь с технической стороной работы службы.
+* [**How it works**](active-directory-passwords-how-it-works.md) - learn about the six different components of the service and what each does
+* [**Getting started**](active-directory-passwords-getting-started.md) - learn how to allow you users to reset and change their cloud or on-premises passwords
+* [**Customize**](active-directory-passwords-customize.md) - learn how to customize the look & feel and behavior of the service to your organization's needs
+* [**Best practices**](active-directory-passwords-best-practices.md) - learn how to quickly deploy and effectively manage passwords in your organization
+* [**Get insights**](active-directory-passwords-get-insights.md) - learn about our integrated reporting capabilities
+* [**FAQ**](active-directory-passwords-faq.md) - get answers to frequently asked questions
+* [**Troubleshooting**](active-directory-passwords-troubleshoot.md) - learn how to quickly troubleshoot problems with the service
+* [**Learn more**](active-directory-passwords-learn-more.md) - go deep into the technical details of how the service works
 
 
 
@@ -261,4 +264,8 @@
 [014]: ./media/active-directory-passwords-update-your-own-password/014.jpg "Image_014.jpg"
 [015]: ./media/active-directory-passwords-update-your-own-password/015.jpg "Image_015.jpg"
 
-<!---HONumber=AcomDC_0831_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

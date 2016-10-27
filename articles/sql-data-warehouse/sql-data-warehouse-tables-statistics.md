@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Управление статистикой таблиц в хранилище данных SQL | Microsoft Azure"
-   description="Начало работы со статистикой таблиц в хранилище данных SQL Azure."
+   pageTitle="Managing statistics on tables in SQL Data Warehouse | Microsoft Azure"
+   description="Getting started with statistics on tables in Azure SQL Data Warehouse."
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="jrowlandjones"
@@ -16,50 +16,51 @@
    ms.date="06/30/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
-# Управление статистикой таблиц в хранилище данных SQL
+
+# <a name="managing-statistics-on-tables-in-sql-data-warehouse"></a>Managing statistics on tables in SQL Data Warehouse
 
 > [AZURE.SELECTOR]
-- [Обзор][]
-- [Типы данных][]
-- [Распределение][]
-- [Индекс][]
-- [Секция][]
-- [Статистика][]
-- [Временные таблицы][]
+- [Overview][]
+- [Data Types][]
+- [Distribute][]
+- [Index][]
+- [Partition][]
+- [Statistics][]
+- [Temporary][]
 
-Чем больше хранилищу данных SQL известно о данных, тем быстрее оно выполняет запросы, связанные с данными. Передать в хранилище данных SQL сведения о данных можно путем сбора их статистики. Сбор статистики данных — один из самых важных факторов, позволяющих оптимизировать запросы. При наличии статистики хранилище данных SQL может создать оптимальный план для запросов. Это связано с тем, что оптимизатор запросов хранилища данных SQL основан на стоимости. То есть он сравнивает стоимость разных планов запросов, а затем выбирает план с наименьшей стоимостью, который также будет быстрее выполняться.
+The more SQL Data Warehouse knows about your data, the faster it can execute queries against your data.  The way that you tell SQL Data Warehouse about your data, is by collecting statistics about your data.  Having statistics on your data is one of the most important things you can do to optimize your queries.  Statistics help SQL Data Warehouse create the most optimal plan for your queries.  This is because the SQL Data Warehouse query optimizer is a cost based optimizer.  That is, it compares the cost of various query plans and then chooses the plan with the lowest cost, which should also be the plan that will execute the fastest.
 
-Статистику можно создать по одному или нескольким столбцам, а также на основе индекса таблицы. Статистика хранится в виде гистограммы, в которой указан диапазон и избирательность значений. Это особенно интересно, когда оптимизатор должен оценить предложения JOIN, GROUP BY, HAVING и WHERE в запросе. Например, если по оценке оптимизатора при использовании одной даты, заданной для фильтрации в запросе, вернется 1 строка, а второй — 1 миллион строк, в обоих случаях оптимизатор выберет совершенно разные планы. Крайне важно, чтобы создаваемая статистика *точно* отображала текущее состояние таблицы. Наличие актуальной статистики гарантирует, что оптимизатор выберет подходящий план. Планы, созданные с помощью оптимизатора, зависят от статистики данных.
+Statistics can be created on a single column, multiple columns or on an index of a table.  Statistics are stored in a histogram which captures the range and selectivity of values.  This is of particular interest when the optimizer needs to evaluate JOINs, GROUP BY, HAVING and WHERE clauses in a query.  For example, if the optimizer estimates that the date you are filtering in your query will return 1 row, it may choose a very different plan than if it estimates that they date you have selected will return 1 million rows.  While creating statistics is extremely important, it is equally important that statistics *accurately* reflect the current state of the table.  Having up-to-date statistics ensures that a good plan is selected by the optimizer.  The plans created by the optimizer are only as good as the statistics on your data.
 
-В настоящее время процесс создания и обновления статистики выполняется вручную. Тем не менее он очень простой. В SQL Server эта процедура выполняется иначе — статистика автоматически создается и обновляется по отдельным столбцам и индексам. С помощью приведенных ниже сведений можно значительно автоматизировать управление статистикой данных.
+The process of creating and updating statistics is currently a manual process, but is very simple to do.  This is unlike SQL Server which automatically creates and updates statistics on single columns and indexes.  By using the information below, you can greatly automate the management of the statistics on your data. 
 
-## Начало работы со статистикой
+## <a name="getting-started-with-statistics"></a>Getting started with statistics
 
- Проще всего приступить к работе со статистикой, создав статистику для каждого столбца. Так актуальность статистики — очень важный фактор, рекомендуется обновлять ее ежедневно или после каждой загрузки. Однако всегда есть компромиссы между производительностью и затратами на создание и обновление статистики. Если ведение статистики занимает слишком много времени, нужно выбирать отдельные столбцы, для которых необходимо создавать статистику, или столбцы, требующие частого обновления статистики. Например, вместо обновления после каждой загрузки можно ежедневно обновлять столбцы дат, когда добавляются новые значения. Более того, статистику рекомендуется вести для столбцов, которые используются в предложениях JOIN, GROUP BY, HAVING и WHERE. Если таблица содержит большое количество столбцов, используемых только в предложении SELECT, статистика для этих столбцов может оказаться бесполезной. Лучше потратить немного больше времени и определить те столбцы, статистика в которых будет полезной. К тому же таким образом можно сократить время на ведение статистики.
+ Creating sampled statistics on every column is an easy way to get started with statistics.  Since it is equally important to keep statistics up-to-date, a conservative approach may be to update your statistics daily or after each load. There are always trade-offs between performance and the cost to create and update statistics.  If you find it is taking too long to maintain all of your statistics, you may want to try to be more selective about which columns have statistics or which columns need frequent updating.  For example, you might want to update date columns daily, as new values may be added rather than after every load. Again, you will gain the most benefit by having statistics on columns involved in JOINs, GROUP BY, HAVING and WHERE clauses.  If you have a table with a lot of columns which are only used in the SELECT clause, statistics on these columns may not help, and spending a little more effort to identify only the columns where statistics will help, can reduce the time to maintain your statistics.
 
-## Многостолбцовая статистика
+## <a name="multi-column-statistics"></a>Multi-column statistics
 
-Помимо создания статистики по отдельным столбцам для запросов может также оказаться статистика по нескольким столбцам. Многостолбцовая статистика — это статистика, созданная по списку столбцов. В первом столбце списка находится одностолбцовая статистика, а также некоторые сведения о корреляции между столбцами (т. н. плотность). Например, при наличии таблицы, которая присоединяется к двум столбцам другой таблицы, может оказаться, что хранилище данных SQL может оптимизировать план, если ему известно о связи между двумя столбцами. Многостолбцовая статистика может повысить производительность запросов для некоторых операций, например составных соединений и группировки.
+In addition to creating statistics on single columns, you may find that your queries will benefit from multi-column statistics.  Multi-column statistics are statistics created on a list of columns.  They include single column statistics on the first column in the list, plus some cross-column correlation information called densities.  For example, if you have a table that joins to another on two columns, you may find that SQL Data Warehouse can better optimize the plan if it understands the relationship between two columns.   Multi-column statistics can improve query performance for some operations such as composite joins and group by.
 
-## Обновление статистики
+## <a name="updating-statistics"></a>Updating statistics
 
-Обновление статистики — это важная часть процедуры управления базой данных. При изменении распределения данных в базе данных статистику необходимо обновить. Устаревшая статистика приведет к недостаточной производительности запросов.
+Updating statistics is an important part of your database management routine.  When the distribution of data in the database changes, statistics need to be updated.  Out-of-date statistics will lead to sub-optimal query performance.
 
-Лучше всего обновлять статистику в столбцах дат каждый день, когда добавляются новые даты. При каждой загрузке строк в хранилище данных добавляются новые даты загрузки или даты транзакций. Это изменяет распределение данных и делает статистику устаревшей. И наоборот, статистика по столбцу страны в таблице клиентов может никогда не обновляться, поскольку распределение значений существенно не меняется. Если предположить, что распределение между клиентами постоянно, добавление новых строк в вариант таблицы не изменит распределение данных. Тем не менее, если хранилище данных содержит только одну страну и появляются данные из новой страны, что означает хранение данных из нескольких стран, статистику по столбцу страны необходимо будет обновить.
+One best practice is to update statistics on date columns each day as new dates are added.  Each time new rows are loaded into the data warehouse, new load dates or transaction dates are added. These change the data distribution and make the statistics out-of-date. Conversely, statistics on a country column in a customer table might never need to be updated, as the distribution of values doesn’t generally change. Assuming the distribution is constant between customers, adding new rows to the table variation isn't going to change the data distribution. However, if your data warehouse only contains one country and you bring in data from a new country, resulting in data from multiple countries being stored, then you definitely need to update statistics on the country column.
 
-Один из первых вопросов, задаваемых при устранения неполадок запроса: "Актуальна ли статистика?"
+One of the first questions to ask when troubleshooting a query is, "Are the statistics up-to-date?"
 
-На этот вопрос нельзя ответить, исходя только из возраста данных. Актуальный объект статистики может быть очень старым, если исходные данные существенно не менялись. Если количество строк или распределение значений для заданного столбца значительно изменяется, вот *тогда* необходимо обновить статистику.
+This question is not one that can be answered by the age of the data. An up to date statistics object could be very old if there's been no material change to the underlying data. When the number of rows has changed substantially or there is a material change in the distribution of values for a given column *then* it's time to update statistics.  
 
-Для справки **SQL Server** (не хранилище данных SQL) автоматически обновляет статистику в следующих случаях:
+For reference, **SQL Server** (not SQL Data Warehouse) automatically updates statistics for these situations:
 
-- Если в таблице есть нулевые строки, при добавлении новых строк статистика обновится автоматически.
-- При добавлении более 500 строк в таблицу, изначально содержащую менее 500 строк (например, если у вас было 499 строк, а после добавления 500 строк в ней стало 999 строк), будет выполнено автоматическое обновление.
-- Если в таблице больше 500 строк, статистика будет обновляться автоматически, как только вы добавите еще 500 строк + 20 % размера таблицы.
+- If you have zero rows in the table, when you add rows, you’ll get an automatic update of statistics
+- When you add more than 500 rows to a table starting with less than 500 rows (e.g. at start you have 499 and then add 500 rows to a total of 999 rows), you’ll get an automatic update 
+- Once you’re over 500 rows you will have to add 500 additional rows + 20% of the size of the table before you’ll see an automatic update on the stats
 
-В отсутствие динамического административного представления контроль изменения данных в таблице с момента последнего обновления по известному возрасту статистики позволяет получить только часть картины. Можно использовать следующий запрос, чтобы определить время последнего обновления статистики в каждой таблице.
+Since there is no DMV to determine if data within the table has changed since the last time statistics were updated, knowing the age of your statistics can provide you with part of the picture.  You can use the following query to determine the last time your statistics where updated on each table.  
 
-> [AZURE.NOTE] Помните, если распределение значений для заданного столбца существенно изменилось, статистику необходимо обновить независимо от времени ее последнего обновления.
+> [AZURE.NOTE] Remember if there is a material change in the distribution of values for a given column, you should update statistics regardless of the last time they were updated.  
 
 ```sql
 SELECT
@@ -88,111 +89,111 @@ WHERE
     st.[user_created] = 1;
 ```
 
-Например, для столбцов дат в хранилище данных обычно требуется часто обновлять статистику. При каждой загрузке строк в хранилище данных добавляются новые даты загрузки или даты транзакций. Это изменяет распределение данных и делает статистику устаревшей. И наоборот, статистика по столбцу пола в таблице клиентов может никогда не обновляться. Если предположить, что распределение между клиентами постоянно, добавление новых строк в вариант таблицы не изменит распределение данных. Тем не менее, если хранилище данных содержит только один пол, а новые требования предписывают несколько полов, вам определенно надо обновить статистику по столбцу пола.
+Date columns in a data warehouse, for example, usually need frequent statistics updates. Each time new rows are loaded into the data warehouse, new load dates or transaction dates are added. These change the data distribution and make the statistics out-of-date.  Conversely, statistics on a gender column on a customer table might never need to be updated. Assuming the distribution is constant between customers, adding new rows to the table variation isn't going to change the data distribution. However, if your data warehouse only contains one gender and a new requirement results in multiple genders then you definitely need to update statistics on the gender column.
 
-Подробные пояснения см. в разделе [Статистика][] на сайте MSDN.
+For further explanation, see [Statistics][] on MSDN.
 
-## Реализация управления статистикой
+## <a name="implementing-statistics-management"></a>Implementing statistics management
 
-Часто рекомендуется расширить процесс загрузки данных, чтобы обеспечить обновление статистики в конце загрузки. Загрузка данных происходит, когда таблицы часто меняют свой размер и (или) распределение значений. Поэтому логично реализовать некоторые процессы управления.
+It is often a good idea to extend your data loading process to ensure that statistics are updated at the end of the load. The data load is when tables most frequently change their size and/or their distribution of values. Therefore, this is a logical place to implement some management processes.
 
-Ниже приведены некоторые основные принципы обновления статистики в процессе загрузки:
+Some guiding principles are provided below for updating your statistics during the load process:
 
-- Убедитесь, что для каждой загружаемой таблицы обновляется по крайней мере один объект статистики. Тогда при обновлении статистики обновляется информация о размере таблицы (число строк и страниц).
-- Сосредоточьтесь на столбцах, участвующие в предложениях JOIN, GROUP BY, ORDER BY и DISTINCT.
-- Рекомендуется чаще обновлять столбцы «с возрастающим порядком ключа», например даты транзакций, потому что эти значения не будут включены в гистограмму статистики.
-- Рекомендуется реже обновлять столбцы со статическим распределением.
-- Помните, что каждый объект статистики обновляется последовательно. Просто реализовать `UPDATE STATISTICS <TABLE_NAME>` может быть не идеальным решением, особенно для обширных таблиц с большим количеством объектов статистики.
+- Ensure that each loaded table has at least one statistics object updated. This updates the tables size (row count and page count) information as part of the stats update.
+- Focus on columns participating in JOIN, GROUP BY, ORDER BY and DISTINCT clauses
+- Consider updating "ascending key" columns such as transaction dates more frequently as these values will not be included in the statistics histogram.
+- Consider updating static distribution columns less frequently.
+- Remember each statistic object is updated in series. Simply implementing `UPDATE STATISTICS <TABLE_NAME>` may not be ideal - especially for wide tables with lots of statistics objects.
 
-> [AZURE.NOTE] Более подробную информацию о [возрастающем порядке ключа] можно найти в техническом документе модели оценки количества элементов SQL Server 2014.
+> [AZURE.NOTE] For more details on [ascending key] please refer to the SQL Server 2014 cardinality estimation model whitepaper.
 
-Более подробное описание см. в разделе [Оценка количества элементов][] на сайте MSDN.
+For further explanation, see  [Cardinality Estimation][] on MSDN.
 
-## Примеры: создание статистики
+## <a name="examples:-create-statistics"></a>Examples: Create statistics
 
-Эти примеры показывают, как использовать различные параметры для создания статистики. Параметры, которые можно использовать для каждого столбца, зависят от характеристик данных и того, как столбец будет использован в запросах.
+These examples show how to use various options for creating statistics. The options that you use for each column depend on the characteristics of your data and how the column will be used in queries.
 
-### О. Создание одностолбцовой статистики с параметрами по умолчанию
+### <a name="a.-create-single-column-statistics-with-default-options"></a>A. Create single-column statistics with default options
 
-Чтобы создать одностолбцовую статистику, достаточно просто указать имя объекта статистики и имя столбца.
+To create statistics on a column, simply provide a name for the statistics object and the name of the column.
 
-В этом синтаксисе все параметры используются по умолчанию. По умолчанию хранилище данных SQL создает выборку из 20 процентов таблицы, когда создает статистику.
+This syntax uses all of the default options. By default, SQL Data Warehouse samples 20 percent of the table when it creates statistics.
 
 ```sql
 CREATE STATISTICS [statistics_name] ON [schema_name].[table_name]([column_name]);
 ```
 
-Например:
+For example:
 
 ```sql
 CREATE STATISTICS col1_stats ON dbo.table1 (col1);
 ```
 
-### B. Создание одностолбцовой статистики путем проверки всех строк
+### <a name="b.-create-single-column-statistics-by-examining-every-row"></a>B. Create single-column statistics by examining every row
 
-В большинстве случаев достаточно использовать частоту выборки по умолчанию, 20 процентов. Однако вы можете настроить частоту выборки.
+The default sampling rate of 20 percent is sufficient for most situations. However, you can adjust the sampling rate.
 
-Для выборки всей таблицы используйте следующий синтаксис:
+To sample the full table, use this syntax:
 
 ```sql
 CREATE STATISTICS [statistics_name] ON [schema_name].[table_name]([column_name]) WITH FULLSCAN;
 ```
 
-Например:
+For example:
 
 ```sql
 CREATE STATISTICS col1_stats ON dbo.table1 (col1) WITH FULLSCAN;
 ```
 
-### C. Создание одностолбцовой статистики с указанием размера выборки
+### <a name="c.-create-single-column-statistics-by-specifying-the-sample-size"></a>C. Create single-column statistics by specifying the sample size
 
-В качестве альтернативы можно указать размер выборки в процентах:
+Alternatively, you can specify the sample size as a percent:
 
 ```sql
 CREATE STATISTICS col1_stats ON dbo.table1 (col1) WITH SAMPLE = 50 PERCENT;
 ```
 
-### D. Создание одностолбцовой статистики только для некоторых строк
+### <a name="d.-create-single-column-statistics-on-only-some-of-the-rows"></a>D. Create single-column statistics on only some of the rows
 
-Еще один вариант: можно создать статистику для части строк в таблице. Это называется отфильтрованной статистикой.
+Another option, you can create statistics on a portion of the rows in your table. This is called a filtered statistic.
 
-Например, отфильтрованную статистику можно использовать при планировании запроса определенной секции большой секционированной таблицы. Создавая статистику только по значениям секции, можно повысить точность статистики и, таким образом, увеличить производительность запросов.
+For example, you could use filtered statistics when you plan to query a specific partition of a large partitioned table. By creating statistics on only the partition values, the accuracy of the statistics will improve, and therefore improve query performance.
 
-Этот пример создает статистику по диапазону значений. Легко определить значения для сопоставления с диапазоном значений в секции.
+This example creates statistics on a range of values. The values could easily be defined to match the range of values in a partition.
 
 ```sql
 CREATE STATISTICS stats_col1 ON table1(col1) WHERE col1 > '2000101' AND col1 < '20001231';
 ```
 
-> [AZURE.NOTE] Чтобы оптимизатор запросов рассмотрел возможность использования отфильтрованной статистики, когда выбирает план распределенного запроса, запрос должен быть в пределах определения объекта статистики. Если взять приведенный выше пример, предложение WHERE запроса должно указать значения col1 от 2000101 до 20001231.
+> [AZURE.NOTE] For the query optimizer to consider using filtered statistics when it chooses the distributed query plan, the query must fit inside the definition of the statistics object. Using the previous example, the query's where clause needs to specify col1 values between 2000101 and 20001231.
 
-### E. Создание одностолбцовой статистики со всеми параметрами
+### <a name="e.-create-single-column-statistics-with-all-the-options"></a>E. Create single-column statistics with all the options
 
-Разумеется, параметры можно комбинировать. В приведенный ниже пример создает отфильтрованный объект статистики с настраиваемым размером выборки:
+You can, of course, combine the options together. The example below creates a filtered statistics object with a custom sample size:
 
 ```sql
 CREATE STATISTICS stats_col1 ON table1 (col1) WHERE col1 > '2000101' AND col1 < '20001231' WITH SAMPLE = 50 PERCENT;
 ```
 
-Полную справочную информацию см. в разделе [CREATE STATISTICS][] на сайте MSDN.
+For the full reference, see [CREATE STATISTICS][] on MSDN.
 
-### F. Создание многостолбцовой статистики
+### <a name="f.-create-multi-column-statistics"></a>F. Create multi-column statistics
 
-Для создания многостолбцовой статистики просто используйте предыдущие примеры, но укажите больше столбцов.
+To create a multi-column statistics, simply use the previous examples, but specify more columns.
 
-> [AZURE.NOTE] Гистограмма, используемая для оценки количества строк в результатах запроса, доступна только для первого столбца, указанного в определении объекта статистики.
+> [AZURE.NOTE] The histogram, which is used to estimate number of rows in the query result, is only available for the first column listed in the statistics object definition.
 
-В этом примере гистограмма создана для *product\_category*. Статистика между столбцами вычисляется по *product\_category* и *product\_sub\_c\\ategory*:
+In this example, the histogram is on *product\_category*. Cross-column statistics are calculated on *product\_category* and *product\_sub_c\ategory*:
 
 ```sql
 CREATE STATISTICS stats_2cols ON table1 (product_category, product_sub_category) WHERE product_category > '2000101' AND product_category < '20001231' WITH SAMPLE = 50 PERCENT;
 ```
 
-Так как между *product\_category* и *product\_sub\_category* существует корреляция, многостолбцовая статистика может быть полезна, когда к этим столбцам обращаются одновременно.
+Since there is a correlation between *product\_category* and *product\_sub\_category*, a multi-column stat can be useful if these columns are accessed at the same time.
 
-### Ж. Создание статистики для всех столбцов в таблице
+### <a name="g.-create-statistics-on-all-the-columns-in-a-table"></a>G. Create statistics on all the columns in a table
 
-Один из способов создать статистику — выполнить команды CREATE STATISTICS после создания таблицы.
+One way to create statistics is to issues CREATE STATISTICS commands after creating the table.
 
 ```sql
 CREATE TABLE dbo.table1
@@ -212,11 +213,11 @@ CREATE STATISTICS stats_col2 on dbo.table2 (col2);
 CREATE STATISTICS stats_col3 on dbo.table3 (col3);
 ```
 
-### З. Использование хранимой процедуры для создания статистики для всех столбцов в базе данных
+### <a name="h.-use-a-stored-procedure-to-create-statistics-on-all-columns-in-a-database"></a>H. Use a stored procedure to create statistics on all columns in a database
 
-В хранилище данных SQL нет системной хранимой процедуры, эквивалентной [sp\_create\_stats][] в SQL Server. Эта хранимая процедура создает объект одностолбцовой статистики для каждого столбца базы данных, для которого статистики еще нет.
+SQL Data Warehouse does not have a system stored procedure equivalent to [sp_create_stats][] in SQL Server. This stored procedure creates a single column statistics object on every column of the database that doesn't already have statistics.
 
-Это поможет приступить к проектированию базы данных. Вы можете адаптировать код в соответствии со своими нуждами.
+This will help you get started with your database design. Feel free to adapt it to your needs.
 
 ```sql
 CREATE PROCEDURE    [dbo].[prc_sqldw_create_stats]
@@ -237,7 +238,7 @@ END;
 
 IF OBJECT_ID('tempdb..#stats_ddl') IS NOT NULL
 BEGIN;
-	DROP TABLE #stats_ddl;
+    DROP TABLE #stats_ddl;
 END;
 
 CREATE TABLE #stats_ddl
@@ -261,9 +262,9 @@ JOIN        sys.[columns] c         ON  t.[object_id]       = c.[object_id]
 LEFT JOIN   sys.[stats_columns] l   ON  l.[object_id]       = c.[object_id]
                                     AND l.[column_id]       = c.[column_id]
                                     AND l.[stats_column_id] = 1
-LEFT JOIN	sys.[external_tables] e	ON	e.[object_id]		= t.[object_id]
+LEFT JOIN   sys.[external_tables] e ON  e.[object_id]       = t.[object_id]
 WHERE       l.[object_id] IS NULL
-AND			e.[object_id] IS NULL -- not an external table
+AND         e.[object_id] IS NULL -- not an external table
 )
 SELECT  [table_schema_name]
 ,       [table_name]
@@ -299,85 +300,85 @@ END
 DROP TABLE #stats_ddl;
 ```
 
-Чтобы создать статистику для всех столбцов в таблице с помощью этой процедуры, просто вызовите ее.
+To create statistics on all columns in the table with this procedure, simply call the procedure.
 
 ```sql
 prc_sqldw_create_stats;
 ```
 
-## Примеры: обновление статистики
+## <a name="examples:-update-statistics"></a>Examples: update statistics
 
-Чтобы обновить статистику, можно:
+To update statistics, you can:
 
-1. Обновить один объект статистики. Указать имя объекта статистики, который вы хотите обновить.
-2. Обновить все объекты статистики для таблицы. Указать имя таблицы, а не один объект статистики.
+1. Update one statistics object. Specify the name of the statistics object you wish to update.
+2. Update all statistics objects on a table. Specify the name of the table instead of one specific statistics object.
 
 
-### О. Обновление одного указанного объекта статистики ###
-Для обновления указанного объекта статистики используйте следующий синтаксис:
+### <a name="a.-update-one-specific-statistics-object"></a>A. Update one specific statistics object ###
+Use the following syntax to update a specific statistics object:
 
 ```sql
 UPDATE STATISTICS [schema_name].[table_name]([stat_name]);
 ```
 
-Например:
+For example:
 
 ```sql
 UPDATE STATISTICS [dbo].[table1] ([stats_col1]);
 ```
 
-Обновляя определенные объекты статистики, можно свести к минимуму затраты времени и ресурсов на управление статистикой. Однако необходимо хорошенько подумать, чтобы выбрать наиболее подходящие объекты статистики для обновления.
+By updating specific statistics objects, you can minimize the time and resources required to manage statistics. This requires some thought, though, to choose the best statistics objects to update.
 
 
-### B. Обновление всей статистики для таблицы ###
-Ниже показан простой метод обновления всех объектов статистики для таблицы.
+### <a name="b.-update-all-statistics-on-a-table"></a>B. Update all statistics on a table ###
+This shows a simple method for updating all the statistics objects on a table.
 
 ```sql
 UPDATE STATISTICS [schema_name].[table_name];
 ```
 
-Например:
+For example:
 
 ```sql
 UPDATE STATISTICS dbo.table1;
 ```
 
-Эта инструкция проста в использовании. Просто помните, что она обновляет всю статистику для таблицы, и, следовательно, может выполнять больше работы, чем необходимо. Если производительность не является проблемой — это самый простой и эффективный способ обеспечения актуальности статистики.
+This statement is easy to use. Just remember this updates all statistics on the table, and therefore might perform more work than is necessary. If the performance is not an issue, this is definitely the easiest and most complete way to guarantee statistics are up-to-date.
 
-> [AZURE.NOTE] При обновлении всей статистики для таблицы хранилище данных SQL осуществляет сканирование, чтобы выполнить выборку из таблицы для каждой статистики. Если таблица большого размера, содержит много столбцов и статистики, может оказаться эффективнее обновлять отдельные данные статистики по необходимости.
+> [AZURE.NOTE] When updating all statistics on a table, SQL Data Warehouse does a scan to sample the table for each statistics. If the table is large, has many columns, and many statistics, it might be more efficient to update individual statistics based on need.
 
-Реализацию процедуры `UPDATE STATISTICS` см. в статье о [временных таблицах][Temporary]. Метод реализации слегка отличается от описанной выше процедуры `CREATE STATISTICS`, но результат одинаков.
+For an implementation of an `UPDATE STATISTICS` procedure please see the [Temporary Tables][Temporary] article. The implementation method is slightly different to the `CREATE STATISTICS` procedure above but the end result is the same.
 
-Полный синтаксис см. в разделе [Обновление статистики][] на сайте MSDN.
+For the full syntax, see [Update Statistics][] on MSDN.
 
-## Метаданные статистики
-Существует несколько системных представлений и функций, которые можно использовать для поиска информации о статистике. Например, можно узнать, устарел ли объект статистики, воспользовавшись функцией stats-date, чтобы посмотреть, когда статистика была в последний раз создана или обновлена.
+## <a name="statistics-metadata"></a>Statistics metadata
+There are several system view and functions that you can use to find information about statistics. For example, you can see if a statistics object might be out-of-date by using the stats-date function to see when statistics were last created or updated.
 
-### Представления каталога для статистики
-Вот какие системные представления показывают информацию о статистике:
+### <a name="catalog-views-for-statistics"></a>Catalog views for statistics
+These system views provide information about statistics:
 
-| Представление каталога | Описание |
+| Catalog View | Description |
 | :----------- | :---------- |
-| [sys.columns][] | Одна строка для каждого столбца. |
-| [sys.objects][] | Одна строка для каждого объекта в базе данных. | |
-| [sys.schemas][] | Одна строка для каждой схемы в базе данных. | |
-| [sys.stats][] | Одна строка для каждого объекта статистики. |
-| [sys.stats\_columns][] | Одна строка для каждого столбца в объекте статистики. Ссылается на sys.columns. |
-| [sys.tables][] | Одна строка для каждой таблицы (включая внешние таблицы). |
-| [sys.table\_types][] | Одна строка для каждого типа данных. |
+| [sys.columns][]  | One row for each column. |
+| [sys.objects][]  | One row for each object in the database. |  |
+| [sys.schemas][]  | One row for each schema in the database. |  |
+| [sys.stats][] | One row for each statistics object. |
+| [sys.stats_columns][] | One row for each column in the statistics object. Links back to sys.columns. |
+| [sys.tables][] | One row for each table (includes external tables). |
+| [sys.table_types][] | One row for each data type. |
 
 
-### Системные функции для статистики
-Эти системные функции полезны для работы со статистикой:
+### <a name="system-functions-for-statistics"></a>System functions for statistics
+These system functions are useful for working with statistics:
 
-| Системная функция | Описание |
+| System Function | Description |
 | :-------------- | :---------- |
-| [STATS\_DATE][] | Дата последнего обновления объекта статистики. |
-| [DBCC SHOW\_STATISTICS][] | Предоставляет сводную и подробную информацию о распределении значений согласно объекту статистики. |
+| [STATS_DATE][]    | Date the statistics object was last updated. |
+| [DBCC SHOW_STATISTICS][] | Provides summary level and detailed information about the distribution of values as understood by the statistics object. |
 
-### Сочетание столбцов и функций статистики в одном представлении
+### <a name="combine-statistics-columns-and-functions-into-one-view"></a>Combine statistics columns and functions into one view
 
-Это представление содержит столбцы, относящиеся к статистике, и результаты функции [STATS\_DATE()][].
+This view brings columns that relate to statistics, and results from the [STATS_DATE()][]function together.
 
 ```sql
 CREATE VIEW dbo.vstats_columns
@@ -415,92 +416,90 @@ AND     st.[user_created] = 1
 ;
 ```
 
-## Примеры DBCC SHOW\_STATISTICS()
+## <a name="dbcc-show_statistics()-examples"></a>DBCC SHOW_STATISTICS() examples
 
-DBCC SHOW\_STATISTICS() отображает данные, хранящиеся в объекте статистики. Эти данные состоят из трех частей:
+DBCC SHOW_STATISTICS() shows the data held within a statistics object. This data comes in three parts.
 
-1. Заголовок
-2. вектор плотности;
-3. Гистограмма
+1. Header
+2. Density Vector
+3. Histogram
 
-Заголовок метаданных о статистике. Гистограмма отображает распределение значений в первом ключевом столбце объекта статистики. Вектор плотности измеряет корреляцию между столбцами. Хранилище данных SQL вычисляет оценку количества элементов с помощью данных в объекте статистики.
+The header metadata about the statistics. The histogram displays the distribution of values in the first key column of the statistics object. The density vector measures cross-column correlation. SQLDW computes cardinality estimates with any of the data in the statistics object.
 
-### Отображение заголовка, плотности и гистограммы
+### <a name="show-header,-density,-and-histogram"></a>Show header, density, and histogram
 
-Это простой пример показывает все три части объекта статистики.
+This simple example shows all three parts of a statistics object.
 
 ```sql
 DBCC SHOW_STATISTICS([<schema_name>.<table_name>],<stats_name>)
 ```
 
-Например:
+For example:
 
 ```sql
 DBCC SHOW_STATISTICS (dbo.table1, stats_col1);
 ```
 
-### Отображение одной или нескольких частей DBCC SHOW\_STATISTICS()
+### <a name="show-one-or-more-parts-of-dbcc-show_statistics();"></a>Show one or more parts of DBCC SHOW_STATISTICS();
 
-Если вы заинтересованы только в просмотре определенных частей, используйте предложение `WITH` и укажите, какие части требуется показать:
+If you are only interested in viewing specific parts, use the `WITH` clause and specify which parts you want to see:
 
 ```sql
 DBCC SHOW_STATISTICS([<schema_name>.<table_name>],<stats_name>) WITH stat_header, histogram, density_vector
 ```
 
-Например:
+For example:
 
 ```sql
 DBCC SHOW_STATISTICS (dbo.table1, stats_col1) WITH histogram, density_vector
 ```
 
-## Отличия DBCC SHOW\_STATISTICS()
-В хранилище данных SQL используется более строгая реализация DBCC SHOW\_STATISTICS(), чем в SQL Server.
+## <a name="dbcc-show_statistics()-differences"></a>DBCC SHOW_STATISTICS() differences
+DBCC SHOW_STATISTICS() is more strictly implemented in SQL Data Warehouse compared to SQL Server.
 
-1. Недокументированные возможности не поддерживаются.
-- Нельзя использовать Stats\_stream.
-- Нельзя соединить результаты для определенных подмножеств данных статистики, например (STAT\_HEADER JOIN DENSITY\_VECTOR).
-2. Невозможно задать NO\_INFOMSGS для подавления сообщений.
-3. Нельзя использовать квадратные скобки вокруг имен статистики.
-4. Нельзя использовать имена столбцов для идентификации объектов статистики.
-5. Пользовательская ошибка 2767 не поддерживается.
+1. Undocumented features are not supported
+- Cannot use Stats_stream
+- Cannot join results for specific subsets of statistics data e.g. (STAT_HEADER JOIN DENSITY_VECTOR)
+2. NO_INFOMSGS cannot be set for message suppression
+3. Square brackets around statistics names cannot be used
+4. Cannot use column names to identify statistics objects
+5. Custom error 2767 is not supported
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Next steps
 
-Дополнительную информацию см. в разделе [DBCC SHOW\_STATISTICS][] на сайте MSDN. Дополнительные сведения см. в статьях, посвященным [общим сведениям о таблицах][Overview], [типам данных таблиц][Data Types], [распределению][Distribute], [индексированию][Index] и [секционированию таблиц][Partition], а также [временным таблицам][Temporary]. Дополнительные рекомендации см. в статье [Рекомендации по использованию хранилища данных SQL Azure][].
+For more details, see [DBCC SHOW_STATISTICS][] on MSDN.  To learn more, see the articles on [Table Overview][Overview], [Table Data Types][Data Types], [Distributing a Table][Distribute], [Indexing a Table][Index],  [Partitioning a Table][Partition] and [Temporary Tables][Temporary].  For more about best practices, see [SQL Data Warehouse Best Practices][].  
 
 <!--Image references-->
 
 <!--Article references-->
 [Overview]: ./sql-data-warehouse-tables-overview.md
-[Обзор]: ./sql-data-warehouse-tables-overview.md
 [Data Types]: ./sql-data-warehouse-tables-data-types.md
-[Типы данных]: ./sql-data-warehouse-tables-data-types.md
 [Distribute]: ./sql-data-warehouse-tables-distribute.md
-[Распределение]: ./sql-data-warehouse-tables-distribute.md
 [Index]: ./sql-data-warehouse-tables-index.md
-[Индекс]: ./sql-data-warehouse-tables-index.md
 [Partition]: ./sql-data-warehouse-tables-partition.md
-[Секция]: ./sql-data-warehouse-tables-partition.md
 [Statistics]: ./sql-data-warehouse-tables-statistics.md
 [Temporary]: ./sql-data-warehouse-tables-temporary.md
-[Временные таблицы]: ./sql-data-warehouse-tables-temporary.md
-[Рекомендации по использованию хранилища данных SQL Azure]: ./sql-data-warehouse-best-practices.md
+[SQL Data Warehouse Best Practices]: ./sql-data-warehouse-best-practices.md
 
 <!--MSDN references-->  
-[Оценка количества элементов]: https://msdn.microsoft.com/library/dn600374.aspx
+[Cardinality Estimation]: https://msdn.microsoft.com/library/dn600374.aspx
 [CREATE STATISTICS]: https://msdn.microsoft.com/library/ms188038.aspx
-[DBCC SHOW\_STATISTICS]: https://msdn.microsoft.com/library/ms174384.aspx
-[Статистика]: https://msdn.microsoft.com/library/ms190397.aspx
-[STATS\_DATE]: https://msdn.microsoft.com/library/ms190330.aspx
+[DBCC SHOW_STATISTICS]:https://msdn.microsoft.com/library/ms174384.aspx
+[Statistics]: https://msdn.microsoft.com/library/ms190397.aspx
+[STATS_DATE]: https://msdn.microsoft.com/library/ms190330.aspx
 [sys.columns]: https://msdn.microsoft.com/library/ms176106.aspx
 [sys.objects]: https://msdn.microsoft.com/library/ms190324.aspx
 [sys.schemas]: https://msdn.microsoft.com/library/ms190324.aspx
 [sys.stats]: https://msdn.microsoft.com/library/ms177623.aspx
-[sys.stats\_columns]: https://msdn.microsoft.com/library/ms187340.aspx
+[sys.stats_columns]: https://msdn.microsoft.com/library/ms187340.aspx
 [sys.tables]: https://msdn.microsoft.com/library/ms187406.aspx
-[sys.table\_types]: https://msdn.microsoft.com/library/bb510623.aspx
-[Обновление статистики]: https://msdn.microsoft.com/library/ms187348.aspx
+[sys.table_types]: https://msdn.microsoft.com/library/bb510623.aspx
+[UPDATE STATISTICS]: https://msdn.microsoft.com/library/ms187348.aspx
 
 <!--Other Web references-->  
 
-<!---HONumber=AcomDC_0706_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Добавление API Microsoft Translator в PowerApps Enterprise или приложения логики| Microsoft Azure"
-    description="Обзор соединителя Microsoft Translator с параметрами интерфейса API REST"
+    pageTitle="Add the Microsoft Translator in logic apps| Microsoft Azure"
+    description="Overview of the Microsoft Translator connector with REST API parameters"
     services=""
     suite=""
     documentationCenter="" 
@@ -18,120 +18,130 @@
    ms.date="08/18/2016"
    ms.author="mandia"/>
 
-# Начало работы с соединителем Microsoft Translator
-Подключитесь к Microsoft Translator, чтобы переводить тексты, определять языки и выполнять многие другие действия. С помощью Microsoft Translator вы можете:
 
-- формировать бизнес-процессы на основе данных, получаемых из Microsoft Translator;
-- использовать действия для перевода текста, определения языка и т. д. Эти действия получают ответ и делают выходные данные доступными для использования другими действиями. Например, когда в Dropbox создается файл, с помощью Microsoft Translator можно перевести его текст на другой язык.
+# <a name="get-started-with-the-microsoft-translator-connector"></a>Get started with the Microsoft Translator connector
+Connect to Microsoft Translator to translate text, detect a language, and more. With Microsoft Translator, you can: 
 
-Сведения о добавлении операции в приложения логики см. в статье о [создании приложения логики](../app-service-logic/app-service-logic-create-a-logic-app.md).
+- Build your business flow based on the data you get from Microsoft Translator. 
+- Use actions to translate text, detect a language, and more. These actions get a response, and then make the output available for other actions. For example, when a new file is created in Dropbox, you can translate the text in the file to another language using Microsoft Translator.
 
-## Триггеры и действия
-Microsoft Translator позволяет выполнять следующие действия. Триггеры отсутствуют.
+To add an operation in logic apps, see [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-триггеры; | Действия
+## <a name="triggers-and-actions"></a>Triggers and actions
+Microsoft Translator includes the following actions. There are no triggers.
+
+Triggers | Actions
 --- | ---
-None | <ul><li>Определение языка</li><li>Преобразование текста в речь</li><li>Перевод текста</li><li>Получение языков</li><li>Получение языков для синтеза речи</li></ul>
+None | <ul><li>Detect language</li><li>Text to speech</li><li>Translate text</li><li>Get languages</li><li>Get speech languages</li></ul>
 
-Все соединители поддерживают данные в форматах JSON и XML.
-
-
-## Создание подключения к Microsoft Translator
-
->[AZURE.INCLUDE [Шаги по созданию подключения к Microsoft Translator](../../includes/connectors-create-api-microsofttranslator.md)]
+All connectors support data in JSON and XML formats.
 
 
-## Справочник по REST API Swagger
-Относится к версии 1.0.
+## <a name="create-a-connection-to-microsoft-translator"></a>Create a connection to Microsoft Translator
 
-### Определение языка    
-Определяет исходный язык заданного текста. ```GET: /Detect```
+>[AZURE.INCLUDE [Steps to create a connection to Microsoft Translator](../../includes/connectors-create-api-microsofttranslator.md)]
 
-| Имя| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Description (Описание)|
+
+## <a name="swagger-rest-api-reference"></a>Swagger REST API reference
+Applies to version: 1.0.
+
+### <a name="detect-language"></a>Detect language    
+Detects source language of given text.  
+```GET: /Detect```
+
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|запрос|string|Да|запрос|Нет |Текст, язык которого будет определен|
+|query|string|yes|query|none |Text whose language will be identified|
 
-#### Ответ
-|Имя|Описание|
+#### <a name="response"></a>Response
+|Name|Description|
 |---|---|
-|200|ОК|
-|по умолчанию|Операция завершилась ошибкой.|
+|200|OK|
+|default|Operation Failed.|
 
 
-### Преобразование текста в речь    
-Преобразует заданный текст в речь в виде звукового потока в формате WAVE. ```GET: /Speak```
+### <a name="text-to-speech"></a>Text to speech    
+Converts a given text into speech as an audio stream in wave format.  
+```GET: /Speak```
 
-| Name (Имя)| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|запрос|string|Да|запрос|Нет |Преобразуемый текст|
-|язык|string|Да|запрос|Нет |Код языка для создания речи (например "ru-RU")|
+|query|string|yes|query|none |Text to convert|
+|language|string|yes|query|none |Language code to generate speech (example: 'en-us')|
 
-#### Ответ
-|Name (Имя)|Описание|
+#### <a name="response"></a>Response
+|Name|Description|
 |---|---|
-|200|ОК|
-|по умолчанию|Операция завершилась ошибкой.|
+|200|OK|
+|default|Operation Failed.|
 
 
-### Перевод текста    
-Переводит текст на указанный язык с помощью Microsoft Translator. ```GET: /Translate```
+### <a name="translate-text"></a>Translate text    
+Translates text to a specified language using Microsoft Translator.  
+```GET: /Translate```
 
-| Имя| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Description (Описание)|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|запрос|string|Да|запрос|Нет |Текст для перевода|
-|languageTo|string|Да|запрос| Нет|Код целевого языка (например "f")|
-|languageFrom|string|Нет|запрос|Нет |Исходный язык. Если не указан, Microsoft Translator попытается определить язык автоматически (например en).|
-|category|string|Нет|запрос|общие |Категория перевода (по умолчанию — "Общие")|
+|query|string|yes|query|none |Text to translate|
+|languageTo|string|yes|query| none|Target language code (example: 'fr')|
+|languageFrom|string|no|query|none |Source language; if not provided, Microsoft Translator will try to auto-detect. (example: en)|
+|category|string|no|query|general |Translation category (default: 'general')|
 
-#### Ответ
-|Имя|Описание|
+#### <a name="response"></a>Response
+|Name|Description|
 |---|---|
-|200|ОК|
-|по умолчанию|Операция завершилась ошибкой.|
+|200|OK|
+|default|Operation Failed.|
 
 
-### Получение языков    
-Извлекает все языки, поддерживаемые Microsoft Translator. ```GET: /TranslatableLanguages```
+### <a name="get-languages"></a>Get languages    
+Retrieves all languages that Microsoft Translator supports.  
+```GET: /TranslatableLanguages```
 
-Для этого вызова параметры отсутствуют.
+There are no parameters for this call. 
 
-#### Ответ
-|Name (Имя)|Описание|
+#### <a name="response"></a>Response
+|Name|Description|
 |---|---|
-|200|ОК|
-|по умолчанию|Операция завершилась ошибкой.|
+|200|OK|
+|default|Operation Failed.|
 
 
-### Получение языков для синтеза речи    
-Извлекает языки, доступные для синтеза речи. ```GET: /SpeakLanguages```
+### <a name="get-speech-languages"></a>Get speech languages    
+Retrieves the languages available for speech synthesis.  
+```GET: /SpeakLanguages``` 
 
-Для этого вызова параметры отсутствуют.
+There are no parameters for this call.
 
-#### Ответ
-|Имя|Описание|
+#### <a name="response"></a>Response
+|Name|Description|
 |---|---|
-|200|ОК|
-|по умолчанию|Операция завершилась ошибкой.|
+|200|OK|
+|default|Operation Failed.|
 
-## Определения объектов
+## <a name="object-definitions"></a>Object definitions
 
-#### Language: языковая модель для переводимых языков Microsoft Translator
+#### <a name="language:-language-model-for-microsoft-translator-translatable-languages"></a>Language: language model for Microsoft Translator translatable languages
 
-|Имя свойства | Тип данных | Обязательно|
+|Property Name | Data Type | Required|
 |---|---|---|
-|Код|string|Нет|
-|Имя|string|Нет|
+|Code|string|no|
+|Name|string|no|
 
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Next steps
 
-[Создайте приложение логики](../app-service-logic/app-service-logic-create-a-logic-app.md).
+[Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-Вы можете вернуться к [списку интерфейсов API](apis-list.md).
+Go back to the [APIs list](apis-list.md).
 
 
 <!--References-->
 [5]: https://datamarket.azure.com/developer/applications/
 [6]: ./media/connectors-create-api-microsofttranslator/register-your-application.png
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

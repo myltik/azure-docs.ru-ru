@@ -1,17 +1,20 @@
-* [Масштабирование ценовой категории в службе приложений Azure](../articles/app-service-web/web-sites-scale.md)
-	* Основные сведения об избыточности и надежности
-	* Приложения со сведениями о состоянии и без них
-		* [Disabling ARR’s Instance Affinity in Microsoft Azure Web Sites](/blog/disabling-arrs-instance-affinity-in-windows-azure-web-sites/) (Отключение сходства экземпляров, относящихся к маршрутизации запросов приложений, в веб-сайтах Microsoft Azure)
+* [Scale Azure App Service](../articles/app-service-web/web-sites-scale.md)
+    * Understanding Redundancy and Reliability
+    * StateFULL vs StateLESS applications
+        * [Configuring your Stateless app](/blog/disabling-arrs-instance-affinity-in-windows-azure-web-sites/)
 
-* Приложения службы приложений, предназначенные для нагрузочного тестирования
+* Load Testing apps in App Service   
 
-* Рекомендации по масштабированию службы приложений
-	* Нехватка портов и использование пулов соединений
-	* [Использование хранилища BLOB-объектов из .NET](../articles/storage/storage-dotnet-how-to-use-blobs.md)
-	* [Общие сведения о сети доставки содержимого (CDN) Azure](../articles/cdn/cdn-overview.md)
-	* [Как использовать кэш Redis для Azure](../articles/redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md)
+* App Service scaling best practices
+    * Port exhaustion and connection pooling
+    * [Leveraging Azure Storage from your App Service app](../articles/storage/storage-dotnet-how-to-use-blobs.md)
+    * [Leveraging Azure CDN from your App Service app](../articles/cdn/cdn-overview.md)
+    * [Leveraging Azure Redis Cache from your App Service app](../articles/redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md)
 
-* Географическое распределение
-	* [Что такое диспетчер трафика](../articles/traffic-manager/traffic-manager-overview.md)
+* Geo distribution
+    * [Leveraging Traffic Manager to achive global scale](../articles/traffic-manager/traffic-manager-overview.md)
 
-<!---HONumber=AcomDC_0706_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

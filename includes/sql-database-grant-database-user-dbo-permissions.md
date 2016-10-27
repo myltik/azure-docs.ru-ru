@@ -1,24 +1,29 @@
 
 
-## Предоставление новому пользователю базы данных разрешений db\_owner
+## <a name="grant-new-database-user-db_owner-permissions"></a>Grant new database user db_owner permissions
 
-Чтобы предоставить существующему пользователю базы данных разрешения db\_owner, выполните описанные ниже действия.
+Use the following steps to grant an existing database user db_owner permissions
 
-Для выполнения этих действий требуется: подключение к базе данных SQL в обозревателе объектов с помощью SSMS, а также подключение к логическому серверу базы данных SQL в качестве администратора-участника уровня сервера или с помощью учетной записи пользователя с разрешениями предоставлять пользователям разрешения.
+Theses steps assume that you are connected to SQL Database in Object Explorer in SSMS and are connected to your SQL Database logical server as a server-level principal administrator or with a user account with permissions to grant user permissions. 
 
-1. В обозревателе объектов разверните узел базы данных и выберите базу данных с пользователем, которому вы хотите предоставить разрешения dbo.
+1. In Object Explorer, expand the Databases node and select the database with the user to which you wish to grant dbo permissions.
 
-     ![SQL Server Management Studio: подключение к серверу базы данных SQL](./media/sql-database-create-new-database-user/sql-database-create-new-database-user-1.png)
+     ![SQL Server Management Studio: Connect to SQL Database server](./media/sql-database-create-new-database-user/sql-database-create-new-database-user-1.png)
 
-2. Щелкните правой кнопкой мыши выбранную базу и выберите пункт **Запрос**.
+2. Right-click the selected database and then click **Query**.
 
-     ![SQL Server Management Studio: подключение к серверу базы данных SQL](./media/sql-database-create-new-database-user/sql-database-create-new-database-user-2.png)
+     ![SQL Server Management Studio: Connect to SQL Database server](./media/sql-database-create-new-database-user/sql-database-create-new-database-user-2.png)
 
-3. В окне запроса измените и выполните следующую инструкцию Transact-SQL, чтобы предоставить разрешения dbo указанному пользователю.
+3. In the query window, edit and use the following Transact-SQL statement to grant dbo permissions to a specified user. 
 
     ```ALTER ROLE db_owner ADD MEMBER user1;
     ```
 
-     ![SQL Server Management Studio: подключение к серверу базы данных SQL](./media/sql-database-grant-database-user-dbo-permissions/sql-database-grant-database-user-dbo-permissions-1.png)
+     ![SQL Server Management Studio: Connect to SQL Database server](./media/sql-database-grant-database-user-dbo-permissions/sql-database-grant-database-user-dbo-permissions-1.png)
 
-<!---HONumber=AcomDC_0629_2016-->
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,87 +1,91 @@
 <properties
-   pageTitle="Рекомендации по производительности для диспетчера трафика Azure | Microsoft Azure"
-   description="Общие сведения о производительности диспетчера трафика и о проверке производительности веб-сайта при использовании диспетчера трафика"
-   services="traffic-manager"
-   documentationCenter=""
-   authors="sdwheeler"
-   manager="carmonm"
-   editor="joaoma" />
-
-<tags 
-   ms.service="traffic-manager"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="06/10/2016"
-   ms.author="sewhee" />
-
-
-# Рекомендации по безопасности для диспетчера трафика
-
-На этой странице описываются особенности использования диспетчера трафика. Пример сценария. У вас два сайта: один — в регионе США, а второй — в Азии. На одном из сайтов происходит сбой проверки работоспособности во время проверки диспетчера трафика. Все пользователи будут направляться в работоспособный регион. Такое поведение может выглядеть как проблема с производительностью, но это будет ожидаемое поведение, с учетом расстояния, которое преодолевает запрос пользователя.
-
-  
-
-## Важное примечание о том, как работает диспетчер трафика
-
-- Главным образом диспетчер трафика выполняет разрешение DNS. Это означает, что диспетчер трафика может повлиять на производительность веб-сайта только при первоначальном поиске DNS.
-- О поиске DNS диспетчером трафика следует отметить следующее. Диспетчер трафика заполняет и регулярно обновляет обычные корневые DNS-серверы Майкрософт в соответствии с вашей политикой и результатами проверки. Поэтому даже во время первоначального поиска DNS диспетчер трафика не используется, так как запрос DNS обрабатывается обычными корневыми DNS-серверами Майкрософт. При сбое диспетчера трафика (т. е. при сбое проверки политики для виртуальных машин и обновления DNS) DNS-имя диспетчера трафика не будет затронуто, так как записи в DNS-серверах Майкрософт будут по-прежнему сохраняться. Единственное, на что это повлияет, — не будет выполнена проверка и обновление на основе политики (например, при сбое первичного сайта диспетчер трафика не сможет обновить DNS то сайта отработки отказа).
-- Трафик НЕ проходит через диспетчер трафика. Также между клиентами и размещенными службами Azure отсутствует диспетчер трафика, играющий роль посредника. После завершения поиска DNS диспетчер трафика полностью удаляется из связи между клиентом и сервером.
-- Поиск DNS происходит очень быстро, а полученные данные кэшируются. Скорость первоначального поиска DNS будет зависеть от клиента и настройки его DNS-серверов. Обычно клиент выполняет поиск DNS примерно за 50 мс (ознакомьтесь со сведениями на странице http://www.solvedns.com/dns-comparison/). После первоначального поиска результаты будут кэшированы на срок жизни DNS, что для диспетчера трафика по умолчанию составляет 300 секунд.
-- Выбранная политика диспетчера трафика (производительность, отработка отказа, циклический перебор) не влияет на производительность DNS. Политика производительности может отрицательно повлиять на взаимодействие с пользователями, например если вы перенаправите пользователей США в службу, размещенную в Азии, но это не будет вызвано диспетчером трафика.
-
-  
-
-## Проверка производительности диспетчера трафика
-
-Получить данные о производительности и поведении диспетчера трафика можно с помощью нескольких общедоступных веб-сайтов. Эти веб-сайты помогают определить задержку DNS и то, в какие размещенные службы перенаправляются ваши пользователи по всему миру. Обратите внимание, что большинство этих средств не кэшируют результаты DNS, поэтому при многоразовом выполнении тестов отобразится более полная информация по поиску DNS, тогда как клиенты, подключающиеся к конечной точке диспетчера трафика, увидят только влияние поиска DNS на производительность в течение срока жизни.
+    pageTitle="Performance considerations for Azure Traffic Manager | Microsoft Azure"
+    description="Understand performance on Traffic Manager and how to test performance of your website when using Traffic Manager"
+    services="traffic-manager"
+    documentationCenter=""
+    authors="sdwheeler"
+    manager="carmonm"
+    editor=""
+/>
+<tags
+    ms.service="traffic-manager"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="infrastructure-services"
+    ms.date="10/11/2016"
+    ms.author="sewhee"
+/>
 
 
-## Примеры средств измерения производительности
+# <a name="performance-considerations-for-traffic-manager"></a>Performance considerations for Traffic Manager
+
+This page explains performance considerations using Traffic Manager. Consider the following scenario:
+
+You have instances of your website in the WestUS and EastAsia regions. One of the instances is failing the health check for the traffic manager probe. Application traffic is directed to the healthy region. This failover is expected but performance can be a problem based on the latency of the traffic now traveling to a distant region.
+
+## <a name="how-traffic-manager-works"></a>How Traffic Manager works
+
+The only performance impact that Traffic Manager can have on your website is the initial DNS lookup. A DNS request for the name of your Traffic Manager profile is handled by the Microsoft DNS root server that hosts the trafficmanager.net zone. Traffic Manager populates, and regularly updates, the Microsoft's DNS root servers based on the Traffic Manager policy and the probe results. So even during the initial DNS lookup, no DNS queries are sent to Traffic Manager.
+
+Traffic Manager is made up of several components: DNS name servers, an API service, the storage layer, and an endpoint monitoring service. If a Traffic Manager service component fails, there is no effect on the DNS name associated with your Traffic Manager profile. The records in the Microsoft DNS servers remain unchanged. However, endpoint monitoring and DNS updating do not happen. Therefore, Traffic Manager is not able to update DNS to point to your failover site when your primary site goes down.
+
+DNS name resolution is fast and results are cached. The speed of the initial DNS lookup depends on the DNS servers the client uses for name resolution. Typically, a client can complete a DNS lookup within ~50 ms. The results of the lookup are cached for the duration of the DNS Time-to-live (TTL). The default TTL for Traffic Manager is 300 seconds.
+
+Traffic does NOT flow through Traffic Manager. Once the DNS lookup completes, the client has an IP address for an instance of your web site. The client connects directly to that address and does not pass through Traffic Manager. The Traffic Manager policy you choose has no influence on the DNS performance. However, a Performance routing-method can negatively impact the application experience. For example, if your policy redirects traffic from North America to an instance hosted in Asia, the network latency for those sessions may be a performance issue.
+
+## <a name="measuring-traffic-manager-performance"></a>Measuring Traffic Manager Performance
+
+There are several websites you can use to understand the performance and behavior of a Traffic Manager profile. Many of these sites are free but may have limitations. Some sites offer enhanced monitoring and reporting for a fee.
+
+The tools on these sites measure DNS latencies and display the resolved IP addresses for client locations around the world. Most of these tools do not cache the DNS results. Therefore, the tools show the full DNS lookup each time a test is run. When you test from your own client, you only experience the full DNS lookup performance once during the TTL duration.
+
+## <a name="sample-tools-to-measure-dns-performance"></a>Sample tools to measure DNS performance
+
+- [SolveDNS](http://www.solvedns.com/dns-comparison/)
+
+    SolveDNS offers many performance tools. The DNS Comparison tool can show you how long it takes to resolve your DNS name and how that compares to other DNS service providers.
+
+- [WebSitePulse](http://www.websitepulse.com/help/tools.php)
+
+    One of the simplest tools is WebSitePulse. Enter the URL to see DNS resolution time, First Byte, Last Byte, and other performance statistics. You can choose from three different test locations. In this example, you see that the first execution shows that DNS lookup takes 0.204 sec.
+
+    ![pulse1](./media/traffic-manager-performance-considerations/traffic-manager-web-site-pulse.png)
+
+    Because the results are cached, the second test for the same Traffic Manager endpoint the DNS lookup takes 0.002 sec.
+
+    ![pulse2](./media/traffic-manager-performance-considerations/traffic-manager-web-site-pulse2.png)
+
+- [CA App Synthetic Monitor](https://asm.ca.com/en/checkit.php)
+
+    Formerly known as the Watchmouse Check Website tool, this site show you the DNS resolution time from multiple geographic regions simultaneously. Enter the URL to see DNS resolution time, connection time, and speed from several geographic locations. Use this test to see which hosted service is returned for different locations around the world.
+
+    ![pulse1](./media/traffic-manager-performance-considerations/traffic-manager-web-site-watchmouse.png)
+
+- [Pingdom](http://tools.pingdom.com/)
+
+    This tool provides performance statistics for each element of a web page. The Page Analysis tab shows the percentage of time spent on DNS lookup.
+
+- [What's My DNS?](http://www.whatsmydns.net/)
+
+    This site does a DNS lookup from 20 different locations and displays the results on a map.
+
+- [Dig Web Interface](http://www.digwebinterface.com)
+
+    This site shows more detailed DNS information including CNAMEs and A records. Make sure you check the 'Colorize output' and 'Stats' under options, and select 'All' under Nameservers.
+
+## <a name="next-steps"></a>Next Steps
+
+[About Traffic Manager traffic routing methods](traffic-manager-routing-methods.md)
+
+[Test your Traffic Manager settings](traffic-manager-testing-settings.md)
+
+[Operations on Traffic Manager (REST API Reference)](http://go.microsoft.com/fwlink/?LinkId=313584)
+
+[Azure Traffic Manager Cmdlets](http://go.microsoft.com/fwlink/p/?LinkId=400769)
 
 
-Одно из самых простых средств — это WebSitePulse. Введите URL-адрес, и вы увидите статистику, например время разрешения DNS, первый байт, последний байт и другую статистику производительности. Вы можете выбрать одно из трех расположений для проверки сайта. В этом примере при первом запуске поиск DNS выполняется за 0,204 с. При втором запуске теста в той же конечной точке диспетчера трафика поиск DNS занимает 0,002 с, так как результаты уже кэшированы.
 
-http://www.websitepulse.com/help/tools.php
-
-
-![pulse1](./media/traffic-manager-performance-considerations/traffic-manager-web-site-pulse.png)
-
-Время DNS при кэшировании:
+<!--HONumber=Oct16_HO2-->
 
 
-![pulse2](./media/traffic-manager-performance-considerations/traffic-manager-web-site-pulse2.png)
-
-
-
-Еще одно полезное средство для получения времени разрешения одновременно из нескольких географических регионов — средство проверки веб-сайтов Watchmouse. Введите URL-адрес, чтобы узнать время разрешения DNS, время подключения и скорость из нескольких географических местоположений. Это средство также удобно при проверке на соответствие политике производительности для диспетчера трафика, так как позволяет увидеть, в какую размещенную службу перенаправляются разные пользователи по всему миру.
-
-http://www.watchmouse.com/en/checkit.php
-
-
-![pulse1](./media/traffic-manager-performance-considerations/traffic-manager-web-site-watchmouse.png)
-
-http://tools.pingdom.com/ — по этой ссылке проверяется веб-сайт и предоставляется статистика производительности для каждого элемента на странице в виде графика. Если переключиться на вкладку "Анализ страницы", можно увидеть процент времени, затраченного на поиск DNS.
-
- 
-
-http://www.whatsmydns.net/ — на этом сайте будет выполнен поиск DNS из 20 различных географических местоположений, а результаты будут отображены на карте. Это отличное визуальное представление, которое помогает определить, к какой размещенной службе будут подключены клиенты.
-
- 
-
-http://www.digwebinterface.com — сайт, аналогичный сайту watchmouse. На нем отображается более подробная информация о DNS, в том числе записи CNAME и A. Установите в параметрах флажки "Выделить цветом выходные данные" и "Статистика", а для Nameservers выберите значение "Все".
-
-## Дальнейшие действия
-
-
-[О методах маршрутизации трафика в диспетчере трафика](traffic-manager-routing-methods.md)
-
-[Проверка параметров диспетчера трафика](traffic-manager-testing-settings.md)
-
-[Операции с диспетчером трафика (справочник по REST API)](http://go.microsoft.com/fwlink/?LinkId=313584)
-
-[Командлеты для диспетчера трафика Azure](http://go.microsoft.com/fwlink/p/?LinkId=400769)
- 
-
-<!---HONumber=AcomDC_0824_2016-->

@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Включение и выключение устройства StorSimple | Microsoft Azure"
-   description="В этой статье объясняется, как включить новое устройство StorSimple, как включить устройство после завершения работы или отключения питания, а также как выключить работающее устройство."
+   pageTitle="Turn your StorSimple device on or off | Microsoft Azure"
+   description="Explains how to turn on a new StorSimple device, turn on a device that was shut down or lost power, and turn off a running device."
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
@@ -15,204 +15,210 @@
    ms.date="08/23/2016"
    ms.author="alkohli" />
 
-# Включение и выключение устройства StorSimple 
 
-## Обзор
+# <a name="turn-your-storsimple-device-on-or-off"></a>Turn your StorSimple device on or off 
 
-При нормальной работе системы завершать работу устройства Microsoft Azure StorSimple не обязательно. Тем не менее может возникнуть необходимость включить новое устройство или устройство, работу которого требовалось завершить. Как правило, завершение работы требуется в случаях, когда необходимо заменить неисправное оборудование, физически переместить устройство или прекратить его использование. В этом руководстве описывается процедура включения и выключения устройства StorSimple в различных ситуациях.
+## <a name="overview"></a>Overview
 
-В следующей таблице приведены различные сценарии включения и выключения устройства StorSimple со ссылками на соответствующие процедуры.
+Shutting down a Microsoft Azure StorSimple device is not required as a part of normal system operation. However, you may need to turn on a new device or a device that had to be shut down. Generally, a shutdown is required in cases in which you must replace failed hardware, physically move a unit, or take a device out of service. This tutorial describes the required procedure for turning on and shutting down your StorSimple device in different scenarios.
 
-|Сценарий|Справочные материалы|
+The following table lists various scenarios for turning on and shutting down your StorSimple device and provides links to the appropriate procedures.
+
+|Scenario|Reference topics|
 |:-------|:---------------|
-|Включение нового устройства|[Включение нового устройства:](#turn-on-a-new-device)<ul><li>[Новое устройство только с основным корпусом.](#new-device-with-primary-enclosure-only)</li><li>[Новое устройство с корпусом EBOD.](#new-device-with-ebod-enclosure)</li></ul>|
-|Включение устройства после завершения работы|[Включение нового устройства после завершения работы:](#turn-on-a-device-after-shutdown)<ul><li>[Устройство только с основным корпусом.](#device-with-primary-enclosure-only)</li><li>[Устройство с корпусом EBOD.](#device-with-ebod-enclosure)</li></ul>|
-|Включение устройства после отключения питания|[Включение нового устройства после отключения питания:](#turn-on-a-device-after-a-power-loss)<ul><li>[Устройство только с основным корпусом.](#8100)</li><li>[Устройство с корпусом EBOD.](#8600)</li></ul>|
-|Включение устройства после прерывания подключения между основным корпусом и корпусом EBOD|[Включение устройства после прерывания подключения между основным корпусом и корпусом EBOD](#turn-on-a-device-after-the-primary-and-ebod-enclosure-connection-is-lost)|
-|Завершение работы устройства|[Завершение работы устройства:](#turn-off-a-running-device)<ul><li>[Устройство только с основным корпусом.](#8100a)</li><li>[Устройство с корпусом EBOD.](#8600a)</li></ul>|
+|Turn on a new device|[Turn on a new device](#turn-on-a-new-device)<ul><li>[New device with primary enclosure only](#new-device-with-primary-enclosure-only)</li><li>[New device with EBOD enclosure](#new-device-with-ebod-enclosure)</li></ul>|
+|Turn on a device after shutdown|[Turn on a device after shutdown](#turn-on-a-device-after-shutdown)<ul><li>[Device with primary enclosure only](#device-with-primary-enclosure-only)</li><li>[Device with EBOD enclosure](#device-with-ebod-enclosure)</li></ul>|
+|Turn on a device after a power loss|[Turn on a device after a power loss](#turn-on-a-device-after-a-power-loss)<ul><li>[Device with primary enclosure only](#8100)</li><li>[Device with EBOD enclosure](#8600)</li></ul>|
+|Turn on a device after the primary enclosure and EBOD connection is lost|[Turn on a device after the primary and EBOD enclosure connection is lost](#turn-on-a-device-after-the-primary-and-ebod-enclosure-connection-is-lost)|
+|Shut down a running device|[Turn off a running device](#turn-off-a-running-device)<ul><li>[Device with primary enclosure only](#8100a)</li><li>[Device with EBOD enclosure](#8600a)</li></ul>|
 
-## Включение нового устройства
+## <a name="turn-on-a-new-device"></a>Turn on a new device
 
-Процедура первого включения устройства StorSimple зависит от модели устройства (8100 или 8600). В модели 8100 используется только основной корпус, а в модели 8600 — два корпуса: основной и EBOD. В следующих разделах подробно рассматриваются процедуры для обеих моделей.
+The steps for turning on a StorSimple device for the first time differ depending on whether the device is an 8100 or an 8600 model. The 8100 has a single primary enclosure, whereas the 8600 is a dual-enclosure device with a primary enclosure and an EBOD enclosure. The detailed steps for both models are covered in the following sections.
 
-- [Новое устройство только с основным корпусом](#new-device-with-primary-enclosure-only)
+- [New device with primary enclosure only](#new-device-with-primary-enclosure-only)
 
-- [Новое устройство с корпусом EBOD](#new-device-with-ebod-enclosure)
+- [New device with EBOD enclosure](#new-device-with-ebod-enclosure)
 
-### Новое устройство только с основным корпусом
+### <a name="new-device-with-primary-enclosure-only"></a>New device with primary enclosure only
 
-Модель StorSimple 8100 — это устройство с одним корпусом. В комплектации устройства присутствуют модули Power and Cooling Module (PCM). Каждый из двух модулей PCM должен быть установлен и подключен к независимым источникам питания для обеспечения высокой доступности.
+The StorSimple 8100 model is a single enclosure device. Your device includes redundant Power and Cooling Modules (PCMs). Both PCMs must be installed and connected to different power sources to ensure high availability.
 
-Выполните следующие действия, чтобы подключить питание к устройству.
+Perform the following steps to cable your device for power.
 
 [AZURE.INCLUDE [storsimple-cable-8100-for-power](../../includes/storsimple-cable-8100-for-power.md)]
 
->[AZURE.NOTE]Подробные инструкции по настройке устройства и подключению кабелей см. в статье [Установка устройства StorSimple 8100](storsimple-8100-hardware-installation.md). В точности следуйте инструкциям.
+>[AZURE.NOTE]For complete device setup and cabling instructions, go to [Install your StorSimple 8100 device](storsimple-8100-hardware-installation.md). Make sure that you follow the instructions exactly.
 
-### Новое устройство с корпусом EBOD
+### <a name="new-device-with-ebod-enclosure"></a>New device with EBOD enclosure
 
-Модель StorSimple 8600 оснащена основным корпусом и корпусом EBOD. Их необходимо соединить кабелями, чтобы обеспечить последовательное подключение SCSI (SAS) и питание.
+The StorSimple 8600 model has both a primary enclosure and an EBOD enclosure. This requires the units to be cabled together for Serial Attached SCSI (SAS) connectivity and power.
 
-Во время первой настройки этого устройства сначала подключите кабели SAS, а затем — кабели питания.
+When setting up this device for the first time, perform the steps for SAS cabling first and then complete the steps for power cabling.
 
 [AZURE.INCLUDE [storsimple-sas-cable-8600](../../includes/storsimple-sas-cable-8600.md)]
 
 [AZURE.INCLUDE [storsimple-cable-8600-for-power](../../includes/storsimple-cable-8600-for-power.md)]
 
->[AZURE.NOTE]Подробные инструкции по настройке устройства и подключению кабелей см. в статье [Установка устройства StorSimple 8600](storsimple-8600-hardware-installation.md). В точности следуйте инструкциям.
+>[AZURE.NOTE]For complete device setup and cabling instructions, go to [Install your StorSimple 8600 device](storsimple-8600-hardware-installation.md). Make sure that you follow the instructions exactly.
 
-## Включение устройства после завершения работы
+## <a name="turn-on-a-device-after-shutdown"></a>Turn on a device after shutdown
 
-Процедура включения устройства StorSimple после завершения работы зависит от модели устройства (8100 или 8600). В модели 8100 используется только основной корпус, а в модели 8600 — два корпуса: основной и EBOD.
+The steps for turning on a StorSimple device after it has been shut down are different depending on whether the device is an 8100 or an 8600 model. The 8100 has a single primary enclosure, whereas the 8600 is a dual-enclosure device with a primary enclosure and an EBOD enclosure.
 
-- [Устройство только с основным корпусом](#device-with-primary-enclosure-only)
+- [Device with primary enclosure only](#device-with-primary-enclosure-only)
 
-- [Устройство с корпусом EBOD](#device-with-ebod-enclosure)
+- [Device with EBOD enclosure](#device-with-ebod-enclosure)
 
-### Устройство только с основным корпусом
+### <a name="device-with-primary-enclosure-only"></a>Device with primary enclosure only
 
-Чтобы включить устройство StorSimple с основным корпусом без корпуса EBOD после завершения работы, выполните следующие действия.
+After a shutdown, use the following procedure to turn on a StorSimple device with a primary enclosure and no EBOD enclosure.
 
-#### Включение устройства только с основным корпусом
+#### <a name="to-turn-on-a-device-with-a-primary-enclosure-only"></a>To turn on a device with a primary enclosure only
 
-1. Убедитесь, что выключатели питания на всех модулях питания и охлаждения (PCM) установлены в положение ВЫКЛ. В противном случае установите их в положение ВЫКЛ и дождитесь выключения индикаторов.
+1. Make sure that the power switches on both Power and Cooling Modules (PCMs) are in the OFF position. If the switches are not in the OFF position, then flip them to the OFF position and wait for the lights to go off.
 
-2. Включите устройство, установив выключатели питания обоих модулей PCM в положение ВКЛ. Устройство должно включиться.
+2. Turn on the device by flipping the power switches on both PCMs to the ON position. The device should turn on.
 
-3. Чтобы убедиться, что устройство полностью включилось, проверьте следующее.
+3. Check the following to verify that the device is fully on:
 
-    1. Индикаторы «ОК» на обоих модулях PCM светятся зеленым.
+    1. The OK LEDs on both PCM modules are green.
 
-    2. Индикаторы состояния на обоих контроллерах светятся зеленым.
+    2. The status LEDs on both controllers are solid green.
 
-    3. На одном из контроллеров мигает синий индикатор. Это значит, что контроллер активен.
+    3. The blue LED on one of the controllers is blinking, which indicates that the controller is active.
 
-    Если какое-то из этих условий не выполняется, устройство неисправно. [Обратитесь в службу поддержки Майкрософт](storsimple-contact-microsoft-support.md).
+    If any of these conditions are not met, then your device is not healthy. Please [contact Microsoft Support](storsimple-contact-microsoft-support.md).
 
-### Устройство с корпусом EBOD
+### <a name="device-with-ebod-enclosure"></a>Device with EBOD enclosure
 
-Чтобы включить устройство StorSimple с основным корпусом и корпусом EBOD после завершения работы, выполните указанные ниже действия. Обязательно придерживайтесь указанной последовательности. В противном случае можно потерять данные.
+After a shutdown, use the following procedure to turn on a StorSimple device with a primary enclosure and an EBOD enclosure. Perform each step in sequence exactly as described. Failure to do so could result in data loss.
 
-#### Включение устройства с основным корпусом и корпусом EBOD
+#### <a name="to-turn-on-a-device-with-a-primary-and-an-ebod-enclosure"></a>To turn on a device with a primary and an EBOD enclosure
 
-1. Убедитесь, что корпус EBOD подключен к основному корпусу. Дополнительные сведения см. в разделе [Установка устройства StorSimple 8600](storsimple-8600-hardware-installation.md).
+1. Make sure that the EBOD enclosure is connected to the primary enclosure. For more information, see [Install your StorSimple 8600 device](storsimple-8600-hardware-installation.md).
 
-2. Убедитесь, что выключатели питания на модулях питания и охлаждения (PCM) на основном корпусе и корпусе EBOD установлены в положение ВЫКЛ. В противном случае установите их в положение ВЫКЛ и дождитесь выключения индикаторов.
+2. Make sure that the Power and Cooling Modules (PCMs) on both the EBOD and primary enclosures are in the OFF position. If the switches are not in the OFF position, then flip them to the OFF position and wait for the lights to go off.
 
-3. Сначала включите корпус EBOD. Для этого установите выключатели питания обоих модулей PCM в положение ВКЛ. Индикаторы PCM должны светиться зеленым. Зеленый индикатор контроллера EBOD на этом устройстве указывает, что корпус EBOD включен.
+3. Turn on the EBOD enclosure first by flipping the power switches on both PCMs to the ON position. The PCM LEDs should be green. A green EBOD controller LED on this unit indicates that the EBOD enclosure is on.
 
-4. Включите основной корпус, установив выключатели питания обоих модулей PCM в положение ВКЛ. Теперь вся система должна включиться.
+4. Turn on the primary enclosure by flipping the power switches on both PCMs to the ON position. The entire system should now be on.
 
-5. Убедитесь, что индикаторы SAS светятся зеленым. Это свидетельствует о надежном подключении между основным корпусом и корпусом EBOD.
+5. Verify that the SAS LEDs are green, which ensures that the connection between the EBOD enclosure and the primary enclosure is good.
 
-## Включение устройства после отключения питания
+## <a name="turn-on-a-device-after-a-power-loss"></a>Turn on a device after a power loss
 
-Вследствие сбоя питания работа устройства StorSimple может завершиться. Сбой питания может произойти на одном или на обоих источниках питания. Действия по восстановлению зависят от модели устройства (8100 или 8600). В модели 8100 используется только основной корпус, а в модели 8600 — два корпуса: основной и EBOD. В этом разделе описывается процедура восстановления для каждого сценария.
+A power outage or interruption can shut down a StorSimple device. The power outage can happen on one of the power supplies or both power supplies. The recovery steps are different depending on whether the device is an 8100 or an 8600 model. The 8100 has a single primary enclosure, whereas the 8600 is a dual-enclosure device with a primary enclosure and an EBOD enclosure. This section describes the recovery procedure for each scenario.
 
-- [Устройство только с основным корпусом](#8100)
+- [Device with primary enclosure only](#8100)
 
-- [Устройство с корпусом EBOD](#8600)
+- [Device with EBOD enclosure](#8600)
 
-### Устройство только с основным корпусом <a name="8100">
+### <a name="device-with-primary-enclosure-only-<a-name="8100">"></a>Device with primary enclosure only <a name="8100">
 
-Если отключено питание от одного из источников, система может продолжать работу в обычном режиме. Однако чтобы обеспечить высокую доступность устройства, восстановите подачу питания как можно скорее.
+The system can continue its normal operation if there is power loss to one of its power supplies. However, to ensure high availability of the device, restore power to the power supply as soon as possible.
 
-При отключении питания или сбое обоих источников питания система завершит работу правильным и контролируемым образом. Когда подача питания будет восстановлена, система включится автоматически.
+If there is a power outage or power interruption on both power supplies, the system will shut down in an orderly and controlled manner. When the power is restored, the system will automatically turn on.
 
-### Устройство с корпусом EBOD <a name="8600">
+### <a name="device-with-ebod-enclosure-<a-name="8600">"></a>Device with EBOD enclosure <a name="8600">
 
-#### Отключение одного источника питания
+#### <a name="power-loss-on-one-power-supply"></a>Power loss on one power supply
 
-Если отключено питание одного из источников (основного корпуса или корпуса EBOD), система может продолжать работу в обычном режиме. Однако чтобы обеспечить высокую доступность устройства, восстановите подачу питания как можно скорее.
+The system can continue its normal operation if there is power loss to one of its power supplies on the primary enclosure or the EBOD enclosure. However, to ensure high availability of the device, please restore power to the power supply as soon as possible.
 
-#### Отключение обоих источников питания основного корпуса и корпуса EBOD
+#### <a name="power-loss-on-both-power-supplies-on-primary-and-ebod-enclosures"></a>Power loss on both power supplies on primary and EBOD enclosures
 
-При отключении питания или сбое обоих источников питания корпус EBOD немедленно завершит работу, а основной корпус завершит работу правильным и контролируемым образом. После восстановления питания устройство запустится автоматически.
+If there is a power outage or power interruption on both power supplies, the EBOD enclosure will shut down immediately and the primary enclosure will shut down in an orderly and controlled manner. When power is restored, the appliance will start automatically.
 
-Если питание отключено вручную, выполните следующие действия, чтобы восстановить питание системы.
+If the power is switched off manually, then take the following steps to restore power to the system.
 
-1. Включите корпус EBOD.
+1. Turn on the EBOD enclosure.
 
-2. Затем включите основной корпус.
+2. After the EBOD enclosure is on, turn on the primary enclosure.
 
-### Отключение обоих источников питания корпуса EBOD
+### <a name="power-loss-on-both-power-supplies-on-ebod-enclosure"></a>Power loss on both power supplies on EBOD enclosure
 
-Во время подключения кабелей убедитесь, что не только корпус EBOD подключен к блоку распределения питания. Если корпус EBOD и основной корпус будут обесточены одновременно, работа системы восстановится автоматически.
+When you set up your cables, you must ensure that the EBOD is never connected alone to a separate PDU. If the EBOD and primary enclosure fail at the same time, the system will recover.
 
-Если питание будет отключено для обоих источников питания корпуса EBOD, работа системы не восстановится автоматически. Включить систему и восстановить ее работоспособность можно с помощью следующих действий.
+If only the EBOD enclosure fails on both power supplies, the system will not automatically recover. Take the following steps to turn on the system and restore it to a healthy state:
 
-1. Если основной корпус включен, выключите оба модуля питания и охлаждения (PCM).
+1. If the primary enclosure is turned on, switch off both Power and Cooling Modules (PCMs).
 
-2. Подождите несколько минут, чтобы система завершила работу.
+2. Wait for a few minutes for the system to shut down.
 
-3. Включите корпус EBOD.
+3. Turn on the EBOD enclosure.
 
-4. Затем включите основной корпус.
+4. After the EBOD enclosure is on, turn on the primary enclosure.
 
-## Включение устройства после прерывания подключения между основным корпусом и корпусом EBOD
+## <a name="turn-on-a-device-after-the-primary-and-ebod-enclosure-connection-is-lost"></a>Turn on a device after the primary and EBOD enclosure connection is lost
 
-Если прервано подключение между резервным контроллером и соответствующим контроллером EBOD, устройство продолжит работать. Если прервано подключение между активным контроллером системы и соответствующим контроллером EBOD, должно выполниться аварийное переключение. После этого устройство продолжит работу в обычном режиме.
+If the connection is lost between the standby controller and the corresponding EBOD controller, the device continues to work. If the connection between the system active controller and the corresponding EBOD controller is lost, failover should occur and the device should continue to work as normal.
 
-Если оба кабеля SCSI с последовательным подключением (SAS) отключены или подключение между корпусом EBOD и основным корпусом прервано, устройство перестанет работать. В этом случае выполните следующие действия.
+When both Serial Attached SCSI (SAS) cables are removed or the connection between the EBOD enclosure and the primary enclosure is severed, the device will stop working. At this point, perform the following steps.
 
-### Включение устройства после прерывания подключения
+### <a name="to-turn-on-the-device-after-connection-is-lost"></a>To turn on the device after connection is lost
 
-1. Осмотрите заднюю панель устройства.
+1. Access the back of the device.
 
-2. Если кабельное подключение SAS между корпусом EBOD и основным корпусом прервано, весь ряд индикаторов SAS на корпусе EBOD будет выключен.
+2. If the SAS cable connection between the EBOD enclosure and the primary enclosure is broken, all SAS lane LEDs on the EBOD enclosure will be off.
 
-3. Выключите оба модуля питания и охлаждения (PCM) на корпусе EBOD и основном корпусе.
+3. Shut down both Power and Cooling Modules (PCMs) on the EBOD enclosure and the primary enclosure.
 
-4. Подождите, пока не погаснут все индикаторы на задних панелях обоих корпусов.
+4. Wait until all the lights on the back of both the enclosures turn off.
 
-5. Снова подключите кабели SAS и убедитесь в надежности соединения между корпусом EBOD и основным корпусом.
+5. Reinsert the SAS cables, and ensure that there is a good connection between the EBOD enclosure and the primary enclosure.
 
-6. Сначала включите корпус EBOD. Для этого установите выключатели обоих модулей PCM в положение ВКЛ.
+6. Turn on the EBOD enclosure first by flipping both PCM switches to the ON position.
 
-7. Убедитесь, что корпус EBOD включен (светится зеленый индикатор).
+7. Ensure that the EBOD enclosure is on by checking that the green LED is ON.
 
-8. Включите основной корпус.
+8. Turn on the primary enclosure.
 
-9. Убедитесь, что основной корпус включен (светится зеленый индикатор контроллера).
+9. Ensure that the primary enclosure is on by checking that the controller green LED is ON.
 
-10. Убедитесь в наличии надежного подключения между корпусом EBOD и основным корпусом (светится весь ряд индикаторов SAS — по четыре на контроллер EBOD).
+10. Verify that the EBOD enclosure connection with the primary enclosure is good by checking that the SAS lane LEDs (four per EBOD controller) are all ON.
 
->[AZURE.IMPORTANT] Если кабели SAS неисправны или подключение между корпусом EBOD и основным корпусом установлено ненадежно, после включения система перейдет в режим восстановления. Если это произойдет, [обратитесь в службу поддержки Майкрософт](storsimple-contact-microsoft-support.md).
+>[AZURE.IMPORTANT] If the SAS cables are defective or the connection between the EBOD enclosure and the primary enclosure is not good, when you turn on the system, it will go into recovery mode. Please [contact Microsoft Support](storsimple-contact-microsoft-support.md) if this happens.
 
-## Выключение работающего устройства
+## <a name="turn-off-a-running-device"></a>Turn off a running device
 
-Если устройство StorSimple нужно переместить, прекратить его использование или в нем имеется неисправный компонент, который необходимо заменить, работу устройства следует завершить. Необходимые действия для устройств StorSimple зависят от модели устройства (8100 или 8600). В модели 8100 используется только основной корпус, а в модели 8600 — два корпуса: основной и EBOD. В этом разделе описаны действия для завершения работы устройства.
+A running StorSimple device may need to be shut down if it is being moved, taken out of service, or has a malfunctioning component that needs to be replaced. The steps are different depending on whether the StorSimple device is an 8100 or an 8600 model. The 8100 has a single primary enclosure, whereas the 8600 is a dual-enclosure device with a primary enclosure and an EBOD enclosure. This section details the steps to shut down a running device.
 
-- [Устройство с основным корпусом](#8100a)
+- [Device with primary enclosure](#8100a)
 
-- [Устройство с корпусом EBOD](#8600a)
+- [Device with EBOD enclosure](#8600a)
 
-### Устройство с основным корпусом <a name="8100a"> 
+### <a name="device-with-primary-enclosure-<a-name="8100a">"></a>Device with primary enclosure <a name="8100a"> 
 
-Чтобы завершить работу устройства, следуя правильной и контролируемой процедуре, можно воспользоваться классическим порталом Azure или Windows PowerShell для StorSimple.
+To shut down the device in an orderly and controlled manner, you can do it through the Azure classic portal or via the Windows PowerShell for StorSimple. 
 
->[AZURE.IMPORTANT] Не отключайте работающее устройство с помощью кнопки питания, расположенной на задней панели.
+>[AZURE.IMPORTANT] Do not shut down a running device by using the power button on the back of the device.
 >
->Прежде чем завершить работу устройства, убедитесь, что все его компоненты работоспособны. На классическом портале Azure выберите **Устройства** > **Обслуживание** > **Состояние оборудования** и убедитесь, что индикаторы состояния всех компонентов горят зеленым светом. Это относится только к работоспособной системе. Если вы завершаете работу системы, чтобы заменить неисправный компонент, на панели **Состояние оборудования** отобразится состояние сбоя (красный индикатор) или ограниченной функциональности (желтый индикатор) для соответствующих компонентов.
+>Before shutting down the device, make sure that all the device components are healthy. In the Azure classic portal, navigate to **Devices** > **Maintenance** > **Hardware Status**, and verify that status of all the components is green. This is true only for a healthy system. If the system is being shut down to replace a malfunctioning component, you will see a failed (red) or degraded (yellow) status for the respective component in the **Hardware Status**.
 
-В Windows PowerShell для StorSimple или на классическом портале Azure выполните действия, описанные в разделе [Завершение работы устройства StorSimple](storsimple-manage-device-controller.md#shut-down-a-storsimple-device).
+After you access the Windows PowerShell for StorSimple or the Azure classic portal, follow the steps in [shut down a StorSimple device](storsimple-manage-device-controller.md#shut-down-a-storsimple-device). 
 
-### Устройство с корпусом EBOD <a name="8600a">
+### <a name="device-with-ebod-enclosure-<a-name="8600a">"></a>Device with EBOD enclosure <a name="8600a">
 
->[AZURE.IMPORTANT] Прежде чем завершить работу основного корпуса и корпуса EBOD, убедитесь, что все компоненты устройства работоспособны. На классическом портале Azure выберите **Устройства** > **Обслуживание** > **Состояние оборудования** и убедитесь в работоспособности всех компонентов.
+>[AZURE.IMPORTANT] Before shutting down the primary enclosure and the EBOD enclosure, ensure that all the device components are healthy. In the Azure classic portal, navigate to **Devices** > **Maintenance** > **Hardware Status**, and verify that all the components are healthy.
 
-#### Завершение работы устройства с корпусом EBOD
+#### <a name="to-shut-down-a-running-device-with-ebod-enclosure"></a>To shut down a running device with EBOD enclosure
 
-1. Выполните действия, описанные в разделе [Завершение работы устройства StorSimple](storsimple-manage-device-controller.md#shut-down-a-storsimple-device), для основного корпуса.
+1. Follow all the steps listed in [shut down a StorSimple device](storsimple-manage-device-controller.md#shut-down-a-storsimple-device) for the primary enclosure.
 
-2. После завершения работы основного корпуса завершите работу корпуса EBOD, установив выключатели модулей питания и охлаждения (PCM) в положение ВЫКЛ.
+2. After the primary enclosure is shut down, shut down the EBOD by flipping off both Power and Cooling Module (PCM) switches.
 
-3. Чтобы убедиться, что работа корпуса EBOD завершена, проверьте, отключены ли все индикаторы на задней панели корпуса EBOD.
+3. To verify that the EBOD has shut down, check that all lights on the back of the EBOD enclosure are off.
 
->[AZURE.NOTE] Кабели SAS, которые используются для подключения корпуса EBOD к основному корпусу, не следует отсоединять до завершения работы системы.
+>[AZURE.NOTE] The SAS cables that are used to connect the EBOD enclosure to the primary enclosure should not be removed until after the system is shut down.
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Next steps
 
-Если у вас возникнут проблемы после включения или завершения работы устройства StorSimple, [обратитесь в службу поддержки Microsoft](storsimple-contact-microsoft-support.md).
+[Contact Microsoft Support](storsimple-contact-microsoft-support.md) if you encounter problems when turning on or shutting down a StorSimple device.
 
-<!---HONumber=AcomDC_0831_2016-->
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

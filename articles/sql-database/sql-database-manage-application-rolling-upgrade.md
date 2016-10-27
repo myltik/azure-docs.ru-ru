@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Решения для аварийного восстановления облака: активная георепликация базы данных SQL | Microsoft Azure"
-   description="Вы можете узнать, как использовать георепликацию базы данных SQL Azure для поддержки оперативных обновлений облачного приложения."
+   pageTitle="Cloud disaster recovery solutions - SQL Database Active Geo-Replication | Microsoft Azure"
+   description="Learn how to use Azure SQL Database geo-replication to support online upgrades of your cloud application."
    services="sql-database"
    documentationCenter=""
    authors="anosov1960"
@@ -16,129 +16,135 @@
    ms.date="07/16/2016"
    ms.author="sashan"/>
 
-# Управление последовательными обновлениями для облачных приложений с помощью активной георепликации базы данных SQL
+
+# <a name="managing-rolling-upgrades-of-cloud-applications-using-sql-database-active-geo-replication"></a>Managing rolling upgrades of cloud applications using SQL Database Active Geo-Replication
 
 
-> [AZURE.NOTE] [Active Geo-Replication](sql-database-geo-replication-overview.md) Раздел теперь доступен для всех баз данных и всех уровней.
+> [AZURE.NOTE] [Active Geo-Replication](sql-database-geo-replication-overview.md) is now available for all databases in all tiers.
 
 
-Узнайте, как использовать [георепликацию](sql-database-geo-replication-overview.md) в базе данных SQL для установки последовательных обновлений облачного приложения. Так как обновление представляет собой нарушающую работу операцию, оно должно учитываться при планировании и проектировании непрерывности бизнес-процессов. В этой статье мы рассмотрим два разных метода для оркестрации процесса обновления, а также преимущества и недостатки каждой из них. В рамках этой статьи мы используем простое приложение, состоящее из веб-сайта, подключенного к одной базе данных в качестве уровня данных. Наша цель заключается в обновлении версии 1 приложения до версии 2 без значительного влияния на работу конечных пользователей.
+Learn how to use [Geo-Replication](sql-database-geo-replication-overview.md) in SQL Database to enable rolling upgrades of your cloud application. Because upgrade is a disruptive operation, it should be part of your business continuity planning and design. In this article we look at two different methods of orchestrating the upgrade process, and discuss the benefits and trade-offs of each option. For the purposes of this article we will use a simple application that consists of a web site connected to a single database as its data tier. Our goal is to upgrade version 1 of the application to version 2 without any significant impact on the end user experience. 
 
-При оценке вариантов обновления необходимо учитывать следующие факторы.
+When evaluating the upgrade options you should consider the following factors:
 
-+ Влияние на доступность приложения во время обновления. На какой срок допускается ограничение или сокращение функциональности приложения.
-+ Возможность отката в случае сбоя во время обновления.
-+ Уязвимость приложения к не связанному с ним разрушительному сбою во время обновления.
-+ Общие денежные затраты. Сюда входят затраты на дополнительную избыточность и добавочные затраты на временные компоненты, используемые в процессе обновления.
++ Impact on application availability during upgrades. How long the application function may be limited or degraded.
++ Ability to roll back in case of an upgrade failure.
++ Vulnerability of the application if an unrelated catastrophic failure occurs during the upgrade.
++ Total dollar cost.  This includes additional redundancy and incremental costs of the temporary components  used by the upgrade process. 
 
-## Обновление приложений, полагающихся на резервные копии базы данных в случае аварийного восстановления 
+## <a name="upgrading-applications-that-rely-on-database-backups-for-disaster-recovery"></a>Upgrading applications that rely on database backups for disaster recovery 
 
-Если приложение полагается на создаваемые автоматически резервные копии базы данных и использует геовосстановление для аварийного восстановления, оно обычно развертывается в одном регионе Azure. В этом случае процесс обновления включает в себя создание резервного развертывания всех компонентов приложения, участвующих в обновлении. Чтобы минимизировать нарушения в работе конечных пользователей, вы воспользуетесь диспетчером трафика Azure (WATM) с профилем отработки отказов. На приведенной ниже схеме показана рабочая среда до начала процесса обновления. Конечная точка <i>contoso-1.azurewebsites.net</i> представляет рабочий слот приложения, которое необходимо обновить. Чтобы включить возможность отката обновления, необходимо создать промежуточный слот с полностью синхронизированной копией приложения. Для подготовки приложения к обновлению необходимо выполнить следующее.
+If your application relies on automatic database backups and uses geo-restore for disaster recovery, it is usually deployed to a single Azure region. In this case the upgrade process involves creating a backup deployment of all application components involved in the upgrade. To minimize the end-user disruption you will leverage Azure Traffic Manager (WATM) with the failover profile.  The following diagram illustrates the operational environment prior to the upgrade process. The endpoint <i>contoso-1.azurewebsites.net</i> represents a production slot of the application that needs to be upgraded. To enable the ability to rollback the upgrade, you need create a stage slot with a fully synchronized copy of the application. The following steps are required to prepare the application for the upgrade:
 
-1.  Создайте промежуточный слот для обновления. Для этого создайте базу данных-получатель (1) и разверните идентичный веб-сайт в том же регионе Azure. Осуществляйте ее мониторинг, чтобы определить завершение процесса заполнения.
-3.  Создайте профиль отработки отказа в WATM, используя <i>contoso-1.azurewebsites.net</i> в качестве работающей конечной точки и <i>contoso-2.azurewebsites.net</i> в качестве отключенной.
+1.  Create a stage slot for the upgrade. To do that create a secondary database (1) and deploy a identical web site in the same Azure region. Monitor the secondary to see if the seeding process is completed.
+3.  Create a failover profile in WATM with <i>contoso-1.azurewebsites.net</i> as online endpoint and <i>contoso-2.azurewebsites.net</i> as offline. 
 
-> [AZURE.NOTE] Обратите внимание, что эти подготовительные меры не затронут приложение в рабочем слоте, поэтому оно может работать в режиме полного доступа.
+> [AZURE.NOTE] Note the preparation steps will not impact the application in the production slot and it can function in full access mode.
 
-![Настройка георепликации базы данных SQL. Аварийное восстановление облака.](media/sql-database-manage-application-rolling-upgrade/Option1-1.png)
+![SQL Database Go-Replication configuration. Cloud disaster recovery.](media/sql-database-manage-application-rolling-upgrade/Option1-1.png)
 
-После завершения этих действий приложение готово к фактическому обновлению. Шаги, входящие в процесс обновления, показаны на приведенной ниже схеме.
+Once the preparation steps are completed the application is ready for the actual upgrade. The following diagram illustrates the steps involved in the upgrade process. 
 
-1. Переключите базу данных-источник в рабочем слоте в режиме только для чтения (3). Это гарантирует, что производственный экземпляр приложения (V1) останется доступным только для чтения во время обновления, предотвращая расхождение данных между экземплярами базы данных V1 и V2 .
-2. Отключите базу данных-получатель, используя режим планового завершения (4). При этом создается полностью синхронизированная независимая копия базы данных-источника. Эта база данных будет обновлена.
-3. Переключите базу данных-источник в режим чтения и записи и запустите сценарий обновления в промежуточном слоте (5).
+1. Set the primary database in the production slot to read-only mode (3). This will guarantee that the production instance of the application (V1) will remain read-only during the upgrade thus preventing the data divergence between the V1 and V2 database instances.  
+2. Disconnect the secondary database using the planned termination mode (4). It will create a fully synchronized independent copy of the primary database. This database will be upgraded.
+3. Turn the primary database to read-write mode and run the upgrade script in the stage slot  (5).     
 
-![Настройка георепликации базы данных SQL. Аварийное восстановление облака.](media/sql-database-manage-application-rolling-upgrade/Option1-2.png)
+![SQL Database Geo-Replication configuration. Cloud disaster recovery.](media/sql-database-manage-application-rolling-upgrade/Option1-2.png)
 
-В случае успешного завершения обновления все готово к переключению конечных пользователей на промежуточную копию приложения. Теперь она станет рабочим слотом приложения. Это включает в себя несколько дополнительных действий, как показано на приведенной ниже схеме.
+If the upgrade completed successfully you are now ready to switch the end users to the staged copy the application. It will now become the production slot of the application.  This involves a few more steps as illustrated on the following diagram.
 
-1. Переключите рабочую конечную точку в профиле WATM на <i>contoso-2.azurewebsites.net</i>, которая указывает на версию V2 веб-сайта (6). Теперь она становится рабочим слотом с приложением V2, куда направляется трафик конечных пользователей.
-2. Если компоненты приложения V1 больше не нужны, их можно удалить (7).
+1. Switch the online endpoint in the WATM profile to <i>contoso-2.azurewebsites.net</i>, which points to the V2 version of the web site (6). It now becomes the production slot with the V2 application and the end user traffic is directed to it.  
+2. If you no longer need the V1 application components so you can safely remove them (7).   
 
-![Настройка георепликации базы данных SQL. Аварийное восстановление облака.](media/sql-database-manage-application-rolling-upgrade/Option1-3.png)
+![SQL Database Geo-Replication configuration. Cloud disaster recovery.](media/sql-database-manage-application-rolling-upgrade/Option1-3.png)
 
-Если процесс обновления завершается неудачно, например из-за ошибки в сценарии обновления, промежуточный слот следует считать нарушенным. Чтобы выполнить откат приложения до состояния перед обновлением, просто верните приложение в рабочем слоте в режим полного доступа. Соответствующие шаги показаны на приведенной ниже схеме.
+If the upgrade process is unsuccessful, for example due to an error in the upgrade script, the stage slot should be considered compromised. To rollback the application to the pre-upgrade state you simply revert the application in the production slot to full access. The steps involved are shown on the next diagram.    
 
-1. Переключите копию базы данных в режим чтения и записи (8). Это восстановит полную функциональность версии V1 в рабочем слоте.
-2. Выполните анализ первопричин и удалите скомпрометированные компоненты в промежуточном слоте (9).
+1. Set the database copy to read-write mode (8). This will restore the full V1 functionally in the production slot.
+2. Perform the root cause analysis and remove the compromised components in the stage slot (9). 
 
-На этом этапе приложение полностью работоспособно, и можно повторить действия по обновлению.
+At this point the application is fully functional and the upgrade steps can be repeated.
 
-> [AZURE.NOTE] Откат не требует изменения профиля WATM, так как уже указывает на <i>contoso-1.azurewebsites.net</i> как активную конечную точку.
+> [AZURE.NOTE] The rollback does not require changes in WATM profile as it already points to <i>contoso-1.azurewebsites.net</i> as the active endpoint.
 
-![Настройка георепликации базы данных SQL. Аварийное восстановление облака.](media/sql-database-manage-application-rolling-upgrade/Option1-4.png)
+![SQL Database Geo-Replication configuration. Cloud disaster recovery.](media/sql-database-manage-application-rolling-upgrade/Option1-4.png)
 
-Ключевым **преимуществом** этого варианта является возможность обновить приложение в одном регионе с помощью набора простых шагов. Денежная стоимость обновления сравнительно мала. Главный **недостаток** заключается в том, что в случае разрушительного сбоя во время обновления для восстановления до состояния перед обновлением потребуется повторное развертывание приложения в другом регионе и восстановление базы данных из резервной копии с помощью геовосстановления. Этот процесс приведет к значительному простою.
+The key **advantage** of this option is that you can upgrade a application in a single region using a set of simple steps. The dollar cost of the upgrade is relatively low. The main **tradeoff** is that if a catastrophic failure occurs during the upgrade the recovery to the pre-upgrade state will involve re-deployment of the application in a different region and restoring the database from backup using geo-restore. This process will result in significant downtime.   
 
-## Обновление приложений, полагающихся на геовосстановление базы данных в случае аварийного восстановления
+## <a name="upgrading-applications-that-rely-on-database-geo-replication-for-disaster-recovery"></a>Upgrading applications that rely on database Geo-Replication for disaster recovery
 
-Если приложение использует георепликацию для обеспечения непрерывности бизнес-процессов, оно развертывается по крайней мере в двух разных регионах: активное развертывание выполняется в основном регионе и резервное развертывание — в резервном регионе. Помимо упомянутых ранее факторов процесс обновления должен гарантировать следующее.
+If your application leverages Geo-Replication for business continuity, it is deployed  to at least two different regions with an active deployment in Primary region and a standby deployment in Backup region. In addition to the factors mentioned earlier, the upgrade process must guarantee that:
 
-+ Приложение остается защищенным от разрушительного сбоя на протяжении всего обновления.
-+ Геоизбыточные компоненты приложения обновляются параллельно с активными компонентами.
++ The application remains protected from catastrophic failures at all times during the upgrade process
++ The geo-redundant components of the application are upgraded in parallel with the active components
 
-Для достижения этих целей применяется диспетчер трафика Azure (WATM) с использованием профиля отработки отказа с одной активной и тремя резервными конечными точками. На приведенной ниже схеме показана рабочая среда до начала процесса обновления. Веб-сайты <i>contoso-1.azurewebsites.net</i> и <i>contoso-dr.azurewebsites.net</i> представляют рабочий слот приложения с полной геоизбыточностью. Чтобы включить возможность отката обновления, необходимо создать промежуточный слот с полностью синхронизированной копией приложения. Так как необходимо убедиться, что приложение можно быстро восстановить в случае разрушительного сбоя во время обновления, промежуточный слот также должен быть геоизбыточным. Для подготовки приложения к обновлению необходимо выполнить следующее.
+To achieve these goals you will leverage Azure Traffic Manager (WATM) using the failover profile with one active and three backup endpoints.  The following diagram illustrates the operational environment prior to the upgrade process. The web sites <i>contoso-1.azurewebsites.net</i> and <i>contoso-dr.azurewebsites.net</i> represent a production slot of the application with full geographic redundancy. To enable the ability to rollback the upgrade, you need create a stage slot with a fully synchronized copy of the application. Because you you need to ensure that the application can quickly recover in case a catastrophic failure occurs during the upgrade process the stage slot needs to be geo-redundant as well. The following steps are required to prepare the application for the upgrade:
 
-1.  Создайте промежуточный слот для обновления. Для этого создайте базу данных-получатель (1) и разверните идентичную копию веб-сайта в том же регионе Azure. Осуществляйте ее мониторинг, чтобы определить завершение процесса заполнения.
-2.  Создайте геоизбыточную базу данных-получатель в промежуточном слоте путем георепликации базы данных-получателя в резервную область (это называется "цепной георепликацией"). Осуществляйте мониторинг этой базы данных-получателя, чтобы определить завершение процесса заполнения (3).
-3.  Создайте резервную копию веб-сайта в резервном регионе и свяжите ее с геоизбыточной базой данных-получателем (4).
-4.  Добавьте дополнительные конечные точки <i>contoso-2.azurewebsites.net</i> и <i>contoso-3.azurewebsites.net</i> в профиль отработки отказа в WATM как автономные конечные точки (5).
+1.  Create a stage slot for the upgrade. To do that create a secondary database (1) and deploy a identical copy of the web site in the same Azure region . Monitor the secondary to see if the seeding process is completed.
+2.  Create a geo-redundant secondary database in the stage slot by geo-replicating the secondary database to the backup region (this is called "chained geo-replication"). Monitor the backup secondary to see if the seeding process is completed (3).
+3.  Create a standby copy of the web site in the backup region and link it to the geo-redundant secondary (4).  
+4.  Add the additional endpoints <i>contoso-2.azurewebsites.net</i> and <i>contoso-3.azurewebsites.net</i> to the failover profile in WATM as offline endpoints (5). 
 
-> [AZURE.NOTE] Обратите внимание, что эти подготовительные меры не затронут приложение в рабочем слоте, поэтому оно может работать в режиме полного доступа.
+> [AZURE.NOTE] Note the preparation steps will not impact the application in the production slot and it can function in full access mode.
 
-![Настройка георепликации базы данных SQL. Аварийное восстановление облака.](media/sql-database-manage-application-rolling-upgrade/Option2-1.png)
+![SQL Database Geo-Replication configuration. Cloud disaster recovery.](media/sql-database-manage-application-rolling-upgrade/Option2-1.png)
 
-После завершения этих действий промежуточный слот готов к обновлению. Шаги обновления показаны на схеме ниже.
+Once the preparation steps are completed, the stage slot is ready for the upgrade. The following diagram illustrates the upgrade steps.
 
-1. Переключите базу данных-источник в рабочем слоте в режиме только для чтения (6). Это гарантирует, что производственный экземпляр приложения (V1) останется доступным только для чтения во время обновления, предотвращая расхождение данных между экземплярами базы данных V1 и V2 .
-2. Отключите базу данных-получатель в том же регионе, используя режим планового завершения (7). При этом создается полностью синхронизированная независимая копия базы данных-источника, которая автоматически становится основной после завершения. Эта база данных будет обновлена.
-3. Переключите базу данных-источник в промежуточном слоте в режим чтения и записи и запустите сценарий обновления (8).
+1. Set the primary database in the production slot to read-only mode (6). This will guarantee that the production instance of the application (V1) will remain read-only during the upgrade thus preventing the data divergence between the V1 and V2 database instances.  
+2. Disconnect the secondary database in the same region using the planned termination mode (7). It will create a fully synchronized independent copy of the primary database, which will automatically become a primary after the termination. This database will be upgraded.
+3. Turn the primary database in the stage slot to read-write mode and run the upgrade script (8).    
 
-![Настройка георепликации базы данных SQL. Аварийное восстановление облака.](media/sql-database-manage-application-rolling-upgrade/Option2-2.png)
+![SQL Database Geo-Replication configuration. Cloud disaster recovery.](media/sql-database-manage-application-rolling-upgrade/Option2-2.png)
 
-В случае успешного завершения обновления все готово к переключению конечных пользователей на версию V2 приложения. Соответствующие шаги показаны на схеме ниже.
+If the upgrade completed successfully you are now ready to switch the end users to the V2 version of the application. The following diagram illustrates the steps involved.
 
-1. Переключите активную конечную точку в профиле WATM на <i>contoso-2.azurewebsites.net</i>, которая теперь указывает на версию V2 веб-сайта (9). Теперь она становится рабочим слотом с приложением V2, куда направляется трафик конечных пользователей.
-2. Если приложение V1 больше не нужно, его можно удалить (10 и 11).
+1. Switch the active endpoint in the WATM profile to <i>contoso-2.azurewebsites.net</i>, which now points to the V2 version of the web site (9). It now becomes a production slot with the V2 application and end user traffic is directed to it. 
+2. If you no longer need the V1 application so you can safely remove it (10 and 11).  
 
-![Настройка георепликации базы данных SQL. Аварийное восстановление облака.](media/sql-database-manage-application-rolling-upgrade/Option2-3.png)
+![SQL Database Geo-Replication configuration. Cloud disaster recovery.](media/sql-database-manage-application-rolling-upgrade/Option2-3.png)
 
-Если процесс обновления завершается неудачно, например из-за ошибки в сценарии обновления, промежуточный слот следует считать нарушенным. Чтобы выполнить откат приложения до состояния перед обновлением, просто вернитесь к использованию приложения в рабочем слоте в режиме полного доступа. Соответствующие шаги показаны на приведенной ниже схеме.
+If the upgrade process is unsuccessful, for example due to an error in the upgrade script, the stage slot should be considered compromised. To rollback the application to the pre-upgrade state you simply revert to using the application in the production slot with full access. The steps involved are shown on the next diagram.    
 
-1. Переключите копию базы данных-источника в рабочем слоте в режиме только чтения и записи (12). Это восстановит полную функциональность версии V1 в рабочем слоте.
-2. Выполните анализ первопричин и удалите скомпрометированные компоненты в промежуточном слоте (13 и 14).
+1. Set the primary database copy in the production slot to read-write mode (12). This will restore the full V1 functionally in the production slot.
+2. Perform the root cause analysis and remove the compromised components in the stage slot (13 and 14). 
 
-На этом этапе приложение полностью работоспособно, и можно повторить действия по обновлению.
+At this point the application is fully functional and the upgrade steps can be repeated.
 
-> [AZURE.NOTE] Откат не требует изменения профиля WATM, так как уже указывает на <i>contoso-1.azurewebsites.net</i> как активную конечную точку.
+> [AZURE.NOTE] The rollback does not require changes in WATM profile as it already points to  <i>contoso-1.azurewebsites.net</i> as the active endpoint.
 
-![Настройка георепликации базы данных SQL. Аварийное восстановление облака.](media/sql-database-manage-application-rolling-upgrade/Option2-4.png)
+![SQL Database Geo-Replication configuration. Cloud disaster recovery.](media/sql-database-manage-application-rolling-upgrade/Option2-4.png)
 
-Ключевым **преимуществом** этого варианта является возможность параллельно обновить приложение и его геоизбыточную копию, не нарушая непрерывность бизнес-процессов во время обновления. Главный **недостаток** заключается в двукратной избыточности каждого компонента приложения, что влечет за собой повышенную стоимость. Кроме того, этот вариант подразумевает более сложный рабочий процесс.
+The key **advantage** of this option is that you can upgrade both the application and its geo-redundant copy in parallel without compromising your business continuity during the upgrade. The main **tradeoff** is that it requires double redundancy of each application component and therefore incurs higher dollar cost. It also involves a more complicated workflow. 
 
-## Сводка
+## <a name="summary"></a>Summary
 
-Два описанных здесь метода обновления отличаются по сложности и стоимости, но они оба позволяют минимизировать то время, когда конечный пользователь будет ограничен только операциями чтения. Это время напрямую зависит от длительности выполнения сценария обновления. Оно не зависит от размера базы данных, выбранного уровня обслуживания, конфигурация веб-сайта и других факторов, которыми нелегко управлять. Это достигается за счет того, что подготовительные шаги отделены от действий по обновлению и могут выполняться, не влияя на рабочее приложение. Эффективность сценария обновления является ключевым фактором, определяющий взаимодействие с конечным пользователем во время обновления. Поэтому для улучшения всей процедуры рекомендуется сосредоточиться на повышении эффективности сценария обновления.
+The two upgrade methods described in the article differ in complexity and the dollar cost but they both focus on minimizing the time when the end user is limited to read-only operations. That time is directly defined by the duration of the upgrade script. It does not depend on the database size, the service tier you chose, the web site configuration and other factors that you cannot easily control. This is because all the preparation steps are decoupled from the upgrade steps and can be done without impacting the production application. The efficiency of the upgrade script is the key factor that determines the end-user experience during upgrades. So the best way you can improve it is by focusing your efforts on making the upgrade script as efficient as possible.  
 
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Next steps
 
-- Сведения об обеспечении непрерывности бизнес-процессов и возможные сценарии описаны в [обзоре непрерывности бизнес-процессов](sql-database-business-continuity.md).
-- Чтобы узнать об автоматически создаваемых резервных копиях базы данных SQL Azure, ознакомьтесь с разделом [Общие сведения об автоматическом резервном копировании базы данных SQL](sql-database-automated-backups.md).
-- Чтобы узнать об использовании автоматически создаваемых резервных копий для восстановления, ознакомьтесь с [восстановлением базы данных из резервных копий, инициируемых службой](sql-database-recovery-using-backups.md).
-- Чтобы узнать о более быстрых вариантах восстановления, ознакомьтесь с [активной георепликацией](sql-database-geo-replication-overview.md).
-- Чтобы узнать об использовании создаваемых автоматически резервных копий для архивации, ознакомьтесь с [копированием базы данных](sql-database-copy.md).
+- For a business continuity overview and scenarios, see [Business continuity overview](sql-database-business-continuity.md)
+- To learn about Azure SQL Database automated backups, see [SQL Database automated backups](sql-database-automated-backups.md)
+- To learn about using automated backups for recovery, see [restore a database from automated backups](sql-database-recovery-using-backups.md)
+- To learn about faster recovery options, see [Active-Geo-Replication](sql-database-geo-replication-overview.md)  
+- To learn about using automated backups for archiving, see [database copy](sql-database-copy.md)
 
-## Дополнительные ресурсы
+## <a name="additionale-resources"></a>Additionale Resources
 
-Ниже приведены ссылки на ресурсы с дополнительными сведениями, необходимыми для реализации описанного здесь рабочего процесса обновления.
+The following pages will help you learn about the specific operations required to implement the upgrade workflow:
 
-- [Добавление базы данных-получателя](https://msdn.microsoft.com/library/azure/mt603689.aspx)
-- [Отработка отказа базы данных в базу данных-получатель](https://msdn.microsoft.com/library/azure/mt619393.aspx)
-- [Отключение базы данных-получателя георепликации](https://msdn.microsoft.com/library/azure/mt603457.aspx)
-- [Геовосстановление базы данных](https://msdn.microsoft.com/library/azure/mt693390.aspx)
-- [Удаление базы данных](https://msdn.microsoft.com/library/azure/mt619368.aspx)
-- [Копирование базы данных](https://msdn.microsoft.com/library/azure/mt603644.aspx)
-- [Переключение базы данных в режим только для чтения или режим чтения и записи](https://msdn.microsoft.com/library/bb522682.aspx)
+- [Add secondary database](https://msdn.microsoft.com/library/azure/mt603689.aspx) 
+- [Failover database to secondary](https://msdn.microsoft.com/library/azure/mt619393.aspx)
+- [Disconnect Geo-Replication secondary](https://msdn.microsoft.com/library/azure/mt603457.aspx)
+- [Geo-restore database](https://msdn.microsoft.com/library/azure/mt693390.aspx) 
+- [Drop database](https://msdn.microsoft.com/library/azure/mt619368.aspx)
+- [Copy database](https://msdn.microsoft.com/library/azure/mt603644.aspx)
+- [Set database to read-only or read-write mode](https://msdn.microsoft.com/library/bb522682.aspx)
 
-<!---HONumber=AcomDC_0727_2016-->
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

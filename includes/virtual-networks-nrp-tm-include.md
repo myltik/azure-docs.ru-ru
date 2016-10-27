@@ -1,28 +1,28 @@
-## Профиль диспетчера трафика
+## <a name="traffic-manager-profile"></a>Traffic Manager Profile
 
-Ресурс диспетчера трафика и его дочерней конечной точки обеспечивает маршрутизацию DNS к конечным точкам Azure и за пределы Azure. Такое распределение трафика регулируется с помощью политик. Диспетчер трафика позволяет также отслеживать работоспособность конечных точек и перенаправлять трафик с учетом работоспособности конечной точки.
+Traffic manager and its child endpoint resource enable DNS routing to endpoints in Azure and outside of Azure. Such traffic distribution is governed by routing  policy methods. Traffic manager also allows endpoint health to be monitored, and traffic diverted appropriately based on the health of an endpoint. 
 
-| Свойство | Описание |
+| Property | Description |
 |---|---|
-|**trafficRoutingMethod**| возможные значения: *Performance* (производительный), *Weighted* (взвешенный) и *Priority* (приоритетный) | 
-| **dnsConfig** | полное доменное имя для профиля | 
-| **Протокол** | протокол мониторинга. Возможные значения: *HTTP* и *HTTPS*|
-| **Порт** | порт мониторинга |  
-| **Путь** | путь мониторинга |
-| **Конечные точки** | контейнер для ресурсов конечных точек | 
+|**trafficRoutingMethod**| possible values are *Performance*, *Weighted*, and *Priority* | 
+| **dnsConfig** | FQDN for the profile | 
+| **Protocol** | monitoring protocol, possible values are *HTTP* and *HTTPS*|
+| **Port** | monitoring port |  
+| **Path** | monitoring path |
+| **Endpoints** |  container for endpoint resources | 
 
-### Конечная точка 
+### <a name="endpoint"></a>Endpoint 
 
-Конечная точка — это дочерний ресурс профиля диспетчера трафика. Он представляет службу или сетевую конечную точку, на которые распределяется трафик с учетом политики, настроенной в ресурсе профиля диспетчера трафика.
+An endpoint is a child resource of a Traffic Manager Profile. It represents a service or web endpoint to which user traffic is distributed based on the configured policy in the Traffic Manager Profile resource. 
 
-| Свойство | Описание | 
+| Property | Description | 
 |---|---| 
-| **Тип** | тип конечной точки, возможные значения: *Конечная точка Azure*, *Внешняя конечная точка* и *Вложенная конечная точка* | 
-| **targetResourceId** | общедоступный IP-адрес конечной точки службы или сайта Это может быть конечная точка Azure или внешняя конечная точка. | 
-| **Вес** | вес конечной точки, используемый при управлении трафиком | 
-| **Приоритет** | приоритет конечной точки, используемый для определения действия отработки отказа |
+| **Type** |  the type of the endpoint, possible values are *Azure End point*, *External Endpoint*, and  *Nested Endpoint* | 
+| **targetResourceId** |  public IP address of a service or web endpoint. This can be an Azure or external endpoint. | 
+| **Weight** | endpoint weight used in traffic management. | 
+| **Priority** | priority of the endpoint, used to define a failover action |
 
-Пример диспетчера трафика в формате JSON:
+Sample of Traffic Manager in Json format: 
 
 
         {
@@ -80,8 +80,11 @@
         }
 
  
-## Дополнительные ресурсы
+## <a name="additional-resources"></a>Additional resources
 
-Дополнительные сведения см. в [документации по API REST для диспетчера трафика](https://msdn.microsoft.com/library/azure/mt163664.aspx).
+Read [REST API documentation for Traffic Manager](https://msdn.microsoft.com/library/azure/mt163664.aspx) for more information.
 
-<!---HONumber=AcomDC_1223_2015-->
+
+<!--HONumber=Oct16_HO2-->
+
+

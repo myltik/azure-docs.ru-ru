@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Создание автономного кластера из виртуальных машин Azure под управлением Windows | Microsoft Azure"
-   description="Узнайте, как создать кластер Azure Service Fabric на основе виртуальных машин Azure под управлением Windows Server и как управлять этим кластером."
+   pageTitle="Create a standalone cluster with Azure VMs running Windows| Microsoft Azure"
+   description="Learn how to create and manage an Azure Service Fabric cluster on Azure virtual machines running Windows Server."
    services="service-fabric"
    documentationCenter=".net"
    authors="dsk-2015"
@@ -18,19 +18,20 @@
 
 
 
-# Создание автономного кластера Service Fabric с тремя узлами на базе виртуальных машин Azure под управлением Windows Server
 
-В этой статье описывается создание кластера из виртуальных машин Azure под управлением Windows с помощью автономного установщика Service Fabric для Windows Server. Это частный случай [создания и администрирования кластера под управлением Windows Server](service-fabric-cluster-creation-for-windows-server.md), при котором в качестве виртуальных машин используются [виртуальные машины Azure под управлением Windows Server](../virtual-machines/virtual-machines-windows-hero-tutorial.md), но не создается [облачный кластер Service Fabric в Azure](service-fabric-cluster-creation-via-portal.md). Важное различие заключается в том, что автономным кластером Service Fabric, созданным с помощью следующей процедуры, полностью управляете вы, а облачные кластеры Service Fabric в Azure обновляет и администрирует поставщик ресурсов Service Fabric.
+# <a name="create-a-three-node-standalone-service-fabric-cluster-with-azure-virtual-machines-running-windows-server"></a>Create a three node standalone Service Fabric cluster with Azure virtual machines running Windows Server
+
+This article describe how to create a cluster on Windows-based Azure virtual machines (VMs), using the standalone Service Fabric installer for Windows Server. This is a special case of [Create and manage a cluster running on Windows Server](service-fabric-cluster-creation-for-windows-server.md) where the VMs are [Azure VMs running Windows Server](../virtual-machines/virtual-machines-windows-hero-tutorial.md), however you are not creating [an Azure cloud-based Service Fabric cluster](service-fabric-cluster-creation-via-portal.md). The difference is that the standalone Service Fabric cluster created by the following steps is entirely managed by you, while the Azure cloud-based Service Fabric clusters are managed and upgraded by the Service Fabric resource provider.
 
 
-## Процедура создания автономного кластера
+## <a name="steps-to-create-the-standalone-cluster"></a>Steps to create the standalone cluster
 
-1. Войдите на портал Azure и создайте виртуальную машину Windows Server 2012 R2 Datacenter в группе ресурсов. Подробнее этот процесс описан в статье [Создание первой виртуальной машины Windows на портале Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md).
-2. Добавьте в эту же группу ресурсов еще пару виртуальных машин Windows Server 2012 R2 Datacenter. При создании каждой из них укажите одно и то же имя пользователя и пароль администратора. После создания все три виртуальные машины появятся в одной и той же виртуальной сети.
-3. Подключитесь к каждой из виртуальных машин и выключите брандмауэр Windows с помощью [диспетчера серверов и панели мониторинга локального сервера](https://technet.microsoft.com/library/jj134147.aspx). Это гарантирует, что сетевой трафик может передаваться между компьютерами. После входа на каждую из виртуальных машин узнайте ее IP-адрес, открыв командную строку и введя команду `ipconfig`. Также IP-адрес каждого компьютера можно увидеть, выбрав ресурс виртуальной сети в качестве группы ресурсов на портале Azure.
-4. Подключитесь к одной из виртуальных машин и проверьте наличие связи с остальными двумя.
-5. Подключитесь к одной из виртуальных машин, [скачайте автономный пакет Service Fabric для Windows Server](http://go.microsoft.com/fwlink/?LinkId=730690) в новую папку и извлеките содержимое пакета.
-6. Откройте файл *ClusterConfig.Unsecure.MultiMachine.json* в Блокноте и измените каждый узел, введя три IP-адреса своих виртуальных машин. Измените имя кластера в начале файла и сохраните файл. Ниже приведен неполный пример манифеста кластера.
+1. Sign in to the Azure portal and create a new Windows Server 2012 R2 Datacenter VM in a resource group. Read the article [Create a Windows VM in the Azure portal](../virtual-machines/virtual-machines-windows-hero-tutorial.md) for more details.
+2. Add a couple more Windows Server 2012 R2 Datacenter VMs to the same resource group. Ensure that each of the VMs has the same administrator user name and password when created. Once created you should see all three VMs in the same virtual network.
+3. Connect to each of the VMs and turn off the Windows Firewall using the [Server Manager, Local Server dashboard](https://technet.microsoft.com/library/jj134147.aspx). This ensures that the network traffic can communicate between the machines. While connected to each machine, get the IP address by opening a command prompt and typing `ipconfig`. Alternatively you can see the IP address of each machine by selecting the virtual network resource for the resource group in the Azure portal.
+4. Connect to one of the VMs and test that you can ping the other two VMs successfully.
+5. Connect to one of the VMs and [download the standalone Service Fabric package for Windows Server](http://go.microsoft.com/fwlink/?LinkId=730690) into a new folder on the machine and extract the package.
+6. Open the *ClusterConfig.Unsecure.MultiMachine.json* file in Notepad and edit each node with the three IP addresses of the machines. Change the cluster name at the top and save the file.  A partial example of the cluster manifest is shown below.
 
     ```
     {
@@ -40,7 +41,7 @@
         "nodes": [
         {
             "nodeName": "vm0",
-        	"metadata": "Replace the localhost with valid IP address or FQDN below",
+            "metadata": "Replace the localhost with valid IP address or FQDN below",
             "iPAddress": "10.7.0.5",
             "nodeTypeRef": "NodeType0",
             "faultDomain": "fd:/dc1/r0",
@@ -48,7 +49,7 @@
         },
         {
             "nodeName": "vm1",
-        	"metadata": "Replace the localhost with valid IP address or FQDN below",
+            "metadata": "Replace the localhost with valid IP address or FQDN below",
             "iPAddress": "10.7.0.4",
             "nodeTypeRef": "NodeType0",
             "faultDomain": "fd:/dc2/r0",
@@ -56,7 +57,7 @@
         },
         {
             "nodeName": "vm2",
-        	"metadata": "Replace the localhost with valid IP address or FQDN below",
+            "metadata": "Replace the localhost with valid IP address or FQDN below",
             "iPAddress": "10.7.0.6",
             "nodeTypeRef": "NodeType0",
             "faultDomain": "fd:/dc3/r0",
@@ -65,20 +66,24 @@
     ],
     ```
 
-7. Откройте окно [PowerShell ISE](https://msdn.microsoft.com/powershell/scripting/core-powershell/ise/introducing-the-windows-powershell-ise). Перейдите к папке, в которую вы ранее извлекли содержимое автономного пакета установщика и сохранили файл манифеста кластера. Выполните следующую команду PowerShell.
+7. Open a [PowerShell ISE window](https://msdn.microsoft.com/powershell/scripting/core-powershell/ise/introducing-the-windows-powershell-ise). Navigate to the folder where you extracted the downloaded standalone installer package and saved the cluster manifest file. Run the following PowerShell command.
 
     ```
     .\CreateServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.Unsecure.MultiMachine.json -MicrosoftServiceFabricCabFilePath .\MicrosoftAzureServiceFabric.cab
     ```
 
-8. Вы увидите, как PowerShell запустится, подключится к каждому компьютеру и создаст кластер. Примерно через минуту можно проверить работоспособность кластера, подключившись к Service Fabric Explorer по IP-адресу одной из виртуальных машин, например `http://10.7.0.5:19080/Explorer/index.html`. Чтобы сделать этот процесс безопасным (учитывая, что это автономный кластер на основе виртуальных машин Azure), необходимо [развернуть сертификаты на виртуальных машинах Azure](service-fabric-windows-cluster-x509-security.md) или настроить один из компьютеров в качестве [контроллера Windows Server Active Directory для проверки подлинности Windows](service-fabric-windows-cluster-windows-security.md). Это выполняется так же, как в обычной локальной среде.
+8. You should see the PowerShell run, connect to each machine and create a cluster. After about a minute, you can check if the cluster is operational by connecting to the Service Fabric Explorer on one of the machine's IP address e.g. by using `http://10.7.0.5:19080/Explorer/index.html`. Since this is a standalone cluster using Azure VMs, to make it secure you will have to [deploy certificates to the Azure VMs](service-fabric-windows-cluster-x509-security.md) or set up one of the machines as a [Windows Server Active Directory (AD) controller for Windows authentication](service-fabric-windows-cluster-windows-security.md), just like you would do on premises.
 
 
-## Дальнейшие действия
-- [Создание автономных кластеров Service Fabric в Windows Server или Linux](service-fabric-deploy-anywhere.md)
-- [Добавление узлов в автономный кластер Service Fabric под управлением Windows Server или удаление узлов из него](service-fabric-cluster-windows-server-add-remove-nodes.md)
-- [Параметры конфигурации для автономного кластера Windows](service-fabric-cluster-manifest.md)
-- [Защита автономного кластера под управлением Windows с помощью системы безопасности Windows](service-fabric-windows-cluster-windows-security.md)
-- [Защита автономного кластера под управлением Windows с помощью сертификатов](service-fabric-windows-cluster-x509-security.md)
+## <a name="next-steps"></a>Next steps
+- [Create standalone Service Fabric clusters on Windows Server or Linux](service-fabric-deploy-anywhere.md)
+- [Add or remove nodes to a standalone Service Fabric cluster](service-fabric-cluster-windows-server-add-remove-nodes.md)
+- [Configuration settings for standalone Windows cluster](service-fabric-cluster-manifest.md)
+- [Secure a standalone cluster on Windows using Windows security](service-fabric-windows-cluster-windows-security.md)
+- [Secure a standalone cluster on Windows using X509 certificates](service-fabric-windows-cluster-x509-security.md)
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

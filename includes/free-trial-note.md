@@ -1,7 +1,10 @@
-> [AZURE.NOTE] <a name="note"></a>Для выполнения этого учебного примера необходима учетная запись Azure:
+> [AZURE.NOTE] <a name="note"></a>You need an Azure account to complete this tutorial:
   >
-  > + Вы можете [открыть учетную запись Azure бесплатно](/pricing/free-trial/?WT.mc_id=A261C142F) — вы получаете кредиты, которые можно использовать для опробования платных служб Azure, и даже после израсходования кредитов вы сохраняете учетную запись и возможность использовать бесплатные службы Azure, такие как веб-сайты. С вашей кредитной карты никогда не будет взиматься плата, если только явным образом вы не измените параметры, запросив взимание платы.
+  > + You can [open an Azure account for free](/pricing/free-trial/?WT.mc_id=A261C142F): You get credits you can use to try out paid Azure services, and even after they're used up you can keep the account and use free Azure services, such as Websites. Your credit card will never be charged, unless you explicitly change your settings and ask to be charged.
   >
-  > + Можно [активировать преимущества подписчика MSDN](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F): подписка на MSDN каждый месяц предоставляет кредиты, которые можно использовать для платных служб Azure.
+  > + You can [activate MSDN subscriber benefits](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F): Your MSDN subscription gives you credits every month that you can use for paid Azure services.
 
-<!----HONumber=Oct15_HO3-->
+
+<!--HONumber=Oct16_HO2-->
+
+

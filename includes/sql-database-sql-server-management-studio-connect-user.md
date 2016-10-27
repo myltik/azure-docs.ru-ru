@@ -1,40 +1,45 @@
-## Подключение пользователя к базе данных SQL Azure
+## <a name="connect-to-azure-sql-database-as-a-user"></a>Connect to Azure SQL Database as a user
 
-Чтобы подключиться к базе данных SQL Azure в среде SSMS с правами пользователя, выполните описанные ниже действия.
+Use the following steps to connect to Azure SQL Database with SSMS as a user.
 
-1. Введите в поле поиска Windows текст "Microsoft SQL Server Management Studio" и выберите классическое приложение, чтобы запустить SSMS.
+1. Type "Microsoft SQL Server Management Studio" in the Windows search box, and then click the desktop app to start SSMS.
 
-2. В окне подключения к серверу введите следующие значения.
+2. In the Connect to Server window, enter the following information:
 
-- **Тип сервера**: по умолчанию здесь указан компонент "database engine", не изменяйте это значение.
- - **Имя сервера**: введите здесь имя сервера, на котором находится ваша база данных SQL, в формате *<имя\_сервера>*.**database.windows.net**.
- - **Тип проверки подлинности**: если вы только знакомитесь с системой, выберите проверку подлинности SQL. Если вы ранее активировали Active Directory для логического сервера базы данных SQL, здесь можно выбрать проверку пароля Active Directory или встроенную проверку подлинности Active Directory.
- - **Имя пользователя**: если вы выбрали проверку подлинности SQL или проверку пароля Active Directory, введите имя пользователя с доступом к базе данных на сервере.
- - **Пароль**: если вы выбрали проверку подлинности SQL или проверку пароля Active Directory, введите пароль для указанного пользователя.
+- **Server type**: The default is database engine; do not change this value.
+ - **Server name**: Enter the name of the server that hosts your SQL database in the followinbg format: *&lt;servername>*.**database.windows.net**
+ - **Authentication type**: If you are just getting started, select SQL Authentication. If you have enabled Active Directory for your SQL Database logical server, you can select either Active Directory Password Authentication or Active Directory Integrated Authentication.
+ - **User name**: If you selected either SQL Authentication or Active Directory Password Authentication, enter the name of a user with access to a database on the server.
+ - **Password**: If you selected either SQL Authentication or Active Directory Password Authentication, enter the password for the specified user.
    
-       ![SQL Server Management Studio: подключение к серверу базы данных SQL](./media/sql-database-sql-server-management-studio-connect-user/connect-user-1.png)
+       ![SQL Server Management Studio: Connect to SQL Database server](./media/sql-database-sql-server-management-studio-connect-user/connect-user-1.png)
 
-3. Щелкните **Параметры**, чтобы указать нужную базу данных.
+3. Click **Options** to specify the database to which you want to connect.
 
-      ![SQL Server Management Studio: подключение к серверу базы данных SQL](./media/sql-database-sql-server-management-studio-connect-user/connect-user-2.png)
+      ![SQL Server Management Studio: Connect to SQL Database server](./media/sql-database-sql-server-management-studio-connect-user/connect-user-2.png)
  
-4. В поле **Подключение к базе данных** выберите базу данных, к которой хотите подключиться.
+4. In the **Connect to Database**, select the database to which you wish to connect.
 
-     ![SQL Server Management Studio: подключение к серверу базы данных SQL](./media/sql-database-sql-server-management-studio-connect-user/connect-user-3.png)
+     ![SQL Server Management Studio: Connect to SQL Database server](./media/sql-database-sql-server-management-studio-connect-user/connect-user-3.png)
 
-5. Щелкните **Подключить**.
+5. Click **Connect**.
  
-6. Если IP-адрес вашего клиента не имеет доступа к логическому серверу базы данных SQL, вам будет предложено войти в учетную запись Azure и создать правило брандмауэра на уровне сервера. Если вы являетесь администратором подписки Azure, щелкните **Вход** для создания правила брандмауэра на уровне сервера. В противном случае попросите администратора Azure создать правило брандмауэра на уровне сервера или на уровне базы данных в той базе данных, которая вам нужна.
+6. If your client's IP address does not have access to the SQL Database logical server, you will be prompted to sign in to an Azure account and create a server-level firewall rule. If you are an Azure subscription administrator, Click **Sign in** to create a server-level firewall rule. If not, have an administrator create either a server-level firewall rule or a database-level firewall rule in the database to which you are trying to connect.
  
-      ![SQL Server Management Studio: подключение к серверу базы данных SQL](./media/sql-database-sql-server-management-studio-connect-user/connect-user-4.png)
+      ![SQL Server Management Studio: Connect to SQL Database server](./media/sql-database-sql-server-management-studio-connect-user/connect-user-4.png)
  
-7. Если вы можете получить доступ к выбранной базе данных с помощью своих учетных данных, откроется обозреватель объектов для выполнения административных задач или просмотра данных. Доступные операции будут зависеть от разрешений учетной записи.
+7. If your credentials grant you access to the specified database, Object Explorer opens and you can now perform administrative tasks or query data, depending upon the user permissions.
   
-      ![SQL Server Management Studio: подключение к серверу базы данных SQL](./media/sql-database-sql-server-management-studio-connect-user/connect-user-5.png)
+      ![SQL Server Management Studio: Connect to SQL Database server](./media/sql-database-sql-server-management-studio-connect-user/connect-user-5.png)
       
  
-## Устранение сбоев подключения
+## <a name="troubleshoot-connection-failures"></a>Troubleshoot connection failures
 
-Наиболее распространенными причинами сбоев подключения являются ошибки при вводе имени сервера (*<servername>* — это имя логического сервера, а не базы данных), имени пользователя или пароля, а также запрет подключения к серверу из-за политик безопасности.
+The most common reason for connection failures are mistakes in the server name (remember, <*servername*> is the name of the logical server, not the database), the user name, or the password, as well as the server not allowing connections for security reasons. 
 
-<!---HONumber=AcomDC_0629_2016-->
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

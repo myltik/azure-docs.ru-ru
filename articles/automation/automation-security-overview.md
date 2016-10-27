@@ -1,12 +1,12 @@
 <properties
-   pageTitle="Безопасность в службе автоматизации Azure | Microsoft Azure"
-   description="В этой статье содержатся общие сведения об автоматическом обеспечении безопасности с использованием разных методов проверки подлинности, доступных для учетных записей службы автоматизации в службе автоматизации Azure."
+   pageTitle="Azure Automation Security | Microsoft Azure"
+   description="This article provides an overview of automation security and the different authentication methods available for Automation Accounts in Azure Automation."
    services="automation"
    documentationCenter=""
    authors="MGoedtel"
    manager="jwhit"
    editor="tysonn"
-   keywords="обеспечение безопасности в службе автоматизации" />
+   keywords="automation security, secure automation" />
 <tags
    ms.service="automation"
    ms.devlang="na"
@@ -16,37 +16,46 @@
    ms.date="07/29/2016"
    ms.author="magoedte" />
 
-# Обеспечение безопасности в службе автоматизации Azure
-С помощью службы автоматизации Azure можно автоматизировать задачи, выполняемые с ресурсами Azure (локально), а также с ресурсами других поставщиков облачных служб, например Amazon Web Services (AWS). Для выполнения необходимых действий модуль Runbook должен иметь разрешения на безопасный доступ к ресурсам с минимальными правами, требуемыми в рамках подписки. В этой статье рассматриваются разные методы проверки подлинности, поддерживаемые службой автоматизации Azure, а также объясняется, как начать работу с одной или несколькими средами, которыми вы хотите управлять.
 
-## Общие сведения об учетной записи службы автоматизации
-При первом запуске службы автоматизации Azure необходимо создать по крайней мере одну учетную запись службы автоматизации. Учетные записи службы автоматизации позволяют изолировать ресурсы вашей службы автоматизации (модули Runbook, ресурсы и конфигурации) от ресурсов, содержащихся в других учетных записях службы автоматизации. Учетные записи службы автоматизации можно использовать, чтобы разделить ресурсы на отдельные логические среды. Например, для разработки можно использовать одну учетную запись, для рабочей среды — другую, а для локальной среды — третью. Учетная запись службы автоматизации Azure отличается от учетной записи Майкрософт или учетных записей, созданных в рамках подписки Azure.
+# <a name="azure-automation-security"></a>Azure Automation security
+Azure Automation allows you to automate tasks against resources in Azure, on-premises, and with other cloud providers such as Amazon Web Services (AWS).  In order for a runbook to perform its required actions, it must have permissions to securely access the resources with the minimal rights required within the subscription.  
+This article will cover the various authentication scenarios supported by Azure Automation and will show you how to get started based on the environment or environments you need to manage.  
 
-Ресурсы каждой учетной записи службы автоматизации связаны с одним регионом Azure, но учетные записи службы автоматизации могут управлять ресурсами в любом регионе. Главной причиной создания учетных записей службы автоматизации в разных регионах может быть наличие политик, требующих изолировать данные и ресурсы в определенном регионе.
+## <a name="automation-account-overview"></a>Automation Account overview
+When you start Azure Automation for the first time, you must create at least one Automation account. Automation accounts allow you to isolate your Automation resources (runbooks, assets, configurations) from the resources contained in other Automation accounts. You can use Automation accounts to separate resources into separate logical environments. For example, you might use one account for development, another for production, and another for your on-premises environment.  An Azure Automation account is different from your Microsoft account or accounts created in your Azure subscription.
 
->[AZURE.NOTE]Учетные записи службы автоматизации и содержащиеся в них ресурсы, которые создаются с помощью портала Azure, недоступны на классическом портале Azure. Если требуется управлять этими учетными записями или их ресурсами с помощью Windows PowerShell, необходимо использовать модули диспетчера ресурсов Azure.
+The Automation resources for each Automation account are associated with a single Azure region, but Automation accounts can manage resources in any region. The main reason to create Automation accounts in different regions would be if you have policies that require data and resources to be isolated to a specific region.
 
-Все задачи, выполняемые с ресурсами с использованием Azure Resource Manager и командлетов Azure в службе автоматизации Azure, должны пройти проверку подлинности в Azure с помощью корпоративных учетных данных (удостоверения Azure Active Directory). Изначально использовался метод проверки подлинности на основе сертификата в режиме Azure Service Management, но он сопровождался сложной настройкой. С 2014 года в Azure снова используется проверка подлинности пользователя Azure AD. Это не только упростило настройку учетной записи для проверки подлинности, но и позволило выполнять эту процедуру в неинтерактивном режиме с использованием одной учетной записи Azure, применимой как в классических ресурсах, так и в ресурсах Azure Resource Manager.
+>[AZURE.NOTE]Automation accounts, and the resources they contain that are created in the Azure portal, cannot be accessed in the Azure classic portal. If you want to manage these accounts or their resources with Windows PowerShell, you must use the Azure Resource Manager modules.
 
-Сейчас при создании новой учетной записи службы автоматизации на портале Azure автоматически создаются следующие учетные записи:
+All of the tasks that you perform against resources using Azure Resource Manager and the Azure cmdlets in Azure Automation must authenticate to Azure using Azure Active Directory organizational identity credential-based authentication.  Certificate-based  authentication was the original authentication method with Azure Service Management mode, but it was complicated to setup.  Authenticating to Azure with Azure AD user was introduced back in 2014 to not only simplify the process to configure an Authentication account, but also support the ability to non-interactively authenticate to Azure with a single user account that worked with both Azure Resource Manager and classic resources.   
 
--  Учетная запись запуска от имени, которая создает субъект-службу в Azure Active Directory и сертификат, а также назначает контроль доступа на основе роли участника. Будет использоваться для управления ресурсами Resource Manager с помощью модулей Runbook.
--  Классическая учетная запись запуска от имени. Создается путем отправки сертификата управления. Будет использоваться для администрирования службы управления службами Azure или классических ресурсов с помощью модулей Runbook.
+Currently when you create a new Automation account in the Azure portal, it automatically creates:
 
-В режиме Azure Resource Manager контроль доступа на основе ролей можно использовать для предоставления разрешений учетной записи пользователя Azure AD и учетной записи запуска от имени, а также для проверки подлинности такого субъекта-службы. Дополнительные сведения о разработке модели управления разрешениями в службе автоматизации см. в статье [Управление доступом на основе ролей в службе автоматизации Azure](../automation/automation-role-based-access-control.md).
+-  Run As account which creates a new service principal in Azure Active Directory, a certificate, and assigns the Contributor role-based access control (RBAC), which will be used to manage Resource Manager resources using runbooks.
+-  Classic Run As account by uploading a management certificate, which will be used to manage Azure Service Management or classic resources using runbooks.  
 
-Модули Runbook, запущенные в гибридной рабочей роли Runbook в центре обработки данных или в вычислительных службах AWS, не могут использовать метод, который обычно используется для модулей Runbook при проверке подлинности в ресурсах Azure. Это происходит потому, что такие ресурсы работают за пределами Azure и для них требуются отдельные учетные данные безопасности, определяемые службой автоматизации для проверки подлинности ресурсов, доступ к которым они получают локально.
+Role-based access control is available with Azure Resource Manager to grant permitted actions to an Azure AD user account and Run As account, and authenticate that service principal.  Please read [Role-based access control in Azure Automation article](../automation/automation-role-based-access-control.md) for further information to help develop your model for managing Automation permissions.  
 
-## Методы проверки подлинности
+Runbooks running on a Hybrid Runbook Worker in your datacenter or against computing services in AWS cannot use the same method that is typically used for runbooks authenticating to Azure resources.  This is because those resources are running outside of Azure and therefore, will require their own security credentials defined in Automation to authenticate to resources that they will access locally.  
 
-В следующей таблице перечислены разные методы проверки подлинности для каждой среды, поддерживаемой службой автоматизации Azure, а также статьи, в которых описывается настройка проверки подлинности для модулей Runbook.
+## <a name="authentication-methods"></a>Authentication methods
 
-Метод | Среда | Статья
+The following table summarizes the different authentication methods for each environment supported by Azure Automation and the article describing how to setup authentication for your runbooks.
+
+Method  |  Environment  | Article
 ----------|----------|----------
-Учетная запись пользователя Azure AD | Диспетчер ресурсов Azure и управление службами Azure | [Authenticate Runbooks with Azure AD User account (Проверка подлинности модулей Runbook с помощью учетной записи пользователя Azure AD)](../automation/automation-sec-configure-aduser-account.md)
-Учетная запись запуска от имени Azure | Диспетчер ресурсов Azure | [Проверка подлинности модулей Runbook в Azure с помощью учетной записи запуска от имени](../automation/automation-sec-configure-azure-runas-account.md)
-Классическая учетная запись запуска от имени Azure | Управление службами Azure | [Проверка подлинности модулей Runbook в Azure с помощью учетной записи запуска от имени](../automation/automation-sec-configure-azure-runas-account.md)
-Проверка подлинности Windows | Локальный центр обработки данных | [Гибридные компоненты Runbook Worker в службе автоматизации Azure](../automation/automation-hybrid-runbook-worker.md)
-Учетные данные AWS | Amazon Web Services | [Authenticate Runbooks with Amazon Web Services (AWS) (Проверка подлинности модулей Runbook с помощью Amazon Web Services)](../automation/automation-sec-configure-aws-account.md)
+Azure AD User Account | Azure Resource Manager and Azure Service Management | [Authenticate Runbooks with Azure AD User account](../automation/automation-sec-configure-aduser-account.md)
+Azure Run As Account | Azure Resource Manager | [Authenticate Runbooks with Azure Run As account](../automation/automation-sec-configure-azure-runas-account.md)
+Azure Classic Run As Account | Azure Service Management | [Authenticate Runbooks with Azure Run As account](../automation/automation-sec-configure-azure-runas-account.md)
+Windows Authentication | On-Premises Datacenter | [Authenticate Runbooks for Hybrid Runbook Workers](../automation/automation-hybrid-runbook-worker.md)
+AWS Credentials | Amazon Web Services | [Authenticate Runbooks with Amazon Web Services (AWS)](../automation/automation-sec-configure-aws-account.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+
+
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

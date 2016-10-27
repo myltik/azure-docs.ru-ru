@@ -1,36 +1,37 @@
 <properties 
-	pageTitle="Журналы и консоль потоковой передачи" 
-	description="Журналы потоковой передачи и общие сведения о консоли" 
-	authors="btardif" 
-	manager="wpickett" 
-	editor="" 
-	services="app-service\web" 
-	documentationCenter=""/>
+    pageTitle="Streaming logs and console" 
+    description="Streaming logs and console overview" 
+    authors="btardif" 
+    manager="wpickett" 
+    editor="" 
+    services="app-service\web" 
+    documentationCenter=""/>
 
 <tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="multiple" 
-	ms.topic="article" 
-	ms.date="07/26/2016" 
-	ms.author="byvinyal"/>
+    ms.service="app-service-web" 
+    ms.workload="web" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="multiple" 
+    ms.topic="article" 
+    ms.date="10/12/2016" 
+    ms.author="byvinyal"/>
 
-#Журналы потоковой передачи и консоль
 
-### Журналы потоковой передачи ###
+# <a name="streaming-logs-and-the-console"></a>Streaming Logs and the Console
 
-Предварительная версия портала Microsoft Azure обеспечивает интегрированный просмотр журналов потоковой передачи, что позволяет просматривать события трассировки из приложений службы приложений Azure в режиме реального времени.
+## <a name="streaming-logs"></a>Streaming Logs
 
-Для настройки этой возможности необходимо выполнить несколько простых действий:
+The **Azure portal** provides an integrated streaming log viewer that lets you view tracing events from your **App Service** apps in real time.  
 
-- Записать трассировки в код.
-- Включить диагностику приложений на портале Azure.
-- Щелкнуть части журналов потоковой передачи в колонке веб-приложения.
+Setting up this feature requires a few simple steps:
 
-### Порядок записи трассировок в код ###
+- Write traces in your code
+- Enable Application **Diagnostic Logs** for your app
+- View the stream from the built-in **Streaming Logs** UI in the **Azure portal**.
 
-Запись трассировок в код не представляет никаких сложностей. В C# это так же просто, как написание следующего кода:
+### <a name="how-to-write-traces-in-your-code"></a>How to write traces in your code ###
+
+Writing traces in your code is easy.  In C# it's as easy as writing the following code:
 
 `````````````````````````
 Trace.TraceInformation("My trace statement");
@@ -44,31 +45,31 @@ Trace.TraceWarning("My warning statement");
 Trace.TraceError("My error statement");
 `````````````````````````
 
-Класс Trace находится в пространстве имен System.Diagnostics.
+The Trace class lives in the System.Diagnostics namespace.
 
-В приложении node.js для достижения того же результата можно написать следующий код:
+In a node.js app you can write this code to achieve the same result:
 
 `````````````````````````
 console.log("My trace statement").
 `````````````````````````
 
-### Порядок включения и просмотра журналов потоковой передачи ###
-![][BrowseSitesScreenshot] Диагностика включается отдельно для каждого веб-приложения. На [портале](https://portal.azure.com) перейдите на сайт, для которого вы хотите включить эту функцию.
+### <a name="how-to-enable-and-view-the-streaming-logs"></a>How to enable and view the streaming logs
+![][BrowseSitesScreenshot] Diagnostics are enabled on a per app basis. Start by browsing to the site you would like to enable this feature on.  
   
-![][DiagnosticsLogs] Затем щелкните **(1) Настройки ** > ** (2) Журналы диагностики** и **(3) включите** **Ведение журнала приложения (файловая система)** или **Ведение журнала приложения (большой двоичный объект)**. Параметр **Уровень** позволяет выбрать уровень серьезности для регистрации данных трассировки. Здесь следует задать значение **Подробно**, если вы хотите ознакомиться с данным компонентом, поскольку это обеспечит регистрацию всех инструкций трассировки.
+![][DiagnosticsLogs] From settings menu, scroll down to the **Monitoring** section and click on **(1) Diagnostic Logs**. Then **(2) enable** **Application Logging (Filesystem)** or **Application Logging (blob)** The **Level** option lets you change the severity level of traces to capture. If you're just trying to get familiar with the feature, set the level to **Verbose** to ensure all of your trace statements are collected.
 
-Нажмите кнопку **СОХРАНИТЬ** в верхней части выноски, теперь все готово для просмотра журналов.
+Click **SAVE** at the top of the blade and you're ready to view logs.
 
-**Примечание.** Чем выше **уровень серьезности**, тем больше ресурсов потребляется и тем больше данных трассировки записывается в журнал. При использовании этой функции для рабочих сайтов, особенно сайтов с высокой нагрузкой, убедитесь, что выбран подходящий уровень.
+>[AZURE.NOTE] The higher the **severity level** the more resources are consumed to log and the more traces are produced. Make sure **severity level** is configured to the correct verbosity for a production or high traffic site. 
 
-![][StreamingLogsScreenshot] Чтобы просмотреть поток журналов на портале, щелкните **(1) Средства** > **(2) Поток журналов**. Если приложение активно записывает трассировочные операторы, то они будут отображаться в появившемся окне **(3)** практически в режиме реального времени.
+![][StreamingLogsScreenshot] To view the **streaming logs** from within the Azure portal, click on **(1) Log Stream** also in the **Monitoring** section of the settings menu. If your app is actively writing trace statements, then you should see them in the **(2) streaming logs UI** in near real time.
 
-## Консоль ##
-Портал Azure предоставляет доступ к среде веб-приложения из консоли. Вы можете просматривать файловую систему веб-приложения и выполнять скрипты powershell или командной строки. Вам доступен тот же набор разрешений, что и для запуска кода веб-приложения при выполнении команд консоли. Вы не можете получить доступ к защищенным каталогам или запускать скрипты, требующие повышенного уровня разрешений.
+## <a name="console"></a>Console
+The **Azure portal** provides console access to your app. You can explore your app's file system and run powershell/cmd scripts. You are bound by the same permissions set as your running app code when executing console commands. Access to protected directories or running scripts that require elevated permissions is blocked.  
 
-![][ConsoleScreenshot] Чтобы открыть консоль, перейдите в веб-приложение, следуя инструкциям в предыдущем разделе. Щелкните **(1) Средства** > **(2) Консоль**, и **(3)** консоль откроется.
+![][ConsoleScreenshot] From settings menu, scroll down to **Development Tools** section and click on **(1) Console** and the **(2) console** UI opens to the right.
 
-Для ознакомления с консолью попробуйте выполнить следующие базовые команды:
+To get familiar with the **console**, try basic commands like:
 
 `````````````````````````
 dir
@@ -84,4 +85,8 @@ cd
 [StreamingLogsScreenshot]: ./media/web-sites-streaming-logs-and-console/streaming-logs.png
 [ConsoleScreenshot]: ./media/web-sites-streaming-logs-and-console/console.png
 
-<!---HONumber=AcomDC_0727_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

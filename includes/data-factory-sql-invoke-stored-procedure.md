@@ -1,63 +1,65 @@
-## Вызов хранимой процедуры для приемника SQL
+## <a name="invoking-stored-procedure-for-sql-sink"></a>Invoking stored procedure for SQL Sink
 
-Для копирования данных на сервер SQL Server или в базу данных SQL Azure или SQL Server можно настроить и вызвать указанную пользователем хранимую процедуру с дополнительными параметрами.
+When copying data into SQL Server or Azure SQL/SQL Server Database, a user specified stored procedure could be configured and invoked with additional parameters. 
 
-Хранимую процедуру можно использовать, когда встроенные механизмы копирования не подходят. Обычно хранимая процедура используется, когда дополнительную обработку (объединение столбцов, поиск дополнительных значений, вставку данных в несколько таблиц и т. д.) необходимо выполнить до окончательной вставки данных источника в целевую таблицу.
+A stored procedure can be leveraged when built-in copy mechanisms do not serve the purpose. This is typically leveraged when extra processing (merging columns, looking up additional values, insertion into multiple tables…) needs to be done before the final insertion of source data in the destination table. 
 
-Вы можете вызывать хранимую процедуру по своему выбору. Следующий пример показывает, как использовать хранимую процедуру для выполнения простой вставки в таблицу в базе данных.
+You may invoke a stored procedure of choice. The following sample shows how to use a stored procedure to do a simple insertion into a table in the database. 
 
-**Выходной набор данных**
+**Output dataset**
 
-В этом примере type имеет значение SqlServerTable. Задайте для него значение AzureSqlTable, чтобы использовать с базой данных SQL Azure.
+In this example, type is set to: SqlServerTable. Set it to AzureSqlTable to use with an Azure SQL database. 
 
-	{
-	  "name": "SqlOutput",
-	  "properties": {
-	    "type": "SqlServerTable",
-	    "linkedServiceName": "SqlLinkedService",
-	    "typeProperties": {
-	      "tableName": "Marketing"
-	    },
-	    "availability": {
-	      "frequency": "Hour",
-	      "interval": 1
-	    }
-	  }
-	}
-	
-Определите раздел SqlSink в действии копирования JSON следующим образом. Для вызова хранимой процедуры во время вставки данных требуются свойства SqlWriterStoredProcedureName и SqlWriterTableType.
+    {
+      "name": "SqlOutput",
+      "properties": {
+        "type": "SqlServerTable",
+        "linkedServiceName": "SqlLinkedService",
+        "typeProperties": {
+          "tableName": "Marketing"
+        },
+        "availability": {
+          "frequency": "Hour",
+          "interval": 1
+        }
+      }
+    }
+    
+Define the SqlSink section in copy activity JSON as follows. To call a stored procedure while insert data, both SqlWriterStoredProcedureName and SqlWriterTableType properties are needed.
 
-	"sink":
-	{
-	    "type": "SqlSink",
-	    "SqlWriterTableType": "MarketingType",
-	    "SqlWriterStoredProcedureName": "spOverwriteMarketing", 
-	    "storedProcedureParameters":
-	            {
-	                "stringData": 
-	                {
-	                    "value": "str1"     
-	                }
-	            }
-	}
+    "sink":
+    {
+        "type": "SqlSink",
+        "SqlWriterTableType": "MarketingType",
+        "SqlWriterStoredProcedureName": "spOverwriteMarketing", 
+        "storedProcedureParameters":
+                {
+                    "stringData": 
+                    {
+                        "value": "str1"     
+                    }
+                }
+    }
 
-В своей базе данных определите хранимую процедуру с тем же именем, что и SqlWriterStoredProcedureName. Она обрабатывает входные данные из указанного источника и вставляет их в выходную таблицу. Обратите внимание, что имя параметра хранимой процедуры должно совпадать с именем tableName, заданным в JSON-файле таблицы.
+In your database, define the stored procedure with the same name as SqlWriterStoredProcedureName. It handles input data from your specified source, and insert into the output table. Notice that the parameter name of the stored procedure should be the same as the tableName defined in Table JSON file.
 
-	CREATE PROCEDURE spOverwriteMarketing @Marketing [dbo].[MarketingType] READONLY, @stringData varchar(256)
-	AS
-	BEGIN
-	    DELETE FROM [dbo].[Marketing] where ProfileID = @stringData
-	    INSERT [dbo].[Marketing](ProfileID, State)
-	    SELECT * FROM @Marketing
-	END
+    CREATE PROCEDURE spOverwriteMarketing @Marketing [dbo].[MarketingType] READONLY, @stringData varchar(256)
+    AS
+    BEGIN
+        DELETE FROM [dbo].[Marketing] where ProfileID = @stringData
+        INSERT [dbo].[Marketing](ProfileID, State)
+        SELECT * FROM @Marketing
+    END
 
-В своей базе данных определите тип таблицы с тем же именем, что и SqlWriterTableType. Обратите внимание, что схема типа таблицы должны быть той же, что и схема, возвращаемая входными данными.
+In your database, define the table type with the same name as SqlWriterTableType. Notice that the schema of the table type should be same as the schema returned by your input data.
 
-	CREATE TYPE [dbo].[MarketingType] AS TABLE(
-	    [ProfileID] [varchar](256) NOT NULL,
-	    [State] [varchar](256) NOT NULL
-	)
+    CREATE TYPE [dbo].[MarketingType] AS TABLE(
+        [ProfileID] [varchar](256) NOT NULL,
+        [State] [varchar](256) NOT NULL
+    )
 
-Функциональность хранимой процедуры использует преимущества [параметров с табличным значением](https://msdn.microsoft.com/library/bb675163.aspx).
+The stored procedure feature takes advantage of [Table-Valued Parameters](https://msdn.microsoft.com/library/bb675163.aspx).
 
-<!---HONumber=AcomDC_0803_2016-->
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,38 +1,39 @@
 <properties
-	pageTitle="Приступая к работе с концентраторами событий в Java и Apache Storm | Microsoft Azure"
-	description="Следуйте указаниям этого учебника, чтобы приступить к использованию концентраторов событий Azure, отправляющих события с помощью Java, и их получению в кластере Apache Storm."
-	services="event-hubs"
-	documentationCenter=""
-	authors="fsautomata"
-	manager="timlt"
-	editor=""/>
+    pageTitle="Get Started with Event Hubs in Java with Apache Storm | Microsoft Azure"
+    description="Follow this tutorial to get started using Azure Event Hubs; sending events with Java and receiving them in an Apache Storm cluster."
+    services="event-hubs"
+    documentationCenter=""
+    authors="fsautomata"
+    manager="timlt"
+    editor=""/>
 
 <tags
-	ms.service="event-hubs"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/06/2016"
-	ms.author="sethm"/>
+    ms.service="event-hubs"
+    ms.workload="na"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/06/2016"
+    ms.author="sethm"/>
 
-# Приступая к работе с концентраторами событий
+
+# <a name="get-started-with-event-hubs"></a>Get started with Event Hubs
 
 [AZURE.INCLUDE [service-bus-selector-get-started](../../includes/service-bus-selector-get-started.md)]
 
-## Введение
+## <a name="introduction"></a>Introduction
 
-Концентраторы событий — это высокомасштабируемая система приема, которая может принимать миллионы событий в секунду, позволяя приложениям обрабатывать и анализировать большие объемы данных, сформированных подключенными устройствами и приложениями. После сбора данных в концентраторах событий их можно преобразовать и сохранить с помощью любого поставщика аналитики в реальном времени или в кластере хранилища.
+Event Hubs is a highly scalable ingestion system that can intake millions of events per second, enabling an application to process and analyze the massive amounts of data produced by your connected devices and applications. Once collected into Event Hubs, you can transform and store data using any real-time analytics provider or storage cluster.
 
-Дополнительные сведения см. в статье [Обзор концентраторов событий][].
+For more information, see the [Event Hubs Overview][].
 
-В этом руководстве описано, как принимать сообщения в концентраторе событий с помощью консольного приложения на языке Java и как извлекать их параллельно с использованием Apache Storm.
+This tutorial describes how to collect messages into an Event Hub using a console application in Java, and to retrieve them in parallel using Apache Storm.
 
-Для работы с этим учебником необходимо следующее.
+To complete this tutorial, you will need the following:
 
-+ Среда разработки Java, настроенная для запуска [Maven](http://maven.apache.org/). Для этого руководства предполагается использование среды [Eclipse](https://www.eclipse.org/).
++ A Java development environment configured to run [Maven](http://maven.apache.org/). For this tutorial, we assume [Eclipse](https://www.eclipse.org/).
 
-+ Активная учетная запись Azure. Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе [Бесплатная пробная версия Azure](https://azure.microsoft.com/pricing/free-trial/).
++ An active Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/).
 
 [AZURE.INCLUDE [event-hubs-create-event-hub](../../includes/event-hubs-create-event-hub.md)]
 
@@ -41,37 +42,40 @@
 
 [AZURE.INCLUDE [service-bus-event-hubs-get-started-receive-storm](../../includes/service-bus-event-hubs-get-started-receive-storm.md)]
 
-## Запуск приложений
+## <a name="run-the-applications"></a>Run the applications
 
-Теперь все готово к запуску приложений.
+Now you are ready to run the applications.
 
-1.	Запустите класс **LogTopology** в Eclipse, а затем подождите, пока будут запущены приемники для всех разделов.
+1.  Run the **LogTopology** class from Eclipse, then wait for it to start the receivers for all the partitions.
 
-2.	Запустите проект **Sender** и нажмите в окне консоли клавишу **ВВОД**. После этого в окне приемника начнут отображаться события.
+2.  Run the **Sender** project, press **Enter** in the console window, and see the events appear in the receiver window.
 
-   	![][22]
+    ![][22]
 
-> [AZURE.NOTE] В этом учебнике для целей разработки используйте Storm только в локальном режиме. Подробнее о развертываниях и шаблонах Storm см. в разделе [Обзор HDInsight Storm][] и официальной документации по [Apache Storm][].
+> [AZURE.NOTE] In this tutorial only, use Storm in local mode for development purposes. See the [HDInsight Storm Overview][] and the official [Apache Storm][] documentation for more information of Storm deployments and patterns.
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Next Steps
 
-Для разработки приложений с интеграцией концентраторов событий и Storm доступны следующие ресурсы.
+The following resources are available for developing applications integrating Event Hubs and Storm.
 
-- [Анализ данных датчиков в Storm и HDInsight] — это полный учебник, в котором концентраторы событий, Storm и HBase используются для приема данных датчиков в кластере Hadoop.
-- [Разработка приложений для обработки потоковых данных с помощью SCP.NET и C# на основе Storm и HDInsight][] — это учебник по написанию конвейеров Storm на C#.
+- [Analyzing sensor data with Storm and HDInsight] is a full scenario tutorial using Event Hubs, Storm, and HBase to ingest sensor data in an Hadoop cluster.
+- [Develop streaming data processing applications with SCP.NET and C# on Storm and HDInsight][] is a tutorial on how to write Storm pipelines using C#.
 
 <!-- Images. -->
 [22]: ./media/event-hubs-java-storm-getstarted/receive-storm2.png
 
 <!-- Links -->
-[классический портал Azure]: https://manage.windowsazure.com/
+[Azure classic portal]: https://manage.windowsazure.com/
 [Event Processor Host]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
-[Обзор концентраторов событий]: event-hubs-overview.md
+[Event Hubs Overview]: event-hubs-overview.md
 
 [Apache Storm]: https://storm.incubator.apache.org
-[Обзор HDInsight Storm]: ../hdinsight/hdinsight-storm-overview.md
-[Анализ данных датчиков в Storm и HDInsight]: ../hdinsight/hdinsight-storm-sensor-data-analysis.md
-[Разработка приложений для обработки потоковых данных с помощью SCP.NET и C# на основе Storm и HDInsight]: ../hdinsight/hdinsight-storm-develop-csharp-visual-studio-topology.md
+[HDInsight Storm Overview]: ../hdinsight/hdinsight-storm-overview.md
+[Analyzing sensor data with Storm and HDInsight]: ../hdinsight/hdinsight-storm-sensor-data-analysis.md
+[Develop streaming data processing applications with SCP.NET and C# on Storm and HDInsight]: ../hdinsight/hdinsight-storm-develop-csharp-visual-studio-topology.md
  
 
-<!---HONumber=AcomDC_0907_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

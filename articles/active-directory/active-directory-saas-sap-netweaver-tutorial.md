@@ -1,261 +1,262 @@
 <properties
-	pageTitle="Руководство. Интеграция Azure Active Directory с SAP NetWeaver | Microsoft Azure"
-	description="Узнайте, как настроить единый вход Azure Active Directory в SAP NetWeaver."
-	services="active-directory"
-	documentationCenter=""
-	authors="jeevansd"
-	manager="femila"
-	editor=""/>
+    pageTitle="Tutorial: Azure Active Directory integration with SAP NetWeaver | Microsoft Azure"
+    description="Learn how to configure single sign-on between Azure Active Directory and SAP NetWeaver."
+    services="active-directory"
+    documentationCenter=""
+    authors="jeevansd"
+    manager="femila"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/02/2016"
-	ms.author="jeedes"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/02/2016"
+    ms.author="jeedes"/>
 
 
-# Руководство. Интеграция Azure Active Directory с SAP NetWeaver
 
-В этом руководстве описано, как интегрировать SAP NetWeaver с Azure Active Directory.
+# <a name="tutorial:-azure-active-directory-integration-with-sap-netweaver"></a>Tutorial: Azure Active Directory integration with SAP NetWeaver
 
-Интеграция SAP NetWeaver с Azure AD обеспечивает следующие преимущества:
+In this tutorial, you learn how to integrate SAP NetWeaver with Azure Active Directory.
 
-- С помощью Azure AD вы можете контролировать доступ к приложению SAP NetWeaver.
-- Вы можете включить автоматический вход пользователей в SAP NetWeaver (единый вход) с использованием учетной записи Azure AD.
-- Вы можете управлять учетными записями централизованно — через классический портал Azure.
+Integrating SAP NetWeaver with Azure AD provides you with the following benefits:
 
-Подробнее узнать об интеграции приложений SaaS с Azure AD можно в статье [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md).
+- You can control in Azure AD who has access to SAP NetWeaver
+- You can enable your users to automatically get signed-on to SAP NetWeaver (Single Sign-On) with their Azure AD accounts
+- You can manage your accounts in one central location - the Azure classic portal
 
-## Предварительные требования
+If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-Чтобы настроить интеграцию Azure AD с SAP NetWeaver, вам потребуется:
+## <a name="prerequisites"></a>Prerequisites
 
-- подписка Azure AD;
-- подписка на SAP NetWeaver с поддержкой единого входа.
+To configure Azure AD integration with SAP NetWeaver, you need the following items:
 
-
-> [AZURE.NOTE] Мы не рекомендуем использовать рабочую среду для проверки действий в этом учебнике.
+- An Azure AD subscription
+- A SAP NetWeaver single-sign on enabled subscription
 
 
-При проверке действий в этом учебнике соблюдайте следующие рекомендации:
-
-- Не следует использовать рабочую среду при отсутствии необходимости.
-- Если у вас нет пробной среды Azure AD, вы можете получить пробную версию на один месяц по [этой ссылке](https://azure.microsoft.com/pricing/free-trial/).
+> [AZURE.NOTE] To test the steps in this tutorial, we do not recommend using a production environment.
 
 
-## Описание сценария
-В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде.
+To test the steps in this tutorial, you should follow these recommendations:
 
-Сценарий, описанный в этом учебнике, состоит из двух основных блоков:
-
-1. Добавление SAP NetWeaver из коллекции
-2. Настройка и проверка единого входа в Azure AD
+- You should not use your production environment, unless this is necessary.
+- If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).
 
 
-## Добавление SAP NetWeaver из коллекции
-Чтобы настроить интеграцию SAP NetWeaver с Azure AD, необходимо добавить SAP NetWeaver из коллекции в список управляемых приложений SaaS.
+## <a name="scenario-description"></a>Scenario description
+In this tutorial, you test Azure AD single sign-on in a test environment.
 
-**Чтобы добавить SAP NetWeaver из коллекции, сделайте следующее:**
+The scenario outlined in this tutorial consists of two main building blocks:
 
-1. На **классическом портале Azure** в области навигации слева щелкните **Active Directory**.
-
-	![Active Directory][1]
-2. Из списка **Каталог** выберите каталог, для которого нужно включить интеграцию каталогов.
-
-3. Чтобы открыть представление приложений, в представлении каталога нажмите **Приложения** в верхнем меню.
-
-	![Приложения][2]
-
-4. В нижней части страницы нажмите кнопку **Добавить**.
-
-	![Приложения][3]
-
-5. В диалоговом окне **Что необходимо сделать?** нажмите **Добавить приложение из коллекции**.
-
-	![Приложения][4]
-
-6. В поле поиска введите **SAP NetWeaver**.
-
-	![Создание тестового пользователя Azure AD](./media/active-directory-saas-sap-netweaver-tutorial/tutorial_sapnetweaver_01.png)
-
-7. В области результатов выберите **SAP NetWeaver** и нажмите кнопку **Завершить**, чтобы добавить приложение.
-	
-	![Создание тестового пользователя Azure AD](./media/active-directory-saas-sap-netweaver-tutorial/tutorial_sapnetweaver_02.png)
+1. Adding SAP NetWeaver from the gallery
+2. Configuring and testing Azure AD single sign-on
 
 
-##  Настройка и проверка единого входа в Azure AD
-В этом разделе описана настройка и проверка единого входа Azure AD в SAP NetWeaver с использованием тестового пользователя Britta Simon.
+## <a name="adding-sap-netweaver-from-the-gallery"></a>Adding SAP NetWeaver from the gallery
+To configure the integration of SAP NetWeaver into Azure AD, you need to add SAP NetWeaver from the gallery to your list of managed SaaS apps.
 
-Для работы единого входа в Azure AD необходимо знать, какой пользователь в SAP NetWeaver соответствует пользователю в Azure AD. Иными словами, необходимо установить связь между пользователем Azure AD и соответствующим пользователем в SAP NetWeaver.
+**To add SAP NetWeaver from the gallery, perform the following steps:**
 
-Чтобы установить эту связь, следует указать **имя пользователя** в Azure AD в качестве значения **имени пользователя** в SAP NetWeaver.
+1. In the **Azure classic portal**, on the left navigation pane, click **Active Directory**.
 
-Чтобы настроить и проверить единый вход Azure AD в SAP NetWeaver, вам потребуется выполнить действия в следующих стандартных блоках:
+    ![Active Directory][1]
+2. From the **Directory** list, select the directory for which you want to enable directory integration.
 
-1. **[Настройка единого входа Azure AD](#configuring-azure-ad-single-sign-on)** необходима, чтобы пользователи могли использовать эту функцию.
-2. **[Создание тестового пользователя Azure AD](#creating-an-azure-ad-test-user)** требуется для проверки работы единого входа Azure AD от имени пользователя Britta Simon.
-3. **[Создание тестового пользователя SAP NetWeaver](#creating-a-sap-netweaver-test-user)** требуется для создания пользователя Britta Simon в SAP NetWeaver, связанного с соответствующим пользователем в Azure AD.
-4. **[Назначение тестового пользователя Azure AD](#assigning-the-azure-ad-test-user)** необходимо, чтобы позволить Britta Simon использовать единый вход в Azure AD.
-5. **[Проверка единого входа](#testing-single-sign-on)** необходима, чтобы убедиться в корректной работе конфигурации.
+3. To open the applications view, in the directory view, click **Applications** in the top menu.
 
-### Настройка единого входа в Azure AD
+    ![Applications][2]
 
-В этом разделе описано, как включить единый вход Azure AD на классическом портале и настроить его в приложении SAP NetWeaver.
+4. Click **Add** at the bottom of the page.
+
+    ![Applications][3]
+
+5. On the **What do you want to do** dialog, click **Add an application from the gallery**.
+
+    ![Applications][4]
+
+6. In the search box, type **SAP NetWeaver**.
+
+    ![Creating an Azure AD test user](./media/active-directory-saas-sap-netweaver-tutorial/tutorial_sapnetweaver_01.png)
+
+7. In the results pane, select **SAP NetWeaver**, and then click **Complete** to add the application.
+    
+    ![Creating an Azure AD test user](./media/active-directory-saas-sap-netweaver-tutorial/tutorial_sapnetweaver_02.png)
 
 
-**Чтобы настроить единый вход Azure AD в SAP NetWeaver, сделайте следующее:**
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuring and testing Azure AD single sign-on
+In this section, you configure and test Azure AD single sign-on with SAP NetWeaver based on a test user called "Britta Simon".
 
-1. На классическом портале на странице интеграции с приложением **SAP NetWeaver** щелкните **Настройка единого входа**, чтобы открыть диалоговое окно **Настройка единого входа**.
-	 
-	![Настройка единого входа][6]
+For single sign-on to work, Azure AD needs to know what the counterpart user in SAP NetWeaver is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in SAP NetWeaver needs to be established.
 
-2. На странице **Как пользователи должны входить в SAP NetWeaver?** выберите **Единый вход Azure AD** и нажмите кнопку **Далее**.
+This link relationship is established by assigning the value of the **user name** in Azure AD as the value of the **Username** in SAP NetWeaver.
 
-	![Настройка единого входа](./media/active-directory-saas-sap-netweaver-tutorial/tutorial_sapnetweaver_03.png)
+To configure and test Azure AD single sign-on with SAP NetWeaver, you need to complete the following building blocks:
 
-3. В диалоговом окне на странице **Настройка параметров приложения** выполните следующие действия.
+1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - to enable your users to use this feature.
+2. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
+3. **[Creating a SAP NetWeaver test user](#creating-a-sap-netweaver-test-user)** - to have a counterpart of Britta Simon in SAP NetWeaver that is linked to the Azure AD representation of her.
+4. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
+5. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
 
-	![Настройка единого входа](./media/active-directory-saas-sap-netweaver-tutorial/tutorial_sapnetweaver_04.png)
+### <a name="configuring-azure-ad-single-sign-on"></a>Configuring Azure AD single sign-on
 
-    а. В текстовое поле **URL-адрес входа** введите URL-адрес, используемый пользователями для входа в приложение SAP NetWeaver в следующем формате: **https://\<экземпляр компании SAP NetWeaver>**.
-	
-	b. В текстовом поле **Идентификатор** введите URL-адрес в следующем формате: **https://\<экземпляр компании SAP NetWeaver>**.
+In this section, you enable Azure AD single sign-on in the classic portal and configure single sign-on in your SAP NetWeaver application.
 
-	c. В текстовом поле **URL-адрес ответа** введите URL-адрес в следующем формате: **https://\<экземпляр компании SAP NetWeaver>/sap/saml2/sp/acs/100**.
 
-	> [AZURE.NOTE] Все эти значения можно найти в документе метаданных федерации, предоставленном партнером SAP NetWeaver.
+**To configure Azure AD single sign-on with SAP NetWeaver, perform the following steps:**
 
-	4\. Нажмите кнопку **Далее**.
+1. In the classic portal, on the **SAP NetWeaver** application integration page, click **Configure single sign-on** to open the **Configure Single Sign-On**  dialog.
+     
+    ![Configure Single Sign-On][6] 
+
+2. On the **How would you like users to sign on to SAP NetWeaver** page, select **Azure AD Single Sign-On**, and then click **Next**.
+
+    ![Configure Single Sign-On](./media/active-directory-saas-sap-netweaver-tutorial/tutorial_sapnetweaver_03.png) 
+
+3. On the **Configure App Settings** dialog page, perform the following steps:
+
+    ![Configure Single Sign-On](./media/active-directory-saas-sap-netweaver-tutorial/tutorial_sapnetweaver_04.png) 
+
+    a. In the **Sign On URL** textbox, type the URL used by your users to sign-on to your SAP NetWeaver application using the following pattern: **https://\<your company instance of SAP NetWeaver\>**.
+    
+    b. In the **Identifier** textbox, type the URL using the following pattern: **https://\<your company instance of SAP NetWeaver\>**.
+
+    c. In the **Reply URL** textbox, type the URL using the following pattern: **https://\<your company instance of SAP NetWeaver\>/sap/saml2/sp/acs/100**.
+
+    > [AZURE.NOTE] You will able to find all these values in the Federation Metadata doucument provided by your SAP NetWeaver partner.
+
+    d. click **Next**
  
-4. На странице **Настройка единого входа в SAP NetWeaver** сделайте следующее:
+4. On the **Configure single sign-on at SAP NetWeaver** page, perform the following steps:
 
-	![Настройка единого входа](./media/active-directory-saas-sap-netweaver-tutorial/tutorial_sapnetweaver_05.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-sap-netweaver-tutorial/tutorial_sapnetweaver_05.png)
 
-    а. Нажмите **Загрузить метаданные** и сохраните файл на свой компьютер.
+    a. Click **Download metadata**, and then save the file on your computer.
 
-    b. Нажмите кнопку **Далее**.
+    b. Click **Next**.
 
 
-5. Чтобы настроить единый вход для приложения, обратитесь к партнеру SAP NetWeaver и предоставьте следующие сведения:
+5. To get SSO configured for your application, contact your SAP NetWeaver partner and provide them with the following:
 
-	• скачанный файл **метаданных**.
+    • The downloaded **metadata**
 
-	• **идентификатор сущности**;
+    • The **Entity ID**
 
-	• **URL-адрес единого входа SAML**;
+    • The **SAML SSO URL**
 
-	• **URL-адрес службы единого выхода**.
+    • The **Single Sign Out Service URL**
 
-6. На классическом портале подтвердите конфигурацию единого входа и нажмите кнопку **Далее**.
-	
-	![Единый вход в Azure AD][10]
+6. In the classic portal, select the single sign-on configuration confirmation, and then click **Next**.
+    
+    ![Azure AD Single Sign-On][10]
 
-7. На странице **Подтверждение единого входа** нажмите кнопку **Завершить**.
+7. On the **Single sign-on confirmation** page, click **Complete**.  
  
-	![Единый вход в Azure AD][11]
+    ![Azure AD Single Sign-On][11]
 
 
-### Создание тестового пользователя Azure AD
-В этом разделе описано, как создать на классическом портале тестового пользователя с именем Britta Simon.
+### <a name="creating-an-azure-ad-test-user"></a>Creating an Azure AD test user
+In this section, you create a test user in the classic portal called Britta Simon.
 
 
-![Создание пользователя Azure AD][20]
+![Create Azure AD User][20]
 
-**Чтобы создать тестового пользователя в Azure AD, выполните следующие действия:**
+**To create a test user in Azure AD, perform the following steps:**
 
-1. На **классическом портале Azure** в области навигации слева щелкните **Active Directory**.
+1. In the **Azure classic portal**, on the left navigation pane, click **Active Directory**.
 
-	![Создание тестового пользователя Azure AD](./media/active-directory-saas-sap-netweaver-tutorial/create_aaduser_09.png)
+    ![Creating an Azure AD test user](./media/active-directory-saas-sap-netweaver-tutorial/create_aaduser_09.png) 
 
-2. Из списка **Каталог** выберите каталог, для которого нужно включить интеграцию каталогов.
+2. From the **Directory** list, select the directory for which you want to enable directory integration.
 
-3. Чтобы отобразить список пользователей, в меню вверху выберите **Пользователи**.
+3. To display the list of users, in the menu on the top, click **Users**.
 
-	![Создание тестового пользователя Azure AD](./media/active-directory-saas-sap-netweaver-tutorial/create_aaduser_03.png)
+    ![Creating an Azure AD test user](./media/active-directory-saas-sap-netweaver-tutorial/create_aaduser_03.png) 
 
-4. Чтобы открыть диалоговое окно **Добавление пользователя**, на панели инструментов внизу нажмите кнопку **Добавить пользователя**.
+4. To open the **Add User** dialog, in the toolbar on the bottom, click **Add User**.
 
-	![Создание тестового пользователя Azure AD](./media/active-directory-saas-sap-netweaver-tutorial/create_aaduser_04.png)
+    ![Creating an Azure AD test user](./media/active-directory-saas-sap-netweaver-tutorial/create_aaduser_04.png) 
 
-5. На странице диалогового окна **Тип учетной записи пользователя** выполните следующие действия. ![Создание тестового пользователя Azure AD](./media/active-directory-saas-sap-netweaver-tutorial/create_aaduser_05.png)
+5. On the **Tell us about this user** dialog page, perform the following steps:  ![Creating an Azure AD test user](./media/active-directory-saas-sap-netweaver-tutorial/create_aaduser_05.png) 
 
-    а. В поле «Тип пользователя» выберите значение «Новый пользователь в вашей организации».
+    a. As Type Of User, select New user in your organization.
 
-    b. В текстовое поле **Имя пользователя** введите **BrittaSimon**.
+    b. In the User Name **textbox**, type **BrittaSimon**.
 
-    c. Нажмите кнопку **Далее**.
+    c. Click **Next**.
 
-6.  На странице диалогового окна **Профиль пользователя** выполните следующие действия. ![Создание тестового пользователя Azure AD](./media/active-directory-saas-sap-netweaver-tutorial/create_aaduser_06.png)
+6.  On the **User Profile** dialog page, perform the following steps: ![Creating an Azure AD test user](./media/active-directory-saas-sap-netweaver-tutorial/create_aaduser_06.png) 
 
-    а. В текстовом поле **Имя** введите **Britta**.
+    a. In the **First Name** textbox, type **Britta**.  
 
-    b. В текстовое поле **Фамилия** введите **Simon**.
+    b. In the **Last Name** textbox, type, **Simon**.
 
-    c. В текстовое поле **Отображаемое имя** введите **Britta Simon**.
+    c. In the **Display Name** textbox, type **Britta Simon**.
 
-    г) В списке **Роль** выберите **Пользователь**.
+    d. In the **Role** list, select **User**.
 
-    д. Нажмите кнопку **Далее**.
+    e. Click **Next**.
 
-7. На странице диалогового окна **Получить временный пароль** нажмите кнопку **Создать**.
+7. On the **Get temporary password** dialog page, click **create**.
 
-	![Создание тестового пользователя Azure AD](./media/active-directory-saas-sap-netweaver-tutorial/create_aaduser_07.png)
+    ![Creating an Azure AD test user](./media/active-directory-saas-sap-netweaver-tutorial/create_aaduser_07.png) 
 
-8. На странице диалогового окна **Получить временный пароль** выполните следующие действия.
+8. On the **Get temporary password** dialog page, perform the following steps:
 
-	![Создание тестового пользователя Azure AD](./media/active-directory-saas-sap-netweaver-tutorial/create_aaduser_08.png)
+    ![Creating an Azure AD test user](./media/active-directory-saas-sap-netweaver-tutorial/create_aaduser_08.png) 
 
-    а. Запишите значение поля **Новый пароль**.
+    a. Write down the value of the **New Password**.
 
-    b. Нажмите **Завершено**.
-
-
-### Создание тестового пользователя SAP NetWeaver
-
-В этом разделе описано, как создать пользователя Britta Simon в приложении SAP NetWeaver. Обратитесь к партнеру SAP NetWeaver, чтобы добавить пользователей на платформу SAP NetWeaver.
+    b. Click **Complete**.   
 
 
-### Назначение тестового пользователя Azure AD
+### <a name="creating-an-sap-netweaver-test-user"></a>Creating an SAP NetWeaver test user
 
-В этом разделе описано, как разрешить пользователю Britta Simon использовать единый вход Azure путем предоставления доступа к SAP NetWeaver.
-
-![Назначение пользователя][200]
-
-**Чтобы назначить пользователя Britta Simon в приложении SAP NetWeaver, сделайте следующее:**
-
-1. Чтобы открыть представление приложений, в представлении каталога на классическом портале щелкните **Приложения** в верхнем меню.
-
-	![Назначение пользователя][201]
-
-2. В списке приложений выберите **SAP NetWeaver**.
-
-	![Настройка единого входа](./media/active-directory-saas-sap-netweaver-tutorial/tutorial_sapnetweaver_50.png)
-
-3. В меню в верхней части страницы щелкните **Пользователи**.
-
-	![Назначение пользователя][203]
-
-4. В списке пользователей выберите **Britta Simon**.
-
-5. На панели инструментов внизу щелкните **Назначить**.
-
-	![Назначение пользователя][205]
+In this section, you create a user called Britta Simon in SAP NetWeaver. Please work with your SAP NetWeaver partner to add the users in the SAP NetWeaver platform.
 
 
-### Проверка единого входа
+### <a name="assigning-the-azure-ad-test-user"></a>Assigning the Azure AD test user
 
-В этом разделе описано, как проверить конфигурацию единого входа Azure AD с помощью панели доступа.
+In this section, you enable Britta Simon to use Azure single sign-on by granting her access to SAP NetWeaver.
 
-Щелкнув плитку SAP NetWeaver на панели доступа, вы автоматически войдете в приложение SAP NetWeaver.
+![Assign User][200] 
+
+**To assign Britta Simon to SAP NetWeaver, perform the following steps:**
+
+1. On the classic portal, to open the applications view, in the directory view, click **Applications** in the top menu.
+
+    ![Assign User][201] 
+
+2. In the applications list, select **SAP NetWeaver**.
+
+    ![Configure Single Sign-On](./media/active-directory-saas-sap-netweaver-tutorial/tutorial_sapnetweaver_50.png) 
+
+3. In the menu on the top, click **Users**.
+
+    ![Assign User][203]
+
+4. In the Users list, select **Britta Simon**.
+
+5. In the toolbar on the bottom, click **Assign**.
+
+    ![Assign User][205]
 
 
-## Дополнительные ресурсы
+### <a name="testing-single-sign-on"></a>Testing Single Sign-On
 
-* [Список учебников по интеграции приложений SaaS с Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+In this section, you test your Azure AD single sign-on configuration using the Access Panel.
+
+When you click the SAP NetWeaver tile in the Access Panel, you should get automatically signed-on to your SAP NetWeaver application.
+
+
+## <a name="additional-resources"></a>Additional resources
+
+* [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 
 <!--Image references-->
@@ -276,4 +277,7 @@
 [204]: ./media/active-directory-saas-sap-netweaver-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-sap-netweaver-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0907_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

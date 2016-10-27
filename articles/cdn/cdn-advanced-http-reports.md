@@ -1,201 +1,206 @@
 <properties
-	pageTitle="Расширенные HTTP-отчеты CDN Azure | Microsoft Azure"
-	description="Расширенные HTTP-отчеты в сети CDN Microsoft Azure. Эти отчеты предоставляют подробные сведения об активности в сети CDN."
-	services="cdn"
-	documentationCenter=""
-	authors="camsoper"
-	manager="erikre"
-	editor=""/>
+    pageTitle="Azure CDN Advanced HTTP Reports | Microsoft Azure"
+    description="Advanced HTTP reports in Microsoft Azure CDN. These reports provide detailed information on CDN activity."
+    services="cdn"
+    documentationCenter=""
+    authors="camsoper"
+    manager="erikre"
+    editor=""/>
 
 <tags
-	ms.service="cdn"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/28/2016"
-	ms.author="casoper"/>
+    ms.service="cdn"
+    ms.workload="tbd"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="07/28/2016"
+    ms.author="casoper"/>
 
-# Расширенные HTTP-отчеты в сети CDN Microsoft Azure
 
-## Обзор
+# <a name="advanced-http-reports-in-microsoft-azure-cdn"></a>Advanced HTTP reports in Microsoft Azure CDN
 
-В этом документе рассматриваются дополнительные возможности HTTP-отчетов в сети CDN Microsoft Azure. Эти отчеты предоставляют подробные сведения об активности в сети CDN.
+## <a name="overview"></a>Overview
+
+This document explains advanced HTTP reporting in Microsoft Azure CDN. These reports provide detailed information on CDN activity.
 
 [AZURE.INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
 
-## Доступ к расширенным HTTP-отчетам
+## <a name="accessing-advanced-http-reports"></a>Accessing advanced HTTP reports
 
-1. В колонке профиля CDN нажмите кнопку **Управление**.
+1. From the CDN profile blade, click the **Manage** button.
 
-	![Кнопка управления в колонке профиля CDN](./media/cdn-advanced-http-reports/cdn-manage-btn.png)
+    ![CDN profile blade manage button](./media/cdn-advanced-http-reports/cdn-manage-btn.png)
 
-	Откроется портал управления CDN.
+    The CDN management portal opens.
 
-2. Наведите указатель на вкладку **Аналитика**, а затем выберите всплывающее окно **Расширенные HTTP-отчеты**. Выберите **Большая HTTP-платформа**.
+2. Hover over the **Analytics** tab, then hover over the **Advanced HTTP Reports** flyout.  Click on **HTTP Large Platform**.
 
-	![Портал управления CDN — меню дополнительных отчетов](./media/cdn-advanced-http-reports/cdn-advanced-reports.png)
+    ![CDN management portal - Advanced Reports menu](./media/cdn-advanced-http-reports/cdn-advanced-reports.png)
 
-	Отобразятся параметры отчета.
+    Report options are displayed.
 
-## Географические отчеты (с использованием карт)
+## <a name="geography-reports-(map-based)"></a>Geography Reports (Map-Based)
 
-Есть пять отчетов, использующих карты для отображения регионов, из которых запрашивается ваше содержимое. К ним относятся: «Мировая карта», «Карта США», «Карта Канады», «Карта Европы» и «Карта Азиатско-Тихоокеанского региона».
+There are five reports that take advantage of a map to indicate the regions from which your content is being requested. These reports are World Map, United States Map, Canada Map, Europe Map, and Asia Pacific Map.
 
-В каждом географическом отчете административным единицам (странам, штатам, провинциям) присваивается оценка на основании процента переходов из этого региона. Кроме того, вы видите карту с указанием местоположений, из которых запрашивается ваше содержимое. Регионы на карте отмечаются разными цветами в соответствии с объемом запросов из этого региона. Регионы, окрашенные в светлые тона, характеризуются пониженным потоком запросов, тогда как более темные тона указывают на повышенный интерес к вашему содержимому.
+Each map-based report ranks geographic entities (i.e., countries, states, and provinces) according to the percentage of hits that originated from that region. Additionally, a map is provided to help you visualize the locations from which your content is being requested. It is able to do so by color-coding each region according to the amount of demand experienced in that region. Lighter shaded regions indicate lower demand for your content, while darker regions indicate higher levels of demand for your content.
 
-Непосредственно под картой вы можете видеть подробную информацию о трафике и пропускной способности по каждому региону. Благодаря этому вы получаете информацию о переходах для каждого региона в количественном и процентном выражении – отображается общий объем передаваемых данных (в гигабайтах) и процент переданных данных. Также вы можете просмотреть описание каждого из этих показателей. Наконец, при наведении указателя мыши на регион (страну, область или провинцию) отображается подсказка с указанием имени и процента переходов для этого региона.
+Detailed traffic and bandwidth information for each region is provided directly below the map. This allows you to view the total number of hits, the percentage of hits, the total amount of data transferred (in gigabytes), and the percentage of data transferred for each region. View a description for each of these metrics. Finally, when you hover over a region (i.e., country, state, or province), the name and the percentage of hits that occurred in the region will be displayed as a tooltip.
 
-Ниже приводится краткое описание каждого типа географического отчета.
+A brief description is provided below for each type of map-based geography report.
 
-Имя отчета | Описание
+Report Name | Description
 ------------|------------
-Карта мира | Этот отчет позволяет просматривать запросы вашего содержимого CDN со всего мира. На мировой карте каждая страна отмечена своим цветом, который указывает на процент переходов из этого региона.
-Карта США | Этот отчет позволяет вам просматривать запросы вашего содержимого CDN из США. Каждый штат отмечен своим цветом, который указывает на процент переходов из этого региона.
-Карта Канады | Этот отчет позволяет вам просматривать запросы вашего содержимого CDN из Канады. Каждая провинция отмечена своим цветом, который указывает на процент переходов из этого региона.
-Карта Европы | Этот отчет позволяет вам просматривать запросы вашего содержимого CDN из Европы. Каждая страна отмечена своим цветом, который указывает на процент переходов из этого региона.
-Карта Азиатско-Тихоокеанского региона | Этот отчет позволяет вам просматривать запросы вашего содержимого CDN из Азии. Каждая страна отмечена своим цветом, который указывает на процент переходов из этого региона.
+World Map | This report allows you to view the worldwide demand for your CDN content. Each country is color-coded on the world map to indicate the percentage of hits that originated from that region.
+United States Map | This report allows you to view the demand for your CDN content in the United States. Each state is color-coded on this map to indicate the percentage of hits that originated from that region.
+Canada Map | This report allows you to view the demand for your CDN content in Canada. Each province is color-coded on this map to indicate the percentage of hits that originated from that region.
+Europe Map | This report allows you to view the demand for your CDN content in Europe. Each country is color-coded on this map to indicate the percentage of hits that originated from that region.
+Asia Pacific Map | This report allows you to view the demand for your CDN content in Asia. Each country is color-coded on this map to indicate the percentage of hits that originated from that region.
 
-## Географические отчеты (линейчатые диаграммы)
+## <a name="geography-reports-(bar-charts)"></a>Geography Reports (Bar Charts)
 
-Есть два дополнительных отчета, предоставляющих статистические сведения для географических данных. Это отчеты «Рейтинг городов» и «Рейтинг стран». В этих отчетах дается оценка городам и странам в зависимости от количества переходов из этих регионов. После создания этого отчета отобразится линейчатая диаграмма с 10 городами или странами с максимальным количеством запросов вашего содержимого через определенную платформу. Из этой диаграммы можно быстро получить сведения о регионах с наибольшим количеством запросов вашего содержимого.
+There are two additional reports that provide statistical information according to geography, which are Top Cities and Top Countries. These reports rank cities and countries, respectively, according to the number of hits that originated from those regions. Upon generating this type of report, a bar chart will indicate the top 10 cities or countries that requested content over a specific platform. This bar chart allows you to quickly assess the regions that generate the highest number of requests for your content.
 
-В левой части диаграммы (ось y) отображается количество переходов из определенного региона. Непосредственно под диаграммой (ось x) отображаются наименования 10 основных регионов.
+The left-hand side of the graph (y-axis) indicates how many hits occurred in the specified region. Directly below the graph (x-axis), you will find a label for each of the top 10 regions.
 
-### Использование линейчатых диаграмм
+### <a name="using-the-bar-charts"></a>Using the bar charts
 
-* При наведении указателя на наименование региона или количество переходов из региона вы увидите всплывающую подсказку.
-* На ней (в рейтинге городов) отображается название города, штата или провинции, а также сокращенное наименование страны.
-* Если не удалось определить город или регион (область, республику, край, округ), из которого поступил запрос, то будет указано "Неизвестно". Если не удается определить страну, отобразятся два знака вопроса (??).
-* Отчет может содержать метрики для "Европы" или "Азиатско-Тихоокеанского региона". Обратите внимание, что эти данные нельзя рассматривать как статистическую информацию по всем IP-адресам в этих регионах. Наоборот, они отражают запросы, поступившие с IP-адресов, соответствующих Европейскому или Азиатско-Тихоокеанскому региону, а не конкретному городу или стране.
+* If you hover over a bar, the name and the total number of hits that occurred in the region will be displayed as a tooltip.
+* The tooltip for the Top Cities report identifies a city by its name, state/province, and country abbreviation.
+* If the city or region (i.e., state/province) from which a request originated could not be determined, then it will indicate that they are unknown. If the country is unknown, then two question marks (i.e., ??) will be displayed.
+* A report may include metrics for "Europe" or the "Asia/Pacific Region." Those items are not meant to provide statistical information on all IP addresses in those regions. Rather, they only apply to requests that originate from IP addresses that are spread out over Europe or Asia/Pacific instead of to a specific city or country.
 
-Под линейчатой диаграммой можно увидеть данные, используемые для создания отчета. Они включают информацию о количестве переходов для основных 250 регионов, а также сведения о проценте переходов, общем объеме передаваемых данных (в гигабайтах) и проценте переданных данных. Также вы можете просмотреть описание каждого из этих показателей.
+The data that was used to generate the bar chart can be viewed below it. There you will find the total number of hits, the percentage of hits, the amount of data transferred (in gigabytes), and the percentage of data transferred for the top 250 regions. View a description for each of these metrics.
 
-Ниже приводится краткое описание обоих отчетов.
+A brief description is provided for both types of reports below.
 
-Имя отчета | Описание
+Report Name | Description
 ------------|------------
-Рейтинг городов | Этот отчет оценивает города в зависимости от количества переходов из этого региона.
-Рейтинг стран | Этот отчет оценивает страны в зависимости от количества переходов из этого региона.
+Top Cities | This report ranks cities according to the number of hits that originated from that region.
+Top Countries | This report ranks countries according to the number of hits that originated from that region.
 
-## Сводка по дням
+## <a name="daily-summary"></a>Daily Summary
 
-Отчет «Сводка по дням» позволяет просматривать общее количество переходов и объем переданных данных через определенную платформу на ежедневной основе. Эти сведения можно использовать для быстрого определения шаблонов действий в сети CDN. Например, используя этот отчет, вы можете определить дни с повышенным или пониженным объемом трафика в сравнении с ожидаемым объемом.
+The Daily Summary report allows you to view the total number of hits and data transferred over a particular platform on a daily basis. This information can be used to quickly discern CDN activity patterns. For example, this report can help you detect which days experienced higher or lower than expected traffic.
 
-После создания этого отчета линейчатая диаграмма предоставляет визуализацию ежедневного объема запросов с конкретной платформы за определенный период времени. Для каждого дня создается новый отрезок. Например, если выбрать период времени «Прошлая неделя», будет создана линейчатая диаграмма с семью отрезками. На каждом отрезке указывается общее количество переходов за определенный день.
+Upon generating this type of report, a bar chart will provide a visual indication as to the amount of platform-specific demand experienced on a daily basis over the time period covered by the report. It will do so by displaying a bar for each day in the report. For example, selecting the time period called "Last Week" will generate a bar chart with seven bars. Each bar will indicate the total number of hits experienced on that day.
 
-В левой части диаграммы (ось y) отображается количество переходов за день. Непосредственно под диаграммой (ось x) отображается метка с указанием даты (в формате дд-мм-гггг) для каждого дня отчета.
+The left-hand side of the graph (y-axis) indicates how many hits occurred on the specified date. Directly below the graph (x-axis), you will find a label that indicates the date (Format: YYYY-MM-DD) for each day included in the report.
 
-> [AZURE.TIP] При наведении указателя на отрезок вы увидите всплывающую подсказку с указанием количества переходов за соответствующий день.
+> [AZURE.TIP] If you hover over a bar, the total number of hits that occurred on that date will be displayed as a tooltip.
 
-Под линейчатой диаграммой можно увидеть данные, используемые для создания отчета. Они включают общее количество переходов и объем переданных данных (в гигабайтах) за каждый день отчета.
+The data that was used to generate the bar chart can be viewed below it. There you will find the total number of hits and the amount of data transferred (in gigabytes) for each day covered by the report.
 
-## Сводка по времени
+## <a name="by-hour"></a>By Hour
 
-Отчет «Сводка по времени» позволяет просматривать общее количество переходов и объем переданных данных через определенную платформу по часам. Эти сведения можно использовать для быстрого определения шаблонов действий в сети CDN. Например, используя этот отчет, вы можете определить периоды времени с повышенным или пониженным объемом трафика в сравнении с ожидаемым объемом.
+The By Hour report allows you to view the total number of hits and data transferred over a particular platform on an hourly basis. This information can be used to quickly discern CDN activity patterns. For example, this report can help you detect the time periods during the day that experience higher or lower than expected traffic.
 
-После создания этого отчета линейчатая диаграмма предоставляет визуализацию объема запросов с конкретной платформы с разбивкой по часам за определенный период времени. Для каждого часа создается новый отрезок. Например, если выбрать период «24 часа», будет создана линейчатая диаграмма с двадцатью четырьмя отрезками. На каждом отрезке указывается общее количество переходов за определенный час.
+Upon generating this type of report, a bar chart will provide a visual indication as to the amount of platform-specific demand experienced on an hourly basis over the time period covered by the report. It will do so by displaying a bar for each hour covered by the report. For example, selecting a 24 hour time period will generate a bar chart with twenty four bars. Each bar will indicate the total number of hits experienced during that hour.
 
-В левой части диаграммы (ось y) отображается количество переходов за час. Непосредственно под диаграммой (ось x) отображается метка с указанием даты/времени (в формате дд-мм-гггг чч:мм) для каждого часа отчета. Время указывается в 24-часовом формате UTC/GMT.
+The left-hand side of the graph (y-axis) indicates how many hits occurred on the specified hour. Directly below the graph (x-axis), you will find a label that indicates the date/time (Format: YYYY-MM-DD hh:mm) for each hour included in the report. Time is reported using 24 hour format and it is specified using the UTC/GMT time zone.
 
-> [AZURE.TIP] Если вы наведете указатель на отрезок, вы увидите всплывающую подсказку с указанием количества переходов за соответствующий час.
+> [AZURE.TIP] If you hover over a bar, the total number of hits that occurred during that hour will be displayed as a tooltip.
 
-Под линейчатой диаграммой можно увидеть данные, используемые для создания отчета. Они включают общее количество переходов и объем переданных данных (в гигабайтах) за каждый час отчета.
+The data that was used to generate the bar chart can be viewed below it. There you will find the total number of hits and the amount of data transferred (in gigabytes) for each hour covered by the report.
 
-## Сводка по файлам
+## <a name="by-file"></a>By File
 
-Отчет «Сводка по файлам» позволяет просматривать общее количество переходов и объем переданных данных через определенную платформу для основных ресурсов. После создания этого отчета линейчатая диаграмма будет отображать 10 самых часто запрашиваемых ресурсов за указанный период времени.
+The By File report allows you to view the amount of demand and the traffic incurred over a particular platform for the most requested assets. Upon generating this type of report, a bar chart will be generated on the top 10 most requested assets over the specified time period.
 
-> [AZURE.NOTE] В этом отчете URL-адреса CNAME Edge преобразуются в соответствующие URL-адреса CDN. Это повышает точность определения переходов для ресурса независимо от URL-адреса CDN или CNAME Edge, используемого для доступа к файлу.
+> [AZURE.NOTE] For the purposes of this report, edge CNAME URLs are converted to their equivalent CDN URLs. This allows an accurate tally for the total number of hits associated with an asset regardless of the CDN or edge CNAME URL used to request it.
 
-В левой части диаграммы (ось y) указывается количество запросов для каждого ресурса за указанный период времени. Непосредственно под диаграммой (ось x) отображается метка с указанием имен 10 самых часто запрашиваемых файлов.
+The left-hand side of the graph (y-axis) indicates the number of requests for each asset over the specified time period. Directly below the graph (x-axis), you will find a label that indicates the file name for each of the top 10 requested assets.
 
-Под линейчатой диаграммой можно увидеть данные, используемые для создания отчета. Они включают следующую информацию о 250 самых часто запрашиваемых файлах: относительный путь, общее количество переходов, процент переходов, общий объем переданных данных (в гигабайтах) и процент переданных данных.
+The data that was used to generate the bar chart can be viewed below it. There you will find the following information for each of the top 250 requested assets: relative path, the total number of hits, the percentage of hits, the amount of data transferred (in gigabytes), and the percentage of data transferred.
 
-## Подробная сводка по файлам
+## <a name="by-file-detail"></a>By File Detail
 
-Отчет «Подробная сводка по файлам» позволяет просматривать общее количество переходов и объем переданных данных через определенную платформу для указанных ресурсов. В верхней части отчета можно выбрать файл, для которого нужно получить сведения. В этом поле отображается список самых запрашиваемых ресурсов по выбранной платформе. Чтобы создать подробную сводку по файлам, выберите нужный ресурс в поле «Сведения о файле». После этого отобразится линейчатая диаграмма с указанием ежедневного количества запросов за указанный период времени.
+The By File Detail report allows you to view the amount of demand and the traffic incurred over a particular platform for a specific asset. At the very top of this report is the File Details For option. This option provides a list of your most requested assets on the selected platform. In order to generate a By File Detail report, you will need to select the desired asset from the File Details For option. After which, a bar chart will indicate the amount of daily demand that it generated over the specified time period.
 
-В левой части диаграммы (ось y) указывается общее количество запросов ресурса за определенный день. Непосредственно под диаграммой (ось x) отображается метка с указанием даты (в формате дд-мм-гггг) поступления запросов к ресурсу из сети CDN.
+The left-hand side of the graph (y-axis) indicates the total number of requests that an asset experienced on a particular day. Directly below the graph (x-axis), you will find a label that indicates the date (Format: YYYY-MM-DD) for which CDN demand for the asset was reported.
 
-Под линейчатой диаграммой можно увидеть данные, используемые для создания отчета. Они включают общее количество переходов и объем переданных данных (в гигабайтах) за каждый день отчета.
+The data that was used to generate the bar chart can be viewed below it. There you will find the total number of hits and the amount of data transferred (in gigabytes) for each day covered by the report.
 
-## Сводка по типу файлов
+## <a name="by-file-type"></a>By File Type
 
-Отчет «Сводка по типу файлов» позволяет просматривать количество запросов и объем трафика для определенного типа файлов. После создания этого отчета кольцевой график будет отображать процент переходов для основных 10 типов файлов.
+The By File Type report allows you to view the amount of demand and the traffic incurred by file type. Upon generating this type of report, a donut chart will indicate the percentage of hits generated by the top 10 file types.
 
-> [AZURE.TIP] При наведении указателя на срез кольцевого графика отобразится всплывающая подсказка с названием MIME-типа.
+> [AZURE.TIP] If you hover over a slice in the donut chart, the Internet media type of that file type will be displayed as a tooltip.
 
-Под кольцевым графиком можно увидеть данные, используемые для создания отчета. Они включают следующую информацию о 250 самых часто используемых типах файлов: расширение файла или MIME-тип, общее количество переходов, процент переходов, общий объем переданных данных (в гигабайтах) и процент переданных данных.
+The data that was used to generate the donut chart can be viewed below it. There you will find the file name extension/Internet media type, the total number of hits, the percentage of hits, the amount of data transferred (in gigabytes), and the percentage of data transferred for each of the top 250 file types.
 
-## Сводка по каталогам
+## <a name="by-directory"></a>By Directory
 
-Отчет «Сводка по каталогам» позволяет просматривать общее количество переходов и объем переданных данных через определенную платформу для указанного каталога. После создания этого отчета линейчатая диаграмма будет отображать общее количество запросов содержимого из 10 каталогов с наибольшим трафиком.
+The By Directory report allows you to view the amount of demand and the traffic incurred over a particular platform for content from a specific directory. Upon generating this type of report, a bar chart will indicate the total number of hits generated by content in the top 10 directories.
 
-### Использование линейчатой диаграммы
+### <a name="using-the-bar-chart"></a>Using the bar chart
 
-* Наведите указатель на отрезок, чтобы увидеть относительный путь к соответствующему каталогу.
-* При расчете объема данных по каталогу содержимое из вложенных папок не учитывается. Т.е. результаты расчетов учитывают только файлы, хранящиеся непосредственно в указанном каталоге.
-* В этом отчете URL-адреса CNAME Edge преобразуются в соответствующие URL-адреса CDN. Это повышает точность всей статистики для ресурса независимо от URL-адреса CDN или CNAME Edge, используемого для доступа к файлу.
+* Hover over a bar to view the relative path to the corresponding directory.
+* Content stored in a subfolder of a directory does not count when calculating demand by directory. This calculation relies solely on the number of requests generated for content stored in the actual directory.
+* For the purposes of this report, edge CNAME URLs are converted to their equivalent CDN URLs. This allows an accurate tally for all statistics associated with an asset regardless of the CDN or edge CNAME URL used to request it.
 
-В левой части диаграммы (ось y) указывается общее количество запросов содержимого, хранящегося в 10 каталогах с наибольшим трафиком. Каждый отрезок на диаграмме соответствует одному каталогу. Для поиска определенного каталога из полного списка 250 наиболее используемых каталогов руководствуйтесь схемой цветовых оттенков.
+The left-hand side of the graph (y-axis) indicates the total number of requests for the content stored in your top 10 directories. Each bar on the chart represents a directory. Use the color-coding scheme to match up a bar to a directory listed in the Top 250 Full Directories section.
 
-Под линейчатой диаграммой можно увидеть данные, используемые для создания отчета. Они включают следующую информацию о 250 самых часто используемых каталогах: относительный путь, общее количество переходов, процент переходов, общий объем переданных данных (в гигабайтах) и процент переданных данных.
+The data that was used to generate the bar chart can be viewed below it. There you will find the following information for each of the top 250 directories: relative path, the total number of hits, the percentage of hits, the amount of data transferred (in gigabytes), and the percentage of data transferred.
 
-## Сводка по браузерам
+## <a name="by-browser"></a>By Browser
 
-Отчет «Сводка по браузерам» позволяет узнать, какие браузеры использовались при просмотре содержимого. После создания этого отчета круговая диаграмма будет отображать процент переходов для 10 основных браузеров.
+The By Browser report allows you to view which browsers were used to request content. Upon generating this type of report, a pie chart will indicate the percentage of requests handled by the top 10 browsers.
 
-### Использование круговой диаграммы
+### <a name="using-the-pie-chart"></a>Using the pie chart
 
-* Наведите указатель мыши на срез круговой диаграммы, чтобы увидеть название и версию браузера.
-* В этом отчете каждая комбинация браузера и его версии считается отдельным браузером.
-* Срез с названием «Другие» показывает процент запросов, обработанных другими браузерами или другими версиями браузеров.
+* Hover over a slice in the pie chart to view a browser's name and version.
+* For the purposes of this report, each unique browser/version combination is considered a different browser.
+* The slice called "Other" indicates the percentage of requests handled by all other browsers and versions.
 
-Под круговой диаграммой можно увидеть данные, используемые для создания отчета. Они включают тип и версию браузера, общее количество переходов и процент переходов для 250 самых популярных браузеров.
+The data that was used to generate the pie chart can be viewed below it. There you will find the browser type/version number, the total number of hits and the percentage of hits for each of the top 250 browsers.
 
-## Сводка по источникам ссылок
+## <a name="by-referrer"></a>By Referrer
 
-Отчет «Сводка по источникам ссылок» позволяет просматривать самые популярные источники ссылок на содержимое для выбранной платформы. Источник ссылок – это имя узла, который создал запрос. После создания этого отчета линейчатая диаграмма будет отображать количество переходов для 10 основных источников ссылок.
+The By Referrer report allows you to view the top referrers to content on the selected platform. A referrer indicates the hostname from which a request was generated. Upon generating this type of report, a bar chart will indicate the amount of demand (i.e., hits) generated by the top 10 referrers.
 
-В левой части диаграммы (ось y) указывается общее количество запросов ресурса для каждого источника ссылок. Каждый отрезок на диаграмме соответствует одному источнику ссылок. Для поиска определенного источника ссылок в полном списке 250 основных источников ссылок руководствуйтесь схемой цветовых оттенков.
+The left-hand side of the graph (y-axis) indicates the total number of requests that an asset experienced for each referrer. Each bar on the chart represents a referrer. Use the color-coding scheme to match up a bar to a referrer listed in the Top 250 Referrer section.
 
-Под линейчатой диаграммой можно увидеть данные, используемые для создания отчета. Они включают URL-адрес, общее количество переходов и процент переходов для 250 основных источников ссылок.
+The data that was used to generate the bar chart can be viewed below it. There you will find the URL, the total number of hits, and the percentage of hits generated from each of the top 250 referrers.
 
-## Сводка по загрузкам
+## <a name="by-download"></a>By Download
 
-Отчет «Сводка по загрузкам» позволяет анализировать шаблоны загрузки вашего самого популярного содержимого. В верхней части отчета представлена линейчатая диаграмма, на которой сравниваются попытки загрузки и завершенные загрузки для 10 самых востребованных ресурсов. В зависимости от типа загрузки отрезки имеют разные цвета. Попытки загрузки обозначаются синим, а завершенные загрузки – зеленым цветом.
+The By Download report allows you to analyze download patterns for your most requested content. The top of the report contains a bar chart that compares attempted downloads with completed downloads for the top 10 requested assets. Each bar is color-coded according to whether it is an attempted download (blue) or a completed download (green).
 
-> [AZURE.NOTE] В этом отчете URL-адреса CNAME Edge преобразуются в соответствующие URL-адреса CDN. Это повышает точность всей статистики для ресурса независимо от URL-адреса CDN или CNAME Edge, используемого для доступа к файлу.
+> [AZURE.NOTE] For the purposes of this report, edge CNAME URLs are converted to their equivalent CDN URLs. This allows an accurate tally for all statistics associated with an asset regardless of the CDN or edge CNAME URL used to request it.
 
-В левой части диаграммы (ось y) указывается имя файла из списка 10 основных ресурсов. Непосредственно под диаграммой (ось x) приводятся метки с указанием общего количества попыток загрузки и завершенных загрузок.
+The left-hand side of the graph (y-axis) indicates the file name for each of the top 10 requested assets. Directly below the graph (x-axis), you will find labels that indicate the total number of attempted/completed downloads.
 
-Непосредственно под диаграммой приводятся следующие сведения для 250 основных ресурсов: относительный путь (включая имя файла), количество завершенных загрузок, количество запросов загрузки и процент запросов, завершившихся успешной загрузкой.
+Directly below the bar chart, the following information will be listed for the top 250 requested assets: relative path (including file name), the number of times that it was downloaded to completion, the number of times that it was requested, and the percentage of requests that resulted in a complete download.
 
-> [AZURE.TIP] Наша сеть CDN не получает от HTTP-клиентов (т. е. браузеров) информацию о полном завершении загрузки. Поэтому оценка полной загрузки ресурса выполняется согласно кодам состояния и запросам диапазона байтов. При оценке мы в первую очередь проверяем код состояния. Должен быть возвращен код «200 OK». Если этот код возвращен, мы обращаемся к запросам диапазонов байтов и убеждаемся, что они охватывают весь объем ресурса. В конце мы сравниваем объем переданных данных с размером ресурса. Если объем переданных данных равен размеру файла или превышает его, а запросы диапазонов байтов соответствуют этому ресурсу, то переход считается завершенной загрузкой.
+> [AZURE.TIP] Our CDN is not informed by an HTTP client (i.e. browser) when an asset has been completely downloaded. As a result, we have to calculate whether an asset has been completely downloaded according to status codes and byte-range requests. The first thing we look for when making this calculation is whether the request results in a 200 OK status code. If so, then we look at byte-range requests to ensure that they cover the entire asset. Finally, we compare the amount of data transferred to the size of the requested asset. If the data transferred is equal to or greater than the file size and the byte-range requests are appropriate for that asset, then the hit will be counted as a complete download.
 >
->Так как этот отчет является интерпретационным, вы должны учитывать следующие моменты, которые могут влиять на целостность и точность этого отчета.
+>Due to the interpretive nature of this report, you should keep in mind the following points that may alter the consistency and accuracy of this report.
 >
->* Из-за разного поведения пользовательских клиентов невозможно точно предсказать шаблоны потока трафика. В результате для завершенной загрузки можно получить значение, которое превышает 100 %.
->* Если ресурс загружался через HTTP, этот отчет не сможет точно отобразить состояние загрузки. Это связано с тем, что пользователи могут в любой момент перематывать видео.
+>* Traffic patterns cannot be accurately predicted when user-agents behave differently. This may produce completed download results that are greater than 100%.
+>* Assets that take advantage of HTTP Progressive Download may not be accurately represented by this report. This is due to users seeking to different positions in a video.
 
-## Сводка по ошибкам 404
+## <a name="by-404-errors"></a>By 404 Errors
 
-Отчет «Сводка по ошибкам 404» позволяет определить тип содержимого, который чаще всего приводит к возникновению ошибки «404 не найдено». В верхней части отчета находится линейчатая диаграмма с 10 ресурсами, для которых чаще всего возвращается код ошибки «404 не найдено». На этой линейчатой диаграмме сравнивается общее количество запросов с количеством запросов, вернувших ошибку «404 не найдено» для этих ресурсов. Каждый отрезок имеет свой цвет. Желтый цвет указывает, что была возвращена ошибка «404 не найдено». Красный отрезок указывает общее количество запросов для этого ресурса.
+The By 404 Errors report allows you to identify the type of content that generates the most number of 404 Not Found status codes. The top of the report contains a bar chart for the top 10 assets for which a 404 Not Found status code was returned. This bar chart compares the total number of requests with requests that resulted in a 404 Not Found status code for those assets. Each bar is color-coded. A yellow bar is used to indicate that the request resulted in a 404 Not Found status code. A red bar is used to indicate the total number of requests for the asset.
 
-> [AZURE.NOTE] Замечания к этому отчету.
+> [AZURE.NOTE] For the purposes of this report, note the following:
 >
->* Переход означает любой запрос ресурса, независимо от кода состояния.
->* URL-адреса CNAME Edge преобразуются в соответствующие URL-адреса CDN. Это повышает точность всей статистики для ресурса независимо от URL-адреса CDN или CNAME Edge, используемого для доступа к файлу.
+>* A hit represents any request for an asset regardless of status code.
+>* Edge CNAME URLs are converted to their equivalent CDN URLs. This allows an accurate tally for all statistics associated with an asset regardless of the CDN or edge CNAME URL used to request it.
 
-В левой части диаграммы (ось y) указывается имя файла из списка 10 основных ресурсов, которые чаще всего приводят к ошибке «404 не найдено». Непосредственно под диаграммой (ось x) приведены метки с указанием общего количества запросов и количества запросов, вернувших ошибку «404 не найдено».
+The left-hand side of the graph (y-axis) indicates the file name for each of the top 10 requested assets that resulted in a 404 Not Found status code. Directly below the graph (x-axis), you will find labels that indicate the total number of requests and the number of requests that resulted in a 404 Not Found status code.
 
-Непосредственно под диаграммой приводятся следующие сведения для 250 основных ресурсов: относительный путь (включая имя файла), количество запросов, завершившихся ошибкой «404 не найдено», количество запросов ресурса и процент запросов, завершившихся ошибкой «404 не найдено».
+Directly below the bar chart, the following information will be listed for the top 250 requested assets: relative path (including file name), the number of requests that resulted in a 404 Not Found status code, the total number of times that the asset was requested, and the percentage of requests that resulted in a 404 Not Found status code.
 
-## См. также
-* [Обзор Azure CDN](cdn-overview.md)
-* [Статистика сети CDN Microsoft Azure в режиме реального времени](cdn-real-time-stats.md)
-* [Переопределение стандартного поведения через HTTP с помощью обработчика правил](cdn-rules-engine.md)
-* [Анализ производительности Edge](cdn-edge-performance.md)
+## <a name="see-also"></a>See also
+* [Azure CDN Overview](cdn-overview.md)
+* [Real-time stats in Microsoft Azure CDN](cdn-real-time-stats.md)
+* [Overriding default HTTP behavior using the rules engine](cdn-rules-engine.md)
+* [Analyze Edge Performance](cdn-edge-performance.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

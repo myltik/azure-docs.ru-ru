@@ -1,76 +1,83 @@
 <properties
-	pageTitle="О дисках и виртуальных жестких дисках для виртуальных машин Linux | Microsoft Azure"
-	description="Информация об основах использования дисков и виртуальных жестких дисков для виртуальных машин Linux в Azure."
-	services="virtual-machines-linux"
-	documentationCenter=""
-	authors="cynthn"
-	manager="timlt"
-	editor="tysonn"
-	tags="azure-resource-manager,azure-service-management"/>
+    pageTitle="About disks and VHDs for Linux VMs | Microsoft Azure"
+    description="Learn about the basics of disks and VHDs for Linux virtual machines in Azure."
+    services="virtual-machines-linux"
+    documentationCenter=""
+    authors="cynthn"
+    manager="timlt"
+    editor="tysonn"
+    tags="azure-resource-manager,azure-service-management"/>
 
 <tags
-	ms.service="virtual-machines-linux"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-linux"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="06/16/2016"
-	ms.author="cynthn"/>
+    ms.service="virtual-machines-linux"
+    ms.workload="infrastructure-services"
+    ms.tgt_pltfrm="vm-linux"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="06/16/2016"
+    ms.author="cynthn"/>
 
-# О дисках и виртуальных жестких дисках для виртуальных машин Azure
 
-Как и любой другой компьютер, виртуальные машины в Azure используют диски как место хранения операционной системы, приложений и данных. Все виртуальные машины Azure имеют по крайней мере два диска — диск операционной системы Linux (в случае виртуальной машины Linux) и временный диск. Диск операционной системы создается из образа, а диск операционной системы и образ в действительности являются виртуальными жесткими дисками (VHD), расположенными в учетной записи хранения Azure. Кроме того, виртуальные машины могут иметь один или несколько дисков данных, которые также хранятся на виртуальных жестких дисках. Также доступна версия этой статьи для [виртуальных машин Windows](virtual-machines-windows-about-disks-vhds.md).
+# <a name="about-disks-and-vhds-for-azure-virtual-machines"></a>About disks and VHDs for Azure virtual machines
+
+Just like any other computer, virtual machines in Azure use disks as a place to store an operating system, applications, and data. All Azure virtual machines have at least two disks – a Linux operating system disk (in the case of a Linux VM) and a temporary disk. The operating system disk is created from an image, and both the operating system disk and the image are actually virtual hard disks (VHDs) stored in an Azure storage account. Virtual machines also can have one or more data disks, that are also stored as VHDs. This article is also available for [Windows virtual machines](virtual-machines-windows-about-disks-vhds.md).
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
-> [AZURE.NOTE] Если у вас есть несколько минут, помогите нам улучшить качество документации по виртуальным машинам Linux в Azure, поделившись своими впечатлениями в этом [быстром опросе](https://aka.ms/linuxdocsurvey). Каждый ваш ответ помогает нам совершенствовать средства, необходимые вам для работы.
+> [AZURE.NOTE] If you have a few moments, please help us to improve the Azure Linux VM documentation by taking this [quick survey](https://aka.ms/linuxdocsurvey) of your experiences. Every answer helps us help you get your work done.
 
-## Диск операционной системы
+## <a name="operating-system-disk"></a>Operating system disk
 
-У каждой виртуальной машины есть один подключенный диск операционной системы. Он зарегистрирован как диск SATA и обозначается буквой C: по умолчанию. Максимальная емкость этого диска составляет 1023 гигабайта (ГБ).
+Every virtual machine has one attached operating system disk. It’s registered as a SATA drive and labeled as the C: drive by default. This disk has a maximum capacity of 1023 gigabytes (GB). 
 
-##Временный диск
+##<a name="temporary-disk"></a>Temporary disk
 
-Временный диск создается автоматически. На виртуальных машинах Linux этот диск обычно является диском /dev/sdb, а форматируется и монтируется в /mnt/resource агентом Linux для Azure.
+The temporary disk is automatically created for you. On Linux virtual machines, the disk is typically /dev/sdb and is formatted and mounted to /mnt/resource by the Azure Linux Agent.
 
-Размер временного диска зависит от размера виртуальной машины. Чтобы узнать больше, ознакомьтесь с [размерами виртуальных машин Linux](virtual-machines-linux-sizes.md).
+The size of the temporary disk varies, based on the size of the virtual machine. For more information, see [Sizes for Linux virtual machines](virtual-machines-linux-sizes.md).
 
->[AZURE.WARNING] Мы советуем не хранить данные на временном диске. Он обеспечивает временное хранилище для приложений и процессов и предназначен только для хранения данных, таких как файлы подкачки.
+>[AZURE.WARNING] Don’t store data on the temporary disk. It provides temporary storage for applications and processes and is intended to only store data such as page or swap files. 
 
-Дополнительные сведения об использовании временного диска в Azure см. в статье [Understanding the temporary drive on Microsoft Azure Virtual Machines](https://blogs.msdn.microsoft.com/mast/2013/12/06/understanding-the-temporary-drive-on-windows-azure-virtual-machines/) (Общие сведения о временном диске на виртуальных машинах Microsoft Azure).
+For more information on how Azure uses the temporary disk, see [Understanding the temporary drive on Microsoft Azure Virtual Machines](https://blogs.msdn.microsoft.com/mast/2013/12/06/understanding-the-temporary-drive-on-windows-azure-virtual-machines/)
 
-## Диск данных
+## <a name="data-disk"></a>Data disk
 
-Диск данных — виртуальный жесткий диск, подключенный к виртуальной машине для хранения данных приложений или других необходимых данных. Диски данных регистрируются как диски SCSI и обозначаются любой указанной буквой. Максимальная емкость каждого диска составляет 1023 ГБ. Размер виртуальной машины определяет, сколько дисков данных можно подключить и какой тип хранилища можно использовать для размещения дисков.
+A data disk is a VHD that’s attached to a virtual machine to store application data, or other data you need to keep. Data disks are registered as SCSI drives and are labeled with a letter that you choose.  Each data disk has a maximum capacity of 1023 GB. The size of the virtual machine determines how many data disks you can attach to it and the type of storage you can use to host the disks.
 
->[AZURE.NOTE] Чтобы узнать больше о емкости виртуальных машин, ознакомьтесь с [размерами виртуальных машин Linux](virtual-machines-linux-sizes.md).
+>[AZURE.NOTE] For more details about virtual machines capacities, see [Sizes for Linux virtual machines](virtual-machines-linux-sizes.md).
 
-Azure создает диск операционной системы при создании виртуальной машины из образа. Если используется образ, включающий диски данных, при создании виртуальной машины Azure также создает диски данных. В противном случае диски данных добавляются после создания виртуальной машины.
+Azure creates an operating system disk when you create a virtual machine from an image. If you use an image that includes data disks, Azure also creates the data disks when it creates the virtual machine. Otherwise, you add data disks after you create the virtual machine.
 
-Диски данных можно добавить в виртуальную машину в любое время, **подключив** их к ней. Можно использовать виртуальный жесткий диск, отправленный или скопированный в учетную запись хранения или созданный Azure. При подключении диска данных VHD-файл из учетной записи хранения связывается с виртуальной машиной за счет установления аренды на VHD, поэтому его нельзя удалить из хранилища, пока он подключен.
+You can add data disks to a virtual machine at any time, by **attaching** the disk to the virtual machine. You can use a VHD that you’ve uploaded or copied to your storage account, or one that Azure creates for you. Attaching a data disk associates the VHD file from your storage account with the virtual machine, by placing a ‘lease’ on the VHD so it can’t be deleted from storage while it’s still attached.
 
-## О виртуальных жестких дисках
+## <a name="about-vhds"></a>About VHDs
 
-Виртуальные жесткие диски, используемые в Azure, представляют собой VHD-файлы, хранящиеся как страничные BLOB-объекты в учетной записи хранения Azure (Standard или Premium). Дополнительную информацию о страничных BLOB-объектах см. в разделе [Общая информация о блочных и страничных BLOB-объектах](https://msdn.microsoft.com/library/ee691964.aspx). Дополнительную информацию о хранилище класса Premium можно узнать в статье [Хранилище Premium: высокопроизводительное хранилище для рабочих нагрузок виртуальных машин Azure](../storage/storage-premium-storage.md).
+The VHDs used in Azure are .vhd files stored as page blobs in a standard or premium storage account in Azure. For details about page blobs, see [Understanding block blobs and page blobs](https://msdn.microsoft.com/library/ee691964.aspx). For details about premium storage, see [Premium storage: High-performance storage for Azure virtual machine workloads](../storage/storage-premium-storage.md).
 
-Azure поддерживает диски фиксированного размера в формате VHD. Фиксированный формат размещает логический диск в файле линейно, то есть смещение диска X хранится в смещении BLOB-объекта X. Небольшая сноска в конце BLOB-объекта описывает свойства VHD-файла. Часто фиксированный формат занимает лишнее пространство, поскольку в большинстве дисков есть большие неиспользуемые диапазоны. Однако в Azure VHD-файлы хранятся в разреженном формате. Это позволяет одновременно использовать преимущества и фиксированных, и динамически изменяемых дисков. Дополнительную информацию см. в статье [Начало работы с виртуальными жесткими дисками](https://technet.microsoft.com/library/dd979539.aspx).
+Azure supports the fixed disk VHD format. The fixed format lays the logical disk out linearly within the file, so that disk offset X is stored at blob offset X. A small footer at the end of the blob describes the properties of the VHD. Often, the fixed format wastes space because most disks have large unused ranges in them. However, Azure stores .vhd files in a sparse format, so you receive the benefits of both the fixed and dynamic disks at the same time. For more details, see [Getting started with virtual hard disks](https://technet.microsoft.com/library/dd979539.aspx).
 
-Все VHD-файлы в Azure, которые следует использовать в качестве источника создания диска или образа, доступны только для чтения. При создании диска или образа Azure создает копии VHD-файлов. Эти копии могут быть доступны только для чтения или для чтения и записи, в зависимости от того, как используется виртуальный жесткий диск.
+All .vhd files in Azure that you want to use as a source to create disks or images are read-only. When you create a disk or image, Azure makes copies of the .vhd files. These copies can be read-only or read-and-write, depending on how you use the VHD.
 
-При создании виртуальной машины из образа Azure создает диск для виртуальной машины, которая является копией исходного VHD-файла. Для защиты от случайного удаления Azure назначает аренду на любой VHD-файл, используемый при создании образа, диска ОС или диска данных.
+When you create a virtual machine from an image, Azure creates a disk for the virtual machine that is a copy of the source .vhd file. To protect against accidental deletion, Azure places a lease on any source .vhd file that’s used to create an image, an operating system disk, or a data disk.
 
-Перед тем как удалить исходный VHD-файл, необходимо снять аренду, удалив диск или образ. Чтобы удалить VHD-файл, который используется виртуальной машиной как диск ОС, можно удалить виртуальную машину, диск ОС и исходный VHD-файл одним действием, удалив виртуальную машину и все связанные с ней диски. Однако, чтобы удалить VHD-файл, используемый в качестве источника для диска данных, необходимо выполнить несколько действий в заданном порядке: отключить диск от виртуальной машины, удалить диск, а затем удалить VHD-файл.
+Before you can delete a source .vhd file, you’ll need to remove the lease by deleting the disk or image. To delete a .vhd file that is being used by a virtual machine as an operating system disk, you can delete the virtual machine, the operating system disk, and the source .vhd file all at once by deleting the virtual machine and deleting all associated disks. However, deleting a .vhd file that’s a source for a data disk requires several steps in a set order -- detach the disk from the virtual machine, delete the disk, and then delete the .vhd file.
 
->[AZURE.WARNING] Если удалить исходный VHD-файл из хранилища или удалить учетную запись хранения, корпорация Майкрософт не сможет восстановить эти данные.
+>[AZURE.WARNING] If you delete a source .vhd file from storage, or delete your storage account, Microsoft can't recover that data for you.
 
 
-## Устранение неполадок
+## <a name="troubleshooting"></a>Troubleshooting
 [AZURE.INCLUDE [virtual-machines-linux-lunzero](../../includes/virtual-machines-linux-lunzero.md)]
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Next steps
 
--  [Подключите диск](virtual-machines-linux-add-disk.md), чтобы увеличить емкость хранилища для виртуальной машины.
--  [Настройте программный RAID](virtual-machines-linux-configure-raid.md), чтобы обеспечить избыточность.
--  [Запишите образ виртуальной машины Linux](virtual-machines-linux-classic-capture-image.md), чтобы иметь возможность быстро развернуть дополнительные виртуальные машины.
+-  [Attach a disk](virtual-machines-linux-add-disk.md) to add additional storage for your VM.
+-  [Configure software RAID](virtual-machines-linux-configure-raid.md) for redundancy.
+-  [Capture a Linux virtual machine](virtual-machines-linux-classic-capture-image.md) so you can quickly deploy additional VMs.
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

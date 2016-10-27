@@ -1,77 +1,82 @@
 <properties
-	pageTitle="Обзор масштабирования обработка мультимедиа | Microsoft Azure"
-	description="В этом разделе рассматривается масштабирование обработки мультимедиа с помощью служб мультимедиа Azure."
-	services="media-services"
-	documentationCenter=""
-	authors="juliako"
-	manager="erikre"
-	editor=""/>
+    pageTitle="Scaling Media Processing overview | Microsoft Azure"
+    description="This topic is an overview of scaling Media Processing with Azure Media Services."
+    services="media-services"
+    documentationCenter=""
+    authors="juliako"
+    manager="erikre"
+    editor=""/>
 
 <tags
-	ms.service="media-services"
-	ms.workload="media"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/29/2016"
-	ms.author="juliako"/>
+    ms.service="media-services"
+    ms.workload="media"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="08/29/2016"
+    ms.author="juliako"/>
 
 
-# Обзор масштабирования обработка мультимедиа
 
-На этой странице описывается, как и для чего можно масштабировать обработку мультимедиа.
+# <a name="scaling-media-processing-overview"></a>Scaling Media Processing overview
 
-## Обзор
+This page gives an overview of how and why to scale media processing. 
 
-Учетная запись служб мультимедиа связана с типом зарезервированных единиц, который определяет скорость обработки задач обработки мультимедиа. Вы можете выбрать один из следующих типов зарезервированных единиц: **S1**, **S2** или **S3**. Например, задание по кодированию выполняется быстрее при выборе типа зарезервированной единицы **S2** по сравнению с типом **S1**. Дополнительные сведения см. в статье [Типы зарезервированных единиц](https://azure.microsoft.com/blog/high-speed-encoding-with-azure-media-services/).
+## <a name="overview"></a>Overview
 
-Помимо указания типа зарезервированных единиц, можно также указать параметр, позволяющий использовать зарезервированные единицы при подготовке учетной записи. Количеством подготовленных зарезервированных единиц определяется количество задач мультимедиа, которые могут одновременно обрабатываться в данной учетной записи. Например, если в учетной записи имеется пять зарезервированных единиц, то будет запущено пять одновременно выполняемых задач мультимедиа, если имеются задачи, которые требуется обработать. Остальные задачи будут ожидать в очереди, они будут последовательно отбираться для обработки после завершения выполнения текущей задачи. Если учетная запись не имеет подготовленных зарезервированных единиц, задачи будут отбираться последовательно. В этом случае время ожидания между завершением одной задачи и началом выполнения следующей будет зависеть от доступности ресурсов в системе.
+A Media Services account is associated with a Reserved Unit Type, which determines the speed with which your media processing tasks are processed. You can pick between the following reserved unit types: **S1**, **S2**, or **S3**. For example, the same encoding job runs faster when you use the **S2** reserved unit type compare to the **S1** type. For more information, see the [Reserved Unit Types](https://azure.microsoft.com/blog/high-speed-encoding-with-azure-media-services/).
 
-## Выбор между разными типами зарезервированных единиц
+In addition to specifying the reserved unit type, you can specify to provision your account with reserved units. The number of provisioned reserved units determines the number of media tasks that can be processed concurrently in a given account. For example, if your account has five reserved units, then five media tasks will be running concurrently as long as there are tasks to be processed. The remaining tasks will wait in the queue and will get picked up for processing sequentially when a running task finishes. If an account does not have any reserved units provisioned, then tasks will be picked up sequentially. In this case, the wait time between one task finishing and the next one starting will depend on the availability of resources in the system.
 
-Следующая таблица помогает принять решение при выборе между разными скоростями кодирования. Она также предоставляет несколько вариантов тестирования и URL-адреса SAS, на которые можно загружать видеоролики для выполнения собственного тестирования:
+## <a name="choosing-between-different-reserved-unit-types"></a>Choosing between different reserved unit types
 
-Сценарии|**S1**|**S2**|**S3**|
+The following table helps you make decision when choosing between different encoding speeds. It also provides a few benchmark cases and provides SAS URLs that you can use to download videos on which you can perform your own tests:
+
+Scenarios|**S1**|**S2**|**S3**|
 ----------|------------|----------|------------
-Предполагаемый вариант использования| Односкоростное кодирование. <br/> Файлы с разрешением SD или ниже, без учета времени, низкие затраты.|Односкоростное и многоскоростное кодирование.<br/> Обычное использование для кодирования SD и HD. |Односкоростное и многоскоростное кодирование.<br/> Видеоролики с разрешением Full HD и 4К. С учетом времени, более быстрое полное кодирование. 
-Тест производительности|[Входной файл: длиной 5 минут, 640x360p, 29,97 кадра в секунду](https://wamspartners.blob.core.windows.net/for-long-term-share/Whistler_5min_360p30.mp4?sr=c&si=AzureDotComReadOnly&sig=OY0TZ%2BP2jLK7vmcQsCTAWl33GIVCu67I02pgarkCTNw%3D).<br/><br/> Кодирование в односкоростной MP4-файл с тем же разрешением занимает приблизительно 11 минут.|[Входной файл: длительность 5 минут, 1280x720p, 29,97 кадра в секунду](https://wamspartners.blob.core.windows.net/for-long-term-share/Whistler_5min_720p30.mp4?sr=c&si=AzureDotComReadOnly&sig=OY0TZ%2BP2jLK7vmcQsCTAWl33GIVCu67I02pgarkCTNw%3D). <br/><br/> Кодирование с предустановкой "H264 Single Bitrate 720p" займет приблизительно 5 минут. <br/><br/> Кодирование с предустановкой "H264 Multiple Bitrate 720p" займет приблизительно 11,5 минуты.|[Входной файл: длительность 5 минут, 1920x1080p, 29,97 кадра в секунду](https://wamspartners.blob.core.windows.net/for-long-term-share/Whistler_5min_1080p30.mp4?sr=c&si=AzureDotComReadOnly&sig=OY0TZ%2BP2jLK7vmcQsCTAWl33GIVCu67I02pgarkCTNw%3D). <br/><br/> Кодирование с предустановкой "Односкоростной H264, 1080p" займет приблизительно 2,7 минуты. <br/><br/> Кодирование с предустановкой "Многоскоростной H264, 1080p" займет приблизительно 5,7 минуты.
+Intended use case| Single bitrate encoding. <br/>Files at SD or below resolutions, not time sensitive, low cost.|Single bitrate and multiple bitrate encoding.<br/>Normal usage for both SD and HD encoding. |Single bitrate and multiple bitrate encoding.<br/>Full HD and 4K resolution videos. Time sensitive, faster turnaround encoding. 
+Benchmark|[Input file: 5 minutes long 640x360p at 29.97 frames/second](https://wamspartners.blob.core.windows.net/for-long-term-share/Whistler_5min_360p30.mp4?sr=c&si=AzureDotComReadOnly&sig=OY0TZ%2BP2jLK7vmcQsCTAWl33GIVCu67I02pgarkCTNw%3D).<br/><br/>Encoding to a single bitrate MP4 file, at the same resolution, takes approximately 11 minutes.|[Input file: 5 minutes long 1280x720p at 29.97 frames/second](https://wamspartners.blob.core.windows.net/for-long-term-share/Whistler_5min_720p30.mp4?sr=c&si=AzureDotComReadOnly&sig=OY0TZ%2BP2jLK7vmcQsCTAWl33GIVCu67I02pgarkCTNw%3D)<br/><br/>Encoding with "H264 Single Bitrate 720p" preset takes approximately 5 minutes.<br/><br/>Encoding with "H264 Multiple Bitrate 720p" preset takes approximately 11.5 minutes.|[Input file: 5 minutes long 1920x1080p at 29.97 frames/second](https://wamspartners.blob.core.windows.net/for-long-term-share/Whistler_5min_1080p30.mp4?sr=c&si=AzureDotComReadOnly&sig=OY0TZ%2BP2jLK7vmcQsCTAWl33GIVCu67I02pgarkCTNw%3D). <br/><br/>Encoding with "H264 Single Bitrate 1080p" preset takes approximately 2.7 minutes.<br/><br/>Encoding with "H264 Multiple Bitrate 1080p" preset takes approximately 5.7 minutes.
 
-##Рекомендации
+##<a name="considerations"></a>Considerations
 
->[AZURE.IMPORTANT] Просмотрите рекомендации, приведенные в этом разделе.
+>[AZURE.IMPORTANT] Review considerations described in this section.  
 
-- Зарезервированные единицы работают для параллелизации всей обработки мультимедиа, включая задания индексирования с использованием индексатора мультимедийных данных Azure. Однако в отличие от кодировки, задания индексирования не будут обрабатываться быстрее при использовании более производительных зарезервированных единиц.
+- Reserved Units work for parallelizing all media processing, including indexing jobs using Azure Media Indexer.  However, unlike encoding, indexing jobs do not get processed faster with faster reserved units.
 
-- При использовании общего пула, т. е. без зарезервированных единиц, задачи кодирования будут иметь такую же производительность, что и с зарезервированными единицами S1. Однако время, которое задачи могут находиться в очереди, не ограничено, и в каждый момент времени будет выполняться не более чем одна задача.
+- If using the shared pool, that is, without any reserved units, then your encode tasks have the same performance as with S1 RUs. However, there is no upper bound to the time your Tasks can spend in queued state, and at any given time, at most one Task is be running.
 
-- Следующие центры обработки данных не предлагают тип **S2** зарезервированных единиц: Южная Бразилия, Западная Индия, Центральная Индия и Южная Индия.
+- The following data centers do not offer the **S2** reserved unit type: Brazil South, India West, India Central, and India South.
 
-- Следующие центры обработки данных не предлагают тип **S3** зарезервированных единиц: Южная Бразилия, Западная Индия и Центральная Индия.
+- The following data centers do not offer the **S3** reserved unit type: Brazil South, India West, India Central.
 
-- Для расчета затрат используется наибольшее число единиц, указанных для 24-часового периода.
+- The highest number of units specified for the 24-hour period is used in calculating the cost.
 
 
-##Квоты и ограничения
+##<a name="quotas-and-limitations"></a>Quotas and limitations
 
-Информацию о квотах и ограничениях, а также об открытии запроса в службу поддержки см. в разделе [Квоты и ограничения](media-services-quotas-and-limitations.md).
+For information about quotas and limitations and how to open a support ticket, see [Quotas and limitations](media-services-quotas-and-limitations.md).
 
-##Дальнейшие действия
+##<a name="next-step"></a>Next step
 
-Выполните задачу масштабирования обработки мультимедиа с помощью одной из следующих технологий:
+Achieve the scaling media processing task with one of these technologies: 
 
 > [AZURE.SELECTOR]
 - [.NET](media-services-dotnet-encoding-units.md)
-- [Портал](media-services-portal-scale-media-processing.md)
+- [Portal](media-services-portal-scale-media-processing.md)
 - [REST](https://msdn.microsoft.com/library/azure/dn859236.aspx)
 - [Java](https://github.com/southworkscom/azure-sdk-for-media-services-java-samples)
 - [PHP](https://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices)
 
-##Схемы обучения работе со службами мультимедиа
+##<a name="media-services-learning-paths"></a>Media Services learning paths
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-##Отзывы
+##<a name="provide-feedback"></a>Provide feedback
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0907_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

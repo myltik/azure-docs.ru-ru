@@ -1,79 +1,81 @@
-## Виртуальная сеть
-Ресурсы виртуальных сетей (VNET) и подсетей позволяют определить периметр безопасности для рабочих нагрузок, выполняемых в Azure. Виртуальная сеть характеризуется набором адресных пространств, которые также называются блоками CIDR.
+## <a name="virtual-network"></a>Virtual Network
+Virtual Networks (VNET) and subnets resources help define a security boundary for workloads running in Azure. A VNet is characterized by a collection of address spaces, defined as CIDR blocks. 
 
->[AZURE.NOTE] Сетевым администраторам знакомы нотации CIDR. Если вы не знакомы с методом CIDR, [узнайте больше о нем](http://whatismyipaddress.com/cidr).
+>[AZURE.NOTE] Network administrators are familiar with CIDR notation. If you are not familiar with CIDR, [learn more about it](http://whatismyipaddress.com/cidr).
 
-![Виртуальная сеть с несколькими подсетями](./media/resource-groups-networking/Figure4.png)
+![VNet with multiple subnets](./media/resource-groups-networking/Figure4.png)
 
-У виртуальных сетей есть следующие свойства.
+VNets contain the following properties.
 
-|Свойство|Описание|Примеры значений|
+|Property|Description|Sample values|
 |---|---|---|
-|**addressSpace**|Коллекция префиксов адресов, составляющих виртуальную сеть в нотации CIDR.|192\.168.0.0/16|
-|**Подсети**|Коллекция подсетей, составляющих виртуальную сеть.|См. раздел [Подсети](#Subnets) ниже.|
-|**ipAddress**|IP-адрес, назначенный объекту. Это свойство доступно только для чтения.|104\.42.233.77|
+|**addressSpace**|Collection of address prefixes that make up the VNet in CIDR notation|192.168.0.0/16|
+|**subnets**|Collection of subnets that make up the VNet|see [subnets](#Subnets) below.|
+|**ipAddress**|IP address assigned to object. This is a read-only property.|104.42.233.77|
 
-### Подсети
-Подсеть является дочерним ресурсом виртуальной сети, который помогает определить сегменты адресных пространств в пределах блока CIDR на основе префиксов IP-адресов. Сетевые карты можно добавлять в подсети и подключать к виртуальным машинам, обеспечивая сетевые подключения для различных рабочих нагрузок.
+### <a name="subnets"></a>Subnets
+A subnet is a child resource of a VNet, and helps define segments of address spaces within a CIDR block, using IP address prefixes. NICs can be added to subnets, and connected to VMs, providing connectivity for various workloads.
 
-У подсетей есть следующие свойства.
+Subnets contain the following properties. 
 
-|Свойство|Описание|Примеры значений|
+|Property|Description|Sample values|
 |---|---|---|
-|**addressPrefix**|Одноадресный префикс, определяющий подсеть в нотации CIDR.|192\.168.1.0/24|
-|**networkSecurityGroup**|Группа безопасности сети для подсети.|См. раздел [Группы безопасности сети](#Network-Security-Group).|
-|**routeTable**|Таблица маршрутизации подсети.|См. раздел [Определяемый пользователем маршрут](#Route-table).|
-|**ipConfigurations**|Коллекция объектов конфигурации IP, используемых сетевыми картами, подключенными к подсети.|См. раздел [Определяемый пользователем маршрут](#Route-table).|
+|**addressPrefix**|Single address prefix that make up the subnet in CIDR notation|192.168.1.0/24|
+|**networkSecurityGroup**|NSG applied to the subnet|see [NSGs](#Network-Security-Group)|
+|**routeTable**|Route table applied to the subnet|see [UDR](#Route-table)|
+|**ipConfigurations**|Collection of IP configruation objects used by NICs connected to the subnet|see [UDR](#Route-table)|
 
 
-Пример виртуальной сети в формате JSON:
+Sample VNet in JSON format:
 
-	{
-	    "name": "TestVNet",
-	    "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet",
-	    "etag": "W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"",
-	    "type": "Microsoft.Network/virtualNetworks",
-	    "location": "westus",
-	    "tags": {
-	        "displayName": "VNet"
-	    },
-	    "properties": {
-	        "provisioningState": "Succeeded",
-	        "resourceGuid": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-	        "addressSpace": {
-	            "addressPrefixes": [
-	                "192.168.0.0/16"
-	            ]
-	        },
-	        "subnets": [
-	            {
-	                "name": "FrontEnd",
-	                "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/FrontEnd",
-	                "etag": "W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"",
-	                "properties": {
-	                    "provisioningState": "Succeeded",
-	                    "addressPrefix": "192.168.1.0/24",
-	                    "networkSecurityGroup": {
-	                        "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/networkSecurityGroups/NSG-BackEnd"
-	                    },
-	                    "routeTable": {
-	                        "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/routeTables/UDR-FrontEnd"
-	                    },
-	                    "ipConfigurations": [
-	                        {
-	                            "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/networkInterfaces/NICWEB1/ipConfigurations/ipconfig1"
-	                        },
-	                        ...]
-	                }
-	            },
-	            ...]
-	    }
-	}
+    {
+        "name": "TestVNet",
+        "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet",
+        "etag": "W/\"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx\"",
+        "type": "Microsoft.Network/virtualNetworks",
+        "location": "westus",
+        "tags": {
+            "displayName": "VNet"
+        },
+        "properties": {
+            "provisioningState": "Succeeded",
+            "resourceGuid": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+            "addressSpace": {
+                "addressPrefixes": [
+                    "192.168.0.0/16"
+                ]
+            },
+            "subnets": [
+                {
+                    "name": "FrontEnd",
+                    "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/FrontEnd",
+                    "etag": "W/\"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx\"",
+                    "properties": {
+                        "provisioningState": "Succeeded",
+                        "addressPrefix": "192.168.1.0/24",
+                        "networkSecurityGroup": {
+                            "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/networkSecurityGroups/NSG-BackEnd"
+                        },
+                        "routeTable": {
+                            "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/routeTables/UDR-FrontEnd"
+                        },
+                        "ipConfigurations": [
+                            {
+                                "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/networkInterfaces/NICWEB1/ipConfigurations/ipconfig1"
+                            },
+                            ...]
+                    }
+                },
+                ...]
+        }
+    }
 
-### Дополнительные ресурсы
+### <a name="additional-resources"></a>Additional resources
 
-- Более подробная информация о [виртуальной сети](../articles/virtual-network/virtual-networks-overview.md).
-- Прочитайте [справочную документацию по REST API](https://msdn.microsoft.com/library/azure/mt163650.aspx) для виртуальных сетей.
-- Прочитайте [справочную документацию по REST API](https://msdn.microsoft.com/library/azure/mt163618.aspx) для подсетей.
+- Get more information about [VNet](../articles/virtual-network/virtual-networks-overview.md).
+- Read the [REST API reference documentation](https://msdn.microsoft.com/library/azure/mt163650.aspx) for VNets.
+- Read the [REST API reference documentation](https://msdn.microsoft.com/library/azure/mt163618.aspx) for Subnets.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!--HONumber=Oct16_HO2-->
+
+

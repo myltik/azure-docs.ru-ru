@@ -1,112 +1,117 @@
 <properties
-	pageTitle="Задачи по подготовке данных для расширенного машинного обучения | Microsoft Azure"
-	description="Предварительная обработка и очистка данных для подготовки к машинному обучению."
-	services="machine-learning"
-	documentationCenter=""
-	authors="bradsev"
-	manager="jhubbard"
-	editor="cgronlun" />
+    pageTitle="Tasks to prepare data for enhanced machine learning | Microsoft Azure"
+    description="Pre-process and clean data to prepare it for machine learning."
+    services="machine-learning"
+    documentationCenter=""
+    authors="bradsev"
+    manager="jhubbard"
+    editor="cgronlun" />
 
 <tags
-	ms.service="machine-learning"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/19/2016" 
-	ms.author="bradsev" />
+    ms.service="machine-learning"
+    ms.workload="data-services"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/19/2016" 
+    ms.author="bradsev" />
 
 
-# Задачи по подготовке данных для расширенного машинного обучения
 
-Предварительная обработка и очистка данных — это важные этапы, обеспечивающие эффективное использование набора данных для машинного обучения. Необработанные данные зачастую искажены и ненадежны, и в них могут быть пропущены значения. Использование таких данных при моделировании может приводить к неверным результатам. Эти задачи являются частью процесса обработки и анализа данных группы и обычно подразумевают первоначальное изучение набора данных, используемого для определения и планирования необходимой предварительной обработки. Более подробные инструкции по процессу TDSP см. в процедуре, описанной в разделе [Процесс обработки и анализа данных группы](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
+# <a name="tasks-to-prepare-data-for-enhanced-machine-learning"></a>Tasks to prepare data for enhanced machine learning
 
-Задачи предварительной обработки и очистки данных, например задача изучения данных, могут быть выполнены в самых разнообразных средах, таких как SQL, Hive или Студия машинного обучения Azure, и с помощью различных средств и языков, таких как R или Python, в зависимости от того, где хранятся данные и как они отформатированы. Поскольку по свой природе процесс TDSP является итеративным, эти задачи могут выполняться на различных этапах рабочего процесса.
+Pre-processing and cleaning data are important tasks that typically must be conducted before dataset can be used effectively for machine learning. Raw data is often noisy and unreliable, and may be missing values. Using such data for modeling can produce misleading results. These tasks are part of the Team Data Science Process (TDSP) and typically follow an initial exploration of a dataset used to discover and plan the pre-processing required. For more detailed instructions on the TDSP process, see the steps outlined in the [Team Data Science Process](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
 
-В этой статье рассматриваются разные концепции и принципы обработки данных, которые могут применяться как перед использованием данных в машинном обучении Azure, так и после него.
+Pre-processing and cleaning tasks, like the data exploration task, can be carried out in a wide variety of environments, such as SQL or Hive or Azure Machine Learning Studio, and with various tools and languages, such as R or Python, depending where your data is stored and how it is formatted. Since TDSP is iterative in nature, these tasks can take place at various steps in the  workflow of the process.
 
-Пример просмотра и предварительной обработки данных в Студии машинного обучения Azure см. в видеоролике [Pre-processing data in Azure Machine Learning Studio](https://azure.microsoft.com/documentation/videos/preprocessing-data-in-azure-ml-studio/) (Предварительная обработка данных в Студии машинного обучения Azure).
+This article introduces various data processing concepts and tasks that can be undertaken either before or after ingesting data into Azure Machine Learning.
+
+For an example of data exploration and pre-processing done inside Azure Machine Learning studio, see the [Pre-processing data in Azure Machine Learning Studio](https://azure.microsoft.com/documentation/videos/preprocessing-data-in-azure-ml-studio/) video.
 
 
-## Зачем нужна предварительная обработка и очистка данных?
+## <a name="why-pre-process-and-clean-data?"></a>Why pre-process and clean data?
 
-Реальные данные собираются для последующей обработки из разных источников и процессов. Они могут содержать ошибки и повреждения, негативно влияющие на качество набора данных. Вот какими могут быть типичные проблемы с качеством данных:
+Real world data is gathered from various sources and processes and it may contain irregularities or corrupt data compromising the quality of the dataset. The typical data quality issues that arise are:
 
-* **Неполнота**: данные не содержат атрибутов, или в них пропущены значения.
-* **Шум**: данные содержат ошибочные записи или выбросы.
-* **Несогласованность**: данные содержат конфликтующие между собой записи или расхождения.
+* **Incomplete**: Data lacks attributes or containing missing values.
+* **Noisy**: Data contains erroneous records or outliers.
+* **Inconsistent**: Data contains conflicting records or discrepancies.
 
-Качественные данные — это необходимое условие для создания качественных моделей прогнозирования. Чтобы избежать появления ситуации «мусор на входе, мусор на выходе» и повысить качество данных и, как следствие, эффективность модели, необходимо провести мониторинг работоспособности данных, как можно раньше обнаружить проблемы и решить, какие действия по предварительной обработке и очистке данных необходимы.
+Quality data is a prerequisite for quality predictive models. To avoid "garbage in, garbage out" and improve data quality and therefore model performance, it is imperative to conduct a data health screen to spot data issues early and decide on the corresponding data processing and cleaning steps.
 
-## Какие есть стандартные методы мониторинга работоспособности данных
+## <a name="what-are-some-typical-data-health-screens-that-are-employed?"></a>What are some typical data health screens that are employed?
 
-Вот что нужно оценить, чтобы проверить качество данных:
+We can check the general quality of data by checking:
 
-* Количество **записей**.
-* Количество **атрибутов** (или **характеристик**).
-* **Типы данных** атрибута (номинальные, порядковые или непрерывные).
-* Количество **пропущенных значений**.
-* **Правильность формата** данных.
-	* Если данные имеют формат TSV или CSV, проверьте правильность разделения столбцов и строк соответствующими разделителями.
-	* Если данные имеют формат HTML или XML, убедитесь, что формат данных соответствует надлежащим стандартам.
-	* Для извлечения структурированной информации из частично структурированных или неструктурированных данных также может потребоваться синтаксический анализ.
-* **Несогласованные записи данных**. Проверьте допустимость диапазона значений. Например, если данные содержат средний балл ученика, проверьте, находится ли этот средний балл в обозначенном диапазоне (например, 0~4).
+* The number of **records**.
+* The number of **attributes** (or **features**).
+* The attribute **data types** (nominal, ordinal, or continuous).
+* The number of **missing values**.
+* **Well-formedness** of the data.
+    * If the data is in TSV or CSV, check that the column separators and line separators always correctly separate columns and lines.
+    * If the data is in HTML or XML format, check whether the data is well formed based on their respective standards.
+    * Parsing may also be necessary in order to extract structured information from semi-structured or unstructured data.
+* **Inconsistent data records**. Check the range of values are allowed. e.g. If the data contains student GPA, check if the GPA is in the designated range, say 0~4.
 
-При обнаружении проблем с данными необходимо выполнить **обработку**, которая зачастую включает очистку пропущенных значений, нормализацию данных, дискретизацию, обработку текста для удаления и/или замены внедренных символов, которые могут влиять на выравнивание данных, смешанные типы данных в общих полях и пр.
+When you find issues with data, **processing steps** are necessary which often involves cleaning missing values, data normalization, discretization, text processing to remove and/or replace embedded characters which may affect data alignment, mixed data types in common fields, and others.
 
-**В машинном обучении Azure используются табличные данные правильного формата**. Если данные уже представлены в табличной форме, то вы можете провести их предварительную обработку с помощью Машинного обучения Azure прямо в Студии машинного обучения. Если данные находятся не в табличной форме, а, например, в формате XML, для их преобразования в табличную форму может потребоваться синтаксический анализ.
+**Azure Machine Learning consumes well-formed tabular data**.  If the data is already in tabular form, data pre-processing can be performed directly with Azure Machine Learning in the Machine Learning Studio.  If data is not in tabular form, say it is in XML, parsing may be required in order to convert the data to tabular form.  
 
-## Каковы главные задачи предварительной обработки данных
+## <a name="what-are-some-of-the-major-tasks-in-data-pre-processing?"></a>What are some of the major tasks in data pre-processing?
 
-* **Очистка**: восполнение пропущенных значений, обнаружение и удаление искаженных данных и выбросов.
-* **Преобразование**: нормализация данных для снижения измерений и искажений.
-* **Уплотнение**: создание выборки данных или атрибутов для упрощения обработки данных.
-* **Дискретизация**: преобразование непрерывных атрибутов в категориальные, чтобы проще было использовать некоторые методы машинного обучения.
-* **Очистка текста**: удаление внедренных символов, которые могут нарушать выравнивание данных, например внедренных символов табуляции в файле с разделителем-табуляцией, внедренных новых линий, которые могут разбивать записи, и пр.
+* **Data cleaning**:  Fill in or missing values, detect and remove noisy data and outliers.
+* **Data transformation**:  Normalize data to reduce dimensions and noise.
+* **Data reduction**:  Sample data records or attributes for easier data handling.
+* **Data discretization**:  Convert continuous attributes to categorical attributes for ease of use with certain machine learning methods.
+* **Text cleaning**: remove embedded characters which may cause data misalignment, for e.g., embedded tabs in a tab-separated data file, embedded new lines which may break records, etc.
 
-В следующем разделе описаны некоторые шаги предварительной обработки данных.
+The sections below detail some of these data processing steps.
 
-## Как обрабатывать пропущенные значения
+## <a name="how-to-deal-with-missing-values?"></a>How to deal with missing values?
 
-При работе с пропущенными значениями лучше сначала определить причину их появления в данных, что поможет решить проблему. Вот какие бывает методы обработки пропущенных значений:
+To deal with missing values, it is best to first identify the reason for the missing values to better handle the problem. Typical missing value handling methods are:
 
-* **Удаление**: удаление записей с пропущенными значениями.
-* **Фиктивная подстановка**: замена пропущенных значений фиктивными, например, подстановка значения _unknown_ (неизвестно) вместо категориальных или значения 0 вместо чисел.
-* **Подстановка среднего значения**: пропущенные числовые данные можно заменить средним значением.
-* **Подстановка часто используемого элемента**: пропущенные категориальные значения можно заменить наиболее часто используемым элементом.
-* **Подстановка по регрессии**: использование регрессионного метода для замены пропущенных значений регрессионными.
+* **Deletion**: Remove records with missing values
+* **Dummy substitution**: Replace missing values with a dummy value: e.g, _unknown_ for categorical or 0 for numerical values.
+* **Mean substitution**: If the missing data is numerical, replace the missing values with the mean.
+* **Frequent substitution**: If the missing data is categorical, replace the missing values with the most frequent item
+* **Regression substitution**: Use a regression method to replace missing values with regressed values.  
 
-## Как нормализовать данные
+## <a name="how-to-normalize-data?"></a>How to normalize data?
 
-Нормализация данных позволяет масштабировать числовые значения в указанном диапазоне. Ниже представлены распространенные методы нормализации данных.
+Data normalization re-scales numerical values to a specified range. Popular data normalization methods include:
 
-* **Нормализация по методу минимакса**: линейное преобразование данных в диапазоне, например, от 0 до 1, где минимальное и максимальное масштабируемые значения соответствуют 0 и 1 соответственно.
-* **Нормализация по Z-показателю**: масштабирование данных на основе среднего значения и стандартного отклонения: деление разницы между данными и средним значением на стандартное отклонение.
-* **Десятичное масштабирование**: масштабирование данных путем удаления десятичного разделителя значения атрибута.
+* **Min-Max Normalization**: Linearly transform the data to a range, say between 0 and 1, where the min value is scaled to 0 and max value to 1.
+* **Z-score Normalization**: Scale data based on mean and standard deviation: divide the difference between the data and the mean by the standard deviation.
+* **Decimal scaling**: Scale the data by moving the decimal point of the attribute value.  
 
-## Как дискретизировать данные
+## <a name="how-to-discretize-data?"></a>How to discretize data?
 
-Данные можно дискретизировать, преобразовав непрерывные значения в номинальные атрибуты или интервалы. Это можно сделать несколькими способами.
+Data can be discretized by converting continuous values to nominal attributes or intervals. Some ways of doing this are:
 
-* **Группирование равной ширины**: разделение диапазона всех возможных значений атрибута в группы (N) одинакового размера с последующим присвоением значений, относящихся к ячейке с соответствующим номером.
-* **Группирование равной высоты**: разделение всех возможных значений атрибута в группы (N), содержащие одинаковое количество экземпляров, с последующим присвоением значений, относящихся к ячейке с соответствующим номером.
+* **Equal-Width Binning**: Divide the range of all possible values of an attribute into N groups of the same size, and assign the values that fall in a bin with the bin number.
+* **Equal-Height Binning**: Divide the range of all possible values of an attribute into N groups, each containing the same number of instances, then assign the values that fall in a bin with the bin number.  
 
-## Как сократить объем данных
+## <a name="how-to-reduce-data?"></a>How to reduce data?
 
-Существуют различные методы, с помощью которых вы можете уменьшить размер данных для упрощения обработки данных. В зависимости от размера данных и домена вы можете применить такие методы:
+There are various methods to reduce data size for easier data handling. Depending on data size and the domain, the following methods can be applied:
 
-* **Выборка записей**: создание выборки записей данных и выбор репрезентативного подмножества из общего набора данных.
-* **Выборка атрибутов**: выбор в данных набора важнейших атрибутов.
-* **Агрегирование**: разделение данных на группы и хранение числовых значений для каждой группы. Например, для уменьшения размера данных вы можете агрегировать числа, обозначающие ежедневный доход сети ресторанов за последние 20 лет, так, чтобы указывался ежемесячный доход.
+* **Record Sampling**: Sample the data records and only choose the representative subset from the data.
+* **Attribute Sampling**: Select only a subset of the most important attributes from the data.  
+* **Aggregation**: Divide the data into groups and store the numbers for each group. For example, the daily revenue numbers of a restaurant chain over the past 20 years can be aggregated to monthly revenue to reduce the size of the data.  
 
-## Как очистить данные
+## <a name="how-to-clean-text-data?"></a>How to clean text data?
 
-**Текстовые поля в табличных данных** могут содержать символы, сбивающие выравнивание столбцов или границы записей (или и то и другое вместе). Например, табуляции, внедренные в файл с разделителем-табуляцией, могут сбить выравнивание столбцов, а внедренные символы новой строки могут разорвать линии записей. Неправильная кодировка текста приводит при его чтении или записи к потере информации, появлению нечитаемых символов, например нуль-символов, и может также помешать разбору текста. Чтобы очистить текстовые поля, исправить выравнивание и извлечь структурированные текстовые данные из неструктурированных или полу-структурированных, могут потребоваться тщательные разбор и редактирование текста.
+**Text fields in tabular data** may include characters which affect columns alignment and/or record boundaries. For e.g., embedded tabs in a tab-separated file cause column misalignment, and embedded new line characters break record lines. Improper text encoding handling while writing/reading text leads to information loss, inadvertent introduction of unreadable characters, e.g., nulls, and may also affect text parsing. Careful parsing and editing may be required in order to clean text fields for proper alignment and/or to extract structured data from unstructured or semi-structured text data.
 
-**Функция просмотра данных** позволяет ознакомиться с данными заблаговременно. Это поможет вам выявить те или иные проблемы с данными и применить соответствующие методы для решения этих проблем. Важно понимать, что породило проблемы, как они могли появиться. Это поможет решить, к каким действиям по обработке данных нужно прибегнуть для устранения проблем. Подробности, которые, работая с данными, вы стремитесь получить, вы можете использовать для того, чтобы назначить обработке данных приоритет.
+**Data exploration** offers an early view into the data. A number of data issues can be uncovered during this step and  corresponding methods can be applied to address those issues.  It is important to ask questions such as what is the source of the issue and how the issue may have been introduced. This also helps you decide on the data processing steps that need to be taken to resolve them. The kind of insights one intends to derive from the data can also be used to prioritize the data processing effort.
 
-## Ссылки
+## <a name="references"></a>References
 
->*Интеллектуальный анализ данных: концепции и методы*. Издание третье, Morgan Kaufmann Publishers, 2011. Цзявей Хань (Jiawei Han), Мишлин Кэмбер (Micheline Kamber) и Цзянь Пей (Jian Pei)
+>*Data Mining: Concepts and Techniques*, Third Edition, Morgan Kaufmann, 2011, Jiawei Han, Micheline Kamber, and Jian Pei
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

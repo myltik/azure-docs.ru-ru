@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Переход от территориальных групп к региональной виртуальной сети"
-   description="Узнайте, как перейти от территориальных групп к региональным виртуальным сетям."
+   pageTitle="How to migrate from Affinity Groups to a Regional Virtual Network (VNet)"
+   description="Learn how to migrate from affinity groups to regional vnets"
    services="virtual-network"
    documentationCenter="na"
    authors="jimdial"
@@ -15,55 +15,60 @@
    ms.date="03/15/2016"
    ms.author="jdial" />
 
-# Переход от территориальных групп к региональной виртуальной сети
 
-Ресурсы, созданные внутри той же территориальной группы, физически находятся на серверах, расположенных в географической близости друг к другу. Это позволяет ресурсам взаимодействовать быстрее. В прошлом наличие территориальной группы было обязательным условием создания виртуальной сети (VNet). В то время служба диспетчера сети, которая управляла виртуальными сетями, могла работать только в пределах набора физических серверов или единицы масштабирования. Архитектурные усовершенствования позволили расширить масштабы управления сетью до региона.
+# <a name="how-to-migrate-from-affinity-groups-to-a-regional-virtual-network-(vnet)"></a>How to migrate from Affinity Groups to a Regional Virtual Network (VNet)
 
-В результате этих усовершенствований необходимость в наличии территориальных групп для виртуальных сетей отпала. Вместо территориальных групп для виртуальных сетей теперь используются регионы. Виртуальные сети, связанные с регионами, называются региональными виртуальными сетями.
+You can use an affinity group to ensure that resources created within the same affinity group are physically hosted by servers that are close together, enabling these resources to communicate quicker. In the past, affinity groups were a requirement for creating virtual networks (VNets). At that time, the network manager service that managed VNets could only work within a set of physical servers or scale unit. Architectural improvements have increased the scope of network management to a region.
 
-Кроме того, территориальные группы не рекомендуется использовать вообще. Помимо требований виртуальной сети, территориальные группы также использовались для того, чтобы размещать рядом друг с другом такие ресурсы, как среды вычисления приложений и хранилища. Однако с текущей архитектурой сети Azure эти требования к размещению более не актуальны. В статье [Территориальные группы и виртуальные машины](#Affinity-groups-and-VMs) описаны несколько оставшихся актуальных случаев возможного использования территориальной группы.
+As a result of these architectural improvements, affinity groups are no longer recommended, or required for virtual networks. The use of affinity groups for VNets is being replaced by regions. VNets that are associated with regions are called regional VNets.
 
-## Создание региональных виртуальных сетей и переход к ним
+Additionally, we recommend that you don't use affinity groups in general. Aside from the VNet requirement, affinity groups were also important to use to ensure resources, such as compute and storage, were placed near each other. However, with the current Azure network architecture, these placement requirements are no longer necessary. See [Affinity groups and VMs](#Affinity-groups-and-VMs) for the few remaining specific cases where you may want to use an affinity group.
 
-Забегая наперед, отметим, что при создании новых виртуальных сетей следует использовать параметр *Регион*. Вы увидите этот параметр на портале управления. Обратите внимание, что в файле конфигурации сети он отображается как *Location* (расположение).
+## <a name="creating-and-migrating-to-regional-vnets"></a>Creating and migrating to regional VNets
 
->[AZURE.IMPORTANT] Создать виртуальную сеть, связанную с территориальной группой, по-прежнему технически возможно, но это не дает никаких преимуществ. Многие новые возможности, в частности группы безопасности сети, доступны только при использовании региональной виртуальной сети и недоступны для виртуальных сетей, связанных с территориальными группами.
+Going forward, when creating new VNets, use *Region*. You'll see this as an option in the Management Portal. Note that in the network configuration file, this shows as *Location*.
 
-### Виртуальные сети, связанные с территориальными группами
+>[AZURE.IMPORTANT] Although it is still technically possible to create a virtual network that is associated with an affinity group, there is no compelling reason to do so. Many new features, such as Network Security Groups, are only available when using a regional VNet and are not available for virtual networks that are associated with affinity groups.
 
-Виртуальные сети, которые сейчас связаны с территориальными группами, можно перенести в региональные виртуальные сети. Для переноса в региональную виртуальную сеть, выполните следующие действия:
+### <a name="about-vnets-currently-associated-with-affinity-groups"></a>About VNets currently associated with affinity groups
 
-1. Экспортируйте файл конфигурации сети. Для этого можно использовать PowerShell или портал управления. Инструкции по использованию портала управления см. в статье [Настройка виртуальной сети с помощью файла конфигурации сети](virtual-networks-using-network-configuration-file.md).
+VNets that are currently associated with affinity groups are enabled for migration to regional VNets. To migrate to a regional VNet, follow these steps:
 
-1. Измените файл конфигурации, заменив старые значения новыми.
+1. Export the network configuration file. You can use PowerShell or the Management Portal. For instructions using the Management Portal, see [Configure your VNet using a Network Configuration File](virtual-networks-using-network-configuration-file.md).
 
-	> [AZURE.NOTE] **Location** (расположение) — это регион, указанный для территориальной группы, которая связана с виртуальной сетью. Например, если виртуальная сеть связана с территориальной группой, расположенной на Западе США, во время переноса следует указать расположение "Запад США".
-	
-	Измените следующие строки в файле конфигурации сети, заменив значения собственными.
+1. Edit your network configuration file, replacing the old values with the new values. 
 
-	**Старое значение:** \<VirtualNetworkSitename="VNetUSWest" AffinityGroup="VNetDemoAG"\>
+    > [AZURE.NOTE] The **Location** is the region that you specified for the affinity group that is associated with your VNet. For example, if your VNet is associated with an affinity group that is located in West US, when you migrate, your Location must point to West US. 
+    
+    Edit the following lines in your network configuration file, replacing the values with your own: 
 
-	**Новое значение:** \<VirtualNetworkSitename="VNetUSWest" Location="West US"\>
+    **Old value:** \<VirtualNetworkSitename="VNetUSWest" AffinityGroup="VNetDemoAG"\> 
 
-1. Сохраните изменения и [импортируйте](virtual-networks-using-network-configuration-file.md) конфигурацию сети в Azure.
+    **New value:** \<VirtualNetworkSitename="VNetUSWest" Location="West US"\>
 
->[AZURE.NOTE] Такая миграция НЕ вызывает простоев в работе ваших служб.
+1. Save your changes and [import](virtual-networks-using-network-configuration-file.md) the network configuration to Azure.
 
-## Территориальные группы и виртуальные машины
+>[AZURE.NOTE] This migration does NOT cause any downtime to your services.
 
-Как упоминалось ранее, территориальные группы больше не рекомендуется использовать для виртуальных машин. Территориальную группу следует использовать только в том случае, когда между набором виртуальных машин должна быть наименьшая задержка в сети. Размещение виртуальных машин в территориальной группе означает, что все они будут размещены в одном вычислительном кластере или единице масштабирования.
+## <a name="affinity-groups-and-vms"></a>Affinity groups and VMs
 
-Обратите особое внимание на то, что использование территориальной группы может иметь два последствия, которые могут быть негативными.
+As mentioned previously, affinity groups are no longer generally recommended for VMs. You should use an affinity group only when a set of VMs must have the absolute lowest network latency between the VMs. By placing VMs in an affinity group, the VMs will all be placed in the same compute cluster or scale unit.
 
-- Набор размеров виртуальных машины не может превышать набор размеров, предлагаемый вычислительной единицей масштабирования.
+It's important to note that using an affinity group can have two, possibly negative, consequences:
 
-- Существует высокая вероятность того, что вы не сможете выделить новую виртуальную машину. Это происходит в тех случаях, когда в определенной единице масштабирования для территориальной группы заканчивается доступная емкость.
+- The set of VM sizes will be limited to the set of VM sizes offered by the compute scale unit.
 
-### Действия при наличии виртуальной машины в территориальной группе
+- There is a higher probability of not being able to allocate a new VM. This happens when the specific scale unit for the affinity group is out of capacity.
 
-Виртуальные машины, которые сейчас находятся в территориальной группе, не нужно удалять из группы.
+### <a name="what-to-do-if-you-have-a-vm-in-an-affinity-group"></a>What to do if you have a VM in an affinity group
 
-При развертывании виртуальной машины она попадает в одну единицу масштабирования. Территориальные группы могут ограничивать набор доступных размеров виртуальных машин для нового развертывания виртуальных машин, но существующая развернутая виртуальная машина уже ограничена набором размеров, доступных в единице масштабирования, в которой она развернута. По этой причине удаление виртуальной машины из территориальной группы не имеет смысла.
+VMs that are currently in an affinity group do not need to be removed from the affinity group.
+
+Once a VM is deployed, it is deployed to a single scale unit. Affinity groups can restrict the set of available VM sizes for a new VM deployment, but any existing VM that is deployed is already restricted to the set of VM sizes available in the scale unit in which the VM is deployed. Because of this, removing a VM from the affinity group will have no effect.
  
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

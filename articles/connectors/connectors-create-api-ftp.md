@@ -1,10 +1,10 @@
 <properties
-pageTitle="Использование соединителя FTP в приложениях логики | Microsoft Azure"
-description="Создание приложений логики с помощью службы приложений Azure. Подключение к FTP-серверу для управления файлами. Вы можете выполнять различные действия, такие как отправка, обновление, получение и удаление файлов на FTP-сервере."
-services="logic-apps"	
-documentationCenter=".net,nodejs,java" 	
-authors="msftman"	
-manager="erikre"	
+pageTitle="Learn how to use the FTP connector in logic apps| Microsoft Azure"
+description="Create logic apps with Azure App service. Connect to FTP server to manage your files. You can perform various actions such as upload, update, get, and delete files in FTP server."
+services="logic-apps"   
+documentationCenter=".net,nodejs,java"  
+authors="msftman"   
+manager="erikre"    
 editor=""
 tags="connectors" />
 
@@ -17,428 +17,429 @@ ms.workload="integration"
 ms.date="07/22/2016"
 ms.author="deonhe"/>
 
-# Начало работы с соединителем FTP
 
-Соединитель FTP можно использовать для создания и мониторинга файлов на FTP-сервере, а также для управления ими.
+# <a name="get-started-with-the-ftp-connector"></a>Get started with the FTP connector
 
-Чтобы использовать [соединитель](./apis-list.md), сначала нужно создать приложение логики. Вы можете начать с [создания приложения логики](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Use the FTP connector to monitor, manage and create files on an  FTP server. 
 
-## Подключение к FTP
+To use [any connector](./apis-list.md), you first need to create a logic app. You can get started by [creating a logic app now](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-Чтобы обеспечить доступ приложения логики к какой-либо службе, сначала необходимо создать *подключение* к этой службе. Таким образом вы установите [подключение](./connectors-overview.md) между приложением логики и другой службой.
+## <a name="connect-to-ftp"></a>Connect to FTP
 
-### Создание подключения к FTP
+Before your logic app can access any service, you first need to create a *connection* to the service. A [connection](./connectors-overview.md) provides connectivity between a logic app and another service.  
 
->[AZURE.INCLUDE [Шаги по созданию подключения к FTP](../../includes/connectors-create-api-ftp.md)]
+### <a name="create-a-connection-to-ftp"></a>Create a connection to FTP
 
-## Использование триггера FTP
+>[AZURE.INCLUDE [Steps to create a connection to FTP](../../includes/connectors-create-api-ftp.md)]
 
-Триггер — это событие, которое можно использовать для запуска рабочего процесса, определенного в приложении логики. Дополнительные сведения о триггерах см. [здесь](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
+## <a name="use-a-ftp-trigger"></a>Use a FTP trigger
 
->[AZURE.IMPORTANT]Для соединителя FTP требуется доступный через Интернет FTP-сервер, который настроен для работы с пассивным режимом. Кроме того, соединитель FTP **не поддерживает неявную конфигурацию FTPS (FTP через SSL)**. Он поддерживает только явную конфигурацию FTPS (FTP через SSL).
+A trigger is an event that can be used to start the workflow defined in a logic app. [Learn more about triggers](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).  
 
-Из этого примера вы узнаете, как использовать триггер **FTP - When a file is added or modified** (FTP — при добавлении или изменении файла) для запуска рабочего процесса приложения логики при добавлении или изменении файла на FTP-сервере. В контексте предприятия можно использовать этот триггер, чтобы отслеживать в папке FTP новые файлы, представляющие заказы от клиентов. Вы также можете использовать действие соединителя FTP **Get file content** (Получить содержимое файла), чтобы получить содержимое заказа для дальнейшей обработки и хранения в базе данных заказов.
+>[AZURE.IMPORTANT]The FTP connector requires an FTP server that  is accessible from the Internet and is configured to operate with PASSIVE mode. Also, the FTP connector is **not compatible with implicit FTPS (FTP over SSL)**. The FTP connector only supports explicit FTPS (FTP over SSL).  
 
-1. Введите *ftp* в поле поиска в конструкторе приложений логики, а затем выберите триггер **FTP - When a file is added or modified**.  
-![Триггер FTP, изображение 1](./media/connectors-create-api-ftp/ftp-trigger-1.png)  
-После этого откроется элемент управления **When a file is added or modified** (При добавлении или изменении файла).  
-![Триггер FTP, изображение 2](./media/connectors-create-api-ftp/ftp-trigger-2.png)  
-- Щелкните **…** в правой части элемента управления. Откроется элемент управления средства выбора папок.  
-![Триггер FTP, изображение 3](./media/connectors-create-api-ftp/ftp-trigger-3.png)  
-- Щелкните **>** (стрелку вправо) и перейдите к папке, которую требуется отслеживать на добавление или изменение файлов. Выберите папку и обратите внимание, что теперь она отображается в элементе управления **Папка**.  
-![Триггер FTP, изображение 4](./media/connectors-create-api-ftp/ftp-trigger-4.png)  
+In this example, I will show you how to use the **FTP - When a file is added or modified** trigger to initiate a logic app workflow when a file is added to, or modified on, an FTP server. In an enterprise example, you could use this trigger to monitor an FTP folder for new files that represent orders from customers.  You could then use an FTP connector action such as **Get file content** to get the contents of the order for further processing and storage in your orders database.
 
-
-На этом этапе для приложения логики настроен триггер, который будет активировать другие триггеры и действия в рабочем процессе при изменении или создании файла в указанной папке FTP.
-
->[AZURE.NOTE]Чтобы приложение логики функционировало, оно должно содержать по крайней мере один триггер и одно действие. Шаги по добавлению действия описаны в следующем разделе.
+1. Enter *ftp* in the search box on the logic apps designer then select the **FTP - When a file is added or modified**  trigger   
+![FTP trigger image 1](./media/connectors-create-api-ftp/ftp-trigger-1.png)  
+The **When a file is added or modified** control opens up  
+![FTP trigger image 2](./media/connectors-create-api-ftp/ftp-trigger-2.png)  
+- Select the **...** located on the right side of the control. This opens the folder picker control  
+![FTP trigger image 3](./media/connectors-create-api-ftp/ftp-trigger-3.png)  
+- Select the **>** (right arrow) and browse to find the folder that you want to monitor for new or modified files. Select the folder and notice the folder is now displayed in the **Folder** control.  
+![FTP trigger image 4](./media/connectors-create-api-ftp/ftp-trigger-4.png)   
 
 
+At this point, your logic app has been configured with a trigger that will begin a run of the other triggers and actions in the workflow when a file is either modified or created in the specific FTP folder. 
 
-## Использование действия FTP
+>[AZURE.NOTE]For a logic app to be functional, it must contain at least one trigger and one action. Follow the steps in the next section to add an action.  
 
-Действие — это операция, выполняемая рабочим процессом, определенным в приложении логики. Дополнительные сведения о действиях см. [здесь](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
 
-Добавив триггер, выполните следующие шаги, чтобы добавить действие для получения содержимого нового или измененного файла, найденного с помощью триггера.
 
-1. Щелкните **+ Новый шаг**, чтобы добавить действие для получения содержимого файла на FTP-сервере.
-- Щелкните ссылку **Добавить действие**.  
-![Действие FTP, изображение 1](./media/connectors-create-api-ftp/ftp-action-1.png)  
-- Введите запрос *FTP*, чтобы найти все действия, связанные с FTP.
-- Выберите действие **FTP - Get file content** (FTP — получить содержимое файла), которое будет выполняться при обнаружении нового или измененного файла в папке FTP.  
-![Действие FTP, изображение 2](./media/connectors-create-api-ftp/ftp-action-2.png)  
-Откроется элемент управления **Get file content** (Получить содержимое файла). **Примечание**. Вам будет предложено авторизовать приложение логики для доступа к учетной записи FTP-сервера, если вы еще не сделали это.  
-![Действие FTP, изображение 3](./media/connectors-create-api-ftp/ftp-action-3.png)  
-- Выберите элемент управления **Файл** (пустое поле, расположенное под надписью **ФАЙЛ***). Здесь можно использовать одно из множества свойств нового или измененного файла, найденного на FTP-сервере.
-- Выберите параметр **Содержимое файла**.  
-![Действие FTP, изображение 4](./media/connectors-create-api-ftp/ftp-action-4.png)  
--  Элемент управления будет обновлен. Таким образом, действие **FTP - Get file content** (FTP — получить содержимое файла) получит *содержимое* нового или измененного файла на FTP-сервере.  
-![Действие FTP, изображение 5](./media/connectors-create-api-ftp/ftp-action-5.png)        
-- Сохраните внесенные изменения, а затем добавьте файл в папку FTP, чтобы протестировать рабочий процесс.
+## <a name="use-a-ftp-action"></a>Use a FTP action
 
-На этом этапе для приложения логики настроен триггер, который отслеживает папку на FTP-сервере и запускает рабочий процесс при обнаружении в ней нового или измененного файла.
+An action is an operation carried out by the workflow defined in a logic app. [Learn more about actions](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).  
 
-Кроме того, для приложения логики настроено действие, которое получает содержимое нового или измененного файла.
+Now that you have added a trigger, follow these steps to add an action that will get the contents of the new or modified file found by the trigger.    
 
-Теперь вы можете добавить другое действие, например [SQL Server — вставить строку](./connectors-create-api-sqlazure.md#insert-row), которое будет вставлять содержимое нового или измененного файла в таблицу базы данных SQL.
+1. Select **+ New step** to add the the action to get the contents of the file on the FTP server  
+- Select the **Add an action** link.  
+![FTP action image 1](./media/connectors-create-api-ftp/ftp-action-1.png)  
+- Enter *FTP* to search for all actions related to FTP.
+- Select **FTP - Get file content**  as the action to take when a new or modified file is found in the FTP folder.      
+![FTP action image 2](./media/connectors-create-api-ftp/ftp-action-2.png)  
+The **Get file content** control opens. **Note**: you will be prompted to authorize your logic app to access your FTP server account if you have not done so previously.  
+![FTP action image 3](./media/connectors-create-api-ftp/ftp-action-3.png)   
+- Select the **File** control (the white space located below **FILE***). Here, you can use any of the various properties from the new or modified file found on the FTP server.  
+- Select the **File content** option.  
+![FTP action image 4](./media/connectors-create-api-ftp/ftp-action-4.png)   
+-  The control is updated, indicating that the **FTP - Get file content** action will get the *file content* of the new or modified file on the FTP server.      
+![FTP action image 5](./media/connectors-create-api-ftp/ftp-action-5.png)     
+- Save your work then add a file to the FTP folder to test your workflow.    
 
-## Технические сведения
+At this point, the logic app has been configured with a trigger to monitor a folder on an FTP server and initiate the workflow when it finds either a new file or a modified file on the FTP server. 
 
-Ниже приведены сведения о триггерах, действиях и ответах, которые поддерживает это подключение.
+The logic app also has been configured with an action to get the contents of the new or modified file.
 
-## Триггеры FTP
+You can now add another action such as the [SQL Server - insert row](./connectors-create-api-sqlazure.md#insert-row) action to insert the contents of the new or modified file into a SQL database table.  
 
-В FTP доступны следующие триггеры.
+## <a name="technical-details"></a>Technical Details
 
-|Триггер | Описание|
+Here are the details about the triggers, actions and responses that this connection supports:
+
+## <a name="ftp-triggers"></a>FTP triggers
+
+FTP has the following trigger(s):  
+
+|Trigger | Description|
 |--- | ---|
-|[When a file is added or modified (При добавлении или изменении файла)](connectors-create-api-ftp.md#when-a-file-is-added-or-modified)|Активирует поток при добавлении или изменении файла в папке.|
+|[When a file is added or modified](connectors-create-api-ftp.md#when-a-file-is-added-or-modified)|This operation triggers a flow when a file is added or modified in a folder.|
 
 
-## Действия FTP
+## <a name="ftp-actions"></a>FTP actions
 
-Соединитель FTP предоставляет следующие действия.
+FTP has the following actions:
 
 
-|Действие|Описание|
+|Action|Description|
 |--- | ---|
-|[Get file metadata (Получение метаданных файла)](connectors-create-api-ftp.md#get-file-metadata)|Извлекает метаданные файла.|
-|[Обновление файла](connectors-create-api-ftp.md#update-file)|Обновляет файл.|
-|[Удаление файла](connectors-create-api-ftp.md#delete-file)|Удаляет файл.|
-|[Получение метаданных файла с помощью пути](connectors-create-api-ftp.md#get-file-metadata-using-path)|Извлекает метаданные файла с помощью пути.|
-|[Получение содержимого файла с помощью пути](connectors-create-api-ftp.md#get-file-content-using-path)|Извлекает содержимое файла с помощью пути.|
-|[Получение содержимого файла](connectors-create-api-ftp.md#get-file-content)|Извлекает содержимое файла.|
-|[Создание файла](connectors-create-api-ftp.md#create-file)|Создает файл.|
-|[Копирование файла](connectors-create-api-ftp.md#copy-file)|Копирует файл на FTP-сервер.|
-|[List files in folder (Вывод списка файлов в папке)](connectors-create-api-ftp.md#list-files-in-folder)|Извлекает список файлов и вложенных папок в папке.|
-|[List files in root folder (Вывод списка файлов в корневой папке)](connectors-create-api-ftp.md#list-files-in-root-folder)|Извлекает список файлов и вложенных папок в корневой папке.|
-|[Извлечение папки](connectors-create-api-ftp.md#extract-folder)|Извлекает файл архива в папку (например, ZIP-файл).|
-### Сведения о действиях
+|[Get file metadata](connectors-create-api-ftp.md#get-file-metadata)|This operation gets the metadata for a file.|
+|[Update file](connectors-create-api-ftp.md#update-file)|This operation updates a file.|
+|[Delete file](connectors-create-api-ftp.md#delete-file)|This operation deletes a file.|
+|[Get file metadata using path](connectors-create-api-ftp.md#get-file-metadata-using-path)|This operation gets the metadata of a file using the path.|
+|[Get file content using path](connectors-create-api-ftp.md#get-file-content-using-path)|This operation gets the content of a file using the path.|
+|[Get file content](connectors-create-api-ftp.md#get-file-content)|This operation gets the content of a file.|
+|[Create file](connectors-create-api-ftp.md#create-file)|This operation creates a file.|
+|[Copy file](connectors-create-api-ftp.md#copy-file)|This operation copies a file to an FTP server.|
+|[List files in folder](connectors-create-api-ftp.md#list-files-in-folder)|This operation gets the list of files and subfolders in a folder.|
+|[List files in root folder](connectors-create-api-ftp.md#list-files-in-root-folder)|This operation gets the list of files and subfolders in the root folder.|
+|[Extract folder](connectors-create-api-ftp.md#extract-folder)|This operation extracts an archive file into a folder (example: .zip).|
+### <a name="action-details"></a>Action details
 
-Ниже приведены подробные сведения о действиях и триггерах этого соединителя, а также ответы на них.
-
-
-
-### Get file metadata (Получение метаданных файла)
-Извлекает метаданные файла.
+Here are the details for the actions and triggers for this connector, along with their responses:
 
 
-|Имя свойства| Отображаемое имя|Описание|
+
+### <a name="get-file-metadata"></a>Get file metadata
+This operation gets the metadata for a file. 
+
+
+|Property Name| Display Name|Description|
 | ---|---|---|
-|id*|Файл|Выбор файла|
+|id*|File|Select a file|
 
-Звездочка (*) означает, что свойство является обязательным.
+An * indicates that a property is required
 
-#### Сведения о выходных данных
+#### <a name="output-details"></a>Output Details
 
 BlobMetadata
 
 
-| Имя свойства | Тип данных |
+| Property Name | Data Type |
 |---|---|---|
-|Идентификатор|строка|
-|Имя|строка|
-|DisplayName|строка|
-|Путь|строка|
-|LastModified|строка|
-|Размер|целое число|
-|MediaType|строка|
-|IsFolder|Логическое|
+|Id|string|
+|Name|string|
+|DisplayName|string|
+|Path|string|
+|LastModified|string|
+|Size|integer|
+|MediaType|string|
+|IsFolder|boolean|
 |ETag|string|
 |FileLocator|string|
 
 
 
 
-### Обновление файла
-Обновляет файл.
+### <a name="update-file"></a>Update file
+This operation updates a file. 
 
 
-|Имя свойства| Отображаемое имя|Описание|
+|Property Name| Display Name|Description|
 | ---|---|---|
-|id*|Файл|Выбор файла|
-|body*|содержимое файла;|Содержимое файла|
+|id*|File|Select a file|
+|body*|File content|Content of the file|
 
-Звездочка (*) означает, что свойство является обязательным.
+An * indicates that a property is required
 
-#### Сведения о выходных данных
+#### <a name="output-details"></a>Output Details
 
 BlobMetadata
 
 
-| Имя свойства | Тип данных |
+| Property Name | Data Type |
 |---|---|---|
-|Идентификатор|строка|
-|Имя|строка|
-|DisplayName|строка|
-|Путь|строка|
-|LastModified|строка|
-|Размер|целое число|
-|MediaType|строка|
-|IsFolder|Логическое|
+|Id|string|
+|Name|string|
+|DisplayName|string|
+|Path|string|
+|LastModified|string|
+|Size|integer|
+|MediaType|string|
+|IsFolder|boolean|
 |ETag|string|
 |FileLocator|string|
 
 
 
 
-### Удаление файла
-Удаляет файл.
+### <a name="delete-file"></a>Delete file
+This operation deletes a file. 
 
 
-|Имя свойства| Отображаемое имя|Описание|
+|Property Name| Display Name|Description|
 | ---|---|---|
-|id*|Файл|Выбор файла|
+|id*|File|Select a file|
 
-Звездочка (*) означает, что свойство является обязательным.
-
-
+An * indicates that a property is required
 
 
-### Получение метаданных файла с помощью пути
-Извлекает метаданные файла с помощью пути.
 
 
-|Имя свойства| Отображаемое имя|Описание|
+### <a name="get-file-metadata-using-path"></a>Get file metadata using path
+This operation gets the metadata of a file using the path. 
+
+
+|Property Name| Display Name|Description|
 | ---|---|---|
-|path*|Путь к файлу|Выбор файла|
+|path*|File path|Select a file|
 
-Звездочка (*) означает, что свойство является обязательным.
+An * indicates that a property is required
 
-#### Сведения о выходных данных
+#### <a name="output-details"></a>Output Details
 
 BlobMetadata
 
 
-| Имя свойства | Тип данных |
+| Property Name | Data Type |
 |---|---|---|
-|Идентификатор|строка|
-|Имя|строка|
-|DisplayName|строка|
-|Путь|строка|
-|LastModified|строка|
-|Размер|целое число|
-|MediaType|строка|
-|IsFolder|Логическое|
+|Id|string|
+|Name|string|
+|DisplayName|string|
+|Path|string|
+|LastModified|string|
+|Size|integer|
+|MediaType|string|
+|IsFolder|boolean|
 |ETag|string|
 |FileLocator|string|
 
 
 
 
-### Получение содержимого файла с помощью пути
-Извлекает содержимое файла с помощью пути.
+### <a name="get-file-content-using-path"></a>Get file content using path
+This operation gets the content of a file using the path. 
 
 
-|Имя свойства| Отображаемое имя|Описание|
+|Property Name| Display Name|Description|
 | ---|---|---|
-|path*|Путь к файлу|Выбор файла|
+|path*|File path|Select a file|
 
-Звездочка (*) означает, что свойство является обязательным.
-
-
+An * indicates that a property is required
 
 
-### Получение содержимого файла
-Извлекает содержимое файла.
 
 
-|Имя свойства| Отображаемое имя|Описание|
+### <a name="get-file-content"></a>Get file content
+This operation gets the content of a file. 
+
+
+|Property Name| Display Name|Description|
 | ---|---|---|
-|id*|Файл|Выбор файла|
+|id*|File|Select a file|
 
-Звездочка (*) означает, что свойство является обязательным.
-
-
+An * indicates that a property is required
 
 
-### Создание файла
-Создает файл.
 
 
-|Имя свойства| Отображаемое имя|Описание|
+### <a name="create-file"></a>Create file
+This operation creates a file. 
+
+
+|Property Name| Display Name|Description|
 | ---|---|---|
-|folderPath*|Путь к папке|Выбор папки|
-|name*|Имя файла|Имя файла|
-|body*|содержимое файла;|Содержимое файла|
+|folderPath*|Folder path|Select a folder|
+|name*|File name|Name of the file|
+|body*|File content|Content of the file|
 
-Звездочка (*) означает, что свойство является обязательным.
+An * indicates that a property is required
 
-#### Сведения о выходных данных
+#### <a name="output-details"></a>Output Details
 
 BlobMetadata
 
 
-| Имя свойства | Тип данных |
+| Property Name | Data Type |
 |---|---|---|
-|Идентификатор|строка|
-|Имя|строка|
-|DisplayName|строка|
-|Путь|строка|
-|LastModified|строка|
-|Размер|целое число|
-|MediaType|строка|
-|IsFolder|Логическое|
+|Id|string|
+|Name|string|
+|DisplayName|string|
+|Path|string|
+|LastModified|string|
+|Size|integer|
+|MediaType|string|
+|IsFolder|boolean|
 |ETag|string|
 |FileLocator|string|
 
 
 
 
-### Копирование файла
-Копирует файл на FTP-сервер.
+### <a name="copy-file"></a>Copy file
+This operation copies a file to an FTP server. 
 
 
-|Имя свойства| Отображаемое имя|Описание|
+|Property Name| Display Name|Description|
 | ---|---|---|
-|source*|URL-адрес исходного файла|URL-адрес исходного файла|
-|destination*|Путь к конечному файлу|Путь к конечному файлу, включая имя конечного файла|
-|перезаписать|Перезаписать?|Перезаписывает конечный файл, если задано значение "true"|
+|source*|Source url|Url to source file|
+|destination*|Destination file path|Destination file path, including target filename|
+|overwrite|Overwrite?|Overwrites the destination file if set to 'true'|
 
-Звездочка (*) означает, что свойство является обязательным.
+An * indicates that a property is required
 
-#### Сведения о выходных данных
+#### <a name="output-details"></a>Output Details
 
 BlobMetadata
 
 
-| Имя свойства | Тип данных |
+| Property Name | Data Type |
 |---|---|---|
-|Идентификатор|строка|
-|Имя|строка|
-|DisplayName|строка|
-|Путь|строка|
-|LastModified|строка|
-|Размер|целое число|
-|MediaType|строка|
-|IsFolder|Логическое|
+|Id|string|
+|Name|string|
+|DisplayName|string|
+|Path|string|
+|LastModified|string|
+|Size|integer|
+|MediaType|string|
+|IsFolder|boolean|
 |ETag|string|
 |FileLocator|string|
 
 
 
 
-### When a file is added or modified (При добавлении или изменении файла)
-Активирует поток при добавлении или изменении файла в папке.
+### <a name="when-a-file-is-added-or-modified"></a>When a file is added or modified
+This operation triggers a flow when a file is added or modified in a folder. 
 
 
-|Имя свойства| Отображаемое имя|Описание|
+|Property Name| Display Name|Description|
 | ---|---|---|
-|folderId*|Папка|Выбор папки|
+|folderId*|Folder|Select a folder|
 
-Звездочка (*) означает, что свойство является обязательным.
-
-
+An * indicates that a property is required
 
 
-### List files in folder (Вывод списка файлов в папке)
-Извлекает список файлов и вложенных папок в папке.
 
 
-|Имя свойства| Отображаемое имя|Описание|
+### <a name="list-files-in-folder"></a>List files in folder
+This operation gets the list of files and subfolders in a folder. 
+
+
+|Property Name| Display Name|Description|
 | ---|---|---|
-|id*|Папка|Выбор папки|
+|id*|Folder|Select a folder|
 
-Звездочка (*) означает, что свойство является обязательным.
+An * indicates that a property is required
 
 
 
-#### Сведения о выходных данных
+#### <a name="output-details"></a>Output Details
 
 BlobMetadata
 
 
-| Имя свойства | Тип данных |
+| Property Name | Data Type |
 |---|---|---|
-|Идентификатор|строка|
-|Имя|строка|
-|DisplayName|строка|
-|Путь|строка|
-|LastModified|строка|
-|Размер|целое число|
-|MediaType|строка|
-|IsFolder|Логическое|
+|Id|string|
+|Name|string|
+|DisplayName|string|
+|Path|string|
+|LastModified|string|
+|Size|integer|
+|MediaType|string|
+|IsFolder|boolean|
 |ETag|string|
 |FileLocator|string|
 
 
 
 
-### List files in root folder (Вывод списка файлов в корневой папке)
-Извлекает список файлов и вложенных папок в корневой папке.
+### <a name="list-files-in-root-folder"></a>List files in root folder
+This operation gets the list of files and subfolders in the root folder. 
 
 
-Для этого вызова параметры отсутствуют
+There are no parameters for this call
 
-#### Сведения о выходных данных
+#### <a name="output-details"></a>Output Details
 
 BlobMetadata
 
 
-| Имя свойства | Тип данных |
+| Property Name | Data Type |
 |---|---|---|
-|Идентификатор|строка|
-|Имя|строка|
-|DisplayName|строка|
-|Путь|строка|
-|LastModified|строка|
-|Размер|целое число|
-|MediaType|строка|
-|IsFolder|Логическое|
+|Id|string|
+|Name|string|
+|DisplayName|string|
+|Path|string|
+|LastModified|string|
+|Size|integer|
+|MediaType|string|
+|IsFolder|boolean|
 |ETag|string|
 |FileLocator|string|
 
 
 
 
-### Извлечение папки
-Извлекает файл архива в папку (например, ZIP-файл).
+### <a name="extract-folder"></a>Extract folder
+This operation extracts an archive file into a folder (example: .zip). 
 
 
-|Имя свойства| Отображаемое имя|Описание|
+|Property Name| Display Name|Description|
 | ---|---|---|
-|source*|Путь к исходному файлу архива|Путь к файлу архива|
-|destination*|Путь к конечной папке|Путь к конечной папке|
-|перезаписать|Перезаписать?|Перезаписывает конечные файлы, если задано значение "true"|
+|source*|Source archive file path|Path to the archive file|
+|destination*|Destination folder path|Path to the destination folder|
+|overwrite|Overwrite?|Overwrites the destination files if set to 'true'|
 
-Звездочка (*) означает, что свойство является обязательным.
+An * indicates that a property is required
 
 
 
-#### Сведения о выходных данных
+#### <a name="output-details"></a>Output Details
 
 BlobMetadata
 
 
-| Имя свойства | Тип данных |
+| Property Name | Data Type |
 |---|---|---|
-|Идентификатор|строка|
-|Имя|строка|
-|DisplayName|строка|
-|Путь|строка|
-|LastModified|строка|
-|Размер|целое число|
-|MediaType|строка|
-|IsFolder|Логическое|
+|Id|string|
+|Name|string|
+|DisplayName|string|
+|Path|string|
+|LastModified|string|
+|Size|integer|
+|MediaType|string|
+|IsFolder|boolean|
 |ETag|string|
 |FileLocator|string|
 
 
 
-## Ответы HTTP
+## <a name="http-responses"></a>HTTP responses
 
-Описанные выше действия и триггеры могут возвращать один или несколько кодов состояния HTTP, которые приведены ниже.
+The actions and triggers above can return one or more of the following HTTP status codes: 
 
-|Имя|Описание|
+|Name|Description|
 |---|---|
-|200|ОК|
-|202|Принято|
-|400|Ошибка запроса|
-|401|Не авторизовано|
-|403|Запрещено|
-|404|Не найдено|
-|500|Внутренняя ошибка сервера. Произошла неизвестная ошибка.|
-|по умолчанию|Операция завершилась ошибкой.|
+|200|OK|
+|202|Accepted|
+|400|Bad Request|
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
+|500|Internal Server Error. Unknown error occurred.|
+|default|Operation Failed.|
 
 
 
@@ -446,7 +447,10 @@ BlobMetadata
 
 
 
-## Дальнейшие действия
-[Создайте приложение логики](../app-service-logic/app-service-logic-create-a-logic-app.md)
+## <a name="next-steps"></a>Next Steps
+[Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!----HONumber=AcomDC_0803_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

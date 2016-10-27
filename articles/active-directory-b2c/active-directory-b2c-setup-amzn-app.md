@@ -1,53 +1,58 @@
 <properties
-	pageTitle="Azure Active Directory B2C: настройка Amazon | Microsoft Azure"
-	description="Обеспечение регистрации и входа для пользователей с учетными записями Amazon в приложениях, защищенных с помощью Azure Active Directory B2C."
-	services="active-directory-b2c"
-	documentationCenter=""
-	authors="swkrish"
-	manager="msmbaldwin"
-	editor="bryanla"/>
+    pageTitle="Azure Active Directory B2C: Amazon configuration | Microsoft Azure"
+    description="Provide sign-up and sign-in to consumers with Amazon accounts in your applications that are secured by Azure Active Directory B2C."
+    services="active-directory-b2c"
+    documentationCenter=""
+    authors="swkrish"
+    manager="mbaldwin"
+    editor="bryanla"/>
 
 <tags
-	ms.service="active-directory-b2c"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
+    ms.service="active-directory-b2c"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
     ms.topic="article"
     ms.date="07/24/2016"
-	ms.author="swkrish"/>
+    ms.author="swkrish"/>
 
-# Azure Active Directory B2C: регистрация и вход пользователей с учетными записями Amazon
 
-## Создание приложения Amazon
+# <a name="azure-active-directory-b2c:-provide-sign-up-and-sign-in-to-consumers-with-amazon-accounts"></a>Azure Active Directory B2C: Provide sign-up and sign-in to consumers with Amazon accounts
 
-Чтобы использовать Amazon в качестве поставщика удостоверений в Azure Active Directory (Azure AD) B2C, необходимо сначала создать приложение Amazon и задать в нем правильные параметры. Для этого потребуется учетная запись Amazon. Если у вас ее нет, зарегистрируйте ее на сайте [http://www.amazon.com/](http://www.amazon.com/).
+## <a name="create-an-amazon-application"></a>Create an Amazon application
 
-1. Перейдите на сайт [Amazon Developer Center](https://login.amazon.com/) войдите с помощью учетной записи Amazon.
-2. Если это еще не сделано, нажмите кнопку **Sign Up** (Регистрация), выполните действия для регистрации разработчика и примите условия политики.
-3. Нажмите кнопку **Register new application** (Зарегистрировать новое приложение).
+To use Amazon as an identity provider in Azure Active Directory (Azure AD) B2C, you need to create an Amazon application and supply it with the right parameters. You need an Amazon account to do this. If you don’t have one, you can get it at [http://www.amazon.com/](http://www.amazon.com/).
 
-    ![Регистрация нового приложения на веб-сайте Amazon](./media/active-directory-b2c-setup-amzn-app/amzn-new-app.png)
+1. Go to the [Amazon Developer Center](https://login.amazon.com/) and sign in with your Amazon account credentials.
+2. If you have not already done so, click **Sign Up**, follow the developer registration steps, and accept the policy.
+3. Click **Register new application**.
 
-4. Укажите информацию о приложении (**имя**, **описание** и **URL-адрес для уведомления о конфиденциальности**) и нажмите кнопку **Save** (Сохранить).
+    ![Registering a new application at the Amazon website](./media/active-directory-b2c-setup-amzn-app/amzn-new-app.png)
 
-    ![Предоставление информации для регистрации нового приложения на сайте Amazon](./media/active-directory-b2c-setup-amzn-app/amzn-register-app.png)
+4. Provide application information (**Name**, **Description**, and **Privacy Notice URL**) and click **Save**.
 
-5. В разделе **Web Settings** (Веб-параметры) скопируйте значения **Client ID** (Идентификатор клиента) и **Client Secret** (Секрет клиента). (Для отображения этих параметров необходимо нажать кнопку **Show Secret** (Показать секрет).) Оба значения необходимы для настройки Amazon в качестве поставщика удостоверений для вашего клиента. Щелкните **Edit** (Изменить) в нижней части раздела. **Секрет клиента** — это важные учетные данные безопасности.
+    ![Providing application information for registering a new application at Amazon](./media/active-directory-b2c-setup-amzn-app/amzn-register-app.png)
 
-	![Предоставление идентификатора клиента и секрета клиента для нового приложения на сайте Amazon](./media/active-directory-b2c-setup-amzn-app/amzn-client-secret.png)
+5. In the **Web Settings** section, copy the values of **Client ID** and **Client Secret**. (You need to click the **Show Secret** button to see this.) You need both of them to configure Amazon as an identity provider in your tenant. Click **Edit** at the bottom of the section. **Client Secret** is an important security credential.
 
-6. Введите `https://login.microsoftonline.com` в поле **Allowed JavaScript Origins** (Разрешенные источники JavaScript) и `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` — в поле **Allowed Return URLs** (Разрешенные URL-адреса возврата). Замените **{tenant}** именем своего клиента (например, contoso.onmicrosoft.com). Щелкните **Сохранить**. В значении **{клиент}** необходимо учитывать регистр.
+    ![Providing Client ID and Client Secret for your new application at Amazon](./media/active-directory-b2c-setup-amzn-app/amzn-client-secret.png)
 
-    ![Предоставление источников JavaScript и URL-адресов возврата для нового приложения на сайте Amazon](./media/active-directory-b2c-setup-amzn-app/amzn-urls.png)
+6. Enter `https://login.microsoftonline.com` in the **Allowed JavaScript Origins** field and `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` in the **Allowed Return URLs** field. Replace **{tenant}** with your tenant's name (for example, contoso.onmicrosoft.com). Click **Save**. The **{tenant}** value is case-sensitive.
 
-## Настройка Amazon в качестве поставщика удостоверений для клиента
+    ![Providing JavaScript Origins and Return URLs for your new application at Amazon](./media/active-directory-b2c-setup-amzn-app/amzn-urls.png)
 
-1. Выполните эти действия, чтобы [перейти к колонке функций B2C](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade) на портале Azure.
-2. В колонке функций B2C щелкните **Поставщики удостоверений**.
-3. Нажмите **+Добавить** в верхней части колонки.
-4. Укажите понятное **имя** конфигурации поставщика удостоверений. Например, введите Amzn.
-5. Щелкните **Identity provider type** (Тип поставщика удостоверений), выберите **Amazon** и нажмите кнопку **ОК**.
-6. Щелкните **Set up this identity provider** (Настроить этот поставщик удостоверений), а затем введите идентификатор и секрет клиента ранее созданного приложения Amazon.
-7. Нажмите кнопку **ОК**, а затем — **Создать**, чтобы сохранить конфигурацию Amazon.
+## <a name="configure-amazon-as-an-identity-provider-in-your-tenant"></a>Configure Amazon as an identity provider in your tenant
 
-<!---HONumber=AcomDC_0727_2016-->
+1. Follow these steps to [navigate to the B2C features blade](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade) on the Azure portal.
+2. On the B2C features blade, click **Identity providers**.
+3. Click **+Add** at the top of the blade.
+4. Provide a friendly **Name** for the identity provider configuration. For example, enter "Amzn".
+5. Click **Identity provider type**, select **Amazon**, and click **OK**.
+6. Click **Set up this identity provider** and enter the client ID and client secret of the Amazon application that you created earlier.
+7. Click **OK** and then click **Create** to save your Amazon configuration.
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

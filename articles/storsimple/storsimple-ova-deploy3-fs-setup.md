@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Развертывание виртуального массива StorSimple 3 — настройка виртуального устройства в качестве файлового сервера"
-   description="Это третье руководство по развертыванию виртуального массива StorSimple содержит инструкции по настройке виртуального устройства в качестве файлового сервера."
+   pageTitle="Deploy StorSimple Virtual Array 3 - Set up the virtual device as file server"
+   description="This third tutorial in StorSimple Virtual Array deployment instructs you to set up a virtual device as file server."
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
@@ -16,220 +16,225 @@
    ms.date="05/26/2016"
    ms.author="alkohli"/>
 
-# Развертывание виртуального массива StorSimple — установка в качестве файлового сервера
+
+# <a name="deploy-storsimple-virtual-array---set-up-as-file-server"></a>Deploy StorSimple Virtual Array - Set up as file server
 
 ![](./media/storsimple-ova-deploy3-fs-setup/fileserver4.png)
 
-## Введение 
+## <a name="introduction"></a>Introduction 
 
-Эта статья относится к виртуальному массиву Microsoft Azure StorSimple (также известному как локальное виртуальное устройство StorSimple и виртуальное устройство StorSimple) общедоступной версии, выпущенной в марте 2016 года. В этой статье приведены инструкции по выполнению первоначальной настройки, регистрации файлового сервера StorSimple, завершению настройки устройства, а также созданию общих папок SMB и подключению к ним. Это последняя статья в серии руководств по развертыванию, необходимых для полного развертывания виртуального массива в качестве файлового сервера или сервера iSCSI.
+This article applies to Microsoft Azure StorSimple Virtual Array (also known as the StorSimple on-premises virtual device or StorSimple virtual device) running March 2016 general availability (GA) release. This article describes how to perform initial setup, register your StorSimple file server, complete the device setup, and create and connect to SMB shares. This is the last article in the series of deployment tutorials required to completely deploy your virtual array as a file server or an iSCSI server.
 
-Установка и настройка могут занять около 10 минут.
-
-
-## Предварительные требования к установке и настройке
-
-Перед установкой и настройкой виртуального устройства StorSimple проверьте следующее.
-
--   Вы подготовили виртуальное устройство и подключились к нему, как подробно описано в статье [Подготовка виртуального массива StorSimple в Hyper-V](storsimple-ova-deploy2-provision-hyperv.md) или [Подготовка виртуального массива StorSimple в VMware](storsimple-ova-deploy2-provision-vmware.md).
-
--   У вас есть ключ регистрации службы из службы диспетчера StorSimple, который вы создали для управления виртуальными устройствами StorSimple. Дополнительные сведения см. в разделе [Шаг 2. Получение ключа регистрации службы](storsimple-ova-deploy1-portal-prep.md#step-2-get-the-service-registration-key) для виртуального массива StorSimple.
-
--   Если это уже второе (третье и т. д.) устройство, которое вы регистрируете в существующей службе диспетчера StorSimple, у вас уже должен быть ключ шифрования данных службы. Этот ключ был создан во время регистрации первого устройства в данной службе. В случае потери ключа см. раздел [Получение ключа шифрования данных службы](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key) для виртуального массива StorSimple.
-
-## Пошаговая настройка
-
-Следующие пошаговые инструкции позволяют установить и настроить виртуальное устройство StorSimple.
-
-## Шаг 1. Настройка локального веб-интерфейса и регистрация устройства 
+The setup and configuration process can take around 10 minutes to complete.
 
 
-#### Настройка и регистрация устройства
+## <a name="setup-prerequisites"></a>Setup prerequisites
 
-1.  Откройте окно браузера и подключитесь к локальному веб-интерфейсу. Вот что нужно ввести:	
+Before you configure and set up your StorSimple virtual device, make sure that:
+
+-   You have provisioned a virtual device and connected to it as detailed in the [Provision a StorSimple Virtual Array in Hyper-V](storsimple-ova-deploy2-provision-hyperv.md) or [Provision a StorSimple Virtual Array in VMware](storsimple-ova-deploy2-provision-vmware.md).
+
+-   You have the service registration key from the StorSimple Manager service that you created to manage StorSimple virtual devices. For more information, see [Step 2: Get the service registration key](storsimple-ova-deploy1-portal-prep.md#step-2-get-the-service-registration-key) for StorSimple Virtual Array.
+
+-   If this is the second or subsequent virtual device that you are registering with an existing StorSimple Manager service, you should have the service data encryption key. This key was generated when the first device was successfully registered with this service. If you have lost this key, see [Get the service data encryption key](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key) for your StorSimple Virtual Array.
+
+## <a name="step-by-step-setup"></a>Step-by-step setup
+
+Use the following step-by-step instructions to set up and configure your StorSimple virtual device.
+
+## <a name="step-1:-complete-the-local-web-ui-setup-and-register-your-device"></a>Step 1: Complete the local web UI setup and register your device 
+
+
+#### <a name="to-complete-the-setup-and-register-the-device"></a>To complete the setup and register the device
+
+1.  Open a browser window and connect to the local web UI.Type: 
 
     `https://<ip-address of network interface>`
 
-	Используйте URL-адрес подключения, указанный на предыдущем этапе. Появится сообщение об ошибке, уведомляющее о проблеме с сертификатом безопасности веб-сайта. Щелкните **Перейти на эту веб-страницу**.
+    Use the connection URL noted in the previous step. You will see an error indicating that there is a problem with the website’s security certificate. Click **Continue to this webpage**.
 
-	![](./media/storsimple-ova-deploy3-fs-setup/image2.png)
+    ![](./media/storsimple-ova-deploy3-fs-setup/image2.png)
 
-1.  Войдите в веб-интерфейс виртуального устройства с правами администратора **StorSimpleAdmin**. Введите пароль администратора устройства, который вы изменили в соответствии с инструкциями, приведенными в разделе "Шаг 3. Запуск виртуального устройства" статьи [Подготовка виртуального массива StorSimple в Hyper-V](storsimple-ova-deploy2-provision-hyperv.md) или [Подготовка виртуального массива StorSimple в VMware](storsimple-ova-deploy2-provision-vmware.md).
+1.  Sign in to the web UI of your virtual device as **StorSimpleAdmin**. Enter the device administrator password that you changed in Step 3: Start the virtual device in [Provision a StorSimple Virtual Array in Hyper-V](storsimple-ova-deploy2-provision-hyperv.md) or in [Provision a StorSimple Virtual Array in VMware](storsimple-ova-deploy2-provision-vmware.md).
 
-	![](./media/storsimple-ova-deploy3-fs-setup/image3.png)
+    ![](./media/storsimple-ova-deploy3-fs-setup/image3.png)
 
-1.  Откроется **главная** страница. На этой странице описаны различные параметры, необходимые для настройки и регистрации виртуального устройства в службе диспетчера StorSimple. Обратите внимание, что настройки в приведенных ниже разделах интерфейса **Параметры сети**, **Параметры прокси-сервера доступа в Интернет** и **Параметры времени** являются необязательными. Обязательны только настройки в разделах **Параметры устройства** и **Параметры облака**.
+1.  You will be taken to the **Home** page. This page describes the various settings required to configure and register the virtual device with the StorSimple Manager service. Note that the **Network settings**, **Web proxy settings**, and **Time settings** are optional. The only required settings are **Device settings** and **Cloud settings**.
 
-	![](./media/storsimple-ova-deploy3-fs-setup/image4.png)
+    ![](./media/storsimple-ova-deploy3-fs-setup/image4.png)
 
-1.  На странице **Параметры сети** в разделе **Интерфейсы сети** интерфейс DATA 0 будет настроен автоматически. По умолчанию в каждом интерфейсе сети настроено автоматическое получение IP-адреса (DHCP). Таким образом, IP-адрес, подсеть и шлюз назначаются автоматически (для IPv4 и IPv6).
+1.  In the **Network settings** page under **Network interfaces**, DATA 0 will be automatically configured for you. Each network interface is set by default to get IP address automatically (DHCP). Hence, an IP address, subnet, and gateway will be automatically assigned (for both IPv4 and IPv6).
 
-	![](./media/storsimple-ova-deploy3-fs-setup/image5.png)
+    ![](./media/storsimple-ova-deploy3-fs-setup/image5.png)
 
-	Если во время подготовки устройства вы добавили несколько интерфейсов сети, в этом разделе можно выполнить их настройку. Обратите внимание, что для сетевого интерфейса можно настроить или только протокол IPv4, или оба протокола — IPv4 и IPv6. Конфигурации только с IPv6 не поддерживаются.
+    If you added more than one network interface during the provisioning of the device, you can configure them here. Note you can configure your network interface as IPv4 only or as both IPv4 and IPv6. IPv6 only configurations are not supported.
 
-1.  DNS-серверы необходимы, так как они используются, когда устройство пытается связаться с поставщиками облачного хранилища или сопоставить устройство по имени, если оно настроено в качестве файлового сервера. На странице **Параметры сети** в разделе **DNS-серверы**:
+1.  DNS servers are required because they are used when your device attempts to communicate with your cloud storage service providers or to resolve your device by name when configured as a file server. In the **Network settings** page under the **DNS servers**:
 
-    1.  Основной и дополнительный DNS-серверы настраиваются автоматически. Если вы решили настроить статические IP-адреса, можете указать DNS-серверы. Для обеспечения высокого уровня доступности рекомендуем настроить основной и дополнительный DNS-серверы.
+    1.  A primary and secondary DNS server will be automatically configured. If you choose to configure static IP addresses, you can specify DNS servers. For high availability, we recommend that you configure a primary and a secondary DNS server.
 
-    2.  Нажмите кнопку **Применить**. Параметры сети будут применены и проверены.
+    2.  Click **Apply**. This will apply and validate the network settings.
 
-2.  На странице **Параметры устройства**:
+2.  In the **Device settings** page:
 
-    1.  Присвойте устройству уникальное **имя**. Оно может содержать от 1 до 15 символов (буквы, цифры и дефисы).
+    1.  Assign a unique **Name** to your device. This name can be 1-15 characters and can contain letter, numbers and hyphens.
 
-    2.  В качестве **типа** устройства, которое вы создаете, укажите тип **Файловый сервер**. Для этого щелкните значок ![](./media/storsimple-ova-deploy3-fs-setup/image6.png). На файловом сервере можно создавать общие папки.
+    2.  Click the **File server** icon ![](./media/storsimple-ova-deploy3-fs-setup/image6.png) for the **Type** of device that you are creating. A file server will allow you to create shared folders.
 
-    3.  Если ваше устройство является файловым сервером, необходимо присоединить его к домену. Введите **имя домена**.
+    3.  As your device is a file server, you will need to join the device to a domain. Enter a **Domain name**.
 
-	1.  Нажмите кнопку **Применить**.
+    1.  Click **Apply**.
 
-2.  Появится диалоговое окно. Введите учетные данные домена в указанном формате. Щелкните значок галочки. Учетные данные домена будут проверены. Если они окажутся неправильными, появится сообщение об ошибке.
+2.  A dialog box will appear. Enter your domain credentials in the specified format. Click the check icon. The domain credentials will be verified. You will see an error message if the credentials are incorrect.
 
-	![](./media/storsimple-ova-deploy3-fs-setup/image7.png)
+    ![](./media/storsimple-ova-deploy3-fs-setup/image7.png)
 
-1.  Нажмите кнопку **Применить**. Параметры устройства будут проверены и применены.
+1.  Click **Apply**. This will apply and validate the device settings.
 
-	![](./media/storsimple-ova-deploy3-fs-setup/image8.png)
+    ![](./media/storsimple-ova-deploy3-fs-setup/image8.png)
 
-	> [AZURE.NOTE]
-	> 
-	> Убедитесь, что виртуальный массив находится в собственном подразделении (OU) для Active Directory и никакие объекты групповой политики (GPO) к нему не применяются и им не наследуются. Групповая политика может установить на виртуальный массива StorSimple такие приложения, как антивирусное ПО. Установка дополнительного программного обеспечения не поддерживается и может привести к повреждению данных.
+    > [AZURE.NOTE]
+    > 
+    > Ensure that your virtual array is in its own organizational unit (OU) for Active Directory and no group policy objects (GPO) are applied to it or inherited. Group policy may install applications such as anti-virus software on the StorSimple Virtual Array. Installing additional software is not supported and could lead to data corruption. 
 
-1.  (Необязательно) Настройте прокси-сервер доступа в Интернет. Хотя использовать прокси-сервер доступа в Интернет не обязательно, следует знать, что, если в вашей сети он имеется, настройку для работы с ним можно выполнить только в этом разделе.
+1.  (Optionally) configure your web proxy server. Although web proxy configuration is optional, be aware that if you use a web proxy, you can only configure it here.
 
-	![](./media/storsimple-ova-deploy3-fs-setup/image9.png)
+    ![](./media/storsimple-ova-deploy3-fs-setup/image9.png)
 
-	На странице **Прокси-сервер доступа в Интернет** сделайте следующее:
+    In the **Web proxy** page:
 
-	1.  Укажите **URL-адрес прокси-сервера** в следующем формате: *адрес http://&lt;host-IP или FDQN&gt;:номер порта*. Обратите внимание, что URL-адреса HTTP не поддерживаются.
+    1.  Supply the **Web proxy URL** in this format: *http://&lt;host-IP address or FDQN&gt;:Port number*. Note that HTTPS URLs are not supported.
 
-	2.  Выберите тип **проверки подлинности**: **Базовая**, **Нет**.
+    2.  Specify **Authentication** as **Basic** or **None**.
 
-	3.  Если проверка подлинности используется, необходимо указать также **имя пользователя** и **пароль**.
+    3.  If using authentication, you will also need to provide a **Username** and **Password**.
 
-	4.  Нажмите кнопку **Применить**. Заданные параметры прокси-сервера доступа в Интернет будут проверены и применены.
+    4.  Click **Apply**. This will validate and apply the configured web proxy settings.
 
-1.  (Необязательно) Настройте параметры времени для своего устройства, такие как часовой пояс, а также основной и дополнительный NTP-серверы. NTP-серверы необходимы, так как устройство должно синхронизировать время, чтобы проходить проверку подлинности в облачных службах.
+1.  (Optionally) configure the time settings for your device, such as time zone and the primary and secondary NTP servers. NTP servers are required because your device must synchronize time so that it can authenticate with your cloud service providers.
 
-	![](./media/storsimple-ova-deploy3-fs-setup/image10.png)
+    ![](./media/storsimple-ova-deploy3-fs-setup/image10.png)
 
-	На странице **Параметры времени** сделайте следующее:
+    In the **Time settings** page:
 
-	1.  В раскрывающемся списке выберите **часовой пояс**, учитывая географическое расположение, в котором будет развернуто устройство. Часовой пояс по умолчанию для устройства — тихоокеанское стандартное время (PST). Устройство будет использовать заданный часовой пояс для всех запланированных операций.
+    1.  From the dropdown list, select the **Time zone** based on the geographic location in which the device is being deployed. The default time zone for your device is PST. Your device will use this time zone for all scheduled operations.
 
-	2.  Укажите **основной NTP-сервер** для устройства или примите значение по умолчанию, заданное на сайте time.windows.com. Убедитесь, что ваша сеть позволяет передавать NTP-трафик из вашего центра обработки данных в Интернет.
+    2.  Specify a **Primary NTP server** for your device or accept the default value of time.windows.com. Ensure that your network allows NTP traffic to pass from your datacenter to the Internet.
 
-	3.  При необходимости укажите **дополнительный NTP-сервер** для устройства.
+    3.  Optionally specify a **Secondary NTP server** for your device.
 
-	4.  Нажмите кнопку **Применить**. Заданные параметры времени будут проверены и применены.
+    4.  Click **Apply**. This will validate and apply the configured time settings.
 
-1.  Настройте параметры облака для устройства. На этом этапе вы завершите настройку локального устройства и зарегистрируете его в службе диспетчера StorSimple.
+1.  Configure the cloud settings for your device. In this step, you will complete the local device configuration and then register the device with your StorSimple Manager service.
 
-    1.  Введите **ключ регистрации устройства**, полученный для виртуального массива StorSimple при выполнении действий, описанных в разделе [Шаг 2. Получение ключа регистрации службы](storsimple-ova-deploy1-portal-prep.md#step-2-get-the-service-registration-key).
+    1.  Enter the **Service registration key** that you got in [Step 2: Get the service registration key](storsimple-ova-deploy1-portal-prep.md#step-2-get-the-service-registration-key) for StorSimple Virtual Array.
 
-    2.  Если это первое устройство, регистрируемое в службе, пропустите этот шаг и перейдите к следующему. Если это не первое устройство, которое вы регистрируете в данной службе, необходимо указать **ключ шифрования данных службы**. Этот ключ вместе с ключом регистрации службы требуется для регистрации дополнительных устройств в службе диспетчера StorSimple. Дополнительные сведения содержатся в разделе локального веб-интерфейса [Получение ключа шифрования данных службы](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key).
+    2.  Skip this step if this is your first device registering with this service and go to the next step. If this is not the first device that you are registering with this service, you will need to provide the **Service data encryption key**. This key is required with the service registration key to register additional devices with the StorSimple Manager service. For more information, refer to get the [service data encryption key](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key) on your local web UI.
 
-    3.  Щелкните **Зарегистрировать**. Это приведет к перезапуску устройства. Может потребоваться подождать 2–3 минуты, прежде чем устройство будет зарегистрировано. После перезапуска устройства откроется страница входа.
+    3.  Click **Register**. This will restart the device. You may need to wait for 2-3 minutes before the device is successfully registered. After the device has restarted, you will be taken to the sign in page.
 
-		![](./media/storsimple-ova-deploy3-fs-setup/image13.png)
-	
+        ![](./media/storsimple-ova-deploy3-fs-setup/image13.png)
+    
 
-1.  Вернитесь на классический портал Azure. На странице **Устройства** убедитесь, что устройство успешно подключено к службе, посмотрев на его состояние. Состояние устройства должно быть такое: **Активно**.
+1.  Return to the Azure classic portal. On the **Devices** page, verify that the device has successfully connected to the service by looking up the status. The device status should be **Active**.
 
 ![](./media/storsimple-ova-deploy3-fs-setup/image12.png)
 
-## Шаг 2. Завершение необходимой настройки устройства
+## <a name="step-2:-complete-the-required-device-setup"></a>Step 2: Complete the required device setup
 
-Чтобы завершить настройку устройства StorSimple, выполните следующие действия:
+To complete the device configuration of your StorSimple device, you need to:
 
--   выберите учетную запись хранения, которая будет связана с устройством;
+-   Select a storage account to associate with your device.
 
--   выберите параметры шифрования данных, отправляемых в облако.
+-   Choose encryption settings for the data that is sent to cloud.
 
-Чтобы завершить необходимую настройку устройства, выполните на [классическом портале Azure](https://manage.windowsazure.com/) указанные ниже действия.
+Perform the following steps in the [Azure classic portal](https://manage.windowsazure.com/) to complete the required device setup.
 
-#### Минимальная настройка устройства
+#### <a name="to-complete-the-minimum-device-setup"></a>To complete the minimum device setup
 
-1.  На странице **Устройства** выберите устройство, которое вы только что создали. Для него будет отображаться состояние **Активно**. Щелкните стрелку рядом с именем устройства и нажмите кнопку **Быстрый запуск**.
+1.  From the **Devices** page, select the device you just created. This device would show up as **Active**. Click the arrow against the device name and then click **Quick Start**.
 
-2.  Чтобы запустить мастер настройки устройства, щелкните **Завершить настройку устройства**.
+2.  Click **complete device setup** to start the Configure device wizard.
 
-3.  В мастере настройки устройства на странице **Основные параметры** выполните следующие действия:
+3.  In the Configure device wizard on the **Basic Settings** page, do the following:
 
-	1.  Укажите учетную запись хранения, которая будет использоваться с устройством. Вы можете выбрать учетную запись хранения в этой подписке в раскрывающемся списке. Учетную запись можно выбрать также в другой подписке (с помощью команды **Добавить**).
+    1.  Specify a storage account to be used with your device. You can select an existing storage account in this subscription from the dropdown list or specify **Add more** to choose an account from a different subscription.
 
-	2.  Определите параметры шифрования для всех неактивных данных (шифрование AES), которые будут отправлены в облако. Для шифрования данных выберите в поле со списком команду **Включить ключ шифрования облачного хранилища**. Введите ключ шифрования облачного хранилища, содержащий 32 символа. Введите ключ повторно, чтобы подтвердить его. 256-разрядный ключ AES будет использоваться вместе с ключом для шифрования, определяемым пользователем.
+    2.  Define the encryption settings for all the data-at-rest (AES encryption) that will be sent to the cloud. To encrypt your data, check the combo box to **enable cloud storage encryption key**. Enter a cloud storage encryption that contains 32 characters. Reenter the key to confirm it. A 256-bit AES key will be used with the user-defined key for encryption.
 
-	3.  Щелкните значок галочки ![](./media/storsimple-ova-deploy3-fs-setup/image15.png).
+    3.  Click the check icon ![](./media/storsimple-ova-deploy3-fs-setup/image15.png).
 
-		![](./media/storsimple-ova-deploy3-fs-setup/image16.png)
+        ![](./media/storsimple-ova-deploy3-fs-setup/image16.png)
 
-Теперь параметры будут обновлены. После обновления параметров кнопка завершения настройки устройства станет неактивной. Будет выполнен возврат на страницу устройства **Быстрый запуск**.
+The settings will now be updated. After settings are updated successfully, the complete device setup button will be grayed out. You will return to the device **Quick Start** page.
 
  ![](./media/storsimple-ova-deploy3-fs-setup/image17.png)
 
 
 > [AZURE.NOTE]                                                              
 >
-> Другие параметры устройства можно изменить в любое время на странице **Настройка**.
+> You can modify all the other device settings at any time by accessing the **Configure** page.
 
-## Шаг 3. Добавление общей папки
+## <a name="step-3:-add-a-share"></a>Step 3: Add a share
 
-Чтобы создать общую папку, на [классическом портале Azure](https://manage.windowsazure.com/) выполните следующие действия.
+Perform the following steps in the [Azure classic portal](https://manage.windowsazure.com/) to create a share.
 
-#### Создание общей папки
+#### <a name="to-create-a-share"></a>To create a share
 
-1.  На странице устройства **Быстрый запуск** щелкните **Добавить общую папку**. Запустится мастер добавления общей папки.
+1.  On the device **Quick Start** page, click **Add a share**. This starts the Add a share wizard.
 
-	![](./media/storsimple-ova-deploy3-fs-setup/image17.png)
+    ![](./media/storsimple-ova-deploy3-fs-setup/image17.png)
 
-1.  На странице **Основные параметры** выполните следующие действия:
+1.  On the **Basic Settings** page, do the following:
 
-    1.  Укажите уникальное имя для общей папки. Оно должно представлять собой строку длиной от 3 до 127 символов.
+    1.  Specify a unique name for your share. The name must be a string that contains 3 to 127 characters.
 
-    2.  (Необязательно) Добавьте описание общей папки. Оно поможет определить ее владельцев.
+    2.  (Optional) Provide a description for the share. The description will help identify the share owners.
 
-    3.  Выберите тип использования для общей папки. Тип использования папки может быть таким: **Многоуровневая** (используется по умолчанию) или **Локально закрепленная**. Для рабочих нагрузок, которые требуют локальных гарантий, низкой задержки и более высокой производительности, выберите тип **Локально закрепленная**. Для любых других данных выберите тип **Многоуровневая**.
+    3.  Select a usage type for the share. The usage type can be **Tiered** or **Locally pinned**, with tiered being the default. For workloads that require local guarantees, low latencies, and higher performance, select a **Locally pinned** share. For all other data, select a **Tiered** share.
 
-	Локально закрепленные папки подготавливаются "тесно". Это гарантирует, что основные данные папки остаются локально на устройстве и не будут вытеснены в облако. С другой стороны, для многоуровневого общего ресурса используется тонкая подготовка. При создании многоуровневой папки подготавливается 10 % пространства на локальном уровне и 90 % пространства в облаке. Например, если подготовлен том объемом 1 ТБ, 100 ГБ будут находиться в локальном пространстве, а 900 ГБ — использоваться в облаке для расположения данных на разных уровнях. Это, в свою очередь, означает, что если на устройстве не хватает свободного локального пространства, то нельзя подготовить многоуровневую общую папку.
+    A locally pinned share is thickly provisioned and ensures that the primary data on the share stays local to the device and does not spill to the cloud. A tiered share on the other hand is thinly provisioned. When you create a tiered share, 10% of the space is provisioned on the local tier and 90% of the space is provisioned in the cloud. For instance, if you provisioned a 1 TB volume, 100 GB would reside in the local space and 900 GB would be used in the cloud when the data tiers. This in turn implies that if you run out of all the local space on the device, you cannot provision a tiered share.
 
-1.  Укажите подготовленную емкость для общей папки. Обратите внимание, что указанная емкость должна быть меньше, чем доступная. При использовании многоуровневой общей папки ее размер должен быть от 500 ГБ до 20 ТБ. Для локально закрепленных общих папок выберите размер папки от 50 ГБ до 2 ТБ. При подготовке общей папки принимайте во внимание доступную емкость. Если доступная локальная емкость составляет 0 ГБ, вы не сможете подготовить локально закрепленные или многоуровневые общие папки.
+1.  Specify the provisioned capacity for your share. Note that the specified capacity should be smaller than the available capacity. If using a tiered share, the share size should be between 500 GB and 20 TB. For a locally pinned share, specify a share size between 50 GB and 2 TB. Use the available capacity as a guide to provision a share. If the available local capacity is 0 GB, then you will not be allowed to provision local or tiered shares.
 
-	![](./media/storsimple-ova-deploy3-fs-setup/image18.png)
+    ![](./media/storsimple-ova-deploy3-fs-setup/image18.png)
 
-1.  Нажмите кнопку с изображением стрелки ![](./media/storsimple-ova-deploy3-fs-setup/image19.png), чтобы перейти к следующей странице.
+1.  Click the arrow icon ![](./media/storsimple-ova-deploy3-fs-setup/image19.png) to go to the next page.
 
-1.  На странице **Дополнительные параметры** предоставьте разрешения для пользователя или группы, которые будут обращаться к этой общей папке. Укажите имя пользователя или группы пользователей в формате *<john@contoso.com>*. Чтобы предоставить права администратора для доступа к этим общим папкам, рекомендуем использовать группы пользователей (вместо одного пользователя). После того как разрешения назначены здесь, их можно изменять в проводнике.
+1.  In the **Additional Settings** page, assign the permissions to the user or the group that will be accessing this share. Specify the name of the user or the user group in *<john@contoso.com>* format. We recommend that you use a user group (instead of a single user) to allow admin privileges to access these shares. After you have assigned the permissions here, you can then use Windows Explorer to modify these permissions.
 
-	![](./media/storsimple-ova-deploy3-fs-setup/image20.png)
+    ![](./media/storsimple-ova-deploy3-fs-setup/image20.png)
 
-1.  Щелкните значок галочки ![](./media/storsimple-ova-deploy3-fs-setup/image21.png). Будет создана общая папка с указанными настройками. По умолчанию для нее включены мониторинг и резервное копирование.
+1.  Click the check icon ![](./media/storsimple-ova-deploy3-fs-setup/image21.png). A share will be created with the specified settings. By default, monitoring and backup will be enabled for the share.
 
-## Шаг 4. Подключение к общей папке
+## <a name="step-4:-connect-to-the-share"></a>Step 4: Connect to the share
 
-Теперь необходимо подключиться к общим папкам, созданным на предыдущем этапе. Выполните следующие шаги на вашем узле Windows Server.
+You will now need to connect to the share(s) that you created in the previous step. Perform these steps on your Windows Server host.
 
-#### Подключение к общей папке
+#### <a name="to-connect-to-the-share"></a>To connect to the share
 
-1.  Нажмите сочетание клавиш ![](./media/storsimple-ova-deploy3-fs-setup/image22.png) + R. В окне запуска действия укажите *\<file server name>* в качестве пути, заменив *имя файлового сервера* именем устройства, присвоенным файловому серверу. Нажмите кнопку **ОК**.
+1.  Press ![](./media/storsimple-ova-deploy3-fs-setup/image22.png) + R. In the Run window, specify the *\\<file server name>* as the path, replacing *file server name* with the device name that you assigned to your file server. Click **OK**.
 
-	![](./media/storsimple-ova-deploy3-fs-setup/image23.png)
+    ![](./media/storsimple-ova-deploy3-fs-setup/image23.png)
 
-2.  Откроется проводник, и вы сможете увидеть общие папки. Для просмотра содержимого выберите и дважды щелкните общую папку.
+2.  This will open up Explorer. You should now be able to see the shares that you created as folders. Select and double-click a share (folder) to view the content.
 
-	![](./media/storsimple-ova-deploy3-fs-setup/image24.png)
+    ![](./media/storsimple-ova-deploy3-fs-setup/image24.png)
 
-3.  Теперь можно добавить файлы в эти общие папки и создать их резервную копию.
+3.  You can now add files to these shares and take a backup.
 
-![значок видео](./media/storsimple-ova-deploy3-fs-setup/video_icon.png) **Доступно видео**
+![video icon](./media/storsimple-ova-deploy3-fs-setup/video_icon.png) **Video available**
 
-Просмотрите видео, чтобы узнать, как настроить и зарегистрировать виртуальный массив StorSimple в качестве файлового сервера.
+Watch the video to see how you can configure and register a StorSimple Virtual Array as a file server.
 
 > [AZURE.VIDEO configure-a-storsimple-virtual-array]
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Next steps
 
-Узнайте, как с помощью локального веб-интерфейса [администрировать виртуальный массив StorSimple](storsimple-ova-web-ui-admin.md).
+Learn how to use the local web UI to [administer your StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
 
-<!---HONumber=AcomDC_0601_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

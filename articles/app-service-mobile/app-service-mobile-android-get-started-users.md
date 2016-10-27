@@ -1,58 +1,59 @@
 <properties
-	pageTitle="Добавление проверки подлинности в Android с помощью мобильных приложений | Служба приложений Azure"
-	description="Узнайте, как использовать мобильные приложения в службе приложений Azure для аутентификации пользователей приложения Android с помощью разнообразных поставщиков удостоверений, включая Google, Facebook, Twitter и корпорацию Майкрософт."
-	services="app-service\mobile"
-	documentationCenter="android"
-	authors="RickSaling"
-	manager="erikre"
-	editor=""/>
+    pageTitle="Add authentication on Android with Mobile Apps | Azure App Service"
+    description="Learn how to use Mobile Apps in Azure App Service to authenticate users of your Android app through a variety of identity providers, including Google, Facebook, Twitter, and Microsoft."
+    services="app-service\mobile"
+    documentationCenter="android"
+    authors="yuaxu"
+    manager="erikre"
+    editor=""/>
 
 <tags
-	ms.service="app-service-mobile"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-android"
-	ms.devlang="java"
-	ms.topic="article"
-	ms.date="07/18/2016"
-	ms.author="ricksal"/>
+    ms.service="app-service-mobile"
+    ms.workload="mobile"
+    ms.tgt_pltfrm="mobile-android"
+    ms.devlang="java"
+    ms.topic="article"
+    ms.date="10/01/2016"
+    ms.author="yuaxu"/>
 
-# Добавление проверки подлинности в приложение Android
+
+# <a name="add-authentication-to-your-android-app"></a>Add authentication to your Android app
 
 [AZURE.INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
 
-## Сводка
+## <a name="summary"></a>Summary
 
-В этом учебнике вы добавляете проверку подлинности в учебный проект ToDoList для Android с помощью поддерживаемого поставщика удостоверений. Этот учебник создан на основе учебника [Начало работы с мобильными службами], который необходимо изучить в первую очередь.
+In this tutorial, you add authentication to the todolist quickstart project on Android using a supported identity provider. This tutorial is based on the [Get started with Mobile Apps] tutorial, which you must complete first.
 
-##<a name="register"></a>Регистрация приложения для проверки подлинности и настройка службы приложений
+##<a name="<a-name="register"></a>register-your-app-for-authentication-and-configure-the-app-service"></a><a name="register"></a>Register your app for authentication and configure the App Service
 
 [AZURE.INCLUDE [app-service-mobile-register-authentication](../../includes/app-service-mobile-register-authentication.md)]
 
-##<a name="permissions"></a>Предоставление разрешений только пользователям, прошедшим проверку подлинности
+##<a name="<a-name="permissions"></a>restrict-permissions-to-authenticated-users"></a><a name="permissions"></a>Restrict permissions to authenticated users
 
 [AZURE.INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
-+ В Android Studio откройте проект, созданный при прохождении учебника [Начало работы с мобильными приложениями], а затем в меню **Запуск** выберите пункт **Запуск приложения** и убедитесь, что при запуске приложения выдается необработанное исключение с кодом состояния 401 (Не авторизован).
++ In Android Studio, open the project that you created when you completed the tutorial [Get started with Mobile Apps], then from the **Run** menu click **Run app** and verify that an unhandled exception with a status code of 401 (Unauthorized) is raised after the app starts.
 
-	 Это происходит, потому что приложение пытается получить доступ к серверной части как пользователь, не прошедший проверку подлинности, а таблица _TodoItem_ теперь требует выполнения проверки подлинности.
+     This happens because the app attempts to access the backend as an unauthenticated user, but the _TodoItem_ table now requires authentication.
 
-Далее приложение будет обновлено таким образом, что оно станет производить аутентификацию учетных данных пользователей, прежде чем запрашивать ресурсы из серверной части мобильного приложения.
+Next, you will update the app to authenticate users before requesting resources from the Mobile App backend.
 
-## Добавление проверки подлинности в приложение
+## <a name="add-authentication-to-the-app"></a>Add authentication to the app
 
 [AZURE.INCLUDE [mobile-android-authenticate-app](../../includes/mobile-android-authenticate-app.md)]
 
-## <a name="cache-tokens"></a>Кэширование маркеров проверки подлинности на клиенте
+## <a name="<a-name="cache-tokens"></a>cache-authentication-tokens-on-the-client"></a><a name="cache-tokens"></a>Cache authentication tokens on the client
 
 [AZURE.INCLUDE [mobile-android-authenticate-app-with-token](../../includes/mobile-android-authenticate-app-with-token.md)]
 
-##Дальнейшие действия
+##<a name="next-steps"></a>Next steps
 
-Вы прошли этот учебник по обычной проверке подлинности и теперь можете перейти к одному из следующих учебников:
+Now that you completed this basic authentication tutorial, consider continuing on to one of the following tutorials:
 
-+ [Добавление push-уведомлений в приложение Android](app-service-mobile-android-get-started-push.md) Узнайте, как добавить поддержку push-уведомлений в приложение и настроить в серверной части мобильного приложения использование центров уведомлений Azure для отправки push-уведомлений.
++ [Add push notifications to your Android app](app-service-mobile-android-get-started-push.md) Learn how to add push notifications support to your app and configure your Mobile App backend to use Azure Notification Hubs to send push notifications.
 
-+ [Включение автономной синхронизации для приложения Android](app-service-mobile-android-get-started-offline-data.md) Узнайте, как добавить поддержку автономной работы приложения с помощью серверной части мобильного приложения. Автономная синхронизация позволяет конечным пользователям взаимодействовать с мобильным приложением (просматривать, добавлять или изменять данные) даже при отсутствии подключения к сети.
++ [Enable offline sync for your Android app](app-service-mobile-android-get-started-offline-data.md) Learn how to add offline support your app using an Mobile App backend. Offline sync allows end-users to interact with a mobile app&mdash;viewing, adding, or modifying data&mdash;even when there is no network connection.
 
 
 
@@ -62,11 +63,14 @@
 [Add authentication to the app]: #add-authentication
 [Store authentication tokens on the client]: #cache-tokens
 [Refresh expired tokens]: #refresh-tokens
-[Next Steps]: #next-steps
+[Next Steps]:#next-steps
 
 
 <!-- URLs. -->
-[Начало работы с мобильными приложениями]: app-service-mobile-android-get-started.md
-[Начало работы с мобильными службами]: app-service-mobile-android-get-started.md
+[Get started with Mobile Apps]: app-service-mobile-android-get-started.md
 
-<!---HONumber=AcomDC_0720_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

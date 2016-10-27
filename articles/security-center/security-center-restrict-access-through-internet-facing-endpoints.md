@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Ограничение доступа через подключенную к Интернету конечную точку в центре безопасности Azure | Microsoft Azure"
-   description="В этом документе объясняется, как выполнить рекомендацию центра безопасности Azure **Restrict access through Internet facing endpoint** (Ограничение доступа через подключенную к Интернету конечную точку)."
+   pageTitle="Restrict access through Internet-facing endpoints in Azure Security Center  | Microsoft Azure"
+   description="This document shows you how to implement the Azure Security Center recommendation **Restrict access through Internet facing endpoint**."
    services="security-center"
    documentationCenter="na"
    authors="TerryLanfear"
@@ -16,46 +16,52 @@
    ms.date="07/26/2016"
    ms.author="terrylan"/>
 
-# Ограничение доступа через подключенную к Интернету конечную точку в центре безопасности Azure
 
-Центр безопасности Azure будет рекомендовать ограничить доступ через подключенную к Интернету конечную точку, если в какой-либо группе безопасности сети есть одно или несколько правил входящего трафика, разрешающих доступ с "любого" исходного IP-адреса. Разрешение доступа с "любого" IP-адреса может позволить злоумышленникам получить доступ к вашим ресурсам. Центр безопасности будет рекомендовать изменить эти правила входящего трафика, чтобы разрешить доступ только с тех исходных IP-адресов, которым он действительно необходим.
+# <a name="restrict-access-through-internet-facing-endpoints-in-azure-security-center"></a>Restrict access through Internet-facing endpoints in Azure Security Center
 
-Эта рекомендация создается для любого порта, не являющегося веб-портом, для которого в качестве источника указано значение "Любой".
+Azure Security Center will recommend that you restrict access through Internet-facing endpoints if any of your Network Security Groups (NSGs) has one or more inbound rules that allow access from “any” source IP address. Opening access to “any” may enable attackers to access your resources. Security Center will recommend that you edit these inbound rules to restrict access to source IP addresses that actually need access.
 
-> [AZURE.NOTE] В документе приводится обзор службы с помощью примера развертывания. Он не является пошаговым руководством.
+This recommendation is generated for any non-web port that has "any" as source.
 
-## Выполнение рекомендаций
+> [AZURE.NOTE] This document introduces the service by using an example deployment. This is not a step-by-step guide.
 
-1. В колонке **Рекомендации** выберите **Restrict access through Internet facing endpoint** (Ограничить доступ через подключенную к Интернету конечную точку). ![Ограничение доступа через подключенную к Интернету конечную точку][1]
+## <a name="implement-the-recommendation"></a>Implement the recommendation
 
-2. Откроется колонка **Restrict access through Internet facing endpoint** (Ограничение доступа через подключенную к Интернету конечную точку). В этой колонке перечислены виртуальные машины с правилами входящего трафика, которые представляют угрозу для безопасности. Выберите виртуальную машину. ![Выбор виртуальной машины][2]
+1. In the **Recommendations blade**, select **Restrict access through Internet facing endpoint**.
+![Restrict access through Internet facing endpoint][1]
 
-3. В колонке **Группа безопасности сети** отображаются сведения о группе безопасности сети, связанные правила входящего трафика и соответствующие виртуальные машины. Выберите **Изменить правила для входящего трафика**, чтобы перейти к изменению правила входящего трафика. ![Колонка "Группа безопасности сети"][3]
+2. This opens the blade **Restrict access through Internet facing endpoint**. This blade lists the virtual machines (VMs) with inbound rules that create a potential security issue. Select a VM.
+![Select a VM][2]
 
-4. В колонке **Правила безопасности для входящего трафика** выберите правила входящего трафика для изменения. В этом примере выберем **AllowWeb**. ![Правила безопасности для входящего трафика][4]
+3. The **NSG** blade displays Network Security Group information, related inbound rules, and the associated VM. Select **Edit inbound rules** to proceed with editing an inbound rule.
+![Network Security Group blade][3]
 
-  Обратите внимание, что можно также выбрать **Правила по умолчанию**, чтобы просмотреть набор правил по умолчанию, который содержат все группы безопасности сети. Эти правила нельзя удалить, но так как у них низкий приоритет, их можно переопределить, создав другие правила. Узнайте больше о [правилах по умолчанию](../virtual-network/ virtual-networks-nsg.md#default-rules). ![Правила по умолчанию][5]
+4. On the **Inbound security rules** blade select the inbound rule to edit. In this example, let’s select **AllowWeb**.
+![Inbound security rules][4]
 
-5. В колонке **AllowWeb** измените свойства правила входящего трафика, указав в качестве **источника** IP-адрес или блок IP-адресов. Чтобы узнать больше о свойствах правила входящего трафика, ознакомьтесь с [правилами группы безопасности сети](../virtual-network/virtual-networks-nsg.md#nsg-rules).
+  Note, you can also select **Default rules** to see the set of default rules contained by all NSGs. The default rules cannot be deleted but, because they are assigned a lower priority, they can be overridden by the rules that you create. Learn more about [default rules](../virtual-network/ virtual-networks-nsg.md#default-rules).
+![Default rules][5]
 
-  ![Изменение правила входящего трафика][6]
+5. On the **AllowWeb** blade, edit the properties of the inbound rule so that the **Source** is an IP address or block of IP addresses. To learn more about the properties of the inbound rule, see [NSG rules](../virtual-network/virtual-networks-nsg.md#nsg-rules).
 
-## См. также
+  ![Edit inbound rule][6]
 
-В этой статье объясняется, как выполнить рекомендацию центра безопасности "Restrict access through Internet facing endpoint" (Ограничение доступа через подключенную к Интернету конечную точку). Дополнительные сведения о включении групп безопасности сети и правил см. в следующих статьях:
+## <a name="see-also"></a>See also
 
-- [Группа безопасности сети](../virtual-network/virtual-networks-nsg.md)
-- [Как управлять сетевыми группами безопасности с помощью портала предварительной версии](../virtual-network/virtual-networks-create-nsg-arm-pportal.md)
+This article showed you how to implement the Security Center recommendation "Restrict access through Internet facing endpoint.” To learn more about enabling NSGs and rules, see the following:
 
-Дополнительные сведения о Центре безопасности см. в следующих статьях:
+- [What is a Network Security Group (NSG)?](../virtual-network/virtual-networks-nsg.md)
+- [How to manage NSGs using the Azure portal](../virtual-network/virtual-networks-create-nsg-arm-pportal.md)
 
-- [Настройка политик безопасности в Центре безопасности Azure](security-center-policies.md) — узнайте, как настроить политики безопасности для подписок и групп ресурсов Azure.
-- [Управление рекомендациями по безопасности в Центре безопасности Azure](security-center-recommendations.md) — узнайте, как рекомендации могут помочь вам защитить ресурсы Azure.
-- [Наблюдение за работоспособностью системы безопасности в центре безопасности Azure](security-center-monitoring.md) — узнайте, как наблюдать за работоспособностью ресурсов Azure.
-- [Управление оповещениями безопасности в Центре безопасности Azure и реагирование на них](security-center-managing-and-responding-alerts.md) — узнайте, как управлять оповещениями системы безопасности и реагировать на них.
-- [Мониторинг решений партнеров с помощью центра безопасности Azure](security-center-partner-solutions.md) — узнайте, как отслеживать состояние работоспособности решений партнеров.
-- [Центр безопасности Azure: часто задаваемые вопросы](security-center-faq.md) — часто задаваемые вопросы об использовании этой службы.
-- [Блог по безопасности Azure](http://blogs.msdn.com/b/azuresecurity/) — последние новости и информация об обеспечении безопасности в Azure.
+To learn more about Security Center, see the following:
+
+- [Setting security policies in Azure Security Center](security-center-policies.md)--Learn how to configure security policies for your Azure subscriptions and resource groups.
+- [Managing security recommendations in Azure Security Center](security-center-recommendations.md)--Learn how recommendations help you protect your Azure resources.
+- [Security health monitoring in Azure Security Center](security-center-monitoring.md)--Learn how to monitor the health of your Azure resources.
+- [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md)--Learn how to manage and respond to security alerts.
+- [Monitoring partner solutions with Azure Security Center](security-center-partner-solutions.md) -- Learn how to monitor the health status of your partner solutions.
+- [Azure Security Center FAQ](security-center-faq.md)--Find frequently asked questions about using the service.
+- [Azure Security blog](http://blogs.msdn.com/b/azuresecurity/)--Get the latest Azure security news and information.
 
 <!--Image references-->
 [1]: ./media/security-center-restrict-access-thru-internet-facing-endpoint/restrict-access-thru-internet-facing-endpoint.png
@@ -65,4 +71,8 @@
 [5]: ./media/security-center-restrict-access-thru-internet-facing-endpoint/default-rules.png
 [6]: ./media/security-center-restrict-access-thru-internet-facing-endpoint/edit-inbound-rule.png
 
-<!---HONumber=AcomDC_0727_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

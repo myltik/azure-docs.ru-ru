@@ -1,76 +1,83 @@
 <properties
-	pageTitle="Создание ферм серверов SharePoint | Microsoft Azure"
-	description="Быстрое создание новой фермы SharePoint 2013 или SharePoint 2016 в Azure."
-	services="virtual-machines-windows"
-	documentationCenter=""
-	authors="JoeDavies-MSFT"
-	manager="timlt"
-	editor=""
-	tags="azure-resource-manager"/>
+    pageTitle="Create SharePoint server farms | Microsoft Azure"
+    description="Quickly create a new SharePoint 2013 or SharePoint 2016 farm in Azure."
+    services="virtual-machines-windows"
+    documentationCenter=""
+    authors="JoeDavies-MSFT"
+    manager="timlt"
+    editor=""
+    tags="azure-resource-manager"/>
 
 <tags
-	ms.service="virtual-machines-windows"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-windows"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/08/2016"
-	ms.author="josephd"/>
+    ms.service="virtual-machines-windows"
+    ms.workload="infrastructure-services"
+    ms.tgt_pltfrm="vm-windows"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/30/2016"
+    ms.author="josephd"/>
 
-# Создание ферм серверов SharePoint
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] классической модели.
+# <a name="create-sharepoint-server-farms"></a>Create SharePoint server farms
 
-## Фермы SharePoint 2013
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] classic model.
 
-С помощью Marketplace на портале Microsoft Azure можно быстро создавать предварительно настроенные фермы SharePoint Server 2013. Такой подход может сэкономить много времени, когда в среде разработки и тестирования нужна базовая или высокодоступная ферма SharePoint или когда SharePoint Server 2013 рассматривается в качестве решения для совместной работы в рамках организации.
+## <a name="sharepoint-2013-farms"></a>SharePoint 2013 farms
 
-> [AZURE.NOTE] Пункт **Ферма серверов SharePoint** удален из Azure Marketplace на портале Azure. Он был заменен на **SharePoint 2013 non-HA Farm** (Ферма SharePoint 2013 без высокой доступности) и **SharePoint 2013 HA Farm** (Высокодоступная ферма SharePoint 2013).
+With the Microsoft Azure portal marketplace, you can quickly create pre-configured SharePoint Server 2013 farms. This can save you a lot of time when you need a basic or high-availability SharePoint farm for a dev/test environment or if you are evaluating SharePoint Server 2013 as a collaboration solution for your organization.
 
-Базовая ферма SharePoint в этой конфигурации состоит из трех виртуальных машин.
+> [AZURE.NOTE] The **SharePoint Server Farm** item in the Azure Marketplace of the Azure portal has been removed. It has been replaced with the **SharePoint 2013 non-HA Farm** and **SharePoint 2013 HA Farm** items.
+
+The basic SharePoint farm consists of three virtual machines in this configuration.
 
 ![sharepointfarm](./media/virtual-machines-windows-sharepoint-farm/Non-HAFarm.png)
 
-Ферму такой конфигурации можно использовать в качестве упрощенной установки для разработки приложений SharePoint или первоначальной оценки SharePoint 2013.
+You can use this farm configuration for a simplified setup for SharePoint app development or your first-time evaluation of SharePoint 2013.
 
-Создание базовой фермы SharePoint (из трех серверов):
+To create the basic (three-server) SharePoint farm:
 
-1. Щелкните [здесь](https://azure.microsoft.com/marketplace/partners/sharepoint2013/sharepoint2013farmsharepoint2013-nonha/).
-2. Щелкните **Развернуть**.
-3. На панели **Ферма без высокой доступности SharePoint 2013** нажмите кнопку **Создать**.
-4. На панели **Create SharePoint 2013 non-HA Farm** (Создание фермы SharePoint 2013 без высокой доступности) укажите параметры и нажмите кнопку **Создать**.
+1. Click [here](https://azure.microsoft.com/marketplace/partners/sharepoint2013/sharepoint2013farmsharepoint2013-nonha/).
+2. Click **Deploy**.
+3. On the **SharePoint 2013 non-HA Farm** pane, click **Create**.
+4. Specify settings on the steps of the **Create SharePoint 2013 non-HA Farm** pane, and then click **Create**.
 
-Ферма SharePoint с высоким уровнем доступности в этой конфигурации состоит из девяти виртуальных машин.
+The high-availability SharePoint farm consists of nine virtual machines in this configuration.
 
-.![sharepointfarm](./media/virtual-machines-windows-sharepoint-farm/HAFarm.png)
+![sharepointfarm](./media/virtual-machines-windows-sharepoint-farm/HAFarm.png)
 
-Ферму такой конфигурации можно использовать для тестирования более высоких клиентских нагрузок, высокой доступности внешнего сайта SharePoint и групп доступности SQL Server AlwaysOn для фермы SharePoint. Кроме того, такая конфигурация подходит для разработки приложений SharePoint в высокодоступной среде.
+You can use this farm configuration to test higher client loads, high availability of the external SharePoint site, and SQL Server AlwaysOn Availability Groups for a SharePoint farm. You can also use this configuration for SharePoint app development in a high-availability environment.
 
-Создание фермы высокой доступности SharePoint (9 серверов):
+To create the high-availability (nine-server) SharePoint farm:
 
-1. Щелкните [здесь](https://azure.microsoft.com/marketplace/partners/sharepoint2013/sharepoint2013farmsharepoint2013-ha/).
-2. Щелкните **Развернуть**.
-3. На панели **Ферма высокой доступности SharePoint 2013** нажмите кнопку **Создать**.
-4. Укажите параметры в семи разделах в области **Create SharePoint 2013 HA Farm** (Создание высокодоступной фермы SharePoint 2013) и нажмите кнопку **Создать**.
+1. Click [here](https://azure.microsoft.com/marketplace/partners/sharepoint2013/sharepoint2013farmsharepoint2013-ha/).
+2. Click **Deploy**.
+3. On the **SharePoint 2013 HA Farm** pane, click **Create**.
+4. Specify settings on the seven steps of the **Create SharePoint 2013 HA Farm** pane, and then click **Create**.
 
-> [AZURE.NOTE] Нельзя создать **ферму SharePoint 2013 без высокой доступности** или **высокодоступную ферму SharePoint 2013** с помощью бесплатной пробной версии Azure.
+> [AZURE.NOTE] You cannot create the **SharePoint 2013 non-HA Farm** or **SharePoint 2013 HA Farm** with an Azure Free Trial.
 
-Портал Azure создает обе эти фермы только в облачной виртуальной сети с веб-присутствием. Подключение VPN типа "сеть-сеть" или ExpressRoute обратно к сети организации не создается.
+The Azure portal creates both of these farms in a cloud-only virtual network with an Internet-facing web presence. There is no site-to-site VPN or ExpressRoute connection back to your organization network.
 
-## Фермы SharePoint 2016
+> [AZURE.NOTE] When you create the basic or high-availability SharePoint farms using the Azure portal, you cannot specify an existing resource group. To work around this limitation, create these farms with Azure PowerShell. For more information, see [Create SharePoint 2013 dev/test farms with Azure PowerShell](https://technet.microsoft.com/library/mt743093.aspx#powershell).
 
-Инструкции по созданию описанной ниже фермы SharePoint 2016 с одним сервером см. в [этой статье](https://technet.microsoft.com/library/mt723354.aspx).
+## <a name="sharepoint-2016-farms"></a>SharePoint 2016 farms
+
+See [this article](https://technet.microsoft.com/library/mt723354.aspx) for the instructions to build the following single-server SharePoint Server 2016 farm.
 
 ![sharepointfarm](./media/virtual-machines-windows-sharepoint-farm/SP2016Farm.png)
 
-## Управление фермами SharePoint
+## <a name="managing-the-sharepoint-farms"></a>Managing the SharePoint farms
 
-Для администрирования серверов этих ферм можно использовать подключения к удаленному рабочему столу. Дополнительные сведения см. в статье [Вход на виртуальную машину](virtual-machines-windows-hero-tutorial.md#log-on-to-the-virtual-machine).
+You can administer the servers of these farms through Remote Desktop connections. For more information, see [Log on to the virtual machine](virtual-machines-windows-hero-tutorial.md#log-on-to-the-virtual-machine).
 
-На сайте Центра администрирования SharePoint можно настраивать "Мои сайты", приложения SharePoint и другие функции. Дополнительные сведения см. в статье [Настройка SharePoint 2013](http://technet.microsoft.com/library/ee836142.aspx).
+From the Central Administration SharePoint site, you can configure My sites, SharePoint applications, and other functionality. For more information, see [Configure SharePoint](http://technet.microsoft.com/library/ee836142.aspx).
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Next steps
 
-- Ознакомьтесь с дополнительными [конфигурациями SharePoint](https://technet.microsoft.com/library/dn635309.aspx) в службах инфраструктуры Azure.
+- Discover additional [SharePoint configurations](https://technet.microsoft.com/library/dn635309.aspx) in Azure infrastructure services.
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

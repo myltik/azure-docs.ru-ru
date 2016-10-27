@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Что входит в образы шаблонов Azure RemoteApp | Microsoft Azure"
-    description="Узнайте об образах шаблона, которые поставляются с Azure RemoteApp."
+    pageTitle="What is in the Azure RemoteApp template images? | Microsoft Azure"
+    description="Learn about the template images included with Azure RemoteApp."
     services="remoteapp"
     documentationCenter=""
     authors="lizap"
@@ -15,96 +15,101 @@
     ms.date="08/15/2016"
     ms.author="elizapo" />
 
-# Что входит в образы шаблонов Azure RemoteApp?
+
+# <a name="what-is-in-the-azure-remoteapp-template-images?"></a>What is in the Azure RemoteApp template images?
 
 > [AZURE.IMPORTANT]
-Мы выводим удаленное приложение Azure RemoteApp из эксплуатации. Дополнительные сведения см. в [объявлении](https://go.microsoft.com/fwlink/?linkid=821148).
+> Azure RemoteApp is being discontinued. Read the [announcement](https://go.microsoft.com/fwlink/?linkid=821148) for details.
 
-Подписка на Azure RemoteApp включает три образа шаблонов:
+Your Azure RemoteApp subscription includes three template images:
 
 
 - Windows Server 2012
-- Microsoft Office 365 профессиональный плюс (необходима подписка на Office 365);
-- Microsoft Office 2013 профессиональный плюс (только пробная версия)
+- Microsoft Office 365 ProPlus (Office 365 subscription required)
+- Microsoft Office 2013 Professional Plus (trial only)
 
-> [AZURE.IMPORTANT]Подписки Azure RemoteApp предоставляют доступ к программному обеспечению в образах, за исключением выпуска "Office 365 профессиональный плюс", требующего отдельной подписки, и выпуска Office 2013, который нельзя использовать в рабочей среде. Это означает, что вы можете представлять программы или приложения на образах шаблона своим пользователям для общего доступа. Например, если создать коллекцию, которая использует образ Windows Server 2012 R2, можно опубликовать System Center Endpoint Protection, чтобы пользователи могли получить к нему доступ через RemoteApp.
+> [AZURE.IMPORTANT]Your Azure RemoteApp subscription grants you access to the software in the images, with the exception of Office 365 ProPlus, which requires a separate subscription, and Office 2013, which cannot be used in production. This means that you can share the programs or apps on the template images with your users. For example, if you create a collection that uses the Windows Server 2012 R2 image, you can publish System Center Endpoint Protection for users to access through RemoteApp.
 >
-> Дополнительные сведения см. в [статье о лицензировании RemoteApp](remoteapp-licensing.md). Сведения о лицензировании Office см. в статье [Использование Office 365 с Azure RemoteApp](remoteapp-o365.md).
+> Check out the [RemoteApp licensing details](remoteapp-licensing.md) for more information. And [Using Office with Azure RemoteApp](remoteapp-o365.md) for the Office licensing info.
 
-Ниже описывает содержимое каждого образа.
+Read on for details on what each image contains.
 
-## Windows Server 2012 R2 (стандартный образ)
-Этот образ основан на операционной системе Microsoft Windows Server 2012 R2 для центров обработки данных, и в нем установлены следующие роли и функции, обеспечивающие соответствие требованиям образов шаблонов Azure RemoteApp:
+## <a name="windows-server-2012-r2-("the-vanilla-image")"></a>Windows Server 2012 R2  ("the vanilla image")
+This image is based on Microsoft Windows Server 2012 R2 Datacenter operating system and has the following roles and features installed to meet the requirements for Azure RemoteApp template images:
 
 
 - .NET Framework 4.5, 3.5.1, 3.5
-- Возможности рабочего стола
-- Службы рукописного ввода
+- Desktop Experience
+- Ink and Handwriting Services
 - Media Foundation
-- Узел сеансов удаленных рабочих столов
+- Remote Desktop Session Host
 - Windows PowerShell 4.0
 - Windows PowerShell ISE
-- Поддержка WoW64
+- WoW64 Support
 
-В этом образе уже установлены следующие приложения:
+This image also has the following applications installed:
 
 - Adobe Flash Player
 - Microsoft Silverlight
 - Microsoft System Center 2012 Endpoint Protection
-- Проигрыватель Windows Media (Microsoft)
+- Microsoft Windows Media Player
 
 
-## Microsoft Office 365 профессиональный плюс (необходима подписка)
-Приложение Office 365 пользуется наибольшим спросом, поэтому мы создали для него "специальный" образ.
+## <a name="microsoft-office-365-proplus-(subscription-required)"></a>Microsoft Office 365 ProPlus (subscription required)
+Office 365 is the most requested application, so we created a "custom" image for you to work with.
 
-Этот образ является расширенной версией стандартного образа, и в нем, помимо компонентов образа Windows Server 2012 R2, установлены следующие компоненты Microsoft Office 365 профессиональный плюс:
+This image is an extension of the vanilla image and has the following components of Microsoft Office 365 ProPlus installed in addition to the components described in the Windows Server 2012 R2 image:
 
 
 - Access
 - Excel
 - Lync
 - OneNote
-- OneDrive для бизнеса (обратите внимание, что использование агента синхронизации не поддерживается в Azure RemoteApp)
+- OneDrive for Business (note that the sync agent is not supported for use with Azure RemoteApp)
 - Outlook
 - PowerPoint
 - Word
-- Средства проверки правописания Microsoft Office
+- Microsoft Office Proofing Tools
 
-В образ также входят Visio Pro и Project Pro.
+The image also includes Visio Pro and Project Pro.
 
-Также установлены следующие приложения.
+And the following applications, as well:
 
-- SQL Native Client
-- Драйвер ODBC
-- Клиент интеллектуального анализа данных SQL Server
-- Клиент MasterDataServices
+- SQL Native client
+- ODBC Driver
+- SQL Server Data Mining client
+- MasterDataServices client
 - Microsoft Publisher
 - PowerQuery
 - PowerMap
 
 
-Полный набор функций приложений Office 365 профессиональный плюс доступен только пользователям плана Office 365 профессиональный плюс. Дополнительные сведения о планах подписки на Office 365 см. в статье [Параметры планов Office 365](http://technet.microsoft.com/library/office-365-plan-options.aspx). У вас еще остались вопросы? Ознакомьтесь со сведениями об [Office 365 + RemoteApp](remoteapp-o365.md). Ознакомьтесь также с новой статьей [Использование подписки на Office 365 с Azure RemoteApp](remoteapp-officesubscription.md).
+Full functionality of Office 365 ProPlus apps is available only for users who have an Office 365 ProPlus plan. For more details on the Office 365 subscription plans see [Office 365 service plans](http://technet.microsoft.com/library/office-365-plan-options.aspx). Still have questions? Check out the [Office 365 + RemoteApp](remoteapp-o365.md) information. Also check out the new article, [How to use your Office 365 subscription with Azure RemoteApp](remoteapp-officesubscription.md).
 
-Обратите внимание, что для каждого продукта (Office 365 профессиональный плюс, Visio Pro и Project Pro) требуются отдельные лицензии.
+Note that you need to license Office 365 ProPlus, Visio Pro, and Project Pro separately - they each have their own license.
 
-## Microsoft Office 2013 профессиональный плюс (только пробная версия)
-Во время пробного периода вы можете тестировать службу с помощью образа Office 2013.
+## <a name="microsoft-office-2013-professional-plus-(trial-only)"></a>Microsoft Office 2013 Professional Plus (trial only)
+During the free trial period, you can test the service with the Office 2013 image.
 
-Этот образ является расширенной версией стандартного образа, и в нем, помимо компонентов образа Windows Server 2012 R2, установлены следующие компоненты Microsoft Office 2013 профессиональный плюс:
+This image is an extension of the vanilla image and has the following components of Microsoft Office 2013 Professional Plus installed in addition to the components described in the Windows Server 2012 R2 image:
 
 
 - Access
 - Excel
 - Lync
 - OneNote
-- OneDrive для бизнеса (обратите внимание, что использование агента синхронизации не поддерживается в Azure RemoteApp)
+- OneDrive for Business (note that the sync agent is not supported for use with Azure RemoteApp)
 - Outlook
 - PowerPoint
 - Project
 - Visio
 - Word
-- Средства проверки правописания Microsoft Office
+- Microsoft Office Proofing Tools
 
-> [AZURE.IMPORTANT]**Юридическая информация**. Этот образ не включает в себя лицензию Microsoft Office и *не может использоваться в производственных целях*. Образ Office 2013 профессиональный плюс предназначен исключительно для пробного использования. Если вам нужно использовать приложения Office в Azure RemoteApp в рабочей среде, используйте образ Office 365 профессиональный плюс. Дополнительные сведения о лицензировании Office см. в разделе [Использование Office 365 с Azure RemoteApp](remoteapp-o365.md)
+> [AZURE.IMPORTANT]**Legal information:** This image does not include a Microsoft Office license and *cannot be used for production*. The Office 2013 Professional Plus image is intended for trial use only. If you want to use Office apps in Azure RemoteApp for production, you need to use the Office 365 ProPlus image. For more details on licensing Office, see [Using Office 365 with Azure RemoteApp](remoteapp-o365.md)
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

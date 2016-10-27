@@ -1,15 +1,17 @@
-| Ресурс | Ограничение |
+| Resource                                    | Limit                                  |
 |---------------------------------------------|----------------------------------------|
-| Объем кэша | 530 ГБ ([свяжитесь с нами](mailto:wapteams@microsoft.com?subject=Redis%20Cache%20quota%20increase) для получения дополнительных сведений) |
-| Базы данных | 64 |
-| Макс. число подключенных клиентов | 40 000 |
-| Реплики кэша Radis (для высокого уровня доступности) | 1 |
-| Сегменты кэша уровня "Премиум" с включенной кластеризацией | 10 |
+| Cache size                                  | 530 GB ([contact us](mailto:wapteams@microsoft.com?subject=Redis%20Cache%20quota%20increase) for more)                                  |
+| Databases                                   | 64                                     |
+| Max connected clients                       | 40,000                                 |
+| Redis Cache replicas (for high availability) | 1 |
+| Shards in a premium cache with clustering    | 10 |
 
-Ограничения и размер кэша Redis для Azure отличаются для каждой ценовой категории. Информацию о ценовых категориях и соответствующих им размерах вы можете найти на странице [Цены на кэш Redis для Azure](https://azure.microsoft.com/pricing/details/cache/).
+Azure Redis Cache limits and sizes are different for each pricing tier. To see the pricing tiers and their associated sizes, see [Azure Redis Cache Pricing](https://azure.microsoft.com/pricing/details/cache/).
 
-Информацию об ограничениях конфигурации кэша Redis для Azure вы можете найти в разделе [Конфигурация сервера Redis по умолчанию](redis-cache/cache-configure.md#default-redis-server-configuration).
+For more information on Azure Redis Cache configuration limits, see [Default Redis server configuration](redis-cache/cache-configure.md#default-redis-server-configuration).
 
-Поскольку настройка и управление экземплярами кэша Redis для Azure осуществляется корпорацией Майкрософт, кэш Redis для Azure поддерживает не все команды Redis. Дополнительные сведения см. в разделе [Команды Redis, не поддерживаемые в кэше Redis для Azure]((redis-cache/cache-configure.md#redis-commands-not-supported-in-azure-redis-cache).
+Because configuration and management of Azure Redis Cache instances is done by Microsoft, not all Redis commands are supported in Azure Redis Cache. For more information, see [Redis commands not supported in Azure Redis Cache]((redis-cache/cache-configure.md#redis-commands-not-supported-in-azure-redis-cache).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!--HONumber=Oct16_HO2-->
+
+

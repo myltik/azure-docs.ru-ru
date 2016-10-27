@@ -1,138 +1,139 @@
 <properties
-	pageTitle="Azure Mobile Engagement — основные функции"
-	description="Описывает основные функции Azure Mobile Engagement"
-	services="mobile-engagement"
-	documentationCenter="mobile" 
-	authors="piyushjo" 
-	manager="erikre" 
-	editor="" />
+    pageTitle="Azure Mobile Engagement - Key features"
+    description="Describes the key features of Azure Mobile Engagement"
+    services="mobile-engagement"
+    documentationCenter="mobile" 
+    authors="piyushjo" 
+    manager="erikre" 
+    editor="" />
 
 <tags
-	ms.service="mobile-engagement"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/19/2016"
-	ms.author="piyushjo" />
+    ms.service="mobile-engagement"
+    ms.workload="mobile"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="08/19/2016"
+    ms.author="piyushjo" />
 
-# Azure Mobile Engagement — основные функции
 
-В этой статье дается краткий обзор основных функций платформы Mobile Engagement.
+# <a name="azure-mobile-engagement---key-features"></a>Azure Mobile Engagement - Key features
 
-## **Общие сведения**
+This article gives a high level overview about the key features of the Mobile Engagement platform. 
 
-- **Поиск пакетов SDK для всех основных платформ** Доступны пакеты SDK для всех основных платформ — iOS, Android, Universal Windows, Windows Phone Silverlight, Kindle, Cordova. Мы удобно объединяем пакеты SDK и полезную документацию, которые помогут вам начать работу с любой выбранной платформой.
+## <a name="**general**"></a>**General**
 
-- **Отдельный портал SaaS** Позволяет легко получить доступ к маркетинговой команде без необходимости обращаться к порталу управления Azure.
+- **Find SDKs for all major platforms** SDKs available for all major platforms - iOS, Android, Universal Windows, Windows Phone Silverlight, Kindle, Cordova. We provide easy to integrate SDKs and helpful documentation to get you started on any platform of your choice. 
 
-- **Доступность открытых интерфейсов API REST** Для интеграции и автоматизации с CRM, CMS и ИТ-системами с помощью интерфейсов API открытой платформы мы предоставляем открытые интерфейсы API REST и пакет SDK для .NET. Они позволяют вам воспользоваться этими API-интерфейсами для удобной интеграции и автоматизации Mobile Engagement. Подробнее об этом см. [здесь](mobile-engagement-api-authentication.md).
+- **Separate SaaS portal** Allows easy access to the marketing team without the need to go through the Azure management portal. 
 
-- **Доступность соединителя Power BI** Вы также можете размещать основные аналитические диаграммы на панели мониторинга Power BI. См. [это руководство](https://powerbi.microsoft.com/ru-RU/documentation/powerbi-content-pack-azure-mobile/).
+- **Availability of open REST APIs** To integrate and automate with CRM/CMS/IT systems using open-platform APIs, we provide open REST APIs and .NET SDK to consume these APIs that can allow you to easily integrate and automate with Mobile Engagement. See [this](mobile-engagement-api-authentication.md) for details. 
 
-- **Гарантия безопасности и конфиденциальности** Являясь частью семейства Azure, Azure Mobile Engagement следует всем стандартным рекомендациям по безопасности и конфиденциальности для облачной службы.
+- **Power BI connector available** You can also pull out the key analytics charts into a Power BI dashboard. See this [guide](https://powerbi.microsoft.com/en-us/documentation/powerbi-content-pack-azure-mobile/)
 
-## **Действенная аналитика**
+- **Assurance of Security & Privacy** Azure Mobile Engagement being part of the Azure family follows all the standard best practices around security & privacy expected for a cloud service.
 
-- **Отслеживание данных в реальном времени** Вы можете отслеживать аналитические данные в реальном времени с помощью нашего модуля "Мониторинг", в котором в режиме реального времени отображаются сведения о сеансах, событиях, ошибках и сбоях. Чтобы получить представление об основных понятиях, обратитесь к [этой статье](mobile-engagement-concepts.md).
+## <a name="**actionable-analytics**"></a>**Actionable Analytics**
 
-	![][1]
+- **Monitor data in real time** You can track real time analytics using our Monitor module which shows details like sessions, events, errors & crashes all in real-time. Take a look at this [article](mobile-engagement-concepts.md) to get an understanding of the basic concepts. 
 
-	![][2]
+    ![][1]
 
-- **Просмотр агрегированных данных** Вы также получаете расширенное представление для агрегированных аналитических данных с помощью нашего модуля "Аналитика", который позволяет легко фильтровать данные на основе версии приложения и интервалов времени.
+    ![][2]      
 
-	![][3]
+- **View aggregated data** You also get a richer view of your aggregated analytics data using our Analytics module which allows you to easily filter your data based on your app version and time periods.
 
-- **Получите ценную информацию о пользователях и шаблонах их поведения**
+    ![][3]      
 
-	![][4]
+- **Get insights into your users and retention pattern**
 
-- **Получите ценную информацию о том, откуда приходят пользователи и сколько времени они проводят в окне**
+    ![][4]      
 
-	![][5]
-	
-	![][6]
+- **Get insights into where your users are coming from and how much time are they spending in the screen**
 
-- **Определите, какие окна открывают пользователи и как можно оптимизировать путь пользователя** Это поможет открыть им те окна и функции, которые вы хотите.
+    ![][5]      
+    
+    ![][6]      
 
-	![][7]
-	
-	![][8]
+- **Find out which screens are your app users visiting and how can you optimize the user path** This helps them to discover screens and features that you want them to.
 
-- **Получите ценные сведения о наиболее частых событиях в приложении и сведения о бизнес-процессе на основе этих событий**
+    ![][7]      
+    
+    ![][8]      
 
-	![][9]
+- **Get insights into which are the most frequent events in your app and get an understanding of your business process based on these events** 
 
-- **Отслеживайте типичные ошибки и сбои и получите дополнительную информацию для команды разработчиков**
+    ![][9]  
 
-	![][10]
-	
-	![][11]
+- **Track common errors and crashes and get insights for your developer team**
 
-- **Узнайте, с каких устройств и сетей пользователи обращаются к приложению, чтобы оптимизировать приложение**
+    ![][10]     
+    
+    ![][11] 
 
-	![][12]
-	
-## **Целевые и персонализированные push-уведомления**
+- **Understand which devices and networks are your app users accessing your app from, to optimize the app** 
 
-- **Создайте сегмент на основе любых собранных данных** Для этого можно использовать любые данные событий, сеансов, действий, заданий, сбоев, ошибок и меток.
+    ![][12] 
+    
+## <a name="**targeted-&-personalized-push-notifications**"></a>**Targeted & Personalized Push Notifications**
 
-	![][13]
+- **Create a segment based on any of the collected data** You can use any of the Event/Session/Activity/Job/Crash/Error/Tags data for this.
 
-	![][14]
+    ![][13]
 
-- **Отслеживайте историю созданных сегментов день за днем**.
+    ![][14]     
 
-	![][15]
+- **Track the history of your created segments day over day**
 
-- **Отправляйте целевые уведомления** старым или новым пользователям или выбранному вами сегменту пользователей.
+    ![][15] 
 
-	![][16]
+- **Send targeted notifications** targeting commonly used like old/new users etc. or to your custom created segment
 
-- **Отправляйте системные уведомления, входящие и исходящие уведомления в своем приложении в форматированном HTML**
+    ![][16] 
 
-	![][17]
+- **Send both out-of-app/system & rich HTML based in-app push notifications as appropriate for your scenario**
 
-	![][18]
+    ![][17] 
 
-- **Изменяйте уведомления в приложении, так чтобы они отображались для заданного окна или действия в приложении**
+    ![][18] 
 
-	![][19]
+- **Target in-app notifications to show up on a specific screen/activity in the app**
 
-- **Укажите "действие" при щелчке пользователя по уведомлению** Это может быть просто открытие веб-страницы или переход к указанному окну в приложении.
+    ![][19] 
 
-	![][20]
-	
-- **Отправляйте локализованные уведомления**, так чтобы они отображались на наиболее удобном для пользователей языке.
+- **Specify an "action" when the user clicks on a notification** It could be as simple as opening up a webpage or navigating within the app to a specific screen at the click of the notification. 
 
-	![][21]
+    ![][20]
+    
+- **Send localized notifications** so that it appeals to the app users in the language they are most comfortable in. 
 
-- **Укажите время начала и окончания для кампаний**
+    ![][21] 
 
-	![][22]
+- **Specify a start and end time for your campaigns** 
 
-- **Удобно тестируйте уведомления** путем регистрации тестового устройства и отправки тестового уведомления только этому устройству.
+    ![][22] 
 
-	![][23]
+- **Easily test your notifications** by registering a test device and sending the test notification to only this device.
 
-- **Легко настройте уведомление в приложении, так чтобы оно отображалось как быстрый опрос**
+    ![][23] 
 
-	![][24]
-	
-- **Получите статистику для кампании push-уведомлений**, чтобы получить представление о том, насколько успешными были ваши уведомления.
+- **Easily set up an in-app notification to show up as a quick poll/survey**  
 
-	![][25]
+    ![][24]
+    
+- **Get push campaign statistics** for your notifications to give you an idea about how successful were your notifications.
 
-- **Легко изменяйте и персонализируйте свои уведомления с помощью тегов, информации о приложении и эмодзи**
+    ![][25] 
 
-	![][26]
+- **Easily personalize and give character to your notifications using app-info/tags and emojis** 
 
-	![][27]
+    ![][26] 
 
-- **Установите ограничения для push-уведомлений, чтобы не перегружать ими пользователей** Не стоит отправлять пользователям слишком много push-уведомлений и перегружать их. Здесь вам пригодится наша функция ограничения для push-уведомлений, с помощью которой можно настроить ограничения для push-уведомлений на уровне сегмента.
+    ![][27] 
 
-	![][28]
+- **Set Push Limits to prevent spamming users** You don’t want to send a lot of pushes to your app users and come across as spamming them. This is where our Push limits feature is useful which allows you to configure push limits at the granularity of a segment. 
+
+    ![][28]         
 
 <!-- Images -->
 [1]: ./media/mobile-engagement-key-features/monitor1.png
@@ -164,4 +165,17 @@
 [27]: ./media/mobile-engagement-key-features/push_emoji.png
 [28]: ./media/mobile-engagement-key-features/push_limits.png
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+
+
+
+
+
+
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

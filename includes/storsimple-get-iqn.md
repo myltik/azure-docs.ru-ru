@@ -1,13 +1,16 @@
 <!--author=SharS last changed: 9/17/15-->
 
-#### Получение IQN узла Windows
+#### <a name="to-get-the-iqn-of-a-windows-host"></a>To get the IQN of a Windows host
 
-1. Запустите инициатор iSCSI (Майкрософт) на узле Windows. Щелкните **Запустить** > **Администрирование** > **Инициатор iSCSI**.
+1. Start the Microsoft iSCSI initiator on your Windows host. Click **Start** > **Administrative Tools** > **iSCSI initiator**.
 
-2. В окне **Свойства инициатора iSCSI** на вкладке **Конфигурация** выберите и скопируйте строку из поля **Имя инициатора**.
+2. In the **iSCSI Initiator Properties** window, on the **Configuration** tab, select and copy the string from the **Initiator Name** field.
  
-    ![Свойства инициатора iSCSI](./media/storsimple-get-iqn/HCS_iSCSIInitiatorPropertiesFigureIQN-include.png)
+    ![iSCSI initiator properties](./media/storsimple-get-iqn/HCS_iSCSIInitiatorPropertiesFigureIQN-include.png)
 
-3. Сохраните эту строку.
+3. Save this string.
 
-<!---HONumber=AcomDC_0218_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

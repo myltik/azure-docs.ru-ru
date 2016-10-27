@@ -1,172 +1,173 @@
 <properties
-	pageTitle="Аналитическая картина на основании отчетов управления паролями в Azure AD | Microsoft Azure"
-	description="В этой статье описывается использование отчетов для получения аналитических данных по операциям управления паролями в вашей организации."
-	services="active-directory"
-	documentationCenter=""
-	authors="asteen"
-	manager="femila"
-	editor="curtand"/>
+    pageTitle="Get Insights: Azure AD Password Management Reports | Microsoft Azure"
+    description="This article describes how to use reports to get insight into Password Management operations in your organization."
+    services="active-directory"
+    documentationCenter=""
+    authors="asteen"
+    manager="femila"
+    editor="curtand"/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/12/2016"
-	ms.author="asteen"/>
-
-# Получение оперативной аналитики с помощью отчетов об управлении паролями
-
-> [AZURE.IMPORTANT] **Вы здесь потому, что возникают проблемы при входе?** Если это так, [с помощью этих инструкций можно изменить и сбросить пароль](active-directory-passwords-update-your-own-password.md).
-
-В этом разделе описывается использование отчетов об управлении паролями Azure Active Directory для просмотра того, как пользователи используют сброс и изменение паролей в вашей организации.
-
-- [**Общие сведения по отчетам об управлении паролями**](#overview-of-password-management-reports)
-- [**Просмотр отчетов об управлении паролями**](#how-to-view-password-management-reports)
-- [**Просмотр действий по регистрации сброса паролей в организации**](#view-password-reset-registration-activity)
-- [**Просмотр действий по сбросу паролей в организации**](#view-password-reset-activity)
-
-## Общие сведения по отчетам об управлении паролями
-После развертывания сброса пароля одним из наиболее распространенных дальнейших действий является просмотр того, как он используется в вашей организации. Например, может потребоваться получить представление о том, как пользователи регистрируются для сброса пароля, или сколько сбросов паролей было выполнено за последние несколько дней. Ниже приведены некоторые распространенные вопросы, на которые вы сможете получить ответ с помощью отчетов об управлении паролями, которые сегодня существуют на [портале управления Azure](https://manage.windowsazure.com):
-
-- Сколько пользователей зарегистрировалось для сброса пароля?
-- Кто зарегистрировался для сброса пароля?
-- Какие данные регистрируют пользователи?
-- Сколько пользователей сбросило пароли за последние 7 дней?
-- Каковы наиболее распространенные способы, применяемые пользователями или администраторами для сброса своих паролей?
-- С какими наиболее распространенными проблемами сталкиваются пользователи или администраторы при попытке использовать сброс пароля?
-- Какие администраторы часто сбрасывают свои пароли?
-- Наблюдается ли какая-либо подозрительная активность по сбросу паролей?
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="07/12/2016"
+    ms.author="asteen"/>
 
 
-## Просмотр отчетов об управлении паролями
-Для поиска отчетов об управлении паролями выполните следующие действия.
+# <a name="how-to-get-operational-insights-with-password-management-reports"></a>How to get operational insights with Password Management reports
 
-1.	Щелкните расширение **Active Directory** на [портале управления Azure](https://manage.windowsazure.com).
-2.	Выберите свой каталог из списка, который отображается на портале.
-3.	Переключитесь на вкладку **Отчеты**.
-4.	Найдите раздел **Журналы действий**.
-5.	Выберите либо отчет **Действие сброса пароля**, либо отчет **Действие регистрации сброса пароля**.
+> [AZURE.IMPORTANT] **Are you here because you're having problems signing in?** If so, [here's how you can change and reset your own password](active-directory-passwords-update-your-own-password.md).
+
+This section describes how you can use Azure Active Directory’s Password Management reports to view how users are using password reset and change in your organization.
+
+- [**Password Management reports overview**](#overview-of-password-management-reports)
+- [**How to view Password Management reports**](#how-to-view-password-management-reports)
+- [**View password reset registration activity in your organization**](#view-password-reset-registration-activity)
+- [**View password reset activity in your organization**](#view-password-reset-activity)
+
+## <a name="overview-of-password-management-reports"></a>Overview of Password Management reports
+Once you deploy password reset, one of the most common next steps is to see how it is being used in your organization.  For example, you may want to get insight into how users are registering for password reset, or how many password resets have been done in the last few days.  Here are some of the common questions that you will be able to answer with the Password Management reports that exist in the [Azure Management Portal](https://manage.windowsazure.com) today:
+
+- How many people have registered for password reset?
+- Who has registered for password reset?
+- What data are people registering?
+- How many people reset their passwords in the last 7 days?
+- What are the most common methods users or admins use to reset their passwords?
+- What are common issues users or admins face when attempting to use password reset?
+- What admins are resetting their own passwords frequently?
+- Is there any suspicious activity going on with password reset?
+
+
+## <a name="how-to-view-password-management-reports"></a>How to view Password Management reports
+To find the Password Management reports, follow the steps below:
+
+1.  Click on the **Active Directory** extension in the [Azure Management Portal](https://manage.windowsazure.com).
+2.  Select your directory from the list that appears in the portal.
+3.  Click on the **Reports** tab.
+4.  Look under the **Activity Logs** section.
+5.  Select either the **Password reset activity** report or the **Password reset registration activity** report.
 
     ![][001]
 
-## Доступ к отчетам об управлении паролями с помощью API
-Начиная с августа 2015 отчеты и события Azure AD поддерживают извлечение всех сведений, включаемых в отчеты о сбросе паролей и отчеты о регистрации данных для сброса паролей.
+## <a name="how-to-access-password-management-reports-from-an-api"></a>How to access Password Management Reports from an API
+As of August 2015, the Azure AD Reports and Events now supports retrieving all of the information included in the Password Reset and Password Reset Registration reports.
 
-Для доступа к этим данным необходимо написать небольшое приложение или сценарий получения этих данных с наших серверов. [Приступая к работе с API отчетов Azure AD](active-directory-reporting-api-getting-started.md).
+To access this data, you'll need to write a small app or script to retrieve it from our servers. [Learn how to get started with the Azure AD Reporting API](active-directory-reporting-api-getting-started.md).
 
-После создания сценария вы сможете исследовать события сброса пароля и регистрации, которые можно получить в соответствии с вашими сценариями.
+Once you have a working script, you'll next want to examine the password reset and registration events that you can retrieve to meet your scenarios.
 
-- [SsprActivityEvent](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprActivityEvent): получает список столбцов, доступных для события сброса пароля.
-- [SsprRegistrationActivityEvent](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprRegistrationActivityEvent): получает список столбцов, доступных для события регистрации для сброса пароля.
+- [SsprActivityEvent](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprActivityEvent): Lists the columns available for password reset events
+- [SsprRegistrationActivityEvent](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprRegistrationActivityEvent): Lists the columns available for password reset registration events
 
-## Просмотр действий по регистрации сброса паролей
+## <a name="view-password-reset-registration-activity"></a>View password Reset registration activity
 
-Отчет о действиях по регистрации сброса паролей показывает все операции регистрации сброса паролей, выполненные в вашей организации. В этом отчете отображается регистрация сброса паролей для любого пользователя, который успешно зарегистрировал сведения для проверки подлинности на портале регистрации сброса паролей ([http://aka.ms/ssprsetup](http://aka.ms/ssprsetup)).
+The password reset registration activity report shows all password reset registrations that have occurred in your organization.  A password reset registration is displayed in this report for any user who has successfully registered authentication information at the password reset registration portal ([http://aka.ms/ssprsetup](http://aka.ms/ssprsetup)).
 
-- **Максимальный диапазон времени**: 1 месяц
-- **Максимальное число строк**: неограниченное
-- **Загружаемый**: да, посредством CSV-файла
+- **Max time range**: 1 month
+- **Max number of rows**: unlimited
+- **Downloadable**: Yes, via CSV file
 
     ![][002]
 
-### Описание столбцов отчета
-В следующем списке подробно описан каждый из столбцов отчета:
+### <a name="description-of-report-columns"></a>Description of report columns
+The following list explains each of the report columns in detail:
 
-- **Пользователь** — пользователь, который предпринял попытку регистрации сброса пароля.
-- **Роль** — роль пользователя в каталоге.
-- **Дата и время** — дата и время попытки.
-- **Зарегистрированные данные** — какие данные для проверки подлинности предоставил пользователь в ходе регистрации сброса пароля.
+- **User** – the user who attempted a password reset registration operation.
+- **Role** – the role of the user in the directory.
+- **Date and Time** – the date and time of the attempt.
+- **Data Registered** – what authentication data the user provided during password reset registration.
 
-### Описание значений отчета
-В следующей таблице описаны различные значения, разрешенные для каждого столбца:
+### <a name="description-of-report-values"></a>Description of report values
+The following table describes the different values allowed for each column:
 
-столбец|Допустимые значения и их описание
+Column|Allowed values and their meanings
 ---|---
-Зарегистрированные данные| **Запасной адрес электронной почты** — пользователь использовал запасной адрес электронной почты или адрес для аутентификации.<p><p>**Рабочий телефон** — пользователь использовал для аутентификации рабочий телефон.<p>**Мобильный телефон** — пользователь использовал мобильный телефон или телефон для аутентификации.<p>**Вопросы безопасности** — пользователь использовал для аутентификации вопросы безопасности.<p>**Любое сочетание указанного выше (например, запасной адрес электронной почты + мобильный телефон)** — отображается, если настроена двухфакторная политика; показывает, какие два метода применил пользователь для аутентификации своего запроса на сброс пароля.
+Data Registered| **Alternate Email** – user used alternate email or authentication email to authenticate<p><p>**Office Phone**– user used office phone to authenticate<p>**Mobile Phone** - user used mobile phone or authentication phone to authenticate<p>**Security Questions** – user used security questions to authenticate<p>**Any combination of the above (e.g. Alternate Email + Mobile Phone)** – occurs when a 2 gate policy is specified and shows which two methods the user used to authentication his password reset request.
 
-## Просмотр действий по сбросу пароля
+## <a name="view-password-reset-activity"></a>View password reset activity
 
-В этом отчете отображаются все попытки сброса паролей, которые произошли в вашей организации.
+This report shows all password reset attempts that have occurred in your organization.
 
-- **Максимальный диапазон времени**: 1 месяц
-- **Максимальное число строк**: неограниченное
-- **Загружаемый**: да, посредством CSV-файла
+- **Max time range**: 1 month
+- **Max number of rows**: unlimited
+- **Downloadable**: Yes, via CSV file
 
     ![][003]
 
-### Описание столбцов отчета
-В следующем списке подробно описан каждый из столбцов отчета:
+### <a name="description-of-report-columns"></a>Description of report columns
+The following list explains each of the report columns in detail:
 
-1. **Пользователь** — пользователь, который предпринял попытку сброса пароля (основывается на поле «Идентификатор пользователя», указанном в начале сброса пароля пользователем).
-2. **Роль** — роль пользователя в каталоге.
-3. **Дата и время** — дата и время попытки.
-4. **Использованные методы** — какие методы проверки подлинности применил пользователь для этой операции сброса.
-5. **Результат** — конечный результат операции сброса пароля.
-6. **Сведения** — подробные сведения о том, почему сброс пароля привел к такому значению. Также сюда включаются все возможные действия, которые можно предпринять для устранения непредвиденной ошибки.
+1. **User** – the user who attempted a password reset operation (based on the User ID field provided when the user comes to reset a password).
+2. **Role** – the role of the user in the directory.
+3. **Date and Time** – the date and time of the attempt.
+4. **Method(s) Used** – what authentication methods the user used for this reset operation.
+5. **Result** – the end result of the password reset operation.
+6. **Details** – the details of why the password reset resulted in the value it did.  Also includes any mitigation steps you might take to resolve an unexpected error.
 
-### Описание значений отчета
-В следующей таблице описаны различные значения, разрешенные для каждого столбца:
+### <a name="description-of-report-values"></a>Description of report values
+The following table describes the different values allowed for each column:
 
-столбец|Допустимые значения и их описание
+Column|Allowed values and their meanings
 ---|---
-Использованные методы|**Запасной адрес электронной почты** — пользователь использовал запасной адрес электронной почты или адрес для аутентификации.<p>**Рабочий телефон** — пользователь использовал для аутентификации рабочий телефон.<p>**Мобильный телефон** — пользователь использовал мобильный телефон или телефон для аутентификации.<p>**Вопросы безопасности** — пользователь использовал для аутентификации вопросы безопасности.<p>**Любое сочетание указанного выше (например, запасной адрес электронной почты + мобильный телефон)** — отображается, если настроена двухфакторная политика; показывает, какие два метода применил пользователь для аутентификации своего запроса на сброс пароля.
-Результат|**Прервано** — пользователь начал сброс пароля, но остановился в середине процесса и не завершил его.<p>**Заблокировано** — сброс пароля для учетной записи заблокирован из-за слишком большого количества попыток воспользоваться страницей сброса пароля или отдельным шлюзом сброса пароля в течение 24 часов.<p>**Отменено** — пользователь начал сброс пароля, но затем нажал кнопку "Отмена" для отмены незавершенного сеанса.<p>**Отправлено обращение к администратору** — у пользователя во время сеанса возникла проблема, которую он не смог решить, поэтому он не завершил процесс, а открыл ссылку "Обратитесь к своему администратору".<p>**Сбой** — пользователю не удалось сбросить пароль, вероятно, из-за того, что эта функция не была ему доступна (например, из-за отсутствия лицензии, отсутствия сведений для аутентификации, управляемого локально пароля при отсутствии обратной записи).<p>**Успешно** — сброс пароля выполнен успешно.
-Сведения|См. таблицу ниже
+Methods Used|**Alternate Email** – user used alternate email or authentication email to authenticate<p>**Office Phone** – user used office phone to authenticate<p>**Mobile Phone** – user used mobile phone or authentication phone to authenticate<p>**Security Questions** – user used security questions to authenticate<p>**Any combination of the above (e.g. Alternate Email + Mobile Phone)** – occurs when a 2 gate policy is specified and shows which two methods the user used to authentication his password reset request.
+Result|**Abandoned** – user started password reset but then stopped halfway through without completing<p>**Blocked** – user’s account was prevented to use password reset due to attempting to use the password reset page or a single password reset gate too many times in a 24 hour period<p>**Cancelled** – user started password reset but then clicked the cancel button to cancel the session part way through <p>**Contacted Admin** – user had a problem during his session that he could not resolve, so the user clicked the “Contact your administrator” link instead of finishing the password reset flow<p>**Failed** – user was not able to reset a password, likely because the user was not configured to use the feature (e.g. no license, missing authentication info, password managed on-prem but writeback is off).<p>**Succeeded** – password reset was successful.
+Details|See table below
 
-### Допустимые значения для столбца сведений
-Ниже приведен список типов результатов, которых можно ожидать при использовании отчета о действиях по сбросу паролей.
+### <a name="allowed-values-for-details-column"></a>Allowed values for details column
+Below is the list of result types you may expect when using the password reset activity report:
 
-Сведения | Тип результата
+Details | Result Type
 ----|----
-Пользователь прервал операцию после завершения проверки по электронной почте | Прервано
-Пользователь прервал операцию после завершения проверки по мобильному телефону через SMS|Прервано
-Пользователь прервал операцию после завершения проверки голосовым вызовом по мобильному телефону | Прервано
-Пользователь прервал операцию после завершения проверки голосовым вызовом по рабочему телефону | Прервано
-Пользователь прервал операцию после завершения проверки посредством вопросов безопасности|Прервано
-Пользователь прервал операцию после ввода своего идентификатора| Прервано
-Пользователь прервал операцию после начала проверки по электронной почте|Прервано
-Пользователь прервал операцию после начала проверки по мобильному телефону через SMS|Прервано
-Пользователь прервал операцию после начала проверки голосовым вызовом по мобильному телефону|Прервано
-Пользователь прервал операцию после начала проверки голосовым вызовом по рабочему телефону|Прервано
-Пользователь прервал операцию после начала проверки посредством вопросов безопасности| Прервано
-Пользователь прервал операцию до выбора нового пароля| Прервано
-Пользователь прервал операцию во время выбора нового пароля| Прервано
-Пользователь ввел слишком много неверных кодов проверки SMS и заблокирован на 24 часа|Заблокировано
-Пользователь произвел слишком много попыток голосовой проверки по мобильному телефону и заблокирован на 24 часа|Заблокировано
-Пользователь произвел слишком много попыток голосовой проверки по рабочему телефону и заблокирован на 24 часа |Заблокировано
-Пользователь произвел слишком много попыток ответа на вопросы безопасности и заблокирован на 24 часа| Заблокировано
-Пользователь произвел слишком много попыток проверки номера телефона и заблокирован на 24 часа|Заблокировано
-Пользователь отменил операцию до передачи требуемых методов проверки подлинности|Отменено
-Пользователь отменил операцию до отправки нового пароля|Отменено
-Пользователь обратился к администратору после попытки проверки по электронной почте |Отправлено обращение к администратору
-Пользователь обратился к администратору после попытки проверки по мобильному телефону через SMS|Отправлено обращение к администратору
-Пользователь обратился к администратору после попытки проверки голосовым вызовом по мобильному телефону|Отправлено обращение к администратору
-Пользователь обратился к администратору после попытки проверки голосовым вызовом по рабочему телефону |Отправлено обращение к администратору
-Пользователь обратился к администратору после попытки проверки с помощью вопросов безопасности|Отправлено обращение к администратору
-Для этого пользователя запрещен сброс пароля. Для решения этой проблемы включите сброс пароля на вкладке «Настройка»| Сбой
-У пользователя нет лицензии. Для решения этой проблемы можно добавить лицензию для пользователя|Сбой
-Пользователь попытался выполнить сброс с устройства, на котором не включены файлы cookie| Сбой
-Для учетной записи пользователя определено недостаточное количество методов проверки подлинности. Для решения этой проблемы добавьте сведения для проверки подлинности|Сбой
-Пароль пользователя управляется локально. Для решения этой проблемы можно включить обратную запись паролей|Сбой
-Не удалось связаться с вашей локальной службой сброса пароля. Проверьте журнал событий на компьютере синхронизации|Сбой
-Возникла проблема при сбросе локального пароля пользователя. Проверьте журнал событий на компьютере синхронизации | Сбой
-Этот пользователь не является членом группы пользователей, для которых включен сброс пароля. Добавьте пользователя в эту группу, чтобы решить проблему.|Сбой
-Сброс пароля полностью отключен для этого клиента. Сведения об устранении этой проблемы см. [здесь](http://aka.ms/ssprtroubleshoot). | Сбой
-Пользователь успешно сбросил пароль|Succeeded
+User abandoned after completing the email verification option  | Abandoned
+User abandoned after completing the mobile SMS verification option|Abandoned
+User abandoned after completing the mobile voice call verification option | Abandoned
+User abandoned after completing the office voice call verification option | Abandoned
+User abandoned after completing the security questions option|Abandoned
+User abandoned after entering their user ID| Abandoned
+User abandoned after starting the email verification option|Abandoned
+User abandoned after starting the mobile SMS verification option|Abandoned
+User abandoned after starting the mobile voice call verification option|Abandoned
+User abandoned after starting the office voice call verification option|Abandoned
+User abandoned after starting the security questions option| Abandoned
+User abandoned before selecting a new password| Abandoned
+User abandoned while selecting a new password| Abandoned
+User entered too many invalid SMS verification codes and is blocked for 24 hours|Blocked
+User tried mobile phone voice verification too many times and is blocked for 24 hours|Blocked
+User tried office phone voice verification too many times and is blocked for 24 hours |Blocked
+User tried to answer security questions too many times and is blocked for 24 hours| Blocked
+User tried to verify a phone number too many times and is blocked for 24 hours|Blocked
+User cancelled before passing the required authentication methods|Cancelled
+User cancelled before submitting a new password|Cancelled
+User contacted an admin after trying the email verification option |Contacted admin
+User contacted an admin after trying the mobile SMS verification option|Contacted admin
+User contacted an admin after trying the mobile voice call verification option|Contacted admin
+User contacted an admin after trying the office voice call verification option |Contacted admin
+User contacted an admin after trying the security question verification option|Contacted admin
+Password reset is not enabled for this user. Enable password reset under the configure tab to resolve this|  Failed
+User does not have a license. You can add a license to the user to resolve this|Failed
+User tried to reset from a device without cookies enabled| Failed
+User's account has insufficient authentication methods defined. Add authentication info to resolve this|Failed
+User's password is managed on-premises. You can enable Password Writeback to resolve this|Failed
+We could not reach your on-premises password reset service. Check your sync machine's event log|Failed
+We encountered a problem while resetting the user's on-premises password. Check your sync machine's event log | Failed
+This user is not a member of the password reset users group. Add this user to that group to resolve this.|Failed
+Password reset has been disabled entirely for this tenant. See [here](http://aka.ms/ssprtroubleshoot) to resolve this. | Failed
+User successfully reset password|Succeeded
 
-## Ссылки на документацию по сбросу паролей
-Ниже приведены ссылки на все страницы документации по службе сброса паролей Azure AD.
+## <a name="links-to-password-reset-documentation"></a>Links to password reset documentation
+Below are links to all of the Azure AD Password Reset documentation pages:
 
-* **Вы здесь потому, что возникают проблемы при входе?** Если это так, [с помощью этих инструкций можно изменить и сбросить пароль](active-directory-passwords-update-your-own-password.md).
-* [**Как работает служба**](active-directory-passwords-how-it-works.md) — узнайте, из каких шести компонентов состоит служба и за что отвечает каждый из них.
-* [**Приступая к работе**](active-directory-passwords-getting-started.md) — узнайте, как предоставить пользователям возможность сбрасывать и менять свои облачные и локальные пароли.
-* [**Настройка**](active-directory-passwords-customize.md) — узнайте, как настроить оформление и функциональность службы в соответствии с потребностями организации.
-* [**Рекомендации**](active-directory-passwords-best-practices.md) — узнайте, как быстро развернуть службу и эффективно управлять паролями в организации.
-* [**Часто задаваемые вопросы**](active-directory-passwords-faq.md) — ознакомьтесь с ответами на часто задаваемые вопросы.
-* [**Устранение неполадок**](active-directory-passwords-troubleshoot.md) — узнайте, как быстро устранять проблемы, связанные со службой.
-* [**Дополнительные сведения**](active-directory-passwords-learn-more.md) — ознакомьтесь с технической стороной работы службы.
+* **Are you here because you're having problems signing in?** If so, [here's how you can change and reset your own password](active-directory-passwords-update-your-own-password.md).
+* [**How it works**](active-directory-passwords-how-it-works.md) - learn about the six different components of the service and what each does
+* [**Getting started**](active-directory-passwords-getting-started.md) - learn how to allow you users to reset and change their cloud or on-premises passwords
+* [**Customize**](active-directory-passwords-customize.md) - learn how to customize the look & feel and behavior of the service to your organization's needs
+* [**Best practices**](active-directory-passwords-best-practices.md) - learn how to quickly deploy and effectively manage passwords in your organization
+* [**FAQ**](active-directory-passwords-faq.md) - get answers to frequently asked questions
+* [**Troubleshooting**](active-directory-passwords-troubleshoot.md) - learn how to quickly troubleshoot problems with the service
+* [**Learn more**](active-directory-passwords-learn-more.md) - go deep into the technical details of how the service works
 
 
 
@@ -174,4 +175,8 @@
 [002]: ./media/active-directory-passwords-get-insights/002.jpg "Image_002.jpg"
 [003]: ./media/active-directory-passwords-get-insights/003.jpg "Image_003.jpg"
 
-<!---HONumber=AcomDC_0713_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

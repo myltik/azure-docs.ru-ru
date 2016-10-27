@@ -1,313 +1,314 @@
 <properties
-	pageTitle="Настройка гибридного кластера HPC с помощью пакета Microsoft HPC | Microsoft Azure"
-	description="Узнайте, как использовать пакет Microsoft HPC и Azure для настройки небольшого гибридного кластера высокопроизводительных вычислений (HPC)"
-	services="cloud-services"
-	documentationCenter=""
-	authors="dlepow"
-	manager="timlt"
-	editor=""
-	tags="azure-service-management,hpc-pack"/>
+    pageTitle="Set up a hybrid HPC cluster with Microsoft HPC Pack | Microsoft Azure"
+    description="Learn how to use Microsoft HPC Pack and Azure to set up a small, hybrid high performance computing (HPC) cluster"
+    services="cloud-services"
+    documentationCenter=""
+    authors="dlepow"
+    manager="timlt"
+    editor=""
+    tags="azure-service-management,hpc-pack"/>
 
 <tags
-	ms.service="cloud-services"
-	ms.workload="big-compute"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/14/2016"
-	ms.author="danlep"/>
+    ms.service="cloud-services"
+    ms.workload="big-compute"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="07/14/2016"
+    ms.author="danlep"/>
 
 
-# Настройка гибридного кластера высокопроизводительных вычислительных систем (HPC) с помощью пакета Microsoft HPC и вычислительных узлов Azure по требованию
 
-Используйте пакет Microsoft HPC Pack 2012 R2 и Azure для настройки небольшого гибридного кластера высокопроизводительных вычислительных систем (HPC). Кластер будет состоять из локального головного узла (компьютер под управлением операционной системы Windows Server и пакета HPC) и нескольких вычислительных узлов, развертываемых по требованию в качестве экземпляров рабочих ролей в облачной службе Azure. Затем вы сможете выполнять вычислительные задания в гибридном кластере.
+# <a name="set-up-a-hybrid-high-performance-computing-(hpc)-cluster-with-microsoft-hpc-pack-and-on-demand-azure-compute-nodes"></a>Set up a hybrid high performance computing (HPC) cluster with Microsoft HPC Pack and on-demand Azure compute nodes
 
-![Гибридный кластер высокопроизводительных вычислений (HPC)][Overview]
+Use Microsoft HPC Pack 2012 R2 and Azure to set up a small, hybrid high performance computing (HPC) cluster. The cluster will consist of an on-premises head node (a computer running the Windows Server operating system and HPC Pack) and some compute nodes you deploy on-demand as worker role instances in an Azure cloud service. You can then run compute jobs on the hybrid cluster.
 
-В этом учебнике демонстрируется один из способов использования масштабируемых вычислительных ресурсов в Azure, доступных по требованию, для запуска ресурсоемких приложений, который также называют "ускорением в облако".
+![Hybrid HPC cluster][Overview] 
 
-В этом учебнике предполагается, что у читателя нет опыта работы с вычислительными кластерами или пакетом HPC. Оно предназначено только для того, чтобы помочь вам быстро развернуть кластер вычислений для демонстрационных целей. Рекомендации и действия для развертывания гибридного кластера с пакетом HPC большего масштаба в производственной среде см. в [подробном руководстве](http://go.microsoft.com/fwlink/p/?LinkID=200493). Другие сценарии использования пакета HPC, включая автоматизированное развертывание кластера в виртуальных машинах Azure, см. в разделе [Возможности создания кластера высокопроизводительных вычислительных систем (HPC) на основе Windows и управления им в Azure с помощью пакета Microsoft HPC](../virtual-machines/virtual-machines-windows-hpcpack-cluster-options.md).
+This tutorial shows one approach, sometimes called cluster "burst to the cloud," to use scalable, on-demand compute resources in Azure to run compute-intensive applications.
 
+This tutorial assumes no prior experience with compute clusters or HPC Pack. It is intended only to help you deploy a hybrid compute cluster quickly for demonstration purposes. For considerations and steps to deploy a hybrid HPC Pack cluster at greater scale in a production environment, see the [detailed guidance](http://go.microsoft.com/fwlink/p/?LinkID=200493). For other scenarios with HPC Pack, including automated cluster deployment in Azure virtual machines, see [HPC cluster options with Microsoft HPC Pack in Azure](../virtual-machines/virtual-machines-windows-hpcpack-cluster-options.md).
 
-## Предварительные требования
 
-* **Подписка Azure**. Если ее нет, можно за пару минут создать [бесплатную учетную запись](https://azure.microsoft.com/free/).
+## <a name="prerequisites"></a>Prerequisites
 
-* **Локальный компьютер под управлением Windows Server 2012 R2 или Windows Server 2012**. Этот компьютер будет головным узлом кластера HPC. Если вы еще не установили Windows Server, вы можете скачать и установить [ознакомительную версию](https://www.microsoft.com/evalcenter/evaluate-windows-server-2012-r2).
+* **Azure subscription** - If you don't have an Azure subscription, you can create a [free account](https://azure.microsoft.com/free/) in just a couple of minutes.
 
-	* Компьютер должен быть присоединен к домену Active Directory. Для сценария тестирования с недавно установленным Windows Server можно добавить роль сервера доменных служб Active Directory и повысить уровень головного узла до контроллера домена в новом доменном лесу (см. документацию по Windows Server).
+* **An on-premises computer running Windows Server 2012 R2 or Windows Server 2012** - This computer will be the head node of the HPC cluster. If you aren't already running Windows Server, you can download and install an [evaluation version](https://www.microsoft.com/evalcenter/evaluate-windows-server-2012-r2).
 
-	* Для поддержки пакета HPC необходимо установить операционную систему на одном из следующих языков: английский, японский или китайский (упрощенное письмо).
+    * The computer must be joined to an Active Directory domain. For a test scenario with a fresh installation of Windows Server, you can add the Active Directory Domain Services server role and promote the head node computer as a domain controller in a new domain forest (see the documentation for Windows Server).
 
-	* Убедитесь, что установлены важные и критические обновления.
+    * To support HPC Pack, the operating system must be installed in one of these languages: English, Japanese, or Chinese (Simplified).
 
-* **Пакет HPC 2012 R2**. Бесплатно [скачайте](http://go.microsoft.com/fwlink/p/?linkid=328024) установочный пакет последней версии и скопируйте файлы на компьютер головного узла или в сетевую папку. Выберите установочные файлы на языке установленной системы Windows Server.
+    * Verify that important and critical updates are installed.
 
-* **Учетная запись домена**. Для установки пакета HPC эта учетная запись должна быть настроена с разрешениями локального администратора на головном узле.
+* **HPC Pack 2012 R2** - [Download](http://go.microsoft.com/fwlink/p/?linkid=328024) the installation package for the latest version free of charge and copy the files to the head node computer or to a network location. Choose installation files in the same language as your installation of Windows Server.
 
-* **Подключение по протоколу TCP через порт 443** от головного узла к Azure.
+* **Domain account** - This account must be configured with local Administrator permissions on the head node to install HPC Pack.
 
-## Установка пакета HPC на головном узле
+* **TCP connectivity on port 443** from the head node to Azure.
 
-Сначала установите пакет Microsoft HPC на локальном компьютере под управлением Windows Server, который будет головным узлом кластера.
+## <a name="install-hpc-pack-on-the-head-node"></a>Install HPC Pack on the head node
 
-1. Войдите на головной узел с помощью доменной учетной записи с правами локального администратора.
+You first install Microsoft HPC Pack on your on-premises computer running Windows Server that will be the head node of the cluster.
 
-2. Откройте мастер установки пакета HPC, запустив файл Setup.exe из пакета HPC.
+1. Log on to the head node by using a domain account that has local Administrator permissions.
 
-3. На экране **Установка пакета HPC 2012 R2 Setup** нажмите кнопку **Новая изолированная установка или добавление новых компонентов к существующему экземпляру**.
+2. Start the HPC Pack Installation Wizard by running Setup.exe from the HPC Pack installation files.
 
-	![Установка пакета HPC 2012][install_hpc1]
+3. On the **HPC Pack 2012 R2 Setup** screen, click **New installation or add new features to an existing installation**.
 
-4. На **странице пользовательского соглашения по программному обеспечению Microsoft** нажмите кнопку **Далее**.
+    ![HPC Pack 2012 Setup][install_hpc1]
 
-5. На странице **Выбор типа установки** выберите опцию **Создание кластера HPC с головным узлом** и нажмите кнопку **Далее**.
+4. On the **Microsoft Software User Agreement page**, click **Next**.
 
-	![Выбор типа установки][install_hpc2]
+5. On the **Select Installation Type** page, click **Create a new HPC cluster by creating a head node**, and then click **Next**.
 
-6. Мастер выполняет несколько тестов перед установкой. Нажмите кнопку **Далее** на странице **Правила установки**, если все тесты пройдены. В противном случае ознакомьтесь с предоставленной информацией и внесите необходимые изменения в вашей среде. Затем повторите тесты или, при необходимости, запустите мастер установки еще раз.
+    ![Select Installation Type][install_hpc2]
 
-	![Правила установки][install_hpc3]
+6. The wizard runs several pre-installation tests. Click **Next** on the **Installation Rules** page if all tests pass. Otherwise, review the information provided and make any necessary changes in your environment. Then run the tests again or if necessary start the Installation Wizard again.
 
-7. На странице **Настройки базы данных HPC** убедитесь, что выбран **Головной узел** для всех баз данных HPC, а затем нажмите кнопку **Далее**.
+    ![Installation Rules][install_hpc3]
 
-	![Конфигурация базы данных][install_hpc4]
+7. On the **HPC DB Configuration** page, make sure **Head Node** is selected for all HPC databases, and then click **Next**.
 
-8. Примите параметры по умолчанию на оставшихся страницах мастера. На странице **Установка обязательных компонентов** нажмите кнопку **Установить**.
+    ![DB Configuration][install_hpc4]
 
-	![Установить][install_hpc6]
+8. Accept default selections on the remaining pages of the wizard. On the **Install Required Components** page, click **Install**.
 
-9. После завершения установки снимите флажок **Запустить диспетчер кластеров HPC** и нажмите кнопку **Готово**. (Вы запустите диспетчер кластеров HPC позднее.)
+    ![Install][install_hpc6]
 
-	![Готово][install_hpc7]
+9. After the installation completes, uncheck **Start HPC Cluster Manager** and then click **Finish**. (You will start HPC Cluster Manager in a later step.)
 
-## Подготовка подписки Azure
-Используйте [классический портал Azure](https://manage.windowsazure.com) для выполнения следующих действий с подпиской Azure. Они необходимы для развертывания узлов Azure из локального головного узла. Подробные инструкции приведены в следующих разделах.
+    ![Finish][install_hpc7]
 
-- Загрузка сертификата управления (необходим для безопасных соединений между головным узлом и службами Azure)
+## <a name="prepare-the-azure-subscription"></a>Prepare the Azure subscription
+Use the [Azure classic portal](https://manage.windowsazure.com) to perform the following steps with your Azure subscription. These are needed so you can later deploy Azure nodes from the on-premises head node. Detailed procedures are in the next sections.
 
-- Создание облачной службы Azure, в которой будут работать узлы Azure (экземпляры рабочей роли)
+- Upload a management certificate (needed for secure connections between the head node and the Azure services)
 
-- Создание учетной записи хранения Azure
+- Create an Azure cloud service in which Azure nodes (worker role instances) will run
 
-	>[AZURE.NOTE]Также запишите идентификатор подписки Azure, которая понадобится позже. Найдите это на классическом портале, щелкнув **Настройки** > **Подписки**.
+- Create an Azure storage account
 
-### Загрузка сертификата управления по умолчанию
-Пакет HPC устанавливает самозаверяющий сертификат на головном узле с именем "Сертификат управления Microsoft HPC Azure по умолчанию", который можно загрузить как сертификат управления Azure. Этот сертификат предназначен для тестирования и экспериментальных развертываний.
+    >[AZURE.NOTE]Also make a note of your Azure subscription ID, which you will need later. Find this in the classic portal by clicking **Settings** > **Subscriptions**.
 
-1. На компьютере головного узла войдите на [классический портал Azure](https://manage.windowsazure.com).
+### <a name="upload-the-default-management-certificate"></a>Upload the default management certificate
+HPC Pack installs a self-signed certificate on the head node, called the Default Microsoft HPC Azure Management certificate, that you can upload as an Azure management certificate. This certificate is provided for testing purposes and proof-of-concept deployments.
 
-2. Щелкните **Параметры**, а затем — **Сертификаты управления**.
+1. From the head node computer, sign in to the [Azure classic portal](https://manage.windowsazure.com).
 
-3. На панели команд нажмите **Загрузить**.
+2. Click **Settings** > **Management Certificates**.
 
-	![Параметры сертификата][upload_cert1]
+3. On the command bar, click **Upload**.
 
-4. На головном узле перейдите к файлу C:\\Program Files\\Microsoft HPC Pack 2012\\Bin\\hpccert.cer. Затем нажмите кнопку **Проверить**.
+    ![Certificate Settings][upload_cert1]
 
-	![Загрузка сертификата][install_hpc10]
+4. Browse on the head node for the file C:\Program Files\Microsoft HPC Pack 2012\Bin\hpccert.cer. Then, click the **Check** button.
 
-В списке сертификатов управления вы увидите **сертификат управления Azure HPC по умолчанию**.
+    ![Upload Certificate][install_hpc10]
 
-### Создание облачной службы Azure
+You will see **Default HPC Azure Management** in the list of management certificates.
 
->[AZURE.NOTE]Для лучшей производительности рекомендуется создавать облачные службы и учетную запись хранения (позднее) в одном географическом регионе.
+### <a name="create-an-azure-cloud-service"></a>Create an Azure cloud service
 
-1. На панели команд классического портала нажмите кнопку **Создать**.
+>[AZURE.NOTE]For best performance, create the cloud service and the storage account (in a later step) in the same geographic region.
 
-2. Последовательно выберите пункты **Создать** > **Облачная служба** > **Быстрое создание**.
+1. In the classic portal, on the command bar, click **New**.
 
-3. Введите URL-адрес облачной службы и нажмите кнопку **Создать облачную службу**.
+2. Click **Compute** > **Cloud Service** > **Quick Create**.
 
-	![Создать службу][createservice1]
+3. Type a URL for the cloud service, and then click **Create Cloud Service**.
 
-### Создание учетной записи хранения Azure
+    ![Create Service][createservice1]
 
-1. На панели команд классического портала нажмите кнопку **Создать**.
+### <a name="create-an-azure-storage-account"></a>Create an Azure storage account
 
-2. Последовательно выберите **Службы данных** > **Хранилище** > **Быстрое создание**.
+1. In the classic portal, on the command bar, click **New**.
 
-3. Введите URL-адрес учетной записи и нажмите кнопку **Создать учетную запись хранения**.
+2. Click **Data Services** > **Storage** > **Quick Create**.
 
-	![Создание хранилища][createstorage1]
+3. Type a URL for the account, and then click **Create Storage Account**.
 
-## Настройка головного узла
+    ![Create Storage][createstorage1]
 
-Чтобы развернуть узлы Azure с помощью диспетчера кластеров HPC и отправлять задания, необходимо выполните некоторые действия для настройки кластера.
+## <a name="configure-the-head-node"></a>Configure the head node
 
-1. На головном узле запустите диспетчер кластеров HPC. Если откроется диалоговое окно **Выбор головного узла**, щелкните **Локальный компьютер**. Появится **список дел развертывания**.
+To use HPC Cluster Manager to deploy Azure nodes and to submit jobs, first perform some required cluster configuration steps.
 
-2. В разделе **Необходимые задачи развертывания** нажмите **Настроить сеть**.
+1. On the head node, start HPC Cluster Manager. If the **Select Head Node** dialog box appears, click **Local Computer**. The **Deployment To-do List** appears.
 
-	![Настройка сети][config_hpc2]
+2. Under **Required deployment tasks**, click **Configure your network**.
 
-3. В мастере настройки сети выберите параметр **Все узлы только в корпоративной сети** (топология 5).
+    ![Configure Network][config_hpc2]
 
-	![Топология 5][config_hpc3]
+3. In the Network Configuration Wizard, select **All nodes only on an enterprise network** (Topology 5).
 
-	>[AZURE.NOTE]Это простейшая конфигурация для демонстрационных целей, поскольку головному узлу для подключения к Active Directory и Интернету требуется только один сетевой адаптер. В этом учебнике не рассматриваются сценарии, в которых кластеру требуются дополнительные сети.
+    ![Topology 5][config_hpc3]
 
-4. Нажмите кнопку **Далее**, чтобы принять значения по умолчанию на оставшихся страницах мастера. Затем на вкладке **Просмотр** щелкните **Настройка** для завершения настройки сети.
+    >[AZURE.NOTE]This is the simplest configuration for demonstration purposes, because the head node only needs a single network adapter to connect to Active Directory and the Internet. This tutorial does not cover cluster scenarios that require additional networks.
 
-5. В **списке дел развертывания** нажмите **Ввести учетные данные установки**.
+4. Click **Next** to accept default values on the remaining pages of the wizard. Then, on the **Review** tab, click **Configure** to complete the network configuration.
 
-6. В диалоговом окне **Учетные данные установки** введите учетные данные доменной учетной записи, которая использовалась для установки пакета HPC. Нажмите кнопку **ОК**.
+5. In the **Deployment To-do List**, click **Provide installation credentials**.
 
-	![Учетные данные установки][config_hpc6]
+6. In the **Installation Credentials** dialog box, type the credentials of the domain account that you used to install HPC Pack. Then click **OK**.
 
-	>[AZURE.NOTE]Службы пакета HPC используют учетные данные установки только для развертывания присоединенных к домену вычислительных узлов. Узлы Azure, добавляемые в этом учебнике, не присоединены к домену.
+    ![Installation Credentials][config_hpc6]
 
-7. В **списке дел развертывания** нажмите **Настроить именование новых узлов**.
+    >[AZURE.NOTE]HPC Pack services only use installation credentials to deploy domain-joined compute nodes. The Azure nodes you add in this tutorial are not domain-joined.
 
-8. В диалоговом окне **Указать серию именования узлов** примите значения по умолчанию и нажмите кнопку **OK**.
+7. In the **Deployment To-do List**, click **Configure the naming of new nodes**.
 
-	![Именование узлов][config_hpc8]
+8. In the **Specify Node Naming Series** dialog box, accept the default naming series and click **OK**.
 
-	>[AZURE.NOTE]Серия именования формирует только имена для вычислительных узлов, присоединенных к домену. Имена узлов Azure задаются автоматически.
+    ![Node Naming][config_hpc8]
 
-9. В **списке дел развертывания** нажмите **Создать шаблон узла**. Этот шаблон будет использоваться для добавления узлов Azure в кластер.
+    >[AZURE.NOTE]The naming series only generates names for domain-joined compute nodes. Azure worker nodes are named automatically.
 
-10. В окне мастера создания узла шаблона выполните следующие действия.
+9. In the **Deployment To-do List**, click **Create a node template**. You will use the node template to add Azure nodes to the cluster.
 
-	а. На странице **Выбор типа шаблона** узла щелкните **шаблон узла Azure**, а затем нажмите кнопку **Далее**.
+10. In the Create Node Template Wizard, do the following:
 
-	![Шаблон узла][config_hpc10]
+    a. On the **Choose Node Template Type** page, click **Azure node template**, and then click **Next**.
 
-	b. Щелкните **Далее**, чтобы использовать имя шаблона по умолчанию.
+    ![Node Template][config_hpc10]
 
-	c. На странице **Provide Subscription Information** (Укажите сведения о подписке) введите свой идентификатор подписки Azure (он доступен в сведениях об учетной записи Azure). Затем в разделе **Сертификат управления** нажмите кнопку **Обзор** и выберите **Управление HPC Azure по умолчанию.** Нажмите кнопку **Далее**.
+    b. Click **Next** to accept the default template name.
 
-	![Шаблон узла][config_hpc12]
+    c. On the **Provide Subscription Information** page, enter your Azure subscription ID (available in your Azure account information). Then, in **Management certificate**, click **Browse** and select **Default HPC Azure Management.** Then click **Next**.
 
-	г) На странице **Укажите сведения о службе** выберите облачную службу и учетную запись хранения, созданные на предыдущем шаге. Нажмите кнопку **Далее**.
+    ![Node Template][config_hpc12]
 
-	![Шаблон узла][config_hpc13]
+    d. On the **Provide Service Information** page, select the cloud service and the storage account that you created in a previous step. Then click **Next**.
 
-	д. Нажмите кнопку **Далее**, чтобы принять значения по умолчанию на оставшихся страницах мастера. Затем на вкладке **Просмотр** нажмите кнопку **Создать**, чтобы создать шаблон узла.
+    ![Node Template][config_hpc13]
 
-	>[AZURE.NOTE]По умолчанию шаблон узла Azure содержит параметры для запуска (подготовки) и остановки узлов вручную с помощью диспетчера кластеров HPC. При желании можно настроить расписание для автоматического запуска и остановки узлов Azure.
+    e. Click **Next** to accept default values on the remaining pages of the wizard. Then, on the **Review** tab, click **Create** to create the node template.
 
-## Добавление узлов Azure в кластер
+    >[AZURE.NOTE]By default, the Azure node template includes settings for you to start (provision) and stop the nodes manually, using HPC Cluster Manager. You can optionally configure a schedule to start and stop the Azure nodes automatically.
 
-Этот шаблон будет использоваться для добавления узлов Azure в кластер. При добавлении узлов в кластер сведения об их конфигурации сохраняется, что позволяет запускать (настраивать) их в любое время в качестве экземпляров ролей в облачной службе. Плата за узлы Azure взимается с вашей подписки только после запуска экземпляров ролей в облачной службе.
+## <a name="add-azure-nodes-to-the-cluster"></a>Add Azure nodes to the cluster
 
-В этом учебнике вы добавите два мелких узла.
+You now use the node template to add Azure nodes to the cluster. Adding the nodes to the cluster stores their configuration information so that you can start (provision) them at any time as role instances in the cloud service. Your subscription only gets charged for Azure nodes after the role instances are running in the cloud service.
 
-1. В диспетчере кластеров HPC в разделе **Node Management** (Управление узлами) (в последних версиях пакета HPC он называется **Управление ресурсами**) в области **Действия** щелкните **Добавить узел**.
+For this tutorial you will add two Small nodes.
 
-	![Добавление узла][add_node1]
+1. In HPC Cluster Manager, in **Node Management** (called **Resource Management** in recent versions of HPC Pack), in the **Actions** pane, click **Add Node**.
 
-2. В окне мастера добавления узла на странице **Выбор метода развертывания** нажмите кнопку **Добавить узлы Azure**, а затем **Далее**.
+    ![Add Node][add_node1]
 
-	![Add Azure Node][add\_node1_1]
+2. In the Add Node Wizard, on the **Select Deployment Method** page, click **Add Azure nodes**, and then click **Next**.
 
-3. На странице **Укажите новые узлы** выберите созданный ранее шаблон узла Azure (который по умолчанию называется **шаблоном узла Azure по умолчанию**). Затем укажите узлы **2** **мелких** узла и нажмите кнопку **Далее**.
+    ![Add Azure Node][add_node1_1]
 
-	![Указание узлов][add_node2]
+3. On the **Specify New Nodes** page, select the Azure node template you created previously (called by default **Default AzureNode Template**). Then specify **2** nodes of size **Small**, and then click **Next**.
 
-	Сведения о доступных размерах см. в разделе [Размеры для облачных служб](cloud-services-sizes-specs.md).
+    ![Specify Nodes][add_node2]
 
-4. На **последней странице мастера добавления узла** нажмите кнопку **Готово**.
+    For details about the available sizes, see [Sizes for Cloud Services](cloud-services-sizes-specs.md).
 
-	 Два узла Azure с именем **AzureCN-0001** и **AzureCN-0002** появятся в диспетчере кластеров HPC. Они находятся в состоянии **Не развернуто**.
+4. On the **Completing the Add Node Wizard** page, click **Finish**.
 
-	![Добавленные узлы][add_node3]
+     Two Azure nodes, named **AzureCN-0001** and **AzureCN-0002**, now appear in HPC Cluster Manager. Both are in the **Not-Deployed** state.
 
-## Запуск узлов Azure
-При необходимости использовать ресурсы кластера в Azure используйте диспетчер кластеров HPC, чтобы запустить (подготовить) узлы Azure и перевести их в оперативный режим.
+    ![Added Nodes][add_node3]
 
-1.	В диспетчере кластеров HPC в разделе **Node Management** (Управление узлами) (в последних версиях пакета HPC он называется **Управление ресурсами**) выберите один или оба узла, а затем в области **Действия** щелкните **Пуск**.
+## <a name="start-the-azure-nodes"></a>Start the Azure nodes
+When you want to use the cluster resources in Azure, use HPC Cluster Manager to start (provision) the Azure nodes and bring them online.
 
-	![Запуск узлов][add_node4]
+1.  In HPC Cluster Manager, in **Node Management** (called **Resource Management** in recent versions of HPC Pack), click one or both nodes and then, in the **Actions** pane, click **Start**.
 
-2. В диалоговом окне **Запуск узлов Azure** нажмите кнопку **Пуск**.
+    ![Start Nodes][add_node4]
 
-	![Запуск узлов][add_node5]
+2. In the **Start Azure Nodes** dialog box, click **Start**.
 
-	Узлы перейдут в состояние **подготовки**. Для отслеживания хода подготовки можно просматривать журнал подготовки.
+    ![Start Nodes][add_node5]
 
-	![Подготовка узлов][add_node6]
+    The nodes transition to the **Provisioning** state. View the provisioning log to track the provisioning progress.
 
-3. Через несколько минут подготовка узлов Azure завершится, и они перейдут в **автономное** состояние. В этом состоянии экземпляры ролей выполняются, но еще не принимают задания кластера.
+    ![Provision Nodes][add_node6]
 
-4. Чтобы убедиться, что экземпляры ролей выполняются, на [классическом портале](https://manage.windowsazure.com) щелкните **Облачные службы**, затем выберите *имя вашей облачной службы* и щелкните **Экземпляры**.
+3. After a few minutes, the Azure nodes finish provisioning and are in the **Offline** state. In this state the role instances are running but will not yet accept cluster jobs.
 
-	![Выполняющиеся экземпляры][view_instances1]
+4. To confirm that the role instances are running, in the [classic portal](https://manage.windowsazure.com), click **Cloud Services** > *your_cloud_service_name* > **Instances**.
 
-	Вы увидите два запущенных экземпляра рабочей роли в службе. Пакет HPC также автоматически развертывает два экземпляра **HpcProxy** (среднего размера) для обработки взаимодействия между головным узлом и Azure.
+    ![Running Instances][view_instances1]
 
-5. Чтобы перевести узлы Azure в оперативный режим для выполнения заданий кластера, выберите узлы, щелкните правой кнопкой мыши и выберите команду **Перевести в оперативный режим**.
+    You will see two worker role instances are running in the service. HPC Pack also automatically deploys two **HpcProxy** instances (size Medium) to handle communication between the head node and Azure.
 
-	![Автономные узлы][add_node7]
+5. To bring the Azure nodes online to run cluster jobs, select the nodes, right-click, and then click **Bring Online**.
 
-	Диспетчер кластеров HPC покажет, что узлы находятся в **оперативном** состоянии.
+    ![Offline Nodes][add_node7]
 
-## Выполнение команды в кластере
+    HPC Cluster Manager indicates that the nodes are in the **Online** state.
 
-Чтобы проверить установку, воспользуйтесь командой **clusrun** пакета HPC для выполнения команды или запуска приложения в одном или нескольких узлах кластера. В качестве простого примера выполните команду **clusrun**, чтобы получить конфигурацию IP-адресов узлов Azure.
+## <a name="run-a-command-across-the-cluster"></a>Run a command across the cluster
 
-1. На головном узле откройте командную строку.
+To check the installation, use the HPC Pack **clusrun** command to run a command or application on one or more cluster nodes. As a simple example, use **clusrun** to get the IP configuration of the Azure nodes.
 
-2. Введите следующую команду:
+1. On the head node, open a command prompt.
 
-	`clusrun /nodes:azurecn* ipconfig`
+2. Type the following command:
 
-3. Должен появиться результат, аналогичный приведенному ниже.
+    `clusrun /nodes:azurecn* ipconfig`
 
-	![Clusrun][clusrun1]
+3. You will see output similar to the following.
 
-## Выполнение тестового задания
+    ![Clusrun][clusrun1]
 
-Теперь отправьте тестовое задание, которое выполняется на гибридном кластере. Данный пример является очень простым заданием параметрического анализа (тип классических параллельных вычислений). В этом примере выполняются подзадачи, добавляющие целое число с помощью команды **set /a**. Все узлы в кластере участвуют в выполнения подзадач для целых чисел от 1 до 100.
+## <a name="run-a-test-job"></a>Run a test job
 
-1. В диспетчере кластеров HPC в разделе **Управление заданиями** в области **Действия** нажмите **Создать задание параметрического анализа**.
+Now submit a test job that runs on the hybrid cluster. This example is a very simple parametric sweep job (a type of intrinsically parallel computation). This example runs subtasks that add an integer to itself by using the **set /a** command. All the nodes in the cluster contribute to finishing the subtasks for integers from 1 to 100.
 
-	![Новое задание][test_job1]
+1. In HPC Cluster Manager, in **Job Management**, in the **Actions** pane, click **New Parametric Sweep Job**.
 
-2. В диалоговом окне **Создание задания параметрического анализа** в **командной строке** введите `set /a *+*` (замените командную строку, которая отображается по умолчанию). Оставьте значения по умолчанию для остальных параметров и нажмите кнопку **Отправить**, чтобы отправить задание.
+    ![New Job][test_job1]
 
-	![Параметрический анализ][param_sweep1]
+2. In the **New Parametric Sweep Job** dialog box, in **Command line**, type `set /a *+*` (overwriting the default command line that appears). Leave default values for the remaining settings, and then click **Submit** to submit the job.
 
-3. После завершения задания дважды нажмите задание **Моя задача анализа**.
+    ![Parametric Sweep][param_sweep1]
 
-4. Нажмите кнопку **Просмотреть задачи**, затем нажмите подзадачу, чтобы просмотреть результаты ее выполнения.
+3. When the job is finished, double-click the **My Sweep Task** job.
 
-	![Результаты выполнения задачи][view_job361]
+4. Click **View Tasks**, and then click a subtask to view the calculated output of that subtask.
 
-5. Для просмотра узла, который выполняет расчет для этой подзадачи, нажмите **Выделенные узлы**. (Кластер может показывать другое имя узла).
+    ![Task Results][view_job361]
 
-	![Результаты выполнения задачи][view_job362]
+5. To see which node performed the calculation for that subtask, click **Allocated Nodes**. (Your cluster might show a different node name.)
 
-## Остановка узлов Azure
+    ![Task Results][view_job362]
 
-После тестирования кластера остановите узлы Azure, чтобы избежать ненужных расходов для вашей учетной записи. При этом облачная служба будет остановлена, а экземпляры ролей Azure будут удалены.
+## <a name="stop-the-azure-nodes"></a>Stop the Azure nodes
 
-1. В диспетчере кластеров HPC в разделе **Node Management** (Управление узлами) (в последних версиях пакета HPC он называется **Управление ресурсами**) выберите оба узла Azure. Затем в области **действий** нажмите кнопку **Остановить**.
+After you try out the cluster, stop the Azure nodes to avoid unnecessary charges to your account. This stops the cloud service and removes the Azure role instances.
 
-	![Остановка узлов][stop_node1]
+1. In HPC Cluster Manager, in **Node Management** (called **Resource Management** in recent versions of HPC Pack), select both Azure nodes. Then, in the **Actions** pane, click **Stop**.
 
-2. В диалоговом окне **Остановка узлов Azure** нажмите кнопку **Остановить**.
+    ![Stop Nodes][stop_node1]
 
-	![Остановка узлов][stop_node2]
+2. In the **Stop Azure Nodes** dialog box, click **Stop**.
 
-3. Узлы перейдут в состояние **Остановка**. Через несколько минут диспетчер кластеров HPC покажет, что узлы находятся в состоянии **Не развернуто**.
+    ![Stop Nodes][stop_node2]
 
-	![Неразвернутые узлы][stop_node4]
+3. The nodes transition to the **Stopping** state. After a few minutes, HPC Cluster Manager shows that the nodes are **Not-Deployed**.
 
-4. Чтобы убедиться, что экземпляры ролей больше не выполняются в Azure, на [классическом портале](https://manage.windowsazure.com) щелкните **Облачные службы**, затем выберите *имя вашей облачной службы* и щелкните **Экземпляры**. В рабочей среде будут отсутствовать развернутые экземпляры.
+    ![Not Deployed Nodes][stop_node4]
 
-	![Нет экземпляров][view_instances2]
+4. To confirm that the role instances are no longer running in Azure, in the [classic portal](https://manage.windowsazure.com), click **Cloud Services** > *your_cloud_service_name* > **Instances**. No instances will be deployed in the production environment.
 
-	На этом учебник завершен.
+    ![No Instances][view_instances2]
 
-## Дальнейшие действия
+    This completes the tutorial.
 
-* Изучите документацию по [пакетам HPC 2012 R2 и HPC 2012](http://go.microsoft.com/fwlink/p/?LinkID=263697).
+## <a name="next-steps"></a>Next steps
 
-* Сведения о настройке гибридного развертывания кластера пакета HPC в большом масштабе см. в разделе [Ускорение в экземпляры рабочих ролей Azure с помощью пакета Microsoft HPC](http://go.microsoft.com/fwlink/p/?LinkID=200493).
+* Explore the documentation for [HPC Pack 2012 R2 and HPC Pack 2012](http://go.microsoft.com/fwlink/p/?LinkID=263697).
 
-* Другие способы создания кластера пакета HPC в Azure, включая использование шаблонов Azure Resource Manager, см. в разделе [Параметры кластера HPC с Microsoft HPC Pack в Azure](../virtual-machines/virtual-machines-windows-hpcpack-cluster-options.md).
-* Дополнительные сведения о больших вычислениях и облачных решениях HPC в Azure см. в разделе [Большие вычисления в Azure: технические ресурсы для пакетных и высокопроизводительных вычислений (HPC)](../batch/big-compute-resources.md).
+* To set up a hybrid HPC Pack cluster deployment at greater scale, see [Burst to Azure Worker Role Instances with Microsoft HPC Pack](http://go.microsoft.com/fwlink/p/?LinkID=200493).
+
+* For other ways to create an HPC Pack cluster in Azure, including using Azure Resource Manager templates, see [HPC cluster options with Microsoft HPC Pack in Azure](../virtual-machines/virtual-machines-windows-hpcpack-cluster-options.md).
+* See [Big Compute in Azure: Technical Resources for Batch and High Performance Computing (HPC)](../batch/big-compute-resources.md) for more about the range of Big Compute and HPC cloud solutions in Azure.
 
 
 [Overview]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/hybrid_cluster_overview.png
@@ -329,7 +330,7 @@
 [config_hpc12]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/config_hpc12.png
 [config_hpc13]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/config_hpc13.png
 [add_node1]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/add_node1.png
-[add\_node1_1]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/add_node1_1.png
+[add_node1_1]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/add_node1_1.png
 [add_node2]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/add_node2.png
 [add_node3]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/add_node3.png
 [add_node4]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/add_node4.png
@@ -347,4 +348,8 @@
 [stop_node4]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/stop_node4.png
 [view_instances2]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/view_instances2.png
 
-<!----HONumber=AcomDC_0720_2016--->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

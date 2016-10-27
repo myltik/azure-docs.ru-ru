@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Приступая к работе со службами Reliable Services | Microsoft Azure"
-   description="Вводные сведения о создании приложения Service Fabric Microsoft Azure со службами с отслеживанием состояния и без него."
+   pageTitle="Get started with Reliable Services | Microsoft Azure"
+   description="Introduction to creating a Microsoft Azure Service Fabric application with stateless and stateful services."
    services="service-fabric"
    documentationCenter=".net"
    authors="vturecek"
@@ -13,36 +13,52 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/06/2016"
+   ms.date="09/25/2016"
    ms.author="vturecek"/>
 
-# Начало работы со службами Reliable Services в Service Fabric
 
-Приложение Azure Service Fabric содержит одну или несколько служб, которые выполняют код. В этом руководстве показано, как создавать приложения Service Fabric с отслеживанием состояния и без его учета с помощью служб [Reliable Services](service-fabric-reliable-services-introduction.md).
+# <a name="get-started-with-reliable-services"></a>Get started with Reliable Services
 
-## Создание службы без отслеживания состояния
+> [AZURE.SELECTOR]
+- [C# on Windows](service-fabric-reliable-services-quick-start.md)
+- [Java on Linux](service-fabric-reliable-services-quick-start-java.md)
 
-Сейчас в облачных приложениях обычно используются службы без отслеживания состояния. Термин "без отслеживания состояния" означает, что сама служба не содержит данные, которым требуется надежное хранение или обеспечение высокого уровня доступности. Когда экземпляр службы без отслеживания состояния завершает работу, все данные о его внутреннем состоянии будут утрачены. Чтобы обеспечить высокую доступность и надежность в службах этого типа, состояния должны сохраняться во внешнее хранилище, например в таблицы Azure или базу данных SQL.
+An Azure Service Fabric application contains one or more services that run your code. This guide shows you how to create both stateless and stateful Service Fabric applications with [Reliable Services](service-fabric-reliable-services-introduction.md).
 
-Запустите Visual Studio 2015 от имени администратора и создайте проект приложения Service Fabric с именем *HelloWorld*:
+## <a name="basic-concepts"></a>Basic concepts
+To get started with Reliable Services, you only need to understand a few basic concepts:
 
-![Создание нового приложения Service Fabric с помощью диалогового окна "Создание проекта"](media/service-fabric-reliable-services-quick-start/hello-stateless-NewProject.png)
+ - **Service type**: This is your service implementation. It is defined by the class you write that extends `StatelessService` and any other code or dependencies used therein, along with a name and a version number.
 
-Затем создайте проект службы без отслеживания состояния с именем *HelloWorldStateless*.
+ - **Named service instance**: To run your service, you create named instances of your service type, much like you create object instances of a class type. Service instances are in fact object instantiations of your service class that you write. 
 
-![Во втором диалоговом окне создайте проект службы без отслеживания состояния](media/service-fabric-reliable-services-quick-start/hello-stateless-NewProject2.png)
+ - **Service host**: The named service instances you create need to run inside a host. The service host is just a process where instances of your service can run.
 
-Теперь решение содержит два проекта:
+ - **Service registration**: Registration brings everything together. The service type must be registered with the Service Fabric runtime in a service host to allow Service Fabric to create instances of it to run.  
 
- - *HelloWorld*. Это проект *приложения*, который содержит ваши *службы*. В нем также содержится манифест приложения, описывающий приложение, и ряд скриптов PowerShell для развертывания приложения.
- - *HelloWorldStateless*. Это проект службы. Он содержит реализацию службы без отслеживания состояния.
+## <a name="create-a-stateless-service"></a>Create a stateless service
+
+A stateless service is a type of service that is currently the norm in cloud applications. It is considered stateless because the service itself does not contain data that needs to be stored reliably or made highly available. If an instance of a stateless service shuts down, all of its internal state is lost. In this type of service, state must be persisted to an external store, such as Azure Tables or a SQL database, for it to be made highly available and reliable.
+
+Launch Visual Studio 2015 as an administrator, and create a new Service Fabric application project named *HelloWorld*:
+
+![Use the New Project dialog box to create a new Service Fabric application](media/service-fabric-reliable-services-quick-start/hello-stateless-NewProject.png)
+
+Then create a stateless service project named *HelloWorldStateless*:
+
+![In the second dialog box, create a stateless service project](media/service-fabric-reliable-services-quick-start/hello-stateless-NewProject2.png)
+
+Your solution now contains two projects:
+
+ - *HelloWorld*. This is the *application* project that contains your *services*. It also contains the application manifest that describes the application, as well as a number of PowerShell scripts that help you to deploy your application.
+ - *HelloWorldStateless*. This is the service project. It contains the stateless service implementation.
 
 
-## Реализация службы
+## <a name="implement-the-service"></a>Implement the service
 
-Откройте файл **HelloWorldStateless.cs** в проекте службы. В Service Fabric служба может выполнять любую бизнес-логику. API службы предоставляет две точки входа для кода.
+Open the **HelloWorldStateless.cs** file in the service project. In Service Fabric, a service can run any business logic. The service API provides two entry points for your code:
 
- - Вызывается метод *RunAsync* с открытой точкой входа, в котором можно начать выполнение любой рабочей нагрузки, например длительных вычислений.
+ - An open-ended entry point method, called *RunAsync*, where you can begin executing any workloads, including long-running compute workloads.
 
 ```csharp
 protected override async Task RunAsync(CancellationToken cancellationToken)
@@ -51,7 +67,7 @@ protected override async Task RunAsync(CancellationToken cancellationToken)
 }
 ```
 
- - Точка входа для обмена данными, в которой можно подключить любой стек связи, например веб-API ASP .NET. С ее помощью вы можете получать запросы от пользователей и других служб.
+ - A communication entry point where you can plug in your communication stack of choice, such as ASP.NET Web API. This is where you can start receiving requests from users and other services.
 
 ```csharp
 protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
@@ -60,12 +76,13 @@ protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceLis
 }
 ```
 
-В этом учебнике рассматривается метод точки входа `RunAsync()`. Используя его, вы можете сразу же начать выполнение кода. Шаблон проекта включает пример реализации `RunAsync()`, который увеличивает показания счетчика.
+In this tutorial, we will focus on the `RunAsync()` entry point method. This is where you can immediately start running your code.
+The project template includes a sample implementation of `RunAsync()` that increments a rolling count.
 
-> [AZURE.NOTE] Дополнительные сведения о работе со стеком связи см. в статье [Начало работы со службами веб-API Microsoft Azure Service Fabric с саморазмещением OWIN](service-fabric-reliable-services-communication-webapi.md).
+> [AZURE.NOTE] For details about how to work with a communication stack, see [Service Fabric Web API services with OWIN self-hosting](service-fabric-reliable-services-communication-webapi.md)
 
 
-### Метод RunAsync
+### <a name="runasync"></a>RunAsync
 
 ```csharp
 protected override async Task RunAsync(CancellationToken cancellationToken)
@@ -86,38 +103,38 @@ protected override async Task RunAsync(CancellationToken cancellationToken)
 }
 ```
 
-Платформа вызывает этот метод, когда экземпляр службы размещен и готов к выполнению. Для службы без отслеживания состояния это означает, что экземпляр службы открыт. Токен отмены предоставляется для координации закрытия экземпляра вашей службы. В Service Fabric этот цикл открытия и закрытия экземпляра службы может выполняться много раз за все время существования службы. Это может происходить по ряду причин.
+The platform calls this method when an instance of a service is placed and ready to execute. For a stateless service, that simply means when the service instance is opened. A cancellation token is provided to coordinate when your service instance needs to be closed. In Service Fabric, this open/close cycle of a service instance can occur many times over the lifetime of the service as a whole. This can happen for various reasons, including:
 
-- Система перемещает экземпляры служб для распределения ресурсов.
-- В коде возникают ошибки.
-- Выполняется обновление приложения или системы.
-- Возникает аппаратный сбой.
+- The system moves your service instances for resource balancing.
+- Faults occur in your code.
+- The application or system is upgraded.
+- The underlying hardware experiences an outage.
 
-Этой оркестрацией управляет система для сохранения высокой доступности и правильного баланса службы.
+This orchestration is managed by the system to keep your service highly available and properly balanced.
 
-`RunAsync()` выполняется в своей собственной задаче. Обратите внимание, что в приведенном выше фрагменте кода мы сразу перешли к циклу *while*. Нет необходимости планировать отдельную задачу для рабочей нагрузки. Отмена рабочей нагрузки является совместным действием, координированным предоставленным токеном отмены. Чтобы продолжать работу, система должна дождаться завершения задачи (успешного завершения, отмены или завершения вследствие ошибки). Когда система запрашивает отмену задачи, важно как можно быстрее подтвердить токен отмены, завершить все выполняющиеся операции и выйти из `RunAsync()`.
+`RunAsync()` is executed in its own task. Note that in the code snippet above, we jumped right into a *while* loop. There is no need to schedule a separate task for your workload. Cancellation of your workload is a cooperative effort orchestrated by the provided cancellation token. The system will wait for your task to end (by successful completion, cancellation, or fault) before it moves on. It is important to honor the cancellation token, finish any work, and exit `RunAsync()` as quickly as possible when the system requests cancellation.
 
-В этом примере службы без отслеживания состояния счетчик хранится в локальной переменной. Но так как это служба без отслеживания состояния, хранимое значение существует только для текущего жизненного цикла экземпляра службы. Если службу переместить или перезапустить, значение будет утеряно.
+In this stateless service example, the count is stored in a local variable. But because this is a stateless service, the value that's stored exists only for the current lifecycle of its service instance. When the service moves or restarts, the value is lost.
 
-## Создание службы с отслеживанием состояния
+## <a name="create-a-stateful-service"></a>Create a stateful service
 
-Service Fabric представляет новый вид службы с отслеживанием состояния. Служба с отслеживанием состояния может надежно поддерживать состояние в самой службе (совмещая с кодом, который его использует). Service Fabric делает состояние высокодоступным без необходимости сохранения состояния во внешнее хранилище.
+Service Fabric introduces a new kind of service that is stateful. A stateful service can maintain state reliably within the service itself, co-located with the code that's using it. State is made highly available by Service Fabric without the need to persist state to an external store.
 
-Чтобы преобразовать значение счетчика без учета состояния в высокодоступное и постоянное (даже при перемещении или перезапуске службы), нужно использовать службу с отслеживанием состояния.
+To convert a counter value from stateless to highly available and persistent, even when the service moves or restarts, you need a stateful service.
 
-В том же приложении *HelloWorld* можно добавить новую службу, щелкнув правой кнопкой мыши ссылки на службы в проекте приложения и выбрав пункт **Добавить -> Новая служба Service Fabric**.
+In the same *HelloWorld* application, you can add a new service by right-clicking on the Services references in the application project and selecting **Add ->  New Service Fabric Service**.
 
-![Добавление службы в приложение Service Fabric](media/service-fabric-reliable-services-quick-start/hello-stateful-NewService.png)
+![Add a service to your Service Fabric application](media/service-fabric-reliable-services-quick-start/hello-stateful-NewService.png)
 
-Выберите **Служба с отслеживанием состояния** и присвойте имя *HelloWorldStateful*. Нажмите кнопку **ОК**.
+Select **Stateful Service** and name it *HelloWorldStateful*. Click **OK**.
 
-![Создание службы с отслеживанием состояния в Service Fabric с помощью диалогового окна "Создание проекта"](media/service-fabric-reliable-services-quick-start/hello-stateful-NewProject.png)
+![Use the New Project dialog box to create a new Service Fabric stateful service](media/service-fabric-reliable-services-quick-start/hello-stateful-NewProject.png)
 
-Теперь в вашем приложении должно быть две службы: служба *HelloWorldStateless* без отслеживания состояния и служба *HelloWorldStateful* с отслеживанием состояния.
+Your application should now have two services: the stateless service *HelloWorldStateless* and the stateful service *HelloWorldStateful*.
 
-Служба с отслеживанием состояния имеет такие же точки входа, как и служба без отслеживания состояния. Основное различие заключается в доступности *поставщика состояний*, который надежно хранит состояние. Платформа Service Fabric поставляется с реализацией поставщика состояний [Надежные коллекции Reliable Collections](service-fabric-reliable-services-reliable-collections.md), которая позволяет создавать реплицированные структуры данных с помощью диспетчера надежных состояний. Служба Reliable Service с отслеживанием состояния использует этот поставщик состояний по умолчанию.
+A stateful service has the same entry points as a stateless service. The main difference is the availability of a *state provider* that can store state reliably. Service Fabric comes with a state provider implementation called [Reliable Collections](service-fabric-reliable-services-reliable-collections.md), which lets you create replicated data structures through the Reliable State Manager. A stateful Reliable Service uses this state provider by default.
 
-Откройте **HelloWorldStateful.cs** в службе *HelloWorldStateful*, содержащей следующий метод RunAsync.
+Open **HelloWorldStateful.cs** in *HelloWorldStateful*, which contains the following RunAsync method:
 
 ```csharp
 protected override async Task RunAsync(CancellationToken cancellationToken)
@@ -149,29 +166,29 @@ protected override async Task RunAsync(CancellationToken cancellationToken)
     }
 ```
 
-### Метод RunAsync
+### <a name="runasync"></a>RunAsync
 
-`RunAsync()` работает одинаково в службах с отслеживанием и без отслеживания состояния. Однако в службе с отслеживанием состояния платформа выполняет дополнительные действия от вашего имени перед выполнением `RunAsync()`. Эти действия могут включать подготовку диспетчера надежных состояний и коллекций Reliable Collections к использованию.
+`RunAsync()` operates similarly in stateful and stateless services. However, in a stateful service, the platform performs additional work on your behalf before it executes `RunAsync()`. This work can include ensuring that the Reliable State Manager and Reliable Collections are ready to use.
 
-### Reliable Collections и диспетчер надежных состояний
+### <a name="reliable-collections-and-the-reliable-state-manager"></a>Reliable Collections and the Reliable State Manager
 
 ```csharp
 var myDictionary = await this.StateManager.GetOrAddAsync<IReliableDictionary<string, long>>("myDictionary");
 ```
 
-[IReliableDictionary](https://msdn.microsoft.com/library/dn971511.aspx) — это реализация словаря, которая позволяет надежно хранить состояние службы. В Service Fabric с помощью Reliable Collections можно хранить данные непосредственно в службе без использования внешнего постоянного хранилища. Надежные коллекции Reliable Collections делают данные высокодоступными. Service Fabric выполняет эту задачу, автоматически создавая несколько *реплик* службы и управляя ими. Кроме того, платформа предоставляет API-интерфейс, который упрощает управление этими репликами и переходы между их состояниями.
+[IReliableDictionary](https://msdn.microsoft.com/library/dn971511.aspx) is a dictionary implementation that you can use to reliably store state in the service. With Service Fabric and Reliable Collections, you can store data directly in your service without the need for an external persistent store. Reliable Collections make your data highly available. Service Fabric accomplishes this by creating and managing multiple *replicas* of your service for you. It also provides an API that abstracts away the complexities of managing those replicas and their state transitions.
 
-В Reliable Collections можно хранить любые типы объектов .NET, включая пользовательские типы. Необходимо только учитывать следующее.
+Reliable Collections can store any .NET type, including your custom types, with a couple of caveats:
 
- - Service Fabric делает состояние высокодоступным, *реплицируя* его между узлами и сохраняя на локальном диске, а коллекции Reliable Collections сохраняют ваши данные на локальном диске каждой реплики. Это означает, что все объекты, хранящиеся в Reliable Collections, должны поддерживать *сериализацию*. По умолчанию в Reliable Collections для сериализации используется [DataContract](https://msdn.microsoft.com/library/system.runtime.serialization.datacontractattribute%28v=vs.110%29.aspx). Поэтому при использовании сериализатора по умолчанию убедитесь, что ваши типы [поддерживаются сериализатором контрактов данных](https://msdn.microsoft.com/library/ms731923%28v=vs.110%29.aspx).
+ - Service Fabric makes your state highly available by *replicating* state across nodes, and Reliable Collections store your data to local disk on each replica. This means that everything that is stored in Reliable Collections must be *serializable*. By default, Reliable Collections use [DataContract](https://msdn.microsoft.com/library/system.runtime.serialization.datacontractattribute%28v=vs.110%29.aspx) for serialization, so it's important to make sure that your types are [supported by the Data Contract Serializer](https://msdn.microsoft.com/library/ms731923%28v=vs.110%29.aspx) when you use the default serializer.
 
- - Когда вы зафиксируете транзакции в Reliable Collections, объекты реплицируются и становятся высокодоступными. Объекты, сохраненные в Reliable Collections, хранятся в локальной памяти вашей службы. Это означает, что у вас есть локальная ссылка на объект.
+ - Objects are replicated for high availability when you commit transactions on Reliable Collections. Objects stored in Reliable Collections are kept in local memory in your service. This means that you have a local reference to the object.
 
-    Очень важно не изменять локальные экземпляры этих объектов без обновления коллекции в транзакции, так как эти изменения не реплицируются автоматически. Необходимо повторно вставить объект в словарь или использовать один из методов *update* в словаре.
+    It is important that you do not mutate local instances of those objects without performing an update operation on the reliable collection in a transaction. This is because changes to local instances of objects will not be replicated automatically. You must re-insert the object back into the dictionary or use one of the *update* methods on the dictionary.
 
-Диспетчер надежных состояний автоматически управляет коллекциями Reliable Collections. Просто запросите у диспетчера надежных состояний имя коллекции в любое время и в любом расположении службы, и вы гарантированно получите ссылку. Мы не рекомендуем сохранять ссылки на экземпляры коллекции в переменные или свойства членов класса. Необходимо внимательно следить, чтобы ссылка указывала на экземпляр на протяжении всего жизненного цикла службы. Диспетчер надежных состояний выполняет за вас эту работу. Кроме того, он оптимизирован для повторных визитов.
+The Reliable State Manager manages Reliable Collections for you. You can simply ask the Reliable State Manager for a reliable collection by name at any time and at any place in your service. The Reliable State Manager ensures that you get a reference back. We don't recommended that you save references to reliable collection instances in class member variables or properties. Special care must be taken to ensure that the reference is set to an instance at all times in the service lifecycle. The Reliable State Manager handles this work for you, and it's optimized for repeat visits.
 
-### Транзакционные и асинхронные операции
+### <a name="transactional-and-asynchronous-operations"></a>Transactional and asynchronous operations
 
 ```C#
 using (ITransaction tx = this.StateManager.CreateTransaction())
@@ -184,33 +201,37 @@ using (ITransaction tx = this.StateManager.CreateTransaction())
 }
 ```
 
-В коллекциях Reliable Collections повторяются многие операции, которые есть в их аналогах, `System.Collections.Generic` и `System.Collections.Concurrent`, исключая LINQ. Операции в надежных коллекциях являются асинхронными. Это вызвано тем, что операции записи с Reliable Collections выполняют операции ввода-вывода для репликации и сохранения данных на диске.
+Reliable Collections have many of the same operations that their `System.Collections.Generic` and `System.Collections.Concurrent` counterparts do, except LINQ. Operations on Reliable Collections are asynchronous. This is because write operations with Reliable Collections perform I/O operations to replicate and persist data to disk.
 
-Операции Reliable Collections являются *транзакционными*, так что вы можете сохранять согласованное состояние между несколькими Reliable Collections и операциями. Например, вы можете исключить рабочий элемент из надежной очереди, выполнить над ним какую-либо операцию и сохранить результат в надежном словаре, и это все в пределах одной транзакции. Такая операция называется атомарной. Предусматривается, что либо вся операция завершится успешно, либо она будет полностью отменена. Если ошибка возникнет после выведения элемента из очереди, но до сохранения результата, будет выполнен откат всей транзакции, а элемент останется в очереди для обработки.
+Reliable Collection operations are *transactional*, so that you can keep state consistent across multiple Reliable Collections and operations. For example, you may dequeue a work item from a Reliable Queue, perform an operation on it, and save the result in a Reliable Dictionary, all within a single transaction. This is treated as an atomic operation, and it guarantees that either the entire operation will succeed or the entire operation will roll back. If an error occurs after you dequeue the item but before you save the result, the entire transaction is rolled back and the item remains in the queue for processing.
 
-## Выполнение приложения
+## <a name="run-the-application"></a>Run the application
 
-Теперь вернемся к приложению *HelloWorld*. Теперь вы можете построить и развернуть свои службы. Когда вы нажмете клавишу **F5**, приложение будет построено и развернуто в вашем локальном кластере.
+We now return to the *HelloWorld* application. You can now build and deploy your services. When you press **F5**, your application will be built and deployed to your local cluster.
 
-Запустив службы, вы сможете просмотреть созданные события трассировки событий Windows в окне **События диагностики**. Обратите внимание, что в приложении отображаются события как из службы без отслеживания состояния, так и из службы с отслеживанием состояния. Поток можно приостановить, нажав кнопку **Приостановить**. Затем можно просмотреть подробные сведения о сообщении, развернув его.
+After the services start running, you can view the generated Event Tracing for Windows (ETW) events in a **Diagnostic Events** window. Note that the events displayed are from both the stateless service and the stateful service in the application. You can pause the stream by clicking the **Pause** button. You can then examine the details of a message by expanding that message.
 
->[AZURE.NOTE] Перед запуском приложения убедитесь, что кластер локальной разработки запущен. Сведения о настройке локальной среды см. в [руководстве по началу работы](service-fabric-get-started.md).
+>[AZURE.NOTE] Before you run the application, make sure that you have a local development cluster running. Check out the [getting started guide](service-fabric-get-started.md) for information on setting up your local environment.
 
-![Просмотр событий диагностики в Visual Studio](media/service-fabric-reliable-services-quick-start/hello-stateful-Output.png)
+![View Diagnostic Events in Visual Studio](media/service-fabric-reliable-services-quick-start/hello-stateful-Output.png)
 
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Next steps
 
-[Отладка приложения Service Fabric с помощью Visual Studio](service-fabric-debugging-your-application.md)
+[Debug your Service Fabric application in Visual Studio](service-fabric-debugging-your-application.md)
 
-[Приступая к работе со службами веб-API Service Fabric с саморазмещением OWIN](service-fabric-reliable-services-communication-webapi.md)
+[Get started: Service Fabric Web API services with OWIN self-hosting](service-fabric-reliable-services-communication-webapi.md)
 
-[Дополнительные сведения о надежных коллекциях](service-fabric-reliable-services-reliable-collections.md)
+[Learn more about Reliable Collections](service-fabric-reliable-services-reliable-collections.md)
 
-[Развертывание приложения](service-fabric-deploy-remove-applications.md)
+[Deploy an application](service-fabric-deploy-remove-applications.md)
 
-[Обновление приложения](service-fabric-application-upgrade.md)
+[Application upgrade](service-fabric-application-upgrade.md)
 
-[Справочник разработчика по надежным службам](https://msdn.microsoft.com/library/azure/dn706529.aspx)
+[Developer reference for Reliable Services](https://msdn.microsoft.com/library/azure/dn706529.aspx)
 
-<!---HONumber=AcomDC_0713_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

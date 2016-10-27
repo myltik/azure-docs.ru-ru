@@ -3,7 +3,7 @@
    description="Полный список статей Microsoft Azure, посвященных виртуальным машинам Windows в классической модели развертывания"
    services="virtual-machines-windows"
    documentationCenter=""
-   authors="dlepow"
+   authors="cynthn"
    manager="timlt"
    tags="azure-service-management"
    editor=""/>
@@ -15,9 +15,10 @@
    ms.tgt_pltfrm="vm-windows"
    ms.workload="infrastructure-services"
    ms.date="08/05/2016"
-   ms.author="danlep"/>
+   ms.author="cynthn"/>
 
-# Технические статьи по виртуальным машинам Windows в классической модели развертывания
+
+# <a name="technical-articles-for-windows-vms-in-the-classic-deployment-model"></a>Технические статьи по виртуальным машинам Windows в классической модели развертывания
 
 
 В этой статье перечислена вся документация, необходимая для создания виртуальных машин Azure под управлением Windows с помощью классической модели развертывания и управления ими.
@@ -25,7 +26,7 @@
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 
-## Обзор
+## <a name="overview"></a>Обзор
 
 [About Azure virtual machines (Сведения о виртуальных машинах Azure)](virtual-machines-windows-about.md)
 
@@ -37,7 +38,7 @@
 
 
 
-## Настройка среды
+## <a name="environment-setup"></a>Настройка среды
 
 [Бесплатная учетная запись](https://azure.microsoft.com/free/)
  
@@ -46,7 +47,7 @@
 [Установка Azure CLI](../xplat-cli-install.md)
 
 
-## Приступая к работе
+## <a name="get-started"></a>Приступая к работе
 [Схема обучения для виртуальных машин Windows](https://azure.microsoft.com/documentation/learning-paths/virtual-machines/)
 
 [Create a virtual machine running Windows in the Azure classic portal (Создание виртуальной машины Windows на классическом портале Azure)](virtual-machines-windows-classic-tutorial.md)
@@ -56,7 +57,7 @@
 
 
 
-## План
+## <a name="plan"></a>План
 
 [About images for virtual machines (Образы виртуальных машин)](virtual-machines-windows-classic-about-images.md)
 
@@ -71,7 +72,7 @@
 [How to configure an availability set for virtual machines in the classic deployment model (Создание группы доступности для виртуальных машин в классической модели развертывания)](virtual-machines-windows-classic-configure-availability.md)
 
 
-## Развернуть
+## <a name="deploy"></a>Развернуть
 
 [Создание настраиваемой виртуальной машины под управлением Windows](virtual-machines-windows-classic-createportal.md)
 
@@ -86,12 +87,12 @@
 [Включение пользовательских данных в виртуальную машину Azure](virtual-machines-windows-classic-inject-custom-data.md)
 
 
-## Управление
+## <a name="manage"></a>Управление
 
 [Управление виртуальными машинами с помощью Azure PowerShell](virtual-machines-windows-classic-manage-psh.md)
-	
+    
 [Подключение классических виртуальных сетей к новым виртуальным сетям](../vpn-gateway/vpn-gateway-connect-different-deployment-models-powershell.md)
-	
+    
 [Обзор агента и расширений виртуальной машины](virtual-machines-windows-classic-agents-and-extensions.md)
 
 [Управление расширениями виртуальной машины](virtual-machines-windows-classic-manage-extensions.md)
@@ -106,43 +107,43 @@
 
 
 
-## Настройка
+## <a name="configure"></a>Настройка
 
 [Сброс пароля или службы удаленных рабочих столов для виртуальной машины Windows](virtual-machines-windows-reset-rdp.md)
 
 [Обзор расширений и компонентов виртуальной машины](virtual-machines-windows-extensions-features.md)
 
 [Установка и настройка Symantec Endpoint Protection на виртуальной машине Windows](virtual-machines-windows-classic-install-symantec.md)
-	
+    
 [Установка и настройка Trend Micro Deep Security как услуги на ВМ Windows](virtual-machines-windows-classic-install-trend.md)
 
 [Как настроить группу доступности для виртуальных машин в классической модели развертывания](virtual-machines-windows-classic-configure-availability.md)
 
 [Настройка конечных точек в классической виртуальной машине Azure](virtual-machines-windows-classic-setup-endpoints.md)
 
-## Хранилище
+## <a name="storage"></a>Хранилище
 
 [О дисках и виртуальных жестких дисках для виртуальных машин Azure](virtual-machines-windows-about-disks-vhds.md)
-	
+    
 [Attach a data disk to a Windows virtual machine created with the classic deployment model (Подключение диска данных к виртуальной машине Windows, созданной с помощью классической модели развертывания)](virtual-machines-windows-classic-attach-disk.md)
 
 [How to detach a disk from a Windows virtual machine (Отключение диска от виртуальной машины Windows)](virtual-machines-windows-classic-detach-disk.md)
 
 [Использование диска D в качестве диска данных в виртуальной машине Windows](virtual-machines-windows-classic-change-drive-letter.md)
 
-## Сеть
+## <a name="networking"></a>Сеть
 
 [Обзор виртуальной сети](../virtual-network/virtual-networks-overview.md)
 
 [Подключение виртуальных машин, созданных с помощью классической модели развертывания модели, к виртуальной сети или облачной службе](virtual-machines-windows-classic-connect-vms.md)
-	
+    
 [Как создать группы безопасности сети (классические) в PowerShell](../virtual-network/virtual-networks-create-nsg-classic-ps.md)
-	
+    
 [Создание балансировщика нагрузки](../load-balancer/load-balancer-get-started-internet-classic-portal.md)
 
-	
+    
 
-## Разработка
+## <a name="develop"></a>Разработка
 
 [Создание и управление виртуальными машинами Azure в Visual Studio](virtual-machines-windows-classic-manage-visual-studio.md)
 
@@ -151,10 +152,10 @@
 [Выполнение ресурсоемкой задачи в Java-коде на виртуальной машине](virtual-machines-windows-classic-java-run-compute-intensive-task.md)
 
 [Веб-приложение Hello World на Django на виртуальной машине Windows Server](virtual-machines-windows-classic-python-django-web-app.md)
-		
+        
 
 
-## Рабочие нагрузки
+## <a name="workloads"></a>Рабочие нагрузки
 
 [Пакет HPC](virtual-machines-windows-hpcpack-cluster-options.md)
 
@@ -171,7 +172,7 @@
 [Tomcat](virtual-machines-windows-classic-java-run-tomcat-app-server.md)
 
 
-## Справочные материалы
+## <a name="reference"></a>Справочные материалы
 [Команды Azure CLI в режиме управления службами Azure (ASM)](../virtual-machines-command-line-tools.md)
 
 [Интерфейс REST API управления службой](https://msdn.microsoft.com/library/azure/ee460799.aspx)
@@ -180,7 +181,7 @@
 
 [Справочная документация по командлетам PowerShell для управления службами Azure](https://msdn.microsoft.com/library/azure/dn708504.aspx)
 
-## Устранение неполадок
+## <a name="troubleshooting"></a>Устранение неполадок
 
 [Устранение неполадок с подключением к удаленному рабочему столу на виртуальной машине Azure под управлением Windows](virtual-machines-windows-troubleshoot-rdp-connection.md)
 
@@ -192,4 +193,12 @@
 
 [Устранение неполадок в классическом развертывании при перезагрузке или изменении размера существующей виртуальной машины Windows в Azure](virtual-machines-windows-classic-restart-resize-error-troubleshooting.md)
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

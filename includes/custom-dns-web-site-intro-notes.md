@@ -1,7 +1,9 @@
-Эта статья посвящена службе приложений Azure (веб-приложениям, приложениям API, мобильным приложениям и приложениям логики). Информацию об облачных службах можно найти в разделе [Настройка пользовательского доменного имени для облачной службы Azure](../articles/cloud-services/cloud-services-custom-domain-name.md).
+This article is for Azure App Service (Web Apps, API Apps, Mobile Apps, Logic Apps); for Cloud Services, see [Configuring a custom domain name for an Azure cloud service](../articles/cloud-services/cloud-services-custom-domain-name.md).
 
-> [AZURE.NOTE]  Если балансировку нагрузки вашего приложения выполняет [диспетчер трафика Azure](https://azure.microsoft.com/services/traffic-manager/), щелкните селектор в верхней части этой статьи, чтобы получить соответствующие инструкции.
+> [AZURE.NOTE]  If you app is load-balanced by [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/), click the selector at the top of this article to get specific steps.
 >
-> **Использование имен личных доменов недоступно для уровня "Бесплатный"**. Необходимо [перейти на более высокую ценовую категорию](../articles/app-service-web/web-sites-scale.md), что может привести к изменению суммы в счетах, выставляемых за использование подписки. Дополнительную информацию см. на странице [цен на службу приложений](https://azure.microsoft.com/pricing/details/app-service/).
+> **Custom domain names are not enabled for Free tier**. You must [scale up to a higher pricing tier](../articles/app-service-web/web-sites-scale.md), which may change how much you are billed for your subscription. See [App Service Pricing](https://azure.microsoft.com/pricing/details/app-service/) for more information.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!--HONumber=Oct16_HO2-->
+
+

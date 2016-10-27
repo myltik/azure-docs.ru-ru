@@ -1,24 +1,27 @@
 
 
-Расширение пользовательских сценариев широко применяется для настройки рабочих нагрузок на виртуальных машинах Windows и Linux с момента выпуска. С введением шаблонов диспетчера ресурсов Azure пользователи получили возможность создавать такие шаблоны, которые не только инициализируют виртуальную машину, но и управляют ее рабочей нагрузкой.
+Ever since its launch, the Custom Script extension has been used widely to configure workloads on both Windows and Linux VMs. With the introduction of Azure Resource Manager templates, users can now create a single template that not only provisions the VM but also configures the workloads on it.
 
-## О шаблонах диспетчера ресурсов Azure
+## <a name="about-azure-resource-manager-templates"></a>About Azure Resource manager templates
 
-Шаблон диспетчера ресурсов Azure позволяет декларативно задать IaaS-инфраструктуру Azure на языке JSON, установив зависимости между ресурсами. Более подробно шаблоны диспетчера ресурсов Azure рассматриваются в следующих статьях.
+Azure Resource Manager templates allow you to declaratively specify the Azure IaaS infrastructure in Json language by defining the dependencies between resources. For a detailed overview of Azure Resource Manager templates, see the following articles:
 
-- [Общие сведения о группе ресурсов](../articles/resource-group-overview.md)
-- [Развертывание шаблонов с помощью Azure Powershell](../articles/virtual-machines/virtual-machines-windows-ps-manage.md)
+- [Resource Group Overview](../articles/resource-group-overview.md)
+- [Deploying Templates with Azure Powershell](../articles/virtual-machines/virtual-machines-windows-ps-manage.md)
 
-### Предварительные условия
+### <a name="prerequisites"></a>Prerequisites
 
-1. Скачайте программы командной строки Azure для своей операционной системы [отсюда](https://azure.microsoft.com/downloads/).
-2. Если сценарии будут запускаться на существующей виртуальной машине, убедитесь в том, что на ней включен агент виртуальной машины, если вы не следовали руководству по его установке для [Linux](../articles/virtual-machines/virtual-machines-linux-classic-manage extensions.md) или [Windows](../articles/virtual-machines/virtual-machines-windows-classic-manage extensions.md).
-3. Передайте сценарии, которые требуется запускать на виртуальной машине, в службу хранилища Azure. Сценарии могут поступать как из одного, так и из нескольких контейнеров хранилища.
-4. Кроме того, сценарии можно передать в учетную запись GitHub.
-5. Сценарий должен быть создан таким образом, чтобы запущенный с помощью расширения первый сценарий запускал в свою очередь другие сценарии.
+1. Download the Azure command line tools for your operating system from [here](https://azure.microsoft.com/downloads/).
+2. If the scripts will be run on an existing VM, make sure VM Agent is enabled on the VM, if not follow [the Linux](../articles/virtual-machines/virtual-machines-linux-classic-manage-extensions.md) or [Windows](../articles/virtual-machines/virtual-machines-windows-classic-manage-extensions.md) guidance to install one.
+3. Upload the scripts that you want to run on the VM to Azure Storage. The scripts can come from a single or multiple storage containers.
+4. Alternatively the scripts can also be uploaded to a GitHub account.
+5. The script should be authored in such a way that the entry script which is launched by the extension in turn launches other scripts.
 
-## Использование расширения для пользовательских сценариев
+## <a name="using-the-custom-script-extension"></a>Using the custom script extension
 
-Для развертывания с помощью шаблонов используется та же версия расширения Custom Script, которая доступна для API управления службами Azure. Это расширение поддерживает такие же параметры и сценарии, например добавление файлов в учетную запись хранения Azure или в расположение Github. Основное отличие при использовании с шаблонами — это необходимость указывать версию расширения в ее непосредственном виде, а не в формате основной\_номер\_версии.*.
+For deploying with templates we use the same version of Custom Script extension that's available for Azure Service Management APIs. The extension supports the same parameters and scenarios like uploading files to Azure Storage account or Github location. The key difference while using with templates is the exact version of the extension should be specified, as opposed to specifying the version in majorversion.* format.
 
-<!---HONumber=AcomDC_0420_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

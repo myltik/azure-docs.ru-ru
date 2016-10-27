@@ -1,6 +1,6 @@
 <properties 
-    pageTitle="Учебник. Интеграция Azure Active Directory с New Relic | Microsoft Azure" 
-    description="Узнайте, как использовать New Relic с Azure Active Directory для реализации единого входа, автоматической подготовки пользователей и выполнения других задач." 
+    pageTitle="Tutorial: Azure Active Directory integration with New Relic | Microsoft Azure" 
+    description="Learn how to use New Relic with Azure Active Directory to enable single sign-on, automated provisioning, and more!" 
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
@@ -11,145 +11,155 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="07/08/2016" 
+    ms.date="09/29/2016" 
     ms.author="jeedes" />
 
-#Учебник. Интеграция Azure Active Directory с New Relic
+
+#<a name="tutorial:-azure-active-directory-integration-with-new-relic"></a>Tutorial: Azure Active Directory integration with New Relic
   
-Цель данного учебника — продемонстрировать, как настроить единый вход между Active Directory Azure и New Relic.
+The objective of this tutorial is to show how to set up single sign-on between Azure Active Directory and New Relic.
   
-Сценарий, описанный в этом учебнике, предполагает, что у вас уже имеется:
+The scenario outlined in this tutorial assumes that you already have the following items:
 
--   Действующая подписка на Azure
--   Подписка с поддержкой единого входа New Relic.
+-   A valid Azure subscription
+-   A New Relic single sign-on enabled subscription
   
-После изучения этого учебника пользователи Azure Active Directory, которые были назначены в New Relic, смогут выполнять единый вход с помощью панели доступа AAD.
+After completing this tutorial, the Azure Active Directory users you have assigned to New Relic will be able to single sign-on using the AAD Access Panel.
 
-1.  Включение интеграции приложений для New Relic
-2.  Настройка единого входа
-3.  Настройка подготовки учетных записей пользователей
-4.  Назначение пользователей
+1.  Enabling the application integration for New Relic
+2.  Configuring Single Sign-On
+3.  Configuring user provisioning
+4.  Assigning users
 
-![Сценарий](./media/active-directory-saas-new-relic-tutorial/IC797030.png "Сценарий")
-##Включение интеграции приложений для New Relic
+![Scenario](./media/active-directory-saas-new-relic-tutorial/IC797030.png "Scenario")
+##<a name="enabling-the-application-integration-for-new-relic"></a>Enabling the application integration for New Relic
   
-В этом разделе показано, как включить интеграцию приложений для New Relic.
+The objective of this section is to outline how to enable the application integration for New Relic.
 
-###Чтобы включить интеграцию приложений для New Relic, выполните следующие действия:
+###<a name="to-enable-the-application-integration-for-new-relic,-perform-the-following-steps:"></a>To enable the application integration for New Relic, perform the following steps:
 
-1.  На классическом портале Azure в области навигации слева щелкните **Active Directory**.
+1.  In the Azure classic portal, on the left navigation pane, click **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-new-relic-tutorial/IC700993.png "Active Directory")
 
-2.  Из списка **Каталог** выберите каталог, для которого нужно включить интеграцию каталогов.
+2.  From the **Directory** list, select the directory for which you want to enable directory integration.
 
-3.  Чтобы открыть представление приложений, в представлении каталога нажмите **Приложения** в верхнем меню.
+3.  To open the applications view, in the directory view, click **Applications** in the top menu.
 
-    ![Приложения](./media/active-directory-saas-new-relic-tutorial/IC700994.png "Приложения")
+    ![Applications](./media/active-directory-saas-new-relic-tutorial/IC700994.png "Applications")
 
-4.  В нижней части страницы нажмите кнопку **Добавить**.
+4.  Click **Add** at the bottom of the page.
 
-    ![Добавление приложения](./media/active-directory-saas-new-relic-tutorial/IC749321.png "Добавление приложения")
+    ![Add application](./media/active-directory-saas-new-relic-tutorial/IC749321.png "Add application")
 
-5.  В диалоговом окне **Что необходимо сделать?** нажмите **Добавить приложение из коллекции**.
+5.  On the **What do you want to do** dialog, click **Add an application from the gallery**.
 
-    ![Добавить приложение из коллекции](./media/active-directory-saas-new-relic-tutorial/IC749322.png "Добавить приложение из коллекции")
+    ![Add an application from gallerry](./media/active-directory-saas-new-relic-tutorial/IC749322.png "Add an application from gallerry")
 
-6.  В **поле поиска** введите **New Relic**.
+6.  In the **search box**, type **New Relic**.
 
-    ![Коллекция приложений](./media/active-directory-saas-new-relic-tutorial/IC797031.png "Коллекция приложений")
+    ![Application Gallery](./media/active-directory-saas-new-relic-tutorial/IC797031.png "Application Gallery")
 
-7.  В области результатов выберите **New Relic** и нажмите кнопку **Завершить**, чтобы добавить приложение.
+7.  In the results pane, select **New Relic**, and then click **Complete** to add the application.
 
     ![New Relic](./media/active-directory-saas-new-relic-tutorial/IC797032.png "New Relic")
-##Настройка единого входа
+##<a name="configuring-single-sign-on"></a>Configuring Single Sign-On
   
-В этом разделе показано, как разрешить пользователям проходить аутентификацию в New Relic с помощью своей учетной записи Azure Active Directory, используя федерацию на основе протокола SAML.
+This section outlines how to enable users to authenticate to New Relic with their account in Azure Active Directory, using federation based on the SAML protocol.
 
-###Чтобы настроить единый вход, выполните следующие действия.
+###<a name="to-configure-single-sign-on,-perform-the-following-steps:"></a>To configure single sign-on, perform the following steps:
 
-1.  На странице интеграции с приложением **New Relic** классического портала Azure щелкните **Настройка единого входа**, чтобы открыть диалоговое окно **Настройка единого входа**.
+1.  In the Azure classic portal, on the **New Relic** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
 
-    ![Настройка единого входа](./media/active-directory-saas-new-relic-tutorial/IC769534.png "Настройка единого входа")
+    ![Configure single sign-on](./media/active-directory-saas-new-relic-tutorial/IC769534.png "Configure single sign-on")
 
-2.  На странице **Как пользователи должны входить в New Relic** выберите **Единый вход Microsoft Azure AD** и нажмите кнопку **Далее**.
+2.  On the **How would you like users to sign on to New Relic** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
-    ![Настройка единого входа](./media/active-directory-saas-new-relic-tutorial/IC797033.png "Настройка единого входа")
+    ![Configure Single Sign-On](./media/active-directory-saas-new-relic-tutorial/IC797033.png "Configure Single Sign-On")
 
-3.  На странице **Настройка URL-адреса приложения** в текстовом поле **URL-адрес для входа в New Relic** введите URL-адрес, используемый пользователями для входа в приложение New Relic, и нажмите кнопку **Далее**.
+3.  On the **Configure App URL** page, in the **New Relic Sign On URL** textbox, type the URL used by your users to sign on to your New Relic application, and then click **Next**. 
 
-    URL-адресом приложения является URL-адрес клиента New Relic (например, *https://rpm.newrelic.com*).
+    The app URL is your New Relic tenant URL (e.g.: *https://rpm.newrelic.com*):
 
-    ![Настройка URL-адреса приложения](./media/active-directory-saas-new-relic-tutorial/IC797034.png "Настройка URL-адреса приложения")
+    ![Configure App URL](./media/active-directory-saas-new-relic-tutorial/IC797034.png "Configure App URL")
 
-4.  На странице **Настройка единого входа в New Relic** нажмите кнопку **Загрузить сертификат**, а затем сохраните файл сертификата локально на своем компьютере.
+4.  On the **Configure single sign-on at New Relic** page, to download your certificate, click **Download certificate**, and then save the certificate file locally to your computer.
 
-    ![Настройка единого входа](./media/active-directory-saas-new-relic-tutorial/IC797035.png "Настройка единого входа")
+    ![Configure Single Sign-On](./media/active-directory-saas-new-relic-tutorial/IC797035.png "Configure Single Sign-On")
 
-5.  В другом окне веб-браузера войдите на веб-сайт **New Relic** компании в качестве администратора.
+5.  In a different web browser window, sign on to your **New Relic** company site as administrator.
 
-6.  В меню в верхней части страницы щелкните **Параметры учетной записи**.
+6.  In the menu on the top, click **Account Settings**.
 
-    ![Параметры учетной записи](./media/active-directory-saas-new-relic-tutorial/IC797036.png "Параметры учетной записи")
+    ![Account Settings](./media/active-directory-saas-new-relic-tutorial/IC797036.png "Account Settings")
 
-7.  Щелкните вкладку **Безопасность и аутентификация**, а затем выберите вкладку **Единый вход**.
+7.  Click the **Security and authentication** tab, and then click the **Single sign on** tab.
 
-    ![Единый вход](./media/active-directory-saas-new-relic-tutorial/IC797037.png "Единый вход")
+    ![Single Sign-On](./media/active-directory-saas-new-relic-tutorial/IC797037.png "Single Sign-On")
 
-8.  На диалоговой странице «Настройка SAML» выполните следующие действия:
+8.  On the SAML dialog page, perform the following steps:
 
     ![SAML](./media/active-directory-saas-new-relic-tutorial/IC797038.png "SAML")
 
-    1.  Щелкните **Выбор файла**, чтобы передать скачанный сертификат Azure Active Directory.
-    2.  На странице **Настройка единого входа в New Relic** классического портала Azure скопируйте значение поля **URL-адрес удаленного входа** и вставьте его в текстовое поле **URL-адрес удаленного входа**.
-    3.  На странице **Настройка единого входа в New Relic** классического портала Azure скопируйте значение поля **URL-адрес удаленного выхода** и вставьте его в текстовое поле **Logout landing URL** (URL-адрес целевой страницы выхода).
-    4.  Щелкните **Сохранить изменения**.
+    1.  Click **Choose File** to upload your downloaded Azure Active Directory certificate.
+    2.  In the Azure classic portal, on the **Configure single sign-on at New Relic** page, copy the **Remote Login URL** value, and then paste it into the **Remote login URL** textbox.
+    3.  In the Azure classic portal, on the **Configure single sign-on at New Relic** page, copy the **Remote Logout URL** value, and then paste it into the **Logout landing URL** textbox.
+    4.  Click **Save my changes**.
 
-9.  На классическом портале Azure выберите подтверждение конфигурации единого входа, а затем нажмите кнопку **Завершить**, чтобы закрыть диалоговое окно **Настройка единого входа**.
+9.  On the Azure classic portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
 
-    ![Настройка единого входа](./media/active-directory-saas-new-relic-tutorial/IC797039.png "Настройка единого входа")
-##Настройка подготовки учетных записей пользователей
+    ![Configure Single Sign-On](./media/active-directory-saas-new-relic-tutorial/IC797039.png "Configure Single Sign-On")
+##<a name="configuring-user-provisioning"></a>Configuring user provisioning
   
-Чтобы пользователи Azure Active Directory могли входить New Relic, они должны быть предоставлены в New Relic. В случае New Relic подготовка пользователей осуществляется вручную.
+In order to enable Azure Active Directory users to log into New Relic, they must be provisioned into New Relic.  
+In the case of New Relic, provisioning is a manual task.
 
-###Чтобы подготовить учетные записи пользователей для New Relic, выполните следующие действия:
+###<a name="to-provision-a-user-account-to-new-relic,-perform-the-following-steps:"></a>To provision a user account to New Relic, perform the following steps:
 
-1.  Выполните вход на веб-сайт **New Relic** компании в качестве администратора.
+1.  Log in to your **New Relic** company site as administrator.
 
-2.  В верхнем меню щелкните пункт **Параметры учетной записи**.
+2.  In the menu on the top, click **Account Settings**.
 
-    ![Параметры учетной записи](./media/active-directory-saas-new-relic-tutorial/IC797040.png "Параметры учетной записи")
+    ![Account Settings](./media/active-directory-saas-new-relic-tutorial/IC797040.png "Account Settings")
 
-3.  В области **Учетная запись** слева щелкните **Сводка** и нажмите кнопку **Добавить пользователя**.
+3.  In the **Account** pane on the left side, click **Summary**, and then click **Add user**.
 
-    ![Параметры учетной записи](./media/active-directory-saas-new-relic-tutorial/IC797041.png "Параметры учетной записи")
+    ![Account Settings](./media/active-directory-saas-new-relic-tutorial/IC797041.png "Account Settings")
 
-4.  В диалоговом окне **Активные пользователи** сделайте следующее:
+4.  On the **Active users** dialog, perform the following steps:
 
-    ![Активные пользователи](./media/active-directory-saas-new-relic-tutorial/IC797042.png "Активные пользователи")
+    ![Active Users](./media/active-directory-saas-new-relic-tutorial/IC797042.png "Active Users")
 
-    1.  В текстовом поле **Электронная почта** введите электронный адрес действующего пользователя Azure Active Directory, которого требуется подготовить.
-    2.  Для параметра **Роль** выберите значение **Пользователь**.
-    3.  Щелкните **Добавить этого пользователя**.
+    1.  In the **Email** textbox, type the email address of a valid Azure Active Directory user you want to provision.
+    2.  As **Role** select **User**.
+    3.  Click **Add this user**.
 
->[AZURE.NOTE]Вы можете использовать любые другие инструменты создания учетных записей пользователя New Relic или API, предоставляемые New Relic для подготовки учетных записей пользователя AAD.
+>[AZURE.NOTE]You can use any other New Relic user account creation tools or APIs provided by New Relic to provision AAD user accounts.
 
-##Назначение пользователей
+##<a name="assigning-users"></a>Assigning users
   
-Чтобы проверить свою конфигурацию, необходимо предоставить выбранным пользователям Azure AD доступ к приложению, назначив их.
+To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.
 
-###Чтобы назначить пользователей New Relic, выполните следующие действия:
+###<a name="to-assign-users-to-new-relic,-perform-the-following-steps:"></a>To assign users to New Relic, perform the following steps:
 
-1.  На классическом портале Azure создайте тестовую учетную запись.
+1.  In the Azure classic portal, create a test account.
 
-2.  На странице интеграции с приложением **New Relic** нажмите кнопку **Назначить пользователей**.
+2.  On the **New Relic** application integration page, click **Assign users**.
 
-    ![Назначение пользователей](./media/active-directory-saas-new-relic-tutorial/IC797043.png "Назначить пользователей")
+    ![Assign Users](./media/active-directory-saas-new-relic-tutorial/IC797043.png "Assign Users")
 
-3.  Выберите тестового пользователя, нажмите кнопку **Назначить**, а затем — **Да**, чтобы подтвердить назначение.
+3.  Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.
 
-    ![Да](./media/active-directory-saas-new-relic-tutorial/IC767830.png "Да")
+    ![Yes](./media/active-directory-saas-new-relic-tutorial/IC767830.png "Yes")
   
-Если вы хотите проверить параметры единого входа, откройте панель доступа. Дополнительные сведения о панели доступа см. в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
+If you want to test your single sign-on settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0713_2016-->
+
+
+
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

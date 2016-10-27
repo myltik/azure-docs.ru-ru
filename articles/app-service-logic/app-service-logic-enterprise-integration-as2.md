@@ -1,100 +1,114 @@
 <properties 
-	pageTitle="Узнайте, как создать соглашение AS2 для пакета интеграции Enterprise." 
-	description="Как создать соглашение AS2 для пакета интеграции Enterprise | Служба приложений Microsoft Azure" 
-	services="logic-apps" 
-	documentationCenter=".net,nodejs,java"
-	authors="msftman" 
-	manager="erikre" 
-	editor="cgronlun"/>
+    pageTitle="Learn to create an AS2 agreement for the Enterprise Integration Pack" 
+    description="Learn to create an AS2 agreement for the Enterprise Integration Pack| Microsoft Azure App Service" 
+    services="logic-apps" 
+    documentationCenter=".net,nodejs,java"
+    authors="msftman" 
+    manager="erikre" 
+    editor="cgronlun"/>
 
 <tags 
-	ms.service="logic-apps" 
-	ms.workload="integration" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/29/2016" 
-	ms.author="deonhe"/>
-
-# Интеграция Enterprise с AS2
-
-## Создание соглашения AS2
-Чтобы использовать корпоративные компоненты в приложениях логики, необходимо сначала создать соглашения.
-
-### Вот что понадобится для начала работы
-- В подписке Azure должна быть определена [учетная запись интеграции](./app-service-logic-enterprise-integration-accounts.md).
-- В учетной записи интеграции должны быть определены по крайней мере два [партнера](./app-service-logic-enterprise-integration-partners.md).
-
->[AZURE.NOTE]При создании соглашения содержимое его файла должно соответствовать типу соглашения.
+    ms.service="logic-apps" 
+    ms.workload="integration" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="06/29/2016" 
+    ms.author="deonhe"/>
 
 
-После [создания учетной записи интеграции](./app-service-logic-enterprise-integration-accounts.md) и [добавления партнеров](./app-service-logic-enterprise-integration-partners.md) можно создать соглашение, выполнив следующие действия.
+# <a name="enterprise-integration-with-as2"></a>Enterprise integration with AS2
 
-### На домашней странице портала Azure
+## <a name="create-an-as2-agreement"></a>Create an AS2 agreement
+In order to use the enterprise features in Logic apps, you must first create agreements. 
 
-Войдите на [портал Azure](http://portal.azure.com "Портал Azure").
-1. Выберите **Обзор** в меню слева.
+### <a name="here's-what-you-need-before-you-get-started"></a>Here's what you need before you get started
+- An [integration account](./app-service-logic-enterprise-integration-accounts.md) defined in your Azure subscription  
+- At least two [partners](./app-service-logic-enterprise-integration-partners.md) already defined in your integration account  
 
->[AZURE.TIP]Если вы не видите ссылку **Обзор**, может потребоваться сначала развернуть это меню. Для этого щелкните ссылку **Показать меню**, расположенную в верхнем левом углу свернутого меню.
+>[AZURE.NOTE]When creating an agreement, the content in the agreement file must match the agreement type.    
 
-![](./media/app-service-logic-enterprise-integration-overview/overview-1.png)
-2. Введите *integration* в поле фильтра поиска и выберите **Integration Accounts** (Учетные записи интеграции) из списка результатов. ![](./media/app-service-logic-enterprise-integration-overview/overview-2.png)
-3. В открывшейся колонке **Integration Accounts** (Учетные записи интеграции) выберите учетную запись интеграции для создания соглашения. Если вы не видите списков учетных записей интеграции, то [создайте первый из них](./app-service-logic-enterprise-integration-accounts.md "Все об учетных записях интеграции"). ![](./media/app-service-logic-enterprise-integration-overview/overview-3.png)
-4.  Выберите элемент **Соглашение**. Если вы не видите элемент "Соглашение", то добавьте соглашение. ![](./media/app-service-logic-enterprise-integration-agreements/agreement-1.png)
-5. В открывшейся колонке "Соглашения" нажмите кнопку **Добавить**. ![](./media/app-service-logic-enterprise-integration-agreements/agreement-2.png)
-6. В открывшейся колонке "Соглашения" введите **имя** соглашения, затем задайте значения параметров **Host Partner** (Главный партнер), **Host Identity** (Идентификатор главного партнера), **Guest Partner** (Партнер-гость), **Guest Identity** (Идентификатор гостя). ![](./media/app-service-logic-enterprise-integration-agreements/agreement-3.png)
 
-Ниже приведены некоторые сведения, которые могут оказаться полезными при настройке параметров соглашения.
+After you've [created an integration account](./app-service-logic-enterprise-integration-accounts.md) and [added partners](./app-service-logic-enterprise-integration-partners.md), you can create an agreement by following these steps:  
+
+### <a name="from-the-azure-portal-home-page"></a>From the Azure portal home page
+
+After you log into the [Azure portal](http://portal.azure.com "Azure portal"):  
+1. Select **Browse** from the menu on the left.  
+
+>[AZURE.TIP]If you don't see the **Browse** link, you may need to expand the menu first. Do this by selecting the **Show menu** link that's located at the top left of the collapsed menu.  
+
+![](./media/app-service-logic-enterprise-integration-overview/overview-1.png)    
+2. Type *integration* into the filter search box then select **Integration Accounts** from the list of results.       
+ ![](./media/app-service-logic-enterprise-integration-overview/overview-2.png)  
+3. In the **Integration Accounts** blade that opens up, select the integration account in which you will create the agreement. If you don't see any integration accounts lists, [create one first](./app-service-logic-enterprise-integration-accounts.md "All about integration accounts").  
+![](./media/app-service-logic-enterprise-integration-overview/overview-3.png)  
+4.  Select the **Agreements** tile. If you don't see the agreements tile, add it first.   
+![](./media/app-service-logic-enterprise-integration-agreements/agreement-1.png)   
+5. Select the **Add** button in the Agreements blade that opens.  
+![](./media/app-service-logic-enterprise-integration-agreements/agreement-2.png)  
+6. Enter a **Name** for your agreement then select the **Host Partner**, **Host Identity**,  **Guest Partner**, **Guest Identity**, in the Agreements blade that opens.  
+![](./media/app-service-logic-enterprise-integration-agreements/agreement-3.png)  
+
+Here are a few details you may find useful when configuring the settings for your agreement: 
   
-|Свойство|Описание|
+|Property|Description|
 |----|----|
-|"Host Partner" (Главный партнер)|Для соглашения нужно указать главного партнера и партнера-гостя. Главный партнер представляет организацию, которая настраивает соглашение.|
-|"Host Identity" (Идентификатор главного партнера)|Идентификатор главного партнера. |
-|"Guest Partner" (Партнер-гость)|Для соглашения нужно указать главного партнера и партнера-гостя. Партнер-гость представляет организацию, которая имеет деловые отношения с главным партнером.|
-|"Guest Identity" (Идентификатор гостя)|Идентификатор партнера-гостя.|
-|"Receive Settings" (Параметры получения)|Эти свойства применяются ко всем сообщениям, получаемым посредством соглашения.|
-|"Send Settings" (Параметры отправки)|Эти свойства применяются ко всем сообщениям, отправляемым посредством соглашения.|  
-Итак, продолжим.
-7. Выберите **Receive Settings** (Параметры получения), чтобы настроить обработку сообщений, получаемых посредством данного соглашения.
+|Host Partner|An agreement needs both a host and guest partner. The host partner represents the organization that is configuring the agreement.|
+|Host Identity|An identifier for the host partner. |
+|Guest Partner|An agreement needs both a host and guest partner. The guest partner represents the organization that's doing business with the host partner.|
+|Guest Identity|An identifier for the guest partner.|
+|Receive Settings|These properties apply to all messages received by an agreement|
+|Send Settings|These properties apply to all messages sent by an agreement|  
+Let's continue:  
+7. Select **Receive Settings** to configure how messages received via this agreement are to be handled.  
  
- - При необходимости можно переопределить свойства во входящем сообщении. Чтобы сделать это, установите флажок **Override message properties** (Переопределить свойства сообщения).
-  - Установите флажок **Message should be signed** (Сообщение должно быть подписано), чтобы требовать наличие подписи во всех входящих сообщениях. Если этот флажок установлен, то также потребуется выбрать **сертификат**, который будет использоваться для проверки подписи сообщений.
-  - Кроме того, можно потребовать шифровать сообщения. Чтобы сделать это, установите флажок **Message should be encrypted** (Сообщение должно быть зашифровано). Затем потребуется выбрать **сертификат**, который будет использоваться для расшифровки входящих сообщений.
-  - Можно также потребовать, чтобы сообщения были сжаты. Чтобы сделать это, установите флажок **Message should be compressed** (Сообщение должно быть сжато). ![](./media/app-service-logic-enterprise-integration-agreements/agreement-4.png)
+ - Optionally, you can override the properties in the incoming message. To do this, select the **Override message properties** checkbox.
+  - Select the **Message should be signed** checkbox if you'd like to require all incoming messages to be signed. If you select this option, you will also need to select the **Certificate** that will be used to validate the signature on the messages.
+  - Optionally, you can require messages to be encrypted as well. To do this, select the **Message should be encrypted** checkbox. You would then need to select the **Certificate** that will be used to decode the incoming messages.
+  - You can also require messages to be compressed. To do this, select the **Message should be compressed** checkbox.  
+![](./media/app-service-logic-enterprise-integration-agreements/agreement-4.png)  
 
-Если вы хотите узнать больше о том, какие параметры получения следует включить, ознакомьтесь со следующей таблицей.
+See the table below if you would like to learn more about what the receive settings enable.  
 
-|Свойство|Описание|
+|Property|Description|
 |----|----|
-|"Override message properties" (Переопределить свойства сообщения)|Установите этот флажок, чтобы указать, что свойства в полученных сообщениях могут быть переопределены. |
-|"Message should be signed" (Сообщение должно быть подписано)|Установите этот флажок, чтобы требовать наличие цифровой подписи в сообщениях.|
-|"Message should be encrypted" (Сообщение должно быть зашифровано)|Установите этот флажок, чтобы требовать шифрование сообщений. Незашифрованные сообщения будут отклонены.|
-|"Message should be compressed" (Сообщение должно быть сжато)|Установите этот флажок, чтобы требовать сжатие сообщений. Несжатые сообщения будут отклонены.|
-|"MDN Text" (Текст MDN)|Это уведомление MDN по умолчанию, отправляемое отправителю сообщения.|
-|"Send MDN" (Отправлять MDN)|Включите этот параметр, чтобы отправлять уведомления MDN.|
-|"Send signed MDN" (Отправлять MDN с подписью)|Включите этот параметр, чтобы требовать отправки MDN с подписью.|
-|"MIC Algorithm" (Алгоритм контроля целостности учетных данных)||
-|"Send asynchronous MDN" (Отправлять асинхронные MDN)|Включите этот параметр, чтобы требовать асинхронную отправку сообщений.|
-|URL-адрес|Это URL-адрес, на который будут отправляться сообщения.|
-Давайте продолжим.
-8. Выберите **Send Settings** (Параметры отправки), чтобы настроить обработку сообщений, отправляемых посредством данного соглашения. ![](./media/app-service-logic-enterprise-integration-agreements/agreement-5.png)
+|Override message properties|Select this to indicate that properties in received messages can be overridden |
+|Message should be signed|Enable this to require messages to be digitally signed|
+|Message should be encrypted|Enable this to require messages to be encrypted. Non-encrypted messages will be rejected.|
+|Message should be compressed|Enable this to require messages to be compressed. Non-compressed messages will be rejected.|
+|MDN Text|This is a default MDN to be sent to the message sender|
+|Send MDN|Enable this to allow MDNs to be sent.|
+|Send signed MDN|Enable this to require MDNs to be signed.|
+|MIC Algorithm||
+|Send asynchronous MDN|Enable this to require messages to be sent asynchronously.|
+|URL|This is the URL to which messages will be sent.|
+Now, let's continue:  
+8. Select **Send Settings** to configure how messages sent via this agreement are to be handled.  
+![](./media/app-service-logic-enterprise-integration-agreements/agreement-5.png)  
 
-Если вы хотите узнать больше о том, какие параметры отправки следует включить, ознакомьтесь со следующей таблицей.
+See the table below if you would like to learn more about what the send settings enable.  
 
-|Свойство|Описание|
+|Property|Description|
 |----|----|
-|"Enable message signing" (Включить подписание сообщений)|Установите этот флажок, чтобы включить подписание всех сообщений, отправляемых посредством соглашения.|
-|"MIC Algorithm" (Алгоритм контроля целостности учетных данных)|Выберите алгоритм, используемый для подписания сообщений.|
-|Сертификат|Выберите сертификат, используемый для подписания сообщений.|
-|"Enable message encryption" (Включить шифрование сообщений)|Установите этот флажок для шифрования всех сообщений, отправляемых посредством данного соглашения.|
-|"Encryption Algorithm" (Алгоритм шифрования)|Выберите алгоритм для шифрования сообщений.|
-|"Unfold HTTP headers" (Развернуть заголовки HTTP)|Установите этот флажок для разворачивания заголовка HTTP content-type в одну строку.|
-|"Request MDN" (Запрашивать MDN)|Установите этот флажок, чтобы запрашивать уведомления MDN для всех сообщений, отправляемых посредством данного соглашения.|
-|"Request signed MDN" (Запрашивать подписанные MDN)|Включите этот параметр, чтобы требовать наличие подписи у всех уведомлений MDN, отправляемых в это соглашение.|
-|"Request asynchronous MDN" (Запрашивать асинхронные MDN)|Включите этот параметр, чтобы запрашивать отправку асинхронных уведомлений MDN в данное соглашение.|
-|URL-адрес|URL-адрес, по которому будут отправляться уведомления MDN.|
-|"Enable NRR" (Включить NRR)|Установите этот флажок, чтобы включить неотрекаемость от получения.|
-Все почти готово.
-9. Выберите элемент **Соглашения** в колонке "Integration Account" (Учетная запись интеграции), и вы увидите новое соглашение в списке. ![](./media/app-service-logic-enterprise-integration-agreements/agreement-6.png)
+|Enable message signing|Select this checkbox to enable all messages sent from the agreement to be signed.|
+|MIC Algorithm|Select the algorithm to use in message signing|
+|Certificate|Select the certificate to use in message signing|
+|Enable message encryption|Select this checkbox to encrypt all messages sent from this agreement.|
+|Encryption Algorithm|Select the encryption algorithm to use in message encryption|
+|Unfold HTTP headers|Select this checkbox to unfold the HTTP content-type header into a single line.|
+|Request MDN|Enable this checkbox to request an MDN for all messages sent from this agreement|
+|Request signed MDN|Enable to request that all MDNs sent to this agreement are signed|
+|Request asynchronous MDN|Enable to request asynchronous MDN to be sent to this agreement|
+|URL|The URL to which MDNs will be sent|
+|Enable NRR|Select this checkbox to enable Non-Repudiation of Receipt|
+We are almost done!  
+9. Select the **Agreements** tile on the Integration Account blade and you will see the newly added agreement listed.  
+![](./media/app-service-logic-enterprise-integration-agreements/agreement-6.png)
 
-<!---HONumber=AcomDC_0803_2016-->
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

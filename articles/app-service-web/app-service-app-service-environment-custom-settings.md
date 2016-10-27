@@ -1,31 +1,32 @@
 <properties
-	pageTitle="Пользовательские параметры для сред службы приложений"
-	description="Настраиваемые параметры конфигурации для сред службы приложений"
-	services="app-service"
-	documentationCenter=""
-	authors="stefsch"
-	manager="nirma"
-	editor=""/>
+    pageTitle="Custom settings for App Service Environments"
+    description="Custom configuration settings for App Service Environments"
+    services="app-service"
+    documentationCenter=""
+    authors="stefsch"
+    manager="nirma"
+    editor=""/>
 
 <tags
-	ms.service="app-service"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/22/2016"
-	ms.author="stefsch"/>
+    ms.service="app-service"
+    ms.workload="na"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="08/22/2016"
+    ms.author="stefsch"/>
 
-# Настраиваемые параметры конфигурации для сред службы приложений
 
-## Обзор ##
-Поскольку среды службы приложений изолированы для одного клиента, существуют определенные параметры конфигурации, которые можно применить только для сред службы приложений. В этой статье описываются различные настройки, доступные для сред службы приложений.
+# <a name="custom-configuration-settings-for-app-service-environments"></a>Custom configuration settings for App Service Environments
 
-Чтобы создать среду службы приложений, см. инструкции в статье [Создание среды службы приложений](app-service-web-how-to-create-an-app-service-environment.md).
+## <a name="overview"></a>Overview ##
+Because App Service Environments are isolated to a single customer, there are certain configuration settings that can be applied exclusively to App Service Environments. This article documents the various specific customizations that are available for App Service Environments.
 
-Настройки среды службы приложений можно сохранить с помощью массива в новом атрибуте **clusterSettings**. Этот атрибут можно найти в словаре "Свойства" сущности *hostingEnvironments* Azure Resource Manager.
+If you do not have an App Service Environment, see [How to Create an App Service Environment](app-service-web-how-to-create-an-app-service-environment.md).
 
-В следующем сокращенном фрагменте шаблона Resource Manager показан атрибут **clusterSettings**.
+You can store App Service Environment customizations by using an array in the new **clusterSettings** attribute. This attribute is found in the "Properties" dictionary of the *hostingEnvironments* Azure Resource Manager entity.
+
+The following abbreviated Resource Manager template snippet shows the **clusterSettings** attribute:
 
 
     "resources": [
@@ -46,29 +47,30 @@
        }
     }
 
-Атрибут **clusterSettings** можно включить в шаблон Resource Manager для обновления среды службы приложений.
+The **clusterSettings** attribute can be included in a Resource Manager template to update the App Service Environment.
 
-## Обновление среды службы приложений с помощью обозревателя ресурсов Azure
-Среду службы приложений можно также обновлять с помощью [обозревателя ресурсов Azure](https://resources.azure.com).
+## <a name="use-azure-resource-explorer-to-update-an-app-service-environment"></a>Use Azure Resource Explorer to update an App Service Environment
+Alternatively, you can update the App Service Environment by using [Azure Resource Explorer](https://resources.azure.com).  
 
-1. В обозревателе ресурсов перейдите к узлу для среды службы приложений (**subscriptions** > **resourceGroups** > **providers** > **Microsoft.Web** > **hostingEnvironments**). Затем щелкните ту среду службы приложений, которую хотите обновить.
+1. In Resource Explorer, go to the node for the App Service Environment (**subscriptions** > **resourceGroups** > **providers** > **Micrososft.Web** > **hostingEnvironments**). Then click the specific App Service Environment that you want to update.
 
-2. В области справа, в верхней панели инструментов щелкните **Чтение/запись**, чтобы разрешить интерактивное редактирование в обозревателе ресурсов.
+2. In the right pane, click **Read/Write** in the upper toolbar to allow interactive editing in Resource Explorer.  
 
-3. Нажмите синюю кнопку **Изменить**, чтобы сделать шаблон Resource Manager доступным для редактирования.
+3. Click the blue **Edit** button to make the Resource Manager template editable.
 
-4. Прокрутите область справа вниз. В самой нижней части области находится атрибут **clusterSettings**. Здесь можно ввести или обновить его значение.
+4. Scroll to the bottom of the right pane. The **clusterSettings** attribute is at the very bottom, where you can enter or update its value.
 
-5. Введите (или скопируйте и вставьте) массив значений параметров конфигурации в атрибут **clusterSettings**.
+5. Type (or copy and paste) the array of configuration values you want in the **clusterSettings** attribute.  
 
-6. Нажмите зеленую кнопку **РАЗМЕСТИТЬ** в верхней части области справа, чтобы зафиксировать изменение среды службы приложений.
+6. Click the green **PUT** button that's located at the top of the right pane to commit the change to the App Service Environment.
 
-Однако после отправки изменения для его вступления в силу потребуется время, равное количеству внешних интерфейсов в среде службы приложений, умноженному на 30 минут. Например, если среда службы приложений имеет четыре внешних интерфейса, для завершения обновления конфигурации потребуется примерно два часа. Во время развертывания изменения конфигурации в среде службы приложений не может выполняться никаких других операций масштабирования или изменения конфигурации.
+However you submit the change, it takes roughly 30 minutes multiplied by the number of front ends in the App Service Environment for the change to take effect.
+For example, if an App Service Environment has four front ends, it will take roughly two hours for the configuration update to finish. While the configuration change is being rolled out, no other scaling operations or configuration change operations can take place in the App Service Environment.
 
-## Отключение TLS 1.0 ##
-Клиенты, особенно те, которые имеют дело с аудитом соответствия требованиям PCI, часто спрашивают, как явно отключить TLS 1.0 для своих приложений.
+## <a name="disable-tls-1.0"></a>Disable TLS 1.0 ##
+A recurring question from customers, especially customers who are dealing with PCI compliance audits, is how to explicitly disable TLS 1.0 for their apps.
 
-TLS 1.0 можно отключить с помощью следующего атрибута **clusterSettings**:
+TLS 1.0 can be disabled through the following **clusterSettings** entry:
 
         "clusterSettings": [
             {
@@ -77,8 +79,8 @@ TLS 1.0 можно отключить с помощью следующего а�
             }
         ],
 
-## Порядок изменения комплекта шифров TLS ##
-Пользователи также спрашивают о том, можно ли изменить список шифров, согласованный их сервер, изменив атрибут **clusterSettings**, как показано ниже. Список доступных наборов шифров можно получить в этой [статье MSDN](https://msdn.microsoft.com/library/windows/desktop/aa374757(v=vs.85).aspx).
+## <a name="change-tls-cipher-suite-order"></a>Change TLS cipher suite order ##
+Another question from customers is if they can modify the list of ciphers negotiated by their server and this can be achieved by modifying the **clusterSettings** as shown below. The list of cipher suites available can be retrieved from [this MSDN article](https://msdn.microsoft.com/library/windows/desktop/aa374757(v=vs.85\).aspx).
 
         "clusterSettings": [
             {
@@ -87,14 +89,18 @@ TLS 1.0 можно отключить с помощью следующего а�
             }
         ],
 
-> [AZURE.WARNING]  Если для набора шрифтов указаны недопустимые значения, шифров (которые не распознаются в SChannel), подключение к серверу по протоколу TLS может быть разорвано. В этом случае необходимо удалить запись *FrontEndSSLCipherSuiteOrder* из **clusterSettings** и отправить обновленный шаблон Resource Manager, чтобы восстановить параметры комплекта шифров по умолчанию. Используйте эту возможность с осторожностью.
+> [AZURE.WARNING]  If incorrect values are set for the cipher suite that SChannel cannot understand, all TLS communication to your server might stop functioning. In such a case, you will need to remove the *FrontEndSSLCipherSuiteOrder* entry from **clusterSettings** and submit the updated Resource Manager template to revert back to the default cipher suite settings.  Please use this functionality with caution.
 
-## Приступая к работе
-На сайте шаблонов быстрого запуска Azure Resource Manager есть шаблон с базовым определением для [создания среды службы приложений](https://azure.microsoft.com/documentation/templates/201-web-app-ase-create/).
+## <a name="get-started"></a>Get started
+The Azure Quickstart Resource Manager template site includes a template with the base definition for [creating an App Service Environment](https://azure.microsoft.com/documentation/templates/201-web-app-ase-create/).
 
 
 <!-- LINKS -->
 
 <!-- IMAGES -->
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

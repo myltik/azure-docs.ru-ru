@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Настройка параметров DNS в файле конфигурации службы | Microsoft Azure"
-   description="Настройка пользовательских параметров DNS с помощью файла конфигурации службы для виртуальной сети"
+   pageTitle="Specifying DNS Settings in a service configuration file | Microsoft Azure"
+   description="specifying custom DNS settings using service configuration file for virtual network"
    services="virtual-network"
    documentationCenter="na"
    authors="jimdial"
@@ -15,13 +15,14 @@
    ms.date="02/24/2016"
    ms.author="jdial" />
 
-# Настройка параметров DNS в файле конфигурации службы
 
-## Элементы DNS
+# <a name="specifying-dns-settings-in-a-service-configuration-file"></a>Specifying DNS Settings in a Service Configuration File
 
-Файл конфигурации службы может содержать элемент DnsServers со списком IPv4-адресов для серверов доменных имен (DNS-серверов), которые будет использовать служба. Параметры файла конфигурации службы имеют приоритет над параметрами файла конфигурации сети. Дополнительную информацию см. в разделе [Схема конфигурации службы Azure (файл CSCFG)](https://msdn.microsoft.com/library/azure/ee758710.aspx).
+## <a name="dns-elements"></a>DNS elements
 
-**Элемент NetworkConfiguration**
+A service configuration file may contain a DnsServers element with a list of IPv4 addresses for the Domain Name System (DNS) servers that the service will use. Settings in the service configuration file take precedence over settings in the network configuration file. For more information, see [Azure Service Configuration Schema (.cscfg File)](https://msdn.microsoft.com/library/azure/ee758710.aspx).
+
+**NetworkConfiguration element**
 
       <DnsServers>
         <DnsServer name="ID1" IPAddress="IPAddress1" />
@@ -29,16 +30,21 @@
         <DnsServer name="ID3" IPAddress="IPAddress3" />
       </DnsServers>
 
->[AZURE.WARNING] Атрибут **name** в элементе **DnsServer** используется только в качестве имени ссылки. Он не представляет имя узла для DNS-сервера. Каждое значение атрибута **DnsServer** должно быть уникальным во всей подписке Microsoft Azure.
+>[AZURE.WARNING] The **name** attribute in the **DnsServer** element is used only as a reference name. It does not represent the host name for the DNS server. Each **DnsServer** attribute value must be unique across the entire Microsoft Azure subscription.
 
-## См. также
+## <a name="see-also"></a>See Also
 
-[Схема конфигурации службы Azure (CSCFG-файл)](https://msdn.microsoft.com/library/windowsazure/ee758710)
+[Azure Service Configuration Schema (.cscfg)](https://msdn.microsoft.com/library/windowsazure/ee758710)
 
-[Схема настройки виртуальной сети Azure](http://go.microsoft.com/fwlink/?LinkId=248093)
+[Azure Virtual Network Configuration Schema](http://go.microsoft.com/fwlink/?LinkId=248093)
 
-[Настройка виртуальной сети с помощью файлов конфигурации сети](http://go.microsoft.com/fwlink/?LinkId=248094)
+[Configure a Virtual Network Using Network Configuration Files](http://go.microsoft.com/fwlink/?LinkId=248094)
 
-[Параметры виртуальной сети на портале управления](http://go.microsoft.com/fwlink/?LinkId=248092)
+[About Virtual Network settings in the Management Portal](http://go.microsoft.com/fwlink/?LinkId=248092)
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

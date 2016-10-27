@@ -1,10 +1,10 @@
 <properties
 pageTitle="RSS | Microsoft Azure"
-description="Создание приложений логики с помощью службы приложений Azure. Соединитель RSS позволяет пользователям публиковать и извлекать элементы веб-канала. Он также позволяет пользователям активировать операции при публикации нового элемента в веб-канале."
-services="logic-apps"	
-documentationCenter=".net,nodejs,java" 	
-authors="msftman"	
-manager="erikre"	
+description="Create Logic apps with Azure App service. RSS connector allows the users to publish and retrieve feed items. It also allows the users to trigger operations when a new item is published to the feed."
+services="logic-apps"   
+documentationCenter=".net,nodejs,java"  
+authors="msftman"   
+manager="erikre"    
 editor=""
 tags="connectors" />
 
@@ -17,112 +17,116 @@ ms.workload="integration"
 ms.date="08/18/2016"
 ms.author="deonhe"/>
 
-# Начало работы с соединителем RSS
-RSS — это популярный формат веб-синдикации, используемый для публикации часто обновляемого содержимого (записей блогов и заголовков новостей). Многие издатели содержимого предоставляют RSS-канал, чтобы пользователи могли на него подписаться. Соединитель RSS можно использовать для извлечения сведений о канале и активации потоков при публикации новых элементов в RSS-канале.
 
->[AZURE.NOTE] Эта версия статьи предназначена для приложений логики со схемой версии 2015-08-01-preview.
+# <a name="get-started-with-the-rss-connector"></a>Get started with the RSS connector
+RSS is a popular web syndication format used to publish frequently updated content – like blog entries and news headlines.  Many content publishers provide an RSS feed to allow users to subscribe to it.  Use the RSS connector to retrieve feed information and trigger flows when new items are published in an RSS feed.
 
-Для начала можно создать приложение логики, как указано в соответствующей [статье](../app-service-logic/app-service-logic-create-a-logic-app.md).
+>[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version. 
 
-## Триггеры и действия
+You can get started by creating a Logic app now, see [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-Соединитель RSS можно использовать как действие. Кроме того, он имеет триггеры. Все соединители поддерживают данные в форматах JSON и XML.
+## <a name="triggers-and-actions"></a>Triggers and actions
 
- Соединитель RSS предоставляет следующие триггеры и действия:
+The RSS connector can be used as an action; it has trigger(s). All connectors support data in JSON and XML formats. 
 
-### Действия RSS
-Вы можете выполнять перечисленные ниже действия:
+ The RSS connector has the following action(s) and/or trigger(s) available:
 
-|Действие|Description (Описание)|
+### <a name="rss-actions"></a>RSS actions
+You can take these action(s):
+
+|Action|Description|
 |--- | ---|
-|[ListFeedItems](connectors-create-api-rss.md#listfeeditems)|Получение всех элементов RSS-канала.|
-### Триггеры RSS
-Можно прослушивать указанные ниже события:
+|[ListFeedItems](connectors-create-api-rss.md#listfeeditems)|Get all RSS feed items.|
+### <a name="rss-triggers"></a>RSS triggers
+You can listen for these event(s):
 
-|Триггер | Описание|
+|Trigger | Description|
 |--- | ---|
-|При публикации нового элемента веб-канала|Запускает рабочий процесс при публикации нового веб-канала|
+|When a new feed item published|Triggers a workflow when a new feed is published|
 
 
-## Создание подключения к RSS
+## <a name="create-a-connection-to-rss"></a>Create a connection to RSS
 
->[AZURE.INCLUDE [Шаги по созданию подключения к RSS-каналу](../../includes/connectors-create-api-rss.md)]
+>[AZURE.INCLUDE [Steps to create a connection to an RSS feed](../../includes/connectors-create-api-rss.md)]
 
->[AZURE.TIP] Это подключение можно использовать в других приложениях логики.
+>[AZURE.TIP] You can use this connection in other logic apps.
 
-## Справочник по RSS
-Относится к версии 1.0.
+## <a name="reference-for-rss"></a>Reference for RSS
+Applies to version: 1.0
 
-## OnNewFeed
-При публикации нового элемента веб-канала: запускает рабочий процесс при публикации нового веб-канала
+## <a name="onnewfeed"></a>OnNewFeed
+When a new feed item published: Triggers a workflow when a new feed is published 
 
-```GET: /OnNewFeed```
+```GET: /OnNewFeed``` 
 
-| Name (Имя)| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|feedUrl|string|Да|запрос|Нет|URL-адрес веб-канала|
+|feedUrl|string|yes|query|none|Feed url|
 
-#### Ответ
+#### <a name="response"></a>Response
 
-|Имя|Описание|
+|Name|Description|
 |---|---|
-|200|ОК|
-|202|Принято|
-|400|Ошибка запроса|
-|401|Не авторизовано|
-|403|Запрещено|
-|404|Не найдено|
-|500|Внутренняя ошибка сервера. Произошла неизвестная ошибка|
-|по умолчанию|Операция завершилась ошибкой.|
+|200|OK|
+|202|Accepted|
+|400|Bad Request|
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
+|500|Internal Server Error. Unknown error occured|
+|default|Operation Failed.|
 
 
-## ListFeedItems
-Список всех элементов RSS-канала: получение всех элементов RSS-канала
+## <a name="listfeeditems"></a>ListFeedItems
+List all RSS feed items.: Get all RSS feed items. 
 
-```GET: /ListFeedItems```
+```GET: /ListFeedItems``` 
 
-| Name (Имя)| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Description (Описание)|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|feedUrl|string|Да|запрос|Нет|URL-адрес веб-канала|
+|feedUrl|string|yes|query|none|Feed url|
 
-#### Ответ
+#### <a name="response"></a>Response
 
-|Name (Имя)|Описание|
+|Name|Description|
 |---|---|
-|200|ОК|
-|202|Принято|
-|400|Ошибка запроса|
-|401|Не авторизовано|
-|403|Запрещено|
-|404|Не найдено|
-|500|Внутренняя ошибка сервера. Произошла неизвестная ошибка|
-|по умолчанию|Операция завершилась ошибкой.|
+|200|OK|
+|202|Accepted|
+|400|Bad Request|
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
+|500|Internal Server Error. Unknown error occured|
+|default|Operation Failed.|
 
 
-## Определения объектов 
+## <a name="object-definitions"></a>Object definitions 
 
-### TriggerBatchResponse[FeedItem]
+### <a name="triggerbatchresponse[feeditem]"></a>TriggerBatchResponse[FeedItem]
 
 
-| Имя свойства | Тип данных | Обязательно |
+| Property Name | Data Type | Required |
 |---|---|---|
-|value|array|Нет |
+|value|array|No |
 
 
 
-### FeedItem
+### <a name="feeditem"></a>FeedItem
 
 
-| Имя свойства | Тип данных | Обязательно |
+| Property Name | Data Type | Required |
 |---|---|---|
-|id|string|Да |
-|title|string|Да |
-|Содержимое|string|Да |
-|links|array|Нет |
-|updatedOn|string|Нет |
+|id|string|Yes |
+|title|string|Yes |
+|content|string|Yes |
+|links|array|No |
+|updatedOn|string|No |
 
 
-## Дальнейшие действия
-[Создайте приложение логики](../app-service-logic/app-service-logic-create-a-logic-app.md)
+## <a name="next-steps"></a>Next Steps
+[Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

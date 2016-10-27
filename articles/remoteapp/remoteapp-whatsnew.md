@@ -1,7 +1,7 @@
 
 <properties
-    pageTitle="Новые возможности Azure RemoteApp | Microsoft Azure"
-    description="Узнайте об изменениях и усовершенствованиях в Azure RemoteApp"
+    pageTitle="What's new in Azure RemoteApp? | Microsoft Azure"
+    description="Learn about changes and improvements made to Azure RemoteApp"
     services="remoteapp"
     documentationCenter=""
     authors="lizap"
@@ -18,76 +18,81 @@
 
 
 
-# Новые возможности приложения RemoteApp
+
+# <a name="what's-new-in-azure-remoteapp?"></a>What's new in Azure RemoteApp?
 
 > [AZURE.IMPORTANT]
-Мы выводим удаленное приложение Azure RemoteApp из эксплуатации. Дополнительные сведения см. в [объявлении](https://go.microsoft.com/fwlink/?linkid=821148).
+> Azure RemoteApp is being discontinued. Read the [announcement](https://go.microsoft.com/fwlink/?linkid=821148) for details.
 
-Одним из преимуществ приложения Azure RemoteApp является то, что мы постоянно работаем над его улучшением. Здесь появляются сообщения обо всех внесенных изменениях.
+One of the advantages of Azure RemoteApp is that we are always working to improve it. Every time we do, we'll announce those changes here.
 
-## Будущие обновления
-Знаете ли вы о том, что команда Azure RemoteApp размещает ежемесячные обновления в блоге служб удаленного рабочего стола? В них вы сможете найти не только изменения в Azure RemoteApp, но и другие сведения о том, как использовать службы удаленного рабочего стола. Просмотрите их в [блоге служб удаленного рабочего стола](https://blogs.msdn.microsoft.com/rds/), чтобы узнать больше. Например, несколько недель назад они разместили запись о [подъеме и сдвиге рабочих нагрузок с Azure RemoteApp и Azure AD](https://blogs.msdn.microsoft.com/rds/2016/01/19/lift-and-shift-your-workloads-with-azure-remoteapp-and-azure-ad-domain-services/).
+## <a name="future-updates"></a>Future updates
+Hey - did you know the Azure RemoteApp team posts monthly updates to the RDS blog? You can find not just what's change in Azure RemoteApp but also other information about how to use RDS. Check out their blog, [Remote Desktop Services Blog](https://blogs.msdn.microsoft.com/rds/), for information. For example, a couple of weeks ago, they posted an entry about [lifting and shifting workloads with Azure RemoteApp and Azure AD](https://blogs.msdn.microsoft.com/rds/2016/01/19/lift-and-shift-your-workloads-with-azure-remoteapp-and-azure-ad-domain-services/).
  
-## Сентябрь 2015 г.
-- Добавлен Infopath в шаблон и образ коллекции Microsoft Office 365. Если требуется поделиться Infopath, необходимо обновить коллекции, воспользовавшись актуальным образом.
-- Клиентские обновления
-	- Клиент Windows обновлен, чтобы пользователи могли предоставлять обратную связь, особенно по проблемам подключения.
-	- Клиент iOS обновлен, чтобы устранить ошибки обмена сообщениями и проблему с преждевременным истечением срока действия учетных данных.
-- В настоящее время мы тестируем поддержку Office 2016. По окончании этой процедуры вам будут доступны обновленные образы.
-- Опубликована новая статья о [различиях между облачными и гибридными коллекциями](remoteapp-collections.md), которая поможет выбрать оптимальный тип коллекции для ваших приложений: облачная, гибридная или облачная + VNET.
-- Хотите организовать совместное использование QuickBooks с помощью Azure RemoteApp, но не знаете, как это сделать? См. [новую статью Эрика](remoteapp-quickbooks.md) с подробными инструкциями.
+## <a name="september-2015"></a>September 2015
+- Added Infopath to the Microsoft Office 365 template and gallery image. If you want to share Infopath, make sure to update your collections with the latest image.
+- Client updates:
+    - Windows client updated to make it possible for users to share feedback, especially around connection issues.
+    - iOS client updated to fix error messaging and to fix a problem where your credentials expired earlier than expected.
+- We're working on getting Office 2016 support tested. Once that's completed, look for updated images.
+- Published a new article about the [differences between cloud and hybrid collections](remoteapp-collections.md) - this will help you choose the collection type that works best for your apps - cloud-only, cloud + VNET, or hybrid.
+- Want to share QuickBooks using Azure RemoteApp but not sure of the steps? Check out [Eric's new article](remoteapp-quickbooks.md) telling you exactly what to do.
 
-## Август 2015 г.
-В августе произошло много важных изменений, а именно:
+## <a name="august-2015"></a>August 2015
+Big changes happened in August - here are the highlights:
 
-- Теперь можно использовать Azure VNET с облачной коллекцией! См. описание новой процедуры в [инструкциях по созданию облака](remoteapp-create-cloud-deployment.md).
-- Теперь можно добавлять приложения в меню **Пуск** для клиента Windows RemoteApp. Приложения будут отображаться в списке приложений, их можно закрепить в меню **Пуск** в Windows.
-- Добавлен новый образ в коллекцию виртуальных машин Azure: узел сеансов удаленных рабочих столов Windows Server с Microsoft Office 365 Профессиональный плюс.
-- Исправлен клиент Mac, так что приложения с модальными окнами больше не зависают.
-- Составлены инструкции по использованию [подписки Office 365 Профессиональный плюс](remoteapp-officesubscription.md) с Azure RemoteApp.
-- Подробно описано [обеспечение безопасности приложений и данных](remoteapp-secure.md) в коллекции Azure RemoteApp.
+- You can now use an Azure VNET with a cloud collection! Check out the [cloud creation instructions](remoteapp-create-cloud-deployment.md) for the new steps.
+- Made it possible to add apps to the **Start **menu for the Windows RemoteApp client. Apps will show up in the application list, and you can pin them to the **Start **menu in Windows.
+- Added a new image to the Azure VM gallery - Windows Server Remote Desktop Session Host with Microsoft Office 365 ProPlus.
+- Fixed the Mac client so apps with modal windows will stop freezing.
+- Documented how you can use your [Office 365 ProPlus subscription](remoteapp-officesubscription.md) with Azure RemoteApp.
+- Detailed how you can [secure the apps and data](remoteapp-secure.md) in your Azure RemoteApp collection.
 
-## Июль 2015 г.
+## <a name="july-2015"></a>July 2015
 
-В июле начинается подготовка к изменениям, которые будут реализованы в августе, поэтому рассказывать особо не о чем, в основном это обновления документации. Ниже перечислены самые последние изменения.
+July set the stage for changes coming in August, so there's not a lot to talk about now, mostly doc updates. Here are the most recent changes:
 
-- На портале добавлена вкладка **Поддержка**, чтобы упростить доступ к ресурсам поддержки, таким как форумы.
-- Пересмотрены сведения об устранении неполадок для создания гибридной коллекции. Ознакомьтесь с [новейшими ценными](remoteapp-hybridtrouble.md) советами по устранению неполадок, например по определению нужных портов для настройки VNET.
-- Составлены инструкции по созданию и сохранению в Azure RemoteApp [пользовательских данных](remoteapp-upd.md).
-- Добавлена информация о [порядке блокировки приложений](remoteapp-secure.md).
-- Опубликованы [командлеты Azure RemoteApp](https://msdn.microsoft.com/library/mt428031.aspx).
-- Наконец, мы начали обсуждение терминологии с некоторыми пользователями Azure RemoteApp. Поэтому в скором времени названия различных вариантов коллекций могут измениться.
+- Added a **Support** tab to the portal so you can more easily access support resources, like the forums.
+- Reworked the troubleshooting information for creating a hybrid collection. Check out [the latest and greatest](remoteapp-hybridtrouble.md) for troubleshooting tips like, how to identify the correct ports to configure for your VNET.
+- Documented how [user data](remoteapp-upd.md) is created and saved in Azure RemoteApp.
+- Documented how to [lock down apps](remoteapp-secure.md).
+- Published the [Azure RemoteApp cmdlets](https://msdn.microsoft.com/library/mt428031.aspx).
+- And finally, we started a conversation with some Azure RemoteApp users about terminology. Look for changes to the way we refer to the different collection options.
 
-## Июнь 2015 г.
+## <a name="june-2015"></a>June 2015
 
-Вас ждет множество новых изменений! В июне команда активно работала и добилась следующих результатов:
+So many changes! The team has been very busy in June:
 
-- Переработана [целевая страница](https://www.remoteapp.windowsazure.com/) Azure RemoteApp — рекомендуем ознакомиться!
-- Обновлено программное обеспечение во всех образах, доступных в рамках вашей подписки.
-- Внесены улучшения в гибридные коллекции, включая поддержку принудительного туннелирования и проверку размера IP-подсети перед попыткой создания коллекции.
-- Обнаружено, что подстановочный знак «*» не работает для веб-камер. Вместо этого необходимо указать идентификатор экземпляра или GUID. Мы будем обновлять информацию о перенаправлении, чтобы отразить эту особенность.
-- Теперь вы можете добавить пользовательское антивирусное программное обеспечение в образ при создании образа шаблона из коллекции Azure.
+- Redesigned the Azure RemoteApp [landing page](https://www.remoteapp.windowsazure.com/) - check it out!
+- Updated the software in all the images available as part of your subscription.
+- Made improvements to hybrid collections, including forced tunneling support and checking IP subnet size before trying to create the collection.
+- Discovered that the * wildcard doesn't work for webcams. Instead, you need to specify the instance ID or GUID. We'll be updating the redirection information to reflect that.
+- Made it so you can add custom antivirus software to your image when you create a template image from the Azure gallery.
 
-На июль у нас запланированы дополнительные изменения, поэтому скоро вас ждет еще одно обновление.
+We've got more changes rolling out in July, so we'll be back with another update soon.
 
-## Май 2015 г.
+## <a name="may-2015"></a>May 2015
 
-С момента создания данного раздела прошло уже несколько месяцев, поэтому в данном списке указаны изменения за период с начала марта до конца мая. Ознакомьтесь с этими новыми функциями:
+There have been a number of additions (and months) since we first created this topic, so this list cheats a bit and is from the beginning of March through May. Check out these new features:
 
-- Полная автоматизация — Azure RemoteApp теперь имеет [командлеты в модуле Azure PowerShell](remoteapp-tutorial-arawithpowershell.md).
-- [Создание образа Azure RemoteApp из виртуальной машины Azure](remoteapp-image-on-azurevm.md). Значительно ускоряет передачу пользовательского образа в Azure.
-- Используйте виртуальную сеть Azure вместо виртуальной сети RemoteApp для подключения ваших ресурсов корпоративной сети к Azure. Мы обновили [инструкции для гибридной коллекции](remoteapp-create-hybrid-deployment.md), включив пошаговые инструкции по создания виртуальной сети Azure (это этап 1).
-- Если уж мы вспомнили о виртуальных сетях, ознакомьтесь с [новым руководством](remoteapp-vnetsizing.md) по предельным размерам и ограничениям для виртуальной сети.
-- А если уж мы заговорили об ограничениях, что из себя представляют [ограничения служб и значения по умолчанию](../azure-subscription-service-limits.md)?
+- Automate everything - Azure RemoteApp now has [cmdlets in the Azure PowerShell module](remoteapp-tutorial-arawithpowershell.md).
+- [Create an Azure RemoteApp image from an Azure virtual machine](remoteapp-image-on-azurevm.md). Makes uploading your custom image to Azure much quicker.
+- Use an Azure VNET instead of a RemoteApp VNET to connect your corporate network resources to Azure. We've updated the [hybrid collection instructions](remoteapp-create-hybrid-deployment.md) to walk you through creating an Azure VNET (it's Step 1).
+- Speaking of VNETs, check out [the new guidance](remoteapp-vnetsizing.md) around VNET size limits and limitations.
+- And speaking of limits - just what are the [service limits and defaults](../azure-subscription-service-limits.md)?
 
-Хотите узнать больше об Azure RemoteApp? Несколько недель назад команда разработчиков RemoteApp посетила конференцию Ignite. Просмотрите видеоролик Эрика [Основы управления и администрирования Microsoft Azure RemoteApp](http://channel9.msdn.com/Events/Ignite/2015/BRK3868).
+Want to learn more about Azure RemoteApp? The RemoteApp team was out in force at Ignite a few weeks ago. Check out Eric's video, [The Fundamentals of Microsoft Azure RemoteApp Management and Administration](http://channel9.msdn.com/Events/Ignite/2015/BRK3868).
 
-Хотите узнать, как Azure RemoteApp работает в реальной среде? Ознакомьтесь с учебником [Запуск любого приложения на любом устройстве в любых условиях](remoteapp-anyapp.md), где показано, как совместно использовать Access вместе с пользователями, включая общий доступ к файлам базы данных. У нас также есть учебник о том, как [обеспечить выполнение Office 365](remoteapp-tutorial-o365anywhere.md) на любом устройстве.
+Need to see Azure RemoteApp in the real world? Check out the [Run any app on any device anywhere](remoteapp-anyapp.md) tutorial - it shows you how to share Access with your users, including sharing the database files. We also have a tutorial on [making Office 365](remoteapp-tutorial-o365anywhere.md) run the same on any device.
 
-Благодарим вас за проявленный интерес, ждите новых обновлений в следующем месяце.
+Thanks for sticking with us - back next month with more updates.
 
 
-### Позвольте нам помочь вам
-Вы знаете, что можете не только оценивать эту статью и оставлять комментарии ниже, но и вносить в нее изменения? Чего-то не хватает? Что-то неправильно? Что-то изложено непонятно? Чтобы внести изменения, прокрутите страницу вверх и щелкните **Изменить на GitHub**. Мы просмотрим ваши предложения, и, когда мы их одобрим, вы увидите изменения и улучшения здесь.
+### <a name="help-us-help-you"></a>Help us help you
+Did you know that in addition to rating this article and making comments down below, you can make changes to the article itself? Something missing? Something wrong? Did I write something that's just confusing? Scroll up and click **Edit on GitHub** to make changes - those will come to us for review, and then, once we sign off on them, you'll see your changes and improvements right here.
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

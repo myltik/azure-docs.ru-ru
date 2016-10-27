@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Сочетания клавиш портала Azure | Microsoft Azure"
-   description="В этой статье всегда будет актуальный список сочетаний клавиш, которые работают на портале Azure. У индивидуальных служб могут свои специальные сочетания клавиш."
+   pageTitle="Azure portal keyboard shortcuts | Microsoft Azure"
+   description="This article will always be an up-to-date listing of the keyboard shortcuts that work throughout the Azure portal. Individual services might have their own specialized keyboard shortcuts."
    services="azure-portal"
    documentationCenter=""
    authors="flanakin"
@@ -16,33 +16,39 @@
    ms.date="02/07/2016"
    ms.author="micflan"/>
 
-# Сочетания клавиш портала Azure
 
-## Открыть центры
+# <a name="azure-portal-keyboard-shortcuts"></a>Azure portal keyboard shortcuts
 
-| Клавиша | Действие |
+## <a name="open-hubs"></a>Open hubs
+
+| Shortcut | Action |
 |--------|----------|
-| Нет | Уведомления |
-| / | Обзор служб |
-| A | Активные сеансы |
-| B | Выставление счетов |
-| C | Создание |
+| N | Notifications |
+| / | Browse services |
+| A | Active sessions |
+| B | Billing |
+| C | Create |
 
-## Навигация
+## <a name="navigation"></a>Navigation
 
-| Клавиша | Действие |
+| Shortcut | Action |
 |--------|----------|
-| H | Начальная панель мониторинга Azure |
-| F | Первая открытая колонка |
-| J | Ранее открытая колонка |
-| K | Следующая открытая колонка |
-| L | Последняя открытая колонка |
-| - | Свернуть или восстановить колонку|
-| + | Развернуть колонку |
-| # | Закрыть текущую колонку |
-| ¦ | Закрыть все колонки |
-| , | Переместить фокус на панель команд |
-| . | Переместить фокус на панель навигации |
-| ? | Показать сочетания клавиш |
+| H | Azure Start dashboard |
+| F | First open blade |
+| J | Previous open blade |
+| K | Next open blade |
+| L | Last open blade |
+| - | Minimize blade or restore from maximized |
+| + | Maximize blade or restore from minimized |
+| # | Close current blade |
+| ¦ | Close all blades |
+| , | Move focus to command bar |
+| . | Move focus to navigation bar |
+| ? | View keyboard shortcuts |
 
-<!---HONumber=AcomDC_0504_2016-->
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

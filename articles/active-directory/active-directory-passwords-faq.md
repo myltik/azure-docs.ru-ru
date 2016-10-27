@@ -1,209 +1,214 @@
 <properties
-	pageTitle="Часто задаваемые вопросы: управление паролями Azure AD| Microsoft Azure"
-	description="Часто задаваемые вопросы об управлении паролями в Azure AD, включая вопросы о сбросе паролей, регистрации данных для сброса паролей, отчетах и обратной записи в локальную службу Active Directory."
-	services="active-directory"
-	documentationCenter=""
-	authors="asteen"
-	manager="femila"
-	editor="curtand"/>
+    pageTitle="FAQ: Azure AD Password Management | Microsoft Azure"
+    description="Frequently asked questions (FAQ) about password management in Azure AD, including password reset, registration, reports, and writeback to on-premises Active Directory ."
+    services="active-directory"
+    documentationCenter=""
+    authors="asteen"
+    manager="femila"
+    editor="curtand"/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/12/2016"
-	ms.author="asteen"/>
-
-# Вопросы и ответы об управлении паролями
-
-> [AZURE.IMPORTANT] **Вы здесь потому, что возникают проблемы при входе?** Если это так, [с помощью этих инструкций можно изменить и сбросить пароль](active-directory-passwords-update-your-own-password.md).
-
-Ниже приведены некоторые вопросы и ответы об управлении паролями.
-
-Вот список вопросов, которые чаще всего возникают у пользователей. Просмотрите его. Возможно, среди них вы найдете и свой вопрос или проблему. Если вашего вопроса в списке нет, не волнуйтесь. Все вопросы, не рассмотренные в данной статье, можно смело задавать на [форумах по службе Azure AD](https://social.msdn.microsoft.com/Forums/home?forum=WindowsAzureAD). Мы ответим на них в самое ближайшее время.
-
-Данная статья состоит из следующих разделов:
-
-- [**Вопросы о регистрации данных для сброса паролей**](#password-reset-registration).
-- [**Вопросы о сбросе паролей**](#password-reset).
-- [**Вопросы об отчетах по управлению паролями**](#password-management-reports).
-- [**Вопросы об обратной записи паролей**](#password-writeback).
-
-## Регистрация данных для сброса паролей
- - **Вопрос. Могут ли пользователи регистрировать свои собственные данные для сброса паролей?**
-
- > **Ответ.** Да. Если функция сброса пароля активирована и у пользователя есть лицензия, он может перейти на портал регистрации данных для сброса паролей по ссылке http://aka.ms/ssprsetup и зарегистрировать свои собственные данные для аутентификации. Эти данные будут использоваться при смене пароля. Зарегистрировать данные можно также на панели доступа на странице http://myapps.microsoft.com. Здесь нужно открыть вкладку профиля и щелкнуть «Зарегистрироваться для сброса пароля». Дополнительные сведения о настройке функции сброса пользовательских паролей см. в разделе «Настройка учетных записей пользователей для функции сброса пароля».
-
- - **Вопрос. Могу ли я определять данные для сброса паролей от имени пользователей?**
-
- > **Ответ.** Да, это можно сделать с помощью DirSync или PowerShell, а также на [портале управления Azure](https://manage.windowsazure.com) или на портале администрирования Office. С дополнительными сведениями об этой функции можно ознакомиться в записи блога «Улучшенная конфиденциальность, многофакторная проверка подлинности Azure AD и номера телефонов для сброса паролей», а также в разделе «Узнайте, как используются данные для сброса пароля».
-
- - **Вопрос. Могу ли я синхронизировать данные для контрольных вопросов из локальной среды?**
-
- > **Ответ.** Нет, пока это невозможно, но мы работаем над этим.
-
- - **Вопрос. Могут ли пользователи зарегистрировать данные так, чтобы другие пользователи эти данные не видели?**
-
- > **Ответ.** Да. Когда пользователь регистрирует данные на портале регистрации для сброса паролей, эти данные сохраняются в специальные частные поля, которые могут просматривать только глобальные администраторы и сам пользователь. С дополнительными сведениями об этой функции можно ознакомиться в записи блога «Улучшенная конфиденциальность, многофакторная проверка подлинности Azure AD и номера телефонов для сброса паролей», а также в разделе «Узнайте, как используются данные для сброса пароля».
-
- - **Вопрос. Нужно ли пользователям регистрировать данные для сброса пароля?**
-
- > **Ответ.** Нет. Если вы от их имени укажете достаточно сведений для аутентификации, пользователям не придется регистрировать эти сведения самостоятельно. Для работы функции сброса паролей требуется только, чтобы правильно отформатированные данные хранились в соответствующих полях каталога. Дополнительные сведения см. в разделе «Узнайте, как данные используются для сброса пароля».
-
- - **Вопрос. Могу ли я от имени пользователей синхронизировать или указывать данные в полях «Телефон для проверки подлинности», «Адрес электронной почты для проверки подлинности» и «Дополнительный телефон для проверки подлинности»?**
-
- > **Ответ.** Сейчас это невозможно, но мы думаем над добавлением такой возможности.
-
- - **Вопрос. Как портал регистрации определяет, что именно нужно отображать для того или иного пользователя?**
-
- > **Ответ.** На портале регистрации данных для сброса паролей отображаются только те данные, которые вы настроили для пользователей в каталоге на вкладке "Настройки" в разделе "Политика сброса пароля пользователя". То есть, если вы не настроили, скажем, контрольные вопросы, пользователи не смогут выбрать этот вариант при регистрации.
-
- - **Вопрос. Когда пользователь считается зарегистрированным?**
-
- > **Ответ.** Пользователь считается зарегистрированным, когда определено по крайней мере N частей данных для аутентификации, где N — количество обязательных методов аутентификации, которые вы задали на [портале управления Azure](https://manage.windowsazure.com). Дополнительные сведения см. в разделе «Настройка политики сброса паролей пользователей».
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="07/12/2016"
+    ms.author="asteen"/>
 
 
-## Сброс паролей
+# <a name="password-management-frequently-asked-questions"></a>Password Management Frequently Asked Questions
 
- - **Вопрос. Как долго следует ожидать сообщение электронной почты, SMS или звонок для сброса пароля?**
+> [AZURE.IMPORTANT] **Are you here because you're having problems signing in?** If so, [here's how you can change and reset your own password](active-directory-passwords-update-your-own-password.md).
 
- > **Ответ.** Время ожидания сообщения электронной почты, SMS-сообщения или телефонного звонка составляет меньше минуты. Обычно это занимает 5–20 секунд. Если в течение этого времени ничего не произошло, проверьте папку нежелательной почты, а также правильность номера телефона или адреса электронной почты, на который вы ожидаете получить уведомление. Также убедитесь, что данные для проверки подлинности в каталоге имеют правильный формат. Дополнительные сведения о форматировании телефонных номеров и адресов электронной почты для функции сброса пароля см. в разделе «Узнайте, как данные используются для сброса пароля».
+The following are some frequently asked questions for all things related to password management.
 
- - **Вопрос. Какие языки поддерживает система сброса пароля?**
+If you find yourself with a question that you don't know the answer to, or are looking for help with a particular problem you are facing, you can read on below to see if we've covered it already.  If we haven't already, don't worry! Feel free to ask any question you have that's not covered here on the [Azure AD Forums](https://social.msdn.microsoft.com/Forums/home?forum=WindowsAzureAD) and we'll get back to you as soon as we can.
 
- > **Ответ.** Интерфейс системы, SMS-сообщения и голосовые вызовы переведены на те же 40 языков, что и служба Office 365: арабский, болгарский, китайский (упрощенное письмо), китайский (традиционное письмо), хорватский, чешский, датский, нидерландский, английский, эстонский, финский, французский, немецкий, греческий, иврит, хинди, венгерский, индонезийский, итальянский, японский, казахский, корейский, латышский, литовский, малайский (Малайзия), норвежский (букмол), польский, португальский (Бразилия), португальский (Португалия), румынский, русский, сербский (латиница), словацкий, словенский, испанский, шведский, тайский, турецкий, украинский и вьетнамский.
+This FAQ is split into the following sections:
 
- - **Вопрос. Если я настрою фирменную символику своей организации на вкладке настроек каталога, где именно появится эта символика?**
+- [**Questions about Password Reset Registration**](#password-reset-registration)
+- [**Questions about Password Reset**](#password-reset)
+- [**Questions about Password Management Reports**](#password-management-reports)
+- [**Questions about Password Writeback**](#password-writeback)
 
- > **Ответ.** Логотип вашей организации будет отображаться на портале сброса паролей. У вас также появится возможность настроить ссылку для связи с администратором, указав нужный вам электронный или URL-адрес. Все сообщения электронной почты, отправляемые порталом для сброса паролей, будут содержать логотип вашей организации, ее фирменные цвета (в данном случае красный), название в тексте сообщения и указанное вами имя в поле отправителя. Ниже приведен пример использования фирменной символики. Дополнительные сведения см. в разделе «Настройка пользовательского интерфейса сброса пароля».
+## <a name="password-reset-registration"></a>Password reset registration
+ - **Q:  Can my users register their own password reset data?**
+
+ > **A:** Yes, as long as password reset is enabled and they are licensed, they can go to the Password Reset Registration portal at http://aka.ms/ssprsetup to register their authentication information to be used with password reset. Users can also register by going to the access panel at http://myapps.microsoft.com, clicking the profile tab, and clicking the Register for Password Reset option. Learn more about how to get your users configured for password reset by reading How to get users configured for password reset.
+
+ - **Q:  Can I define password reset data on behalf of my users?**
+
+ > **A:** Yes, you can do so with DirSync or PowerShell, or through the [Azure Management Portal](https://manage.windowsazure.com) or Office Admin portal. Learn more about this feature on the blog post Improved Privacy for Azure AD MFA and Password Reset Phone Numbers and by reading Learn how data is used by password reset.
+
+ - **Q:  Can I synchronize data for security questions from on premises?**
+
+ > **A:** No, this is not possible today, but we are considering it.
+
+ - **Q:  Can my users register data in such a way that other users cannot see this data?**
+
+ > **A:** Yes, when users register data using the Password Reset Registration Portal it gets saved into private authentication fields that are only visible by Global Administrators and the user himself. Learn more about this feature on the blog post Improved Privacy for Azure AD MFA and Password Reset Phone Numbers and by reading Learn how data is used by password reset.
+
+ - **Q:  Do my users have to be registered before they can use password reset?**
+
+ > **A:** No, if you define enough authentication information on their behalf, users will not have to register. Password reset will work just fine as long as you have properly formatted data stored in the appropriate fields in the directory. Learn more about by reading Learn how data is used by password reset.
+
+ - **Q:  Can I synchronize or set the Authentication Phone, Authentication Email or Alternate Authentication Phone fields on behalf of my users?**
+
+ > **A:** Not currently, but we are considering enabling this capability.
+
+ - **Q:  How does the registration portal know which options to show my users?**
+
+ > **A:** The password reset registration portal only shows the options that you have enabled for your users under the User Password Reset Policy section of your directory’s Configure tab. This means that if you do not enable, say, security questions, then users will not be able to register for that option.
+
+ - **Q:  When is a user considered registered?**
+
+ > **A:** A user is considered registered when he or she has at least N pieces of authentication info defined, where N is the Number of Authentication Methods Required that you have set in the [Azure Management Portal](https://manage.windowsazure.com). To learn more, see Customizing User Password Reset Policy.
+
+
+## <a name="password-reset"></a>Password reset
+
+ - **Q:  How long should I wait to receive an email, SMS, or phone call from password reset?**
+
+ > **A:** Email, SMS messages, and phone calls should arrive in under 1 minute, with the normal case being 5-20 seconds. If you do not receive the notification in this timeframe, check your junk folder, that the number / email being contacted is the one you expect, and that the authentication data in the directory is correctly formatted. To learn more about formatting phone numbers and email addresses for use with password reset see Learn how data is used by password reset.
+
+ - **Q:  What languages are supported by password reset?**
+
+ > **A:** The password reset UI, SMS messages, and voice calls are localized in the same 40 languages that are supported in Office 365. Those are: Arabic, Bulgarian, Chinese Simplified, Chinese Traditional, Croatian, Czech, Danish, Dutch, English, Estonian, Finnish, French, German, Greek, Hebrew, Hindi, Hungarian, Indonesian, Italian, Japanese, Kazakh, Korean, Latvian, Lithuanian, Malay (Malaysia), Norwegian (Bokmål), Polish, Portuguese (Brazil), Portuguese (Portugal), Romanian, Russian, Serbian (Latin), Slovak, Slovenian, Spanish, Swedish, Thai, Turkish, Ukrainian, and Vietnamese.
+
+ - **Q:  What parts of the password reset experience get branded when I set organizational branding in my directory’s configure tab?**
+
+ > **A:** The password reset portal will show your organizational logo and will also allow you to configure the Contact your administrator link to point to a custom email or URL. Any email that gets sent by password reset will include your organization’s logo, colors (in this case red), name in the body of the email, and customized from name. See an example with all the branded elements below. To learn more, read Customizing Password Reset Look and Feel.
 
   ![][001]
 
- - **Вопрос. Куда именно нужно направлять пользователей для сброса паролей?**
+ - **Q:  How can I educate my users about where to go to reset their passwords?**
 
- > **Ответ.** Вы можете направлять их непосредственно на страницу https://passwordreset.microsoftonline.com или обязать их выбирать ссылку "Не удается получить доступ к своей учетной записи?" на экране входа в учебную или рабочую учетную запись. Вы можете свободно публиковать эти ссылки (или создать URL-адреса перенаправления на них) в любом удобном для пользователей месте.
+ > **A:** You can send your users to https://passwordreset.microsoftonline.com directly, or you can instruct them to click on the Can’t access your account link found on any School or Work ID sign in screen. You can feel free to publish these links (or create URL redirects to them) in any place that is easily accessible to your users.
 
- - **Вопрос. Могу ли я пользоваться этой страницей на мобильном устройстве?**
+ - **Q:  Can I use this page from a mobile device?**
 
- > **Ответ.** Да. Эта страница работает на мобильных устройствах.
+ > **A:** Yes, this page works on mobile devices.
 
- - **Вопрос. Поддерживается ли разблокирование учетных записей локальной службы Active Directory, когда пользователи сбрасывают свой пароль?**
+ - **Q:  Do you support unlocking local active directory accounts when users reset their passwords?**
 
- > **Ответ.** Да. Если на момент сброса пароля компонент обратной записи паролей уже развернут с любой из версий Azure AD Connect или Azure AD Sync не ниже версии 1.0.0485.0222, учетная запись пользователя будет автоматически разблокирована.
+ > **A:** Yes, when a user resets his or her password and Password Writeback has been deployed with all versions of Azure AD Connect, or versions of Azure AD Sync 1.0.0485.0222 or later, then that user’s account will be automatically unlocked when that user resets his or her password.
 
- - **Вопрос. Как интегрировать функцию сброса паролей непосредственно в интерфейс входа на локальный компьютер?**
+ - **Q:  How can I integrate password reset directly into my user’s desktop sign-in experience?**
 
- > **Ответ.** На сегодняшний день это невозможно. Если вам очень нужна такая возможность и вы являетесь клиентом Azure AD Premium, вы можете бесплатно установить диспетчер удостоверений (Майкрософт) и развернуть содержащееся в нем локальное решение для сброса паролей.
+ > **A:** This is not possible today. However, if you absolutely need this capability and are an Azure AD Premium customer, you can install Microsoft Identity Manager at no additional cost and deploy the on-premises password reset solution found therein to solve this requirement.
 
- - **Вопрос. Могу ли я настроить разные контрольные вопросы для разных языков?**
+ - **Q:  Can I set different security questions for different locales?**
 
- > **Ответ.** Нет, пока это невозможно, но мы работаем над этим.
+ > **A:** No, this is not possible today, but we are considering it.
 
- - **Вопрос. Сколько контрольных вопросов можно настроить для проверки подлинности?**
+ - **Q:  How many questions can we configure for the Security Questions authentication option?**
 
- > **Ответ.** На [портале управления Azure](https://manage.windowsazure.com) можно настроить до 20 собственных контрольных вопросов.
+ > **A:** You can configure up to 20 custom security questions in the [Azure Management Portal](https://manage.windowsazure.com).
 
- - **Вопрос. Какова допустимая длина контрольных вопросов?**
+ - **Q:  How long may security questions be?**
 
- > **Ответ.** Контрольный вопрос должен содержать от 3 до 200 знаков.
+ > **A:** Security questions may be between 3 and 200 characters long.
 
- - **Вопрос. Какова допустимая длина ответов на контрольные вопросы?**
+ - **Q:  How long may answers to security questions be?**
 
- > **Ответ.** Ответы должны содержать от 3 до 40 знаков.
+ > **A:** Answers may be 3 to 40 characters long.
 
- - **Вопрос. Можно ли использовать одинаковые ответы для разных контрольных вопросов?**
+ - **Q:  Are duplicate answers to security questions rejected?**
 
- > **Ответ.** Нет, одинаковые ответы для разных контрольных вопросов использовать нельзя.
+ > **A:** Yes, we reject duplicate answers to security questions.
 
- - **Вопрос. Может ли пользователь зарегистрировать несколько одинаковых контрольных вопросов?**
+ - **Q:  May a user register more than one of the same security question?**
 
- > **Ответ.** Нет. Если пользователь зарегистрировал определенный вопрос, он не сможет его еще раз зарегистрировать.
+ > **A:** No, once a user registers a particular question, he or she may not register for that question a second time.
 
- - **Вопрос. Можно ли задать минимальное количество контрольных вопросов для регистрации и сброса?**
+ - **Q:  Is it possible to set a minimum limit of security questions for registration and reset?**
 
- > **Ответ.** Да, можно задать одно ограничение для регистрации, а другое — для сброса. В обоих случаях можно настроить от 3 до 5 контрольных вопросов.
+ > **A:** Yes, one limit can be set for registration and another for reset. 3-5 security questions may be required for registration and 3-5 may be required for reset.
 
- - **Вопрос. Если пользователь зарегистрировал больше вопросов, чем необходимо для сброса, какие именно контрольные вопросы выбираются при сбросе?**
+ - **Q:  If a user has registered more than the maximum number of questions required to reset, how are security questions selected during reset?**
 
- > **Ответ.** Из общего числа контрольных вопросов, которые зарегистрировал пользователь, в случайном порядке выбираются N вопросов, где N — минимальное количество вопросов, необходимое для сброса пароля. Например, если пользователь зарегистрировал 5 контрольных вопросов, но для сброса требуются только 3, из этих 5 вопросов случайным образом будет выбрано 3, которые будут предложены пользователю во время сброса пароля. Если пользователь неправильно отвечает, вопросы выбираются еще раз. Это позволяет предотвратить подбор ответов.
+ > **A:** N security questions are selected at random out of the total number of questions a user has registered for, where N is the minimum number of questions required for password reset. For example, if a user has 5 security questions registered, but only 3 are required to reset, 3 of those 5 will be selected randomly and presented to the user at the time of reset. If the user gets the answers to the questions wrong, the selection process re-occurs to prevent question hammering.
 
- - **Вопрос. Существуют ли лимиты, ограничивающие количество попыток сброса пароля за короткий промежуток времени?**
+ - **Q:  Do you prevent users from attempting password reset many times in a short time period?**
 
- > **Ответ.** Да. Система сброса пароля имеет несколько функций защиты. Пользователи могут сделать только 5 попыток сброса пароля в течение часа, после чего эта возможность блокируется на 24 часа. Пользователи могут сделать только 5 попыток подтверждения номера телефона в течение часа, после чего эта возможность блокируется на 24 часа. Пользователи могут воспользоваться определенным методом проверки подлинности 5 раз в течение часа, после чего эта возможность блокируется на 24 часа.
+ > **A:** Yes, there are several security features built into password reset. Users may only try 5 password reset attempts within an hour before being locked out for 24 hours. Users may only try to validate a phone number 5 times within an hour before being locked out for 24 hours. Users may only try a single authentication method 5 times within an hour before being locked out for 24 hours.
 
- - **Вопрос. Как долго действует одноразовый секретный код, полученный по электронной почте или в SMS?**
+ - **Q:  For how long are the email and SMS one-time passcode valid?**
 
- > **Ответ.** Длительность сеанса сброса пароля — 105 минут. Это означает, что с начала операции сброса пароля у пользователя есть 105 минут, чтобы сбросить свой пароль. По истечении этого времени одноразовый секретный код, полученный по электронной почте или в SMS, становится недействительным.
+ > **A:** The session lifetime for password reset is 105 minutes. This means that from the beginning of the password reset operation, the user has 105 minutes to reset his or her password. The email and SMS one-time passcode are invalid after this time period expires.
 
 
-## Отчеты об управлении паролями
+## <a name="password-management-reports"></a>Password Management reports
 
- - **Вопрос. Через какое время данные отображаются в отчетах об управлении паролями?**
+ - **Q:  How long does it take for data to show up on the password management reports?**
 
- > **Ответ.** Обычно данные появляются в отчетах об управлении паролями в течение 5–10 минут. Но иногда на это может уйти до одного часа.
+ > **A:** Data should appear on the password management reports within 5-10 minutes. It some instances it may take up to an hour to appear.
 
- - **Вопрос. Как можно фильтровать отчеты об управлении паролями?**
+ - **Q:  How can I filter the password management reports?**
 
- > **Ответ.** Отчеты можно фильтровать с помощью кнопки с изображением лупы справа от заголовков столбцов в верхней части отчета (см. снимок экрана). Для более сложной фильтрации откройте отчет в программе Excel и создайте сводную таблицу.
+ > **A:** You can filter the password management reports by clicking the small magnifying glass to the extreme right of the column labels, towards the top of the report (see screenshot). If you want to do richer filtering, you can download the report to excel and create a pivot table.
 
   ![][002]
 
- - **Вопрос. Каково максимальное число событий, которые хранятся в отчетах об управлении паролями?**
+ - **Q: What is the maximum number of events are stored in the password management reports?**
 
- > **Ответ.** В отчетах об управлении паролями хранится до 1000 событий сброса паролей или событий регистрации данных для сброса паролей. Мы работаем над тем, чтобы увеличить это количество.
+ > **A:** Up to 1,000 password reset or password reset registration events are stored in the password management reports.  We are working to expand this number to include more events.
 
- - **Вопрос. Какой промежуток времени охватывают отчеты об управлении паролями?**
+ - **Q:  How far back do the password management reports go?**
 
- > **Ответ.** Отчеты об управлении паролями включают операции за последние 30 дней. В настоящее время мы работаем над увеличением этого периода. Сейчас, если вам нужно вести архив этих данных, их можно периодически скачивать и сохранять в отдельном месте.
+ > **A:** The password management reports show operations occurring within the last 30 days. We are currently investigating how to make this a longer time period. For now, if you need to archive this data, you can download the reports periodically and save them in a separate location.
 
- - **Вопрос. Существует ли максимальное количество строк, которые могут отображаться в отчетах об управлении паролями?**
+ - **Q:  Is there a maximum number of rows that can appear on the password management reports?**
 
- > **Ответ.** Да. Каждый отчет может вмещать не более 1000 строк — как в пользовательском интерфейсе, так и в скачанном файле. В данный момент мы работаем над увеличением этого количества.
+ > **A:** Yes, a maximum of 1,000 rows may appear on either of the Password Management reports, whether they are being shown in the UI or being downloaded. We are currently investigating how to increase this limit.
 
- - **Вопрос. Есть ли API-интерфейс для доступа к данным сброса паролей или регистрации данных отчетов?**
+ - **Q:  Is there an API to access the password reset or registration reporting data?**
 
- > **Ответ.** Да. Чтобы узнать о том, как получить доступ к потоку данных отчетов о сбросе паролей, обратитесь к следующей документации. [Получение доступа к отчетам с событиями сброса паролей программным образом](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprActivityEvent).
+ > **A:** Yes, please see the following documentation to learn how you can access the password reset reporting data stream.  [Learn how to access password reset reporting events programmatically](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprActivityEvent).
 
-## Обратная запись паролей
- - **Вопрос. Что происходит во время обратной записи паролей?**
+## <a name="password-writeback"></a>Password Writeback
+ - **Q:  How does Password Writeback work behind the scenes?**
 
- > **Ответ.** В разделе [Как работает обратная запись паролей](active-directory-passwords-learn-more.md#how-password-writeback-works) подробно описано, что происходит при включении обратной записи паролей и как данные перемещаются через систему обратно в локальную среду. Подраздел [Модель безопасности обратной записи паролей](active-directory-passwords-learn-more.md#password-writeback-security-model) в разделе "Как работает обратная запись паролей" содержит информацию о том, как обеспечить высокий уровень безопасности этой службы.
+ > **A:** See [How Password Writeback works](active-directory-passwords-learn-more.md#how-password-writeback-works) for a detailed explanation of what happens when you enable Password Writeback, as well as how data flows through the system back into your on-premises environment. See [Password Writeback security model](active-directory-passwords-learn-more.md#password-writeback-security-model) in How Password Writeback works to learn how we ensure Password Writeback is a highly secure service.
 
- - **Вопрос. Как быстро происходит обратная запись паролей? Существует ли задержка синхронизации, как при синхронизации хэша паролей?**
+ - **Q:  How long does Password Writeback take to work?  Is there a synchronization delay like with password hash sync?**
 
- > **Ответ.** Обратная запись паролей происходит мгновенно. Для этого используется синхронный конвейер, принцип работы которого принципиально отличается от синхронизации хэша паролей. При обратной записи паролей пользователи сразу узнают о результате сброса или смены пароля. Среднее время успешной операции обратной записи не превышает 500 мс.
+ > **A:** Password Writeback is instant. It is a synchronous pipeline that works fundamentally differently than password hash synchronization. Password Writeback allows users to get realtime feedback about the success of their password reset or change operation. The average time for a successful writeback of a password is under 500 ms.
 
- - **Вопрос. Для каких типов учетных записей работает обратная запись паролей?**
+ - **Q:  What types of accounts does Password Writeback work for?**
 
- > **Ответ.** Обратная запись паролей может применяться для федеративных пользователей и пользователей с синхронизацией хэша пароля.
+ > **A:** Password Writeback works for Federated and Password Hash Sync’d users.
 
- - **Вопрос. Соблюдает ли служба обратной записи паролей политики, применяемые к паролям в моем домене?**
+ - **Q:  Does Password Writeback enforce my domain’s password policies?**
 
- > **Ответ.** Да, служба обратной записи паролей соблюдает настройки срока действия пароля, журнала, сложности, фильтров и другие ограничения, установленные для паролей в локальном домене.
+ > **A:** Yes, Password Writeback enforces password age, history, complexity, filters and any other restriction you may put in place on passwords in your local domain.
 
- - **Вопрос. Защищена ли служба обратной записи паролей? Насколько можно быть уверенным, что ее не взломают?**
+ - **Q:  Is Password Writeback secure?  How can I be sure I won’t get hacked?**
 
- > **Ответ.** Да, служба обратной записи паролей надежно защищена. Дополнительные сведения о 4 уровнях безопасности, реализованных в службе обратной записи паролей, см. в разделе "Как работает обратная запись паролей" в подразделе [Модель безопасности обратной записи паролей](active-directory-passwords-learn-more.md#password-writeback-security-model).
-
-
+ > **A:** Yes, Password Writeback is extremely secure. To read more about the 4 layers of security implemented by the Password Writeback service, check out the [Password Writeback security model](active-directory-passwords-learn-more.md#password-writeback-security-model) in How Password Writeback works.
 
 
-## Ссылки на документацию по сбросу паролей
-Ниже приведены ссылки на все страницы документации по службе сброса паролей Azure AD.
 
-* **Вы здесь потому, что возникают проблемы при входе?** Если это так, [с помощью этих инструкций можно изменить и сбросить пароль](active-directory-passwords-update-your-own-password.md).
-* [**Как работает служба**](active-directory-passwords-how-it-works.md) — узнайте, из каких шести компонентов состоит служба и за что отвечает каждый из них.
-* [**Приступая к работе**](active-directory-passwords-getting-started.md) — узнайте, как предоставить пользователям возможность сбрасывать и менять свои облачные и локальные пароли.
-* [**Настройка**](active-directory-passwords-customize.md) — узнайте, как настроить оформление и функциональность службы в соответствии с потребностями организации.
-* [**Рекомендации**](active-directory-passwords-best-practices.md) — узнайте, как быстро развернуть службу и эффективно управлять паролями в организации.
-* [**Аналитика**](active-directory-passwords-get-insights.md) — узнайте об интегрированных функциях отчетности.
-* [**Устранение неполадок**](active-directory-passwords-troubleshoot.md) — узнайте, как быстро устранять проблемы, связанные со службой.
-* [**Дополнительные сведения**](active-directory-passwords-learn-more.md) — ознакомьтесь с технической стороной работы службы.
+
+## <a name="links-to-password-reset-documentation"></a>Links to password reset documentation
+Below are links to all of the Azure AD Password Reset documentation pages:
+
+* **Are you here because you're having problems signing in?** If so, [here's how you can change and reset your own password](active-directory-passwords-update-your-own-password.md).
+* [**How it works**](active-directory-passwords-how-it-works.md) - learn about the six different components of the service and what each does
+* [**Getting started**](active-directory-passwords-getting-started.md) - learn how to allow you users to reset and change their cloud or on-premises passwords
+* [**Customize**](active-directory-passwords-customize.md) - learn how to customize the look & feel and behavior of the service to your organization's needs
+* [**Best practices**](active-directory-passwords-best-practices.md) - learn how to quickly deploy and effectively manage passwords in your organization
+* [**Get insights**](active-directory-passwords-get-insights.md) - learn about our integrated reporting capabilities
+* [**Troubleshooting**](active-directory-passwords-troubleshoot.md) - learn how to quickly troubleshoot problems with the service
+* [**Learn more**](active-directory-passwords-learn-more.md) - go deep into the technical details of how the service works
 
 
 [001]: ./media/active-directory-passwords-faq/001.jpg "Image_001.jpg"
 [002]: ./media/active-directory-passwords-faq/002.jpg "Image_002.jpg"
 
-<!---HONumber=AcomDC_0713_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

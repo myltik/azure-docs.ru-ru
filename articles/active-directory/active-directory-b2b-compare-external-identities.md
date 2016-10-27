@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Сравнение возможностей управления внешними удостоверениями с помощью Azure Active Directory | Microsoft Azure"
-   description="Здесь сравниваются возможности службы совместной работы Azure AD B2B, B2C и мультитенантного приложения Azure AD для проверки подлинности и авторизации с использованием внешних удостоверений"
+   pageTitle="Comparing capabilities for managing external identities using Azure Active Directory | Microsoft Azure"
+   description="Compares Azure Active Directory B2B collaboration, B2C, and Multi-tenant App for supporting authentication and authorization for external identities"
    services="active-directory"
    documentationCenter="" 
    authors="arvindsuthar"
@@ -17,38 +17,43 @@
    ms.date="02/24/2016"
    ms.author="asuthar"/>
 
-# Сравнение возможностей управления внешними удостоверениями с помощью Azure Active Directory
 
-Помимо управления доступом мобильных сотрудников к приложениям SaaS, Azure Active Directory (Azure AD) позволяет предоставлять общий доступ к ресурсам компании бизнес-партнерам и создавать приложения для предприятий и пользователей.
+# <a name="comparing-capabilities-for-managing-external-identities-using-azure-active-directory"></a>Comparing capabilities for managing external identities using Azure Active Directory
 
-## Разработка приложений для предприятий
+In addition to managing mobile workforce access to SaaS apps, Azure Active Directory (Azure AD) can help your organization share resources with business partners and deliver applications to businesses and consumers.
 
-Ваша компания предоставляет предприятиям службу или приложение по обработке платежных ведомостей? Благодаря платформе удостоверений Azure AD вы можете создавать приложения, которые легко интегрируются с платформами миллионов организаций, которые уже настроили службу Azure AD как часть развертывания Office 365 или других корпоративных служб.
+## <a name="developing-applications-for-businesses"></a>Developing applications for businesses
 
-**Пример**. Дистрибьютор фармацевтических товаров предоставляет материалы медицинского назначения и медицинские информационные системы для сферы здравоохранения. Им нужно было создать аналитическое приложение для врачебных кабинетов, позволяющее клиентам самостоятельно управлять своими удостоверениями. Эта компания использует службу Azure AD в качестве платформы удостоверений для приложения управления врачебной практикой. Во время регистрации клиентам по необходимости предоставляются удостоверения службы Azure AD. Дополнительные сведения см. в [руководстве разработчика по Azure Active Directory](active-directory-developers-guide.md).
+Do you provide a service or application, such as a payroll service, to businesses? Azure AD provides the identity platform that allows you to build applications that seamlessly integrate with millions of organizations that have already configured Azure AD as part of deploying Office 365 or other enterprise services.
 
-## Предоставление доступа к корпоративным ресурсам бизнес-партнерам
+**Example:** A pharmaceutical distributor provides medical supplies and information systems to the healthcare industry. They needed to field an analytics application to medical practices and wanted customers to manage their own identities. This company chose Azure AD as the identity platform for their practice management application, providing Azure AD identities to their customers at sign up when necessary. For more information, see [Azure Active Directory developer's guide](active-directory-developers-guide.md).
 
-У вас есть бизнес-партнеры или другие партнеры вне компании, которым нужен доступ к ресурсам вашего предприятия, например к сайту SharePoint или системе ERP? Администраторы Azure AD могут предоставить внешним пользователям единый доступ к корпоративным приложениям, вне зависимости от того, существуют ли они в службе Azure AD. Это повышает безопасность, так как именно вы управляете политиками доступа компании. Если пользователи покинули партнерскую компанию, они теряют доступ к корпоративным приложениям. Кроме того, это упрощает администрирование. Больше нет необходимости управлять внешним каталогом партнеров или связями с федерацией партнера.
+## <a name="enabling-business-partner-access-to-your-corporate-resources"></a>Enabling business partner access to your corporate resources
 
-**Пример**. Полиграфическая компания предоставляет предприятиям розничной торговли услуги печати фотографий и управляет самой большой розничной сетью печатных ларьков. Благодаря службе Azure AD пользователи бизнес-партнеров розничной торговли могут скачивать последние рекламные материалы и повторно заказывать материалы для обработки фотографий через экстрасеть поставщика, используя собственные учетные данные. Дополнительные сведения см. в разделе [Служба Azure Active Directory B2B Collaboration](active-directory-b2b-what-is-azure-ad-b2b.md).
+Do you have business partners or others outside your company who need to access your enterprise resources, such as a SharePoint site or your ERP system? Azure AD enables admins to grant external users (who may or may not exist in Azure AD) single sign on access to corporate applications. This improves security as users lose access when they leave the partner organization, while you control access policies within your organization. This also simplifies administration as you don’t need to manage an external partner directory or per partner federation relationships.
 
-## Разработка приложений для клиентов
+**Example:** An imaging company provides retailers with photo imaging services and operates the largest retail network of printing kiosks. They chose Azure AD to enable thousands of users at their retail business partners to use their own credentials to download the latest partner marketing materials and reorder photo processing supplies from the company’s supplier extranet. For more information, see [Azure AD B2B collaboration](active-directory-b2b-what-is-azure-ad-b2b.md).
 
-Вам нужна безопасная и экономичная площадка для публикации онлайн-приложений, наподобие витрины розничного магазина, для миллионов пользователей? Azure AD предоставляет платформу, в которою можно войти через социальную сеть или с помощью имени пользователя и пароля. Здесь пользователи вашего приложения могут самостоятельно регистрироваться и сбрасывать пароль. Это повышает удобство для потребителей и снижает нагрузку на разработчиков.
+## <a name="developing-applications-for-consumers"></a>Developing applications for consumers
 
-**Пример**. Самый известный спортивный клуб в мире хочет напрямую привлечь 450 миллионов фанатов. Для этого разработано мобильное приложение, которое проверяет подлинность пользователей и хранит их профили, используя службу Azure AD. Фанаты легко регистрируются и входят через учетные записи социальных сетей, например Facebook. Кроме этого, они также могут войти с помощью имени пользователя и пароля, чтобы удобно работать на платформах iOS, Android и Windows Phone. Платформа Azure AD значительно уменьшила пользовательский код и в то же время обеспечила настраиваемую фирменную символику и устранила проблемы безопасности, утечки данных и масштабируемости. Дополнительные сведения см. в разделе [Azure AD B2C](https://azure.microsoft.com/documentation/services/active-directory-b2c/).
+Do you need to securely and cost-effectively publish online applications, such as a retail store front, to millions of consumers? Azure AD provides a platform enabling social as well as username/password sign-in, branded self-service sign up, and self-service password reset for consumers of your application. This increases convenience for your consumers while reducing load on your developers.
 
-## Сравнение возможностей службы Azure AD
+**Example:** The \#1 sports franchise in the world needed to directly engage with its 450 million fans. To do this, they built a mobile app using Azure AD for user authentication and profile storage. Fans get simplified registration and sign-in through use of social accounts like Facebook, or they can use traditional username/passwords for a seamless experience across iOS, Android, and Windows phones. Building on the established Azure AD platform significantly reduced custom code while giving the franchise customized branding and alleviating concerns about security, data breaches, and scalability. For more information, see [Azure AD B2C](https://azure.microsoft.com/documentation/services/active-directory-b2c/).
 
-В каждом сценарии, приведенном в этой статье, задействованы возможности службы Azure AD. Эта таблица позволит выделить самые важные для вас возможности:
+## <a name="comparison-of-azure-ad-capabilities"></a>Comparison of Azure AD capabilities
 
-| **Целевая аудитория или задачи продукта** | [Мультитенантное приложение SaaS для Azure AD](active-directory-developers-guide.md) | [Служба совместной работы Azure AD B2B](active-directory-b2b-what-is-azure-ad-b2b.md) | [Azure AD B2C](https://azure.microsoft.com/documentation/services/active-directory-b2c/) |
+Each of the scenarios already discussed in this article is addressed by capabilities within Azure AD. This table should help clarify which capabilities are most relevant to you:
+
+| **Consider this product...**       | [Azure AD multi-tenant SaaS app](active-directory-developers-guide.md)    | [Azure AD B2B collaboration](active-directory-b2b-what-is-azure-ad-b2b.md)        | [Azure AD B2C](https://azure.microsoft.com/documentation/services/active-directory-b2c/)                |
 |-----------------------|-------------------------|----------------------------|------------------------|
-| **Требуется предоставлять** | службу для предприятий | партнерский доступ к приложениям | службу для клиентов |
-| **Близкая область** | Дистрибьютор фармацевтических товаров | Полиграфическая компания | Спортивный клуб |
-| **Цель развертывания приложения** | Управление врачебной практикой | Экстрасеть поставщика | Футбольные фанаты |
-| **Целевая аудитория** | Врачебные приемные кабинеты | Утвержденные бизнес-партнеры | Любой пользователь с электронной почтой |
-| **Условия доступа** | Согласие администратора | Приглашение от администратора | Регистрация пользователя |
+| **If I need to provide...** | a service to businesses | partner access to my apps  | a service to consumers |
+| **And I am similar to...**  | Pharma distributor      | Imaging company            | Sports franchise       |
+| **Deploying an app for...**  | Practice management     | Supplier extranet          | Soccer fans            |
+| **Targeting...**        | Doctor’s offices        | Approved business partners | Anyone with email      |
+| **Accessible when...**      | Customer admin consents | My admin invites           | The consumer signs up      |
 
-<!---HONumber=AcomDC_0224_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

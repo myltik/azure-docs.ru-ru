@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Интеграция оповещений центра безопасности Azure с помощью интеграции журналов Azure (предварительная версия) | Microsoft Azure"
-   description="Эта статья поможет вам приступить к интеграции оповещений центра безопасности Azure с помощью интеграции журналов Azure."
+   pageTitle="Integrating Azure Security Center alerts with Azure log integration (Preview) | Microsoft Azure"
+   description="This article helps you get started with integrating Security Center alerts with Azure log integration."
    services="security-center"
    documentationCenter="na"
    authors="TerryLanfear"
@@ -16,78 +16,83 @@
    ms.date="08/08/2016"
    ms.author="terrylan"/>
 
-# Интеграция оповещений центра обеспечения безопасности с помощью интеграции журналов Azure (предварительная версия)
 
-Многие операции системы безопасности и групп реагирования на инциденты полагаются на решение для сбора данных безопасности и управления событиями (SIEM, Security Information and Event Management) в качестве отправной точки для рассмотрения и исследования оповещений системы безопасности. С помощью интеграции журналов Azure клиенты могут синхронизировать оповещения центра безопасности Azure, а также события безопасности виртуальных машин, собранные системой диагностики Azure и журналами аудита Azure, с решением Log Analytics или SIEM в режиме, близком к реальному времени.
+# <a name="integrating-security-center-alerts-with-azure-log-integration-(preview)"></a>Integrating Security Center alerts with Azure log integration (Preview)
 
-Интеграция журналов Azure работает с HP ArcSight, Splunk, IBM QRadar и другими решениями.
+Many security operations and incident response teams rely on a Security Information and Event Management (SIEM) solution as the starting point for triaging and investigating security alerts. With Azure log integration, customers can sync Azure Security Center alerts, along with virtual machine security events collected by Azure Diagnostics and Azure Audit Logs, with their log analytics or SIEM solution in near real-time.
 
-## Какие журналы можно интегрировать?
+Azure log integration works with HP ArcSight, Splunk, IBM QRadar, and others.
 
-Azure создает подробные журналы для каждой службы. Они подразделяются на следующие категории:
+## <a name="what-logs-can-i-integrate?"></a>What logs can I integrate?
 
-- **Журналы управления**, которые дают информацию о таких операциях Azure Resource Manager, как CREATE, UPDATE и DELETE.
-- **Журналы плоскости данных**, которые содержат сведения о событиях, возникающих при использовании ресурсов Azure. Например, к этой категории относится журнал событий Windows, содержащий журналы приложений и безопасности на виртуальной машине.
+Azure produces extensive logging for every service. These logs are categorized as:
 
-Интеграция журналов Azure в настоящее время поддерживает интеграцию таких элементов:
+- **Control/Management logs** which give visibility into the Azure Resource Manager CREATE, UPDATE, and DELETE operations.
+- **Data Plane logs** which give visibility into the events raised when using an Azure resource. An example is the Windows Event log - security and application logs in a virtual machine.
 
-- журналы виртуальных машин Azure;
-- журналы аудита Azure;
-- оповещения центра безопасности Azure.
+Azure log integration currently supports the integration of:
 
-## Установка интеграции журналов Azure
+- Azure VM logs
+- Azure Audit Logs
+- Azure Security Center alerts
 
-Скачайте компонент [интеграции журналов Azure](https://www.microsoft.com/download/details.aspx?id=53324).
+## <a name="install-azure-log-integration"></a>Install Azure log integration
 
-Служба интеграции журналов Azure собирает данные телеметрии с компьютера, на котором она установлена. Собираются следующие данные телеметрии:
+Download [Azure log integration](https://www.microsoft.com/download/details.aspx?id=53324).
 
-- исключения, возникающие при выполнении интеграции журналов Azure;
-- метрики о количестве обработанных запросов и событий;
-- статистические данные использования параметров командной строки Azlog.exe.
+The Azure log integration service collects telemetry data from the machine on which it is installed.  Telemetry data collected is:
 
-> [AZURE.NOTE] Сбор данных телеметрии можно отключить, сняв этот флажок.
+- Exceptions that occur during execution of Azure log integration
+- Metrics about the number of queries and events processed
+- Statistics about which Azlog.exe command line options are being used
 
-## Интеграция оповещений центра безопасности и журналов аудита Azure
+> [AZURE.NOTE] You can turn off collection of telemetry data by unchecking this option.
 
-1. Откройте окно командной строки и с помощью команды **cd** перейдите в каталог **c:\\Program Files\\Microsoft Azure Log Integration**.
+## <a name="integrate-azure-audit-logs-and-security-center-alerts"></a>Integrate Azure Audit Logs and Security Center alerts
 
-2. Выполните команду **azlog createazureid**, чтобы создать [субъект-службу Azure Active Directory](../active-directory/active-directory-application-objects.md) в клиентах Azure Active Directory (AD), в которых размещены подписки Azure.
+1. Open the command prompt and **cd** into **c:\Program Files\Microsoft Azure Log Integration**.
 
-    Вам будет предложено ввести учетные данные Azure.
+2. Run the **azlog createazureid** command to create an [Azure Active Directory Service Principal](../active-directory/active-directory-application-objects.md) in the Azure Active Directory (AD) tenants that host the Azure subscriptions.
 
-    > [AZURE.NOTE] Необходимо быть владельцем или администратором подписки.
+    You will be prompted for your Azure login.
 
-    Проверка подлинности в Azure осуществляется через Azure AD. Создание субъекта-службы для интеграции журналов Azure приводит к созданию удостоверения Azure AD, которому будет предоставлен доступ на чтение из подписок Azure.
+    > [AZURE.NOTE] You must be the subscription Owner or a Co-Administrator of the subscription.
 
-3. Выполните команду **azlog authorize <SubscriptionID>**, чтобы предоставить субъекту-службе, созданному на шаге 2, права на чтение из подписки (роль "Читатель"). Если не указывать **SubscriptionID**, то субъекту-службе будет назначена роль "Читатель" для всех подписок, к которым у вас есть доступ.
+    Authentication to Azure is done through Azure AD.  Creating a service principal for Azure log integration will create the Azure AD identity that will be given access to read from Azure subscriptions.
 
-    > [AZURE.NOTE] Если выполнить команду **authorize** сразу же после команды **createazureid**, может появиться предупреждение. Это связано с тем, что существует некоторая задержка между созданием учетной записи Azure AD и ее доступностью для использования. Чтобы избежать таких предупреждений, следует подождать около 10 секунд после выполнения команды **createazureid** и лишь затем выполнять команду **authorize**.
+3. Run the **azlog authorize <SubscriptionID>** command to assign Reader access on the subscription to the service principal created in step 2. If you don’t specify a **SubscriptionID**, then the service principal will be assigned the Reader role to all subscriptions to which you have access.
 
-4. Проверьте следующие папки, в которых должны находиться JSON-файлы журнала аудита:
+    > [AZURE.NOTE] You may see warnings if you run the **authorize** command immediately after the **createazureid** command because there is some latency between when the Azure AD account is created and when the account is available for use. If you wait about 10 seconds after running the **createazureid** command to run the **authorize** command, then you should not see these warnings.
 
-  - **c:\\Users\\azlog\\AzureResourceManagerJson;**
-  - **c:\\Users\\azlog\\AzureResourceManagerJsonLD.**
+4. Check the following folders to confirm that the Audit log JSON files are there:
 
-5. Проверьте следующие папки, в которых должны находиться оповещения центра безопасности:
+  - **c:\Users\azlog\AzureResourceManagerJson**
+  - **c:\Users\azlog\AzureResourceManagerJsonLD**
 
-  - **c:\\Users\\azlog\\AzureSecurityCenterJson;**
-  - **c:\\Users\\azlog\\AzureSecurityCenterJsonLD.**
+5. Check the following folders to confirm that Security Center alerts exist in them:
 
-6. Перенаправьте стандартный соединитель пересылки файлов SIEM в соответствующую папку, чтобы передавать данные экземпляру SIEM. Конфигурацию SIEM можно найти на [этой странице](https://azsiempublicdrops.blob.core.windows.net/drops/ALL.htm).
+  - **c:\Users\azlog\ AzureSecurityCenterJson**
+  - **c:\Users\azlog\AzureSecurityCenterJsonLD**
 
-Если у вас есть вопросы о службе интеграции журналов Azure, отправьте электронное сообщение на адрес [AzSIEMteam@microsoft.com](mailto:AzSIEMteam@microsoft.com).
+6. Point the standard SIEM file forwarder connector to the appropriate folder to pipe the data to the SIEM instance. Please refer to [SIEM configurations](https://azsiempublicdrops.blob.core.windows.net/drops/ALL.htm) on your SIEM configuration.
 
-## Дальнейшие действия
+If you have questions about Azure Log Integration, please send an email to [AzSIEMteam@microsoft.com] (mailto:AzSIEMteam@microsoft.com)
 
-Дополнительные сведения о журналах аудита Azure и определениях свойств см. здесь:
+## <a name="next-steps"></a>Next steps
 
-- [Операции аудита с помощью диспетчера ресурсов](../resource-group-audit.md)
-- [Список событий управления в подписке](https://msdn.microsoft.com/library/azure/dn931934.aspx) — здесь описано получение событий журнала аудита.
+To learn more about Azure Audit Logs and property definitions, see:
 
-Дополнительные сведения о Центре безопасности см. в следующих статьях:
+- [Audit operations with Resource Manager](../resource-group-audit.md)
+- [List the management events in a subscription](https://msdn.microsoft.com/library/azure/dn931934.aspx) - To retrieve audit log events.
 
-- [Управление оповещениями безопасности в центре безопасности Azure и реагирование на них](security-center-managing-and-responding-alerts.md). Узнайте, как управлять оповещениями системы безопасности и реагировать на них.
-- [Центр безопасности Azure: часто задаваемые вопросы](security-center-faq.md). Часто задаваемые вопросы об использовании этой службы.
-- [Блог по безопасности Azure](http://blogs.msdn.com/b/azuresecurity/). Последние новости и информация об обеспечении безопасности в Azure.
+To learn more about Security Center, see the following:
 
-<!---HONumber=AcomDC_0921_2016-->
+- [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md) — Learn how to manage and respond to security alerts.
+- [Azure Security Center FAQ](security-center-faq.md) — Find frequently asked questions about using the service.
+- [Azure Security blog](http://blogs.msdn.com/b/azuresecurity/) — Get the latest Azure security news and information.
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

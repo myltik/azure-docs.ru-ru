@@ -1,55 +1,57 @@
-###Предоставление Mobile Engagement доступа к ключу API GCM
+###<a name="grant-mobile-engagement-access-to-your-gcm-api-key"></a>Grant Mobile Engagement access to your GCM API Key
 
-Чтобы разрешить службе Mobile Engagement отправлять push-уведомления от вашего имени, необходимо предоставить ей доступ к ключу API. Это можно сделать, настроив и введя ключ в портал Mobile Engagement.
+To allow Mobile Engagement to send push notifications on your behalf, you need to grant it access to your API Key. This is done by configuring and entering your key into the Mobile Engagement portal.
 
-1. На портале Azure войдите в приложение, которое используется для этого проекта, и нажмите кнопку **Выполнить охват** внизу страницы.
+1. From your Azure Classic Portal, ensure you're in the app we're using for this project, and then click the **Engage** button at the bottom:
 
-	![](./media/mobile-engagement-android-send-push/engage-button.png)
+    ![](./media/mobile-engagement-android-send-push/engage-button.png)
 
-2. Затем последовательно выберите **Параметры** и **Системное push-уведомление**, чтобы ввести ключ GCM.
+2. Then click the **Settings** -> **Native Push** section to enter your GCM Key:
 
-	![](./media/mobile-engagement-android-send-push/engagement-portal.png)
+    ![](./media/mobile-engagement-android-send-push/engagement-portal.png)
 
-3. В разделе **Параметры GCM** возле элемента **Ключ API** щелкните значок **правки**, как показано ниже:
+3. Click the **Edit** icon in front of **API Key** in the **GCM Settings** section as shown below:
 
-	![](./media/mobile-engagement-android-send-push/native-push-settings.png)
+    ![](./media/mobile-engagement-android-send-push/native-push-settings.png)
 
-4. Во всплывающем окне вставьте ключ сервера GCM, полученный ранее, и нажмите кнопку **Ok**.
+4. In the pop-up, paste the GCM Server Key you obtained before and then click **Ok**.
 
-	![](./media/mobile-engagement-android-send-push/api-key.png)
+    ![](./media/mobile-engagement-android-send-push/api-key.png)
 
-##<a id="send"></a>Отправка уведомления в приложение
+##<a name="<a-id="send"></a>send-a-notification-to-your-app"></a><a id="send"></a>Send a notification to your app
 
-Теперь мы создадим простую кампанию push-уведомлений, которая будет отправлять push-уведомления в приложение.
+We will now create a simple push notification campaign that sends a push notification to our app.
 
-1. Перейдите на вкладку **РЕКЛАМНАЯ КАМПАНИЯ** на портале Mobile Engagement.
+1. Navigate to the **REACH** tab in your Mobile Engagement portal.
 
-2. Щелкните **Создать объявление**, чтобы создать кампанию push-уведомлений.
+2. Click **New announcement** to create your push notification campaign.
 
-	![](./media/mobile-engagement-android-send-push/new-announcement.png)
+    ![](./media/mobile-engagement-android-send-push/new-announcement.png)
 
-3. Выполните следующие шаги, чтобы настроить первое поле кампании:
+3. Set up the first field of your campaign through the following steps:
 
-	![](./media/mobile-engagement-android-send-push/campaign-first-params.png)
+    ![](./media/mobile-engagement-android-send-push/campaign-first-params.png)
 
-	а. Присвойте имя кампании.
+    a. Name your campaign.
 
-	b. Выберите для параметра **Тип доставки** значение *Системное уведомление -> Простое*. Это простой тип push-уведомлений Android, в состав которых входит заголовок и небольшая строка текста.
+    b. Select the **Delivery type** as *System notification -> Simple*: This is the simple Android push notification type that features a title and a small line of text.
 
-	c. Выберите для параметра **Время доставки** значение *Любое время*, чтобы приложение могло принимать уведомления независимо от того, запущено оно или нет.
+    c. Select **Delivery time** as *Any time* to allow the app to receive a notification whether the app is started or not.
 
-	г) В тексте уведомления введите **заголовок**, который будет отображаться в push-уведомлении полужирным шрифтом.
+    d. In the notification text type the **Title** which will be in bold in the push.
 
-	д. Затем введите текст **сообщения**.
+    e. Then type your **Message**
 
-4. Прокрутите окно вниз и в разделе **Содержимое** выберите **Только уведомления**.
+4. Scroll down, and in the **Content** section, select **Notification only**.
 
-	![](./media/mobile-engagement-android-send-push/campaign-content.png)
+    ![](./media/mobile-engagement-android-send-push/campaign-content.png)
 
-5. Вы настроили простейшую базовую кампанию. Теперь прокрутите окно вниз и нажмите кнопку **Создать**, чтобы сохранить кампанию.
+5. You're done setting the most basic campaign possible. Now scroll down again and click the **Create** button to save your campaign.
 
-6. Затем щелкните **Активировать**, чтобы активировать кампанию и начать отправку push-уведомлений.
+6. Last step: click **Activate** to activate your campaign to send push notifications.
 
-	![](./media/mobile-engagement-android-send-push/campaign-activate.png)
+    ![](./media/mobile-engagement-android-send-push/campaign-activate.png)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!--HONumber=Oct16_HO2-->
+
+

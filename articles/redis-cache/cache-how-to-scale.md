@@ -1,91 +1,92 @@
 <properties 
-	pageTitle="Как масштабировать кэш Redis для Azure | Microsoft Azure" 
-	description="Узнайте, как масштабировать экземпляры кэша Redis для Azure" 
-	services="redis-cache" 
-	documentationCenter="" 
-	authors="steved0x" 
-	manager="douge" 
-	editor=""/>
+    pageTitle="How to Scale Azure Redis Cache | Microsoft Azure" 
+    description="Learn how to scale your Azure Redis Cache instances" 
+    services="redis-cache" 
+    documentationCenter="" 
+    authors="steved0x" 
+    manager="douge" 
+    editor=""/>
 
 <tags 
-	ms.service="cache" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="cache-redis" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/07/2016" 
-	ms.author="sdanie"/>
+    ms.service="cache" 
+    ms.workload="tbd" 
+    ms.tgt_pltfrm="cache-redis" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="09/07/2016" 
+    ms.author="sdanie"/>
 
-# Масштабирование кэша Redis для Azure
 
->[AZURE.NOTE] Функция масштабирования кэша Redis для Azure предоставляется в предварительной версии.
+# <a name="how-to-scale-azure-redis-cache"></a>How to Scale Azure Redis Cache
 
-Кэш Redis для Azure предлагает разные варианты кэша, которые обеспечивают гибкость в выборе размера и функций кэша. Если требования вашего приложения изменятся после создания кэша, можно масштабировать размер кэша, используя колонку **изменения ценовой категории** на [портале Azure](https://portal.azure.com).
+>[AZURE.NOTE] The Azure Redis Cache scaling feature is currently in preview. 
 
-## Выбор времени масштабирования
+Azure Redis Cache has different cache offerings which provide flexibility in the choice of cache size and features. If the requirements of your application change after a cache is created, you can scale the size of the cache using the **Change pricing tier** blade in the [Azure portal](https://portal.azure.com).
 
-Можно использовать функции [мониторинга](cache-how-to-monitor.md) кэша Redis для Azure, чтобы отслеживать работоспособность и производительность приложений кэша и определить, есть ли необходимость в масштабировании кэша.
+## <a name="when-to-scale"></a>When to scale
 
-Можно отслеживать следующие метрики для определения необходимости масштабирования.
+You can use the [monitoring](cache-how-to-monitor.md) features of Azure Redis Cache to monitor the health and performance of your cache applications and to help determine if there is a need to scale the cache. 
 
--	Загрузка сервера Redis
--	Использование памяти
--	Пропускная способность сети
--	Загрузка ЦП
+You can monitor the following metrics to help determine if you need to scale.
 
-Если выяснилось, что ваш кэш больше не удовлетворяет требованиям приложения, можно перейти в более высокую или низкую ценовую категорию кэша, которая подходит для вашего приложения. Дополнительные сведения о выборе ценовой категории кэша см. в разделе [Выбор варианта и размера кэша Redis](cache-faq.md#what-redis-cache-offering-and-size-should-i-use).
+-   Redis Server Load
+-   Memory Usage
+-   Network Bandwidth
+-   CPU Usage
 
-## Масштабирование кэша
-Для масштабирования вашего кэша [перейдите к кэшу](cache-configure.md#configure-redis-cache-settings) на [портале Azure](https://portal.azure.com) и выберите **Параметры**, **Ценовая категория**.
+If you determine that your cache is no longer meeting the requirements of your application, you can change to a larger or smaller cache pricing tier that is right for your application. For more information on determining which cache pricing tier to use, see [What Redis Cache offering and size should I use](cache-faq.md#what-redis-cache-offering-and-size-should-i-use).
 
-Кроме того, вы можете щелкнуть раздел **Ценовая категория** в колонке **Кэш Redis**.
+## <a name="scale-a-cache"></a>Scale a cache
+To scale your cache, [browse to the cache](cache-configure.md#configure-redis-cache-settings) in the [Azure portal](https://portal.azure.com) and click **Settings**, **Pricing tier**.
 
-![Ценовой уровень][redis-cache-pricing-tier-part]
+You can also click the **Pricing tier** part in the **Redis Cache** blade.
 
-Выберите нужную ценовую категорию из колонки **Ценовая категория** и нажмите кнопку **Выбрать**.
+![Pricing tier][redis-cache-pricing-tier-part]
 
-![Ценовой уровень][redis-cache-pricing-tier-blade]
+Select the desired pricing tier from the **Pricing tier** blade and click **Select**.
 
->[AZURE.NOTE] Вы можете выполнить масштабирование до другой ценовой категории со следующими ограничениями.
+![Pricing tier][redis-cache-pricing-tier-blade]
+
+>[AZURE.NOTE] You can scale to a different pricing tier with the following restrictions.
 >
->-	Перейти с более высокой ценовой категории на более низкую нельзя.
->    -    Ценовую категорию кэша **Премиум** нельзя изменить на категорию **Базовый** или **Стандартный**.
->    -    Ценовую категорию кэша **Стандартный** нельзя изменить на категорию **Базовый**.
->-	Вы можете выполнить масштабирование кэша с уровня **Базовый** до уровня **Стандартный**, но вам не удастся одновременно с этим изменить размер кэша. Если требуется изменить размер, можно выполнить последующую операцию масштабирования до нужного размера.
->-	Ценовую категорию кэша **Базовый** нельзя изменить сразу на уровень **Премиум**. Необходимо сначала перейти с категории **Базовый** на категорию **Стандартный**, а затем — с категории **Стандартный** на категорию **Премиум**.
->-	Вам не удастся выполнить масштабирование с большего размера до размера **C0 (250 МБ)**.
+>-  You can't scale from a higher pricing tier to a lower pricing tier.
+>    -    You can't scale from a **Premium** cache down to a **Standard** or a **Basic** cache.
+>    -    You can't scale from a **Standard** cache down to a **Basic** cache.
+>-  You can scale from a **Basic** cache to a **Standard** cache but you can't change the size at the same time. If you need a different size, you can do a subsequent scaling operation to the desired size.
+>-  You can't scale from a **Basic** cache directly to a **Premium** cache. You must scale from **Basic** to **Standard** in one scaling operation, and then from **Standard** to **Premium** in a subsequent scaling operation.
+>-  You can't scale from a larger size down to the **C0 (250 MB)** size.
 
-Во время масштабирования кэша до новой ценовой категории состояние **Масштабирование** отображается в колонке **Кэш Redis**.
+While the cache is scaling to the new pricing tier, a **Scaling** status is displayed in the **Redis Cache** blade.
 
-![Масштабирование][redis-cache-scaling]
+![Scaling][redis-cache-scaling]
 
-После завершения масштабирования состояние меняется с **Масштабирование** на **Работает**.
+When scaling is complete, the status changes from **Scaling** to **Running**.
 
-## Автоматизация операции масштабирования
+## <a name="how-to-automate-a-scaling-operation"></a>How to automate a scaling operation
 
-Кроме масштабирования вашего экземпляра кэша Redis для Azure на портале Azure, существует возможность масштабирования с помощью командлетов PowerShell кэша Redis для Azure, интерфейса командной строки Azure и библиотек управления Microsoft Azure (MAML).
+In addition to scaling your Azure Redis Cache instances in the Azure portal, you can scale using Azure Redis Cache PowerShell cmdlets, Azure CLI, and by using the Microsoft Azure Management Libraries (MAML). 
 
--	[Масштабирование с помощью PowerShell](#scale-using-powershell)
--	[Масштабирование с помощью интерфейса командной строки Azure](#scale-using-azure-cli)
--	[Масштабирование с помощью MAML](#scale-using-maml)
+-   [Scale using PowerShell](#scale-using-powershell)
+-   [Scale using Azure CLI](#scale-using-azure-cli)
+-   [Scale using MAML](#scale-using-maml)
 
-### Масштабирование с помощью PowerShell
+### <a name="scale-using-powershell"></a>Scale using PowerShell
 
-Вы можете масштабировать экземпляры кэша Redis для Azure с помощью командлета PowerShell [Set-AzureRmRedisCache](https://msdn.microsoft.com/library/azure/mt634518.aspx) при изменении свойств `Size`, `Sku` или `ShardCount`. В следующем примере демонстрируется масштабирование кэша с именем `myCache` в кэш размером 2,5 ГБ.
+You can scale your Azure Redis Cache instances with PowerShell by using the [Set-AzureRmRedisCache](https://msdn.microsoft.com/library/azure/mt634518.aspx) cmdlet when the `Size`, `Sku`, or `ShardCount` properties are modified. The following example shows how to scale a cache named `myCache` to a 2.5 GB cache. 
 
-	Set-AzureRmRedisCache -ResourceGroupName myGroup -Name myCache -Size 2.5GB
+    Set-AzureRmRedisCache -ResourceGroupName myGroup -Name myCache -Size 2.5GB
 
-Дополнительные сведения о масштабировании с помощью PowerShell см. в разделе [Масштабирование кэша Redis с помощью PowerShell](cache-howto-manage-redis-cache-powershell.md#scale).
+For more information on scaling with PowerShell, see [To scale a Redis cache using Powershell](cache-howto-manage-redis-cache-powershell.md#scale).
 
-### Масштабирование с помощью интерфейса командной строки Azure
+### <a name="scale-using-azure-cli"></a>Scale using Azure CLI
 
-Чтобы выполнить масштабирование экземпляров кэша Redis для Azure с помощью интерфейса командной строки Azure, вызовите команду `azure rediscache set` и передайте ей требуемые изменения в конфигурации, которые включают новый размер, SKU или размер кластера, в зависимости от требуемой операции масштабирования.
+To scale your Azure Redis Cache instances using Azure CLI, call the `azure rediscache set` command and pass in the desired configuration changes that include a new size, sku, or cluster size, depending on the desired scaling operation.
 
-Дополнительные сведения о масштабировании с помощью интерфейса командной строки Azure см. в разделе [Изменение параметров существующего кэша Redis](cache-manage-cli.md#scale).
+For more information on scaling with Azure CLI, see [Change settings of an existing Redis Cache](cache-manage-cli.md#scale).
 
-### Масштабирование с помощью MAML
+### <a name="scale-using-maml"></a>Scale using MAML
 
-Чтобы масштабировать экземпляры кэша Redis для Azure с помощью [библиотек управления Microsoft Azure (MAML)](http://azure.microsoft.com/updates/management-libraries-for-net-release-announcement/), вызовите метод `IRedisOperations.CreateOrUpdate` и передайте ему новый размер `RedisProperties.SKU.Capacity`.
+To scale your Azure Redis Cache instances using the [Microsoft Azure Management Libraries (MAML)](http://azure.microsoft.com/updates/management-libraries-for-net-release-announcement/), call the `IRedisOperations.CreateOrUpdate` method and pass in the new size for the `RedisProperties.SKU.Capacity`.
 
     static void Main(string[] args)
     {
@@ -105,87 +106,87 @@
         client.Redis.CreateOrUpdate(resourceGroupName,cacheName, redisParams);
     }
 
-Подробнее см. в образце [Управление кэшем Redis с помощью MAML](https://github.com/rustd/RedisSamples/tree/master/ManageCacheUsingMAML).
+For more information, see the [Manage Redis Cache using MAML](https://github.com/rustd/RedisSamples/tree/master/ManageCacheUsingMAML) sample.
 
-## Масштабирование: часто задаваемые вопросы
+## <a name="scaling-faq"></a>Scaling FAQ
 
-Следующий список содержит ответы на часто задаваемые вопросы о масштабировании кэша Redis для Azure.
+The following list contains answers to commonly asked questions about Azure Redis Cache scaling.
 
--	[Можно ли выполнять масштабирование кэша до уровня Премиум, с уровня Премиум до другого уровня или в пределах уровня Премиум?](#can-i-scale-to-from-or-within-a-premium-cache)
--	[Нужно ли менять имя кэша и ключи доступа после масштабирования?](#after-scaling-do-i-have-to-change-my-cache-name-or-access-keys)
--	[Как работает масштабирование?](#how-does-scaling-work)
--	[Сохранятся ли данные кэша при масштабировании?](#will-i-lose-data-from-my-cache-during-scaling)
--	[Что происходит с пользовательским параметром databases при масштабировании?](#is-my-custom-databases-setting-affected-during-scaling)
--	[Будет ли кэш доступен во время масштабирования?](#will-my-cache-be-available-during-scaling)
--	[Какие операции не поддерживаются?](#operations-that-are-not-supported)
--	[Сколько времени занимает масштабирование?](#how-long-does-scaling-take)
--	[Как узнать, когда масштабирование завершено?](#how-can-i-tell-when-scaling-is-complete)
--	[Почему эта функция предоставляется в предварительной версии?](#why-is-this-feature-in-preview)
+-   [Can I scale to, from, or within a Premium cache?](#can-i-scale-to-from-or-within-a-premium-cache)
+-   [After scaling, do I have to change my cache name or access keys?](#after-scaling-do-i-have-to-change-my-cache-name-or-access-keys)
+-   [How does scaling work?](#how-does-scaling-work)
+-   [Will I lose data from my cache during scaling?](#will-i-lose-data-from-my-cache-during-scaling)
+-   [Is my custom databases setting affected during scaling?](#is-my-custom-databases-setting-affected-during-scaling)
+-   [Will my cache be available during scaling?](#will-my-cache-be-available-during-scaling)
+-   [Operations that are not supported](#operations-that-are-not-supported)
+-   [How long does scaling take?](#how-long-does-scaling-take)
+-   [How can I tell when scaling is complete?](#how-can-i-tell-when-scaling-is-complete)
+-   [Why is this feature in preview?](#why-is-this-feature-in-preview)
 
-### Можно ли выполнять масштабирование кэша до уровня Премиум, с уровня Премиум до другого уровня или в пределах уровня Премиум?
+### <a name="can-i-scale-to,-from,-or-within-a-premium-cache?"></a>Can I scale to, from, or within a Premium cache?
 
--	Ценовую категорию кэша **Премиум** нельзя изменить на категорию **Базовый** или **Стандартный**.
--	Вы можете переходить от одной ценовой категории кэша **Премиум** к другой.
--	Ценовую категорию кэша **Базовый** нельзя изменить сразу на уровень **Премиум**. Необходимо сначала перейти с категории **Базовый** на категорию **Стандартный**, а затем — с категории **Стандартный** на категорию **Премиум**.
--	Если при создании вашего кэша категории **Премиум** была включена кластеризация, вы можете [изменить размер кластера](cache-how-to-premium-clustering.md#cluster-size). В настоящее время нельзя включить кластеризацию в существовавшем ранее кэше, который был создан без кластеризации.
+-   You can't scale from a **Premium** cache down to a **Basic** or **Standard** pricing tier.
+-   You can scale from one **Premium** cache pricing tier to another.
+-   You can't scale from a **Basic** cache directly to a **Premium** cache. You must first scale from **Basic** to **Standard** in one scaling operation, and then from **Standard** to **Premium** in a subsequent scaling operation.
+-   If you enabled clustering when you created your **Premium** cache, you can [change the cluster size](cache-how-to-premium-clustering.md#cluster-size). At this time you can't enable clustering on a previously existing cache that was created without clustering.
 
-    Дополнительные сведения см. в разделе [Настройка кластеризации для кэша Redis для Azure уровня Премиум](cache-how-to-premium-clustering.md).
+    For more information, see [How to configure clustering for a Premium Azure Redis Cache](cache-how-to-premium-clustering.md).
 
-### Нужно ли менять имя кэша и ключи доступа после масштабирования?
+### <a name="after-scaling,-do-i-have-to-change-my-cache-name-or-access-keys?"></a>After scaling, do I have to change my cache name or access keys?
 
-Нет, имя кэша и ключи не изменяются во время операции масштабирования.
+No, your cache name and keys are unchanged during a scaling operation.
 
-### Как работает масштабирование?
+### <a name="how-does-scaling-work?"></a>How does scaling work?
 
--	При масштабировании кэша уровня **Базовый** до другого размера работа кэша будет завершена. При этом будет выполнена подготовка к работе нового кэша с новым размером. В течение этого времени кэш недоступен и все данные в кэше теряются.
--	При масштабировании кэша уровня **Базовый** до уровня **Стандартный** выполняется подготовка к работе реплики кэша. При этом данные будут скопированы из основного кэша в реплику кэша. Кэш остается доступным в процессе масштабирования.
--	При масштабировании кэша уровня **Стандартный** до другого размера или до кэша **Премиум** одна из реплик завершает работу, а затем выполняется повторная подготовка ее к работе с новым размером. После этого в нее будут переданы данные. Затем другая реплика выполнит отработку отказа перед повторной подготовкой к работе. Отработка отказа выполняется, как при сбое одного из узлов кэша.
+-   When a **Basic** cache is scaled to a different size, it is shut down and a new cache is provisioned using the new size. During this time, the cache is unavailable and all data in the cache is lost.
+-   When a **Basic** cache is scaled to a **Standard** cache, a replica cache is provisioned and the data is copied from the primary cache to the replica cache. The cache remains available during the scaling process.
+-   When a **Standard** cache is scaled to a different size or to a **Premium** cache, one of the replicas is shut down and re-provisioned to the new size and the data transferred over, and then the other replica performs a failover before it is re-provisioned, similar to the process that occurs during a failure of one of the cache nodes.
 
-### Сохранятся ли данные кэша при масштабировании?
+### <a name="will-i-lose-data-from-my-cache-during-scaling?"></a>Will I lose data from my cache during scaling?
 
--	При масштабировании кэша категории **Базовый** до другого размера будут утеряны все данные. Во время операции масштабирования кэш недоступен.
--	При масштабировании кэша уровня **Basic** до уровня **Standard** данные в кэше обычно сохраняются.
--	При масштабировании кэша категории **Стандартный** до большего размера или более высокой категории, а также при увеличении масштаба кэша **Премиум** все данные обычно сохраняются. При уменьшении масштаба кэша **Стандартный** или **Премиум** данные могут быть потеряны, в зависимости от того, сколько данных находится в кэше при масштабировании относительно нового размера. При потере данных во время масштабирования до меньшего размера ключи вытесняются с помощью политики вытеснения [allkeys-lru](http://redis.io/topics/lru-cache).
+-   When a **Basic** cache is scaled to a new size, all data is lost and the cache is unavailable during the scaling operation.
+-   When a **Basic** cache is scaled to a **Standard** cache, the data in the cache is typically preserved.
+-   When a **Standard** cache is scaled to a larger size or tier, or a **Premium** cache is scaled to a larger size, all data is typically preserved. When scaling a **Standard** or **Premium** cache down to a smaller size, data may be lost depending on how much data is in the cache related to the new size when it is scaled. If data is lost when scaling down, keys are evicted using the [allkeys-lru](http://redis.io/topics/lru-cache) eviction policy. 
 
-### Что происходит с пользовательским параметром databases при масштабировании?
+### <a name="is-my-custom-databases-setting-affected-during-scaling?"></a>Is my custom databases setting affected during scaling?
 
-Некоторые ценовые категории имеют различные [ограничения для количества баз данных ](cache-configure.md#databases). Поэтому рекомендуется уменьшать масштаб, если вы задали пользовательское значение для параметра `databases` при создании кэша.
+Some pricing tiers have different [databases limits](cache-configure.md#databases), so there are some considerations when scaling down if you configured a custom value for the `databases` setting during cache creation.
 
--	При масштабировании до определенной ценовой категории с более низким значением `databases`, чем на текущем уровне:
-	-	Если вы используете заданное по умолчанию количество `databases` (16 для всех ценовых категорий), данные не будут утеряны.
-	-	Если вы используете настраиваемое количество `databases` (в пределах ограничений уровня, до которого выполняется масштабирование), значение `databases` будет сохранено и данные не будут утеряны.
-	-	Если вы используете настраиваемое количество `databases` (которое превышает ограничения нового уровня), значение `databases` будет уменьшено в соответствии с новым уровнем, а все данные в удаленных базах данных будут утеряны.
--	При масштабировании до ценовой категории с аналогичным или более высоким значением `databases` по сравнению с текущим уровнем значение `databases` будет сохранено, а данные не будут утеряны.
+-   When scaling to a pricing tier with a lower `databases` limit than the current tier:
+    -   If you are using the default number of `databases` which is 16 for all pricing tiers, no data is lost.
+    -   If you are using a custom number of `databases` that falls within the limits for the tier to which you are scaling, this `databases` setting is retained and no data is lost.
+    -   If you are using a custom number of `databases` that exceeds the limits of the new tier, the `databases` setting is lowered to the limits of the new tier and all data in the removed databases is lost.
+-   When scaling to a pricing tier with the same or higher `databases` limit than the current tier your `databases` setting is retained and no data is lost.
 
-Обратите внимание, что, хотя кэш "Стандартный" и "Премиум" имеет соглашение об уровне обслуживания с показателем доступности 99,9 %, для потери данных соглашение об уровне обслуживания отсутствует.
+Note that while Standard and Premium caches have a 99.9% SLA for availability, there is no SLA for data loss.
 
-### Будет ли кэш доступен во время масштабирования?
+### <a name="will-my-cache-be-available-during-scaling?"></a>Will my cache be available during scaling?
 
--	Кэш уровня **Стандартный** и **Премиум** остается доступным во время операции масштабирования.
--	Во время масштабирования до другого размера кэши категории **Базовый** недоступны. Тем не менее они остаются доступными при масштабировании из категории **Базовый** до категории **Стандартный**.
+-   **Standard** and **Premium** caches remain available during the scaling operation.
+-   **Basic** caches are offline during scaling operations to a different size, but remain available when scaling from **Basic** to **Standard**.
 
-### Какие операции не поддерживаются?
+### <a name="operations-that-are-not-supported"></a>Operations that are not supported
 
--	Перейти с более высокой ценовой категории на более низкую нельзя.
-    -    Ценовую категорию кэша **Премиум** нельзя изменить на категорию **Базовый** или **Стандартный**.
-    -    Ценовую категорию кэша **Стандартный** нельзя изменить на категорию **Базовый**.
--	Вы можете выполнить масштабирование кэша с уровня **Базовый** до уровня **Стандартный**, но вам не удастся одновременно с этим изменить размер кэша. Если требуется изменить размер, можно выполнить последующую операцию масштабирования до нужного размера.
--	Ценовую категорию кэша **Базовый** нельзя изменить сразу на уровень **Премиум**. Необходимо сначала перейти с категории **Базовый** на категорию **Стандартный**, а затем — с категории **Стандартный** на категорию **Премиум**.
--	Вам не удастся выполнить масштабирование с большего размера до размера **C0 (250 МБ)**.
+-   You can't scale from a higher pricing tier to a lower pricing tier.
+    -    You can't scale from a **Premium** cache down to a **Standard** or a **Basic** cache.
+    -    You can't scale from a **Standard** cache down to a **Basic** cache.
+-   You can scale from a **Basic** cache to a **Standard** cache but you can't change the size at the same time. If you need a different size, you can do a subsequent scaling operation to the desired size.
+-   You can't scale from a **Basic** cache directly to a **Premium** cache. You must scale from **Basic** to **Standard** in one scaling operation, and then from **Standard** to **Premium** in a subsequent scaling operation.
+-   You can't scale from a larger size down to the **C0 (250 MB)** size.
 
-Если операцию масштабирования не удается завершить, служба попытается отменить операцию и кэш вернется к исходному размеру.
+If a scaling operation fails, the service will try to revert the operation and the cache will revert to the original size.
 
-### Сколько времени занимает масштабирование?
+### <a name="how-long-does-scaling-take?"></a>How long does scaling take?
 
-Масштабирование занимает приблизительно 20 минут в зависимости от объема данных в кэше.
+Scaling takes approximately 20 minutes, depending on how much data is in the cache.
 
-### Как узнать, когда масштабирование завершено?
+### <a name="how-can-i-tell-when-scaling-is-complete?"></a>How can I tell when scaling is complete?
 
-На портале Azure вы увидите, как выполняется операция масштабирования. После завершения масштабирования состояние кэша изменяется на **Работает**.
+In the Azure portal you can see the scaling operation in progress. When scaling is complete, the status of the cache changes to **Running**.
 
-### Почему эта функция предоставляется в предварительной версии?
+### <a name="why-is-this-feature-in-preview?"></a>Why is this feature in preview?
 
-Корпорация Майкрософт выпустила эту функцию для получения отзывов. На основе отзывов мы планируем вскоре выпустить эту функцию для общего доступа.
+We are releasing this feature to get feedback. Based on the feedback, we will release this feature to General Availability soon.
 
 
 
@@ -199,4 +200,11 @@
 
 [redis-cache-scaling]: ./media/cache-how-to-scale/redis-cache-scaling.png
 
-<!---HONumber=AcomDC_0907_2016-->
+
+
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

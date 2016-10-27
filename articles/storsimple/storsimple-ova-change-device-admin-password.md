@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Изменение пароля администратора виртуального устройства StorSimple | Microsoft Azure"
-   description="В статье описано, как с помощью классического портала Azure или веб-интерфейса виртуального массива StorSimple изменить пароль администратора устройства."
+   pageTitle="Change the StorSimple virtual device admin password | Microsoft Azure"
+   description="Describes how to use either the Azure classic portal or the StorSimple Virtual Array web UI to change the device administrator password."
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
@@ -15,58 +15,63 @@
    ms.date="06/17/2016"
    ms.author="alkohli" />
 
-# Изменение пароля администратора для устройства виртуального массива StorSimple (предварительная версия)
 
-## Обзор
+# <a name="change-the-storsimple-virtual-array-device-administrator-password"></a>Change the StorSimple Virtual Array device administrator password
 
-При использовании интерфейса Windows PowerShell для доступа к виртуальному устройству StorSimple вам потребуется ввести пароль администратора устройства. Если подготовка и запуск устройства StorSimple выполняются впервые, по умолчанию используется пароль *Password1*. Для защиты ваших данных пароль по умолчанию становится недействительным после первого входа в систему и его необходимо будет изменить.
+## <a name="overview"></a>Overview
 
-После развертывания устройства в рабочей среде можно в любой момент изменить пароль администратора устройства с помощью локального веб-интерфейса или классического портала Azure. Каждая из этих процедур описана в статье.
+When you use the Windows PowerShell interface to access the StorSimple virtual device, you are required to enter a device administrator password. When the StorSimple device is first provisioned and started, the default password is *Password1*. For the security of your data, the default password expires the first time that you sign in and you are required to change this password.
 
-## Изменение пароля с помощью классического портала Azure
+You can also use either the local web UI or the Azure classic portal to change the device administrator password at any time after the device is deployed in  your production environment. Each of these procedures is described in this article.
 
-Чтобы изменить пароль администратора устройства с помощью классического портала Azure, выполните следующие действия.
+## <a name="use-the-azure-classic-portal-to-change-the-password"></a>Use the Azure classic portal to change the password
 
-#### Изменение пароля администратора устройства с помощью классического портала Azure
+Perform the following steps to change the device administrator password through the Azure classic portal.
 
-1. На портале щелкните **Устройства** > **Настройка** для своего устройства.
+#### <a name="to-change-the-device-administrator-password-via-the-azure-classic-portal"></a>To change the device administrator password via the Azure classic portal
 
-2. Прокрутите экран вниз, к разделу **Пароль администратора устройства**. Укажите пароль администратора длиной от 8 до 15 символов. Пароль должен содержать буквы в верхнем и нижнем регистре, цифры и специальные символы.
+1. In the portal, click **Devices** > **Configuration** for your device.
 
-3. Подтвердите пароль.
+2. Scroll down to the **Device Administrator Password** section. Provide an administrator password that contains from 8 to 15 characters. The password must be a combination of uppercase, lowercase, numeric, and special characters.
 
-4. В нижней части страницы нажмите кнопку **Сохранить**.
+3. Confirm the password.
 
-Теперь пароль администратора устройства изменен. Этот новый пароль можно использовать для локального доступа к устройству.
+4. Click **Save** at the bottom of the page.
 
-## Изменение пароля с помощью веб-интерфейса виртуального массива StorSimple
+The device administrator password should now be updated. You can use this modified password to access the device locally.
 
-Чтобы изменить пароль администратора устройства с помощью локального веб-интерфейса, выполните следующие действия.
+## <a name="use-the-storsimple-virtual-array-web-ui-to-change-the-password"></a>Use the StorSimple Virtual Array web UI to change the password
 
-#### Изменение пароля администратора устройства с помощью локального веб-интерфейса
+Perform the following steps to change the device administrator password through the local web UI.
 
-1. В локальном веб-интерфейсе щелкните **Обслуживание** > **Изменение пароля** для своего устройства.
+#### <a name="to-change-the-device-administrator-password-via-the-local-web-ui"></a>To change the device administrator password via the local web UI
 
-    ![изменить password1](./media/storsimple-ova-change-device-admin-password/image40.png)
+1. In the local web UI, click **Maintenance** > **Password change** for your device.
 
-2. Введите **текущий пароль**.
+    ![change password1](./media/storsimple-ova-change-device-admin-password/image40.png)
 
-3. Укажите **новый пароль**. Пароль должен содержать не менее 8 символов. При этом он должен содержать как минимум три вида символов из следующих четырех: прописные буквы, строчные буквы, цифры и специальные символы.
+2. Enter the **Current password**.
 
-    Обратите внимание, что текущий пароль не должен совпадать с 24 предыдущими.
+3. Provide a **New Password**. The password must be at least 8 characters long. It must contain 3 of 4 of the following: uppercase, lowercase, numeric, and special characters.
 
-3. Повторно введите пароль для подтверждения.
+    Note that your password cannot be the same as the last 24 passwords.
 
-    ![изменить password2](./media/storsimple-ova-change-device-admin-password/image41.png)
+3. Reenter the password to confirm it.
 
-4. В нижней части страницы нажмите кнопку **Применить**. Теперь будет использоваться новый пароль. Если изменение пароля не произошло, появится следующее сообщение об ошибке.
+    ![change password2](./media/storsimple-ova-change-device-admin-password/image41.png)
 
-    ![ошибочный пароль](./media/storsimple-ova-change-device-admin-password/image42.png)
+4. At the bottom of the page, click **Apply**. The new password will then be applied. If the password change is not successful, you will see the following error.
 
-    После успешного обновления пароля вы получите соответствующее уведомление. Теперь новый пароль можно использовать для локального доступа к устройству.
+    ![password error](./media/storsimple-ova-change-device-admin-password/image42.png)
 
-## Дальнейшие действия
+    After the password is successfully updated, you will be notified. You can then use this modified password to access the device locally.
 
-Дополнительные сведения см. в статье об [администрировании виртуального массива StorSimple](storsimple-ova-web-ui-admin.md).
+## <a name="next-steps"></a>Next steps
 
-<!---HONumber=AcomDC_0622_2016-->
+Learn more about [administering your StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

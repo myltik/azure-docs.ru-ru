@@ -1,9 +1,12 @@
-## Настройка пиринговой связи между виртуальными сетями, принадлежащими к классической модели и модели Resource Manager
+## <a name="peering-virtual-networks-from-rm-to-classic"></a>Peering virtual networks from RM to classic
 
-В этом сценарии вы создадите пиринговую связь между двумя виртуальными сетями, а именно **VNET1** и **VNET2**, принадлежащими к модели развертывания Azure Resource Manager и классической модели развертывания соответственно.
+In this scenario, you will create a peering between two VNets, namely **VNET1** and **VNET2** belonging to Azure Resource Manager deployment model and classic deployment model respectively.
 
-> [AZURE.NOTE] Эти виртуальные сети должны относиться к одной подписке.
+> [AZURE.NOTE] The virtual networks must be in the same subscription.
 
-![Сценарий развертывания из ASM в ARM](./media/virtual-networks-create-vnetpeering-scenario-asmtoarm-include/figure01.PNG)
+![asm to arm deployment scenario](./media/virtual-networks-create-vnetpeering-scenario-asmtoarm-include/figure01.PNG)
 
-<!---HONumber=AcomDC_0921_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

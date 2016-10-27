@@ -1,184 +1,186 @@
 <properties
-	pageTitle="Начало работы с запуском мастера ";Включение базы данных Stretch"; | Microsoft Azure"
-	description="Узнайте, как настроить растяжение для базы данных, запустив мастер включения растяжения базы данных."
-	services="sql-server-stretch-database"
-	documentationCenter=""
-	authors="douglaslMS"
-	manager=""
-	editor=""/>
+    pageTitle="Get started by running the Enable Database for Stretch Wizard | Microsoft Azure"
+    description="Learn how to configure a database for Stretch Database by running the Enable Database for Stretch Wizard."
+    services="sql-server-stretch-database"
+    documentationCenter=""
+    authors="douglaslMS"
+    manager=""
+    editor=""/>
 
 <tags
-	ms.service="sql-server-stretch-database"
-	ms.workload="data-management"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="hero-article"
-	ms.date="08/05/2016"
-	ms.author="douglasl"/>
+    ms.service="sql-server-stretch-database"
+    ms.workload="data-management"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="hero-article"
+    ms.date="08/05/2016"
+    ms.author="douglasl"/>
 
-# Начало работы с запуска мастера "Включение базы данных Stretch"
 
-Для настройки растяжения базы данных запустите мастер "Включение базы данных для растяжения". В этом разделе описываются сведения, которые необходимо ввести, и варианты, которые необходимо выбрать в мастере.
+# <a name="get-started-by-running-the-enable-database-for-stretch-wizard"></a>Get started by running the Enable Database for Stretch Wizard
 
-Дополнительные сведения о растяжении баз данных см. в разделе [Растяжение баз данных](sql-server-stretch-database-overview.md).
+To configure a database for Stretch Database, run the Enable Database for Stretch Wizard.  This topic describes the info that you have to enter and the choices that you have to make in the wizard.
 
- >   [AZURE.NOTE] В случае последующего отключения базы данных Stretch для таблицы или базы данных помните, что такое отключение не приводит к удалению дистанционного объекта. Если вы хотите удалить удаленную таблицу или базу данных, ее необходимо удалить с помощью портала управления Azure. За хранение дистанционных объектов в Azure по-прежнему будет взиматься плата, пока вы не удалите их вручную.
+To learn more about Stretch Database, see [Stretch Database](sql-server-stretch-database-overview.md).
 
-## Запуск мастера
+ >   [AZURE.NOTE] Later, if you disable Stretch Database, remember that disabling Stretch Database for a table or for a database does not delete the remote object. If you want to delete the remote table or the remote database, you have to drop it by using the Azure management portal. The remote objects continue to incur Azure costs until you delete them manually. 
 
-1.  В среде SQL Server Management Studio в обозревателе объектов выберите базу данных, для которой необходимо включить растяжение.
+## <a name="launch-the-wizard"></a>Launch the wizard
 
-2.  Щелкните эту базу данных правой кнопкой мыши и выберите **Задачи**, затем **Stretch** и **Включить**, чтобы запустить мастер.
+1.  In SQL Server Management Studio, in Object Explorer, select the database on which you want to enable Stretch.
 
-## <a name="Intro"></a>Введение
-Проверьте назначение мастера и необходимые компоненты.
+2.  Right\-click and select **Tasks**, and then select **Stretch**, and then select **Enable** to launch the wizard.
 
-Ниже перечислены важные предварительные требования.
+## <a name="<a-name="intro"></a>introduction"></a><a name="Intro"></a>Introduction
+Review the purpose of the wizard and the prerequisites.
 
--   Для изменения параметров базы данных необходимо иметь права администратора.
--   Требуется подписка Microsoft Azure.
--   В SQL Server должна быть настроена связь с удаленным сервером Azure.
+The important prerequisites include the following:
 
-![Вводная страница в мастере базы данных Stretch][StretchWizardImage1]
+-   You have to be an administrator to change database settings.
+-   You have to have a Microsoft Azure subscription.
+-   Your SQL Server has to be able to communicate with the remote Azure server.
 
-## <a name="Tables"></a>Выбор таблиц
-Выберите таблицы, которые необходимо включить для растяжения.
+![Introduction page of the Stretch Database wizard][StretchWizardImage1]
 
-Таблицы с большим количеством строк отображаются в верхней части отсортированного списка. Прежде чем вывести список таблиц, мастер анализирует данные таблиц, чтобы обнаружить типы данных, которые в настоящее время не поддерживаются для базы данных Stretch.
+## <a name="<a-name="tables"></a>select-tables"></a><a name="Tables"></a>Select tables
+Select the tables that you want to enable for Stretch.
 
-![Страница выбора таблиц в мастере базы данных Stretch][StretchWizardImage2]
+Tables with lots of rows appear at the top of the sorted list. Before the Wizard displays the list of tables, it analyzes them for data types that are not currently supported by Stretch Database.
 
-|столбец|Описание|
+![Select tables page of the Stretch Database wizard][StretchWizardImage2]
+
+|Column|Description|
 |----------|---------------|
-|(без названия)|Установите флажок в этом столбце для включения растяжения для выбранной таблицы.|
-|**Имя**|Указывает имя столбца в таблице.|
-|(без названия)|Символ в этом столбце означает предупреждение, однако оно не предотвращает включение растяжения для выбранной таблицы. Кроме того, он может обозначать критическое препятствие, из-за которого для выбранной таблицы невозможно включить растяжение, например, потому что в таблице используется неподдерживаемый тип данных. Наведите указатель мыши на символ для отображения дополнительных сведений во всплывающей подсказке. Дополнительные сведения см. в статье об [ограничениях для базы данных Stretch](sql-server-stretch-database-limitations.md).|
-|**Растяжение включено**|Указывает, включено ли уже растяжение для таблицы.|
-|**Миграция**|Можно перенести всю таблицу (**Вся таблица**) или указать фильтр в колонке таблицы. Если вы хотите использовать другую функцию фильтра для выбора строк при миграции, после выхода из мастера выполните оператор ALTER TABLE и укажите нужную функцию. Дополнительные сведения о функции фильтра см. в статье [Выбор строк для переноса с помощью функции фильтра (база данных Stretch)](sql-server-stretch-database-predicate-function.md). Дополнительные сведения об использовании этой функции см. в статьях [Включение базы данных Stretch для таблицы](sql-server-stretch-database-enable-table.md) и [ALTER TABLE (Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx).|
-|**строки**|Указывает количество строк в таблице.|
-|**Размер (КБ)**|Указывает размер таблицы в КБ.|
+|(no title)|Check the check box in this column to enable the selected table for Stretch.|
+|**Name**|Specifies the name of the column in the table.|
+|(no title)|A symbol in this column may represent a warning that doesn\'t prevent you from enabling the selected table for Stretch. It may also represent a blocking issue that prevents you from enabling the selected table for Stretch \- for example, because the table uses an unsupported data type. Hover over the symbol to display more info in a tooltip. For more info, see [Limitations for Stretch Database](sql-server-stretch-database-limitations.md).|
+|**Stretched**|Indicates whether the table is already enabled for Stretch.|
+|**Migrate**|You can migrate an entire table (**Entire Table**) or you can specify a filter on an existing column in the table. If you want to use a different filter function to select rows to migrate, run the ALTER TABLE statement to specify the filter function after you exit the wizard. For more info about the filter function, see [Select rows to migrate by using a filter function](sql-server-stretch-database-predicate-function.md). For more info about how to apply the function, see [Enable Stretch Database for a table](sql-server-stretch-database-enable-table.md) or [ALTER TABLE (Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx).|
+|**Rows**|Specifies the number of rows in the table.|
+|**Size (KB)**|Specifies the size of the table in KB.|
 
-## <a name="Filter"></a>Указание фильтра строк при необходимости
+## <a name="<a-name="filter"></a>optionally-provide-a-row-filter"></a><a name="Filter"></a>Optionally provide a row filter
 
-Если вы хотите указать функцию фильтра для выбора строк при миграции, выполните следующие действия на странице **Выбор таблиц**.
+If you want to provide a filter function to select rows to migrate, do the following things on the **Select tables** page.
 
-1.  В списке **Выберите таблицы, которые требуется перенести** выберите для нужной таблицы значение **Вся таблица**. Откроется диалоговое окно **Выберите строки для растяжения**.
+1.  In the **Select the tables you want to stretch** list, click **Entire Table** in the row for the table. The **Select rows to stretch** dialog box opens.
 
-    ![Определение функции фильтра][StretchWizardImage2a]
+    ![Define a filter function][StretchWizardImage2a]
 
-2.  В диалоговом окне **Выберите строки для растяжения** установите переключатель **Выберите строки**.
+2.  In the **Select rows to stretch** dialog box, select **Choose Rows**.
 
-3.  В поле **Имя** укажите имя для функции фильтра.
+3.  In the **Name field**, provide a name for the filter function.
 
-4.  В предложении **Where** выберите столбец из таблицы, выберите оператор и укажите значение.
+4.  For the **Where** clause, pick a column from the table, pick an operator, and provide a value.
 
-5. Щелкните **Проверка**, чтобы протестировать функцию. Тест будет считаться пройденным **успешно**, если заданная функция вернет из таблицы результаты, то есть если существуют строки для переноса, которые соответствуют указанному условию.
+5. Click **Check** to test the function. If the function returns results from the table - that is, if there are rows to migrate that satisfy the condition - the test reports **Success**.
 
-    >   [AZURE.NOTE] Текстовое поле, в котором отображается запрос фильтра, доступно только для чтения. Поэтому в нем невозможно изменить запрос.
+    >   [AZURE.NOTE] The textbox that displays the filter query is read-only. You can't edit the query in the textbox.
 
-6.  Нажмите кнопку "Готово", чтобы вернуться к странице **Выбор таблиц**.
+6.  Click Done to return to the **Select tables** page.
 
-Функция фильтра создается в SQL Server только после завершения работы мастера. Пока вы можете вернуться на страницу **Выбор таблиц**, чтобы изменить или переименовать функцию фильтра.
+The filter function is created in SQL Server only when you finish the wizard. Until then, you can return to the **Select tables** page to change or rename the filter function.
 
-![Страница "Выбор таблиц" после определения функции фильтра][StretchWizardImage2b]
+![Select Tables page after defining a filter function][StretchWizardImage2b]
 
-Если вы хотите использовать другой тип функции фильтра, чтобы выбрать строки для миграции, выполните одну из следующих процедур.
+If you want to use a different type of filter function to select rows to migrate, do one of the following things.  
 
--   Закройте мастер и выполните оператор ALTER TABLE, чтобы применить режим Stretch для таблицы и указать функцию фильтра. Дополнительные сведения см. в статье [Включение базы данных Stretch для таблицы](sql-server-stretch-database-enable-table.md).
+-   Exit the wizard and run the ALTER TABLE statement to enable Stretch for the table and to specify a filter function. For more info, see [Enable Stretch Database for a table](sql-server-stretch-database-enable-table.md).  
 
--   Выполните оператор ALTER TABLE, чтобы указать функцию фильтра после выхода из мастера. Необходимые шаги приведены в разделе о [добавлении функции фильтра после запуска мастера](sql-server-stretch-database-predicate-function.md#addafterwiz).
+-   Run the ALTER TABLE statement to specify a filter function after you exit the wizard. For the required steps, see [Add a filter function after running the Wizard](sql-server-stretch-database-predicate-function.md#addafterwiz).
 
-## <a name="Configure"></a>Настройка развертывания в Azure
+## <a name="<a-name="configure"></a>configure-azure-deployment"></a><a name="Configure"></a>Configure Azure deployment
 
-1.  Войдите в Microsoft Azure с учетной записью Майкрософт.
+1.  Sign in to Microsoft Azure with a Microsoft account.
 
-    ![Вход в Azure — мастер базы данных Stretch][StretchWizardImage3]
+    ![Sign in to Azure - Stretch Database wizard][StretchWizardImage3]
 
-2.  Выберите имеющуюся подписку Azure, которая будет использоваться для базы данных Stretch.
+2.  Select the existing Azure subscription to use for Stretch Database.
 
-3.  Выберите регион Azure.
-    -   Новый сервер будет создан в этом регионе.
-    -   Если в выбранном регионе есть серверы, мастер отображает их при выборе параметра **Существующий сервер**.
+3.  Select an Azure region.
+    -   If you create a new server, the server is created in this region.  
+    -   If you have existing servers in the selected region, the wizard lists them when you choose **Existing server**.
 
-    Чтобы свести к минимуму задержки, выберите регион Azure, в котором находится ваш сервер SQL Server. Дополнительные сведения о регионах см. на странице [Регионы Azure](https://azure.microsoft.com/regions/).
+    To minimize latency, pick the Azure region in which your SQL Server is located. For more info about regions, see [Azure Regions](https://azure.microsoft.com/regions/).
 
-4.  Укажите, следует ли использовать существующий сервер или создать новый сервер Azure.
+4.  Specify whether you want to use an existing server or create a new Azure server.
 
-    Если Active Directory на сервере SQL Server включена в федерацию с Azure Active Directory, то для взаимодействия с удаленным сервером Azure при необходимости можно использовать учетную запись службы федерации для SQL Server. Дополнительные сведения о требованиях для этого параметра см. в статье [Параметры ALTER DATABASE SET (Transact-SQL)](https://msdn.microsoft.com/library/bb522682.aspx).
+    If the Active Directory on your SQL Server is federated with Azure Active Directory, you can optionally use a federated service account for SQL Server to communicate with the remote Azure server. For more info about the requirements for this option, see [ALTER DATABASE SET Options (Transact-SQL)](https://msdn.microsoft.com/library/bb522682.aspx).
 
-	-   **Создание сервера**
+    -   **Create new server**
 
-        1.  Создайте имя входа и пароль администратора сервера.
+        1.  Create a login and password for the server administrator.
 
-        2.  При необходимости используйте учетную запись службы федерации для SQL Server для взаимодействия с удаленным сервером Azure.
+        2.  Optionally, use a federated service account for SQL Server to communicate with the remote Azure server.
 
-		![Создание нового сервера Azure — мастер базы данных Stretch][StretchWizardImage4]
+        ![Create new Azure server - Stretch Database wizard][StretchWizardImage4]
 
-    -   **Существующий сервер**
+    -   **Existing server**
 
-        1.  Выберите имеющийся сервер Azure.
+        1.  Select the existing Azure server.
 
-        2.  Выберите метод проверки подлинности.
+        2.  Select the authentication method.
 
-            -   При выборе параметра **Аутентификация SQL Server** необходимо указать имя для входа и пароль администратора.
+            -   If you select **SQL Server Authentication**, provide the administrator login and password.
 
-            -   Выберите параметр **Встроенная проверка подлинности Active Directory**, чтобы использовать федеративную учетную запись службы для SQL Server для взаимодействия с удаленным сервером Azure. Если выбранный сервер не интегрирован с Azure Active Directory, этот параметр не отображается.
+            -   Select **Active Directory Integrated Authentication** to use a federated service account for SQL Server to communicate with the remote Azure server. If the selected server is not integrated with Azure Active Directory, this option doesn't appear.
 
-		![Выбор существующего сервера Azure — мастер базы данных Stretch][StretchWizardImage5]
+        ![Select existing Azure server - Stretch Database wizard][StretchWizardImage5]
 
-## <a name="Credentials"></a>Защита учетных данных
-У вас должен быть главный ключ базы данных для защиты учетных данных, используемых для подключения к удаленной базе данных, использующей растяжение базы данных.
+## <a name="<a-name="credentials"></a>secure-credentials"></a><a name="Credentials"></a>Secure credentials
+You have to have a database master key to secure the credentials that Stretch Database uses to connect to the remote database.  
 
-Если главный ключ базы данных уже существует, введите пароль для него.
+If a database master key already exists, enter the password for it.  
 
-![Страница защиты учетных данных в мастере базы данных Stretch][StretchWizardImage6b]
+![Secure credentials page of the Stretch Database wizard][StretchWizardImage6b]
 
-Если у базы данных нет главного ключа, введите надежный пароль, чтобы создать главный ключ базы данных.
+If the database does not have an existing master key, enter a strong password to create a database master key.  
 
-![Страница защиты учетных данных в мастере базы данных Stretch][StretchWizardImage6]
+![Secure credentials page of the Stretch Database wizard][StretchWizardImage6]
 
-Дополнительные сведения о главном ключе базы данных см. в статьях [CREATE MASTER KEY (Transact-SQL)](https://msdn.microsoft.com/library/ms174382.aspx) и [Создание главного ключа базы данных](https://msdn.microsoft.com/library/aa337551.aspx). Дополнительные сведения об учетных данных, создаваемых мастером, см. в статье [CREATE DATABASE SCOPED CREDENTIAL (Transact-SQL)](https://msdn.microsoft.com/library/mt270260.aspx).
+For more info about the database master key, see [CREATE MASTER KEY (Transact-SQL)](https://msdn.microsoft.com/library/ms174382.aspx) and [Create a Database Master Key](https://msdn.microsoft.com/library/aa337551.aspx). For more info about the credential that the wizard creates,  see [CREATE DATABASE SCOPED CREDENTIAL (Transact-SQL)](https://msdn.microsoft.com/library/mt270260.aspx).
 
-## <a name="Network"></a>Выбор IP-адреса
-Используйте диапазон IP-адресов подсети (рекомендуется) или общедоступный IP-адрес сервера SQL Server, чтобы создать правило брандмауэра в Azure, которое позволит SQL Server обмениваться данными с удаленным сервером Azure.
+## <a name="<a-name="network"></a>select-ip-address"></a><a name="Network"></a>Select IP address
+Use the subnet IP address range (recommended), or the public IP address of your SQL Server, to create a firewall rule on Azure that lets SQL Server communicate with the remote Azure server.
 
-Используя указанные на этой странице IP-адреса, сервер Azure пропускает входящие данные, запросы и операции управления, инициированные сервером SQL Server, через брандмауэр Azure. Мастер не изменяет параметры брандмауэра на сервере SQL Server.
+The IP address or addresses that you provide on this page tell the Azure server to allow incoming data, queries, and management operations initiated by SQL Server to pass through the Azure firewall. The wizard doesn't change anything in the firewall settings on the SQL Server.
 
-![Страница выбора IP-адреса в мастере базы данных Stretch][StretchWizardImage7]
+![Select IP address page of the Stretch Database wizard][StretchWizardImage7]
 
-## <a name="Summary"></a>Сводка
-Просмотрите введенные значения и параметры, выбранные в мастере, а также расчетную стоимость в Azure. Затем нажмите кнопку **Готово**, чтобы включить Stretch.
+## <a name="<a-name="summary"></a>summary"></a><a name="Summary"></a>Summary
+Review the values that you entered and the options that you selected in the wizard and the estimated costs on Azure. Then select **Finish** to enable Stretch.
 
-![Страница сводных данных в мастере базы данных Stretch][StretchWizardImage8]
+![Summary page of the Stretch Database wizard][StretchWizardImage8]
 
-## <a name="Results"></a>Результаты
-Просмотрите результаты.
+## <a name="<a-name="results"></a>results"></a><a name="Results"></a>Results
+Review the results.
 
-Сведения о том, как отслеживать состояние переноса данных, см. в статье [Мониторинг и устранение неполадок переноса данных (база данных Stretch)](sql-server-stretch-database-monitor.md).
+To monitor the status of data migration, see [Monitor and troubleshoot data migration (Stretch Database)](sql-server-stretch-database-monitor.md).
 
-![Страница результатов в мастере базы данных Stretch][StretchWizardImage9]
+![Results page of the Stretch Database wizard][StretchWizardImage9]
 
-## <a name="KnownIssues"></a>Устранение неполадок мастера
-**Мастер растяжения базы данных завершил работу неудачно.** Если растяжение баз данных еще не включено на уровне сервера системным администратором и вы запускаете мастер, то его работа завершится неудачно. Попросите системного администратора включить растяжение базы данных на экземпляре локального сервера и затем снова запустите мастер. Дополнительные сведения см. в разделе [Необходимое условие: включение базы данных Stretch на сервере](sql-server-stretch-database-enable-database.md#EnableTSQLServer).
+## <a name="<a-name="knownissues"></a>troubleshooting-the-wizard"></a><a name="KnownIssues"></a>Troubleshooting the wizard
+**The Stretch Database wizard failed.**
+If Stretch Database is not yet enabled at the server level, and you run the wizard without the system administrator permissions to enable it, the wizard fails. Ask the  system administrator to enable Stretch Database on the local server instance, and then run the wizard again. For more info, see [Prerequisite: Permission to enable Stretch Database on the server](sql-server-stretch-database-enable-database.md#EnableTSQLServer).
 
-## Дальнейшие действия
-Включите растяжение базы данных в других таблицах. Отслеживайте миграцию данных и управляйте базами данных и таблицами, для которых включено растяжение.
+## <a name="next-steps"></a>Next steps
+Enable additional tables for Stretch Database. Monitor data migration and manage Stretch\-enabled databases and tables.
 
--   Выполните инструкции из статьи [Включение базы данных Stretch для таблицы](sql-server-stretch-database-enable-table.md), чтобы активировать дополнительные таблицы.
+-   [Enable Stretch Database for a table](sql-server-stretch-database-enable-table.md) to enable additional tables.
 
--   Выполните инструкции из статьи [Мониторинг и устранение неполадок переноса данных (база данных Stretch)](sql-server-stretch-database-monitor.md), чтобы просмотреть состояние переноса данных.
+-   [Monitor and troubleshoot data migration](sql-server-stretch-database-monitor.md) to see the status of data migration.
 
--   [Приостановите и возобновите растяжение баз данных](sql-server-stretch-database-pause.md)
+-   [Pause and resume Stretch Database](sql-server-stretch-database-pause.md)
 
--   [Управляйте растяжением баз данных и устраняйте неполадки](sql-server-stretch-database-manage.md)
+-   [Manage and troubleshoot Stretch Database](sql-server-stretch-database-manage.md)
 
--   [Резервное копирование баз данных с поддержкой растяжения](sql-server-stretch-database-backup.md)
+-   [Backup Stretch-enabled databases](sql-server-stretch-database-backup.md)
 
-## См. также
+## <a name="see-also"></a>See also
 
-[Включение растяжения базы данных для базы данных](sql-server-stretch-database-enable-database.md)
+[Enable Stretch Database for a database](sql-server-stretch-database-enable-database.md)
 
-[Включение растяжения базы данных для таблицы](sql-server-stretch-database-enable-table.md)
+[Enable Stretch Database for a table](sql-server-stretch-database-enable-table.md)
 
 [StretchWizardImage1]: ./media/sql-server-stretch-database-wizard/stretchwiz1.png
 [StretchWizardImage2]: ./media/sql-server-stretch-database-wizard/stretchwiz2.png
@@ -193,4 +195,8 @@
 [StretchWizardImage8]: ./media/sql-server-stretch-database-wizard/stretchwiz8.png
 [StretchWizardImage9]: ./media/sql-server-stretch-database-wizard/stretchwiz9.png
 
-<!---HONumber=AcomDC_0810_2016--->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,31 +1,34 @@
-## Добавление политики резервного копирования
+## <a name="defining-a-backup-policy"></a>Defining a backup policy
 
-Политика резервного копирования определяет расписание создания моментальных снимков и период их хранения. В параметрах политики резервного копирования виртуальной машины можно задать *ежедневное* выполнение задания резервного копирования. Созданная политика применяется к хранилищу. Интерфейс политики резервного копирования выглядит следующим образом:
+A backup policy defines a matrix of when the data snapshots are taken, and how long those snapshots are retained. When defining a policy for backing up a VM, you can trigger a backup job *once a day*. When you create a new policy, it is applied to the vault. The backup policy interface looks like this:
 
-![Политика резервного копирования](./media/backup-create-policy-for-vms/backup-policy.png)
+![Backup policy](./media/backup-create-policy-for-vms/backup-policy.png)
 
-Чтобы создать политику, сделайте следующее:
+To create a policy:
 
-1. Введите **имя политики**.
+1. Enter a name for the **Policy name**.
 
-2. Моментальные снимки данных можно создавать ежедневно или еженедельно. Этот интервал можно выбрать с помощью раскрывающегося меню **Частота архивации**.
+2. Snapshots of your data can be taken at Daily or Weekly intervals. Use the **Backup Frequency** drop-down menu to choose whether data snapshots are taken Daily or Weekly.
 
-    - При выборе ежедневного интервала используйте выделенный элемент управления, чтобы выбрать время создания моментального снимка. Чтобы изменить время, отмените выбор установленного времени и задайте новое.
+    - If you choose a Daily interval, use the highlighted control to select the time of the day for the snapshot. To change the hour, de-select the hour, and select the new hour.
 
-    ![Политика выполнения резервного копирования ежедневно](./media/backup-create-policy-for-vms/backup-policy-daily.png) <br/>
+    ![Daily backup policy](./media/backup-create-policy-for-vms/backup-policy-daily.png) <br/>
 
-    - При выборе еженедельного интервала используйте выделенные элементы управления, чтобы выбрать день и время создания моментального снимка. В раскрывающемся списке дней выберите один или несколько дней. В раскрывающемся списке времени выберите время. Чтобы изменить время, отмените выбор установленного времени и задайте новое.
+    - If you choose a Weekly interval, use the highlighted controls to select the day(s) of the week, and the time of day to take the snapshot. In the day menu, select one or multiple days. In the hour menu, select one hour. To change the hour, de-select the selected hour, and select the new hour.
 
-    ![Политика выполнения резервного копирования еженедельно](./media/backup-create-policy-for-vms/backup-policy-weekly.png)
+    ![Weekly backup policy](./media/backup-create-policy-for-vms/backup-policy-weekly.png)
 
-3. По умолчанию для параметра **Диапазон хранения** выбраны все значения. Если вам нужно оставить лишь определенные значения, оставьте флажки напротив соответствующих значений. Затем укажите нужные интервалы.
+3. By default, all **Retention Range** options are selected. Uncheck any retention range limit you do not want to use. Then, specify the interval(s) to use.
 
-    С помощью параметров ежемесячного и ежегодного хранения можно задать период хранения моментальных снимков по мере добавления новых снимков каждый день или каждую неделю.
+    Monthly and Yearly retention ranges allow you to specify the snapshots based on a weekly or daily increment.
 
-    >[AZURE.NOTE] В рамках защиты виртуальной машины задание резервного копирования выполняется раз в день. Время запуска резервного копирования одинаковое независимо от диапазона хранения.
+    >[AZURE.NOTE] When protecting a VM, a backup job runs once a day. The time when the backup runs is the same for each retention range.
 
-4. После настройки всех параметров политики нажмите кнопку **Сохранить** в верхней части колонки.
+4. After setting all options for the policy, at the top of the blade click **Save**.
 
-    Новая политика будет немедленно применена к хранилищу.
+    The new policy is immediately applied to the vault.
 
-<!---HONumber=AcomDC_0608_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

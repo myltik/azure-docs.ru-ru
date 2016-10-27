@@ -1,56 +1,57 @@
 <properties 
-	pageTitle="IP-адреса, используемые службой Application Insights | Microsoft Azure"
-	description="Исключения брандмауэра сервера, требуемые для Application Insights" 
-	services="application-insights"
+    pageTitle="IP addresses used by Application Insights | Microsoft Azure"
+    description="Server firewall exceptions required by Application Insights" 
+    services="application-insights"
     documentationCenter=".net"
-	authors="alancameronwills" 
-	manager="douge"/>
+    authors="alancameronwills" 
+    manager="douge"/>
 
 <tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/24/2016" 
-	ms.author="awills"/>
+    ms.service="application-insights" 
+    ms.workload="tbd" 
+    ms.tgt_pltfrm="ibiza" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="08/24/2016" 
+    ms.author="awills"/>
  
-# IP-адреса, используемые службой Application Insights
 
-Служба [Visual Studio Application Insights](app-insights-overview.md) использует несколько IP-адресов. Вам могут понадобиться эти адреса, если отслеживаемое приложение расположено за брандмауэром.
+# <a name="ip-addresses-used-by-application-insights"></a>IP addresses used by Application Insights
 
-> [AZURE.NOTE] Эти адреса статические, но время от времени мы можем их менять.
+The [Visual Studio Application Insights](app-insights-overview.md) service uses a number of IP addresses. You might need to know these addresses if the app that you are monitoring is hosted behind a firewall.
+
+> [AZURE.NOTE] Although these addresses are static, it's possible that we will need to change them from time to time.
 
 
-## Порты для исходящего трафика
+## <a name="outgoing-ports"></a>Outgoing ports
 
-Чтобы разрешить пакету SDK службы Application Insights и/или монитору состояния отправлять данные на портал, в брандмауэре сервера нужно открыть несколько портов для исходящего трафика.
+You need to open some outgoing ports in your server's firewall to allow the Application Insights SDK and/or Status Monitor to send data to the portal:
 
-|Назначение|URL-адрес|IP-адрес|порты;
+|Purpose|URL|IP|Ports
 |---|---|---|---
-| Телеметрия|dc.services.visualstudio.com<br/>dc.applicationinsights.microsoft.com| 40\.114.241.141<br/>104.45.136.42<br/>40.84.189.107<br/>168.63.242.221|443
-|Потоковая передача в реальном времени|rt.services.visualstudio.com<br/>rt.applicationinsights.microsoft.com |Переменный|443
+| Telemetry|dc.services.visualstudio.com<br/>dc.applicationinsights.microsoft.com| 40.114.241.141<br/>104.45.136.42<br/>40.84.189.107<br/>168.63.242.221|443
+|LiveStream|rt.services.visualstudio.com<br/>rt.applicationinsights.microsoft.com |variable|443
 
 
 
-+ Настройка монитора состояния (требуется только для внесения изменений):
- -	`management.core.windows.net:443`
- -	.`management.azure.com:443`
- -	.`login.windows.net:443`
- -	.`login.microsoftonline.com:443`
- -	.`secure.aadcdn.microsoftonline-p.com:443`
- -	.`auth.gfx.ms:443`
- -	`login.live.com:443`
-+ Установка монитора состояния:
- +	`packages.nuget.org:443`
++ Status Monitor Configuration - needed only when making changes:
+ -  `management.core.windows.net:443` 
+ -  `management.azure.com:443`
+ -  `login.windows.net:443`
+ -  `login.microsoftonline.com:443`
+ -  `secure.aadcdn.microsoftonline-p.com:443`
+ -  `auth.gfx.ms:443`
+ -  `login.live.com:443`
++ Status Monitor Installation:
+ +  `packages.nuget.org:443`
 
-Время от времени этот список может меняться.
+This list may change from time to time.
 
-## Тесты доступности
+## <a name="availability-tests"></a>Availability tests
 
-Ниже приведен список адресов, которые используются для [проверки доступности веб-сайтов](app-insights-monitor-web-app-availability.md). Если вам нужно запустить веб-тесты в приложении, а веб-сервер обслуживает только определенные клиенты, следует разрешить входящий трафик от наших серверов тестирования доступности.
+This is the list of addresses from which [availability web tests](app-insights-monitor-web-app-availability.md) are run. If you want to run web tests on your app, but your web server is restricted to serving specific clients, then you will have to permit incoming traffic from our availability test servers.
 
-Откройте порты 80 (http) и 443 (https) для входящего трафика с этих адресов:
+Open ports 80 (http) and 443 (https) for incoming traffic from these addresses:
 
 ```
 
@@ -104,6 +105,8 @@
 207.46.98.159
 207.46.98.160
 207.46.98.162
+207.46.98.169
+207.46.98.170
 207.46.98.171
 207.46.98.172
 213.199.178.54
@@ -136,6 +139,8 @@
 65.55.244.44
 65.55.244.46
 65.55.244.47
+65.55.82.77
+65.55.82.78
 65.55.82.81
 65.55.82.84
 65.55.82.85
@@ -158,6 +163,8 @@
 94.245.72.45
 94.245.72.46
 94.245.72.49
+94.245.72.52
+94.245.72.53
 94.245.78.40
 94.245.78.41
 94.245.78.42
@@ -167,16 +174,17 @@
 94.245.82.37
 94.245.82.38
 
+
 ```  
 
-## API доступа к данным
+## <a name="data-access-api"></a>Data access API
 
 
 
-|URI|IP-адрес|порты;
+|URI|IP|Ports
 |---|---|---
-|api.applicationinsights.io<br/>api1.applicationinsights.io<br/>api2.applicationinsights.io<br/>api3.applicationinsights.io<br/>api4.applicationinsights.io<br/>api5.applicationinsights.io|13\.82.26.252<br/>40.76.213.73|80, 443
-|dev.applicationinsights.io<br/>dev.applicationinsights.microsoft.com<br/>dev.aisvc.visualstudio.com<br/>www.applicationinsights.io<br/>www.applicationinsights.microsoft.com<br/>www.aisvc.visualstudio.com|13\.82.24.149<br/>40.114.82.10|80, 443
+|api.applicationinsights.io<br/>api1.applicationinsights.io<br/>api2.applicationinsights.io<br/>api3.applicationinsights.io<br/>api4.applicationinsights.io<br/>api5.applicationinsights.io|13.82.26.252<br/>40.76.213.73|80,443
+|dev.applicationinsights.io<br/>dev.applicationinsights.microsoft.com<br/>dev.aisvc.visualstudio.com<br/>www.applicationinsights.io<br/>www.applicationinsights.microsoft.com<br/>www.aisvc.visualstudio.com|13.82.24.149<br/>40.114.82.10|80,443
 
 
 
@@ -184,4 +192,8 @@
 
  
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

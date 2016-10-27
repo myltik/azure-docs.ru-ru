@@ -1,103 +1,105 @@
 <properties
-	pageTitle="Ресурсы, роли и контроль доступа в Application Insights"
-	description="Владельцы, участники и читатели Insights вашей организации."
-	services="application-insights"
+    pageTitle="Resources, roles and access control in Application Insights"
+    description="Owners, contributors and readers of your organization's insights."
+    services="application-insights"
     documentationCenter=""
-	authors="alancameronwills"
-	manager="douge"/>
+    authors="alancameronwills"
+    manager="douge"/>
 
 <tags
-	ms.service="application-insights"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="ibiza"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="05/07/2016"
-	ms.author="awills"/>
-
-# Ресурсы, роли и контроль доступа в Application Insights
-
-Вы можете выполнять чтение и обновление прав доступа к данным, а также управлять ими в Visual Studio [Application Insights][start], используя [Управление доступом на основе ролей в Microsoft Azure](../active-directory/role-based-access-control-configure.md).
-
-> [AZURE.IMPORTANT] Вы также можете предоставлять доступ пользователям в **группе ресурсов или подписке**, к которым относится ресурс приложения, а не в самом ресурсе. Назначьте им роль **участника компонента Application Insights**. Это обеспечит универсальный контроль доступа к веб-тестам и оповещениям с помощью ресурса приложения. [Подробнее](#access).
+    ms.service="application-insights"
+    ms.workload="tbd"
+    ms.tgt_pltfrm="ibiza"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="05/07/2016"
+    ms.author="awills"/>
 
 
-## Ресурсы, группы и подписки
+# <a name="resources,-roles,-and-access-control-in-application-insights"></a>Resources, roles, and access control in Application Insights
 
-Сначала рассмотрим некоторые определения:
+You can control who has read and update access to your data in Visual Studio [Application Insights][start], by using [Role-based access control in Microsoft Azure](../active-directory/role-based-access-control-configure.md).
 
-* **Ресурс** — это экземпляр службы Microsoft Azure. Ресурс Application Insights собирает, анализирует и отображает данные телеметрии, отправленные приложением. Другие типы ресурсов Azure включают в себя веб-приложения, базы данных и виртуальные машины.
+> [AZURE.IMPORTANT] Assign access to users in the **resource group or subscription** to which your application resource belongs - not in the resource itself. Assign the **Application Insights component contributor** role. This ensures uniform control of access to web tests and alerts along with your application resource. [Learn more](#access).
 
-    Чтобы просмотреть все свои ресурсы, перейдите на [портал Azure][portal], войдите и щелкните «Обзор».
 
-    ![Щелкните «Обзор», а затем — «Все» или «Отфильтровать по Application Insights»](./media/app-insights-resources-roles-access-control/10-browse.png)
+## <a name="resources,-groups-and-subscriptions"></a>Resources, groups and subscriptions
+
+First, some definitions:
+
+* **Resource** - An instance of a Microsoft Azure service. Your Application Insights resource collects, analyzes and displays the telemetry data sent from your application.  Other types of Azure resources include web apps, databases, and VMs.
+
+    To see all your resources, go to the [Azure Portal][portal], sign in, and click Browse.
+
+    ![Choose Browse, then either Everything or Filter by Application Insights](./media/app-insights-resources-roles-access-control/10-browse.png)
 
 <a name="resource-group"></a>
 
-* [**Группа ресурсов**][group] — каждый ресурс принадлежит одной группе. Создание группы — это удобный способ управления связанными ресурсами, особенно для контроля доступа. Например, в одну группу ресурсов можно поместить веб-приложение и ресурс Application Insights для мониторинга приложения, а также ресурс хранилища для хранения экспортированных данных.
+* [**Resource group**][group] - Every resource belongs to one group. A group is a convenient way to manage related resources, particularly for access control. For example, into one resource group you could put a Web App, an Application Insights resource to monitor the app, and a Storage resource to keep exported data.
 
 
-    ![Выберите «Обзор», «Группы ресурсов», а затем выберите группу](./media/app-insights-resources-roles-access-control/11-group.png)
+    ![Choose Browse, Resource groups, then choose a group](./media/app-insights-resources-roles-access-control/11-group.png)
 
-* [**Подписка**](https://manage.windowsazure.com) — чтобы использовать Application Insights или другие ресурсы Azure, следует войти в подписку Azure. Каждая группа ресурсов относится к одной подписке Azure, где вы выбираете пакет по цене и, при использовании подписки для организации, выбираете участников и права доступа для них.
-* [**Учетная запись Майкрософт**][account] — предусматривает имя пользователя и пароль, используемые для входа в подписки Microsoft Azure, XBox Live, Outlook.com и другие службы Майкрософт.
+* [**Subscription**](https://manage.windowsazure.com) - To use Application Insights or other Azure resources, you sign in to an Azure subscription. Every resource group belongs to one Azure subscription, where you choose your price package and, if it's an organization subscription, choose the members and their access permissions.
+* [**Microsoft account**][account] - The username and password that you use to sign in to Microsoft Azure subscriptions, XBox Live, Outlook.com, and other Microsoft services.
 
 
-## <a name="access"></a>Контроль доступа в группе ресурсов
+## <a name="<a-name="access"></a>-control-access-in-the-resource-group"></a><a name="access"></a> Control access in the resource group
 
-Важно понимать, что кроме ресурса, созданного для приложения, существуют также отдельные скрытые ресурсы для оповещений и веб-тестов. Они вложены в ту же [группу ресурсов](#resource-group), что и ваше приложение. В нее также можно поместить другие службы Azure, такие как веб-сайты или службы хранилища.
+It's important to understand that in addition to the resource you created for your application, there are also separate hidden resources for alerts and web tests. They are attached to the same [resource group](#resource-group) as your application. You might also have put other Azure services in there, such as websites or storage.
 
-![Ресурсы в Application Insights](./media/app-insights-resources-roles-access-control/00-resources.png)
+![Resources in Application Insights](./media/app-insights-resources-roles-access-control/00-resources.png)
 
-Поэтому для контроля доступа к этим ресурсам рекомендуем:
+To control access to these resources it's therefore recommended to:
 
-* осуществлять контроль доступа на уровне **группы ресурсов или подписки**;
-* назначать пользователям роль **участника компонента Application Insights**. Это позволяет изменять веб-тесты, оповещения и ресурсы Application Insights, не предоставляя доступ к другим службам в группе.
+* Control access at the **resource group or subscription** level.
+* Assign the **Application Insights Component contributor** role to users. This allows them to edit web tests, alerts, and Application Insights resources, without providing access to any other services in the group.
 
-## Предоставление доступа другому пользователю
+## <a name="to-provide-access-to-another-user"></a>To provide access to another user
 
-Для этого у вас должны быть права владельца подписки или группы ресурсов.
+You must have Owner rights to the subscription or the resource group.
 
-У пользователя должна быть [учетная запись Майкрософт][account] или доступ к [рабочей учетной записи Майкрософт](..\active-directory\sign-up-organization.md). Вы можете предоставлять доступ отдельным пользователям и группам пользователей, определенным в Azure Active Directory.
+The user must have a [Microsoft Account][account], or access to their [organizational Microsoft Account](..\active-directory\sign-up-organization.md). You can provide access to individuals, and also to user groups defined in Azure Active Directory.
 
-#### Переход к группе ресурсов
+#### <a name="navigate-to-the-resource-group"></a>Navigate to the resource group
 
-Добавьте в нее пользователя.
+Add the user there.
 
-![В колонке ресурсов приложения откройте «Основные компоненты», откройте группу ресурсов и выберите параметры или пользователей. Нажмите Добавить.](./media/app-insights-resources-roles-access-control/01-add-user.png)
+![In your application's resource blade, open Essentials, open the resource group, and there select Settings/Users. Click Add.](./media/app-insights-resources-roles-access-control/01-add-user.png)
 
-Вы также можете перейти на уровень выше и добавить пользователя в подписку.
+Or you could go up another level and add the user to the Subscription.
 
-#### Выбор роли
+#### <a name="select-a-role"></a>Select a role
 
-![Выберите роль для нового пользователя](./media/app-insights-resources-roles-access-control/03-role.png)
+![Select a role for the new user](./media/app-insights-resources-roles-access-control/03-role.png)
 
-Роль | В группе ресурсов
+Role | In the resource group
 ---|---
-Владелец | Можно менять любые параметры, в том числе права доступа пользователей
-Участник | Можно изменять любое содержимое, в том числе любые ресурсы
-Участник компонента Application Insights | Можно изменять ресурсы, веб-тесты и оповещения Application Insights
-Читатель | Можно просматривать содержимое, но нельзя ничего изменять
+Owner | Can change anything, including user access
+Contributor | Can edit anything, including all resources
+Application Insights Component contributor | Can edit Application Insights resources, web tests and alerts
+Reader | Can view but not change anything
 
-«Изменение» включает в себя создание, удаление и обновление:
+'Editing' includes creating, deleting and updating:
 
-* Ресурсы
-* Веб-тесты
-* Оповещения
-* непрерывный экспорт.
+* Resources
+* Web tests
+* Alerts
+* Continuous export
 
-#### Выбор пользователя
-
-
-![Введите адрес электронной почты нового пользователя. Выбор пользователя](./media/app-insights-resources-roles-access-control/04-user.png)
-
-Если в каталоге нет необходимого пользователя, вы можете пригласить любого пользователя с учетной записью Майкрософт (если он использует такие службы, как Outlook.com, OneDrive, Windows Phone или XBox Live, значит, у него есть учетная запись Майкрософт).
+#### <a name="select-the-user"></a>Select the user
 
 
+![Type the email address of a new user. Select the user](./media/app-insights-resources-roles-access-control/04-user.png)
 
-## Пользователи и роли
+If the user you want isn't in the directory, you can invite anyone with a Microsoft account.
+(If they use services like Outlook.com, OneDrive, Windows Phone, or XBox Live, they have a Microsoft account.)
 
-* [Управление доступом на основе ролей в Azure](../active-directory/role-based-access-control-configure.md)
+
+
+## <a name="users-and-roles"></a>Users and roles
+
+* [Role based access control in Azure](../active-directory/role-based-access-control-configure.md)
 
 
 
@@ -108,4 +110,8 @@
 [portal]: https://portal.azure.com/
 [start]: app-insights-overview.md
 
-<!---HONumber=AcomDC_0720_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

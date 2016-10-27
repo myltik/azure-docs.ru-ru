@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Общие сведения о конфигурациях для обеспечения высокодоступных подключений с использованием VPN-шлюзов Azure | Microsoft Azure"
-   description="В этой статье рассматриваются параметры, обеспечивающие высокую доступность подключений, устанавливаемых с помощью VPN-шлюзов Azure."
+   pageTitle="Overview of Highly Available configurations with Azure VPN Gateways | Microsoft Azure"
+   description="This article provides an overview of highly available configuration options using Azure VPN Gateways."
    services="vpn-gateway"
    documentationCenter="na"
    authors="yushwang"
@@ -17,81 +17,86 @@
    ms.date="09/24/2016"
    ms.author="yushwang"/>
 
-# Настройка высокодоступных подключений: распределенных и между виртуальными сетями
 
-В этой статье рассматриваются параметры высокодоступных подключений (распределенных и между виртуальными сетями), устанавливаемых с помощью VPN-шлюзов Azure.
+# <a name="highly-available-cross-premises-and-vnet-to-vnet-connectivity"></a>Highly Available Cross-Premises and VNet-to-VNet Connectivity
 
-## <a name = "activestandby"></a>Избыточность VPN-шлюзов Azure
+This article provides an overview of Highly Available configuration options for your cross-premises and VNet-to-VNet connectivity using Azure VPN gateways.
 
-Каждый VPN-шлюз Azure состоит из двух экземпляров: активного и резервного. При запланированном обслуживании или незапланированном простое активного экземпляра выполняется автоматический переход (отработка отказа) на резервный экземпляр. Это позволяет возобновить VPN-подключение типа "сеть — сеть" или подключение типа "виртуальная сеть — виртуальная сеть". Переключение сопровождается кратким прерыванием работы. При плановом обслуживании подключение должно быть восстановлено в течение 10–15 секунд. При сбое на восстановление подключения потребуется больше времени — от одной до полутора минут (в худшем случае). При этом клиентские VPN-подключения к шлюзу типа "точка — сеть" будут разорваны, и пользователям придется повторно устанавливать подключение на клиентских компьютерах.
+## <a name="<a-name-=-"activestandby"></a>about-azure-vpn-gateway-redundancy"></a><a name = "activestandby"></a>About Azure VPN gateway redundancy
 
-![Конфигурация "активный — резервный"](./media/vpn-gateway-highlyavailable/active-standby.png)
+Every Azure VPN gateway consists of two instances in an active-standby configuration. For any planned maintenance or unplanned disruption that happens to the active instance, the standby instance would take over (failover) automatically, and resume the S2S VPN or VNet-to-VNet connections. The switch over will cause a brief interruption. For planned maintenance, the connectivity should be restored within 10 to 15 seconds. For unplanned issues, the connection recovery will be longer, about 1 minute to 1 and a half minutes in the worst case. For P2S VPN client connections to the gateway, the P2S connections will be disconnected and the users will need to reconnect from the client machines.
 
-## Высокодоступные распределенные подключения
+![Active-Standby](./media/vpn-gateway-highlyavailable/active-standby.png)
 
-Есть три способа обеспечить высокую доступность распределенных подключений:
+## <a name="highly-available-cross-premises-connectivity"></a>Highly Available Cross-Premises Connectivity
 
-- использование нескольких локальных VPN-устройств;
-- использование VPN-шлюза Azure в конфигурации "активный — активный";
-- сочетание этих двух вариантов.
+To provide better availability for your cross premises connections, there are a couple of options available:
 
-### <a name = "activeactiveonprem"></a>Использование нескольких локальных VPN-устройств
+- Multiple on-premises VPN devices
+- Active-active Azure VPN gateway
+- Combination of both
 
-Вы можете использовать несколько VPN-устройств из локальной сети для подключения к VPN-шлюзу Azure, как показано на следующей схеме.
+### <a name="<a-name-=-"activeactiveonprem"></a>multiple-on-premises-vpn-devices"></a><a name = "activeactiveonprem"></a>Multiple on-premises VPN devices
 
-![Несколько локальных VPN-устройств](./media/vpn-gateway-highlyavailable/multiple-onprem-vpns.png)
+You can use multiple VPN devices from your on-premises network to connect to your Azure VPN gateway, as shown in the following diagram:
 
-Такая конфигурация обеспечивает топологию из нескольких активных туннелей между одним VPN-шлюзом Azure и локальными устройствами в одном и том же расположении. Применимые требования и ограничения:
+![Multiple On-Premises VPN](./media/vpn-gateway-highlyavailable/multiple-onprem-vpns.png)
 
-1. Вам нужно создать несколько VPN-подключений типа "сеть — сеть" между VPN-устройствами и средой Azure. При подключении нескольких VPN-устройств из одной и той же локальной сети к среде Azure вам нужно создать по одному шлюзу локальной сети для каждого VPN-устройства, а также одно подключение между VPN-шлюзом Azure и шлюзом локальной сети.
+This configuration provides multiple active tunnels from the same Azure VPN gateway to your on-premises devices in the same location. There are some requirements and constraints:
 
-2. Для шлюзов локальной сети, связанных с VPN-устройствами, нужно указать уникальные общедоступные IP-адреса в свойстве GatewayIpAddress.
+1. You need to create multiple S2S VPN connections from your VPN devices to Azure. When you connect multiple VPN devices from the same on-premises network to Azure, you need to create one local network gateway for each VPN device, and one connection from your Azure VPN gateway to the local network gateway.
 
-3. Для этой конфигурации требуется BGP. Для каждого шлюза локальной сети, представляющего VPN-устройство, нужно указать уникальный IP-адрес для узла BGP в свойстве BgpPeerIpAddress.
+2. The local network gateways corresponding to your VPN devices must have unique public IP addresses in the "GatewayIpAddress" property.
 
-4. Значения свойства AddressPrefix для каждого шлюза локальной сети не должны перекрываться. Укажите значение BgpPeerIpAddress в формате CIDR (с префиксом /32) в поле AddressPrefix (например, 10.200.200.254/32).
+3. BGP is required for this configuration. Each local network gateway representing a VPN device must have a unique BGP peer IP address specified in the "BgpPeerIpAddress" property.
 
-5. Используйте BGP для объявления VPN-шлюзу Azure одинаковых диапазонов IP-адресов из одинаковых локальных сетей, и трафик будет направляться одновременно во все эти туннели.
+4. The AddressPrefix property field in each local network gateway must not overlap. You should specify the "BgpPeerIpAddress" in /32 CIDR format in the AddressPrefix field, for example, 10.200.200.254/32.
 
-6. В рамках каждого подключения учитывается максимальное число туннелей для VPN-шлюза Azure: 10 для SKU категорий "Базовый" и "Стандартный" и 30 для категории HighPerformance.
+5. You should use BGP to advertise the same prefixes of the same on-premises network prefixes to your Azure VPN gateway, and the traffic will be forwarded through these tunnels simultaneously.
 
-Так как в этой конфигурации VPN-шлюз Azure по-прежнему работает в режиме "активный — резервный", отработка отказа будет сопровождаться кратким прерыванием работы, как описано [выше](#activestandby). Тем не менее эта конфигурация помогает защититься от сбоев и перерывов в работе локальной сети и VPN-устройств.
+6. Each connection is counted against the maximum number of tunnels for your Azure VPN gateway, 10 for Basic and Standard SKUs, and 30 for HighPerformance SKU. 
+
+In this configuration, the Azure VPN gateway is still in active-standby mode, so the same failover behavior and brief interruption will still happen as described [above](#activestandby). But this setup guards against failures or interruptions on your on-premises network and VPN devices.
  
-### Использование VPN-шлюза Azure в конфигурации "активный — активный"
+### <a name="active-active-azure-vpn-gateway"></a>Active-active Azure VPN gateway
 
-Теперь можно создать VPN-шлюз Azure в конфигурации "активный — активный". В этом случае оба экземпляра ВМ шлюза через туннели устанавливают VPN-подключение "сеть — сеть" к локальному VPN-устройству, как показано на следующей схеме.
+You can now create an Azure VPN gateway in an active-active configuration, where both instances of the gateway VMs will establish S2S VPN tunnels to your on-premises VPN device, as shown the following diagram:
 
-![Шаблон "активный-активный"](./media/vpn-gateway-highlyavailable/active-active.png)
+![Active-Active](./media/vpn-gateway-highlyavailable/active-active.png)
 
-В этой конфигурации у каждого экземпляра шлюза Azure будет уникальный общедоступный IP-адрес. Кроме того, каждый экземпляр устанавливает через туннель VPN-подключение по протоколу IPsec/IKE S2S к локальному VPN-устройству, связанному со шлюзом локальной сети и подключением. Обратите внимание, что оба туннеля VPN на самом деле представляют одно подключение. Вам также нужно настроить локальное VPN-устройство, чтобы обеспечить топологию из двух туннелей для VPN-подключения типа "сеть — сеть" с использованием этих двух общедоступных IP-адресов VPN-шлюзов Azure.
+In this configuration, each Azure gateway instance will have a unique public IP address, and each will establish an IPsec/IKE S2S VPN tunnel to your on-premises VPN device specified in your local network gateway and connection. Note that both VPN tunnels are actually part of the same connection. You will still need to configure your on-premises VPN device to accept or establish two S2S VPN tunnels to those two Azure VPN gateway public IP addresses.
 
-Так как экземпляры шлюза Azure работают в режиме "активный — активный", трафик, поступающий из виртуальной сети Azure в локальную сеть, будет направляться через оба туннеля одновременно, даже если локальное VPN-устройство использует один из этих туннелей. Учтите, что один и тот же поток TCP или UDP всегда будет проходить через один и тот же туннель (по одному и тому же пути), если только для одного из экземпляров не выполняется обслуживание.
+Because the Azure gateway instances are in active-active configuration, the traffic from your Azure virtual network to your on-premises network will be routed through both tunnels simultaneously, even if your on-premises VPN device may favor one tunnel over the other. Note though the same TCP or UDP flow will always traverse the same tunnel or path, unless a maintenance event happens on one of the instances.
 
-При запланированном обслуживании одного из экземпляров шлюза или его сбое IPsec-туннель между таким экземпляром и локальным VPN-устройством будет закрыт. Связанные с VPN-устройствами маршруты следует удалить (это может произойти автоматически), чтобы перенаправить трафик в другой активный IPsec-туннель. На стороне Azure переключение между неактивным и активным экземплярами выполняется автоматически.
+When a planned maintenance or unplanned event happens to one gateway instance, the IPsec tunnel from that instance to your on-premises VPN device will be disconnected. The corresponding routes on your VPN devices should be removed or withdrawn automatically so that the traffic will be switched over to the other active IPsec tunnel. On the Azure side, the switch over will happen automatically from the affected instance to the active instance.
 
-### Двойная избыточность: VPN-шлюзы Azure в конфигурации "активный — активный" для сетей Azure и локальных сетей
+### <a name="dual-redundancy:-active-active-vpn-gateways-for-both-azure-and-on-premises-networks"></a>Dual-redundancy: active-active VPN gateways for both Azure and on-premises networks
 
-Самый надежный вариант — это использование шлюзов в конфигурации "активный — активный" для локальной сети и сети Azure, как показано на следующей схеме.
+The most reliable option is to combine the active-active gateways on both your network and Azure, as shown in the diagram below.
 
-![Двойная избыточность](./media/vpn-gateway-highlyavailable/dual-redundancy.png)
+![Dual Redundancy](./media/vpn-gateway-highlyavailable/dual-redundancy.png)
 
-Вам нужно создать и настроить VPN-шлюз Azure в конфигурации "активный — активный", а также создать два шлюза локальной сети и установить два подключения для двух локальных VPN-устройств, как описано выше. В результате вы получите топологию из четырех IPsec-туннелей, где каждая виртуальная сеть Azure соединяется с каждой локальной сетью.
+Here you create and setup the Azure VPN gateway in an active-active configuration, and create two local network gateways and two connections for your two on-premises VPN devices as described above. The result is a full mesh connectivity of 4 IPsec tunnels between your Azure virtual network and your on-premises network.
 
-Так как на стороне Azure все шлюзы и туннели будут активными, трафик будет распределяться между четырьмя туннелями одновременно, хотя каждый исходящий из среды Azure поток TCP или UDP снова будет следовать по тому же туннелю или пути. Распределение трафика может сопровождаться некоторым повышением пропускной способности через IPsec-туннели, однако основная задача этой конфигурации — обеспечить высокую доступность. Кроме того, статистический характер распределения не позволяет точно определить влияние разных условий передачи трафика на общую пропускную способность.
+All gateways and tunnels are active from the Azure side, so the traffic will be spread among all 4 tunnels simultaneously, although each TCP or UDP flow will again follow the same tunnel or path from the Azure side. Even though by spreading the traffic, you may see slightly better throughput over the IPsec tunnels, the primary goal of this configuration is for high availability. And due to the statistical nature of the spreading, it is difficult to provide the measurement on how different application traffic conditions will affect the aggregate throughput.
 
-Для этой топологии потребуется два шлюза локальной сети и два подключения, которые обеспечат поддержку для пары локальных VPN-устройств. Кроме того, чтобы установить два подключения к одной и той же локальной сети, понадобится BGP. Эти требования аналогичны требованиям, описанным [выше](#activeactiveonprem).
+This topology will require two local network gateways and two connections to support the pair of on-premises VPN devices, and BGP is required to allow the two connections to the same on-premises network. These requirements are the same as the [above](#activeactiveonprem). 
 
-## Высокодоступные подключения типа "виртуальная сеть — виртуальная сеть" через VPN-шлюзы Azure
+## <a name="highly-available-vnet-to-vnet-connectivity-through-azure-vpn-gateways"></a>Highly Available VNet-to-VNet Connectivity through Azure VPN Gateways
 
-Конфигурацию "активный — активный" можно также применить к подключениям между виртуальными сетями Azure. Вы можете создать VPN-шлюзы в конфигурации "активный — активный" для виртуальных сетей, используя аналогичную топологию из двух виртуальных сетей и четырех туннелей, как показано на следующей схеме.
+The same active-active configuration can also apply to Azure VNet-to-VNet connections. You can create active-active VPN gateways for both virtual networks, and connect them together to form the same full mesh connectivity of 4 tunnels between the two VNets, as shown in the diagram below:
 
-![Подключение типа "виртуальная сеть — виртуальная сеть"](./media/vpn-gateway-highlyavailable/vnet-to-vnet.png)
+![VNet-to-VNet](./media/vpn-gateway-highlyavailable/vnet-to-vnet.png)
 
-Так вы обеспечите постоянное наличие пары туннелей между двумя виртуальными сетями при плановом обслуживании любого типа, делая подключение высокодоступным. Хотя аналогичная топология для распределенного подключения предполагает два подключения, для описанной выше сетевой топологии с виртуальными сетями требуется только одно подключение для каждого шлюза. Кроме того, здесь можно не использовать BGP, если только вам не нужно обеспечить транзитную маршрутизацию при подключении между виртуальными сетями.
+This ensures there are always a pair of tunnels between the two virtual networks for any planned maintenance events, providing even better availability. Even though the same topology for cross-premises connectivity requires two connections, the VNet-to-VNet topology shown above will need only one connection for each gateway. Additionally, BGP is optional unless transit routing over the VNet-to-VNet connection is required.
 
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Next steps
 
-Инструкции по настройке распределенных подключений (локальных и между виртуальными сетями) с конфигурацией "активный — активный" см. в статье [Configure active-active S2S VPN connections with Azure VPN Gateways using Azure Resource Manager and PowerShell](http://go.microsoft.com/fwlink/?LinkId=828726) (Настройка VPN-подключений между виртуальными сетями с конфигурацией "активный — активный" через VPN-шлюзы Azure с помощью Azure Resource Manager и PowerShell).
+See [Configuring Active-Active VPN Gateways for Cross-Premises and VNet-to-VNet Connections](http://go.microsoft.com/fwlink/?LinkId=828726) for steps to configure active-active cross-premises and VNet-to-VNet connections.
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

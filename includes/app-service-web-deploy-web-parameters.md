@@ -1,28 +1,29 @@
-С помощью диспетчера ресурсов Azure можно определить параметры значений, которые должны указываться на этапе развертывания шаблона. В шаблоне есть раздел "Параметры", содержащий все значения параметров. Для этих значений необходимо определить параметры, которые будут зависеть от развертываемого проекта либо от среды, в которой выполняется развертывание. Не задавайте параметры для значений, которые не меняются. Значение каждого параметра в шаблоне определяет развертываемые ресурсы.
+With Azure Resource Manager, you define parameters for values you want to specify when the template is deployed. The template includes a section called Parameters that contains all of the parameter values.
+You should define a parameter for those values that will vary based on the project you are deploying or based on the environment you are deploying to. Do not define parameters for values that will always stay the same. Each parameter value is used in the template to define the resources that are deployed. 
 
-При определении параметров задать значения, указываемые пользователем во время развертывания, можно с помощью поля **allowedValues**. С помощью поля **defaultValue** можно назначить параметру значение, которое будет использоваться в случае, если значение во время развертывания не указано.
+When defining parameters, use the **allowedValues** field to specify which values a user can provide during deployment. Use the **defaultValue** field to assign a value to the parameter, if no value is provided during deployment.
 
-Далее следует описание каждого параметра в шаблоне.
+We will describe each parameter in the template.
 
-### siteName
+### <a name="sitename"></a>siteName
 
-Имя создаваемого веб-приложения.
+The name of the web app that you wish to create.
 
     "siteName":{
       "type":"string"
     }
 
-### hostingPlanName
+### <a name="hostingplanname"></a>hostingPlanName
 
-Имя плана службы приложений для размещения веб-приложения.
+The name of the App Service plan to use for hosting the web app.
     
     "hostingPlanName":{
       "type":"string"
     }
 
-### sku
+### <a name="sku"></a>sku
 
-Ценовая категория плана размещения.
+The pricing tier for the hosting plan.
 
     "sku": {
       "type": "string",
@@ -46,11 +47,11 @@
       }
     }
 
-В шаблоне определены значения, допустимые для этого параметра. Если значение не указано, параметру назначается значение по умолчанию (S1).
+The template defines the values that are permitted for this parameter, and assigns a default value (S1) if no value is specified.
 
-### workerSize
+### <a name="workersize"></a>workerSize
 
-Размер экземпляра плана размещения (малый, средний или большой).
+The instance size of the hosting plan (small, medium, or large).
 
     "workerSize":{
       "type":"string",
@@ -62,5 +63,9 @@
       "defaultValue":"0"
     }
     
-В шаблоне определены значения, допустимые для этого параметра (0, 1 и 2). Если значение не указано, параметру назначается значение по умолчанию (0). Эти величины соответствуют малому, среднему и большому размерам.
+The template defines the values that are permitted for this parameter (0, 1, or 2), and assigns a default value (0) if no value is specified. The values correspond to small, medium and large.
+
+
+<!--HONumber=Oct16_HO2-->
+
 

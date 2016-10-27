@@ -1,6 +1,6 @@
 <properties
- pageTitle="Управление вычислительными узлами кластера пакета HPC | Microsoft Azure"
- description="Дополнительные сведения о сценариях PowerShell для добавления, удаления, запуска и остановки вычислительных узлов кластера пакета HPC в Azure"
+ pageTitle="Manage HPC Pack cluster compute nodes | Microsoft Azure"
+ description="Learn about PowerShell script tools to add, remove, start, and stop HPC Pack cluster compute nodes in Azure"
  services="virtual-machines-windows"
  documentationCenter=""
  authors="dlepow"
@@ -16,22 +16,23 @@ ms.service="virtual-machines-windows"
  ms.date="07/22/2016"
  ms.author="danlep"/>
 
-# Управление числом и доступностью вычислительных узлов в кластере пакета HPC в Azure
 
-Если вы создали кластер пакета HPC на виртуальных машинах Azure, вам может потребоваться простой способ добавления, удаления, запуска (подготовки) или остановки (отзыва) нескольких виртуальных машин вычислительных узлов в кластере. Для выполнения этих задач запустите сценарии Azure PowerShell, которые установлены на виртуальной машине головного узла. Эти сценарии позволяют контролировать количество и доступность ресурсов кластера пакета HPC, а также затраты на них.
+# <a name="manage-the-number-and-availability-of-compute-nodes-in-an-hpc-pack-cluster-in-azure"></a>Manage the number and availability of compute nodes in an HPC Pack cluster in Azure
+
+If you created an HPC Pack cluster in Azure VMs, you might want ways to easily add, remove, start (provision), or stop (deprovision) a number of compute node VMs in the cluster. To do these tasks, run Azure PowerShell scripts that are installed on the head node VM. These scripts help you control the number and availability of your HPC Pack cluster resources so you can control costs.
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 
-## Предварительные требования
+## <a name="prerequisites"></a>Prerequisites
 
-* **Кластер пакета HPC на виртуальных машинах Azure**. Создайте кластер пакета HPC в классической модели развертывания с помощью пакета HPC 2012 R2 с обновлением 1 или более новой версии. Например, можно автоматизировать развертывание с помощью текущего образа виртуальной машины пакета HPC в Azure Marketplace и сценария Azure PowerShell. Дополнительные сведения и описание необходимых компонентов см. в разделе [Создание кластера HPC с помощью сценария развертывания IaaS пакета HPC](virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md).
+* **HPC Pack cluster in Azure VMs** - Create an HPC Pack cluster in the classic deployment model by using at least HPC Pack 2012 R2 Update 1. For example, you can automate the deployment by using the current HPC Pack VM image in the Azure Marketplace and an Azure PowerShell script. For information and prerequisites, see [Create an HPC Cluster with the HPC Pack IaaS deployment script](virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md).
 
-    После развертывания найдите сценарии управления узлом в папке %CCP\_HOME%bin на головном узле. Каждый из сценариев следует запускать от имени администратора.
+    After deployment, find the node management scripts in the %CCP\_HOME%bin folder on the head node. You must run each of the scripts as an administrator.
 
-* **Файл параметров публикации или сертификат управления Azure** — необходимо выполнить на головном узле одно из следующих действий:
+* **Azure publish settings file or management certificate** - You need to do one of the following on the head node:
 
-    * **Импортируйте файл параметров публикации Azure**. Чтобы сделать это, запустите на головном узле следующие командлеты Azure PowerShell:
+    * **Import the Azure publish settings file**. To do this, run the following Azure PowerShell cmdlets on the head node:
 
     ```
     Get-AzurePublishSettingsFile
@@ -39,48 +40,48 @@ ms.service="virtual-machines-windows"
     Import-AzurePublishSettingsFile –PublishSettingsFile <publish settings file>
     ```
 
-    * **Настройте сертификат управления Azure на головном узле**. При наличии CER-файла импортируйте его в CurrentUser\\My certificate store, а затем запустите следующий командлет Azure PowerShell для своей среды Azure (AzureCloud или AzureChinaCloud):
+    * **Configure the Azure management certificate on the head node**. If you have the .cer file, import it in the CurrentUser\My certificate store and then run the following Azure PowerShell cmdlet for your Azure environment (either AzureCloud or AzureChinaCloud):
 
     ```
-    Set-AzureSubscription -SubscriptionName <Sub Name> -SubscriptionId <Sub ID> -Certificate (Get-Item Cert:\CurrentUser\My<Cert Thrumbprint>) -Environment <AzureCloud | AzureChinaCloud>
+    Set-AzureSubscription -SubscriptionName <Sub Name> -SubscriptionId <Sub ID> -Certificate (Get-Item Cert:\CurrentUser\My\<Cert Thrumbprint>) -Environment <AzureCloud | AzureChinaCloud>
     ```
 
-## Добавление виртуальных машин вычислительных узлов
+## <a name="add-compute-node-vms"></a>Add compute node VMs
 
-Добавьте вычислительные узлы с помощью сценария **Add-HpcIaaSNode.ps1**.
+Add compute nodes with the **Add-HpcIaaSNode.ps1** script.
 
-### Синтаксис
+### <a name="syntax"></a>Syntax
 ```
 Add-HPCIaaSNode.ps1 [-ServiceName] <String> [-ImageName] <String>
  [-Quantity] <Int32> [-InstanceSize] <String> [-DomainUserName] <String> [[-DomainUserPassword] <String>]
  [[-NodeNameSeries] <String>] [<CommonParameters>]
 
 ```
-### Параметры
+### <a name="parameters"></a>Parameters
 
-* **ServiceName** — имя облачной службы, в которую будут добавляться новые виртуальные машины вычислительных узлов.
+* **ServiceName** - Name of the cloud service that new compute node VMs will be added to.
 
-* **ImageName** — имя образа виртуальной машины Azure, который можно получить с помощью классического портала Azure или командлета Azure PowerShell **Get-AzureVMImage**. Этот образ должен соответствовать следующим требованиям.
+* **ImageName** - Azure VM image name, which can be obtained through the Azure classic portal or Azure PowerShell cmdlet **Get-AzureVMImage**. The image must meet the following requirements:
 
-    1. Должна быть установлена операционная система Windows.
+    1. A Windows operating system must be installed.
 
-    2. В роли вычислительного узла должен быть установлен пакет HPC.
+    2. HPC Pack must be installed in the compute node role.
 
-    3. Образ должен относится к частным образам из категории пользовательских, а не к общедоступным образам виртуальной машины Azure.
+    3. The image must be a private image in the User category, not a public Azure VM image.
 
-* **Quantity** — число добавляемых виртуальных машин вычислительных узлов.
+* **Quantity** - Number of compute node VMs to be added.
 
-* **InstanceSize** — размер виртуальных машин вычислительных узлов.
+* **InstanceSize** - Size of the compute node VMs.
 
-* **DomainUserName** — имя пользователя домена, которое будет использоваться для присоединения новых виртуальных машин к домену.
+* **DomainUserName** - Domain user name, which will be used to join the new VMs to the domain.
 
-* **DomainUserPassword** — пароль пользователя домена.
+* **DomainUserPassword** - Password of the domain user.
 
-* **NodeNameSeries** (необязательно) — шаблон именования для вычислительных узлов. Требуемый формат: &lt;*Root\_Name*&gt;&lt;*Start\_Number*&gt;%. Например, MyCN%10% означает последовательность имен вычислительных узлов, начинающуюся с MyCN11. Если не указано, сценарий использует настроенную последовательность имен узлов в кластере HPC.
+* **NodeNameSeries** (optional) - Naming pattern for the compute nodes. The format must be &lt;*Root\_Name*&gt;&lt;*Start\_Number*&gt;%. For example, MyCN%10% means a series of the compute node names starting from MyCN11. If not specified, the script uses the configured node naming series in the HPC cluster.
 
-### Пример
+### <a name="example"></a>Example
 
-В следующем примере 20 виртуальных машин вычислительных узлов большого размера добавляются в облачную службу *hpcservice1* на основе образа виртуальной машины *hpccnimage1*.
+The following example adds 20 size Large compute node VMs in the cloud service *hpcservice1*, based on the VM image *hpccnimage1*.
 
 ```
 Add-HPCIaaSNode.ps1 –ServiceName hpcservice1 –ImageName hpccniamge1
@@ -89,11 +90,11 @@ Add-HPCIaaSNode.ps1 –ServiceName hpcservice1 –ImageName hpccniamge1
 ```
 
 
-## Удаление виртуальных машин вычислительных узлов
+## <a name="remove-compute-node-vms"></a>Remove compute node VMs
 
-Удалите вычислительные узлы с помощью сценария **Remove-HpcIaaSNode.ps1**.
+Remove compute nodes with the **Remove-HpcIaaSNode.ps1** script.
 
-### Синтаксис
+### <a name="syntax"></a>Syntax
 
 ```
 Remove-HPCIaaSNode.ps1 -Name <String[]> [-DeleteVHD] [-Force] [-WhatIf] [-Confirm] [<CommonParameters>]
@@ -101,58 +102,58 @@ Remove-HPCIaaSNode.ps1 -Name <String[]> [-DeleteVHD] [-Force] [-WhatIf] [-Confir
 Remove-HPCIaaSNode.ps1 -Node <Object> [-DeleteVHD] [-Force] [-Confirm] [<CommonParameters>]
 ```
 
-### Параметры
+### <a name="parameters"></a>Parameters
 
-* **Name** — имена узлов кластера для удаления. Поддерживаются подстановочные знаки. Для параметра задано имя Name. Нельзя одновременно задать параметры **Name** и **Node**.
+* **Name** - Names of cluster nodes to be removed. Wildcards are supported. The parameter set name is Name. You can't specify both the **Name** and **Node** parameters.
 
-* **Node** — объект HpcNode для удаляемых узлов, который можно получить с помощью командлета PowerShell HPC [Get-HpcNode](https://technet.microsoft.com/library/dn887927.aspx). Для параметра задано имя Node. Нельзя одновременно задать параметры **Name** и **Node**.
+* **Node** - The HpcNode object for the nodes to be removed, which can be obtained through the HPC PowerShell cmdlet [Get-HpcNode](https://technet.microsoft.com/library/dn887927.aspx). The parameter set name is Node. You can't specify both the **Name** and **Node** parameters.
 
-* **DeleteVHD** (необязательно) — параметр удаления связанных дисков для удаляемых виртуальных машин.
+* **DeleteVHD** (optional) - Setting to delete the associated disks for the VMs that are removed.
 
-* **Force** (необязательно) — параметр принудительного отключения узлов HPC перед их удалением.
+* **Force** (optional) - Setting to force HPC nodes offline before removing them.
 
-* **Confirm** (необязательно) — запрос подтверждения перед выполнением команды.
+* **Confirm** (optional) - Prompt for confirmation before executing the command.
 
-* **WhatIf** — параметр описания последствий выполнения команды без фактического выполнения этой команды.
+* **WhatIf** - Setting to describe what would happen if you executed the command without actually executing the command.
 
-### Пример
+### <a name="example"></a>Example
 
-В следующем примере принудительно отключаются узлы, имена которых начинаются с *HPCNode-CN-*, после чего эти узлы и связанные с ними диски удаляются.
+The following example forces offline nodes with names beginning *HPCNode-CN-* and them removes the nodes and their associated disks.
 
 ```
 Remove-HPCIaaSNode.ps1 –Name HPCNodeCN-* –DeleteVHD -Force
 ```
 
-## Запуск виртуальных машин вычислительных узлов
+## <a name="start-compute-node-vms"></a>Start compute node VMs
 
-Запустите вычислительные узлы с помощью сценария **Start-HpcIaaSNode.ps1**.
+Start compute nodes with the **Start-HpcIaaSNode.ps1** script.
 
-### Синтаксис
+### <a name="syntax"></a>Syntax
 
 ```
 Start-HPCIaaSNode.ps1 -Name <String[]> [<CommonParameters>]
 
 Start-HPCIaaSNode.ps1 -Node <Object> [<CommonParameters>]
 ```
-### Параметры
+### <a name="parameters"></a>Parameters
 
-* **Name** — имена узлов кластера для запуска. Поддерживаются подстановочные знаки. Для параметра задано имя Name. Нельзя одновременно задать параметры **Name** и **Node**.
+* **Name** - Names of the cluster nodes to be started. Wildcards are supported. The parameter set name is Name. You cannot specify both the **Name** and **Node** parameters.
 
-* **Node** — объект HpcNode для запускаемых узлов, который можно получить с помощью командлета PowerShell HPC [Get-HpcNode](https://technet.microsoft.com/library/dn887927.aspx). Для параметра задано имя Node. Нельзя одновременно задать параметры **Name** и **Node**.
+* **Node**- The HpcNode object for the nodes to be started, which can be obtained through the HPC PowerShell cmdlet [Get-HpcNode](https://technet.microsoft.com/library/dn887927.aspx). The parameter set name is Node. You cannot specify both the **Name** and **Node** parameters.
 
-### Пример
+### <a name="example"></a>Example
 
-В следующем примере запускаются узлы, имена которых начинаются с *HPCNode-CN-*.
+The following example starts nodes with names beginning *HPCNode-CN-*.
 
 ```
 Start-HPCIaaSNode.ps1 –Name HPCNodeCN-*
 ```
 
-## Остановка виртуальных машин вычислительных узлов
+## <a name="stop-compute-node-vms"></a>Stop compute node VMs
 
-Остановите вычислительные узлы с помощью сценария **Stop-HpcIaaSNode.ps1**.
+Stop compute nodes with the **Stop-HpcIaaSNode.ps1** script.
 
-### Синтаксис
+### <a name="syntax"></a>Syntax
 
 ```
 Stop-HPCIaaSNode.ps1 -Name <String[]> [-Force] [<CommonParameters>]
@@ -160,23 +161,27 @@ Stop-HPCIaaSNode.ps1 -Name <String[]> [-Force] [<CommonParameters>]
 Stop-HPCIaaSNode.ps1 -Node <Object> [-Force] [<CommonParameters>]
 ```
 
-### Параметры
+### <a name="parameters"></a>Parameters
 
 
-* **Name** — имена узлов кластера для остановки. Поддерживаются подстановочные знаки. Для параметра задано имя Name. Нельзя одновременно задать параметры **Name** и **Node**.
+* **Name**- Names of the cluster nodes to be stopped. Wildcards are supported. The parameter set name is Name. You cannot specify both the **Name** and **Node** parameters.
 
-* **Node** — объект HpcNode для останавливаемых узлов, который можно получить с помощью командлета PowerShell HPC [Get-HpcNode](https://technet.microsoft.com/library/dn887927.aspx). Для параметра задано имя Node. Нельзя одновременно задать параметры **Name** и **Node**.
+* **Node** - The HpcNode object for the nodes to be stopped, which can be obtained through the HPC PowerShell cmdlet [Get-HpcNode](https://technet.microsoft.com/library/dn887927.aspx). The parameter set name is Node. You cannot specify both the **Name** and **Node** parameters.
 
-* **Force** (необязательно) — параметр принудительного отключения узлов HPC перед их остановкой.
+* **Force** (optional) - Setting to force HPC nodes offline before stopping them.
 
-### Пример
+### <a name="example"></a>Example
 
-В следующем примере принудительно отключаются узлы, имена которых начинаются с *HPCNode-CN-*, после чего эти узлы останавливаются.
+The following example forces offline nodes with names beginning *HPCNode-CN-* and then stops the nodes.
 
 Stop-HPCIaaSNode.ps1 –Name HPCNodeCN-* -Force
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Next steps
 
-* Если вам требуется возможность автоматического увеличения или уменьшения числа узлов кластера в соответствии с текущей рабочей нагрузкой заданий и задач в кластере, см. статью [Автоматическое масштабирование вычислительных ресурсов Azure в кластере пакета HPC согласно рабочей нагрузке кластера](virtual-machines-windows-classic-hpcpack-cluster-node-autogrowshrink.md).
+* If you want a way to automatically grow or shrink the cluster nodes according to the current workload of jobs and tasks on the cluster, see [Automatically grow and shrink the HPC Pack cluster resources in Azure according to the cluster workload](virtual-machines-windows-classic-hpcpack-cluster-node-autogrowshrink.md).
 
-<!---HONumber=AcomDC_0727_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

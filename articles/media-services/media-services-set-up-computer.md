@@ -1,55 +1,62 @@
 <properties
-	pageTitle="Настройка среды | Microsoft Azure"
-	description="Настройка среды для разработки с использованием служб мультимедиа Azure"
-	services="media-services"
-	documentationCenter=""
-	authors="Juliako"
-	manager="erikre"
-	editor=""/>
+    pageTitle="Set up your environment | Microsoft Azure"
+    description="Set up your environment for developing with Azure Media Services."
+    services="media-services"
+    documentationCenter=""
+    authors="Juliako"
+    manager="erikre"
+    editor=""/>
 
 <tags
-	ms.service="media-services"
-	ms.workload="media"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="09/26/2016"
-	ms.author="juliako"/>
+    ms.service="media-services"
+    ms.workload="media"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="10/12/2016"
+    ms.author="juliako"/>
 
-# Настройка среды
+
+# <a name="set-up-your-environment"></a>Set up your environment
 
 > [AZURE.SELECTOR]
-- [Портал](media-services-create-account.md)
+- [Portal](media-services-portal-create-account.md)
 - [PowerShell](media-services-manage-with-powershell.md)
-- [REST](https://msdn.microsoft.com/library/azure/dn167014.aspx) <a id="create_account"></a>
+- [REST](https://msdn.microsoft.com/library/azure/dn167014.aspx)
+<a id="create_account"></a>
 
-В этой статье описаны действия, которые необходимо выполнить, чтобы получить возможность разрабатывать решения с использованием служб мультимедиа Azure.
+The following steps describe prerequisites required for developing with Azure Media Services.
 
-## Создание учетной записи служб мультимедиа
+## <a name="create-a-media-services-account"></a>Create a Media Services account
 
-Для создания учетной записи служб мультимедиа Azure используйте классический портал Azure, пакет SDK .NET или REST API.
+Use the Azure portal, the .NET SDK, or the REST API to create an Azure Media Services account.
 
 <a id="setup_dev_env"></a>
-## Настройка среды разработки  
+## <a name="set-up-the-development-environment"></a>Set up the development environment  
 
-Выберите .NET или API REST в качестве среды разработки.
+Choose .NET or the REST API for your development environment.
 
 [AZURE.INCLUDE [media-services-selector-setup](../../includes/media-services-selector-setup.md)]
 
 <a id="connect"></a>
-## Подключение программными средствами
+## <a name="connect-programmatically"></a>Connect programmatically
 
-Выберите .NET или API REST для подключения к службам мультимедиа Azure с помощью программных средств.
+Choose .NET or the REST API to programmatically connect to Azure Media Services.
 
 [AZURE.INCLUDE [media-services-selector-connect](../../includes/media-services-selector-connect.md)]
 
 
-##Дальнейшие действия: схемы обучения работе со службами мультимедиа Azure
+##<a name="next-steps:-azure-media-services-learning-paths"></a>Next steps: Azure Media Services learning paths
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-##Отзывы
+##<a name="provide-feedback"></a>Provide feedback
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

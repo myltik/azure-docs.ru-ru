@@ -1,6 +1,6 @@
 <properties 
-    pageTitle="Руководство. Интеграция Azure Active Directory с консолью администрирования Mimecast | Microsoft Azure" 
-    description="Узнайте, как использовать консоль администрирования Mimecast с Azure Active Directory для реализации единого входа, автоматической подготовки пользователей и выполнения других задач." 
+    pageTitle="Tutorial: Azure Active Directory Integration with Mimecast Admin Console | Microsoft Azure" 
+    description="Learn how to use Mimecast Admin Console with Azure Active Directory to enable single sign-on, automated provisioning, and more!" 
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
@@ -11,166 +11,174 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="07/08/2016" 
+    ms.date="09/29/2016" 
     ms.author="jeedes" />
 
-#Руководство. Интеграция Azure Active Directory с консолью администрирования Mimecast
+
+#<a name="tutorial:-azure-active-directory-integration-with-mimecast-admin-console"></a>Tutorial: Azure Active Directory Integration with Mimecast Admin Console
   
-Цель данного учебника — продемонстрировать интеграцию Azure и консоли администрирования Mimecast. Сценарий, описанный в этом учебнике, предполагает, что у вас уже имеется:
+The objective of this tutorial is to show the integration of Azure and Mimecast Admin Console.  
+The scenario outlined in this tutorial assumes that you already have the following items:
 
--   Действующая подписка на Azure
--   Подписка на консоль администрирования Mimecast с поддержкой единого входа
+-   A valid Azure subscription
+-   A Mimecast Admin Console single sign-on enabled subscription
   
-По завершении работы с этим руководством пользователи Azure AD, назначенные в консоли администрирования Mimecast, смогут выполнять единый вход в приложение консоли администрирования Mimecast на веб-сайте компании (вход, инициированный поставщиком услуг) или следуя указаниям в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
+After completing this tutorial, the Azure AD users you have assigned to Mimecast Admin Console will be able to single sign into the application at your Mimecast Admin Console company site (service provider initiated sign on), or using the [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
   
-Сценарий, описанный в этом учебнике, состоит из следующих блоков:
+The scenario outlined in this tutorial consists of the following building blocks:
 
-1.  Включение интеграции приложений для консоли администрирования Mimecast
-2.  Настройка единого входа
-3.  Настройка подготовки учетных записей пользователей
-4.  Назначение пользователей
+1.  Enabling the application integration for Mimecast Admin Console
+2.  Configuring single sign-on
+3.  Configuring user provisioning
+4.  Assigning users
 
-![Сценарий](./media/active-directory-saas-mimecast-admin-console-tutorial/IC795008.png "Сценарий")
-##Включение интеграции приложений для консоли администрирования Mimecast
+![Scenario](./media/active-directory-saas-mimecast-admin-console-tutorial/IC795008.png "Scenario")
+##<a name="enabling-the-application-integration-for-mimecast-admin-console"></a>Enabling the application integration for Mimecast Admin Console
   
-В этом разделе показано, как включить интеграцию приложений для консоли администрирования Mimecast.
+The objective of this section is to outline how to enable the application integration for Mimecast Admin Console.
 
-###Чтобы включить интеграцию приложений для консоли администрирования Mimecast, выполните следующие действия.
+###<a name="to-enable-the-application-integration-for-mimecast-admin-console,-perform-the-following-steps:"></a>To enable the application integration for Mimecast Admin Console, perform the following steps:
 
-1.  На классическом портале Azure в области навигации слева щелкните **Active Directory**.
+1.  In the Azure classic portal, on the left navigation pane, click **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-mimecast-admin-console-tutorial/IC700993.png "Active Directory")
 
-2.  Из списка **Каталог** выберите каталог, для которого нужно включить интеграцию каталогов.
+2.  From the **Directory** list, select the directory for which you want to enable directory integration.
 
-3.  Чтобы открыть представление приложений, в представлении каталога нажмите **Приложения** в верхнем меню.
+3.  To open the applications view, in the directory view, click **Applications** in the top menu.
 
-    ![Приложения](./media/active-directory-saas-mimecast-admin-console-tutorial/IC700994.png "Приложения")
+    ![Applications](./media/active-directory-saas-mimecast-admin-console-tutorial/IC700994.png "Applications")
 
-4.  В нижней части страницы нажмите кнопку **Добавить**.
+4.  Click **Add** at the bottom of the page.
 
-    ![Добавление приложения](./media/active-directory-saas-mimecast-admin-console-tutorial/IC749321.png "Добавление приложения")
+    ![Add application](./media/active-directory-saas-mimecast-admin-console-tutorial/IC749321.png "Add application")
 
-5.  В диалоговом окне **Что необходимо сделать?** нажмите **Добавить приложение из коллекции**.
+5.  On the **What do you want to do** dialog, click **Add an application from the gallery**.
 
-    ![Добавить приложение из коллекции](./media/active-directory-saas-mimecast-admin-console-tutorial/IC749322.png "Добавить приложение из коллекции")
+    ![Add an application from gallerry](./media/active-directory-saas-mimecast-admin-console-tutorial/IC749322.png "Add an application from gallerry")
 
-6.  В **поле поиска** введите **консоль администрирования Mimecast**.
+6.  In the **search box**, type **Mimecast Admin Console**.
 
-    ![Коллекция приложений](./media/active-directory-saas-mimecast-admin-console-tutorial/IC795009.png "Коллекция приложений")
+    ![Application Gallery](./media/active-directory-saas-mimecast-admin-console-tutorial/IC795009.png "Application Gallery")
 
-7.  В области результатов выберите **консоль администрирования Mimecast** и нажмите кнопку **Завершить**, чтобы добавить приложение.
+7.  In the results pane, select **Mimecast Admin Console**, and then click **Complete** to add the application.
 
     ![Mimecast Admin Console](./media/active-directory-saas-mimecast-admin-console-tutorial/IC795010.png "Mimecast Admin Console")
-##Настройка единого входа
+##<a name="configuring-single-sign-on"></a>Configuring single sign-on
   
-В этом разделе показано, как разрешить пользователям проходить проверку подлинности в консоли администрирования Mimecast со своей учетной записью Azure AD, используя федерацию на основе протокола SAML. В рамках этой процедуры потребуется создать файл сертификата в кодировке Base-64. Если вы не знакомы с этой процедурой, посмотрите видео [Как преобразовать двоичный сертификат в текстовый файл](http://youtu.be/PlgrzUZ-Y1o).
+The objective of this section is to outline how to enable users to authenticate to Mimecast Admin Console with their account in Azure AD using federation based on the SAML protocol.  
+As part of this procedure, you are required to create a base-64 encoded certificate file.  
+If you are not familiar with this procedure, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o).
 
-###Чтобы настроить единый вход, выполните следующие действия.
+###<a name="to-configure-single-sign-on,-perform-the-following-steps:"></a>To configure single sign-on, perform the following steps:
 
-1.  На странице интеграции с приложением **консоли администрирования Mimecast** классического портала Azure щелкните **Настройка единого входа**, чтобы открыть диалоговое окно **Настройка единого входа**.
+1.  In the Azure classic portal, on the **Mimecast Admin Console** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
 
-    ![Настройка единого входа](./media/active-directory-saas-mimecast-admin-console-tutorial/IC795011.png "Настройка единого входа")
+    ![Configure Single Sign-On](./media/active-directory-saas-mimecast-admin-console-tutorial/IC795011.png "Configure Single Sign-On")
 
-2.  На странице **Как пользователи должны входить в консоль администрирования Mimecast** выберите **Единый вход Microsoft Azure AD** и нажмите кнопку **Далее**.
+2.  On the **How would you like users to sign on to Mimecast Admin Console** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
-    ![Настройка единого входа](./media/active-directory-saas-mimecast-admin-console-tutorial/IC795012.png "Настройка единого входа")
+    ![Configure Single Sign-On](./media/active-directory-saas-mimecast-admin-console-tutorial/IC795012.png "Configure Single Sign-On")
 
-3.  На странице **Настройка URL-адреса приложения** в текстовом поле **URL-адрес для входа в консоль администрирования Mimecast** введите URL-адрес, который используется для входа в приложение консоли администрирования Mimecast (например, https://webmail-uk.mimecast.com или https://webmail-us.mimecast.com), и нажмите кнопку**Далее**.
+3.  On the **Configure App URL** page, in the **Mimecast Admin Console Sign On URL** textbox, type the URL used by your users to sign on to your Mimecast Admin Console application (e.g.: “https://webmail-uk.mimecast.com” or “https://webmail-us.mimecast.com”), and then click **Next**.
 
-    >[AZURE.NOTE] URL-адрес для входа зависит от региона.
+    >[AZURE.NOTE] The sign on URL is region specific.
 
-    ![Настройка URL-адреса приложения](./media/active-directory-saas-mimecast-admin-console-tutorial/IC795013.png "Настройка URL-адреса приложения")
+    ![Configure App URL](./media/active-directory-saas-mimecast-admin-console-tutorial/IC795013.png "Configure App URL")
 
-4.  На странице **Настройка единого входа в консоль администрирования Mimecast** нажмите кнопку **Загрузить сертификат**, а затем сохраните файл сертификата локально на компьютере.
+4.  On the **Configure single sign-on at Mimecast Admin Console** page, to download your certificate, click **Download certificate**, and then save the certificate file locally on your computer.
 
-    ![Настройка единого входа](./media/active-directory-saas-mimecast-admin-console-tutorial/IC795014.png "Настройка единого входа")
+    ![Configure Single Sign-On](./media/active-directory-saas-mimecast-admin-console-tutorial/IC795014.png "Configure Single Sign-On")
 
-5.  В другом окне веб-браузера войдите в консоль администрирования Mimecast в качестве администратора.
+5.  In a different web browser window, log into your Mimecast Admin Console as an administrator.
 
-6.  Выберите **Службы > Приложение**.
+6.  Go to **Services \> Application**.
 
-    ![Службы](./media/active-directory-saas-mimecast-admin-console-tutorial/IC794998.png "Службы")
+    ![Services](./media/active-directory-saas-mimecast-admin-console-tutorial/IC794998.png "Services")
 
-7.  Щелкните **Профили проверки подлинности**.
+7.  Click **Authentication Profiles**.
 
-    ![Профили проверки подлинности](./media/active-directory-saas-mimecast-admin-console-tutorial/IC794999.png "Профили проверки подлинности")
+    ![Authentication Profiles](./media/active-directory-saas-mimecast-admin-console-tutorial/IC794999.png "Authentication Profiles")
 
-8.  Щелкните **Новый профиль проверки подлинности**.
+8.  Click **New Authentication Profile**.
 
-    ![Новые профили проверки подлинности](./media/active-directory-saas-mimecast-admin-console-tutorial/IC795000.png "Новые профили проверки подлинности")
+    ![New Authentication Profiles](./media/active-directory-saas-mimecast-admin-console-tutorial/IC795000.png "New Authentication Profiles")
 
-9.  В разделе **Профиль проверки подлинности** сделайте следующее:
+9.  In the **Authentication Profile** section, perform the following steps:
 
-    ![Профиль проверки подлинности](./media/active-directory-saas-mimecast-admin-console-tutorial/IC795015.png "Профиль проверки подлинности")
+    ![Authentication Profile](./media/active-directory-saas-mimecast-admin-console-tutorial/IC795015.png "Authentication Profile")
 
-    1.  В текстовом поле **Описание** введите имя конфигурации.
-    2.  Выберите **Обязательное использование проверки подлинности SAML для консоли администрирования Mimecast**.
-    3.  В поле **Поставщик** выберите **Azure Active Directory**.
-    4.  На диалоговой странице **Настройка единого входа в консоль администрирования Mimecast** классического портала Azure скопируйте значение поля **URL-адрес издателя** и вставьте его в текстовое поле **URL-адрес издателя**.
-    5.  На диалоговой странице **Настройка единого входа в консоль администрирования Mimecast** классического портала Azure скопируйте значение поля **URL-адрес удаленного входа** и вставьте его в текстовое поле **URL-адрес входа**.
-    6.  На диалоговой странице **Настройка единого входа в консоль администрирования Mimecast** классического портала Azure скопируйте значение поля **URL-адрес удаленного входа** и вставьте его в текстовое поле **URL-адрес выхода**.
+    1.  In the **Description** textbox, type a name for your configuration.
+    2.  Select **Enforce SAML Authentication for Mimecast Admin Console**.
+    3.  As **Provider**, select **Azure Active Directory**.
+    4.  In the Azure classic portal, on the **Configure single sign-on at Mimecast Admin Console** dialog page, copy the **Issuer URL** value, and then paste it into the **Issuer URL** textbox.
+    5.  In the Azure classic portal, on the **Configure single sign-on at Mimecast Admin Console** dialog page, copy the **Remote Login URL** value, and then paste it into the **Login URL** textbox.
+    6.  In the Azure classic portal, on the **Configure single sign-on at Mimecast Admin Console** dialog page, copy the **Remote Login URL** value, and then paste it into the **Logout URL** textbox.  
 
-        >[AZURE.NOTE]Значения URL-адреса входа в систему и URL-адреса выхода из системы для консоли администрирования Mimecast одинаковы.
+        >[AZURE.NOTE]The Login URL value and the Logout URL value are for the Mimecast Admin Console the same.
 
-    7.  Создайте файл **в кодировке Base-64** из скачанного сертификата.
+    7.  Create a **base-64 encoded** file from your downloaded certificate.  
 
-        >[AZURE.TIP]Дополнительные сведения вы можете узнать в видео [Преобразование двоичного сертификата в текстовый файл](http://youtu.be/PlgrzUZ-Y1o).
+        >[AZURE.TIP]For more details, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o).
 
-    8.  Откройте сертификат в кодировке Base-64 в Блокноте, удалите первую строку ("*--*") и последнюю строку ("*--*"), скопируйте остальное содержимое в буфер обмена и вставьте его в текстовое поле **Identity Provider Certificate (Metadata)** (Сертификат поставщика удостоверений (метаданные)).
-    9.  Установите флажок **Разрешить единый вход**.
-    10. Щелкните **Сохранить**.
+    8.  Open your base-64 encoded certificate in notepad, remove the first line (“*--*“) and the last line (“*--*“), copy the remaining content of it into your clipboard, and then paste it to the **Identity Provider Certificate (Metadata)** textbox.
+    9.  Select **Allow Single Sign On**.
+    10. Click **Save**.
 
-10. На классическом портале Azure выберите подтверждение конфигурации единого входа, а затем нажмите кнопку **Завершить**, чтобы закрыть диалоговое окно **Настройка единого входа**.
+10. On the Azure classic portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
 
-    ![Настройка единого входа](./media/active-directory-saas-mimecast-admin-console-tutorial/IC795016.png "Настройка единого входа")
-##Настройка подготовки учетных записей пользователей
+    ![Configure Single Sign-On](./media/active-directory-saas-mimecast-admin-console-tutorial/IC795016.png "Configure Single Sign-On")
+##<a name="configuring-user-provisioning"></a>Configuring user provisioning
   
-Чтобы разрешить пользователям Azure AD вход в консоль администрирования Mimecast, они должны быть подготовлены для консоли администрирования Mimecast. В случае с консолью администрирования Mimecast подготовка выполняется вручную.
+In order to enable Azure AD users to log into Mimecast Admin Console, they must be provisioned into Mimecast Admin Console.  
+In the case of Mimecast Admin Console, provisioning is a manual task.
   
-Перед созданием пользователей необходимо зарегистрировать домен.
+You need to register a domain before you can create users.
 
-###Чтобы настроить подготовку учетных записей пользователей, выполните следующие действия.
+###<a name="to-configure-user-provisioning,-perform-the-following-steps:"></a>To configure user provisioning, perform the following steps:
 
-1.  Войдите в **консоль администрирования Mimecast** в качестве администратора.
+1.  Sign on to your **Mimecast Admin Console** as administrator.
 
-2.  Выберите **Каталоги > Внутренние**.
+2.  Go to **Directories \> Internal**.
 
-    ![Каталоги](./media/active-directory-saas-mimecast-admin-console-tutorial/IC795003.png "Каталоги")
+    ![Directories](./media/active-directory-saas-mimecast-admin-console-tutorial/IC795003.png "Directories")
 
-3.  Щелкните **Зарегистрировать новый домен**.
+3.  Click **Register New Domain**.
 
-    ![Зарегистрировать новый домен](./media/active-directory-saas-mimecast-admin-console-tutorial/IC795004.png "Зарегистрировать новый домен")
+    ![Register New Domain](./media/active-directory-saas-mimecast-admin-console-tutorial/IC795004.png "Register New Domain")
 
-4.  После создания нового домена щелкните **Новый адрес**.
+4.  After your new domain has been created, click **New Address**.
 
-    ![Новый адрес](./media/active-directory-saas-mimecast-admin-console-tutorial/IC795005.png "Новый адрес")
+    ![New Address](./media/active-directory-saas-mimecast-admin-console-tutorial/IC795005.png "New Address")
 
-5.  В окне нового адреса выполните следующие действия.
+5.  In the new address dialog, perform the following steps:
 
-    ![Сохранить](./media/active-directory-saas-mimecast-admin-console-tutorial/IC795006.png "Сохранить")
+    ![Save](./media/active-directory-saas-mimecast-admin-console-tutorial/IC795006.png "Save")
 
-    1.  Введите атрибуты **Адрес электронной почты**, **Глобальное имя**, **Пароль** и **Подтверждение пароля** действующей учетной записи AAD, которую необходимо подготовить, в соответствующие текстовые поля.
-    2.  Щелкните **Сохранить**.
+    1.  Type the **Email Address**, **Global Name**, **Password** and **Confirm Password** attributes of a valid AAD account you want to provision into the related textboxes.
+    2.  Click **Save**.
 
->[AZURE.NOTE]Для подготовки учетных записей пользователей AAD можно использовать любые другие средства создания учетных записей консоли администрирования Mimecast или API, предоставляемое консолью администрирования Mimecast.
+>[AZURE.NOTE]You can use any other Mimecast Admin Console user account creation tools or APIs provided by Mimecast Admin Console to provision AAD user accounts.
 
-##Назначение пользователей
+##<a name="assigning-users"></a>Assigning users
   
-Чтобы проверить свою конфигурацию, предоставьте пользователям Azure AD, которые должны использовать приложение, доступ путем их назначения.
+To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.
 
-###Чтобы назначить пользователей консоли администрирования Mimecast, выполните следующие действия.
+###<a name="to-assign-users-to-mimecast-admin-console,-perform-the-following-steps:"></a>To assign users to Mimecast Admin Console, perform the following steps:
 
-1.  На классическом портале Azure создайте тестовую учетную запись.
+1.  In the Azure classic portal, create a test account.
 
-2.  На странице интеграции с приложением **консоли администрирования Mimecast** щелкните **Назначить пользователей**.
+2.  On the **Mimecast Admin Console **application integration page, click **Assign users**.
 
-    ![Назначить пользователей](./media/active-directory-saas-mimecast-admin-console-tutorial/IC795017.png "Назначить пользователей")
+    ![Assign Users](./media/active-directory-saas-mimecast-admin-console-tutorial/IC795017.png "Assign Users")
 
-3.  Выберите тестового пользователя, нажмите кнопку **Назначить**, а затем — **Да**, чтобы подтвердить назначение.
+3.  Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.
 
-    ![Да](./media/active-directory-saas-mimecast-admin-console-tutorial/IC767830.png "Да")
+    ![Yes](./media/active-directory-saas-mimecast-admin-console-tutorial/IC767830.png "Yes")
   
-Если вы хотите проверить параметры единого входа, откройте панель доступа. Дополнительные сведения о панели доступа см. в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
+If you want to test your single sign-on settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0713_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

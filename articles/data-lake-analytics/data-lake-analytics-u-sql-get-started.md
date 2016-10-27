@@ -1,36 +1,38 @@
-<properties 
-   pageTitle="Разработка скриптов U-SQL с помощью средств озера данных для Visual Studio | Azure" 
-   description="Сведения об установке средств озера данных для Visual Studio, разработке и тестировании скриптов U-SQL. " 
-   services="data-lake-analytics" 
-   documentationCenter="" 
-   authors="edmacauley" 
-   manager="jhubbard" 
+<properties
+   pageTitle="Develop U-SQL scripts using Data Lake Tools for Visual Studio | Azure"
+   description="Learn how to install Data Lake Tools for Visual Studio, how to develop and test U-SQL scripts. "
+   services="data-lake-analytics"
+   documentationCenter=""
+   authors="edmacauley"
+   manager="jhubbard"
    editor="cgronlun"/>
- 
+
 <tags
    ms.service="data-lake-analytics"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="big-data" 
+   ms.workload="big-data"
    ms.date="05/16/2016"
    ms.author="edmaca"/>
 
-# Учебник. Приступая к работе с языком U-SQL для аналитики озера данных Azure
 
-U-SQL — это язык, который объединяет преимущества SQL с эффективными возможностями вашего собственного кода для обработки всех данных любого масштаба. Масштабируемый распределенный запрос U-SQL позволяет эффективно анализировать данные в хранилище и в реляционных хранилищах, таких как Базы данных Azure SQL. Он позволяет обрабатывать неструктурированные данные, применяя схему для чтения, вставки пользовательской логики и определяемых пользователем функций, и включает возможности расширения, обеспечивающие точный контроль над выполнением в масштабе. Дополнительные сведения о принципах разработки U-SQL см. [в записи блога Visual Studio](https://blogs.msdn.microsoft.com/visualstudio/2015/09/28/introducing-u-sql-a-language-that-makes-big-data-processing-easy/).
+# <a name="tutorial:-get-started-with-azure-data-lake-analytics-u-sql-language"></a>Tutorial: Get started with Azure Data Lake Analytics U-SQL language
 
-Существуют некоторые отличия от ANSI SQL или T-SQL. Например, ключевые слова, такие как SELECT, должны быть из прописных букв.
+U-SQL is a language that unifies the benefits of SQL with the expressive power of your own code to process all data at any scale. U-SQL’s scalable distributed query capability enables you to efficiently analyze data in the store and across relational stores such as Azure SQL Database.  It enables you to process unstructured data by applying schema on read, insert custom logic and UDF's, and includes extensibility to enable fine grained control over how to execute at scale. To learn more about the design philosophy behind U-SQL, please refer to this [Visual Studio blog post](https://blogs.msdn.microsoft.com/visualstudio/2015/09/28/introducing-u-sql-a-language-that-makes-big-data-processing-easy/).
 
-Его система типов и язык выражения внутри предложения select, где предикаты и т. д. в C#. Это означает, что типы данных — это типы C# и типы данных используют семантику C# NULL, а операции сравнения внутри предиката используют синтаксис C# (например, a == "foo"). Это также означает, что значения являются полными объектами .NET, что позволяет легко использовать любой метод для работы с объектом (например "f o o o".Split(' ') ).
+There are some differences from ANSI SQL or T-SQL. For example, its keywords such as SELECT have to be in UPPERCASE.
 
-Дополнительные сведения см. в [справке по U-SQL](http://go.microsoft.com/fwlink/p/?LinkId=691348).
+It’s type system and expression language inside select clauses, where predicates etc are in C#.
+This means the data types are the C# types and the data types use C# NULL semantics, and the comparison operations inside a predicate follow C# syntax (e.g., a == "foo").  This also means, that the values are full .NET objects, allowing you to easily use any method to operate on the object (eg "f o o o".Split(' ')  ).
 
-###Предварительные требования
+For more information, see [U-SQL Reference](http://go.microsoft.com/fwlink/p/?LinkId=691348).
 
-Вам необходимо использовать [Учебник. Разработка скриптов U-SQL с помощью средств озера данных для Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
+###<a name="prerequisites"></a>Prerequisites
 
-В этом учебнике выполняется задание аналитики озера данных с помощью следующего сценария U-SQL:
+You must complete [Tutorial: develop U-SQL scripts using Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
+
+In the tutorial, you ran a Data Lake Analytics job with the following U-SQL script:
 
     @searchlog =
         EXTRACT UserId          int,
@@ -42,37 +44,38 @@ U-SQL — это язык, который объединяет преимуще�
                 ClickedUrls     string
         FROM "/Samples/Data/SearchLog.tsv"
         USING Extractors.Tsv();
-    
+
     OUTPUT @searchlog   
         TO "/output/SearchLog-first-u-sql.csv"
     USING Outputters.Csv();
 
-Этот сценарий не содержит действий преобразования. Он считывает данные из исходного файла **SearchLog.tsv**, схематизирует их и выводит набор строк в файл с именем **SearchLog-from-adltools.csv**.
+This script doesn't have any transformation steps. It reads from the source file called **SearchLog.tsv**, schematizes it, and outputs the rowset back into a file called **SearchLog-first-u-sql.csv**.
 
-Обратите внимание на вопросительный знак рядом с типом данных поля «Длительность». Это означает, что поле «Длительность» может иметь значение null.
+Notice the question mark next to the data type of the Duration field. That means the Duration field could be null.
 
-Некоторые основные понятия и ключевые слова в сценарии.
+Some concepts and keywords found in the script:
 
-- **Переменные набора строк**: каждое выражение запроса, которое возвращает набор строк, может быть назначено переменной. U-SQL использует шаблон именования переменной T-SQL, например **@searchlog**, в сценарии. Обратите внимание, что назначение не обеспечивает принудительного выполнения. Оно просто именует выражение и дает возможность создавать более сложные выражения.
-- **EXTRACT** дает возможность определить схему для чтения. Схема задается именем столбца и парой имен типа C# для каждого столбца. Она использует так называемое **средство извлечения**, например **Extractors.Tsv()**, для извлечения TSV-файлов. Можно разрабатывать пользовательские средства извлечения.
-- **OUTPUT** принимает набор строк и сериализует его. Outputters.Csv() выводит файл с разделителями-запятыми в указанное место. Можно также разработать пользовательские средства вывода.
-- Обратите внимание, что два пути являются относительными. Также можно использовать абсолютные пути. Например:
-    
+- **Rowset variables**: Each query expression that produces a rowset can be assigned to a variable. U-SQL follows the T-SQL variable naming pattern, for example, **@searchlog** in the script.
+    Note the assignment does not force execution. It merely names the expression and gives you the ability to build-up more complex expressions.
+- **EXTRACT** gives you the ability to define a schema on read. The schema is specified by a column name and C# type name pair per column. It uses a so-called **Extractor**, for example, **Extractors.Tsv()** to extract tsv files. You can develop custom extractors.
+- **OUTPUT** takes a rowset and serializes it. The Outputters.Csv() output a comma-separated file into the specified location. You can also develop custom Outputters.
+- Notice the two paths are relative paths. You can also use absolute paths.  For example
+
         adl://<ADLStorageAccountName>.azuredatalakestore.net:443/Samples/Data/SearchLog.tsv
-        
-    Необходимо использовать абсолютный путь для доступа к файлам в связанных учетных записях хранения. Для файлов, хранящихся в связанной учетной записи хранения Azure, используется следующий синтаксис:
-    
+
+    You must use absolute path to access the files in the linked Storage accounts.  The syntax for files stored in linked Azure Storage account is:
+
         wasb://<BlobContainerName>@<StorageAccountName>.blob.core.windows.net/Samples/Data/SearchLog.tsv
 
-    >[AZURE.NOTE] Контейнер больших двоичных объектов Azure с разрешениями на доступ к общедоступным большим двоичным объектам или общедоступным контейнерам в настоящее время не поддерживается.
+    >[AZURE.NOTE] Azure Blob container with public blobs or public containers access permissions are not currently supported.
 
-## Использование скалярных переменных
+## <a name="use-scalar-variables"></a>Use scalar variables
 
-Скалярные переменные можно использовать также для упрощения обслуживания вашего сценария. Предыдущий сценарий U-SQL также можно написать следующим образом:
+You can use scalar variables as well to make your script maintenance easier. The previous U-SQL script can also be written as the following:
 
     DECLARE @in  string = "/Samples/Data/SearchLog.tsv";
     DECLARE @out string = "/output/SearchLog-scalar-variables.csv";
-    
+
     @searchlog =
         EXTRACT UserId          int,
                 Start           DateTime,
@@ -83,14 +86,14 @@ U-SQL — это язык, который объединяет преимуще�
                 ClickedUrls     string
         FROM @in
         USING Extractors.Tsv();
-    
+
     OUTPUT @searchlog   
         TO @out
         USING Outputters.Csv();
-      
-## Преобразования наборов строк
 
-Используйте **SELECT** для преобразования наборов строк:
+## <a name="transform-rowsets"></a>Transform rowsets
+
+Use **SELECT** to transform rowsets:
 
     @searchlog =
         EXTRACT UserId          int,
@@ -102,19 +105,19 @@ U-SQL — это язык, который объединяет преимуще�
                 ClickedUrls     string
         FROM "/Samples/Data/SearchLog.tsv"
         USING Extractors.Tsv();
-    
+
     @rs1 =
         SELECT Start, Region, Duration
         FROM @searchlog
     WHERE Region == "en-gb";
-    
+
     OUTPUT @rs1   
         TO "/output/SearchLog-transform-rowsets.csv"
         USING Outputters.Csv();
 
-Предложение WHERE использует [логическое выражение C#](https://msdn.microsoft.com/library/6a71f45d.aspx). Для создания собственных выражений и функций можно использовать язык выражений C#. Можно даже выполнить более сложную фильтрацию, сочетая их с помощью логического объединения (and) и разделения (or).
+The WHERE clause uses [C# boolean expression](https://msdn.microsoft.com/library/6a71f45d.aspx). You can use the C# expression language to do your own expressions and functions. You can even perform more complex filtering by combining them with logical conjunctions (ANDs) and disjunctions (ORs).
 
-Следующий сценарий использует метод DateTime.Parse() и объединение.
+The following script uses the DateTime.Parse() method and a conjunction.
 
     @searchlog =
         EXTRACT UserId          int,
@@ -126,35 +129,35 @@ U-SQL — это язык, который объединяет преимуще�
                 ClickedUrls     string
         FROM "/Samples/Data/SearchLog.tsv"
         USING Extractors.Tsv();
-    
+
     @rs1 =
         SELECT Start, Region, Duration
         FROM @searchlog
     WHERE Region == "en-gb";
-    
+
     @rs1 =
         SELECT Start, Region, Duration
         FROM @rs1
         WHERE Start >= DateTime.Parse("2012/02/16") AND Start <= DateTime.Parse("2012/02/17");
-    
+
     OUTPUT @rs1   
         TO "/output/SearchLog-transform-datatime.csv"
         USING Outputters.Csv();
-        
-Обратите внимание, что второй запрос работает на результатах первого набора строк и, таким образом, результатом является сочетание двух фильтров. Можно также повторно использовать имя переменной, и имена объединяются лексически.
 
-## Агрегированные наборы строк
+Notice that the second query is operating on the result of the first rowset and thus the result is a composition of the two filters. You can also reuse a variable name and the names are scoped lexically.
 
-U-SQL предоставляет знакомые предложения **ORDER BY**, **GROUP BY** и агрегаты.
+## <a name="aggregate-rowsets"></a>Aggregate rowsets
 
-Следующий запрос находит общую длительность по регионам, а затем выводит 5 результатов максимальной длительности по порядку.
+U-SQL provides you with the familiar **ORDER BY**, **GROUP BY** and aggregations.
 
-Наборы строк U-SQL не сохраняют свой порядок для следующего запроса. Таким образом, чтобы упорядочить выходные данные, необходимо добавить предложение ORDER BY в OUTPUT, как показано ниже.
+The following query finds the total duration per region, and then outputs the top 5 durations in order.
+
+U-SQL rowsets do not preserve their order for the next query. Thus, to order an output, you need to add ORDER BY to the OUTPUT statement as shown below:
 
     DECLARE @outpref string = "/output/Searchlog-aggregation";
     DECLARE @out1    string = @outpref+"_agg.csv";
     DECLARE @out2    string = @outpref+"_top5agg.csv";
-    
+
     @searchlog =
         EXTRACT UserId          int,
                 Start           DateTime,
@@ -165,32 +168,32 @@ U-SQL предоставляет знакомые предложения **ORDER
                 ClickedUrls     string
         FROM "/Samples/Data/SearchLog.tsv"
         USING Extractors.Tsv();
-    
+
     @rs1 =
         SELECT
             Region,
             SUM(Duration) AS TotalDuration
         FROM @searchlog
     GROUP BY Region;
-    
+
     @res =
     SELECT *
     FROM @rs1
     ORDER BY TotalDuration DESC
     FETCH 5 ROWS;
-    
+
     OUTPUT @rs1
         TO @out1
         ORDER BY TotalDuration DESC
         USING Outputters.Csv();
     OUTPUT @res
-        TO @out2 
+        TO @out2
         ORDER BY TotalDuration DESC
         USING Outputters.Csv();
-        
-Предложение ORDER BY в U-SQL необходимо использовать вместе с предложением FETCH в выражении SELECT.
 
-Предложение HAVING в U-SQL можно использовать для ограничения выходных данных группами, которые удовлетворяют условиям HAVING:
+U-SQL ORDER BY clause has to be combined with the FETCH clause in a SELECT expression.
+
+U-SQL HAVING clause can be used to restrict the output to groups that satisfy the HAVING condition:
 
     @searchlog =
         EXTRACT UserId          int,
@@ -202,7 +205,7 @@ U-SQL предоставляет знакомые предложения **ORDER
                 ClickedUrls     string
         FROM "/Samples/Data/SearchLog.tsv"
         USING Extractors.Tsv();
-    
+
     @res =
         SELECT
             Region,
@@ -210,17 +213,17 @@ U-SQL предоставляет знакомые предложения **ORDER
         FROM @searchlog
     GROUP BY Region
     HAVING SUM(Duration) > 200;
-    
+
     OUTPUT @res
         TO "/output/Searchlog-having.csv"
         ORDER BY TotalDuration DESC
         USING Outputters.Csv();
 
-## Объединение данных
+## <a name="join-data"></a>Join data
 
-U-SQL предоставляет общие операторы объединения, такие как INNER JOIN, LEFT/RIGHT/FULL OUTER JOIN, SEMI JOIN, для объединения не только таблиц, но и любых наборов строк (даже тех, которые создаются из файлов).
+U-SQL provides common join operators such as INNER JOIN, LEFT/RIGHT/FULL OUTER JOIN, SEMI JOIN, to join not only tables but any rowsets (even those produced from files).
 
-Следующий сценарий объединяет searchlog с журналом впечатлений объявления и дает нам объявления для строки запроса для конкретной даты.
+The following script joins the searchlog with an advertisement impression log and gives us the advertisements for the query string for a given date.
 
     @adlog =
         EXTRACT UserId int,
@@ -228,37 +231,38 @@ U-SQL предоставляет общие операторы объедине�
                 Clicked int
         FROM "/Samples/Data/AdsLog.tsv"
         USING Extractors.Tsv();
-    
+
     @join =
         SELECT a.Ad, s.Query, s.Start AS Date
-        FROM @adlog AS a JOIN <insert your DB name>.dbo.SearchLog1 AS s 
+        FROM @adlog AS a JOIN <insert your DB name>.dbo.SearchLog1 AS s
                         ON a.UserId == s.UserId
         WHERE a.Clicked == 1;
-    
+
     OUTPUT @join   
         TO "/output/Searchlog-join.csv"
         USING Outputters.Csv();
 
 
-U-SQL поддерживает только синтаксис объединения, совместимый с ANSI: предикат Rowset1 JOIN Rowset2 ON. Старый синтаксис предиката FROM Rowset1, Rowset2 WHERE НЕ поддерживается. Предикат в JOIN должен являться объединением равенства, а не выражением. Чтобы использовать выражение, добавьте его в предыдущее предложение SELECT набора строк. Если требуется выполнить различные сравнения, его можно переместить в предложение WHERE.
-
-        
-## Создание баз данных, возвращающих табличные значения функций, представлений и таблиц
-
-U-SQL позволяет использовать данные в контексте базы данных и схемы. Поэтому нет необходимости постоянно считывать или записывать файлы.
-
-Каждый сценарий U-SQL выполняется с помощью базы данных по умолчанию (master) и схемы по умолчанию (dbo) в качестве контекста по умолчанию. Можно создать собственную базу данных или схему. Чтобы изменить контекст, используйте предложение **USE**.
+U-SQL only supports the ANSI compliant join syntax: Rowset1 JOIN Rowset2 ON predicate. The old syntax of FROM Rowset1, Rowset2 WHERE predicate is NOT supported.
+The predicate in a JOIN has to be an equality join and no expression. If you want to use an expression, add it to a previous rowset's select clause. If you want to do a different comparison, you can move it into the WHERE clause.
 
 
-### Создание возвращающих табличные значения функций
+## <a name="create-databases,-table-valued-functions,-views,-and-tables"></a>Create databases, table-valued functions, views, and tables
 
-В предыдущем сценарии U-SQL мы повторно использовали EXTRACT для чтения из того же исходного файла. Возвращающая табличные значения функция U-SQL позволяет инкапсулировать данные для повторного использования в будущем.
+U-SQL allows you to use data in the context of a database and schema. So you don't have to always read from or write to files.
 
-Следующий сценарий создает возвращающую табличное значение функцию с именем *Searchlog()* в базе данных и схеме по умолчанию:
+Every U-SQL script runs with a default database (master) and default schema (DBO) as its default context. You can create your own database and/or schema. To change the context, use the **USE** statement to change the context.
+
+
+### <a name="create-a-table-valued-function-(tvf)"></a>Create a table-valued function (TVF)
+
+In the previous U-SQL script, you repeated using EXTRACT reading from the same source file. U-SQL table-valued function enables you to encapsulate the data for future reuse.   
+
+The following script creates a TVF called *Searchlog()* in the default database and schema:
 
     DROP FUNCTION IF EXISTS Searchlog;
-    
-    CREATE FUNCTION Searchlog() 
+
+    CREATE FUNCTION Searchlog()
     RETURNS @searchlog TABLE
     (
                 UserId          int,
@@ -269,7 +273,7 @@ U-SQL позволяет использовать данные в контекс
                 Urls            string,
                 ClickedUrls     string
     )
-    AS BEGIN 
+    AS BEGIN
     @searchlog =
         EXTRACT UserId          int,
                 Start           DateTime,
@@ -282,8 +286,8 @@ U-SQL позволяет использовать данные в контекс
     USING Extractors.Tsv();
     RETURN;
     END;
-    
-Следующий сценарий показывает, как использовать возвращающую табличное значение функцию, определенную в предыдущем сценарии:
+
+The following script shows you how to use the TVF defined in the previous script:
 
     @res =
         SELECT
@@ -292,20 +296,20 @@ U-SQL позволяет использовать данные в контекс
         FROM Searchlog() AS S
     GROUP BY Region
     HAVING SUM(Duration) > 200;
-    
+
     OUTPUT @res
         TO "/output/SerachLog-use-tvf.csv"
         ORDER BY TotalDuration DESC
         USING Outputters.Csv();
-        
-### Создание представлений
 
-Если имеется только одно выражение запроса, которое вы хотите выделить и не хотите параметрировать, можно создать представление вместо табличной функции.
+### <a name="create-views"></a>Create views
 
-Следующий сценарий создает представление с именем *SearchlogView* в базе данных и схеме по умолчанию:
+If you only have one query expression that you want to abstract and do not want to parameterize it, you can create a view instead of a table-valued function.
+
+The following script creates a view called *SearchlogView* in the default database and schema:
 
     DROP VIEW IF EXISTS SearchlogView;
-    
+
     CREATE VIEW SearchlogView AS  
         EXTRACT UserId          int,
                 Start           DateTime,
@@ -316,8 +320,8 @@ U-SQL позволяет использовать данные в контекс
                 ClickedUrls     string
         FROM "/Samples/Data/SearchLog.tsv"
     USING Extractors.Tsv();
-    
-Следующий сценарий демонстрирует использование определенного представления.
+
+The following script demonstrates using the defined view:
 
     @res =
         SELECT
@@ -326,25 +330,25 @@ U-SQL позволяет использовать данные в контекс
         FROM SearchlogView
     GROUP BY Region
     HAVING SUM(Duration) > 200;
-    
+
     OUTPUT @res
         TO "/output/Searchlog-use-view.csv"
         ORDER BY TotalDuration DESC
         USING Outputters.Csv();
 
-### создание таблиц. 
+### <a name="create-tables"></a>Create tables
 
-Подобно таблице реляционной базы данных, U-SQL позволяет создать таблицу с предварительно определенной схемой или же создать таблицу и вывести схему из запроса, который заполняет таблицу (CREATE TABLE AS SELECT или CTAS).
+Similar to relational database table, U-SQL allows you to create a table with a predefined schema or create a table and infer the schema from the query that populates the table (also known as CREATE TABLE AS SELECT or CTAS).
 
-Следующий сценарий создает базу данных и две таблицы:
+The following script create a database and two tables:
 
     DROP DATABASE IF EXISTS SearchLogDb;
     CREATE DATABASE SeachLogDb
     USE DATABASE SearchLogDb;
-    
+
     DROP TABLE IF EXISTS SearchLog1;
     DROP TABLE IF EXISTS SearchLog2;
-    
+
     CREATE TABLE SearchLog1 (
                 UserId          int,
                 Start           DateTime,
@@ -353,24 +357,24 @@ U-SQL позволяет использовать данные в контекс
                 Duration        int?,
                 Urls            string,
                 ClickedUrls     string,
-    
-                INDEX sl_idx CLUSTERED (UserId ASC) 
+
+                INDEX sl_idx CLUSTERED (UserId ASC)
                     PARTITIONED BY HASH (UserId)
     );
-    
+
     INSERT INTO SearchLog1 SELECT * FROM master.dbo.Searchlog() AS s;
-    
+
     CREATE TABLE SearchLog2(
-        INDEX sl_idx CLUSTERED (UserId ASC) 
+        INDEX sl_idx CLUSTERED (UserId ASC)
                 PARTITIONED BY HASH (UserId)
     ) AS SELECT * FROM master.dbo.Searchlog() AS S; // You can use EXTRACT or SELECT here
 
 
-### Запросы к таблицам
+### <a name="query-tables"></a>Query tables
 
-Вы можете отправлять запрос к таблицам (созданным в предыдущем сценарии) так же, как вы отправляете запрос к файлам данных. Вместо создания набора строк с помощью EXTRACT теперь можно непосредственно ссылаться на имя таблицы.
+You can query the tables (created in the previous script) in the same way as you query over the data files. Instead of creating a rowset using EXTRACT, you now can just refer to the table name.
 
-Сценарий преобразования, который использовался ранее, изменяется для чтения из таблиц:
+The transform script you used previously is modified to read from the tables:
 
     @rs1 =
         SELECT
@@ -378,45 +382,48 @@ U-SQL позволяет использовать данные в контекс
             SUM(Duration) AS TotalDuration
         FROM SearchLogDb.dbo.SearchLog2
     GROUP BY Region;
-    
+
     @res =
         SELECT *
         FROM @rs1
         ORDER BY TotalDuration DESC
         FETCH 5 ROWS;
-    
+
     OUTPUT @res
         TO "/output/Searchlog-query-table.csv"
         ORDER BY TotalDuration DESC
         USING Outputters.Csv();
 
-Обратите внимание, что в настоящее время невозможно запустить SELECT для таблицы в том же сценарии, где создается таблица.
+Note that you currently cannot run a SELECT on a table in the same script as the script where you create that table.
 
 
-##Заключение
+##<a name="conclusion"></a>Conclusion
 
-В этом учебнике рассматривается лишь небольшая часть U-SQL. В рамках данного учебника невозможно охватить все области, такие как:
+What is covered in the tutorial is only a small part of U-SQL. Because of the scope of this tutorial, it can't cover everything, such as:
 
-- Использование CROSS APPLY для распаковки части строки, массивов и схем в строки.
-- Использование секционированных наборов данных (наборов файлов и секционированных таблиц).
-- Разработка определяемых пользователем операторов, таких как средства извлечения, средства вывода, процессоры, определяемые пользователем агрегаты в C#.
-- Использование функций окон U-SQL.
-- Управление кодом U-SQL с помощью представлений, возвращающих табличные значения функций и хранимых процедур.
-- Выполнение произвольного пользовательского кода на узлах обработки.
-- Подключения к базам данных SQL Azure и создание федерации запросов к ним и данным U-SQL и озера данных Azure.
+- Use CROSS APPLY to unpack parts of strings, arrays and maps into rows.
+- Operate partitioned sets of data (file sets and partitioned tables).
+- Develop user defined operators such as extractors, outputters, processors, user-defined aggregators in C#.
+- Use U-SQL windowing functions.
+- Manage U-SQL code with views, table-valued functions and stored procedures.
+- Run arbitrary custom code on your processing nodes.
+- Connect to Azure SQL Databases and federate queries across them and your U-SQL and Azure Data Lake data.
 
-## Дополнительные материалы 
+## <a name="see-also"></a>See also
 
-- [Обзор аналитики озера данных Microsoft Azure](data-lake-analytics-overview.md)
-- [Разработка скриптов U-SQL с помощью средств озера данных для Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
-- [Использование оконных функций U-SQL для заданий в службе аналитики озера данных Azure](data-lake-analytics-use-window-functions.md)
-- [Мониторинг заданий аналитики озера данных Azure и устранение связанных с ними неполадок с помощью портала Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
+- [Overview of Microsoft Azure Data Lake Analytics](data-lake-analytics-overview.md)
+- [Develop U-SQL scripts using Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
+- [Using U-SQL window functions for Azure Data Lake Analytics jobs](data-lake-analytics-use-window-functions.md)
+- [Monitor and troubleshoot Azure Data Lake Analytics jobs using Azure Portal](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 
-## Сообщите нам свое мнение
+## <a name="let-us-know-what-you-think"></a>Let us know what you think
 
-- [Предложить новую невыполненную работу по документации](data-lake-analytics-documentation-backlog.md)
-- [Отправить запрос на функцию](http://aka.ms/adlafeedback)
-- [Получить помощь на форумах](http://aka.ms/adlaforums)
-- [Отправить отзыв о U-SQL](http://aka.ms/usqldiscuss)
+- [Submit a feature request](http://aka.ms/adlafeedback)
+- [Get help in the forums](http://aka.ms/adlaforums)
+- [Provide feedback on U-SQL](http://aka.ms/usqldiscuss)
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

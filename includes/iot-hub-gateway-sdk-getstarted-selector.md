@@ -2,67 +2,67 @@
 - [Linux](../articles/iot-hub/iot-hub-linux-gateway-sdk-get-started.md)
 - [Windows](../articles/iot-hub/iot-hub-windows-gateway-sdk-get-started.md)
 
-В этой статье содержится пошаговое руководство по [примеру кода Hello World][lnk-helloworld-sample] и демонстрируются основные компоненты архитектуры [пакета SDK для шлюза IoT Azure ][lnk-gateway-sdk]. В примере пакет SDK для шлюза Центра Интернета вещей используется для сборки простого шлюза, который каждые пять секунд записывает в файл сообщение "hello world".
+This article provides a detailed walkthrough of the [Hello World sample code][lnk-helloworld-sample] to illustrate the fundamental components of the [Azure IoT Gateway SDK][lnk-gateway-sdk] architecture. The sample uses the IoT Hub Gateway SDK to build a simple gateway that logs a "hello world" message to a file every five seconds.
 
-В этом руководстве рассматриваются следующие темы.
+This walkthrough covers:
 
-- **Основные понятия**: общие сведения о компонентах любого шлюза, созданного с использованием пакета SDK для шлюза.
-- **Архитектура примера hello World**: описывает, каким образом основные понятия относятся к примеру Hello World и как компоненты работают вместе.
-- **Сборка примера**: шаги, необходимые для сборки образца.
-- **Запуск примера**: шаги, необходимые для запуска образца.
-- **Типовые выходные данные**: пример выходных данных, ожидаемых при выполнении примера.
-- **Фрагменты кода**: коллекция фрагментов кода, показывающая, каким образом пример Hello World реализует основные компоненты шлюза.
+- **Concepts**: A conceptual overview of the components that compose any gateway you create with the Gateway SDK.  
+- **Hello World sample architecture**: Describes how the concepts apply to the Hello World sample and how the components fit together.
+- **How to build the sample**: The steps required to build the sample.
+- **How to run the sample**: The steps required to run the sample. 
+- **Typical output**: An example of the output to expect when you run the sample.
+- **Code snippets**: A collection of code snippets to show how the Hello World sample implements key gateway components.
 
-## Основные понятия пакета SDK для шлюза
+## <a name="gateway-sdk-concepts"></a>Gateway SDK concepts
 
-Прежде чем изучать пример кода или создавать собственные поля шлюза с использованием пакета SDK для шлюза, необходимо изучить основные понятия, которые лежат в основе архитектуры пакета SDK.
+Before you examine the sample code or create your own field gateway using the Gateway SDK, you should understand the key concepts that underpin the architecture of the SDK.
 
-### модули
+### <a name="modules"></a>Modules
 
-Шлюз собирается с использованием пакета SDK для шлюза IoT Azure путем создания и сборки *модулей*. Модули обмениваются данным с помощью *сообщений*. Модуль получает сообщение, выполняет с ним определенное действие, при необходимости преобразует их в новое сообщение и публикует его для других модулей. Некоторые модули могут только создавать сообщения и никогда не обрабатывают входящие сообщения. Цепочка модулей создает конвейер обработки данных с каждым модулем, который выполняет преобразование данных в определенной точке этого конвейера.
+You build a gateway with the Azure IoT Gateway SDK by creating and assembling *modules*. Modules use *messages* to exchange data with each other. A module receives a message, performs some action on it, optionally transforms it into a new message, and then publishes it for other modules to process. Some modules might only produce new messages and never process incoming messages. A chain of modules creates a data processing pipeline with each module performing a transformation on the data at one point in that pipeline.
 
-![Цепочка модулей в шлюзе, созданном с помощью пакета SDK для шлюза Центра Интернета вещей Azure][1]
+![A chain of modules in gateway built with the Azure IoT Gateway SDK][1]
  
-Пакет SDK содержит следующее:
+The SDK contains the following:
 
-- Предварительно написанные модули, которые выполняют общие функции шлюза.
-- Интерфейсы, которые разработчик может использовать для написания пользовательских модулей.
-- Инфраструктура, необходимая для развертывания и запуска набора модулей.
+- Pre-written modules which perform common gateway functions.
+- The interfaces a developer can use to write custom modules.
+- The infrastructure necessary to deploy and run a set of modules.
 
-Пакет SDK включает слой абстракции, который позволяет собирать шлюзы для запуска в различных операционных системах и на разных платформах.
+The SDK provides an abstraction layer that enables you to build gateways to run on a variety of operating systems and platforms.
 
-![Уровень абстракции пакета SDK для шлюза Центра Интернета вещей Azure][2]
+![Azure IoT Hub Gateway SDK abstraction layer][2]
 
-### Сообщения
+### <a name="messages"></a>Messages
 
-Функционирование шлюза удобно представлять как передачу сообщений между модулями, однако, это не совсем так. Модули используют брокер для связи друг с другом: они публикуют сообщения в брокер (шина, Pub/Sub или другая схема обмена сообщениями), после чего брокер направляет сообщения в модули, подключенные к нему.
+Although thinking about modules passing messages to each other is a convenient way to conceptualize how a gateway functions, it does not accurately reflect what happens. Modules use a broker to communicate with each other, they publish messages to the broker (bus, pubsub, or any other messaging pattern) and then let the broker route the message to the modules connected to it.
 
-Для публикации сообщения в брокер модули используют функцию **Broker\_Publish**. Брокер доставляет сообщения в модуль, вызывая функцию обратного вызова. Сообщение состоит из набора пар ключ-значение, а содержимое передается как блок памяти.
+A modules uses the **Broker_Publish** function to publish a message to the broker. The broker delivers messages to a module by invoking a callback function. A message consists of a set of key/value properties and content passed as a block of memory.
 
-![Роль посредника в пакете SDK для шлюза Центра Интернета вещей Azure][3]
+![The role of the Broker in the Azure IoT Gateway SDK][3]
 
-### Маршрутизация и фильтрация сообщений
+### <a name="message-routing-and-filtering"></a>Message routing and filtering
 
-Сообщения направляются в нужные модули двумя способами. В брокер может передаваться набор ссылок, в котором для брокера указывается источник и приемник для каждого модуля, либо модуль может выполнять фильтрацию по свойствам сообщения. Модуль обрабатывает сообщение, только если оно предназначено для него. Ссылки и фильтрация сообщений позволяют создать эффективный конвейер сообщений.
+There are two ways of directing messages to the correct modules. A set of links can be passed to the broker so the broker knows the source and sink for each module, or the module can filter on the properties of the message. A module should only act upon a message if the message is intended for it. The links and message filtering is what effectively creates a message pipeline.
 
-## Архитектура примера Hello World
+## <a name="hello-world-sample-architecture"></a>Hello World sample architecture
 
-Пример Hello World иллюстрирует основные понятия, описанные в предыдущем разделе. Пример Hello World реализует шлюз с конвейером, который состоит из двух модулей:
+The Hello World sample illustrates the concepts described in the previous section. The Hello World sample implements a gateway that has a pipeline made up of two modules:
 
--	Модуль *Hello World* создает сообщение каждые пять секунд и передает его в модуль ведения журнала.
--	Модуль *ведения журнала* записывает полученные сообщения в файл.
+-   The *hello world* module creates a message every five seconds and passes it to the logger module.
+-   The *logger* module writes the messages it receives to a file.
 
-![Архитектура примера приложения Hello World, созданного с помощью пакета SDK для шлюза Центра Интернета вещей Azure][4]
+![Architecture of Hello World sample built with the Azure IoT Gateway SDK][4]
 
-Как описано в предыдущем разделе, модуль Hello World не передает сообщения непосредственно в модуль ведения журнала каждые пять секунд. Вместо этого он каждые пять секунд публикует сообщение в брокер.
+As described in the previous section, the Hello World module does not pass messages directly to the logger module every five seconds. Instead, it publishes a message to the broker every five seconds.
 
-Модуль ведения журнала получает сообщение из брокера и обрабатывают его, записывая содержимое сообщения в файл.
+The logger module receives the message from the broker and acts upon it, writing the contents of the message to a file.
 
-Модуль ведения журнала только обрабатывает сообщения из брокера и никогда не публикует сообщения в брокер.
+The logger module only consumes messages from the broker, it never publishes new messages to the broker.
 
-![Посредник направляет сообщения между модулями в пакете SDK для шлюза Центра Интернета вещей Azure][5]
+![How the broker routes messages between modules in the Azure IoT Gateway SDK][5]
 
-На представленной выше схеме показана архитектура примера Hello World и относительные пути к исходными файлам, которые реализуют различные части примера в [репозитории][lnk-gateway-sdk]. Изучите код самостоятельно или воспользуйтесь приведенными ниже фрагментами кода для справки.
+The figure above shows the architecture of the Hello World sample and the relative paths to the source files that implement different portions of the sample in the [repository][lnk-gateway-sdk]. Explore the code on your own, or use the code snippets below as a guide.
 
 <!-- Images -->
 [1]: media/iot-hub-gateway-sdk-getstarted-selector/modules.png
@@ -75,4 +75,6 @@
 [lnk-helloworld-sample]: https://github.com/Azure/azure-iot-gateway-sdk/tree/master/samples/hello_world
 [lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk
 
-<!---HONumber=AcomDC_1005_2016-->
+<!--HONumber=Oct16_HO2-->
+
+

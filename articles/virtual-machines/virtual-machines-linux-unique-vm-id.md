@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Доступ к идентификатору виртуальной машины"
-   description="Описывается получение и использование уникального идентификатора виртуальной машины Azure."
+   pageTitle="Accessing VM ID"
+   description="Describes Accessing and Using Azure VM Unique ID"
    services="virtual-machines-linux"
    documentationCenter="virtual-machines"
    authors="kmouss"
@@ -16,45 +16,50 @@
    ms.date="02/08/2016"
    ms.author="kmouss"/>
    
-# Получение и использование уникального идентификатора виртуальной машины Azure
 
-Уникальный идентификатор виртуальной машины Azure — это 128-разрядный идентификатор, закодированный и хранящийся в SMBIOS всех виртуальных машин IaaS Azure. В настоящее время его можно считать с помощью команды BIOS используемой платформы.
+# <a name="accessing-and-using-azure-vm-unique-id"></a>Accessing and Using Azure VM Unique ID
 
-Уникальный идентификатор виртуальной машины Azure является свойством только для чтения. Уникальный идентификатор виртуальной машины Azure не изменится до завершения работы с перезагрузкой (планового или внепланового), запуска и остановки отмены распределения, восстановления службы или восстановления на месте. Однако если виртуальная машина является моментальным снимком и скопирована для создания нового экземпляра, то настраивается новый идентификатор виртуальной машины Azure.
+Azure VM unique ID is a 128bits identifier encoded and stored in all Azure IaaS VM’s SMBIOS and can currently be read using platform BIOS commands.
 
-> [AZURE.NOTE] Если вы создали и запустили старые виртуальные машины после того, как была выпущена эта новая функция (18 сентября 2014 года), перезапустите каждую из них, чтобы автоматически получить уникальный идентификатор Azure.
+Azure VM unique ID is a Read-only property. Azure Unique VM ID won’t change upon reboot shutdown (either planned for unplanned), Start/Stop de-allocate, service healing or restore in place. However, if the VM is a snapshot and copied to create a new instance, new Azure VM ID is configured.
 
-
-Вот как можно узнать уникальный идентификатор виртуальной машины Azure в виртуальной машине.
+> [AZURE.NOTE] If you have older VMs created and running since this new feature got rolled out (September 18, 2014), please restart your VM to automatically get an Azure unique ID.
 
 
-## Создание виртуальной машины
+To access Azure Unique VM ID from within the VM:
+
+
+## <a name="create-a-vm"></a>Create a VM
  
 
-Дополнительные сведения см. в разделе о [создании виртуальной машины](virtual-machines-linux-creation-choices.md).
+For more information, see [Create a Virtual Machine](virtual-machines-linux-creation-choices.md)
 
 
-## Подключение к виртуальной машине
+## <a name="connect-to-the-vm"></a>Connect to the VM
  
 
-Дополнительные сведения см. в разделе об [использовании SSH в Linux](virtual-machines-linux-mac-create-ssh-keys.md).
+For more information, see [SSH from Linux](virtual-machines-linux-mac-create-ssh-keys.md)
 
 
-## Запрос уникального идентификатора виртуальной машины
+## <a name="query-vm-unique-id"></a>Query VM Unique ID
 
-Команда (в примере используется **Ubuntu**).
+Command (example uses **Ubuntu**):
 
     sudo dmidecode | grep UUID
     
-Ожидаемый результат выполнения примера.
+Example Expected Results:
 
     UUID: 090556DA-D4FA-764F-A9F1-63614EDA019A
     
-Из-за обратного порядка битов фактический уникальный идентификатор виртуальной машины в этом случае будет следующим.
+Due to Big Endian bit ordering, the actual Unique VM ID in this case will be:
 
     DA 56 05 09 – FA D4 – 4f 76 - A9F1-63614EDA019A
     
     
-Уникальный идентификатор виртуальной машины Azure можно использовать в различных сценариях независимо от того, выполняется ли виртуальная машина в Azure или на локальном компьютере. Он может помочь соблюсти требования к лицензированию, отчетности или общему отслеживанию, которые могут действовать для развернутых служб IaaS Azure. Многие независимые поставщики программного обеспечения, которые разрабатывают приложения и сертифицируют их в Azure, могут требовать идентифицировать виртуальную машину Azure на протяжении ее жизненного цикла и сообщать о том, где она выполняется: в Azure, на локальном компьютере или в облачной службе какого-либо другого поставщика. Например, этот идентификатор платформы может помочь определить, правильно ли лицензировано программное обеспечение, или сопоставить данные виртуальной машины с их источником, например, чтобы помочь в настройке соответствующих метрик для подходящей платформы, а также в отслеживании и сопоставлении этих метрик.
+Azure VM unique ID can be used in different scenarios whether the VM is running on Azure or on-premises and can help your licensing, reporting or general tracking requirements you may have on your Azure IaaS deployments. Many independent software vendors building applications and certifying them on Azure may require to identify an Azure VM throughout its lifecycle and to tell if the VM is running on Azure, on-Premises or on other cloud providers. This platform identifier can for example help detect if the software is properly licensed or help to correlate any VM data to its source such as to assist on setting the right metrics for the right platform and to track and correlate these metrics amongst other uses.
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

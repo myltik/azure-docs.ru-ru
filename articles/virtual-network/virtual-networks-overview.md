@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Обзор виртуальной сети Azure"
-   description="Узнайте, что такое виртуальные сети в Azure."
+   pageTitle="Azure Virtual Network (VNet) Overview"
+   description="Learn about virtual networks (VNets) in Azure."
    services="virtual-network"
    documentationCenter="na"
    authors="jimdial"
@@ -15,84 +15,89 @@
    ms.date="03/15/2016"
    ms.author="jdial" />
 
-# Обзор виртуальной сети
 
-Виртуальная сеть (VNet) Azure — это представление сети в облаке. Это логическая изоляция облака Azure, выделенного для вашей подписки. Вы можете полностью контролировать блоки IP-адресов, параметры DNS, политики безопасности и таблицы маршрутизации в этой сети. Кроме того, вы можете дополнительно разделить виртуальную сеть на подсети и запускать виртуальные машины Azure IaaS и (или) [облачные службы (экземпляры роли PaaS)](../cloud-services/cloud-services-choose-me.md). Можно также подключить виртуальную сеть к локальной сети с помощью одного из [вариантов подключения](../vpn-gateway/vpn-gateway-about-vpngateways.md#site-to-site-and-multi-site), доступных в Azure. По сути, вы можете расширить локальную сеть в Azure с возможностью полного контроля над блоками IP-адресов и преимуществами приложений корпоративного уровня, предоставляемыми Azure.
+# <a name="virtual-network-overview"></a>Virtual Network Overview
 
-Чтобы лучше понять виртуальные сети, взгляните на рисунок ниже, показывающий упрощенную локальную сеть.
+An Azure virtual network (VNet) is a representation of your own network in the cloud.  It is a logical isolation of the Azure cloud dedicated to your subscription. You can fully control the IP address blocks, DNS settings, security policies, and route tables within this network. You can also further segment your VNet into subnets and launch Azure IaaS virtual machines (VMs) and/or [Cloud services (PaaS role instances)](../cloud-services/cloud-services-choose-me.md). Additionally, you can connect the virtual network to your on-premises network using one of the [connectivity options](../vpn-gateway/vpn-gateway-about-vpngateways.md#site-to-site-and-multi-site) available in Azure. In essence, you can expand your network to Azure, with complete control on IP address blocks with the benefit of enterprise scale Azure provides.
 
-![Локальная сеть](./media/virtual-networks-overview/figure01.png)
+To better understand VNets, take a look at the figure below, which shows a simplified on-premises network.
 
-На рисунке выше показана локальная сеть, подключенная к общедоступному Интернету через маршрутизатор. Также вы можете видеть брандмауэр между маршрутизатором и сетью периметра, в которой размещены DNS-сервер и ферма веб-серверов. В ферме веб-серверов используется аппаратная подсистема балансировки нагрузки, предоставляемая через Интернет и использующая ресурсы из внутренней подсети. Внутренняя подсеть отделена от сети периметра еще одним брандмауэром, и в ней размещены серверы контроллера домена Active Directory, серверы баз данных и серверы приложений.
+![On-premises network](./media/virtual-networks-overview/figure01.png)
 
-Эту же сеть можно разместить в Azure, как показано на рисунке ниже.
+The figure above shows an on-premises network connected to the public Internet through a router. You can also see a firewall between the router and a DMZ hosting a DNS server and a web server farm. The web server farm is load balanced using a hardware load balancer that is exposed to the Internet, and consumes resources from the internal subnet. The internal subnet is separated from the DMZ by another firewall, and hosts Active Directory Domain Controller servers, database servers, and application servers.
 
-![Виртуальная сеть Azure](./media/virtual-networks-overview/figure02.png)
+The same network can be hosted in Azure as shown in the figure below.
 
-Обратите внимание на то, как инфраструктура Azure берет на себя роль маршрутизатора, предоставляя виртуальной сети доступ к Интернету без необходимости какой-либо настройки. Брандмауэры можно заменить отдельными группами безопасности сети для каждой отдельной подсети. И физические подсистемы балансировки нагрузки заменяются внутренними подсистемами балансировки нагрузки с подключением к Интернету в Azure.
+![Azure virtual network](./media/virtual-networks-overview/figure02.png)
 
->[AZURE.NOTE] В Azure существует два режима развертывания: классический (также известный как управление службами) и диспетчер ресурсов Azure (ARM). Классические виртуальные сети могут быть добавлены в территориальную группу или созданы как региональные виртуальные сети. Если у вас есть виртуальная сеть в территориальной группе, рекомендуется [перенести ее в региональную виртуальную сеть](virtual-networks-migrate-to-regional-vnet.md).
+Notice how the Azure infrastructure takes on the role of the router, allowing access from your VNet to the public Internet without the need of any configuration. Firewalls can be substituted by Network Security Groups (NSGs) applied to each individual subnet. And physical load balancers are substituted by internet facing and internal load balancers in Azure.
 
-## Преимущества виртуальных сетей
+>[AZURE.NOTE] There are two deployment modes in Azure: classic (also known as Service Management) and Azure Resource Manager (ARM). Classic VNets could be added to an affinity group, or created as a regional VNet. If you have a VNet in an affinity group, it is recommended to [migrate it to a regional VNet](virtual-networks-migrate-to-regional-vnet.md).
 
-- **Изоляция**. Виртуальные сети полностью изолированы друг от друга. Это позволяет создавать отдельные сети для разработки, тестирования и эксплуатации, использующие одинаковые блоки адресов CIDR.
+## <a name="virtual-network-benefits"></a>Virtual Network Benefits
 
-- **Доступ к общедоступному Интернету**. Все виртуальные машины IaaS и экземпляры роли PaaS в виртуальной сети имеют доступ к Интернету по умолчанию. Вы можете управлять доступом с помощью групп безопасности сети.
+- **Isolation**. VNets are completely isolated from one another. That allows you to create disjoint networks for development, testing, and production that use the same CIDR address blocks.
 
-- **Доступ к виртуальным машинам в виртуальной сети**. Экземпляры роли PaaS и виртуальные машины IaaS могут запускаться в одной виртуальной сети и подключаться друг к другу с помощью частных IP-адресов, даже если они находятся в разных подсетях, без необходимости настраивать шлюз или использовать общедоступные IP-адреса.
+- **Access to the public Internet**. All IaaS VMs and PaaS role instances in a VNet can access the public Internet by default. You can control access by using Network Security Groups (NSGs).
 
-- **Разрешение имен**. Azure предоставляет внутреннее разрешение имен для виртуальных машин IaaS и экземпляров роли PaaS, развернутых в виртуальной сети. Можно также развернуть собственные DNS-серверы и настроить виртуальную сеть для их использования.
+- **Access to VMs within the VNet**. PaaS role instances and IaaS VMs can be launched in the same virtual network and they can connect to each other using private IP addresses even if they are in different subnets without the need to configure a gateway or use public IP addresses.
 
-- **Безопасность**. Входящим и исходящим трафиком виртуальных машин и экземпляров роли PaaS в виртуальной сети можно управлять с помощью групп безопасности сети.
+- **Name resolution**. Azure provides internal name resolution for IaaS VMs and PaaS role instances deployed in your VNet. You can also deploy your own DNS servers and configure the VNet to use them.
 
-- **Возможности подключения**. Виртуальные сети можно соединить друг с другом и даже с локальным центром обработки данных с помощью VPN-подключения типа "сеть-сеть" или подключения ExpressRoute. Чтобы больше узнать о VPN-шлюзах, см. статью [Шлюзы VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md). Чтобы больше узнать об ExpressRoute, см. статью [Технический обзор ExpressRoute](../expressroute/expressroute-introduction.md).
+- **Security**. Traffic entering and exiting the virtual machines and PaaS role instances in a VNet can be controlled using Network Security groups.
 
-    >[AZURE.NOTE] Обязательно создайте виртуальную сеть перед развертыванием каких-либо виртуальных машин IaaS или экземпляров роли PaaS в среде Azure. Для виртуальных машин на основе ARM требуется виртуальную сеть, и если не указать существующую виртуальную сеть, Azure создаст виртуальную сеть по умолчанию, которая может вызвать конфликт блоков адресов CIDR с вашей локальной сетью. Вы не сможете подключить виртуальную сеть к локальной.
+- **Connectivity**. VNets can be connected to each other, and even to your on-premises datacenter, by using a site-to-site VPN connection, or ExpressRoute connection. To learn more about VPN gateways, visit [About VPN gateways](../vpn-gateway/vpn-gateway-about-vpngateways.md). To learn more about ExpressRoute, visit [ExpressRoute technical overview](../expressroute/expressroute-introduction.md).
 
-## Подсети
+    >[AZURE.NOTE] Make sure you create a VNet before deploying any IaaS VMs or PaaS role instances to your Azure environment. ARM based VMs require a VNet, and if you do not specify an existing VNet, Azure creates a default VNet that might have a CIDR address block clash with your on-premises network. Making it impossible for you to connect your VNet to your on-premises network.
 
-Подсеть — это диапазон IP-адресов в виртуальной сети. Виртуальную сеть можно разделить на несколько подсетей для организационного удобства и безопасности. Виртуальные машины и экземпляры роли PaaS, развернутые в подсети (одной или разных) в виртуальной сети, могут взаимодействовать друг с другом без дополнительной настройки. Вы можете также настроить таблицы маршрутизации и группы безопасности сети для подсети.
+## <a name="subnets"></a>Subnets
 
-## IP-адреса;
+Subnet is a range of IP addresses in the VNet, you can divide a VNet into multiple subnets for organization and security. VMs and PaaS role instances deployed to subnets (same or different) within a VNet can communicate with each other without any extra configuration. You can also configure route tables and NSGs to a subnet.
+
+## <a name="ip-addresses"></a>IP addresses
 
 
-Существует два типа IP-адресов, назначаемых ресурсам в Azure: *общедоступные* и *частные*. Общедоступные IP-адреса позволяют ресурсам Azure подключаться к Интернету и другим общедоступным службам Azure, таким как [кэш Redis для Azure](https://azure.microsoft.com/services/cache/) и [концентраторы событий Azure](https://azure.microsoft.com/documentation/services/event-hubs/). Частные IP-адреса обеспечивают связь между ресурсами в виртуальной сети, а также теми, которые подключаются через VPN, без использования IP-адресов с поддержкой маршрутизации в Интернет.
+There are two types of IP addresses assigned to resources in Azure: *public* and *private*. Public IP Addresses allow Azure resources to communicate with Internet and other Azure public-facing services like [Azure Redis Cache](https://azure.microsoft.com/services/cache/), [Azure Event Hubs](https://azure.microsoft.com/documentation/services/event-hubs/). Private IP Addresses allows communication between resources in a virtual network, along with those connected through a VPN, without using an Internet-routable IP addresses.
 
-Для получения дополнительных сведений об IP-адресах в Azure см. статью [IP-адреса в виртуальной сети](virtual-network-ip-addresses-overview-arm.md).
+To learn more about IP addresses in Azure, visit [IP addresses in virtual network](virtual-network-ip-addresses-overview-arm.md)
 
-## Подсистемы балансировки нагрузки Azure
+## <a name="azure-load-balancers"></a>Azure load balancers
 
-Виртуальные машины и облачные службы в виртуальной сети могут подключаться к Интернету с помощью балансировщиков нагрузки Azure. Балансировку нагрузки бизнес-приложений, доступных только из локальной сети, можно выполнять с помощью внутреннего балансировщика нагрузки.
+Virtual machines and cloud services in a Virtual network can be exposed to Internet using Azure Load balancers. Line of Business applications that are internal facing only can be load balanced using Internal load balancer.
 
-- **Внешний балансировщик нагрузки**. Внешнюю подсистему балансировки нагрузки можно использовать для обеспечения высокой доступности виртуальных машин IaaS и экземпляров роли PaaS, доступных из Интернета.
+- **External load balancer**. You can use an external load balancer to provide high availability for IaaS VMs and PaaS role instances accessed from the public Internet.
 
-- **Внутренний балансировщик нагрузки**. Внутреннюю подсистему балансировки нагрузки можно использовать для обеспечения высокой доступности виртуальных машин IaaS и экземпляров роли PaaS, доступных из других служб в вашей виртуальной сети.
+- **Internal load balancer**. You can use an internal load balancer to provide high availability for IaaS VMs and PaaS role instances accessed from other services in your VNet.
 
-Чтобы узнать больше о балансировке нагрузки в Azure, см. [общие сведения о балансировщике нагрузки](../load-balancer/load-balancer-overview.md).
+To learn more about load balancing in Azure, visit [Load balancer overview](../load-balancer/load-balancer-overview.md).
 
-## Группа безопасности сети (NSG)
+## <a name="network-security-group-(nsg)"></a>Network Security Group (NSG)
 
-Вы можете создавать группы безопасности сети, чтобы контролировать входящий и исходящий доступ к сетевым интерфейсам, виртуальным машинам и подсетям. Каждая группа безопасности сети содержит одно или несколько правил, разрешающих или запрещающих трафик по IP-адресу источника, порту источника, IP-адресу назначения и порту назначения. Чтобы узнать больше о группах безопасности сети, см. статью [Группа безопасности сети](virtual-networks-nsg.md).
+You can create NSGs to control inbound and outbound access to network interfaces (NICs), VMs, and subnets. Each NSG contains one or more rules specifying whether or not traffic is approved or denied based on source IP address, source port, destination IP address, and destination port. To learn more about NSGs, visit [What is a Network Security Group](virtual-networks-nsg.md).
 
-## Виртуальные устройства
+## <a name="virtual-appliances"></a>Virtual appliances
 
-Виртуальное устройство — это просто еще одна виртуальная машина в виртуальной сети, которая программно выполняет функцию устройства, например брандмауэра, оптимизации глобальной сети или системы обнаружения вторжений. Можно создать маршрут в Azure для маршрутизации трафика виртуальной сети через виртуальное устройство, чтобы использовать его возможности.
+A virtual appliance is just another VM in your VNet that runs a software based appliance function, such as firewall, WAN optimization, or intrusion detection. You can create a route in Azure to route your VNet traffic through a virtual appliance to use its capabilities.
 
-Например, можно использовать группы безопасности сети для защиты виртуальной сети. Однако группы безопасности сети обеспечивают список управления доступом (ACL) уровня 4 для входящих и исходящих пакетов. Если вы хотите использовать модель безопасности уровня 7, необходимо использовать брандмауэр.
+For instance, NSGs can be used to provide security on your VNet. However, NSGs provide layer 4 Access Control List (ACL) to incoming and outgoing packets. If you want to use a layer 7 security model, you need to use a firewall appliance.
 
-Виртуальные устройства зависят от [определяемых пользователем маршрутов и IP-пересылки](virtual-networks-udr-overview.md).
+Virtual appliances depend on [user defined routes and IP forwarding](virtual-networks-udr-overview.md).
 
-## Ограничения
-Существуют ограничения на количество виртуальных сетей, разрешенных в подписке. Дополнительные сведения см. в разделе [Ограничения сети](../azure-subscription-service-limits.md#networking-limits).
+## <a name="limits"></a>Limits
+There are limits on the number of Virtual Networks allowed in a subscription, please refer to [Azure Networking limits](../azure-subscription-service-limits.md#networking-limits) for more information.
 
-## Цены
-Использование виртуальных сетей Azure не требует дополнительной оплаты. Вычислительные операции, запущенные в виртуальной сети, будут оплачиваться по стандартным тарифам в соответствии с описанием на странице [Цены на виртуальные машины Azure](https://azure.microsoft.com/pricing/details/virtual-machines/). [VPN-шлюзы](https://azure.microsoft.com/pricing/details/vpn-gateway/) и [общедоступные IP-адреса](https://azure.microsoft.com/pricing/details/ip-addresses/), используемые в виртуальной сети, также будут оплачиваться по стандартным тарифам.
+## <a name="pricing"></a>Pricing
+There is no extra cost for using Virtual Networks in Azure. The compute instances launched within the Vnet will be charged the standard rates as described in [Azure VM Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/). The [VPN Gateways](https://azure.microsoft.com/pricing/details/vpn-gateway/) and [Public IP Addresses] (https://azure.microsoft.com/pricing/details/ip-addresses/) used in the VNet will also be charged standard rates.
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Next steps
 
-- [Создание виртуальной сети](virtual-networks-create-vnet-arm-pportal.md) и подсетей.
-- [Создание виртуальной машины в виртуальной сети](../virtual-machines/virtual-machines-windows-hero-tutorial.md).
-- Дополнительные сведения о [группах безопасности сети](virtual-networks-nsg.md).
-- Дополнительные сведения об [определяемых пользователем маршрутах и IP-пересылке](virtual-networks-udr-overview.md).
+- [Create a VNet](virtual-networks-create-vnet-arm-pportal.md) and subnets.
+- [Create a VM in a VNet](../virtual-machines/virtual-machines-windows-hero-tutorial.md).
+- Learn about [NSGs](virtual-networks-nsg.md).
+- Learn about [user defined routes and IP forwarding](virtual-networks-udr-overview.md).
 
-<!---HONumber=AcomDC_1005_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

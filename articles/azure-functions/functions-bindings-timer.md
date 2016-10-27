@@ -1,34 +1,35 @@
 <properties
-	pageTitle="Триггеры с таймерами в функциях Azure | Microsoft Azure"
-	description="Узнайте, как использовать триггеры с таймерами в функциях Azure."
-	services="functions"
-	documentationCenter="na"
-	authors="christopheranderson"
-	manager="erikre"
-	editor=""
-	tags=""
-	keywords="функции azure, функции, обработка событий, динамические вычисления, независимая архитектура"/>
+    pageTitle="Azure Functions timer trigger | Microsoft Azure"
+    description="Understand how to use timer triggers in Azure Functions."
+    services="functions"
+    documentationCenter="na"
+    authors="christopheranderson"
+    manager="erikre"
+    editor=""
+    tags=""
+    keywords="azure functions, functions, event processing, dynamic compute, serverless architecture"/>
 
 <tags
-	ms.service="functions"
-	ms.devlang="multiple"
-	ms.topic="reference"
-	ms.tgt_pltfrm="multiple"
-	ms.workload="na"
-	ms.date="08/22/2016"
-	ms.author="chrande; glenga"/>
+    ms.service="functions"
+    ms.devlang="multiple"
+    ms.topic="reference"
+    ms.tgt_pltfrm="multiple"
+    ms.workload="na"
+    ms.date="08/22/2016"
+    ms.author="chrande; glenga"/>
 
-# Триггеры с таймерами в функциях Azure
+
+# <a name="azure-functions-timer-trigger"></a>Azure Functions timer trigger
 
 [AZURE.INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
-В этой статье описывается настройка триггеров с таймерами в функциях Azure. Триггеры с таймерами вызывают функции по расписанию, однократно или в повторяющемся режиме.
+This article explains how to configure timer triggers in Azure Functions. Timer triggers call functions based on a schedule, one time or recurring.  
 
-[AZURE.INCLUDE [общие сведения](../../includes/functions-bindings-intro.md)]
+[AZURE.INCLUDE [intro](../../includes/functions-bindings-intro.md)] 
 
-## Файл function.JSON для триггера с таймером
+## <a name="function.json-for-timer-trigger"></a>function.json for timer trigger
 
-Файл *function.json* содержит выражение schedule. Например, следующее расписание запускает функцию каждую минуту:
+The *function.json* file provides a schedule expression. For example, the following schedule runs the function every minute:
 
 ```json
 {
@@ -44,55 +45,55 @@
 }
 ```
 
-Триггер таймера автоматически масштабирует несколько экземпляров. Во всех экземплярах будет выполняться только один экземпляр определенной функции таймера.
+The timer trigger handles multi-instance scale-out automatically: only a single instance of a particular timer function will be running across all instances.
 
-## Формат выражения schedule
+## <a name="format-of-schedule-expression"></a>Format of schedule expression
 
-Выражение schedule представляет собой [выражение CRON](http://en.wikipedia.org/wiki/Cron#CRON_expression) с шестью полями: `{second} {minute} {hour} {day} {month} {day of the week}`.
+The schedule expression is a [CRON expression](http://en.wikipedia.org/wiki/Cron#CRON_expression) that includes 6 fields:  `{second} {minute} {hour} {day} {month} {day of the week}`. 
 
-Обратите внимание, что во многих выражениях CRON, которые можно найти в сети, отсутствует поле {second}. Поэтому, если скопировать текст выражения в одном из них, понадобится добавить дополнительное поле.
+Note that many of the cron expressions you find online omit the {second} field, so if you copy from one of those you'll have to adjust for the extra field. 
 
-Ниже приведены примеры других выражений schedule.
+Here are some other schedule expression examples:
 
-Активация через каждые 5 минут:
+To trigger once every 5 minutes:
 
 ```json
 "schedule": "0 */5 * * * *"
 ```
 
-Активация через каждый час:
+To trigger once at the top of every hour:
 
 ```json
 "schedule": "0 0 * * * *",
 ```
 
-Активация через каждые 2 часа.
+To trigger once every two hours:
 
 ```json
 "schedule": "0 0 */2 * * *",
 ```
 
-Активация каждый час с 9:00 до 17:00:
+To trigger once every hour from 9 AM to 5 PM:
 
 ```json
 "schedule": "0 0 9-17 * * *",
 ```
 
-Активация в 9:30 каждый день:
+To trigger At 9:30 AM every day:
 
 ```json
 "schedule": "0 30 9 * * *",
 ```
 
-Активация в 9:30 каждый будний день:
+To trigger At 9:30 AM every weekday:
 
 ```json
 "schedule": "0 30 9 * * 1-5",
 ```
 
-## Пример кода C# для триггера таймера
+## <a name="timer-trigger-c#-code-example"></a>Timer trigger C# code example
 
-В этом примере кода C# при каждой активации функции записывается один журнал.
+This C# code example writes a single log each time the function is triggered.
 
 ```csharp
 public static void Run(TimerInfo myTimer, TraceWriter log)
@@ -101,8 +102,12 @@ public static void Run(TimerInfo myTimer, TraceWriter log)
 }
 ```
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Next steps
 
-[AZURE.INCLUDE [дальнейшие действия](../../includes/functions-bindings-next-steps.md)]
+[AZURE.INCLUDE [next steps](../../includes/functions-bindings-next-steps.md)] 
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Использование оконных функций U-SQL для заданий в службе аналитики озера данных Azure | Azure" 
-   description="Узнайте, как использовать оконные функции U-SQL. " 
+   pageTitle="Using U-SQL window functions for Azure Data Lake Aanlytics jobs | Azure" 
+   description="Learn how to use U-SQL window functions. " 
    services="data-lake-analytics" 
    documentationCenter="" 
    authors="edmacauley" 
@@ -17,42 +17,43 @@
    ms.author="edmaca"/>
 
 
-# Использование оконных функций U-SQL для заданий в службе аналитики озера данных Azure  
 
-Оконные функции были добавлены в стандарт SQL ISO/ANSI в 2003 году. В языке U-SQL используется ряд оконных функций, определенных в стандарте SQL ANSI.
+# <a name="using-u-sql-window-functions-for-azure-data-lake-analytics-jobs"></a>Using U-SQL window functions for Azure Data Lake Analytics jobs  
 
-Оконные функции используются для выполнения вычислений в наборах строк, именуемых *окнами*. Окна определяются предложением OVER. Оконные функции очень эффективны в некоторых случаях.
+Window functions were introduced to the ISO/ANSI SQL Standard in 2003. U-SQL adopts a subset of window functions as defined by the ANSI SQL Standard.
 
-В этом обучающем руководстве мы продемонстрируем несколько вариантов использования оконных функций на двух примерах наборов данных. Дополнительные сведения см. в [справке по U-SQL](http://go.microsoft.com/fwlink/p/?LinkId=691348).
+Window functions are used to do computation within sets of rows called *windows*. Windows are defined by the  OVER clause. Window functions solve some key scenarios in a highly efficient manner.
 
-Оконные функции разделены на несколько категорий:
+This learning guide uses two sample datasets to walk you through some sample scenario where you can apply window functions. For more information, see [U-SQL reference](http://go.microsoft.com/fwlink/p/?LinkId=691348).
 
-- [статистические функции для создания отчетов](#reporting-aggregation-functions), например SUM и AVG;
-- [ранжирующие функции](#ranking-functions), например DENSE\_RANK, ROW\_NUMBER, RANK и NTILE;
-- [аналитические функции](#analytic-functions), например интегральная функция распределения, процентили или обращение к данным из предыдущей строки того же результирующего набора без использования самосоединения.
+The window functions are categorized into: 
 
-**Предварительные требования**
+- [Reporting aggregation functions](#reporting-aggregation-functions), such as SUM or AVG
+- [Ranking functions](#ranking-functions), such as DENSE_RANK, ROW_NUMBER, NTILE, and RANK
+- [Analytic functions](#analytic-functions),  such as cumulative distribution, percentiles, or accesses data from a previous row in the same result set without the use of a self-join
 
-- Изучите два руководства:
+**Prerequisites:**
 
-    - [Начало работы со средствами озера данных Azure для Visual Studio](data-lake-analytics-data-lake-tools-get-started.md);
-    - [Начало работы с языком U-SQL для заданий в службе аналитики озера данных Azure](data-lake-analytics-u-sql-get-started.md).
-- Создайте учетную запись в службе аналитики озера данных, как описано в статье [Начало работы со средствами озера данных Azure для Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
-- Создайте в Visual Studio проект U-SQL, как описано в статье [Начало работы с языком U-SQL для заданий в службе аналитики озера данных Azure](data-lake-analytics-u-sql-get-started.md).
+- Go through the following two tutorials:
 
-## Типовые наборы данных
+    - [Get started using Azure Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
+    - [Get started using U-SQL for Azure Data Lake Analytics jobs](data-lake-analytics-u-sql-get-started.md).
+- Create a Data Lake Analytic account as instructed in [Get started using Azure Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
+- Create a Visual Studio U-SQL project as instructed in [Get started using U-SQL for Azure Data Lake Analytics jobs](data-lake-analytics-u-sql-get-started.md).
 
-В этом руководстве используются два набора данных.
+## <a name="sample-datasets"></a>Sample datasets
 
-- Журнал запросов.
+This tutorial uses two datasets:
 
-    Журнал запросов — это список поисковых запросов пользователей в поисковой системе. Каждый журнал запросов включает в себя следующую информацию.
+- QueryLog 
+
+    QueryLog represents a list of what people searched for in search engine. Each query log includes:
     
         - Query - What the user was searching for.
         - Latency - How fast the query came back to the user in milliseconds.
         - Vertical - What kind of content the user was interested in (Web links, Images, Videos).
     
-    Скопируйте и вставьте в проект U-SQL следующий сценарий. Он создает набор строк в журнале запросов.
+    Copy and paste the following scrip into your U-SQL project for constructing the QueryLog rowset:
     
         @querylog = 
             SELECT * FROM ( VALUES
@@ -67,7 +68,7 @@
                 ("Durian"  , 500, "Web"   ) )
             AS T(Query,Latency,Vertical);
     
-    На практике данные обычно хранятся в файле данных. Данные из файла с разделителями-табуляциями извлекаются с помощью следующего кода.
+    In practice, the data is most likely stored in a data file. You would access that data inside of a tab-delimited file using the following code: 
     
         @querylog = 
         EXTRACT 
@@ -77,9 +78,9 @@
         FROM "/Samples/QueryLog.tsv"
         USING Extractors.Tsv();
 
-- Сотрудники.
+- Employees
 
-    Набор данных о сотрудниках содержит такие поля:
+    The Employee dataset includes the following fields:
    
         - EmpID - Employee ID.
         - EmpName  Employee name.
@@ -87,7 +88,7 @@
         - DeptID - Deparment ID.
         - Salary - Employee salary.
 
-    Скопируйте и вставьте в проект U-SQL следующий сценарий. Он создает набор строк с данными о сотрудниках.
+    Copy and paste the following script into your U-SQL project for construcint the Employees rowset:
 
         @employees = 
             SELECT * FROM ( VALUES
@@ -102,7 +103,7 @@
                 (9, "Ethan",  "Marketing",   400, 10000) )
             AS T(EmpID, EmpName, DeptName, DeptID, Salary);
     
-    Приведенная ниже инструкция создает набор строк путем их извлечения из файла данных.
+    The following statement demonstrates creating the rowset by extracting it from a data file.
     
         @employees = 
         EXTRACT 
@@ -114,66 +115,66 @@
         FROM "/Samples/Employees.tsv"
         USING Extractors.Tsv();
 
-При работе с примерами из этого руководства необходимо добавлять определения наборов строк. Для U-SQL необходимо определять только те наборы, которые используются. Для некоторых примеров требуется только один набор строк.
+When you test the samples in tutorial, you must include the rowset definitions. U-SQL requires you to define only the rowsets that are used. Some samples only need one rowset.
 
-Обязательно добавьте следующую инструкцию. Она выводит результирующий набор строк в файл данных.
+You must also add the following statement to output the result rowset to a data file:
 
     OUTPUT @result TO "/wfresult.csv" 
         USING Outputters.Csv();
  
- Для обозначения результатов в большинстве примеров используется переменная **@result**.
+ Most of the samples use the variable called **@result** for the results.
 
-## Сравнение оконных функций с функцией группирования
+## <a name="compare-window-functions-to-grouping"></a>Compare window functions to Grouping
 
-Оконные функции и функция группирования концептуально связаны, но между ними есть различия. Давайте разберемся в том, что их объединяет и отличает.
+Windowing and Grouping are conceptually related by also different. It is helpful to understand this relationship.
 
-### Использование агрегирования и группирования
+### <a name="use-aggregation-and-grouping"></a>Use aggregation and Grouping
 
-Приведенный ниже запрос рассчитывает совокупную заработную плату всех сотрудников с помощью агрегирования.
+The following query uses an aggregation to calculate the total salary for all employees:
 
     @result = 
         SELECT 
             SUM(Salary) AS TotalSalary
         FROM @employees;
     
->[AZURE.NOTE] Инструкции по использованию запроса и проверке выходных данных см. в статье [Начало работы с языком U-SQL для заданий в службе аналитики озера данных Azure](data-lake-analytics-u-sql-get-started.md).
+>[AZURE.NOTE] For instructions for testing and checking the output, see [Get started using U-SQL for Azure Data Lake Analytics jobs](data-lake-analytics-u-sql-get-started.md).
 
-Результатом будет одна строка с одним столбцом. 165 000 $ — это сумма всех зарплат в таблице.
+The result is a single row with a single column. The $165000 is the sum of of the Salary value from the whole table. 
 
 |TotalSalary
 |-----------
-|165 000
+|165000
 
->[AZURE.NOTE] Если вы раньше не работали с оконными функциями, запоминайте числа в выходных данных.
+>[AZURE.NOTE] If you are new to windows functions, it is helpful to remember the numbers in the outputs.  
 
-Приведенная ниже инструкция вычисляет совокупную зарплату каждого отдела с помощью предложения GROUP BY.
+The following statement use the GROUP BY clause to calculate the total salery for each department:
 
     @result=
         SELECT DeptName, SUM(Salary) AS SalaryByDept
         FROM @employees
         GROUP BY DeptName;
 
-Получаются такие результаты:
+The results are :
 
 |DeptName|SalaryByDept
 |--------|------------
-|Engineering|60 000
-|HR|30 000
-|Executive|50 000
-|Marketing|25 000
+|Engineering|60000
+|HR|30000
+|Executive|50000
+|Marketing|25000
 
-Сумма значений в столбце SalaryByDept равна 165 000 $, что соответствует сумме в сценарии выше.
+The sum of the SalaryByDept column is $165000, which matches the amount in the last script.
  
-В каждом из этих примеров количество выходных строк меньше количества входных.
+In both these cases the number of there are fewer output rows than input rows:
  
-- Если предложение GROUP BY не используется, агрегирование сворачивает все строки в одну.
-- Если предложение GROUP BY используется, вы получаете N выходных строк, где N — это количество уникальных значений в отображаемых данных. В нашем случае вы получите 4 строки выходных данных.
+- Without GROUP BY, the aggregation collapses all the rows into a single row. 
+- With GROUP BY,  there are N output rows where N is the number of distinct values that appear in the data, In this case, you will get 4 rows in the output.
 
-###  Использование оконной функции
+###  <a name="use-a-window-function"></a>Use a window function
 
-В следующем примере предложение OVER пустое. Это означает, что в «окно» будут включены все строки. Функция SUM в этом примере применяется к предложению OVER, перед которым она стоит.
+The OVER clause in the following sample is empty. This defines the "window" to include all rows. The SUM in this example is applied to the OVER clause that it precedes.
 
-Этот запрос можно прочитать так: сумма зарплат в окне всех строк.
+You could read this query as: “The sum of Salary over a window of all rows”.
 
     @result=
         SELECT
@@ -181,24 +182,24 @@
             SUM(Salary) OVER( ) AS SalaryAllDepts
         FROM @employees;
 
-В отличие от функции GROUP BY, количество выходных строк равно количеству входных.
+Unlike GROUP BY, there are as many output rows as input rows: 
 
 |EmpName|TotalAllDepts
 |-------|--------------------
-|Noah|165 000
-|Sophia|165 000
-|Liam|165 000
-|Emma|165 000
-|Jacob|165 000
-|Olivia|165 000
-|Mason|165 000
-|Ava|165 000
-|Ethan|165 000
+|Noah|165000
+|Sophia|165000
+|Liam|165000
+|Emma|165000
+|Jacob|165000
+|Olivia|165000
+|Mason|165000
+|Ava|165000
+|Ethan|165000
 
 
-Значение 165 000 (сумма всех зарплат) помещается в каждую выходную строку. Итоговое значение берется из «окна» всех строк, поэтому оно включает все зарплаты.
+The value of 165000 (the total of all salaries) is placed in each output row. That total comes from the "window" of all rows, so it includes all the salaries. 
 
-В следующем примере показано, как уточнить "окно", чтобы получить список всех сотрудников, названия соответствующих отделов и совокупную зарплату в каждом отделе. В предложение OVER добавляется предложение PARTITION BY.
+The next example demonstrates how to refine the "window" to list all the employees, the department, and the total salary for the department. PARTITION BY is added to the OVER clause.
 
     @result=
     SELECT
@@ -206,28 +207,28 @@
         SUM(Salary) OVER( PARTITION BY DeptName ) AS SalaryByDept
     FROM @employees;
 
-Получаются такие результаты:
+The results are:
 
 |EmpName|DeptName|SalaryByDep
 |-------|--------|-------------------
-|Noah|Engineering|60 000
-|Sophia|Engineering|60 000
-|Liam|Engineering|60 000
-|Mason|Executive|50 000
-|Emma|HR|30 000
-|Jacob|HR|30 000
-|Olivia|HR|30 000
+|Noah|Engineering|60000
+|Sophia|Engineering|60000
+|Liam|Engineering|60000
+|Mason|Executive|50000
+|Emma|HR|30000
+|Jacob|HR|30000
+|Olivia|HR|30000
 |Ava|Marketing|25000
 |Ethan|Marketing|25000
 
-Количество входных строк опять равно количеству выходных, но в каждой строке указан совокупный размер зарплаты всего отдела.
+Again, there are the same number of input rows as output rows. However each row has a total salary for the corresponding department.
 
 
 
 
-## Статистические функции для создания отчетов
+## <a name="reporting-aggregation-functions"></a>Reporting aggregation functions
 
-Оконные функции поддерживают также такие статистические функции:
+Window functions also support the following aggregates:
 
 - COUNT
 - SUM
@@ -237,18 +238,18 @@
 - STDEV
 - VAR
 
-Синтаксис выглядит вот так:
+The syntax:
 
     <AggregateFunction>( [DISTINCT] <expression>) [<OVER_clause>]
 
-Примечание.
+Note: 
 
-- По умолчанию статистические функции, за исключением COUNT, игнорируют значения NULL.
-- Если статистическая функция указана вместе с предложением OVER, предложение ORDER BY не допускается в предложении OVER.
+- By default, aggregate functions, except COUNT, ignore null values.
+- When aggregate functions are specified along with the OVER clause, the ORDER BY clause is not allowed in the OVER clause.
 
-### Использование функции SUM
+### <a name="use-sum"></a>Use SUM
 
-В следующем примере в каждую входную строку добавляется совокупная зарплата соответствующего отдела.
+The following example adds a total salary by department to each input row:
  
     @result=
         SELECT 
@@ -256,47 +257,47 @@
             SUM(Salary) OVER( PARTITION BY DeptName ) AS TotalByDept
         FROM @employees;
 
-Результат выглядит так:
+Here is the output:
 
 |EmpID|EmpName|DeptName|DeptID|Salary|TotalByDept
 |-----|-------|--------|------|------|-----------
-|1|Noah|Engineering|100|10 000|60 000
-|2|Sophia|Engineering|100|20 000|60 000
-|3|Liam|Engineering|100|30 000|60 000
-|7|Mason|Executive|300|50 000|50 000
-|4|Emma|HR|200|10 000|30 000
-|5|Jacob|HR|200|10 000|30 000
-|6|Olivia|HR|200|10 000|30 000
-|8|Ava|Marketing|400|15 000|25000
-|9|Ethan|Marketing|400|10 000|25000
+|1|Noah|Engineering|100|10000|60000
+|2|Sophia|Engineering|100|20000|60000
+|3|Liam|Engineering|100|30000|60000
+|7|Mason|Executive|300|50000|50000
+|4|Emma|HR|200|10000|30000
+|5|Jacob|HR|200|10000|30000
+|6|Olivia|HR|200|10000|30000
+|8|Ava|Marketing|400|15000|25000
+|9|Ethan|Marketing|400|10000|25000
 
-### Использование функции COUNT
+### <a name="use-count"></a>Use COUNT
 
-В следующем примере в каждую строку добавляется дополнительное поле, в котором показывается общее количество сотрудников в каждом отделе.
+The following example adds an extra field to each row to show the total number employees in each department.
 
     @result =
         SELECT *, 
             COUNT(*) OVER(PARTITION BY DeptName) AS CountByDept 
         FROM @employees;
 
-Получаются такие результаты:
+The result:
 
 |EmpID|EmpName|DeptName|DeptID|Salary|CountByDept
 |-----|-------|--------|------|------|-----------
-|1|Noah|Engineering|100|10 000|3
-|2|Sophia|Engineering|100|20 000|3
-|3|Liam|Engineering|100|30 000|3
-|7|Mason|Executive|300|50 000|1
-|4|Emma|HR|200|10 000|3
-|5|Jacob|HR|200|10 000|3
-|6|Olivia|HR|200|10 000|3
-|8|Ava|Marketing|400|15 000|2
-|9|Ethan|Marketing|400|10 000|2
+|1|Noah|Engineering|100|10000|3
+|2|Sophia|Engineering|100|20000|3
+|3|Liam|Engineering|100|30000|3
+|7|Mason|Executive|300|50000|1
+|4|Emma|HR|200|10000|3
+|5|Jacob|HR|200|10000|3
+|6|Olivia|HR|200|10000|3
+|8|Ava|Marketing|400|15000|2
+|9|Ethan|Marketing|400|10000|2
 
 
-### Использование функций MIN и MAX
+### <a name="use-min-and-max"></a>Use MIN and MAX
 
-В следующем примере в каждую строку добавляется дополнительное поле, в котором показывается минимальная зарплата в отделе.
+The following example adds an extra field to each row to show the lowest salary of each department:
 
     @result =
         SELECT 
@@ -304,48 +305,48 @@
             MIN(Salary) OVER( PARTITION BY DeptName ) AS MinSalary
         FROM @employees;
 
-Получаются такие результаты:
+The results:
 
 |EmpID|EmpName|DeptName|DeptID|Salary|MinSalary
 |-----|-------|--------|------|-------------|----------------
-|1|Noah|Engineering|100|10 000|10 000
-|2|Sophia|Engineering|100|20 000|10 000
-|3|Liam|Engineering|100|30 000|10 000
-|7|Mason|Executive|300|50 000|50 000
-|4|Emma|HR|200|10 000|10 000
-|5|Jacob|HR|200|10 000|10 000
-|6|Olivia|HR|200|10 000|10 000
-|8|Ava|Marketing|400|15 000|10 000
-|9|Ethan|Marketing|400|10 000|10 000
+|1|Noah|Engineering|100|10000|10000
+|2|Sophia|Engineering|100|20000|10000
+|3|Liam|Engineering|100|30000|10000
+|7|Mason|Executive|300|50000|50000
+|4|Emma|HR|200|10000|10000
+|5|Jacob|HR|200|10000|10000
+|6|Olivia|HR|200|10000|10000
+|8|Ava|Marketing|400|15000|10000
+|9|Ethan|Marketing|400|10000|10000
 
-Вставьте вместо MIN функцию MAX и посмотрите, что из этого получится.
+Replace MIN with MAX and then give it a try.
 
 
-## Ранжирующие функции
+## <a name="ranking-functions"></a>Ranking Functions
 
-Ранжирующие функции возвращают ранжирующее значение (длинное целое) для каждой строки в каждой секции, которые определены предложениями PARTITION BY и OVER. Порядок ранжирования определяется предложением ORDER BY в предложении OVER.
+Ranking functions return a ranking value (a long) for each row in each partition as defined by the PARTITION BY and OVER clauses. The ordering of the rank is controlled by the ORDER BY in the OVER clause.
 
-Поддерживаются такие ранжирующие функции:
+The following are supported ranking functions:
 
-- RANK;
-- DENSE\_RANK;
-- NTILE;
-- ROW\_NUMBER.
+- RANK
+- DENSE_RANK 
+- NTILE
+- ROW_NUMBER
 
-**Синтаксис**
+**Syntax:**
 
-	[ RANK() | DENSE_RANK() | ROW_NUMBER() | NTILE(<numgroups>) ]
-	    OVER (
-	        [PARTITION BY <identifier, > …[n]]
-	        [ORDER BY <identifier, > …[n] [ASC|DESC]] 
-	) AS <alias>
+    [ RANK() | DENSE_RANK() | ROW_NUMBER() | NTILE(<numgroups>) ]
+        OVER (
+            [PARTITION BY <identifier, > …[n]]
+            [ORDER BY <identifier, > …[n] [ASC|DESC]] 
+    ) AS <alias>
 
-- В ранжирующих функциях использовать предложение ORDER BY необязательно. Если предложение ORDER BY указано, оно определяет порядок ранжирования. Если предложение ORDER BY не указано, U-SQL присваивает значения в порядке считывания записей. Таким образом, если предложение ORDER BY не указано, получается недетерминированное значение ROW NUMBER, RANK или DENSE\_RANK.
-- Для функции NTILE требуется выражение, результатом которого является положительное целое число. Это число определяет количество групп, на которое необходимо разделить каждую секцию. Этот идентификатор используется только с ранжирующей функцией NTILE.
+- The ORDER BY clause is optional for ranking functions. If ORDER BY is specified then it determines the order of the ranking. If ORDER BY is not specified then U-SQL assigns values based on the order it reads record. Thus resulting into non deterministic value of row number, rank or dense rank in the case were order by clause is not specified.
+- NTILE requires an expression that evaluates to a positive integer. This number specifies the number of groups into which each partition must be divided. This identifier is used only with the NTILE ranking function. 
 
-Дополнительные сведения о предложении OVER см. в [справке по U-SQL]().
+For more details on the OVER clause, see [U-SQL reference]().
 
-Функции ROW\_NUMBER, RANK и DENSE\_RANK назначают строкам в окне номера. Мы не будем разбирать эти функции по отдельности, а рассмотрим, как они работают с одинаковыми входными данными.
+ROW_NUMBER, RANK, and DENSE_RANK all assign numbers to rows in a window. Rather than cover them separately, it’s more intuitive to see how They respond to the same input.
 
     @result =
     SELECT 
@@ -355,13 +356,13 @@
         DENSE_RANK() OVER (PARTITION BY Vertical ORDER BY Latency) AS DenseRank 
     FROM @querylog;
         
-Обратите внимание, что предложения OVER идентичны. Получаются такие результаты:
+Note the OVER clauses are identical. The result:
 
-|Запрос|Latency:int|Vertical|RowNumber|Rank|DenseRank
+|Query|Latency:int|Vertical|RowNumber|Rank|DenseRank
 |-----|-----------|--------|--------------|---------|--------------
-|Banana|300|Образ —|1|1|1
-|Cherry|300|Образ —|2|1|1
-|Durian|500|Образ —|3|3|2
+|Banana|300|Image|1|1|1
+|Cherry|300|Image|2|1|1
+|Durian|500|Image|3|3|2
 |Apple|100|Web|1|1|1
 |Fig|200|Web|2|2|2
 |Papaya|200|Web|3|2|2
@@ -369,59 +370,59 @@
 |Cherry|400|Web|5|5|4
 |Durian|500|Web|6|6|5
 
-### ROW\_NUMBER
+### <a name="row_number"></a>ROW_NUMBER
 
-В каждом окне (Vertical — Image или Web) номер строки увеличивается на 1 и упорядочивание выполняется по полю Latency.
+Within each Window (Vertical,either Image or Web), the row number increases by 1 ordered by Latency.  
 
-![Оконная функция ROW\_NUMBER, язык U-SQL](./media/data-lake-analytics-use-windowing-functions/u-sql-windowing-function-row-number-result.png)
+![U-SQL window function ROW_NUMBER](./media/data-lake-analytics-use-windowing-functions/u-sql-windowing-function-row-number-result.png)
 
-### RANK
+### <a name="rank"></a>RANK
 
-В отличие от ROW\_NUMBER() функция RANK() учитывает значение поля Latency, указанное в предложении ORDER BY для окна.
+Different from ROW_NUMBER(), RANK() takes into account the value of the Latency which is specified in the ORDER BY clause for the window.
 
-Так как первые два значения в поле Latency одинаковые, RANK начинается с двух единиц. Затем идет тройка, так как значение Latency изменилось на 500. Несмотря на то, что повторяющиеся значения получают одинаковый ранг, число RANK сменяется следующим значением ROW\_NUMBER. В этом и заключается основной момент. То же самое происходит в вертикали Web: наблюдается последовательность 2, 2 и 4.
+RANK starts with (1,1,3) because the first two values for Latency are the same. Then the next value is 3 because the Latency value has moved on to 500. The key point being that even though duplicate values are given the same rank, the RANK number will “skip” to the next ROW_NUMBER value. You can see this pattern repeat with the sequence (2,2,4) in the Web vertical.
 
-![Оконная функция RANK, язык U-SQL](./media/data-lake-analytics-use-windowing-functions/u-sql-windowing-function-rank-result.png)
+![U-SQL window function RANK](./media/data-lake-analytics-use-windowing-functions/u-sql-windowing-function-rank-result.png)
 
-### DENSE\_RANK
-	
-Функция DENSE\_RANK работает так же, как RANK, за исключением того, что она не переходит к следующему значению ROW\_NUMBER. Вместо этого она переходит к следующему числу в последовательности. Обратите внимание на последовательности 1, 1, 2 и 2, 2, 3 в примере.
+### <a name="dense_rank"></a>DENSE_RANK
+    
+DENSE_RANK is just like RANK except it doesn’t “skip” to the next ROW_NUMBER, instead it goes to the next number in the sequence. Notice the sequences (1,1,2) and (2,2,3) in the sample.
 
-![Оконная функция DENSE\_RANK, язык U-SQL](./media/data-lake-analytics-use-windowing-functions/u-sql-windowing-function-dense-rank-result.png)
+![U-SQL window function DENSE_RANK](./media/data-lake-analytics-use-windowing-functions/u-sql-windowing-function-dense-rank-result.png)
 
-### Примечания
+### <a name="remarks"></a>Remarks
 
-- Если предложение ORDER BY не указано, ранжирующая функция будет применяться к набору строк без какого-либо упорядочения. Результатом будет недетерминированное применение ранжирующей функции.
-- Строки, возвращаемые запросом с функцией ROW\_NUMBER, каждый раз будут упорядочиваться одинаково, только если выполняются следующие условия:
+- If ORDER BY is not specified than ranking function will be applied to rowset without any ordering. This will result into non deterministic behavior on how ranking function is applied
+- There is no guarantee that the rows returned by a query using ROW_NUMBER will be ordered exactly the same with each execution unless the following conditions are true.
 
-	- значения в секционированном столбце — уникальные;
-	- значения в столбцах ORDER BY — уникальные;
-	- комбинации значений в секционированном столбце и столбце ORDER BY — уникальные.
+    - Values of the partitioned column are unique.
+    - Values of the ORDER BY columns are unique.
+    - Combinations of values of the partition column and ORDER BY columns are unique.
 
-### NTILE
+### <a name="ntile"></a>NTILE
 
-Функция NTILE распределяет строки упорядоченной секции в заданное количество групп. Группы нумеруются, начиная с единицы.
+NTILE distributes the rows in an ordered partition into a specified number of groups. The groups are numbered, starting at one. 
 
 
-В примере ниже набор строк в каждой секции (вертикали) разбивается на 4 группы в порядке задержки обработки запроса, после чего возвращается номер группы каждой строки.
+The following example splits the set of rows in each partition (vertical) into 4 groups in the order of the query latency, and returns the group number for each row. 
 
-Вертикаль Image имеет три строки, поэтому в ней может быть только три группы.
+The Image vertical has 3 rows, thus it has 3 groups. 
 
-Вертикаль Web имеет шесть строк, поэтому в первую и вторую группы добавляется по одной дополнительной строке. Именно поэтому в группах 1 и 2 есть по две строки, а в группах 3 и 4 — только по одной.
+The Web vertical has 6 rows, the two extra rows are distributed to the first two groups. That's why there are 2 rows in group 1 and group 2, and only 1 row in group 3 and group 4.  
 
     @result =
         SELECT 
             *,
             NTILE(4) OVER(PARTITION BY Vertical ORDER BY Latency) AS Quartile   
         FROM @querylog;
-		
-Получаются такие результаты:
+        
+The results:
 
-|Запрос|Задержка|Vertical|Quartile
+|Query|Latency|Vertical|Quartile
 |-----|-----------|--------|-------------
-|Banana|300|Образ —|1
-|Cherry|300|Образ —|2
-|Durian|500|Образ —|3
+|Banana|300|Image|1
+|Cherry|300|Image|2
+|Durian|500|Image|3
 |Apple|100|Web|1
 |Fig|200|Web|1
 |Papaya|200|Web|2
@@ -429,22 +430,22 @@
 |Cherry|400|Web|3
 |Durian|500|Web|4
 
-Функция NTILE принимает параметр (numgroups). Numgroups — это положительное выражение целого числа или длинной константы, определяющее количество групп, на которые необходимо разделить каждую секцию.
+NTILE takes a parameter ("numgroups"). Numgroups is a positive int or long constant expression that specifies the number of groups into which each partition must be divided. 
 
-- Если количество строк в секции делится на значение numgroups без остатка, все группы будут иметь одинаковый размер.
-- Если количество строк в секции не делится на значение numgroups, будут созданы группы двух размеров, отличающихся на единицу. Сначала идут большие группы, а затем — маленькие. Порядок определяется предложением OVER.
+- If the number of rows in the partition is evenly divisible by numgroups then the groups will have equal size. 
+- If the number of rows in a partition is not divisible by numgroups, this will cause groups of two sizes that differ by one member. Larger groups come before smaller groups in the order specified by the OVER clause. 
 
-Например:
+For example:
 
-- 100 строк делятся на 4 группы: 25, 25, 25, 25.
-- 102 строки делятся на 4 группы: 26, 26, 25, 25.
+- 100 rows divided into 4 groups: [ 25, 25, 25, 25 ]
+- 102 rows devided into 4 groups: [ 26, 26, 25, 25 ]
 
 
-### Получение N первых записей из каждой секции с помощью функции RANK, DENSE\_RANK или ROW\_NUMBER
+### <a name="top-n-records-per-partition-via-rank,-dense_rank-or-row_number"></a>Top N Records per Partition via RANK, DENSE_RANK or ROW_NUMBER
 
-Часто пользователям нужно выбрать только N первых строк из каждой группы. Используя предложение GROUP BY, сделать это невозможно.
+Many users want to select only TOP n rows per group. This is not possible with the traditional GROUP BY. 
 
-Приведенный ниже пример продемонстрирован в начале раздела о функциях ранжирования. Он не показывает N первых записей в каждой секции.
+You have seen the following example at the beginning of the Ranking functions section. It doesn't show top N records for each partition:
 
     @result =
     SELECT 
@@ -454,13 +455,13 @@
         DENSE_RANK() OVER (PARTITION BY Vertical ORDER BY Latency) AS DenseRank
     FROM @querylog;
 
-Получаются такие результаты:
+The results:
 
-|Запрос|Задержка|Vertical|Rank|DenseRank|RowNumber
+|Query|Latency|Vertical|Rank|DenseRank|RowNumber
 |-----|-----------|--------|---------|--------------|--------------
-|Banana|300|Образ —|1|1|1
-|Cherry|300|Образ —|1|1|2
-|Durian|500|Образ —|3|2|3
+|Banana|300|Image|1|1|1
+|Cherry|300|Image|1|1|2
+|Durian|500|Image|3|2|3
 |Apple|100|Web|1|1|1
 |Fig|200|Web|2|2|2
 |Papaya|200|Web|2|2|3
@@ -468,9 +469,9 @@
 |Cherry|400|Web|5|4|5
 |Durian|500|Web|6|5|6
 
-### Получение N первых записей с помощью функции DENSE\_RANK
+### <a name="top-n-with-dense-rank"></a>TOP N with DENSE RANK
 
-В следующем примере возвращаются 3 первых записи из каждой группы. Разрывы в последовательной нумерации рангов строк в каждой оконной секции не допускаются.
+The following example returns the top 3 records from each group with no gaps in the sequential rank numbering of rows in each windowing partition.
 
     @result =
     SELECT 
@@ -483,19 +484,19 @@
         FROM @result
         WHERE DenseRank <= 3;
 
-Получаются такие результаты:
+The results:
 
-|Запрос|Задержка|Vertical|DenseRank
+|Query|Latency|Vertical|DenseRank
 |-----|-----------|--------|--------------
-|Banana|300|Образ —|1
-|Cherry|300|Образ —|1
-|Durian|500|Образ —|2
+|Banana|300|Image|1
+|Cherry|300|Image|1
+|Durian|500|Image|2
 |Apple|100|Web|1
 |Fig|200|Web|2
 |Papaya|200|Web|2
 |Fig|300|Web|3
 
-### Получение N первых записей с помощью функции RANK
+### <a name="top-n-with-rank"></a>TOP N with RANK
 
     @result =
         SELECT 
@@ -508,19 +509,19 @@
         FROM @result
         WHERE Rank <= 3;
 
-Получаются такие результаты:
+The results:    
 
-|Запрос|Задержка|Vertical|Rank
+|Query|Latency|Vertical|Rank
 |-----|-----------|--------|---------
-|Banana|300|Образ —|1
-|Cherry|300|Образ —|1
-|Durian|500|Образ —|3
+|Banana|300|Image|1
+|Cherry|300|Image|1
+|Durian|500|Image|3
 |Apple|100|Web|1
 |Fig|200|Web|2
 |Papaya|200|Web|2
 
 
-### Получение N первых записей с помощью функции ROW\_NUMBER
+### <a name="top-n-with-row_number"></a>TOP N with ROW_NUMBER
 
     @result =
         SELECT 
@@ -533,20 +534,20 @@
         FROM @result
         WHERE RowNumber <= 3;
 
-Получаются такие результаты:
+The results:   
     
-|Запрос|Задержка|Vertical|RowNumber
+|Query|Latency|Vertical|RowNumber
 |-----|-----------|--------|--------------
-|Banana|300|Образ —|1
-|Cherry|300|Образ —|2
-|Durian|500|Образ —|3
+|Banana|300|Image|1
+|Cherry|300|Image|2
+|Durian|500|Image|3
 |Apple|100|Web|1
 |Fig|200|Web|2
 |Papaya|200|Web|3
 
-### Назначение глобального уникального номера строки
+### <a name="assign-globally-unique-row-number"></a>Assign Globally Unique Row Number
 
-Зачастую лучше каждой строке назначать глобальный уникальный номер. Это легко сделать с помощью ранжирующих функций, и во многих случаях такой подход более эффективен, чем использование преобразователя данных.
+It’s often useful to assign a globally unique number to each row. This is easy (and more efficient than using a reducer) with the ranking functions.
 
     @result =
         SELECT 
@@ -555,22 +556,22 @@
         FROM @querylog;
 
 <!-- ################################################### -->
-## Аналитические функции
+## <a name="analytic-functions"></a>Analytic functions
 
-Аналитические функции используются для анализа распределения значений в окнах. Чаще всего аналитические функции используют для вычисления процентилей.
+Analytic functions are used to understand the distributions of values in windows. The most common scenario for using analytic functions is the computation of percentiles.
 
-**Поддерживаемые аналитические функции для окон**
+**Supported analytic window functions**
 
-- CUME\_DIST
-- PERCENT\_RANK
-- PERCENTILE\_CONT
-- PERCENTILE\_DISC
+- CUME_DIST 
+- PERCENT_RANK
+- PERCENTILE_CONT
+- PERCENTILE_DISC
 
-### Функция CUME\_DIST  
+### <a name="cume_dist"></a>CUME_DIST  
 
-Функция CUME\_DIST вычисляет относительное положение указанного значения в группе значений. Она вычисляет процент запросов, задержка которых меньше или равна задержке текущего запроса в той же вертикали. Если упорядочение выполняется по возрастанию, для строки R функция CUME\_DIST возвращает количество строк, значения которых равны значению R или меньше него, деленное на полученное количество строк в секции или результирующем наборе запроса. CUME\_DIST возвращает числа в диапазоне 0 < x < = 1.
+CUME_DIST computes the relative position of a specified value in a group of values. It calculates the percent of queries that have a latency less than or equal to the current query latency in the same vertical. For a row R, assuming ascending ordering, the CUME_DIST of R is the number of rows with values lower than or equal to the value of R, divided by the number of rows evaluated in the partition or query result set. CUME_DIST returns numbers in the range 0 < x <= 1.
 
-**Синтаксис**
+** Syntax**
 
     CUME_DIST() 
         OVER (
@@ -578,7 +579,7 @@
             ORDER BY <identifier, > …[n] [ASC|DESC] 
     ) AS <alias>
 
-В следующем примере функция CUME\_DIST используется для вычисления процентиля задержки каждого запроса в вертикали.
+The following example uses the CUME_DIST function to compute the latency percentile for each query within a vertical. 
 
     @result=
         SELECT 
@@ -586,44 +587,44 @@
             CUME_DIST() OVER(PARTITION BY Vertical ORDER BY Latency) AS CumeDist
         FROM @querylog;
 
-Получаются такие результаты:
+The results:
     
-|Запрос|Задержка|Vertical|CumeDist
+|Query|Latency|Vertical|CumeDist
 |-----|-----------|--------|---------------
 |Durian|500|Image|1
-|Banana|300|Образ —|0,666666666666667
-|Cherry|300|Образ —|0,666666666666667
+|Banana|300|Image|0.666666666666667
+|Cherry|300|Image|0.666666666666667
 |Durian|500|Web|1
-|Cherry|400|Web|0,833333333333333
-|Fig|300|Web|0,666666666666667
-|Fig|200|Web|0,5
-|Papaya|200|Web|0,5
-|Apple|100|Web|0,166666666666667
+|Cherry|400|Web|0.833333333333333
+|Fig|300|Web|0.666666666666667
+|Fig|200|Web|0.5
+|Papaya|200|Web|0.5
+|Apple|100|Web|0.166666666666667
 
-В секции есть 6 строк с ключом секции Web (4-я строка и ниже).
+There are 6 rows in the partition where partition key is “Web” (4th row and down):
 
-- Есть 6 строк, значение которых меньше или равно 500, поэтому CUME\_DIST равно 6/6=1.
-- Есть 5 строк, значение которых меньше или равно 400, поэтому CUME\_DIST равно 5/6=0,83.
-- Есть 4 строки, значение которых меньше или равно 300, поэтому CUME\_DIST равно 4/6=0.66.
-- Есть 3 строки, значение которых меньше или равно 200, поэтому CUME\_DIST равно 3/6=0,5. Существуют две строки с одинаковым значением задержки.
-- Есть 1 строка, значение которой меньше или равно 100, поэтому CUME\_DIST равно 1/6=0,16.
-
-
-**Примечания об использовании**
-
-- Равные значения всегда дают одно и то же значение интегральной функции распределения.
-- Значения NULL рассматриваются как минимально возможные значения.
-- Для вычисления CUME\_DIST необходимо указать предложение ORDER BY.
-- Функция CUME\_DIST подобна функции PERCENT\_RANK.
-
-Примечание. Предложение ORDER BY не допускается, если после инструкции SELECT не идет инструкция OUTPUT. Таким образом, предложение ORDER BY в инструкции OUTPUT определяет порядок отображения результирующего набора строк.
+- There are 6 rows with the value equal or lower than 500, so the CUME_DIST equals to 6/6=1
+- There are 5 rows with the value equal or lower than 400, so the CUME_DIST equals to 5/6=0.83
+- There are 4 rows with the value equal or lower than 300, so the CUME_DIST equals to 4/6=0.66
+- There are 3 rows with the value equal or lower than 200, so the CUME_DIST equals to 3/6=0.5. There are two rows with the same latency value.
+- There is 1 row with the value equal or lower than 100, so the CUME_DIST equals to 1/6=0.16. 
 
 
-### Функция PERCENT\_RANK
+**Usage notes:**
 
-Функция PERCENT\_RANK вычисляет относительный ранг строки в группе строк. Функция используется для определения относительного положения значения в набор строк или секции. Диапазон значений, возвращаемых функцией PERCENT\_RANK, больше 0 и меньше 1 или равен ей. В отличие от функции CUME\_DIST, функция PERCENT\_RANK всегда возвращает 0 для первой строки.
-	
-**Синтаксис**
+- Tie values always evaluate to the same cumulative distribution value.
+- NULL values are treated as the lowest possible values.
+- You must specify the ORDER BY clause to calculate CUME_DIST.
+- CUME_DIST is similar to the PERCENT_RANK function
+
+Note: The ORDER BY clause is not allowed if the SELECT statement is not followed by OUTPUT. Thus ORDER BY clause in the OUTPUT statement determines the display order of the resultant rowset.
+
+
+### <a name="percent_rank"></a>PERCENT_RANK
+
+PERCENT_RANK calculates the relative rank of a row within a group of rows. PERCENT_RANK is used to evaluate the relative standing of a value within a rowset or partition. The range of values returned by PERCENT_RANK is greater than 0 and less than or equal to 1. Unlike CUME_DIST, PERCENT_RANK is always 0 for the first row.
+    
+** Syntax**
 
     PERCENT_RANK() 
         OVER (
@@ -631,19 +632,19 @@
             ORDER BY <identifier, > …[n] [ASC|DESC] 
         ) AS <alias>
 
-**Примечания**
+**Notes**
 
-- Для первой строки в любом наборе функция PERCENT\_RANK возвращает 0.
-- Значения NULL рассматриваются как минимально возможные значения.
-- Для вычисления PERCENT\_RANK необходимо указать предложение ORDER BY.
-- Функция CUME\_DIST подобна функции PERCENT\_RANK.
+- The first row in any set has a PERCENT_RANK of 0.
+- NULL values are treated as the lowest possible values.
+- You must specify the ORDER BY clause to calculate PERCENT_RANK.
+- CUME_DIST is similar to the PERCENT_RANK function 
 
 
-В следующем примере функция PERCENT\_RANK используется для вычисления процентиля задержки каждого запроса в вертикали.
+The following example uses the PERCENT_RANK function to compute the latency percentile for each query within a vertical. 
 
-Предложение PARTITION BY указано для того, чтобы секционировать строки результирующего набора по вертикали. Предложение ORDER BY в предложении OVER упорядочивает строки в каждой секции.
+The PARTITION BY clause is specified to partition the rows in the result set by the vertical. The ORDER BY clause in the OVER clause orders the rows in each partition. 
 
-Значение, возвращаемое функцией PERCENT\_RANK, обозначает выраженный в процентах ранг задержки запросов в вертикали.
+The value returned by the PERCENT_RANK function represents the rank of the queries’ latency within a vertical as a percentage. 
 
 
     @result=
@@ -652,41 +653,42 @@
             PERCENT_RANK() OVER(PARTITION BY Vertical ORDER BY Latency) AS PercentRank
         FROM @querylog;
 
-Получаются такие результаты:
+The results:
 
-|Запрос|Latency:int|Vertical|PercentRank
+|Query|Latency:int|Vertical|PercentRank
 |-----|-----------|--------|------------------
-|Banana|300|Образ —|0
-|Cherry|300|Образ —|0
+|Banana|300|Image|0
+|Cherry|300|Image|0
 |Durian|500|Image|1
 |Apple|100|Web|0
-|Fig|200|Web|0,2
-|Papaya|200|Web|0,2
-|Fig|300|Web|0,6
-|Cherry|400|Web|0,8
+|Fig|200|Web|0.2
+|Papaya|200|Web|0.2
+|Fig|300|Web|0.6
+|Cherry|400|Web|0.8
 |Durian|500|Web|1
 
-### Функции PERCENTILE\_CONT и PERCENTILE\_DISC
+### <a name="percentile_cont-&-percentile_disc"></a>PERCENTILE_CONT & PERCENTILE_DISC
 
-Эти две функции вычисляют процентиль на основе непрерывного или дискретного распределения значений в столбце.
+These two functions calculates a percentile based on a continuous or discrete distribution of the column values.
 
-**Синтаксис**
+**Syntax**
 
     [PERCENTILE_CONT | PERCENTILE_DISC] ( numeric_literal ) 
         WITHIN GROUP ( ORDER BY <identifier> [ ASC | DESC ] )
         OVER ( [ PARTITION BY <identifier,>…[n] ] ) AS <alias>
 
-**numeric\_literal** — вычисляемый процентиль. Значение должно быть в диапазоне от 0,0 до 1,0.
+**numeric_literal** - The percentile to compute. The value must range between 0.0 and 1.0.
 
-WITHIN GROUP ( ORDER BY <идентификатор> [ ASC | DESC ]) . Указывает список числовых значений для сортировки и вычисления процентиля. Допускается только один идентификатор столбца. Выражение должно возвращать числовое значение. Другие типы данных не допускаются. По умолчанию значения сортируются по возрастанию.
+WITHIN GROUP ( ORDER BY <identifier> [ ASC | DESC ]) - Specifies a list of numeric values to sort and compute the percentile over. Only one column identifier is allowed. The expression must evaluate to a numeric type. Other data types are not allowed. The default sort order is ascending.
 
-OVER ([ PARTITION BY <идентификатор>…[n] ] ). Делит входной набор строк на секции (на основе ключей секций), к которым применяется функция вычисления процентиля. Дополнительные сведения см. в этой статье в разделе «Ранжирующие функции». Примечание. Все значения NULL в наборе данных игнорируются.
+OVER ([ PARTITION BY <identifier,>…[n] ] ) - Divides the input rowset into partitions as per the partition key to which the percentile function is applied. For more information, see RANKING section of this document.
+Note: Any nulls in the data set are ignored.
 
-**PERCENTILE\_CONT** вычисляет процентиль на основе непрерывного распределения значений в столбце. Результат интерполируется и не может быть равен какому-либо конкретному значению в столбце.
+**PERCENTILE_CONT** calculates a percentile based on a continuous distribution of the column value. The result is interpolated and might not be equal to any of the specific values in the column. 
 
-**PERCENTILE\_DISC** вычисляет процентиль на основе дискретного распределения значений в столбце. Результат равен конкретному значению в столбце. Другими словами, функция PERCENTILE\_DISC, в отличие от PERCENTILE\_CONT, всегда возвращает фактическое (исходное входное) значение.
+**PERCENTILE_DISC** calculates the percentile based on a discrete distribution of the column values. The result is equal to a specific value in the column. In other words, PERCENTILE_DISC, in contrast to PERCENTILE_CONT, always returns an actual (original input) value.
 
-В приведенном ниже примере определяется медиана (процентиль равен 0,50) задержки в пределах каждой вертикали. На этом примере можно понять, как работают обе функции.
+You can see how both work in the example below which tries to find the median (percentile=0.50) value for Latency within each Vertical
 
     @result = 
         SELECT 
@@ -701,13 +703,13 @@ OVER ([ PARTITION BY <идентификатор>…[n] ] ). Делит вход
         
         FROM @querylog;
 
-Получаются такие результаты:
+The results:
 
-|Запрос|Latency:int|Vertical|PercentileCont50|PercentilDisc50
+|Query|Latency:int|Vertical|PercentileCont50|PercentilDisc50
 |-----|-----------|--------|-------------------|----------------
-|Banana|300|Образ —|300|300
-|Cherry|300|Образ —|300|300
-|Durian|500|Образ —|300|300
+|Banana|300|Image|300|300
+|Cherry|300|Image|300|300
+|Durian|500|Image|300|300
 |Apple|100|Web|250|200
 |Fig|200|Web|250|200
 |Papaya|200|Web|250|200
@@ -716,11 +718,9 @@ OVER ([ PARTITION BY <идентификатор>…[n] ] ). Делит вход
 |Durian|500|Web|250|200
 
 
-В случае с PERCENTILE\_CONT значения могут интерполироваться, поэтому медиана для вертикали Web будет равна 250, даже если в этой вертикали нет запроса с задержкой 250.
+For PERCENTILE_CONT because values can be interpolated, the median for web is 250 even though no query in the web vertical had a latency of 250. 
 
-PERCENTILE\_DISC не интерполирует значения, поэтому медиана для вертикали Web будет равна 200, что есть одним из фактических значений входных строк.
-
-
+PERCENTILE_DISC does not interpolate values, so the median for Web is 200 - which is an actual value found in the input rows.
 
 
 
@@ -730,17 +730,23 @@ PERCENTILE\_DISC не интерполирует значения, поэтом�
 
 
 
-## Дополнительные материалы
 
-- [Обзор аналитики озера данных Microsoft Azure](data-lake-analytics-overview.md)
-- [Начало работы с аналитикой озера данных с помощью портала Azure](data-lake-analytics-get-started-portal.md)
-- [Начало работы с аналитикой озера данных с помощью Azure PowerShell](data-lake-analytics-get-started-powershell.md)
-- [Разработка сценариев U-SQL с помощью средств озера данных для Visual Studio.](data-lake-analytics-data-lake-tools-get-started.md)
-- [Использование интерактивных руководств по службе аналитики озера данных Azure](data-lake-analytics-use-interactive-tutorials.md)
-- [Анализ журналов веб-сайта с помощью службы аналитики озера данных Azure](data-lake-analytics-analyze-weblogs.md)
-- [Начало работы с языком U-SQL в аналитике озера данных Azure](data-lake-analytics-u-sql-get-started.md)
-- [Управление аналитикой озера данных Azure с помощью портала Azure](data-lake-analytics-manage-use-portal.md)
-- [Управление аналитикой озера данных Azure с помощью Azure PowerShell](data-lake-analytics-manage-use-powershell.md)
-- [Мониторинг заданий аналитики озера данных Azure и устранение связанных с ними неполадок с помощью портала Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+## <a name="see-also"></a>See also
+
+- [Overview of Microsoft Azure Data Lake Analytics](data-lake-analytics-overview.md)
+- [Get started with Data Lake Analytics using Azure Portal](data-lake-analytics-get-started-portal.md)
+- [Get started with Data Lake Analytics using Azure PowerShell](data-lake-analytics-get-started-powershell.md)
+- [Develop U-SQL scripts using Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
+- [Use Azure Data Lake Analytics interactive tutorials](data-lake-analytics-use-interactive-tutorials.md)
+- [Analyze Website logs using Azure Data Lake Analytics](data-lake-analytics-analyze-weblogs.md)
+- [Get started with Azure Data Lake Analytics U-SQL language](data-lake-analytics-u-sql-get-started.md)
+- [Manage Azure Data Lake Analytics using Azure Portal](data-lake-analytics-manage-use-portal.md)
+- [Manage Azure Data Lake Analytics using Azure PowerShell](data-lake-analytics-manage-use-powershell.md)
+- [Monitor and troubleshoot Azure Data Lake Analytics jobs using Azure Portal](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

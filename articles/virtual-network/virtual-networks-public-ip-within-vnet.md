@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Использование общедоступных IP-адресов в виртуальной сети"
-   description="Узнайте, как настроить виртуальную сеть для использования общедоступных IP-адресов"
+   pageTitle="How to use public IP addresses in a virtual network"
+   description="Learn how to configure a virtual network to use public IP addresses"
    services="virtual-network"
    documentationCenter="na"
    authors="jimdial"
@@ -15,36 +15,40 @@
    ms.date="04/27/2016"
    ms.author="jdial" />
 
-# Общедоступное пространство IP-адресов в виртуальной сети (VNet)
 
-Виртуальные сети могут содержать открытые и закрытые (блоки адресов RFC 1918) пространства IP-адресов. При добавлении общедоступного диапазона IP-адресов он будет рассматриваться как часть закрытого пространства IP-адресов VNet, доступная только в пределах виртуальной сети, взаимосвязанных виртуальных сетей и из локального расположения.
+# <a name="public-ip-address-space-in-a-virtual-network-(vnet)"></a>Public IP address space in a Virtual Network (VNet)
 
-На рисунке ниже показана виртуальная сеть, которая содержит открытые и закрытые пространства IP-адресов.
+Virtual networks (VNets) can contain both public and private (RFC 1918 address blocks) IP address spaces. When you add a public IP address range, it will be treated as part of the private VNet IP address space that is only reachable within the VNet, interconnected VNets, and from your on-premises location.
 
-![Концепция общедоступных IP-адресов](./media/virtual-networks-public-ip-within-vnet/IC775683.jpg)
+The picture below shows a VNet that includes public and private IP adress spaces.
 
-## Как добавить общедоступный диапазон IP-адресов?
+![Public IP Conceptual](./media/virtual-networks-public-ip-within-vnet/IC775683.jpg)
 
-Диапазон общедоступных IP-адресов добавляется таким же образом, как и диапазон частных адресов: с помощью файла *netcfg* или путем добавления конфигурации на [портале Azure](http://portal.azure.com). Общедоступный диапазон IP-адресов можно добавить во время создания виртуальной сети или можно вернуться и добавить его позднее. В приведенном ниже примере показаны открытое и закрытое пространства IP-адресов, настроенные в одной и той же виртуальной сети.
+## <a name="how-do-i-add-a-public-ip-address-range?"></a>How do I add a public IP address range?
 
-![Общедоступный IP-адрес на портале](./media/virtual-networks-public-ip-within-vnet/IC775684.png)
+You add a public IP address range the same way you would add a private IP address range; by either using a *netcfg* file, or by adding the configuration in the [Azure portal](http://portal.azure.com). You can add a public IP address range when you create your VNet, or you can go back and add it afterward. The example below shows both public and private IP address spaces configured in the same VNet.
 
-## Существуют ли какие-либо ограничения?
+![Public IP Address in Portal](./media/virtual-networks-public-ip-within-vnet/IC775684.png)
 
-Существует несколько запрещенных диапазонов IP-адресов:
+## <a name="are-there-any-limitations?"></a>Are there any limitations?
 
-- 224\.0.0.0/4 (многоадресная рассылка)
+There are a few IP address ranges that are not allowed:
 
-- 255\.255.255.255/32 (широковещательный адрес)
+- 224.0.0.0/4 (Multicast)
 
-- 127\.0.0.0/8 (адрес обратной связи)
+- 255.255.255.255/32 (Broadcast)
 
-- 169\.254.0.0/16 (link-local)
+- 127.0.0.0/8 (loopback)
 
-- 168\.63.129.16/32 (внутренний DNS)
+- 169.254.0.0/16 (link-local)
 
-## Дальнейшие действия
+- 168.63.129.16/32 (Internal DNS)
 
-[Управление DNS-серверами, используемыми виртуальной сетью (VNet)](virtual-networks-manage-dns-in-vnet.md)
+## <a name="next-steps"></a>Next Steps
 
-<!---HONumber=AcomDC_0810_2016-->
+[How to manage DNS servers used by a VNet](virtual-networks-manage-dns-in-vnet.md)
+
+
+<!--HONumber=Oct16_HO2-->
+
+

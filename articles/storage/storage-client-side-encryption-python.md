@@ -1,229 +1,239 @@
 <properties
-	pageTitle="Шифрование на стороне клиента с помощью Python для службы хранилища Microsoft Azure | Microsoft Azure"
-	description="Клиентская библиотека службы хранилища Azure для Python поддерживает шифрование на стороне клиента для обеспечения максимальной защиты ваших приложений службы хранилища Azure."
-	services="storage"
-	documentationCenter="python"
-	authors="dineshmurthy"
-	manager="jahogg"
-	editor="tysonn"/>
+    pageTitle="Client-Side Encryption with Python for Microsoft Azure Storage | Microsoft Azure"
+    description="The Azure Storage Client Library for Python supports client-side encryption for maximum security for your Azure Storage applications."
+    services="storage"
+    documentationCenter="python"
+    authors="dineshmurthy"
+    manager="jahogg"
+    editor="tysonn"/>
 
 <tags
-	ms.service="storage"
-	ms.workload="storage"
-	ms.tgt_pltfrm="na"
-	ms.devlang="python"
-	ms.topic="article"
-	ms.date="09/20/2016"
-	ms.author="dineshm;robinsh"/>
+    ms.service="storage"
+    ms.workload="storage"
+    ms.tgt_pltfrm="na"
+    ms.devlang="python"
+    ms.topic="article"
+    ms.date="10/18/2016"
+    ms.author="dineshm"/>
 
 
-# Шифрование на стороне клиента с помощью Python для службы хранилища Microsoft Azure
+
+# <a name="client-side-encryption-with-python-for-microsoft-azure-storage"></a>Client-Side Encryption with Python for Microsoft Azure Storage
 
 [AZURE.INCLUDE [storage-selector-client-side-encryption-include](../../includes/storage-selector-client-side-encryption-include.md)]
 
-## Обзор
+## <a name="overview"></a>Overview
 
-[Клиентская библиотека службы хранилища Azure для Python](https://pypi.python.org/pypi/azure-storage) поддерживает шифрование данных в клиентских приложениях перед отправкой в службу хранилища Azure и их расшифровку во время скачивания клиентом.
+The [Azure Storage Client Library for Python](https://pypi.python.org/pypi/azure-storage) supports encrypting data within client applications before uploading to Azure Storage, and decrypting data while downloading to the client.
 
->[AZURE.NOTE] Библиотека Python для службы хранилища Azure находится на этапе предварительной версии.
+>[AZURE.NOTE] The Azure Storage Python library is in preview.
 
-## Шифрование и расшифровка методом конвертов
-Для шифрования и расшифровки используется конвертный метод.
+## <a name="encryption-and-decryption-via-the-envelope-technique"></a>Encryption and decryption via the envelope technique
+The processes of encryption and decryption follow the envelope technique.
 
-### Шифрование конвертным методом
-Шифрование конвертным методом выполняется следующим образом.
+### <a name="encryption-via-the-envelope-technique"></a>Encryption via the envelope technique
+Encryption via the envelope technique works in the following way:
 
-1.	Клиентская библиотека хранилища Azure создает ключ шифрования содержимого (CEK), который является симметричным ключом для однократного использования.
+1.  The Azure storage client library generates a content encryption key (CEK), which is a one-time-use symmetric key.
 
-2.	Данные пользователя шифруются с помощью этого ключа CEK.
+2.  User data is encrypted using this CEK.
 
-3.	Ключ CEK, в свою очередь, шифруется с помощью ключа шифрования ключа KEK. KEK определяется идентификатором ключа и может быть парой асимметричных ключей или симметричным ключом, управляемым локально. Сама клиентская библиотека хранилища не имеет доступа к ключу KEK. Библиотека вызывает алгоритм шифрования ключа, предоставляемый KEK. Пользователи могут при необходимости использовать настраиваемые поставщики для шифрования и расшифровки ключа.
+3.  The CEK is then wrapped (encrypted) using the key encryption key (KEK). The KEK is identified by a key identifier and can be an asymmetric key pair or a symmetric key, which is managed locally.
+The storage client library itself never has access to KEK. The library invokes the key wrapping algorithm that is provided by the KEK. Users can choose to use custom providers for key wrapping/unwrapping if desired.
 
-4.	Зашифрованные данные затем передаются в службу хранилища Azure. Зашифрованный ключ вместе с дополнительными метаданными шифрования хранится как метаданные (в большом двоичном объекте) или вставляется в зашифрованные данные (сообщения в очереди и табличные сущности).
+4.  The encrypted data is then uploaded to the Azure Storage service. The wrapped key along with some additional encryption metadata is either stored as metadata (on a blob) or interpolated with the encrypted data (queue messages and table entities).
 
-### Расшифровка конвертным методом
-Расшифровка конвертным методом выполняется следующим образом.
+### <a name="decryption-via-the-envelope-technique"></a>Decryption via the envelope technique
+Decryption via the envelope technique works in the following way:
 
-1.	Клиентская библиотека предполагает, что пользователь управляет ключом шифрования ключа (KEK) локально. Пользователь может не знать, какой именно ключ использовался для шифрования. Вместо этого достаточно настроить и использовать сопоставитель ключей, который будет распознавать разные идентификаторы ключей.
+1.  The client library assumes that the user is managing the key encryption key (KEK) locally. The user does not need to know the specific key that was used for encryption. Instead, a key resolver, which resolves different key identifiers to keys, can be set up and used.
 
-2.	Клиентская библиотека скачивает зашифрованные данные вместе с данными шифрования, которые хранятся в службе.
+2.  The client library downloads the encrypted data along with any encryption material that is stored on the service.
 
-3.	Зашифрованный ключ шифрования содержимого CEK расшифровывается с помощью ключа шифрования ключа KEK. Клиентская библиотека не имеет доступа к ключу KEK. Она просто вызывает алгоритм расшифровки, предоставляемый настраиваемым поставщиком.
+3.  The wrapped content encryption key (CEK) is then unwrapped (decrypted) using the key encryption key (KEK). Here again, the client library does not have access to KEK. It simply invokes the custom provider’s unwrapping algorithm.
 
-4.	Затем ключ шифрования содержимого CEK используется для расшифровки зашифрованных пользовательских данных.
+4.  The content encryption key (CEK) is then used to decrypt the encrypted user data.
 
-## Механизм шифрования  
-Клиентская библиотека хранилища использует алгоритм [AES](http://en.wikipedia.org/wiki/Advanced_Encryption_Standard) для шифрования данных пользователя. Говоря более конкретно, это режим [цепочки цифровых блоков или CBC](http://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher-block_chaining_.28CBC.29) вместе с AES. Каждая служба работает по-разному, поэтому каждая служба рассматривается отдельно.
+## <a name="encryption-mechanism"></a>Encryption Mechanism  
+The storage client library uses [AES](http://en.wikipedia.org/wiki/Advanced_Encryption_Standard) in order to encrypt user data. Specifically, [Cipher Block Chaining (CBC)](http://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher-block_chaining_.28CBC.29) mode with AES. Each service works somewhat differently, so we will discuss each of them here.
 
-### BLOB-объекты
-Клиентская библиотека в настоящий момент полностью поддерживает только шифрование больших двоичных объектов. В частности, шифрование поддерживается при использовании методов **create***. Поддерживаются полное скачивание и скачивание диапазона, кроме того, доступно распараллеливание передачи и скачивания.
+### <a name="blobs"></a>Blobs
+The client library currently supports encryption of whole blobs only. Specifically, encryption is supported when users use the **create*** methods. For downloads, both complete and range downloads are supported, and parallelization of both upload and download is available.
 
-Во время шифрования клиентская библиотека создает случайный вектор инициализации IV размером 16 байт, случайный ключ шифрования содержимого CEK размером 32 байта и выполняет конвертное шифрование данных большого двоичного объекта, используя полученную информацию. Затем зашифрованный ключ CEK и дополнительные метаданные шифрования сохраняются в службе как метаданные большого двоичного объекта вместе с зашифрованным большим двоичным объектом.
+During encryption, the client library will generate a random Initialization Vector (IV) of 16 bytes, together with a random content encryption key (CEK) of 32 bytes, and perform envelope encryption of the blob data using this information. The wrapped CEK and some additional encryption metadata are then stored as blob metadata along with the encrypted blob on the service.
 
->[AZURE.WARNING] Если вы изменяете или загружаете собственные метаданные для большого двоичного объекта, нужно убедиться, что данные сохранены. Если загрузить новые метаданные без этих метаданных, зашифрованный ключ CEK, ключ IV и другие метаданные будут утеряны, а без них получить содержимое большого двоичного объекта невозможно.
+>[AZURE.WARNING] If you are editing or uploading your own metadata for the blob, you need to ensure that this metadata is preserved. If you upload new metadata without this metadata, the wrapped CEK, IV and other metadata will be lost and the blob content will never be retrievable again.
 
-Скачивание зашифрованного большого двоичного объекта предполагает получение всего его содержимого с помощью удобных методов **get***. Зашифрованный ключ CEK расшифровывается и используется вместе с ключом IV (который в данном случае хранится как метаданные большого двоичного объекта) для передачи расшифрованных данных обратно пользователям.
+Downloading an encrypted blob involves retrieving the content of the entire blob using the **get*** convenience methods. The wrapped CEK is unwrapped and used together with the IV (stored as blob metadata in this case) to return the decrypted data to the users.
 
-Скачивание произвольного диапазона (с помощью методов **get*** и передаваемых параметров диапазона) из зашифрованного большого двоичного объекта предполагает настройку диапазона на стороне пользователя, чтобы получить небольшой объем дополнительных данных, которые помогут расшифровать запрошенный диапазон.
+Downloading an arbitrary range (**get*** methods with range parameters passed in) in the encrypted blob involves adjusting the range provided by users in order to get a small amount of additional data that can be used to successfully decrypt the requested range.
 
-Только блочные и страничные BLOB-объекты могут быть зашифрованы и расшифрованы с помощью этой схемы. В настоящее время не поддерживается шифрование добавочных BLOB-объектов.
+Block blobs and page blobs only can be encrypted/decrypted using this scheme. There is currently no support for encrypting append blobs.
 
-### Очереди
-Поскольку очередь сообщений может иметь любой формат, клиентская библиотека определяет нестандартный формат, который включает вектор инициализации IV и зашифрованный ключ шифрования содержимого CEK в текст сообщения.
+### <a name="queues"></a>Queues
+Since queue messages can be of any format, the client library defines a custom format that includes the Initialization Vector (IV) and the encrypted content encryption key (CEK) in the message text.
 
-Во время шифрования клиентская библиотека создает случайный ключ IV размером 16 байт, случайный ключ CEK размером 32 байта и выполняет конвертное шифрование текста сообщения очереди, используя полученную информацию. Зашифрованный ключ CEK и дополнительные метаданные шифрования добавляются в зашифрованное сообщение очереди. Это измененное сообщение (показано ниже) сохраняется в службе.
+During encryption, the client library generates a random IV of 16 bytes along with a random CEK of 32 bytes and performs envelope encryption of the queue message text using this information. The wrapped CEK and some additional encryption metadata are then added to the encrypted queue message. This modified message (shown below) is stored on the service.
 
-	<MessageText>{"EncryptedMessageContents":"6kOu8Rq1C3+M1QO4alKLmWthWXSmHV3mEfxBAgP9QGTU++MKn2uPq3t2UjF1DO6w","EncryptionData":{…}}</MessageText>
+    <MessageText>{"EncryptedMessageContents":"6kOu8Rq1C3+M1QO4alKLmWthWXSmHV3mEfxBAgP9QGTU++MKn2uPq3t2UjF1DO6w","EncryptionData":{…}}</MessageText>
 
-Во время расшифровки зашифрованный ключ извлекается из сообщения очереди и расшифровывается. Ключ IV также извлекается из сообщения очереди и используется вместе с расшифрованным ключом для расшифровки данных сообщения очереди. Обратите внимание, что размер метаданных шифрования очень мал (не более 500 байт), поэтому, хотя этот их размер учитывается при подсчете максимального размера в 64 КБ для сообщения очереди, этим размером данных можно пренебречь.
+During decryption, the wrapped key is extracted from the queue message and unwrapped. The IV is also extracted from the queue message and used along with the unwrapped key to decrypt the queue message data. Note that the encryption metadata is small (under 500 bytes), so while it does count toward the 64KB limit for a queue message, the impact should be manageable.
 
-### Таблицы
-Клиентская библиотека поддерживает шифрование свойств сущности для операций вставки и замены.
+### <a name="tables"></a>Tables
+The client library supports encryption of entity properties for insert and replace operations.
 
->[AZURE.NOTE] Слияние в настоящее время не поддерживается. Поскольку подмножество свойств могло уже быть зашифровано с помощью другого ключа, простое слияние новых свойств и обновление метаданных приведет к потере данных. Для слияния требуется либо сначала прочитать данные существующей сущности в службе, либо использовать новый ключ для каждого свойства, однако оба способа не подходят из-за низкой эффективности.
+>[AZURE.NOTE] Merge is not currently supported. Since a subset of properties may have been encrypted previously using a different key, simply merging the new properties and updating the metadata will result in data loss. Merging either requires making extra service calls to read the pre-existing entity from the service, or using a new key per property, both of which are not suitable for performance reasons.
 
-Шифрование табличных данных выполняется следующим образом.
+Table data encryption works as follows:
 
-1.	Пользователи указывают свойства, которые следует зашифровать.
+1.  Users specify the properties to be encrypted.
 
-2.	Клиентская библиотека создает случайный вектор инициализации IV размером 16 байт и произвольный ключ шифрования содержимого CEK размером 32 байта для каждой сущности и выполняет конвертное шифрование для отдельных свойств, которые следует зашифровать путем создания нового ключа IV для каждого свойства. Зашифрованное свойство хранится в виде двоичных данных.
+2.  The client library generates a random Initialization Vector (IV) of 16 bytes along with a random content encryption key (CEK) of 32 bytes for every entity, and performs envelope encryption on the individual properties to be encrypted by deriving a new IV per property. The encrypted property is stored as binary data.
 
-3.	Затем зашифрованный ключ CEK и дополнительные метаданные шифрования сохраняются в виде двух дополнительных зарезервированных свойств. Первое зарезервированное свойство (\_ClientEncryptionMetadata1) — это строковое свойство, которое содержит информацию о ключе IV, версию и зашифрованный ключ. Второе зарезервированное свойство (\_ClientEncryptionMetadata2) — это двоичное свойство, которое содержит информацию о зашифрованных свойствах. Сведения в этом втором свойстве (\_ClientEncryptionMetadata2) сами по себе зашифрованы.
+3.  The wrapped CEK and some additional encryption metadata are then stored as two additional reserved properties. The first reserved property (\_ClientEncryptionMetadata1) is a string property that holds the information about IV, version, and wrapped key. The second reserved property (\_ClientEncryptionMetadata2) is a binary property that holds the information about the properties that are encrypted. The information in this second property (\_ClientEncryptionMetadata2) is itself encrypted.
 
-4.	Из-за этих двух дополнительных зарезервированных свойств, необходимых для шифрования, пользователи могут иметь только 250 пользовательских свойств вместо 252. Общий размер сущности должен быть меньше 1 МБ.
+4.  Due to these additional reserved properties required for encryption, users may now have only 250 custom properties instead of 252. The total size of the entity must be less than 1MB.
 
-	Обратите внимание, что зашифрованы могут быть только строковые свойства. Если необходимо зашифровать другие типы свойств, их необходимо преобразовать в строки. Зашифрованные строки хранятся в службе в виде двоичных свойств. Они преобразовываются обратно в строки (необработанные строки, не EntityProperties типа EdmType.STRING) после расшифровки.
+    Note that only string properties can be encrypted. If other types of properties are to be encrypted, they must be converted to strings. The encrypted strings are stored on the service as binary properties, and they are converted back to strings (raw strings, not EntityProperties with type EdmType.STRING) after decryption.
 
-	Что касается таблиц, то в дополнение к политике шифрования пользователи должны указать свойства, которые необходимо зашифровать. Это можно сделать, либо сохранив эти свойства в объектах TableEntity, задав для них тип EdmType.STRING, а для поля encrypt — значение true, либо задав encryption\_resolver\_function для объекта tableservice. Сопоставитель шифрования — это функция, которая получает ключ секции, ключ строки и имя свойства, а затем возвращает логическое значение, которое указывает, следует ли это свойство шифровать. Во время шифрования клиентская библиотека использует эти сведения, чтобы решить, следует ли шифровать свойство перед отправкой. Делегат также обеспечивает возможность логики в отношении того, как шифруются свойства. (Например, если значение равно X, то шифровать свойство А; в противном случае шифровать свойства А и В.) Обратите внимание, что нет необходимости предоставлять эти сведения при чтении или выполнении запросов к сущностям.
+    For tables, in addition to the encryption policy, users must specify the properties to be encrypted. This can be done by either storing these properties in TableEntity objects with the type set to EdmType.STRING and encrypt set to true or setting the encryption_resolver_function on the tableservice object. An encryption resolver is a function that takes a partition key, row key, and property name and returns a boolean that indicates whether that property should be encrypted. During encryption, the client library will use this information to decide whether a property should be encrypted while writing to the wire. The delegate also provides for the possibility of logic around how properties are encrypted. (For example, if X, then encrypt property A; otherwise encrypt properties A and B.) Note that it is not necessary to provide this information while reading or querying entities.
 
-### Пакетные операции
-Одна политика шифрования применяется ко всем строкам в пакете. Клиентская библиотека создает новый случайный ключ IV и случайный ключ CEK для каждой строки в пакете. Пользователи могут также выбрать шифрование других свойств для каждой операции в пакете, определив это поведение в сопоставителе шифрования. Если пакет создан в качестве диспетчера контекста посредством метода batch() объекта tableservice, то политика шифрования tableservice будет автоматически применена к этому пакету. Если пакет был явно создан путем вызова конструктора, то политика шифрования должна быть передана как параметр и должна оставаться без изменений в течение времени существования пакета. Обратите внимание, что сущности шифруются, когда вставляются в пакет, с помощью политики шифрования пакета (сущности НЕ шифруются с помощью политики шифрования tableservice во время фиксации пакета).
+### <a name="batch-operations"></a>Batch Operations
+One encryption policy applies to all rows in the batch. The client library will internally generate a new random IV and random CEK per row in the batch. Users can also choose to encrypt different properties for every operation in the batch by defining this behavior in the encryption resolver.
+If a batch is created as a context manager through the tableservice batch() method, the tableservice's encryption policy will automatically be applied to the batch. If a batch is created explicitly by calling the constructor, the encryption policy must be passed as a parameter and left unmodified for the lifetime of the batch.
+Note that entities are encrypted as they are inserted into the batch using the batch's encryption policy (entities are NOT encrypted at the time of committing the batch using the tableservice's encryption policy).
 
-### Запросы
-Чтобы выполнять операции запроса, следует указать сопоставитель ключа, который способен распознавать все ключи в результирующем наборе. Если сущность в результате запроса не может быть разрешена для поставщика, клиентская библиотека выдаст ошибку. Для запроса, который обращается к серверу, клиентская библиотека добавляет по умолчанию специальные свойства метаданных шифрования (\_ClientEncryptionMetadata1 и \_ClientEncryptionMetadata2) к выбранным столбцам.
+### <a name="queries"></a>Queries
+To perform query operations, you must specify a key resolver that is able to resolve all the keys in the result set. If an entity contained in the query result cannot be resolved to a provider, the client library will throw an error. For any query that performs server side projections, the client library will add the special encryption metadata properties (\_ClientEncryptionMetadata1 and \_ClientEncryptionMetadata2) by default to the selected columns.
 
->[AZURE.IMPORTANT] Учтите следующие важные моменты при использовании шифрования на стороне клиента.
+>[AZURE.IMPORTANT] Be aware of these important points when using client-side encryption:
 >
->- При чтении или записи в зашифрованном большом двоичном объекте используйте команды загрузки полного большого двоичного объекта и команды диапазонной либо полной выгрузки. Избегайте написания зашифрованного большого двоичного объекта с помощью операций протокола, таких как Put Block, Put Block List, Write Pages или Clear Pages, иначе это может привести к повреждению зашифрованного большого двоичного объекта, что сделает его нечитабельным.
+>- When reading from or writing to an encrypted blob, use whole blob upload commands and range/whole blob download commands. Avoid writing to an encrypted blob using protocol operations such as Put Block, Put Block List, Write Pages, or Clear Pages; otherwise you may corrupt the encrypted blob and make it unreadable.
 >
->- Для таблиц существуют аналогичные ограничения. Будьте внимательны и не обновляйте зашифрованные свойства без обновления метаданных шифрования.
+>- For tables, a similar constraint exists. Be careful to not update encrypted properties without updating the encryption metadata.
 >
->- Если задать метаданные в зашифрованном большом двоичном объекте, могут быть перезаписаны метаданные, относящиеся к шифрованию и необходимые для расшифровки, поскольку настройку метаданных добавить нельзя. Это также касается моментальных снимков. Не указывайте метаданные во время создания моментального снимка зашифрованного большого двоичного объекта. Если необходимо задать метаданные, следует сначала вызвать метод **get\_blob\_metadata** для получения текущих метаданных шифрования и избегать параллельных операций записи во время установки метаданных.
+>- If you set metadata on the encrypted blob, you may overwrite the encryption-related metadata required for decryption, since setting metadata is not additive. This is also true for snapshots; avoid specifying metadata while creating a snapshot of an encrypted blob. If metadata must be set, be sure to call the **get_blob_metadata** method first to get the current encryption metadata, and avoid concurrent writes while metadata is being set.
 >
->- Включите флаг **require\_encryption** в объекте службы для пользователей, которые должны работать только с зашифрованными данными. См. дополнительные сведения ниже.
+>- Enable the **require_encryption** flag on the service object for users that should work only with encrypted data. See below for more info.
 
-Клиентская библиотека хранилища ожидает предоставленный KEK и сопоставитель ключей, чтобы реализовать приведенный ниже интерфейс. Поддержка управления KEK с помощью Python в [хранилище ключей Azure](https://azure.microsoft.com/services/key-vault/) ожидается и будет интегрирована в эту библиотеку, когда будет готова.
+The storage client library expects the provided KEK and key resolver to implement the following interface. [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) support for Python KEK management is pending and will be integrated into this library when completed.
 
 
-## API-интерфейс клиента / интерфейс
-После создания объекта службы хранилища (т. е. blockblobservice) пользователь может присвоить значения полям, которые составляют политику шифрования: key\_encryption\_key, key\_resolver\_function и require\_encryption. Пользователи могут предоставлять только KEK, только сопоставитель или и то, и другое. key\_encryption\_key является базовым типом ключа, который определяется с помощью идентификатора ключа и обеспечивает логику для шифрования и расшифровки. key\_resolver\_function используется для сопоставления ключа во время расшифровки. При этом возвращается допустимый KEK по заданному идентификатору ключа. В результате пользователи могут выбирать между несколькими ключами, которые хранятся в разных местах.
+## <a name="client-api-/-interface"></a>Client API / Interface
+After a storage service object (i.e. blockblobservice) has been created, the user may assign values to the fields that constitute an encryption policy: key_encryption_key, key_resolver_function, and require_encryption. Users can provide only a KEK, only a resolver, or both. key_encryption_key is the basic key type that is identified using a key identifier and that provides the logic for wrapping/unwrapping. key_resolver_function is used to resolve a key during the decryption process. It returns a valid KEK given a key identifier. This provides users the ability to choose between multiple keys that are managed in multiple locations.
 
-KEK должен реализовывать следующие методы для успешного шифрования данных:
-- wrap\_key(cek): шифрует заданный CEK (байты) с помощью алгоритма по выбору пользователя. Возвращает зашифрованный ключ.
-- get\_key\_wrap\_algorithm(): возвращает алгоритм, используемый для шифрования ключей.
-- get\_kid(): возвращает идентификатор ключа строки для данного KEK. KEK должен реализовывать следующие методы для успешной расшифровки данных:
-- unwrap\_key (cek, algorithm): возвращает указанный CEK в расшифрованном виде с помощью алгоритма, соответствующего строке.
-- get\_kid(): возвращает идентификатор ключа строки для данного KEK.
+The KEK must implement the following methods to successfully encrypt data:
+- wrap_key(cek): Wraps the specified CEK (bytes) using an algorithm of the user's choice. Returns the wrapped key.
+- get_key_wrap_algorithm(): Returns the algorithm used to wrap keys.
+- get_kid(): Returns the string key id for this KEK.
+The KEK must implement the following methods to successfully decrypt data:
+- unwrap_key(cek, algorithm): Returns the unwrapped form of the specified CEK using the string-specified algorithm.
+- get_kid(): Returns a string key id for this KEK.
 
-Сопоставитель ключей по крайней мере должен реализовывать метод, который по заданному идентификатору ключа возвращает соответствующий KEK, реализующий приведенный выше интерфейс. Только этот метод может быть назначен свойству key\_resolver\_function объекта службы.
+The key resolver must at least implement a method that, given a key id, returns the corresponding KEK implementing the interface above. Only this method is to be assigned to the key_resolver_function property on the service object.
 
-- Для шифрования ключ используется всегда, при этом отсутствие ключа приведет к возникновению ошибки.
-- Для расшифровки:
-	- Сопоставитель ключа вызывается, если он нужен для получения ключа. Если сопоставитель указан, но он не имеет данных, сопоставимых с идентификатором ключа, возникает ошибка.
-	- Если сопоставитель не указан, но указан ключ, ключ используется, если его идентификатор соответствует требуемому идентификатору ключа. Если идентификатор не совпадает, выдается ошибка.
+- For encryption, the key is used always and the absence of a key will result in an error.
+- For decryption:
+    - The key resolver is invoked if specified to get the key. If the resolver is specified but does not have a mapping for the key identifier, an error is thrown.
+    - If resolver is not specified but a key is specified, the key is used if its identifier matches the required key identifier. If the identifier does not match, an error is thrown.
 
-	  В статье с примерами шифрования (azure.storage.samples <исправить URL-адрес>) показан подробный комплексный сценарий для больших двоичных объектов, очередей и таблиц. Примеры реализации KEK и сопоставителя ключей предоставлены среди примеров файлов. Это KeyWrapper и KeyResolver, соответственно.
+      The encryption samples in azure.storage.samples <fix URL>demonstrate a more detailed end-to-end scenario for blobs, queues and tables.
+        Sample implementations of the KEK and key resolver are provided in the sample files as KeyWrapper and KeyResolver respectively.
 
-### Режим RequireEncryption
-При необходимости можно включить режим работы, где все передачи и загрузки должны быть зашифрованы. В этом режиме все попытки клиента передать данные без политики шифрования или загрузить данные, которые не зашифрованы в службе, закончатся ошибкой. Флаг **Require\_encryption** в объекте службы управляет этим поведением.
+### <a name="requireencryption-mode"></a>RequireEncryption mode
+Users can optionally enable a mode of operation where all uploads and downloads must be encrypted. In this mode, attempts to upload data without an encryption policy or download data that is not encrypted on the service will fail on the client. The **require_encryption** flag on the service object controls this behavior.
 
-### Шифрование службы BLOB-объектов
-Задайте поля политики шифрования объекта blockblobservice. Все остальные задачи решаются клиентской библиотекой.
+### <a name="blob-service-encryption"></a>Blob service encryption
+Set the encryption policy fields on the blockblobservice object. Everything else will be handled by the client library internally.
 
-	# Create the KEK used for encryption.
-	# KeyWrapper is the provided sample implementation, but the user may use their own object as long as it implements the interface above.
-	kek = KeyWrapper('local:key1') # Key identifier
+    # Create the KEK used for encryption.
+    # KeyWrapper is the provided sample implementation, but the user may use their own object as long as it implements the interface above.
+    kek = KeyWrapper('local:key1') # Key identifier
 
-	# Create the key resolver used for decryption.
-	# KeyResolver is the provided sample implementation, but the user may use whatever implementation they choose so long as the function set on the service object behaves appropriately.
-	key_resolver = KeyResolver()
-	key_resolver.put_key(kek)
+    # Create the key resolver used for decryption.
+    # KeyResolver is the provided sample implementation, but the user may use whatever implementation they choose so long as the function set on the service object behaves appropriately.
+    key_resolver = KeyResolver()
+    key_resolver.put_key(kek)
 
-	# Set the KEK and key resolver on the service object.
-	my_block_blob_service.key_encryption_key = kek
-	my_block_blob_service.key_resolver_funcion = key_resolver.resolve_key
+    # Set the KEK and key resolver on the service object.
+    my_block_blob_service.key_encryption_key = kek
+    my_block_blob_service.key_resolver_funcion = key_resolver.resolve_key
 
-	# Upload the encrypted contents to the blob.
-	my_block_blob_service.create_blob_from_stream(container_name, blob_name, stream)
+    # Upload the encrypted contents to the blob.
+    my_block_blob_service.create_blob_from_stream(container_name, blob_name, stream)
 
-	# Download and decrypt the encrypted contents from the blob.
-	blob = my_block_blob_service.get_blob_to_bytes(container_name, blob_name)
+    # Download and decrypt the encrypted contents from the blob.
+    blob = my_block_blob_service.get_blob_to_bytes(container_name, blob_name)
 
-### Шифрование службы очередей
-Задайте поля политики шифрования объекта queueservice. Все остальные задачи решаются клиентской библиотекой.
+### <a name="queue-service-encryption"></a>Queue service encryption
+Set the encryption policy fields on the queueservice object. Everything else will be handled by the client library internally.
 
-	# Create the KEK used for encryption.
-	# KeyWrapper is the provided sample implementation, but the user may use their own object as long as it implements the interface above.
-	kek = KeyWrapper('local:key1') # Key identifier
+    # Create the KEK used for encryption.
+    # KeyWrapper is the provided sample implementation, but the user may use their own object as long as it implements the interface above.
+    kek = KeyWrapper('local:key1') # Key identifier
 
-	# Create the key resolver used for decryption.
-	# KeyResolver is the provided sample implementation, but the user may use whatever implementation they choose so long as the function set on the service object behaves appropriately.
-	key_resolver = KeyResolver()
-	key_resolver.put_key(kek)
+    # Create the key resolver used for decryption.
+    # KeyResolver is the provided sample implementation, but the user may use whatever implementation they choose so long as the function set on the service object behaves appropriately.
+    key_resolver = KeyResolver()
+    key_resolver.put_key(kek)
 
-	# Set the KEK and key resolver on the service object.
-	my_queue_service.key_encryption_key = kek
-	my_queue_service.key_resolver_funcion = key_resolver.resolve_key
+    # Set the KEK and key resolver on the service object.
+    my_queue_service.key_encryption_key = kek
+    my_queue_service.key_resolver_funcion = key_resolver.resolve_key
 
-	# Add message
-	my_queue_service.put_message(queue_name, content)
+    # Add message
+    my_queue_service.put_message(queue_name, content)
 
-	# Retrieve message
-	retrieved_message_list = my_queue_service.get_messages(queue_name)
+    # Retrieve message
+    retrieved_message_list = my_queue_service.get_messages(queue_name)
 
-### Шифрование службы таблиц
-Помимо создания политики шифрования и настройки параметров запроса необходимо указать **encryption\_resolver\_function** для **tableservice** или задать атрибут encrypt для EntityProperty.
+### <a name="table-service-encryption"></a>Table service encryption
+In addition to creating an encryption policy and setting it on request options, you must either specify an **encryption_resolver_function** on the **tableservice**, or set the encrypt attribute on the EntityProperty.
 
-### Использование сопоставителя
+### <a name="using-the-resolver"></a>Using the resolver
 
-	# Create the KEK used for encryption.
-	# KeyWrapper is the provided sample implementation, but the user may use their own object as long as it implements the interface above.
-	kek = KeyWrapper('local:key1') # Key identifier
+    # Create the KEK used for encryption.
+    # KeyWrapper is the provided sample implementation, but the user may use their own object as long as it implements the interface above.
+    kek = KeyWrapper('local:key1') # Key identifier
 
-	# Create the key resolver used for decryption.
-	# KeyResolver is the provided sample implementation, but the user may use whatever implementation they choose so long as the function set on the service object behaves appropriately.
-	key_resolver = KeyResolver()
-	key_resolver.put_key(kek)
+    # Create the key resolver used for decryption.
+    # KeyResolver is the provided sample implementation, but the user may use whatever implementation they choose so long as the function set on the service object behaves appropriately.
+    key_resolver = KeyResolver()
+    key_resolver.put_key(kek)
 
-	# Define the encryption resolver_function.
-	def my_encryption_resolver(pk, rk, property_name):
-			if property_name == 'foo':
-					return True
-			return False
+    # Define the encryption resolver_function.
+    def my_encryption_resolver(pk, rk, property_name):
+            if property_name == 'foo':
+                    return True
+            return False
 
-	# Set the KEK and key resolver on the service object.
-	my_table_service.key_encryption_key = kek
-	my_table_service.key_resolver_funcion = key_resolver.resolve_key
-	my_table_service.encryption_resolver_function = my_encryption_resolver
+    # Set the KEK and key resolver on the service object.
+    my_table_service.key_encryption_key = kek
+    my_table_service.key_resolver_funcion = key_resolver.resolve_key
+    my_table_service.encryption_resolver_function = my_encryption_resolver
 
-	# Insert Entity
-	my_table_service.insert_entity(table_name, entity)
+    # Insert Entity
+    my_table_service.insert_entity(table_name, entity)
 
-	# Retrieve Entity
-	# Note: No need to specify an encryption resolver for retrieve, but it is harmless to leave the property set.
-	my_table_service.get_entity(table_name, entity['PartitionKey'], entity['RowKey'])
+    # Retrieve Entity
+    # Note: No need to specify an encryption resolver for retrieve, but it is harmless to leave the property set.
+    my_table_service.get_entity(table_name, entity['PartitionKey'], entity['RowKey'])
 
-### Использование атрибутов
-Как упоминалось выше, свойство можно пометить для шифрования, сохранив его в объекте EntityProperty и задав поле encrypt.
+### <a name="using-attributes"></a>Using attributes
+As mentioned above, a property may be marked for encryption by storing it in an EntityProperty object and setting the encrypt field.
 
-	encrypted_property_1 = EntityProperty(EdmType.STRING, value, encrypt=True)
+    encrypted_property_1 = EntityProperty(EdmType.STRING, value, encrypt=True)
 
-## Шифрование и производительность
-Обратите внимание, что шифрование результатов анализа данных хранилища отрицательно влияет на производительность. Ключ содержимого и ключ IV необходимо создать, само содержимое — зашифровать, а дополнительные метаданные — отформатировать и передать. Эти издержки зависят от объема шифруемых данных. Мы рекомендуем клиентам всегда тестировать свои приложения для повышения производительности во время разработки.
+## <a name="encryption-and-performance"></a>Encryption and performance
+Note that encrypting your storage data results in additional performance overhead. The content key and IV must be generated, the content itself must be encrypted, and additional metadata must be formatted and uploaded. This overhead will vary depending on the quantity of data being encrypted. We recommend that customers always test their applications for performance during development.
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Next steps
 
-- Скачайте [клиентскую библиотеку службы хранилища Azure для пакета PyPi Java](https://pypi.python.org/pypi/azure-storage).
-- Скачайте [клиентскую библиотеку службы хранилища Azure для исходного кода Python с портала GitHub](https://github.com/Azure/azure-storage-python).
+- Download the [Azure Storage Client Library for Java PyPi package](https://pypi.python.org/pypi/azure-storage)
+- Download the [Azure Storage Client Library for Python Source Code from GitHub](https://github.com/Azure/azure-storage-python)
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

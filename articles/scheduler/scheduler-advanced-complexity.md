@@ -1,10 +1,10 @@
 <properties
- pageTitle="Как создавать сложные расписания и расширенное повторение с помощью планировщика Azure"
- description="Как создавать сложные расписания и расширенное повторение с помощью планировщика Azure"
+ pageTitle="How to Build Complex Schedules and Advanced Recurrence with Azure Scheduler"
+ description="How to Build Complex Schedules and Advanced Recurrence with Azure Scheduler"
  services="scheduler"
  documentationCenter=".NET"
- authors="krisragh"
- manager="dwrede"
+ authors="derek1ee"
+ manager="kevinlam1"
  editor=""/>
 <tags
  ms.service="scheduler"
@@ -13,188 +13,193 @@
  ms.devlang="dotnet"
  ms.topic="article"
  ms.date="08/18/2016"
- ms.author="krisragh"/>
-
-# Как создавать сложные расписания и расширенное повторение с помощью планировщика Azure  
-
-## Обзор
-
-Основополагающую роль в любом задании планировщика Azure играет *расписание*. Именно оно определяет время и способ выполнения каждого задания.
-
-Планировщик Azure позволяет настроить для задания различные одноразовые и повторяющиеся расписания. *Одноразовые* расписания запускаются один раз в указанное время — по сути это *повторяющиеся* расписания, которые выполняются только один раз. Повторяющиеся расписания запускаются с указанной периодичностью.
-
-Благодаря этой гибкости планировщик Azure позволяет поддерживать самые разнообразные бизнес-сценарии.
-
--	Периодическая очистка данных, например ежедневное удаление всех твитов старше 3 месяцев.
--	Архивация, например ежемесячное создание резервной копии всей истории счетов.
--	Запросы внешних данных, например получение нового прогноза погоды для лыжников от NOAA каждые 15 минут.
--	Обработка образов, например сжатие всех загруженных за день образов с помощью системы облачных вычислений каждый день в период пиковой нагрузки.
+ ms.author="deli"/>
 
 
-В данной статье будут рассмотрены примеры заданий, которые можно создавать с помощью планировщика Azure. Для каждого расписания приводятся соответствующие данные JSON. Если вы используете [API REST планировщика](https://msdn.microsoft.com/library/mt629143.aspx), применяйте эти данные JSON для [создания заданий в планировщике Azure](https://msdn.microsoft.com/library/mt629145.aspx).
+# <a name="how-to-build-complex-schedules-and-advanced-recurrence-with-azure-scheduler"></a>How to Build Complex Schedules and Advanced Recurrence with Azure Scheduler  
 
-## Поддерживаемые сценарии
+## <a name="overview"></a>Overview
 
-Многие примеры в этом разделе иллюстрируют ряд сценариев, поддерживаемых планировщиком Azure. Грубо говоря, в следующих примерах показаны способы создания расписаний для самых разных моделей поведения, включая следующие.
+At the heart of an Azure Scheduler job is the *schedule*. The schedule determines when and how the Scheduler executes the job.
 
--	Однократное выполнение в определенный день и в конкретное время.
--	Выполнение и повтор указанное количество раз.
--	Незамедлительное выполнение и повтор.
--	Выполнение и повтор через каждые *n* минут, часов, дней, недель или месяцев, начиная с указанного времени.
--	Выполнение и повтор на еженедельной или ежемесячной основе, но только в указанные даты, дни недели или числа месяца.
--	Выполнение и повтор несколько раз за период, например в последнюю пятницу и понедельник каждого месяца или в 05:15 и 17:15 каждого дня.
+Azure Scheduler allows you to specify different one-time and recurring schedules for a job. *One-time* schedules fire once at a specified time – effectively, they are *recurring* schedules that execute only once. Recurring schedules fire on a predetermined frequency.
 
-## Значения даты и даты и времени
+With this flexibility, Azure Scheduler lets you support a wide variety of business scenarios:
 
-Даты в заданиях планировщика Azure соответствуют [спецификации ISO-8601](http://en.wikipedia.org/wiki/ISO_8601) и содержат только дату.
+-   Periodic data cleanup –  e.g., every day, delete all tweets older than 3 months
+-   Archival – e.g., every month, push invoice history to backup service
+-   Requests for external data – e.g., every 15 minutes, pull new ski weather report from NOAA
+-   Image processing – e.g. every weekday, during off-peak hours, use cloud computing to compress images uploaded that day
 
-Ссылки на даты и время в планировщике заданий Azure соответствуют [спецификации ISO-8601](http://en.wikipedia.org/wiki/ISO_8601) и включают как дату, так и время. Предполагается, что даты и время без обозначения часового пояса указаны по UTC.
 
-## Практическое руководство: создание расписаний с помощью JSON и API REST
+In this article, we walk through example jobs that you can create with Azure Scheduler. We provide the JSON data that describes each schedule. If you use the [Scheduler REST API](https://msdn.microsoft.com/library/mt629143.aspx), you can use this same JSON for [creating an Azure Scheduler job](https://msdn.microsoft.com/library/mt629145.aspx).
 
-Чтобы создать простое расписание с помощью [REST API планировщика Azure](https://msdn.microsoft.com/library/mt629143), сначала [зарегистрируйте подписку в поставщике ресурсов](https://msdn.microsoft.com/library/azure/dn790548.aspx) (имя поставщика для планировщика: _Microsoft.Scheduler_), затем [создайте коллекцию заданий](https://msdn.microsoft.com/library/mt629159.aspx) и, наконец, [создайте задание](https://msdn.microsoft.com/library/mt629145.aspx). Создавая задание, можно задать расписание и периодичность его выполнения, используя данные JSON как в представленном ниже фрагменте кода:
+## <a name="supported-scenarios"></a>Supported Scenarios
 
-	{
-	    "startTime": "2012-08-04T00:00Z", // optional
-	     …
-	    "recurrence":                     // optional
-	    {
-	        "frequency": "week",     // can be "year" "month" "day" "week" "hour" "minute"
-	        "interval": 1,                // optional, how often to fire (default to 1)
-	        "schedule":                   // optional (advanced scheduling specifics)
-	        {
-	            "weekDays": ["monday", "wednesday", "friday"],
-	            "hours": [10, 22]                      
-	        },
-	        "count": 10,                  // optional (default to recur infinitely)
-	        "endTime": "2012-11-04",      // optional (default to recur infinitely)
-	    },
-	    …
-	}
+The many examples in this topic illustrate the breadth of scenarios that Azure Scheduler supports. Broadly, these examples illustrate how to create schedules for many behavior patterns, including the ones below:
 
-## Общие сведения: основные параметры схемы заданий
+-   Run once at a particular date and time
+-   Run and recur a number of explicit times
+-   Run immediately and recur
+-   Run and recur every *n* minutes, hours, days, weeks, or months, starting at a particular time
+-   Run and recur at weekly or monthly frequency but only on specific days, specific days of week, or  specific days of month
+-   Run and recur at multiple times in a period – e.g., last Friday and Monday of every month, or at 5:15am and 5:15pm every day
 
-В приведенной ниже таблице представлен общий обзор основных элементов, связанных с периодичностью выполнения и расписанием задания.
+## <a name="dates-and-datetimes"></a>Dates and DateTimes
 
-|**Имя JSON**|**Описание**|
+Dates in Azure Scheduler jobs follow the [ISO-8601 specification](http://en.wikipedia.org/wiki/ISO_8601) and include only the date.
+
+Date-Time references in Azure Scheduler jobs follow the [ISO-8601 specification](http://en.wikipedia.org/wiki/ISO_8601) and include both date and time parts. A Date-Time that does not specify a UTC offset is assumed to be UTC.  
+
+## <a name="how-to:-use-json-and-rest-api-for-creating-schedules"></a>How To: Use JSON and REST API for Creating Schedules
+
+To create a simple schedule using the [Azure Scheduler REST API](https://msdn.microsoft.com/library/mt629143), first [register your subscription with a resource provider](https://msdn.microsoft.com/library/azure/dn790548.aspx) (the provider name for Scheduler is _Microsoft.Scheduler_), then [create a job collection](https://msdn.microsoft.com/library/mt629159.aspx), and finally [create a job](https://msdn.microsoft.com/library/mt629145.aspx). When you create a job, you can specify scheduling and recurrence using JSON like the one excerpted below:
+
+    {
+        "startTime": "2012-08-04T00:00Z", // optional
+         …
+        "recurrence":                     // optional
+        {
+            "frequency": "week",     // can be "year" "month" "day" "week" "hour" "minute"
+            "interval": 1,                // optional, how often to fire (default to 1)
+            "schedule":                   // optional (advanced scheduling specifics)
+            {
+                "weekDays": ["monday", "wednesday", "friday"],
+                "hours": [10, 22]                      
+            },
+            "count": 10,                  // optional (default to recur infinitely)
+            "endTime": "2012-11-04",      // optional (default to recur infinitely)
+        },
+        …
+    }
+
+## <a name="overview:-job-schema-basics"></a>Overview: Job Schema Basics
+
+The following table provides a high-level overview of the major elements related to recurrence and scheduling in a job:
+
+|**JSON name**|**Description**|
 |:--|:--|
-|**_startTime_**|_startTime_ — это дата и время. В простых расписаниях _startTime_ определяет первый случай выполнения задания, а в сложных задание начинает выполняться не раньше, чем наступит время _startTime_.|
-|**_recurrence_**|Объект _recurrence_ определяет правила и периодичность повтора задания. Объект recurrence поддерживает следующие элементы: _frequency, interval, endTime, count_ и _schedule_. Если задан объект _recurrence_, требуется также элемент _frequency_; остальные элементы объекта _recurrence_ не являются обязательными.|
-|**_frequency_**|Строка _frequency_ определяет частоту повторного выполнения задания. Частота может быть указана в _минутах, часах, днях, неделях_ или _месяцах_.|
-|**_interval_**|Элемент _interval_ выражается целым положительным числом и обозначает интервал частоты (_frequency_) выполнения соответствующего задания. Например если _interval_ равен 3, а в качестве значения элемента _frequency_ выбрана неделя, задание выполняется повторно через каждые 3 недели. Максимальное значение элемента _interval_ в планировщике Azure составляет 18 месяцев для ежемесячной частоты, 78 недель для еженедельной частоты и 548 дней для ежедневной частоты. Для часов и минут поддерживается следующий диапазон: 1 <= _interval_ <= 1000.|
-|**_endTime_**|Строка _endTime_ определяет дату и время, после наступления которых задание выполняться не должно. Значение строки _endTime_ не может быть в прошлом. Если параметр _endTime_ или count не указан, задание выполняется бесконечно. Одно и то же задание не может иметь одновременно параметры _endTime_ и _count_.|
-|**_count_**|<p>Параметр _count_ выражается целым положительным числом (больше нуля) и показывает, сколько раз задание должно быть выполнено прежде, чем будет завершено.</p><p>Параметр _count_ определяет, после какого числа повторных выполнений задание будет считаться завершенным. Например, если задание с параметром _count_, значение которого равно 5, начинает выполняться в понедельник, оно будет завершено после выполнения в пятницу. Если начальная дата задания находится в прошлом, за время первого выполнения принимается время создания.</p><p>Если параметр _endTime_ или _count_ не указан, задание будет выполняться бесконечно. Одно и то же задание не может иметь одновременно параметры _endTime_ и _count_.</p>|
-|**_schedule_**|Задание с указанной частотой выполняется по расписанию. Оно определяется объектом _schedule_, который содержит изменения с учетом минут, часов, дней недели, чисел месяца и количества недель.|
+|**_startTime_**|_startTime_ is a Date-Time. For simple schedules, _startTime_ is the first occurrence and for complex schedules, the job will start no sooner than _startTime_.|
+|**_recurrence_**|The _recurrence_ object specifies recurrence rules for the job and the recurrence the job will execute with. The recurrence object supports the elements _frequency, interval, endTime, count,_ and _schedule_. If _recurrence_ is defined, _frequency_ is required; the other elements of _recurrence_ are optional.|
+|**_frequency_**|The _frequency_ string representing the frequency unit at which the job recurs. Supported values are _"minute", "hour", "day", "week",_ or _"month."_|
+|**_interval_**|The _interval_ is a positive integer and denotes the interval for the _frequency_ that determines how often the job will run. For example, if _interval_ is 3 and _frequency_ is "week", the job recurs every 3 weeks. Azure Scheduler supports a maximum _interval_ of 18 months for monthly frequency, 78 weeks for weekly frequency, or 548 days for daily frequency. For hour and minute frequency, the supported range is 1 <= _interval_ <= 1000.|
+|**_endTime_**|The _endTime_ string specifies the date-time past which the job should not execute. It is not valid to have an _endTime_ in the past. If no _endTime_ or count is specified, the job runs infinitely. Both _endTime_ and _count_ cannot be included for the same job.|
+|**_count_**|<p>The _count_ is a positive integer (greater than zero) that specifies the number of times this job should run before completing.</p><p>The _count_ represents the number of times the job runs before being determined as completed. For example, for a job that is executed daily with _count_ 5 and start date of Monday, the job completes after execution on Friday. If the start date is in the past, the first execution is calculated from the creation time.</p><p>If no _endTime_ or _count_ is specified, the job runs infinitely. Both _endTime_ and _count_ cannot be included for the same job.</p>|
+|**_schedule_**|A job with a specified frequency alters its recurrence based on a recurrence schedule. A _schedule_ contains modifications based on minutes, hours, week days, month days, and week number.|
 
-## Общие сведения: параметры схемы заданий по умолчанию, ограничения и примеры
+## <a name="overview:-job-schema-defaults,-limits,-and-examples"></a>Overview: Job Schema Defaults, Limits, and Examples
 
-Ознакомившись с общими сведениями, рассмотрим эти элементы более подробно.
+After this overview, let’s discuss each of these elements in detail.
 
-|**Имя JSON**|**Тип значения**|**Обязательный?**|**Значение по умолчанию**|**Допустимые значения**|**Пример**|
+|**JSON name**|**Value type**|**Required?**|**Default value**|**Valid values**|**Example**|
 |:---|:---|:---|:---|:---|:---|
-|**_startTime_**|Строка|Нет|None|Дата и время по спецификации ISO-8601|<code>"startTime" : "2013-01-09T09:30:00-08:00"</code>|
-|**_recurrence_**|Объект|Нет|None|Объект recurrence|<code>"recurrence" : { "frequency" : "monthly", "interval" : 1 }</code>|
-|**_frequency_**|Строка|Да|None|"minute" (минута), "hour" (час), "day" (день), "week" (неделя), "month" (месяц)|<code>"frequency" : "hour"</code> |
-|**_interval_**|Number|Нет|1|От 1 до 1000|<code>"interval" : 10</code>|
-|**_endTime_**|Строка|Нет|None|Значение даты-времени, представляющее время в будущем|<code>"endTime" : "2013-02-09T09:30:00-08:00"</code> |
-|**_count_**|Число|Нет|None|>=1|<code>"count" : 5</code>|
-|**_schedule_**|Объект|Нет|None|Объект schedule|<code>"schedule" : { "minute" : [30], "hour" : [8,17] }</code>|
+|**_startTime_**|String|No|None|ISO-8601 Date-Times|<code>"startTime" : "2013-01-09T09:30:00-08:00"</code>|
+|**_recurrence_**|Object|No|None|Recurrence object|<code>"recurrence" : { "frequency" : "monthly", "interval" : 1 }</code>|
+|**_frequency_**|String|Yes|None|"minute", "hour", "day", "week", "month"|<code>"frequency" : "hour"</code> |
+|**_interval_**|Number|No|1|1 to 1000.|<code>"interval":10</code>|
+|**_endTime_**|String|No|None|Date-Time value representing a time in the future|<code>"endTime" : "2013-02-09T09:30:00-08:00"</code> |
+|**_count_**|Number|No|None|>= 1|<code>"count": 5</code>|
+|**_schedule_**|Object|No|None|Schedule object|<code>"schedule" : { "minute" : [30], "hour" : [8,17] }</code>|
 
-## Подробно: _startTime_
+## <a name="deep-dive:-_starttime_"></a>Deep Dive: _startTime_
 
-В приведенной ниже таблице показано, каким образом параметр _startTime_ управляет выполнением задания.
+The following table captures how _startTime_ controls how a job is run.
 
-|**Значение startTime**|**Количество повторов**|**Повторение без расписания**|**Повторение с расписанием**|
+|**startTime value**|**No recurrence**|**Recurrence. No schedule**|**Recurrence with schedule**|
 |:--|:--|:--|:--|
-|**Время начала не указано**|Задание выполняется один раз сразу после запуска|Задание выполняется один раз сразу после запуска. Последующие выполнения производятся, исходя из времени предыдущего выполнения.|<p>Задание выполняется один раз сразу после запуска.</p><p>Последующие выполнения производятся по расписанию повторов.</p>|
-|**Время начала в прошлом**|Задание выполняется один раз сразу после запуска|<p>Время выполнения задания рассчитывается как время первого выполнения после времени начала.</p><p>Последующие выполнения производятся с учетом времени предыдущего выполнения.</p><p>См. пример под этой таблицей</p>|<p>Выполнение задания начинается _не раньше_ указанного времени начала. Первое выполнение производится по расписанию с учетом времени начала.</p><p>Последующие выполнения производятся по расписанию повторов.</p>|
-|**Время начала в будущем или в настоящем**|Задание выполняется один раз в указанное время начала|<p>Задание выполняется один раз в указанное время начала</p><p>Последующие выполнения производятся с учетом времени предыдущего выполнения.</p>|<p>Выполнение задания начинается _не раньше_ указанного времени начала. Первое выполнение производится по расписанию с учетом времени начала.</p><p>Последующие выполнения производятся по расписанию повторов.</p>|
+|**No start time**|Run once immediately|Run once immediately. Run subsequent executions based on calculating from last execution time|<p>Run once immediately</p><p>Run subsequent executions based on recurrence schedule</p>|
+|**Start time in past**|Run once immediately|<p>Calculate first future execution time after start time, and run at that time</p><p>Run subsequent executions based oncalculating from last execution time</p><p>See example after this table for a further explanation</p>|<p>Job starts _no sooner than_ the specified start time. The first occurrence is based on the schedule calculated from the start time</p><p>Run subsequent executions based on recurrence schedule</p>|
+|**Start time in future or at present**|Run once at specified start time|<p>Run once at specified start time</p><p>Run subsequent executions based on calculating from last execution time</p>|<p>Job starts _no sooner than_ the specified start time. The first occurrence is based on the schedule calculated from the start time</p><p>Run subsequent executions based on recurrence schedule</p>|
 
-Рассмотрим пример того, что происходит, когда время _startTime_ находится в прошлом и параметр _recurrence_ установлен, а _schedule_ — нет. Допустим, текущее время — 2015-04-08 13:00, _startTime_ — 2015-04-07 14:00, а повтор (_recurrence_) выполняется раз в 2 дня (т. е. параметр _frequency_ имеет значение day, а _interval_ равен 2). Обратите внимание, что время _startTime_ находится в прошлом и наступает раньше текущего времени.
+Let's see an example of what happens where _startTime_ is in the past, with _recurrence_ but no _schedule_.  Assume that the current time is 2015-04-08 13:00, _startTime_ is 2015-04-07 14:00, and _recurrence_ is every 2 days (defined with _frequency_: day and _interval_: 2.) Note that the _startTime_ is in the past, and occurs before the current time
 
-В этих условиях _первое выполнение_ задания произойдет 2015-04-09 в 14:00. От времени начала ядро планировщика отсчитывает время повторных выполнений. Выполнения, которые приходятся на прошлое, игнорируются. Ядро берет очередной случай выполнения, который приходится на будущее. В данном случае _startTime_ — это 2015-04-07 14:00, поэтому в следующий раз задание будет выполнено через 2 дня, 2015-04-09 в 14:00.
+Under these conditions, the _first execution_ will be 2015-04-09 at 14:00\. The Scheduler engine calculates execution occurrences from the start time.  Any instances in the past are discarded. The engine uses the next instance that occurs in the future.  So in this case, _startTime_ is 2015-04-07 at 2:00pm, so the next instance is 2 days from that time, which is 2015-04-09 at 2:00pm.
 
-Обратите внимание, что время первого выполнения будет одинаковым независимо от того, имеет ли параметр startTime значение 2015-04-05 14:00 или 2015-04-01 14:00. Время последующих выполнений рассчитывается по расписанию — 2015-04-11 в 14:00, 2015-04-13 в 14:00, 2015-04-15 в 14:00 и т. д.
+Note that the first execution would be the same even if the startTime 2015-04-05 14:00 or 2015-04-01 14:00\. After the first execution, subsequent executions are calculated using the scheduled – so they'd be at 2015-04-11 at 2:00pm, then 2015-04-13 at 2:00pm, then 2015-04-15 at 2:00pm, etc.
 
-И, наконец, если у задания есть расписание, а часы и (или) минуты в нем не указаны, по умолчанию используются часы и минуты первого случая выполнения данного задания.
+Finally, when a job has a schedule, if hours and/or minutes aren’t set in the schedule, they default to the hours and/or minutes of the first execution, respectively.
 
-## Подробный обзор: _schedule_
+## <a name="deep-dive:-_schedule_"></a>Deep Dive: _schedule_
 
-С одной стороны, параметр _schedule_ может _ограничивать_ число выполнений задания. Например, если, согласно параметру _schedule_, задание с ежемесячной частотой должно выполняться в 31-й день месяца, оно будет выполняться только в те месяцы, в которых есть 31-е число.<sup></sup>
+On one hand, a _schedule_ can _limit_ the number of job executions.  For example, if a job with a "month" frequency has a _schedule_ that runs on only day 31, the job runs in only those months that have a 31<sup>st</sup> day.
 
-С другой стороны: параметр _schedule_ может _увеличивать_ число выполнений задания. Например, если, согласно параметру _schedule_, задание с ежемесячной частотой должно выполняться в 1-й и 2-й день месяца, оно будет выполняться 1-го и 2-го числа каждого месяца, а не один раз в месяц.<sup></sup><sup></sup>
+On the other hand, a _schedule_ can also _expand_ the number of job executions. For example, if a job with a "month" frequency has a _schedule_ that runs on month days 1 and 2, the job runs on the 1<sup>st</sup> and 2<sup>nd</sup> days of the month instead of just once a month.
 
-Если для параметра schedule задано несколько элементов, они применяются в порядке от большего к меньшему: номер недели, число месяца, день недели, час и минута.
+If multiple schedule elements are specified, the order of evaluation is from the largest to smallest – week number, month day, week day, hour, and minute.
 
-В следующей таблице элементы параметра _schedule_ описаны подробно.
+The following table describes _schedule_ elements in detail.
 
-|**Имя JSON**|**Описание**|**Допустимые значения**|
+|**JSON name**|**Description**|**Valid Values**|
 |:---|:---|:---|
-|**minutes**|Минуты часа, в которые будет выполняться задание.|<ul><li>Целое число или</li><li>массив целых чисел</li></ul>|
-|**hours**|Часы дня, в которые будет выполняться задание.|<ul><li>Целое число или</li><li>массив целых чисел</li></ul>|
-|**weekDays**|Дни недели, в которые будет выполняться задание. Указываются только при выборе еженедельной частоты.|<ul><li>Monday (понедельник), Tuesday (вторник), Wednesday (среда), Thursday (четверг), Friday (пятница), Saturday (суббота) или Sunday (воскресенье)</li><li>Массив любых из указанных выше значений (максимальный размер массива: 7)</li></ul>_Регистр_ значения не имеет|
-|**monthlyOccurrences**|Определяет, в какие числа месяца будет выполняться задание. Указываются только при выборе ежемесячной частоты.|<ul><li>Массив объектов monthlyOccurence:</li></ul> <pre>{ "day": _day_,<br /> "occurrence": _occurence_<br />}</pre><p> _day_ — это день недели, в который будет выполняться задание, например, {Sunday} означает каждое воскресенье месяца. Обязательный элемент.</p><p>_occurence_ — это появление указанного дня в течение месяца, например, {Sunday, -1} означает последнее воскресенье месяца. Необязательный элемент.</p>|
-|**monthDays**|День месяца, в который будет выполняться задание. Указываются только при выборе ежемесячной частоты.|<ul><li>Любое значение <= -1 и >= -31.</li><li>Любое значение >= 1 и <= 31.</li><li>Массив указанных выше значений.</li></ul>|
+|**minutes**|Minutes of the hour at which the job will run|<ul><li>Integer, or</li><li>Array of integers</li></ul>|
+|**hours**|Hours of the day at which the job will run|<ul><li>Integer, or</li><li>Array of integers</li></ul>|
+|**weekDays**|Days of the week the job will run. Can only be specified with a weekly frequency.|<ul><li>"Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", or "Sunday"</li><li>Array of any of the above values (max array size 7)</li></ul>_Not_ case-sensitive|
+|**monthlyOccurrences**|Determines which days of the month the job will run. Can only be specified with a monthly frequency.|<ul><li>Array of monthlyOccurence objects:</li></ul> <pre>{ "day": _day_,<br />  "occurrence": _occurence_<br />}</pre><p> _day_ is the day of the week the job will run, e.g. {Sunday} is every Sunday of the month. Required.</p><p>Occurrence is _occurrence_ of the day during the month, e.g. {Sunday, -1} is the last Sunday of the month. Optional.</p>|
+|**monthDays**|Day of the month the job will run. Can only be specified with a monthly frequency.|<ul><li>Any value <= -1 and >= -31.</li><li>Any value >= 1 and <= 31.</li><li>An array of above values</li></ul>|
 
-## Примеры: расписания повторений
+## <a name="examples:-recurrence-schedules"></a>Examples: Recurrence Schedules
 
-Ниже приведены различные примеры расписания повторений с применением объекта schedule и его элементов.
+The following are various examples of recurrence schedules – focusing on the schedule object and its sub-elements.
 
-Предполагается, что во всех представленных расписаниях параметр _interval_ имеет значение 1. Кроме того, в каждом случае следует предполагать частоту, соответствующую параметру _schedule_, например использовать ежедневную частоту и параметр monthDays в одном расписании нельзя. Эти ограничения описаны выше.
+The schedules below all assume that the _interval_ is set to 1\. Also, one must assume the right frequency in accordance to what is in the _schedule_ – e.g., one can't use frequency "day" and have a "monthDays" modification in the schedule. Such restrictions are described above.
 
-|**Пример**|**Описание**|
+|**Example**|**Description**|
 |:---|:---|
-|<code>{"hours":[5]}</code>|Задание выполняется каждый день в 05:00. Планировщик Azure соотносит каждое значение параметра hours с каждым значением параметра minutes и создает список всех моментов, в которые нужно будет выполнить задание.|
-|<code>{"minutes":[15], "hours":[5]}</code>|Задание выполняется каждый день в 05:15.|
-|<code>{"minutes":[15], "hours":[5,17]}</code>|Задание выполняется каждый день в 05:15 и 17:15.|
-|<code>{"minutes":[15,45], "hours":[5,17]}</code>|Задание выполняется каждый день в 05:15, 05:45, 17:15 и 17:45.|
-|<code>{"minutes":[0,15,30,45]}</code>|Задание выполняется каждые 15 минут.|
-|<code>{hours":[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]}</code>|Задание выполняется каждый час. Это задание выполняется каждый час. Если указан параметр _startTime_, минуты выполнения задания определяет он, а если нет — время создания. Например, если задание было запущено или создано (в зависимости от того, какой параметр применяется) в 12:25, задание будет выполняться в 00:25, 01:25, 02:25, ...., 23:25. Это расписание работает так же, как если бы параметр _frequency_ имел значение hour, параметр _interval_ — значение 1, а параметр _schedule_ был не задан. Отличие в том, что данное расписание можно также использовать для создания заданий с другими значениями параметров _frequency_ и _interval_. Например, если бы параметр _frequency_ имел значение month, расписание выполнялось бы раз в месяц, а не каждый день, как в данном случае, когда параметр _frequency_ имеет значение day.|
-|<code>{minutes:[0]}</code>|Задание выполняется с наступлением каждого часа. Это задание также выполняется каждый час, но ровно в момент его наступления (например, в 00:00, 01:00, 02:00 и т. д.). Оно эквивалентно заданию, в котором параметр frequency имеет значение hour, параметр startTime указан с нулевыми минутами, а расписание не задано (параметр frequency имеет значение day); если же параметр frequency имеет значение week или month, расписание будет выполняться только один раз в неделю или один раз в месяц соответственно.|
-|<code>{"minutes":[15]}</code>|Задание выполняется через 15 минут после наступления каждого часа. Задание выполняется каждый час, начиная с 00:15, 01:15, 02:15 и т. д. и заканчивая 22:15 и 23:15.|
-|<code>{"hours":[17], "weekDays":["saturday"]}</code>|Задание выполняется в 17:00 каждую субботу.|
-|<code>{hours":[17], "weekDays":["monday", "wednesday", "friday"]}</code>|Задание выполняется в 17:00 в каждый понедельник, среду и пятницу.|
-|<code>{"minutes":[15,45], "hours":[17], "weekDays":["monday", "wednesday", "friday"]}</code>|Задание выполняется в 17:15 и 17:45 в каждый понедельник, среду и пятницу.|
-|<code>{"hours":[5,17], "weekDays":["monday", "wednesday", "friday"]}</code>|Задание выполняется в 05:00 и 17:00 в каждый понедельник, среду и пятницу.|
-|<code>{"minutes":[15,45], "hours":[5,17], "weekDays":["monday", "wednesday", "friday"]}</code>|Задание выполняется в 05:15, 05:45, 17:15 и 17:45 в каждый понедельник, среду и пятницу.|
-|<code>{"minutes":[0,15,30,45], "weekDays":["monday", "tuesday", "wednesday", "thursday", "friday"]}</code>|Задание выполняется каждые 15 минут в каждый рабочий день.|
-|<code>{"minutes":[0,15,30,45], "hours": [9, 10, 11, 12, 13, 14, 15, 16] "weekDays":["monday", "tuesday", "wednesday", "thursday", "friday"]}</code>|Задание выполняется каждые 15 минут в период с 09:00 до 16:45 в каждый рабочий день.|
-|<code>{"weekDays":["sunday"]}</code>|Задание выполняется по воскресеньям в указанное время начала.|
-|<code>{"weekDays":["tuesday", "thursday"]}</code>|Задание выполняется по вторникам и четвергам в указанное время начала.|
-|<code>{"minutes":[0], "hours":[6], "monthDays":[28]}</code>|Задание выполняется в 06:00 28-го числа каждого месяца (при ежемесячной частоте).|
-|<code>{"minutes":[0], "hours":[6], "monthDays":[-1]}</code>|Задание выполняется в 06:00 в последний день каждого месяца. Если вы хотите, чтобы задание выполнялось в последний день месяца, используйте -1 вместо значения 28, 29, 30 или 31.|
-|<code>{"minutes":[0], "hours":[6], "monthDays":[1,-1]}</code>|Задание выполняется в 06:00 в первый и последний день каждого месяца.|
-|<code>{monthDays":[1,-1]}</code>|Задание выполняется в первый и последний день каждого месяца в указанное время начала.|
-|<code>{monthDays":[1,14]}</code>|Задание выполняется в первый и 14-й день каждого месяца в указанное время начала.|
-|<code>{monthDays":[2]}</code>|Задание выполняется во второй день месяца в указанное время начала.|
-|<code>{"minutes":[0], "hours":[5], "monthlyOccurrences":[{"day":"friday", "occurrence":1}]}</code>|Задание выполняется в первую пятницу каждого месяца в 05:00.|
-|<code>{"monthlyOccurrences":[{"day":"friday", "occurrence":1}]}</code>|Задание выполняется в первую пятницу каждого месяца в указанное время начала.|
-|<code>{"monthlyOccurrences":[{"day":"friday", "occurrence":-3}]}</code>|Задание выполняется в третью пятницу с конца месяца, каждый месяц в указанное время начала.|
-|<code>{"minutes":[15], "hours":[5], "monthlyOccurrences":[{"day":"friday", "occurrence":1},{"day":"friday", "occurrence":-1}]}</code>|Задание выполняется первую и последнюю пятницу каждого месяца в 05:15.|
-|<code>{"monthlyOccurrences":[{"day":"friday", "occurrence":1},{"day":"friday", "occurrence":-1}]}</code>|Задание выполняется первую и последнюю пятницу каждого месяца в указанное время начала.|
-|<code>{"monthlyOccurrences":[{"day":"friday", "occurrence":5}]}</code>|Задание выполняется в пятую пятницу каждый месяц в указанное время начала. Если пятой пятницы в месяце нет, задание не выполняется, поскольку по расписанию оно должно выполняться только по пятым пятницам. Если вы хотите, чтобы задание выполнялось в последнюю пятницу месяца, используйте вместо значения 5 значение -1.|
-|<code>{"minutes":[0,15,30,45], "monthlyOccurrences":[{"day":"friday", "occurrence":-1}]}</code>|Задание выполняется каждые 15 минут в последнюю пятницу месяца.|
-|<code>{"minutes":[15,45], "hours":[5,17], "monthlyOccurrences":[{"day":"wednesday", "occurrence":3}]}</code>|Задание выполняется в 05:15, 05:45, 17:15 и 17:45 третьей среды каждого месяца.|
+|<code>{"hours":[5]}</code>|Run at 5AM Every Day. Azure Scheduler matches up each value in "hours" with each value in "minutes", one by one, to create a list of all the times at which the job is to be run.|
+|<code>{"minutes":[15], "hours":[5]}</code>|Run at 5:15AM Every Day|
+|<code>{"minutes":[15], "hours":[5,17]}</code>|Run at 5:15 AM and 5:15 PM Every Day|
+|<code>{"minutes":[15,45], "hours":[5,17]}</code>|Run at 5:15AM, 5:45AM, 5:15PM, and 5:45PM Every Day|
+|<code>{"minutes":[0,15,30,45]}</code>|Run Every 15 Minutes|
+|<code>{hours":[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]}</code>|Run Every Hour. This job runs every hour. The minute is controlled by the _startTime_, if one is specified, or if none is specified, by the creation time. For example, if the start time or creation time (whichever applies) is 12:25 PM, the job will be run at 00:25, 01:25, 02:25, …, 23:25. The schedule is equivalent to having a job with _frequency_ of "hour", an _interval_ of 1, and no _schedule_. The difference is that this schedule could be used with different _frequency_ and _interval_ to create other jobs too. For example, if the _frequency_ were "month", the schedule would run only once a month instead of every day if _frequency_ were "day"|
+|<code>{minutes:[0]}</code>|Run Every Hour on the Hour. This job also runs every hour, but on the hour (e.g. 12AM, 1AM, 2AM, etc.) This is equivalent to a job with frequency of "hour", a startTime with zero minutes, and no schedule if the frequency were "day", but if the frequency were "week" or "month," the schedule would execute only one day a week or one day a month, respectively.|
+|<code>{"minutes":[15]}</code>|Run at 15 Minutes Past Hour Every Hour. Runs every hour, starting at 00:15AM, 1:15AM, 2:15AM, etc. and ending at 10:15PM and 11:15PM.|
+|<code>{"hours":[17], "weekDays":["saturday"]}</code>|Run at 5PM on Saturdays Every Week|
+|<code>{hours":[17], "weekDays":["monday", "wednesday", "friday"]}</code>|Run at 5PM on Monday, Wednesday, and Friday Every Week|
+|<code>{"minutes":[15,45], "hours":[17], "weekDays":["monday", "wednesday", "friday"]}</code>|Run at 5:15PM and 5:45PM on Monday, Wednesday, and Friday Every Week|
+|<code>{"hours":[5,17], "weekDays":["monday", "wednesday", "friday"]}</code>|Run at 5AM and 5PM on Monday, Wednesday, and Friday Every Week|
+|<code>{"minutes":[15,45], "hours":[5,17], "weekDays":["monday", "wednesday", "friday"]}</code>|Run at 5:15AM, 5:45AM, 5:15PM, and 5:45PM on Monday, Wednesday, and Friday Every Week|
+|<code>{"minutes":[0,15,30,45], "weekDays":["monday", "tuesday", "wednesday", "thursday", "friday"]}</code>|Run Every 15 Minutes on Weekdays|
+|<code>{"minutes":[0,15,30,45], "hours": [9, 10, 11, 12, 13, 14, 15, 16] "weekDays":["monday", "tuesday", "wednesday", "thursday", "friday"]}</code>|Run Every 15 Minutes on Weekdays between 9AM and 4:45PM|
+|<code>{"weekDays":["sunday"]}</code>|Run on Sundays at Start Time|
+|<code>{"weekDays":["tuesday", "thursday"]}</code>|Run on Tuesdays and Thursdays at Start Time|
+|<code>{"minutes":[0], "hours":[6], "monthDays":[28]}</code>|Run at 6AM on the 28th Day of Every Month (assuming frequency of month)|
+|<code>{"minutes":[0], "hours":[6], "monthDays":[-1]}</code>|Run at 6AM on the Last Day of the Month. If you'd like to run a job on the last day of a month, use -1 instead of day 28, 29, 30, or 31.|
+|<code>{"minutes":[0], "hours":[6], "monthDays":[1,-1]}</code>|Run at 6AM on the First and Last Day of Every Month|
+|<code>{monthDays":[1,-1]}</code>|Run on the First and Last Day of Every Month at Start Time|
+|<code>{monthDays":[1,14]}</code>|Run on the First and Fourteenth Day of Every Month at Start Time|
+|<code>{monthDays":[2]}</code>|Run on the Second Day of the Month at Start Time|
+|<code>{"minutes":[0], "hours":[5], "monthlyOccurrences":[{"day":"friday", "occurrence":1}]}</code>|Run on First Friday of Every Month at 5AM|
+|<code>{"monthlyOccurrences":[{"day":"friday", "occurrence":1}]}</code>|: Run on First Friday of Every Month at Start Time|
+|<code>{"monthlyOccurrences":[{"day":"friday", "occurrence":-3}]}</code>|Run on Third Friday from End of Month, Every Month, at Start Time|
+|<code>{"minutes":[15], "hours":[5], "monthlyOccurrences":[{"day":"friday", "occurrence":1},{"day":"friday", "occurrence":-1}]}</code>|Run on First and Last Friday of Every Month at 5:15AM|
+|<code>{"monthlyOccurrences":[{"day":"friday", "occurrence":1},{"day":"friday", "occurrence":-1}]}</code>|Run on First and Last Friday of Every Month at Start Time|
+|<code>{"monthlyOccurrences":[{"day":"friday", "occurrence":5}]}</code>|Run on Fifth Friday of Every Month at Start Time. If there is no fifth Friday in a month, this does not run, since it's scheduled to run on only fifth Fridays. You may consider using -1 instead of 5 for the occurrence if you want to run the job on the last occurring Friday of the month.|
+|<code>{"minutes":[0,15,30,45], "monthlyOccurrences":[{"day":"friday", "occurrence":-1}]}</code>|Run Every 15 Minutes on Last Friday of the Month|
+|<code>{"minutes":[15,45], "hours":[5,17], "monthlyOccurrences":[{"day":"wednesday", "occurrence":3}]}</code>|Run at 5:15AM, 5:45AM, 5:15PM, and 5:45PM on the 3rd Wednesday of Every Month|
 
-## См. также
+## <a name="see-also"></a>See Also
 
 
- [Что такое планировщик?](scheduler-intro.md)
+ [What is Scheduler?](scheduler-intro.md)
 
- [Основные понятия, терминология и иерархия сущностей планировщика Azure](scheduler-concepts-terms.md)
+ [Azure Scheduler concepts, terminology, and entity hierarchy](scheduler-concepts-terms.md)
 
- [Приступая к работе с планировщиком Azure на портале Azure](scheduler-get-started-portal.md)
+ [Get started using Scheduler in the Azure portal](scheduler-get-started-portal.md)
 
- [Планы и выставление счетов в планировщике Azure](scheduler-plans-billing.md)
+ [Plans and billing in Azure Scheduler](scheduler-plans-billing.md)
 
- [Справочник по API REST планировщика Azure](https://msdn.microsoft.com/library/mt629143)
+ [Azure Scheduler REST API reference](https://msdn.microsoft.com/library/mt629143)
 
- [Справочник по командлетам PowerShell планировщика Azure](scheduler-powershell-reference.md)
+ [Azure Scheduler PowerShell cmdlets reference](scheduler-powershell-reference.md)
 
- [Высокая доступность и надежность планировщика Azure](scheduler-high-availability-reliability.md)
+ [Azure Scheduler high-availability and reliability](scheduler-high-availability-reliability.md)
 
- [Ограничения, значения по умолчанию и коды ошибок планировщика Azure](scheduler-limits-defaults-errors.md)
+ [Azure Scheduler limits, defaults, and error codes](scheduler-limits-defaults-errors.md)
 
- [Исходящая аутентификация планировщика Azure](scheduler-outbound-authentication.md)
+ [Azure Scheduler outbound authentication](scheduler-outbound-authentication.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

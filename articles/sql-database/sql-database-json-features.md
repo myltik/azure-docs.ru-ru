@@ -1,43 +1,44 @@
 <properties
-	pageTitle="Возможности использования JSON в Базе данных SQL Azure | Microsoft Azure"
-	description="База данных SQL Azure позволяет анализировать, запрашивать и форматировать данные в формате JSON (нотация объектов JavaScript)."
-	services="sql-database"
-	documentationCenter=""
-	authors="jovanpop-msft"
-	manager="jhubbard"
-	editor=""/>
+    pageTitle="Azure SQL Database JSON features | Microsoft Azure"
+    description="Azure SQL Database enables you to parse, query, and format data in JavaScript Object Notation (JSON) notation."
+    services="sql-database"
+    documentationCenter=""
+    authors="jovanpop-msft"
+    manager="jhubbard"
+    editor=""/>
 
 <tags
-	ms.service="sql-database"
-	ms.devlang="NA"
-	ms.date="08/17/2016"
-	ms.author="jovanpop"
+    ms.service="sql-database"
+    ms.devlang="NA"
+    ms.date="08/17/2016"
+    ms.author="jovanpop"
    ms.workload="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"/>
+    ms.topic="article"
+    ms.tgt_pltfrm="NA"/>
 
 
 
-# Приступая к работе с функциями JSON в Базе данных SQL Azure
 
-База данных SQL Azure позволяет анализировать и запрашивать данные, представленные в формате [JSON](http://www.json.org/) (нотация объектов JavaScript), и экспортировать реляционные данные в виде текста JSON.
+# <a name="getting-started-with-json-features-in-azure-sql-database"></a>Getting started with JSON features in Azure SQL Database
 
-JSON – это распространенный формат данных, который используются для обмена данными в современных мобильных и веб-приложениях. Кроме того, формат JSON используется для хранения частично структурированных данных в файлах журнала или базах данных NoSQL, например [Azure DocumentDB](https://azure.microsoft.com/services/documentdb/). Многие веб-службы REST возвращают результаты в виде текста JSON или принимают данные в формате JSON. Большинство служб Azure, в том числе [Поиск Azure](https://azure.microsoft.com/services/search/), [служба хранилища Azure](https://azure.microsoft.com/services/storage/) и [Azure DocumentDB](https://azure.microsoft.com/services/documentdb/), имеют конечные точки REST, которые возвращают или используют данные JSON.
+Azure SQL Database lets you parse and query data represented in JavaScript Object Notation [(JSON)](http://www.json.org/) format, and export your relational data as JSON text.
 
-База данных SQL Azure позволяет легко работать с данными JSON и интегрировать свою базу данных с современными службами.
+JSON is a popular data format used for exchanging data in modern web and mobile applications. JSON is also used for storing semi-structured data in log files or in NoSQL databases like [Azure DocumentDB](https://azure.microsoft.com/services/documentdb/). Many REST web services return results formatted as JSON text or accept data formatted as JSON. Most Azure services such as [Azure Search](https://azure.microsoft.com/services/search/), [Azure Storage](https://azure.microsoft.com/services/storage/), and [Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) have REST endpoints that return or consume JSON.
 
-## Обзор
+Azure SQL Database lets you work with JSON data easily and integrate your database with modern services.
 
-База данных SQL Azure предоставляет следующие функции для работы с данными JSON.
+## <a name="overview"></a>Overview
 
-![Функции JSON](./media/sql-database-json-features/image_1.png)
+Azure SQL Database provides the following functions for working with JSON data:
 
-Если имеется текст JSON, то можно извлечь данные из JSON или проверить правильность форматирования JSON с помощью встроенных функций [JSON\_VALUE](https://msdn.microsoft.com/library/dn921898.aspx), [JSON\_QUERY](https://msdn.microsoft.com/library/dn921884.aspx) и [ISJSON](https://msdn.microsoft.com/library/dn921896.aspx). Функция [JSON\_MODIFY](https://msdn.microsoft.com/library/dn921892.aspx) позволяет обновить значение внутри текста JSON. Если требуются более сложные запросы и анализ, то с помощью функции [OPENJSON](https://msdn.microsoft.com/library/dn921885.aspx) можно преобразовать массив объектов JSON в набор строк. С возвращенным результирующим набором можно выполнить любой SQL-запрос. Наконец, можно использовать предложение [FOR JSON](https://msdn.microsoft.com/library/dn921882.aspx), которое позволяет форматировать данные, хранящиеся в реляционных таблицах в виде текста JSON.
+![JSON Functions](./media/sql-database-json-features/image_1.png)
 
-## Преобразование реляционных данных в формат JSON
-При наличии веб-службы, которая извлекает данные из слоя базы данных и представляет ответ в формате JSON, либо клиентских платформ или библиотек JavaScript, которые принимают данные в формате JSON, можно преобразовывать содержимое базы данных в формат JSON непосредственно в SQL-запросе. Больше не придется писать код приложения, который преобразовывает результаты из Базы данных SQL Azure в JSON, или добавлять какую-либо библиотеку сериализации JSON, чтобы преобразовывать результаты табличного запроса, а затем сериализовать объекты в формат JSON. Вместо этого можно использовать предложение FOR JSON, чтобы преобразовывать результаты SQL-запроса в JSON в Базе данных SQL Azure и использовать их непосредственно в своем приложении.
+If you have JSON text, you can extract data from JSON or verify that JSON is properly formatted by using the built-in functions [JSON_VALUE](https://msdn.microsoft.com/library/dn921898.aspx), [JSON_QUERY](https://msdn.microsoft.com/library/dn921884.aspx), and [ISJSON](https://msdn.microsoft.com/library/dn921896.aspx). The [JSON_MODIFY](https://msdn.microsoft.com/library/dn921892.aspx) function lets you update value inside JSON text. For more advanced querying and analysis, [OPENJSON](https://msdn.microsoft.com/library/dn921885.aspx) function can transform an array of JSON objects into a set of rows. Any SQL query can be executed on the returned result set. Finally, there is a [FOR JSON](https://msdn.microsoft.com/library/dn921882.aspx) clause that lets you format data stored in your relational tables as JSON text.
 
-В следующем примере строки из таблицы Sales.Customer преобразовываются в формат JSON с помощью предложения FOR JSON.
+## <a name="formatting-relational-data-in-json-format"></a>Formatting relational data in JSON format
+If you have a web service that takes data from the database layer and provides a response in JSON format, or client-side JavaScript frameworks or libraries that accept data formatted as JSON, you can format your database content as JSON directly in a SQL query. You no longer have to write application code that formats results from Azure SQL Database as JSON, or include some JSON serialization library to convert tabular query results and then serialize objects to JSON format. Instead, you can use the FOR JSON clause to format SQL query results as JSON in Azure SQL Database and use it directly in your application.
+
+In the following example, rows from the Sales.Customer table are formatted as JSON by using the FOR JSON clause:
 
 ```
 select CustomerName, PhoneNumber, FaxNumber
@@ -45,7 +46,7 @@ from Sales.Customers
 FOR JSON PATH
 ```
 
-Предложение FOR JSON PATH форматирует результаты запроса в виде текста JSON. Имена столбцов используются в качестве ключей, а значения ячеек создаются как значения JSON.
+The FOR JSON PATH clause formats the results of the query as JSON text. Column names are used as keys, while the cell values are generated as JSON values:
 
 ```
 [
@@ -55,9 +56,9 @@ FOR JSON PATH
 ]
 ```
 
-Результирующий набор форматируется как массив JSON, в котором каждая строка форматируется как отдельный объект JSON.
+The result set is formatted as a JSON array where each row is formatted as a separate JSON object.
 
-PATH указывает, что можно настроить выходной формат результатов JSON, используя точечную нотацию в псевдонимах столбцов. Приведенный ниже запрос изменяет имя ключа CustomerName в выходном формате JSON и помещает номера телефона и факса в подобъект Contact.
+PATH indicates that you can customize the output format of your JSON result by using dot notation in column aliases. The following query changes the name of the "CustomerName" key in the output JSON format, and puts phone and fax numbers in the "Contact" sub-object:
 
 ```
 select CustomerName as Name, PhoneNumber as [Contact.Phone], FaxNumber as [Contact.Fax]
@@ -66,7 +67,7 @@ where CustomerID = 931
 FOR JSON PATH, WITHOUT_ARRAY_WRAPPER
 ```
 
-Выходные данные этого запроса имеют следующий вид.
+The output of this query looks like this:
 
 ```
 {
@@ -78,22 +79,22 @@ FOR JSON PATH, WITHOUT_ARRAY_WRAPPER
 }
 ```
 
-В данном примере мы вернули отдельный объект JSON вместо массива, указав параметр [WITHOUT\_ARRAY\_WRAPPER](https://msdn.microsoft.com/library/mt631354.aspx). Этот параметр можно использовать, если вы знаете, что результатом запроса является отдельный объект.
+In this example we returned a single JSON object instead of an array by specifying the [WITHOUT_ARRAY_WRAPPER](https://msdn.microsoft.com/library/mt631354.aspx) option. You can use this option if you know that you are returning a single object as a result of query.
 
-Основная ценность предложения FOR JSON заключается в том, что оно дает возможность возвращать сложные иерархические данные из базы данных в виде вложенных объектов JSON или массивов JSON. В приведенном ниже примере показано, как добавить заказы (Orders), принадлежащие клиенту (Customer), в виде вложенного массива объектов Orders.
+The main value of the FOR JSON clause is that it lets you return complex hierarchical data from your database formatted as nested JSON objects or arrays. The following example shows how to include Orders that belong to the Customer as a nested array of Orders:
 
 ```
 select CustomerName as Name, PhoneNumber as Phone, FaxNumber as Fax,
-		Orders.OrderID, Orders.OrderDate, Orders.ExpectedDeliveryDate
+        Orders.OrderID, Orders.OrderDate, Orders.ExpectedDeliveryDate
 from Sales.Customers Customer
-	join Sales.Orders Orders
-		on Customer.CustomerID = Orders.CustomerID
+    join Sales.Orders Orders
+        on Customer.CustomerID = Orders.CustomerID
 where Customer.CustomerID = 931
 FOR JSON AUTO, WITHOUT_ARRAY_WRAPPER
 
 ```
 
-Вместо того, чтобы отправлять отдельные запросы для получения данных клиента (Customer), а затем получать список соответствующих заказов (Orders), можно получить все необходимые данные с помощью одного запроса, как показано в приведенном ниже примере выходных данных.
+Instead of sending separate queries to get Customer data and then to fetch a list of related Orders, you can get all the necessary data with a single query, as shown in the following sample output:
 
 ```
 {
@@ -108,11 +109,11 @@ FOR JSON AUTO, WITHOUT_ARRAY_WRAPPER
 }
 ```
 
-## Работа с данными JSON
+## <a name="working-with-json-data"></a>Working with JSON data
 
-Если у вас нет строго структурированных данных, имеются сложные вложенные объекты, массивы или иерархические данные либо структуры данных со временем развиваются, то формат JSON позволит представить любую сложную структуру данных.
+If you don’t have strictly structured data, if you have complex sub-objects, arrays, or hierarchical data, or if your data structures evolve over time, the JSON format can help you to represent any complex data structure.
 
-JSON — это текстовый формат, который можно использовать как любой другой строковый тип в Базе данных SQL Azure. Данные JSON можно отправлять или хранить как стандартные данные типа NVARCHAR.
+JSON is a textual format that can be used like any other string type in Azure SQL Database. You can send or store JSON data as a standard NVARCHAR:
 
 ```
 CREATE TABLE Products (
@@ -123,24 +124,24 @@ CREATE TABLE Products (
 go
 CREATE PROCEDURE InsertProduct(@title nvarchar(200), @json nvarchar(max))
 AS BEGIN
-	insert into Products(Title, Data)
-	values(@title, @json)
+    insert into Products(Title, Data)
+    values(@title, @json)
 END
 ```
 
-Данные JSON, используемые в этом примере, представлены с помощью типа NVARCHAR(MAX). Данные JSON можно вставить в эту таблицу или указать в качестве аргумента хранимой процедуры, используя стандартный синтаксис Transact-SQL, как показано в следующем примере.
+The JSON data used in this example is represented by using the NVARCHAR(MAX) type. JSON can be inserted into this table or provided as an argument of the stored procedure using standard Transact-SQL syntax as shown in the following example:
 
 ```
 EXEC InsertProduct 'Toy car', '{"Price":50,"Color":"White","tags":["toy","children","games"]}'
 ```
 
-Любой язык или библиотека на стороне клиента, которая работает со строковыми данными в Базе данных SQL Azure, также будет работать с данными JSON. Данные JSON могут храниться в таблице, которая поддерживает тип NVARCHAR. Например, это может быть оптимизированная для памяти таблица или таблица с системным управлением версиями. Формат JSON не накладывает каких-либо ограничений на код на стороне клиента или на уровне базы данных.
+Any client-side language or library that works with string data in Azure SQL Database will also work with JSON data. JSON can be stored in any table that supports the NVARCHAR type, such as a Memory-optimized table or a System-versioned table. JSON does not introduce any constraint either in the client-side code or in the database layer.
 
-## Запрос данных JSON
+## <a name="querying-json-data"></a>Querying JSON data
 
-Если данные в формате JSON хранятся в таблицах Azure SQL, то с помощью функций JSON эти данные можно использовать в SQL-запросе.
+If you have data formatted as JSON stored in Azure SQL tables, JSON functions let you use this data in any SQL query.
 
-Функции JSON, доступные в Базе данных SQL Azure, позволяют обрабатывать данные в формате JSON как данные SQL любого другого типа. Можно легко извлечь значения из текста JSON и использовать данные JSON в любом запросе.
+JSON functions that are available in Azure SQL database let you treat data formatted as JSON as any other SQL data type. You can easily extract values from the JSON text, and use JSON data in any query:
 
 ```
 select Id, Title, JSON_VALUE(Data, '$.Color'), JSON_QUERY(Data, '$.tags')
@@ -152,60 +153,64 @@ set Data = JSON_MODIFY(Data, '$.Price', 60)
 where Id = 1
 ```
 
-Функция JSON\_VALUE извлекает значение из текста JSON, хранящегося в столбце данных. Эта функция использует путь, как в JavaScript, для указания ссылки на извлекаемое значение в тексте JSON. Извлеченное значение может использоваться в любой части SQL-запроса.
+The JSON_VALUE function extracts a value from JSON text stored in the Data column. This function uses a JavaScript-like path to reference a value in JSON text to extract. The extracted value can be used in any part of SQL query.
 
-Функция JSON\_QUERY аналогична функции JSON\_VALUE. В отличие от JSON\_VALUE, эта функция извлекает сложный подобъект, например массивы или объекты, которые помещаются в текст JSON.
+The JSON_QUERY function is similar to JSON_VALUE. Unlike JSON_VALUE, this function extracts complex sub-object such as arrays or objects that are placed in JSON text.
 
-Функция JSON\_MODIFY позволяет указать путь к значению в тексте JSON, которое следует обновить, а также новое значение, которым заменяется старое значение. Таким образом можно легко обновить текст JSON, не анализируя всю структуру.
+The JSON_MODIFY function lets you specify the path of the value in the JSON text that should be updated, as well as a new value that will overwrite the old one. This way you can easily update JSON text without reparsing the entire structure.
 
-Так как данные JSON хранятся в виде обычного текста, то нет никакой гарантии, что значения, хранящиеся в текстовых столбцах, отформатированы правильно. Вы можете проверить, правильно ли отформатирован текст, хранящийся в столбце JSON, с помощью стандартных проверочных ограничений Базы данных SQL Azure и функции ISJSON.
+Since JSON is stored in a standard text, there are no guarantees that the values stored in text columns are properly formatted. You can verify that text stored in JSON column is properly formatted by using standard Azure SQL Database check constraints and the ISJSON function:
 
 ```
 ALTER TABLE Products
     ADD CONSTRAINT [Data should be formatted as JSON]
-		CHECK (ISJSON(Data) > 0)
+        CHECK (ISJSON(Data) > 0)
 ```
 
-Если входной текст имеет правильный формат JSON, то функция ISJSON возвращает значение 1. При каждой операции вставки или обновления столбца JSON это ограничение будет проверять, правилен ли формат JSON нового текстового значения.
+If the input text is properly formatted JSON, the ISJSON function returns the value 1. On every insert or update of JSON column, this constraint will verify that new text value is not malformed JSON.
 
-## Преобразование данных JSON в табличный формат
+## <a name="transforming-json-into-tabular-format"></a>Transforming JSON into tabular format
 
-База данных SQL Azure позволяет также преобразовать коллекции JSON в табличный формат и загрузить или запросить данные JSON.
+Azure SQL Database also lets you transform JSON collections into tabular format and load or query JSON data.
 
-OPENJSON — это функция с табличным значением, которая анализирует текст JSON, находит массив объектов JSON, выполняет итерацию по элементам массива и возвращает одну строку для каждого элемента массива в выходных данных.
+OPENJSON is a table-value function that parses JSON text, locates an array of JSON objects, iterates through the elements of the array, and returns one row in the output result for each element of the array.
 
-![Табличное представление JSON](./media/sql-database-json-features/image_2.png)
+![JSON tabular](./media/sql-database-json-features/image_2.png)
 
-В приведенном выше примере можно указать, где искать массив JSON, который нужно открыть (в пути $.Orders), какие столбцы должны быть возвращены в качестве результата и где искать значения JSON, которые будут возвращены в виде ячеек.
+In the example above, we can specify where to locate the JSON array that should be opened (in the $.Orders path), what columns should be returned as result, and where to find the JSON values that will be returned as cells.
 
-Можно преобразовать массив JSON в переменной @orders в набор строк, проанализировать этот результирующий набор или вставить строки в стандартную таблицу.
+We can transform a JSON array in the @orders variable into a set of rows, analyze this result set, or insert rows into a standard table:
 
 ```
 CREATE PROCEDURE InsertOrders(@orders nvarchar(max))
 AS BEGIN
 
-	insert into Orders(Number, Date, Customer, Quantity)
-	select Number, Date, Customer, Quantity
-	OPENJSON (@orders)
-	 WITH (
-			Number varchar(200),
-			Date datetime,
-			Customer varchar(200),
-			Quantity int
-	 )
+    insert into Orders(Number, Date, Customer, Quantity)
+    select Number, Date, Customer, Quantity
+    OPENJSON (@orders)
+     WITH (
+            Number varchar(200),
+            Date datetime,
+            Customer varchar(200),
+            Quantity int
+     )
 
 END
 ```
-Набор заказов, отформатированный как массив JSON и указанный в качестве параметра хранимой процедуры, можно проанализировать и вставить в таблицу Orders.
+The collection of orders formatted as a JSON array and provided as a parameter to the stored procedure can be parsed and inserted into the Orders table.
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Next steps
 
-Чтобы узнать, как интегрировать JSON в приложение, ознакомьтесь с приведенным ниже материалами.
+To learn how to integrate JSON into your application, check out these resources:
 
-- [Блог TechNet](https://blogs.technet.microsoft.com/dataplatforminsider/2016/01/05/json-in-sql-server-2016-part-1-of-4/)
-- [Документация MSDN](https://msdn.microsoft.com/library/dn921897.aspx)
-- [Видео Channel 9](https://channel9.msdn.com/Shows/Data-Exposed/SQL-Server-2016-and-JSON-Support)
+- [TechNet Blog](https://blogs.technet.microsoft.com/dataplatforminsider/2016/01/05/json-in-sql-server-2016-part-1-of-4/)
+- [MSDN documentation](https://msdn.microsoft.com/library/dn921897.aspx)
+- [Channel 9 video](https://channel9.msdn.com/Shows/Data-Exposed/SQL-Server-2016-and-JSON-Support)
 
-Чтобы узнать о различных сценариях интеграции JSON в приложение, ознакомьтесь с роликами [Channel 9](https://channel9.msdn.com/Events/DataDriven/SQLServer2016/JSON-as-a-bridge-betwen-NoSQL-and-relational-worlds) или найдите подходящий вам сценарий [записях блога о JSON](http://blogs.msdn.com/b/sqlserverstorageengine/archive/tags/json/).
+To learn about various scenarios for integrating JSON into your application, see the demos in this [Channel 9 video](https://channel9.msdn.com/Events/DataDriven/SQLServer2016/JSON-as-a-bridge-betwen-NoSQL-and-relational-worlds) or find a scenario that matches your use case in [JSON Blog posts](http://blogs.msdn.com/b/sqlserverstorageengine/archive/tags/json/).
 
-<!---HONumber=AcomDC_0831_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

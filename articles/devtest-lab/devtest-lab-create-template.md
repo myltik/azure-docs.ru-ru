@@ -1,117 +1,123 @@
 <properties
-	pageTitle="Управление пользовательскими образами Azure DevTest Labs для создания виртуальных машин | Microsoft Azure"
-	description="Узнайте, как создать пользовательский образ из VHD-файла или из существующей виртуальной машины в Azure DevTest Labs"
-	services="devtest-lab,virtual-machines"
-	documentationCenter="na"
-	authors="tomarcher"
-	manager="douge"
-	editor=""/>
+    pageTitle="Manage Azure DevTest Labs custom images to create VMs | Microsoft Azure"
+    description="Learn how to create a custom image from a VHD file, or from an existing VM in Azure DevTest Labs"
+    services="devtest-lab,virtual-machines"
+    documentationCenter="na"
+    authors="tomarcher"
+    manager="douge"
+    editor=""/>
 
 <tags
-	ms.service="devtest-lab"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/07/2016"
-	ms.author="tarcher"/>
-
-# Управление пользовательскими образами Azure DevTest Labs для создания виртуальных машин
-
-С помощью пользовательских образов в Azure DevTest Labs можно быстро создавать виртуальные машины, не дожидаясь, когда на целевом компьютере будет установлено все необходимое программное обеспечение. Пользовательские образы позволяют предварительно установить все необходимое программное обеспечение в VHD-файл, а затем использовать этот VHD-файл для создания виртуальной машины. Так как программное обеспечение уже установлено, создание виртуальной машины значительно ускоряется. Кроме того, пользовательские образы используются для клонирования виртуальных машин. Для этого сначала из виртуальной машины создается пользовательский образ, а затем из него создаются виртуальные машины.
-
-В этой статье раскрываются следующие темы:
-
-- [Создание пользовательского образа из VHD-файла](#create-a-custom-image-from-a-vhd-file). Описывается процесс создания пользовательского образа, из которого затем можно создать виртуальную машину.
-- [Создание пользовательского образа из виртуальной машины](#create-a-custom-image-from-a-vm). Описывается процесс быстрого клонирования виртуальной машины.
-
-## Создание пользовательского образа из VHD-файла
-
-В этом разделе описано, как создать пользовательский образ из VHD-файла. Для выполнения всех шагов этого раздела вам потребуется допустимый VHD-файл.
+    ms.service="devtest-lab"
+    ms.workload="na"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/07/2016"
+    ms.author="tarcher"/>
 
 
-1. Выполните вход на [портал Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+# <a name="manage-azure-devtest-labs-custom-images-to-create-vms"></a>Manage Azure DevTest Labs custom images to create VMs
 
-1. Щелкните **Другие службы**, а затем выберите в списке **DevTest Labs**.
+In Azure DevTest Labs, custom images enable you to create VMs quickly without waiting for all the required software to be installed on the target machine. Custom images allow you to pre-install all the software that you need in a VHD file, and then use the VHD file to create a VM. Because the software is already installed, the VM creation time is much quicker. In addition, custom images are used to clone VMs by creating a custom image from a VM, and then creating VMs from that custom image.
 
-1. Из списка лабораторий выберите нужную лабораторию.
+In this article, you learn how to:
 
-1. В колонке лаборатории выберите **Конфигурация**.
+- [Create a custom image from a VHD file](#create-a-custom-image-from-a-vhd-file) so that you can then create a VM from that custom image. 
+- [Create a custom image from a VM](#create-a-custom-image-from-a-vm) for rapid VM cloning.
 
-1. В колонке **Конфигурация** лаборатории выберите **Custom images** (Пользовательские образы).
+## <a name="create-a-custom-image-from-a-vhd-file"></a>Create a custom image from a VHD file
 
-1. В колонке **Custom images** (Пользовательские образы) выберите **+Custom Image** (+Пользовательский образ).
+In this section, you see how to create a custom image from a VHD file.
+You need access to a valid VHD file to perform all the steps in this section.   
 
-    ![Добавить пользовательский образ](./media/devtest-lab-create-template/add-custom-image.png)
 
-1. Введите имя пользовательского образа. Это имя отображается в списке базовых образов при создании виртуальной машины.
+1. Sign in to the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Введите описание пользовательского образа. Это описание отображается в списке базовых образов при создании виртуальной машины.
+1. Select **More services**, and then select **DevTest Labs** from the list.
 
-1. Щелкните **VHD-файл**.
+1. From the list of labs, select the desired lab.  
 
-1. Если у вас есть VHD-файл, который отсутствует в списке, добавьте его, следуя инструкциям в разделе [Отправка VHD-файла](#upload-a-vhd-file), а затем вернитесь к этому руководству.
+1. On the lab's blade, select **Configuration**. 
 
-1. Выберите нужный VHD-файл.
+1. On the lab **Configuration** blade, select **Custom images**.
 
-1. Нажмите кнопку **ОК**, чтобы закрыть колонку **VHD-файл**.
+1. On the **Custom images** blade, select **+ Custom image**.
 
-1. Щелкните **Конфигурация ОС**.
+    ![Add Custom image](./media/devtest-lab-create-template/add-custom-image.png)
 
-1. На вкладке **Конфигурация ОС** выберите **Windows** или **Linux**.
+1. Enter the name of the custom image. This name is displayed in the list of base images when creating a VM.
 
-1. Если выбран вариант **Windows**, то с помощью флажка укажите, была ли запущена программа *Sysprep*.
+1. Enter the description of the custom image. This description is displayed in the list of base images when creating a VM.
 
-1. Нажмите кнопку **ОК**, чтобы закрыть колонку **Конфигурация ОС**.
+1. Select **VHD File**.
 
-1. Нажмите кнопку **ОК**, чтобы создать пользовательский образ.
+1. If you have access to a VHD file that is not listed, add it by following the instructions in the [Upload a VHD file](#upload-a-vhd-file) section, and return here when finished.
 
-1. Перейдите к разделу [Дальнейшие действия](#next-steps).
+1. Select the desired VHD file.
 
-###Отправка VHD-файла
+1. Select **OK** to close the **VHD File** blade.
 
-Чтобы добавить пользовательский образ, у вас должен быть доступ к VHD-файлу.
+1. Select **OS Configuration**.
 
-1. В колонке **VHD-файл** щелкните **Upload a VHD file using PowerShell** (Отправить VHD-файл с помощью PowerShell).
+1. On the **OS Configuration** tab, select either **Windows** or **Linux**.
 
-    ![Отправить образ](./media/devtest-lab-create-template/upload-image-using-psh.png)
+1. If **Windows** is selected, specify via the checkbox whether *Sysprep* has been run on the machine.
 
-1. В следующей колонке будут отображены инструкции по изменению и запуску сценария PowerShell, который отправляет VHD-файл в вашу подписку Azure. **Примечание.** В зависимости от размера VHD-файла и скорости подключения этот процесс может занять длительное время.
+1. Select **OK** to close the **OS Configuration** blade.
 
-## Создание пользовательского образа из виртуальной машины
-Если у вас есть уже настроенная виртуальная машина, вы можете создать на ее основе пользовательский образ, который затем можно использовать для создания других идентичных виртуальных машин. Ниже описано, как создать пользовательский образ на основе виртуальной машины.
+1. Select **OK** to create the custom image.
 
-1. Выполните вход на [портал Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Go to the [Next Steps](#next-steps) section.
 
-1. Щелкните **Другие службы**, а затем выберите в списке **DevTest Labs**.
+###<a name="upload-a-vhd-file"></a>Upload a VHD file
 
-1. Из списка лабораторий выберите нужную лабораторию.
+To add a custom image, you need to have access to a VHD file.
 
-1. В колонке лаборатории выберите **My virtual machines** (Мои виртуальные машины).
+1. On the **VHD File** blade, select **Upload a VHD file using PowerShell**.
+
+    ![Upload image](./media/devtest-lab-create-template/upload-image-using-psh.png)
+
+1. The next blade will display instructions for modifying and running a PowerShell script that uploads to your Azure subscription a VHD file. 
+**Note:** This process can be lengthy depending on the size of the VHD file and your connection speed.
+
+## <a name="create-a-custom-image-from-a-vm"></a>Create a custom image from a VM
+If you have a VM that is already configured, you can create a custom image from that VM, and afterwards use that custom image to create other identical VMs. The following steps illustrate how to create a custom image from a VM:
+
+1. Sign in to the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+
+1. Select **More services**, and then select **DevTest Labs** from the list.
+
+1. From the list of labs, select the desired lab.  
+
+1. On the lab's blade, select **My virtual machines**.
  
-1. В колонке **My virtual machines** (Мои виртуальные машины) выберите виртуальную машину, на основе которой будет создан пользовательский образ.
+1. On the **My virtual machines** blade, select the VM from which you want to create the custom image.
 
-1. В колонке виртуальной машины выберите **Create custom image (VHD)** (Создать пользовательский образ (VHD)).
+1. On the VM's blade, select **Create custom image (VHD)**.
 
-	![Пункт меню "Создание пользовательского образа"](./media/devtest-lab-create-template/create-custom-image.png)
+    ![Create custom image menu item](./media/devtest-lab-create-template/create-custom-image.png)
 
-1. В колонке **Create image** (Создание образа) введите имя и описание нового пользовательского образа. Эти данные отображаются в списке базовых образов при создании виртуальной машины.
+1. On the **Create image** blade, enter a name and description for your custom image. This information is displayed in the list of bases when you create a VM.
 
-	![Колонка "Создание пользовательского образа"](./media/devtest-lab-create-template/create-custom-image-blade.png)
+    ![Create custom image blade](./media/devtest-lab-create-template/create-custom-image-blade.png)
 
-1. Укажите, была ли выполнена на виртуальной машине программа sysprep. Если программа sysprep не была запущена на виртуальной машине, укажите, нужно ли ее запускать при создании виртуальной машины из этого пользовательского образа.
+1. Select whether sysprep was run on the VM. If the sysprep was not run on the VM, specify whether you want sysprep run when a VM is created from this custom image.
 
-1. Нажмите кнопку **ОК**, чтобы создать пользовательский образ.
+1. Select **OK** when finished to create the custom image.
 
 [AZURE.INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
-## Связанные записи в блогах
+## <a name="related-blog-posts"></a>Related blog posts
 
-- [Custom images or formulas? (Пользовательские изображения или формулы?)](https://blogs.msdn.microsoft.com/devtestlab/2016/04/06/custom-images-or-formulas/)
-- [Copying Custom Images between Azure DevTest Labs (Копирование пользовательских образов между лабораториями для разработки и тестирования Azure)](http://www.visualstudiogeeks.com/blog/DevOps/How-To-Move-CustomImages-VHD-Between-AzureDevTestLabs#copying-custom-images-between-azure-devtest-labs)
+- [Custom images or formulas?](https://blogs.msdn.microsoft.com/devtestlab/2016/04/06/custom-images-or-formulas/)
+- [Copying Custom Images between Azure DevTest Labs](http://www.visualstudiogeeks.com/blog/DevOps/How-To-Move-CustomImages-VHD-Between-AzureDevTestLabs#copying-custom-images-between-azure-devtest-labs)
 
-##Дальнейшие действия
+##<a name="next-steps"></a>Next steps
 
-Когда вы добавите пользовательский образ для создания виртуальной машины, переходите к [добавлению виртуальной машины в лабораторию](./devtest-lab-add-vm-with-artifacts.md).
+Once you have added a custom image for use when creating a VM, the next step is to [add a VM to your lab](./devtest-lab-add-vm-with-artifacts.md).
 
-<!---HONumber=AcomDC_0907_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,60 +1,67 @@
 <properties
-	pageTitle=" Масштабирование обработки мультимедиа с помощью портала Azure | Microsoft Azure"
-	description="В этом учебнике пошагово описано, как масштабировать обработку мультимедиа с помощью портала Azure."
-	services="media-services"
-	documentationCenter=""
-	authors="Juliako"
-	manager="erikre"
-	editor=""/>
+    pageTitle=" Scale Media Processing using the Azure portal | Microsoft Azure"
+    description="This tutorial walks you through the steps of scaling Media Processing using the Azure portal."
+    services="media-services"
+    documentationCenter=""
+    authors="Juliako"
+    manager="erikre"
+    editor=""/>
 
 <tags
-	ms.service="media-services"
-	ms.workload="media"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/01/2016"
-	ms.author="juliako"/>
+    ms.service="media-services"
+    ms.workload="media"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/01/2016"
+    ms.author="juliako"/>
 
-# Изменение типа зарезервированных единиц
+
+# <a name="change-the-reserved-unit-type"></a>Change the reserved unit type
 
 > [AZURE.SELECTOR]
 - [.NET](media-services-dotnet-encoding-units.md)
-- [Портал](media-services-portal-scale-media-processing.md)
+- [Portal](media-services-portal-scale-media-processing.md)
 - [REST](https://msdn.microsoft.com/library/azure/dn859236.aspx)
 - [Java](https://github.com/southworkscom/azure-sdk-for-media-services-java-samples)
 - [PHP](https://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices)
 
-## Обзор
+## <a name="overview"></a>Overview
 
->[AZURE.IMPORTANT] Обязательно ознакомьтесь с этим [обзором](media-services-scale-media-processing-overview.md), чтобы получить дополнительные сведения о масштабировании обработки мультимедиа.
+>[AZURE.IMPORTANT] Make sure to review the [overview](media-services-scale-media-processing-overview.md) topic to get more information about scaling media processing topic.
 
-## Масштабирование обработки мультимедиа
+## <a name="scale-media-processing"></a>Scale media processing
 
-Чтобы изменить тип зарезервированных единиц и число зарезервированных единиц, выполните следующие действия:
+To change the reserved unit type and the number of reserved units, do the following:
 
-1. Войдите на [портал Azure](https://portal.azure.com/).
+1. Log in at the [Azure portal](https://portal.azure.com/).
 
-2. В окне **Параметры** выберите **Media reserved units** (Зарезервированные единицы мультимедиа).
+2. In the **Settings** window, select **Media reserved units**.
 
-	Чтобы изменить число зарезервированных единиц для выбранного типа зарезервированных единиц, используйте ползунок **Media Served Units** (Зарезервированные единицы мультимедиа).
+    To change the number of reserved units for the selected reserved unit type, use the **Media Served Units** slider.
 
-	Чтобы изменить **ТИП ЗАРЕЗЕРВИРОВАННЫХ ЕДИНИЦ**, выберите S1, S2 или S3.
+    To change the **RESERVED UNIT TYPE**, press S1, S2, or S3.
 
-	![Страница "Процессоры"](./media/media-services-portal-scale-media-processing/media-services-scale-media-processing.png)
+    ![Processors page](./media/media-services-portal-scale-media-processing/media-services-scale-media-processing.png)
 
-3. Нажмите кнопку СОХРАНИТЬ, чтобы сохранить изменения.
+3. Press the SAVE button to save your changes.
 
-	Новые зарезервированные единицы выделяются сразу после нажатия кнопки "СОХРАНИТЬ".
+    The new reserved units are allocated when you press SAVE.
 
-##Дальнейшие действия
+##<a name="next-steps"></a>Next steps
 
-Просмотрите схемы обучения работе со службами мультимедиа.
+Review Media Services learning paths.
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-##Отзывы
+##<a name="provide-feedback"></a>Provide feedback
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0907_2016-->
+
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

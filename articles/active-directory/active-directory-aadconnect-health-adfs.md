@@ -1,117 +1,122 @@
 
 <properties
-	pageTitle="Использование Azure AD Connect Health с AD FS | Microsoft Azure"
-	description="В этой статье описывается, как Azure AD Connect Health отслеживает локальную инфраструктуру AD FS."
-	services="active-directory"
-	documentationCenter=""
-	authors="karavar"
-	manager="femila"
-	editor="karavar"/>
+    pageTitle="Using Azure AD Connect Health with AD FS | Microsoft Azure"
+    description="This is the Azure AD Connect Health page how to monitor your on-premises AD FS infrastructure."
+    services="active-directory"
+    documentationCenter=""
+    authors="karavar"
+    manager="femila"
+    editor="karavar"/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="09/30/2016"
-	ms.author="vakarand"/>
-
-# Использование Azure AD Connect Health с AD FS
-Приведенная ниже информация относится к мониторингу инфраструктуры AD FS с помощью Azure AD Connect Health. Сведения о мониторинге синхронизации Azure AD Connect с помощью Azure AD Connect Health см. в статье [Использование Azure AD Connect Health для синхронизации](active-directory-aadconnect-health-sync.md). Сведения о мониторинге доменных служб Active Directory с помощью Azure AD Connect Health см. в статье [Using Azure AD Connect Health with AD DS](active-directory-aadconnect-health-adds.md) (Использование Azure AD Connect Health с AD DS).
-
-## Оповещения AD FS
-В разделе оповещений Azure AD Connect Health предоставляется список активных оповещений. Каждое оповещение содержит соответствующую информацию, действия по устранению и ссылки на связанную документацию.
-
-Если дважды щелкнуть активное или разрешенное оповещение, появится новая колонка с дополнительной информацией, действиями, которые можно предпринять для устранения причин оповещения, и ссылками на соответствующую документацию. Можно также просмотреть данные журнала об оповещениях, которые были разрешены в прошлом.
-
-![Портал Azure AD Connect Health](./media/active-directory-aadconnect-health/alert2.png)
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="09/30/2016"
+    ms.author="vakarand"/>
 
 
+# <a name="using-azure-ad-connect-health-with-ad-fs"></a>Using Azure AD Connect Health with AD FS
+The following documentation is specific to monitoring your AD FS infrastructure with Azure AD Connect Health. For information on monitoring Azure AD Connect (Sync) with Azure AD Connect Health, see [Using Azure AD Connect Health for Sync](active-directory-aadconnect-health-sync.md). Additionally, for information on monitoring Active Directory Domain Services with Azure AD Connect Health, see [Using Azure AD Connect Health with AD DS](active-directory-aadconnect-health-adds.md). 
 
-## Аналитика использования для AD FS
-Аналитика по использованию Azure AD Connect Health позволяет анализировать трафик аутентификации серверов федерации. Если дважды щелкнуть поле аналитики по использованию, откроется колонка аналитики по использованию, на которой показано несколько метрик и группирований.
+## <a name="alerts-for-ad-fs"></a>Alerts for AD FS
+The Azure AD Connect Health Alerts section provides you the list of active alerts. Each alert includes relevant information, resolution steps, and links to related documentation. 
 
->[AZURE.NOTE] Чтобы применять аналитику по использованию для AD FS, необходимо убедиться, что включен аудит AD FS. Дополнительные сведения см. в статье [Включение аудита для AD FS](active-directory-aadconnect-health-agent-install.md#enable-auditing-for-ad-fs).
+You can double-click an active or resolved alert, to open a new blade with additional information, steps you can take to resolve the alert, and links to relevant documentation. You can also view historical data on alerts that were resolved in the past.
 
-![Портал Azure AD Connect Health](./media/active-directory-aadconnect-health/report1.png)
+![Azure AD Connect Health Portal](./media/active-directory-aadconnect-health/alert2.png)
 
-Чтобы выбрать дополнительные метрики, укажите диапазон времени или измените способ группировки, щелкнув правой кнопкой мыши диаграмму аналитики по использованию и выбрав "Изменить диаграмму". Затем можно будет указать диапазон времени, выбрать другую метрику и изменить группирование. Вы можете просмотреть распределение трафика аутентификации по различным метрикам и группировать каждую метрику с помощью соответствующего параметра "Группировать по", описанного в следующей таблице.
 
-| Метрика | Сгруппировать по | Что означает группирование и почему это удобно? |
+
+## <a name="usage-analytics-for-ad-fs"></a>Usage Analytics for AD FS
+Azure AD Connect Health Usage Analytics analyzes the authentication traffic of your federation servers. You can double-click the usage analytics box, to open the usage analytics blade, which shows you several metrics and groupings.
+
+>[AZURE.NOTE] To use Usage Analytics with AD FS, you must ensure that AD FS auditing is enabled. For more information, see [Enable Auditing for AD FS](active-directory-aadconnect-health-agent-install.md#enable-auditing-for-ad-fs).
+
+![Azure AD Connect Health Portal](./media/active-directory-aadconnect-health/report1.png)
+
+To select additional metrics, specify a time range, or to change the grouping, right-click on the usage analytics chart and select Edit Chart. Then you can specify the time range, select a different metric, and change the grouping. You can view the distribution of the authentication traffic based on different "metrics" and group each metric using relevant "group by" parameters described in the following table:
+
+| Metric | Group By | What the grouping means and why it's useful? |
 | ------ | -------- | -------------------------------------------- |
-| "Всего запросов": общее число запросов, обрабатываемых службой федерации. | Все | Отображает общее количество запросов без группировки. |
-| | Приложение | Группирует общее количество запросов по целевой проверяющей стороне. Такой способ группировки удобен, чтобы понять, сколько процентов от общего трафика получает каждое приложение. |
-| | сервер; | Группирует общее количество запросов по серверу, обработавшему запрос. Такой способ группировки позволяет понять, как распределяется нагрузка всего трафика. |
-| | Присоединение к рабочей области | Группирует общее количество запросов по следующему признаку: поступают ли запросы от устройств, присоединенных к рабочей области (т. е. известных устройств). Такой способ группировки позволяет определить, если доступ к вашим ресурсам осуществляется с помощью устройств, которые неизвестны в инфраструктуре удостоверений. |
-| | Authentication Method | Группирует общее количество запросов по выбранному методу аутентификации. Такой способ группировки позволяет понять, какой метод аутентификации используется чаще всего. Ниже приведены возможные методы проверки подлинности: <ol> <li>встроенная проверка подлинности Windows (Windows);</li> <li>проверка подлинности на основе форм (формы);</li> <li>единый вход;</li> <li>проверка подлинности на основе сертификата X509 (сертификат).</li> <br>Запрос считается единым входом, если серверы федерации получают запрос с файлом cookie для единого входа. В таких случаях, если файл cookie является допустимым, пользователю не предлагается ввести учетные данные, что обеспечивает прозрачный доступ к приложению. Обычно это используется при наличии нескольких проверяющих сторон, защищенных серверами федерации. |
-| | Сетевое расположение | Группирует общее количество запросов по сетевому расположению пользователя. Он может быть в интрасети или экстрасети. Такой способ группировки позволяет узнать, какой процент трафика поступает из экстрасети по сравнению с интрасетью. |
-| «Общее число невыполненных запросов»: общее количество невыполненных запросов, обработанных службой федерации. <br> (Эта метрика доступна только в AD FS для Windows Server 2012 R2).| Тип ошибки | Отображает число ошибок для каждого стандартного типа. Этот способ группировки позволяет понять, ошибки каких типов наиболее распространены. <ul><li>«Неправильное имя или пароль»: ошибки из-за неправильного имени пользователя или пароля.</li> <li>Extranet Lockout (Блокировка экстрасети) — сбои из-за запросов, полученных от пользователя, для которого был заблокирован доступ из экстрасети.</li><li> Expired Password (Истек срок действия пароля) — сбои из-за пользователей, входящих в систему с помощью пароля с истекшим сроком действия.</li><li> Disabled Account (Отключена учетная запись) — сбои из-за пользователей, входящих с отключенной учетной записью.</li><li> "Проверка подлинности устройства" — сбои из-за пользователей, не прошедших проверку подлинности устройства.</li><li> User Certificate Authentication (Проверка подлинности пользователя на основе сертификата) — сбои из-за пользователей, не прошедших проверку подлинности из-за недопустимого сертификата.</li><li> MFA — сбои из-за пользователей, не прошедших проверку подлинности с помощью Многофакторной идентификации.</li><li> Other Credential (Другие учетные данные): Issuance Authorization (Авторизация выдачи) — сбои из-за ошибок авторизации.</li><li> Issuance Delegation (Делегирование выдачи) — сбои из-за ошибок делегирования выдачи.</li><li> Token Acceptance (Прием маркера) — сбои из-за того, что AD FS отклоняет маркер от стороннего поставщика удостоверений.</li><li> "Протокол" — сбой из-за ошибок протокола.</li><li> "Неизвестно" — все сбои. Другие типы ошибок, не относящиеся к определенным категориям.</li> |
-| | сервер; | Группирует ошибки на основании сервера. Это группирование позволяет понять, как ошибки распределяются между серверами. Неравномерное распределение может быть признаком того, что сервер находится в неисправном состоянии. |
-| | Сетевое расположение | Группирует ошибки по сетевому расположению запросов (интрасеть и экстрасеть). Это группирование позволяет понять, какого типа запросы завершаются неудачей. |
-| | Приложение | Группирует сбои по целевому приложению (проверяющей стороне). Это группирование позволяет понять, какое целевое приложение вызывает большинство ошибок. |
-| «Количество пользователей»: среднее число активных уникальных пользователей в системе. | Все | Эта метрика обеспечивает подсчет среднего числа пользователей, использующих службу федерации в рамках выбранного интервала времени. Пользователи не группируются. <br>Среднее значение зависит от выбранного интервала времени. |
-| | Приложение | Группирует среднее число пользователей по целевому приложению (проверяющей стороне). Это группирование позволяет понять, сколько пользователей использует каждое приложение. |
+| Total Requests: The total number of requests processed by the federation service | All | Shows the count of total number of requests without grouping. |
+|  | Application | Groups the total requests based on the targeted relying party. This grouping is useful to understand which application is receiving how much percentage of the total traffic. |
+|  | Server | Groups the total requests based on the server that processed the request. This grouping is useful to understand the load distribution of the total traffic. |
+|  | Workplace Join | Groups the total requests based on whether they are coming from devices that are workplace joined (known). This grouping is useful to understand if your resources are accessed using devices that are unknown to the identity infrastructure. |
+|  | Authentication Method | Groups the total requests based on the authentication method used for authentication. This grouping is useful to understand the common authentication method that gets used for authentication. Following are the possible authentication methods <ol> <li>Windows Integrated Authentication (Windows)</li> <li>Forms Based Authentication (Forms)</li> <li>SSO (Single Sign On)</li> <li>X509 Certificate Authentication (Certificate)</li> <br>If the federation servers receive the request with an SSO Cookie, that request is counted as SSO (Single Sign On). In such cases, if the cookie is valid, the user is not asked to provide credentials and gets seamless access to the application. This behavior is common if you have multiple relying parties protected by the federation servers. |
+|  | Network Location | Groups the total requests based on the network location of the user. It can be either intranet or extranet. This grouping is useful to know what percentage of the traffic is coming from the intranet versus extranet. |
+| Total Failed Requests: The total number failed requests processed by the federation service. <br> (This metric is only available on AD FS for Windows Server 2012 R2)| Error Type | Shows the number of errors based on predefined error types. This grouping is useful to understand the common types of errors. <ul><li>Incorrect Username or Password: Errors due to incorrect username or password.</li> <li>"Extranet Lockout": Failures due to the requests received from a user that was locked out from extranet </li><li> "Expired Password": Failures due to users logging in with an expired password.</li><li>"Disabled Account": Failures due to users logging with a disabled account.</li><li>"Device Authentication": Failures due to users failing to authenticate using Device Authentication.</li><li>"User Certificate Authentication": Failures due to users failing to authenticate because of an invalid certificate.</li><li>"MFA": Failures due to user failing to authenticate using Multi-Factor Authentication.</li><li>"Other Credential": "Issuance Authorization": Failures due to authorization failures.</li><li>"Issuance Delegation": Failures due to issuance delegation errors.</li><li>"Token Acceptance": Failures due to ADFS rejecting the token from a third-party Identity Provider.</li><li>"Protocol": Failure due to protocol errors.</li><li>"Unknown": Catch all. Any other failures that do not fit into the defined categories.</li> |
+|  | Server | Groups the errors based on the server. This grouping is useful to understand the error distribution across servers. Uneven distribution could be an indicator of a server in a faulty state. |
+|  | Network Location | Groups the errors based on the network location of the requests (intranet vs extranet). This grouping is useful to understand the type of requests that are failing. |
+|  | Application | Groups the failures based on the targeted application (relying party). This grouping is useful to understand which targeted application is seeing most number of errors. |
+| User Count: Average number of unique users active in the system | All | This metric provides a count of average number of users using the federation service in the selected time slice. The users are not grouped. <br>The average depends on the time slice selected. |
+|  | Application | Groups the average number of users based on the targeted application (relying party). This grouping is useful to understand how many users are using which application. |
 
 
-## Мониторинг производительности AD FS
-Мониторинг производительности Azure Active Directory Connect Health предоставляет данные мониторинга метрик. Если выбрать поле "Мониторинг", откроется новая колонка с подробной информацией о метриках.
+## <a name="performance-monitoring-for-ad-fs"></a>Performance Monitoring for AD FS
+Azure AD Connect Health Performance Monitoring provides monitoring information on metrics. Selecting the Monitoring box, opens a new blade with detailed information on the metrics.
 
 
-![Портал Azure AD Connect Health](./media/active-directory-aadconnect-health/perf1.png)
+![Azure AD Connect Health Portal](./media/active-directory-aadconnect-health/perf1.png)
 
 
-Если выбрать параметр «Фильтр» в верхней части колонки, можно отфильтровать информацию по серверу, чтобы просмотреть метрики отдельного сервера. Чтобы изменить метрики, щелкните правой кнопкой мыши диаграмму мониторинга под колонкой мониторинга и выберите "Изменить диаграмму". После этого в новой открывшейся колонке можно будет из раскрывающегося списка выбрать дополнительные метрики и указать диапазон времени для просмотра данных производительности.
+By selecting the Filter option at the top of the blade, you can filter by server to see an individual server’s metrics. To change metrics, right-click on the monitoring chart under the monitoring blade and select Edit Chart. Then, from the new blade that opens up, you can select additional metrics from the drop-down and specify a time range for viewing the performance data.
 
-## Отчеты AD FS
-Azure AD Connect Health предоставляет отчеты об активности и производительности AD FS. Эти отчеты помогают администраторам анализировать активность на серверах AD FS.
+## <a name="reports-for-ad-fs"></a>Reports for AD FS
+Azure AD Connect Health provides reports about activity and performance of AD FS. These reports help administrators gain insight into activities on their AD FS servers.
 
-### 50 пользователей, выполнившие наибольшее количество неудачных попыток входа с указанием неправильного имени пользователя или пароля
+### <a name="top-50-users-with-failed-username/password-logins"></a>Top 50 Users with failed Username/Password logins
 
-Одна из распространенных причин неудачных запросов на проверку подлинности на сервере AD FS заключается в использовании неправильных учетных данных (имени пользователя или пароля). Обычно это происходит, если пользователи используют сложный пароль, забыли свой пароль или ввели его с ошибками.
+One of the common reasons for a failed authentication request on an AD FS server is a request with invalid credentials, that is, a wrong username or password. Usually happens to users due to complex passwords, forgotten passwords, or typos.
 
-Есть и другие причины, которые могут привести к неожиданному числу запросов, обрабатываемых серверами AD FS. К ним относятся работа приложений, которые кэшируют учетные данные пользователя, в то время как срок их действия истек, или злонамеренные действия пользователя, который пытается войти в чужую учетную запись, используя набор хорошо известных паролей. Это важные причины, которые могут привести к всплеску запросов.
+But there are other reasons that can result in an unexpected number of requests being handled by your AD FS servers, such as: An application that caches user credentials and the credentials expire or a malicious user attempting to sign into an account with a series of well-known passwords. These two examples are valid reasons that could lead to a surge in requests.
 
-Azure AD Connect Health для AD FS предоставляет отчет о 50 пользователях, выполнивших наибольшее количество неудачных попыток входа с указанием неправильного имени пользователя или пароля. Этот отчет составляется на основе обработки событий аудита, генерируемых всеми серверами AD FS в фермах.
+Azure AD Connect Health for ADFS provides a report about top 50 Users with failed login attempts due to invalid username or password. This report is achieved by processing the audit events generated by all the AD FS servers in the farms
 
-![Портал Azure AD Connect Health](./media/active-directory-aadconnect-health-adfs/report1a.png)
+![Azure AD Connect Health Portal](./media/active-directory-aadconnect-health-adfs/report1a.png)
 
-Такие отчеты предоставляют удобный доступ к следующим сведениям:
+Within this report you have easy access to the following pieces of information:
 
-- Общее количество неудачных запросов с указанием неправильного имени пользователя или пароля за последние 30 дней.
-- Среднее ежедневное количество пользователей, которым не удалось выполнить вход из-за ввода неправильного имени пользователя и пароля.
+- Total # of failed requests with wrong username/password in the last 30 days
+- Average # of users that failed with a bad username/password login per day.
 
-Щелкнув эту область, можно перейти к колонке основного отчета, содержащей дополнительные сведения. В ней представлен график с актуальной информацией, которая позволяет получить общее представление о запросах с указанием неправильного имени пользователя или пароля, а также список 50 пользователей, выполнивших наибольшее количество неудачных попыток входа.
+Clicking this part takes you to the main report blade that provides additional details. This blade includes a graph with trending information to help establish a baseline about requests with wrong username or password. Additionally, it provides the list of top 50 users with the number of failed attempts.
 
-На графике представлены указанные ниже данные.
+The graph provides the following information:
 
-- Общее ежедневное количество неудачных попыток входа с указанием неправильного имени пользователя и пароля.
-- Общее ежедневное количество уникальных пользователей, выполнивших неудачные попытки входа.
+- The total # of failed logins due to a bad username/password on a per-day basis.
+- The total # of unique users that failed logins on a per-day basis.
 
-![Портал Azure AD Connect Health](./media/active-directory-aadconnect-health-adfs/report2a.png)
+![Azure AD Connect Health Portal](./media/active-directory-aadconnect-health-adfs/report2a.png)
 
-В отчете представлены следующие данные.
+The report provides the following information:
 
-| Элемент отчета | Описание
+| Report Item | Description
 | ------ | -------- |
-|Идентификатор пользователя.| Здесь отображается использовавшийся идентификатор пользователя. Это значение, введенное пользователем. В некоторых случаях отображаются сведения об использовании неправильного идентификатора пользователя.|
-|Неудачные попытки| Здесь отображается общее количество неудачных попыток входа для определенного идентификатора пользователя. Данные таблицы отсортированы по количеству неудачных попыток в порядке убывания.|
-|Последняя неудачная попытка| В этом поле содержится метка времени последней неудачной попытки.
+|User ID| Shows the user ID that was used. This value is what the user typed, which in some cases is the wrong user ID being used.|
+|Failed Attempts| Shows the total # of failed attempts for that specific user ID. The table is sorted with the most number of failed attempts in descending order.|
+|Last Failure| Shows the time stamp when the last failure occurred.
 
 
 
->[AZURE.NOTE] Каждые два часа в этот отчет автоматически добавляются новые данные, собранные за этот период времени. Следовательно, сведения о входе в систему в рамках последнего двухчасового интервала могут отсутствовать в отчете.
+>[AZURE.NOTE] This report is automatically updated after every two hours with the new information collected within that time. As a result, login attempts within the last two hours may not be included in the report.
 
 
 
-## Связанные ссылки
+## <a name="related-links"></a>Related links
 
 * [Azure AD Connect Health](active-directory-aadconnect-health.md)
-* [Установка агента Azure AD Connect Health](active-directory-aadconnect-health-agent-install.md)
-* [Операции Azure AD Connect Health](active-directory-aadconnect-health-operations.md)
-* [Использование Azure AD Connect Health для синхронизации](active-directory-aadconnect-health-sync.md)
-* [Using Azure AD Connect Health with AD DS (Использование Azure AD Connect Health с AD DS)](active-directory-aadconnect-health-adds.md)
-* [Часто задаваемые вопросы об Azure AD Connect Health](active-directory-aadconnect-health-faq.md)
-* [Azure AD Connect Health: история версий](active-directory-aadconnect-health-version-history.md)
+* [Azure AD Connect Health Agent Installation](active-directory-aadconnect-health-agent-install.md)
+* [Azure AD Connect Health Operations](active-directory-aadconnect-health-operations.md)
+* [Using Azure AD Connect Health for sync](active-directory-aadconnect-health-sync.md)
+* [Using Azure AD Connect Health with AD DS](active-directory-aadconnect-health-adds.md)
+* [Azure AD Connect Health FAQ](active-directory-aadconnect-health-faq.md)
+* [Azure AD Connect Health Version History](active-directory-aadconnect-health-version-history.md)
 
-<!---HONumber=AcomDC_1005_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

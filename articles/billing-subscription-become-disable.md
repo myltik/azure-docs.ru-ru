@@ -1,89 +1,80 @@
 <properties
-	pageTitle="Что делать при отключении подписки Azure? | Microsoft Azure"
-	description="Описание причин и решения для ситуации с отключением подписки Azure"
-	services=""
-	documentationCenter=""
-	authors="genlin"
-	manager="msmbaldwin"
-	editor=""
-	tags="billing"
-	/>
+    pageTitle="Reactivate disabled Azure subscription | Microsoft Azure"
+    description="Describes when you might have an Azure subscription disabled and how to reactivate it."
+    keywords="azure subscription disabled"
+    services=""
+    documentationCenter=""
+    authors="genlin"
+    manager="mbaldwin"
+    editor=""
+    tags="billing"
+    />
 
 <tags
-	ms.service="billing"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/24/2016"
-	ms.author="genli"/>
+    ms.service="billing"
+    ms.workload="na"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/04/2016"
+    ms.author="genli"/>
 
-# Что делать при отключении подписки Azure?
 
-> [AZURE.NOTE] Если в ходе работы с этой статьей вам потребуется дополнительная помощь, [обратитесь в службу поддержки](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade), которая поможет вам быстро устранить проблему.
+# <a name="why-is-my-azure-subscription-disabled-and-how-do-i-reactivate-it?"></a>Why is my Azure subscription disabled and how do I reactivate it?
 
-Если ваша подписка Azure отключена, можно включить ее повторно, выполнив приведенные в этой статье действия. Подписка Azure может быть отключена по следующим причинам.
+You might have your Azure subscription disabled because you reached your spending limit, have an overdue bill, hit your credit card limit, or because the subscription was canceled by the account administrator. See what issue applies to you and follow the steps in this article to get your subscription reactivated. 
 
-## Достигнута предельная сумма расходов
+## <a name="you-reached-your-spending-limit"></a>You reached your spending limit
 
-Чтобы предотвратить тарификацию за случайное использование сверх ограничений в рамках предложения, мы добавили функцию [контроля предельной суммы расходов](https://azure.microsoft.com/pricing/spending-limits/). При достижении максимального ежемесячного ограничения на использование по вашему предложению служба будет отключена до окончания месяца выставления счета. Во избежание этой ситуации вы можете удалить предельную сумму расходов и [настроить предупреждения о выставлении счета для подписок Microsoft Azure](billing-set-up-alerts.md), чтобы отслеживать и контролировать действия по выставлению счетов для учетных записей Azure.
+When your usage exhausts the monthly amounts included with your subscription, we disable your service for the remainder of that billing month. Your service is disabled to protect you from accidentally incurring charges for usage beyond the amount included with your subscription. You can remove the spending limit and [set up billing alerts for your Microsoft Azure subscriptions](billing-set-up-alerts.md) to help you monitor and manage billing activity for your Azure accounts.
 
-Ниже приведены инструкции по удалению предельной суммы расходов.
+To remove your spending limit,
 
-1. Войдите в [центр учетных записей Azure](https://account.windowsazure.com/Home/Index).
+1. Log in to the [Azure Account Center](https://account.windowsazure.com/Home/Index).
 
-2. Щелкните **Подписки**.
+2. Click **Subscriptions**.
 
-3. Выберите подписку.
+3. Select a subscription.
 
-4. Если вы видите сообщение о том, что *для подписки достигнут расходный лимит, поэтому подписка отключена для предотвращения расходов*, щелкните его.
+4. Click **Subscription reached the Spending Limit and has been disabled to prevent charges**.
 
-	Или в области **Состояние подписки** щелкните **Удалить предельную сумму расходов**.
+    If you don't see that option, click **Remove spending limit** in the subscription **Status** area.
 
-5. Выберите один из следующих подходящих для вас параметров.
+5. Select one of the following options:
 
-|Параметр|Результат|
+|Option|Effect|
 |------|------|
-|Удалить предельную сумму расходов на неопределенный срок|Удаление предельной суммы расходов без ее автоматического включения в начале следующего расчетного периода.|
-|Удалить предельную сумму расходов для текущего расчетного периода|Удаление предельной суммы расходов с ее автоматическим включением в начале следующего расчетного периода.|
+|Remove spending limit indefinitely|Removes the spending limit until you turn it back on.|
+|Remove spending limit for the current billing period|Removes the spending limit but the spending limit restarts for the next billing period.|
 
->[AZURE.NOTE] Если вы работаете с бесплатной пробной подпиской, после удаления предельной суммы расходов оплата за эту подписку в конце срока будет выставлена по мере ее использования.
+If you have a Free Trial subscription and you remove the spending limits, your subscription converts to Pay-As-You-Go at the end of the free trial.
 
-## Счет просрочен
+## <a name="your-bill-is-past-due"></a>Your bill is past due
 
-Полностью оплатить задолженность. Решение этой проблемы см. в статье [Почему вы получили уведомление о том, что имеется задолженность по вашей подписке Azure?](billing-azure-subscription-past-due-balance.md#what-can-you-do-to-resolve-the-issue)
+Pay your outstanding balance in full. See the article [Why have you received a notification that your Azure subscription has a past due balance?](billing-azure-subscription-past-due-balance.md#what-can-you-do-to-resolve-the-issue)
 
-## Сумма счета превышает баланс кредитной карты
+## <a name="the-bill-exceeds-your-credit-card-limit"></a>The bill exceeds your credit card limit
 
-Чтобы решить эту проблему, используйте один из указанных ниже способов.
+To resolve this issue, [switch to a different credit card](billing-how-to-change-credit-card.md). Or if you're representing a business, you can [switch to pay by invoice](https://azure.microsoft.com/pricing/invoicing/).
 
-- [Выберите другую кредитную карту](billing-how-to-change-credit-card.md).
-- Корпоративные клиенты могут [выбрать оплату с выставлением счета](https://azure.microsoft.com/pricing/invoicing/).
+## <a name="the-subscription-was-canceled-by-the-account-administrator"></a>The subscription was canceled by the Account Administrator
 
-## Подписка была отменена администратором учетной записи
+If you're the account administrator, reactivate your Pay-As-You-Go subscription by using the following steps: 
 
->[AZURE.NOTE] В данный момент этот способ применим только к подпискам с оплатой по мере использования. Для других типов подписки необходимо [обратиться в службу поддержки](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+1. Log in to the [Azure Account Center](https://account.windowsazure.com/Home/Index).
+2. Select the canceled subscription.
+3. Click **Reactivate**.
 
-Если вы являетесь администратором учетной записи, то вы можете повторно активировать подписку с оплатой по мере пользования, выполнив следующие действия:
+![Screenshot that shows reactivate links on the right pane.](./media/billing-how-to-cancel-azure-subscription/reactivate-sub.png)
 
-- Выберите подписку, которая была отменена.
-- На странице сведений о подписке щелкните одну из ссылок **Повторно активировать**.
+For other subscription types, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to have your subscription reactivated.
 
-![повторная активация подписки](./media/billing-how-to-cancel-azure-subscription/reactivate-sub.png)
+## <a name="need-help?-contact-support."></a>Need help? Contact support.
+If you still need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly. 
 
-## Повторное включение подписки без оплаты по мере использования
 
-Чтобы повторно активировать отключенную подписку, необходимо создать запрос в службу поддержки. Войдите на [портал Azure](https://portal.azure.com/), выберите **Справка и поддержка** > **Новый запрос в службу поддержки**.
 
-![кнопка справки и поддержки](./media/billing-how-to-create-billing-support-ticket/helpandsupport.png)
 
-Если у вас нет доступа к порталу, отправьте запрос на поддержку с веб-сайта службы поддержки Azure или из центра учетных записей Azure.
+<!--HONumber=Oct16_HO2-->
 
- * Чтобы отправить запрос на поддержку с [веб-сайта службы поддержки Azure](https://azure.microsoft.com/support/options/), щелкните **Получить поддержку**.
- * Чтобы отправить запрос на поддержку из [центра учетных записей Azure](https://account.windowsazure.com/Subscriptions), выберите подписку, а затем щелкните **Обратиться в службу поддержки Майкрософт**.
 
-Подробнее об этом см. в разделе [Обращение в службу поддержки при возникновении проблем с оплатой или подпиской на Azure](billing-how-to-create-billing-support-ticket.md).
-
-> [AZURE.NOTE] Если у вас есть дополнительные вопросы, [обратитесь в службу поддержки](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade), которая поможет быстро устранить проблему.
-
-<!---HONumber=AcomDC_0914_2016-->

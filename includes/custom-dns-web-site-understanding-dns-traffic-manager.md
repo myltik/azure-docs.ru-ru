@@ -1,21 +1,24 @@
-Служба доменных имен (DNS) используется для поиска объектов в Интернете. Например, при вводе адреса в браузере или при щелчке ссылки на веб-странице, DNS используется для перевода домена в IP-адрес. Этот IP-адрес является как бы почтовым адресом, однако он не очень понятен для человека. Так, гораздо легче запомнить DNS-имя, например **contoso.com**, чем запоминать IP-адрес, такой как 192.168.1.88 или 2001:0:4137:1f67:24a2:3888:9cce:fea3.
+The Domain Name System (DNS) is used to locate things on the internet. For example, when you enter an address in your browser, or click a link on a web page, it uses DNS to translate the domain into an IP address. The IP address is sort of like a street address, but it's not very human friendly. For example, it is much easier to remember a DNS name like **contoso.com** than it is to remember an IP address such as 192.168.1.88 or 2001:0:4137:1f67:24a2:3888:9cce:fea3.
 
-DNS основана на *записях*. Записи связывают конкретное *имя*, например **contoso.com**, либо с IP-адресом, либо с другим DNS-именем. Если приложение, такое как веб-браузер, выполняет поиск имени в DNS, оно находит соответствующую запись и использует указанные в ней элементы в качестве адреса. Если указываемое значение является IP-адресом, браузер будет использовать это значение. Если указывается другое DNS-имя, приложение должно выполнить разрешение еще раз. В конечном счете конечным элементом всех разрешений имен будет являться IP-адрес.
+The DNS system is based on *records*. Records associate a specific *name*, such as **contoso.com**, with either an IP address or another DNS name. When an application, such as a web browser, looks up a name in DNS, it finds the record, and uses whatever it points to as the address. If the value it points to is an IP address, the browser will use that value. If it points to another DNS name, then the application has to do resolution again. Ultimately, all name resolution will end in an IP address.
 
-При создании веб-сайта Azure DNS-имя автоматически назначается веб-сайту. Это имя имеет форму **&lt;имя\_сайта&gt;.azurewebsites.net**. При добавлении веб-сайта в качестве конечной точки диспетчера трафика Azure ваш веб-сайт становится доступен через домен **&lt;профиль\_диспетчера\_трафика&gt;.trafficmanager.net**.
+When you create an Azure Website, a DNS name is automatically assigned to the site. This name takes the form of **&lt;yoursitename&gt;.azurewebsites.net**. When you add your website as an Azure Traffic Manager endpoint, your website is then accessible through the **&lt;yourtrafficmanagerprofile&gt;.trafficmanager.net** domain.
 
-> [AZURE.NOTE]Если веб-сайт настроен в качестве конечной точки диспетчера трафика, при создании записей DNS будет использоваться адрес **.trafficmanager.net**.
+> [AZURE.NOTE] When your website is configured as a Traffic Manager endpoint, you will use the **.trafficmanager.net** address when creating DNS records.
 
-> Можно использовать записи CNAME только с помощью диспетчера трафика
+> You can only use CNAME records with Traffic Manager
 
-Существует несколько типов записей, каждый из которых имеет свои собственные функции и ограничения, но применительно к веб-сайтам, настроенным в качестве конечных точек Traffic Manager, нас интересуют только один тип записей, *CNAME*.
+There are also multiple types of records, each with their own functions and limitations, but for websites configured to as Traffic Manager endpoints, we only care about one; *CNAME* records.
 
-###Запись CNAME, или запись псевдонима
+###<a name="cname-or-alias-record"></a>CNAME or Alias record
 
-Запись CNAME сопоставляет *конкретное* DNS-имя, такое как **mail.contoso.com** или **www.contoso.com**, с другим (каноническим) именем домена. В случае веб-сайтов Azure, использующих диспетчер трафика, каноническим доменным именем является доменное имя **&lt;myapp>.trafficmanager.net** профиля диспетчера трафика. После создания запись CNAME создает псевдоним для имени домена **&lt;myapp>.trafficmanager.net**. Запись CNAME будет автоматически разрешаться в IP-адрес вашего доменного имени **&lt;myapp>.trafficmanager.net**, поэтому при изменении IP-адреса веб-сайта не нужно предпринимать никаких действий.
+A CNAME record maps a *specific* DNS name, such as **mail.contoso.com** or **www.contoso.com**, to another (canonical) domain name. In the case of Azure Websites using Traffic Manager, the canonical domain name is the **&lt;myapp>.trafficmanager.net** domain name of your Traffic Manager profile. Once created, the CNAME creates an alias for the **&lt;myapp>.trafficmanager.net** domain name. The CNAME entry will resolve to the IP address of your **&lt;myapp>.trafficmanager.net** domain name automatically, so if the IP address of the website changes, you do not have to take any action.
 
-Как только трафик поступает в Traffic Manager, он затем направляет этот трафик на ваш веб-сайт с помощью метода, настроенного для балансировки нагрузки. Этот процесс является полностью прозрачным для посетителей веб-сайта. Они будут видеть только имя пользовательского домена в своем браузере.
+Once traffic arrives at Traffic Manager, it then routes the traffic to your website, using the load balancing method it is configured for. This is completely transparent to visitors to your website. They will only see the custom domain name in their browser.
 
-> [AZURE.NOTE]Только некоторые регистраторы доменов позволяют при использовании записи CNAME сопоставлять поддомены, такие как **www.contoso.com**, а не корневые имена, такие как **contoso.com**. Дополнительные сведения о записи CNAME см. в документации вашего регистратора, <a href="http://en.wikipedia.org/wiki/CNAME_record">статье в Википедии о записи CNAME</a> или в документе <a href="http://tools.ietf.org/html/rfc1035">Доменные имена IETF — реализация и спецификация</a>.
+> [AZURE.NOTE] Some domain registrars only allow you to map subdomains when using a CNAME record, such as **www.contoso.com**, and not root names, such as **contoso.com**. For more information on CNAME records, see the documentation provided by your registrar, <a href="http://en.wikipedia.org/wiki/CNAME_record">the Wikipedia entry on CNAME record</a>, or the <a href="http://tools.ietf.org/html/rfc1035">IETF Domain Names - Implementation and Specification</a> document.
 
-<!---HONumber=Oct15_HO3-->
+
+<!--HONumber=Oct16_HO2-->
+
+

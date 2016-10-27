@@ -1,267 +1,273 @@
 <properties
-	pageTitle="Руководство по интеграции Azure Active Directory с платформой 23 Video | Microsoft Azure"
-	description="Узнайте, как настроить единый вход для Azure Active Directory и платформы 23 Video."
-	services="active-directory"
-	documentationCenter=""
-	authors="jeevansd"
-	manager="femila"
-	editor=""/>
+    pageTitle="Tutorial: Azure Active Directory integration with 23 Video | Microsoft Azure"
+    description="Learn how to configure single sign-on between Azure Active Directory and 23 Video."
+    services="active-directory"
+    documentationCenter=""
+    authors="jeevansd"
+    manager="femila"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/05/2016"
-	ms.author="jeedes"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/24/2016"
+    ms.author="jeedes"/>
 
 
-# Руководство по интеграции Azure Active Directory с платформой 23 Video
 
-Цель этого учебника — показать, как интегрировать Azure Active Directory (Azure AD) с приложением 23 Video. Интеграция Azure AD с приложением 23 Video обеспечивает следующие преимущества.
+# <a name="tutorial:-azure-active-directory-integration-with-23-video"></a>Tutorial: Azure Active Directory integration with 23 Video
 
-- С помощью Azure AD вы можете управлять доступом к 23 Video.
-- Вы можете включить автоматический вход пользователей в 23 Video (единый вход) с учетной записью Azure AD.
+The objective of this tutorial is to show you how to integrate 23 Video with Azure Active Directory (Azure AD).  
+Integrating 23 Video with Azure AD provides you with the following benefits: 
 
-Подробные сведения об интеграции приложений SaaS с Azure AD см. в статье [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+- You can control in Azure AD who has access to 23 Video 
+- You can enable your users to automatically get signed-on to 23 Video (Single Sign-On) with their Azure AD accounts
 
-## Предварительные требования 
+If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-Чтобы настроить интеграцию Azure AD с 23 Video, вам потребуется:
+## <a name="prerequisites"></a>Prerequisites 
 
-- подписка Azure AD;
-- подписка на 23 Video с поддержкой единого входа.
+To configure Azure AD integration with 23 Video, you need the following items:
+
+- An Azure AD subscription
+- A 23 Video single-sign on enabled subscription
 
 
-> [AZURE.NOTE] Мы не рекомендуем использовать рабочую среду для проверки действий в этом учебнике.
+> [AZURE.NOTE] To test the steps in this tutorial, we do not recommend using a production environment.
 
 
-При проверке действий в этом учебнике соблюдайте следующие рекомендации:
+To test the steps in this tutorial, you should follow these recommendations:
 
-- Не следует использовать рабочую среду при отсутствии необходимости.
-- Если у вас нет пробной среды Azure AD, вы можете получить пробную версию на один месяц по [этой ссылке](https://azure.microsoft.com/pricing/free-trial/).
+- You should not use your production environment, unless this is necessary.
+- If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/). 
 
  
-## Описание сценария
-Цель этого учебника — научить вас проверять единый вход в Azure AD в пробной среде. Сценарий, описанный в этом учебнике, состоит из двух основных блоков:
+## <a name="scenario-description"></a>Scenario Description
+The objective of this tutorial is to enable you to test Azure AD single sign-on in a test environment.  
+The scenario outlined in this tutorial consists of two main building blocks:
 
-1. Добавление 23 Video из коллекции.
-2. Настройка и проверка единого входа в Azure AD
+1. Adding 23 Video from the gallery 
+2. Configuring and testing Azure AD single sign-on
 
 
-## Добавление 23 Video из коллекции.
-Чтобы настроить интеграцию 23 Video с Azure AD, необходимо добавить 23 Video из коллекции в список управляемых приложений SaaS.
+## <a name="adding-23-video-from-the-gallery"></a>Adding 23 Video from the gallery
+To configure the integration of 23 Video into Azure AD, you need to add 23 Video from the gallery to your list of managed SaaS apps.
 
-**Чтобы добавить 23 Video из коллекции, выполните следующие действия:**
+**To add 23 Video from the gallery, perform the following steps:**
 
-1. На **классическом портале Azure** в области навигации слева щелкните **Active Directory**.
+1. In the **Azure classic portal**, on the left navigation pane, click **Active Directory**. 
 
-	.![Active Directory][1]
+    ![Active Directory][1]
 
-2. Из списка **Каталог** выберите каталог, для которого нужно включить интеграцию каталогов.
+2. From the **Directory** list, select the directory for which you want to enable directory integration.
 
-3. Чтобы открыть представление приложений, в представлении каталога нажмите **Приложения** в верхнем меню.
+3. To open the applications view, in the directory view, click **Applications** in the top menu.
 
-	.![Приложения][2]
+    ![Applications][2]
 
-4. В нижней части страницы нажмите кнопку **Добавить**.
+4. Click **Add** at the bottom of the page.
 
-	![Приложения][3]
+    ![Applications][3]
 
-5. В диалоговом окне **Что необходимо сделать?** нажмите **Добавить приложение из коллекции**.
+5. On the **What do you want to do** dialog, click **Add an application from the gallery**.
 
-	.![Приложения][4]
+    ![Applications][4]
 
-6. В поле поиска введите **23 Video**.
+6. In the search box, type **23 Video**.
 
-	.![Приложения][5]
+    ![Applications][5]
 
-7. В области результатов выберите **23 Video** и нажмите кнопку **Завершить**, чтобы добавить приложение.
+7. In the results pane, select **23 Video**, and then click **Complete** to add the application.
 
-	.![Приложения][25]
+    ![Applications][25]
 
-##  Настройка и проверка единого входа в Azure AD
-Цель этого раздела — показать, как настроить и проверить единый вход Azure AD в 23 Video с использованием тестового пользователя Britta Simon.
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuring and testing Azure AD single sign-on
+The objective of this section is to show you how to configure and test Azure AD single sign-on with 23 Video based on a test user called "Britta Simon".
 
-Для настройки единого входа в Azure AD необходимо знать, какой пользователь в 23 Video соответствует пользователю в Azure AD. Иными словами, необходимо установить связь между пользователем Azure AD и соответствующим пользователем в 23 Video. Чтобы установить эту связь, добавьте **имя пользователя** Azure AD в качестве значения параметра **Username** (Имя пользователя) в 23 Video.
+For single sign-on to work, Azure AD needs to know what the counterpart user in 23 Video to an user in Azure AD is. In other words, a link relationship between an Azure AD user and the related user in 23 Video needs to be established.  
+This link relationship is established by assigning the value of the **user name** in Azure AD as the value of the **Username** in 23 Video.
  
-Чтобы настроить и проверить единый вход Azure AD в 23 Video, вам потребуется выполнить действия в следующих стандартных блоках:
+To configure and test Azure AD single sign-on with 23 Video, you need to complete the following building blocks:
 
-1. **[Настройка единого входа Azure AD](#configuring-azure-ad-single-single-sign-on)** необходима, чтобы позволить пользователям использовать эту функцию.
-2. **[Создание тестового пользователя Azure AD](#creating-an-azure-ad-test-user)** требуется для проверки работы единого входа Azure AD от имени пользователя Britta Simon.
-4. **[Создание тестового пользователя 23 Video](#creating-a-23-video-test-user)** требуется для создания в 23 Video пользователя Britta Simon, связанного с представлением этого же пользователя в Azure AD.
-5. **[Назначение тестового пользователя Azure AD](#assigning-the-azure-ad-test-user)** необходимо, чтобы разрешить Britta Simon использовать единый вход в Azure AD.
-5. **[Проверка единого входа](#testing-single-sign-on)** необходима, чтобы убедиться в корректной работе конфигурации.
+1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-single-sign-on)** - to enable your users to use this feature.
+2. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
+4. **[Creating a 23 Video test user](#creating-a-23-video-test-user)** - to have a counterpart of Britta Simon in 23 Video that is linked to the Azure AD representation of her.
+5. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
+5. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
 
-### Настройка единого входа в Azure AD
+### <a name="configuring-azure-ad-single-sign-on"></a>Configuring Azure AD Single Sign-On
 
-В этом разделе описано, как включить единый вход Azure AD на классическом портале Azure AD и настроить единый вход в приложении 23 Video.
+The objective of this section is to enable Azure AD single sign-on in the Azure classic portal and to configure single sign-on in your 23 Video application.
 
-**Чтобы настроить единый вход Azure AD в 23 Video, выполните следующие действия:**
+**To configure Azure AD single sign-on with 23 Video, perform the following steps:**
 
-1. На классическом портале Azure на странице интеграции с приложением **23 Video** щелкните **Настройка единого входа**, чтобы открыть диалоговое окно **Настройка единого входа**.
+1. In the Azure classic portal, on the **23 Video** application integration page, click **Configure single sign-on** to open the **Configure Single Sign-On**  dialog.
 
-	.![Настройка единого входа][6]
+    ![Configure Single Sign-On][6] 
 
-2. На странице **Как пользователи должны входить в 23 Video?** выберите **Единый вход Azure AD** и нажмите кнопку **Далее**.
+2. On the **How would you like users to sign on to 23 Video** page, select **Azure AD Single Sign-On**, and then click **Next**.
 
-	.![Единый вход в Azure AD][7]
+    ![Azure AD Single Sign-On][7] 
 
-3. В диалоговом окне на странице **Настройка параметров приложения** выполните следующие действия.
+3. On the **Configure App Settings** dialog page, perform the following steps:
 
-	.![Единый вход в Azure AD][8]
+    ![Azure AD Single Sign-On][8] 
  
-     а. В текстовом поле **URL-адрес ответа** введите URL-адрес, используемый для входа на сайт 23 Video (например, *https://britta-simon.23Video.com/saml/login*).
+     a. In the **Reply URL** textbox, type the URL used by your users to sign-on to your 23 Video site (e.g.: *https://britta-simon.23Video.com/saml/login*).
 
-     > [AZURE.NOTE] Интеграция Active Directory с помощью SAML 2.0 доступна для всех пользователей 23 Video. Если вам нужны соответствующие метаданные, обратитесь в службу поддержки по адресу [support@23company.com](mailto:support@23company.com).
+     > [AZURE.NOTE] Active Directory integration using SAML 2.0 is available for all 23 Video users. Please contact the Support at [support@23company.com](mailto:support@23company.com) if you need the related metadata.
 
-     b. Нажмите кнопку **Далее**.
+     b. Click **Next**.
  
-4. На странице **Настройка единого входа в 23 Video** выполните следующие действия.
+4. On the **Configure single sign-on at 23 Video** page, perform the following steps:
 
-	.![Единый вход в Azure AD][9]
+    ![Azure AD Single Sign-On][9] 
 
-    а. Нажмите "Загрузить сертификат" и сохраните файл сертификата на свой компьютер.
+    a. Click Download certificate, and then save the file on your computer.
 
-    b. Обратитесь в службу поддержки 23 Video по адресу [support@23company.com](mailto:support@23company.com), предъявите скачанный сертификат, сообщите **URL-адрес издателя**, **URL-адрес единого входа**, **URL-адрес единого выхода**, а затем попросите настроить единый вход для вашего приложения 23 Video.
+    b. Contact your 23 Video support team via [support@23company.com](mailto:support@23company.com), provide them with the downloaded certificate, the **Issuer URL**, the **Single Sign-On Service URL**, the **Single Sign-Out URL**, and then ask them to setup SSO for your 23 Video app. 
 
-    в) Нажмите кнопку **Далее**.
+    c. Click **Next**.
 
 
-6. На классическом портале Azure выберите подтверждение конфигурации единого входа и нажмите кнопку **Далее**.
+6. On the Azure classic portal, select the single sign-on configuration confirmation, and then click **Next**. 
 
-	.![Единый вход в Azure AD][10]
+    ![Azure AD Single Sign-On][10]
 
-7. На странице **Подтверждение единого входа** нажмите кнопку **Завершить**.
+7. On the **Single sign-on confirmation** page, click **Complete**.  
   
-	![Единый вход в Azure AD][11]
+    ![Azure AD Single Sign-On][11]
 
 
 
 
-### Создание тестового пользователя Azure AD
-Цель этого раздела — создать на классическом портале Azure тестового пользователя с именем Britta Simon.
+### <a name="creating-an-azure-ad-test-user"></a>Creating an Azure AD test user
+The objective of this section is to create a test user in the Azure classic portal called Britta Simon.
 
-.![Создание пользователя Azure AD][20]
+![Create Azure AD User][20]
 
-**Чтобы создать тестового пользователя в Azure AD, выполните следующие действия:**
+**To create a test user in Azure AD, perform the following steps:**
 
-1. На **классическом портале Azure** в области навигации слева щелкните **Active Directory**.
+1. In the **Azure classic portal**, on the left navigation pane, click **Active Directory**.
 
-	.![Создание тестового пользователя Azure AD](./media/active-directory-saas-23video-tutorial/create_aaduser_09.png)
+    ![Creating an Azure AD test user](./media/active-directory-saas-23video-tutorial/create_aaduser_09.png)  
 
-2. Из списка **Каталог** выберите каталог, для которого нужно включить интеграцию каталогов.
+2. From the **Directory** list, select the directory for which you want to enable directory integration.
 
-3. Чтобы отобразить список пользователей, в меню вверху выберите **Пользователи**.
+3. To display the list of users, in the menu on the top, click **Users**.
 
-	.![Создание тестового пользователя Azure AD](./media/active-directory-saas-23video-tutorial/create_aaduser_03.png)
+    ![Creating an Azure AD test user](./media/active-directory-saas-23video-tutorial/create_aaduser_03.png) 
  
-4. Чтобы открыть диалоговое окно **Добавление пользователя**, на панели инструментов внизу нажмите кнопку **Добавить пользователя**.
+4. To open the **Add User** dialog, in the toolbar on the bottom, click **Add User**. 
 
-	![Создание тестового пользователя Azure AD](./media/active-directory-saas-23video-tutorial/create_aaduser_04.png)
+    ![Creating an Azure AD test user](./media/active-directory-saas-23video-tutorial/create_aaduser_04.png) 
 
-5. На диалоговой странице **Расскажите об этом пользователе** выполните следующие действия:
+5. On the **Tell us about this user** dialog page, perform the following steps: 
 
-	.![Создание тестового пользователя Azure AD](./media/active-directory-saas-23video-tutorial/create_aaduser_05.png)
+    ![Creating an Azure AD test user](./media/active-directory-saas-23video-tutorial/create_aaduser_05.png)  
 
-    а. В поле «Тип пользователя» выберите значение «Новый пользователь в вашей организации».
+    a. As Type Of User, select New user in your organization.
 
-    b. В текстовое поле **Имя пользователя** введите **BrittaSimon**.
+    b. In the User Name **textbox**, type **BrittaSimon**.
 
-    c. Нажмите кнопку **Далее**.
+    c. Click **Next**.
 
-6.  На диалоговой странице **Профиль пользователя** выполните следующие действия:
+6.  On the **User Profile** dialog page, perform the following steps: 
 
-	![Создание тестового пользователя Azure AD](./media/active-directory-saas-23video-tutorial/create_aaduser_06.png)
+    ![Creating an Azure AD test user](./media/active-directory-saas-23video-tutorial/create_aaduser_06.png) 
  
-    а. В текстовом поле **Имя** введите **Britta**.
+    a. In the **First Name** textbox, type **Britta**.  
 
-    b. В текстовое поле **Фамилия** введите **Simon**.
+    b. In the **Last Name** textbox, type, **Simon**.
 
-    c. В текстовое поле **Отображаемое имя** введите **Britta Simon**.
+    c. In the **Display Name** textbox, type **Britta Simon**.
 
-    г) В списке **Роль** выберите **Пользователь**. e. Нажмите кнопку **Далее**.
+    d. In the **Role** list, select **User**.
+    e. Click **Next**.
 
-7. На диалоговой странице **Получение временного пароля** нажмите кнопку **Создать**.
+7. On the **Get temporary password** dialog page, click **create**.
 
-	.![Создание тестового пользователя Azure AD](./media/active-directory-saas-23video-tutorial/create_aaduser_07.png)
+    ![Creating an Azure AD test user](./media/active-directory-saas-23video-tutorial/create_aaduser_07.png) 
  
-8. На диалоговой странице **Получение временного пароля** выполните следующие действия.
+8. On the **Get temporary password** dialog page, perform the following steps:
 
-	.![Создание тестового пользователя Azure AD](./media/active-directory-saas-23video-tutorial/create_aaduser_08.png)
+    ![Creating an Azure AD test user](./media/active-directory-saas-23video-tutorial/create_aaduser_08.png) 
   
-    а. Запишите значение поля **Новый пароль**.
+    a. Write down the value of the **New Password**.
 
-    b. Нажмите **Завершено**.
+    b. Click **Complete**.   
 
   
  
-### Создание тестового пользователя 23 Video
+### <a name="creating-a-23-video-test-user"></a>Creating a 23 Video test user
 
-Цель этого раздела — создать в 23 Video пользователя с именем Britta Simon.
+The objective of this section is to create a user called Britta Simon in 23 Video.
 
-**Чтобы создать в 23 Video пользователя с именем Britta Simon, выполните следующие действия:**
+**To create a user called Britta Simon in 23 Video, perform the following steps:**
 
-1. Войдите на сайт компании 23 Video от имени администратора.
+1. Sign on to your 23 Video company site as administrator.
 
-1. Перейдите в меню **Settings** (Параметры).
-
-
-2. В разделе **Users** (Пользователи) щелкните **Configure** (Настройка).
-
-	.![Назначение пользователя][400]
-
-3. Щелкните **Add a new user** (Добавить нового пользователя).
-
-	.![Назначение пользователя][401]
-
-4. В разделе **Invite someone to join this site** (Пригласить присоединиться к сайту) выполните следующие действия.
-
-	.![Назначение пользователя][402]
-
-    а. В текстовом поле **E-mail addresses** (Адреса электронной почты) введите адрес электронной почты пользователя Britta Simon в Azure AD.
-
-    b. Щелкните **Add the user** (Добавить пользователя).
+1. Go to **Settings**.
 
 
-### Назначение тестового пользователя Azure AD
+2. In **Users** section, click **Configure**.
 
-Цель этого раздела — разрешить пользователю Britta Simon использовать единый вход Azure, предоставив ей доступ к 23 Video.
+    ![Assign User][400]
 
-.![Назначение пользователя][200]
+3. Click **Add a new user**. 
 
-**Чтобы добавить пользователя Britta Simon в 23 Video, выполните следующие действия:**
+    ![Assign User][401]
 
-1. Чтобы открыть представление приложений, на классическом портале Azure в представлении каталога щелкните **Приложения** в меню вверху.
+4. In the **Invite someone to join this site** section, perform the following steps:
 
-	.![Назначение пользователя][201]
+    ![Assign User][402]
 
-2. В списке приложений выберите **23 Video**.
+    a. In the **E-mail addresses** textbox, type Britta Simon's email address in Azure AD.
 
-	.![Назначение пользователя][202]
-
-1. В меню в верхней части страницы щелкните **Пользователи**.
-
-	.![Назначение пользователя][203]
-
-1. В списке пользователей выберите **Britta Simon**.
-
-2. На панели инструментов внизу щелкните **Назначить**.
-
-	.![Назначение пользователя][205]
+    b. Click **Add the user**.   
 
 
+### <a name="assigning-the-azure-ad-test-user"></a>Assigning the Azure AD test user
 
-### Проверка единого входа
+The objective of this section is to enabling Britta Simon to use Azure single sign-on by granting her access to 23 Video.
 
-Цель этого раздела — проверить конфигурацию единого входа Azure AD с помощью панели доступа. Щелкнув плитку 23 Video на панели доступа, вы автоматически войдете в приложение 23 Video.
+![Assign User][200] 
+
+**To assign Britta Simon to 23 Video, perform the following steps:**
+
+1. On the Azure classic portal, to open the applications view, in the directory view, click **Applications** in the top menu.
+
+    ![Assign User][201] 
+
+2. In the applications list, select **23 Video**.
+
+    ![Assign User][202] 
+
+1. In the menu on the top, click **Users**.
+
+    ![Assign User][203] 
+
+1. In the Users list, select **Britta Simon**.
+
+2. In the toolbar on the bottom, click **Assign**.
+
+    ![Assign User][205]
 
 
-## дополнительные ресурсы.
 
-* [Список учебников по интеграции приложений SaaS с Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+### <a name="testing-single-sign-on"></a>Testing Single Sign-On
+
+The objective of this section is to test your Azure AD single sign-on configuration using the Access Panel.  
+When you click the 23 Video tile in the Access Panel, you should get automatically signed-on to your 23 Video application.
+
+
+## <a name="additional-resources"></a>Additional Resources
+
+* [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 
 <!--Image references-->
@@ -291,4 +297,12 @@
 [401]: ./media/active-directory-saas-23video-tutorial/tutorial_23video_11.png
 [402]: ./media/active-directory-saas-23video-tutorial/tutorial_23video_12.png
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

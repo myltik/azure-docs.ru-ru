@@ -1,10 +1,10 @@
-<properties 
-   pageTitle="Обзор Azure DNS | Microsoft Azure" 
-   description="Обзор служб размещения Azure DNS в Microsoft Azure. Размещение домена в Microsoft Azure." 
-   services="dns" 
-   documentationCenter="na" 
-   authors="cherylmc" 
-   manager="carmonm" 
+<properties
+   pageTitle="Overview of Azure DNS | Microsoft Azure"
+   description="Overview of Azure DNS hosting services on Microsoft Azure. Host your domain on Microsoft Azure."
+   services="dns"
+   documentationCenter="na"
+   authors="sdwheeler"
+   manager="carmonm"
    editor=""/>
 
 <tags
@@ -12,30 +12,35 @@
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services" 
+   ms.workload="infrastructure-services"
    ms.date="08/16/2016"
-   ms.author="cherylmc"/>
-
-# Обзор Azure DNS
+   ms.author="sewhee"/>
 
 
-Служба доменных имен, или DNS, отвечает за преобразование (или разрешение) имени веб-сайта или службы в IP-адрес. Azure DNS является службой размещения для доменов DNS, предоставляющей разрешение имен с помощью инфраструктуры Microsoft Azure. Размещая домены в Azure, вы можете управлять своими записями DNS с помощью тех же учетных данных, API и инструментов и оплачивать использование, как и другие службы Azure.
+# <a name="azure-dns-overview"></a>Azure DNS Overview
 
 
-Домены DNS в Azure DNS размещаются в глобальной сети DNS-серверов Azure. Мы используем адресацию любому устройству сети, чтобы на каждый запрос DNS отвечал ближайший доступный DNS-сервер. Это обеспечивает высокую производительность и высокий уровень доступности для вашего домена.
-
-Служба Azure DNS работает на основе Azure Resource Manager (ARM). Таким образом он использует преимущества ARM, такие как управление доступом на основе ролей, журналы аудита и блокировка ресурсов. Доменами и записями можно управлять с помощью портала Azure, командлетов Azure PowerShell и кроссплатформенного Azure CLI. Приложения, для которых необходимо автоматическое управление DNS, можно интегрировать со службой с помощью REST API и пакетов SDK.
-
-Azure DNS в настоящее время не поддерживает приобретение доменных имен. Если вы хотите приобрести домены, вам потребуется использовать регистратор доменных имен стороннего поставщика. Регистратор обычно взимает небольшую годовую плату. Затем вы сможете разместить домены в Azure DNS, чтобы управлять записями DNS. Дополнительные сведения см. в статье [Делегирование домена в Azure DNS](dns-domain-delegation.md).
+The Domain Name System, or DNS, is responsible for translating (or resolving) a website or service name to its IP address. Azure DNS is a hosting service for DNS domains, providing name resolution using Microsoft Azure infrastructure. By hosting your domains in Azure, you can manage your DNS records using the same credentials, APIs, tools, and billing as your other Azure services.
 
 
-## Дальнейшие действия
+DNS domains in Azure DNS are hosted on Azure’s global network of DNS name servers. We use Anycast networking so that each DNS query is answered by the closest available DNS server. This provides both fast performance and high availability for your domain.
 
-[Создание зоны DNS](dns-getstarted-create-dnszone-portal.md)
+The Azure DNS service is based on Azure Resource Manager (ARM). As such, it benefits from ARM features such as role-based access control, audit logs, and resource locking. Your domains and records can be managed via the Azure portal, Azure PowerShell cmdlets, and the cross-platform Azure CLI. Applications requiring automatic DNS management can integrate with the service via the REST API and SDKs.
+
+Azure DNS does not currently support purchasing of domain names. If you want to purchase domains, you'll need to use a third-party domain name registrar. The registrar will typically charge a small annual fee. The domains can then be hosted in Azure DNS for management of DNS records. See [Delegate a Domain to Azure DNS](dns-domain-delegation.md) for details.
+
+
+## <a name="next-steps"></a>Next steps
+
+[Create a DNS zone](dns-getstarted-create-dnszone-portal.md)
 
 
 
 
- 
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

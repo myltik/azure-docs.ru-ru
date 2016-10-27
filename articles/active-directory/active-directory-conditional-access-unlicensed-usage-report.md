@@ -1,49 +1,56 @@
 <properties
-	pageTitle="Отчет о нелицензированном использовании | Microsoft Azure"
-	description="Отчет о нелицензированном использовании помогает выявить пользователей, которые используют платные функции Azure AD без лицензии."
-	services="active-directory"
-	documentationCenter=""
-	authors="markusvi"
-	manager="femila"
-	editor=""/>
+    pageTitle="Unlicensed Usage Report | Microsoft Azure"
+    description="The unlicensed usage report helps you identify unlicensed users that are using paid Azure AD features."
+    services="active-directory"
+    documentationCenter=""
+    authors="MarkusVi"
+    manager="femila"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/25/2016"
-	ms.author="markvi"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/20/2016"
+    ms.author="markvi"/>
 
-# Отчет о нелицензированном использовании
 
-Отчет о нелицензированном использовании помогает выявить пользователей, которые используют платные функции Azure AD без лицензии. Благодаря этому вы сможете эффективнее использовать приобретенные лицензии и вовремя узнавать о необходимости купить новые.
+# <a name="unlicensed-usage-report"></a>Unlicensed usage report
 
-В отчете отображается активное использование платных функций за последние 30 дней.
+The unlicensed usage report helps you identify unlicensed users that are using paid Azure AD features. This allows you to make better use of licenses that you have purchased and to identify you know when you may need additional licenses. 
 
-## Структура отчета
+The report shows active usage of the paid features in the last 30 days. 
+
+## <a name="report-structure"></a>Report structure
  
-| Имя столбца |	Описание |
+| Column name          |    Description |
 | :--                  | :--         |
-| Пользователь без лицензии |	Имя пользователя |
-| Функция | Название функции. Например, условный доступ |
-| Приложение к которому осуществлялся доступ | Имя приложения, к которому осуществляется доступ с помощью функции. Например, Office 365 SharePoint Online |
+| Unlicensed User      |    Name of the user |
+| Feature              | The feature name. For example: conditional access |
+| Application Accessed | The name of the application that is being accessed with the feature. For example: Office 365 SharePoint Online |
 
  
-> [AZURE.NOTE] Если учетная запись пользователя удалена, столбец "Пользователь без лицензии" будет заполнен идентификатором, таким как 1003000090D8B285
+> [AZURE.NOTE] If a user account has been deleted the ‘Unlicensed User’ column will be populated with an ID, like 1003000090D8B285
 
 
-## Функция условного доступа
+## <a name="conditional-access-feature"></a>Conditional access feature
 
-При доступе к службе, для которой применяется политика условного доступа, пользователи без лицензии будут помечены, если у них нет лицензии Azure AD Premium.
+Unlicensed users will be flagged when they access a service that has conditional access policy applied if they do not have an Azure AD Premium license. 
 
-Это относится к MFA (многофакторной проверке подлинности) и политикам расположения, а также политикам устройств, которые используют Intune.
+This applies to MFA / Location policies as well as device polices that use Intune.
  
 
-## См. также
+## <a name="see-also"></a>See also
 
-- [Защита доступа к Office 365 и другим приложениям, подключенным к Azure Active Directory](active-directory-conditional-access.md)
-- [Основные сведения об условном доступе к Azure AD](active-directory-conditional-access-azuread-connected-apps.md)
+- [Using Conditional Access with Office 365 and other Azure Active Directory connected apps](active-directory-conditional-access.md)
+- [Getting started with conditional access to Azure AD](active-directory-conditional-access-azuread-connected-apps.md) 
 
-<!---HONumber=AcomDC_0727_2016-->
+
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

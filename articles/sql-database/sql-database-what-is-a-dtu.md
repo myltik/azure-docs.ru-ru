@@ -1,61 +1,65 @@
 <properties
-	pageTitle="База данных SQL: что такое единица DTU | Microsoft Azure"
-	description="Из этой статьи вы узнаете, что такое единица передачи данных в базе данных SQL Azure."
-	keywords="параметры базы данных, производительность базы данных"
-	services="sql-database"
-	documentationCenter=""
-	authors="CarlRabeler"
-	manager="jhubbard"
-	editor="CarlRabeler"/>
+    pageTitle="SQL Database: What is a DTU? | Microsoft Azure"
+    description="Understanding what an Azure SQL Database transaction unit is."
+    keywords="database options,database performance"
+    services="sql-database"
+    documentationCenter=""
+    authors="CarlRabeler"
+    manager="jhubbard"
+    editor="CarlRabeler"/>
 
 <tags
-	ms.service="sql-database"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.tgt_pltfrm="na"
-	ms.workload="NA"
-	ms.date="09/06/2016"
-	ms.author="carlrab"/>
+    ms.service="sql-database"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.tgt_pltfrm="na"
+    ms.workload="NA"
+    ms.date="09/06/2016"
+    ms.author="carlrab"/>
 
-# Общие сведения об обычных единицах передачи данных (DTU) и единицах передачи данных в эластичной базе данных (eDTU)
 
-Эта статья содержит информацию об обычных единицах передачи данных (DTU) и единицах передачи данных в эластичной базе данных (eDTU), а также о том, что происходит, когда достигается их максимальное количество.
+# <a name="explaining-database-transaction-units-(dtus)-and-elastic-database-transaction-units-(edtus)"></a>Explaining Database Transaction Units (DTUs) and elastic Database Transaction Units (eDTUs)
 
-## Что такое единицы передачи данных (DTU)
+This article explains Database Transaction Units (DTUs) and elastic Database Transaction Units (eDTUs) and what happens when you hit the maximum DTUs or eDTUs.  
 
-DTU — это единица измерения ресурсов, которые гарантированно доступны любой автономной базе данных SQL Azure с определенным уровнем производительности в рамках [отдельного уровня службы баз данных](sql-database-service-tiers.md#standalone-database-service-tiers-and-performance-levels). Единица измерения DTU совмещает в себе показатели ЦП, памяти, ввода-вывода данных и ввода-вывода в журнале транзакций (в соотношении, которое определяется тестовой рабочей нагрузкой OLTP, которая отражает стандартные фактические рабочие нагрузки OLTP). Повысить производительность базы данных (через удвоение DTU) означает удвоить количество ресурсов, доступных для этой базы данных. Например, база данных P11 уровня "Премиум" с 1750 единицами DTU обеспечивает в 350 раз больше вычислительной мощи, чем база данных уровня "Базовый" с 5 единицами DTU. Чтобы понять методологию, лежащую в основе тестовой рабочей нагрузки OLTP, которая определяет наполнение единиц DTU, см. статью [Общие сведения об измерении производительности базы данных SQL Azure](sql-database-benchmark-overview.md).
+## <a name="what-are-database-transaction-units-(dtus)"></a>What are Database Transaction Units (DTUs)
 
-![Общие сведения о базе данных SQL: единицы DTU отдельных баз данных по категориям и уровням](./media/sql-database-what-is-a-dtu/single_db_dtus.png)
+A DTU is a unit of measure of the resources that are guaranteed to be available to a standalone Azure SQL database at a specific performance level within a [standalone database service tier](sql-database-service-tiers.md#standalone-database-service-tiers-and-performance-levels). A DTU is a blended measure of CPU, memory, and data I/O and transaction log I/O in a ratio determined by an OLTP benchmark workload designed to be typical of real-world OLTP workloads. Doubling the DTUs by increasing the performance level of a database equates to doubling the set of resource available to that database. For example, a Premium P11 database with 1750 DTUs provides 350x more DTU compute power than a Basic database with 5 DTUs. To understand the methodology behind the OLTP benchmark workload used to determine the DTU blend, see [SQL Database benchmark overview](sql-database-benchmark-overview.md).
 
-Вы можете [изменять уровни службы](sql-database-scale-up.md) в любое время. Это приведет лишь к минимальному простою приложения (обычно в среднем не более четырех секунд). Для многих организаций и приложений достаточно иметь возможность создавать и уменьшать или увеличивать производительность отдельной базы данных по запросу, особенно если закономерности использования базы данных относительно хорошо прогнозируются. Но если закономерности использования непредсказуемы, это может усложнить управление расходами и бизнес-моделью. В этом сценарии мы используем пул эластичных БД с определенным количеством единиц eDTU.
+![Intro to SQL Database: Single database DTUs by tier and level](./media/sql-database-what-is-a-dtu/single_db_dtus.png)
 
-## Что такое единицы передачи данных в эластичной базе данных (eDTU)
+You can [change service tiers](sql-database-scale-up.md) at any time with minimal downtime to your application (generally averaging under four seconds). For many businesses and apps, being able to create databases and dial single database performance up or down on demand is enough, especially if usage patterns are relatively predictable. But if you have unpredictable usage patterns, it can make it hard to manage costs and your business model. For this scenario, you use an elastic pool with a certain number of eDTUs.
 
-eDTU — это единица измерения набора ресурсов (DTU), который совместно используют несколько баз данных на сервере SQL Azure. Эти базы данных вместе называются [пулом эластичных БД](sql-database-elastic-pool.png). Пулы эластичных БД обеспечивают простое и экономически выгодное решение для управления целевыми показателями производительности для нескольких баз данных с совершенно разными и непредсказуемыми моделями функционирования. Дополнительные сведения см. в разделе, посвященном [пулам эластичных БД и уровням службы](sql-database-service-tiers.md#elastic-pool-service-tiers-and-performance-in-edtus).
+## <a name="what-are-elastic-database-transaction-units-(edtus)"></a>What are elastic Database Transaction Units (eDTUs)
 
-![Общие сведения о базе данных SQL: единицы eDTU по категориям и уровням](./media/sql-database-what-is-a-dtu/sqldb_elastic_pools.png)
+An eDTU is a unit of measure of the set of resources (DTUs) that can be shared between a set of databases on an Azure SQL server - called an [elastic pool](sql-database-elastic-pool.png). Elastic pools provide a simple cost effective solution to manage the performance goals for multiple databases that have widely varying and unpredictable usage patterns. See [elastic pools and service tiers](sql-database-service-tiers.md#elastic-pool-service-tiers-and-performance-in-edtus) for more information.
 
-Пулу предоставляется заданное количество единиц eDTU по фиксированной цене. Отдельным базам данных в пуле предоставляется возможность гибкого автоматического масштабирования в рамках заданных параметров. В условиях интенсивной нагрузки база данных может использовать дополнительные единицы eDTU для удовлетворения потребности в ресурсах. При небольших нагрузках базы данных используют меньше ресурсов (eDTU), а при отсутствии нагрузок не используют их вовсе. Подготовка ресурсов для всего пула, а не для отдельной базы данных упрощает задачи управления. Кроме того, используя пул, вы можете спрогнозировать расходы.
+![Intro to SQL Database: eDTUs by tier and level](./media/sql-database-what-is-a-dtu/sqldb_elastic_pools.png)
 
-Добавить дополнительные единицы eDTU в существующий пул можно без простоя баз данных в пуле эластичных БД или снижения их производительности. Точно так же, если eDTU больше не нужны, они могут быть удалены из существующего пула в любой момент времени. Вы можете добавлять базы данных в пул или удалять их из него. Если у базы данных прогнозируемо низкие показатели использования ресурсов, ее можно удалить.
+A pool is given a set number of eDTUs, for a set price. Within the pool, individual databases are given the flexibility to auto-scale within set parameters. Under heavy load, a database can consume more eDTUs to meet demand. Databases under light loads consume less, and databases under no load consume no eDTUs. Provisioning resources for the entire pool rather than for single databases simplifies your management tasks. Plus you have a predictable budget for the pool.
 
-## Как определить, сколько единиц DTU нужно для моей рабочей нагрузки
+Additional eDTUs can be added to an existing pool with no database downtime or no impact on the databases in the elastic pool. Similarly, if extra eDTUs are no longer needed they can be removed from an existing pool at any point in time. You can add or subtract databases to the pool. If a database is predictably under-utilizing resources, move it out.
 
-Если нужно перенести существующую локальную рабочую нагрузку или нагрузку виртуальной машины SQL Server в базу данных SQL Azure, вы можете приблизительно вычислить нужное количество единиц DTU с помощью [калькулятора DTU](http://dtucalculator.azurewebsites.net/). Чтобы узнать, как используются ресурсы (DTU) в существующей рабочей нагрузке базы данных SQL Azure, и понять, как оптимизировать эту нагрузку, вы можете использовать [анализ производительности запросов в базе данных SQL](sql-database-query-performance.md). Кроме того, с помощью динамического административного представления [sys.dm\_db\_ resource\_stats](https://msdn.microsoft.com/library/dn800981.aspx) вы можете получить сведения об использовании ресурсов за последний час. Также можно отправить запрос к представлению каталога [sys.resource\_stats](http://msdn.microsoft.com/library/dn269979.aspx), чтобы получить эти же сведения, но только за последние 14 дней, причем с менее точными средними значениями за пять минут.
+## <a name="how-can-i-determine-the-number-of-dtus-needed-by-my-workload?"></a>How can I determine the number of DTUs needed by my workload?
 
-## Как понять, что мне нужен пул эластичных БД?
+If you are looking to migrate an existing on-premises or SQL Server virtual machine workload to Azure SQL Database, you can use the [DTU Calculator](http://dtucalculator.azurewebsites.net/) to approximate the number of DTUs needed. For an existing Azure SQL Database workload, you can use [SQL Database Query Performance Insight](sql-database-query-performance.md) to understand your database resource consumption (DTUs) to get deeper insight into how to optimize your workload. You can also use the [sys.dm_db_ resource_stats](https://msdn.microsoft.com/library/dn800981.aspx) DMV to get the resource consumption information for the last one hour. Alternatively, the catalog view [sys.resource_stats](http://msdn.microsoft.com/library/dn269979.aspx) can also be queried to get the same data for the last 14 days, although at a lower fidelity of five-minute averages.
 
-Пулы подходят для большого числа баз данных с конкретными закономерностями использования. Для заданной базы данных эта закономерность характеризуется низким средним использованием с относительно редкими пиками использования. База данных SQL автоматически оценивает историю использования ресурсов баз данных на существующем сервере баз данных SQL и рекомендует подходящую конфигурацию пула в портале Azure. Дополнительные сведения см. в статье [Когда следует использовать пул эластичных баз данных?](sql-database-elastic-pool-guidance.md)
+## <a name="how-do-i-know-if-i-could-benefit-from-an-elastic-pool-of-resources?"></a>How do I know if I could benefit from an elastic pool of resources?
 
-## Что происходит, когда количество единиц DTU становится максимальным
+Pools are suited for a large number of databases with specific utilization patterns. For a given database, this pattern is characterized by low average utilization with relatively infrequent utilization spikes. SQL Database automatically evaluates the historical resource usage of databases in an existing SQL Database server and recommends the appropriate pool configuration in the Azure portal. For more information, see [when should an elastic database pool be used?](sql-database-elastic-pool-guidance.md)
 
-Уровни производительности определяются и регулируются, чтобы обеспечить необходимые ресурсы для работы базы данных в условиях максимальной нагрузки, предусмотренной вашим уровнем служб или производительности. Если ваша нагрузка достигнет предела по одному из показателей (ЦП, ввод-вывод данных, ввод-вывод журнала), вы продолжите получать ресурсы на максимально допустимом уровне, но может увеличиться задержка обработки ваших запросов. Превышение одного из этих ограничений ведет не к возникновению ошибок, а к замедлению работы (за исключением случаев, когда работа идет настолько медленно, что время ожидания запросов начинает истекать). Когда количество параллельных пользовательских сеансов или запросов (рабочих потоков) достигает максимально допустимого уровня, отображаются явные ошибки. Информацию об ограничениях на использование ресурсов, отличных от ЦП, памяти, ввода-вывода данных и ввода-вывода журнала см. в статье [Ограничения ресурсов базы данных SQL Azure](sql-database-resource-limits.md).
+## <a name="what-happens-when-i-hit-my-maximum-dtus"></a>What happens when I hit my maximum DTUs
 
-## Дальнейшие действия
+Performance levels are calibrated and governed to provide the needed resources to run your database workload up to the max limits allowed for your selected service tier/performance level. If your workload is hitting the limits in one of CPU/Data IO/Log IO limits, you continue to receive the resources at the maximum allowed level, but you are likely to see increased latencies for your queries. These limits do not result in any errors, but rather a slowdown in the workload, unless the slowdown becomes so severe that queries start timing out. If you are hitting limits of maximum allowed concurrent user sessions/requests (worker threads), you see explicit errors. See [Azure SQL Database resource limits](sql-database-resource-limits.md) for information on limit on resources other than CPU, memory, data I/O, and transaction log I/O.
 
-- В статье [Параметры базы данных SQL и производительность: возможности разных уровней служб](sql-database-service-tiers.md) см. сведения о единицах DTU и eDTU, доступных для отдельных баз данных и для пулов эластичных БД.
-- Информацию об ограничениях на использование ресурсов, отличных от ЦП, памяти, ввода-вывода данных и ввода-вывода журнала см. в статье [Ограничения ресурсов базы данных SQL Azure](sql-database-resource-limits.md).
-- Чтобы понять, как используются единицы DTU в вашей среде, см. статью [Анализ производительности запросов базы данных Azure SQL](sql-database-query-performance.md).
-- Чтобы понять методологию, лежащую в основе тестовой рабочей нагрузки OLTP, которая определяет наполнение единиц DTU, см. статью [Общие сведения об измерении производительности базы данных SQL Azure](sql-database-benchmark-overview.md).
+## <a name="next-steps"></a>Next steps
 
-<!---HONumber=AcomDC_0914_2016-->
+- See [Service tier](sql-database-service-tiers.md) for information on the DTUs and eDTUs available for standalone databases and for elastic pools.
+- See [Azure SQL Database resource limits](sql-database-resource-limits.md) for information on limit on resources other than CPU, memory, data I/O, and transaction log I/O.
+- See [SQL Database Query Performance Insight](sql-database-query-performance.md) to understand your (DTUs) consumption.
+- See [SQL Database benchmark overview](sql-database-benchmark-overview.md) to understand the methodology behind the OLTP benchmark workload used to determine the DTU blend.
+
+
+<!--HONumber=Oct16_HO2-->
+
+

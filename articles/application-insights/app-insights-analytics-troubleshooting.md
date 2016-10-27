@@ -1,136 +1,144 @@
 <properties 
-	pageTitle="Устранение неполадок аналитики — эффективного инструмента поиска Application Insights | Microsoft Azure" 
-	description="Возникли проблемы с аналитикой Application Insights? Начните отсюда. " 
-	services="application-insights" 
+    pageTitle="Troubleshooting Analytics - the powerful search tool of Application Insights | Microsoft Azure" 
+    description="Problems with Application Insights analytics? Start here. " 
+    services="application-insights" 
     documentationCenter=""
-	authors="alancameronwills" 
-	manager="douge"/>
+    authors="alancameronwills" 
+    manager="douge"/>
 
 <tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/11/2016" 
-	ms.author="awills"/>
-
-
-# Устранение неполадок аналитики в Application Insights
-
-
-Возникли проблемы с [аналитикой Application Insights](app-insights-analytics.md)? Начните отсюда. Аналитика — мощный инструмент поиска Visual Studio Application Insights.
+    ms.service="application-insights" 
+    ms.workload="tbd" 
+    ms.tgt_pltfrm="ibiza" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="07/11/2016" 
+    ms.author="awills"/>
 
 
 
-## Ограничения
-
-* В настоящее время результаты запросов ограничены данными за последнюю неделю.
-* Тестируемые браузеры: последние выпуски Chrome, Edge и Internet Explorer.
+# <a name="troubleshoot-analytics-in-application-insights"></a>Troubleshoot Analytics in Application Insights
 
 
-## Известные несовместимые расширения браузеров
+Problems with [Application Insights Analytics](app-insights-analytics.md)? Start here. Analytics is the powerful search tool of Visual Studio Application Insights.
+
+
+
+## <a name="limits"></a>Limits
+
+* At present, query results are limited to just over a week of past data.
+* Browsers we test on: latest editions of Chrome, Edge, and Internet Explorer.
+
+
+## <a name="known-incompatible-browser-extensions"></a>Known incompatible browser extensions
 
 * Ghostery
 
-Отключите это расширение или используйте другой браузер.
+Disable the extension or use a different browser.
 
 
-##<a name="e-a"></a> "Непредвиденная ошибка"
+##<a name="<a-name="e-a"></a>-"unexpected-error""></a><a name="e-a"></a> "Unexpected error"
 
-![Экран непредвиденной ошибки](./media/app-insights-analytics-troubleshooting/010.png)
+![Unexpected error screen](./media/app-insights-analytics-troubleshooting/010.png)
 
-Произошла внутренняя ошибка во время выполнения портала — необработанное исключение.
+Internal error occurred during portal runtime – unhandled exception.
 
-* Очистите кэш браузера.
+* Clean the browser's cache. 
 
-## <a name="e-b"></a>403… попробуйте перезагрузить
+## <a name="<a-name="e-b"></a>403-...-please-try-to-reload"></a><a name="e-b"></a>403 ... please try to reload
 
-![403\... Попробуйте перезагрузить](./media/app-insights-analytics-troubleshooting/020.png)
+![403 ... please try to reload](./media/app-insights-analytics-troubleshooting/020.png)
 
-Произошла ошибка, связанная с проверкой подлинности (во время проверки подлинности или во время создания маркера доступа). Возможно, для восстановления портала требуется изменение параметров браузера.
+An authentication related error occurred (during authentication or during access token generation). The portal may have no way to  recover without changing browser settings.
 
-* Убедитесь, что в браузере [включены сторонние файлы cookie](#cookies).
-
-
-## <a name="authentication"></a>403… проверьте зону безопасности
-
-![403\... Проверьте зону безопасности](./media/app-insights-analytics-troubleshooting/030.png)
-
-Произошла ошибка, связанная с проверкой подлинности (во время проверки подлинности или во время создания маркера доступа). Возможно, для восстановления портала требуется изменение параметров браузера.
-
-1. Убедитесь, что в браузере [включены сторонние файлы cookie](#cookies).
-
-2. Вы использовали элемент избранного, закладку или сохраненную ссылку для открытия портала аналитики? Вы вошли, используя не те учетные данные, которые использовались при сохранении ссылки?
-
-2. Используйте окно браузера в закрытом или анонимном режиме (после закрытия всех окон). Необходимо будет ввести свои учетные данные.
-
-2. Откройте другое (стандартное) окно браузера и перейдите к [Azure](https://portal.azure.com). Выполните выход. Затем откройте ссылку и выполните вход, используя правильные учетные данные.
-
-2. У пользователей браузеров Edge и Internet Explorer также может возникать эта ошибка, если параметры доверенной зоны не поддерживаются.
-
-	Убедитесь, что [портал аналитики](https://analytics.applicationinsights.io) и [портал Azure Active Directory](https://portal.azure.com) находятся в одной зоне безопасности.
-
- * В Internet Explorer щелкните **Свойства браузера** > **Безопасность** > **Надежные сайты** > **Сайты**.
-
-    ![Диалоговое окно "Свойства браузера", добавление сайта в список надежных сайтов](./media/app-insights-analytics-troubleshooting/033.png)
-
-    Если в списке веб-сайтов есть любой из следующих URL-адресов, убедитесь, чтобы и остальные адреса также были включены:
-
-    https://analytics.applicationinsights.io<br/> https://login.microsoftonline.com<br/> https://login.windows.net
+* Verify [third party cookies are enabled](#cookies) in the browser. 
 
 
-## <a name="e-d"></a>404… Ресурс не найден
+## <a name="<a-name="authentication"></a>403-...-verify-security-zone"></a><a name="authentication"></a>403 ... verify security zone
 
-![404\... Ресурс не найден](./media/app-insights-analytics-troubleshooting/040.png)
+![403 ...verify security zone](./media/app-insights-analytics-troubleshooting/030.png)
 
-Ресурс приложения был удален из Application Insights и больше не доступен. Это может произойти, если сохранить URL-адрес на странице аналитики.
+An authentication related error occurred (during authentication or during access token generation). The portal may have no way to  recover without changing browser settings.
+
+1. Verify [third party cookies are enabled](#cookies) in the browser. 
+
+2. Did you use a favorite, bookmark or saved link to open the Analytics portal? Are you signed in with different credentials than you used when you saved the link?
+
+2. Try using an in-private/incognito browser window (after closing all such windows). You'll have to provide your credentials. 
+
+2. Open another (ordinary) browser window and go to [Azure](https://portal.azure.com). Sign out. Then open your link and sign in with the correct credentials.
+
+2. Edge and Internet Explorer users can also get this error when trusted zone settings are not supported.
+
+    Verify both [Analytics portal](https://analytics.applicationinsights.io) and [Azure Active Directory portal](https://portal.azure.com) are in the same security zone:
+
+ * In Internet Explorer, open **Internet Options**, **Security**, **Trusted sites**, **Sites**:
+
+    ![Internet Options dialog, adding a site to Trusted Sites](./media/app-insights-analytics-troubleshooting/033.png)
+
+    In the Websites list, if any of the following URLs are included, make sure that the others are included also:
+
+    https://analytics.applicationinsights.io<br/>
+    https://login.microsoftonline.com<br/>
+    https://login.windows.net
 
 
-## <a name="e-e"></a>403… Нет авторизации
+## <a name="<a-name="e-d"></a>404-...-resource-not-found"></a><a name="e-d"></a>404 ... Resource not found
 
-![403\... Нет авторизации](./media/app-insights-analytics-troubleshooting/050.png)
+![404 ... resource not found](./media/app-insights-analytics-troubleshooting/040.png)
 
-У вас нет разрешения на открытие этого приложения в аналитике.
-
-* Вы получили ссылку от другого пользователя? Попросите, чтобы вас внесли в список [читателей или участников этой группы ресурсов](app-insights-resources-roles-access-control.md).
-* Вы сохранили ссылку, используя другие учетные данные? Откройте [портал Azure](https://portal.azure.com), выполните выход, а затем повторно щелкните эту ссылку и введите правильные учетные данные.
-
-## <a name="html-storage"></a>403… Хранилище HTML5
-
-На нашем портале используются хранилища HTML5 — localStorage и sessionStorage.
-
-* Chrome: Settings (Параметры), Privacy (Конфиденциальность), Content settings (Параметры содержимого).
-* Internet Explorer: "Свойства браузера", вкладка "Дополнительно", "Безопасность", "Включить хранилище DOM".
+Application resource was deleted from Application Insights and isn’t available anymore. This can happen if you saved the URL to the Analytics page.
 
 
-![403\... Попробуйте включить хранилище HTML5](./media/app-insights-analytics-troubleshooting/060.png)
+## <a name="<a-name="e-e"></a>403-...-no-authorization"></a><a name="e-e"></a>403 ... No authorization
 
-## <a name="e-g"></a>404… Подписка не найдена
+![403 ... not authorized](./media/app-insights-analytics-troubleshooting/050.png)
+
+You don't have permission to open this application in Analytics.
+
+* Did you get the link from someone else? Ask them to make sure you are in the [readers or contributors for this resource group](app-insights-resources-roles-access-control.md).
+* Did you save the link using different credentials? Open the [Azure portal](https://portal.azure.com), sign out, and then try this link again, providing the correct credentials.
+
+## <a name="<a-name="html-storage"></a>403-...-html5-storage"></a><a name="html-storage"></a>403 ... HTML5 Storage
+
+Our portal uses HTML5 localStorage and sessionStorage.
+
+* Chrome: Settings, privacy, content settings.
+* Internet Explorer: Internet Options, Advanced tab, Security, Enable DOM Storage
 
 
-![404\... Подписка не найдена](./media/app-insights-analytics-troubleshooting/070.png)
+![403 ... try to enable HTML5 storage](./media/app-insights-analytics-troubleshooting/060.png)
 
-Недопустимый URL-адрес.
+## <a name="<a-name="e-g"></a>404-...-subscription-not-found"></a><a name="e-g"></a>404 ... Subscription not found
 
-* Откройте ресурс приложения на [портале Application Insights](https://portal.azure.com). Затем используйте кнопку аналитики.
 
-## <a name="e-h"></a>404… страница не существует
+![404 ... Subscription not found](./media/app-insights-analytics-troubleshooting/070.png)
 
-![404\... Страница не существует](./media/app-insights-analytics-troubleshooting/080.png)
+The URL is invalid. 
 
-Недопустимый URL-адрес.
+* Open the app resource in [Application Insights portal](https://portal.azure.com). Then use the Analytics button.
 
-* Откройте ресурс приложения на [портале Application Insights](https://portal.azure.com). Затем используйте кнопку аналитики.
+## <a name="<a-name="e-h"></a>404-...-page-doesn't-exist"></a><a name="e-h"></a>404 ... page doesn't exist
 
-## <a name="cookies"></a>Включение сторонних файлов cookie
+![404 ... Page does not exist](./media/app-insights-analytics-troubleshooting/080.png)
 
-  Узнайте, [как отключить сторонние файлы cookie](http://www.digitalcitizen.life/how-disable-third-party-cookies-all-major-browsers), но обратите внимание, что их необходимо **включить**.
+The URL is invalid.
 
-## <a name="e-x"></a>Если ничто из предложенного не помогло    
+* Open the app resource in [Application Insights portal](https://portal.azure.com). Then use the Analytics button.
 
-[Свяжитесь с нами](app-insights-get-dev-support.md).
+## <a name="<a-name="cookies"></a>enable-third-party-cookies"></a><a name="cookies"></a>Enable third-party cookies
+
+  See [how to disable third party cookies](http://www.digitalcitizen.life/how-disable-third-party-cookies-all-major-browsers), but notice we need to **enable** them.
+
+## <a name="<a-name="e-x"></a>if-all-else-fails"></a><a name="e-x"></a>If all else fails    
+
+[Contact us](app-insights-get-dev-support.md).
  
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0713_2016-->
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

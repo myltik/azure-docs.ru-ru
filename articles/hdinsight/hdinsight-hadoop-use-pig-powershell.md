@@ -6,7 +6,7 @@
    authors="Blackmist"
    manager="jhubbard"
    editor="cgronlun"
-	tags="azure-portal"/>
+    tags="azure-portal"/>
 
 <tags
    ms.service="hdinsight"
@@ -14,10 +14,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="07/25/2016"
+   ms.date="10/11/2016"
    ms.author="larryfr"/>
 
-#Выполнение заданий Pig с помощью PowerShell
+
+#<a name="run-pig-jobs-using-powershell"></a>Выполнение заданий Pig с помощью PowerShell
 
 [AZURE.INCLUDE [pig-selector](../../includes/hdinsight-selector-use-pig.md)]
 
@@ -25,31 +26,31 @@
 
 > [AZURE.NOTE] В этом документе не приводится подробное описание процессов, которые выполняют операторы Pig Latin, используемые в примерах. Информацию об операторах Pig Latin, используемых в данном примере, см. в статье [Использование Pig с Hadoop в HDInsight](hdinsight-use-pig.md).
 
-##<a id="prereq"></a>Предварительные требования
+##<a name="<a-id="prereq"></a>prerequisites"></a><a id="prereq"></a>Предварительные требования
 
 Чтобы выполнить действия, описанные в этой статье, необходимо следующее.
 
-- **Подписка Azure.**. См. [Бесплатная пробная версия Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- **Подписка Azure**. Ознакомьтесь с [бесплатной пробной версией Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 - **Рабочая станция с Azure PowerShell.**.
 
     [AZURE.INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
 
-##<a id="powershell"></a>Выполнение заданий Pig с помощью PowerShell
+##<a name="<a-id="powershell"></a>run-pig-jobs-using-powershell"></a><a id="powershell"></a>Выполнение заданий Pig с помощью PowerShell
 
-Azure PowerShell предоставляет *командлеты*, позволяющие удаленно запускать задания Pig в HDInsight. Внутренне это достигается с помощью выполнения вызовов REST для [WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat) (прежнее название — Templeton) на кластере HDInsight.
+Azure PowerShell предоставляет *командлеты* , позволяющие удаленно запускать задания Pig в HDInsight. Внутренне это достигается с помощью выполнения вызовов REST для [WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat) (прежнее название — Templeton) на кластере HDInsight.
 
 При выполнении заданий Pig на удаленном кластере HDInsight используются следующие командлеты:
 
-* **Login-AzureRmAccount** — выполняет аутентификацию Azure PowerShell для подписки Azure.
+* **Login-AzureRmAccount**— выполняет аутентификацию Azure PowerShell для подписки Azure.
 
-* **New-AzureRmHDInsightPigJobDefinition** — создает новое *определение задания* с использованием заданных операторов Pig Latin.
+* **New-AzureRmHDInsightPigJobDefinition**— создает новое *определение задания* с использованием заданных операторов Pig Latin.
 
-* **Start-AzureRmHDInsightJob** — отправляет определение задания в HDInsight, запускает задание и возвращает объект-*задание*, который можно использовать для проверки состояния задания.
+* **Start-AzureRmHDInsightJob**— отправляет определение задания в HDInsight, запускает задание и возвращает объект- *задание* , который можно использовать для проверки состояния задания.
 
-* **Wait-AzureRmHDInsightJob** — использует объект-задание для проверки состояния задания. Он будет ждать завершения задания или превышения времени ожидания.
+* **Wait-AzureRmHDInsightJob**— использует объект-задание для проверки состояния задания. Он будет ждать завершения задания или превышения времени ожидания.
 
-* **Get-AzureRmHDInsightJobOutput** — используется для получения выходных данных задания.
+* **Get-AzureRmHDInsightJobOutput**— используется для получения выходных данных задания.
 
 Следующие шаги показывают, как использовать эти командлеты для выполнения задания в кластере HDInsight.
 
@@ -111,9 +112,9 @@ Azure PowerShell предоставляет *командлеты*, позвол
             -DefaultStorageAccountKey $storageAccountKey `
             -HttpCredential $creds
 
-2. Откройте командную строку Windows PowerShell. Перейдите к расположению файла **pigjob.ps1**, а затем используйте следующую команду для запуска сценария:
+2. Откройте командную строку Windows PowerShell. Перейдите к расположению файла **pigjob.ps1** , а затем используйте следующую команду для запуска сценария:
 
-		.\pigjob.ps1
+        .\pigjob.ps1
         
     Сначала вам будет предложено выполнить вход в свою подписку Azure. Затем вам будет предложено ввести сведения HTTPS/имя и пароль учетной записи администратора для кластера HDInsight.
 
@@ -129,12 +130,12 @@ Azure PowerShell предоставляет *командлеты*, позвол
         (ERROR,6)
         (FATAL,2)
 
-##<a id="troubleshooting"></a>Устранение неполадок
+##<a name="<a-id="troubleshooting"></a>troubleshooting"></a><a id="troubleshooting"></a>Устранение неполадок
 
-Если данные не возвращаются по завершении задания, возможно, во время обработки произошла ошибка. Чтобы просмотреть информацию об ошибке для данного задания, добавьте следующую команду в конец файла **pigjob.ps1**, сохраните его, а затем запустите снова.
+Если данные не возвращаются по завершении задания, возможно, во время обработки произошла ошибка. Чтобы просмотреть информацию об ошибке для данного задания, добавьте следующую команду в конец файла **pigjob.ps1** , сохраните его, а затем запустите снова.
 
-	# Print the output of the Pig job.
-	Write-Host "Display the standard error output ..." -ForegroundColor Green
+    # Print the output of the Pig job.
+    Write-Host "Display the standard error output ..." -ForegroundColor Green
     Get-AzureRmHDInsightJobOutput `
             -Clustername $clusterName `
             -JobId $pigJob.JobId `
@@ -146,11 +147,11 @@ Azure PowerShell предоставляет *командлеты*, позвол
 
 Будет возвращена информация, которая записывается в STDERR на сервере при запуске задания и может помочь определить причину сбоя задания.
 
-##<a id="summary"></a>Сводка
+##<a name="<a-id="summary"></a>summary"></a><a id="summary"></a>Сводка
 
 Как можно видеть, Azure PowerShell позволяет с легкостью выполнять задания Pig в кластере HDInsight, отслеживать состояние задания и получать выходные данные.
 
-##<a id="nextsteps"></a>Дальнейшие действия
+##<a name="<a-id="nextsteps"></a>next-steps"></a><a id="nextsteps"></a>Дальнейшие действия
 
 Общая информация о Pig в HDInsight:
 
@@ -162,4 +163,8 @@ Azure PowerShell предоставляет *командлеты*, позвол
 
 * [Использование MapReduce с Hadoop в HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Управление хранилищем запросов в базе данных SQL Azure"
-   description="Узнайте, как управлять хранилищем запросов в базе данных SQL Azure"
+   pageTitle="Operating Query Store in Azure SQL Database"
+   description="Learn how to operate the Query Store in Azure SQL Database"
    keywords=""
    services="sql-database"
    documentationCenter=""
@@ -17,46 +17,51 @@
    ms.date="08/16/2016"
    ms.author="carlrab"/>
 
-# Управление хранилищем запросов в базе данных SQL Azure 
 
-Хранилище запросов в Azure является полностью управляемой службой базы данных, которая непрерывно собирает и предоставляет подробные статистические сведения обо всех запросах. Хранилище запросов можно рассматривать как аналог бортового самописца, который значительно упрощает устранение проблем, отражающихся на производительности запросов, для клиентов в облаке и в локальной среде. В этой статье объясняются некоторые аспекты управления хранилищем запросов в Azure. С помощью предварительно собранных данных о запросах можно быстро диагностировать и устранять проблемы с производительностью, что позволяет уделять больше времени основным рабочим задачам.
+# <a name="operating-the-query-store-in-azure-sql-database"></a>Operating the Query Store in Azure SQL Database 
 
-Хранилище запросов [глобально доступно](https://azure.microsoft.com/updates/general-availability-azure-sql-database-query-store/) в базе данных SQL Azure с ноября 2015 г. Хранилище запросов является основой для анализа производительности и настройки компонентов, таких как [помощник по настройке базы данных SQL и панель мониторинга производительности](https://azure.microsoft.com/updates/sqldatabaseadvisorga/). На момент публикации этой статьи хранилище запросов работает в более чем 200 000 пользовательских баз данных в Azure, безостановочно собирая информацию о запросах за несколько месяцев.
+Query Store in Azure is a fully managed database feature that continuously collects and presents detailed historic information about all queries. You can think about Query Store as similar to an airplane's flight data recorder that significantly simplifies query performance troubleshooting both for cloud and on-premises customers. This article explains specific aspects of operating Query Store in Azure. Using this pre-collected query data, you can quickly diagnose and resolve performance problems and thus spend more time focusing on their business. 
 
-> [AZURE.IMPORTANT] Корпорация Майкрософт работает над тем, чтобы хранилище запросов стало доступно для всех баз данных SQL Azure (как существующих, так и новых).
+Query Store has been [globally available](https://azure.microsoft.com/updates/general-availability-azure-sql-database-query-store/) in Azure SQL Database since November, 2015. Query Store is the foundation for performance analysis and tuning features, such as [SQL Database Advisor and Performance Dashboard](https://azure.microsoft.com/updates/sqldatabaseadvisorga/). At the moment of publishing this article, Query Store is running in more than 200,000 user databases in Azure, collecting query-related information for several months, without interruption.
 
-## Оптимальная конфигурация хранилища запросов
+> [AZURE.IMPORTANT] Microsoft is in the process of activating Query Store for all Azure SQL databases (existing and new). 
 
-В этом разделе описываются оптимальные настройки по умолчанию, которые призваны обеспечить надежную работу хранилища запросов и зависимых компонентов, таких как [помощник по базам данных SQL и панель мониторинга производительности](https://azure.microsoft.com/updates/sqldatabaseadvisorga/). По умолчанию конфигурация оптимизирована для постоянного сбора данных, т. е. для минимальной продолжительности состояний "Отключено" и "Только для чтения".
+## <a name="optimal-query-store-configuration"></a>Optimal Query Store Configuration
 
-| Конфигурация | Description (Описание) | значение по умолчанию | Комментарий |
+This section describes optimal configuration defaults that are designed to ensure reliable operation of the Query Store and dependent features, such as [SQL Database Advisor and Performance Dashboard](https://azure.microsoft.com/updates/sqldatabaseadvisorga/). Default configuration is optimized for continuous data collection, that is minimal time spent in OFF/READ_ONLY states.
+
+| Configuration | Description | Default | Comment |
 | ------------- | ----------- | ------- | ------- |
-| MAX\_STORAGE\_SIZE\_MB | Предельный размер пространства данных, которое хранилище запросов использует в базе данных клиента. | 100 | Принудительно для новых баз данных |
-| INTERVAL\_LENGTH\_MINUTES | Определяет время, в течение которого объединяются и сохраняются собранные статистические данные среды выполнения по планам запросов. Для каждого активного плана запроса в течение периода, заданного в этом параметре, будет сохраняться только одна строка. | 60 | Принудительно для новых баз данных |
-| STALE\_QUERY\_THRESHOLD\_DAYS | Политика очистки на основе времени, которая контролирует срок хранения статистики для среды выполнения и неактивных запросов. | 30 | Принудительно для новых баз данных и баз данных с предыдущим значением по умолчанию (367) |
-| SIZE\_BASED\_CLEANUP\_MODE | Указывает, нужно ли выполнять автоматическую очистку данных при приближении к предельному значению, установленному для размера данных хранилища запросов. | AUTO (АВТОМАТИЧЕСКИ) | Принудительно для всех баз данных |
-| QUERY\_CAPTURE\_MODE | Указывает, следует ли отслеживать все запросы или только определенное подмножество. | AUTO (АВТОМАТИЧЕСКИ) | Принудительно для всех баз данных |
-| FLUSH\_INTERVAL\_SECONDS | Указывает максимальный период, в течение которого статистика среды выполнения будет храниться в памяти перед записью на диск. | 900 | Принудительно для новых баз данных |
+| MAX_STORAGE_SIZE_MB | Specifies the limit for the data space that Query Store can take inside z customer database | 100 | Enforced for new databases |
+| INTERVAL_LENGTH_MINUTES | Defines size of time window during which collected runtime statistics for query plans are aggregated and persisted. Every active query plan has at most one row for a period of time defined with this configuration | 60   | Enforced for new databases |
+| STALE_QUERY_THRESHOLD_DAYS | Time-based cleanup policy that controls the retention period of persisted runtime statistics and inactive queries | 30 | Enforced for new databases and databases with previous default (367) |
+| SIZE_BASED_CLEANUP_MODE | Specifies whether automatic data cleanup takes place when Query Store data size approaches the limit | AUTO | Enforced for all databases |
+| QUERY_CAPTURE_MODE | Specifies whether all queries or only a subset of queries are tracked | AUTO | Enforced for all databases |
+| FLUSH_INTERVAL_SECONDS | Specifies maximum period during which captured runtime statistics are kept in memory, before flushing to disk | 900 | Enforced for new databases |
 ||||||
 
-> [AZURE.IMPORTANT] Эти значения по умолчанию будут автоматически применяться на последнем этапе активации хранилища запросов для всех баз данных Azure SQL (см. важное примечание выше). После этого база данных SQL Azure не будет изменять значения настроек, заданные пользователями, за исключением случаев негативного влияния на основную рабочую нагрузку или на надежность работы хранилища запросов.
+> [AZURE.IMPORTANT] These defaults are automatically applied in the final stage of Query Store activation in all Azure SQL databases (see preceding important note). After this light up, Azure SQL Database won’t be changing configuration values set by customers, unless they negatively impact primary workload or reliable operations of the Query Store.
 
-Если вы хотите сохранить свои пользовательские настройки, используйте [параметры ALTER DATABASE для хранилища запросов](https://msdn.microsoft.com/library/bb522682.aspx), чтобы восстановить предыдущее состояние конфигурации. Изучите [рекомендации по использованию хранилища запросов](https://msdn.microsoft.com/library/mt604821.aspx), чтобы научиться правильно выбирать оптимальные параметры конфигурации.
+If you want to stay with your custom settings, use [ALTER DATABASE with Query Store options](https://msdn.microsoft.com/library/bb522682.aspx) to revert configuration to the previous state. Check out [Best Practices with the Query Store](https://msdn.microsoft.com/library/mt604821.aspx) in order to learn how top chose optimal configuration parameters.
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Next steps
 
-[Анализ производительности базы данных SQL](sql-database-performance.md)
+[SQL Database Performance Insight](sql-database-performance.md)
 
-## Дополнительные ресурсы
+## <a name="additional-resources"></a>Additional resources
 
-Дополнительные сведения вы найдете в следующих статьях.
+For more information check out the following articles:
 
-- [Query Store: A flight data recorder for your database (Хранилище запросов: "бортовой самописец" для вашей базы данных)](https://azure.microsoft.com/blog/query-store-a-flight-data-recorder-for-your-database)
+- [A flight data recorder for your database](https://azure.microsoft.com/blog/query-store-a-flight-data-recorder-for-your-database) 
 
-- [Мониторинг производительности с использованием хранилища запросов](https://msdn.microsoft.com/library/dn817826.aspx)
+- [Monitoring Performance By Using the Query Store](https://msdn.microsoft.com/library/dn817826.aspx)
 
-- [Query Store Usage Scenarios (Сценарии использования хранилища запросов)](https://msdn.microsoft.com/library/mt614796.aspx)
+- [Query Store Usage Scenarios](https://msdn.microsoft.com/library/mt614796.aspx)
 
-- [Мониторинг производительности с использованием хранилища запросов](https://msdn.microsoft.com/library/dn817826.aspx)
+- [Monitoring Performance By Using the Query Store](https://msdn.microsoft.com/library/dn817826.aspx) 
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Подключение устройства с помощью C в Linux | Microsoft Azure"
-   description="Описывает, как подключить устройство к предварительно настроенному решению для удаленного мониторинга из набора Azure IoT Suite с помощью приложения на C в среде Linux."
+   pageTitle="Connect a device using C on Linux | Microsoft Azure"
+   description="Describes how to connect a device to the Azure IoT Suite preconfigured remote monitoring solution using an application written in C running on Linux."
    services=""
    suite="iot-suite"
    documentationCenter="na"
@@ -14,46 +14,47 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/14/2016"
+   ms.date="10/05/2016"
    ms.author="dobett"/>
 
 
-# Подключение устройства к предварительно настроенному решению для удаленного мониторинга (Linux)
+
+# <a name="connect-your-device-to-the-remote-monitoring-preconfigured-solution-(linux)"></a>Connect your device to the remote monitoring preconfigured solution (Linux)
 
 [AZURE.INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
-## Сборка и запуск примера клиента Linux на C
+## <a name="build-and-run-a-sample-c-client-linux"></a>Build and run a sample C client Linux
 
-Ниже описывается, как создать простое клиентское приложение на языке C, созданное и запущенное на устройстве Ubuntu Linux, которое взаимодействует с предварительно настроенным решением для удаленного мониторинга. Для выполнения этих действий необходимо устройство под управлением Ubuntu версии 15.04 или 15.10. Прежде чем продолжить, установите необходимые пакеты на устройство Ubuntu, используя следующую команду.
+The following procedures show you how to create a client application, written in C and built and run on Ubuntu Linux, that communicates with the remote monitoring preconfigured solution. To complete these steps, you need a device running Ubuntu version 15.04 or 15.10. Before proceeding, install the prerequisite packages on your Ubuntu device using the following command:
 
 ```
 sudo apt-get install cmake gcc g++
 ```
 
-## Установка клиентских библиотек на устройство
+## <a name="install-the-client-libraries-on-your-device"></a>Install the client libraries on your device
 
-Клиентские библиотеки центра IoT Azure доступны в виде пакета, который можно установить на устройство Ubuntu с помощью команды **apt-get**. Выполните следующие действия, чтобы установить пакет, содержащий файлы клиентских библиотек центра IoT Azure и заголовков, на компьютер Ubuntu.
+The Azure IoT Hub client libraries are available as a package you can install on your Ubuntu device using the **apt-get** command. Complete the following steps to install the package that contains the IoT Hub client library and header files on your Ubuntu machine:
 
-1. Добавьте репозиторий AzureIoT на компьютер.
+1. Add the AzureIoT repository to the machine:
 
     ```
     sudo add-apt-repository ppa:aziotsdklinux/ppa-azureiot
     sudo apt-get update
     ```
 
-2. Установите пакет azure-iot-sdk-c-dev.
+2. Install the azure-iot-sdk-c-dev package
 
     ```
     sudo apt-get install -y azure-iot-sdk-c-dev
     ```
 
-## Добавление кода для настройки поведения устройства
+## <a name="add-code-to-specify-the-behavior-of-the-device"></a>Add code to specify the behavior of the device
 
-На компьютере Ubuntu создайте папку **remote\_monitoring**. В папке **remote\_monitoring** создайте четыре файла: **main.c**, **remote\_monitoring.c**, **remote\_monitoring.h** и **CMakeLists.txt**.
+On your Ubuntu machine, create a folder called **remote\_monitoring**. In the **remote\_monitoring** folder create the four files **main.c**, **remote\_monitoring.c**, **remote\_monitoring.h**, and **CMakeLists.txt**.
 
-Клиентские библиотеки сериализатора центра IoT используют модель для указания формата сообщений, отправляемых устройством в центр IoT, и формата команд центра IoT, на которые отвечает устройство.
+The IoT Hub serializer client libraries use a model to specify the format of messages the device sends to IoT Hub and the commands it receives from IoT Hub.
 
-1. Откройте в текстовом редакторе файл **remote\_monitoring.c**. Добавьте следующие операторы `#include`:
+1. In a text editor, open the **remote\_monitoring.c** file. Add the following `#include` statements:
 
     ```
     #include "iothubtransportamqp.h"
@@ -65,7 +66,7 @@ sudo apt-get install cmake gcc g++
     #include "azure_c_shared_utility/platform.h"
     ```
 
-2. После операторов `#include` добавьте указанные ниже объявления переменных. Замените значения заполнителей [Device Id] и [Device Key] значениями для устройства, отображенными на панели мониторинга решения для удаленного мониторинга. Замените [IoTHub Name] именем узла центра IoT, которое отображается на панели мониторинга. Например, если узел центра IoT имеет имя **contoso.azure-devices.net**, замените [IoTHub Name] на **contoso**.
+2. Add the following variable declarations after the `#include` statements. Replace the placeholder values [Device Id] and [Device Key] with values for your device from the remote monitoring solution dashboard. Use the IoT Hub Hostname from the dashboard to replace [IoTHub Name]. For example, if your IoT Hub Hostname is **contoso.azure-devices.net**, replace [IoTHub Name] with **contoso**:
 
     ```
     static const char* deviceId = "[Device Id]";
@@ -74,7 +75,7 @@ sudo apt-get install cmake gcc g++
     static const char* hubSuffix = "azure-devices.net";
     ```
 
-3. Добавьте указанный ниже код для определения модели, позволяющей устройству взаимодействовать с центром IoT. Эта модель указывает, что устройство передает температуру, температуру окружающей среды, влажность и идентификатор устройства в виде телеметрических данных. Кроме того, устройство отправляет в центр IoT свои метаданные, включая список поддерживаемых устройством команд. Данное устройство отвечает на команды **SetTemperature** и **SetHumidity**.
+3. Add the following code to define the model that enables the device to communicate with IoT Hub. This model specifies that the device sends temperature, external temperature, humidity, and a device id as telemetry. The device also sends metadata about the device to IoT Hub, including a list of commands that the device supports. This device responds to the commands **SetTemperature** and **SetHumidity**:
 
     ```
     // Define the Model
@@ -113,11 +114,11 @@ sudo apt-get install cmake gcc g++
     END_NAMESPACE(Contoso);
     ```
 
-### Добавление кода для реализации поведения устройства
+### <a name="add-code-to-implement-the-behavior-of-the-device"></a>Add code to implement the behavior of the device
 
-Добавьте функции, которые будут выполняться, когда устройство получит команду из центра, и код для отправки имитированной телеметрии в центр.
+Add the functions to execute when the device receives a command from the hub, and the code to send simulated telemetry to the hub.
 
-1. Добавьте следующие функции, которые будут выполняться при получении устройством определенных в модели команд **SetTemperature** и **SetHumidity**.
+1. Add the following functions that execute when the device receives the **SetTemperature** and **SetHumidity** commands defined in the model:
 
     ```
     EXECUTE_COMMAND_RESULT SetTemperature(Thermostat* thermostat, int temperature)
@@ -135,7 +136,7 @@ sudo apt-get install cmake gcc g++
     }
     ```
 
-2. Добавьте следующую функцию, которая отправляет сообщение в центр IoT:
+2. Add the following function that sends a message to IoT Hub:
 
     ```
     static void sendMessage(IOTHUB_CLIENT_HANDLE iotHubClientHandle, const unsigned char* buffer, size_t size)
@@ -162,7 +163,7 @@ sudo apt-get install cmake gcc g++
     }
     ```
 
-3. Добавьте следующую функцию, которая подключает библиотеку сериализации в пакете SDK:
+3. Add the following function that hooks up the serialization library in the SDK:
 
     ```
     static IOTHUBMESSAGE_DISPOSITION_RESULT IoTHubMessage(IOTHUB_MESSAGE_HANDLE message, void* userContextCallback)
@@ -200,7 +201,7 @@ sudo apt-get install cmake gcc g++
     }
     ```
 
-4. Добавьте указанную ниже функцию, которая позволяет подключаться к центру IoT, отправлять и получать сообщения и отключаться от центра. Обратите внимание на то, как при установлении подключения устройство отправляет свои метаданные, включая поддерживаемые им команды, в центр IoT. Это позволяет решению изменять состояние устройства на панели мониторинга на **Выполняется**.
+4. Add the following function to connect to IoT Hub, send and receive messages, and disconnect from the hub. Notice how the device sends metadata about itself, including the commands it supports, to IoT Hub when it connects. This metadata enables the solution to update the status of the device to **Running** on the dashboard:
 
     ```
     void remote_monitoring_run(void)
@@ -326,7 +327,7 @@ sudo apt-get install cmake gcc g++
     }
     ```
     
-    Для справки ниже приведен пример сообщения **DeviceInfo**, которое отправляется в центр IoT при запуске устройства.
+    For reference, here is a sample **DeviceInfo** message sent to IoT Hub at startup:
 
     ```
     {
@@ -345,13 +346,13 @@ sudo apt-get install cmake gcc g++
     }
     ```
     
-    Для справки ниже приведен пример сообщения **Telemetry**, которое отправляется в центр IoT.
+    For reference, here is a sample **Telemetry** message sent to IoT Hub:
 
     ```
     {"DeviceId":"mydevice01", "Temperature":50, "Humidity":50, "ExternalTemperature":55}
     ```
     
-    Для справки ниже приведен пример **команды**, получаемой из центра IoT.
+    For reference, here is a sample **Command** received from IoT Hub:
     
     ```
     {
@@ -362,15 +363,15 @@ sudo apt-get install cmake gcc g++
     }
     ```
 
-### Добавление кода для вызова функции remote\_monitoring\_run
+### <a name="add-code-to-invoke-the-remote_monitoring_run-function"></a>Add code to invoke the remote_monitoring_run function
 
-Откройте в текстовом редакторе файл **remote\_monitoring.h**. Добавьте следующий код:
+In a text editor, open the **remote_monitoring.h** file. Add the following code:
 
 ```
 void remote_monitoring_run(void);
 ```
 
-Откройте в текстовом редакторе файл **main.c**. Добавьте следующий код:
+In a text editor, open the **main.c** file. Add the following code:
 
 ```
 #include "remote_monitoring.h"
@@ -383,13 +384,13 @@ int main(void)
 }
 ```
 
-## Создание клиентского приложения с помощью CMake
+## <a name="use-cmake-to-build-the-client-application"></a>Use CMake to build the client application
 
-Ниже приведены указания по использованию *CMake* для создания клиентского приложения.
+The following steps describe how to use *CMake* to build your client application.
 
-1. Откройте в текстовом редакторе файл **CMakeLists.txt** из папки **remote\_monitoring**.
+1. In a text editor, open the **CMakeLists.txt** file in the **remote_monitoring** folder.
 
-2. Добавьте следующие операторы, чтобы определить способ сборки клиентского приложения.
+2. Add the following instructions to define how to build your client application:
 
     ```
     cmake_minimum_required(VERSION 2.8.11)
@@ -422,7 +423,7 @@ int main(void)
     )
     ```
 
-3. В папке **remote\_monitoring** создайте папку для хранения файлов *make*, которые создает CMake, а затем выполните команды **cmake** и **make**, как показано ниже.
+3. In the **remote_monitoring** folder, create a folder to store the *make* files that CMake generates and then run the **cmake** and **make** commands as follows:
 
     ```
     mkdir cmake
@@ -431,7 +432,7 @@ int main(void)
     make
     ```
 
-4. Запустите клиентское приложение и отправьте данные телеметрии в центр IoT.
+4. Run the client application and send telemetry to IoT Hub:
 
     ```
     ./sample_app
@@ -439,4 +440,9 @@ int main(void)
 
 [AZURE.INCLUDE [iot-suite-visualize-connecting](../../includes/iot-suite-visualize-connecting.md)]
 
-<!---HONumber=AcomDC_0720_2016-->
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

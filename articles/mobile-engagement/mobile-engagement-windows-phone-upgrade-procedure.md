@@ -1,154 +1,159 @@
 <properties 
-	pageTitle="Процедуры обновления пакета SDK для Windows Phone Silverlight" 
-	description="Процедуры обновления пакета SDK для Windows Phone Silverlight для Azure Mobile Engagement" 					
-	services="mobile-engagement" 
-	documentationCenter="mobile" 
-	authors="piyushjo" 
-	manager="dwrede"
-	editor="" />
+    pageTitle="Windows Phone Silverlight SDK Upgrade Procedures" 
+    description="Windows Phone Silverlight SDK Upgrade Procedures for Azure Mobile Engagement"                  
+    services="mobile-engagement" 
+    documentationCenter="mobile" 
+    authors="piyushjo" 
+    manager="dwrede"
+    editor="" />
 
 <tags 
-	ms.service="mobile-engagement" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows-phone" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/19/2016" 
-	ms.author="piyushjo" />
+    ms.service="mobile-engagement" 
+    ms.workload="mobile" 
+    ms.tgt_pltfrm="mobile-windows-phone" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="08/19/2016" 
+    ms.author="piyushjo" />
 
-#Процедуры обновления пакета SDK для Windows Phone Silverlight
 
-Если вы уже интегрировали в приложение старую версию пакета SDK, при обновлении пакета SDK необходимо учитывать следующее.
+#<a name="windows-phone-silverlight-sdk-upgrade-procedures"></a>Windows Phone Silverlight SDK Upgrade Procedures
 
-Если вы пропустили несколько версий пакета SDK, вам понадобиться выполнить несколько процедур. Например, при миграции с версии 0.10.1 в версию 0.11.0 необходимо сначала выполнить процедуру миграции «с 0.9.0 в 0.10.1», а затем процедуру миграции «с 0.10.1 в 0.11.0».
+If you already have integrated an older version of our SDK into your application, you have to consider the following points when upgrading the SDK.
 
-##С 2.0.0 в 3.3.0
+You may have to follow several procedures if you missed several versions of the SDK. For example if you migrate from 0.10.1 to 0.11.0 you have to first follow the "from 0.9.0 to 0.10.1" procedure then the "from 0.10.1 to 0.11.0" procedure.
 
-### Журналы тестирования
+##<a name="from-2.0.0-to-3.3.0"></a>From 2.0.0 to 3.3.0
 
-Теперь журналы консоли, созданные с помощью пакета SDK, можно включать, отключать или фильтровать. Чтобы настроить это действие, обновите свойство `EngagementAgent.Instance.TestLogEnabled` до одного из значений, доступных в перечислении `EngagementTestLogLevel`, например:
+### <a name="test-logs"></a>Test logs
 
-			EngagementAgent.Instance.TestLogLevel = EngagementTestLogLevel.Verbose;
-			EngagementAgent.Instance.Init();
+Console logs produced by the SDK can now be enabled/disabled/filtered. To customize this, update the property `EngagementAgent.Instance.TestLogEnabled` to one of the value available from the `EngagementTestLogLevel` enumeration, for instance:
 
-##От версии 1.1.1 до версии 2.0.0
+            EngagementAgent.Instance.TestLogLevel = EngagementTestLogLevel.Verbose;
+            EngagementAgent.Instance.Init();
 
-Ниже описан процесс переноса интеграции пакета SDK из службы Capptain от Capptain SAS в приложение на платформе Azure Mobile Engagement.
+##<a name="from-1.1.1-to-2.0.0"></a>From 1.1.1 to 2.0.0
 
-> [Azure.IMPORTANT] Службы Capptain и Azure Mobile Engagement отличаются между собой. В представленных ниже процедурах описывается способ переноса только для клиентского приложения. При переносе пакета SDK в приложение данные НЕ будут перенесены с серверов Capptain на серверы Mobile Engagement.
+The following describes how to migrate an SDK integration from the Capptain service offered by Capptain SAS into an app powered by Azure Mobile Engagement. 
 
-При переносе с использованием более ранней версии сначала ознакомьтесь с информацией о переносе в версии 1.1.1 на веб-сайте Capptain, а затем примените следующую процедуру.
+> [Azure.IMPORTANT] Capptain and Mobile Engagement are not the same services and the procedure given below only highlights how to migrate the client app. Migrating the SDK in the app will NOT migrate your data from the Capptain servers to the Mobile Engagement servers
 
-### Пакет NuGet
+If you are migrating from an earlier version, please consult the Capptain web site to migrate to 1.1.1 first then apply the following procedure
 
-Замените **Capptain.WindowsPhone** на пакет Nuget **MicrosoftAzure.MobileEngagement**.
+### <a name="nuget-package"></a>Nuget package
 
-### Применение Mobile Engagement
+Replace **Capptain.WindowsPhone** by **MicrosoftAzure.MobileEngagement** Nuget package.
 
-В пакете SDK используется термин `Engagement`, поэтому необходимо обновить проект с учетом этого изменения.
+### <a name="applying-mobile-engagement"></a>Applying Mobile Engagement
 
-Необходимо удалить текущий пакет NuGet Capptain. Советуем удалить все, что было изменено в папке ресурсов Capptain. Если хотите сохранить эти файлы, скопируйте их в другое место.
+The SDK uses the term `Engagement`. You need to update your project to match this change.
 
-После этого установите в проекте новый пакет NuGet для Microsoft Azure Engagement. Его можно найти непосредственно на веб-сайте [Nuget](http://www.nuget.org/packages/MicrosoftAzure.MobileEngagement). В результате выполнения этого действия все файлы ресурсов, используемые Engagement, будут заменены, а в ссылки проекта будет добавлена новая библиотека DLL для Engagement.
+You need to uninstall your current Capptain nuget package. Consider that all your changes in Capptain Resources folder will be removed. If you want to keep those files then make a copy of them.
 
-Ссылки проекта необходимо очистить, удалив ссылки на библиотеку DLL Capptain. Если этого не сделать, возникнет конфликт с версией Capptain и будут происходить ошибки.
+After that, install the new Microsoft Azure Engagement nuget package on your project. You can find it directly on [Nuget](http://www.nuget.org/packages/MicrosoftAzure.MobileEngagement). This action replaces all resources files used by Engagement and adds the new Engagement DLL to your project References.
 
-После настройки ресурсов Capptain скопируйте содержимое старых файлов и вставьте его в новые файлы Engagement. Обратите внимание, что XAML- и CS-файлы нужно обновить.
+You have to clean your project references by deleting Capptain DLL references. If you do not make this, the version of Capptain will conflict and errors will happen.
 
-После выполнения этих шагов необходимо заменить старые ссылки Capptain на новые ссылки Engagement.
+If you have customized Capptain resources, copy your old files content and paste them in the new Engagement files. Please note that both xaml and cs files have to be updated.
 
-1. Все пространства имен Capptain должны быть обновлены.
+When those steps are completed you only have to replace old Capptain references by the new Engagement references.
 
-	Перед миграцией:
-	
-		using Capptain.Agent;
-		using Capptain.Reach;
-	
-	После миграции:
-	
-		using Microsoft.Azure.Engagement;
+1. All Capptain namespaces have to be updated.
 
-2. Все классы Capptain, содержащие Capptain должны содержать Engagement.
+    Before migration:
+    
+        using Capptain.Agent;
+        using Capptain.Reach;
+    
+    After migration:
+    
+        using Microsoft.Azure.Engagement;
 
-	Перед миграцией:
-	
-		public sealed partial class MainPage : CapptainPage
-		{
-		  protected override string GetCapptainPageName()
-		  {
-		    return "Capptain Demo";
-		  }
-		  ...
-		}
-	
-	После миграции:
-	
-		public sealed partial class MainPage : EngagementPage
-		{
-		  protected override string GetEngagementPageName()
-		  {
-		    return "Engagement Demo";
-		  }
-		  ...
-		}
+2. All Capptain classes that contain "Capptain" should contain "Engagement".
 
-3. Для XAML-файлов изменятся также пространство имен и атрибуты Capptain.
+    Before migration:
+    
+        public sealed partial class MainPage : CapptainPage
+        {
+          protected override string GetCapptainPageName()
+          {
+            return "Capptain Demo";
+          }
+          ...
+        }
+    
+    After migration:
+    
+        public sealed partial class MainPage : EngagementPage
+        {
+          protected override string GetEngagementPageName()
+          {
+            return "Engagement Demo";
+          }
+          ...
+        }
 
-	Перед миграцией:
-	
-		<capptain:CapptainPage
-		...
-		xmlns:capptain="clr-namespace:Capptain.Agent;assembly=Capptain.Agent.WP"
-		...
-		</capptain:CapptainPage>
-	
-	После миграции:
-	
-		<engagement:EngagementPage
-		...
-		xmlns:engagement="clr-namespace:Microsoft.Azure.Engagement;assembly=Microsoft.Azure.Engagement.EngagementAgent.WP"
-		...
-		</engagement:EngagementPage>
+3. For xaml files Capptain namespace and attributes also change.
 
-4. Обратите внимание, что для использования Engagement были переименованы и другие ресурсы, такие как изображения Capptain.
+    Before migration:
+    
+        <capptain:CapptainPage
+        ...
+        xmlns:capptain="clr-namespace:Capptain.Agent;assembly=Capptain.Agent.WP"
+        ...
+        </capptain:CapptainPage>
+    
+    After migration:
+    
+        <engagement:EngagementPage
+        ...
+        xmlns:engagement="clr-namespace:Microsoft.Azure.Engagement;assembly=Microsoft.Azure.Engagement.EngagementAgent.WP"
+        ...
+        </engagement:EngagementPage>
 
-### Идентификатор приложения и ключ SDK
+4. For the other resources like Capptain pictures, please note that they also have been renamed to use "Engagement".
 
-Engagement использует строку подключения. При использовании Mobile Engagement не нужно указывать идентификатор приложения и ключ SDK. Достаточно просто задать строку подключения. Ее можно настроить в файле EngagementConfiguration.
+### <a name="application-id-/-sdk-key"></a>Application ID / SDK Key
 
-Конфигурацию Engagement можно определить в файле `Resources\EngagementConfiguration.xml` проекта.
+Engagement uses a connection string. You don't have to specify an application ID and an SDK key with Mobile Engagement, you only have to specify a connection string. You can set it up on your EngagementConfiguration file.
 
-Измените этот файл, чтобы указать:
+The Engagement configuration can be set in your `Resources\EngagementConfiguration.xml` file of your project.
 
--   строку подключения приложения между тегами `<connectionString>` и `<\connectionString>`.
+Edit this file to specify:
 
-Если вместо этого вам необходимо указать ее во время выполнения, можно вызвать следующий метод до инициализации агента Engagement:
+-   Your application connection string between tags `<connectionString>` and `<\connectionString>`.
 
-		/* Engagement configuration. */
-		EngagementConfiguration engagementConfiguration = new EngagementConfiguration();
-		engagementConfiguration.Agent.ConnectionString = "Endpoint={appCollection}.{domain};AppId={appId};SdkKey={sdkKey}";
-		
-		/* Initialize Engagement angent with above configuration. */
-		EngagementAgent.Instance.Init(engagementConfiguration);
+If you want to specify it at runtime instead, you can call the following method before the Engagement agent initialization:
 
-Строка подключения для приложения отображается на классическом портале Azure.
+        /* Engagement configuration. */
+        EngagementConfiguration engagementConfiguration = new EngagementConfiguration();
+        engagementConfiguration.Agent.ConnectionString = "Endpoint={appCollection}.{domain};AppId={appId};SdkKey={sdkKey}";
+        
+        /* Initialize Engagement angent with above configuration. */
+        EngagementAgent.Instance.Init(engagementConfiguration);
 
-### Изменение имени элементов
+The connection string for your application is displayed in the Azure Classic Portal.
 
-Каждый из элементов с именем *capptain* был переименован в *engagement*. Аналогичным образом имя *Capptain* изменилось на *Engagement*.
+### <a name="items-name-change"></a>Items name change
 
-Примеры часто используемых элементов Capptain:
+All items named *capptain* have been named *engagement*. Similarly for *Capptain* to *Engagement*.
 
--   CapptainConfiguration теперь называется EngagementConfiguration.
--   CapptainAgent теперь называется EngagementAgent.
--   CapptainReach теперь называется EngagementReach.
--   CapptainHttpConfig теперь называется EngagementHttpConfig.
--   GetCapptainPageName теперь называется GetEngagementPageName.
+Examples of commonly used Capptain items :
 
-Обратите внимание, что переименование также влияет на переопределенные методы.
+-   CapptainConfiguration now named EngagementConfiguration
+-   CapptainAgent now named EngagementAgent
+-   CapptainReach now named EngagementReach
+-   CapptainHttpConfig now named EngagementHttpConfig
+-   GetCapptainPageName now named GetEngagementPageName
+
+Note that rename also affects overridden methods.
 
 
 
  
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

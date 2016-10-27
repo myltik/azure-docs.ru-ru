@@ -1,83 +1,84 @@
 <properties
-	pageTitle="Обновление до версии 2 API анализа текста | Microsoft Azure"
-	description="Анализ текста машинного обучения Azure — обновление до версии 2"
-	services="cognitive-services"
-	documentationCenter=""
-	authors="onewth"
-	manager="jhubbard"
-	editor="cgronlun"/>
+    pageTitle="Upgrading to Version 2 of the Text Analytics API | Microsoft Azure"
+    description="Azure Machine Learning Text Analytics - Upgrade to Version 2"
+    services="cognitive-services"
+    documentationCenter=""
+    authors="onewth"
+    manager="jhubbard"
+    editor="cgronlun"/>
 
 <tags
-	ms.service="cognitive-services"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/05/2016"
-	ms.author="onewth"/>
+    ms.service="cognitive-services"
+    ms.workload="data-services"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/04/2016"
+    ms.author="onewth"/>
 
-# Обновление до версии 2 API анализа текста #
 
-Это руководство поможет выполнить обновление кода, в котором используется [первая версия API](../machine-learning/machine-learning-apps-text-analytics.md), до второй версии.
+# <a name="upgrading-to-version-2-of-the-text-analytics-api"></a>Upgrading to Version 2 of the Text Analytics API #
 
-Если вы не использовали API и хотите узнать больше, можете **[получить дополнительные сведения об API](//go.microsoft.com/fwlink/?LinkID=759711)** или **[последовать краткому руководству](//go.microsoft.com/fwlink/?LinkID=760860)**. Технический справочник см. в разделе **[Определение API](//go.microsoft.com/fwlink/?LinkID=759346)**.
+This guide will take you through the process of upgrading your code from using the [first version of the API](../machine-learning/machine-learning-apps-text-analytics.md) to using the second version. 
 
-### Часть 1. Получение нового ключа ###
+If you have not used the API and would like to learn more, you can **[learn more about the API here](//go.microsoft.com/fwlink/?LinkID=759711)** or **[follow the Quick Start Guide](//go.microsoft.com/fwlink/?LinkID=760860)**. For technical reference, refer to the **[API Definition](//go.microsoft.com/fwlink/?LinkID=759346)**.
 
-Во-первых, необходимо получить новый ключ API из **портале Azure**:
+### <a name="part-1.-get-a-new-key"></a>Part 1. Get a new key ###
 
-1. Перейдите к службе анализа текста с помощью [Коллекции Cortana Intelligence](//gallery.cortanaintelligence.com/MachineLearningAPI/Text-Analytics-2). Здесь вы также найдете ссылки на документацию и примеры кода.
+First, you will need to get a new API key from the **Azure Portal**:
 
-1. Щелкните **Регистрация**. Откроется портал управления Azure, на котором вы сможете зарегистрироваться для использования службы.
+1. Navigate to the Text Analytics service through the [Cortana Intelligence Gallery](//gallery.cortanaintelligence.com/MachineLearningAPI/Text-Analytics-2). Here, you will also find links to the documentation and code samples.
 
-1. Выберите план. Вы можете выбрать **бесплатный уровень с 5000 транзакциями в месяц**. Это бесплатный план, поэтому вы не будете платить за использование службы. Войдите в свою подписку Azure.
+1. Click **Sign Up**. This link will take you to the Azure management portal, where you can sign up for the service.
 
-1. После регистрации для службы анализа текста вы получите **ключ API**. Скопируйте этот ключ, так как он потребуется вам при использовании служб API.
+1. Select a plan. You may select the **free tier for 5,000 transactions/month**. As is a free plan, you will not be charged for using the service. You will need to login to your Azure subscription. 
 
-### Часть 2. Обновление заголовков ###
+1. After you sign up for Text Analytics, you'll be given an **API Key**. Copy this key, as you'll need it when using the API services.
 
-Обновите значения отправленного заголовка, как показано ниже. Обратите внимание, что ключ учетной записи больше не кодируется.
+### <a name="part-2.-update-the-headers"></a>Part 2. Update the headers ###
 
-**Версия 1**
+Update the submitted header values as shown below. Note that the account key is no longer encoded.
+
+**Version 1**
 
     Authorization: Basic base64encode(<your Data Market account key>)
     Accept: application/json
 
-**Версия 2**
+**Version 2**
 
     Content-Type: application/json
     Accept: application/json
     Ocp-Apim-Subscription-Key: <your Azure Portal account key>
 
 
-### Часть 3. Обновление базового URL-адреса ###
+### <a name="part-3.-update-the-base-url"></a>Part 3. Update the base URL ###
 
-**Версия 1**
+**Version 1**
 
     https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/
 
-**Версия 2**
+**Version 2**
 
     https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/
 
-### Часть 4a. Обновление форматов для мнений, ключевых фраз и языков ###
+### <a name="part-4a.-update-the-formats-for-sentiment,-key-phrases-and-languages"></a>Part 4a. Update the formats for sentiment, key phrases and languages ###
 
-#### Endpoints ####
+#### <a name="endpoints"></a>Endpoints ####
 
-Использование метода GET с конечными точками теперь является устаревшим. Поэтому все входные данные необходимо отправлять в запросе POST. Обновите конечные точки в соответствии с приведенными ниже.
+GET endpoints have now been deprecated, so all input should be submitted as a POST request. Update the endpoints to the ones shown below.
 
-| |Версия 1, одиночная конечная точка|Версия 1, пакетная конечная точка|Версия 2, конечная точка|
+| |Version 1 single endpoint|Version 1 batch endpoint|Version 2 endpoint|
 |---|---|---|---|
-|Тип вызова|ПОЛУЧЕНИЕ|ПУБЛИКАЦИЯ|ПУБЛИКАЦИЯ|
-|Мнение|```GetSentiment```|.```GetSentimentBatch```|```sentiment```|
-|Ключевые фразы|```GetKeyPhrases```|.```GetKeyPhrasesBatch```|```keyPhrases```|
-|Языки|```GetLanguage```|.```GetLanguageBatch```|```languages```|
+|Call type|GET|POST|POST|
+|Sentiment|```GetSentiment```|```GetSentimentBatch```|```sentiment```|
+|Key phrases|```GetKeyPhrases```|```GetKeyPhrasesBatch```|```keyPhrases```|
+|Languages|```GetLanguage```|```GetLanguageBatch```|```languages```|
 
-#### Форматы входных данных ####
+#### <a name="input-formats"></a>Input formats ####
 
-Обратите внимание, что теперь можно использовать только формат POST, поэтому следует соответствующим образом изменить формат всех входных данных, в которых ранее использовались конечные точки для отдельных документов. Регистр входных данных не учитывается.
+Note that only POST format is now accepted, so you should reformat any input which previously used the single document endpoints accordingly. Inputs are not case sensitive.
 
-**Версия 1 (пакетная)**
+**Version 1 (batch)**
 
     {
       "Inputs": [
@@ -88,7 +89,7 @@
       ]
     }
 
-**Версия 2**
+**Version 2**
 
     {
       "documents": [
@@ -99,9 +100,9 @@
       ]
     }
 
-#### Вывод мнения ####
+#### <a name="output-from-sentiment"></a>Output from sentiment ####
 
-**Версия 1**
+**Version 1**
 
     {
       "SentimentBatch":[{
@@ -114,7 +115,7 @@
       }]
     }
 
-**Версия 2**
+**Version 2**
 
     {
       "documents":[{
@@ -127,9 +128,9 @@
       }]
     }
 
-#### Вывод ключевых фраз ####
+#### <a name="output-from-key-phrases"></a>Output from key phrases ####
 
-**Версия 1**
+**Version 1**
 
     {
       "KeyPhrasesBatch":[{
@@ -142,7 +143,7 @@
       }]
     }
 
-**Версия 2**
+**Version 2**
 
     {
       "documents":[{
@@ -155,10 +156,10 @@
       }]
     }
 
-#### Вывод языков ####
+#### <a name="output-from-languages"></a>Output from languages ####
 
 
-**Версия 1**
+**Version 1**
 
     {
       "LanguageBatch":[{
@@ -175,7 +176,7 @@
       }]
     }
 
-**Версия 2**
+**Version 2**
 
     {
       "documents":[{
@@ -193,18 +194,18 @@
     }
 
 
-### Часть 4b. Обновление форматов разделов ###
+### <a name="part-4b.-update-the-formats-for-topics"></a>Part 4b. Update the formats for topics ###
 
-#### Endpoints ####
+#### <a name="endpoints"></a>Endpoints ####
 
-| |Версия 1, конечная точка | Версия 2, конечная точка|
+| |Version 1 endpoint | Version 2 endpoint|
 |---|---|---|
-|Отправка для определения раздела (POST)|```StartTopicDetection```|```topics```|
-|Получение результатов для раздела (GET)|```GetTopicDetectionResult?JobId=<jobId>```|```operations/<operationId>```|
+|Submit for topic detection (POST)|```StartTopicDetection```|```topics```|
+|Fetch topic results (GET)|```GetTopicDetectionResult?JobId=<jobId>```|```operations/<operationId>```|
 
-#### Форматы входных данных ####
+#### <a name="input-formats"></a>Input formats ####
 
-**Версия 1**
+**Version 1**
 
     {
       "StopWords": [
@@ -221,7 +222,7 @@
       ]
     }
 
-**Версия 2**
+**Version 2**
 
     {
       "stopWords": [
@@ -238,26 +239,26 @@
       ]
     }
 
-#### Отправка результатов ####
+#### <a name="submission-results"></a>Submission results ####
 
-**Версия 1 (POST)**
+**Version 1 (POST)**
 
-Ранее по завершении задания вы получали следующие выходные данные JSON, в которых jobId добавлялся к URL-адресу для получения выходных данных.
+Previously, when the job finished, you would receive the following JSON output, where the jobId would be appended to a URL to fetch the output.
 
     {
         "odata.metadata":"<url>",
         "JobId":"<JobId>"
     }
 
-**Версия 2 (POST)**
+**Version 2 (POST)**
 
-Сейчас ответ содержит следующее значение заголовка, в котором `operation-location` используется в качестве конечной точки для опроса результатов:
+The response will now include a header value as follows, where `operation-location` is used as the endpoint to poll for the results:
 
     'operation-location': 'https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/operations/<operationId>'
 
-#### Результаты операции ####
+#### <a name="operation-results"></a>Operation results ####
 
-**Версия 1 (GET)**
+**Version 1 (GET)**
 
     {
       "TopicInfo" : [{
@@ -276,11 +277,11 @@
       }]
     }
 
-**Версия 2 (GET)**
+**Version 2 (GET)**
 
-Как и прежде, **периодически опрашивайте выходные данные** (предложенный интервал опроса — одна минута) до тех пор, пока они не будут возвращены.
+As before, **periodically poll the output** (the suggested period is every minute) until the output is returned. 
 
-Когда API разделов завершит работу, будет возвращено состояние `succeeded`. Затем будут возвращены выходные результаты в формате, показанном ниже:
+When the topics API has finished, a status reading `succeeded` will be returned. This will then include the output results in the format shown below:
 
     {
         "status": "succeeded",
@@ -304,8 +305,12 @@
         }
     }
 
-### Часть 5. Проверьте, как все работает! ###
+### <a name="part-5.-test-it!"></a>Part 5. Test it! ###
 
-Теперь все готово для проверки! Проверьте свой код с небольшим примером, чтобы убедиться, что он успешно обрабатывает данные.
+You should now be good to go! Test your code with a small sample to ensure that you can successfully process your data.
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

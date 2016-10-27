@@ -1,61 +1,67 @@
 <properties
-	pageTitle="Рекомендации по проектированию решений для гибридной идентификации Azure Active Directory ― определение требований к многофакторной проверке подлинности"
-	description="С условным контролем доступа при проверке подлинности пользователя и перед предоставлением ему доступа к приложению Azure Active Directory проверяет определенные условия, которые вы можете выбрать. Если эти условия выполняются, пользователь проходит проверку подлинности, и ему дается доступ к приложению."
-	documentationCenter=""
-	services="active-directory"
-	authors="femila"
-	manager="billmath"
-	editor=""/>
+    pageTitle="Azure Active Directory hybrid identity design considerations - determine multi-factor authentication requirements"
+    description="With Conditional access control, Azure Active Directory checks the specific conditions you pick when authenticating the user and before allowing access to the application. Once those conditions are met, the user is authenticated and allowed access to the application."
+    documentationCenter=""
+    services="active-directory"
+    authors="femila"
+    manager="billmath"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.devlang="na"
-	ms.topic="article"
+    ms.service="active-directory"
+    ms.devlang="na"
+    ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="08/08/2016"
-	ms.author="billmath"/>
+    ms.date="08/08/2016"
+    ms.author="billmath"/>
 
-# Определение требований к многофакторной проверке подлинности для решения гибридной идентификации
 
-В мире мобильных пользователей, обращающихся к данным и приложениям в облаке и с любого устройства, защита этой информация приобретает первостепенное значение. Каждый день мы видим новости о взломе систем безопасности. Хотя полностью застраховаться от них невозможно, многофакторная проверка подлинности обеспечивает дополнительный уровень безопасности, который помогает предотвратить эти действия. Начнем с оценки требований организации к многофакторной проверке подлинности. Это то, что организация пытается защитить. Эта оценка важна для определения технических требований для настройки и включения многофакторной проверки подлинности для пользователей организации.
+# <a name="determine-multi-factor-authentication-requirements-for-your-hybrid-identity-solution"></a>Determine multi-factor authentication requirements for your hybrid identity solution
+
+In this world of mobility, with users accessing data and applications in the cloud and from any device, securing this information has become paramount.  Every day there is a new headline about a security breach.  Although, there is no guarantee against such breaches, multi-factor authentication, provides an additional layer of security to help prevent these breaches.
+Start by evaluating the organizations requirements for multi-factor authentication. That is, what is the organization trying to secure.  This evaluation is important to define the technical requirements for setting up and enabling the organizations users for multi-factor authentication.
 
 >[AZURE.NOTE]
-Если вы не знакомы с многофакторной проверкой подлинности, настоятельно рекомендуем прочесть статью [Что такое многофакторная проверка подлинности Azure?](../multi-factor-authentication/multi-factor-authentication.md) и затем вернуться к этому разделу.
+If you are not familiar with MFA and what it does, it is strongly recommended that you read the article [What is Azure Multi-Factor Authentication?](../multi-factor-authentication/multi-factor-authentication.md) prior to continue reading this section.
 
-Дайте ответы на следующие вопросы:
+Make sure to answer the following:
 
-- Пытается ли ваша компания защитить приложения Майкрософт?
-- Как публикуются эти приложения?
-- Предоставляет ли ваша компания удаленный доступ, чтобы разрешить сотрудникам доступ к локальным приложениям?
+- Is your company trying to secure Microsoft apps? 
+- How these apps are published?
+- Does your company provide remote access to allow employees to access on-premises apps?
 
-Если да, то каков тип удаленного доступа? Также необходимо оценить, где будут располагаться пользователи, которые обращаются к этим приложениям. Эта оценка — еще один важный шаг для определения правильной стратегии многофакторной проверки подлинности. Дайте ответы на следующие вопросы:
+If yes, what type of remote access?You also need to evaluate where the users who are accessing these applications will be located. This evaluation is another important step to define the proper multi-factor authentication strategy. Make sure to answer the following questions:
 
-- Где будут расположены пользователи?
-- Могут ли они быть расположены где угодно?
-- Хочет ли организация установить ограничения в соответствии с расположением пользователя?
+- Where are the users going to be located?
+- Can they be located anywhere?
+- Does your company want to establish restrictions according to the user’s location?
 
-После понимания этих требований также важно оценить требования пользователей к многофакторной проверке подлинности. Эта оценка важна, поскольку она определит требования для развертывания системы многофакторной проверки подлинности. Дайте ответы на следующие вопросы:
+Once you understand these requirements, it is important to also evaluate the user’s requirements for multi-factor authentication. This evaluation is important because it will define the requirements for rolling out multi-factor authentication. Make sure to answer the following questions:
 
-- Знакомы ли пользователи с многофакторной проверкой подлинности?
-- Потребуется ли некоторым пользователям пройти дополнительную проверку подлинности?
- - Если да, то "всегда", "при подключении из внешних сетей", "при доступе к конкретным приложениям" или с другими условиями?
-- Потребуется ли обучение пользователей настройке и реализации многофакторной проверки подлинности?
-- Каковые основные сценарии включения многофакторной проверки подлинности для пользователей?
+- Are the users familiar with multi-factor authentication?
+- Will some uses be required to provide additional authentication?  
+ - If yes, all the time, when coming from external networks, or accessing specific applications, or under other conditions?
+- Will the users require training on how to setup and implement multi-factor authentication?
+- What are the key scenarios that your company wants to enable multi-factor authentication for their users?
 
-Ответив на предыдущие вопросы, вы сможете понять, была ли многофакторная проверка подлинности уже реализована локально. Эта оценка важна для определения технических требований для настройки и включения многофакторной проверки подлинности для пользователей организации. Дайте ответы на следующие вопросы:
+After answering the previous questions, you will be able to understand if there are multi-factor authentication already implemented on-premises. This evaluation is important to define the technical requirements for setting up and enabling the organizations users for multi-factor authentication. Make sure to answer the following questions:
 
-- Нужно ли вашей организации защитить привилегированные учетные записи с многофакторной проверкой подлинности?
-- Нужно ли вашей организации включить многофакторную проверку подлинности для определенных приложений для выполнения требований соответствия?
-- Нужно ли вашей организации включить многофакторную проверку подлинности для всех допустимых пользователей этих приложений или только для администраторов?
-- Должна ли многофакторная проверка подлинности использоваться всегда или только при входе пользователей из-за пределов корпоративной сети?
-
-
-## Дальнейшие действия
-[Определение стратегии внедрения гибридной идентификации](active-directory-hybrid-identity-design-considerations-identity-adoption-strategy.md)
+- Does your company need to protect privileged accounts with MFA?
+- Does your company need to enable MFA for certain application for compliance reasons?
+- Does your company need to enable MFA for all eligible users of these application or only administrators?
+- Do you need have MFA always enabled or only when the users are logged outside of your corporate network?
 
 
-## Дополнительные материалы
-[Обзор рекомендаций по проектированию](active-directory-hybrid-identity-design-considerations-overview.md)
+## <a name="next-steps"></a>Next steps
+[Define a hybrid identity adoption strategy](active-directory-hybrid-identity-design-considerations-identity-adoption-strategy.md)
 
-<!---HONumber=AcomDC_0810_2016-->
+
+## <a name="see-also"></a>See also
+[Design considerations overview](active-directory-hybrid-identity-design-considerations-overview.md)
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,152 +1,158 @@
 <properties
-	pageTitle="Развертывание веб-служб машинного обучения Azure, использующих модули импорта и экспорта данных | Microsoft Azure"
-	description="Узнайте, как использовать модули импорта и экспорта данных для отправки и получения данных из веб-службы."
-	services="machine-learning"
-	documentationCenter=""
-	authors="vDonGlover"
-	manager="raymondlaghaeian"
-	editor=""/>
+    pageTitle="Deploying Azure ML web services that use Data Import and Data Export modules | Microsoft Azure"
+    description="Learn how to use the Import Data and Export Data modules to send and receive data from a web service."
+    services="machine-learning"
+    documentationCenter=""
+    authors="vDonGlover"
+    manager="raymondlaghaeian"
+    editor=""/>
 
 <tags
-	ms.service="machine-learning"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/12/2016"
-	ms.author="v-donglo"/>
+    ms.service="machine-learning"
+    ms.workload="data-services"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="08/12/2016"
+    ms.author="v-donglo"/>
 
 
 
-# Развертывание веб-служб машинного обучения Azure, использующих модули импорта и экспорта данных 
 
-При создании прогнозного эксперимента обычно добавляются вход и выход веб-службы. Если вы развернете эксперимент, то пользователи смогут отправлять и получать данные из веб-службы через входы и выходы. В некоторых приложениях данные пользователя могут быть доступны через веб-канал данных или уже находиться во внешнем источнике данных, таком как хранилище BLOB-объектов Azure. В этих случаях для чтения и записи данных им не требуются входы и выходы веб-службы. Вместо этого они могут использовать службу выполнения пакетов (BES) для чтения из источника данных с помощью модуля импорта данных, а записывать результаты оценки в другое расположение с помощью модуля экспорта данных.
+# <a name="deploying-azure-ml-web-services-that-use-data-import-and-data-export-modules"></a>Deploying Azure ML web services that use Data Import and Data Export modules 
 
-Модули импорта и экспорта данных могут выполнять чтение и запись в различные расположения, такие как URL-адрес с использованием протокола HTTP, запрос Hive, база данных Azure SQL, хранилище таблиц Azure, хранилище BLOB-объектов Azure, поставщик веб-канала данных или локальная база данных SQL.
+When you create a predictive experiment, you typically add a web service input and output. When you deploy the experiment, consumers can send and receive data from the web service through the inputs and outputs. For some applications, a consumer's data may be available from a data feed or already reside in an external data source such as Azure Blob storage. In these cases, they do not need read and write data using web service inputs and outputs. They can, instead, use the Batch Execution Service (BES) to read data from the data source using an Import Data module and write the scoring results to a different data location using an Export Data module.
 
-В данной статье используется пример "Sample 5: Train, Test, Evaluate for Binary Classification: Adult Dataset" (Образец 5. Обучение, тестирование, оценка для классификации бинарных файлов: набор данных с контентом для взрослых). Предполагается, что набор данных уже загружен в таблицу Azure SQL с именем censusdata.
+The Import Data and Export data modules, can read from and write to a number of data locations such as a Web URL via HTTP, a Hive Query, an Azure SQL database, Azure Table storage, Azure Blob storage, a Data Feed provide, or an on-premise SQL database.
 
-## Создание обучающего эксперимента 
+This topic uses the "Sample 5: Train, Test, Evaluate for Binary Classification: Adult Dataset" sample and assumes the dataset has already been loaded into an Azure SQL table named censusdata.
+
+## <a name="create-the-training-experiment"></a>Create the training experiment 
  
-При открытии примера "Sample 5: Train, Test, Evaluate for Binary Classification: Adult Dataset" (Образец 5. Обучение, тестирование, оценка для классификации бинарных файлов: набор данных с контентом для взрослых) используется пример набора данных Adult Census Income Binary Classification. На холсте эксперимент должен выглядеть так, как показано на рисунке ниже.
+When you open the "Sample 5: Train, Test, Evaluate for Binary Classification: Adult Dataset" sample it uses the sample Adult Census Income Binary Classification dataset. And the experiment in the canvas will look similar to the following image.
 
-![Начальная настройка эксперимента.](./media/machine-learning-web-services-that-use-import-export-modules/initial-look-of-experiment.png)
+![Initial configuration of the experiment.](./media/machine-learning-web-services-that-use-import-export-modules/initial-look-of-experiment.png)
   
 
-Для чтения данных из таблицы Azure SQL выполните следующие действия:
+To read the data from the Azure SQL table:
 
-1. 	Удалите модуль набора данных.
-2.	В поле поиска компонентов введите "import".
-3.	В списке результатов найдите модуль *Import Data* (Импорт данных) и добавьте его на холст эксперимента.
-4.	Соедините выход модуля *Import Data* (Импорт данных) и вход модуля *Clean Missing Data* (Очистка недостающих данных).
-5.	На панели свойств в раскрывающемся списке **Data Source** (Источник данных) выберите **Azure SQL Database** (База данных SQL Azure).
-6.	В полях **Database server name** (Имя сервера базы данных), **Database name** (Имя базы данных), **User name** (Имя пользователя) и **Password** (Пароль) введите сведения, соответствующие базе данных.
-7.	В поле запросов базы данных введите следующий запрос:
+1.  Delete the dataset module.
+2.  In the components search box, type import.
+3.  From the results list, add an *Import Data* module to the experiment canvas.
+4.  Connect output of the *Import Data* module the input of the *Clean Missing Data* module.
+5.  In properties pane, select **Azure SQL Database** in the **Data Source** dropdown.
+6.  In the **Database server name**, **Database name**, **User name**, and **Password** fields, enter the appropriate information for your database.
+7.  In the Database query field, enter the following query.
 
-		select [age],
-		   [workclass],
-		   [fnlwgt],
-		   [education],
-		   [education-num],
-		   [marital-status],
-		   [occupation],
-		   [relationship],
-		   [race],
-		   [sex],
-		   [capital-gain],
-		   [capital-loss],
-		   [hours-per-week],
-		   [native-country],
-		   [income]
-		from dbo.censusdata;
+        select [age],
+           [workclass],
+           [fnlwgt],
+           [education],
+           [education-num],
+           [marital-status],
+           [occupation],
+           [relationship],
+           [race],
+           [sex],
+           [capital-gain],
+           [capital-loss],
+           [hours-per-week],
+           [native-country],
+           [income]
+        from dbo.censusdata;
 
-8.	В нижней части холста эксперимента нажмите кнопку **Run** (Выполнить).
+8.  At the bottom of the experiment canvas, click **Run**.
 
-## Создание прогнозного эксперимента
+## <a name="create-the-predictive-experiment"></a>Create the predictive experiment
 
-На следующем шаге необходимо настроить прогнозной эксперимент, из которого будет развернута веб-служба.
+Next you set up the predictive experiment from which you will deploy your web service.
 
-1.	В нижней части холста эксперимента щелкните **Set Up Web Service** (Настроить веб-службу) и выберите **Predictive Web Service [Recommended]** (Прогнозная веб-служба [рекомендуется]).
-2.	Удалите из прогнозного эксперимента модули *Web Service Input* (Входные данные веб-службы) и *Web Service Output modules* (Выходные данные веб-службы).
-3.	В поле поиска компонентов введите "export".
-4.	В списке результатов найдите модуль *Export Data* (Экспорт данных) и добавьте его на холст эксперимента.
-5.	Соедините выход модуля *Score Model* (Оценка модели) и вход модуля *Export Data* (Экспорт данных).
-6.	На панели свойств в раскрывающемся списке назначения данных выберите **Azure SQL Database** (База данных SQL Azure).
-7.	В полях **Database server name** (Имя сервера базы данных), **Database name** (Имя базы данных), **Server user account name** (Имя учетной записи пользователя сервера) и **Server user account password** (Пароль учетной записи пользователя сервера) введите сведения, соответствующие базе данных.
-8.	В поле **Comma separated list of columns to be saved** (Разделенный запятыми список столбцов для сохранения) введите "Scored Labels".
-9.	В поле **Data table name** (Имя таблицы данных), введите dbo.ScoredLabels. Если таблица не существует, то она создается при запуске эксперимента или при вызове веб-службы.
-10.	В поле **Comma separated list of datatable columns** (Разделенный запятыми список столбцов таблицы данных) введите "ScoredLabels".
+1.  At the bottom of the experiment canvas, click **Set Up Web Service** and select **Predictive Web Service [Recommended]**.
+2.  Remove the *Web Service Input* and *Web Service Output modules* from the predictive experiment. 
+3.  In the components search box, type export.
+4.  From the results list, add an *Export Data* module to the experiment canvas.
+5.  Connect output of the *Score Model* module the input of the *Export Data* module. 
+6.  In properties pane, select **Azure SQL Database** in the data destination dropdown.
+7.  In the **Database server name**, **Database name**, **Server user account name**, and **Server user account password** fields, enter the appropriate information for your database.
+8.  In the **Comma separated list of columns to be saved** field, type Scored Labels.
+9.  In the **Data table name field**, type dbo.ScoredLabels. If the table does not exist, it is created when the experiment is run or the web service is called.
+10. In the **Comma separated list of datatable columns** field, type ScoredLabels.
 
-При написании приложения, которое вызывает окончательную веб-службу, может потребоваться указать другой входной запрос или целевую таблицу во время выполнения. Чтобы настроить эти входные и выходные данные, можно воспользоваться функцией "Web Service Parameters" (Параметры веб-службы). С ее помощью можно задать свойство *Data source* (Источник данных) модуля *Import Data* (Импорт данных) и свойство "Data destination" (Назначение данных) модуля *Export Data* (Экспорт данных). Дополнительные сведения о параметрах веб-службы см. в публикации [AzureML Web Service Parameters ](https://blogs.technet.microsoft.com/machinelearning/2014/11/25/azureml-web-service-parameters/) (Параметры веб-службы AzureML) в блоге, посвященном службам Cortana Intelligence и Машинное обучение Azure.
+When you write an application that calls the final web service, you may want to specify a different input query or destination table at run time. To configure these inputs and outputs, you can use the Web Service Parameters feature to set the *Import Data* module *Data source* property and the *Export Data* mode data destination property.  For more information on Web Service Parameters, see the [AzureML Web Service Parameters entry](https://blogs.technet.microsoft.com/machinelearning/2014/11/25/azureml-web-service-parameters/) on the Cortana Intelligence and Machine Learning Blog.
 
-Чтобы настроить параметры веб-службы для запроса импорта и целевой таблицы, выполните следующие действия:
+To configure the Web Service Parameters for the import query and the destination table:
 
-1.	На панели свойств модуля *Import Data* (Импорт данных), щелкните значок в правом верхнем углу поля **Database query** (Запрос к базе данных) и выберите **Set as web service parameter** (Установить как параметр веб-службы).
-2.	На панели свойств модуля *Export Data* (Экспорт данных), щелкните значок в правом верхнем углу поля **Data table name** (Имя таблицы данных) и выберите **Set as web service parameter** (Установить как параметр веб-службы).
-3.	В нижней части панели свойств модуля *Export Data* (Экспорт данных) в разделе **Web Service Parameters** (Параметры веб-службы) щелкните пункт "Database query" (Запрос к базе данных) и переименуйте его в "Query" (Запрос).
-4.	Щелкните пункт **Data table name** (Имя таблицы данных) и переименуйте его в **Table** (Таблица).
+1.  In the properties pane for the *Import Data* module, click the icon at the top right of the **Database query** field and select **Set as web service parameter**.
+2.  In the properties pane for the *Export Data* module, click the icon at the top right of the **Data table name** field and select **Set as web service parameter**.
+3.  At the bottom of the *Export Data* module properties pane, in the **Web Service Parameters** section, click Database query and rename it Query.
+4.  Click **Data table name** and rename it **Table**.
 
-По завершении эксперимент должен выглядеть так, как показано на рисунке ниже.
+When you are done, your experiment should look similar to the following image.
  
-![Окончательный вид эксперимента.](./media/machine-learning-web-services-that-use-import-export-modules/experiment-with-import-data-added.png)
+![Final look of experiment.](./media/machine-learning-web-services-that-use-import-export-modules/experiment-with-import-data-added.png)
 
-Теперь можно развернуть прогнозный эксперимент как веб-службу.
+Now you can deploy the experiment as a web service.
 
-## Развертывание веб-службы 
-Развертывание можно выполнить как в классическую, так и в новую веб-службу.
+## <a name="deploy-the-web-service"></a>Deploy the web service 
+You can deploy to either a Classic or New web service.
 
-### Развертывание классической веб-службы
+### <a name="deploy-a-classic-web-service"></a>Deploy a Classic Web Service
 
-Для развертывания классической веб-службы и создания использующего ее приложения выполните следующие действия:
+To deploy as a Classic Web Service and create an application to consume it:
 
-1.	В нижней части холста эксперимента нажмите кнопку "Run" (Выполнить).
-2.	По завершении выполнения щелкните **Deploy Web Service** (Развернуть веб-службу) и выберите **Deploy Web Service [Classic]** (Развернуть веб-службу [классическую]).
-3.	На панели мониторинга веб-службы найдите ключ API. Скопируйте и сохраните его для последующего использования.
-4.	В таблице **Default Endpoint** (Конечная точка по умолчанию) щелкните ссылку **Batch Execution** (Выполнение пакета), чтобы открыть страницу справки API.
-5.	Создайте в Visual Studio консольное приложение C#.
-6.	На странице справки API в нижней части страницы найдите раздел **Sample Code** (Пример кода).
-7.	Скопируйте пример кода C# и вставьте его в файл Program.cs, а также удалите все ссылки на хранилище BLOB-объектов.
-8.	Обновите значение переменной *apiKey*, заменив его на ключ API, сохраненный ранее.
-9.	Найдите объявление запроса и обновите значения параметров веб-службы, которые передаются в модули *Import Data* (Импорт данных) и *Export Data* (Экспорт данных). В этом случае будет использоваться исходный запрос, но определяться имя новой таблицы.
+1.  At the bottom of the experiment canvas, click Run.
+2.  When the run has completed, click **Deploy Web Service** and select **Deploy Web Service [Classic]**.
+3.  On the web service dashboard, locate your API key. Copy and save it to use later.
+4.  In the **Default Endpoint** table, click the **Batch Execution** link to open the API Help Page.
+5.  In Visual Studio, create a C# console application.
+6.  On the API Help Page, find the **Sample Code** section at the bottom of the page.
+7.  Copy and paste the C# sample code into your Program.cs file, and remove all references to the blob storage.
+8.  Update the value of the *apiKey* variable with the API key saved earlier.
+9.  Locate the request declaration and update the values of Web Service Parameters that are passed to the *Import Data* and *Export Data* modules. In this case, you will use the original query, but define a new table name.
 
-		var request = new BatchExecutionRequest() 
-		{	
-		    GlobalParameters = new Dictionary<string, string>() {
-			{ "Query", @"select [age], [workclass], [fnlwgt], [education], [education-num], [marital-status], [occupation], [relationship], [race], [sex], [capital-gain], [capital-loss], [hours-per-week], [native-country], [income] from dbo.censusdata" },
-			{ "Table", "dbo.ScoredTable2" },
-		    }
-		};
+        var request = new BatchExecutionRequest() 
+        {   
+            GlobalParameters = new Dictionary<string, string>() {
+            { "Query", @"select [age], [workclass], [fnlwgt], [education], [education-num], [marital-status], [occupation], [relationship], [race], [sex], [capital-gain], [capital-loss], [hours-per-week], [native-country], [income] from dbo.censusdata" },
+            { "Table", "dbo.ScoredTable2" },
+            }
+        };
 
-10.	Запустите приложение.
+10. Run the application. 
 
-По завершении выполнения новая таблица добавляется в базу данных, содержащую результаты оценки.
+On completion of the run, a new table is added to the database containing the scoring results.
 
-### Развертывание новой веб-службы
+### <a name="deploy-a-new-web-service"></a>Deploy a New Web Service
 
-Для развертывания новой веб-службы и создания использующего ее приложения выполните следующие действия:
+To deploy as a New Web Service and create an application to consume it:
 
-1.	В нижней части холста эксперимента нажмите кнопку **Run** (Выполнить).
-2.	По завершении выполнения щелкните **Deploy Web Service** (Развернуть веб-службу) и выберите **Deploy Web Service [New]** (Развернуть веб-службу [новую]).
-3.	На странице "Deploy Experiment" (Развертывание эксперимента) введите имя веб-службы и выберите ценовой план, а затем нажмите кнопку **Deploy** (Развернуть).
-4.	На странице **Quickstart** (Быстрый запуск) щелкните **Consume** (Использование).
-5.	В разделе **Sample Code** (Пример кода) щелкните **Batch** (Пакетная служба).
-6.	Создайте в Visual Studio консольное приложение C#.
-7.	Скопируйте пример кода C# и вставьте его в файл Program.cs.
-8.	Обновите значение переменной *apiKey*, заменив его на **Primary Key** (Первичный ключ), который указан в разделе **Basic consumption info** (Основные сведения об использовании).
-9.	Найдите объявление *scoreRequest* и обновите значения параметров веб-службы, которые передаются в модули *Import Data* (Импорт данных) и *Export Data* (Экспорт данных). В этом случае будет использоваться исходный запрос, но определяться имя новой таблицы.
+1.  At the bottom of the experiment canvas, click **Run**.
+2.  When the run has completed, click **Deploy Web Service** and select **Deploy Web Service [New]**.
+3.  On the Deploy Experiment page, enter a name for your web service and select a pricing plan, then click **Deploy**.
+4.  On the **Quickstart** page, click **Consume**.
+5.  In the **Sample Code** section, click **Batch**.
+6.  In Visual Studio, create a C# console application.
+7.  Copy and paste the C# sample code into your Program.cs file.
+8.  Update the value of the *apiKey* variable with the **Primary Key** located in the **Basic consumption info** section.
+9.  Locate the *scoreRequest* declaration and update the values of Web Service Parameters that are passed to the *Import Data* and *Export Data* modules. In this case, you will use the original query, but define a new table name.
 
-		var scoreRequest = new
-		{
-		    Inputs = new Dictionary<string, StringTable>()
-		    {
-		    },
-		    GlobalParameters = new Dictionary<string, string>() {
-		         { "Query", @"select [age], [workclass], [fnlwgt], [education], [education-num], [marital-status], [occupation], [relationship], [race], [sex], [capital-gain], [capital-loss], [hours-per-week], [native-country], [income] from dbo.censusdata" },
-		        { "Table", "dbo.ScoredTable3" },
-		    }
-		};
+        var scoreRequest = new
+        {
+            Inputs = new Dictionary<string, StringTable>()
+            {
+            },
+            GlobalParameters = new Dictionary<string, string>() {
+                 { "Query", @"select [age], [workclass], [fnlwgt], [education], [education-num], [marital-status], [occupation], [relationship], [race], [sex], [capital-gain], [capital-loss], [hours-per-week], [native-country], [income] from dbo.censusdata" },
+                { "Table", "dbo.ScoredTable3" },
+            }
+        };
 
-10.	Запустите приложение.
+10. Run the application. 
  
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

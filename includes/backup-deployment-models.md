@@ -1,10 +1,13 @@
-В службе архивации Azure используется два типа хранилища: хранилище архивации и хранилище служб восстановления. Сначала появилось хранилище архивации. Затем было создано хранилище служб восстановления для поддержки расширенных развертываний Resource Manager. Мы советуем использовать развертывания Resource Manager, если нет необходимости в классическом развертывании.
+The Azure Backup service has two types of vaults - the Backup vault and the Recovery Services vault. The Backup vault came first. Then the Recovery Services vault came along to support the expanded Resource Manager deployments. Microsoft recommends using Resource Manager deployments unless you specifically require a Classic deployment.
 
-| **Развертывание** | **Портал** | **Хранилище** |
+| **Deployment** | **Portal** | **Vault** |
 |-----------|------|-----|
-|Классический|[Классический](https://manage.windowsazure.com)|Архивация|
-|Диспетчер ресурсов|[Таблицы Azure](https://portal.azure.com)|Службы восстановления|
+|Classic|[Classic](https://manage.windowsazure.com)|Backup|
+|Resource Manager|[Azure](https://portal.azure.com)|Recovery Services|
 
-> [AZURE.NOTE] С помощью хранилищ архивации невозможно защитить решения, развернутые с помощью Resource Manager. Тем не менее вы можете защитить серверы и виртуальные машины, развернутые с помощью классической модели, используя хранилище служб восстановления.
+> [AZURE.NOTE] Backup vaults cannot protect Resource Manager-deployed solutions. However, you can use a Recovery Services vault to protect classically-deployed servers and VMs.  
 
-<!---HONumber=AcomDC_0921_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

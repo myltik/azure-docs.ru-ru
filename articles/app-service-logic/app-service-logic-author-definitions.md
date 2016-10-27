@@ -1,117 +1,118 @@
 <properties 
-	pageTitle="Создание определений приложений логики | Microsoft Azure" 
-	description="Узнайте, как создать определение JSON для приложений логики." 
-	authors="jeffhollan" 
-	manager="erikre" 
-	editor="" 
-	services="logic-apps" 
-	documentationCenter=""/>
+    pageTitle="Author Logic App definitions | Microsoft Azure" 
+    description="Learn how to write the JSON definition for Logic apps" 
+    authors="jeffhollan" 
+    manager="erikre" 
+    editor="" 
+    services="logic-apps" 
+    documentationCenter=""/>
 
 <tags
-	ms.service="logic-apps"
-	ms.workload="integration"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/25/2016"
-	ms.author="jehollan"/>
-	
-# Создание определений приложений логики
-В этой статье показано, как использовать определения [Azure Logic Apps](app-service-logic-what-are-logic-apps.md), являющиеся простым декларативным языком JSON. Если вы этого еще не сделали, сначала ознакомьтесь с тем, [как создать новое приложение логики](app-service-logic-create-a-logic-app.md). Можно также прочитать [полные справочные материалы по языку определения на сайте MSDN](http://aka.ms/logicappsdocs).
+    ms.service="logic-apps"
+    ms.workload="integration"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="07/25/2016"
+    ms.author="jehollan"/>
+    
 
-## Несколько действий по списку, которые повторяются
+# <a name="author-logic-app-definitions"></a>Author Logic App definitions
+This topic demonstrates how to use [Azure Logic Apps](app-service-logic-what-are-logic-apps.md) definitions, which is a simple, declarative JSON language. If you haven't done so yet, check out [how to Create a new Logic app](app-service-logic-create-a-logic-app.md) first. You can also read the [full reference material of the definition language on MSDN](http://aka.ms/logicappsdocs).
 
-Для массива, состоящего из 10 000 элементов, можно использовать [тип foreach](app-service-logic-loops-and-scopes.md) для повторения действий или выполнения действий для каждого из элементов.
+## <a name="several-steps-that-repeat-over-a-list"></a>Several steps that repeat over a list
 
-## Шаг обработки ошибок, если что-то пошло не так
+You can leverage the [foreach type](app-service-logic-loops-and-scopes.md) to repeat over an array of up to 10k items and perform an action for each.
 
-Обычно необходима возможность записать *шаги по исправлению* — определенную логику, которая используется, **только если** один или несколько из вызовов не удалось выполнить. В этом примере мы получаем данные из различных мест, но если вызов завершается неудачно, я хочу отправить (POST) сообщение куда-то, чтобы можно было отследить этот сбой позже.
+## <a name="a-failure-handling-step-if-something-goes-wrong"></a>A failure-handling step if something goes wrong
 
-```
-{
-	"$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
-	"contentVersion": "1.0.0.0",
-	"parameters": {
-	},
-	"triggers": {
-		"manual": {
-			"type": "manual"
-		}
-	},
-	"actions": {
-		"readData": {
-			"type": "Http",
-			"inputs": {
-				"method": "GET",
-				"uri": "http://myurl"
-			}
-		},
-		"postToErrorMessageQueue": {
-			"type": "ApiConnection",
-			"inputs": "...",
-			"runAfter": {
-				"readData": ["Failed"]
-			}
-		}
-	},
-	"outputs": {}
-}
-```
-
-Вы можете использовать свойство `runAfter`, чтобы настроить запуск `postToErrorMessageQueue` только после неудачного выполнения `readData` (**Failed**). Возможные значения свойства `runAfter` также могут быть представлены списком, например `["Succeeded", "Failed"]`.
-
-Наконец, так как сбой теперь обработан, мы больше не помечаем выполнение меткой **Сбой**. Как видите, это выполнение **успешно** завершено, хотя на одном шаге произошел сбой, так как мной был написан шаг для обработки данного сбоя.
-
-## Два (или более) шага, выполняемые параллельно
-
-Чтобы несколько действий выполнялись параллельно, свойство `runAfter` не должно изменяться во время выполнения.
+You commonly want to be able to write a *remediation step* — some logic that executes, if , **and only if**, one or more of your calls failed. In this example, we are getting data from a variety of places, but if the call fails, I want to POST a message somewhere so I can track down that failure later:  
 
 ```
 {
-	"$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
-	"contentVersion": "1.0.0.0",
-	"parameters": {},
-	"triggers": {
-		"manual": {
-			"type": "manual"
-		}
-	},
-	"actions": {
-		"readData": {
-			"type": "Http",
-			"inputs": {
-				"method": "GET",
-				"uri": "http://myurl"
-			}
-		},
-		"branch1": {
-			"type": "Http",
-			"inputs": "...",
-			"runAfter": {
-				"readData": ["Succeeded"]
-			}
-		},
-		"branch2": {
-			"type": "Http",
-			"inputs": "...",
-			"runAfter": {
-				"readData": ["Succeeded"]
-			}
-		}
-	},
-	"outputs": {}
+    "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+    },
+    "triggers": {
+        "manual": {
+            "type": "manual"
+        }
+    },
+    "actions": {
+        "readData": {
+            "type": "Http",
+            "inputs": {
+                "method": "GET",
+                "uri": "http://myurl"
+            }
+        },
+        "postToErrorMessageQueue": {
+            "type": "ApiConnection",
+            "inputs": "...",
+            "runAfter": {
+                "readData": ["Failed"]
+            }
+        }
+    },
+    "outputs": {}
 }
 ```
 
-Как видно в приведенном выше примере, для ветвей `branch1` и `branch2` задано выполнение после `readData`. В результате обе эти ветви будут выполняться одновременно.
+You can make use of the `runAfter` property to specify the `postToErrorMessageQueue` should only run after `readData` is **Failed**.  This could also be a list of possible values, so `runAfter` could be `["Succeeded", "Failed"]`.
 
-![Параллельно](./media/app-service-logic-author-definitions/parallel.png)
+Finally, because you have now handled the error, we no longer mark the run as **Failed**. As you can see here, this run is **Succeeded** even though one step Failed, because I wrote the step to handle this failure.
 
-Как видите, метки времени для обеих ветвей идентичны.
+## <a name="two-(or-more)-steps-that-execute-in-parallel"></a>Two (or more) steps that execute in parallel
 
-## Соединение двух параллельных ветвей
+To have multiple actions execution in parallel, the `runAfter` property must be equivalent at runtime. 
 
-Можно объединить два действия, которые были настроены для параллельного выполнения, добавив элементы в свойство `runAfter` (см. выше).
+```
+{
+    "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {},
+    "triggers": {
+        "manual": {
+            "type": "manual"
+        }
+    },
+    "actions": {
+        "readData": {
+            "type": "Http",
+            "inputs": {
+                "method": "GET",
+                "uri": "http://myurl"
+            }
+        },
+        "branch1": {
+            "type": "Http",
+            "inputs": "...",
+            "runAfter": {
+                "readData": ["Succeeded"]
+            }
+        },
+        "branch2": {
+            "type": "Http",
+            "inputs": "...",
+            "runAfter": {
+                "readData": ["Succeeded"]
+            }
+        }
+    },
+    "outputs": {}
+}
+```
+
+As you can see in the example above, both `branch1` and `branch2` are set to run after `readData`. As a result, both of these branches will run in parallel:
+
+![Parallel](./media/app-service-logic-author-definitions/parallel.png)
+
+You can see the timestamp for both branches is identical. 
+
+## <a name="join-two-parallel-branches"></a>Join two parallel branches
+
+You can join two actions that were set to execute in parallel by adding items to the `runAfter` property similar to above.
 
 ```
 {
@@ -180,203 +181,203 @@
 }
 ```
 
-![Параллельно](./media/app-service-logic-author-definitions/join.png)
+![Parallel](./media/app-service-logic-author-definitions/join.png)
 
-## Сопоставление элементов в списке с какой-либо другой конфигурацией
+## <a name="mapping-items-in-a-list-to-some-different-configuration"></a>Mapping items in a list to some different configuration
 
-Далее предположим, что мы хотим получать совсем другое содержимое в зависимости от значения свойства. Можно создать сопоставление значений и назначений как параметр.
-
-```
-{
-	"$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
-	"contentVersion": "1.0.0.0",
-	"parameters": {
-		"specialCategories": {
-			"defaultValue": ["science", "google", "microsoft", "robots", "NSA"],
-			"type": "Array"
-		},
-		"destinationMap": {
-			"defaultValue": {
-				"science": "http://www.nasa.gov",
-				"microsoft": "https://www.microsoft.com/ru-RU/default.aspx",
-				"google": "https://www.google.com",
-				"robots": "https://en.wikipedia.org/wiki/Robot",
-				"NSA": "https://www.nsa.gov/"
-			},
-			"type": "Object"
-		}
-	},
-	"triggers": {
-		"manual": {
-			"type": "manual"
-		}
-	},
-	"actions": {
-		"getArticles": {
-			"type": "Http",
-			"inputs": {
-				"method": "GET",
-				"uri": "https://ajax.googleapis.com/ajax/services/feed/load?v=1.0&q=http://feeds.wired.com/wired/index"
-			},
-			"conditions": []
-		},
-		"getSpecialPage": {
-			"type": "Http",
-			"inputs": {
-				"method": "GET",
-				"uri": "@parameters('destinationMap')[first(intersection(item().categories, parameters('specialCategories')))]"
-			},
-			"conditions": [{
-				"expression": "@greater(length(intersection(item().categories, parameters('specialCategories'))), 0)"
-			}],
-			"forEach": "@body('getArticles').responseData.feed.entries"
-		}
-	}
-}
-```
-
-В этом случае сначала мы получаем список статей, затем на втором шаге в сопоставлении выполняем поиск по категории, которая была определена как параметр, URL-адреса для получения содержимого.
-
-Здесь следует уделить внимание двум моментам. Во-первых, это функция [`intersection()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#intersection), используемая для проверки, соответствует ли категория одной из известных определенных категорий. Во-вторых, когда мы получаем категорию, мы можем извлечь элемент из сопоставления с помощью квадратных скобок: `parameters[...]`.
-
-## Работа со строками
-
-Существуют различные функции, которые могут оперировать строкой. Рассмотрим пример, когда у нас есть строка, которую необходимо передать в систему, но вы не уверены, что кодировка символов будет обработана правильно. Один из вариантов — закодировать эту строку в Base64. Однако во избежание экранирования в URL-адресе мы заменим несколько знаков.
-
-Нам также нужна подстрока из названия заказа, так как первые пять знаков не используются.
+Next, let's say that we want to get completely different content depending on a value of a property. We can create a map of values to destinations as a parameter:  
 
 ```
 {
-	"$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
-	"contentVersion": "1.0.0.0",
-	"parameters": {
-		"order": {
-			"defaultValue": {
-				"quantity": 10,
-				"id": "myorder1",
-				"orderer": "NAME=Stèphén__Šīçiłianö"
-			},
-			"type": "Object"
-		}
-	},
-	"triggers": {
-		"manual": {
-			"type": "manual"
-		}
-	},
-	"actions": {
-		"order": {
-			"type": "Http",
-			"inputs": {
-				"method": "GET",
-				"uri": "http://www.example.com/?id=@{replace(replace(base64(substring(parameters('order').orderer,5,sub(length(parameters('order').orderer), 5) )),'+','-') ,'/' ,'_' )}"
-			}
-		}
-	},
-	"outputs": {}
+    "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "specialCategories": {
+            "defaultValue": ["science", "google", "microsoft", "robots", "NSA"],
+            "type": "Array"
+        },
+        "destinationMap": {
+            "defaultValue": {
+                "science": "http://www.nasa.gov",
+                "microsoft": "https://www.microsoft.com/en-us/default.aspx",
+                "google": "https://www.google.com",
+                "robots": "https://en.wikipedia.org/wiki/Robot",
+                "NSA": "https://www.nsa.gov/"
+            },
+            "type": "Object"
+        }
+    },
+    "triggers": {
+        "manual": {
+            "type": "manual"
+        }
+    },
+    "actions": {
+        "getArticles": {
+            "type": "Http",
+            "inputs": {
+                "method": "GET",
+                "uri": "https://ajax.googleapis.com/ajax/services/feed/load?v=1.0&q=http://feeds.wired.com/wired/index"
+            },
+            "conditions": []
+        },
+        "getSpecialPage": {
+            "type": "Http",
+            "inputs": {
+                "method": "GET",
+                "uri": "@parameters('destinationMap')[first(intersection(item().categories, parameters('specialCategories')))]"
+            },
+            "conditions": [{
+                "expression": "@greater(length(intersection(item().categories, parameters('specialCategories'))), 0)"
+            }],
+            "forEach": "@body('getArticles').responseData.feed.entries"
+        }
+    }
 }
 ```
 
-Работа "наизнанку"
+In this case, we first get a list of articles, and then the second step looks up in a map, based on the category that was defined as a parameter, which URL to get the content from. 
 
-1. Получите [`length()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#length) названия заказа, и будет возвращено общее число знаков.
+Two items to pay attention here: the [`intersection()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#intersection) function is used to check to see if the category matches one of the known categories defined. Second, once we get the category, we can pull the item of the map using square brackets: `parameters[...]`. 
 
-2. Вычтите 5 (так как нам понадобится более короткая строка).
+## <a name="working-with-strings"></a>Working with Strings
 
-3. Фактически возьмите [`substring()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#substring). Мы начнем с индекса `5` и перейдем к оставшейся части строки.
+There are variety of functions that can be used to manipulate string. Let's take an example where we have a string that we want to pass to a system, but we are not confident that character encoding will be handled properly. One option is to base64 encode this string. However, to avoid escaping in a URL we are going to replace a few characters. 
 
-4. Преобразуйте эту подстроку в строку [`base64()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#base64).
-
-5. [`replace()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#replace) все знаки `+` на `-`.
-
-6. [`replace()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#replace) все знаки `/` на `_`.
-
-## Работа с датами и временем
-
-Использовать даты и время может быть удобно, особенно в том случае, если вы пытаетесь извлечь данные из источника данных, который не поддерживает **триггеры** естественным образом. Также можно использовать даты и время, чтобы узнать продолжительность различных шагов.
+We also want a substring of the the order's name because the first 5 characters are not used.
 
 ```
 {
-	"$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
-	"contentVersion": "1.0.0.0",
-	"parameters": {
-		"order": {
-			"defaultValue": {
-				"quantity": 10,
-				"id": "myorder1"
-			},
-			"type": "Object"
-		}
-	},
-	"triggers": {
-		"manual": {
-			"type": "manual"
-		}
-	},
-	"actions": {
-		"order": {
-			"type": "Http",
-			"inputs": {
-				"method": "GET",
-				"uri": "http://www.example.com/?id=@{parameters('order').id}"
-			}
-		},
-		"timingWarning": {
-			"actions" {
-				"type": "Http",
-				"inputs": {
-					"method": "GET",
-					"uri": "http://www.example.com/?recordLongOrderTime=@{parameters('order').id}&currentTime=@{utcNow('r')}"
-				},
-				"runAfter": {}
-			}
-			"expression": "@less(actions('order').startTime,addseconds(utcNow(),-1))"
-		}
-	},
-	"outputs": {}
+    "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "order": {
+            "defaultValue": {
+                "quantity": 10,
+                "id": "myorder1",
+                "orderer": "NAME=Stèphén__Šīçiłianö"
+            },
+            "type": "Object"
+        }
+    },
+    "triggers": {
+        "manual": {
+            "type": "manual"
+        }
+    },
+    "actions": {
+        "order": {
+            "type": "Http",
+            "inputs": {
+                "method": "GET",
+                "uri": "http://www.example.com/?id=@{replace(replace(base64(substring(parameters('order').orderer,5,sub(length(parameters('order').orderer), 5) )),'+','-') ,'/' ,'_' )}"
+            }
+        }
+    },
+    "outputs": {}
 }
 ```
 
-В этом примере производится извлечение `startTime` из предыдущего шага. Затем мы получаем текущее время и вычитаем одну секунду: [`addseconds(..., -1)`](https://msdn.microsoft.com/library/azure/mt643789.aspx#addseconds) (можно использовать и другие единицы времени, например `minutes` или `hours`). Наконец, мы можем сравнить эти два значения. Если первое меньше второго, то это значит, что с момента первоначального размещения заказа прошло больше секунды.
+Working from the inside out:
 
-Также обратите внимание, что можно использовать модули форматирования строк для форматирования дат: в строке запроса я использую [`utcnow('r')`](https://msdn.microsoft.com/library/azure/mt643789.aspx#utcnow), чтобы получить RFC1123. Все сведения о форматировании дат [приведены на сайте MSDN](https://msdn.microsoft.com/library/azure/mt643789.aspx#utcnow).
+1. Get the [`length()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#length)  of the orderer's name, this returns back the total number of characters
 
-## Использование параметров во время развертывания для разных сред
+2. Subtract 5 (because we'll want a shorter string)
 
-Нередко жизненный цикл развертывания включает в себя среду разработки, промежуточную среду и рабочую среду. Во всех них может использоваться одно и то же определение, например, но разные базы данных. Аналогично вы можете использовать одно определение в разных регионах для обеспечения высокого уровня доступности, но хотите, чтобы каждый экземпляр приложения логики взаимодействовал с базой данных своего региона.
+3. Actually take the [`substring()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#substring) . We start at index `5` and go the remainder of the string.
 
-Обратите внимание, что это отличается от приема разных параметров во *время выполнения*, когда следует использовать функцию `trigger()`, вызванную выше.
+4. Convert this substring to a [`base64()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#base64) string
 
-Можно начать с очень простого определения, например:
+5. [`replace()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#replace)  all of the `+` characters with `-`
+
+6. [`replace()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#replace) all of the `/` characters with `_`
+
+## <a name="working-with-date-times"></a>Working with Date Times
+
+Date Times can be useful, particularly when you are trying to pull data from a data source that doesn't naturally support **Triggers**.  You can also use Date Times to figure out how long various steps are taking. 
 
 ```
 {
-	"$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
-	"contentVersion": "1.0.0.0",
-	"parameters": {
-		"uri": {
-			"type": "string"
-		}
-	},
-	"triggers": {
-		"manual": {
-			"type": "manual"
-		}
-	},
-	"actions": {
-		"readData": {
-			"type": "Http",
-			"inputs": {
-				"method": "GET",
-				"uri": "@parameters('uri')"
-			}
-		}
-	},
-	"outputs": {}
+    "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "order": {
+            "defaultValue": {
+                "quantity": 10,
+                "id": "myorder1"
+            },
+            "type": "Object"
+        }
+    },
+    "triggers": {
+        "manual": {
+            "type": "manual"
+        }
+    },
+    "actions": {
+        "order": {
+            "type": "Http",
+            "inputs": {
+                "method": "GET",
+                "uri": "http://www.example.com/?id=@{parameters('order').id}"
+            }
+        },
+        "timingWarning": {
+            "actions" {
+                "type": "Http",
+                "inputs": {
+                    "method": "GET",
+                    "uri": "http://www.example.com/?recordLongOrderTime=@{parameters('order').id}&currentTime=@{utcNow('r')}"
+                },
+                "runAfter": {}
+            }
+            "expression": "@less(actions('order').startTime,addseconds(utcNow(),-1))"
+        }
+    },
+    "outputs": {}
 }
 ```
 
-Затем в фактическом запросе `PUT` для приложения логики можно указать параметр `uri`. Обратите внимание, что, так как значения по умолчанию больше нет, этот параметр является обязательным в полезных данных приложения логики.
+In this example, we are extracting the `startTime` of the previous step. Then we are getting the current time and subtracting one second :[`addseconds(..., -1)`](https://msdn.microsoft.com/library/azure/mt643789.aspx#addseconds) (you could use other units of time such as `minutes` or `hours`). Finally, we can compare these two values. If the first is less than the second, then that means more than one second has elapsed since the order was first placed. 
+
+Also note that we can use string formatters to format dates: in the query string I use [`utcnow('r')`](https://msdn.microsoft.com/library/azure/mt643789.aspx#utcnow) to get the RFC1123. All date formatting [is documented on MSDN](https://msdn.microsoft.com/library/azure/mt643789.aspx#utcnow). 
+
+## <a name="using-deployment-time-parameters-for-different-environments"></a>Using deployment-time parameters for different environments
+
+It is common to have a deployment lifecycle where you have a development environment, a staging environment, and then a production environment. In all of these you may want the same definition, but use different databases, for example. Likewise, you may want to use the same definition across many different regions for high availability, but want each Logic app instance to talk to that region's database. 
+
+Note that this is different from taking different parameters at *runtime*, for that you should use the `trigger()` function as called out above. 
+
+You can start with a very simplistic definition like this one:
+
+```
+{
+    "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "uri": {
+            "type": "string"
+        }
+    },
+    "triggers": {
+        "manual": {
+            "type": "manual"
+        }
+    },
+    "actions": {
+        "readData": {
+            "type": "Http",
+            "inputs": {
+                "method": "GET",
+                "uri": "@parameters('uri')"
+            }
+        }
+    },
+    "outputs": {}
+}
+```
+
+Then, in the actual `PUT` request for the Logic app you can provide the parameter `uri`. Note, as there is no longer a default value this parameter is required in the Logic app payload:
 
 ```
 {
@@ -394,8 +395,12 @@
 }
 ``` 
 
-Затем в каждой среде можно предоставить другое значение для параметра `connection`.
+In each environment you can then provide a different value for the `connection` parameter. 
 
-В [документации по интерфейсу API REST](https://msdn.microsoft.com/library/azure/mt643787.aspx) описаны все параметры для создания приложений логики и управления ими.
+See the [REST API documentation](https://msdn.microsoft.com/library/azure/mt643787.aspx) for all of the options you have for creating and managing Logic apps. 
 
-<!---HONumber=AcomDC_0803_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

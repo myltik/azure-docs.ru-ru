@@ -1,96 +1,101 @@
 <properties 
-	pageTitle="Обзор схем и пакета интеграции Enterprise | Служба приложений Microsoft Azure | Microsoft Azure" 
-	description="Узнайте, как использовать схемы с пакетом интеграции Enterprise и приложениями логики." 
-	services="logic-apps" 
-	documentationCenter=".net,nodejs,java"
-	authors="msftman" 
-	manager="erikre" 
-	editor="cgronlun"/>
+    pageTitle="Overview of schemas and the Enterprise Integration Pack | Microsoft Azure App Service | Microsoft Azure" 
+    description="Learn how to use schemas with the Enterprise Integration Pack and Logic apps" 
+    services="logic-apps" 
+    documentationCenter=".net,nodejs,java"
+    authors="msftman" 
+    manager="erikre" 
+    editor="cgronlun"/>
 
 <tags 
-	ms.service="logic-apps" 
-	ms.workload="integration" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/29/2016" 
-	ms.author="deonhe"/>
+    ms.service="logic-apps" 
+    ms.workload="integration" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="07/29/2016" 
+    ms.author="deonhe"/>
 
-# Сведения о схемах и пакете интеграции Enterprise  
 
-## Для чего используется схема
-Схемы используются для подтверждения того, что получаемые документы XML являются допустимыми, то есть содержат ожидаемые данные в предопределенном формате.
+# <a name="learn-about-schemas-and-the-enterprise-integration-pack"></a>Learn about schemas and the Enterprise Integration Pack  
 
-## Как добавить схему
-На портале Azure выполните следующие действия.
+## <a name="why-use-a-schema"></a>Why use a schema
+You use schemas to confirm that XML documents you receive are valid, meaning that the documents contain the expected data in a predefined format.
 
-1. Выберите **Больше служб**.  
+## <a name="how-to-add-a-schema"></a>How to add a schema
+From the Azure portal:  
+
+1. Select **More Services**  
 ![](./media/app-service-logic-enterprise-integration-overview/overview-11.png)    
-2. Введите **integration** в поле фильтра поиска и выберите **Integration Accounts** (Учетные записи интеграции) из списка результатов.     
+2. Enter **integration** in the filter search box and select **Integration Accounts** from the results list     
 ![](./media/app-service-logic-enterprise-integration-overview/overview-21.png)  
-3. Выберите **учетную запись интеграции**, в которую необходимо добавить схему.    
-![](./media/app-service-logic-enterprise-integration-overview/overview-31.png)
-4. Выберите элемент **Схемы**.  
+3. Select the **integration account** to which you add the schema    
+![](./media/app-service-logic-enterprise-integration-overview/overview-31.png)  
+4. Select the **Schemas** tile  
 ![](./media/app-service-logic-enterprise-integration-schemas/schema-11.png)  
 
-#### Добавление файла схемы, размер которого меньше 2 МБ  
+#### <a name="to-add-schema-file-less-than-2-mb"></a>To add schema file less than 2 MB  
 
-5. В открывшейся колонке "Схемы" нажмите кнопку **Добавить**.  
+5. Select the **Add** button in the Schemas blade that opens  
 ![](./media/app-service-logic-enterprise-integration-schemas/schema-21.png)  
-6. Введите **имя** для схемы. Чтобы передать файл схемы, щелкните значок папки в правой части текстового поля **Схема**. После завершения передачи нажмите кнопку **ОК**.    
+6. Enter a **Name** for your schema, then to upload the schema file, select the folder icon on the right side of the **Schema** text box. After the upload process is completed, select the **OK** button.    
 ![](./media/app-service-logic-enterprise-integration-schemas/schema-31.png)  
 
-#### Добавление файла схемы, размер которого превышает 2 МБ (до 8 МБ)  
+#### <a name="to-add-schema-file-larger-than-2-mb-(max-8-mb)"></a>To add schema file larger than 2 MB (Max 8 MB)  
 
-7. Если для контейнера BLOB-объектов определен уровень доступа **Public** (Общедоступный)  
+7. If blob security access level is **Public**  
   ![](./media/app-service-logic-enterprise-integration-schemas/blob-public.png)  
 
-  * Передайте схему в хранилище и скопируйте универсальный код ресурса (URI).  
+  * Upload the schema to storage and copy the URI  
   ![](./media/app-service-logic-enterprise-integration-schemas/schema-blob.png)  
 
-  * Выберите "Large file" (Большой файл) в разделе "Add Schema" (Добавление схемы) и укажите универсальный код ресурса (URI) в поле "Content URI" (URI содержимого).  
+  * Select Large file in Add Schema and provide the URI in the Content URI  
   ![](./media/app-service-logic-enterprise-integration-schemas/schema-largefile.png)  
 
-8. Если для контейнера BLOB-объектов определен уровень доступа **No anonymous access** (Без анонимного доступа)  
+8. If blob security access level is **No anonymous access**  
   ![](./media/app-service-logic-enterprise-integration-schemas/blob-1.png)  
 
-  * Передайте схему в хранилище.  
+  * Upload the schema to storage  
   ![](./media/app-service-logic-enterprise-integration-schemas/blob-3.png)
 
-  * Создайте подписанный URL-адрес для схемы.  
+  * Generate a Shared Access Signature for the schema  
   ![](./media/app-service-logic-enterprise-integration-schemas/blob-2.png)
 
-  * Выберите "Large file" (Большой файл) в разделе "Add Schema" (Добавление схемы) и укажите URI подписанного URL-адреса в поле "Content URI" (URI содержимого).  
+  * Select Large file in Add Schema and provide the Shared Access Signature URI in the Content URI  
   ![](./media/app-service-logic-enterprise-integration-schemas/schema-largefile.png)  
 
-9. Вы увидите только что добавленную схему.  
-  ![](./media/app-service-logic-enterprise-integration-schemas/schema-41.png) 
+9. You should see the newly added schema  
+![](./media/app-service-logic-enterprise-integration-schemas/schema-41.png) 
 
-## Как использовать схемы
-- Схемы используются для проверки сообщений, которые передаются в рамках сценария "бизнес-бизнес".  
+## <a name="how-to-use-schemas"></a>How to use schemas
+- Schemas are used to validate messages that are exchanged in a B2B scenario.  
 
-## Как изменить схему
-1. Выберите элемент **Schemas** (Схемы).  
-2. В открывшейся колонке "Schemas" (Схемы) выберите схему, которую вы хотите изменить.
-3. Щелкните ссылку **Передать** в колонке "Схемы".  
+## <a name="how-to-edit-schemas"></a>How to edit schemas
+1. Select the **Schemas** tile  
+2. Select the schema you wish to edit from the Schemas blade that opens up
+3. Select the **Upload** link on the Schemas blade  
 ![](./media/app-service-logic-enterprise-integration-schemas/edit-12.png)    
-4. Выберите файл схемы, который следует передать, используя открывшееся диалоговое окно выбора файлов.
-5. Нажмите кнопку **Открыть** в средстве выбора файлов.  
+4. Select the schema file you wish to upload by using the file picker dialog that opens up.
+5. Select **Open** in the file picker  
 ![](./media/app-service-logic-enterprise-integration-schemas/edit-31.png)  
-6. Вы получите уведомление об успешном выполнении передачи.  
+6. You receive a notification that indicates the upload was successful  
 
-## Как удалить схему
-1. Выберите элемент **Schemas** (Схемы).  
-2. В открывшейся колонке "Schemas" (Схемы) выберите схему, которую вы хотите удалить.  
-3. В колонке "Schemas" (Схемы) в строке меню щелкните ссылку **Delete** (Удалить).  
-![](./media/app-service-logic-enterprise-integration-schemas/delete-12.png)  
-4. Если вы действительно хотите удалить выбранную схему, нажмите кнопку **Да** в диалоговом окне "Удаление схемы", чтобы подтвердить это.  
+## <a name="how-to-delete-schemas"></a>How to delete schemas
+1. Select the **Schemas** tile  
+2. Select the schema you wish to delete from the Schemas blade that opens up  
+3. Select the **Delete** link from the menu bar on the Schemas blade ![](./media/app-service-logic-enterprise-integration-schemas/delete-12.png)  
+4. If you really wish to delete the schema you selected, choose **Yes** on the Delete schema dialog to confirm your choice  
 ![](./media/app-service-logic-enterprise-integration-schemas/delete-21.png)  
-5. Наконец, обратите внимание на то, что список схем в колонке обновился и схема, которую вы удалили, больше не отображается.  
+5. Finally, notice that the list of schemas in the Schemas blade refreshes and the schema you deleted is no longer listed  
 ![](./media/app-service-logic-enterprise-integration-schemas/delete-31.png)    
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Next steps
 
-- [Узнайте больше о пакете интеграции Enterprise.](./app-service-logic-enterprise-integration-overview.md "Узнайте о пакете интеграции Enterprise.")
+- [Learn more about the Enterprise Integration Pack](./app-service-logic-enterprise-integration-overview.md "Learn about the enterprise integration pack")  
 
-<!----HONumber=AcomDC_0921_2016-->
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

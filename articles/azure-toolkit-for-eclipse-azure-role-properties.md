@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Свойства роли Azure"
-    description="Узнайте, как использовать набор средств Azure для Eclipse для настройки роли Azure."
+    pageTitle="Azure Role Properties"
+    description="Learn how to use the Azure Toolkit for Eclipse to configure Azure role settings."
     services=""
     documentationCenter="java"
     authors="rmcmurray"
@@ -16,403 +16,409 @@
     ms.date="08/11/2016" 
     ms.author="robmcm"/>
 
+
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh690945.aspx -->
 
-# Свойства роли Azure #
+# <a name="azure-role-properties"></a>Azure Role Properties #
 
-В наборе средств Azure для Eclipse можно задать различные параметры конфигурации роли Azure.
+Various configuration settings for your Azure role can be set within the Azure Toolkit for Eclipse.
 
-## Настройка свойств роли Azure ##
+## <a name="configuring-azure-role-properties"></a>Configuring Azure Role Properties ##
 
-Для настройки свойств роли Azure используются диалоговые окна свойств рабочей роли. На панели обозревателя проектов Eclipse откройте контекстное меню для роли и выберите подменю **Azure**. (Если в обозревателе проектов Eclipse роль не отображается, разверните в нем проект Azure.)
+Configuring your Azure Role Properties is accomplished through the property dialogs for your worker role. Open the context menu for the role in Eclipse's Project Explorer pane and select the **Azure** sub-menu. (If you don't see the role in the Eclipse Project Explorer, expand your Azure project in Project Explorer.)
 
 ![][ic789599]
 
-В этом разделе содержатся сведения о различных свойствах, которые можно задать в диалоговых окнах **Свойства**. Обратите внимание, что многие свойства заполняются автоматически при создании проекта развертывания Azure.
+The various properties that can be set from the **Properties** dialogs are described in this topic. Note that many properties are filled in automatically when you create a new Azure deployment project.
 
-Для ролей Azure доступны следующие страницы свойств.
+The following property pages are available for Azure roles.
 
-* [Свойства виртуальной машины](#virtual_machine_properties)
-* [Свойства кэширования](#caching_properties)
-* [Свойства сертификатов](#certificates_properties)
-* [Свойства компонентов](#components_properties)
-* [Свойства отладки](#debugging_properties)
-* [Свойства конечных точек](#endpoints_properties)
-* [Свойства переменных среды](#environment_variables_properties)
-* [Свойства балансировки нагрузки и свойства сходства сеансов (называемые также прикрепленными сеансами)](#session_affinity_properties)
-* [Свойства локального хранилища](#local_storage_properties)
-* [Свойства конфигурации сервера](#server_configuration_properties)
-* [Свойства разгрузки SSL](#ssl_offloading_properties)
-	
+* [Virtual machine properties](#virtual_machine_properties)
+* [Caching properties](#caching_properties)
+* [Certificates properties](#certificates_properties)
+* [Components properties](#components_properties)
+* [Debugging properties](#debugging_properties)
+* [Endpoints properties](#endpoints_properties)
+* [Environment variables properties](#environment_variables_properties)
+* [Load balancing / session affinity (a.k.a "sticky sessions") properties](#session_affinity_properties)
+* [Local storage properties](#local_storage_properties)
+* [Server configuration properties](#server_configuration_properties)
+* [SSL offloading properties](#ssl_offloading_properties)
+    
 <a name="virtual_machine_properties"></a>
-### Свойства виртуальной машины ###
+### <a name="virtual-machine-properties"></a>Virtual machine properties ###
 
-На панели обозревателя проектов Eclipse откройте контекстное меню для роли, выберите **Azure**, а затем щелкните **Свойства**. В открывшемся окне можно изменить размер виртуальной машины и количество экземпляров, как показано на следующем рисунке.
+Open the context menu for the role in Eclipse's Project Explorer pane, click **Azure**, and then click **Properties**, and you will have the ability to change the virtual machine size, and also change the number of instances, as shown in the following image.
 
 ![][ic719499]
 
->[AZURE.NOTE] Только для Windows. Если для количества экземпляров задать значение больше 1, а также настроить сервер приложений, набор средств позволит запустить в эмуляторе только один экземпляр роли независимо от этого параметра. Это позволяет избежать конфликтов привязки портов между разными экземплярами сервера (например, все экземпляры пытаются выполнить привязку к порту 8080) при их запуске на одном компьютере. Указанное значение количества экземпляров сохраняется, но вступает в силу только при развертывании в облаке.
+>[AZURE.NOTE] Windows only: when you set the number of instances to a value greater than 1 and you also configure an application server, the toolkit will allow only 1 role instance to run in the emulator, regardless of this setting. This is to avoid port binding conflicts between the different server instances (for example, all trying to bind to port 8080) when they run on the same computer. Your desired instance count setting is preserved, but it goes into effect only when you deploy to the cloud.
 
-<a name="caching_properties"></a>
-### Свойства кэширования ###
+<a name="caching_properties"></a> 
+### <a name="caching-properties"></a>Caching properties ###
 
-На панели обозревателя проектов Eclipse откройте контекстное меню для роли, выберите **Azure**, а затем щелкните **Кэширование**. В этом диалоговом окне можно включать именованные совместно размещенные кэши, совместимые с memcache, позволяющие ускорить выполнение веб-приложений.
+Open the context menu for the role in Eclipse's Project Explorer pane, click **Azure**, and then click **Caching**. Within this dialog, you can enable named co-located memcache-compatible caches, allowing you to help speed up your web applications.
 
 ![][ic719483]
 
-На странице свойств **Кэширование** можно задать следующие общие параметры:
+Within the **Caching** property page, you can specify global settings for the following:
 
-* включено ли совмещенное кэширование;
-* размер кэша в виде процента от объема памяти;
-* имя учетной записи хранения для сохранения состояния кэша при запуске приложения в качестве облачной службы (если сохранять состояние кэша не требуется, учетную запись задавать не нужно). (При выполнении приложения в эмуляторе вычислений имя учетной записи хранения не используется.) Если задать для имени учетной записи хранения значение **(автоматически)** (значение по умолчанию), конфигурация кэша будет автоматически использовать ту же учетную запись хранения, которая выбрана в диалоговом окне **Публикация в Azure**.
+* whether co-located caching is enabled.
+* the cache size as a percent of memory.
+* the storage account name for saving the cache state when your application runs as a cloud service, or none if you do not want to save the cache state. (The storage account name is not used when you run your application in the compute emulator.) If you set the storage account name to **(auto)** (which is the default), your caching configuration will automatically use the same storage account as the one you select in the **Publish to Azure** dialog.
 
->[AZURE.NOTE] Параметр **(автоматически)** подействует нужным образом, только если публикация развертывания выполняется с помощью мастера публикации из набора средств Eclipse. Если CSPKG-файл публикуется вручную с помощью внешнего механизма, такого как [портал управления Azure][], развертывание будет работать неправильно.
+>[AZURE.NOTE] The **(auto)** setting will have the desired effect only if you publish your deployment using the Eclipse toolkit's publish wizard. If instead you publish the .cspkg file manually using an external mechanism, such as the [Azure Management Portal][], the deployment will not function properly.
 
-В следующем диалоговом окне отображаются свойства кэша.
+The following dialog shows the properties for a cache.
 
 ![][ic719501]
 
-* **Имя**. Имя совместно размещенного кэша.
-* **Номер порта**. Номер порта, используемого для кэша.
-* **Политика истечения срока действия**. Для этого свойства задается одно из значений ниже, указывающих на время истечения срока действия ключа в кэше.
-    * **Абсолютный**. Срок действия ключа истекает по достижении значения времени, заданного в параметре **Срок действия (мин.)**.
-    * **Не имеет срока действия**. Ключ не имеет срока действия.
-    * **Скользящее окно**. Срок действия ключа истекает, если доступ к нему не осуществлялся в течение времени, заданного в параметре **Срок действия (мин.)**. При каждом доступе к ключу происходит сброс срока.
-* **Срок действия (мин.)**. Максимальное количество минут действия ключа memcached согласно политике истечения срока действия.
-* **Высокая доступность с использованием реплицированных резервных копий в различных экземплярах ролей**. Если этот параметр включен, высокий уровень доступности обеспечивается за счет использования реплицированных резервных копий в различных экземплярах ролей. Обратите внимание, чтобы эта функция работала, в развертывании должны работать по крайней мере два экземпляра роли.
+* **Name:** The name of the co-located cache.
+* **Port number:** The port number to use for the cache.
+* **Expiration policy:** One of the following values that specifies when a key in the cache expires.
+    * **Absolute:** The key expires when the time specified by **Minutes to live** is reached.
+    * **NeverExpires:** The key does not have an expiration time.
+    * **SlidingWindow:** The key expires if it has not been accessed for the amount of time specified by **Minutes to live**; each time it is accessed, the expiration clock is reset.
+* **Minutes to live:** Maximum number of minutes for a memcached key to live, subject to the expiration policy.
+* **High availability with replicated backups on different role instances:** If enabled, helps provide high availability utilizing replicated backups on different role instances. Note that at least two role instances must be in effect for your deployment for this feature to work.
 
-Чтобы добавить новый кэш, нажмите кнопку **Добавить** на странице свойств **Кэширование**, после чего откроется диалоговое окно **Настройка именованного кэша**. Укажите значения для свойств, которые описаны выше.
+To add a new cache, click the **Add** button in the **Caching** property page, and a **Configure Named Cache** dialog will be opened. Provide values for the properties which are described above.
 
-Чтобы изменить именованный кэш, выберите его и нажмите кнопку **Изменить** на странице свойств **Кэширование**. Откроется диалоговое окно для изменения свойств кэша. Нажмите кнопку **ОК**, чтобы сохранить значения кэша.
+To modify a named cache, select the cache and click the **Edit** button in the **Caching** property page. A dialog will be opened allowing you to modify the cache properties. Press **OK** to save the cache values.
 
-Чтобы удалить кэш, выберите его и нажмите кнопку **Удалить** на странице свойств **Кэширование**, а затем нажмите кнопку **Да** для подтверждения удаления.
+To delete a cache, select the cache and click the **Remove** button in the **Caching** property page, and then click **Yes** to confirm the deletion.
 
-Дополнительные сведения о том, как использовать кэширование, см. в разделе [Как использовать совмещенное кэширование][].
+For more information on how to use caching, see [How to Use Co-located Caching][].
 
-<a name="certificates_properties"></a>
-### Свойства сертификатов ###
+<a name="certificates_properties"></a> 
+### <a name="certificates-properties"></a>Certificates properties ###
 
-На панели обозревателя проектов Eclipse откройте контекстное меню для роли, выберите **Azure**, а затем щелкните **Сертификаты**.
+Open the context menu for the role in Eclipse's Project Explorer pane, click **Azure**, and then click **Certificates**.
 
 ![][ic710964]
 
-В этом диалоговом окне можно добавлять или удалять сертификаты, на которые ссылается проект Eclipse. Обратите внимание, что указанные здесь сертификаты не сохраняются автоматически в хранилище ключей Java и, следовательно, не являются автоматически доступными для использования в приложении Java. Они только зарегистрированы в Azure, поэтому их можно предварительно скачать в хранилище сертификатов Windows на виртуальных машинах, работающих в развертывании, и впоследствии использовать с другим программным обеспечением Windows. В настоящее время единственный компонент в наборе средств, который таким образом использует сертификаты в диалоговом окне **Сертификаты**, — [разгрузка SSL][]. Это связано с его зависимостью от служб IIS и маршрутизации запросов приложения (ARR), для которых требуется предоставить доступ к нужному сертификату указанным способом.
+Within this dialog, you can add or remove certificates referenced by your Eclipse project. Note that the certificates listed here are not automatically stored inside any Java keystore, and therefore are not automatically available for any use from within a Java application. They are only registered with Azure so that they can be preloaded into the Windows certificate store on the virtual machines running your deployment and subsequently used by other Windows software. Currently, the only feature of the toolkit that uses the certificates referenced this way in the **Certificates** dialog is [SSL Offloading][], due to its reliance on Internet Information Services (IIS) and Application Request Routing (ARR), which require the proper certificate to be made available in this manner.
 
-При развертывании проекта в Azure с помощью мастера публикации появится запрос на указание PFX-файлов, соответствующих этим сертификатам, и паролей для их автоматической отправки в службу Azure (но только если они не были отправлены туда ранее).
+When you deploy your project to Azure using the Publish wizard, you will be prompted to point at the Personal Information Exchange (PFX) files corresponding to these certificates, along with their passwords, in order to automatically upload them to the Azure service, but only if they have not been uploaded there previously.
 
-<a name="components_properties"></a>
-### Свойства компонентов ###
+<a name="components_properties"></a> 
+### <a name="components-properties"></a>Components properties ###
 
-На панели обозревателя проектов Eclipse откройте контекстное меню для роли, выберите **Azure**, а затем щелкните **Компоненты**. В этом диалоговом окне можно добавлять, изменять или удалять компоненты роли, а также изменять порядок их обработки.
+Open the context menu for the role in Eclipse's Project Explorer pane, click **Azure**, and then click **Components**. Within this dialog, you have the ability to add, modify, or remove the components of your role, as well as change the order in which they are processed.
 
 ![][ic719502]
 
-Этот компонент позволяет добавлять зависимости в проект развертывания Azure, например проекты приложений Java, специальные файлы и исполняемые операторы командной строки, необходимые для развертывания.
+The components feature enables you to add dependencies to your Azure deployment project, such as Java application projects, special files, and executable command line statements that are needed by your deployment.
 
-Для каждого компонента указываются следующие данные:
+For each component, you can specify:
 
-* шаг, выполняемый при импорте компонента в проект развертывания Azure при его создании;
-* шаг, выполняемый при развертывании этого компонента в облаке Azure.
+* The step to be taken when importing the component into your Azure deployment project when it is built.
+* The step to be taken when deploying that component in the Azure cloud.
 
->[AZURE.NOTE] Указывая файлы компонентов или командные строки, имейте в виду, что развертывание будет опубликовано на виртуальной машине Windows, поэтому дополнительные действия должны поддерживаться в операционной системе Windows.
+>[AZURE.NOTE] When specifying component files or command lines, keep in mind that your deployment will be published to a Windows virtual machine, so your custom steps must be valid for a Windows-based operating system. 
 
-Компоненты содержат следующие свойства.
+Components have the following properties:
 
-* **Импорт**. Метод, который указывает способ импорта компонента в проект при создании проекта. Он может принимать одно из перечисленных ниже значений.
-    * **copy**. Компонент копируется из локального пути, указанного свойством **Из**, в каталог роли **approot**.
-    * **EAR**. Компонент является корпоративным архивом Java (EAR), импортированным из проекта корпоративного приложения по локальному пути, указанному свойством **Из**. (Набор средств определяет этот момент автоматически с учетом характера проекта в этом расположении.)
-    * **JAR**. Компонент является архивом Java (JAR), который импортируется из проекта Java по локальному пути, указанному свойством **Из**. (Набор средств определяет этот момент автоматически с учетом характера проекта в этом расположении.)
-    * **none**. Никаких действий для импорта компонента не предпринимается. Этот метод применим, если предполагается, что компонент уже находится в каталоге роли **approot** или компонент является просто исполняемым оператором командной строки, как указано в свойстве **Как**, если для метода **Развертывание** задано значение **exec**.
-    * **WAR**. Компонент является архивом веб-приложения Java (JAR), который импортируется из динамического веб-проекта по локальному пути, указанному свойством **Из**. (Набор средств определяет этот момент автоматически с учетом характера проекта в этом расположении.)
-    * **zip**. Компонент является ZIP-файлом, который импортируется путем сжатия каталога или файла, указанного свойством **Из**.
-* **Из**. Исходный путь на локальном компьютере к папке или файлу, представляющему элементы для импорта в развертывание. В этом свойстве можно использовать переменные среды Windows. Все импортируемые компоненты будут импортированы в каталог роли **approot** при создании проекта.
-	
-	Обратите внимание, что компонент можно развертывать из пакета скачивания при развертывании в облаке (не в эмуляторе вычислений). См. соответствующие сведения о добавлении компонента ниже.
-	
-* **Как**. Имя файла, с которым компонент будет импортирован в каталог роли **approot** и в конечном итоге развернут в облаке Azure. Оставьте это свойство пустым, чтобы сохранить такое же имя, как и на локальном компьютере. (Для исполняемых компонентов, то есть для которых используется метод **Развертывание** со значением **exec**, это может быть произвольный оператор командной строки Windows.)
+* **Import:** Method that indicates how the component will be imported into the project when the project is built. This can be one of the following values:
+    * **copy:** The component is copied from the local path specified by the **From** property into the role's **approot** directory.
+    * **EAR:** The component is a Java enterprise archive (EAR) imported from an Enterprise Application Project at the local path specified by the **From** property. (This is detected automatically by the toolkit based on the nature of the project at that location).
+    * **JAR:** The component is a Java archive (JAR) and is imported from a Java project at the local path specified by the **From** property. (This is detected automatically by the toolkit based on the nature of the project at that location).
+    * **none:** No action is taken to import the component. This is applicable when the component is assumed to already be present in the role's **approot** directory, or when the component is merely an executable command line statement, as specified in the **As** property when the **Deploy** method is **exec**.
+    * **WAR:** The component is a Java web application archive (WAR) and is imported from a Dynamic Web Project at the local path specified by the **From** property. (This is detected automatically by the toolkit based on the nature of the project at that location).
+    * **zip:** The component is a zip file and is imported by zipping the directory or file specified by the **From** property.
+* **From:** Source path on your local machine to the folder or file that represents the item(s) to import to your deployment. Windows environment variables can be used in this property. All importable components will be imported into the role's **approot** directory when the project is built.
+    
+    Note that you have the ability to deploy a component from a download when deploying to the cloud (not the compute emulator). See related information below about adding a component.    
+    
+* **As:** File name under which the component will be imported into the role's **approot** directory and ultimately deployed in the Azure cloud. Leave this property blank to keep the name the same as it is on the local machine. (For executable components, that is, those whose **Deploy** method is set to **exec**, this can be an arbitrary Windows command line statement.)
 
-	>[AZURE.IMPORTANT] Пробелы, используемые для этого значения, будут обрабатываться по-разному в зависимости от метода развертывания. В методе развертывания **exec** пробелы будут интерпретироваться как разделители аргументов командной строки, а не часть имени файла. Для остальных методов развертывания пробелы будут интерпретироваться как часть имени файла.
-	
-* **Развертывание**. Метод, который указывает действие, примененное к компоненту при начале развертывания. Он может принимать одно из перечисленных ниже значений.
-    * **copy**. Компонент копируется в целевой путь, указанный свойством **В**.
-    * **exec**. Компонент является исполняемым оператором командной строки Windows, выполняемым в контексте пути, указанном свойством **В**, во время запуска развертывания.
-    * **none**. При запуске развертывания к компоненту не применяются никакие действия.
-    * **zip**. Компонент распаковывается в целевом пути, указанном свойством **В**. Этот метод доступен, только если для свойства **Импорт** задано значение **zip**.
-* **В**. Целевой путь на виртуальной машине, на которой будет развернут компонент. В этом свойстве можно использовать переменные среды Windows, а пути к файлам указываются относительно **approot**.
-	
-Чтобы добавить новый компонент, нажмите кнопку **Добавить** на странице свойств **Компоненты**, после чего откроется диалоговое окно **Компонент роли Azure**. Укажите значения для свойств, которые описаны выше.
+    >[AZURE.IMPORTANT] If you use space characters for this value, they will be handled differently depending on the deploy method. If the deploy method is **exec**, spaces will be interpreted as command line argument separators and not as part of the file name. For all other deploy methods, spaces will be interpreted as part of the file name.
+    
+* **Deploy:** Method that indicates the action applied to the component when the deployment is started. This can be one of the following values:
+    * **copy:** The component is copied to the destination path specified by the **To** property.
+    * **exec:** The component is an executable Windows command line statement executed in the context of the path specified by the **To** property, at the time the deployment starts.
+    * **none:** No action is applied to the component when the deployment starts.
+    * **zip:** The component is unzipped to the destination path specified by the **To** property. This method is available only when the **Import** property is **zip**.
+* **To:** Destination path on the virtual machine where the component will be deployed. Windows environment variables can be used in this property, and file paths are relative to **approot**.
+    
+To add a new component, click the **Add** button in the **Components** property page, and an **Azure Role Component** dialog will be opened. Provide values for the properties which are described above. 
 
-Ниже приведен пример добавления нового компонента WAR.
+The following shows an example for adding a new WAR component.
 
 ![][ic719503]
 
-Если при развертывании в облаке (не в эмуляторе вычислений), необходимо развернуть компонент из пакета скачивания, убедитесь, что установлен флажок **При развертывании в облаке не включать в пакет, а развернуть из**. Чтобы выполнить скачивание из учетной записи хранения Azure, выберите учетную запись хранения в раскрывающемся списке **Учетная запись хранения** (для изменения содержимого списка можно щелкнуть ссылку **Учетные записи**), которая частично заполнит поле **URL-адрес**, а затем допишите оставшуюся часть URL-адреса. Если использовать службу хранилища Azure не требуется, выберите пункт **(нет)** в раскрывающемся списке **Учетная запись хранения** и в поле **URL-адрес** введите URL-адрес компонента. Укажите один из следующих методов.
+When deploying to the cloud (not the compute emulator), if you want to deploy the component from a download, ensure that **When in cloud, instead of including in the package, deploy from** is checked. If you want to download from your Azure storage account, select the storage account from the **Storage account** drop-down list (you can click the **Accounts** link to modify what is in the list), which will partially fill in the **URL** field, and then fill in the remaining portion of the URL. If you do not want to use Azure storage, select **(none)** from the **Storage account** drop-down list, and enter the URL to your component in the **URL** field. Specify one of the following methods:
 
-* **copy**. Компонент скачивания копируется в целевой путь, указанный в свойстве **Целевой каталог**.
-* **same**. Для параметра **Развернуть из пакета скачивания** используется тот же метод, что и для параметра **Развернуть из пакета**.
-* **zip**. Компонент скачивания распаковывается в целевой путь, указанный в свойстве **Целевой каталог**.
+* **copy:** The download component is copied to the destination path specified by the **To Directory** path.
+* **same:** The same method used for **Deploy from download** as for **Deploy from package**.
+* **zip:** The download component is unzipped to the destination path specified by the **To Directory** path.
 
-Чтобы изменить компонент, выберите его и нажмите кнопку **Изменить** на странице свойств **Компоненты**. Откроется диалоговое окно для изменения свойств компонента. Нажмите кнопку **ОК**, чтобы сохранить значения компонента.
+To modify a component, select the component and click the **Edit** button in the **Components** property page. A dialog will be opened allowing you to modify the component properties. Press **OK** to save the component values.
 
-Чтобы удалить компонент, выберите его и нажмите кнопку **Удалить** на странице свойств **Компоненты**, а затем нажмите кнопку **Да** для подтверждения удаления.
+To delete a component, select the component and click the **Remove** button in the **Components** property page, and then click **Yes** to confirm the deletion.
 
-Компоненты обрабатываются в указанном порядке. Задайте нужный порядок с помощью кнопок **Вверх** и **Вниз**.
+Components are processed in the order listed. Use the **Move Up** and **Move Down** buttons to arrange the order.
 
->[AZURE.NOTE] Конфигурация сервера также зависит от компонентов. Эти компоненты нельзя удалять или изменять без удаления соответствующей конфигурации сервера. При попытке внести изменения в такие компоненты появится соответствующий запрос.
+>[AZURE.NOTE] The server configuration feature relies on components as well. Those components cannot be removed or edited without removing the corresponding server configuration. You will be prompted about that when attempting to make changes to such components.
 
-<a name="debugging_properties"></a>
-### Свойства отладки ###
+<a name="debugging_properties"></a> 
+### <a name="debugging-properties"></a>Debugging properties ###
 
-На панели обозревателя проектов Eclipse откройте контекстное меню для роли, выберите **Azure**, а затем щелкните **Отладка**. В этом диалоговом окне можно включать или отключать удаленную отладку, а также создавать конфигурации отладки, как показано на следующем рисунке.
+Open the context menu for the role in Eclipse's Project Explorer pane, click **Azure**, and then click **Debugging**. Within this dialog, you have the ability to enable or disable remote debugging, as well as create debug configurations, as shown in the following image.
 
 ![][ic719504]
 
-Дополнительные сведения об отладке см. в статье [Отладка приложения Azure в Eclipse][].
+For related information about debugging, see [Debugging Azure Applications in Eclipse][].
 
-<a name="endpoints_properties"></a>
-### Свойства конечных точек ###
+<a name="endpoints_properties"></a> 
+### <a name="endpoints-properties"></a>Endpoints properties ###
 
-На панели обозревателя проектов Eclipse откройте контекстное меню для роли, выберите **Azure**, а затем щелкните **Конечные точки**. В этом диалоговом окне можно создавать, изменять или удалять конечные точки, как показано на следующем рисунке.
+Open the context menu for the role in Eclipse's Project Explorer pane, click **Azure**, and then click **Endpoints**. Within this dialog, you have the ability to create an endpoint, as well as edit or remove an endpoint, as shown in the following image.
 
 ![][ic719505]
 
-Чтобы добавить конечную точку, нажмите кнопку **Добавить** на странице свойств **Конечные точки**, после чего откроется диалоговое окно **Добавление конечной точки**.
+To add an endpoint, click the **Add** button in the **Endpoints** property page, and an **Add Endpoint** dialog will be opened.
 
 ![][ic710897]
 
-Введите имя для конечной точки, выберите тип (**Входная**, **Внутренняя** или **Входная конечная точка экземпляра**) и укажите общий и частный порты. Нажмите кнопку **ОК**, чтобы сохранить новые значения конечной точки.
+Enter a name for the endpoint, select the type (either **Input**, **Internal**, or **InstanceInput**), and specify the public and private port. Press **OK** to save the new endpoint values.
 
-В зависимости от типа конечной точки диапазоны портов используются следующим образом.
+Depending on the type of endpoint, you may use port ranges as follows:
 
-* Для общего порта входной конечной точки экземпляра можно указать диапазон портов (например, **2000–2010**), а для частного порта — фиксированное значение.
-* Для внутренней конечной точки общий порт не используется, а для частного порта можно задать диапазон, оставить пустое значение или указать звездочку, что означает, что Azure автоматически назначит значение.
-* Для входных конечных точек общий порт может иметь только фиксированное значение, а для частного порта можно задать фиксированное значение, оставить пустое значение или указать звездочку, что означает, что Azure автоматически назначит значение.
+* For an input instance endpoint, the public port can be a range of ports (for example **2000-2010**) and the private port is a fixed value.
+* For an internal endpoint, the public port is not used, and the private port can be a range, or left blank or set to an asterisk to indicate it is automatically set by Azure.
+* For input endpoints, the public port can only be a fixed value, and the private port can be a fixed value, or left blank or set to an asterisk to indicate it is automatically set by Azure.
 
-Если вместо диапазона номеров нужно использовать один номер порта, оставьте текстовое поле для конца диапазона пустым.
+If you want to use a single port number instead of a range, leave the text box for the end of the range blank.
 
-Чтобы определить, какой из автоматически устанавливаемых портов фактически используется во время выполнения, приложение может использовать API среды выполнения службы Azure, который описан на странице по адресу [com.microsoft.windowsazure.serviceruntime package summary][].
+For ports that are set to automatic, if you need to determine which port is actually used during runtime, your application can use the Azure Service Runtime API, which is documented in the [com.microsoft.windowsazure.serviceruntime package summary][].
 
-Сведения об использовании входных конечных точек экземпляров в процессе отладки развертывания из нескольких экземпляров см. в статье [Отладка конкретного экземпляра роли в развертывании из нескольких экземпляров][].
+To see how instance input endpoints can be used to help with debugging a multi-instance deployment, see [Debugging a specific role instance in a multi-instance deployment][].
 
-Чтобы изменить конечную точку, выберите ее и нажмите кнопку **Изменить** на странице свойств **Конечные точки**. Откроется диалоговое окно для изменения имени конечной точки, ее типа, а также общего и частного портов. Нажмите кнопку **ОК**, чтобы сохранить измененные значения конечной точки.
+To modify an endpoint, select the endpoint and click the **Edit** button in the **Endpoints** property page. A dialog will be opened allowing you to modify the endpoint name, type, and public and private ports. Press **OK** to save the modified endpoint values.
 
-Чтобы удалить конечную точку, выберите ее и нажмите кнопку **Удалить** на странице свойств **Конечные точки**, а затем нажмите кнопку **Да** для подтверждения удаления.
+To delete an endpoint, select the endpoint and click the **Remove** button in the **Endpoints** property page, and then click **Yes** to confirm the deletion.
 
-Для правильной настройки некоторых функций (таких как кэширование, удаленная отладка, сходство сеансов или разгрузка SSL), включенных пользователем в роли, набор средств предусматривает автоматическую настройку специальных конечных точек, которые отображаются вместе с конечными точками, определяемыми пользователем. Набор средств предотвращает изменение или удаление автоматически созданных конечных точек в течение всего времени, пока включен связанный компонент.
+In order to properly configure some of the features (such as Caching, Remote Debugging, Session Affinity, or SSL offloading) enabled by the user on a role, the toolkit may automatically configure special endpoints that will be listed along with user-defined endpoints. The toolkit prevents the user from editing or deleting such automatically generated endpoints as long as the associated feature is enabled.
 
-<a name="environment_variables_properties"></a>
-### Свойства переменных среды ###
+<a name="environment_variables_properties"></a> 
+### <a name="environment-variables-properties"></a>Environment variables properties ###
 
-На панели обозревателя проектов Eclipse откройте контекстное меню для роли, выберите **Azure**, а затем щелкните **Переменные среды**. В этом диалоговом окне можно создавать, изменять или удалять переменные среды, как показано на следующем рисунке.
+Open the context menu for the role in Eclipse's Project Explorer pane, click **Azure**, and then click **Environment Variables**. Within this dialog, you have the ability to create an environment variable, as well as modify or remove an environment variable, as shown in the following image.
 
 ![][ic719506]
 
-Переменные среды доступны для сценария запуска при запуске роли.
+Environment variables are available to your startup script when the role starts.
 
->[AZURE.NOTE] Указывая переменные среды, имейте в виду, что развертывание будет опубликовано на виртуальной машине Windows, поэтому переменные среды должны поддерживаться в операционной системе Windows.
+>[AZURE.NOTE] When specifying environment variables, keep in mind that your deployment will be published to a Windows virtual machine, so your environment variables must be valid for a Windows-based operating system.
 
-В качестве примера переменной среды, доступной при запуске роли, создайте переменную среды, нажав кнопку **Добавить**. Далее показано создание переменной среды с именем **MyRoleVersion** и назначение ей значения **1.0**.
+As an example of an environment variable being available when the role starts, create a new environment variable by clicking the **Add** button. The following shows an environment variable named **MyRoleVersion** being created and assigned the value **1.0**.
 
 ![][ic659268]
 
-В коде jsp отобразить значение можно с помощью метода `System.getenv`:
+Within your jsp code, you could display the value using the `System.getenv` method:
 
     <body>
       <b> Hello World!</b>
       <p>Running role version: <%= System.getenv("MyRoleVersion") %></p>
     </body>
 
-При запуске приложения получим следующий результат:
+Resulting in this output when your application runs:
 
 ![][ic552233]
 
-Чтобы изменить переменную среды, выберите ее и нажмите кнопку **Изменить** на странице свойств **Переменные среды**. Откроется диалоговое окно для изменения свойств переменной среды. Нажмите кнопку **ОК**, чтобы сохранить значения переменных среды.
+To modify an environment variable, select the environment variable and click the **Edit** button in the **Environment Variables** property page. A dialog will be opened allowing you to modify the environment variable properties. Press **OK** to save the environment variable values.
 
-Чтобы удалить переменную среды, выберите ее и нажмите кнопку **Удалить** на странице свойств **Переменные среды**, а затем нажмите кнопку **Да** для подтверждения удаления.
+To delete an environment variable, select the environment variable and click the **Remove** button in the **Environment Variables** property page, and then click **Yes** to confirm the deletion.
 
-Для правильной настройки некоторых функций (таких как конфигурация сервера, удаленная отладка или локальное хранилище), включенных пользователем в роли, набор средств предусматривает автоматическую настройку специальных переменных среды, которые будут указываться вместе с переменными, определяемыми пользователями. Набор средств предотвращает изменение или удаление автоматически созданных переменных среды в течение всего времени, пока включен связанный компонент.
+In order to properly configure some of the features (such as Server Configuration, Remote Debugging or Local Storage) enabled by the user on a role, the toolkit may automatically configure special environment variables that will be listed along with user-defined environment variables. The toolkit prevents the user from editing or deleting such automatically generated environment variables as long as the associated feature is enabled.
 
-<a name="session_affinity_properties"></a>
-### Свойства балансировки нагрузки и свойства сходства сеансов (называемые также прикрепленными сеансами) ###
+<a name="session_affinity_properties"></a> 
+### <a name="load-balancing-/-session-affinity-(a.k.a-"sticky-sessions")-properties"></a>Load balancing / session affinity (a.k.a "sticky sessions") properties ###
 
-На панели обозревателя проектов Eclipse откройте контекстное меню для роли, выберите **Azure**, а затем щелкните **Балансировка нагрузки**. В этом диалоговом окне можно включать или отключать сходство сеансов, как показано на следующем рисунке.
+Open the context menu for the role in Eclipse's Project Explorer pane, click **Azure**, and then click **Load Balancing**. Within this dialog, you have the ability to enable or disable session affinity, as shown in the following image.
 
 ![][ic719492]
 
-Дополнительную информацию см. в статье [Сходство сеанса][]. Кроме того, обратите внимание на поведение этой функции в контексте разгрузки SSL, как описано в статье [разгрузка SSL][].
+For related information, see [Session Affinity][]. Also, note this feature's behavior in the context of SSL offloading, as described at [SSL Offloading][].
 
-<a name="local_storage_properties"></a>
-### Свойства локального хранилища ###
+<a name="local_storage_properties"></a> 
+### <a name="local-storage-properties"></a>Local storage properties ###
 
-На панели обозревателя проектов Eclipse откройте контекстное меню для роли, выберите **Azure**, а затем щелкните **Локальное хранилище**. В этом диалоговом окне можно создавать, изменять или удалять временное локальное хранилище для виртуальной машины, на которой выполняется приложение. Для размера локального хранилища можно задать конкретные значения. Кроме того, можно указать необходимость сохранения содержимого во время перезапуска роли, как показано на следующем рисунке.
+Open the context menu for the role in Eclipse's Project Explorer pane, click **Azure**, and then click **Local Storage**. Within this dialog, you have the ability to create, modify or remove temporary local storage for the virtual machine that is running your application. Specific values can be set for the size of the local storage, as well as whether the contents are preserved when the role is recycled, as shown in the following image.
 
 ![][ic719508]
 
-Можно также указать переменную среды, которая относится к локальному хранилищу.
+You can also optionally specify an environment variable that corresponds to the local storage.
 
-По умолчанию все компоненты, развертываемые в Azure, размещаются (и распаковываются) в папке **approot** экземпляра роли. Несмотря на то, что большая часть простых развертываний помещается в папке даже после распаковки, пространство, выделенное для каталога **approot**, ограничено и не является четко определенным (целесообразно выделять не менее 1 ГБ). Таким образом, чтобы выделять в Azure достаточно дискового пространства для более крупных развертываний, размер которых может не соответствовать месту в папке **approot**, необходимо настроить локальный ресурс хранилища с помощью параметров в диалоговом окне **Локальное хранилище**. Простой способ выполнения этой задачи приведен в статье [Развертывание крупных развертываний][].
+By default, everything that you deploy into Azure is placed (and unzipped) in the **approot** folder of the role instance. While most simple deployments will fit there even after unzipping, the space allocated for the **approot** directory is limited and not well-defined (less than 1 GB is a reasonable rule of thumb). Therefore, to ensure Azure allocates sufficient disk space for larger deployments that might not fit in the **approot** folder, you should set up a local storage resource using the **Local Storage** dialog. For an easy way to do this, see [Deploying Large Deployments][].
 
-На ресурс хранилища можно легко ссылаться из сценариев запуска (например, из **startup.cmd**) с помощью переменной среды, автоматически связываемой набором средств Eclipse с ресурсом, как показано в диалоговом окне **Локальное хранилище**. Переменная среды будет содержать полный путь к локальному ресурсу, настроенному во время выполнения сценария запуска.
+You can easily reference the storage resource from startup scripts (for example, your **startup.cmd**) using the environment variable automatically associated by the Eclipse toolkit with the resource, as shown in the **Local Storage** dialog. That environment variable will contain the full path of the local resource you've configured at the time your startup script is executed. 
 
-Чтобы изменить локальный ресурс хранилища, выберите его и нажмите кнопку **Изменить** на странице свойств **Локальное хранилище**. Откроется диалоговое окно для изменения свойств локального ресурса хранилища. Нажмите кнопку **ОК**, чтобы сохранить значения локального ресурса хранилища.
+To modify a local storage resource, select the local storage resource and click the **Edit** button in the **Local Storage** property page. A dialog will be opened allowing you to modify the local storage resource properties. Press **OK** to save the local storage resource values.
 
-Чтобы удалить локальный ресурс хранилища, выберите его и нажмите кнопку **Удалить** на странице свойств **Локальное хранилище**, а затем нажмите кнопку **Да** для подтверждения удаления.
+To delete a local storage resource, select the local storage resource and click the **Remove** button in the **Local Storage** property page, and then click **Yes** to confirm the deletion.
 
-<a name="server_configuration_properties"></a>
-### Свойства конфигурации сервера ###
+<a name="server_configuration_properties"></a> 
+### <a name="server-configuration-properties"></a>Server configuration properties ###
 
-На панели обозревателя проектов Eclipse откройте контекстное меню для роли, выберите **Azure**, а затем щелкните **Конфигурация сервера**. В этом диалоговом окне можно добавлять, удалять и изменять сервер приложений JDK и Java, используемый для развертывания, а также добавлять или удалять приложения (такие как файлы WAR, JAR или EAR), используемые развертыванием.
+Open the context menu for the role in Eclipse's Project Explorer pane, click **Azure**, and then click **Server Configuration**. Within this dialog, you have the ability to add, remove, and modify the JDK and Java application server used by your deployment, as well as add or remove the applications (such as WAR, JAR or EAR files) used by your deployment.
 
-### Конфигурация JDK ###
+### <a name="jdk-configuration"></a>JDK configuration ###
 
-В этом диалоговом окне можно указать пакет JDK, который будет использоваться для развертывания. При использовании Eclipse в Windows можно указать пакет JDK для локального применения при выполнении в эмуляторе Azure. Кроме того, эту локальную установку можно развернуть в Azure. В операционных системах, отличных от Windows, параметр JDK эмулятора не применяется, а локально установленный JDK нельзя развернуть, так как он не совместим с Windows. Тем не менее, независимо от используемой операционной системы, всегда можно выбрать сторонние пакеты JDK для развертывания в Azure или указать собственный совместимый с Windows пакет JDK из расположения альтернативного скачивания.
+This dialog allows you to specify the JDK package to use for your deployment. If you are using Eclipse on Windows, you can specify the JDK package to use locally when running in the Azure emulator and you have the option to deploy that local installation to Azure. On non-Windows operating systems, the emulator JDK setting is not applicable and you cannot deploy the locally installed JDK since it is not compatible with Windows. However, regardless of the operating system that you are using, you can always choose among the 3rd party JDK packages to deploy to Azure, or point at your own Windows-compatible JDK package from an alternate download location.
 
-Ниже приведен пример указания JDK в Windows:
+The following is an example of how you can specify a JDK on Windows:
 
 ![][ic780647]
 
-При использовании Eclipse в Windows можно указать пакет JDK для использования с эмулятором вычислений. Для этого убедитесь, что в разделе **Развертывание эмулятора** установлен флажок **Использовать JDK по этому пути к файлу для локального тестирования**. Затем укажите локальный путь к JDK. Если нужный JDK не выбирается автоматически, можно перейти к другим JDK. Кроме того, JDK можно развернуть в облачной службе Azure. Для этого в разделе **Облачное развертывание** выберите параметр **Развернуть мой локальный JDK (автоматически отправить в облачное хранилище)**.
+If you are using Eclipse on Windows, you can specify a JDK to use with the compute emulator; to do so, ensure **Use the JDK from this file path for testing locally** is checked in the **Emulator deployment** section. Then, specify the local path to your JDK; you can browse to different JDK if the one you want to use is not selected automatically. You also have the option to deploy your JDK to your Azure cloud service; to do so, select the **Deploy my local JDK (auto-upload to cloud storage)** option in the **Cloud deployment** section.
 
-Примечание. В операционных системах, отличных от Windows, параметры **Развертывание эмулятора** и **Развернуть мой локальный JDK** недоступны. В следующем примере демонстрируется указание JDK на компьютере Mac или в другой поддерживаемой ОС, отличной от Windows:
+Note: On non-Windows operating systems, the **Emulator deployment** settings and the **Deploy my local JDK** option are not available. The following example illustrates specifying a JDK on a Mac or other supported non-Windows operating system:
 
 ![][ic789643]
 
-Независимо от текущей операционной системы для источника и типа пакета JDK есть два следующих параметра **Облачное развертывание**:
+Regardless of the operating system you are on, you have the following two **Cloud deployment** options for the source and type of your JDK package:
 
-* **Развернуть сторонний пакет JDK, доступный в Azure;**
-* **Развернуть из пакета пользовательского скачивания.**
+* **Deploy a 3rd party JDK package available on Azure** 
+* **Deploy from a custom download** 
 
-При использовании параметра **Развернуть сторонний пакет JDK, доступный в Azure** сделайте следующее:
+If you are using the **Deploy a 3rd party JDK package available from Azure** option:
 
-1. Установите флажок **Развернуть сторонний пакет JDK, доступный в Azure**.
-1. В раскрывающемся списке выберите сторонний пакет JDK, доступный в Azure.
-1. Вкладка **JDK** в Windows будет выглядеть следующим образом: ![][ic780648]. В Mac OS или других поддерживаемых ОС, отличных от Windows, вкладка будет выглядеть следующим образом: ![][ic789643].
-1. Нажмите кнопку **ОК**, чтобы сохранить изменения.
-1. При отображении запроса на принятие лицензионного соглашения от стороннего поставщика пакета JDK ознакомьтесь с условиями лицензии. Если вы принимаете условия, нажмите кнопку **Да**, чтобы закрыть диалоговое окно **Принятие лицензионного соглашения**. Обратите внимание, что базовую логику, элементы для которой отображаются в раскрывающемся списке для параметра **Развернуть сторонний пакет JDK, доступный в Azure**, можно настроить. Чтобы настроить элементы, в диалоговом окне **JDK** щелкните ссылку **Настройка**. Страница свойств **JDK** закроется, а в Eclipse откроется файл **componentsets.xml**, который при необходимости можно изменить. Документация по файлу **componentsets.xml** находится в самом файле **componentsets.xml**.
+1. Check the checkbox named **Deploy a 3rd party JDK package available from Azure**.
+1. From the drop-down list, select the 3rd party JDK package that is available on Azure.
+1. Your **JDK** tab will look similar to the following on Windows:  ![][ic780648]
+    And it will look similar to the following on Mac OS or other supported non-Windows operating systems:  ![][ic789643]
+1. Click **OK** to save your changes.
+1. When prompted to accept the license agreement from the 3rd party JDK package provider, review the license terms. Assuming you accept the terms, click **Yes** to close the **Accept license agreement** dialog.
+    Note that the underlying logic for which items appear in the drop-down list for the **Deploy a 3rd party JDK package available from Azure** option can be customized. To customize the items, in the **JDK** dialog, click the **Customize** link. This will close the **JDK** property page and open the **componentsets.xml** file in Eclipse, which you can then modify as needed. Documentation for **componentsets.xml** is included in the **componentsets.xml** file itself.
 
-При использовании параметра **Развернуть JDK из пакета пользовательского скачивания** сделайте следующее:
+If you are using the **Deploy a JDK from a custom download** option:
 
-1. Создайте ZIP-файл каталога установки JDK, причем узел каталога должен быть дочерним элементом структуры ZIP, а не его содержимым. Запишите имя каталога, так как оно понадобится позже, и имейте в виду, что эта установка JDK будет развернута на виртуальной машине Windows.
-1. Отправьте ZIP-файл в учетную запись хранения Azure в виде большого двоичного объекта. Это можно сделать с помощью внешнего средства для отправки больших двоичных объектов в службу хранилища Azure. Рекомендуется использовать частный большой двоичный объект. Запишите URL-адрес большого двоичного объекта содержимого ZIP-файла.
-1. Установите флажок **Развернуть JDK из пакета пользовательского скачивания**. Чтобы выполнить скачивание из учетной записи хранения Azure, выберите учетную запись хранения в раскрывающемся списке **Учетная запись хранения** (для изменения содержимого списка можно щелкнуть ссылку **Учетные записи**), которая частично заполнит поле **URL-адрес**, а затем допишите оставшуюся часть URL-адреса. Если использовать службу хранилища Azure не требуется, выберите пункт **(нет)** в раскрывающемся списке **Учетная запись хранения** и в поле **URL-адрес** введите URL-адрес к скачиваемому пакету JDK. При использовании службы хранилища Azure имена больших двоичных объектов в URL-адресе должны состоять из строчных букв.
-1. Убедитесь, что текстовое поле **JAVA\_HOME** ссылается на правильный каталог. По умолчанию оно будет совпадать с именем каталога JDK, выбранного для локального использования. Однако если каталог, содержащийся в ZIP-файле, имеет другое имя (например, из-за использования разных версий), соответствующим образом обновите имя каталога в текстовом поле **JAVA\_HOME**, так как этот параметр будет использоваться в облаке (не в эмуляторе вычислений).
-1. Нажмите кнопку **ОК**, чтобы сохранить изменения.
+1. Create a ZIP of your JDK installation directory, ensuring that the directory node itself is the child of the ZIP structure, and not its contents. Take note of the name of the directory, as you will need it later, and keep in mind this JDK installation will be deployed to a Windows virtual machine.
+1. Upload the ZIP into your Azure storage account as a blob. You can do this using an externally available tool for uploading blobs to Azure storage. It is recommended to use a private blob. Take note of the blob URL of the ZIP contents.
+1. Check the checkbox named **Deploy a JDK from a custom download**.
+    If you want to download from your Azure storage account, select the storage account from the **Storage account** drop-down list (you can click the **Accounts** link to modify what is in the list), which will partially fill in the **URL** field, and then fill in the remaining portion of the URL. If you do not want to use Azure storage, select **(none)** from the **Storage account** drop-down list, and enter the URL to your JDK download in the **URL** field. If using Azure storage, blob names in the URL must be lowercase.
+1. Ensure that the **JAVA_HOME** textbox refers to the correct directory name. By default, it will reference the same JDK directory name as the value you chose for your local use. But if the directory contained in the ZIP has a different name (for example, due to using a different version), update the directory name in the **JAVA_HOME** textbox accordingly, since this setting will be used in the cloud (not in the compute emulator).
+1. Click **OK** to save your changes.
 
-Вот и все. Теперь, выполняя сборку для облака, вы заметите, что размер пакета будет намного меньше, процесс сборки обычно будет занимать меньше времени и само развертывание при публикации в облако также будет происходить быстрее. Обратите внимание, что параметры **Развернуть мой локальный JDK (автоматически отправить в облачное хранилище)** или **Развернуть JDK из пакета пользовательского скачивания** будут действовать, только если приложение развернуто в облаке. Они не влияют на работу эмулятора вычислений. При развертывании в эмуляторе вычислений будет по-прежнему использоваться локальная версия компонентов.
+That's it. Now, when you build for the cloud, you will notice the package size will be much smaller, the build process should typically take less time, and the deployment itself when you publish to the cloud should also take less time. Note that the **Deploy my local JDK (auto-upload to cloud storage)** or **Deploy a JDK from a custom download** options are in effect only when your application is deployed in the cloud. They have no effect on your compute emulator experience; the local version of the components will still be used when you deploy to the compute emulator. 
 
-### Конфигурация сервера ###
+### <a name="server-configuration"></a>Server configuration ###
 
-Ниже приведен пример указания сервера приложений.
+The following is an example of how you can specify an application server.
 
 ![][ic796926]
 
-Убедитесь, что установлен флажок **Развернуть сервер этого типа**, а затем выберите тип сервера приложений, который нужно использовать.
+Verify that the **Deploy a server of this type** checkbox is selected, and then choose the type of application server you want to use.
 
-Чтобы указать сервер для использования в облачном развертывании, можно воспользоваться следующими параметрами.
+For specifying a server to use for cloud deployment, you can take advantage of the following options:
 
-1. **Развернуть сторонний сервер, доступный в Azure**. Этот параметр хорошо подходит для сценариев разработки и тестирования, где эффективность и простота развертывания имеют наивысший приоритет, а для сервера не требуется выполнять пользовательскую настройку. Или если нужно использовать один из этих серверов в качестве отправной точки, и в тоже время включить действия по настройке соответствующего сервера в логику запуска развертывания.
-1. **Развернуть из пакета пользовательского скачивания**. Этот параметр хорошо подходит для рабочих сценариев со специально подготовленным и настроенным сервером, который будет использоваться в облаке.
-1. **Развернуть установку моего локального сервера**. Этот параметр особенно применим в случае, если установка локального сервера уже имеет пользовательские настройки для использования. Если выбран этот параметр, необходимо также указать путь локального сервера в текстовом поле **Путь локального сервера** ниже.
+1. **Deploy a 3rd party server available on Azure** - this is especially applicable in dev/test scenarios where deployment efficiency and simplicity is a priority and the server does not require a custom configuration. Or when you want to use one of those servers as the starting point but you include appropriate server customization steps in your deployment's startup logic.
+1. **Deploy from a custom download** - this is especially applicable in production scenarios when you have a specially prepared and configured server that you want to use in the cloud.
+1. **Deploy my local server installation** - this is especially applicable in if your local server installation is already custom-configured for your use. If you choose this option, you must also specify your local server's path in the **Local server path** text box below.
 
-При использовании параметра **Развернуть сторонний сервер, доступный в Azure** сделайте следующее:
+If you are using the **Deploy a 3rd party server available on Azure** option:
 
-1. Установите флажок **Развернуть сторонний сервер, доступный в Azure**.
-1. В раскрывающемся меню выберите нужное серверное программное обеспечение для использования в процессе развертывания в облаке. Обратите внимание, если тип сервера для использования уже указан, то выбор будет ограничен только облачным сервером из того же семейства, что и этот тип сервера. Но если тип сервера не выбран, можно выбрать любой из серверов, доступных в настоящий момент в Azure, и тип сервера будет выбран автоматически.
-1. Нажмите кнопку **ОК**, чтобы сохранить изменения.
+1. Check the checkbox named **Deploy a 3rd party server available on Azure**.
+1. From the dropdown menu, select the desired server software to use with your deployment in the cloud. Note, if you already specified a type of server to use earlier, you will be limited to choosing only a cloud server that is in the same family as that server type. But if you did not choose a server type, you can choose from any of the servers that are currently available on Azure and the server type will be automatically selected for you.
+1. Click **OK** to save your changes.
 
-При использовании параметра **Развернуть из пакета пользовательского скачивания** сделайте следующее:
+If using the **Deploy from a custom download** option:
 
-1. Убедитесь, что тип сервера выбран в соответствии с предыдущими шагами. Так подключаемый модуль узнает о развертывании сервера из пакета пользовательского скачивания, так как он должен быть из того же семейства, что и выбранный тип сервера.
-1. Установите флажок **Развернуть из пакета пользовательского скачивания**. Чтобы выполнить скачивание из учетной записи хранения Azure, выберите учетную запись хранения в раскрывающемся списке **Учетная запись хранения** (для изменения содержимого списка можно щелкнуть ссылку **Учетные записи**), которая частично заполнит поле **URL-адрес**, а затем допишите оставшуюся часть URL-адреса к ZIP-файлу скачивания сервера (при использовании службы хранилища Azure имена больших двоичных объектов в URL-адресе должны состоять из строчных букв). Если использовать службу хранилища Azure не требуется, выберите пункт **(нет)** в раскрывающемся списке **Учетная запись хранения** и в поле **URL-адрес** введите URL-адрес к ZIP-файлу скачивания сервера. ZIP-файл будет содержать дочернюю папку, представляющую каталог установки сервера приложений. Например, при использовании ZIP-файла для Apache Tomcat 7.0.35 внутри файла будет находиться дочерняя папка, представляющая каталог установки, например **apache tomcat-7.0.35**.
-1. Укажите значение для переменной среды домашнего каталога. По умолчанию выбирается значение, используемое для локального сервера приложений, если оно существует, но, если облачный сервер приложений отличается от локального сервера приложений, можно указать другое значение. Тем не менее необходимо убедиться, что облачный сервер приложений относится к тому же семейству, что и выбранный ранее тип сервера. При дальнейшем обновлении ZIP-файла облачного сервера приложений можно вручную изменить значение параметра домашнего каталога или сделать его снова соответствующим значению локального параметра (если локальный сервер приложений также изменен).
-1. Нажмите кнопку **ОК**, чтобы сохранить изменения.
+1. Make sure that you have already selected a server type according to the preceding steps. This tells the plugin how to deploy the server from your custom download, as it must be from the same family as your selected server type.
+1. Check the checkbox named **Deploy from a custom download**.
+    If you want to download from your Azure storage account, select the storage account from the **Storage account** drop-down list (you can click the **Accounts** link to modify what is in the list), which will partially fill in the **URL** field, and then fill in the remaining portion of the URL to your server download ZIP (when using Azure storage, blob names in the URL must be lowercase). If you do not want to use Azure storage, select **(none)** from the **Storage account** drop-down list, and enter the URL to your server download ZIP in the **URL** field. The ZIP would contain a child folder representing your application server installation directory. For example, if you are using a zip for Apache Tomcat 7.0.35, within the zip would be the child folder representing the installation directory, such as **apache-tomcat-7.0.35**. 
+1. Specify the value for the home directory environment variable. It will default to the value used for your local application server, if any, but you can specify a different value if your cloud application server is different from your local application server. However, you need to make sure that your cloud application server is of the same family as the server type selected earlier.
+    If you update your cloud application server zip in the future, you can manually change the home directory setting, or, to have it again match your local setting (if you changed your local application server too).
+1. Click **OK** to save your changes.
 
-Базовую логику, элементы для которой отображаются на вкладке **Сервер** на странице свойств **Конфигурация сервера**, можно настроить. Эта дополнительная функция может потребоваться, если нужно выйти за пределы значений по умолчанию или если требуется добавить другие серверы. Чтобы настроить логику, в диалоговом окне **Сервер** щелкните ссылку **Настройка**. Страница свойств **Конфигурация сервера** закроется и в Eclipse откроется файл **componentsets.xml**, который при необходимости можно изменить, чтобы расширить шаблон конфигурации сервера. Документация по файлу **componentsets.xml** находится в самом файле **componentsets.xml**.
+The underlying logic for which items appear in the **Server** tab of the **Server Configuration** property page can be customized. This is an advanced feature that you might need if your needs extend beyond the default values or if you want to add other servers. To customize the logic, in the **Server** dialog, click the **Customize** link. This will close the **Server Configuration** property page and open the **componentsets.xml** file in Eclipse, which you can then modify as needed to extend the server configuration template. Documentation for **componentsets.xml** is included in the **componentsets.xml** file itself.
 
-При использовании параметра **Развернуть мой локальный сервер (автоматически отправить в облачное хранилище)** сделайте следующее:
+If you are using the **Deploy my local server (auto-upload to cloud storage)** option:
 
-1. Установите флажок **Развернуть мой локальный сервер (автоматически отправить в облачное хранилище)**.
-1. В раскрывающемся списке **Учетная запись хранения** выберите пункт **(автоматически)**. Если выбран параметр **(автоматически)**, набор средств Eclipse будет использовать ту же учетную запись хранения для сервера, которая выбрана для развертывания в диалоговом окне **Публикация в Azure**.
-1. Нажмите кнопку **ОК**, чтобы сохранить изменения.
+1. Check the checkbox named **Deploy my local server (auto-upload to cloud storage)**.
+1. Using the **Storage account** drop-down list, select **(auto)**. If you specify **(auto)** here, the Eclipse toolkit will use the same storage account for your server as the one you select for your deployment in the **Publish to Azure** dialog.
+1. Click **OK** to save your changes.
 
-Выберите путь установки сервера на компьютере в текстовом поле **Путь локального сервера**, если выполняется любое из следующих условий.
+Select a server installation path on your computer in the **Local server path** text box if any of the following conditions are true:
 
-* Нужно протестировать развертывание в эмуляторе (относится только к Windows).
-* Нужно развернуть локально установленный сервер в облаке.
-* Нужно использовать собственный пакет скачивания настраиваемого сервера в облаке. В этом случае необходимо убедиться, что установлен упомянутый выше флажок **Развернуть мой локальный сервер (автоматически отправить в облачное хранилище)**.
+* You want to test your deployment in the emulator (applies to Windows only).
+* You want to deploy your locally installed server to the cloud.
+* You want to use a custom server download of your own in the cloud, in which case, also ensure the **Deploy my local server (auto-upload to cloud storage)** option is selected above.
 
-Если ни один из перечисленных выше вариантов не соответствует ситуации, параметр локального сервера будет необязательным.
+If none of the preceding options apply to your situation, the local server setting is optional.
 
-### Конфигурация приложений ###
+### <a name="applications-configuration"></a>Applications configuration ###
 
-Ниже приведен пример указания приложения.
+The following is an example of how you can specify an application.
 
 ![][ic719512]
 
-Нажмите кнопку **Добавить**, чтобы добавить другое приложение, или **Удалить**, чтобы удалить приложение. Если нужно повысить эффективность и использовать скачиваемый файл для источника приложения при развертывании в облаке, воспользуйтесь [свойствами компонентов](#components_properties) для указания URL-адреса, учетной записи хранения и т. д.
+Click **Add** to add another application, or **Remove** to remove an application. For efficiency purposes, if you want to use a download for the source of an application when deploying to the cloud, use the [components properties](#components_properties) to specify a URL, storage account, etc. 
 
-Начиная с выпуска, вышедшего в апреле 2014 г., приложения автоматически отправляются в ту же учетную запись хранения (в контейнере **eclipsedeploy**), которая выбрана для развертывания. В логике запуска развертывания предусмотрено действие по скачиванию этих приложений из учетной записи хранения. Это означает, что приложения в развертывании можно обновлять без перестроения и повторного развертывания всего пакета. Более новые версии приложения нужно вручную передать непосредственно в эту учетную запись хранения (например, с помощью портала Azure), заменяя WAR-файлы, изначально загруженные туда набором данных. Затем просто еще раз перезапустите все экземпляры роли с помощью портала управления Azure или с помощью программы командной строки. (В настоящее время перезапуск роли непосредственно из набора средств Eclipse не поддерживается.)
+Beginning with the April 2014 release, your applications are automatically uploaded into the same storage account (under the **eclipsedeploy** container) as the one selected for your deployment. The startup logic of your deployment contains a step that first downloads those applications from that storage account. This means that you may upgrade your applications in your deployment without needing to rebuild and redeploy the entire package, by manually uploading newer versions of the application directly into that storage account (using the Azure portal for example), replacing the WAR files originally uploaded there by the toolkit. Then, just initiate the recycling of all those role instances using Azure's management portal again, or via command line utilities. (Triggering role recycling directly from within the Eclipse toolkit is not currently supported.)
 
-### Примечания о конфигурации сервера ###
+### <a name="notes-about-server-configuration"></a>Notes about server configuration ###
 
-Изменения, внесенные на странице свойств **Конфигурация сервера**, отражаются в элементах `<component>` файла package.xml.
+Changes made through the **Server configuration** property page are reflected in the `<component>` elements of the package.xml file.
 
-Если используется параметр **Автоматически отправить...** или **Развернуть из пакета скачивания...** для JDK или сервера приложений, выполняется сборка для облака (не эмулятора вычислений) и при этом компьютер подключен к сети, при проверке доступности скачивания конструктором Ant в выходных данных консоли можно увидеть сообщения о сборке следующего вида:
+When you use the **Automatically upload...** or **Deploy from download...** options for either the JDK or application server, and you are building for the cloud (not the compute emulator), and you are connected to the network, you may notice build messages such as the following in the Console output, as the Ant builder verifies the download's availability:
 
-`[windowsazurepackage] Verifying blob availability (https://example.blob.core.windows.net/temp/tomcat6.zip)...`
+`[windowsazurepackage] Verifying blob availability (https://example.blob.core.windows.net/temp/tomcat6.zip)...` 
 
-Если выбран параметр **Развернуть из пакета скачивания...**, без остановки процесса сборки может появиться следующее предупреждение:
+If you selected the **Deploy from download...** option, the following warning may be shown, but the build will continue:
 
-`[windowsazurepackage] warning: Failed to confirm blob availability! Make sure the URL and/or the access key is correct (https://example.blob.core.windows.net/temp/tomcat6.zip).`
+`[windowsazurepackage] warning: Failed to confirm blob availability! Make sure the URL and/or the access key is correct (https://example.blob.core.windows.net/temp/tomcat6.zip).` 
 
-Это предупреждение является единственным указателем того, что доступность скачивания не проверена. Поэтому если по какой-либо причине развертывание в облаке завершается ошибкой, проверьте, не появилось ли это предупреждение.
+This warning is the only indication that the download's availability hasn't been verified. So if a deployment fails in the cloud for some reason, check to see if you received this warning.
 
-Чтобы отключить проверку скачивания (например, если вы считаете, что она замедляет сборку), задайте для атрибута `verifydownloads` значение `false` в элементе `<windowsazurepackage>` файла package.xml:
+If you want to disable the download verification (for example, if you feel it unnecessarily slows down the build), set the `verifydownloads` attribute to `false` in the `<windowsazurepackage>` element of package.xml: 
 
-`<windowsazurepackage verifydownloads="false" ...>`
+`<windowsazurepackage verifydownloads="false" ...>` 
 
-Если выбран параметр **Автоматически отправить...**, в окне консоли будут отображаться сообщения о сборке, каждые 5 секунд информирующие о ходе выполнения процесса отправки.
+If you selected the **Automatically upload...** option, then in the console window you will see build messages reporting the progress of the upload every 5 seconds, whenever an upload is necessary.
 
-<a name="ssl_offloading_properties"></a>
-### Свойства разгрузки SSL ###
+<a name="ssl_offloading_properties"></a> 
+### <a name="ssl-offloading-properties"></a>SSL offloading properties ###
 
-На панели обозревателя проектов Eclipse откройте контекстное меню для роли, выберите **Azure**, а затем щелкните **Разгрузка SSL**.
+Open the context menu for the role in Eclipse's Project Explorer pane, click **Azure**, and then click **SSL Offloading**. 
 
 ![][ic719481]
 
-В этом диалоговом окне можно включить разгрузку SSL, что позволяет легко включать поддержку протокола HTTPS в развертывании Java в Azure без необходимости настройки SSL на сервере приложений Java. Дополнительные сведения см. в статьях [Разгрузка SSL][] и [Практическое использование разгрузки SSL][].
+Within this dialog, you can enable SSL offloading, allowing you to easily enable Hypertext Transfer Protocol Secure (HTTPS) support in your Java deployment on Azure, without requiring you to configure SSL in your Java application server. For more information, see [SSL Offloading][] and [How to Use SSL Offloading][].
 
-## См. также ##
+## <a name="see-also"></a>See Also ##
 
-[Набор средств Azure для Eclipse][]
+[Azure Toolkit for Eclipse][]
 
-[Установка набора средств Azure для Eclipse][]
+[Installing the Azure Toolkit for Eclipse][]
 
-[Создание приложения Hello World для Azure в Eclipse][]
+[Creating a Hello World Application for Azure in Eclipse][]
 
-[Свойства проекта Azure][]
+[Azure Project Properties][]
 
-[Список учетных записей хранения Azure][]
+[Azure Storage Account List][]
 
-Дополнительные сведения об использовании Azure с Java см. в [центре разработчиков Java для Azure][].
+For more information about using Azure with Java, see the [Azure Java Developer Center][].
 
 <!-- URL List -->
 
-[центре разработчиков Java для Azure]: http://go.microsoft.com/fwlink/?LinkID=699547
-[портал управления Azure]: http://go.microsoft.com/fwlink/?LinkID=512959
-[Набор средств Azure для Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
-[Свойства проекта Azure]: http://go.microsoft.com/fwlink/?LinkID=699524
-[Список учетных записей хранения Azure]: http://go.microsoft.com/fwlink/?LinkID=699528
+[Azure Java Developer Center]: http://go.microsoft.com/fwlink/?LinkID=699547
+[Azure Management Portal]: http://go.microsoft.com/fwlink/?LinkID=512959
+[Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
+[Azure Project Properties]: http://go.microsoft.com/fwlink/?LinkID=699524
+[Azure Storage Account List]: http://go.microsoft.com/fwlink/?LinkID=699528
 [com.microsoft.windowsazure.serviceruntime package summary]: http://azure.github.io/azure-sdk-for-java/com/microsoft/windowsazure/serviceruntime/package-summary.html
-[Создание приложения Hello World для Azure в Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
-[Отладка конкретного экземпляра роли в развертывании из нескольких экземпляров]: http://go.microsoft.com/fwlink/?LinkID=699535#debugging_specific_role_instance
-[Отладка приложения Azure в Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699535
-[Развертывание крупных развертываний]: http://go.microsoft.com/fwlink/?LinkID=699536
-[Как использовать совмещенное кэширование]: http://go.microsoft.com/fwlink/?LinkID=699542
-[Практическое использование разгрузки SSL]: http://go.microsoft.com/fwlink/?LinkID=699545
-[Установка набора средств Azure для Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
-[Сходство сеанса]: http://go.microsoft.com/fwlink/?LinkID=699548
-[разгрузка SSL]: http://go.microsoft.com/fwlink/?LinkID=699549
+[Creating a Hello World Application for Azure in Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
+[Debugging a specific role instance in a multi-instance deployment]: http://go.microsoft.com/fwlink/?LinkID=699535#debugging_specific_role_instance
+[Debugging Azure Applications in Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699535
+[Deploying Large Deployments]: http://go.microsoft.com/fwlink/?LinkID=699536
+[How to Use Co-located Caching]: http://go.microsoft.com/fwlink/?LinkID=699542
+[How to Use SSL Offloading]: http://go.microsoft.com/fwlink/?LinkID=699545
+[Installing the Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
+[Session Affinity]: http://go.microsoft.com/fwlink/?LinkID=699548
+[SSL Offloading]: http://go.microsoft.com/fwlink/?LinkID=699549
 
 <!-- IMG List -->
 
@@ -439,4 +445,8 @@
 [ic719512]: ./media/azure-toolkit-for-eclipse-azure-role-properties/ic719512.png
 [ic719481]: ./media/azure-toolkit-for-eclipse-azure-role-properties/ic719481.png
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

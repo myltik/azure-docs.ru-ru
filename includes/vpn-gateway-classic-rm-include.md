@@ -1,3 +1,6 @@
-Обратите внимание на то, что сейчас Azure поддерживает две модели развертывания: классическую и с использованием диспетчера Resource Manager. Перед началом настройки внимательно изучите модели и средства развертывания. Необходимо знать, в какой модели вам нужно работать. Не все сетевые функции поддерживаются в обеих моделях. Дополнительные сведения об этих моделях развертывания вы найдете в статье [Общие сведения о развертывании диспетчера ресурсов и классическом развертывании](../articles/resource-manager-deployment-model.md).
+It's important to know that Azure currently works with two deployment models: Resource Manager and classic. Before you begin your configuration, make sure that you understand the deployment models and tools. You'll need to know which model that you want to work in. Not all networking features are supported yet for both models. For information about the deployment models, see [Understanding Resource Manager deployment and classic deployment](../articles/resource-manager-deployment-model.md).
 
-<!---HONumber=AcomDC_0504_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

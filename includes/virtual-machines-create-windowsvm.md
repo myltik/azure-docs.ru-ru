@@ -1,35 +1,38 @@
-1. Выполните вход на [классическом портале Azure](http://manage.windowsazure.com). 
+1. Sign in to the [classic portal](http://manage.windowsazure.com). 
 
-2. В панели команд внизу окна нажмите **Создать**.
+2. On the command bar at the bottom of the window, click **New**.
 
-3. В разделе **Среда выполнения приложений** нажмите **Виртуальная машина**, а затем **Из коллекции**.
+3. Under **Compute**, click **Virtual Machine**, and then click **From Gallery**.
 
-	![Переход к коллекции в панели команд](./media/virtual-machines-create-WindowsVM/fromgallery.png)
+    ![Navigate to From Gallery in the Command Bar](./media/virtual-machines-create-WindowsVM/fromgallery.png)
 
-4. После этого на первом экране вы можете **Выбрать образ** для своей виртуальной машины в списке доступных образов. Можно выбрать образ из коллекции или выбрать образы и диски, которые вы отправили. Доступные образы могут отличаться в зависимости от используемой подписки.
+4. The first screen after this lets you **Choose an Image** for your virtual machine from the list of available images. You can choose an image from the gallery or select from images and disks that you have uploaded. The available images may differ depending on the subscription you're using.
 
-5. На втором экране можно задать имя компьютера, размер, а также имя пользователя и пароль администратора. Выберите уровень и размер в соответствии с потребностями вашего приложения или рабочей нагрузки. Ниже приведен ряд советов.
+5. The second screen lets you pick a computer name, size, and administrative user name and password. Use the tier and size required to run your app or workload. Here are some tips:
 
-	- **Имя виртуальной машины** может содержать только буквы, цифры и дефисы. Имя должно начинаться с буквы и заканчиваться буквой или цифрой.
-	- **Имя нового пользователя** относится к учетной записи администратора сервера. Пароль должен иметь длину от 8 до 123 символов и содержать по крайней мере три символа из следующих типов: строчная буква, заглавная буква, цифра и специальный символ. **Имя пользователя и пароль понадобятся для подключения и входа на виртуальную машину**.
-	- Размер виртуальной машины определяет расходы на нее, а также возможности настройки, например число подключаемых дисков с данными. Дополнительную информацию см. в статье [Размеры виртуальных машин](virtual-machines-windows-sizes.md).
+    - **Virtual Machine Name** can only contain letters, numbers and hypens. It also must start with a letter and end with a letter or a number.
+    - **New User Name** refers to the administrative account that you use to manage the server. The password must be 8-123 characters long and have at least three of the following: lower case character, upper case character, number, and a special character. **You'll need the user name and password to connect and log on to the virtual machine**.
+    - A virtual machine's size affects the cost of using it, as well as configuration options such as how many data disks you can attach. For details, see [Sizes for virtual machines](virtual-machines-windows-sizes.md).
 
-6. На третьем экране можно настроить ресурсы сети, хранилища и доступности. Ниже приведен ряд советов.
+6. The third screen lets you configure resources for networking, storage, and availability. Here are some tips:
 
-	- **DNS-имя облачной службы** — это глобальное DNS-имя, которое станет частью URI для связи с виртуальной машиной. Вам нужно выбрать собственное имя облачной службы, так как оно должно быть уникальным в пределах Azure. Облачные службы важны в сценариях, где используется [несколько виртуальных машин](virtual-machines-windows-classic-connect-vms.md).
+    - The **Cloud Service DNS Name** is the global DNS name that becomes part of the URI that's used to contact the virtual machine. You'll need to come up with your own cloud service name because it must be unique in Azure. Cloud services are important for scenarios using [multiple virtual machines](virtual-machines-windows-classic-connect-vms.md).
 
-	- В поле **Регион, территориальная группа, виртуальная сеть** укажите соответствующий вашему расположению регион. Также можно указать здесь виртуальную сеть.
+    - For **Region/Affinity Group/Virtual Network**, use a region that's appropriate to your location. You can also choose to specify a virtual network instead.
 
-	- Если необходимо, чтобы виртуальная машина использовала виртуальную сеть, то при создании виртуальной машины **обязательно** укажите виртуальную сеть. Присоединить виртуальную машину к виртуальной сети после ее создания невозможно. Дополнительные сведения см. в разделе [Общие сведения о сетевых функциях Azure](virtual-networks-overview.md).
-	
-	- Сведения о настройке конечных точек см. в разделе [Настройка конечных точек с виртуальной машиной](virtual-machines-windows-classic-setup-endpoints.md).
+    - If you want a virtual machine to use a virtual network, you **must** specify the virtual network when you create the virtual machine. You can't join the virtual machine to a virtual network after you create the VM. For more information, see [Azure Virtual Network Overview](virtual-networks-overview.md).
+    
+    - For details about configuring endpoints, see [How to Set Up Endpoints to a Virtual Machine](virtual-machines-windows-classic-setup-endpoints.md).
 
-7. На четвертом экране можно установить агент виртуальной машины и настроить ряд доступных расширений.
+7. The fourth configuration screen lets you install the VM Agent and configure some of the available extensions.
 
-	>[AZURE.NOTE] Агент виртуальных машин предоставляет среду для установки расширений, которые помогут вам взаимодействовать с виртуальной машиной. Дополнительные сведения см. в разделе [Об агенте и расширениях виртуальной машины](virtual-machines-windows-classic-agents-and-extensions.md).
+    >[AZURE.NOTE] The VM agent provides the environment for you to install extensions that can help you interact with or manage the virtual machine. For details, see [About the VM agent and extensions](virtual-machines-windows-classic-agents-and-extensions.md).  
 
-8. После создания виртуальная машина будет указана на классическом портале в разделе **Виртуальные машины**. Соответствующие облачная служба и учетная запись хранения также будут созданы и указаны в соответствующих разделах. Виртуальная машина и облачная служба запускаются автоматически, после чего для них отображается состояние **Работает**.
+8. After the virtual machine is created, the classic portal lists the new virtual machine under **Virtual Machines**. The corresponding cloud service and storage account also are created and are listed in those sections. Both the virtual machine and cloud service are started automatically and their status is listed as **Running**.
 
-	![Настройка агента и конечных точек виртуальной машины](./media/virtual-machines-create-WindowsVM/vmcreated.png)
+    ![Configure VM Agent and the endpoints of the virtual machine](./media/virtual-machines-create-WindowsVM/vmcreated.png)
 
-<!---HONumber=AcomDC_0608_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

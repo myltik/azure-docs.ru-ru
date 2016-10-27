@@ -1,59 +1,64 @@
 <properties
-	pageTitle="Управление режимом кэширования запросов Azure CDN с использованием строк запроса | Microsoft Azure"
-	description="Функция кэширования строк запроса Azure CDN управляет способом кэширования файлов, содержащих строки запроса."
-	services="cdn"
-	documentationCenter=""
-	authors="camsoper"
-	manager="erikre"
-	editor=""/>
+    pageTitle="Controlling Azure CDN caching behavior of requests with query strings | Microsoft Azure"
+    description="Azure CDN query string caching controls how files are to be cached when they contain query strings."
+    services="cdn"
+    documentationCenter=""
+    authors="camsoper"
+    manager="erikre"
+    editor=""/>
 
 <tags
-	ms.service="cdn"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/28/2016"
-	ms.author="casoper"/>
+    ms.service="cdn"
+    ms.workload="tbd"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="07/28/2016"
+    ms.author="casoper"/>
 
-#Управление режимом кэширования запросов CDN с использованием строк запроса
+
+#<a name="controlling-caching-behavior-of-cdn-requests-with-query-strings"></a>Controlling caching behavior of CDN requests with query strings
 
 > [AZURE.SELECTOR]
-- [Стандартный](cdn-query-string.md)
-- [Azure CDN уровня "Премиум" от Verizon](cdn-query-string-premium.md)
+- [Standard](cdn-query-string.md)
+- [Azure CDN Premium from Verizon](cdn-query-string-premium.md)
 
-##Обзор
+##<a name="overview"></a>Overview
 
-Функция кэширования строк запроса управляет способом кэширования файлов, содержащих строки запроса.
+Query string caching controls how files are to be cached when they contain query strings.
 
-> [AZURE.IMPORTANT] Продукты CDN уровня "Стандартный" и "Премиум" предоставляют одинаковые возможности кэширования строк запроса, но имеют разные пользовательские интерфейсы. В этом документе описывается пользовательский интерфейс для **Azure CDN уровня "Стандартный" от Akamai** и **Azure CDN уровня "Стандартный" от Verizon**. Дополнительные сведения о кэшировании строк запроса с помощью **Azure CDN уровня "Премиум" от Verizon** см. в статье [Управление поведением кэширования запросов CDN с помощью строк запроса — уровень Premium](cdn-query-string-premium.md).
+> [AZURE.IMPORTANT] The Standard and Premium CDN products provide the same query string caching functionality, but the user interface differs.  This document describes the interface for **Azure CDN Standard from Akamai** and **Azure CDN Standard from Verizon**.  For query string caching with **Azure CDN Premium from Verizon**, see [Controlling caching behavior of CDN requests with query strings - Premium](cdn-query-string-premium.md).
 
-Доступны три режима:
+Three modes are available:
 
-- **Пропуск строк запроса**: этот режим используется по умолчанию. Граничный узел CDN передает строку запроса от запрашивающей стороны в источник по первому запросу и кэширует ресурс-контейнер. Все последующие запросы к этому ресурсу-контейнеру, которые обслуживаются из граничного узла, будут пропускать строку запроса до истечения срока действия кэшированного ресурса.
-- **Обход кэширования для URL-адресов со строками запроса**: в этом режиме запросы со строками запроса не кэшируются в граничном узле CDN. Граничный узел получает ресурс-контейнер непосредственно из источника и передает его запрашивающей стороне с каждым запросом.
-- **Кэширование каждого уникального URL-адреса**: этот режим обрабатывает каждый запрос со строкой запроса как уникальный ресурс-контейнер с собственным кэшем. Например, ответ из источника для запроса к *foo.ashx?q=bar* будет сохранен в кэше на граничном узле и возвращен для последующих кэшей с этой же строкой запроса. Запрос к *foo.ashx?q=somethingelse* будет кэшироваться как отдельный ресурс-контейнер с собственным сроком действия.
+- **Ignore query strings**:  This is the default mode.  The CDN edge node will pass the query string from the requestor to the origin on the first request and cache the asset.  All subsequent requests for that asset that are served from the edge node will ignore the query string until the cached asset expires.
+- **Bypass caching for URL with query strings**:  In this mode, requests with query strings are not cached at the CDN edge node.  The edge node retrieves the asset directly from the origin and passes it to the requestor with each request.
+- **Cache every unique URL**:  This mode treats each request with a query string as a unique asset with its own cache.  For example, the response from the origin for a request for *foo.ashx?q=bar* would be cached at the edge node and returned for subsequent caches with that same query string.  A request for *foo.ashx?q=somethingelse* would be cached as a separate asset with its own time to live.
 
-##Изменение параметров кэширования строки запроса для профилей CDN уровня "Стандартный"
+##<a name="changing-query-string-caching-settings-for-standard-cdn-profiles"></a>Changing query string caching settings for standard CDN profiles
 
-1. В колонке профиля CDN щелкните конечную точку CDN, которой хотите управлять.
+1. From the CDN profile blade, click the CDN endpoint you wish to manage.
 
-	![Конечные точки в колонке профиля CDN](./media/cdn-query-string/cdn-endpoints.png)
+    ![CDN profile blade endpoints](./media/cdn-query-string/cdn-endpoints.png)
 
-	Откроется колонка конечной точки CDN.
+    The CDN endpoint blade opens.
 
-2. Нажмите кнопку **Настроить**.
+2. Click the **Configure** button.
 
-	![Кнопка управления в колонке профиля CDN](./media/cdn-query-string/cdn-config-btn.png)
+    ![CDN profile blade manage button](./media/cdn-query-string/cdn-config-btn.png)
 
-	Откроется колонка настройки CDN.
+    The CDN Configuration blade opens.
 
-3. Выберите параметр из раскрывающегося списка **Query string caching behavior** (Режим кэширования строки запроса).
+3. Select a setting from the **Query string caching behavior** dropdown.
 
-	![Параметры кэширования строк запроса CDN](./media/cdn-query-string/cdn-query-string.png)
+    ![CDN query string caching options](./media/cdn-query-string/cdn-query-string.png)
 
-4. После выбора нажмите кнопку **Сохранить**.
+4. After making your selection, click the **Save** button.
 
-> [AZURE.IMPORTANT] Изменения параметров вступают в силу не сразу, так как распространение регистрационных сведений по сети CDN может занять некоторое время. Для профилей <b>Azure CDN от Akamai</b> распространение обычно завершается в течение одной минуты. Для профилей <b>Azure CDN от Verizon</b> распространение обычно завершается в течение 90 минут, но в некоторых случаях может занимать больше времени.
+> [AZURE.IMPORTANT] The settings changes may not be immediately visible, as it takes time for the registration to propagate through the CDN.  For <b>Azure CDN from Akamai</b> profiles, propagation will usually complete within one minute.  For <b>Azure CDN from Verizon</b> profiles, propagation will usually complete within 90 minutes, but in some cases can take longer.
 
-<!---HONumber=AcomDC_0803_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

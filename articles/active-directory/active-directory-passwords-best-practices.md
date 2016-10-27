@@ -1,150 +1,153 @@
 <properties
-	pageTitle="Рекомендации по управлению паролями Azure AD| Microsoft Azure"
-	description="Рекомендации по развертыванию и использованию функции, образцы документации для пользователей и обучающие руководства по управлению паролями в службе Azure Active Directory."
-	services="active-directory"
-	documentationCenter=""
-	authors="asteen"
-	manager="femila"
-	editor="curtand"/>
+    pageTitle="Best Practices: Azure AD Password Management | Microsoft Azure"
+    description="Deployment and usage best practices, sample end-user documentation and training guides for Password Management in Azure Active Directory."
+    services="active-directory"
+    documentationCenter=""
+    authors="asteen"
+    manager="femila"
+    editor="curtand"/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/12/2016"
-	ms.author="asteen"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="07/12/2016"
+    ms.author="asteen"/>
 
-# Развертывание компонентов управления паролями и обучение пользователей их использованию
 
-> [AZURE.IMPORTANT] **Вы здесь потому, что возникают проблемы при входе?** Если это так, [с помощью этих инструкций можно изменить и сбросить пароль](active-directory-passwords-update-your-own-password.md).
+# <a name="deploying-password-management-and-training-users-to-use-it"></a>Deploying Password Management and training users to use it
 
-После настройки функции сброса пароля необходимо научить пользователей в своей организации ее использовать. Для этого необходимо убедится, что учетные записи пользователей правильно настроены, а сами пользователи прошли необходимое обучение по управлению своими паролями. В этой статье мы поговорим о таких аспектах:
+> [AZURE.IMPORTANT] **Are you here because you're having problems signing in?** If so, [here's how you can change and reset your own password](active-directory-passwords-update-your-own-password.md).
 
-* [**Настройка учетных записей пользователей для управления паролями**](#how-to-get-users-configured-for-password-reset)
-  * [Настройка учетной записи для сброса пароля](#what-makes-an-account-configured)
-  * [Способы самостоятельного внесения данных для проверки подлинности](#ways-to-populate-authentication-data)
-* [**Лучшие способы развертывания функции сброса паролей в организации**](#what-is-the-best-way-to-roll-out-password-reset-for-users)
-  * [Развертывание по электронной почте и образец сообщения](#email-based-rollout)
-  * [Создание собственного портала управления пользовательскими паролями для пользователей](#creating-your-own-password-portal)
-  * [Использование принудительной регистрации данных для сброса паролей при входе](#using-enforced-registration)
-  * [Передача данных проверки подлинности для учетных записей пользователей](#uploading-data-yourself)
-* [**Учебные материалы для пользователей и службы поддержки (ожидается в ближайшее время)**](#sample-training-materials)
+After enabling password reset, the next step you need to take is to get users using the service in your organization. To do this, you'll need to make sure your users are configured to use the service properly and also that your users have the training they need to be successful in managing their own passwords. This article will explain to you the following concepts:
 
-## Настройка учетных записей пользователей для функции сброса паролей
-В этом разделе описаны различные методы, благодаря которым все пользователи в организации научатся самостоятельно сбрасывать пароль в случае его утери.
+* [**How to get your users configured for Password Management**](#how-to-get-users-configured-for-password-reset)
+  * [What makes an account configured for password reset](#what-makes-an-account-configured)
+  * [Ways you can to populate authentication data yourself](#ways-to-populate-authentication-data)
+* [**The best ways to roll out password reset to your organization**](#what-is-the-best-way-to-roll-out-password-reset-for-users)
+  * [Email-based rollout + sample email communications](#email-based-rollout)
+  * [Create your own custom password management portal for your users](#creating-your-own-password-portal)
+  * [How to use enforced registration to force users to register at sign in](#using-enforced-registration)
+  * [How to upload authentication data for user accounts](#uploading-data-yourself)
+* [**Sample user and support training materials (coming soon!)**](#sample-training-materials)
 
-### Настройка учетной записи для сброса пароля
-Прежде чем пользователь сможет сбрасывать пароль, должны быть выполнены **все** перечисленные ниже условия.
+## <a name="how-to-get-users-configured-for-password-reset"></a>How to get users configured for password reset
+This section describes to you various methods by which you can ensure every user in your organization can use self-service password reset effectively in case they forget their password.
 
-1.	В каталоге необходимо активировать функцию сброса паролей. Сведения о том, как это сделать, см. в разделах [Разрешение пользователям сбрасывать свои пароли Azure AD](active-directory-passwords-getting-started.md#enable-users-to-reset-their-azure-ad-passwords) и [Разрешение пользователям сбрасывать и изменять свои пароли AD](active-directory-passwords-getting-started.md#enable-users-to-reset-or-change-their-ad-passwords).
-2.	У пользователя должна быть лицензия.
- - У пользователей с облачными учетными записями должна быть **любая платная лицензия Office 365**, **AAD Basic** или **AAD Premium**.
- - У пользователей с локальными учетными записями (федеративные пользователи или пользователи с синхронизацией хэша) **должна быть лицензия AAD Premium**.
-3.	У пользователя должен быть **определен минимальный набор данных для проверки подлинности** в соответствии с текущей политикой сброса пароля.
- - Считается, что данные для проверки подлинности определены, если соответствующее поле каталога содержит нужные данные в правильном формате.
- - Минимальный набор данных для проверки подлинности — это либо **как минимум один** активированный метод проверки подлинности (если настроена политика, разрешающая только один способ входа), либо **как минимум два таких метода** (если настроена политика, разрешающая два способа входа).
-4.	Если у пользователя есть локальная учетная запись, необходимо активировать и включить [обратную запись паролей](active-directory-passwords-getting-started.md#enable-users-to-reset-or-change-their-ad-passwords).
+### <a name="what-makes-an-account-configured"></a>What makes an account configured
+Before a user can use password reset, **all** of the following conditions must be met:
 
-### Способы внесения данных для проверки подлинности
-Для пользователей в организации данные для сброса пароля можно задать несколькими способами.
+1.  Password reset must be enabled in the directory.  Learn how to enable password reset by reading [Enable users to reset their Azure AD Passwords](active-directory-passwords-getting-started.md#enable-users-to-reset-their-azure-ad-passwords) or [Enable users to reset or change their AD Passwords](active-directory-passwords-getting-started.md#enable-users-to-reset-or-change-their-ad-passwords)
+2.  The user must be licensed.
+ - For cloud users, the user must have **any paid Office 365 license**, or an **AAD Basic** or **AAD Premium license** assigned.
+ - For on-prem users (federated or hash synced), the user **must have an AAD Premium license assigned**.
+3.  The user must have the **minimum set of authentication data defined** in accordance with the current password reset policy.
+ - Authentication data is considered defined if the corresponding field in the directory contains well-formed data.
+ - A minimum set of authentication data is defined as at **least one** of the enabled authentication options if a one gate policy is configured, or at **least two** of the enabled authentication options if a two gate policy is configured.
+4.  If the user is using an on-premises account, then [Password Writeback](active-directory-passwords-getting-started.md#enable-users-to-reset-or-change-their-ad-passwords) must be enabled and turned on
 
-- Изменение данных пользователей на [портале управления Azure](https://manage.windowsazure.com) или на [портале администрирования Office 365](https://portal.microsoftonline.com).
-- Использование Azure AD Sync для синхронизации свойств пользователей из локального домена Active Directory в службу Azure AD.
-- Изменение свойств пользователей с помощью Windows PowerShell [посредством этих действий](active-directory-passwords-learn-more.md#how-to-access-password-reset-data-for-your-users).
-- Разрешение пользователям регистрировать свои собственные данные на портале по адресу [http://aka.ms/ssprsetup](http://aka.ms/ssprsetup).
-- Обязательная регистрация пользователей для сброса пароля при входе в учетную запись Azure AD с помощью значения **Да** параметра конфигурации [**Требовать регистрацию пользователей при входе?**](active-directory-passwords-customize.md#require-users-to-register-when-signing-in).
+### <a name="ways-to-populate-authentication-data"></a>Ways to populate authentication data
+You have several options on how to specify data for users in your organization to be used for password reset.
 
-Чтобы система работала, пользователям необязательно регистрировать данные для сброса пароля. Например, если в локальном каталоге уже имеются мобильные или служебные номера телефонов, их можно синхронизировать в службу Azure AD, после чего они будут автоматически использоваться для сброса пароля.
+- Edit users in the [Azure Management Portal](https://manage.windowsazure.com) or the [Office 365 Admin Portal](https://portal.microsoftonline.com)
+- Use Azure AD Sync to synchronize user properties into Azure AD from an on-premises Active Directory domain
+- Use Windows PowerShell to edit user properties by [following the steps here](active-directory-passwords-learn-more.md#how-to-access-password-reset-data-for-your-users).
+- Allow users to register their own data by guiding them to the registration portal at [http://aka.ms/ssprsetup](http://aka.ms/ssprsetup)
+- Require users to register for password reset when they sign in to their Azure AD account by setting the  [**Require users to register when signing in?**](active-directory-passwords-customize.md#require-users-to-register-when-signing-in) configuration option to **Yes**.
 
-Кроме того, вы можете больше узнать о том, [как используются данные для сброса пароля](active-directory-passwords-learn-more.md#what-data-is-used-by-password-reset) и [как можно заполнить отдельные поля для аутентификации с помощью PowerShell](active-directory-passwords-learn-more.md#how-to-access-password-reset-data-for-your-users).
+Users need not register for password reset for the system to work.  For example, if you have existing mobile or office phone numbers in your local directory, you can synchronize them in Azure AD and we will use them for password reset automatically.
 
-## Лучший способ развертывания функции сброса паролей для пользователей
-Ниже перечислены общие действия для развертывания функции сброса пароля.
+You can also read more about [how data is used by password reset](active-directory-passwords-learn-more.md#what-data-is-used-by-password-reset) and [how you can populate individual authentication fields with PowerShell](active-directory-passwords-learn-more.md#how-to-access-password-reset-data-for-your-users).
 
-1.	Активируйте функцию сброса пароля в каталоге. Для этого перейдите на [портал управления Azure](https://manage.windowsazure.com), откройте вкладку **Настройки** и выберите значение **Да** для параметра **Пользователям разрешен сброс пароля**.
-2.	Назначьте соответствующие лицензии каждому пользователю, которому хотите разрешить сбрасывать пароль. Это можно сделать на [портале управления Azure](https://manage.windowsazure.com) на вкладке **Лицензии**.
-3.	При необходимости разрешите сбрасывать пароли только определенной группе пользователей (со временем вы сможете развернуть функцию и для остальных пользователей). Для этого установите переключатель **Ограничить доступ для сброса пароля** в положение **Да** и выберите группу безопасности, для которой сброс пароля будет разрешен. Обратите внимание, что все пользователи этой группы должны иметь лицензии.
-4.	Сообщите пользователям о возможности сброса пароля: отправьте им электронное сообщение с просьбой зарегистрировать данные для сброса пароля, включите принудительную регистрацию на панели доступа или самостоятельно добавьте пользовательские данные для проверки подлинности с помощью DirSync, PowerShell или [портала управления Azure](https://manage.windowsazure.com). Подробнее об этом см. ниже.
-5.	Со временем просмотрите ход регистрации пользовательских данных: перейдите на вкладку «Отчеты» и ознакомьтесь с отчетом [**Действие регистрации сброса пароля**](active-directory-passwords-get-insights.md#view-password-reset-registration-activity).
-6.	Если зарегистрировано большое количество пользователей, просмотрите, как они используют функцию сброса пароля. Для этого откройте вкладку «Отчеты» и ознакомьтесь с данными отчета [**Действие сброса пароля**](active-directory-passwords-get-insights.md#view-password-reset-activity).
+## <a name="what-is-the-best-way-to-roll-out-password-reset-for-users?"></a>What is the best way to roll out password reset for users?
+The following are the general rollout steps for password reset:
 
-Проинформировать пользователей своей организации о доступности функции сброса паролей и необходимости зарегистрировать для нее собственные данные можно несколькими способами. Они описаны ниже.
+1.  Enable password reset in your directory by going to the **Configure** tab in the [Azure Management Portal](https://manage.windowsazure.com) and selecting **Yes** for the **Users Enabled for Password Reset** option.
+2.  Assign the appropriate licenses to each user to whom you’d like to offer password reset in the by going to the **Licenses** tab in the [Azure Management Portal](https://manage.windowsazure.com).
+3.  Optionally restrict password reset to a group of users to roll out the feature slowly over time by setting the **Restrict Access to Password Reset** toggle to **Yes** and selecting a security group to enable for password reset (note these users must all have licenses assigned to them).
+4.  Instruct your users to use password reset by either sending them an email instructing them to register, enabling enforced registration on the access panel, or by uploading the appropriate authentication data for those users yourself via DirSync, PowerShell, or the [Azure Management Portal](https://manage.windowsazure.com).  More details on this are provided below.
+5.  Over time, review users registering by navigating to the Reports tab and viewing the [**Password Reset Registration Activity**](active-directory-passwords-get-insights.md#view-password-reset-registration-activity) report.
+6.  Once a good number of users have registered, watch them use password reset by navigating to the Reports tab and viewing the [**Password Reset Activity**](active-directory-passwords-get-insights.md#view-password-reset-activity) report.
 
-### Развертывание по электронной почте
-Проще всего сообщить пользователям о доступности функции сброса паролей или необходимости зарегистрировать для нее собственные данные —отправить им по электронной почте соответствующее сообщение. Ниже приведен шаблон такого сообщения. Вы можете заменить цвета и логотипы собственными, настроив шаблон в соответствии со своими потребностями.
+There are several ways to inform your users that they can register for and use password reset in your organization.  They are detailed below.
+
+### <a name="email-based-rollout"></a>Email-based rollout
+Perhaps the simplest approach to inform your users about to register for or use password reset is by sending them an email instructing them to do so.  Below is a template you can use to do this.  Feel free to replace the colors / logos with those of your own choosing to customize it to fit your needs.
 
   ![][001]
 
-Шаблон электронного сообщения можно скачать [здесь](http://1drv.ms/1xWFtQM).
+You can [download the email template here](http://1drv.ms/1xWFtQM).
 
-### Создание собственного портала паролей
-Одна из стратегий управления паролями, которая хорошо подходит для крупных клиентов, заключается в создании одного «портала паролей», с помощью которого пользователи смогут выполнять все операции, связанные с паролями, в одном месте.
+### <a name="creating-your-own-password-portal"></a>Creating your own password portal
+One strategy that works well for larger customers deploying password management capabilities is to create a single "password portal" that your users can use to manage all things related to their passwords in a single place.  
 
-Многие из наших крупнейших клиентов решили создать корневую запись DNS, такую как https://passwords.contoso.com, со ссылками на портал сброса паролей, портал регистрации для сброса пароля и страницы изменения пароля Azure AD. Таким образом, вы можете включить во все сообщения электронной почты и печатные материалы один запоминающийся URL-адрес, с помощью которого пользователи смогут начать работу со службой.
+Many of our largest customers choose to create a root DNS entry, like https://passwords.contoso.com with links to the Azure AD password reset portal, password reset registration portal, and password change pages.  This way, in any email communications or fliers you send out, you can include a single, memorable, URL that users can go to when they have a second to get started with the service.
 
-Для иллюстрации мы создали простую страницу в соответствии с последними парадигмами проектирования пользовательского интерфейса. Эта страница будет работать во всех браузерах и мобильных устройствах.
+To get going here, we've created a simple page that uses the latest responsive UI design paradigms, and will work on all browsers and mobile devices.
 
   ![][007]
 
-Шаблон веб-сайта можно скачать [здесь](https://github.com/kenhoff/password-reset-page). Рекомендуем изменить логотип и цвета в соответствии с потребностями своей организации.
+You can [download the website template here](https://github.com/kenhoff/password-reset-page).  We recommend customizing the logo and colors to the need of your organization.
 
-### Принудительная регистрация
-Если вы хотите, чтобы пользователи самостоятельно регистрировали данные для сброса паролей, воспользуйтесь функцией принудительной регистрацией: при входе в панель доступа по адресу [http://myapps.microsoft.com](http://myapps.microsoft.com) пользователям будет необходимо зарегистрировать нужные данные. Эту функцию можно активировать в своем каталоге на вкладке **Настройки**, активировав параметр **Запрашивать регистрацию у пользователей при входе в панель доступа**.
+### <a name="using-enforced-registration"></a>Using enforced registration
+If you want your users to register for password reset themselves, you can also force them to register when they sign in to the access panel at [http://myapps.microsoft.com](http://myapps.microsoft.com).  You can enable this option from your directory’s **Configure** tab by enabling the **Require Users to Register when Signing in to the Access Panel** option.  
 
-При необходимости вы также можете указать, должны ли пользователи повторно регистрировать данные после определенного периода времени. Для этого введите отличное от нуля значение для параметра **Число дней, которое должно пройти, прежде чем пользователи должны подтвердить свои контактные данные**. Дополнительные сведения см. в статье [Настройка службы управления паролями для пользователей](active-directory-passwords-customize.md#password-management-behavior).
+You can also optionally define whether or not they will be asked to re-register after a configurable period of time by modifying the **Number of days before users must confirm their contact data** option to be a non-zero value. See [Customizing User Password Management Behavior](active-directory-passwords-customize.md#password-management-behavior) for more information.
 
   ![][002]
 
-Если этот параметр включен, при входе в панель доступа пользователи увидят всплывающее окно с требованием администратора проверить свои контактные данные. Эти данные будут использоваться для сброса пароля, если пользователи потеряют доступ к своей учетной записи.
+After you enable this option, when users sign in to the access panel, they will see a popup that informs them that their administrator has required them to verify their contact information. They can use it to reset their password if they ever lose access to their account.
 
   ![][003]
 
-Щелкнув **Проверить сейчас**, они перейдут на **портал регистрации данных для сброса пароля** по адресу [http://aka.ms/ssprsetup](http://aka.ms/ssprsetup). Регистрацию данных с помощью этого метода можно отклонить, нажав кнопку **Отмена** или закрыв окно. В этом случае пользователь будет получать напоминание о регистрации при каждом входе.
+Clicking **Verify Now** brings them to the **password reset registration portal** at [http://aka.ms/ssprsetup](http://aka.ms/ssprsetup) and requires them to register.  Registration via this method can be dismissed by clicking the **cancel** button or closing the window, but users are reminded every time they sign in if they do not register.
 
   ![][004]
 
-### Самостоятельная передача данных
-Если вы самостоятельно передадите данные для проверки подлинности, пользователям не придется регистрировать их, чтобы получить возможность сбрасывать пароль. Пользователи могут сбрасывать свои пароли, когда в их учетных записях определены данные проверки подлинности в соответствии с установленной вами политикой сброса паролей.
+### <a name="uploading-data-yourself"></a>Uploading data yourself
+If you want to upload authentication data yourself, then users need not register for password reset before being able to reset their passwords.  As long as users have the authentication data defined on their account that meets the password reset policy you have defined, then those users will be able to reset their passwords.
 
-Чтобы узнать, какие свойства можно задавать с помощью AAD Connect и Windows PowerShell, см. раздел [Какие данные используются при сбросе пароля](active-directory-passwords-learn-more.md#what-data-is-used-by-password-reset).
+To learn what properties you can set via AAD Connect or Windows PowerShell, see [What data is used by password reset](active-directory-passwords-learn-more.md#what-data-is-used-by-password-reset).
 
-Вы можете передать данные для проверки подлинности на [портале управления Azure](https://manage.windowsazure.com), выполнив такие действия:
+You can upload the authentication data via the [Azure Management Portal](https://manage.windowsazure.com) by following the steps below:
 
-1.	На [портале управления Azure](https://manage.windowsazure.com) откройте раздел **Расширение Active Directory** и перейдите в свой каталог.
-2.	Откройте вкладку **Пользователи**.
-3.	Выберите нужного пользователя из списка.
-4.	На первой вкладке содержится **Альтернативный адрес электронной почты**, который можно использовать как свойство для активации функции сброса пароля.
+1.  Navigate to your directory in the **Active Directory extension** in the [Azure Management Portal](https://manage.windowsazure.com).
+2.  Click on the **Users** tab.
+3.  Select the user you are interested in from the list.
+4.  On the first tab, you will find **Alternate Email**, which can be used as a property to enable password reset.
 
     ![][005]
 
-5.	Откройте вкладку **Сведения о работе**.
-6.	На этой странице есть поля **Рабочий телефон**, **Мобильный телефон**, **Телефон для проверки подлинности** и **Адрес электронной почты для проверки подлинности**. Эти свойства также можно задать, чтобы позволить пользователю сбрасывать свой пароль.
+5.  Click on the **Work Info** tab.
+6.  On this page, you will find **Office Phone**, **Mobile Phone**, **Authentication Phone**, and **Authentication Email**.  These properties can also be set to allow a user to reset his or her password.
 
     ![][006]
 
-Сведения о том, как использовать каждое из этих свойств, см. в разделе [Какие данные используются при сбросе пароля](active-directory-passwords-learn-more.md#what-data-is-used-by-password-reset).
+See [What data is used by password reset](active-directory-passwords-learn-more.md#what-data-is-used-by-password-reset) to see how each of these properties can be used.
 
-См. раздел [Как получить доступ к данным сброса пароля пользователей из PowerShell](active-directory-passwords-learn-more.md#how-to-access-password-reset-data-for-your-users), чтобы узнать, как считать и задать эти данные с помощью PowerShell.
+See [How to access password reset data for your users from PowerShell](active-directory-passwords-learn-more.md#how-to-access-password-reset-data-for-your-users) to see how you can read and set this data with PowerShell.
 
-## Учебные материалы
-Мы работаем над учебными материалами, с помощью которых вы сможете в кратчайшие сроки подготовить свою организацию к развертыванию и использованию функции сброса пароля. Следите за новостями.
+## <a name="sample-training-materials"></a>Sample training materials
+We are working on sample training materials that you can use to get your IT organization and your users up to speed quickly on how to deploy and use password reset.  Stay tuned!
 
 
-<br/> <br/> <br/>
+<br/>
+<br/>
+<br/>
 
-## Ссылки на документацию по сбросу паролей
-Ниже приведены ссылки на все страницы документации по службе сброса паролей Azure AD.
+## <a name="links-to-password-reset-documentation"></a>Links to password reset documentation
+Below are links to all of the Azure AD Password Reset documentation pages:
 
-* **Вы здесь потому, что возникают проблемы при входе?** Если это так, [с помощью этих инструкций можно изменить и сбросить пароль](active-directory-passwords-update-your-own-password.md).
-* [**Как работает служба**](active-directory-passwords-how-it-works.md) — узнайте, из каких шести компонентов состоит служба и за что отвечает каждый из них.
-* [**Приступая к работе**](active-directory-passwords-getting-started.md) — узнайте, как предоставить пользователям возможность сбрасывать и менять свои облачные и локальные пароли.
-* [**Настройка**](active-directory-passwords-customize.md) — узнайте, как настроить оформление и функциональность службы в соответствии с потребностями организации.
-* [**Аналитика**](active-directory-passwords-get-insights.md) — узнайте об интегрированных функциях отчетности.
-* [**Часто задаваемые вопросы**](active-directory-passwords-faq.md) — ознакомьтесь с ответами на часто задаваемые вопросы.
-* [**Устранение неполадок**](active-directory-passwords-troubleshoot.md) — узнайте, как быстро устранять проблемы, связанные со службой.
-* [**Дополнительные сведения**](active-directory-passwords-learn-more.md) — ознакомьтесь с технической стороной работы службы.
+* **Are you here because you're having problems signing in?** If so, [here's how you can change and reset your own password](active-directory-passwords-update-your-own-password.md).
+* [**How it works**](active-directory-passwords-how-it-works.md) - learn about the six different components of the service and what each does
+* [**Getting started**](active-directory-passwords-getting-started.md) - learn how to allow you users to reset and change their cloud or on-premises passwords
+* [**Customize**](active-directory-passwords-customize.md) - learn how to customize the look & feel and behavior of the service to your organization's needs
+* [**Get insights**](active-directory-passwords-get-insights.md) - learn about our integrated reporting capabilities
+* [**FAQ**](active-directory-passwords-faq.md) - get answers to frequently asked questions
+* [**Troubleshooting**](active-directory-passwords-troubleshoot.md) - learn how to quickly troubleshoot problems with the service
+* [**Learn more**](active-directory-passwords-learn-more.md) - go deep into the technical details of how the service works
 
 
 
@@ -156,4 +159,8 @@
 [006]: ./media/active-directory-passwords-best-practices/006.jpg "Image_006.jpg"
 [007]: ./media/active-directory-passwords-best-practices/007.jpg "Image_007.jpg"
 
-<!---HONumber=AcomDC_0713_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

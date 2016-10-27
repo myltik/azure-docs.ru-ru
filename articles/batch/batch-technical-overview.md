@@ -1,138 +1,139 @@
 <properties
-	pageTitle="Основные сведения о пакетной службе Azure | Microsoft Azure"
-	description="Узнайте об использовании пакетной службы Azure для крупномасштабных параллельных рабочих нагрузок и рабочих нагрузок HPC."
-	services="batch"
-	documentationCenter=""
-	authors="mmacy"
-	manager="timlt"
-	editor=""/>
+    pageTitle="Azure Batch service basics | Microsoft Azure"
+    description="Learn about using the Azure Batch service for large-scale parallel and HPC workloads"
+    services="batch"
+    documentationCenter=""
+    authors="mmacy"
+    manager="timlt"
+    editor=""/>
 
 <tags
-	ms.service="batch"
-	ms.workload="big-compute"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="08/22/2016"
-	ms.author="marsma"/>
+    ms.service="batch"
+    ms.workload="big-compute"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="08/22/2016"
+    ms.author="marsma"/>
 
-# Основные сведения о пакетной службе Azure
 
-Пакетная служба Azure позволяет эффективно запускать приложения, выполняющие крупномасштабные параллельные вычислительные задания с высокой производительностью, в облаке. Это служба платформы, которая планирует запуск ресурсоемких вычислительных задач в управляемой коллекции виртуальных машин и автоматически масштабирует вычислительные ресурсы в соответствии с требованиями задания.
+# <a name="basics-of-azure-batch"></a>Basics of Azure Batch
 
-С помощью пакетной службы вы можете определять вычислительные ресурсы Azure, необходимые для выполнения приложений в параллельном режиме и в нужном масштабе. Вы можете выполнять задания по запросу или по расписанию. При этом вам не нужно вручную создавать и настраивать кластер высокопроизводительных вычислений (HPC), отдельные виртуальные машины, виртуальные сети или сложную инфраструктуру планировщика задач и заданий, а также управлять всеми этими ресурсами.
+Azure Batch enables you to run large-scale parallel and high-performance computing (HPC) applications efficiently in the cloud. It's a platform service that schedules compute-intensive work to run on a managed collection of virtual machines, and can automatically scale compute resources to meet the needs of your jobs.
 
-## Варианты использования пакетной службы
+With the Batch service, you define Azure compute resources to execute your applications in parallel, and at scale. You can run on-demand or scheduled jobs, and you don't need to manually create, configure, and manage an HPC cluster, individual virtual machines, virtual networks, or a complex job and task scheduling infrastructure.
 
-Пакетная служба — это управляемая служба Azure, которая используется для *пакетной обработки* и *пакетных вычислений*. Она выполняет большое количество схожих задач, чтобы получить нужный результат. Пакетная обработка данных чаще всего используется в организациях для обработки, преобразования и анализа больших объемов данных.
+## <a name="use-cases-for-batch"></a>Use cases for Batch
 
-Пакетная служба хорошо работает с параллельными приложениями и рабочими нагрузками, которые выполняют задачи одновременно на нескольких компьютерах.
+Batch is a managed Azure service that is used for *batch processing* or *batch computing*--running a large volume of similar tasks to get some desired result. Batch computing is most commonly used by organizations that regularly process, transform, and analyze large volumes of data.
 
-![Параллельные задачи][1]<br/>
+Batch works well with intrinsically parallel (also known as "embarrassingly parallel") applications and workloads. Intrinsically parallel workloads are easily split into multiple tasks that perform work simultaneously on many computers.
 
-Примеры рабочих нагрузок, которые обрабатываются по этому методу:
+![Parallel tasks][1]<br/>
 
-* Моделирование финансовых рисков.
-* анализ климатических и гидрологических данных;
-* отрисовка, обработка и анализ изображений;
-* Кодирование и перекодировка мультимедиа.
-* Анализ генетических последовательностей.
-* анализ расчетного напряжения;
-* Тестирование программного обеспечения.
+Some examples of workloads that are commonly processed using this technique are:
 
-Пакетная служба также может выполнять параллельные вычисления с уменьшением шага в конце и более сложные рабочие нагрузки HPC, такие как приложения, использующие [интерфейс передачи сообщений](batch-mpi.md).
+* Financial risk modeling
+* Climate and hydrology data analysis
+* Image rendering, analysis, and processing
+* Media encoding and transcoding
+* Genetic sequence analysis
+* Engineering stress analysis
+* Software testing
 
-Сравнение пакетной службы с другими решениями HPC в Azure см. в статье [Пакетные решения и решения HPC в облаке Azure](batch-hpc-solutions.md).
+Batch can also perform parallel calculations with a reduce step at the end, and execute more complex HPC workloads such as [Message Passing Interface (MPI)](batch-mpi.md) applications.
 
-## Разработка с использованием пакетной службы
+For a comparison between Batch and other HPC solution options in Azure, see [Batch and HPC solutions](batch-hpc-solutions.md).
 
-Обычно обработка параллельных рабочих нагрузок, использующих пакетную службу, выполняется программным способом с помощью [API-интерфейсов пакетной службы](#batch-development-apis). Эти интерфейсы позволяют создавать пулы вычислительных узлов (виртуальных машин) и управлять ими, а также планировать задания и задачи, которые на них выполняются. Клиентское приложение или служба, которые вы создадите, будут использовать API-интерфейсы пакетной службы для взаимодействия с пакетной службой.
+## <a name="developing-with-batch"></a>Developing with Batch
 
-Вы можете эффективно обрабатывать крупномасштабные рабочие нагрузки в своей организации или предоставлять внешние интерфейсы служб клиентам, чтобы они могли выполнять задания и задачи (по требованию или по расписанию) на одном, сотнях или тысячах узлов. Кроме того, пакетную службу можно использовать как часть более крупного рабочего процесса под управлением таких средств, как [фабрика данных Azure](../data-factory/data-factory-data-processing-using-batch.md).
+Processing parallel workloads with Batch is typically done programmatically by using one of the [Batch APIs](#batch-development-apis). With the Batch APIs, you create and manage pools of compute nodes (virtual machines) and schedule jobs and tasks to run on those nodes. A client application or service that you author uses the Batch APIs to communicate with the Batch service.
 
-> [AZURE.TIP] Дополнительные сведения о возможностях, которые предоставляет API пакетной службы, см. в статье [Обзор функций пакетной службы Azure](batch-api-basics.md).
+You can efficiently process large-scale workloads for your organization, or provide a service front end to your customers so that they can run jobs and tasks--on demand, or on a schedule--on one, hundreds, or even thousands of nodes. You can also use Batch as part of a larger workflow, managed by tools such as [Azure Data Factory](../data-factory/data-factory-data-processing-using-batch.md).
 
-### Учетные записи Azure, которые вам понадобятся
+> [AZURE.TIP] When you're ready to dig in to the Batch API for a more in-depth understanding of the features it provides, check out the [Batch feature overview for developers](batch-api-basics.md).
 
-При разработке решений с использованием пакетной службы требуются следующие учетные записи в Microsoft Azure.
+### <a name="azure-accounts-you'll-need"></a>Azure accounts you'll need
 
-- **Учетная запись и подписка Azure**. Если у вас еще нет подписки Azure, вы можете активировать [преимущества для подписчиков MSDN][msdn_benefits] или зарегистрироваться для получения [бесплатной учетной записи Azure][free_account]. При создании учетной записи автоматически создается подписка по умолчанию.
+When you develop Batch solutions, you'll use the following accounts in Microsoft Azure.
 
-- **Учетная запись пакетной службы**. Когда приложения взаимодействуют с пакетной службой, в качестве учетных данных используются имя и URL-адрес учетной записи, а также ключ доступа. Все ресурсы пакетной службы, такие как пулы, вычислительные узлы, задания и задачи, связаны с учетной записью пакетной службы. Вы можете создать [учетную запись пакетной службы](batch-account-create-portal.md) на портале Azure.
+- **Azure account and subscription** - If you don't already have an Azure subscription, you can activate your [MSDN subscriber benefit][msdn_benefits], or sign up for a [free Azure account][free_account]. When you create an account, a default subscription is created for you.
 
-- **Учетная запись хранения**. В пакетную службу встроена поддержка работы с файлами в [службе хранилища Azure][azure_storage]. В большинстве сценариев пакетной службы служба хранилища Azure используется не только для промежуточного хранения файлов программ, которые запускают задачи, и данных, которые они обрабатывают, но и для хранения выходных данных, которые создаются в результате выполнения задач. Чтобы создать учетную запись хранения, см. инструкции в статье [Об учетных записях хранения Azure](./../storage/storage-create-storage-account.md).
+- **Batch account** - When your applications interact with the Batch service, the account name, the URL of the account, and an access key are used as credentials. All your Batch resources such as pools, compute nodes, jobs, and tasks are associated with a Batch account. You can [create Batch account](batch-account-create-portal.md) in the Azure portal.
 
-### API-интерфейсы для разработки в пакетной службе
+- **Storage account** - Batch includes built-in support for working with files in [Azure Storage][azure_storage]. Nearly every Batch scenario uses Azure Storage--for staging the programs that your tasks run and the data that they process, and for the storage of output data that they generate. To create a Storage account, see [About Azure storage accounts](./../storage/storage-create-storage-account.md).
 
-Приложения и службы могут отправлять прямые вызовы REST API с помощью одной или нескольких представленных ниже клиентских библиотек или их комбинаций. Таким образом они управляют вычислительными ресурсами и выполняют параллельные рабочие нагрузки в требуемом масштабе с помощью пакетной службы.
+### <a name="batch-development-apis"></a>Batch development APIs
 
-| API | Справочник по API | Загрузить | Примеры кода |
+Your applications and services can issue direct REST API calls, use one or more of the following client libraries, or a combination of both to manage compute resources and run parallel workloads at scale using the Batch service.
+
+| API    | API reference | Download | Code samples |
 | ----------------- | ------------- | -------- | ------------ |
-| **Пакетная служба (REST)** | [MSDN][batch_rest] | Недоступно | [MSDN][batch_rest] |
-| **Пакетная служба (.NET)** | [MSDN][api_net] | [NuGet][api_net_nuget] | [GitHub][api_sample_net] |
-| **Пакетная служба Python** | [readthedocs.io][api_python] | [PyPI][api_python_pypi] |[GitHub][api_sample_python] |
-| **Batch Node.js** | [github.io][api_nodejs] | [npm][api_nodejs_npm] | — | 
-| **Batch Java** (предварительная версия) | [github.io][api_java] | [Maven][api_java_jar] | [GitHub][api_sample_java] |
+| **Batch REST** | [MSDN][batch_rest] | N/A | [MSDN][batch_rest] |
+| **Batch .NET**    | [MSDN][api_net] | [NuGet ][api_net_nuget] | [GitHub][api_sample_net] |
+| **Batch Python**  | [readthedocs.io][api_python] | [PyPI][api_python_pypi] |[GitHub][api_sample_python] |
+| **Batch Node.js** | [github.io][api_nodejs] | [npm][api_nodejs_npm] | - |
+| **Batch Java** (preview) | [github.io][api_java] | [Maven][api_java_jar] | [GitHub][api_sample_java] |
 
-### Управление ресурсами пакетной службы
+### <a name="batch-resource-management"></a>Batch resource management
 
-Помимо клиентских API, для управления ресурсами в своей учетной записи пакетной службы вы также можете использовать следующие средства.
+In addition to the client APIs, you can also use the following to manage resources within your Batch account.
 
-- [Командлеты PowerShell для пакетной службы][batch_ps]. Командлеты пакетной службы Azure в модуле [Azure PowerShell](../powershell-install-configure.md) позволяют управлять ресурсами пакетной службы с помощью PowerShell.
+- [Batch PowerShell cmdlets][batch_ps]: The Azure Batch cmdlets in the [Azure PowerShell](../powershell-install-configure.md) module enable you to manage Batch resources with PowerShell.
 
-- [Azure CLI](../xplat-cli-install.md). Интерфейс командной строки Azure (Azure CLI) — это кроссплатформенный набор средств, который обеспечивает взаимодействие с разными службами Azure, включая пакетную службу, с помощью команд оболочки.
+- [Azure CLI](../xplat-cli-install.md): The Azure Command-Line Interface (Azure CLI) is a cross-platform toolset that provides shell commands for interacting with many Azure services, including Batch.
 
-- Клиентская библиотека [.NET для управления пакетной службой](batch-management-dotnet.md). Эта библиотека используется для программного управления учетными записями, квотами и пакетами приложений пакетной службы. Она также [доступна на сайте NuGet][api_net_mgmt_nuget]. Ссылки на библиотеку управления см. на сайте [MSDN][api_net_mgmt].
+- [Batch Management .NET](batch-management-dotnet.md) client library: Also available via [NuGet][api_net_mgmt_nuget], you can use the Batch Management .NET client library to programmatically manage Batch accounts, quotas, and application packages. Reference for the management library is on [MSDN][api_net_mgmt].
 
-### Средства пакетной службы
+### <a name="batch-tools"></a>Batch tools
 
-Хотя решения не обязательно создавать с помощью пакетной службы, приведенные ниже средства полезны при создании и отладке приложений и служб пакетной службы.
+While not required to build solutions using Batch, here are some valuable tools to use while building and debugging your Batch applications and services.
 
- - [Портал Azure][portal]. В колонках пакетной службы на портале Azure можно создавать, отслеживать и удалять пулы, задания и задачи пакетной службы. Во время выполнения заданий можно просмотреть сведения о состоянии этих и других ресурсов и даже скачать файлы из вычислительных узлов в пулах (например, скачать файл `stderr.txt` задачи, завершившейся сбоем, при устранении неполадок). Кроме того, можно скачать файлы удаленного рабочего стола, которые можно использовать для входа на вычислительные узлы.
+ - [Azure portal][portal]: You can create, monitor, and delete Batch pools, jobs, and tasks in the Azure portal's Batch blades. You can view the status information for these and other resources while you run your jobs, and even download files from the compute nodes in your pools (download a failed task's `stderr.txt` while troubleshooting, for example). You can also download Remote Desktop (RDP) files that you can use to log in to compute nodes.
 
- - [Обозреватель пакетной службы Azure][batch_explorer]. Обозреватель пакетной службы предоставляет такие же функции управления ресурсами пакетной службы, что и портал Azure, но в отдельном клиентском приложении Windows Presentation Foundation. Один из примеров приложений .NET пакетной службы, доступных на [GitHub][github_samples], можно создать с помощью Visual Studio 2015 или более поздней версии. Его можно использовать для просмотра ресурсов и управления ими в вашей учетной записи пакетной службы во время разработки и отладки соответствующих решений. Просматривайте сведения о заданиях, пулах и задачах, скачивайте файлы из вычислительных узлов и удаленно подключайтесь к узлам с помощью файлов удаленного рабочего стола, которые можно скачать с помощью обозревателя пакетной службы.
+ - [Azure Batch Explorer][batch_explorer]: Batch Explorer provides similar Batch resource management functionality as the Azure portal, but in a standalone Windows Presentation Foundation (WPF) client application. One of the Batch .NET sample applications available on [GitHub][github_samples], you can build it with Visual Studio 2015 or above and use it to browse and manage the resources in your Batch account while you develop and debug your Batch solutions. View job, pool, and task details, download files from compute nodes, and connect to nodes remotely by using Remote Desktop (RDP) files you can download with Batch Explorer.
 
- - [Обозреватель хранилищ Microsoft Azure][storage_explorer]. Строго говоря, этот обозреватель не является средством пакетной службы Azure, но это полезный инструмент для разработки и отладки соответствующих решений.
+ - [Microsoft Azure Storage Explorer][storage_explorer]: While not strictly an Azure Batch tool, the Storage Explorer is another valuable tool to have while you are developing and debugging your Batch solutions.
 
-## Сценарий: развертывание параллельной рабочей нагрузки
+## <a name="scenario:-scale-out-a-parallel-workload"></a>Scenario: Scale out a parallel workload
 
-Распространенное решение с использованием API пакетной службы для взаимодействия с пакетной службой включает в себя масштабирование принципиально параллельных рабочих нагрузок, таких как отрисовка изображений для 3D-формата, в пуле вычислительных узлов. Этот пул вычислительных узлов может быть своего рода фермой отрисовки, которая предоставляет десятки, сотни или даже тысячи ядер для заданий отрисовки.
+A common solution that uses the Batch APIs to interact with the Batch service involves scaling out intrinsically parallel work--such as the rendering of images for 3D scenes--on a pool of compute nodes. This pool of compute nodes can be your "render farm" that provides tens, hundreds, or even thousands of cores to your rendering job, for example.
 
-На следующей схеме показан общий рабочий процесс, в котором используется клиентское приложение или размещенная служба для запуска параллельной рабочей нагрузки с помощью пакетной службы.
+The following diagram shows a common Batch workflow, with a client application or hosted service using Batch to run a parallel workload.
 
-![Рабочий процесс решения с использованием пакетной службы][2]
+![Batch solution workflow][2]
 
-В этом распространенном сценарии для обработки вычислительной рабочей нагрузки приложением или службой в пакетной службе Azure необходимо выполнить следующие действия:
+In this common scenario, your application or service processes a computational workload in Azure Batch by performing the following steps:
 
-1. Передайте **входные файлы** и **приложение**, которое будет обрабатывать эти файлы, в учетную запись службы хранилища Azure. Входными файлами могут быть любые данные, которые будет обрабатывать приложение, например данные финансового моделирования или видеофайлы, которые необходимо перекодировать. В качестве приложения можно использовать любое приложение для обработки данных, например приложение отрисовки 3D-данных или медиатранскодер.
+1. Upload the **input files** and the **application** that will process those files to your Azure Storage account. The input files can be any data that your application will process, such as financial modeling data, or video files to be transcoded. The application files can be any application that is used for processing the data, such as a 3D rendering application or media transcoder.
 
-2. Создайте в учетной записи пакетной службы **пул** пакетной службы, состоящий из вычислительных узлов, т. е. виртуальных машин, которые будут выполнять задачи. Чтобы установить приложение (отправленное на шаге 1) при присоединении узлов к пулу, укажите такие свойства, как [размер узла](./../cloud-services/cloud-services-sizes-specs.md), используемая операционная система и расположение в службе хранилища Azure. Кроме того, вы можете настроить [автоматическое масштабирование](batch-automatic-scaling.md) пула (динамическое изменение количества вычислительных узлов в пуле) в соответствии с рабочей нагрузкой, создаваемой вашими задачами.
+2. Create a Batch **pool** of compute nodes in your Batch account--these nodes are the virtual machines that will execute your tasks. You specify properties such as the [node size](./../cloud-services/cloud-services-sizes-specs.md), their operating system, and the location in Azure Storage of the application to install when the nodes join the pool (the application that you uploaded in step #1). You can also configure the pool to [automatically scale](batch-automatic-scaling.md)--dynamically adjust the number of compute nodes in the pool--in response to the workload that your tasks generate.
 
-3. Создайте **задание** пакетной службы для выполнения рабочей нагрузки в пуле вычислительных узлов. При создании задание связывается с пулом пакетной службы.
+3. Create a Batch **job** to run the workload on the pool of compute nodes. When you create a job, you associate it with a Batch pool.
 
-4. Добавьте **задачи** в задание. При добавлении задач в задание пакетная служба автоматически планирует их выполнение в вычислительных узлах пула. Каждая задача использует приложение, переданное для обработки входных файлов.
+4. Add **tasks** to the job. When you add tasks to a job, the Batch service automatically schedules the tasks for execution on the compute nodes in the pool. Each task uses the application that you uploaded to process the input files.
 
-    - 4а. Перед выполнением задачи данные (входные файлы), которые нужно обработать, могут быть скачаны в назначенный задаче вычислительный узел. Если приложение еще не установлено на узле (см. шаг 2), оно будет скачано на данном этапе. По завершении скачивания задачи будут выполняться в соответствующих назначенных узлах.
+    - 4a. Before a task executes, it can download the data (the input files) that it is to process to the compute node it is assigned to. If the application has not already been installed on the node (see step #2), it can be downloaded here instead. When the downloads are complete, the tasks execute on their assigned nodes.
 
-5. При выполнении задач можно отправить запрос к пакетной службе, чтобы отслеживать ход выполнения задания и задач. Клиентское приложение или служба взаимодействует с пакетной службой по протоколу HTTPS. Так как вы можете отслеживать состояние тысяч задач, выполняющихся на тысячах вычислительных узлов, [отправляйте к пакетной службе только эффективные запросы](batch-efficient-list-queries.md).
+5. As the tasks run, you can query Batch to monitor the progress of the job and its tasks. Your client application or service communicates with the Batch service over HTTPS, and because you might be monitoring thousands of tasks running on thousands of compute nodes, be sure to [query the Batch service efficiently](batch-efficient-list-queries.md).
 
-6. Выполненные задачи отправляют выходные данные в службу хранилища Azure. Можно также извлечь файлы непосредственно из вычислительных узлов.
+6. As the tasks complete, they can upload their result data to Azure Storage. You can also retrieve files directly from compute nodes.
 
-7. Если при мониторинге обнаруживается, что задачи в задании выполнены, выходные данные могут быть скачаны для дальнейшей обработки или оценки через клиентское приложение или службу.
+7. When your monitoring detects that the tasks in your job have completed, your client application or service can download the output data for further processing or evaluation.
 
-Это всего лишь один из способов использования пакетной службы, и в этом сценарии описывается только небольшая часть доступных функций. Например, можно выполнять [несколько задач параллельно](batch-parallel-node-tasks.md) на каждом вычислительном узле. Кроме того, можно использовать [задачи подготовки и завершения задания](batch-job-prep-release.md), чтобы подготовить узлы к запуску заданий, а затем выполнить очистку.
+Keep in mind this is just one way to use Batch, and this scenario describes only a few of its available features. For example, you can execute [multiple tasks in parallel](batch-parallel-node-tasks.md) on each compute node, and you can use [job preparation and completion tasks](batch-job-prep-release.md) to prepare the nodes for your jobs, then clean up afterward.
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Next steps
 
-Теперь, когда вы ознакомились с пакетной службой, пора узнать, как ее можно использовать для обработки параллельных рабочих нагрузок с ресурсоемкими вычислениями.
+Now that you have a high-level overview of the Batch service, it's time to dig deeper to learn how you can use it to process your compute-intensive parallel workloads.
 
-- Информация, необходимая для тех, кто готовится использовать пакетную службу, доступна в статье [Обзор функций пакетной службы для разработчиков](batch-api-basics.md). Эта статья содержит дополнительные подробные сведения о таких ресурсах пакетной службы, как пулы, узлы, задания, задачи и многие функции API, которые можно использовать при создании приложения пакетной службы.
+- Read the [Batch feature overview for developers](batch-api-basics.md), essential information for anyone preparing to use Batch. The article contains more detailed information about Batch service resources like pools, nodes, jobs, and tasks, and the many API features that you can use while building your Batch application.
 
-- Сведения об использовании C# и библиотеки .NET для пакетной службы при обработке простой рабочей нагрузки с помощью стандартного рабочего процесса пакетной службы см. в статье [Начало работы с библиотекой пакетной службы Azure для .NET](batch-dotnet-get-started.md). Это один из основных ресурсов, с которым нужно ознакомиться, приступая к работе с пакетной службой. Есть также версия руководства для [Python](batch-python-tutorial.md).
+- [Get started with the Azure Batch library for .NET](batch-dotnet-get-started.md) to learn how to use C# and the Batch .NET library to execute a simple workload using a common Batch workflow. This article should be one of your first stops while learning how to use the Batch service. There is also a [Python version](batch-python-tutorial.md) of the tutorial.
 
-- Скачайте [примеры кода с GitHub][github_samples], чтобы увидеть, как C# и Python взаимодействуют с пакетной службой для планирования и обработки примеров рабочих нагрузок.
+- Download the [code samples on GitHub][github_samples] to see how both C# and Python can interface with Batch to schedule and process sample workloads.
 
-- Список ресурсов для работы с пакетной службой см. на схеме обучения [Пакетная служба][learning_path].
+- Check out the [Batch Learning Path][learning_path] to get an idea of the resources available to you as you learn to work with Batch.
 
 [azure_storage]: https://azure.microsoft.com/services/storage/
 [api_java]: http://azure.github.io/azure-sdk-for-java/
@@ -161,4 +162,8 @@
 [1]: ./media/batch-technical-overview/tech_overview_01.png
 [2]: ./media/batch-technical-overview/tech_overview_02.png
 
-<!---HONumber=AcomDC_0831_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

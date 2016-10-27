@@ -1,36 +1,45 @@
 <properties
-	pageTitle="Назначение лицензий для службы Microsoft Azure Multi-Factor Authentication"
-	description="Из этой статьи вы узнаете, как назначать лицензии для службы Microsoft Azure Multi-Factor Authentication."
-	services="multi-factor-authentication"
-	documentationCenter=""
-	authors="kgremban"
-	manager="femila"
-	editor="curtand"/>
+    pageTitle="Assigning Licenses for Microsoft Azure Multi-Factor Authentication"
+    description="Learn  how to assign user licenses for Microsoft Azure Multi-Factor Authentication."
+    services="multi-factor-authentication"
+    documentationCenter=""
+    authors="kgremban"
+    manager="femila"
+    editor="curtand"/>
 
 <tags
-	ms.service="multi-factor-authentication"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="08/04/2016"
-	ms.author="kgremban"/>
+    ms.service="multi-factor-authentication"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="08/04/2016"
+    ms.author="kgremban"/>
 
-# Назначение пользователям лицензии Azure MFA, Azure AD Premium или Enterprise Mobility
 
-Если вы приобрели лицензии Azure MFA, Azure AD Premium или Enterprise Mobility Suite, поставщик Multi-Factor Authentication создавать не нужно. Необходимо просто назначить эти лицензии пользователям, после чего для них можно включить MFA.
+# <a name="assigning-an-azure-mfa,-azure-ad-premium,-or-enterprise-mobility-license-to-users"></a>Assigning an Azure MFA, Azure AD Premium, or Enterprise Mobility license to users
 
-## Назначение лицензии Azure MFA, Azure AD Premium или Enterprise Mobility Suite
+If you have purchased Azure MFA, Azure AD Premium, or Enterprise Mobility Suite licenses, you do not need to create a Multi-Factor Auth provider. You need to simply assign the licenses to your users and then you can begin enabling them for MFA.
+
+## <a name="to-assign-an-azure-mfa,-azure-ad-premium,-or-enterprise-mobility-suite-license"></a>To assign an Azure MFA, Azure AD Premium, or Enterprise Mobility Suite License
 --------------------------------------------------------------------------------
 
-1. Войдите на **классический портал Azure** с учетной записью администратора.
-2. Выберите **Active Directory** слева.
-3. На странице "Active Directory" дважды щелкните каталог пользователей, которых вы хотите активировать.
-4. В верхней части страницы каталога выберите **Лицензии**. ![Назначение лицензий](./media/multi-factor-authentication-get-started-assign-licenses/assign1.png)
-5. На странице "Лицензии" выберите **Azure Multi-Factor Authentication**, **Active Directory Premium** или **Enterprise Mobility Suite**. Если у вас только одна лицензия, она должна быть выбрана автоматически.
-6. В нижней части страницы щелкните **Назначить**. ![Назначение лицензий](./media/multi-factor-authentication-get-started-assign-licenses/assign3.png)
-6. В открывшемся окне **щелкните** рядом с пользователями или группами, которым требуется назначить лицензии. Рядом с ними должна появиться **зеленая галочка**.
-7. **Щелкните** кнопку с галочкой, чтобы сохранить изменения. ![Назначение лицензий](./media/multi-factor-authentication-get-started-assign-licenses/assign4.png)
-8. Появится сообщение о том, сколько лицензий назначено и сколько не удалось назначить. Нажмите кнопку **ОК**. ![Назначение лицензий](./media/multi-factor-authentication-get-started-assign-licenses/assign5.png)
+1. Sign in to the **Azure classic portal** as an Administrator.
+2. On the left, select **Active Directory**.
+3. On the Active Directory page, double-click on the directory that has the users you wish to enable.
+4. At the top of the directory page, select **Licenses**.
+![Assign Licenses](./media/multi-factor-authentication-get-started-assign-licenses/assign1.png)
+5. On the Licenses page, select **Azure Multi-Factor Authentication**, **Active Directory Premium**, or **Enterprise Mobility Suite**.  If you only have one then it should be selected automatically.
+6. At the bottom of the page, click **Assign**.
+![Assign Licenses](./media/multi-factor-authentication-get-started-assign-licenses/assign3.png)
+6. In the box that comes up, **click** next to the users or groups you want to assign licenses.  You should see a **green check mark** appear.
+7. **Click** the check mark icon to save the changes.
+![Assign Licenses](./media/multi-factor-authentication-get-started-assign-licenses/assign4.png)
+8. You should see a message saying how many licenses were assigned and how many may have failed.  Click **Ok**.
+![Assign Licenses](./media/multi-factor-authentication-get-started-assign-licenses/assign5.png)
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

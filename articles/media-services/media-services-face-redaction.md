@@ -1,322 +1,327 @@
 <properties
-	pageTitle="Скрытие лиц с помощью медиа-аналитики Azure | Microsoft Azure"
-	description="В этой статье описана функция скрытия лиц с помощью медиа-аналитики Azure."
-	services="media-services"
-	documentationCenter=""
-	authors="juliako"
-	manager="erikre"
-	editor=""/>
+    pageTitle="Face redaction with Azure media analytics | Microsoft Azure"
+    description="This topic demonstrates how to redact faces with Azure media analytics."
+    services="media-services"
+    documentationCenter=""
+    authors="juliako"
+    manager="erikre"
+    editor=""/>
 
 <tags
-	ms.service="media-services"
-	ms.workload="media"
-	ms.tgt_pltfrm="na"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="09/12/2016"   
-	ms.author="juliako;"/>
+    ms.service="media-services"
+    ms.workload="media"
+    ms.tgt_pltfrm="na"
+    ms.devlang="dotnet"
+    ms.topic="article"
+    ms.date="09/12/2016"   
+    ms.author="juliako;"/>
  
-#Скрытие лиц с помощью медиа-аналитики Azure
 
-##Обзор
+#<a name="face-redaction-with-azure-media-analytics"></a>Face redaction with Azure media analytics
 
-**Редактор мультимедиа Azure** — это обработчик [медиа-аналитики Azure ](media-services-analytics-overview.md) с возможностью масштабируемого скрытия лиц в облаке. Функция скрытия лиц позволяет изменять видео, размывая изображения лиц выбранных пользователей. Вы можете использовать функцию скрытия лиц в ситуациях, требующих соблюдения общественной безопасности, а также при работе с новостями. Редактирование короткого материала с несколькими лицами вручную может занять несколько часов, тогда как при использовании функции скрытия лиц достаточно выполнить несколько простых действий. Дополнительную информацию см. в [этом блоге](https://azure.microsoft.com/blog/azure-media-redactor/).
+##<a name="overview"></a>Overview
 
-В этом разделе описывается **редактор мультимедиа Azure** и способы его использования с пакетом SDK служб мультимедиа для .NET.
+**Azure Media Redactor** is an [Azure Media Analytics](media-services-analytics-overview.md) media processor (MP) that offers scalable face redaction in the cloud. Face redaction enables you to modify your video in order to blur faces of selected individuals. You may want to use the face redaction service in public safety and news media scenarios. A few minutes of footage that contains multiple faces can take hours to redact manually, but with this service the face redaction process will require just a few simple steps. For  more information, see [this](https://azure.microsoft.com/blog/azure-media-redactor/) blog.
 
-Сейчас **редактор мультимедиа Azure Media** доступен в предварительной версии.
+This topic gives details about **Azure Media Redactor** and shows how to use it with Media Services SDK for .NET.
 
-## Режимы скрытия лиц
+The **Azure Media Redactor** MP is currently in Preview.
 
-Во время работы этой функции в каждом видеокадре лица определяются и отслеживаются на протяжении всей записи. Таким образом, лицо одного и того же человека можно размыть, даже если оно снято с другого ракурса. Автоматическое скрытие — это очень сложный процесс, который не всегда справляется с поставленной задачей. По этой причине служба медиа-аналитики предусматривает несколько способов изменения полученного результата.
+## <a name="face-redaction-modes"></a>Face redaction modes
 
-Помимо полностью автоматического режима, также доступен двухэтапный рабочий процесс, в рамках которого вы можете выбирать и отменять выбор обнаруженных лиц с помощью списка идентификаторов. Кроме того, чтобы сделать изменения в каждом кадре произвольными, обработчик мультимедиа использует файл метаданных в формате JSON. Этот рабочий процесс разделен на два режима: **анализ** и **скрытие**. Эти два режима можно объединить, чтобы они выполнялись в рамках одного задания. Такой режим называется **объединенным**.
+Facial redaction works by detecting faces in every frame of video and tracking the face object both forwards and backwards in time, so that the same individual can be blurred from other angles as well. The automated redaction process is very complex and does not always produce 100% of desired output, for this reason Media Analytics provides you with a couple of ways to modify the final output.
 
-###Объединенный режим
+In addition to a fully automatic mode, there is a two-pass workflow which allows the selection/de-selection of found faces via a list of IDs. Also, to make arbitrary per frame adjustments the MP uses a metadata file in JSON format. This workflow is split into **Analyze** and **Redact** modes. You can combine the two modes in a single pass that runs both tasks in one job; this mode is called **Combined**.
 
-В результате вы получите MP4-файл с автоматическим скрытием, который не нужно править вручную.
+###<a name="combined-mode"></a>Combined mode
 
-Этап|Имя файла|Примечания
+This will produce a redacted mp4 automatically without any manual input.
+
+Stage|File Name|Notes
 ---|---|---
-Входной ресурс-контейнер|foo.bar|Видео в формате WMV, MOV или MP4
-Входная конфигурация|Конфигурация задания (предустановка)|{'version':'1.0', 'options': {'mode':'combined'}}
-Выходной ресурс-контейнер|foo\_redacted.mp4|Видео с размытием
+Input asset|foo.bar|Video in WMV, MOV, or MP4 format
+Input config|Job configuration preset|{'version':'1.0', 'options': {'mode':'combined'}}
+Output asset|foo_redacted.mp4|Video with blurring applied
 
-####Пример входных данных
+####<a name="input-example:"></a>Input example:
 
-[См. видео](http://ampdemo.azureedge.net/?url=http%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.windows.net%2Fed99001d-72ee-4f91-9fc0-cd530d0adbbc%2FDancing.mp4)
+[view this video](http://ampdemo.azureedge.net/?url=http%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.windows.net%2Fed99001d-72ee-4f91-9fc0-cd530d0adbbc%2FDancing.mp4)
 
-####Пример выходных данных
+####<a name="output-example:"></a>Output example:
 
-[См. видео](http://ampdemo.azureedge.net/?url=http%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.windows.net%2Fc6608001-e5da-429b-9ec8-d69d8f3bfc79%2Fdance_redacted.mp4)
+[view this video](http://ampdemo.azureedge.net/?url=http%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.windows.net%2Fc6608001-e5da-429b-9ec8-d69d8f3bfc79%2Fdance_redacted.mp4)
 
-###Режим анализа
+###<a name="analyze-mode"></a>Analyze mode
 
-В режиме **анализа** двухэтапный рабочий процесс принимает входное видео и создает JSON-файл с регистрацией расположения лиц, а также изображения всех обнаруженных лиц в формате JPG.
+The **analyze** pass of the two-pass workflow takes a video input and produces a JSON file of face locations, and jpg images of each detected face.
 
-Этап|Имя файла|Примечания
+Stage|File Name|Notes
 ---|---|----
-Входной ресурс-контейнер|foo.bar|Видео в формате WMV, MPV или MP4
-Входная конфигурация|Конфигурация задания (предустановка)|{'version':'1.0', 'options': {'mode':'analyze'}}
-Выходной ресурс-контейнер|foo\_annotations.json|Аннотация с данными о расположении лиц в формате JSON. Вы можете отредактировать эти данные, чтобы изменить границы размытия. См. пример ниже.
-Выходной ресурс-контейнер|foo\_thumb%06d.jpg [foo\_thumb000001.jpg, foo\_thumb000002.jpg]|Обрезанный JPG-файл с изображением каждого обнаруженного лица, где номер соответствует идентификатору метки лица.
+Input asset|foo.bar|Video in WMV, MPV, or MP4 format
+Input config|Job configuration preset|{'version':'1.0', 'options': {'mode':'analyze'}}
+Output asset|foo_annotations.json|Annotation data of face locations in JSON format. This can be edited by the user to modify the blurring bounding boxes. See sample below.
+Output asset|foo_thumb%06d.jpg [foo_thumb000001.jpg, foo_thumb000002.jpg]|A cropped jpg of each detected face, where the number indicates the labelId of the face
 
-####Пример выходных данных
+####<a name="output-example:"></a>Output Example:
 
-	{
-	  "version": 1,
-	  "timescale": 50,
-	  "offset": 0,
-	  "framerate": 25.0,
-	  "width": 1280,
-	  "height": 720,
-	  "fragments": [
-	    {
-	      "start": 0,
-	      "duration": 2,
-	      "interval": 2,
-	      "events": [
-	        [  
-	          {
-	            "id": 1,
-	            "x": 0.306415737,
-	            "y": 0.03199235,
-	            "width": 0.15357475,
-	            "height": 0.322126418
-	          },
-	          {
-	            "id": 2,
-	            "x": 0.5625317,
-	            "y": 0.0868245438,
-	            "width": 0.149155334,
-	            "height": 0.355517566
-	          }
-	        ]
-	      ]
-	    },
+    {
+      "version": 1,
+      "timescale": 50,
+      "offset": 0,
+      "framerate": 25.0,
+      "width": 1280,
+      "height": 720,
+      "fragments": [
+        {
+          "start": 0,
+          "duration": 2,
+          "interval": 2,
+          "events": [
+            [  
+              {
+                "id": 1,
+                "x": 0.306415737,
+                "y": 0.03199235,
+                "width": 0.15357475,
+                "height": 0.322126418
+              },
+              {
+                "id": 2,
+                "x": 0.5625317,
+                "y": 0.0868245438,
+                "width": 0.149155334,
+                "height": 0.355517566
+              }
+            ]
+          ]
+        },
 
-(Усечено.)
+… truncated
 
 
-###Режим скрытия
+###<a name="redact-mode"></a>Redact Mode
 
-Во время второго этапа рабочий процесс принимает большее количество входных данных для объединения в один ресурс-контейнер.
+The second pass of the workflow takes a larger number of inputs that must be combined into a single asset.
 
-Сюда входит список идентификаторов размываемых лиц, исходное видео и аннотации в формате JSON. Этот режим использует аннотации для применения размытия ко входному видео.
+This includes a list of IDs to blur, the original video, and the annotations JSON. This mode uses the annotations to apply blurring on the input video.
 
-Выходные данные этапа анализа не включают исходное видео. Видео необходимо передать во входной ресурс-контейнер, чтобы задача режима скрытия обработала его, а затем выбрать в качестве первичного файла.
+The output from the Analyze pass does not include the original video. The video needs to be uploaded into the input asset for the Redact mode task and selected as the primary file.
 
-Этап|Имя файла|Примечания
+Stage|File Name|Notes
 ---|---|---
-Входной ресурс-контейнер|foo.bar|Видео в формате WMV, MPV или MP4. То же видео, что и на этапе 1.
-Входной ресурс-контейнер|foo\_annotations.json|Файл аннотации с метаданными, полученными на этапе 1, с необязательными изменениями.
-Входной ресурс-контейнер|foo\_IDList.txt (необязательный)|(Необязательно.) Новый список идентификаторов скрываемых лиц со строками-разделителями. Если оставить его пустым, будут размыты все лица.
-Входная конфигурация|Конфигурация задания (предустановка)|{'version':'1.0', 'options': {'mode':'redact'}}
-Выходной ресурс-контейнер|foo\_redacted.mp4|Видео с размытием, примененным на основе аннотаций
+Input asset|foo.bar|Video in WMV, MPV, or MP4 format. Same video as in step 1.
+Input asset|foo_annotations.json|annotations metadata file from phase one, with optional modifications.
+Input asset|foo_IDList.txt (Optional)|Optional new line separated list of face IDs to redact. If left blank, this blurs all faces.
+Input config|Job configuration preset|{'version':'1.0', 'options': {'mode':'redact'}}
+Output asset|foo_redacted.mp4|Video with blurring applied based on annotations
 
-####Пример выходных данных
+####<a name="example-output"></a>Example Output
 
-Выходные данные из списка идентификаторов с одним выбранным идентификатором.
+This is the output from an IDList with one ID selected.
 
-[См. видео](http://ampdemo.azureedge.net/?url=http%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.windows.net%2Fad6e24a2-4f9c-46ee-9fa7-bf05e20d19ac%2Fdance_redacted1.mp4)
+[view this video](http://ampdemo.azureedge.net/?url=http%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.windows.net%2Fad6e24a2-4f9c-46ee-9fa7-bf05e20d19ac%2Fdance_redacted1.mp4)
 
-##Описания атрибутов
+##<a name="attribute-descriptions"></a>Attribute descriptions
 
-Обработчик мультимедиа с функцией скрытия лиц обеспечивает высокую точность обнаружения и отслеживания лиц с возможностью определения до 64 человеческих лиц в одном видеокадре. Скрытие лиц в анфас выполняется с лучшим результатом по сравнению с лицами в профиль или небольшим лицами (не более 24x24 пикселей), которые сложнее обработать.
+The Redaction MP provides high precision face location detection and tracking that can detect up to 64 human faces in a video frame. Frontal faces provide the best results, while side faces and small faces (less than or equal to 24x24 pixels) are challenging.
 
-Функция регистрирует координаты обнаруженных и отслеживаемых лиц, обозначая их расположение, а также идентификационный номер каждого лица, позволяющий отслеживать этого человека. Если лицо в анфас теряется или перекрывается в кадре, его идентификационный номер может быть сброшен, в результате чего нескольким людям назначаются несколько идентификаторов.
+The detected and tracked faces are returned with coordinates indicating the location of faces, as well as a face ID number indicating the tracking of that individual. Face ID numbers are prone to reset under circumstances when the frontal face is lost or overlapped in the frame, resulting in some individuals getting assigned multiple IDs.
 
-Подробные описания атрибутов см. в статье [Обнаружение лиц и определение эмоций с помощью медиа-аналитики Azure](media-services-face-and-emotion-detection.md).
+For detailed explanations for the attributes, see [Detect Face and Emotion with Azure Media Analytics](media-services-face-and-emotion-detection.md) topic.
 
-## Пример кода
+## <a name="sample-code"></a>Sample code
 
-В следующей программе показано, как выполнить следующие задачи.
+The following program shows how to:
 
-1. Создание ресурса-контейнера и отправка в него файла мультимедиа.
-1. Создание задания с задачей скрытия лиц на основе файла конфигурации, содержащего следующую предустановку JSON.
-					
-		{'version':'1.0', 'options': {'mode':'combined'}}
+1. Create an asset and upload a media file into the asset.
+1. Create a job with a face redaction task based on a configuration file that contains the following json preset. 
+                    
+        {'version':'1.0', 'options': {'mode':'combined'}}
 
-1. Загрузка выходных JSON-файлов.
-		 
+1. Download the output JSON files. 
+         
         using System;
-		using System.Configuration;
-		using System.IO;
-		using System.Linq;
-		using Microsoft.WindowsAzure.MediaServices.Client;
-		using System.Threading;
-		using System.Threading.Tasks;
-		
-		namespace FaceRedaction
-		{
-		    class Program
-		    {
-		        // Read values from the App.config file.
-		        private static readonly string _mediaServicesAccountName =
-		            ConfigurationManager.AppSettings["MediaServicesAccountName"];
-		        private static readonly string _mediaServicesAccountKey =
-		            ConfigurationManager.AppSettings["MediaServicesAccountKey"];
-		
-		        // Field for service context.
-		        private static CloudMediaContext _context = null;
-		        private static MediaServicesCredentials _cachedCredentials = null;
-		
-		        static void Main(string[] args)
-		        {
-		
-		            // Create and cache the Media Services credentials in a static class variable.
-		            _cachedCredentials = new MediaServicesCredentials(
-		                            _mediaServicesAccountName,
-		                            _mediaServicesAccountKey);
-		            // Used the cached credentials to create CloudMediaContext.
-		            _context = new CloudMediaContext(_cachedCredentials);
-		
-		            // Run the FaceRedaction job.
-		            var asset = RunFaceRedactionJob(@"C:\supportFiles\FaceRedaction\SomeFootage.mp4",
-		                                        @"C:\supportFiles\FaceRedaction\config.json");
-		
-		            // Download the job output asset.
-		            DownloadAsset(asset, @"C:\supportFiles\FaceRedaction\Output");
-		        }
-		
-		        static IAsset RunFaceRedactionJob(string inputMediaFilePath, string configurationFile)
-		        {
-		            // Create an asset and upload the input media file to storage.
-		            IAsset asset = CreateAssetAndUploadSingleFile(inputMediaFilePath,
-		                "My Face Redaction Input Asset",
-		                AssetCreationOptions.None);
-		
-		            // Declare a new job.
-		            IJob job = _context.Jobs.Create("My Face Redaction Job");
-		
-		            // Get a reference to Azure Media Redactor.
-		            string MediaProcessorName = "Azure Media Redactor";
-		
-		            var processor = GetLatestMediaProcessorByName(MediaProcessorName);
-		
-		            // Read configuration from the specified file.
-		            string configuration = File.ReadAllText(configurationFile);
-		
-		            // Create a task with the encoding details, using a string preset.
-		            ITask task = job.Tasks.AddNew("My Face Redaction Task",
-		                processor,
-		                configuration,
-		                TaskOptions.None);
-		
-		            // Specify the input asset.
-		            task.InputAssets.Add(asset);
-		
-		            // Add an output asset to contain the results of the job.
-		            task.OutputAssets.AddNew("My Face Redaction Output Asset", AssetCreationOptions.None);
-		
-		            // Use the following event handler to check job progress.  
-		            job.StateChanged += new EventHandler<JobStateChangedEventArgs>(StateChanged);
-		
-		            // Launch the job.
-		            job.Submit();
-		
-		            // Check job execution and wait for job to finish.
-		            Task progressJobTask = job.GetExecutionProgressTask(CancellationToken.None);
-		
-		            progressJobTask.Wait();
-		
-		            // If job state is Error, the event handling
-		            // method for job progress should log errors.  Here we check
-		            // for error state and exit if needed.
-		            if (job.State == JobState.Error)
-		            {
-		                ErrorDetail error = job.Tasks.First().ErrorDetails.First();
-		                Console.WriteLine(string.Format("Error: {0}. {1}",
-		                                                error.Code,
-		                                                error.Message));
-		                return null;
-		            }
-		
-		            return job.OutputMediaAssets[0];
-		        }
-		
-		        static IAsset CreateAssetAndUploadSingleFile(string filePath, string assetName, AssetCreationOptions options)
-		        {
-		            IAsset asset = _context.Assets.Create(assetName, options);
-		
-		            var assetFile = asset.AssetFiles.Create(Path.GetFileName(filePath));
-		            assetFile.Upload(filePath);
-		
-		            return asset;
-		        }
-		
-		        static void DownloadAsset(IAsset asset, string outputDirectory)
-		        {
-		            foreach (IAssetFile file in asset.AssetFiles)
-		            {
-		                file.Download(Path.Combine(outputDirectory, file.Name));
-		            }
-		        }
-		
-		        static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
-		        {
-		            var processor = _context.MediaProcessors
-		                .Where(p => p.Name == mediaProcessorName)
-		                .ToList()
-		                .OrderBy(p => new Version(p.Version))
-		                .LastOrDefault();
-		
-		            if (processor == null)
-		                throw new ArgumentException(string.Format("Unknown media processor",
-		                                                           mediaProcessorName));
-		
-		            return processor;
-		        }
-		
-		        static private void StateChanged(object sender, JobStateChangedEventArgs e)
-		        {
-		            Console.WriteLine("Job state changed event:");
-		            Console.WriteLine("  Previous state: " + e.PreviousState);
-		            Console.WriteLine("  Current state: " + e.CurrentState);
-		
-		            switch (e.CurrentState)
-		            {
-		                case JobState.Finished:
-		                    Console.WriteLine();
-		                    Console.WriteLine("Job is finished.");
-		                    Console.WriteLine();
-		                    break;
-		                case JobState.Canceling:
-		                case JobState.Queued:
-		                case JobState.Scheduled:
-		                case JobState.Processing:
-		                    Console.WriteLine("Please wait...\n");
-		                    break;
-		                case JobState.Canceled:
-		                case JobState.Error:
-		                    // Cast sender as a job.
-		                    IJob job = (IJob)sender;
-		                    // Display or log error details as needed.
-		                    // LogJobStop(job.Id);
-		                    break;
-		                default:
-		                    break;
-		            }
-		        }
-		
-		    }
+        using System.Configuration;
+        using System.IO;
+        using System.Linq;
+        using Microsoft.WindowsAzure.MediaServices.Client;
+        using System.Threading;
+        using System.Threading.Tasks;
+        
+        namespace FaceRedaction
+        {
+            class Program
+            {
+                // Read values from the App.config file.
+                private static readonly string _mediaServicesAccountName =
+                    ConfigurationManager.AppSettings["MediaServicesAccountName"];
+                private static readonly string _mediaServicesAccountKey =
+                    ConfigurationManager.AppSettings["MediaServicesAccountKey"];
+        
+                // Field for service context.
+                private static CloudMediaContext _context = null;
+                private static MediaServicesCredentials _cachedCredentials = null;
+        
+                static void Main(string[] args)
+                {
+        
+                    // Create and cache the Media Services credentials in a static class variable.
+                    _cachedCredentials = new MediaServicesCredentials(
+                                    _mediaServicesAccountName,
+                                    _mediaServicesAccountKey);
+                    // Used the cached credentials to create CloudMediaContext.
+                    _context = new CloudMediaContext(_cachedCredentials);
+        
+                    // Run the FaceRedaction job.
+                    var asset = RunFaceRedactionJob(@"C:\supportFiles\FaceRedaction\SomeFootage.mp4",
+                                                @"C:\supportFiles\FaceRedaction\config.json");
+        
+                    // Download the job output asset.
+                    DownloadAsset(asset, @"C:\supportFiles\FaceRedaction\Output");
+                }
+        
+                static IAsset RunFaceRedactionJob(string inputMediaFilePath, string configurationFile)
+                {
+                    // Create an asset and upload the input media file to storage.
+                    IAsset asset = CreateAssetAndUploadSingleFile(inputMediaFilePath,
+                        "My Face Redaction Input Asset",
+                        AssetCreationOptions.None);
+        
+                    // Declare a new job.
+                    IJob job = _context.Jobs.Create("My Face Redaction Job");
+        
+                    // Get a reference to Azure Media Redactor.
+                    string MediaProcessorName = "Azure Media Redactor";
+        
+                    var processor = GetLatestMediaProcessorByName(MediaProcessorName);
+        
+                    // Read configuration from the specified file.
+                    string configuration = File.ReadAllText(configurationFile);
+        
+                    // Create a task with the encoding details, using a string preset.
+                    ITask task = job.Tasks.AddNew("My Face Redaction Task",
+                        processor,
+                        configuration,
+                        TaskOptions.None);
+        
+                    // Specify the input asset.
+                    task.InputAssets.Add(asset);
+        
+                    // Add an output asset to contain the results of the job.
+                    task.OutputAssets.AddNew("My Face Redaction Output Asset", AssetCreationOptions.None);
+        
+                    // Use the following event handler to check job progress.  
+                    job.StateChanged += new EventHandler<JobStateChangedEventArgs>(StateChanged);
+        
+                    // Launch the job.
+                    job.Submit();
+        
+                    // Check job execution and wait for job to finish.
+                    Task progressJobTask = job.GetExecutionProgressTask(CancellationToken.None);
+        
+                    progressJobTask.Wait();
+        
+                    // If job state is Error, the event handling
+                    // method for job progress should log errors.  Here we check
+                    // for error state and exit if needed.
+                    if (job.State == JobState.Error)
+                    {
+                        ErrorDetail error = job.Tasks.First().ErrorDetails.First();
+                        Console.WriteLine(string.Format("Error: {0}. {1}",
+                                                        error.Code,
+                                                        error.Message));
+                        return null;
+                    }
+        
+                    return job.OutputMediaAssets[0];
+                }
+        
+                static IAsset CreateAssetAndUploadSingleFile(string filePath, string assetName, AssetCreationOptions options)
+                {
+                    IAsset asset = _context.Assets.Create(assetName, options);
+        
+                    var assetFile = asset.AssetFiles.Create(Path.GetFileName(filePath));
+                    assetFile.Upload(filePath);
+        
+                    return asset;
+                }
+        
+                static void DownloadAsset(IAsset asset, string outputDirectory)
+                {
+                    foreach (IAssetFile file in asset.AssetFiles)
+                    {
+                        file.Download(Path.Combine(outputDirectory, file.Name));
+                    }
+                }
+        
+                static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
+                {
+                    var processor = _context.MediaProcessors
+                        .Where(p => p.Name == mediaProcessorName)
+                        .ToList()
+                        .OrderBy(p => new Version(p.Version))
+                        .LastOrDefault();
+        
+                    if (processor == null)
+                        throw new ArgumentException(string.Format("Unknown media processor",
+                                                                   mediaProcessorName));
+        
+                    return processor;
+                }
+        
+                static private void StateChanged(object sender, JobStateChangedEventArgs e)
+                {
+                    Console.WriteLine("Job state changed event:");
+                    Console.WriteLine("  Previous state: " + e.PreviousState);
+                    Console.WriteLine("  Current state: " + e.CurrentState);
+        
+                    switch (e.CurrentState)
+                    {
+                        case JobState.Finished:
+                            Console.WriteLine();
+                            Console.WriteLine("Job is finished.");
+                            Console.WriteLine();
+                            break;
+                        case JobState.Canceling:
+                        case JobState.Queued:
+                        case JobState.Scheduled:
+                        case JobState.Processing:
+                            Console.WriteLine("Please wait...\n");
+                            break;
+                        case JobState.Canceled:
+                        case JobState.Error:
+                            // Cast sender as a job.
+                            IJob job = (IJob)sender;
+                            // Display or log error details as needed.
+                            // LogJobStop(job.Id);
+                            break;
+                        default:
+                            break;
+                    }
+                }
+        
+            }
         }
 
 
-##Дальнейшие действия
+##<a name="next-step"></a>Next step
 
-Просмотрите схемы обучения работе со службами мультимедиа.
+Review Media Services learning paths.
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-##Отзывы
+##<a name="provide-feedback"></a>Provide feedback
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-##Связанные ссылки
+##<a name="related-links"></a>Related links
 
-[Общие сведения об аналитике служб мультимедиа Azure](media-services-analytics-overview.md)
+[Azure Media Services Analytics Overview](media-services-analytics-overview.md)
 
-[Демонстрационные материалы для медиааналитики Azure](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
+[Azure Media Analytics demos](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

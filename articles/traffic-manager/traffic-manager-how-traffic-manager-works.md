@@ -1,134 +1,129 @@
 <properties
-   pageTitle="Как работает диспетчер трафика | Microsoft Azure"
-   description="Эта статья поможет понять, как работает диспетчер трафика"
-   services="traffic-manager"
-   documentationCenter=""
-   authors="sdwheeler"
-   manager="carmonm"
-   editor="tysonn"/>
-
+    pageTitle="How Traffic Manager Works | Microsoft Azure"
+    description="This article explains how Azure Traffic Manager works"
+    services="traffic-manager"
+    documentationCenter=""
+    authors="sdwheeler"
+    manager="carmonm"
+    editor=""
+/>
 <tags
-   ms.service="traffic-manager"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="06/07/2016"
-   ms.author="sewhee"/>
+    ms.service="traffic-manager"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="infrastructure-services"
+    ms.date="10/11/2016"
+    ms.author="sewhee"
+/>
 
-# Как работает диспетчер трафика
 
-Диспетчер трафика Azure позволяет управлять распределением трафика через конечные точки приложения. В качестве конечной точки может использоваться любая конечная точка с выходом в Интернет, размещенная в Azure или за пределами Azure.
+# <a name="how-traffic-manager-works"></a>How Traffic Manager works
 
-Диспетчер трафика предоставляет два основных преимущества.
+Azure Traffic Manager enables you to control the distribution of traffic across your application endpoints. An endpoint is any Internet-facing service hosted inside or outside of Azure.
 
-1. Распределение трафика в соответствии с одним из нескольких [методов маршрутизации трафика](traffic-manager-routing-methods.md).
-2. [Постоянный мониторинг работоспособности конечной точки](traffic-manager-monitoring.md) и автоматический переход на другой ресурс при сбое конечных точек.
+Traffic Manager provides two key benefits:
 
-Когда пользователь пытается подключиться к конечной точке службы, клиент пользователя (ПК, телефон и т. д.) сначала должен разрешить DNS-имя в этой конечной точке в IP-адрес. Затем клиент подключается к этому IP-адресу для доступа к службе.
+1. Distribution of traffic according to one of several [traffic-routing methods](traffic-manager-routing-methods.md)
+2. [Continuous monitoring of endpoint health](traffic-manager-monitoring.md) and automatic failover when endpoints fail
 
-**Самое главное — понимать, как диспетчер трафика работает на уровне DNS.** Диспетчер трафика использует DNS для направления пользователей в определенные конечные точки службы на основе выбранного метода маршрутизации трафика и текущего состояния конечной точки. Затем клиент подключается к выбранной конечной точке **напрямую**. Диспетчер трафика — это не прокси-сервер, и он не видит трафик, проходящий между клиентом и службой.
+When a client attempts to connect to a service, it must first resolve the DNS name of the service to an IP address. The client then connects to that IP address to access the service.
 
-## Пример диспетчера трафика
+**The most important point to understand is that Traffic Manager works at the DNS level.**  Traffic Manager uses DNS to direct clients to specific service endpoints based on the rules of the traffic-routing method. Clients connect to the selected endpoint **directly**. Traffic Manager is not a proxy or a gateway. Traffic Manager does not see the traffic passing between the client and the service.
 
-Корпорация Contoso разработала новый партнерский портал. URL-адрес этого портала — https://partners.contoso.com/login.aspx. Приложение размещено в Azure, и для повышения доступности и улучшения общей производительности они хотят развернуть приложение в трех регионах по всему миру и распределять пользователей по их ближайшим конечным точкам с помощью диспетчера трафика.
+## <a name="traffic-manager-example"></a>Traffic Manager example
 
-Для достижения этой конфигурации они делают следующее.
+Contoso Corp have developed a new partner portal. The URL for this portal is https://partners.contoso.com/login.aspx. The application is hosted in three regions of Azure. To improve availability and maximize global performance, they use Traffic Manager to distribute client traffic to the closest available endpoint.
 
-- Разворачивают 3 экземпляра службы. DNS-имена для этих развертываний — "contoso-us.cloudapp.net", "contoso-eu.cloudapp.net" и "contoso-asia.cloudapp.net".
-- Затем они создают профиль диспетчера трафика с именем "contoso.trafficmanager.net". В этом профиле настроен метод маршрутизации трафика "Производительность" между тремя конечными точками, указанными выше.
-- Наконец, они настраивают свой личный домен ("partners.contoso.com") так, чтобы он указывал на "contoso.trafficmanager.net", с помощью записи CNAME в DNS.
+To achieve this configuration:
 
-![Конфигурация DNS диспетчера трафика][1]
+- They deploy three instances of their service. The DNS names of these deployments are 'contoso-us.cloudapp.net', 'contoso-eu.cloudapp.net', and 'contoso-asia.cloudapp.net'.
+- They then create a Traffic Manager profile, named 'contoso.trafficmanager.net', and configure it to use the 'Performance' traffic-routing method across the three endpoints.
+- Finally, they configure their vanity domain name, 'partners.contoso.com', to point to 'contoso.trafficmanager.net', using a DNS CNAME record.
 
-> [AZURE.NOTE] При использовании личного домена с диспетчером трафика Azure необходимо использовать запись CNAME для связи личного доменного имени с доменным именем диспетчера трафика.
+![Traffic Manager DNS configuration][1]
 
-> Из-за ограничений стандартов DNS запись CNAME невозможно создать на "вершине" (или в корне) домена. Поэтому вы не сможете создать запись CNAME для contoso.com (который иногда называется "голым" доменом). Запись CNAME можно создать только для поддомена "contoso.com", например "www.contoso.com".
+> [AZURE.NOTE] When using a vanity domain with Azure Traffic Manager, you must use a CNAME to point your vanity domain name to your Traffic Manager domain name. DNS standards do not allow you to create a CNAME at the 'apex' (or root) of a domain. Thus you cannot create a CNAME for 'contoso.com' (sometimes called a 'naked' domain). You can only create a CNAME for a domain under 'contoso.com', such as 'www.contoso.com'. To work around this limitation, we recommend using a simple HTTP redirect to direct requests for 'contoso.com' to an alternative name such as 'www.contoso.com'.
 
-> Таким образом, диспетчер трафика нельзя использовать напрямую с "голым" доменом. Чтобы обойти эту проблему, рекомендуем использовать простое перенаправление HTTP для перенаправления запросов к "contoso.com" на другой домен, например "www.contoso.com".
+## <a name="how-clients-connect-using-traffic-manager"></a>How clients connect using Traffic Manager
 
-## Как клиенты могут подключаться с помощью диспетчера трафика
+Continuing from the previous example, when a client requests the page https://partners.contoso.com/login.aspx, the client performs the following steps to resolve the DNS name and establish a connection:
 
-Когда пользователь запрашивает страницу https://partners.contoso.com/login.aspx (как описано в приведенном выше примере), клиент пользователя выполняет следующие действия, чтобы разрешить имя DNS и установить подключение.
+![Connection establishment using Traffic Manager][2]
 
-![Установка подключения с помощью диспетчера трафика][2]
+1. The client sends a DNS query to its configured recursive DNS service to resolve the name 'partners.contoso.com'. A recursive DNS service, sometimes called a 'local DNS' service, does not host DNS domains directly. Rather, the client off-loads the work of contacting the various authoritative DNS services across the Internet needed to resolve a DNS name.
+2. To resolve the DNS name, the recursive DNS service finds the name servers for the 'contoso.com' domain. It then contacts those name servers to request the 'partners.contoso.com' DNS record. The contoso.com DNS servers return the CNAME record that points to contoso.trafficmanager.net.
+3. Next, the recursive DNS service finds the name servers for the 'trafficmanager.net' domain, which are provided by the Azure Traffic Manager service. It then sends a request for the 'contoso.trafficmanager.net' DNS record to those DNS servers.
+4. The Traffic Manager name servers receive the request. They choose an endpoint based on:
 
-1.	Клиент (ПК, телефон и т. д.) отправляет запрос DNS для "partners.contoso.com" настроенной рекурсивной службе DNS. (Рекурсивная служба DNS, которая иногда называется службой "локального DNS", не содержит доменов DNS. Вместо этого она используется клиентом для реализации действий по связи с различными полномочными службами DNS через Интернет для разрешения DNS-имени.)
-2.	Рекурсивная служба DNS разрешает DNS-имя "partners.contoso.com". Сначала рекурсивная служба DNS находит серверы имен для домена "contoso.com". Затем она обращается к этим серверам имен для запроса DNS-записи "partners.contoso.com". Возвращается запись CNAME для contoso.trafficmanager.net.
-3.	Рекурсивная служба DNS находит серверы имен для домена trafficmanager.net, которые предоставляются службой диспетчера трафика Azure. Она обращается к этим серверам имен для запроса DNS-записи "contoso.trafficmanager.net".
-4.	Серверы имен диспетчера трафика получают запрос. Затем они выбирают конечные точки, которые будут возвращены, на основе следующих параметров: a) состояние включения/отключения каждой конечной точки (отключенные конечные точки не возвращаются); б) работоспособность каждой конечной точки, определенная с помощью средства проверки работоспособности диспетчера трафика. Дополнительные сведения см. в разделе "Мониторинг конечных точек диспетчера трафика"; в) выбранный метод маршрутизации трафика. Дополнительные сведения см. в разделе "Методы маршрутизации трафика в диспетчере трафика".
-5.	Выбранная конечная точка возвращается в виде другой DNS-записи CNAME. В данном случае предположим, что возвращена конечная точка contoso-us.cloudapp.net.
-6.	Рекурсивная служба DNS находит серверы имен для домена "cloudapp.net". Она обращается к этим серверам имен для запроса DNS-записи "contoso-us.cloudapp.net". Возвращается запись DNS "A", содержащая IP-адрес конечной точки службы, размещенной в США.
-7.	Рекурсивная служба DNS возвращает клиенту объединенные результаты для указанной выше последовательности разрешения имен.
-8.	Клиент получает результаты DNS от рекурсивной службы DNS и подключается к данному IP-адресу. Обратите внимание, что клиент подключается к конечной точке службы приложения напрямую, а не через диспетчер трафика. Так как это конечная точка HTTPS, она выполняет необходимые подтверждения SSL/TLS и затем отправляет запрос HTTP GET для страницы "/login.aspx".
+    * The configured state of each endpoint (disabled endpoints are not returned)
+    * The current health of each endpoint, as determined by the Traffic Manager health checks. For more information, see [Traffic Manager Endpoint Monitoring](traffic-manager-monitoring.md).
+    * The chosen traffic-routing method. For more information, see [Traffic Manager Routing Methods](traffic-manager-routing-methods.md).
 
-Обратите внимание, что рекурсивная служба DNS будет кэшировать получаемые ответы DNS. То же будет делать и клиент DNS на устройстве пользователя. Это позволяет быстрее отвечать на последующие запросы DNS, используя данные из кэша вместо опроса других серверов имен. Длительность кэша определяется свойством "time-to-live" (TTL) каждой записи DNS. Меньшие значения приведут к более быстрому истечению срока действия кэша и дополнительным обращениям к серверам имен диспетчера трафика. Большие значения приведут к тому, что на перенаправление трафика от неисправной конечной точки потребуется больше времени. Диспетчер трафика позволяет настроить свойство TTL для ответов DNS диспетчера трафика, чтобы вы могли выбрать значение, которое наилучшим образом отвечает потребностям приложения.
+5. The chosen endpoint is returned as another DNS CNAME record. In this case, let us suppose contoso-us.cloudapp.net is returned.
+6. Next, the recursive DNS service finds the name servers for the 'cloudapp.net' domain. It contacts those name servers to request the 'contoso-us.cloudapp.net' DNS record. A DNS 'A' record containing the IP address of the US-based service endpoint is returned.
+7. The recursive DNS service consolidates the results and returns a single DNS response to the client.
+8. The client receives the DNS results and connects to the given IP address. The client connects to the application service endpoint directly, not through Traffic Manager. Since it is an HTTPS endpoint, the client performs the necessary SSL/TLS handshake, and then makes an HTTP GET request for the '/login.aspx' page.
 
-## Часто задаваемые вопросы
+The recursive DNS service caches the DNS responses it receives. The DNS resolver on the client device also caches the result. Caching enables subsequent DNS queries to be answered more quickly by using data from the cache rather than querying other name servers. The duration of the cache is determined by the 'time-to-live' (TTL) property of each DNS record. Shorter values result in faster cache expiry and thus more round-trips to the Traffic Manager name servers. Longer values mean that it can take longer to direct traffic away from a failed endpoint. Traffic Manager allows you to configure the TTL used in Traffic Manager DNS responses, enabling you to choose the value that best balances the needs of your application.
 
-### Какой IP-адрес использует диспетчер трафика?
+## <a name="faq"></a>FAQ
 
-В статье "Как работает диспетчер трафика" объясняется, что диспетчер трафика работает на уровне DNS. Он использует ответы DNS для направления клиентов на соответствующую конечную точку службы. Клиенты подключаются к конечной точке службы приложения напрямую, а не через диспетчер трафика.
+### <a name="what-ip-address-does-traffic-manager-use?"></a>What IP address does Traffic Manager use?
 
-Следовательно, диспетчер трафика не предоставляет конечную точку или IP-адрес для подключения клиентов. Если, например, требуется статический IP-адрес, он должен быть настроен на уровне службы, а не в диспетчере трафика.
+As explained in How Traffic Manager Works, Traffic Manager works at the DNS level. It sends DNS responses to direct clients to the appropriate service endpoint. Clients then connect to the service endpoint directly, not through Traffic Manager.
 
-### Поддерживает ли диспетчер трафика прикрепленные сеансы?
+Therefore, Traffic Manager does not provide an endpoint or IP address for clients to connect to. Therefore, if you want static IP address for your service, that must be configured at the service, not in Traffic Manager.
 
-Как сказано [выше](#how-clients-connect-using-traffic-manager), диспетчер трафика работает на уровне DNS. Он использует ответы DNS для направления клиентов на соответствующую конечную точку службы. Клиенты подключаются к конечной точке службы приложения напрямую, а не через диспетчер трафика. Следовательно, диспетчер трафика не видит трафик HTTP между клиентом и сервером, включая файлы cookie.
+### <a name="does-traffic-manager-support-'sticky'-sessions?"></a>Does Traffic Manager support 'sticky' sessions?
 
-Кроме того, учтите, что исходный IP-адрес DNS-запроса, получаемый диспетчером трафика, — это IP-адрес рекурсивной службы DNS, а не IP-адрес клиента.
+As explained [previously](#how-clients-connect-using-traffic-manager), Traffic Manager works at the DNS level. It uses DNS responses to direct clients to the appropriate service endpoint. Clients connect to the service endpoint directly, not through Traffic Manager. Therefore, Traffic Manager does not see the HTTP traffic between the client and the server.
 
-Это значит, что диспетчер трафика не может идентифицировать или отслеживать отдельные клиенты и, следовательно, не может реализовывать прикрепленные сеансы. Это общие характеристики для всех систем управления трафиком на основе DNS, которые не ограничивают возможности использования диспетчера трафика.
+Additionally, the source IP address of the DNS query received by Traffic Manager belongs to the recursive DNS service, not the client. Therefore, Traffic Manager has no way to track individual clients and cannot implement 'sticky' sessions. This limitation is common to all DNS-based traffic management systems and is not specific to Traffic Manager.
 
-### Я вижу HTTP-ошибку при использовании диспетчера трафика. В чем проблема?
+### <a name="why-am-i-seeing-an-http-error-when-using-traffic-manager?"></a>Why am I seeing an HTTP error when using Traffic Manager?
 
-Как сказано [выше](#how-clients-connect-using-traffic-manager), диспетчер трафика работает на уровне DNS. Он использует ответы DNS для направления клиентов на соответствующую конечную точку службы. Клиенты подключаются к конечной точке службы приложения напрямую, а не через диспетчер трафика.
+As explained [previously](#how-clients-connect-using-traffic-manager), Traffic Manager works at the DNS level. It uses DNS responses to direct clients to the appropriate service endpoint. Clients then connect to the service endpoint directly, not through Traffic Manager. Traffic Manager does not see HTTP traffic between client and server. Therefore, any HTTP error you see must be coming from your application. For the client to connect to the application, all DNS resolution steps are complete. That includes any interaction that Traffic Manager has on the application traffic flow.
 
-Следовательно, диспетчер трафика не видит трафик HTTP между клиентом и сервером и не может генерировать ошибки уровня HTTP. Это значит, что все отображаемые HTTP-ошибки создаются приложением. Так как клиент подключается к приложению, это также значит, что разрешение имен DNS, включая роль диспетчера трафика, должно быть завершено.
+Further investigation should therefore focus on the application.
 
-Таким образом, вам следует проанализировать возможные проблемы на уровне приложения.
+The HTTP host header sent from the client's browser is the most common source of problems. Make sure that the application is configured to accept the correct host header for the domain name you are using. For endpoints using the Azure App Service, see [configuring a custom domain name for a web app in Azure App Service using Traffic Manager](../app-service-web/web-sites-traffic-manager-custom-domain-name.md).
 
-Общая проблема заключается в том, что при использовании диспетчера трафика HTTP-заголовок узла, передаваемый браузером в приложение, отображает доменное имя, используемое в браузере. Это может быть доменное имя диспетчера трафика (например, myprofile.trafficmanager.net), если это доменное имя используется при тестировании, или же запись CNAME именного домена, настроенная для выбора доменного имени диспетчера трафика. В любом случае приложение нужно настроить для приема этого заголовка узла.
+### <a name="what-is-the-performance-impact-of-using-traffic-manager?"></a>What is the performance impact of using Traffic Manager?
 
-Если приложение размещается в службе приложений Azure, см. статью [Настройка личного доменного имени для веб-приложения в службе приложений Azure, использующей диспетчер трафика](../app-service-web/web-sites-traffic-manager-custom-domain-name.md).
+As explained [previously](#how-clients-connect-using-traffic-manager), Traffic Manager works at the DNS level. Since clients connect to your service endpoints directly, there is no performance impact incurred when using Traffic Manager once the connection is established.
 
-### Как сказывается на производительности использование диспетчера трафика?
+Since Traffic Manager integrates with applications at the DNS level, it does require an additional DNS lookup to be inserted into the DNS resolution chain (see [Traffic Manager examples](#traffic-manager-example)). The impact of Traffic Manager on DNS resolution time is minimal. Traffic Manager uses a global network of name servers, and uses [anycast](https://en.wikipedia.org/wiki/Anycast) networking to ensure DNS queries are always routed to the closest available name server. In addition, caching of DNS responses means that the additional DNS latency incurred by using Traffic Manager applies only to a fraction of sessions.
 
-Как сказано [выше](#how-clients-connect-using-traffic-manager), диспетчер трафика работает на уровне DNS. Он использует ответы DNS для направления клиентов на соответствующую конечную точку службы. Клиенты подключаются к конечной точке службы приложения напрямую, а не через диспетчер трафика.
+The Performance method routes traffic to the closest available endpoint. The net result is that the overall performance impact associated with this method should be minimal. Any increase in DNS latency should be offset by lower network latency to the endpoint.
 
-Так как клиенты подключаются к конечным точкам службы напрямую, использование диспетчера трафика при установленном соединении никак не влияет на производительность.
+### <a name="what-application-protocols-can-i-use-with-traffic-manager?"></a>What application protocols can I use with Traffic Manager?
 
-Диспетчер трафика интегрируется с приложениями на уровне DNS, поэтому в цепочку разрешения DNS должен быть включен дополнительный поиск DNS (см. [примере диспетчера трафика](#traffic-manager-example)). Диспетчер трафика оказывает минимальное влияние на время разрешения DNS. Диспетчер трафика использует глобальную сеть серверов доменных имен и сетевую службу произвольной рассылки, обеспечивая маршрутизацию DNS-запросов на ближайший доступный сервер доменных имен. Кроме того, кэширование DNS-ответов означает, что дополнительные задержки DNS, связанные с использованием диспетчера трафика, происходят только в некоторых сеансах.
+As explained [previously](#how-clients-connect-using-traffic-manager), Traffic Manager works at the DNS level. Once the DNS lookup is complete, clients connect to the application endpoint directly, not through Traffic Manager. Therefore the connection can use any application protocol. However, Traffic Manager's endpoint health checks require either an HTTP or HTTPS endpoint. The endpoint for a health check can be different than the application endpoint that clients connect to.
 
-В результате общее влияние на производительность, обусловленное включением диспетчера трафика в приложение, должно быть минимальным.
+### <a name="can-i-use-traffic-manager-with-a-'naked'-domain-name?"></a>Can I use Traffic Manager with a 'naked' domain name?
 
-Кроме того, при использовании в диспетчере трафика [эффективного метода маршрутизации трафика](traffic-manager-routing-methods.md#performance-traffic-routing-method) увеличение задержки DNS должно значительно превышать смещение благодаря повышению производительности, достигаемому маршрутизацией пользователей на ближайшую доступную конечную точку.
+No. The DNS standards do not permit CNAMEs to co-exist with other DNS records of the same name. The apex (or root) of a DNS zone always contains two pre-existing DNS records; the SOA and the authoritative NS records. This means a CNAME record cannot be created at the zone apex without violating the DNS standards.
 
-### Какие протоколы приложения пригодны для использования с диспетчером трафика?
-Как сказано [выше](#how-clients-connect-using-traffic-manager), диспетчер трафика работает на уровне DNS. После завершения поиска DNS клиенты подключаются к конечной точке приложения напрямую, а не через диспетчер трафика. Следовательно, это подключение может использовать любой протокол приложения.
+As explained in the [Traffic Manager example](#traffic-manager-example), Traffic Manager requires a DNS CNAME record to map the vanity DNS name. For example, you map www.contoso.com to the Traffic Manager profile DNS name contoso.trafficmanager.net. Additionally, the Traffic Manager profile returns a second DNS CNAME to indicate which endpoint the client should connect to.
 
-Тем не менее для проверки работоспособности конечной точки диспетчера трафика требуется конечная точка HTTP или HTTPS. Это может быть отдельная от приложения конечная точка для подключения клиентов. Для этого в параметрах проверки работоспособности профиля диспетчера трафика укажите другой TCP-порт или путь URI.
+To work around this issue, we recommend using an HTTP redirect to direct traffic from the naked domain name to a different URL, which can then use Traffic Manager. For example, the naked domain 'contoso.com' can redirect users to the CNAME 'www.contoso.com' that points to the Traffic Manager DNS name.
 
-### Можно ли использовать диспетчер трафика с доменным именем без префикса www?
+Full support for naked domains in Traffic Manager is tracked in our feature backlog. You can register your support for this feature request by [voting for it on our community feedback site](https://feedback.azure.com/forums/217313-networking/suggestions/5485350-support-apex-naked-domains-more-seamlessly).
 
-В настоящее время нет.
+## <a name="next-steps"></a>Next steps
 
-Тип DNS-записи CNAME используется для создания сопоставления одного DNS-имени с другим. Как описано в [примере диспетчера трафика](#traffic-manager-example), диспетчеру трафика требуется DNS-запись CNAME для сопоставления запоминающегося DNS-имени (например, www.contoso.com) с DNS-именем профиля диспетчера трафика (например, contoso.trafficmanager.net). Кроме того, профиль диспетчера трафика сам возвращает вторую DNS-запись CNAME, чтобы указать конечную точку, к которой должен подключиться клиент.
+Learn more about Traffic Manager [endpoint monitoring and automatic failover](traffic-manager-monitoring.md).
 
-Стандарты DNS не допускают сосуществование записей CNAME и других DNS-записей того же типа. Так как вершина (или корень) DNS-зоны всегда содержит две уже существующие DNS-записи (записи SOA и полномочные записи NS), создать записи CNAME на вершине зоны без нарушения стандартов DNS невозможно.
-
-Чтобы обойти эту проблему, рекомендуется, чтобы службы, использующие доменные имена без www, которые должны работать с диспетчером трафика, применяли HTTP-перенаправление прямого трафика (от домена без www на другой URL-адрес) с последующим использованием диспетчера трафика. Например, домен contoso.com может перенаправлять пользователей на домен www.contoso.com, который, в свою очередь, может использовать диспетчер трафика.
-
-Полная поддержка таких доменов в диспетчере трафика отслеживается в списке подготавливаемых функций. Если вы заинтересованы в этой функции, [проголосуйте за нее на нашем сайте обратной связи](https://feedback.azure.com/forums/217313-networking/suggestions/5485350-support-apex-naked-domains-more-seamlessly).
-
-## Дальнейшие действия
-
-См. дополнительные сведения о [мониторинге конечных точек и автоматическом переходе на другой ресурс](traffic-manager-monitoring.md) диспетчера трафика.
-
-См. дополнительные сведения о [методах маршрутизации трафика](traffic-manager-routing-methods.md) в диспетчере трафика.
+Learn more about Traffic Manager [traffic routing methods](traffic-manager-routing-methods.md).
 
 <!--Image references-->
 [1]: ./media/traffic-manager-how-traffic-manager-works/dns-configuration.png
 [2]: ./media/traffic-manager-how-traffic-manager-works/flow.png
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

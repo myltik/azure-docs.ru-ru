@@ -1,10 +1,10 @@
 <properties
 pageTitle="Wunderlist | Microsoft Azure"
-description="Создание приложений логики с помощью службы приложений Azure. Wunderlist — это приложение для ведения списка дел и управления задачами, помогающее справляться с делами. Wunderlist позволяет легко составлять и вести списки дел, а также предоставлять к ним доступ, будь то отправка списка покупок, работа над проектом или планирование отпуска. Wunderlist мгновенно синхронизируется между телефоном, планшетом и компьютером, обеспечивая доступ к задачам из любой точки мира."
-services="logic-apps"	
-documentationCenter=".net,nodejs,java" 	
-authors="msftman"	
-manager="erikre"	
+description="Create Logic apps with Azure App service. Wunderlist provide a todo list and task manager to help people get their stuff done.  Whether you’re sharing a grocery list with a loved one, working on a project, or planning a vacation, Wunderlist makes it easy to capture, share, and complete your to¬dos. Wunderlist instantly syncs between your phone, tablet and computer, so you can access all your tasks from anywhere."
+services="logic-apps"   
+documentationCenter=".net,nodejs,java"  
+authors="msftman"   
+manager="erikre"    
 editor=""
 tags="connectors" />
 
@@ -17,885 +17,889 @@ ms.workload="integration"
 ms.date="08/18/2016"
 ms.author="deonhe"/>
 
-# Начало работы с соединителем Wunderlist
 
-Wunderlist — это приложение для ведения списка дел и управления задачами, помогающее справляться с делами. Wunderlist позволяет легко составлять и вести списки дел, а также предоставлять к ним доступ, будь то отправка списка покупок, работа над проектом или планирование отпуска. Wunderlist мгновенно синхронизируется между телефоном, планшетом и компьютером, обеспечивая доступ к задачам из любой точки мира.
+# <a name="get-started-with-the-wunderlist-connector"></a>Get started with the Wunderlist connector
 
->[AZURE.NOTE] Эта версия статьи предназначена для приложений логики со схемой версии 2015-08-01-preview.
+Wunderlist provide a todo list and task manager to help people get their stuff done.  Whether you’re sharing a grocery list with a loved one, working on a project, or planning a vacation, Wunderlist makes it easy to capture, share, and complete your to¬dos. Wunderlist instantly syncs between your phone, tablet and computer, so you can access all your tasks from anywhere.
 
-Для начала можно создать приложение логики, как указано в соответствующей [статье](../app-service-logic/app-service-logic-create-a-logic-app.md).
+>[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version. 
 
-## Триггеры и действия
+You can get started by creating a Logic app now, see [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-Соединитель Wunderlist можно использовать как действие. Кроме того, он имеет триггеры. Все соединители поддерживают данные в форматах JSON и XML.
+## <a name="triggers-and-actions"></a>Triggers and actions
 
- Соединитель Wunderlist предоставляет следующие действия и (или) триггеры:
+The Wunderlist connector can be used as an action; it has trigger(s). All connectors support data in JSON and XML formats. 
 
-### Действия Wunderlist
-Вы можете выполнять перечисленные ниже действия:
+ The Wunderlist connector has the following action(s) and/or trigger(s) available:
 
-|Действие|Description (Описание)|
+### <a name="wunderlist-actions"></a>Wunderlist actions
+You can take these action(s):
+
+|Action|Description|
 |--- | ---|
-|[RetrieveLists](connectors-create-api-wunderlist.md#retrievelists)|Получение списков, связанных с вашей учетной записью|
-|[CreateList](connectors-create-api-wunderlist.md#createlist)|Создание списка|
-|[ListTasks](connectors-create-api-wunderlist.md#listtasks)|Получение задач из определенного списка|
-|[CreateTask](connectors-create-api-wunderlist.md#createtask)|Создание задачи|
-|[ListSubTasks](connectors-create-api-wunderlist.md#listsubtasks)|Получение подзадач из определенного списка или задачи|
-|[CreateSubTask](connectors-create-api-wunderlist.md#createsubtask)|Создание подзадачи в определенной задаче|
-|[ListNotes](connectors-create-api-wunderlist.md#listnotes)|Получение заметок для определенного списка или задачи|
-|[CreateNote](connectors-create-api-wunderlist.md#createnote)|Добавление заметки к определенной задаче|
-|[ListComments](connectors-create-api-wunderlist.md#listcomments)|Получение комментариев к задачам для определенного списка или задачи|
-|[CreateComment](connectors-create-api-wunderlist.md#createcomment)|Добавление комментария к определенной задаче|
-|[RetrieveReminders](connectors-create-api-wunderlist.md#retrievereminders)|Получение напоминаний для определенного списка или задачи|
-|[CreateReminder](connectors-create-api-wunderlist.md#createreminder)|Установка напоминания|
-|[RetrieveFiles](connectors-create-api-wunderlist.md#retrievefiles)|Получение файлов для определенного списка или задачи|
-|[GetList](connectors-create-api-wunderlist.md#getlist)|Получение определенного списка|
-|[DeleteList](connectors-create-api-wunderlist.md#deletelist)|Удаление списка|
-|[UpdateList](connectors-create-api-wunderlist.md#updatelist)|Обновление определенного списка|
-|[GetTask](connectors-create-api-wunderlist.md#gettask)|Получение определенной задачи|
-|[UpdateTask](connectors-create-api-wunderlist.md#updatetask)|Обновление определенной задачи|
-|[DeleteTask](connectors-create-api-wunderlist.md#deletetask)|Удаление определенной задачи|
-|[GetSubTask](connectors-create-api-wunderlist.md#getsubtask)|Получение определенной подзадачи|
-|[UpdateSubTask](connectors-create-api-wunderlist.md#updatesubtask)|Обновление определенной подзадачи|
-|[DeleteSubTask](connectors-create-api-wunderlist.md#deletesubtask)|Удаление определенной подзадачи|
-|[GetNote](connectors-create-api-wunderlist.md#getnote)|Получение определенной заметки|
-|[UpdateNote](connectors-create-api-wunderlist.md#updatenote)|Обновление определенной заметки|
-|[DeleteNote](connectors-create-api-wunderlist.md#deletenote)|Удаление определенной заметки|
-|[GetComment](connectors-create-api-wunderlist.md#getcomment)|Получение комментария к определенной задаче|
-|[UpdateReminder](connectors-create-api-wunderlist.md#updatereminder)|Обновление определенного напоминания|
-|[DeleteReminder](connectors-create-api-wunderlist.md#deletereminder)|Удаление определенного напоминания|
-### Триггеры Wunderlist
-Можно прослушивать указанные ниже события:
+|[RetrieveLists](connectors-create-api-wunderlist.md#retrievelists)|Retrieve the lists associated with your account.|
+|[CreateList](connectors-create-api-wunderlist.md#createlist)|Create a list.|
+|[ListTasks](connectors-create-api-wunderlist.md#listtasks)|Retrieve tasks from a specific list.|
+|[CreateTask](connectors-create-api-wunderlist.md#createtask)|Create a task|
+|[ListSubTasks](connectors-create-api-wunderlist.md#listsubtasks)|Retrieve subtasks from a specific list or from a specific task.|
+|[CreateSubTask](connectors-create-api-wunderlist.md#createsubtask)|Create a subtask within a specific task|
+|[ListNotes](connectors-create-api-wunderlist.md#listnotes)|Retrieve notes for a specific list or a specific task.|
+|[CreateNote](connectors-create-api-wunderlist.md#createnote)|Add a note to a specific task|
+|[ListComments](connectors-create-api-wunderlist.md#listcomments)|Retrieve task comments for a specific list or a specific task.|
+|[CreateComment](connectors-create-api-wunderlist.md#createcomment)|Add a comment to a specific task|
+|[RetrieveReminders](connectors-create-api-wunderlist.md#retrievereminders)|Retrieve reminders for a specific list or a specific task.|
+|[CreateReminder](connectors-create-api-wunderlist.md#createreminder)|Set a reminder.|
+|[RetrieveFiles](connectors-create-api-wunderlist.md#retrievefiles)|Retrieve files for a specific list or a specific task.|
+|[GetList](connectors-create-api-wunderlist.md#getlist)|Retrieves a specific list|
+|[DeleteList](connectors-create-api-wunderlist.md#deletelist)|Deletes a list|
+|[UpdateList](connectors-create-api-wunderlist.md#updatelist)|Update a specific list|
+|[GetTask](connectors-create-api-wunderlist.md#gettask)|Retrieves a specific task|
+|[UpdateTask](connectors-create-api-wunderlist.md#updatetask)|Updates a specific task|
+|[DeleteTask](connectors-create-api-wunderlist.md#deletetask)|Deletes a specific task|
+|[GetSubTask](connectors-create-api-wunderlist.md#getsubtask)|Retrieves a specific subtask|
+|[UpdateSubTask](connectors-create-api-wunderlist.md#updatesubtask)|Updates a specific subtask|
+|[DeleteSubTask](connectors-create-api-wunderlist.md#deletesubtask)|Deletes a specific subtask|
+|[GetNote](connectors-create-api-wunderlist.md#getnote)|Retrieve a specific note|
+|[UpdateNote](connectors-create-api-wunderlist.md#updatenote)|Update a specific note|
+|[DeleteNote](connectors-create-api-wunderlist.md#deletenote)|Delete a specific note|
+|[GetComment](connectors-create-api-wunderlist.md#getcomment)|Retrieve a specific task comment|
+|[UpdateReminder](connectors-create-api-wunderlist.md#updatereminder)|Update a specific reminder|
+|[DeleteReminder](connectors-create-api-wunderlist.md#deletereminder)|Delete a specific reminder|
+### <a name="wunderlist-triggers"></a>Wunderlist triggers
+You can listen for these event(s):
 
-|Триггер | Description (Описание)|
+|Trigger | Description|
 |--- | ---|
-|При наступлении срока выполнения задачи|Запускает новый поток при наступлении срока выполнения задачи из списка|
-|При создании новой задачи|Запускает новый поток при создании новой задачи в списке|
-|При появлении напоминания|Запускает новый поток при появлении напоминания|
+|When a task is due|Triggers a new flow when a task in the list is due|
+|When a new task is created|Triggers a new flow when a new task is created in the list|
+|When a reminder occurs|Triggers a new flow when a reminder occurs|
 
 
-## Создание подключения к Wunderlist
-Для создания приложений логики с помощью Wunderlist необходимо создать **подключение**, а затем указать данные для следующих свойств.
+## <a name="create-a-connection-to-wunderlist"></a>Create a connection to Wunderlist
+To create Logic apps with Wunderlist, you must first create a **connection** then provide the details for the following properties: 
 
-|Свойство| Обязательно|Description (Описание)|
+|Property| Required|Description|
 | ---|---|---|
-|Маркер|Да|Учетные данные Wunderlist|
-Созданное подключение можно использовать для выполнения действий и прослушивания триггеров, описанных в этой статье.
+|Token|Yes|Provide Wunderlist Credentials|
+After you create the connection, you can use it to execute the actions and listen for the triggers described in this article. 
 
 
->[AZURE.INCLUDE [Шаги по созданию подключения к Wunderlist](../../includes/connectors-create-api-wunderlist.md)]
+>[AZURE.INCLUDE [Steps to create a connection to Wunderlist](../../includes/connectors-create-api-wunderlist.md)] 
 
 
->[AZURE.TIP] Это подключение можно использовать в других приложениях логики.
+>[AZURE.TIP] You can use this connection in other logic apps.
 
-## Справочник по Wunderlist
-Относится к версии 1.0.
+## <a name="reference-for-wunderlist"></a>Reference for Wunderlist
+Applies to version: 1.0
 
-## TriggerTaskDue
-При наступлении срока выполнения задачи: запускает новый поток при наступлении срока выполнения задачи из списка
+## <a name="triggertaskdue"></a>TriggerTaskDue
+When a task is due: Triggers a new flow when a task in the list is due 
 
-```GET: /trigger/tasksdue```
+```GET: /trigger/tasksdue``` 
 
-| Name (Имя)| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|list\_id|целое число|Да|запрос|Нет|Идентификатор списка|
+|list_id|integer|yes|query|none|List ID|
 
-#### Ответ
+#### <a name="response"></a>Response
 
-|Name (Имя)|Описание|
+|Name|Description|
 |---|---|
-|200|Операция выполнена успешно|
+|200|Operation successful|
 
 
-## TriggerTaskNew
-При создании новой задачи: запускает новый поток при создании новой задачи в списке
+## <a name="triggertasknew"></a>TriggerTaskNew
+When a new task is created: Triggers a new flow when a new task is created in the list 
 
-```GET: /trigger/tasksnew```
+```GET: /trigger/tasksnew``` 
 
-| Имя| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Description (Описание)|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|list\_id|целое число|Да|запрос|Нет|Идентификатор списка|
+|list_id|integer|yes|query|none|List ID|
 
-#### Ответ
+#### <a name="response"></a>Response
 
-|Name (Имя)|Описание|
+|Name|Description|
 |---|---|
-|200|Операция выполнена успешно|
+|200|Operation successful|
 
 
-## TriggerReminder
-При появлении напоминания: запускает новый поток при появлении напоминания
+## <a name="triggerreminder"></a>TriggerReminder
+When a reminder occurs: Triggers a new flow when a reminder occurs 
 
-```GET: /trigger/reminders```
+```GET: /trigger/reminders``` 
 
-| Имя| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|list\_id|целое число|Да|запрос|Нет|Идентификатор списка|
-|task\_id|целое число|Нет|запрос|Нет|Идентификатор задачи|
+|list_id|integer|yes|query|none|List ID|
+|task_id|integer|no|query|none|Task ID|
 
-#### Ответ
+#### <a name="response"></a>Response
 
-|Name (Имя)|Описание|
+|Name|Description|
 |---|---|
-|200|Операция выполнена успешно|
+|200|Operation successful|
 
 
-## RetrieveLists
-Получить списки: получение списков, связанных с вашей учетной записью
+## <a name="retrievelists"></a>RetrieveLists
+Get lists: Retrieve the lists associated with your account. 
 
-```GET: /lists```
+```GET: /lists``` 
 
-| Имя| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Description (Описание)|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
 
-#### Ответ
+#### <a name="response"></a>Response
 
-|Name (Имя)|Описание|
+|Name|Description|
 |---|---|
-|200|Операция выполнена успешно|
-|400|Ошибка запроса|
-|500|Внутренняя ошибка сервера. Произошла неизвестная ошибка|
-|по умолчанию|Операция завершилась ошибкой.|
+|200|Operation successful|
+|400|Bad Request|
+|500|Internal Server Error. Unknown error occured|
+|default|Operation Failed.|
 
 
-## CreateList
-Создать список: создание списка.
+## <a name="createlist"></a>CreateList
+Create a list: Create a list. 
 
-```POST: /lists```
+```POST: /lists``` 
 
-| Имя| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|post| |Да|текст|Нет|Список, который нужно создать|
+|post| |yes|body|none|New list to be created|
 
-#### Ответ
+#### <a name="response"></a>Response
 
-|Name (Имя)|Описание|
+|Name|Description|
 |---|---|
-|200|Операция выполнена успешно|
-|по умолчанию|Операция завершилась ошибкой.|
+|200|Operation successful|
+|default|Operation Failed.|
 
 
-## ListTasks
-Получить задачи: получение задач из определенного списка
+## <a name="listtasks"></a>ListTasks
+Get tasks: Retrieve tasks from a specific list. 
 
-```GET: /tasks```
+```GET: /tasks``` 
 
-| Имя| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|list\_id|целое число|Да|запрос|Нет|Идентификатор списка|
-|выполнено|Логическое|Нет|запрос|Нет|Завершено|
+|list_id|integer|yes|query|none|List ID|
+|completed|boolean|no|query|none|Completed|
 
-#### Ответ
+#### <a name="response"></a>Response
 
-|Имя|Описание|
+|Name|Description|
 |---|---|
-|200|Операция выполнена успешно|
-|400|Ошибка запроса|
-|500|Внутренняя ошибка сервера. Произошла неизвестная ошибка|
-|по умолчанию|Операция завершилась ошибкой.|
+|200|Operation successful|
+|400|Bad Request|
+|500|Internal Server Error. Unknown error occured|
+|default|Operation Failed.|
 
 
-## CreateTask
-Создать задачу: создание задачи
+## <a name="createtask"></a>CreateTask
+Create a task: Create a task 
 
-```POST: /tasks```
+```POST: /tasks``` 
 
-| Имя| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|post| |Да|текст|Нет|Задача, которую нужно создать|
+|post| |yes|body|none|New task to be created|
 
-#### Ответ
+#### <a name="response"></a>Response
 
-|Имя|Описание|
+|Name|Description|
 |---|---|
-|201|Создано|
+|201|Created|
 
 
-## ListSubTasks
-Получить подзадачи: получение подзадач из определенного списка или задачи
+## <a name="listsubtasks"></a>ListSubTasks
+Get subtasks: Retrieve subtasks from a specific list or from a specific task. 
 
-```GET: /subtasks```
+```GET: /subtasks``` 
 
-| Имя| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|list\_id|целое число|Да|запрос|Нет|Идентификатор списка|
-|task\_id|целое число|Нет|запрос|Нет|Идентификатор задачи|
-|выполнено|Логическое|Нет|запрос|Нет|Завершено|
+|list_id|integer|yes|query|none|List ID|
+|task_id|integer|no|query|none|Task ID|
+|completed|boolean|no|query|none|Completed|
 
-#### Ответ
+#### <a name="response"></a>Response
 
-|Name (Имя)|Описание|
+|Name|Description|
 |---|---|
-|200|Операция выполнена успешно|
-|400|Ошибка запроса|
-|500|Внутренняя ошибка сервера. Произошла неизвестная ошибка|
-|по умолчанию|Операция завершилась ошибкой.|
+|200|Operation successful|
+|400|Bad Request|
+|500|Internal Server Error. Unknown error occured|
+|default|Operation Failed.|
 
 
-## CreateSubTask
-Создать подзадачу: создание подзадачи в определенной задаче
+## <a name="createsubtask"></a>CreateSubTask
+Create a subtask: Create a subtask within a specific task 
 
-```POST: /subtasks```
+```POST: /subtasks``` 
 
-| Name (Имя)| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|post| |Да|текст|Нет|Подзадача, которую нужно создать|
+|post| |yes|body|none|New subtask to be created|
 
-#### Ответ
+#### <a name="response"></a>Response
 
-|Name (Имя)|Description (Описание)|
+|Name|Description|
 |---|---|
-|201|Создано|
+|201|Created|
 
 
-## ListNotes
-Получить заметки: получение заметок для определенного списка или задачи
+## <a name="listnotes"></a>ListNotes
+Get notes: Retrieve notes for a specific list or a specific task. 
 
-```GET: /notes```
+```GET: /notes``` 
 
-| Имя| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|list\_id|целое число|Да|запрос|Нет|Идентификатор списка|
-|task\_id|целое число|Нет|запрос|Нет|Идентификатор задачи|
+|list_id|integer|yes|query|none|List ID|
+|task_id|integer|no|query|none|Task ID|
 
-#### Ответ
+#### <a name="response"></a>Response
 
-|Имя|Описание|
+|Name|Description|
 |---|---|
-|200|Операция выполнена успешно|
-|400|Ошибка запроса|
-|500|Внутренняя ошибка сервера. Произошла неизвестная ошибка|
-|по умолчанию|Операция завершилась ошибкой.|
+|200|Operation successful|
+|400|Bad Request|
+|500|Internal Server Error. Unknown error occured|
+|default|Operation Failed.|
 
 
-## CreateNote
-Создать заметку: добавление заметки к определенной задаче
+## <a name="createnote"></a>CreateNote
+Create a note: Add a note to a specific task 
 
-```POST: /notes```
+```POST: /notes``` 
 
-| Имя| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|post| |Да|текст|Нет|Заметка, которую нужно создать|
+|post| |yes|body|none|New note to be created|
 
-#### Ответ
+#### <a name="response"></a>Response
 
-|Имя|Description (Описание)|
+|Name|Description|
 |---|---|
-|201|Создано|
+|201|Created|
 
 
-## ListComments
-Получить комментарии к задачам: получение комментариев к задачам для определенного списка или задачи
+## <a name="listcomments"></a>ListComments
+Get task comments: Retrieve task comments for a specific list or a specific task. 
 
-```GET: /task_comments```
+```GET: /task_comments``` 
 
-| Имя| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|list\_id|целое число|Да|запрос|Нет|Идентификатор списка|
-|task\_id|целое число|Нет|запрос|Нет|Идентификатор задачи|
+|list_id|integer|yes|query|none|List ID|
+|task_id|integer|no|query|none|Task ID|
 
-#### Ответ
+#### <a name="response"></a>Response
 
-|Имя|Описание|
+|Name|Description|
 |---|---|
-|200|Операция выполнена успешно|
-|400|Ошибка запроса|
-|500|Внутренняя ошибка сервера. Произошла неизвестная ошибка|
-|по умолчанию|Операция завершилась ошибкой.|
+|200|Operation successful|
+|400|Bad Request|
+|500|Internal Server Error. Unknown error occured|
+|default|Operation Failed.|
 
 
-## CreateComment
-Добавить комментарий к задаче: добавление комментария к определенной задаче
+## <a name="createcomment"></a>CreateComment
+Add a comment to a task: Add a comment to a specific task 
 
-```POST: /task_comments```
+```POST: /task_comments``` 
 
-| Имя| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|post| |Да|текст|Нет|Комментарий к задаче, который нужно создать|
+|post| |yes|body|none|New task comment to be created|
 
-#### Ответ
+#### <a name="response"></a>Response
 
-|Имя|Описание|
+|Name|Description|
 |---|---|
-|201|Создано|
+|201|Created|
 
 
-## RetrieveReminders
-Получить напоминания: получение напоминаний для определенного списка или задачи
+## <a name="retrievereminders"></a>RetrieveReminders
+Get reminders: Retrieve reminders for a specific list or a specific task. 
 
-```GET: /reminders```
+```GET: /reminders``` 
 
-| Name (Имя)| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Description (Описание)|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|list\_id|целое число|Да|запрос|Нет|Идентификатор списка|
-|task\_id|целое число|Нет|запрос|Нет|Идентификатор задачи|
+|list_id|integer|yes|query|none|List ID|
+|task_id|integer|no|query|none|Task ID|
 
-#### Ответ
+#### <a name="response"></a>Response
 
-|Name (Имя)|Описание|
+|Name|Description|
 |---|---|
-|200|Операция выполнена успешно|
-|400|Ошибка запроса|
-|500|Внутренняя ошибка сервера. Произошла неизвестная ошибка|
-|по умолчанию|Операция завершилась ошибкой.|
+|200|Operation successful|
+|400|Bad Request|
+|500|Internal Server Error. Unknown error occured|
+|default|Operation Failed.|
 
 
-## CreateReminder
-Установить напоминание: установка напоминания
+## <a name="createreminder"></a>CreateReminder
+Set a reminder: Set a reminder. 
 
-```POST: /reminders```
+```POST: /reminders``` 
 
-| Name (Имя)| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|post| |Да|текст|Нет|Напоминание, которое нужно создать|
+|post| |yes|body|none|New reminder to be created|
 
-#### Ответ
+#### <a name="response"></a>Response
 
-|Name (Имя)|Описание|
+|Name|Description|
 |---|---|
-|200|Операция выполнена успешно|
-|по умолчанию|Операция завершилась ошибкой.|
+|200|Operation successful|
+|default|Operation Failed.|
 
 
-## RetrieveFiles
-Получить файлы: получение файлов для определенного списка или задачи
+## <a name="retrievefiles"></a>RetrieveFiles
+Get files: Retrieve files for a specific list or a specific task. 
 
-```GET: /files```
+```GET: /files``` 
 
-| Имя| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|list\_id|целое число|Да|запрос|Нет|Идентификатор списка|
-|task\_id|целое число|Нет|запрос|Нет|Идентификатор задачи|
+|list_id|integer|yes|query|none|List ID|
+|task_id|integer|no|query|none|Task ID|
 
-#### Ответ
+#### <a name="response"></a>Response
 
-|Name (Имя)|Описание|
+|Name|Description|
 |---|---|
-|200|Операция выполнена успешно|
-|400|Ошибка запроса|
-|500|Внутренняя ошибка сервера. Произошла неизвестная ошибка|
-|по умолчанию|Операция завершилась ошибкой.|
+|200|Operation successful|
+|400|Bad Request|
+|500|Internal Server Error. Unknown error occured|
+|default|Operation Failed.|
 
 
-## GetList
-Получить список: получение определенного списка
+## <a name="getlist"></a>GetList
+Get list: Retrieves a specific list 
 
-```GET: /lists/{id}```
+```GET: /lists/{id}``` 
 
-| Name (Имя)| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|id|string|Да|path|Нет|Идентификатор списка|
+|id|string|yes|path|none|List ID|
 
-#### Ответ
+#### <a name="response"></a>Response
 
-|Имя|Описание|
+|Name|Description|
 |---|---|
-|200|ОК|
+|200|OK|
 
 
-## DeleteList
-Удалить список: удаление списка
+## <a name="deletelist"></a>DeleteList
+Delete list: Deletes a list 
 
-```DELETE: /lists/{id}```
+```DELETE: /lists/{id}``` 
 
-| Name (Имя)| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|id|целое число|Да|path|Нет|Идентификатор списка|
-|версия|целое число|Да|запрос|Нет|Версия|
+|id|integer|yes|path|none|List ID|
+|revision|integer|yes|query|none|Revision|
 
-#### Ответ
+#### <a name="response"></a>Response
 
-|Name (Имя)|Description (Описание)|
+|Name|Description|
 |---|---|
-|204|Нет содержимого|
+|204|No Content|
 
 
-## UpdateList
-Обновить список: обновление определенного списка
+## <a name="updatelist"></a>UpdateList
+Update a list: Update a specific list 
 
-```PATCH: /lists/{id}```
+```PATCH: /lists/{id}``` 
 
-| Имя| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|id|целое число|Да|path|Нет|Идентификатор списка|
-|post| |Да|текст|Нет|Сведения о списке|
+|id|integer|yes|path|none|List ID|
+|post| |yes|body|none|List details|
 
-#### Ответ
+#### <a name="response"></a>Response
 
-|Имя|Описание|
+|Name|Description|
 |---|---|
-|200|ОК|
+|200|OK|
 
 
-## GetTask
-Получить задачу: получение определенной задачи
+## <a name="gettask"></a>GetTask
+Get task: Retrieves a specific task 
 
-```GET: /tasks/{id}```
+```GET: /tasks/{id}``` 
 
-| Имя| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|list\_id|целое число|Да|запрос|Нет|Идентификатор списка|
-|id|целое число|Да|path|Нет|Идентификатор задачи|
+|list_id|integer|yes|query|none|List ID|
+|id|integer|yes|path|none|Task ID|
 
-#### Ответ
+#### <a name="response"></a>Response
 
-|Имя|Описание|
+|Name|Description|
 |---|---|
-|200|ОК|
+|200|OK|
 
 
-## UpdateTask
-Обновить задачу: обновление определенной задачи
+## <a name="updatetask"></a>UpdateTask
+Update a task: Updates a specific task 
 
-```PATCH: /tasks/{id}```
+```PATCH: /tasks/{id}``` 
 
-| Name (Имя)| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|list\_id|целое число|Да|запрос|Нет|Идентификатор списка|
-|id|целое число|Да|path|Нет|Идентификатор задачи|
-|post| |Да|текст|Нет|Сведения о задаче|
+|list_id|integer|yes|query|none|List ID|
+|id|integer|yes|path|none|Task ID|
+|post| |yes|body|none|Task details|
 
-#### Ответ
+#### <a name="response"></a>Response
 
-|Имя|Описание|
+|Name|Description|
 |---|---|
-|200|ОК|
+|200|OK|
 
 
-## DeleteTask
-Удалить задачу: удаление определенной задачи
+## <a name="deletetask"></a>DeleteTask
+Delete task: Deletes a specific task 
 
-```DELETE: /tasks/{id}```
+```DELETE: /tasks/{id}``` 
 
-| Name (Имя)| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|list\_id|целое число|Да|запрос|Нет|Идентификатор списка|
-|id|целое число|Да|path|Нет|Идентификатор задачи|
-|версия|целое число|Да|запрос|Нет|Версия|
+|list_id|integer|yes|query|none|List ID|
+|id|integer|yes|path|none|Task ID|
+|revision|integer|yes|query|none|Revision|
 
-#### Ответ
+#### <a name="response"></a>Response
 
-|Имя|Description (Описание)|
+|Name|Description|
 |---|---|
-|204|Нет содержимого|
+|204|No Content|
 
 
-## GetSubTask
-Получить подзадачу: получение определенной подзадачи
+## <a name="getsubtask"></a>GetSubTask
+Get subtask: Retrieves a specific subtask 
 
-```GET: /subtasks/{id}```
+```GET: /subtasks/{id}``` 
 
-| Name (Имя)| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|id|string|Да|path|Нет|Идентификатор подзадачи|
+|id|string|yes|path|none|Subtask ID|
 
-#### Ответ
+#### <a name="response"></a>Response
 
-|Имя|Описание|
+|Name|Description|
 |---|---|
-|200|ОК|
+|200|OK|
 
 
-## UpdateSubTask
-Обновить подзадачу: обновление определенной подзадачи
+## <a name="updatesubtask"></a>UpdateSubTask
+Update a subtask: Updates a specific subtask 
 
-```PATCH: /subtasks/{id}```
+```PATCH: /subtasks/{id}``` 
 
-| Имя| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Description (Описание)|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|id|целое число|Да|path|Нет|Идентификатор подзадачи|
-|post| |Да|текст|Нет|Сведения о подзадаче|
+|id|integer|yes|path|none|Subtask ID|
+|post| |yes|body|none|Subtask details|
 
-#### Ответ
+#### <a name="response"></a>Response
 
-|Name (Имя)|Описание|
+|Name|Description|
 |---|---|
-|200|ОК|
+|200|OK|
 
 
-## DeleteSubTask
-Удалить подзадачу: удаление определенной подзадачи
+## <a name="deletesubtask"></a>DeleteSubTask
+Delete a subtask: Deletes a specific subtask 
 
-```DELETE: /subtasks/{id}```
+```DELETE: /subtasks/{id}``` 
 
-| Name (Имя)| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|id|целое число|Да|path|Нет|Идентификатор подзадачи|
-|версия|целое число|Да|запрос|Нет|Версия|
+|id|integer|yes|path|none|Subtask ID|
+|revision|integer|yes|query|none|Revision|
 
-#### Ответ
+#### <a name="response"></a>Response
 
-|Имя|Описание|
+|Name|Description|
 |---|---|
-|204|Нет содержимого|
+|204|No Content|
 
 
-## GetNote
-Получить заметку: получение определенной заметки
+## <a name="getnote"></a>GetNote
+Get a note: Retrieve a specific note 
 
-```GET: /notes/{id}```
+```GET: /notes/{id}``` 
 
-| Имя| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|id|string|Да|path|Нет|Идентификатор заметки|
+|id|string|yes|path|none|Note ID|
 
-#### Ответ
+#### <a name="response"></a>Response
 
-|Имя|Описание|
+|Name|Description|
 |---|---|
-|200|ОК|
+|200|OK|
 
 
-## UpdateNote
-Обновить заметку: обновление определенной заметки
+## <a name="updatenote"></a>UpdateNote
+Update a note: Update a specific note 
 
-```PATCH: /notes/{id}```
+```PATCH: /notes/{id}``` 
 
-| Имя| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|id|целое число|Да|path|Нет|Идентификатор заметки|
-|post| |Да|текст|Нет|Сведения о заметке|
+|id|integer|yes|path|none|Note ID|
+|post| |yes|body|none|Note details|
 
-#### Ответ
+#### <a name="response"></a>Response
 
-|Имя|Описание|
+|Name|Description|
 |---|---|
-|200|ОК|
+|200|OK|
 
 
-## DeleteNote
-Удалить заметку: удаление определенной заметки
+## <a name="deletenote"></a>DeleteNote
+Delete a note: Delete a specific note 
 
-```DELETE: /notes/{id}```
+```DELETE: /notes/{id}``` 
 
-| Имя| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Description (Описание)|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|id|целое число|Да|path|Нет|Идентификатор заметки|
-|версия|целое число|Да|запрос|Нет|Версия|
+|id|integer|yes|path|none|Note ID|
+|revision|integer|yes|query|none|Revision|
 
-#### Ответ
+#### <a name="response"></a>Response
 
-|Имя|Описание|
+|Name|Description|
 |---|---|
-|204|Нет содержимого|
+|204|No Content|
 
 
-## GetComment
-Получить комментарий к задаче: получение комментария к определенной задаче
+## <a name="getcomment"></a>GetComment
+Get task comment: Retrieve a specific task comment 
 
-```GET: /task_comments/{id}```
+```GET: /task_comments/{id}``` 
 
-| Name (Имя)| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|id|string|Да|path|Нет|Идентификатор комментария|
+|id|string|yes|path|none|Comment ID|
 
-#### Ответ
+#### <a name="response"></a>Response
 
-|Имя|Описание|
+|Name|Description|
 |---|---|
-|200|ОК|
+|200|OK|
 
 
-## UpdateReminder
-Обновить напоминание: обновление определенного напоминания
+## <a name="updatereminder"></a>UpdateReminder
+Update a reminder: Update a specific reminder 
 
-```PATCH: /reminders/{id}```
+```PATCH: /reminders/{id}``` 
 
-| Имя| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|id|целое число|Да|path|Нет|Идентификатор напоминания|
-|post| |Да|текст|Нет|Сведения о напоминании|
+|id|integer|yes|path|none|Reminder ID|
+|post| |yes|body|none|Reminder details|
 
-#### Ответ
+#### <a name="response"></a>Response
 
-|Имя|Описание|
+|Name|Description|
 |---|---|
-|200|ОК|
+|200|OK|
 
 
-## DeleteReminder
-Удалить напоминание: удаление определенного напоминания
+## <a name="deletereminder"></a>DeleteReminder
+Delete a reminder: Delete a specific reminder 
 
-```DELETE: /reminders/{id}```
+```DELETE: /reminders/{id}``` 
 
-| Имя| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|id|целое число|Да|path|Нет|Идентификатор напоминания|
-|версия|целое число|Да|запрос|Нет|Версия|
+|id|integer|yes|path|none|ID of the reminder.|
+|revision|integer|yes|query|none|Revision|
 
-#### Ответ
+#### <a name="response"></a>Response
 
-|Имя|Описание|
+|Name|Description|
 |---|---|
-|204|Нет содержимого|
+|204|No Content|
 
 
-## Определения объектов 
+## <a name="object-definitions"></a>Object definitions 
 
-### список
+### <a name="list"></a>List
 
 
-| Имя свойства | Тип данных | Обязательно |
+| Property Name | Data Type | Required |
 |---|---|---|
-|id|целое число|Нет |
-|created\_at|string|Нет |
-|title|string|Нет |
-|list\_type|string|Нет |
-|type|string|Нет |
-|версия|целое число|Нет |
+|id|integer|No |
+|created_at|string|No |
+|title|string|No |
+|list_type|string|No |
+|type|string|No |
+|revision|integer|No |
 
 
 
-### CreatedList
+### <a name="createdlist"></a>CreatedList
 
 
-| Имя свойства | Тип данных | Обязательно |
+| Property Name | Data Type | Required |
 |---|---|---|
-|id|целое число|Нет |
-|created\_at|string|Нет |
-|title|string|Нет |
-|версия|целое число|Нет |
-|type|string|Нет |
+|id|integer|No |
+|created_at|string|No |
+|title|string|No |
+|revision|integer|No |
+|type|string|No |
 
 
 
-### Задача
+### <a name="task"></a>Task
 
 
-| Имя свойства | Тип данных | Обязательно |
+| Property Name | Data Type | Required |
 |---|---|---|
-|id|целое число|Нет |
-|assignee\_id|целое число|Нет |
-|assigner\_id|целое число|Нет |
-|created\_at|string|Нет |
-|created\_by\_id|целое число|Нет |
-|due\_date|string|Нет |
-|list\_id|целое число|Нет |
-|версия|целое число|Нет |
-|starred|Логическое|Нет |
-|title|string|Нет |
+|id|integer|No |
+|assignee_id|integer|No |
+|assigner_id|integer|No |
+|created_at|string|No |
+|created_by_id|integer|No |
+|due_date|string|No |
+|list_id|integer|No |
+|revision|integer|No |
+|starred|boolean|No |
+|title|string|No |
 
 
 
-### Подзадача
+### <a name="subtask"></a>Subtask
 
 
-| Имя свойства | Тип данных | Обязательно |
+| Property Name | Data Type | Required |
 |---|---|---|
-|id|целое число|Нет |
-|task\_id|целое число|Нет |
-|created\_at|string|Нет |
-|created\_by\_id|целое число|Нет |
-|версия|string|Нет |
-|title|string|Нет |
+|id|integer|No |
+|task_id|integer|No |
+|created_at|string|No |
+|created_by_id|integer|No |
+|revision|string|No |
+|title|string|No |
 
 
 
-### Примечание
+### <a name="note"></a>Note
 
 
-| Имя свойства | Тип данных | Обязательно |
+| Property Name | Data Type | Required |
 |---|---|---|
-|id|целое число|Нет |
-|task\_id|целое число|Нет |
-|Содержимое|string|Нет |
-|created\_at|string|Нет |
-|updated\_at|string|Нет |
-|версия|целое число|Нет |
+|id|integer|No |
+|task_id|integer|No |
+|content|string|No |
+|created_at|string|No |
+|updated_at|string|No |
+|revision|integer|No |
 
 
 
-### Комментарий
+### <a name="comment"></a>Comment
 
 
-| Имя свойства | Тип данных | Обязательно |
+| Property Name | Data Type | Required |
 |---|---|---|
-|id|целое число|Нет |
-|task\_id|целое число|Нет |
-|версия|целое число|Нет |
-|text|string|Нет |
-|type|string|Нет |
-|created\_at|string|Нет |
+|id|integer|No |
+|task_id|integer|No |
+|revision|integer|No |
+|text|string|No |
+|type|string|No |
+|created_at|string|No |
 
 
 
-### Напоминание
+### <a name="reminder"></a>Reminder
 
 
-| Имя свойства | Тип данных | Обязательно |
+| Property Name | Data Type | Required |
 |---|---|---|
-|id|целое число|Нет |
-|дата|string|Нет |
-|task\_id|целое число|Нет |
-|версия|целое число|Нет |
-|type|string|Нет |
-|created\_at|string|Нет |
-|updated\_at|string|Нет |
+|id|integer|No |
+|date|string|No |
+|task_id|integer|No |
+|revision|integer|No |
+|type|string|No |
+|created_at|string|No |
+|updated_at|string|No |
 
 
 
-### CreatedReminder
+### <a name="createdreminder"></a>CreatedReminder
 
 
-| Имя свойства | Тип данных | Обязательно |
+| Property Name | Data Type | Required |
 |---|---|---|
-|id|целое число|Нет |
-|дата|string|Нет |
-|task\_id|целое число|Нет |
-|версия|целое число|Нет |
-|created\_at|string|Нет |
-|updated\_at|string|Нет |
+|id|integer|No |
+|date|string|No |
+|task_id|integer|No |
+|revision|integer|No |
+|created_at|string|No |
+|updated_at|string|No |
 
 
 
-### Файл
+### <a name="file"></a>File
 
 
-| Имя свойства | Тип данных | Обязательно |
+| Property Name | Data Type | Required |
 |---|---|---|
-|id|целое число|Нет |
-|url|string|Нет |
-|task\_id|целое число|Нет |
-|list\_id|целое число|Нет |
-|user\_id|целое число|Нет |
-|file\_name|string|Нет |
-|content\_type|string|Нет |
-|file\_size|целое число|Нет |
-|local\_created\_at|string|Нет |
-|created\_at|string|Нет |
-|updated\_at|string|Нет |
-|type|string|Нет |
-|версия|целое число|Нет |
+|id|integer|No |
+|url|string|No |
+|task_id|integer|No |
+|list_id|integer|No |
+|user_id|integer|No |
+|file_name|string|No |
+|content_type|string|No |
+|file_size|integer|No |
+|local_created_at|string|No |
+|created_at|string|No |
+|updated_at|string|No |
+|type|string|No |
+|revision|integer|No |
 
 
 
-### NewTask
+### <a name="newtask"></a>NewTask
 
 
-| Имя свойства | Тип данных | Обязательно |
+| Property Name | Data Type | Required |
 |---|---|---|
-|list\_id|целое число|Да |
-|title|string|Да |
-|assignee\_id|целое число|Нет |
-|выполнено|Логическое|Нет |
-|recurrence\_type|string|Нет |
-|recurrence\_count|целое число|Нет |
-|due\_date|string|Нет |
-|starred|Логическое|Нет |
+|list_id|integer|Yes |
+|title|string|Yes |
+|assignee_id|integer|No |
+|completed|boolean|No |
+|recurrence_type|string|No |
+|recurrence_count|integer|No |
+|due_date|string|No |
+|starred|boolean|No |
 
 
 
-### NewList
+### <a name="newlist"></a>NewList
 
 
-| Имя свойства | Тип данных | Обязательно |
+| Property Name | Data Type | Required |
 |---|---|---|
-|title|string|Да |
+|title|string|Yes |
 
 
 
-### NewSubtask
+### <a name="newsubtask"></a>NewSubtask
 
 
-| Имя свойства | Тип данных | Обязательно |
+| Property Name | Data Type | Required |
 |---|---|---|
-|list\_id|целое число|Да |
-|task\_id|целое число|Да |
-|title|string|Да |
-|выполнено|Логическое|Нет |
+|list_id|integer|Yes |
+|task_id|integer|Yes |
+|title|string|Yes |
+|completed|boolean|No |
 
 
 
-### NewNote
+### <a name="newnote"></a>NewNote
 
 
-| Имя свойства | Тип данных | Обязательно |
+| Property Name | Data Type | Required |
 |---|---|---|
-|list\_id|целое число|Да |
-|task\_id|целое число|Да |
-|Содержимое|string|Да |
+|list_id|integer|Yes |
+|task_id|integer|Yes |
+|content|string|Yes |
 
 
 
-### NewComment
+### <a name="newcomment"></a>NewComment
 
 
-| Имя свойства | Тип данных | Обязательно |
+| Property Name | Data Type | Required |
 |---|---|---|
-|list\_id|целое число|Да |
-|task\_id|целое число|Да |
-|text|string|Да |
+|list_id|integer|Yes |
+|task_id|integer|Yes |
+|text|string|Yes |
 
 
 
-### NewReminder
+### <a name="newreminder"></a>NewReminder
 
 
-| Имя свойства | Тип данных | Обязательно |
+| Property Name | Data Type | Required |
 |---|---|---|
-|list\_id|целое число|Да |
-|task\_id|целое число|Да |
-|дата|string|Да |
+|list_id|integer|Yes |
+|task_id|integer|Yes |
+|date|string|Yes |
 
 
 
-### UpdateTask
+### <a name="updatetask"></a>UpdateTask
 
 
-| Имя свойства | Тип данных | Обязательно |
+| Property Name | Data Type | Required |
 |---|---|---|
-|версия|целое число|Нет |
-|title|string|Нет |
-|assignee\_id|целое число|Нет |
-|выполнено|Логическое|Нет |
-|recurrence\_type|string|Нет |
-|recurrence\_count|целое число|Нет |
-|due\_date|string|Нет |
-|starred|Логическое|Нет |
+|revision|integer|No |
+|title|string|No |
+|assignee_id|integer|No |
+|completed|boolean|No |
+|recurrence_type|string|No |
+|recurrence_count|integer|No |
+|due_date|string|No |
+|starred|boolean|No |
 
 
 
-### UpdateList
+### <a name="updatelist"></a>UpdateList
 
 
-| Имя свойства | Тип данных | Обязательно |
+| Property Name | Data Type | Required |
 |---|---|---|
-|версия|целое число|Нет |
-|title|string|Нет |
+|revision|integer|No |
+|title|string|No |
 
 
 
-### UpdateSubtask
+### <a name="updatesubtask"></a>UpdateSubtask
 
 
-| Имя свойства | Тип данных | Обязательно |
+| Property Name | Data Type | Required |
 |---|---|---|
-|версия|целое число|Нет |
-|title|string|Нет |
-|выполнено|Логическое|Нет |
+|revision|integer|No |
+|title|string|No |
+|completed|boolean|No |
 
 
 
-### UpdateNote
+### <a name="updatenote"></a>UpdateNote
 
 
-| Имя свойства | Тип данных | Обязательно |
+| Property Name | Data Type | Required |
 |---|---|---|
-|версия|целое число|Нет |
-|Содержимое|string|Нет |
+|revision|integer|No |
+|content|string|No |
 
 
 
-### UpdateReminder
+### <a name="updatereminder"></a>UpdateReminder
 
 
-| Имя свойства | Тип данных | Обязательно |
+| Property Name | Data Type | Required |
 |---|---|---|
-|дата|string|Нет |
-|версия|целое число|Нет |
+|date|string|No |
+|revision|integer|No |
 
 
-## Дальнейшие действия
-[Создайте приложение логики](../app-service-logic/app-service-logic-create-a-logic-app.md)
+## <a name="next-steps"></a>Next Steps
+[Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

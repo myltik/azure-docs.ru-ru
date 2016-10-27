@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Тестирование производительности облачной службы | Microsoft Azure"
-   description="Протестируйте производительность облачной службы с помощью профилировщика Visual Studio"
+   pageTitle="Testing the performance of a cloud service | Microsoft Azure"
+   description="Test the performance of a cloud service using the Visual Studio profiler"
    services="visual-studio-online"
    documentationCenter="n/a"
    authors="TomArcher"
@@ -16,134 +16,140 @@
    ms.author="tarcher" />
 
 
-# Тестирование производительности облачной службы 
 
-##Обзор
+# <a name="testing-the-performance-of-a-cloud-service"></a>Testing the performance of a cloud service 
 
-Производительность облачной службы можно проверить следующими способами.
+##<a name="overview"></a>Overview
 
-- Воспользоваться системой диагностики Azure для сбора сведений о запросах и подключениях и просмотра статистики сайта, которые показывают, как работает служба с точки зрения клиента. Для начала работы см. [Настройка системы диагностики для облачных служб и виртуальных машин Azure](http://go.microsoft.com/fwlink/p/?LinkId=623009).
+You can test the performance of a cloud service in the following ways:
 
-- Воспользоваться профилировщиком Visual Studio для выполнения глубокого анализа вычислительных аспектов работы службы. Как описано в этом разделе, с помощью профилировщика можно измерить производительность работы службы в Azure. Сведения о том, как использовать профилировщик для измерения производительности работы службы, запущенной локально в эмуляторе вычислений, см. в разделе [Тестирование производительности облачной службы Azure, запущенной локально в эмуляторе вычислений, с помощью профилировщика Visual Studio](http://go.microsoft.com/fwlink/p/?LinkId=262845).
+- Use Azure Diagnostics to collect information about requests and connections, and to review site statistics that show how the service performs from a customer perspective. To get started with , see [Configuring diagnostics for Azure Cloud Services and Virtual Machines]( http://go.microsoft.com/fwlink/p/?LinkId=623009).
 
+- Use the Visual Studio profiler to get an in-depth analysis of the computational aspects of how the service runs. As this topic describes, you can use the profiler to measure performance as a service runs in Azure. For information about how to use the profiler to measure performance as a service runs locally in a compute emulator, see [Testing the Performance of an Azure Cloud Service Locally in the Compute Emulator Using the Visual Studio Profiler](http://go.microsoft.com/fwlink/p/?LinkId=262845).
 
 
-## Выбор метода тестирования производительности
 
-###Воспользуйтесь системой диагностики Azure для сбора:###
+## <a name="choosing-a-performance-testing-method"></a>Choosing a performance testing method
 
-- статистики для веб-страниц или служб, такой как запросы и подключения;
+###<a name="use-azure-diagnostics-to-collect:###"></a>Use Azure Diagnostics to collect:###
 
-- статистики по ролям, например, частоты перезапуска роли;
+- Statistics on web pages or services, such as requests and connections.
 
-- общей информации об использовании памяти, например, процента времени, занимаемого сборщиком мусора, и набора памяти запущенной роли.
+- Statistics on roles, such as how often a role is restarted.
 
-###Воспользуйтесь профилировщиком Visual Studio для:###
+- Overall information about memory usage, such as the percentage of time that the garbage collector takes or the memory set of a running role.
 
-- определения функций, на выполнение которых уходит большая часть времени;
+###<a name="use-the-visual-studio-profiler-to:###"></a>Use the Visual Studio profiler to:###
 
-- измерения количества времени, которое занимает каждая часть программы с большим объемом вычислений;
+- Determine which functions take the most time.
 
-- сравнения подробных отчетов о производительности для двух версий службы;
+- Measure how much time each part of a computationally intensive program takes.
 
-- анализа выделения памяти более подробно, чем на уровне отдельных выделений памяти;
+- Compare detailed performance reports for two versions of a service.
 
-- анализа проблем параллелизма в многопоточном коде.
+- Analyze memory allocation in more detail than the level of individual memory allocations.
 
-С помощью профилировщика можно собирать данные при запуске облачной службы локально или в Azure.
+- Analyze concurrency problems in multithreaded code.
 
-###Сбор данных профилирования локально позволит:###
+When you use the profiler, you can collect data when a cloud service runs locally or in Azure.
 
-- протестировать производительность части облачной службы (например, выполнение определенной рабочей роли), которая не требует реалистичного моделирования нагрузки;
+###<a name="collect-profiling-data-locally-to:###"></a>Collect profiling data locally to:###
 
-- протестировать производительность облачной службы изолированно в контролируемых условиях;
+- Test the performance of a part of a cloud service, such as the execution of specific worker role, that doesn’t require a realistic simulated load.
 
-- протестировать производительность облачной службы перед ее развертыванием в Azure;
+- Test the performance of a cloud service in isolation, under controlled conditions.
 
-- протестировать производительность облачной службы в частном порядке, без нарушения работы существующих развертываний;
+- Test the performance of a cloud service before you deploy it to Azure.
 
-- протестировать производительность облачной службы без платы за ее запуск в Azure.
+- Test the performance of a cloud service privately, without disturbing the existing deployments.
 
-###Сбор данных профилирования в Azure позволит:###
+- Test the performance of the service without incurring charges for running in Azure.
 
-- протестировать производительность облачной службы с моделируемой или реальной нагрузкой;
+###<a name="collect-profiling-data-in-azure-to:###"></a>Collect profiling data in Azure to:###
 
-- использовать метод инструментирования для сбора данных профилирования, как описано далее в этом разделе;
+- Test the performance of a cloud service under a simulated or real load.
 
-- протестировать производительность облачной службы в среде, которая аналогична рабочей среде для запуска службы.
+- Use the instrumentation method of collecting profiling data, as this topic describes later.
 
-Нагрузка для тестирования облачных служб обычно моделируется для обычной или нештатной ситуации.
+- Test the performance of the service in the same environment as when the service runs in production.
 
-## Профилирование облачной службы в Azure
+You typically simulate a load to test cloud services under normal or stress conditions.
 
-При публикации облачной службы из Visual Studio можно выполнить профилирование службы и задать параметры профилирования, которые позволят получить необходимую вам информацию. Сеанс профилирования запускается для каждого экземпляра роли. Дополнительные сведения о публикации службы из Visual Studio см. в разделе [Публикация в облачной службе Azure из Visual Studio](https://msdn.microsoft.com/library/azure/ee460772.aspx).
+## <a name="profiling-a-cloud-service-in-azure"></a>Profiling a cloud service in Azure
 
-Чтобы узнать больше о профилировании производительности в Visual Studio, см. статьи [Руководство для начинающих по профилированию производительности](https://msdn.microsoft.com/library/azure/ms182372.aspx) и [Анализ производительности приложения с помощью инструментов профилирования](https://msdn.microsoft.com/library/azure/z9z62c29.aspx).
+When you publish your cloud service from Visual Studio, you can profile the service and specify the profiling settings that give you the information that you want. A profiling session is started for each instance of a role. For more information about how to publish your service from Visual Studio, see [Publishing to an Azure Cloud Service from Visual Studio](https://msdn.microsoft.com/library/azure/ee460772.aspx).
 
->[AZURE.NOTE] При публикации облачной службы можно включить IntelliTrace или профилирование. И то, и другое одновременно включить нельзя.
+To understand more about performance profiling in Visual Studio, see [Beginners Guide to Performance Profiling](https://msdn.microsoft.com/library/azure/ms182372.aspx) and [Analyzing Application Performance by Using Profiling Tools](https://msdn.microsoft.com/library/azure/z9z62c29.aspx).
 
-###Методы сбора данных профилировщика
+>[AZURE.NOTE] You can enable either IntelliTrace or profiling when you publish your cloud service. You can't enable both.
 
-Для профилирования можно использовать различные методы сбора данных в зависимости от того, какую статистику по производительности необходимо получить:
+###<a name="profiler-collection-methods"></a>Profiler collection methods
 
-- **Выборка из ЦП** — этот метод осуществляет сбор статистики приложения, которую удобно использовать для первоначального анализа проблем использования ЦП. Большинство исследований производительности рекомендуется начинать с выборки из ЦП. Сбор данных выборки ЦП не оказывает существенного влияния на профилируемое приложение.
+You can use different collection methods for profiling, based on your performance issues:
 
-- **Инструментирование** — этот метод осуществляет сбор подробных временных данных, которые удобно использовать для целенаправленного анализа и для анализа проблем производительности ввода/вывода. Метод инструментирования регистрирует каждый вход и выход из функции и каждый вызов функции для всех функций модуля во время профилирования. Этот метод удобен для сбора подробных временных данных для заданного фрагмента кода и для оценки влияния операций ввода/вывода на производительность приложения. На компьютерах, работающих под управлением 32-разрядных операционных систем, этот метод недоступен. Этот метод доступен только при запуске облачной службы в Azure, а не локально в эмуляторе вычислений.
+- **CPU sampling** - This method collects application statistics that are useful for initial analysis of CPU utilization issues. CPU sampling is the suggested method for starting most performance investigations. There is a low impact on the application that you are profiling when you collect CPU sampling data.
 
-- **Выделение памяти .NET** — этот метод осуществляет сбор данных о выделении памяти .NET Framework с помощью метода профилирования с выборкой. Собранные данные включают количество и размер выделенных объектов.
+- **Instrumentation** -This method collects detailed timing data that is useful for focused analysis and for analyzing input/output performance issues. The instrumentation method records each entry, exit, and function call of the functions in a module during a profiling run. This method is useful for gathering detailed timing information about a section of your code and for understanding the impact of input and output operations on application performance. This method is disabled for a computer running a 32-bit operating system. This option is available only when you run the cloud service in Azure, not locally in the compute emulator.
 
-- **Параллелизм** — этот метод осуществляет сбор данных о конфликтах ресурсов и данных о выполнении процессов и потоков. Эти данные полезны для анализа многопоточных и многопроцессных приложений. Метод параллелизма собирает данные для каждого события, которое блокирует выполнение кода, например когда поток ожидает освобождения доступа к заблокированному ресурсу приложения. Этот метод удобен для анализа многопоточных приложений.
+- **.NET Memory Allocation** - This method collects .NET Framework memory allocation data by using the sampling profiling method. The collected data includes the number and size of allocated objects.
 
-- Также можно включить **профилирование межуровневого взаимодействия**, которое предоставляет дополнительные сведения о времени выполнения синхронных вызовов ADO.NET в функциях многоуровневых приложений, взаимодействующих с одной или несколькими базами данных. Данные о межуровневом взаимодействии можно получить с помощью любого из методов профилирования. Дополнительные сведения о профилировании межуровневого взаимодействия см. в разделе [Представление межуровневого взаимодействия](https://msdn.microsoft.com/library/azure/dd557764.aspx).
+- **Concurrency** - This method collects resource contention data, and process and thread execution data that is useful in analyzing multi-threaded and multi-process applications. The concurrency method collects data for each event that blocks execution of your code, such as when a thread waits for locked access to an application resource to be freed. This method is useful for analyzing multi-threaded applications.
 
-## Настройка параметров профилирования
+- You can also enable **Tier Interaction Profiling**, which provides additional information about the execution times of synchronous ADO.NET calls in functions of multi-tiered applications that communicate with one or more databases. You can collect tier interaction data with any of the profiling methods. For more information about tier interaction profiling, see [Tier Interactions View](https://msdn.microsoft.com/library/azure/dd557764.aspx).
 
-На рисунке ниже показано, как настроить параметры профилирования в диалоговом окне "Публикация приложения Azure".
+## <a name="configuring-profiling-settings"></a>Configuring profiling settings
 
-![Настроить параметры профилирования](./media/vs-azure-tools-performance-profiling-cloud-services/IC526984.png)
+The following illustration shows how to configure your profiling settings from the Publish Azure Application dialog box.
 
->[AZURE.NOTE] Чтобы установить флажок **Включить профилирование**, сначала установите профилировщик на локальном компьютере, который используется для публикации облачной службы. По умолчанию профилировщик устанавливается во время установки Visual Studio.
+![Configure Profiling Settings](./media/vs-azure-tools-performance-profiling-cloud-services/IC526984.png)
 
-### Для настройки параметров профилирования
+>[AZURE.NOTE] To enable the **Enable profiling** check box, you must have the profiler installed on the local computer that you are using to publish your cloud service. By default, the profiler is installed when you install Visual Studio.
 
-1. В обозревателе решений откройте контекстное меню проекта Azure и выберите **Опубликовать**. Подробные инструкции по публикации облачной службы см. в статье [Публикация облачной службы с помощью инструментов Azure](http://go.microsoft.com/fwlink/p?LinkId=623012).
+### <a name="to-configure-profiling-settings"></a>To configure profiling settings
 
-1. В диалоговом окне **Опубликовать приложение Azure** выберите вкладку **Дополнительные настройки**.
+1. In Solution Explorer, open the shortcut menu for your Azure project, and then choose **Publish**. For detailed steps about how to publish a cloud service, see [Publishing a cloud service using the Azure tools](http://go.microsoft.com/fwlink/p?LinkId=623012).
 
-1. Чтобы включить профилирование, установите флажок **Включить профилирование**.
+1. In the **Publish Azure Application** dialog box, chose the **Advanced Settings** tab.
 
-1. Чтобы настроить параметры профилирования, выберите гиперссылку **Параметры**. Откроется диалоговое окно "Параметры профилирования".
+1. To enable profiling, select the **Enable profiling** check box.
 
-1. С помощью переключателей из раздела **Какой способ профилирования вы хотели бы использовать** выберите нужный тип профилирования.
+1. To configure your profiling settings, choose the **Settings** hyperlink. The Profiling Settings dialog box appears.
 
-1. Чтобы собирать данные профилирования для уровневого взаимодействия, установите флажок **Включить профилирование уровневого взаимодействия**.
+1. From the **What method of profiling would you like to use** option buttons, choose the type of profiling that you need.
 
-1. Чтобы сохранить настройки, нажмите кнопку **ОК**.
+1. To collect the tier interaction profiling data, select the **Enable Tier Interaction Profiling** check box.
 
-    Во время публикации приложения эти параметры будут использоваться для создания сеанса профилирования для каждой роли.
+1. To save the settings, choose the **OK** button.
 
-## Просмотр отчетов профилирования
+    When you publish this application, these settings are used to create the profiling session for each role.
 
-Сеанс профилирования создается для каждого экземпляра роли в облачной службе. Для просмотра отчетов профилирования для каждой сессии в Visual Studio откройте окно обозревателя сервера и выберите вычислительный узел Azure, после чего выберите экземпляр роли. Затем вы сможете просмотреть отчет о профилировании, как показано на следующем рисунке.
+## <a name="viewing-profiling-reports"></a>Viewing Profiling Reports
 
-![Просмотр отчета профилирования Azure](./media/vs-azure-tools-performance-profiling-cloud-services/IC748914.png)
+A profiling session is created for each instance of a role in your cloud service. To view your profiling reports of each session from Visual Studio, you can view the Server Explorer window and then choose the Azure Compute node to select an instance of a role. You can then view the profiling report as shown in the following illustration.
 
-### Для просмотра отчетов профилирования
+![View Profiling Report from Azure](./media/vs-azure-tools-performance-profiling-cloud-services/IC748914.png)
 
-1. Чтобы открыть окно обозревателя сервера в Visual Studio, выберите меню "Представление", затем "Обозреватель сервера".
+### <a name="to-view-profiling-reports"></a>To view profiling reports
 
-1. Выберите вычислительный узел Azure и затем выберите узел развертывания Azure для облачной службы, которую вы выбрали для профилирования при публикации из Visual Studio.
+1. To view the Server Explorer window in Visual Studio, on the menu bar choose View, Server Explorer.
 
-1. Чтобы просмотреть отчеты о профилировании экземпляра, выберите роль в службе, откройте контекстное меню конкретного экземпляра и выберите **Просмотреть отчет профилирования**.
+1. Choose the Azure Compute node, and then choose the Azure deployment node for the cloud service that you selected to profile when you published from Visual Studio.
 
-    VSP-файл отчета будет загружен из Azure, а состояние загрузки отобразится в журнале действий Azure. После завершения загрузки отчет о профилировании откроется в редакторе Visual Studio на вкладке с именем <Role name>_<Instance Number>_<identifier>.vsp. Будут показаны сводные данные отчета.
+1. To view profiling reports for an instance, choose the role in the service, open the shortcut menu for a specific instance, and then choose **View Profiling Report**.
 
-1. Для отображения различных представлений отчета выберите необходимый тип представления в списке "Текущее представление". Дополнительные сведения см. в статье [Представления отчетов средств профилирования](https://msdn.microsoft.com/library/azure/bb385755.aspx).
+    The report, a .vsp file, is now downloaded from Azure, and the status of the download appears in the  Azure Activity Log. When the download completes, the profiling report appears in a tab in the editor for Visual Studio named <Role name>_<Instance Number>_<identifier>.vsp. Summary data for the report appears.
 
-## Дальнейшие действия
+1. To display different views of the report, in the Current View list, choose the type of view that you want. For more information, see [Profiling Tools Report Views](https://msdn.microsoft.com/library/azure/bb385755.aspx).
 
-[Отладка облачных служб](https://msdn.microsoft.com/library/azure/ee405479.aspx)
+## <a name="next-steps"></a>Next steps
 
-[Публикация в облачной службе Azure из Visual Studio](https://msdn.microsoft.com/library/azure/ee460772.aspx)
+[Debugging Cloud Services](https://msdn.microsoft.com/library/azure/ee405479.aspx)
 
-<!---HONumber=AcomDC_0817_2016-->
+[Publishing to an Azure Cloud Service from Visual Studio](https://msdn.microsoft.com/library/azure/ee460772.aspx)
+
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

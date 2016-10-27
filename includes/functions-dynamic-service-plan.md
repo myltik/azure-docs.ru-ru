@@ -1,17 +1,22 @@
-## Динамический план обслуживания
+## <a name="dynamic-service-plan"></a>Dynamic Service Plan
 
-При динамическом плане обслуживания ваши приложения функции будут назначены экземпляру приложения функции. При необходимости экземпляры будут добавляться динамически. Эти экземпляры могут охватывать несколько вычислительных ресурсов, что позволяет наиболее эффективно использовать доступную инфраструктуру Azure. Более того, ваши функции будут выполняться параллельно, сводя к минимуму общее время, необходимое для обработки запросов. Время выполнения функций в секундах суммируется и объединяется содержащим их приложением функции. Стоимость вычисляется по количеству экземпляров, размеру их памяти и общему времени выполнения, измеряемому в гигабайтах на секунду. Это очень удобно, когда вычисления требуются только время от времени или время ожидания заданий очень короткое, так как позволяет платить только за вычислительные ресурсы, когда они действительно используются.
+In the Dynamic Service Plan, your function apps will be assigned to a function app instance. If needed more instances will be added dynamically.
+Those instances can span across multiple computing resources, making the most out of the available Azure infrastructure. Moreover, your functions will run in parallel minimizing the total time needed to process requests. Execution time for each function is added up, in seconds, and aggregated by the containing function app. With cost driven by the number of instances, their memory size, and total execution time as measured in Gigabyte seconds. This is an excellent option if your compute needs are intermittent or your job times tend to be very short as it allows you to only pay for compute resources when they are actually in use.   
 
-### Уровень памяти
+### <a name="memory-tier"></a>Memory tier
 
-В зависимости от потребностей функции можно выбрать необходимый объем памяти, необходимый для их выполнения в приложении функции (контейнере функций). Можно выбрать размер памяти **от 128 до 1536 МБ**. Выбранный размер памяти соответствует рабочему набору, необходимому всем функциям, являющимся частью приложения функции. Если коду потребуется больше памяти, чем позволяет выбранный размер, работа экземпляра приложения функции будет завершена из-за нехватки памяти.
+Depending on your function needs you can select the amount of memory required to run them in the Function App (container of functions).
+The memory size options vary from **128MB to 1536MB**. The selected memory size corresponds to the Working Set needed by all the functions that are part of your function app. If your code requires more memory than the selected size, the function app instance will be shut down due to lack of available memory.
 
-### Масштабирование
+### <a name="scaling"></a>Scaling
 
-Платформа функций Azure будет оценивать потребности в трафике на основе настроенных триггеров для принятия решения об увеличении или уменьшении масштаба. Степень детализации масштабирования определяется приложением функции. В этом случае под увеличением масштаба понимается добавление нескольких экземпляров приложения функции. И наоборот, при снижении интенсивности трафика работа экземпляров приложения функции постепенно завершается, что приводит к снижению их числа до нуля в случае отсутствия вычислений.
+The Azure Functions platform will evaluate the traffic needs, based on the configured triggers, to decide when to scale up or down. The granularity of scaling is the function app. Scaling up in this case means adding more instances of a function app. Inversely as traffic goes down, function app instances are disabled- eventually scaling down to zero when none are running.  
 
-### Потребление ресурсов и выставление счетов за их использование
+### <a name="resource-consumption-and-billing"></a>Resource consumption and billing
 
-В динамическом режиме выделение ресурсов выполняется иначе, чем при стандартном плане службы приложений, поэтому используется другая модель потребления, т .н. "оплата за использование". Потребление для каждого приложения функции будет учитываться только за время выполнения кода. Оно вычисляется путем умножения размера памяти (в ГБ) и общего времени выполнения (в секундах) для всех функций, выполняемых в этом приложении функции. Единицей потребления является **ГБ∙с (гигабайт∙секунда.)**.
+In the Dynamic mode resource allocation is done differently than the standard App Service plan, therefore the consumption model is also different, allowing for a "pay-per-use" model. Consumption will be reported per function app, only for time when code is being executed.  
+It is computed by multiplying the memory size (in GB) by the total amount of execution time (in seconds) for all functions running inside that function app. The unit of consumption will be **GB-s (Gigabyte Seconds)**.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!--HONumber=Oct16_HO2-->
+
+

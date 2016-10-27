@@ -1,6 +1,6 @@
 <properties 
-    pageTitle="Настройка параметров безопасности для службы разделения и объединения | Microsoft Azure" 
-    description="Настройка сертификатов x409 для шифрования" 
+    pageTitle="Split-merge security configuration | Microsoft Azure" 
+    description="Set up x409 certificates for encryption" 
     metaKeywords="Elastic Database certificates security" 
     services="sql-database" 
     documentationCenter="" 
@@ -17,125 +17,128 @@
     ms.author="torsteng" />
 
 
-# Настройка параметров безопасности для службы разделения и объединения  
 
-Для использования службы разделения и объединения необходимо правильно настроить параметры безопасности. Эта служба является частью компонента эластичного масштабирования базы данных Microsoft Azure SQL. Дополнительные сведения см. в [учебнике по эластичному масштабированию службы разбиения и объединения](sql-database-elastic-scale-configure-deploy-split-and-merge.md).
+# <a name="split-merge-security-configuration"></a>Split-merge security configuration  
 
-## Настройка сертификатов
+To use the Split/Merge service, you must correctly configure security. The service is part of the Elastic Scale feature of Microsoft Azure SQL Database. For more information, see [Elastic Scale Split and Merge Service Tutorial](sql-database-elastic-scale-configure-deploy-split-and-merge.md).
 
-Сертификаты настраиваются двумя способами.
+## <a name="configuring-certificates"></a>Configuring certificates
 
-1. [Настройка SSL-сертификата](#To-Configure-the-SSL#Certificate)
-2. [Настройка сертификатов клиентов](#To-Configure-Client-Certificates) 
+Certificates are configured in two ways. 
 
-## Получение сертификатов
+1. [To Configure the SSL Certificate](#To-Configure-the-SSL#Certificate)
+2. [To Configure Client Certificates](#To-Configure-Client-Certificates) 
 
-Сертификаты можно получать от общих центров сертификации (ЦС) или в [службе сертификации Windows](http://msdn.microsoft.com/library/windows/desktop/aa376539.aspx). Это наиболее предпочтительные способы получения сертификатов.
+## <a name="to-obtain-certificates"></a>To obtain certificates
 
-Если эти варианты недоступны, можно создавать **самозаверяющие сертификаты**.
+Certificates can be obtained from public Certificate Authorities (CAs) or from the [Windows Certificate Service](http://msdn.microsoft.com/library/windows/desktop/aa376539.aspx). These are the preferred methods to obtain certificates.
+
+If those options are not available, you can generate **self-signed certificates**.
  
-## Инструменты для создания сертификатов
+## <a name="tools-to-generate-certificates"></a>Tools to generate certificates
 
 * [makecert.exe](http://msdn.microsoft.com/library/bfsktky3.aspx)
 * [pvk2pfx.exe](http://msdn.microsoft.com/library/windows/hardware/ff550672.aspx)
 
-### Запуск инструментов
+### <a name="to-run-the-tools"></a>To run the tools
 
-* Информацию о запуске инструментов из командной строки разработчика для Visual Studio см. в разделе [Командная строка Visual Studio](http://msdn.microsoft.com/library/ms229859.aspx). 
+* From a Developer Command Prompt for Visual Studios, see [Visual Studio Command Prompt](http://msdn.microsoft.com/library/ms229859.aspx) 
 
-    Если ПО установлено, перейдите к:
+    If installed, go to:
 
         %ProgramFiles(x86)%\Windows Kits\x.y\bin\x86 
 
-* Пакет WDK можно загрузить в разделе [Windows 8.1: загрузка пакетов и средств](http://msdn.microsoft.com/windows/hardware/gg454513#drivers).
+* Get the WDK from [Windows 8.1: Download kits and tools](http://msdn.microsoft.com/windows/hardware/gg454513#drivers)
 
-## Настройка SSL-сертификата
-SSL-сертификат требуется для шифрования при обмене данными и для проверки подлинности сервера. Выберите наиболее подходящий из этих трех сценариев и выполните все шаги.
+## <a name="to-configure-the-ssl-certificate"></a>To configure the SSL certificate
+A SSL certificate is required to encrypt the communication and authenticate the server. Choose the most applicable of the three scenarios below, and execute all its steps:
 
-### Создание самозаверяющего сертификата
+### <a name="create-a-new-self-signed-certificate"></a>Create a new self-signed certificate
 
-1.    [Создание самозаверяющего сертификата](#Create-a-Self-Signed-Certificate)
-2.    [Создание PFX-файла для самозаверяющего SSL-сертификата](#Create-PFX-file-for-Self-Signed-SSL-Certificate)
-3.    [Передача SSL-сертификата в облачную службу](#Upload-SSL-Certificate-to-Cloud-Service)
-4.    [Обновление SSL-сертификата в файле конфигурации службы](#Update-SSL-Certificate-in-Service-Configuration-File)
-5.    [Импорт центра сертификации SSL](#Import-SSL-Certification-Authority)
+1.    [Create a Self-Signed Certificate](#Create-a-Self-Signed-Certificate)
+2.    [Create PFX file for Self-Signed SSL Certificate](#Create-PFX-file-for-Self-Signed-SSL-Certificate)
+3.    [Upload SSL Certificate to Cloud Service](#Upload-SSL-Certificate-to-Cloud-Service)
+4.    [Update SSL Certificate in Service Configuration File](#Update-SSL-Certificate-in-Service-Configuration-File)
+5.    [Import SSL Certification Authority](#Import-SSL-Certification-Authority)
 
-### Использование существующего сертификата из хранилища сертификатов
-1. [Экспорт SSL-сертификата из хранилища сертификатов](#Export-SSL-Certificate-From-Certificate-Store)
-2. [Передача SSL-сертификата в облачную службу](#Upload-SSL-Certificate-to-Cloud-Service)
-3. [Обновление SSL-сертификата в файле конфигурации службы](#Update-SSL-Certificate-in-Service-Configuration-File)
+### <a name="to-use-an-existing-certificate-from-the-certificate-store"></a>To use an existing certificate from the certificate store
+1. [Export SSL Certificate From Certificate Store](#Export-SSL-Certificate-From-Certificate-Store)
+2. [Upload SSL Certificate to Cloud Service](#Upload-SSL-Certificate-to-Cloud-Service)
+3. [Update SSL Certificate in Service Configuration File](#Update-SSL-Certificate-in-Service-Configuration-File)
 
-### Использование существующего сертификата в PFX-файле
+### <a name="to-use-an-existing-certificate-in-a-pfx-file"></a>To use an existing certificate in a PFX file
 
-1. [Передача SSL-сертификата в облачную службу](#Upload-SSL-Certificate-to-Cloud-Service)
-2. [Обновление SSL-сертификата в файле конфигурации службы](#Update-SSL-Certificate-in-Service-Configuration-File)
+1. [Upload SSL Certificate to Cloud Service](#Upload-SSL-Certificate-to-Cloud-Service)
+2. [Update SSL Certificate in Service Configuration File](#Update-SSL-Certificate-in-Service-Configuration-File)
 
-## Настройка сертификатов клиента
-Для проверки подлинности запросов к службе требуются сертификаты клиентов. Выберите наиболее подходящий из этих трех сценариев и выполните все шаги.
+## <a name="to-configure-client-certificates"></a>To configure client certificates
+Client certificates are required in order to authenticate requests to the service. Choose the most applicable of the three scenarios below, and execute all its steps:
 
-### Отключение сертификатов клиента
-1.    [Отключение аутентификации на основе сертификата клиента](#Turn-Off-Client-Certificate-Based-Authentication)
+### <a name="turn-off-client-certificates"></a>Turn off client certificates
+1.    [Turn Off Client Certificate-Based Authentication](#Turn-Off-Client-Certificate-Based-Authentication)
 
-### Выдача новых самозаверяющих сертификатов клиента
-1.    [Создание центра самозаверяющей сертификации](#Create-a-Self-Signed-Certification-Authority)
-2.    [Передача сертификата ЦС в облачную службу](#Upload-CA-Certificate-to-Cloud-Service)
-3.    [Обновление сертификата ЦС в файле конфигурации службы](#Update-CA-Certificate-in-Service-Configuration-File)
-4.    [Выдача сертификатов клиентов](#Issue-Client-Certificates)
-5.    [Создание PFX-файлов для сертификатов клиента](#Create-PFX-files-for-Client-Certificates)
-6.    [Импорт сертификата клиента](#Import-Client-Certificate)
-7.    [Копирование отпечатков сертификатов клиента](#Copy-Client-Certificate-Thumbprints)
-8.    [Настройка разрешенных клиентов в файле конфигурации службы](#Configure-Allowed-Clients-in-the-Service-Configuration-File)
+### <a name="issue-new-self-signed-client-certificates"></a>Issue new self-signed client certificates
+1.    [Create a Self-Signed Certification Authority](#Create-a-Self-Signed-Certification-Authority)
+2.    [Upload CA Certificate to Cloud Service](#Upload-CA-Certificate-to-Cloud-Service)
+3.    [Update CA Certificate in Service Configuration File](#Update-CA-Certificate-in-Service-Configuration-File)
+4.    [Issue Client Certificates](#Issue-Client-Certificates)
+5.    [Create PFX files for Client Certificates](#Create-PFX-files-for-Client-Certificates)
+6.    [Import Client Certificate](#Import-Client-Certificate)
+7.    [Copy Client Certificate Thumbprints](#Copy-Client-Certificate-Thumbprints)
+8.    [Configure Allowed Clients in the Service Configuration File](#Configure-Allowed-Clients-in-the-Service-Configuration-File)
 
-### Использование существующих сертификатов клиентов
-1.    [Поиск открытого ключа центра сертификации](Find#CA#Public Key)
-2.    [Передача сертификата ЦС в облачную службу](#Upload-CA-certificate-to-cloud-service)
-3.    [Обновление сертификата ЦС в файле конфигурации службы](#Update-CA-Certificate-in-Service-Configuration-File)
-4.    [Копирование отпечатков сертификатов клиента](#Copy-Client-Certificate-Thumbprints)
-5.    [Настройка допустимых клиентов в файле конфигурации службы](Configure#Allowed#Clients#in#the#Service#Configuration File)
-6.    [Настройка проверки отзыва сертификата клиента](#Configure-Client-Certificate-Revocation-Check)
+### <a name="use-existing-client-certificates"></a>Use existing client certificates
+1.    [Find CA Public Key](#Find-CA-Public Key)
+2.    [Upload CA Certificate to Cloud Service](#Upload-CA-certificate-to-cloud-service)
+3.    [Update CA Certificate in Service Configuration File](#Update-CA-Certificate-in-Service-Configuration-File)
+4.    [Copy Client Certificate Thumbprints](#Copy-Client-Certificate-Thumbprints)
+5.    [Configure Allowed Clients in the Service Configuration File](#Configure-Allowed-Clients-in-the-Service-Configuration File)
+6.    [Configure Client Certificate Revocation Check](#Configure-Client-Certificate-Revocation-Check)
 
-## Разрешенные IP-адреса
+## <a name="allowed-ip-addresses"></a>Allowed IP addresses
 
-Доступ к конечным точкам службы может быть ограничен для определенных диапазонов IP-адресов.
+Access to the service endpoints can be restricted to specific ranges of IP addresses.
 
-## Настройка шифрования для хранилища
+## <a name="to-configure-encryption-for-the-store"></a>To configure encryption for the store
 
-Сертификат необходим для шифрования учетных данных, которые хранятся в хранилище метаданных. Выберите наиболее подходящий из этих трех сценариев и выполните все шаги.
+A certificate is required to encrypt the credentials that are stored in the metadata store. Choose the most applicable of the three scenarios below, and execute all its steps:
 
-### Использование нового самозаверяющего сертификата
+### <a name="use-a-new-self-signed-certificate"></a>Use a new self-signed certificate
 
-1.     [Создание самозаверяющего сертификата](#Create-a-Self-Signed-Certificate)
-2.     [Создание PFX-файла для самозаверяющего сертификата шифрования](#Create-PFX-file-for-Self-Signed-Encryption-Certificate)
-3.     [Передача сертификата шифрования в облачную службу](#Upload-Encryption-Certificate-to-Cloud-Service)
-4.     [Обновление сертификата шифрования в файле конфигурации службы](#Update-Encryption-Certificate-in-Service-Configuration-File)
+1.     [Create a Self-Signed Certificate](#Create-a-Self-Signed-Certificate)
+2.     [Create PFX file for Self-Signed Encryption Certificate](#Create-PFX-file-for-Self-Signed-Encryption-Certificate)
+3.     [Upload Encryption Certificate to Cloud Service](#Upload-Encryption-Certificate-to-Cloud-Service)
+4.     [Update Encryption Certificate in Service Configuration File](#Update-Encryption-Certificate-in-Service-Configuration-File)
 
-### Использование существующего сертификата из хранилища сертификатов
+### <a name="use-an-existing-certificate-from-the-certificate-store"></a>Use an existing certificate from the certificate store
 
-1.     [Экспорт сертификата шифрования из хранилища сертификатов](#Export-Encryption-Certificate-From-Certificate-Store)
-2.     [Передача сертификата шифрования в облачную службу](#Upload-Encryption-Certificate-to-Cloud-Service)
-3.     [Обновление сертификата шифрования в файле конфигурации службы](#Update-Encryption-Certificate-in-Service-Configuration-File)
+1.     [Export Encryption Certificate From Certificate Store](#Export-Encryption-Certificate-From-Certificate-Store)
+2.     [Upload Encryption Certificate to Cloud Service](#Upload-Encryption-Certificate-to-Cloud-Service)
+3.     [Update Encryption Certificate in Service Configuration File](#Update-Encryption-Certificate-in-Service-Configuration-File)
 
-### Использование существующего сертификата в PFX-файле
+### <a name="use-an-existing-certificate-in-a-pfx-file"></a>Use an existing certificate in a PFX file
 
-1.     [Передача сертификата шифрования в облачную службу](#Upload-Encryption-Certificate-to-Cloud-Service)
-2.     [Обновление сертификата шифрования в файле конфигурации службы](#Update-Encryption-Certificate-in-Service-Configuration-File)
+1.     [Upload Encryption Certificate to Cloud Service](#Upload-Encryption-Certificate-to-Cloud-Service)
+2.     [Update Encryption Certificate in Service Configuration File](#Update-Encryption-Certificate-in-Service-Configuration-File)
 
-## Конфигурация по умолчанию
+## <a name="the-default-configuration"></a>The default configuration
 
-В конфигурации по умолчанию запрещен любой доступ к конечной точке HTTP. Это рекомендуемый параметр, так как запросы к этим конечным точкам могут содержать конфиденциальную информацию, например учетные данные базы данных. В конфигурации по умолчанию разрешен доступ к конечной точке HTTPS. Этот параметр в дальнейшем может быть ограничен.
+The default configuration denies all access to the HTTP endpoint. This is the recommended setting, since the requests to these endpoints may carry sensitive information like database credentials.
+The default configuration allows all access to the HTTPS endpoint. This setting may be restricted further.
 
-### Изменение конфигурации
+### <a name="changing-the-configuration"></a>Changing the Configuration
 
-Применяемые группы правил контроля доступа и конечная точка настраиваются в разделе **<EndpointAcls>** **файла конфигурации службы**.
+The group of access control rules that apply to and endpoint are configured in the **<EndpointAcls>** section in the **service configuration file**.
 
     <EndpointAcls>
       <EndpointAcl role="SplitMergeWeb" endPoint="HttpIn" accessControl="DenyAll" />
       <EndpointAcl role="SplitMergeWeb" endPoint="HttpsIn" accessControl="AllowAll" />
     </EndpointAcls>
 
-Правила в группе управления доступом настраиваются в разделе <AccessControl name=""> файла конфигурации службы.
+The rules in an access control group are configured in a <AccessControl name=""> section of the service configuration file. 
 
-Описание формата содержится в документации по спискам управления сетевым доступом. Например, правила, позволяющие разрешить получение доступа к конечной точке HTTPS только IP-адресам в диапазоне от 100.100.0.0 до 100.100.255.255, будут выглядеть следующим образом:
+The format is explained in Network Access Control Lists documentation.
+For example, to allow only IPs in the range 100.100.0.0 to 100.100.255.255 to access the HTTPS endpoint, the rules would look like this:
 
     <AccessControl name="Retricted">
       <Rule action="permit" description="Some" order="1" remoteSubnet="100.100.0.0/16"/>
@@ -144,50 +147,50 @@ SSL-сертификат требуется для шифрования при �
     <EndpointAcls>
     <EndpointAcl role="SplitMergeWeb" endPoint="HttpsIn" accessControl="Restricted" />
 
-## Предотвращение отказа в обслуживании
+## <a name="denial-of-service-prevention"></a>Denial of service prevention
 
-Существует два различных механизма, поддерживаемых для выявления и предотвращения атак в виде отказа в обслуживании.
+There are two different mechanisms supported to detect and prevent Denial of Service attacks:
 
-*    Ограничение количества одновременных запросов на удаленный узел (по умолчанию отключено)
-*    Ограничение частоты доступа в расчете на удаленный узел (включено по умолчанию)
+*    Restrict number of concurrent requests per remote host (off by default)
+*    Restrict rate of access per remote host (on by default)
 
-Они основаны на функциях, более подробно документированных в Dynamic IP Security в IIS. При изменении этой конфигурации имейте в виду следующие факторы.
+These are based on the features further documented in Dynamic IP Security in IIS. When changing this configuration beware of the following factors:
 
-* Поведение прокси-серверов и устройств преобразования сетевых адресов в отношении информации удаленного хоста (узла)
-* Учитывается каждый запрос к любому ресурсу в веб-роли (например, загрузки скриптов, изображений и т. д.)
+* The behavior of proxies and Network Address Translation devices over the remote host information
+* Each request to any resource in the web role is considered (e.g. loading scripts, images, etc)
 
-## Ограничение числа одновременных обращений
+## <a name="restricting-number-of-concurrent-accesses"></a>Restricting number of concurrent accesses
 
-Ниже перечислены параметры, с помощью которых настраивается их действие.
+The settings that configure this behavior are:
 
     <Setting name="DynamicIpRestrictionDenyByConcurrentRequests" value="false" />
     <Setting name="DynamicIpRestrictionMaxConcurrentRequests" value="20" />
 
-Измените значение DynamicIpRestrictionDenyByConcurrentRequests на true, чтобы включить эту защиту.
+Change DynamicIpRestrictionDenyByConcurrentRequests to true to enable this protection.
 
-## Ограничение частоты доступа
+## <a name="restricting-rate-of-access"></a>Restricting rate of access
 
-Ниже перечислены параметры, с помощью которых настраивается их действие.
+The settings that configure this behavior are:
 
     <Setting name="DynamicIpRestrictionDenyByRequestRate" value="true" />
     <Setting name="DynamicIpRestrictionMaxRequests" value="100" />
     <Setting name="DynamicIpRestrictionRequestIntervalInMilliseconds" value="2000" />
 
-## Настройка ответа на отклоненный запрос
+## <a name="configuring-the-response-to-a-denied-request"></a>Configuring the response to a denied request
 
-Следующий параметр позволяет настроить ответ на отклоненный запрос.
+The following setting configures the response to a denied request:
 
     <Setting name="DynamicIpRestrictionDenyAction" value="AbortRequest" />
-По вопросу иных поддерживаемых значений обратитесь к документации по динамической IP-безопасности в IIS.
+Refer to the documentation for Dynamic IP Security in IIS for other supported values.
 
-## Операции настройки службы сертификатов
-Этот раздел предназначен только для справки. Выполните этапы настройки, описанные в:
+## <a name="operations-for-configuring-service-certificates"></a>Operations for configuring service certificates
+This topic is for reference only. Please follow the configuration steps outlined in:
 
-* Настройка SSL-сертификата
-* Настройка сертификатов клиентов
+* Configure the SSL certificate
+* Configure client certificates
 
-## Создание самозаверяющего сертификата
-Выполните:
+## <a name="create-a-self-signed-certificate"></a>Create a self-signed certificate
+Execute:
 
     makecert ^
       -n "CN=myservice.cloudapp.net" ^
@@ -196,64 +199,64 @@ SSL-сертификат требуется для шифрования при �
       -a sha1 -len 2048 ^
       -sv MySSL.pvk MySSL.cer
 
-Чтобы настроить:
+To customize:
 
-*    -n с URL-адресом службы. Поддерживаются подстановочные знаки ("CN=*.cloudapp.net") и альтернативные имена ("CN=myservice1.cloudapp.net, CN=myservice2.cloudapp.net").
-*    -e со сроком действия сертификата Создайте надежный пароль и укажите его при появлении запроса.
+*    -n with the service URL. Wildcards ("CN=*.cloudapp.net") and alternative names ("CN=myservice1.cloudapp.net, CN=myservice2.cloudapp.net") are supported.
+*    -e with the certificate expiration date Create a strong password and specify it when prompted.
 
-## Создание PFX-файла для самозаверяющего SSL-сертификата
+## <a name="create-pfx-file-for-self-signed-ssl-certificate"></a>Create PFX file for self-signed SSL certificate
 
-Выполните:
+Execute:
 
         pvk2pfx -pvk MySSL.pvk -spc MySSL.cer
 
-Введите пароль, а затем экспортируйте сертификат с этими параметрами.
-* Да, экспортировать закрытый ключ
-* Экспортировать все расширенные свойства.
+Enter password and then export certificate with these options:
+* Yes, export the private key
+* Export all extended properties
 
-## Экспортировать SSL-сертификат из хранилища сертификатов
+## <a name="export-ssl-certificate-from-certificate-store"></a>Export SSL certificate from certificate store
 
-* Поиск сертификата
-* Выберите «Действия > Все задачи > Экспортировать…»
-* Экспортируйте сертификат в PFX-файл со следующими параметрами.
-    * Да, экспортировать закрытый ключ
-    * По возможности включите все сертификаты в путь сертификации *Экспортировать все расширенные свойства.
+* Find certificate
+* Click Actions -> All tasks -> Export…
+* Export certificate into a .PFX file with these options:
+    * Yes, export the private key
+    * Include all certificates in the certification path if possible *Export all extended properties
 
-## Передача SSL-сертификата в облачную службу
+## <a name="upload-ssl-certificate-to-cloud-service"></a>Upload SSL certificate to cloud service
 
-Отправьте сертификат с существующим или созданным .PFX-файлом с помощью пары ключей SSL.
+Upload certificate with the existing or generated .PFX file with the SSL key pair:
 
-* Введите пароль, защищающий данные закрытого ключа
+* Enter the password protecting the private key information
 
-## Обновление SSL-сертификата в файле конфигурации службы
+## <a name="update-ssl-certificate-in-service-configuration-file"></a>Update SSL certificate in service configuration file
 
-Обновите значения отпечатка следующего параметра в файле конфигурации службы значением отпечатка сертификата, отправленного в облачную службу.
+Update the thumbprint value of the following setting in the service configuration file with the thumbprint of the certificate uploaded to the cloud service:
 
     <Certificate name="SSL" thumbprint="" thumbprintAlgorithm="sha1" />
 
-## Импорт центра сертификации SSL
+## <a name="import-ssl-certification-authority"></a>Import SSL certification authority
 
-Выполните эти шаги на всех учетных записях или компьютерах, которые будут взаимодействовать со службой.
+Follow these steps in all account/machine that will communicate with the service:
 
-* Дважды нажмите файл .CER в проводнике Windows
-* В диалоговом окне сертификата нажмите «Установить сертификат...»
-* Импортируйте сертификат в хранилище доверенных корневых центров сертификации
+* Double-click the .CER file in Windows Explorer
+* In the Certificate dialog, click Install Certificate…
+* Import certificate into the Trusted Root Certification Authorities store
 
-## Отключение аутентификации на основе сертификата клиента
+## <a name="turn-off-client-certificate-based-authentication"></a>Turn off client certificate-based authentication
 
-Проверка подлинности клиента поддерживается только на основе сертификата, и ее отключение откроет общий доступ к конечным точкам службы, если только не используются другие механизмы (например, виртуальная сеть Microsoft Azure).
+Only client certificate-based authentication is supported and disabling it will allow for public access to the service endpoints, unless other mechanisms are in place (e.g. Microsoft Azure Virtual Network).
 
-Присвойте этим параметрам значение false в файле конфигурации службы, если нужно отключить эту функцию.
+Change these settings to false in the service configuration file to turn the feature off:
 
     <Setting name="SetupWebAppForClientCertificates" value="false" />
     <Setting name="SetupWebserverForClientCertificates" value="false" />
 
-Затем скопируйте тот же отпечаток, что и SSL-сертификат, в параметр сертификата ЦС.
+Then, copy the same thumbprint as the SSL certificate in the CA certificate setting:
 
     <Certificate name="CA" thumbprint="" thumbprintAlgorithm="sha1" />
 
-## Создание центра самозаверяющих сертификатов
-Выполните следующие шаги для создания самозаверяющего сертификата, выступающего в качестве центра сертификации.
+## <a name="create-a-self-signed-certification-authority"></a>Create a self-signed certification authority
+Execute the following steps to create a self-signed certificate to act as a Certification Authority:
 
     makecert ^
     -n "CN=MyCA" ^
@@ -263,51 +266,51 @@ SSL-сертификат требуется для шифрования при �
       -sr localmachine -ss my ^
       MyCA.cer
 
-Как настроить
+To customize it
 
-*    -e с датой окончания срока действия сертификации
+*    -e with the certification expiration date
 
 
-## Поиск открытого ключа ЦС
+## <a name="find-ca-public-key"></a>Find CA public key
 
-Все сертификаты клиента должны быть выданы центром сертификации, уполномоченным данной службой. Найдите открытый ключ в том центре сертификации, который выдал сертификаты клиента, использование которых предусмотрено для проверки подлинности, чтобы передать его в облачную службу.
+All client certificates must have been issued by a Certification Authority trusted by the service. Find the public key to the Certification Authority that issued the client certificates that are going to be used for authentication in order to upload it to the cloud service.
 
-Если файл с открытым ключом недоступен, экспортируйте его из хранилища сертификатов:
+If the file with the public key is not available, export it from the certificate store:
 
-* Поиск сертификата
-    * Поиск сертификата клиента, выданного этим же центром сертификации
-* Дважды щелкните сертификат.
-* Перейдите на вкладку "Путь сертификации" в диалоговом окне "Сертификат".
-* Дважды щелкните запись центра сертификации в пути.
-* Запишите свойства сертификата.
-* Закройте диалоговое окно **Сертификат**.
-* Поиск сертификата
-    * Найдите центр сертификации, записанный ранее.
-* Выберите «Действия > Все задачи > Экспортировать…»
-* Экспортируйте сертификат в .CER с этими параметрами:
-    * **Нет, не экспортировать закрытый ключ**
-    * По возможности включить все сертификаты в путь сертификации.
-    * Экспортировать все расширенные свойства.
+* Find certificate
+    * Search for a client certificate issued by the same Certification Authority
+* Double-click the certificate.
+* Select the Certification Path tab in the Certificate dialog.
+* Double-click the CA entry in the path.
+* Take notes of the certificate properties.
+* Close the **Certificate** dialog.
+* Find certificate
+    * Search for the CA noted above.
+* Click Actions -> All tasks -> Export…
+* Export certificate into a .CER with these options:
+    * **No, do not export the private key**
+    * Include all certificates in the certification path if possible.
+    * Export all extended properties.
 
-## Передача сертификата ЦС в облачную службу
+## <a name="upload-ca-certificate-to-cloud-service"></a>Upload CA certificate to cloud service
 
-Передайте сертификат с существующим или созданным файлом .CER при помощи открытого ключа центра сертификации.
+Upload certificate with the existing or generated .CER file with the CA public key.
 
-## Обновление сертификата ЦС в файле конфигурации службы
+## <a name="update-ca-certificate-in-service-configuration-file"></a>Update CA certificate in service configuration file
 
-Обновите значения отпечатка следующего параметра в файле конфигурации службы значением отпечатка сертификата, отправленного в облачную службу.
+Update the thumbprint value of the following setting in the service configuration file with the thumbprint of the certificate uploaded to the cloud service:
 
     <Certificate name="CA" thumbprint="" thumbprintAlgorithm="sha1" />
 
-Обновите значение следующего параметра значением того же отпечатка.
+Update the value of the following setting with the same thumbprint:
 
     <Setting name="AdditionalTrustedRootCertificationAuthorities" value="" />
 
-## Выдача сертификатов клиента
+## <a name="issue-client-certificates"></a>Issue client certificates
 
-Каждое лицо, получившее разрешение на доступ к службе, должно иметь сертификат клиента, выданный для исключительного использования данным лицом. При этом такому лицу требуется выбрать надежный пароль для защиты своего закрытого ключа.
+Each individual authorized to access the service should have a client certificate issued for his/hers exclusive use and should choose his/hers own strong password to protect its private key. 
 
-На том же компьютере, где был создан и хранился самозаверяющий сертификат ЦС, необходимо выполнить следующие шаги.
+The following steps must be executed in the same machine where the self-signed CA certificate was generated and stored:
 
     makecert ^
       -n "CN=My ID" ^
@@ -317,176 +320,178 @@ SSL-сертификат требуется для шифрования при �
       -in "MyCA" -ir localmachine -is my ^
       -sv MyID.pvk MyID.cer
 
-Настройка.
+Customizing:
 
-* -n с идентификатором клиента, который будет проходить проверку подлинности с этим сертификатом
-* -e с датой окончания срока действия сертификата
-* MyID.pvk и MyID.cer с уникальными именами файлов для этого сертификата клиента
+* -n with an ID for to the client that will be authenticated with this certificate
+* -e with the certificate expiration date
+* MyID.pvk and MyID.cer with unique filenames for this client certificate
 
-Эта команда запросит создать пароль и однократно его использовать. Используйте надежный пароль.
+This command will prompt for a password to be created and then used once. Use a strong password.
 
-## Создание PFX-файлов для сертификатов клиента
+## <a name="create-pfx-files-for-client-certificates"></a>Create PFX files for client certificates
 
-Для каждого созданного сертификата клиента выполните следующее.
+For each generated client certificate, execute:
 
     pvk2pfx -pvk MyID.pvk -spc MyID.cer
 
-Настройка.
+Customizing:
 
     MyID.pvk and MyID.cer with the filename for the client certificate
 
-Введите пароль, а затем экспортируйте сертификат с этими параметрами.
+Enter password and then export certificate with these options:
 
-* Да, экспортировать закрытый ключ
-* Экспортировать все расширенные свойства.
-* Лицо, которому выдается данный сертификат, должно выбрать пароль экспорта
+* Yes, export the private key
+* Export all extended properties
+* The individual to whom this certificate is being issued should choose the export password
 
-## Импорт сертификата клиента
+## <a name="import-client-certificate"></a>Import client certificate
 
-Каждое лицо, которому был выдан сертификат клиента, должно импортировать пару ключей в те компьютеры, которые данное лицо будет использовать для взаимодействия со службой:
+Each individual for whom a client certificate has been issued should import the key pair in the machines he/she will use to communicate with the service:
 
-* Дважды щелкните .PFX-файл в проводнике Windows
-* Импортируйте сертификат в личное хранилище по крайней мере с этим параметром:
-    * Включить все расширенные свойства проверки
+* Double-click the .PFX file in Windows Explorer
+* Import certificate into the Personal store with at least this option:
+    * Include all extended properties checked
 
-## Копирование отпечатков сертификата клиента
-Каждое лицо, которому был выдан сертификат клиента, должно выполнить следующие шаги для получения отпечатка своего сертификата, который будет добавлен в файл конфигурации службы:
-* Запустите certmgr.exe
-* Выберите вкладку Личные
-* Дважды щелкните сертификат клиента, который будет использоваться для проверки подлинности
-* В открывшемся диалоговом окне сертификата перейдите на вкладку "Подробности"
-* Убедитесь, что в разделе "Показать" выбран вариант "Все"
-* Выберите в списке поле с именем "Отпечаток"
-* Скопируйте значение отпечатка.
-** Удалите неотображаемые знаки Юникода перед первой цифрой.
-** Удалите все пробелы.
+## <a name="copy-client-certificate-thumbprints"></a>Copy client certificate thumbprints
+Each individual for whom a client certificate has been issued must follow these steps in order to obtain the thumbprint of his/hers certificate which will be added to the service configuration file:
+* Run certmgr.exe
+* Select the Personal tab
+* Double-click the client certificate to be used for authentication
+* In the Certificate dialog that opens, select the Details tab
+* Make sure Show is displaying All
+* Select the field named Thumbprint in the list
+* Copy the value of the thumbprint ** Delete non-visible Unicode characters in front of the first digit ** Delete all spaces
 
-## Настройка разрешенных клиентов в файле конфигурации службы
+## <a name="configure-allowed-clients-in-the-service-configuration-file"></a>Configure Allowed clients in the service configuration file
 
-Обновите значение следующего параметра в файле конфигурации службы списком отпечатков сертификатов клиента, разделенных запятыми, которым разрешен доступ к службе.
+Update the value of the following setting in the service configuration file with a comma-separated list of the thumbprints of the client certificates allowed access to the service:
 
     <Setting name="AllowedClientCertificateThumbprints" value="" />
 
-## Настройка проверки отзыва сертификата клиента
+## <a name="configure-client-certificate-revocation-check"></a>Configure client certificate revocation check
 
-При значении по умолчанию проверка статуса отзыва сертификата клиента в центре сертификации не выполняется. Чтобы включить проверку при ее поддержке центром сертификации, выдавшим сертификат клиента, измените следующий параметр одним из значений, определенных в перечислении X509RevocationMode:
+The default setting does not check with the Certification Authority for client certificate revocation status. To turn on the checks, if the Certification Authority which issued the client certificates supports such checks, change the following setting with one of the values defined in the X509RevocationMode Enumeration:
 
     <Setting name="ClientCertificateRevocationCheck" value="NoCheck" />
 
-## Создание PFX-файла для самозаверяющих сертификатов шифрования
+## <a name="create-pfx-file-for-self-signed-encryption-certificates"></a>Create PFX file for self-signed encryption certificates
 
-Для сертификата шифрования выполните следующую команду:
+For an encryption certificate, execute:
 
     pvk2pfx -pvk MyID.pvk -spc MyID.cer
 
-Настройка.
+Customizing:
 
     MyID.pvk and MyID.cer with the filename for the encryption certificate
 
-Введите пароль, а затем экспортируйте сертификат с этими параметрами.
-*    Да, экспортировать закрытый ключ
-*    Экспортировать все расширенные свойства.
-*    При отправке сертификата в облачную службу потребуется пароль.
+Enter password and then export certificate with these options:
+*    Yes, export the private key
+*    Export all extended properties
+*    You will need the password when uploading the certificate to the cloud service.
 
-## Экспорт сертификата шифрования из хранилища сертификатов.
+## <a name="export-encryption-certificate-from-certificate-store"></a>Export encryption certificate from certificate store
 
-*    Поиск сертификата
-*    Выберите «Действия > Все задачи > Экспортировать…»
-*    Экспортируйте сертификат в PFX-файл со следующими параметрами. 
-  *    Да, экспортировать закрытый ключ
-  *    Включить, по возможности, все сертификаты в путь сертификации 
-*    Экспортировать все расширенные свойства.
+*    Find certificate
+*    Click Actions -> All tasks -> Export…
+*    Export certificate into a .PFX file with these options: 
+  *    Yes, export the private key
+  *    Include all certificates in the certification path if possible 
+*    Export all extended properties
 
-## Передача сертификата шифрования в облачную службу
+## <a name="upload-encryption-certificate-to-cloud-service"></a>Upload encryption certificate to cloud service
 
-Отправьте сертификат с существующим или созданным .PFX-файлом с помощью пары ключей SSL.
+Upload certificate with the existing or generated .PFX file with the encryption key pair:
 
-* Введите пароль, защищающий данные закрытого ключа
+* Enter the password protecting the private key information
 
-## Обновление сертификата шифрования в файле конфигурации службы
+## <a name="update-encryption-certificate-in-service-configuration-file"></a>Update encryption certificate in service configuration file
 
-Замените значения отпечатка следующих параметров в файле конфигурации службы значением отпечатка сертификата, отправленного в облачную службу.
+Update the thumbprint value of the following settings in the service configuration file with the thumbprint of the certificate uploaded to the cloud service:
 
     <Certificate name="DataEncryptionPrimary" thumbprint="" thumbprintAlgorithm="sha1" />
 
-## Стандартные операции сертификата
+## <a name="common-certificate-operations"></a>Common certificate operations
 
-* Настройка SSL-сертификата
-* Настройка сертификатов клиентов
+* Configure the SSL certificate
+* Configure client certificates
 
-## Поиск сертификата
+## <a name="find-certificate"></a>Find certificate
 
-Выполните следующие действия.
+Follow these steps:
 
-1. Запустите mmc.exe.
-2. Файл -> Добавить/удалить оснастку...
-3. Выберите **Сертификаты**.
-4. Щелкните **Добавить**.
-5. Выберите расположение хранилища сертификатов.
-6. Нажмите кнопку **Готово**
-7. Нажмите кнопку **ОК**.
-8. Разверните узел **Сертификаты**.
-9. Разверните хранилище сертификатов.
-10. Разверните дочерний узел сертификата.
-11. Выберите сертификат из списка.
+1. Run mmc.exe.
+2. File -> Add/Remove Snap-in…
+3. Select **Certificates**.
+4. Click **Add**.
+5. Choose the certificate store location.
+6. Click **Finish**.
+7. Click **OK**.
+8. Expand **Certificates**.
+9. Expand the certificate store node.
+10. Expand the Certificate child node.
+11. Select a certificate in the list.
 
-## Экспорт сертификата
-В **мастере экспорта сертификатов**:
+## <a name="export-certificate"></a>Export certificate
+In the **Certificate Export Wizard**:
 
-1. Нажмите кнопку **Далее**.
-2. Выберите **Да** и затем **Экспортировать закрытый ключ**.
-3. Нажмите кнопку **Далее**.
-4. Выберите нужный формат выходного файла.
-5. Проверьте необходимые параметры.
-6. Проверьте **Пароль**.
-7. Введите надежный пароль и подтвердите его.
-8. Нажмите кнопку **Далее**.
-9. Введите или выберите имя файла, в котором будет храниться сертификат (используйте расширение .PFX).
-10. Нажмите кнопку **Далее**.
-11. Нажмите кнопку **Готово**
-12. Нажмите кнопку **ОК**.
+1. Click **Next**.
+2. Select **Yes**, then **Export the private key**.
+3. Click **Next**.
+4. Select the desired output file format.
+5. Check the desired options.
+6. Check **Password**.
+7. Enter a strong password and confirm it.
+8. Click **Next**.
+9. Type or browse a filename where to store the certificate (use a .PFX extension).
+10. Click **Next**.
+11. Click **Finish**.
+12. Click **OK**.
 
-## Импорт сертификата
+## <a name="import-certificate"></a>Import certificate
 
-В мастере импорта сертификатов:
+In the Certificate Import Wizard:
 
-1. Выберите расположение хранилища.
+1. Select the store location.
 
-    * Выберите **Текущий пользователь**, если доступ к службе будет только у тех процессов, которые запущены под учетной записью текущего пользователя.
-    * Выберите **Локальный компьютер**, если доступ к службе будет и у других процессов на этом компьютере.
-2. Нажмите кнопку **Далее**.
-3. При импорте из файла подтвердите путь к файлу.
-4. При импорте .PFX-файла:
-    1.     Введите пароль, защищающий закрытый ключ
-    2.     Выберите параметры импорта
-5.     Выберите "Разместить" сертификаты в следующее хранилище.
-6.     Щелкните **Обзор**.
-7.     Выберите нужное хранилище.
-8.     Нажмите кнопку **Готово**
+    * Select **Current User** if only processes running under current user will access the service
+    * Select **Local Machine** if other processes in this computer will access the service
+2. Click **Next**.
+3. If importing from a file, confirm the file path.
+4. If importing a .PFX file:
+    1.     Enter the password protecting the private key
+    2.     Select import options
+5.     Select "Place" certificates in the following store
+6.     Click **Browse**.
+7.     Select the desired store.
+8.     Click **Finish**.
        
-    * Если хранилище доверенного корневого центра сертификации выбрано, щелкните **Да**.
-9.     Нажмите кнопку **ОК** во всех диалоговых окнах.
+    * If the Trusted Root Certification Authority store was chosen, click **Yes**.
+9.     Click **OK** on all dialog windows.
 
-## Передача сертификата
+## <a name="upload-certificate"></a>Upload certificate
 
-На [портале Azure](https://portal.azure.com/)
+In the [Azure Portal](https://portal.azure.com/)
 
-1. Выберите **Облачные службы**.
-2. Выберите облачную службу.
-3. Щелкните **Сертификаты** в верхнем меню.
-4. На нижней панели щелкните **Передать**.
-5. Выберите файл сертификата.
-6. Если это PFX-файл, введите пароль для закрытого ключа.
-7. После завершения скопируйте отпечаток сертификата из новой записи в списке.
+1. Select **Cloud Services**.
+2. Select the cloud service.
+3. On the top menu, click **Certificates**.
+4. On the bottom bar, click **Upload**.
+5. Select the certificate file.
+6. If it is a .PFX file, enter the password for the private key.
+7. Once completed, copy the certificate thumbprint from the new entry in the list.
 
-## Прочие вопросы по безопасности
+## <a name="other-security-considerations"></a>Other security considerations
  
-Описанные в этом документе параметры SSL выполняют шифрование обмена данными между службой и ее клиентами при использовании в конечной точке HTTPS. Это важно, поскольку учетные данные для доступа к базе данных и другие конфиденциальные сведения передаются по каналу связи. Обратите внимание, что служба сохраняет внутренний статус, включая учетные данные, в своих внутренних таблицах базы данных SQL Microsoft Azure, предоставленной вам для хранения метаданных при получении подписки на Microsoft Azure. База данных была определена как часть следующего параметра в вашем файле конфигурации службы (файл .CSCFG):
+The SSL settings described in this document encrypt communication between the service and its clients when the HTTPS endpoint is used. This is important since credentials for database access and potentially other sensitive information are contained in the communication. Note, however, that the service persists internal status, including credentials, in its internal tables in the Microsoft Azure SQL database that you have provided for metadata storage in your Microsoft Azure subscription. That database was defined as part of the following setting in your service configuration file (.CSCFG file): 
 
     <Setting name="ElasticScaleMetadata" value="Server=…" />
 
-Учетные данные, хранящиеся в этой базе данных, будут зашифрованы. Однако рекомендуется убедиться что веб-роли и рабочие роли развертываний службы актуальны и защищены, так как имеют доступ к базе данных метаданных и сертификату, используемому для шифрования и расшифровки сохраненных учетных данных.
+Credentials stored in this database are encrypted. However, as a best practice, ensure that both web and worker roles of your service deployments are kept up to date and secure as they both have access to the metadata database and the certificate used for encryption and decryption of stored credentials. 
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
-<!---HONumber=AcomDC_0601_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

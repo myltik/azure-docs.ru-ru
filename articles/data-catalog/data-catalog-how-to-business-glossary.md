@@ -1,91 +1,96 @@
 <properties
-	pageTitle="Как настроить бизнес-глоссарий для регулируемого добавления тегов | Microsoft Azure"
-	description="Практическое руководство, посвященное применению бизнес-глоссария в каталоге данных Azure для определения и использования общего бизнес-словаря для пометки зарегистрированных ресурсов данных."
-	services="data-catalog"
-	documentationCenter=""
-	authors="steelanddata"
-	manager="NA"
-	editor=""
-	tags=""/>
+    pageTitle="How to set up the Business Glossary for governed tagging | Microsoft Azure"
+    description="How-to article highlighting the business glossary in Azure Data Catalog for defining and using a common business vocabulary to tag registered data assets."
+    services="data-catalog"
+    documentationCenter=""
+    authors="steelanddata"
+    manager="NA"
+    editor=""
+    tags=""/>
 <tags
-	ms.service="data-catalog"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="data-catalog"
-	ms.date="09/21/2016"
-	ms.author="maroche"/>
-
-# Как настроить бизнес-глоссарий для регулируемого добавления тегов
-
-## Введение
-
-В каталоге данных Azure пользователи могут легко находить и оценивать источники данных, необходимые для выполнения анализа и принятия решений. Основное предназначение этой возможности заключается в том, что пользователи могут находить и оценивать самые разные доступные источники данных.
-
-Одной из функций каталога данных, которая значительно повышает уровень понимания данных ресурсов, является добавление тегов. Добавление тегов позволяет связать ключевые слова с ресурсом или столбцом, что, в свою очередь, позволяет упростить обнаружение ресурсов с помощью поиска или обзора и дает пользователям возможность легко понять контекст и назначение ресурса.
-
-Тем не менее иногда теги могут создавать проблемы. Ниже приведено несколько примеров проблем, которые могут создать теги.
-
-1.	Пользователи, использующие сокращения для одних ресурсов и раскрывающие их для других при добавлении тегов. Такая несогласованность затрудняет обнаружение ресурсов, даже если пользователь намеревался пометить ресурсы одинаковыми тегами.
-2.	Теги, которые имеют разный смысл в различных контекстах. Например, тег "Прибыль" на наборе данных клиента может означать прибыль клиента, но такой же тег на наборе данных квартальных продаж может означать квартальную прибыль компании.
-
-Для устранения этих и других аналогичных проблем каталог данных включает в себя бизнес-глоссарий.
-
-Бизнес-глоссарий данных каталога позволяет организациям документировать ключевые бизнес-термины и их определения для создания общего бизнес-словаря. Это регулирование обеспечивает согласованность использования данных в организации. После определения в бизнес-глоссарии термины могут быть назначены ресурсам данных в каталоге, как и теги, что обеспечивает _регулируемое добавление тегов_.
-
-> [AZURE.NOTE] Возможности, описываемые в этой статье, доступны только в стандартном выпуске каталога данных Azure. Выпуск "Бесплатный" не предоставляет возможности для использования регулируемого добавления тегов или бизнес-глоссария.
-
-## Доступность и привилегии глоссария
-
-/*Бизнес-глоссарий доступен в выпуске "Стандартный" каталога данных Azure. Выпуск "Бесплатный" не включает глоссарий.*/
-
-Доступ к бизнес-глоссарию можно получить с помощью параметра "Глоссарий" в меню навигации портала каталога данных.
-
-![Обращение к бизнес-глоссарию](./media/data-catalog-how-to-business-glossary/01-portal-menu.png)
+    ms.service="data-catalog"
+    ms.devlang="NA"
+    ms.topic="article"
+    ms.tgt_pltfrm="NA"
+    ms.workload="data-catalog"
+    ms.date="09/21/2016"
+    ms.author="maroche"/>
 
 
-Создавать, изменять и удалять термины в бизнес-глоссарии могут администраторы каталога данных и участники роли администраторов глоссария. Все пользователи каталога данных могут просматривать определения терминов и помечать ресурсы терминами глоссария.
+# <a name="how-to-set-up-the-business-glossary-for-governed-tagging"></a>How to set up the Business Glossary for Governed Tagging
 
-![Добавление нового термина глоссария](./media/data-catalog-how-to-business-glossary/02-new-term.png)
+## <a name="introduction"></a>Introduction
+
+Azure Data Catalog provides capabilities for data source discovery, enabling users to easily discover and understand the data sources they need to perform analysis and make decisions. These discovery capabilities make the biggest impact when users can find and understand the broadest range of available data sources.
+
+One Data Catalog feature that promotes greater understanding of assets data is tagging. Tagging allows users to associate keywords with an asset or a column, which in turn makes it easier to discover the asset via searching or browsing, and allows users to more easily understand the context and intent of the asset.
+
+However, tagging can sometimes cause problems of its own. Some examples of problems that can be introduced by tagging are:
+
+1.  Users using abbreviations on some assets and expanded text on others while tagging. This inconsistency hinders the discovery of assets even though the intent was to tag the assets with the same tag.
+2.  Tags which mean different things in different contexts. For example, a tag called "Revenue" on a customer data set might mean revenue by customer, but the same tag on a quarterly sales dataset could mean quarterly revenue for the company.  
+
+To help address these and other similar challenges, Data Catalog includes a Business Glossary.
+
+The Data Catalog Business Glossary allows organizations to document key business terms and their definitions to create a common business vocabulary. This governance enables consistency in data usage across the organization. Once terms are defined in the business glossary, they can be assigned to data assets in the catalog, using the same approach as tagging, thereby enabling _governed tagging_.
+
+> [AZURE.NOTE] The functionality described in this article are available only in the Standard Edition of Azure Data Catalog. The Free Edition does not provide capabilities for governed tagging or a business glossary.
+
+## <a name="glossary-availability-and-privileges"></a>Glossary availability and privileges
+
+/*The business glossary is available in the Standard Edition of Azure Data Catalog. The Free Edition of Data Catalog does not include a glossary.*/
+
+The business glossary can be accessed via the "Glossary" option in the Data Catalog portal's navigation menu.  
+
+![Accessing the business glossary](./media/data-catalog-how-to-business-glossary/01-portal-menu.png)
 
 
-## Создание терминов глоссария
+Data Catalog administrators and members of the Glossary Administrators role can create, edit and delete glossary terms in the business glossary. All Data Catalog users can view the term definitions, and can tag assets with glossary terms.
 
-Администраторы каталога данных и администраторы глоссария могут создавать новые термины глоссария с помощью кнопки "Создать термин". Будут созданы термины глоссария со следующими полями.
-
-* Бизнес-определение для термина.
-* Описание предполагаемого использования или бизнес-правил для ресурса или столбца.
-* Список заинтересованных лиц, больше всего знающих о термине.
-* Родительский термин, который определяет иерархию, в которой упорядочен термин.
+![Adding a new glossary term](./media/data-catalog-how-to-business-glossary/02-new-term.png)
 
 
-## Иерархии терминов глоссария
+## <a name="creating-glossary-terms"></a>Creating glossary terms
 
-Бизнес-глоссарий каталога данных дает возможность описать бизнес-словарь в виде иерархии терминов. Это позволяет организациям создать классификацию терминов, которая лучше представляет их бизнес-таксономию.
+Data Catalog administrators and Glossary administrators can create new glossary terms by clicking on the New Term’ button to create glossary terms with the following fields:
 
-Имя термина должно быть уникальным на заданном уровне иерархии — повторяющиеся имена недопустимы. Уровней в иерархии может быть сколько угодно, но обычно она более наглядна при наличии трех или менее уровней.
+* A business definition for the term
+* A description which captures the intended use or business rules for the asset/column
+* A list of stakeholders who know the most about the term
+* The parent term, which defines the hierarchy in which the term is organized
 
-Использование иерархий в бизнес-глоссарии не обязательно. Если оставить пустым родительский термин для терминов глоссария, в глоссарии будет создан плоский (неиерархический) список терминов.
 
-## Пометка ресурсов терминами глоссария
+## <a name="glossary-term-hierarchies"></a>Glossary term hierarchies
 
-После определения терминов глоссария в каталоге возможности пометки ресурсов оптимизируются — поиск в словаре терминов выполняется по мере ввода тега пользователем. На портале каталога данных отображается список совпадающих терминов глоссария, которые может выбрать пользователь. Если пользователь выбирает термин глоссария из списка, он добавляется к ресурсу в виде тега (т. н. тега глоссария). Пользователь также может создать новый тег, введя термин, которого нет в глоссарии (т. н. тег пользователя).
+The Data Catalog business glossary provides the ability to describe your business vocabulary as a hierarchy of terms. This allows organizations to create a classification of terms which better represents their business taxonomy.
 
-![Ресурс данных с одним тегом пользователя и двумя тегами глоссария](./media/data-catalog-how-to-business-glossary/03-tagged-asset.png)
+The name of a term must be unique at a given level of hierarchy - duplicate names are not allowed. There is no limit to the number of levels in a hierarchy, but a hierarchy is often more easily understood when there are three levels or fewer.
 
-> [AZURE.NOTE] Теги пользователя — это единственный тип тега, поддерживаемый в выпуске "Бесплатный" каталога данных.
+The use of hierarchies in the business glossary is optional. Leaving the parent term field blank for glossary terms will create a flat (non-hierarchical) list of terms in the glossary.  
 
-### Поведение при наведении указателя мыши на теги
-На портале каталога данных существует два типа тегов, которые отличаются визуально, с разным поведением при наведении на них указателя мыши. При наведении на тег пользователя можно просмотреть текст тега и пользователя или пользователей, которые добавили тег. При наведении на тег глоссария можно также просмотреть определение термина глоссария и ссылку для открытия бизнес-глоссария, позволяющую увидеть полное определение термина.
+## <a name="tagging-assets-with-glossary-terms"></a>Tagging assets with glossary terms
 
-### Фильтры поиска для тегов
-Теги глоссария и теги пользователя можно искать, используя фильтры поиска.
+Once glossary terms have been defined within the catalog, the experience of tagging assets is optimized to search the glossary as the user types their tag. The Data Catalog portal displays a list of matching glossary terms for the user to choose from. If the user selects a glossary term from the list it is added to the asset as a tag (a.k.a. glossary tag). The user can also choose to create a new tag by typing a term which is not in the glossary (a.k.a. user tag).
 
-## Сводка
-Бизнес-глоссарий в каталоге данных Azure и обеспечиваемое им регулируемое добавление тегов дают возможность согласованно идентифицировать, обнаруживать ресурсы данных и управлять ими. Бизнес-глоссарий может способствовать изучению бизнес-словаря среди пользователей организации и обеспечивает сбор осмысленных метаданных, что сильно упрощает обнаружение и понимание ресурсов.
+![Data asset tagged with one user tag and two glossary tags](./media/data-catalog-how-to-business-glossary/03-tagged-asset.png)
 
-## См. также
+> [AZURE.NOTE] User Tags are the only type of tag supported in the Free Edition of Data Catalog.
 
-- [Документация по REST API для операций с бизнес-глоссарием](https://msdn.microsoft.com/library/mt708855.aspx)
+### <a name="hover-behavior-on-tags"></a>Hover behavior on tags
+In the Data Catalog portal the two types of tags are visually distinct, with different hover behaviors. When the user hovers over a user tag they can see the tag text and the user or users who have added the tag. When the user hovers over a glossary tag, they also see the definition of the glossary term and a link to open the business glossary to view the full definition of the term.
 
-<!---HONumber=AcomDC_0921_2016-->
+### <a name="search-filters-for-tags"></a>Search filters for tags
+Both glossary tags and user tags are searchable, and can be applied as filters in a search.
+
+## <a name="summary"></a>Summary
+The business glossary in Azure Data Catalog, and the governed tagging it enables, allow data assets to be identified, managed, and discovered in a consistent manner. The business glossary can promote learning of the business vocabulary amongst users of an organization and supports meaningful meta-data to be captured, making asset discovery and understanding a breeze.
+
+## <a name="see-also"></a>See Also
+
+- [REST API documentation for business glossary operations](https://msdn.microsoft.com/library/mt708855.aspx)
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

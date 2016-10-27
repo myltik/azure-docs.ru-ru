@@ -1,44 +1,49 @@
 <properties
-	pageTitle="Условный доступ к Azure Active Directory: часто задаваемые вопросы | Microsoft Azure"
-	description="Часто задаваемые вопросы об условном доступе "
-	services="active-directory"
-	documentationCenter=""
-	authors="markusvi"
-	manager="swadhwa"
-	editor=""/>
+    pageTitle="Azure Active Directory Conditional Access FAQ | Microsoft Azure"
+    description="Frequently asked questions about conditional access "
+    services="active-directory"
+    documentationCenter=""
+    authors="MarkusVi"
+    manager="femila"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/26/2016"
-	ms.author="markvi"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/20/2016"
+    ms.author="markvi"/>
 
-# Условный доступ к Azure Active Directory: часто задаваемые вопросы
 
-## Какие приложения работают с политиками условного доступа?
+# <a name="azure-active-directory-conditional-access-faq"></a>Azure Active Directory Conditional Access FAQ
 
-**Ответ.** См. статью[Поддержка условного доступа для приложений](active-directory-conditional-access-supported-apps.md).
+## <a name="which-applications-work-with-conditional-access-policies?"></a>Which applications work with conditional access policies?
 
-## Являются ли политики условного доступа обязательными для службы совместной работы B2B и гостевых пользователей?
+**A:** Please see the topic, [Conditional access- What applications are supported](active-directory-conditional-access-supported-apps.md).
 
-**Ответ.** Политики являются обязательными для пользователей службы совместной работы B2B. Тем не менее в некоторых случаях пользователь может не отвечать требованиям политики, например, если организация не поддерживает многофакторную проверку подлинности.
+## <a name="are-conditional-access-policies-enforced-for-b2b-collaboration-and-guest-users?"></a>Are conditional access policies enforced for B2B collaboration and guest users?
 
-В настоящее время политика не является обязательной для пользователей "Гость" SharePoint. Тип отношений "Гость" поддерживается внутри SharePoint. Политики доступа на сервер проверки подлинности не распространяются на гостевые учетные записи. В SharePoint гостевым доступом можно управлять.
+**A:** Policies are enforced for B2B collaboration users. However, in some cases, a user might not be able to satisfy the policy requirement if, for example, an organization does not support multi-factor authentication. 
 
-## Распространяется ли политика SharePoint Online на OneDrive для бизнеса?
+The policy is currently not enforced for SharePoint guest users. The guest relationship is maintained within SharePoint. Guest users accounts are not subject to access polices at the authentication server. Guest access can be managed at SharePoint.
 
-**Ответ.** Да.
+## <a name="does-a-sharepoint-online-policy-also-apply-to-onedrive-for-business?"></a>Does a SharePoint Online policy also apply to OneDrive for Business?
+
+**A:** Yes.
  
-## Почему не удается задать политику для клиентских приложений, таких как Word или Outlook?
+## <a name="why-can’t-i-set-a-policy-on-client-apps,-like-word-or-outlook?"></a>Why can’t I set a policy on client apps, like Word or Outlook?
 
-**Ответ.** Политика условного доступа устанавливает требования для доступа к службе и является обязательной в случае проверки подлинности в этой службе. Политика не задается непосредственно в клиентском приложении, а применяется при вызове в службу. Например, политика, заданная в SharePoint, применяется к клиентам, вызывающим SharePoint, а политика, заданная в Exchange, применяется к Outlook.
+**A:** A conditional access policy sets requirements for accessing a service and is enforced when authentication happens to that service. The policy is not set directly on a client application; instead, it is applied when it calls into a service. For example, a policy set on SharePoint applies to clients calling SharePoint and a policy set on Exchange applies to Outlook.
 
 
-## Распространяется ли политика условного доступа на учетные записи служб?
+## <a name="does-a-conditional-access-policy-apply-to-service-accounts?"></a>Does a conditional access policy apply to service accounts?
 
-**Ответ.** Политика условного доступа распространяется на все учетные записи пользователей. Это относится и к учетным записям пользователей, которые используются как учетные записи служб. Во многих случаях учетная запись службы, которая выполняется автоматически, не отвечает требованиям политики. Например, это происходит, если требуется многофакторная проверка подлинности. В таких случаях учетные записи служб можно исключить из политики с помощью параметров управления политикой условного доступа. Дополнительные сведения о применении политики к пользователям читайте здесь.
+**A:** Conditional access policies apply to all user accounts. This includes user accounts used as service accounts. In many cases, a service account that runs unattended is not able to satisfy a policy. This is, for example the case, when MFA is required. In these cases, services accounts can be excluded from a policy, using conditional access policy management settings. Learn more about applying a policy to users here.
 
-<!---HONumber=AcomDC_0727_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

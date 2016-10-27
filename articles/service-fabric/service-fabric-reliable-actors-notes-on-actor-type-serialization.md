@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Reliable Actors: примечания о сериализации типов субъектов | Microsoft Azure"
-   description="В этой статье приведены сведения о базовых требованиях к определению сериализуемых классов, которые можно использовать для определения интерфейсов и состояний Reliable Actors в Service Fabric."
+   pageTitle="Reliable Actors notes on actor type serialization | Microsoft Azure"
+   description="Discusses basic requirements for defining serializable classes that can be used to define Service Fabric Reliable Actors states and interfaces"
    services="service-fabric"
    documentationCenter=".net"
    authors="vturecek"
@@ -13,17 +13,18 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/06/2015"
+   ms.date="10/19/2016"
    ms.author="vturecek"/>
 
-# Примечания о сериализации типов надежных субъектов Service Fabric
+
+# <a name="notes-on-service-fabric-reliable-actors-type-serialization"></a>Notes on Service Fabric Reliable Actors type serialization
 
 
-Аргументы всех методов, типы результатов задач, возвращаемых каждым методом в интерфейсе субъекта, и объекты, хранящиеся в диспетчере состояния субъекта, должны быть [сериализуемыми в контракт данных](https://msdn.microsoft.com/library/ms731923.aspx). Это также относится к аргументам методов, определенных в [интерфейсах событий субъекта](service-fabric-reliable-actors-events.md#actor-events). (Методы интерфейсов для событий субъектов всегда возвращают значение void.)
+The arguments of all methods, result types of the tasks returned by each method in an actor interface, and objects stored in an actor's State Manager must be [Data Contract serializable](https://msdn.microsoft.com/library/ms731923.aspx).. This also applies to the arguments of the methods defined in [actor event interfaces](service-fabric-reliable-actors-events.md#actor-events). (Actor event interface methods always return void.)
 
-## Пользовательские типы данных
+## <a name="custom-data-types"></a>Custom data types
 
-В этом примере приведенный ниже интерфейс субъекта определяет метод, возвращающий пользовательский тип данных `VoicemailBox`.
+In this example, the following actor interface defines a method that returns a custom data type called `VoicemailBox`.
 
 ```csharp
 public interface IVoiceMailBoxActor : IActor
@@ -32,12 +33,17 @@ public interface IVoiceMailBoxActor : IActor
 }
 ```
 
-Этот интерфейс реализован субъектом, который использует диспетчер состояния для хранения объекта `VoicemailBox`.
+The interface is impelemented by an actor, which uses the State Manager to store a `VoicemailBox` object:
 
 ```csharp
 [StatePersistence(StatePersistence.Persisted)]
 public class VoiceMailBoxActor : Actor, IVoicemailBoxActor
 {
+    public VoiceMailBoxActor(ActorService actorService, ActorId actorId)
+        : base(actorService, actorId)
+    {
+    }
+
     public Task<VoicemailBox> GetMailboxAsync()
     {
         return this.StateManager.GetStateAsync<VoicemailBox>("Mailbox");
@@ -46,11 +52,11 @@ public class VoiceMailBoxActor : Actor, IVoicemailBoxActor
 
 ```
 
-В этом примере объект `VoicemailBox` сериализуется в следующих случаях.
- - Объект передается между экземпляром субъекта и вызывающим объектом.
- - Объект сохраняется в диспетчере состояния, где он сохраняется на диск и реплицируются на другие узлы.
+In this example, the `VoicemailBox` object is serialized when:
+ - The object is transmitted between an actor instance and a caller.
+ - The object is saved in the State Manager where it is persisted to disk and replicated to other nodes.
  
-Платформа Reliable Actors использует сериализацию DataContract. Таким образом, пользовательские объекты данных и их члены должны быть аннотированы атрибутами **DataContract** и **DataMember**, соответственно.
+The Reliable Actor framework uses DataContract serialization. Therefore, the custom data objects and their members must be annotated with the **DataContract** and **DataMember** attributes, respectively
 
 ```csharp
 [DataContract]
@@ -84,12 +90,16 @@ public class VoicemailBox
 }
 ```
 
-## Дальнейшие действия
- - [Жизненный цикл субъектов и сбор мусора](service-fabric-reliable-actors-lifecycle.md)
- - [Таймеры и напоминания субъекта](service-fabric-reliable-actors-timers-reminders.md)
- - [События субъекта](service-fabric-reliable-actors-events.md)
- - [Повторный вход субъекта](service-fabric-reliable-actors-reentrancy.md)
- - [Полиморфизм субъекта и объектно-ориентированные шаблоны проектирования](service-fabric-reliable-actors-polymorphism.md)
- - [Диагностика и мониторинг производительности в Reliable Actors](service-fabric-reliable-actors-diagnostics.md)
+## <a name="next-steps"></a>Next steps
+ - [Actor lifecycle and garbage collection](service-fabric-reliable-actors-lifecycle.md)
+ - [Actor timers and reminders](service-fabric-reliable-actors-timers-reminders.md)
+ - [Actor events](service-fabric-reliable-actors-events.md)
+ - [Actor reentrancy](service-fabric-reliable-actors-reentrancy.md)
+ - [Actor polymorphism and object-oriented design patterns](service-fabric-reliable-actors-polymorphism.md)
+ - [Actor diagnostics and performance monitoring](service-fabric-reliable-actors-diagnostics.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

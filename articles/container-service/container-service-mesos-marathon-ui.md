@@ -1,13 +1,13 @@
 <properties
-   pageTitle="Управление контейнером службы контейнеров Azure через веб-интерфейс | Microsoft Azure"
-   description="Развертывание контейнеров в кластере службы контейнеров Azure с помощью веб-интерфейса Marathon."
+   pageTitle="Azure Container Service container management through the web UI | Microsoft Azure"
+   description="Deploy containers to an Azure Container Service cluster service by using the Marathon web UI."
    services="container-service"
    documentationCenter=""
    authors="neilpeterson"
    manager="timlt"
    editor=""
    tags="acs, azure-container-service"
-   keywords="Docker, контейнеры, микрослужбы, Mesos, Azure"/>
+   keywords="Docker, Containers, Micro-services, Mesos, Azure"/>
 
 <tags
    ms.service="container-service"
@@ -16,89 +16,94 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="09/19/2016"
-   ms.author="nepeters"/>
+   ms.author="timlt"/>
 
-# Управление контейнерами через веб-интерфейс
 
-DC/OS — это среда для развертывания и масштабирования кластерных рабочих нагрузок, в которой используемое оборудование рассматривается абстрактно. На базе DC/OS работает платформа, которая управляет планированием и выполнением вычислительных рабочих нагрузок.
+# <a name="container-management-through-the-web-ui"></a>Container management through the web UI
 
-Хотя платформы доступны для многих популярных рабочих нагрузок, в этом документе мы рассмотрим создание и масштабирование развертываний контейнеров с помощью Marathon. Для выполнения этих примеров вам потребуется кластер DC/OS, настроенный в службе контейнеров Azure. Необходимо также удаленное подключение к этому кластеру. Дополнительные сведения об этих компонентах см. в следующих статьях.
+DC/OS provides an environment for deploying and scaling clustered workloads, while abstracting the underlying hardware. On top of DC/OS, there is a framework that manages scheduling and executing compute workloads.
 
-- [Развертывание кластера службы контейнеров Azure](container-service-deployment.md)
-- [Подключение к кластеру службы контейнеров Azure](container-service-connect.md)
+While frameworks are available for many popular workloads, this document will describe how you can create and scale container deployments with Marathon. Before working through these examples, you will need a DC/OS cluster that is configured in Azure Container Service. You also need to have remote connectivity to this cluster. For more information on these items, see the following articles:
 
-## Изучение пользовательского интерфейса DC/OS
+- [Deploy an Azure Container Service cluster](container-service-deployment.md)
+- [Connect to an Azure Container Service cluster](container-service-connect.md)
 
-Установив туннель Secure Shell (SSH), перейдите по адресу http://localhost/. Загрузится веб-интерфейс DC/OS, а затем вы увидите сведения о кластере, в том числе об используемых ресурсах, активных агентах и запущенных службах.
+## <a name="explore-the-dc/os-ui"></a>Explore the DC/OS UI
 
-![Пользовательский интерфейс DC/OS](media/dcos/dcos2.png)
+With a Secure Shell (SSH) tunnel established, browse to http://localhost/. This loads the DC/OS web UI and shows information about the cluster, such as used resources, active agents, and running services.
 
-## Изучение пользовательского интерфейса Marathon
+![DC/OS UI](media/dcos/dcos2.png)
 
-Для просмотра пользовательского интерфейса Marathon перейдите по адресу http://localhost/Marathon. На этом экране можно запустить новый контейнер или другие приложения в кластере DC/OS службы контейнеров Azure. Здесь вы также можете просмотреть информацию о работе контейнеров и приложений.
+## <a name="explore-the-marathon-ui"></a>Explore the Marathon UI
 
-![Пользовательский интерфейс Marathon](media/dcos/dcos3.png)
+To see the Marathon UI, browse to http://localhost/Marathon. From this screen, you can start a new container or another application on the Azure Container Service DC/OS cluster. You can also see information about running containers and applications.  
 
-## Развертывание контейнера формата Docker
+![Marathon UI](media/dcos/dcos3.png)
 
-Чтобы развернуть новый контейнер с помощью Marathon, нажмите кнопку **Create Application** (Создать приложение) и заполните форму следующим образом.
+## <a name="deploy-a-docker-formatted-container"></a>Deploy a Docker-formatted container
 
-Поле | Значение
+To deploy a new container by using Marathon, click the **Create Application** button, and enter the following information into the form:
+
+Field           | Value
 ----------------|-----------
-ИД | nginx
-Образ — | nginx
-Сеть | Bridged (Мостовая)
-Host Port (Порт узла) | 80
-Протокол | TCP
+ID              | nginx
+Image           | nginx
+Network         | Bridged
+Host Port       | 80
+Protocol        | TCP
 
-![Пользовательский интерфейс нового приложения: вкладка "Общие"](media/dcos/dcos4.png)
+![New Application UI--General](media/dcos/dcos4.png)
 
-![Пользовательский интерфейс нового приложения: контейнер Docker](media/dcos/dcos5.png)
+![New Application UI--Docker Container](media/dcos/dcos5.png)
 
-![Пользовательский интерфейс нового приложения: обнаружение служб и портов](media/dcos/dcos6.png)
+![New Application UI--Ports and Service Discovery](media/dcos/dcos6.png)
 
-Статически сопоставить порт контейнера с портом на агенте можно в режиме JSON. Для этого с помощью переключателя перейдите в мастере создания приложений в **режим JSON**. А затем введите следующее в разделе `portMappings` определения приложения. В этом примере порт 80 контейнера привязывается к порту 80 агента DC/OS. Когда изменение будет внесено, мастер можно перевести в другой режим.
+If you want to statically map the container port to a port on the agent, you need to use JSON Mode. To do so, switch the New Application wizard to **JSON Mode** by using the toggle. Then enter the following under the `portMappings` section of the application definition. This example binds port 80 of the container to port 80 of the DC/OS agent. You can switch this wizard out of JSON Mode after you make this change.
 
 ```none
 "hostPort": 80,
 ```
 
-![Пользовательский интерфейс нового приложения: пример порта 80](media/dcos/dcos13.png)
+![New Application UI--port 80 example](media/dcos/dcos13.png)
 
-Кластер DC/OS развертывается с использованием набора частных и общедоступных агентов. Чтобы кластер мог получать доступ к приложениям из Интернета, развертывание необходимо выполнять на общедоступном агенте. Для этого в мастере создания приложений перейдите на вкладку **Дополнительно** и присвойте параметру **Accepted Resource Roles** (Принятые роли ресурсов) значение **slave\_public**.
+The DC/OS cluster is deployed with set of private and public agents. For the cluster to be able to access applications from the Internet, you need to deploy the applications to a public agent. To do so, select the **Optional** tab of the New Application wizard and enter **slave_public** for the **Accepted Resource Roles**.
 
-![Пользовательский интерфейс нового приложения: параметры общедоступного агента](media/dcos/dcos14.png)
+![New Application UI--public agent setting](media/dcos/dcos14.png)
 
-Вернитесь на главную страницу Marathon, чтобы просмотреть состояние развертывания контейнера.
+Back on the Marathon main page, you can see the deployment status for the container.
 
-![Пользовательский интерфейс главной страницы Marathon: состояние развертывания контейнера](media/dcos/dcos7.png)
+![Marathon main page UI--container deployment status](media/dcos/dcos7.png)
 
-При переключении обратно в пользовательский веб-интерфейс DC/OS (http://localhost/) вы увидите, что задача (в нашем случае это контейнер в формате Docker) выполняется в кластере DC/OS.
+When you switch back to the DC/OS web UI (http://localhost/), you will see that a task (in this case, a Docker-formatted container) is running on the DC/OS cluster.
 
-![Пользовательский веб-интерфейс DC/OS: выполнение задачи в кластере](media/dcos/dcos8.png)
+![DC/OS web UI--task running on the cluster](media/dcos/dcos8.png)
 
-Также вы увидите узел кластера, на котором выполняется задача.
+You can also see the cluster node that the task is running on.
 
-![Пользовательский веб-интерфейс DC/OS: узел кластера, на котором выполняется задача](media/dcos/dcos9.png)
+![DC/OS web UI--task cluster node](media/dcos/dcos9.png)
 
-## Масштабирование контейнеров
+## <a name="scale-your-containers"></a>Scale your containers
 
-С помощью пользовательского интерфейса Marathon можно изменять количество экземпляров контейнера. Для этого перейдите на страницу **Marathon**, выберите контейнер, который требуется масштабировать, и нажмите кнопку **Scale** (Масштабировать). В диалоговом окне **Scale Application** (Масштабирование приложения) введите нужное количество экземпляров контейнера, а затем выберите **Scale Application** (Масштабировать приложение).
+You can use the Marathon UI to scale the instance count of a container. To do so, navigate to the **Marathon** page, select the container that you want to scale, and click the **Scale** button. In the **Scale Application** dialog box, enter the number of container instances that you want, and select **Scale Application**.
 
-![Пользовательский интерфейс Marathon: диалоговое окно Scale Application ("Масштабирование приложения")](media/dcos/dcos10.png)
+![Marathon UI--Scale Application dialog box](media/dcos/dcos10.png)
 
-Когда операция масштабирования завершится, вы увидите несколько экземпляров одной и той же задачи, распределенных между агентами DC/OS.
+After the scale operation finishes, you will see multiple instances of the same task spread across DC/OS agents.
 
-![Панель мониторинга в пользовательском веб-интерфейсе DC/OS: задачи, распределенные между агентами](media/dcos/dcos11.png)
+![DC/OS web UI dashboard--task spread across agents](media/dcos/dcos11.png)
 
-![Пользовательский веб-интерфейс DC/OS: узлы](media/dcos/dcos12.png)
+![DC/OS web UI--nodes](media/dcos/dcos12.png)
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Next steps
 
-- [Работа с API для Marathon и API для DC/OS](container-service-mesos-marathon-rest.md)
+- [Work with DC/OS and the Marathon API](container-service-mesos-marathon-rest.md)
 
-Подробное изучение службы контейнеров Azure с Mesos
+Deep dive on the Azure Container Service with Mesos
 
 > [AZURE.VIDEO] azurecon-2015-deep-dive-on-the-azure-container-service-with-mesos]
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

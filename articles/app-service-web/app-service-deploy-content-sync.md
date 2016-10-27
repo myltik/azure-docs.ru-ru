@@ -1,44 +1,52 @@
 <properties
-	pageTitle="Синхронизация содержимого из папки в облаке со службами приложений Azure"
-	description="Узнайте, как развертывать приложение в службе приложений Azure с помощью синхронизации содержимого из папки в облаке."
-	services="app-service"
-	documentationCenter=""
-	authors="dariagrigoriu"
-	manager="wpickett"
-	editor="mollybos"/>
+    pageTitle="Sync content from a cloud folder to Azure App Service"
+    description="Learn how to deploy your app to Azure App Service via content sync from a cloud folder."
+    services="app-service"
+    documentationCenter=""
+    authors="dariagrigoriu"
+    manager="wpickett"
+    editor="mollybos"/>
 
 <tags
-	ms.service="app-service"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="06/13/2016"
-	ms.author="dariagrigoriu"/>
+    ms.service="app-service"
+    ms.workload="na"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="06/13/2016"
+    ms.author="dariagrigoriu"/>
     
-# Синхронизация содержимого из папки в облаке со службами приложений Azure
 
-В этом учебнике показано, как выполнить развертывание в [службе приложений Azure](http://go.microsoft.com/fwlink/?LinkId=529714), синхронизируя содержимое из популярных облачных служб хранилища, например Dropbox и OneDrive.
+# <a name="sync-content-from-a-cloud-folder-to-azure-app-service"></a>Sync content from a cloud folder to Azure App Service
 
-## <a name="overview"></a>Обзор развертывания синхронизации содержимого
+This tutorial shows you how to deploy to [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) by syncing your content from popular cloud storage services like Dropbox and OneDrive. 
 
-Развертывание синхронизации содержимого по запросу основано на [механизме развертывания Kudu](https://github.com/projectkudu/kudu/wiki), интегрированном в службу приложений. На [портале Azure](https://portal.azure.com) в облачном хранилище можно указать специальную папку. Обрабатывайте в ней код и содержимое приложения, а затем синхронизируйте ее со службой приложений нажатием одной кнопки. При синхронизации содержимого для выполнения сборки и развертывания используется процесс Kudu.
+## <a name="<a-name="overview"></a>overview-of-content-sync-deployment"></a><a name="overview"></a>Overview of content sync deployment
+
+The on-demand content sync deployment is powered by the [Kudu deployment engine](https://github.com/projectkudu/kudu/wiki) integrated with App Service. In the [Azure Portal](https://portal.azure.com), you can designate a folder in your cloud storage, work with your app code and content in that folder, and sync to App Service with the click of a button. Content sync utilizes the Kudu process for build and deployment. 
     
-## <a name="contentsync"></a>Как включить развертывание синхронизации содержимого
-Чтобы включить синхронизацию содержимого на [портале Azure](https://portal.azure.com), выполните следующее.
+## <a name="<a-name="contentsync"></a>how-to-enable-content-sync-deployment"></a><a name="contentsync"></a>How to enable content sync deployment
+To enable content sync from the [Azure Portal](https://portal.azure.com), follow these steps:
 
-1. В колонке приложения на **портале Azure** выберите **Параметры > Источник развертывания**. Щелкните **Выбор источника**, затем выберите **OneDrive** или **Dropbox** в качестве источника развертывания. 
+1. In your app's blade in the Azure Portal, click **Settings** > **Deployment Source**. Click **Choose Source**, then select **OneDrive** or **Dropbox** as the source for deployment. 
 
-    ![Синхронизация содержимого](./media/app-service-deploy-content-sync/deployment_source.png)
+    ![Content Sync](./media/app-service-deploy-content-sync/deployment_source.png)
 
-2. Завершите процесс авторизации, чтобы разрешить службе приложений доступ к конкретному предварительно определенному пути OneDrive или Dropbox, где будет храниться все ваше содержимое службы приложений. После авторизации платформа службы приложений предоставит возможность создать папку содержимого по указанному пути либо выбрать существующую папку содержимого по этому пути. Ниже перечислены назначенные пути к содержимому учетных записей хранения в облаке, используемые для синхронизации службы приложений.
+2. Complete the authorization workflow to enable App Service to access a specific pre-defined designated path for OneDrive or Dropbox where all of your App Service content will be stored.  
+    After authorization the App Service platform will give you the option to create a content folder under the designated content path, or to choose an existing content folder under this designated content path. The designated content paths under your cloud storage accounts used for App Service sync are the following:  
     * **OneDrive**: `Apps\Azure Web Apps` 
     * **Dropbox**: `Dropbox\Apps\Azure`
 
-3. После первоначальной синхронизации содержимого ее можно будет запускать по требованию с портала Azure. Журнал развертываний доступен в колонке **Развертывания**.
+3. After the initial content sync the content sync can be initiated on demand from the Azure portal. Deployment history is available with the **Deployments** blade.
 
-    ![Журнал развертываний](./media/app-service-deploy-content-sync/onedrive_sync.png)
+    ![Deployment History](./media/app-service-deploy-content-sync/onedrive_sync.png)
  
-Дополнительные сведения о развертывании Dropbox можно найти в разделе [Deploy from Dropbox](http://blogs.msdn.com/b/windowsazure/archive/2013/03/19/new-deploy-to-windows-azure-web-sites-from-dropbox.aspx).
+More information for Dropbox deployment is available under [Deploy from Dropbox](http://blogs.msdn.com/b/windowsazure/archive/2013/03/19/new-deploy-to-windows-azure-web-sites-from-dropbox.aspx). 
 
-<!---HONumber=AcomDC_0615_2016-->
+
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

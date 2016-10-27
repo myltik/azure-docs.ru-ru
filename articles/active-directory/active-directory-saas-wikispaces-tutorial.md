@@ -1,6 +1,6 @@
 <properties 
-    pageTitle="Руководство. Интеграция Azure Active Directory с Wikispaces | Microsoft Azure" 
-    description="Узнайте, как использовать Wikispaces вместе с Azure Active Directory для настройки единого входа, автоматической подготовки пользователей и выполнения других задач." 
+    pageTitle="Tutorial: Azure Active Directory integration with Wikispaces | Microsoft Azure" 
+    description="Learn how to use Wikispaces with Azure Active Directory to enable single sign-on, automated provisioning, and more!." 
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
@@ -14,129 +14,135 @@
     ms.date="09/11/2016" 
     ms.author="jeedes" />
 
-#Руководство. Интеграция Azure Active Directory с Wikispaces
+
+#<a name="tutorial:-azure-active-directory-integration-with-wikispaces"></a>Tutorial: Azure Active Directory integration with Wikispaces
   
-Цель данного учебника — показать интеграцию Azure и Wikispaces. Сценарий, описанный в этом учебнике, предполагает, что у вас уже имеется:
+The objective of this tutorial is to show the integration of Azure and Wikispaces.  
+The scenario outlined in this tutorial assumes that you already have the following items:
 
--   Действующая подписка на Azure
--   Подписка Wikispaces с поддержкой единого входа.
+-   A valid Azure subscription
+-   A Wikispaces single sign-on enabled subscription
   
-После прохождения этого учебника пользователи Azure AD, назначенные Wikispaces, будут иметь возможность единого входа в приложение на веб-сайте компании Wikispaces (вход, инициированный поставщиком услуг) или входа с помощью инструкций из статьи [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
+After completing this tutorial, the Azure AD users you have assigned to Wikispaces will be able to single sign into the application at your Wikispaces company site (service provider initiated sign on), or using the [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
   
-Сценарий, описанный в этом учебнике, состоит из следующих блоков:
+The scenario outlined in this tutorial consists of the following building blocks:
 
-1.  Включение интеграции приложений для Wikispaces
-2.  Настройка единого входа
-3.  Настройка подготовки учетных записей пользователей
-4.  Назначение пользователей
+1.  Enabling the application integration for Wikispaces
+2.  Configuring single sign-on
+3.  Configuring user provisioning
+4.  Assigning users
 
-![Сценарий](./media/active-directory-saas-wikispaces-tutorial/IC787182.png "Сценарий")
+![Sceanrio](./media/active-directory-saas-wikispaces-tutorial/IC787182.png "Sceanrio")
 
-##Включение интеграции приложений для Wikispaces
+##<a name="enabling-the-application-integration-for-wikispaces"></a>Enabling the application integration for Wikispaces
   
-В этом разделе показано, как включить интеграцию приложений для Wikispaces.
+The objective of this section is to outline how to enable the application integration for Wikispaces.
 
-###Чтобы включить интеграцию приложений для Wikispaces, выполните следующие действия.
+###<a name="to-enable-the-application-integration-for-wikispaces,-perform-the-following-steps:"></a>To enable the application integration for Wikispaces, perform the following steps:
 
-1.  На классическом портале Azure в области навигации слева щелкните **Active Directory**.
+1.  In the Azure classic portal, on the left navigation pane, click **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-wikispaces-tutorial/IC700993.png "Active Directory")
 
-2.  Из списка **Каталог** выберите каталог, для которого нужно включить интеграцию каталогов.
+2.  From the **Directory** list, select the directory for which you want to enable directory integration.
 
-3.  Чтобы открыть представление приложений, в представлении каталога нажмите **Приложения** в верхнем меню.
+3.  To open the applications view, in the directory view, click **Applications** in the top menu.
 
-    ![Приложения](./media/active-directory-saas-wikispaces-tutorial/IC700994.png "Приложения")
+    ![Applications](./media/active-directory-saas-wikispaces-tutorial/IC700994.png "Applications")
 
-4.  В нижней части страницы нажмите кнопку **Добавить**.
+4.  Click **Add** at the bottom of the page.
 
-    ![Добавление приложения](./media/active-directory-saas-wikispaces-tutorial/IC749321.png "Добавление приложения")
+    ![Add application](./media/active-directory-saas-wikispaces-tutorial/IC749321.png "Add application")
 
-5.  В диалоговом окне **Что необходимо сделать?** нажмите **Добавить приложение из коллекции**.
+5.  On the **What do you want to do** dialog, click **Add an application from the gallery**.
 
-    ![Добавить приложение из коллекции](./media/active-directory-saas-wikispaces-tutorial/IC749322.png "Добавить приложение из коллекции")
+    ![Add an application from gallerry](./media/active-directory-saas-wikispaces-tutorial/IC749322.png "Add an application from gallerry")
 
-6.  В **поле поиска** введите **Wikispaces**.
+6.  In the **search box**, type **Wikispaces**.
 
-    ![Коллекция приложений](./media/active-directory-saas-wikispaces-tutorial/IC787186.png "Коллекция приложений")
+    ![Application Gallery](./media/active-directory-saas-wikispaces-tutorial/IC787186.png "Application Gallery")
 
-7.  В области результатов выберите **Wikispaces** и нажмите кнопку **Завершить**, чтобы добавить приложение.
+7.  In the results pane, select **Wikispaces**, and then click **Complete** to add the application.
 
     ![Wikispaces](./media/active-directory-saas-wikispaces-tutorial/IC787187.png "Wikispaces")
 
-##Настройка единого входа
+##<a name="configuring-single-sign-on"></a>Configuring single sign-on
   
-В этом разделе показано, как разрешить пользователям проходить проверку подлинности в Wikispaces со своей учетной записью Azure AD, используя федерацию на основе протокола SAML.
+The objective of this section is to outline how to enable users to authenticate to Wikispaces with their account in Azure AD using federation based on the SAML protocol.
 
-###Чтобы настроить единый вход, выполните следующие действия.
+###<a name="to-configure-single-sign-on,-perform-the-following-steps:"></a>To configure single sign-on, perform the following steps:
 
-1.  На странице интеграции с приложением **Wikispaces** классического портала Azure щелкните **Настройка единого входа**, чтобы открыть диалоговое окно **Настройка единого входа**.
+1.  In the Azure classic portal, on the **Wikispaces** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
 
-    ![Настройка единого входа](./media/active-directory-saas-wikispaces-tutorial/IC787188.png "Настройка единого входа")
+    ![Configure Single Sign-On](./media/active-directory-saas-wikispaces-tutorial/IC787188.png "Configure Single Sign-On")
 
-2.  На странице **Как пользователи должны входить в Wikispaces** выберите **Единый вход Microsoft Azure AD** и нажмите кнопку **Далее**.
+2.  On the **How would you like users to sign on to Wikispaces** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
-    ![Настройка единого входа](./media/active-directory-saas-wikispaces-tutorial/IC787189.png "Настройка единого входа")
+    ![Configure Single Sign-On](./media/active-directory-saas-wikispaces-tutorial/IC787189.png "Configure Single Sign-On")
 
-3.  На странице **Настроить URL-адрес приложения** в текстовом поле **URL-адрес для входа в Wikispaces** введите свой URL-адрес, используя шаблон "*http://company.wikispaces.net*", а затем нажмите кнопку **Далее**.
+3.  On the **Configure App URL** page, in the **Wikispaces Sign On URL** textbox, type your URL using the following pattern "*http://company.wikispaces.net*", and then click **Next**.
 
-    ![Настройка URL-адреса приложения](./media/active-directory-saas-wikispaces-tutorial/IC787190.png "Настройка URL-адреса приложения")
+    ![Configure App URL](./media/active-directory-saas-wikispaces-tutorial/IC787190.png "Configure App URL")
 
-4.  На странице **Настройка единого входа в Wikispaces** нажмите кнопку **Загрузить метаданные**, а затем сохраните файл метаданных на свой компьютер.
+4.  On the **Configure single sign-on at Wikispaces** page, click **Download metadata**, and then save the metadata file on your computer.
 
-    ![Настройка единого входа](./media/active-directory-saas-wikispaces-tutorial/IC787191.png "Настройка единого входа")
+    ![Configure Single Sign-On](./media/active-directory-saas-wikispaces-tutorial/IC787191.png "Configure Single Sign-On")
 
-5.  Отправьте файл метаданных в группу поддержки Wikispaces.
+5.  Send the metadatafile to the Wikispaces support team.
 
-    >[AZURE.NOTE] Настройка единого входа должна выполняться группой поддержки Wikispaces. Сразу же после завершения настройки вы получите уведомление.
+    >[AZURE.NOTE] The single sign-on configuration has to be performed by the Wikispaces support team. You will get a notification as soon as the configuration has been completed.
 
-6.  На классическом портале Azure выберите подтверждение конфигурации единого входа, а затем нажмите кнопку **Завершить**, чтобы закрыть диалоговое окно **Настройка единого входа**.
+6.  On the Azure classic portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
 
-    ![Настройка единого входа](./media/active-directory-saas-wikispaces-tutorial/IC787192.png "Настройка единого входа")
+    ![Configure Single Sign-On](./media/active-directory-saas-wikispaces-tutorial/IC787192.png "Configure Single Sign-On")
 
-##Настройка подготовки учетных записей пользователей
+##<a name="configuring-user-provisioning"></a>Configuring user provisioning
   
-Чтобы пользователи Azure AD могли выполнять вход в Wikispaces, они должны быть подготовлены для работы с Wikispaces. В случае использования Wikispaces подготовка выполняется вручную.
+In order to enable Azure AD users to log into Wikispaces, they must be provisioned into Wikispaces.  
+In the case of Wikispaces, provisioning is a manual task.
 
-###Чтобы подготовить учетные записи пользователей, выполните следующие действия:
+###<a name="to-provision-a-user-accounts,-perform-the-following-steps:"></a>To provision a user accounts, perform the following steps:
 
-1.  Выполните вход на сайт компании **Wikispaces** в качестве администратора.
+1.  Log in to your **Wikispaces** company site as an administrator.
 
-2.  Перейдите в раздел **Участники**.
+2.  Go to **Members**.
 
-    ![Участники](./media/active-directory-saas-wikispaces-tutorial/IC787193.png "Участники")
+    ![Members](./media/active-directory-saas-wikispaces-tutorial/IC787193.png "Members")
 
-3.  Щелкните **Пригласить пользователей**.
+3.  Click the **Invite People**.
 
-    ![Приглашение пользователей](./media/active-directory-saas-wikispaces-tutorial/IC787194.png "Пригласить пользователей")
+    ![Invite People](./media/active-directory-saas-wikispaces-tutorial/IC787194.png "Invite People")
 
-4.  В разделе **Пригласить пользователей** выполните следующие действия.
+4.  In the **Invite People** section, perform the following steps:
 
-    ![Пригласить пользователей](./media/active-directory-saas-wikispaces-tutorial/IC787208.png "Приглашение пользователей")
+    ![Invite People](./media/active-directory-saas-wikispaces-tutorial/IC787208.png "Invite People")
 
-    1.  Введите **имя пользователя или электронный адрес** для действующей учетной записи AAD, которую вы хотите подготовить, в соответствующие текстовые поля.
-    2.  Нажмите кнопку **Отправить**.
+    1.  Type the **Usernames or Email Address** of a valid AAD account you want to provision into the related textboxes.
+    2.  Click **Send**.  
 
-        >[AZURE.NOTE] Владелец учетной записи Azure Active Directory получит электронное сообщение со ссылкой для подтверждения учетной записи перед ее активацией.
+        >[AZURE.NOTE] The Azure Active Directory account holder receives an email including a link to confirm the account before it becomes active.
 
->[AZURE.NOTE] Вы можете использовать любые другие средства создания учетной записи пользователя Wikispaces или API-интерфейсы, предоставляемые Wikispaces, для подготовки учетных записей пользователей AAD.
+>[AZURE.NOTE] You can use any other Wikispaces user account creation tools or APIs provided by Wikispaces to provision AAD user accounts.
 
-##Назначение пользователей
+##<a name="assigning-users"></a>Assigning users
   
-Чтобы проверить свою конфигурацию, предоставьте пользователям Azure AD, которым нужно разрешить работу с приложением, назначив их.
+To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.
 
-###Чтобы назначить пользователей Wikispaces, выполните следующие действия.
+###<a name="to-assign-users-to-wikispaces,-perform-the-following-steps:"></a>To assign users to Wikispaces, perform the following steps:
 
-1.  На классическом портале Azure создайте тестовую учетную запись.
+1.  In the Azure classic portal, create a test account.
 
-2.  На странице интеграции с приложением **Wikispaces** нажмите кнопку **Назначить пользователей**.
+2.  On the **Wikispaces **application integration page, click **Assign users**.
 
-    ![Назначить пользователей](./media/active-directory-saas-wikispaces-tutorial/IC787195.png "Назначить пользователей")
+    ![Assign Users](./media/active-directory-saas-wikispaces-tutorial/IC787195.png "Assign Users")
 
-3.  Выберите тестового пользователя, нажмите кнопку **Назначить**, а затем — **Да**, чтобы подтвердить назначение.
+3.  Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.
 
-    ![Да](./media/active-directory-saas-wikispaces-tutorial/IC767830.png "Да")
+    ![Yes](./media/active-directory-saas-wikispaces-tutorial/IC767830.png "Yes")
   
-Если вы хотите проверить параметры единого входа, откройте панель доступа. Дополнительные сведения о панели доступа см. в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
+If you want to test your single sign-on settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0914_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

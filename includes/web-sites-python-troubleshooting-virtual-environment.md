@@ -1,24 +1,27 @@
-Скрипт развертывания пропустит создание виртуальной среды в Azure, если он обнаружит, что совместимая виртуальная среда уже существует. Это может значительно ускорить развертывание. pip будет пропускать уже установленные пакеты.
+The deployment script will skip creation of the virtual environment on Azure if it detects that a compatible virtual environment already exists.  This can speed up deployment considerably.  Packages that are already installed will be skipped by pip.
 
-В некоторых случаях эту виртуальную среду можно принудительно удалить. Это потребуется сделать, если вы решите включить виртуальную среду как часть репозитория. Кроме того, это нужно сделать для удаления конкретных пакетов или проверки изменений в файле requirements.txt.
+In certain situations, you may want to force delete that virtual environment.  You'll want to do this if you decide to include a virtual environment as part of your repository.  You may also want to do this if you need to get rid of certain packages, or test changes to requirements.txt.
 
-Существует несколько способов управления существующей виртуальной средой в Azure.
+There are a few options to manage the existing virtual environment on Azure:
 
-### Способ 1. Использование FTP
+### <a name="option-1:-use-ftp"></a>Option 1: Use FTP
 
-Подключитесь к серверу с помощью FTP-клиента, и вы сможете удалить папку env. Обратите внимание, что некоторые FTP-клиенты (например, браузеры) могут быть доступны только для чтения и не позволят вам удалять папки, поэтому необходимо использовать именно FTP-клиент с данной возможностью. Имя узла и пользователь FTP отображаются в колонке вашего веб-приложения на [портале Azure](https://portal.azure.com).
+With an FTP client, connect to the server and you'll be able to delete the env folder.  Note that some FTP clients (such as web browsers) may be read-only and won't allow you to delete folders, so you'll want to make sure to use an FTP client with that capability.  The FTP host name and user are displayed in your web app's blade on the [Azure Portal](https://portal.azure.com).
 
-### Способ 2. Переключение среды выполнения
+### <a name="option-2:-toggle-runtime"></a>Option 2: Toggle runtime
 
-Это другой способ, который использует преимущество удаления папки env скриптом развертывания, если она не совпадает с нужной версией Python. Он эффективно удалит существующую среду и создаст новую.
+Here's an alternative that takes advantage of the fact that the deployment script will delete the env folder when it doesn't match the desired version of Python.  This will effectively delete the existing environment, and create a new one.
 
-1. Переключение на другую версию Python (через файл runtime.txt или колонку **Параметры приложения** на портале Azure)
-1. Используйте git push для внесения изменений (пропустите ошибки установки pip, если они есть)
-1. Переключитесь на первичную версию Python
-1. Снова используйте git push для внесения изменений
+1. Switch to a different version of Python (via runtime.txt or the **Application Settings** blade in the Azure Portal)
+1. git push some changes (ignore any pip install errors if any)
+1. Switch back to initial version of Python
+1. git push some changes again
 
-### Способ 3. Настройка скрипта развертывания
+### <a name="option-3:-customize-deployment-script"></a>Option 3: Customize deployment script
 
-Если вы настроили скрипт развертывания, можно изменить код в файле deploy.cmd, чтобы с его помощью принудительно удалить папку env.
+If you've customized the deployment script, you can change the code in deploy.cmd to force it to delete the env folder.
 
-<!---HONumber=AcomDC_1125_2015-->
+
+<!--HONumber=Oct16_HO2-->
+
+

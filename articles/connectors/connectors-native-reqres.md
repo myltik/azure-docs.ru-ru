@@ -1,12 +1,12 @@
 <properties
-	pageTitle="Использование действий запросов и ответов | Microsoft Azure"
-	description="Обзор триггера запроса и ответа, а также их действий в приложении логики Azure"
-	services=""
-	documentationCenter=""
-	authors="jeffhollan"
-	manager="erikre"
-	editor=""
-	tags="connectors"/>
+    pageTitle="Use request and response actions | Microsoft Azure"
+    description="Overview of the request and response trigger and action in an Azure logic app"
+    services=""
+    documentationCenter=""
+    authors="jeffhollan"
+    manager="erikre"
+    editor=""
+    tags="connectors"/>
 
 <tags
    ms.service="logic-apps"
@@ -17,100 +17,105 @@
    ms.date="07/18/2016"
    ms.author="jehollan"/>
 
-# Начало работы с компонентами запросов и ответов
 
-Благодаря использованию компонентов запросов и ответов в приложении логики можно отвечать на события в режиме реального времени.
+# <a name="get-started-with-the-request-and-response-components"></a>Get started with the request and response components
 
-Например, вы можете просматривать:
+With the request and response components in a logic app, you can respond in real time to events.
 
-- ответ на HTTP-запрос, использующий данные из локальной базы данных, через приложение логики;
-- запуск приложения логики из внешнего события webhook;
-- вызов приложения логики с помощью действия запроса и ответа из другого приложения логики.
+For example, you can:
 
-Сведения о начале работы с действиями запросов и ответов в приложении логики см. в статье о [создании приложения логики](../app-service-logic/app-service-logic-create-a-logic-app.md).
+- Respond to an HTTP request with data from an on-premises database through a logic app.
+- Trigger a logic app from an external webhook event.
+- Call a logic app with a request and response action from within another logic app.
 
-## Использование триггера HTTP-запросов
+To get started using the request and response actions in a logic app, see [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-Триггер — это событие, которое можно использовать для запуска рабочего процесса, определенного в приложении логики. Дополнительные сведения о триггерах см. [здесь](connectors-overview.md).
+## <a name="use-the-http-request-trigger"></a>Use the HTTP Request trigger
 
-Ниже приведен пример последовательности настройки HTTP-запроса в конструкторе приложений логики.
+A trigger is an event that can be used to start the workflow that is defined in a logic app. [Learn more about triggers](connectors-overview.md).
 
-1. Добавьте триггер **Request - When an HTTP request is received** (Запрос: при получении HTTP-запроса) в свое приложение логики. При необходимости можно предоставить схему JSON (с помощью такого средства, как [JSONSchema.net](http://jsonschema.net)) для текста запроса. Это позволит конструктору создать токены свойств в HTTP-запросе.
-2. Добавьте еще одно действие, чтобы сохранить приложение логики.
-3. После сохранения приложения логики вы можете получить URL-адрес HTTP-запроса из карточки запроса.
-4. Запрос HTTP POST (к примеру, можно использовать средство [Postman](https://www.getpostman.com/)) на URL-адрес запустит приложение логики.
+Here’s an example sequence of how to set up an HTTP request in the Logic App Designer.
 
->[AZURE.NOTE] Если не определить действие ответа, вызывающему немедленно будет возвращен ответ `202 ACCEPTED`. Действие ответа можно использовать для настройки ответа.
+1. Add the trigger **Request - When an HTTP request is received** in your logic app. You can optionally provide a JSON schema (by using a tool like [JSONSchema.net](http://jsonschema.net)) for the request body. This allows the designer to generate tokens for properties in the HTTP request.
+2. Add another action so that you can save the logic app.
+3. After saving the logic app, you can get the HTTP request URL from the request card.
+4. An HTTP POST (you can use a tool like [Postman](https://www.getpostman.com/)) to the URL triggers the logic app.
 
-.![Триггер ответа](./media/connectors-native-reqres/using-trigger.png)
+>[AZURE.NOTE] If you don't define a response action, a `202 ACCEPTED` response is immediately returned to the caller. You can use the response action to customize a response.
 
-## Использование действия ответа HTTP
+![Response trigger](./media/connectors-native-reqres/using-trigger.png)
 
-Действие ответа HTTP действительно, только если вы используете его в рабочем процессе, запускаемом HTTP-запросом. Если не определить действие ответа, вызывающему немедленно будет возвращен ответ `202 ACCEPTED`. Вы можете добавить действие ответа на любом шаге рабочего процесса. Приложение логики не будет закрывать входящий запрос для ответа только в течение 1 минуты. Если ответ не был отправлен из рабочего процесса (а в определении есть действие ответа) в течение 1 минуты, вызывающему будет возвращен ответ `504 GATEWAY TIMEOUT`.
+## <a name="use-the-http-response-action"></a>Use the HTTP Response action
 
-Вот как можно добавить действие ответа HTTP.
+The HTTP Response action is only valid when you use it in a workflow that is triggered by an HTTP request. If you don't define a response action, a `202 ACCEPTED` response is immediately returned to the caller.  You can add a response action at any step within the workflow. The logic app only keeps the incoming request open for one minute for a response.  After one minute, if no response was sent from the workflow (and a response action exists in the definition), a `504 GATEWAY TIMEOUT` is returned to the caller.
 
-1. Нажмите кнопку **Новый шаг**.
-2. Выберите **Добавить действие**.
-3. Чтобы открыть список с действиями ответа, в поле поиска действий введите **Ответ**.
+Here's how to add an HTTP Response action:
 
-	.![Выбор действия ответа](./media/connectors-native-reqres/using-action-1.png)
+1. Select the **New Step** button.
+2. Choose **Add an action**.
+3. In the action search box, type **response** to list the Response action.
 
-4. Добавьте параметры, необходимые для сообщения ответа HTTP.
+    ![Select the response action](./media/connectors-native-reqres/using-action-1.png)
 
-	.![Выполнение действия ответа](./media/connectors-native-reqres/using-action-2.png)
+4. Add in any parameters that are required for the HTTP response message.
 
-5. Щелкните верхний левый угол панели для сохранения. После этого приложение логики будет сохранено и опубликовано (активировано).
+    ![Complete the response action](./media/connectors-native-reqres/using-action-2.png)
 
-## Триггер запросов
+5. Click the upper-left corner of the toolbar to save, and your logic app will both save and publish (activate).
 
-Ниже приведены подробные сведения о триггерах, поддерживаемых этим соединителем. Здесь приведен триггер одного запроса.
+## <a name="request-trigger"></a>Request trigger
 
-|Триггер|Описание|
+Here are the details for the trigger that this connector supports. There is a single request trigger.
+
+|Trigger|Description|
 |---|---|
-|Запрос|Случается при получении HTTP-запроса|
+|Request|Occurs when an HTTP request is received|
 
-## Действие ответа
+## <a name="response-action"></a>Response action
 
-Ниже приведены подробные сведения о действии, которое поддерживает этот соединитель. Здесь приведено действие одного ответа, которое может использоваться только вместе с триггером запроса.
+Here are the details for the action that this connector supports. There is a single response action that can only be used when it is accompanied by a request trigger.
 
-|Действие|Описание|
+|Action|Description|
 |---|---|
-|Ответ|Возвращает ответ на связанный HTTP запрос|
+|Response|Returns a response to the correlated HTTP request|
 
-### Сведения о триггерах и действиях
+### <a name="trigger-and-action-details"></a>Trigger and action details
 
-В следующих таблицах описаны поля ввода для триггеров и действий и соответствующие сведения о выходных данных.
+The following tables describe the input fields for the trigger and action, and the corresponding output details.
 
-#### Триггер запросов
-Ниже приведено поле ввода для триггера из входящего HTTP-запроса.
+#### <a name="request-trigger"></a>Request trigger
+The following is an input field for the trigger from an incoming HTTP request.
 
-|Отображаемое имя|Имя свойства|Описание|
+|Display name|Property name|Description|
 |---|---|---|
-|Схема JSON|schema|Схема JSON текста HTTP-запроса|
-.<br>
+|JSON Schema|schema|The JSON schema of the HTTP request body|
+<br>
 
-**Сведения о выходных данных**
+**Output details**
 
-Ниже приведены сведения о выходных данных для запроса.
+The following are output details for the request.
 
-|Имя свойства|Тип данных|Описание|
+|Property name|Data type|Description|
 |---|---|---|
-|Заголовки|object|Заголовки запросов|
-|Текст|object|Объект запроса|
+|Headers|object|Request headers|
+|Body|object|Request object|
 
-#### Действие ответа
+#### <a name="response-action"></a>Response action
 
-Ниже перечислены поля ввода для действия HTTP-ответа. Звездочка (*) означает, что это поле обязательное для заполнения.
+The following are input fields for the HTTP Response action. A * means that it is a required field.
 
-|Отображаемое имя|Имя свойства|Описание|
+|Display name|Property name|Description|
 |---|---|---|
-|Код состояния*|statusCode|Код состояния HTTP|
-|Заголовки|headers|Объект JSON заголовков ответов, которые нужно включить|
-|Текст|текст|Текст ответа|
+|Status Code*|statusCode|The HTTP status code|
+|Headers|headers|A JSON object of any response headers to include|
+|Body|body|The response body|
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Next steps
 
-Теперь опробуйте платформу и [создайте приложение логики](../app-service-logic/app-service-logic-create-a-logic-app.md). Чтобы узнать, какие еще соединители доступны в приложениях логики, ознакомьтесь со [списком интерфейсов API](apis-list.md).
+Now, try out the platform and [create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md). You can explore the other available connectors in logic apps by looking at our [APIs list](apis-list.md).
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

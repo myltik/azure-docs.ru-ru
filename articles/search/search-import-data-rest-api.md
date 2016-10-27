@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Отправка данных в службу поиска Azure с помощью REST API | Microsoft Azure | Размещенная облачная служба поиска"
-    description="Узнайте, как отправлять данные в индекс службы поиска Azure с помощью REST API."
+    pageTitle="Data upload in Azure Search using the REST API | Microsoft Azure | Hosted cloud search service"
+    description="Learn how to upload data to an index in Azure Search using the REST API."
     services="search"
     documentationCenter=""
     authors="ashmaka"
@@ -17,55 +17,56 @@
     ms.date="08/29/2016"
     ms.author="ashmaka"/>
 
-# Отправка данных в службу поиска Azure с помощью REST API
+
+# <a name="upload-data-to-azure-search-using-the-rest-api"></a>Upload data to Azure Search using the REST API
 > [AZURE.SELECTOR]
-- [Обзор](search-what-is-data-import.md)
+- [Overview](search-what-is-data-import.md)
 - [.NET](search-import-data-dotnet.md)
 - [REST](search-import-data-rest-api.md)
 
-В этой статье объясняется, как использовать [REST API службы поиска Azure](https://msdn.microsoft.com/library/azure/dn798935.aspx) для импорта данных в индекс службы поиска Azure.
+This article will show you how to use the [Azure Search REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx) to import data into an Azure Search index.
 
-Прежде чем приступать к выполнению инструкций из этого руководства, вам нужно [создать индекс службы поиска Azure](search-what-is-an-index.md).
+Before beginning this walkthrough, you should already have [created an Azure Search index](search-what-is-an-index.md).
 
-Для передачи документов в индекс с помощью REST API вам нужно отправить HTTP-запрос POST на URL-адрес конечной точки индекса. Текст HTTP-запроса является объектом JSON, который содержит документы для добавления, изменения или удаления.
+In order to push documents into your index using the REST API, you will issue an HTTP POST request to your index's URL endpoint. The body of the HTTP request body is a JSON object containing the documents to be added, modified, or deleted.
 
-## 1\. Определение ключа API администратора службы поиска Azure
-Когда вы отправляете HTTP-запросы к службе с помощью REST API, *каждый* запрос API должен содержать ключ API, который был создан для подготовленной службы поиска. Если есть действительный ключ, для каждого запроса устанавливаются отношения доверия между приложением, которое отправляет запрос, и службой, которая его обрабатывает.
+## <a name="i.-identify-your-azure-search-service's-admin-api-key"></a>I. Identify your Azure Search service's admin api-key
+When issuing HTTP requests against your service using the REST API, *each* API request must include the api-key that was generated for the Search service you provisioned. Having a valid key establishes trust, on a per request basis, between the application sending the request and the service that handles it.
 
-1. Чтобы найти ключи API своей службы, войдите на [портал Azure](https://portal.azure.com/).
-2. Перейдите к колонке службы поиска Azure.
-3. Щелкните значок "Ключи".
+1. To find your service's api-keys you must log into the [Azure Portal](https://portal.azure.com/)
+2. Go to your Azure Search service's blade
+3. Click on the "Keys" icon
 
-Ваша служба получит *ключи администратора* и *ключи запросов*.
+Your service will have *admin keys* and *query keys*.
 
-  - Первичные и вторичные *ключи администратора* предоставляют полный доступ ко всем операциям, включая возможность управлять службой, создавать и удалять индексы, индексаторы и источники данных. Ключей два, поэтому вы можете и дальше использовать вторичный ключ, если решите повторно создать первичный ключ, и наоборот.
-  - *Ключи запросов* предоставляют только разрешение на чтение индексов и документов; обычно они добавляются в клиентские приложения, которые создают запросы на поиск.
+  - Your primary and secondary *admin keys* grant full rights to all operations, including the ability to manage the service, create and delete indexes, indexers, and data sources. There are two keys so that you can continue to use the secondary key if you decide to regenerate the primary key, and vice-versa.
+  - Your *query keys* grant read-only access to indexes and documents, and are typically distributed to client applications that issue search requests.
 
-Для импорта данных в индекс можно использовать первичный или вторичный ключ администратора.
+For the purposes of importing data into an index, you can use either your primary or secondary admin key.
 
-## 2\. Выбор операций индексирования
-В интерфейсе REST API можно создавать HTTP-запросы POST с текстом запроса JSON, отправляемые в конечную точку вашего индекса службы поиска Azure по URL-адресу. Объект JSON в тексте HTTP-запроса содержит массив JSON с именем value. Этот массив включает объекты JSON — документы, которые вы хотите добавить в свой индекс, обновить или удалить.
+## <a name="ii.-decide-which-indexing-action-to-use"></a>II. Decide which indexing action to use
+When using the REST API, you will issue HTTP POST requests with JSON request bodies to your Azure Search index's endpoint URL. The JSON object in your HTTP request body will contain a single JSON array named "value" containing JSON objects representing documents you would like to add to your index, update, or delete.
 
-Каждый объект JSON в массиве value представляет документ для индексирования, а также содержит ключ документа и определяет нужную операцию индексирования (отправка, объединение, удаление и т. д.). В зависимости от выбранной операции для каждого документа будут включены только определенные поля.
+Each JSON object in the "value" array represents a document to be indexed. Each of these objects contains the document's key and specifies the desired indexing action (upload, merge, delete, etc). Depending on which of the below actions you choose, only certain fields must be included for each document:
 
-@search.action | Описание | Необходимые поля для каждого документа | Примечания
+@search.action | Description | Necessary fields for each document | Notes
 --- | --- | --- | ---
-`upload` | Операция `upload` аналогична операции upsert, которая добавляет документ, если он новый, и обновляет либо заменяет его, если он уже существует. | Поле key, а также другие поля, которые вы хотите определить. | При обновлении или замене существующего документа все поля, не указанные в запросе, получат значение `null`. Это происходит, даже если для поля указано непустое значение.
-`merge` | Обновляет существующий документ с использованием указанных полей. Если документ не существует в индексе, объединение завершится ошибкой. | Поле key, а также другие поля, которые вы хотите определить. | Поля, указанные в запросе на объединение, заменяют собой существующие поля документа. Это относится и к полям типа `Collection(Edm.String)`. Например, если документ содержит поле `tags` со значением `["budget"]` и вы выполняете операцию объединения со значением `["economy", "pool"]` для поля `tags`, в итоге поле `tags` примет значение `["economy", "pool"]`, а не `["budget", "economy", "pool"]`.
-`mergeOrUpload` | Эта операция аналогична операции `merge`, если документ с указанным значением ключа уже существует в индексе. Если документ не существует, эта операция выполняет функции операции `upload` для нового документа. | Поле key, а также другие поля, которые вы хотите определить |- 
-`delete` | Удаляет указанный документ из индекса. | Только поле key. | Все указанные поля, кроме поля key, будут игнорироваться. Чтобы удалить из документа определенное поле, лучше воспользуйтесь операцией `merge`, явным образом задав для требуемого поля значение NULL.
+`upload` | An `upload` action is similar to an "upsert" where the document will be inserted if it is new and updated/replaced if it exists. | key, plus any other fields you wish to define | When updating/replacing an existing document, any field that is not specified in the request will have its field set to `null`. This occurs even when the field was previously set to a non-null value.
+`merge` | Updates an existing document with the specified fields. If the document does not exist in the index, the merge will fail. | key, plus any other fields you wish to define | Any field you specify in a merge will replace the existing field in the document. This includes fields of type `Collection(Edm.String)`. For example, if the document contains a field `tags` with value `["budget"]` and you execute a merge with value `["economy", "pool"]` for `tags`, the final value of the `tags` field will be `["economy", "pool"]`. It will not be `["budget", "economy", "pool"]`.
+`mergeOrUpload` | This action behaves like `merge` if a document with the given key already exists in the index. If the document does not exist, it behaves like `upload` with a new document. | key, plus any other fields you wish to define | -
+`delete` | Removes the specified document from the index. | key only | Any fields you specify other than the key field will be ignored. If you want to remove an individual field from a document, use `merge` instead and simply set the field explicitly to null.
 
-## 3\. Создание HTTP-запроса и текста запроса
-Теперь, когда вы выбрали нужные значения полей для операций индекса, можно приступать к созданию HTTP-запроса и текста запроса JSON для импорта данных.
+## <a name="iii.-construct-your-http-request-and-request-body"></a>III. Construct your HTTP request and request body
+Now that you have gathered the necessary field values for your index actions, you are ready to construct the actual HTTP request and JSON request body to import your data.
 
-#### Запрос и заголовки запроса
-В URL-адресе необходимо указать имя службы, имя индекса (в нашем случае это hotels), а также правильную версию API (текущая версия API на момент публикации этого документа — `2015-02-28`). Необходимо также определить заголовки запросов `Content-Type` и `api-key`. Для заголовка последнего запроса используйте один из ключей администратора службы.
+#### <a name="request-and-request-headers"></a>Request and Request Headers
+In the URL, you will need to provide your service name, index name ("hotels" in this case), as well as the proper API version (the current API version is `2015-02-28` at the time of publishing this document). You will need to define the `Content-Type` and `api-key` request headers. For the latter, use one of your service's admin keys.
 
     POST https://[search service].search.windows.net/indexes/hotels/docs/index?api-version=2015-02-28
     Content-Type: application/json
     api-key: [admin key]
 
-#### Текст запроса
+#### <a name="request-body"></a>Request Body
 
 ```JSON
 {
@@ -114,15 +115,15 @@
 }
 ```
 
-В этом примере мы используем операции `upload`, `mergeOrUpload` и `delete` в качестве операций поиска.
+In this case, we are using `upload`, `mergeOrUpload`, and `delete` as our search actions.
 
-Предположим, что пример индекса с именем hotels уже заполнен несколькими документами. Обратите внимание: нам не понадобилось указывать все поля документа при использовании операции `mergeOrUpload`, а при использовании `delete` мы указали только ключ документа (`hotelId`).
+Assume that this example "hotels" index is already populated with a number of documents. Note how we did not have to specify all the possible document fields when using `mergeOrUpload` and how we only specified the document key (`hotelId`) when using `delete`.
 
-Также помните о том, что в один запрос на индексирование можно включить максимум 1000 документов (или 16 МБ).
+Also, note that you can only include up to 1000 documents (or 16 MB) in a single indexing request.
 
-## 4\. Анализ кода HTTP-ответа
-#### 200
-После успешной отправки запроса на индексирование вы получите HTTP-ответ с кодом состояния `200 OK`. Текст JSON в HTTP-ответе будет выглядеть так:
+## <a name="iv.-understand-your-http-response-code"></a>IV. Understand your HTTP response code
+#### <a name="200"></a>200
+After submitting a successful indexing request you will receive an HTTP response with status code of `200 OK`. The JSON body of the HTTP response will be as follows:
 
 ```JSON
 {
@@ -137,8 +138,8 @@
 }
 ```
 
-#### 207
-Код состояния `207` возвращается, если хотя бы один элемент не удалось проиндексировать. Текст JSON HTTP-ответа будет содержать сведения о документах, которые не удалось проиндексировать.
+#### <a name="207"></a>207
+A status code of `207` will be returned when at least one item was not successfully indexed. The JSON body of the HTTP response will contain information about the unsuccessful document(s).
 
 ```JSON
 {
@@ -153,19 +154,23 @@
 }
 ```
 
-> [AZURE.NOTE] Часто это означает, что служба поиска настолько загружена, что запросы на индексирование начинают возвращать ответы `503`. В таком случае мы настоятельно рекомендуем задержать выполнение клиентского кода и повторить попытку позже. За это время система восстановится, что повысит вероятность успешной обработки будущих запросов. Непрерывные повторные попытки выполнить запрос только усугубят проблему.
+> [AZURE.NOTE] This often means that the load on your search service is reaching a point where indexing requests will begin to return `503` responses. In this case, we highly recommend that your client code back off and wait before retrying. This will give the system some time to recover, increasing the chances that future requests will succeed. Rapidly retrying your requests will only prolong the situation.
 
-#### 429
-Код состояния `429` возвращается, если вы превысили квоту на количество документов, которые можно включить в индекс.
+#### <a name="429"></a>429
+A status code of `429` will be returned when you have exceeded your quota on the number of documents per index.
 
-#### 503
-Код состояния `503` возвращается, если ни один из элементов в запросе не был проиндексирован. Эта ошибка означает, что система перегружена и запрос не может быть обработан в данный момент.
+#### <a name="503"></a>503
+A status code of `503` will be returned if none of the items in the request were successfully indexed. This error means that the system is under heavy load and your request can't be processed at this time.
 
-> [AZURE.NOTE] В таком случае мы настоятельно рекомендуем задержать выполнение клиентского кода и повторить попытку позже. За это время система восстановится, что повысит вероятность успешной обработки будущих запросов. Непрерывные повторные попытки выполнить запрос только усугубят проблему.
+> [AZURE.NOTE] In this case, we highly recommend that your client code back off and wait before retrying. This will give the system some time to recover, increasing the chances that future requests will succeed. Rapidly retrying your requests will only prolong the situation.
 
-Дополнительные сведения о действиях с документами и ответах об успешном выполнении и ошибках см. в статье, посвященной [добавлению, обновлению и удалению документов](https://msdn.microsoft.com/library/azure/dn798930.aspx). Дополнительные сведения о других кодах состояния HTTP, которые могут быть возвращены в случае сбоя, см. в статье [Коды состояния HTTP (поиск Azure)](https://msdn.microsoft.com/library/azure/dn798925.aspx).
+For more information on document actions and success/error responses, please see [Add, Update, or Delete Documents](https://msdn.microsoft.com/library/azure/dn798930.aspx). For more information on other HTTP status codes that could be returned in case of failure, see [HTTP status codes (Azure Search)](https://msdn.microsoft.com/library/azure/dn798925.aspx).
 
-## Далее
-Заполнив индекс службы поиска Azure, вы можете приступать к отправке запросов на поиск документов. Дополнительные сведения см. в статье [Запросы в службе поиска Azure](search-query-overview.md).
+## <a name="next"></a>Next
+After populating your Azure Search index, you will be ready to start issuing queries to search for documents. See [Query Your Azure Search Index](search-query-overview.md) for details.
 
-<!---HONumber=AcomDC_0831_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

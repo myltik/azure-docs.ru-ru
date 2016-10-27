@@ -1,54 +1,58 @@
 <properties
-	pageTitle="Рекомендации по группам доступности | Microsoft Azure"
-	description="Изучите основные рекомендации по проектированию и реализации, касающиеся развертывания групп доступности в службах инфраструктуры Azure."
-	documentationCenter=""
-	services="virtual-machines-linux"
-	authors="iainfoulds"
-	manager="timlt"
-	editor=""
-	tags="azure-resource-manager"/>
+    pageTitle="Availability Set Guidelines | Microsoft Azure"
+    description="Learn about the key design and implementation guidelines for deploying Availability Sets in Azure infrastructure services."
+    documentationCenter=""
+    services="virtual-machines-linux"
+    authors="iainfoulds"
+    manager="timlt"
+    editor=""
+    tags="azure-resource-manager"/>
 
 <tags
-	ms.service="virtual-machines-linux"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-linux"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/08/2016"
-	ms.author="iainfou"/>
-
-# Рекомендации по группам доступности
-
-[AZURE.INCLUDE [virtual-machines-linux-infrastructure-guidelines-intro](../../includes/virtual-machines-linux-infrastructure-guidelines-intro.md)]
-
-Эта статья посвящена необходимым действиям по планированию группы доступности, позволяющим обеспечить доступность вашего приложения во время плановых или внеплановых событий.
-
-## Рекомендации по реализации групп доступности
-
-Решения
-
-- Сколько нужно групп доступности для различных ролей и уровней в инфраструктуре приложений?
-
-Задачи
-
-- Определите необходимое число виртуальных машин на каждом уровне приложения.
-- Определите, нужно ли скорректировать число доменов сбоя или доменов обновления для приложения.
-- Определите требуемые группы доступности, учитывая соглашение об именовании и размещаемые в них виртуальные машины. Виртуальная машина может находиться только в одной группе доступности.
-
-## Группы доступности
-
-В Azure виртуальные машины могут быть помещены в логическую группу, называемую группой доступности. При создании виртуальных машин в группе доступности платформа Azure распределяет их размещение по базовой инфраструктуре. Использование группы доступности гарантирует, что в случае планового обслуживания платформы Azure либо сбоя базового оборудования или инфраструктуры по крайней мере одна виртуальная машина продолжит работать.
-
-Не рекомендуется размещать приложения на одной виртуальной машине. Группа доступности, которая содержит одну виртуальную машину, не обеспечивает защиту от плановых или внеплановых событий платформы Azure. [Соглашение об уровне обслуживания Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines) предписывает использовать от двух виртуальных машин в группе доступности, чтобы обеспечить распределение виртуальных машин по базовой инфраструктуре.
-
-Базовая инфраструктура в Azure делится на домены обновления и домены сбоя. Эти домены определяются узлами с общим циклом обновления или с общей физической инфраструктурой, например источником питания и сетью. Azure автоматически распределяет виртуальные машины в группе доступности между доменами, чтобы обеспечивать доступность и отказоустойчивость. В зависимости от размера приложения и числа виртуальных машин в группе доступности можно соответственно изменить количество доменов, которые требуется использовать. Вы можете больше узнать об [управлении доступностью и использовании доменов обновления и доменов сбоя](virtual-machines-linux-manage-availability.md).
-
-При проектировании инфраструктуры приложений необходимо также составить план уровней приложения, которые будут использоваться. Объедините в группы доступности виртуальные машины, которые выполняют одну функцию, например интерфейсные виртуальные машины nginx или Apache. Создайте отдельную группу доступности для интерфейсных виртуальных машин MongoDB или MySQL. Цель этого — обеспечить защиту каждого компонента приложения посредством группы доступности и гарантировать, что как минимум один экземпляр приложения всегда будет работать.
-
-Над каждым уровнем приложения можно использовать балансировщики нагрузки, которые будут функционировать вместе с группой доступности и обеспечивать перенаправление трафика в работающий экземпляр. Без балансировщика нагрузки виртуальные машины могут продолжать работать на протяжении всех плановых и внеплановых событий обслуживания, но пользователям могут не иметь возможности обращаться к ним, если недоступна основная виртуальная машина.
+    ms.service="virtual-machines-linux"
+    ms.workload="infrastructure-services"
+    ms.tgt_pltfrm="vm-linux"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/08/2016"
+    ms.author="iainfou"/>
 
 
-## Дальнейшие действия
-[AZURE.INCLUDE [virtual-machines-linux-infrastructure-guidelines-next-steps](../../includes/virtual-machines-linux-infrastructure-guidelines-next-steps.md)]
+# <a name="availability-sets-guidelines"></a>Availability sets guidelines
 
-<!---HONumber=AcomDC_0914_2016-->
+[AZURE.INCLUDE [virtual-machines-linux-infrastructure-guidelines-intro](../../includes/virtual-machines-linux-infrastructure-guidelines-intro.md)] 
+
+This article focuses on understanding the required planning steps for availability sets to ensure your applications remains accessible during planned or unplanned events.
+
+## <a name="implementation-guidelines-for-availability-sets"></a>Implementation guidelines for availability sets
+
+Decisions:
+
+- How many availability sets do you need for the various roles and tiers in your application infrastructure?
+
+Tasks:
+
+- Define the number of VMs in each application tier you require.
+- Determine if you need to adjust the number of fault or update domains to be used for your application.
+- Define the required availability sets using your naming convention and what VMs reside in them. A VM can only reside in one availability set. 
+
+## <a name="availability-sets"></a>Availability sets
+
+In Azure, virtual machines (VMs) can be placed in to a logical grouping called an availability set. When you create VMs within an availability set, the Azure platform distributes the placement of those VMs across the underlying infrastructure. Should there be a planned maintenance event to the Azure platform or an underlying hardware / infrastructure fault, the use of availability sets ensures that at least one VM remains running.
+
+As a best practice, applications should not reside on a single VM. An availability set that contains a single VM doesn't gain any protection from planned or unplanned events within the Azure platform. The [Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines) requires two or more VMs within an availability set to allow the distribution of VMs across the underlying infrastructure.
+
+The underlying infrastructure in Azure is divided in to update domains and fault domains. These domains are defined by what hosts share a common update cycle, or share similar physical infrastructure such as power and networking. Azure automatically distributes your VMs within an availability set across domains to maintain availability and fault tolerance. Depending on the size of your application and the number of VMs within an availability set, you can adjust the number of domains you wish to use. You can read more about [managing availability and use of update and fault domains](virtual-machines-linux-manage-availability.md).
+
+When designing your application infrastructure, you should also plan out the application tiers to use. Group VMs that serve the same purpose in to availability sets, such as an availability set for your front-end VMs running nginx or Apache. Create a separate availability set for your back-end VMs running MongoDB or MySQL. The goal is to ensure that each component of your application is protected by an availability set and at least once instance always remains running.
+
+Load balancers can be utilized in front of each application tier to work alongside an availability set and ensure traffic can always be routed to a running instance. Without a load balancer, your VMs may continue running throughout planned and unplanned maintenance events, but your end users may not be able to resolve them if the primary VM is unavailable.
+
+
+## <a name="next-steps"></a>Next steps
+[AZURE.INCLUDE [virtual-machines-linux-infrastructure-guidelines-next-steps](../../includes/virtual-machines-linux-infrastructure-guidelines-next-steps.md)] 
+
+
+<!--HONumber=Oct16_HO2-->
+
+

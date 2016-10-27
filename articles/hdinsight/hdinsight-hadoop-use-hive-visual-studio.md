@@ -1,12 +1,12 @@
 <properties
-   pageTitle="Выполнение запроса Hive с помощью инструментов Hadoop для Visual Studio | Microsoft Azure"
-   description="Узнайте, как использовать Hive с Hadoop в HDInsight с помощью инструментов Visual Studio Hadoop."
+   pageTitle="Hive query with Hadoop tools for Visual Studio | Microsoft Azure"
+   description="Learn how to use Hive with Hadoop in HDInsight using Visual Studio Hadoop tools."
    services="hdinsight"
    documentationCenter=""
    authors="Blackmist"
    manager="jhubbard"
    editor="cgronlun"
-	tags="azure-portal"/>
+    tags="azure-portal"/>
 
 <tags
    ms.service="hdinsight"
@@ -17,33 +17,34 @@
    ms.date="09/06/2016"
    ms.author="larryfr"/>
 
-#Выполнение запросов Hive с помощью инструментов HDInsight для Visual Studio
+
+#<a name="run-hive-queries-using-the-hdinsight-tools-for-visual-studio"></a>Run Hive queries using the HDInsight tools for Visual Studio
 
 [AZURE.INCLUDE [hive-selector](../../includes/hdinsight-selector-use-hive.md)]
 
-В этой статье вы узнаете, как отправлять запросы Hive в кластер HDInsight с помощью инструментов HDInsight для Visual Studio.
+In this article, you will learn how to submit Hive queries to an HDInsight cluster using the HDInsight tools for Visual Studio.
 
-> [AZURE.NOTE] В этом документе не приводится подробное описание процессов, которые выполняют операторы HiveQL, используемые в примерах. Информацию об операторах HiveQL, используемых в данном примере, см. в статье [Использование Hive с Hadoop в HDInsight](hdinsight-use-hive.md).
+> [AZURE.NOTE] This document does not provide a detailed description of what the HiveQL statements used in the examples do. For information about the HiveQL that is used in this example, see [Use Hive with Hadoop on HDInsight](hdinsight-use-hive.md).
 
-##<a id="prereq"></a>Предварительные требования
+##<a name="<a-id="prereq"></a>prerequisites"></a><a id="prereq"></a>Prerequisites
 
-Чтобы выполнить действия, описанные в этой статье, необходимо следующее.
+To complete the steps in this article, you will need the following.
 
-* Кластер Azure HDInsight (Hadoop в HDInsight) (на платформе Windows или Linux).
+* An Azure HDInsight (Hadoop on HDInsight) cluster (Linux or Windows-based)
 
-* Одна из следующих версий Visual Studio:
+* Visual Studio (one of the following versions):
 
-    Visual Studio 2013 Community, Professional, Premium или Ultimate с [обновлением 4](https://www.microsoft.com/download/details.aspx?id=44921);
+    Visual Studio 2013 Community/Professional/Premium/Ultimate with [Update 4](https://www.microsoft.com/download/details.aspx?id=44921)
 
     Visual Studio 2015 (Community/Enterprise)
 
-- Средства HDInsight для Visual Studio. Пошаговые указания по установке и настройке инструментов Visual Studio Hadoop см. в статье [Приступая к работе с инструментами Hadoop в Visual Studio для HDInsight для выполнения запроса Hive](hdinsight-hadoop-visual-studio-tools-get-started.md).
+- HDInsight tools for Visual studio. See [Get started using Visual Studio Hadoop tools for HDInsight](hdinsight-hadoop-visual-studio-tools-get-started.md) for information on installing and configuring the tools.
 
-##<a id="run"></a> Выполнение запросов Hive с помощью инструментов HDInsight для Visual Studio
+##<a name="<a-id="run"></a>-run-hive-queries-using-the-hdinsight-tools-for-visual-studio"></a><a id="run"></a> Run Hive queries using the HDInsight tools for Visual Studio
 
-1. Откройте **Visual Studio** и выберите **Создать** > **Проект** > **HDInsight** > **Приложение Hive**. Введите имя этого проекта.
+1. Open **Visual Studio** and select **New** > **Project** > **HDInsight** > **Hive Application**. Provide a name for this project.
 
-2. Откройте файл **Script.hql**, созданный в этом проекте, и вставьте следующие операторы HiveQL:
+2. Open the **Script.hql** file that is created with this project, and paste in the following HiveQL statements:
 
         set hive.execution.engine=tez;
         DROP TABLE log4jLogs;
@@ -52,64 +53,64 @@
         STORED AS TEXTFILE LOCATION 'wasbs:///example/data/';
         SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs WHERE t4 = '[ERROR]' AND INPUT__FILE__NAME LIKE '%.log' GROUP BY t4;
 
-    Эти операторы выполняют следующие действия.
+    These statements perform the following actions:
 
-    * **DROP TABLE**: удаление таблицы и файла данных, если таблица уже существует.
-    * **CREATE EXTERNAL TABLE**: создание новой "внешней" таблицы в Hive. Внешние таблицы хранят только определение самой таблицы в Hive, в то время как данные остаются в исходном расположении.
+    * **DROP TABLE**: Deletes the table and the data file if the table already exists.
+    * **CREATE EXTERNAL TABLE**: Creates a new 'external' table in Hive. External tables only store the table definition in Hive (the data is left in the original location).
 
-        > [AZURE.NOTE] Внешние таблицы необходимо использовать в тех случаях, когда ожидается, что исходные данные будут обновляться внешним источником, таким как автоматизированный процесс передачи данных или другой операцией MapReduce, при этом нужно, чтобы запросы Hive использовали самые последние данные.
+        > [AZURE.NOTE] External tables should be used when you expect the underlying data to be updated by an external source (such as an automated data upload process) or by another MapReduce operation, but you always want Hive queries to use the latest data.
         >
-        > Удаление внешней таблицы **не** приводит к удалению данных, будет удалено только определение таблицы.
+        > Dropping an external table does **not** delete the data, only the table definition.
 
-    * **ROW FORMAT**: инструкции по форматированию данных для Hive. В данном случае поля всех журналов разделены пробелом.
-    * **STORED AS TEXTFILE LOCATION**: информация для Hive о расположении хранения данных (каталог example/data) и о их формате (текстовый).
-    * **SELECT**: подсчет количества строк, у которых столбец **t4** содержит значение **ERROR**. Эта команда должна вернуть значение **3**, так как данное значение содержат три строки.
-    * **INPUT\_\_FILE\_\_NAME LIKE '%.log'** — указывает Hive, что возвратить нужно только данные из файлов с расширением LOG. Это ограничивает поиск файлом sample.log, в котором содержатся данные, и предотвращает возврат данных из других примеров файлов данных, не соответствующих определенной нами схеме.
+    * **ROW FORMAT**: Tells Hive how the data is formatted. In this case, the fields in each log are separated by a space.
+    * **STORED AS TEXTFILE LOCATION**: Tells Hive where the data is stored (the example/data directory) and that it is stored as text.
+    * **SELECT**: Select a count of all rows where column **t4** contain the value **[ERROR]**. This should return a value of **3** because there are three rows that contain this value.
+    * **INPUT__FILE__NAME LIKE '%.log'** - Tells Hive that we should only return data from files ending in .log. This restricts the search to the sample.log file that contains the data, and keeps it from returning data from other example data files that do not match the schema we defined.
 
-3. На панели инструментов выберите **кластер HDInsight**, который нужно использовать для этого запроса, а затем выберите **Submit to WebHCat** (Отправить в WebHCat), чтобы выполнить инструкции как задание Hive с помощью WebHCat. Задание также можно отправить с помощью кнопки __Execute via HiveServer2__ (Выполнить через HiveServer2), если сервер HiveServer2 доступен в вашей версии кластера. Отобразится **сводка по заданию Hive** и информация о его выполнении. Воспользуйтесь ссылкой **Обновить**, чтобы обновить информацию о задании. Обновляйте ее до тех пор, пока **Состояние задания** не изменится на **Завершено**.
+3. From the toolbar, select the **HDInsight Cluster** that you want to use for this query, and then select **Submit to WebHCat** to run the statements as a Hive job using WebHCat. You can also submit the job using the __Execute via HiveServer2__ button if HiveServer2 is available on your cluster version. The **Hive Job Summary** appears and displays information about the running job. Use the **Refresh** link to refresh the job information, until the **Job Status** changes to **Completed**.
 
-4. Воспользуйтесь ссылкой **Выходные данные задания**, чтобы просмотреть выходные данные этого задания. В них должен быть текст `[ERROR] 3`, который является значением, возвращенным оператором SELECT.
+4. Use the **Job Output** link to view the output of this job. It should display `[ERROR] 3`, which is the value returned by the SELECT statement.
 
-5. Запросы Hive можно также отправлять без создания проекта. С помощью **обозревателя сервера** разверните узлы **Azure** > **HDInsight**, щелкните правой кнопкой мыши сервер HDInsight, а затем выберите **Написать запрос Hive**.
+5. You can also run Hive queries without creating a project. Using **Server Explorer**, expand **Azure** > **HDInsight**, right-click your HDInsight server, and then select **Write a Hive Query**.
 
-6. Отобразится документ **temp.hql**, в который нужно добавить следующие операторы HiveQL:
+6. In the **temp.hql** document that appears, add the following HiveQL statements:
 
         set hive.execution.engine=tez;
         CREATE TABLE IF NOT EXISTS errorLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string) STORED AS ORC;
         INSERT OVERWRITE TABLE errorLogs SELECT t1, t2, t3, t4, t5, t6, t7 FROM log4jLogs WHERE t4 = '[ERROR]' AND INPUT__FILE__NAME LIKE '%.log';
 
-    Эти операторы выполняют следующие действия.
+    These statements perform the following actions:
 
-    * **CREATE TABLE IF NOT EXISTS**: создание таблицы, если она до этого не существовала. Так как ключевое слово **EXTERNAL** не использовалось, такая таблица будет внутренней, то есть хранящейся в хранилище данных Hive и полностью управляемой Hive.
+    * **CREATE TABLE IF NOT EXISTS**: Creates a table if it does not already exist. Because the **EXTERNAL** keyword is not used, this is an internal table, which is stored in the Hive data warehouse and is managed completely by Hive.
 
-        > [AZURE.NOTE] В отличие от **внешних** таблиц, удаление внутренней таблицы приводит к удалению базовых данных.
+        > [AZURE.NOTE] Unlike **EXTERNAL** tables, dropping an internal table also deletes the underlying data.
 
-    * **STORED AS ORC**: хранение данных в формате ORC (Optimized Row Columnar). Это высокооптимизированный и эффективный формат для хранения данных Hive.
-    * **INSERT OVERWRITE ... SELECT**: из таблицы **log4jLogs** будут выбраны строки, которые содержат значение **[ERROR]**, а затем данные будут вставлены в таблицу errorLogs.ляет данные в таблицу **errorLogs**.
+    * **STORED AS ORC**: Stores the data in optimized row columnar (ORC) format. This is a highly optimized and efficient format for storing Hive data.
+    * **INSERT OVERWRITE ... SELECT**: Selects rows from the **log4jLogs** table that contain **[ERROR]**, then inserts the data into the **errorLogs** table.
 
-7. На панели инструментов щелкните **Отправить**, чтобы выполнить задание. Определить, было ли задание выполнено успешно, можно по значению в поле **Состояние задания**.
+7. From the toolbar, select **Submit** to run the job. Use the **Job Status** to determine that the job has completed successfully.
 
-8. Убедитесь, что задание выполнено и создана новая таблица. Для этого выберите **обозревателем сервера** и разверните **Azure** > **HDInsight** > ваш кластер HDInsight > **Базы данных Hive** и **по умолчанию**. Вы должны увидеть таблицы **errorLogs** и **log4jLogs**.
+8. To verify that the job completed and created a new table, use **Server Explorer** and expand **Azure** > **HDInsight** > your HDInsight cluster > **Hive Databases** > and **default**. You should see the **errorLogs** table and the **log4jLogs** table.
 
-##<a id="summary"></a>Сводка
+##<a name="<a-id="summary"></a>summary"></a><a id="summary"></a>Summary
 
-Как можно видеть, инструменты HDInsight для Visual Studio позволяют с легкостью выполнять запросы Hive в кластере HDInsight, отслеживать состояние задания и получать выходные данные.
+As you can see, the the HDInsight tools for Visual Studio provide an easy way to run Hive queries on an HDInsight cluster, monitor the job status, and retrieve the output.
 
-##<a id="nextsteps"></a>Дальнейшие действия
+##<a name="<a-id="nextsteps"></a>next-steps"></a><a id="nextsteps"></a>Next steps
 
-Общая информация о Hive в HDInsight:
+For general information about Hive in HDInsight:
 
-* [Использование Hive с Hadoop в HDInsight](hdinsight-use-hive.md)
+* [Use Hive with Hadoop on HDInsight](hdinsight-use-hive.md)
 
-Дополнительная информация о других способах работы с Hadoop в HDInsight:
+For information about other ways you can work with Hadoop on HDInsight:
 
-* [Использование Pig с Hadoop в HDInsight](hdinsight-use-pig.md)
+* [Use Pig with Hadoop on HDInsight](hdinsight-use-pig.md)
 
-* [Использование MapReduce с Hadoop в HDInsight](hdinsight-use-mapreduce.md)
+* [Use MapReduce with Hadoop on HDInsight](hdinsight-use-mapreduce.md)
 
-Дополнительная информация об инструментах HDInsight для Visual Studio:
+For more information about the HDInsight tools for Visual Studio:
 
-* [Приступая к работе со средствами HDInsight для Visual Studio](../HDInsight/hdinsight-hadoop-visual-studio-tools-get-started.md)
+* [Getting started with HDInsight tools for Visual Studio](../HDInsight/hdinsight-hadoop-visual-studio-tools-get-started.md)
 
 
 [hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/library/dn479185.aspx
@@ -143,4 +144,8 @@
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
 [image-hdi-hive-architecture]: ./media/hdinsight-use-hive/HDI.Hive.Architecture.png
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

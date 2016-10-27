@@ -1,507 +1,512 @@
 <properties 
-	pageTitle="Управление учетными записями служб мультимедиа Azure с помощью PowerShell" 
-	description="Узнайте, как управлять учетными записями служб мультимедиа Azure с помощью командлетов PowerShell." 
-	authors="Juliako" 
-	manager="erikre" 
-	editor="" 
-	services="media-services" 
-	documentationCenter=""/>
+    pageTitle="Manage Azure Media Services Accounts with PowerShell" 
+    description="Learn how to manage Azure Media Services accounts with PowerShell cmdlets." 
+    authors="Juliako" 
+    manager="erikre" 
+    editor="" 
+    services="media-services" 
+    documentationCenter=""/>
 
 <tags 
-	ms.service="media-services" 
-	ms.workload="media" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/04/2016"
-	ms.author="juliako"/>
+    ms.service="media-services" 
+    ms.workload="media" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="10/03/2016"
+    ms.author="juliako"/>
 
 
-#Управление учетными записями служб мультимедиа Azure с помощью PowerShell
+
+#<a name="manage-azure-media-services-accounts-with-powershell"></a>Manage Azure Media Services Accounts with PowerShell
 
 > [AZURE.SELECTOR]
-- [Портал](media-services-portal-create-account.md)
+- [Portal](media-services-portal-create-account.md)
 - [PowerShell](media-services-manage-with-powershell.md)
 - [REST](http://msdn.microsoft.com/library/azure/dn194267.aspx)
 
-> [AZURE.NOTE] Для создания учетной записи служб мультимедиа Azure необходима учетная запись Azure. Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A8A8397B5" target="_blank">Бесплатная пробная версия Azure</a>.
+> [AZURE.NOTE] To be able to create an Azure Media Services account, you must have an Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A8A8397B5" target="_blank">Azure Free Trial</a>.
 
-##Обзор 
+##<a name="overview"></a>Overview 
 
-В этой статье перечислены командлеты Azure PowerShell для служб мультимедиа Azure (AMS), доступные в инфраструктуре Azure Resource Manager. Командлеты существуют в пространстве имен **Microsoft.Azure.Commands.Media**.
+This article lists the Azure PowerShell cmdlets for Azure Media Services (AMS) in the Azure Resource Manager framework. The cmdlets exist in the **Microsoft.Azure.Commands.Media** namespace.
 
-## Версии
+## <a name="versions"></a>Versions
 
-**Версия API**: от 01.10.2015.
+**ApiVersion**:   "2015-10-01"
                
 
-## New-AzureRmMediaService
+## <a name="new-azurermmediaservice"></a>New-AzureRmMediaService
 
-Создает службу мультимедиа.
+Creates a media service.
 
-### Синтаксис
+### <a name="syntax"></a>Syntax
 
-Набор параметров: StorageAccountIdParamSet.
+Parameter Set: StorageAccountIdParamSet
 
-	New-AzureRmMediaService [-ResourceGroupName] <string> [-AccountName] <string> [-Location] <string> [-StorageAccountId] <string> [-Tags <hashtable>]  [<CommonParameters>]
+    New-AzureRmMediaService [-ResourceGroupName] <string> [-AccountName] <string> [-Location] <string> [-StorageAccountId] <string> [-Tags <hashtable>]  [<CommonParameters>]
 
-Набор параметров: StorageAccountsParamSet.
+Parameter Set: StorageAccountsParamSet
 
-	New-AzureRmMediaService [-ResourceGroupName] <string> [-AccountName] <string> [-Location] <string> [-StorageAccounts] <PSStorageAccount[]> [-Tags <hashtable>]  [<CommonParameters>]
+    New-AzureRmMediaService [-ResourceGroupName] <string> [-AccountName] <string> [-Location] <string> [-StorageAccounts] <PSStorageAccount[]> [-Tags <hashtable>]  [<CommonParameters>]
 
-### Параметры
+### <a name="parameters"></a>Parameters
 
-**-ResourceGroupName &lt;Строка&gt;**
+**-ResourceGroupName &lt;String&gt;**
 
-Указывает имя группы ресурсов, к которой принадлежит эта служба мультимедиа.
+Specifies the name of the resource group to which this media service belongs.
 
-Псевдонимы | Нет
+Aliases | none
 ---|---
-Обязательный? | Да
-Позиция? | 0
-Значение по умолчанию |Нет
-Принимает входные данные конвейера? |true(ByPropertyName)
-Принимает подстановочные знаки? |нет
+Required?   |  true
+Position?   |  0
+Default value |none
+Accept pipeline input? |true(ByPropertyName)
+Accept wildcard characters?  |false
 
-**-AccountName &lt;Строка&gt;**
+**-AccountName &lt;String&gt;**
 
-Указывает имя этой службы мультимедиа.
+Specifies the name of the media service.
 
-Псевдонимы |Name (Имя)
+Aliases |Name
 ---|---
-Обязательный? |Да
-Позиция? |1
-Значение по умолчанию |Нет
-Принимает входные данные конвейера? |нет
-Принимает подстановочные знаки? |нет
+Required? |true
+Position? |1
+Default value |none
+Accept pipeline input? |false
+Accept wildcard characters? |false
 
-**-Location &lt;Строка&gt;**
+**-Location &lt;String&gt;**
 
-Указывает расположение ресурсов для этой службы мультимедиа.
+Specifies the resource location of the media service.
 
-Псевдонимы |Нет
+Aliases |none
 ---|---
-Обязательный? |Да
-Позиция? |2
-Значение по умолчанию |Нет
-Принимает входные данные конвейера? |true(ByPropertyName)
-Принимает подстановочные знаки? |нет
+Required? |true
+Position? |2
+Default value  |none
+Accept pipeline input? |true(ByPropertyName)
+Accept wildcard characters? |false
 
-**-StorageAccountId &lt;Строка&gt;**
+**-StorageAccountId &lt;String&gt;**
 
-Указывает основную учетную запись хранения, связанную с этой службой мультимедиа.
+Specifies a primary storage account that associated with the media service.
 
-- Поддерживаются только новые учетные записи хранения (созданные с помощью API Resource Manager).
+- New storage account (created with the Resource Manager API) supported only.
 
-- Учетная запись хранения должна существовать и находиться в том же расположении, что и служба мультимедиа.
+- The storage account must exist and has the same location with the media service.
 
-Псевдонимы |Нет
+Aliases |none
 ---|---
-Обязательный? |Да
-Позиция? |3
-Значение по умолчанию |Нет
-Принимает входные данные конвейера? |true(ByPropertyName)
-Имя набора параметров |StorageAccountIdParamSet
-Принимает подстановочные знаки?|нет
+Required? |true
+Position? |3
+Default value  |none
+Accept pipeline input? |true(ByPropertyName)
+Parameter set name |StorageAccountIdParamSet
+Accept wildcard characters?|false
 
-**-StorageAccounts &lt;PSStorageAccount[]&gt;**
+**-StorageAccounts &lt;PSStorageAccount\[\]&gt;**
 
-Указывает учетные записи хранения, связанные с этой службой мультимедиа.
+Specifies storage accounts that associated with the media service.
 
-- Поддерживаются только новые учетные записи хранения (созданные с помощью API Resource Manager).
+- New storage account (created with the Resource Manager API) supported only.
 
-- Учетная запись хранения должна существовать и находиться в том же расположении, что и служба мультимедиа.
+- The storage account must exist and has the same location with the media service.
 
-- Можно указать только одну основную учетную запись хранения.
+- Only one storage account can be specified as primary.
 
-Псевдонимы |Нет
+Aliases |none
 ---|---
-Обязательный? |Да
-Позиция? |3
-Значение по умолчанию |Нет
-Принимает входные данные конвейера? |true(ByPropertyName)
-Имя набора параметров |StorageAccountsParamSet
-Принимает подстановочные знаки? |нет
+Required?  |true
+Position?  |3
+Default value |none
+Accept pipeline input? |true(ByPropertyName)
+Parameter set name |StorageAccountsParamSet
+Accept wildcard characters? |false
 
-**-Tags &lt;хэш-таблица&gt;**
+**-Tags &lt;Hashtable&gt;**
 
-Указывает хэш-таблицу тегов, которые связаны с этой службой мультимедиа.
+Specifies a hash table of the tags that are associated with the media service.
 
-- Пример: @{"тег1"="значение1";"тег2"="значение2"}
+- Example: @{"tag1"="value1";"tag2"=:value2"}
 
-Псевдонимы |Нет
+Aliases |none
 ---|---
-Обязательный? |нет
-Позиция? |именованная
-Значение по умолчанию |Нет
-Принимает входные данные конвейера? |нет
-Принимает подстановочные знаки? |нет
+Required?  |false
+Position?  |named
+Default value |none
+Accept pipeline input? |false
+Accept wildcard characters? |false
 
-**&lt;Параметры команды&gt;**
+**&lt;CommandParameters&gt;**
 
-Этот командлет поддерживает общие параметры: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction и -WarningVariable.
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable.
 
-### Входные данные
+### <a name="inputs"></a>Inputs
 
-Тип входных данных определяет тип объектов, которые можно передавать в командлет.
+The input type is the type of the objects that you can pipe to the cmdlet.
 
-### Выходные данные
+### <a name="outputs"></a>Outputs
 
-Тип выходных данных определяет тип объектов, которые будет выдавать командлет.
+The output type is the type of the objects that the cmdlet emits.
 
-## Set-AzureRmMediaService
+## <a name="set-azurermmediaservice"></a>Set-AzureRmMediaService
 
-Обновляет службу мультимедиа.
+Updates a media service.
 
-### Синтаксис
+### <a name="syntax"></a>Syntax
 
-	Set-AzureRmMediaService [-ResourceGroupName] <string> [-AccountName] <string> [-Tags <hashtable>] [-StorageAccounts <PSStorageAccount[]>]  [<CommonParameters>]
+    Set-AzureRmMediaService [-ResourceGroupName] <string> [-AccountName] <string> [-Tags <hashtable>] [-StorageAccounts <PSStorageAccount[]>]  [<CommonParameters>]
 
-### Параметры
+### <a name="parameters"></a>Parameters
 
-**-ResourceGroupName &lt;Строка&gt;**
+**-ResourceGroupName &lt;String&gt;**
 
-Указывает имя группы ресурсов, к которой принадлежит эта служба мультимедиа.
+Specifies the name of the resource group to which this media service belongs.
 
-Псевдонимы |Нет
+Aliases |none
 ---|---
-Обязательный? |Да
-Позиция? |0
-Значение по умолчанию |Нет
-Принимает конвейерный ввод? |true(ByPropertyName)
-Принимает подстановочные знаки? |нет
+Required?  |true
+Position?  |0
+Default Value |none
+Accept Pipeline Input? |true(ByPropertyName)
+Accept wildcard characters? |false
 
-**-AccountName &lt;Строка&gt;**
+**-AccountName &lt;String&gt;**
 
-Указывает имя этой службы мультимедиа.
+Specifies the name of the media service.
 
-Псевдонимы |Name (Имя)
+Aliases |Name
 ---|---
-Обязательный? |Истина
-Позиция? |1
-Значение по умолчанию |None
-Принимает входные данные конвейера? |true(ByPropertyName)
-Принимает подстановочные знаки? |Ложь
+Required? |True
+Position? |1
+Default value |None
+Accept pipeline input? |true(ByPropertyName)
+Accept wildcard characters? |False
 
-**-StorageAccounts &lt;PSStorageAccount[]&gt;**
+**-StorageAccounts &lt;PSStorageAccount\[\]&gt;**
 
-Указывает учетные записи хранения, связанные с этой службой мультимедиа.
+Specifies storage accounts that associated with the media service.
 
-- Поддерживаются только новые учетные записи хранения (созданные с помощью API Resource Manager).
+- New storage account (created with the Resource Manager API) supported only.
 
-- Учетная запись хранения должна существовать и находиться в том же расположении, что и служба мультимедиа.
+- The storage account must exist and has the same location with the media service.
 
-- Можно указать только одну основную учетную запись хранения.
+- Only one storage account can be specified as primary.
 
-Псевдонимы |Нет
+Aliases |none
 ---|---
-Обязательный? |нет
-Позиция? |Именованная
-Значение по умолчанию |Нет
-Принимает входные данные конвейера? |true(ByPropertyName)
-Имя набора параметров |StorageAccountsParamSet
-Принимает подстановочные знаки? |нет
+Required? |false
+Position? |Named
+Default value |none
+Accept pipeline input? |true(ByPropertyName)
+Parameter set name |StorageAccountsParamSet
+Accept wildcard characters? |false
 
-**-Tags &lt;хэш-таблица&gt;**
+**-Tags &lt;Hashtable&gt;**
 
-Указывает хэш-таблицу тегов, которые связаны с этой службой мультимедиа.
+Specifies a hash table of the tags that are associated with this media service.
 
-- Теги, которые связаны со службой мультимедиа, заменяются значением, указанным пользователем.
+- The tags that are associated with the media service are replaced with value specified by the customer.
 
-Псевдонимы |Нет
+Aliases |none
 ---|---
-Обязательный? |Ложь
-Позиция? |Именованная
-Значение по умолчанию |None
-Принимает входные данные конвейера? |true(ByPropertyName)
-Принимает подстановочные знаки? |нет
+Required? |False
+Position?  |Named
+Default value |None
+Accept pipeline input? |true(ByPropertyName)
+Accept wildcard characters? |false
 
-**&lt;Параметры команды&gt;**
+**&lt;CommandParameters&gt;**
 
-Этот командлет поддерживает общие параметры: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction и -WarningVariable.
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable.
 
-### Входные данные
+### <a name="inputs"></a>Inputs
 
-Тип входных данных определяет тип объектов, которые можно передавать в командлет.
+The input type is the type of the objects that you can pipe to the cmdlet.
 
-### Выходные данные
+### <a name="outputs"></a>Outputs
 
-Тип выходных данных определяет тип объектов, которые будет выдавать командлет.
+The output type is the type of the objects that the cmdlet emits.
 
-## Remove-AzureRmMediaService
+## <a name="remove-azurermmediaservice"></a>Remove-AzureRmMediaService
 
-Удаляет службу мультимедиа.
+Removes a media service.
 
-### Синтаксис
+### <a name="syntax"></a>Syntax
 
-	Remove-AzureRmMediaService [-ResourceGroupName] <string> [-AccountName] <string>  [<CommonParameters>]
+    Remove-AzureRmMediaService [-ResourceGroupName] <string> [-AccountName] <string>  [<CommonParameters>]
 
-### Параметры
+### <a name="parameters"></a>Parameters
 
-**-ResourceGroupName &lt;Строка&gt;**
+**-ResourceGroupName &lt;String&gt;**
 
-Указывает имя группы ресурсов, к которой принадлежит эта служба мультимедиа.
+Specifies the name of the resource group to which this media service belongs.
 
-Псевдонимы |Нет
+Aliases |none
 ---|---
-Обязательный? |Да
-Позиция? |0
-Значение по умолчанию |Нет
-Принимает входные данные конвейера? |true(ByPropertyName)
-Принимает подстановочные знаки? |нет
+Required? |true
+Position? |0
+Default value |none
+Accept pipeline input? |true(ByPropertyName)
+Accept wildcard characters? |false
 
-**-AccountName &lt;Строка&gt;**
+**-AccountName &lt;String&gt;**
 
-Указывает имя этой службы мультимедиа.
+Specifies the name of the media service.
 
-Псевдонимы |Нет
+Aliases |none
 ---|---
-Обязательный? |Да
-Позиция? |2
-Значение по умолчанию |None
-Принимает входные данные конвейера? |true(ByPropertyName)
-Принимает подстановочные знаки? |Ложь
+Required? |true
+Position? |2
+Default value |None
+Accept pipeline input?  |true(ByPropertyName)
+Accept wildcard characters? |False
 
-**&lt;Параметры команды&gt;**
+**&lt;CommandParameters&gt;**
 
-Этот командлет поддерживает общие параметры: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction и -WarningVariable.
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable.
 
-### Входные данные
+### <a name="inputs"></a>Inputs
 
-Тип входных данных определяет тип объектов, которые можно передавать в командлет.
+The input type is the type of the objects that you can pipe to the cmdlet.
 
-### Выходные данные
+### <a name="outputs"></a>Outputs
 
-Тип выходных данных определяет тип объектов, которые будет выдавать командлет.
+The output type is the type of the objects that the cmdlet emits.
 
-## Get-AzureRmMediaService
+## <a name="get-azurermmediaservice"></a>Get-AzureRmMediaService
 
-Получает все службы мультимедиа в группе ресурсов или службу мультимедиа с заданным именем.
+Gets all media services in a resource group or a media service with a given name.
 
-### Синтаксис
+### <a name="syntax"></a>Syntax
 
-Набор параметров: ResourceGroupParameterSet
+ParameterSet: ResourceGroupParameterSet
 
-	Get-AzureRmMediaService [-ResourceGroupName] <string>  [<CommonParameters>]	
+    Get-AzureRmMediaService [-ResourceGroupName] <string>  [<CommonParameters>] 
 
-Набор параметров: AccountNameParameterSet
+ParameterSet: AccountNameParameterSet
 
-	Get-AzureRmMediaService [-ResourceGroupName] <string> [-AccountName] <string>  [<CommonParameters>]
+    Get-AzureRmMediaService [-ResourceGroupName] <string> [-AccountName] <string>  [<CommonParameters>]
 
-### Параметры
+### <a name="parameters"></a>Parameters
 
-**-ResourceGroupName &lt;Строка&gt;**
+**-ResourceGroupName &lt;String&gt;**
 
-Указывает имя группы ресурсов, к которой принадлежит эта служба мультимедиа.
+Specifies the name of the resource group to which this media service belongs.
 
-Псевдонимы |Нет
+Aliases |none
 ---|---
-Обязательный? |Да
-Позиция? |0
-Значение по умолчанию |Нет
-Принимает входные данные конвейера? |true(ByPropertyName)
-Имя набора параметров |ResourceGroupParameterSet, AccountNameParameterSet
-Принимает подстановочные знаки? Нет
+Required? |true
+Position?  |0
+Default value |none
+Accept pipeline input? |true(ByPropertyName)
+Parameter set name |ResourceGroupParameterSet, AccountNameParameterSet
+Accept wildcard characters?   false
 
-**-AccountName &lt;Строка&gt;**
+**-AccountName &lt;String&gt;**
 
-Указывает имя этой службы мультимедиа.
+Specifies the name of the media service.
 
-Псевдонимы |Нет
+Aliases |none
 ---|---
-Обязательный? |Да
-Позиция? |1
-Значение по умолчанию |Нет
-Принимает входные данные конвейера? |true(ByPropertyName)
-Имя набора параметров |AccountNameParameterSet
-Принимает подстановочные знаки? |нет
+Required? |true
+Position?  |1
+Default value |none
+Accept pipeline input? |true(ByPropertyName)
+Parameter set name  |AccountNameParameterSet
+Accept wildcard characters? |false
 
-**&lt;Параметры команды&gt;**
+**&lt;CommandParameters&gt;**
 
-Этот командлет поддерживает общие параметры: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction и -WarningVariable.
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable.
 
-### Входные данные
+### <a name="inputs"></a>Inputs
 
-Тип входных данных определяет тип объектов, которые можно передавать в командлет.
+The input type is the type of the objects that you can pipe to the cmdlet.
 
-### Выходные данные
+### <a name="outputs"></a>Outputs
 
-Тип выходных данных определяет тип объектов, которые будет выдавать командлет.
+The output type is the type of the objects that the cmdlet emits.
 
-## Get-AzureRmMediaServiceKeys
+## <a name="get-azurermmediaservicekeys"></a>Get-AzureRmMediaServiceKeys
 
-Возвращает ключи службы мультимедиа.
+Gets keys of a media service.
 
-### Синтаксис
+### <a name="syntax"></a>Syntax
 
-	Get-AzureRmMediaServiceKeys [-ResourceGroupName] <string> [-AccountName] <string>  [<CommonParameters>]
+    Get-AzureRmMediaServiceKeys [-ResourceGroupName] <string> [-AccountName] <string>  [<CommonParameters>]
 
-### Параметры
+### <a name="parameters"></a>Parameters
 
-**-ResourceGroupName &lt;Строка&gt;**
+**-ResourceGroupName &lt;String&gt;**
 
-Указывает имя группы ресурсов, к которой принадлежит эта служба мультимедиа.
+Specifies the name of the resource group to which this media service belongs.
 
-Псевдонимы |Нет
+Aliases |none
 ---|---
-Обязательный? |Да
-Позиция? |0
-Значение по умолчанию |Нет
-Принимает входные данные конвейера? |true(ByPropertyName)
-Принимает подстановочные знаки? |нет
+Required? |true
+Position?  |0
+Default value |none
+Accept pipeline input? |true(ByPropertyName)
+Accept wildcard characters? |false
 
-**-AccountName &lt;Строка&gt;**
+**-AccountName &lt;String&gt;**
 
-Указывает имя этой службы мультимедиа.
+Specifies the name of the media service.
 
-Псевдонимы |Нет
+Aliases |none
 ---|---
-Обязательный? |Да
-Позиция? |1
-Значение по умолчанию |Нет
-Принимает входные данные конвейера? |true(ByPropertyName)
-Принимает подстановочные знаки? |нет
+Required? |true
+Position? |1
+Default value |none
+Accept pipeline input? |true(ByPropertyName)
+Accept wildcard characters? |false
 
-**&lt;Параметры команды&gt;**
+**&lt;CommandParameters&gt;**
 
-Этот командлет поддерживает общие параметры: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction и -WarningVariable.
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable.
 
-### Входные данные
+### <a name="inputs"></a>Inputs
 
-Тип входных данных определяет тип объектов, которые можно передавать в командлет.
+The input type is the type of the objects that you can pipe to the cmdlet.
 
-### Выходные данные
+### <a name="outputs"></a>Outputs
 
-Тип выходных данных определяет тип объектов, которые будет выдавать командлет.
+The output type is the type of the objects that the cmdlet emits.
 
-## Set-AzureRmMediaServiceKey
+## <a name="set-azurermmediaservicekey"></a>Set-AzureRmMediaServiceKey
 
-Повторно создает первичный или вторичный ключ службы мультимедиа.
+Regenerates a primary or secondary key of a media service.
 
-### Синтаксис
+### <a name="syntax"></a>Syntax
 
-	Set-AzureRmMediaServiceKey [-ResourceGroupName] <string> [-AccountName] <string> [-KeyType] <KeyType> {Primary | Secondary}  [<CommonParameters>]
+    Set-AzureRmMediaServiceKey [-ResourceGroupName] <string> [-AccountName] <string> [-KeyType] <KeyType> {Primary | Secondary}  [<CommonParameters>]
 
-### Параметры
+### <a name="parameters"></a>Parameters
 
-**-ResourceGroupName &lt;Строка&gt;**
+**-ResourceGroupName &lt;String&gt;**
 
-Указывает имя группы ресурсов, к которой принадлежит эта служба мультимедиа.
+Specifies the name of the resource group to which this media service belongs.
 
-Псевдонимы |Нет
+Aliases |none
 ---|---
-Обязательный? |Да
-Позиция? |0
-Значение по умолчанию |Нет
-Принимает входные данные конвейера? |true(ByPropertyName)
-Принимает подстановочные знаки? |нет
+Required?  |true
+Position?  |0
+Default value |none
+Accept pipeline input?  |true(ByPropertyName)
+Accept wildcard characters? |false
 
-**-AccountName &lt;Строка&gt;**
+**-AccountName &lt;String&gt;**
 
-Указывает имя этой службы мультимедиа.
+Specifies the name of the media service.
 
-Псевдонимы |Нет
+Aliases |none
 ---|---
-Обязательный? |Да
-Позиция? |1
-Значение по умолчанию |Нет
-Принимает входные данные конвейера? |true(ByPropertyName)
-Принимает подстановочные знаки? |нет
+Required? |true
+Position?  |1
+Default value |none
+Accept pipeline input?   |true(ByPropertyName)
+Accept wildcard characters? |false
 
-**-KeyType &lt;тип ключа&gt;**
+**-KeyType &lt;KeyType&gt;**
 
-Указывает тип ключа этой службы мультимедиа.
+Specifies the key type of the media service.
 
-- Первичный или вторичный
+- Primary or Secondary
 
-Псевдонимы |Нет
+Aliases |none
 ---|---
-Обязательный? |Да
-Позиция? |2
-Значение по умолчанию |Нет
-Принимает входные данные конвейера? |нет
-Принимает подстановочные знаки? |нет
+Required?  |true
+Position?  |2
+Default value |none
+Accept pipeline input? |false
+Accept wildcard characters? |false
 
-**&lt;Параметры команды&gt;**
+**&lt;CommandParameters&gt;**
 
-Этот командлет поддерживает общие параметры: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction и -WarningVariable.
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable.
 
-### Входные данные
+### <a name="inputs"></a>Inputs
 
-Тип входных данных определяет тип объектов, которые можно передавать в командлет.
+The input type is the type of the objects that you can pipe to the cmdlet.
 
-### Выходные данные
+### <a name="outputs"></a>Outputs
 
-Тип выходных данных определяет тип объектов, которые будет выдавать командлет.
+The output type is the type of the objects that the cmdlet emits.
 
-## Sync-AzureRmMediaServiceStorageKeys
+## <a name="sync-azurermmediaservicestoragekeys"></a>Sync-AzureRmMediaServiceStorageKeys
 
-Синхронизирует ключи учетной записи хранения, которая связана с этой службой мультимедиа.
+Synchronizes storage account keys for a storage account associated with the media service.
 
-### Синтаксис
+### <a name="syntax"></a>Syntax
 
-	Sync-AzureRmMediaServiceStorageKeys [-ResourceGroupName] <string> [-MediaServiceAccountName] <string>    [-StorageAccountName] <string>  [<CommonParameters>]
+    Sync-AzureRmMediaServiceStorageKeys [-ResourceGroupName] <string> [-MediaServiceAccountName] <string>    [-StorageAccountId] <string>  [<CommonParameters>]
 
-### Параметры
+### <a name="parameters"></a>Parameters
 
-**-ResourceGroupName &lt;Строка&gt;**
+**-ResourceGroupName &lt;String&gt;**
 
-Указывает имя группы ресурсов, к которой принадлежит эта служба мультимедиа.
+Specifies the name of the resource group to which this media service belongs.
 
-Псевдонимы |Нет
+Aliases |none
 ---|---
-Обязательный? |Да
-Позиция? |0
-Значение по умолчанию |Нет
-Принимает входные данные конвейера? |true(ByPropertyName)
-Принимает подстановочные знаки? |нет
+Required? |true
+Position? |0
+Default value |none
+Accept pipeline input? |true(ByPropertyName)
+Accept wildcard characters? |false
 
-**-AccountName &lt;Строка&gt;**
+**-AccountName &lt;String&gt;**
 
-Указывает имя этой службы мультимедиа.
+Specifies the name of the media service.
 
-Псевдонимы |Нет
+Aliases |none
 ---|---
-Обязательный? |Да
-Позиция? |1
-Значение по умолчанию |Нет
-Принимает входные данные конвейера? |true(ByPropertyName)
-Принимает подстановочные знаки? |нет
+Required? |true
+Position? |1
+Default value |none
+Accept pipeline input? |true(ByPropertyName)
+Accept wildcard characters? |false
 
-**-StorageAccountId &lt;Строка&gt;**
+**-StorageAccountId &lt;String&gt;**
 
-Указывает учетную запись хранения, связанную с этой службой мультимедиа.
+Specifies the storage account associated with the media service.
 
-Псевдонимы |Идентификатор
+Aliases |Id
 ---|---
-Обязательный? |Да
-Позиция? |2
-Значение по умолчанию |Нет
-Принимает входные данные конвейера? | true(ByPropertyName)
-Принимает подстановочные знаки? |нет
+Required? |true
+Position?  |2
+Default value |none
+Accept pipeline input? |      true(ByPropertyName)
+Accept wildcard characters? |false
 
-**&lt;Параметры команды&gt;**
+**&lt;CommandParameters&gt;**
 
-Этот командлет поддерживает общие параметры: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction и -WarningVariable.
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable.
 
-### Входные данные
+### <a name="inputs"></a>Inputs
 
-Тип входных данных определяет тип объектов, которые можно передавать в командлет.
+The input type is the type of the objects that you can pipe to the cmdlet.
 
-### Выходные данные
+### <a name="outputs"></a>Outputs
 
-Тип выходных данных определяет тип объектов, которые будет выдавать командлет.
+The output type is the type of the objects that the cmdlet emits.
 
-## Дальнейшие действия 
+## <a name="next-step"></a>Next step 
 
-Изучите схемы обучения для служб мультимедиа.
+Check out Media Services learning paths.
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-##Отзывы
+##<a name="provide-feedback"></a>Provide feedback
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
  
 
-<!---HONumber=AcomDC_0907_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

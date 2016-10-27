@@ -1,98 +1,100 @@
 <properties 
-	pageTitle="Реализация службы Azure Mobile Engagement в мультимедийном приложении"
-	description="Сценарий для реализации службы Azure Mobile Engagement в мультимедийном приложении" 
-	services="mobile-engagement" 
-	documentationCenter="mobile" 
-	authors="piyushjo"
-	manager="dwrede"
-	editor=""/>
+    pageTitle="Azure Mobile Engagement implementation for Media App"
+    description="Media app scenario to implement Azure Mobile Engagement" 
+    services="mobile-engagement" 
+    documentationCenter="mobile" 
+    authors="piyushjo"
+    manager="dwrede"
+    editor=""/>
 
 <tags
-	ms.service="mobile-engagement"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="mobile-multiple"
-	ms.workload="mobile" 
-	ms.date="08/19/2016"
-	ms.author="piyushjo"/>
+    ms.service="mobile-engagement"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="mobile-multiple"
+    ms.workload="mobile" 
+    ms.date="08/19/2016"
+    ms.author="piyushjo"/>
 
-#Реализация службы Mobile Engagement в мультимедийном приложении
 
-## Обзор
+#<a name="implement-mobile-engagement-with-media-app"></a>Implement Mobile Engagement with Media App
 
-Артем — руководитель проектов для мобильных устройств в крупной медиакомпании. Недавно он выпустил новое приложение с очень высоким показателем скачиваний. Ему удалось достичь желаемого уровня скачиваний, однако рентабельность инвестиций на каждого пользователя не соответствует его требованиям.
+## <a name="overview"></a>Overview
 
-Артем уже определил, почему коэффициент рентабельности инвестиций невысок. Зачастую пользователи перестают использовать его приложение спустя 2 недели, и большинство из них никогда не возвращается. Он хочет увеличить период удержания пользователей.
+John is a mobile project manager for a big media company. He recently launched a new app that has a very high download count. He has hit his goals for download but, still his Return On Investment(ROI) per user does not meet his requirements. 
 
-Первоначальное тестирование показало, что при использовании push-уведомлений для привлечения пользователей они, как правило, продолжают использовать приложение. Кроме этого, пользователи, которые были неактивны, часто возвращаются к использованию приложения в зависимости от отправляемых им уведомлений. Артем решил инвестировать в программу привлечения для своего приложения, которая использует расширенные возможности привлечения с помощью push-уведомлений.
+John has already identified why his ROI is too low. Users frequently stop using his app after only 2 weeks and most of them never come back. He wants to increase the retention of his app.
 
-Недавно Артем прочитал статью [Служба Azure Mobile Engagement. Руководство по началу работы и рекомендации](mobile-engagement-getting-started-best-practices.md) и решил последовать рекомендациям в этом руководстве.
+After some initial testing, he has learned when he engages his users with push notifications, they tend to continue using his app. Also users that were inactive will often return to the app depending on notifications he sends them. John decides to invest in some kind of Engagement Program for his app which uses advanced targeting with push notifications.
 
-##Цели и ключевые показатели эффективности
+John has recently read the [Azure Mobile Engagement - Getting Started Guide with Best practices](mobile-engagement-getting-started-best-practices.md) and has decided to implement the recommendations from the guide.
 
-Артем провел совещание с основными заинтересованными лицами в его приложении. В сущности, доход от приложения приносит реклама. Таким образом, увеличив объем содержимого, предоставляемого каждому пользователю, Артем сможет увеличить свою прибыль. Все собравшиеся пришли к согласию относительно основной цели: увеличить уровень продаж за счет рекламы на 25 %. Кроме этого, на совещании обсудили ключевые показатели эффективности бизнеса, которые позволяют определить коэффициент эффективности и стимулировать достижение цели:
+##<a name="objectives-and-kpis"></a>Objectives and KPIs
 
-* количество рекламных объявлений, по которым переходит пользователь;
-* количество просмотренных страниц статьи (на пользователя, на сеанс, в неделю, в месяц и т. п.);
-* избранные категории.
+Key stakeholders for John's app meet. Business is generated from ads as users consume his media. By increasing content consumed per user, John increases his revenues. All agree on one main objective: To increase sales from ads by 25%. They create Business Key Performance Indicators (KPIs) to measure and drive this objective
 
-По итогам совещания Артем определил свои ключевые показатели эффективности бизнеса. При этом он следовал части 1 статьи [Служба Azure Mobile Engagement. Руководство по началу работы и рекомендации](mobile-engagement-getting-started-best-practices.md).
+* Number of ads clicked per user
+* How many article pages visited (per user/ per session/ per week / per month…)
+* What are favorite categories
 
-Затем он обозначил ключевые показатели эффективности привлечения для достижения цели:
+Based on John's meeting with key stakeholders he has defined his Business KPIs. He follows Part 1 of the [Azure Mobile Engagement - Getting Started Guide with Best practices](mobile-engagement-getting-started-best-practices.md). 
 
-* степень удержания пользователей в течение таких интервалов: ежедневно, еженедельно, раз в две недели и ежемесячно;
-* количество активных пользователей;
-* оценка приложения в магазинах приложений.
+Next, he creates the following Engagement KPIs to ensure that objectives are reached:
 
-Следуя рекомендациям ИТ-отдела, Артем добавил следующие технические ключевые показатели эффективности:
+* Monitor retention across the following intervals: daily, weekly, bi-weekly and monthly.
+* Active users counts
+* The app rating in the app stores
 
-* путь пользователя (посещаемая страница, количество времени, которые пользователи тратят на ее просмотр);
-* количество сбоев или ошибок на сеанс;
-* версии операционных систем, используемые пользователями;
-* средний размер экрана пользователей;
-* тип подключения к Интернету, используемый пользователями.
+Based on recommendations from the IT team, the following Technical KPIs were added to answer the following questions:
 
-Для каждого ключевого показателя эффективности Артем классифицировал необходимые данные и записал их в надлежащее место в сборнике тренировочных заданий.
+* What is my user path (which page is visited, how many time users spend on it)
+* Number of crashes or bugs encountered per session?
+* What OS versions are my users running?
+* What is the average size of screen for my users?
+* What kind of internet connections do my users have?
 
-## Программа привлечения и интеграция
+For each KPI, he classifies the data required and he records it in the proper location of his playbook.
 
-Определив ключевые показатели эффективности, Артем приступил к составлению стратегии привлечения. Для этого он определил 4 программы привлечения и их цели: ![][1]
+## <a name="engagement-program-and-integration"></a>Engagement program and integration
 
-Затем Артем детально рассмотрел push-уведомления каждой программы. Push-уведомления определяют пять составляющих:
+Now that John has finished defining his KPIs, he starts his Engagement strategy phase by defining 4 engagement programs and their objectives:     ![][1]
 
-1. Цель уведомления.
-2. Способ достижения цели.
-3. Целевой пользователь, получающий уведомление.
-4. Содержимое и формат уведомления (в приложении и вне его).
-5. Лучшее время для отправки push-уведомления.
+Then John goes deeper by detailing push notifications for each program. Push notification are defined by five elements:
 
-	![][2]
+1. Objective: what is the objective of the notification
+2. How the objective will be reached
+3. Target: who will receive the notification?
+4. Content: What is the wording and the format of the notification (In App/Out of App)
+5. When: what is the best moment to send this push notification
 
-Дополнительные сведения см. в [сборниках тренировочных заданий](https://github.com/Azure/azure-mobile-engagement-samples/tree/master/Playbooks).
+    ![][2]
 
-Руководствуясь частью 2 технического документа, Артем определил, какие данные ему нужно собрать, и создал план тегов совместно со специалистами ИТ-отдела для реализации решения. Спустя неделю после реализации и приемочного тестирования пользователями Артем запустил свои программы.
+For more information refer to the [Playbooks](https://github.com/Azure/azure-mobile-engagement-samples/tree/master/Playbooks).
 
-##Результаты работы программ
+According to the part 2 of the white paper John uses target section to define what data he has to collect and writes his Tag Plan jointly with IT team to implement the solution. After 1 week of implementation and user acceptance testing, John can finally launch his programs.
 
-4 месяца спустя Артем просмотрел показатели эффективности программ. Программы приветствия и еженедельного привлечения помогают достичь намеченных целей. Количество пользователей, которые перестают использовать приложение после одного сеанса, уменьшается, используется больше функций приложения, а количество подключений в неделю удвоилось.
+##<a name="program-results"></a>Program Results
 
-**Программа неактивных пользователей** помогает Артему понять тенденции использования. Похоже, что 15 % неактивных пользователей возвращаются к использованию приложения. Однако большинство из них не остаются активными более 1 месяца. Артем знает, какие средства оптимизации следует применить, — дополнительные уведомления и расширение вариантов содержимого.
+4 months later, John reviews performances of programs. The Welcome Program and the Weekly Program are meeting his goals. The number of user with only one session decreases, more features of the app are being used and the number of connections per week has doubled.
 
-**Программа обнаружения** не приносит ожидаемых результатов. Перекрестные продажи увеличились, однако такой степени повышения недостаточно для достижения целей. Артем определил, что у него недостаточно данных для отслеживания целевых пользователей и предложения соответствующего содержимого. Он перестал использовать эту программу и переключился на использование службы Azure Mobile Engagement для отправки редакционных push-уведомлений. У журналистов его компании уже есть решение CMS для отправки push-уведомлений, и они не хотят его менять.
+The **Inactive Program** is helping John understand user tendencies. It appears that 15% of the inactive users come back to the app. However most of them don’t stay active more than 1 month. John foresees a potential optimization of this sequence with additional notifications and expanding his content choices.
 
-Артем решил использовать Reach API (HTTP API REST), который позволяет управлять рекламными кампаниями Reach без использования веб-интерфейса AZME. При таком подходе Артем может собирать необходимые данные, не меняя используемого решения CMS.
+The **Discover Program** doesn’t work well. It increases cross selling but not enough to reach his objectives. John identifies that he doesn’t have enough data to make relevant targeting and propose appropriate content. He stops this program and focuses on sending “editorial push notifications” with Azure Mobile Engagement. His journalists already have a CMS solution to send push notifications and they don’t want to change.
 
-Чтобы обеспечить правильную работу этого компонента, Артем попросил ИТ-специалистов быть бдительными по отношению к следующим аспектам:
+John decides to use the Reach API which is an HTTP REST API that allows managing Reach campaigns without having to use AZME Web interface. With this approach John can collect the data he needs and allow his writers to keep using the CMS solution.
 
-1. **Операционные системы.** Все они отличаются собственными правилами администрирования push-уведомлений, поэтому Артем решает перечислить все случаи и установить, могут ли их обработать API-интерфейсы. Например, система push-уведомлений Android поддерживает большие изображения в отличие от iOS.
+To ensure that feature works correctly, John asks IT team to be vigilant on the following points:
 
-2. **Интервал времени.** Артему необходимо, чтобы в API можно было задавать интервал времени и контролировать окончание срока действия кампаний. Он хочет предотвратить отправку слишком большого количества уведомлений, что ведет к нарушениям в работе.
+1. **Operation Systems** : They all have their own rules to administrate push notifications, so John decides to list all cases and checks if the APIs handle it.
+E.g : Android push system allows big picture which is not the case with iOS.
 
-3. **Категории.** Сотрудники маркетингового отдела подготавливают шаблон для уведомлений каждого типа. Артем попросил ИТ-специалистов настроить категории внутри API.
+2. **Time frame**: John wants an API, which set the time frame and set an end to campaigns. He wants to preserve users from any disruptive notification bombing.
 
-Проведя некоторые тесты, Артем остался доволен. Благодаря этому API журналисты могут отправлять push-уведомления, используя прежнее решение CMS, а служба Azure Mobile Engagement собирает все необходимые данные о поведении пользователей.
+3. **Categories**: Marketing team prepares template for each type of alerting. John asks IT team to set categories inside the API.
 
-Спустя первые 4 месяца результаты показали хорошую общую эффективность, что придало уверенность Артему и его спонсорам, рентабельность инвестиций на пользователя увеличилась на 15 %, а мобильные продажи составили 17,5 % от общего объема продаж, то есть всего за четыре месяца они увеличились на 7,5 %.
+After some tests John is satisfied. Thanks to this API, journalists can still send push notifications with their CMS and Azure Mobile Engagement collects all behavioral data for them
+
+After these 4 first months, results reflect a good overall performance and gives confidence for John and his board, ROI per user increases per 15% and mobile sales represent 17.5 % of total sales, an increase of 7.5% in only four months.
 
 <!--Image references-->
 [1]: ./media/mobile-engagement-media-scenario/engagement-strategy.png
@@ -101,4 +103,8 @@
 <!--Link references-->
 [Media Playbook link]: https://github.com/Azure/azure-mobile-engagement-samples/tree/master/Playbooks
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

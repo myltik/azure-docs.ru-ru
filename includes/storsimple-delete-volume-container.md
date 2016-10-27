@@ -1,13 +1,16 @@
 <!--author=SharS last changed: 9/16/15-->
 
-#### Удаление контейнера томов
+#### <a name="to-delete-a-volume-container"></a>To delete a volume container
 
-1. На странице **Устройства** выберите устройство, дважды щелкните его и перейдите на вкладку **Контейнеры томов**.
+1. On the **Devices** page, select the device, double-click it, and then click the **Volume containers** tab.
 
-2. Выберите контейнер, который требуется удалить.
+2. Select the volume container you want to delete.
 
-3. Удалить контейнер можно в том случае, если с ним не связаны тома. Чтобы удалить выбранный контейнер, щелкните **Удалить** внизу страницы. При появлении запроса на подтверждение нажмите кнопку **Да**. В результате контейнер томов будет удален.
+3. If a volume container has no associated volumes, then it can be deleted. Click **Delete** at the bottom of the page to delete this container. When prompted for confirmation, click **Yes**. This will delete the volume container.
 
-Если с контейнером связаны тома, сначала потребуется перевести их в автономный режим, следуя инструкциям в разделе [Перевод тома в автономный режим](../articles/storsimple/storsimple-manage-volumes.md#take-a-volume-offline). После перевода томов в автономный режим их можно удалить. Если с контейнером не связаны тома, удалите его, как описано выше.
+If the volume container has associated volumes, you will first need to take those volumes offline by following the steps in [Take a volume offline](../articles/storsimple/storsimple-manage-volumes.md#take-a-volume-offline). After the volumes are offline, you can delete them. When the volume container has no associated volumes, delete the volume container as described above.
 
-<!---HONumber=Oct15_HO3-->
+
+<!--HONumber=Oct16_HO2-->
+
+

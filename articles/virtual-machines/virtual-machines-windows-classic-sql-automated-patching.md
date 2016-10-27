@@ -1,22 +1,23 @@
 <properties
-	pageTitle="Автоматическая установка исправлений для виртуальных машин SQL Server (классическая модель) | Microsoft Azure"
-	description="Описывается функция автоматической установки исправлений для виртуальных машин SQL Server в Azure, использующих классический режим развертывания."
-	services="virtual-machines-windows"
-	documentationCenter="na"
-	authors="rothja"
-	manager="jhubbard"
-	editor=""
-	tags="azure-service-management" />
+    pageTitle="Автоматическая установка исправлений для виртуальных машин SQL Server (классическая модель) | Microsoft Azure"
+    description="Описывается функция автоматической установки исправлений для виртуальных машин SQL Server в Azure, использующих классический режим развертывания."
+    services="virtual-machines-windows"
+    documentationCenter="na"
+    authors="rothja"
+    manager="jhubbard"
+    editor=""
+    tags="azure-service-management" />
 <tags
-	ms.service="virtual-machines-windows"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="vm-windows-sql-server"
-	ms.workload="infrastructure-services"
-	ms.date="09/26/2016"
-	ms.author="jroth" />
+    ms.service="virtual-machines-windows"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="vm-windows-sql-server"
+    ms.workload="infrastructure-services"
+    ms.date="09/26/2016"
+    ms.author="jroth" />
 
-# Автоматическая установка исправлений SQL Server на виртуальных машинах Azure (классическая модель)
+
+# <a name="automated-patching-for-sql-server-in-azure-virtual-machines-(classic)"></a>Автоматическая установка исправлений SQL Server на виртуальных машинах Azure (классическая модель)
 
 > [AZURE.SELECTOR]
 - [Диспетчер ресурсов](virtual-machines-windows-sql-automated-patching.md)
@@ -24,10 +25,9 @@
 
 При автоматической установке исправлений на виртуальных машинах Azure с SQL Server задается период обслуживания. Установка автоматических обновлений возможна только в этот период обслуживания. Для SQL Server это гарантирует, что системные обновления и связанные с ними перезапуски системы будут происходить в наиболее удобное для базы данных время. Автоматическая установка исправлений зависит от [Расширения агента IaaS для SQL Server](virtual-machines-windows-classic-sql-server-agent-extension.md).
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
-Версию этой статьи для диспетчера ресурсов см. в разделе [Автоматическое исправление SQL Server на виртуальных машинах Azure (диспетчер ресурсов)](virtual-machines-windows-sql-automated-patching.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Версию этой статьи для Resource Manager см. в разделе [Автоматическое исправление SQL Server на виртуальных машинах Azure Resource Manager](virtual-machines-windows-sql-automated-patching.md).
 
-## Предварительные требования
+## <a name="prerequisites"></a>Предварительные требования
 
 Для использования автоматической установки исправлений необходимо выполнить следующие предварительные требования.
 
@@ -50,7 +50,7 @@
 
 - [Установите расширение IaaS для SQL Server](virtual-machines-windows-classic-sql-server-agent-extension.md).
 
-## Параметры
+## <a name="settings"></a>Параметры
 
 В приведенной ниже таблице описаны параметры для настройки автоматической установки исправлений. Для виртуальных машин, развернутых с использованием классической модели, эти параметры необходимо настроить с помощью PowerShell.
 
@@ -62,7 +62,7 @@
 |**Длительность периода обслуживания**|30–180|Допустимое количество минут для скачивания и установки обновлений.|
 |**Категория исправления**|Важно!|Категория обновлений, которые будут скачаны и установлены.|
 
-## Настройка с помощью PowerShell
+## <a name="configuration-with-powershell"></a>Настройка с помощью PowerShell
 
 В следующем примере для настройки автоматической установки исправлений на существующей виртуальной машине SQL Server используется PowerShell. Команда **New-AzureVMSqlServerAutoPatchingConfig** настраивает новый период обслуживания для автоматической установки обновлений.
 
@@ -83,10 +83,14 @@
 
 Чтобы отключить автоматическую установку обновлений, выполните тот же скрипт без параметра -Enable в команде New-AzureVMSqlServerAutoPatchingConfig. Как и установка, отключение автоматической установки исправлений занимает несколько минут.
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Дальнейшие действия
 
 Сведения о других доступных задачах автоматизации см. в разделе [Расширение агента IaaS для SQL Server](virtual-machines-windows-classic-sql-server-agent-extension.md).
 
 Дополнительные сведения о запуске SQL Server на виртуальных машинах Azure см. в [обзоре использования SQL Server на виртуальных машинах Azure](virtual-machines-windows-sql-server-iaas-overview.md).
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

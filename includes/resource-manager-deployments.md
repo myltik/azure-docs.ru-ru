@@ -1,19 +1,22 @@
-## Добавочные и полные развертывания
+## <a name="incremental-and-complete-deployments"></a>Incremental and complete deployments
 
-По умолчанию диспетчер ресурсов обрабатывает развертывания как добавочные обновления в группе ресурсов. В рамках добавочного развертывания диспетчер ресурсов выполняет следующие задачи:
+By default, Resource Manager handles deployments as incremental updates to the resource group. With incremental deployment, Resource Manager:
 
-- **оставляет без изменения** ресурсы, которые существуют в группе ресурсов, но не указаны в шаблоне;
-- **добавляет** ресурсы, которые указаны в шаблоне, но отсутствуют в группе ресурсов;
-- **не выполняет повторную подготовку** ресурсов, которые существуют в группе ресурсов в том же состоянии, в котором они определены в шаблоне.
-- **выполняет повторную подготовку** существующих ресурсов, которые обновили параметры в шаблоне.
+- **leaves unchanged** resources that exist in the resource group but are not specified in the template
+- **adds** resources that are specified in the template but do not exist in the resource group 
+- **does not re-provision** resources that exist in the resource group in the same condition defined in the template
+- **re-provisions** existing resources that have updated settings in the template
 
-В рамках полного развертывания диспетчер ресурсов выполняет следующие задачи:
+With complete deployment, Resource Manager:
 
-- **удаляет** ресурсы, которые существуют в группе ресурсов, но не указаны в шаблоне;
-- **добавляет** ресурсы, которые указаны в шаблоне, но отсутствуют в группе ресурсов;
-- **не выполняет повторную подготовку** ресурсов, которые существуют в группе ресурсов в том же состоянии, в котором они определены в шаблоне.
-- **выполняет повторную подготовку** существующих ресурсов, которые обновили параметры в шаблоне.
+- **deletes** resources that exist in the resource group but are not specified in the template
+- **adds** resources that are specified in the template but do not exist in the resource group 
+- **does not re-provision** resources that exist in the resource group in the same condition defined in the template
+- **re-provisions** existing resources that have updated settings in the template
  
-Тип развертывания указывается в свойстве **Режим**.
+You specify the type of deployment through the **Mode** property.
 
-<!---HONumber=AcomDC_0713_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

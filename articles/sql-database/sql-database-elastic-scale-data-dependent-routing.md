@@ -1,74 +1,75 @@
 <properties 
-	pageTitle="Маршрутизация, зависящая от данных | Microsoft Azure" 
-	description="Как использовать класс ShardMapManager в приложениях .NET для маршрутизации, зависящей от данных — функции эластичных баз данных для базы данных SQL Azure" 
-	services="sql-database" 
-	documentationCenter="" 
-	manager="jhubbard" 
-	authors="torsteng" 
-	editor=""/>
+    pageTitle="Data dependent routing | Microsoft Azure" 
+    description="How to use the ShardMapManager class in .NET apps for data-dependent routing, a feature of elastic databases for Azure SQL Database" 
+    services="sql-database" 
+    documentationCenter="" 
+    manager="jhubbard" 
+    authors="torsteng" 
+    editor=""/>
 
 <tags 
-	ms.service="sql-database" 
-	ms.workload="sql-database" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/27/2016" 
-	ms.author="torsteng"/>
+    ms.service="sql-database" 
+    ms.workload="sql-database" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="05/27/2016" 
+    ms.author="torsteng"/>
 
-#Маршрутизация, зависящая от данных
 
-**Маршрутизация на основе данных** — это возможность использования данных в запросе для направления запроса к соответствующей базе данных. Это основная модель при работе с сегментированными базами данных. Контекст запроса может также использоваться для маршрутизации запроса, особенно в том случае, если ключ сегментирования не является частью запроса. Каждый конкретный запрос или транзакция в приложении, которое использует зависящую от данных маршрутизацию, ограничены обращением только к одной базе данных за раз. Для средств эластичной базы данных SQL Azure эта маршрутизация выполняется с помощью **[класса ShardMapManager](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.aspx)** в приложениях ADO.NET.
+#<a name="data-dependent-routing"></a>Data dependent routing
 
-Приложение не должно отслеживать различные строки подключения или расположения базы данных, связанные с различными срезами данных в сегментированной среде. Вместо этого [диспетчер сопоставления сегментов](sql-database-elastic-scale-shard-map-management.md) при необходимости открывает подключения к соответствующим базам данных на основе данных в сопоставлении сегментов и значения ключа сегментирования, которое является целевым объектом запроса приложения. (Этим ключом обычно является *customer\_id*, *tenant\_id*, *date\_key* или другой конкретный идентификатор, являющийся основным параметром запроса к базе данных.)
+**Data dependent routing** is the ability to use the data in a query to route the request to an appropriate database. This is a fundamental pattern when working with sharded databases. The request context may also be used to route the request, especially if the sharding key is not part of the query. Each specific query or transaction in an application using data dependent routing is restricted to accessing a single database per request. For the Azure SQL Database Elastic tools, this routing is accomplished with the **[ShardMapManager class](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.aspx)** in ADO.NET applications.
 
-Дополнительные сведения см. в разделе [Масштабирование SQL Server с помощью маршрутизации на основе данных](https://technet.microsoft.com/library/cc966448.aspx).
+The application does not need to track various connection strings or DB locations associated with different slices of data in the sharded environment. Instead, the [Shard Map Manager](sql-database-elastic-scale-shard-map-management.md) opens connections to the correct databases when needed, based on the data in the shard map and the value of the sharding key that is the target of the application’s request. The key is typically the *customer_id*, *tenant_id*, *date_key*, or some other specific identifier that is a fundamental parameter of the database request). 
 
-## Скачивание клиентской библиотеки
+For more information, see [Scaling Out SQL Server with Data Dependent Routing](https://technet.microsoft.com/library/cc966448.aspx).
 
-Для получения класса установите [клиентскую библиотеку эластичной базы данных](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/).
+## <a name="download-the-client-library"></a>Download the client library
 
-## Использование ShardMapManager при маршрутизации с зависимостью от данных 
+To get the class, install the [Elastic Database Client Library](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/). 
 
-Приложения должны получить объект **ShardMapManager** во время инициализации, используя вызов фабрики **[GetSQLShardMapManager](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.getsqlshardmapmanager.aspx)**. В данном примере инициализируются как диспетчер **ShardMapManager**, так и конкретное сопоставление **ShardMap**, которое он содержит. В этом примере показаны методы GetSqlShardMapManager и [GetRangeShardMap](https://msdn.microsoft.com/library/azure/dn824173.aspx).
+## <a name="using-a-shardmapmanager-in-a-data-dependent-routing-application"></a>Using a ShardMapManager in a data dependent routing application 
+
+Applications should instantiate the **ShardMapManager** during initialization, using the factory call **[GetSQLShardMapManager](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.getsqlshardmapmanager.aspx)**. In this example, both a **ShardMapManager** and a specific **ShardMap** that it contains are initialized. This example shows the GetSqlShardMapManager and [GetRangeShardMap](https://msdn.microsoft.com/library/azure/dn824173.aspx) methods.
 
     ShardMapManager smm = ShardMapManagerFactory.GetSqlShardMapManager(smmConnnectionString, 
                       ShardMapManagerLoadPolicy.Lazy);
     RangeShardMap<int> customerShardMap = smm.GetRangeShardMap<int>("customerMap"); 
 
-### Для получения карты сегментов используйте учетную запись с минимально возможными привилегиями.
+### <a name="use-lowest-privilege-credentials-possible-for-getting-the-shard-map"></a>Use lowest privilege credentials possible for getting the shard map
 
-Если приложение не работает с картой сегментов, учетные данные, используемые в методе фабрики, должны иметь разрешения только для чтения в базе данных **глобальной карты сегментов**. Обычно эти учетные данные отличаются от учетных данных, используемых в открытых подключениях к диспетчеру карты сегментов. Также см. раздел [Учетные данные для доступа к клиентской библиотеке эластичной базы данных](sql-database-elastic-scale-manage-credentials.md).
+If an application is not manipulating the shard map itself, the credentials used in the factory method should have just read-only permissions on the **Global Shard Map** database. These credentials are typically different from credentials used to open connections to the shard map manager. See also [Credentials used to access the Elastic Database client library](sql-database-elastic-scale-manage-credentials.md). 
 
-## Вызовите метод OpenConnectionForKey.
+## <a name="call-the-openconnectionforkey-method"></a>Call the OpenConnectionForKey method
 
-Метод **[ShardMap.OpenConnectionForKey ](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.openconnectionforkey.aspx)** возвращает подключение к ADO.Net, готовое к выдаче команд в соответствующей базе данных на основе значения параметра **key**. Информация о сегментации кэшируется в приложении с помощью диспетчера **ShardMapManager**, поэтому такие запросы обычно не сопровождаются поиском в базе данных **Глобальная карта сегментов**.
+The **[ShardMap.OpenConnectionForKey method](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.openconnectionforkey.aspx))** returns an ADO.Net connection ready for issuing commands to the appropriate database based on the value of the **key** parameter. Shard information is cached in the application by the **ShardMapManager**, so these requests do not typically involve a database lookup against the **Global Shard Map** database. 
 
-	// Syntax: 
-	public SqlConnection OpenConnectionForKey<TKey>(
-		TKey key,
-		string connectionString,
-		ConnectionOptions options
-	)
+    // Syntax: 
+    public SqlConnection OpenConnectionForKey<TKey>(
+        TKey key,
+        string connectionString,
+        ConnectionOptions options
+    )
 
 
-* Параметр **key** используется как ключ поиска в карте сегментов для определения соответствующей базы данных для запроса.
+* The **key** parameter is used as a lookup key into the shard map to determine the appropriate database for the request. 
 
-* Строка **connectionString** используется для передачи только учетных данных пользователя для необходимого подключения. Имя базы данных и имя сервера не включаются в эту строку *connectionString*, так как метод будет определять базу данных и сервер с помощью сопоставления **ShardMap**.
+* The **connectionString** is used to pass only the user credentials for the desired connection. No database name or server name are included in this *connectionString* since the method will determine the database and server using the **ShardMap**. 
 
-* Если среда, в которой находятся сегменты, может измениться и строки могут быть перемещены в другие базы данных в результате операций разбиения или слияния, то значение параметра **[ConnectionOptions](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.connectionoptions.aspx)** необходимо установить в **ConnectionOptions.Validate**. Это включает краткий запрос для сопоставления локальной карты сегментов в целевой базе данных (не на глобальной карте сегментов), прежде чем подключение предоставляется приложению.
+* The **[connectionOptions](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.connectionoptions.aspx)** should be set to **ConnectionOptions.Validate** if an environment where shard maps may change and rows may move to other databases as a result of split or merge operations. This involves a brief query to the local shard map on the target database (not to the global shard map) before the connection is delivered to the application. 
 
-При наличии сбоя в проверке локальной карты сегментов (что означает неправильный кэш) диспетчер карты сегментов запросит глобальную карту сегментирования для получения новых правильных значений для поиска, обновления кэша и возврата к подключению к соответствующей базе данных.
+If the validation against the local shard map fails (indicating that the cache is incorrect), the Shard Map Manager will query the global shard map to obtain the new correct value for the lookup, update the cache, and obtain and return the appropriate database connection. 
 
-Используйте **ConnectionOptions.None** только в том случае, если внесение изменений в сопоставление сегментов не предполагается, т. е. когда приложение подключено к сети. В этом случае можно предположить, что кэшированные значения всегда являются правильными, и дополнительный проверочный вызов в два конца к целевой базе данных можно безопасно пропустить. Это позволяет снизить объем трафика базы данных. Также можно задать параметры **connectionOptions** через значение в файле конфигурации, указывающее, ожидаются ли изменения сегментов в течение определенного периода времени.
+Use **ConnectionOptions.None** only when shard mapping changes are not expected while an application is online. In that case, the cached values can be assumed to always be correct, and the extra round-trip validation call to the target database can be safely skipped. That reduces database traffic. The **connectionOptions** may also be set via a value in a configuration file to indicate whether sharding changes are expected or not during a period of time.  
 
-В этом примере используется значение целочисленного ключа **CustomerID** с использованием объекта **ShardMap** с именем **customerShardMap**.
+This example uses the value of an integer key **CustomerID**, using a **ShardMap** object named **customerShardMap**.  
 
     int customerId = 12345; 
     int newPersonId = 4321; 
 
     // Connect to the shard for that customer ID. No need to call a SqlConnection 
-	// constructor followed by the Open method.
+    // constructor followed by the Open method.
     using (SqlConnection conn = customerShardMap.OpenConnectionForKey(customerId, 
         Configuration.GetCredentialsConnectionString(), ConnectionOptions.Validate)) 
     { 
@@ -83,54 +84,58 @@
         cmd.ExecuteNonQuery(); 
     }  
 
-Метод **OpenConnectionForKey** возвращает новое, уже открытое подключение к нужной базе данных. Подключения, используемые в этом случае, по-прежнему имеют все преимущества объединенных подключений ADO.Net. При условии, что запросы и транзакции, могут выполняться с одного сегмента одновременно, это должно быть единственным необходимым изменением в приложении, уже работающем с ADO.Net.
+The **OpenConnectionForKey** method returns a new already-open connection to the correct database. Connections utilized in this way still take full advantage of ADO.Net connection pooling. As long as transactions and requests can be satisfied by one shard at a time, this should be the only modification necessary in an application already using ADO.Net. 
 
-Метод **[OpenConnectionForKeyAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.openconnectionforkeyasync.aspx)** также доступен, если в приложении используется асинхронное программирование с помощью ADO.Net. Его поведение представляет собой маршрутизацию, зависящую от данных, которая эквивалентна методу **[Connection.OpenAsync](https://msdn.microsoft.com/library/hh223688(v=vs.110).aspx)** в ADO.NET.
+The **[OpenConnectionForKeyAsync method](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.openconnectionforkeyasync.aspx)** is also available if your application makes use asynchronous programming with ADO.Net. Its behavior is the data dependent routing equivalent of ADO.Net's **[Connection.OpenAsync](https://msdn.microsoft.com/library/hh223688(v=vs.110).aspx)** method.
 
-## Интеграция с обработкой временных сбоев 
+## <a name="integrating-with-transient-fault-handling"></a>Integrating with transient fault handling 
 
-При разработке облачных приложений для доступа к данным рекомендуется убедиться, что временные сбои перехватываются приложением и что попытка выполнения операции осуществляется несколько раз, прежде чем возникнет сообщение об ошибке. Обработка временных сбоев в облачных приложениях рассматривается в разделе [Обработка временных сбоев](https://msdn.microsoft.com/library/dn440719(v=pandp.60).aspx)
+A best practice in developing data access applications in the cloud is to ensure that transient faults are caught by the app, and that the operations are retried several times before throwing an error. Transient fault handling for cloud applications is discussed at [Transient Fault Handling](https://msdn.microsoft.com/library/dn440719(v=pandp.60).aspx). 
  
-Обработка временных сбоев может естественным образом сосуществовать с шаблоном маршрутизации, управляемой данными. Основным требованием является повтор всего запроса доступа к данным, включая блок **using**, с которым осуществляется подключение с маршрутизацией, зависящей от данных. Приведенный выше пример можно переписать следующим образом (обратите внимание на выделенные изменения).
+Transient fault handling can coexist naturally with the Data Dependent Routing pattern. The key requirement is to retry the entire data access request including the **using** block that obtained the data-dependent routing connection. The example above could be rewritten as follows (note highlighted change). 
 
-### Пример: маршрутизация, управляемая данными, с обработкой временных сбоев 
+### <a name="example-–-data-dependent-routing-with-transient-fault-handling"></a>Example – data dependent routing with transient fault handling 
 
 <pre><code>int customerId = 12345; 
 int newPersonId = 4321; 
 
-<span style="background-color:  #FFFF00">Configuration.SqlRetryPolicy.ExecuteAction(() => </span> 
+<span style="background-color:  #FFFF00">Configuration.SqlRetryPolicy.ExecuteAction(() =&gt; </span> 
 <span style="background-color:  #FFFF00">    { </span>
-        // Подключение к сегменту для идентификатора клиента 
+        // Connect to the shard for a customer ID. 
         using (SqlConnection conn = customerShardMap.OpenConnectionForKey(customerId,  
         Configuration.GetCredentialsConnectionString(), ConnectionOptions.Validate)) 
         { 
             // Execute a simple command 
             SqlCommand cmd = conn.CreateCommand(); 
 
-            cmd.CommandText = @"UPDATE Sales.Customer 
+            cmd.CommandText = @&quot;UPDATE Sales.Customer 
                             SET PersonID = @newPersonID 
-                            WHERE CustomerID = @customerID"; 
+                            WHERE CustomerID = @customerID&quot;; 
 
-            cmd.Parameters.AddWithValue("@customerID", customerId); 
-            cmd.Parameters.AddWithValue("@newPersonID", newPersonId); 
+            cmd.Parameters.AddWithValue(&quot;@customerID&quot;, customerId); 
+            cmd.Parameters.AddWithValue(&quot;@newPersonID&quot;, newPersonId); 
             cmd.ExecuteNonQuery(); 
 
-            Console.WriteLine(Update completed); 
+            Console.WriteLine(&quot;Update completed&quot;); 
         } 
 <span style="background-color:  #FFFF00">    }); </span> 
 </code></pre>
 
 
-Пакеты, необходимые для реализации обработки временных сбоев, автоматически загружаются при построении примера приложения эластичной базы данных. Пакеты также доступны по отдельности в библиотеке [Enterprise Library — блок приложений для обработки временных сбоев](http://www.nuget.org/packages/EnterpriseLibrary.TransientFaultHandling/). Используйте версию 6.0 или более позднюю.
+Packages necessary to implement transient fault handling are downloaded automatically when you build the elastic database sample application. Packages are also available separately at [Enterprise Library - Transient Fault Handling Application Block](http://www.nuget.org/packages/EnterpriseLibrary.TransientFaultHandling/). Use version 6.0 or later. 
 
-## Согласованность транзакций 
+## <a name="transactional-consistency"></a>Transactional consistency 
 
-Свойства транзакций сохраняются для всех операций, являющихся локальными для сегмента. Например, транзакции, осуществленные посредством маршрутизации, зависящей от данных, выполняются в области целевого сегмента для подключения. В данный момент нет возможности связывания нескольких подключений с транзакцией, поэтому невозможно гарантировать осуществление транзакций для операций, выполняемых через сегменты.
+Transactional properties are guaranteed for all operations local to a shard. For example, transactions submitted through data-dependent routing execute within the scope of the target shard for the connection. At this time, there are no capabilities provided for enlisting multiple connections into a transaction, and therefore there are no transactional guarantees for operations performed across shards.
 
-## Дальнейшие действия
-Для отсоединения сегмента или для его повторного присоединения см. раздел [Решение проблем карты сегментов с помощью класса RecoveryManager](sql-database-elastic-database-recovery-manager.md)
+## <a name="next-steps"></a>Next steps
+To detach a shard, or to reattach a shard, see [Using the RecoveryManager class to fix shard map problems](sql-database-elastic-database-recovery-manager.md)
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
  
 
-<!---HONumber=AcomDC_0706_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

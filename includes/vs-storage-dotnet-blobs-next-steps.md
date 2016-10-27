@@ -1,11 +1,14 @@
 
-Вы изучили основную информацию о хранилище BLOB-объектов Azure. Дополнительную информацию о более сложных задачах хранения данных можно найти по следующим ссылкам.
+Now that you've learned the basics of Azure Blob storage, follow these links to learn about more complex storage tasks.
 
-- Полную информацию о доступных API см. в справочной документации по службе BLOB-объектов в справочнике по [клиентской библиотеке хранилища Azure для .NET](http://go.microsoft.com/fwlink/?LinkID=390731).
-- Чтобы узнать, как упростить код, предназначенный для работы со службой хранилища Azure, ознакомьтесь с разделом [Информация о пакете SDK веб-заданий](../articles/app-service-web/websites-dotnet-webjobs-sdk.md).
-- Просмотрите дополнительные руководства, чтобы изучить дополнительные возможности хранения данных в Azure.
-  - Для работы с таблицами службы хранилища Azure см. раздел [Приступая к работе с хранилищем таблиц Azure с помощью .NET](../articles/storage/storage-dotnet-how-to-use-tables.md).
-  - Для работы с очередями службы хранилища Azure см. раздел [Приступая к работе с хранилищем очередей Azure с помощью .NET](../articles/storage/storage-dotnet-how-to-use-queues.md).
-  - Для хранения реляционных данных см. раздел [Подключение к базе данных SQL с помощью .NET (C#)](../articles/sql-database/sql-database-develop-dotnet-simple.md).
+- View the Blob service reference documentation in the [Azure Storage Client Library for .NET](http://go.microsoft.com/fwlink/?LinkID=390731) reference for complete details about available APIs.
+- To learn how to simplify the code you write to work with Azure Storage, check out [What is the Azure WebJobs SDK](../articles/app-service-web/websites-dotnet-webjobs-sdk.md)
+- View more feature guides to learn about additional options for storing data in Azure.
+  - To work with Azure Storage Tables, see [Get Started with Azure Table storage using .NET](../articles/storage/storage-dotnet-how-to-use-tables.md).
+  - To work with Azure Storage Queues, [Get started with Azure Queue storage using .NET](../articles/storage/storage-dotnet-how-to-use-queues.md).
+  - To store relational data, see [Connect to SQL Database by using .NET (C#)](../articles/sql-database/sql-database-develop-dotnet-simple.md).
 
-<!---HONumber=AcomDC_0525_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

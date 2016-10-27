@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Пользовательский интерфейс диспетчера моментальных снимков StorSimple | Microsoft Azure"
-   description="Описание пользовательского интерфейса диспетчера моментальных снимков StorSimple и инструкции по его использованию для управления заданиями архивации и каталогом резервных копий."
+   pageTitle="StorSimple Snapshot Manager user interface | Microsoft Azure"
+   description="Describes the StorSimple Snapshot Manager user interface and explains how to use it to manage backup jobs and the backup catalog."
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
@@ -15,505 +15,510 @@
    ms.date="04/25/2016"
    ms.author="v-sharos" />
 
-# Пользовательский интерфейс диспетчера моментальных снимков StorSimple
 
-## Обзор
+# <a name="storsimple-snapshot-manager-user-interface"></a>StorSimple Snapshot Manager user interface
 
-Snapshot Manager StorSimple имеет интуитивно понятный пользовательский интерфейс, который можно использовать для создания резервных копий и управления ими. В этом руководстве изложены общие сведения об этом интерфейсе и показано, как использовать каждый из его компонентов. (Подробное описание диспетчера моментальных снимков StorSimple см. в статье [Что такое диспетчер моментальных снимков StorSimple?](storsimple-what-is-snapshot-manager.md).)
+## <a name="overview"></a>Overview
 
-### Описание консоли
+The StorSimple Snapshot Manager has an intuitive user interface that you can use to take and manage backups. This tutorial provides an introduction to the user interface, and then explains how to use each of the components. For a detailed description of the StorSimple Snapshot Manager, see [What is StorSimple Snapshot Manager?](storsimple-what-is-snapshot-manager.md)
 
-Чтобы просмотреть пользовательский интерфейс, щелкните значок диспетчера моментальных снимков StorSimple на рабочем столе. Откроется окно консоли, как показано на следующем рисунке.
+### <a name="console-description"></a>Console description
 
-![Панели диспетчера моментальных снимков StorSimple](./media/storsimple-use-snapshot-manager/HCS_SSM_gui_panes.png)
+To view the user interface, click the StorSimple Snapshot Manager icon on your desktop. The console window appears, as shown in the following illustration.
 
-Окно консоли включает пять основных элементов. Щелкните соответствующую ссылку, чтобы ознакомиться с полным описанием каждого элемента.
+![StorSimple Snapshot Manager panes](./media/storsimple-use-snapshot-manager/HCS_SSM_gui_panes.png)
 
-- [Строка меню](#menu-bar) 
-- [Панель инструментов](#tool-bar) 
-- [Панель "Область"](#scope-pane) 
-- [Панель "Результаты"](#results-pane) 
-- [Панель "Действия"](#actions-pane) 
+The console window has five major elements. Click the appropriate link for a complete description of each element.
 
-Кроме того, диспетчер моментальных снимков StorSimple поддерживает [навигацию с помощью клавиатуры и ряд сочетаний клавиш](#keyboard-navigation-and-shortcuts).
+- [Menu bar](#menu-bar) 
+- [Tool bar](#tool-bar) 
+- [Scope pane](#scope-pane) 
+- [Results pane](#results-pane) 
+- [Actions pane](#actions-pane) 
 
-### Специальные возможности консоли
+Additionally, the StorSimple Snapshot Manager supports [keyboard navigation and a number of shortcuts](#keyboard-navigation-and-shortcuts).
 
-Пользовательский интерфейс диспетчера моментальных снимков StorSimple поддерживает специальные возможности, предоставляемые операционной системой Windows и консолью управления (MMC), а также некоторые сочетания клавиш, характерные именно для этого диспетчера.
+### <a name="console-accessibility"></a>Console accessibility
 
-- Специальные возможности Windows описываются в статье[Сочетания клавиш для Windows](https://support.microsoft.com/kb/126449). 
+The StorSimple Snapshot Manager user interface supports the accessibility features provided by the Windows operating system and the Microsoft Management Console (MMC), as well as some StorSimple Snapshot Manager–specific keyboard shortcuts. 
 
-- Описание специальных возможностей MMC см. в статье [Специальные возможности MMC 3.0](https://technet.microsoft.com/library/cc766075.aspx).
+- For a description of the Windows accessibility features, go to [Keyboard shortcuts for Windows](https://support.microsoft.com/kb/126449). 
 
-- Специальные возможности диспетчера моментальных снимков StorSimple рассматриваются в разделе [Навигация с помощью клавиатуры и сочетания клавиш](#keyboard-navigation-and-shortcuts).
+- For a description of the MMC accessibility features, go to [Accessibility for MMC 3.0](https://technet.microsoft.com/library/cc766075.aspx)
 
-## Строка меню
+- For a description of the StorSimple Snapshot Manager accessibility features, go to [Keyboard navigation and shortcuts](#keyboard-navigation-and-shortcuts).
 
-Строка меню в верхней части окна консоли включает меню [Файл](#file-menu), [Действие](#action-menu), [Вид](#view-menu), [Избранное](#favorites-menu), [Окно](#window-menu) и [Справка](#help-menu).
+## <a name="menu-bar"></a>Menu bar
 
-Щелкните любой элемент в строке меню, чтобы отобразить список команд, доступных в избранном меню. В следующем примере в строке меню выбран раздел меню **Вид**.
+The menu bar at the top of the console window contains [File](#file-menu), [Action](#action-menu), [View](#view-menu), [Favorites](#favorites-menu), [Window](#window-menu), and [Help](#help-menu) menus.
 
-![Выбрано меню "Вид"](./media/storsimple-use-snapshot-manager/HCS_SSM_View_menu.png)
+Click any item on the menu bar to see a list of available commands on that menu. The following example shows the **View** menu selected on the menu bar.
 
-### Меню «Файл»
+![View menu selected](./media/storsimple-use-snapshot-manager/HCS_SSM_View_menu.png)
 
-Меню **Файл** содержит стандартные команды консоли управления (MMC).
+### <a name="file-menu"></a>File menu
 
-#### Доступ к меню
+The **File** menu contains standard Microsoft Management Console (MMC) commands.
 
-Чтобы просмотреть меню **Файл**, щелкните **Файл** в строке меню. Появится следующее меню.
+#### <a name="menu-access"></a>Menu access
 
-![Меню "Файл" диспетчера моментальных снимков StorSimple](./media/storsimple-use-snapshot-manager/HCS_SSM_FileMenu.png)
+To view the **File** menu, click **File** on the menu bar. The following menu appears.
 
-#### Описание меню
+![StorSimple Snapshot Manager File menu](./media/storsimple-use-snapshot-manager/HCS_SSM_FileMenu.png) 
 
-В таблице ниже описаны элементы меню **Файл**.
+#### <a name="menu-description"></a>Menu description
 
-| Элемент меню | Описание |
+The following table describes items that appear on the **File** menu.
+
+| Menu item | Description |
 |:----------|:-------------|
-| Создать | Щелкните **Создать**, чтобы создать консоль в диспетчере моментальных снимков StorSimple. |
-| Откройте | Щелкните**Открыть**, чтобы открыть существующую консоль. |
-| Сохранить | Щелкните**Сохранить**, чтобы сохранить текущую консоль. |
-| Сохранить как | Щелкните **Сохранить как**, чтобы создать переименованный экземпляр текущей консоли. Элемент **Сохранить как** позволяет настроить представление и сохранить его для последующего извлечения. Например, можно создать оснастки диспетчера моментальных снимков StorSimple, которые указывают на конкретные серверы. |
-| Добавить или удалить оснастку | Щелкните **Добавить или удалить оснастку**, чтобы добавить или удалить оснастки и упорядочить узлы на панели **Область**. Дополнительные сведения см. в статье [Добавление, удаление и упорядочивание оснасток и расширений в MMC 3.0](https://technet.microsoft.com/library/cc722035.aspx). |
-| Параметры | Щелкните **Параметры**, чтобы изменить значок консоли, указать режимы доступа пользователей и разрешения, а также удалить файлы консоли для увеличения доступного дискового пространства. |
-| Список путей к файлам | Щелкните путь в нумерованном списке, чтобы снова открыть файл, который вы недавно открывали. |
-| Выход | Щелкните **Выход**, чтобы закрыть меню **Файл**. |
+| New       | Click **New** to create a new console based on the StorSimple Snapshot Manager. |
+| Open      | Click **Open** to open an existing console. |
+| Save      | Click **Save** to save the current console. |
+| Save as   | Click **Save As** to create a new, renamed instance of the current console. Use the **Save As** option to customize a view and save it for later retrieval. For example, you could create StorSimple Snapshot Manager snap-ins that point to specific servers. |
+| Add/Remove Snap-in | Click **Add/Remove Snap-in** to add or remove snap-ins and to organize nodes in the **Scope** pane. For more information, go to [Add, Remove, and Organize Snap-ins and Extensions in MMC 3.0](https://technet.microsoft.com/library/cc722035.aspx). |
+| Options   | Click **Options** to change the console icon, specify user access modes and permissions, or delete console files to increase available disk space. |
+| List of file paths | Click a path in the numbered list to reopen a file that you recently opened. |
+| Exit      | Click **Exit** to close the **File** menu. |
  
-### Меню "Действие"
+### <a name="action-menu"></a>Action menu
 
-В меню **Действие** можно выбрать доступные действия. Наличие пунктов зависит от того, какие элементы вы выбрали на панели **Область** или **Результаты**.
+Use the **Action** menu to select from available actions. The items available to you depend on the selection you make in the **Scope** pane or **Results** pane.
 
-#### Доступ к меню
+#### <a name="menu-access"></a>Menu access
 
-Чтобы просмотреть меню **Действие**, сделайте следующее.
+To view the **Action** menu, do one of the following:
 
-- Щелкните правой кнопкой мыши элемент на панели **Область** или **Результаты**.
+- Right-click an item in the **Scope** pane or **Results** pane.
 
-- Выберите элемент на панели **Область** или **Результаты**, а затем щелкните **Действие** в строке меню.
+- Select an item in the **Scope** pane or **Results** pane, and then click **Action** on the menu bar. 
 
-Например, если выбрать верхний узел на панели **Область** и щелкнуть правой или левой кнопкой мыши **Действие** в строке меню, появится следующее меню.
+For example, if you select the top node in the **Scope** pane, and then right-click or click **Action** in the menu bar, the following menu appears.
  
-![Меню "Действие" диспетчера моментальных снимков StorSimple](./media/storsimple-use-snapshot-manager/HCS_SSM_Action_menu.png)
+![StorSimple Snapshot Manager Action menu](./media/storsimple-use-snapshot-manager/HCS_SSM_Action_menu.png)
 
-Панель **Действия** (в правой части консоли) содержит тот же список действий, что и меню **Действие**. Кроме того, на панели **Действия** перечисляются пункты меню **Вид**, с помощью которых вы можете создать пользовательское представление панели **Результаты**.
+The **Actions** pane (on the right of the console) contains the same list of actions as the **Action** menu. Additionally, the **Actions** pane contains the **View** menu options, which enable you to create a custom view of the **Results** pane.
 
-![Панель "Действия" с открытым меню "Вид"](./media/storsimple-use-snapshot-manager/HCS_SSM_ActionsPane_Results.png)
+![Actions pane with View menu open](./media/storsimple-use-snapshot-manager/HCS_SSM_ActionsPane_Results.png)
 
-#### Описание меню
+#### <a name="menu-description"></a>Menu description
 
-В следующей таблице приведен список действий, которые можно выполнить в диспетчере моментальных снимков StorSimple, отсортированных по алфавиту.
+The following table contains an alphabetical list of StorSimple Snapshot Manager actions. 
 
-- В столбце **Действия** перечислены действия, которые можно выполнять с узлами и результатами. 
+- The **Action** column lists actions that you can perform on nodes and results. 
 
-- В столбце **Навигация** описано, как отобразить соответствующее меню **Действие**, в котором можно выбрать действие. Некоторые действия отображаются в нескольких меню **Действие**. Для этих действий необходимо выбрать один параметр **Навигации** в маркированном списке.
+- The **Navigation** column explains how to display the appropriate **Action** menu so that you can select the action. Some actions appear in multiple **Action** menus. For these actions, select one **Navigation** option from the bulleted list. 
 
-- В столбце **Описание** показано, как использовать каждое действие в меню **Действие** или на панели "Действия", с подробным описанием соответствующего действия.
+- The **Description** column describes how to use each action on the **Action** menu or Actions pane, and explains what it does.
 
->[AZURE.NOTE] Панель **Действия** и меню **Действие** включают дополнительные параметры, такие как**Вид**, **Новое окно отсюда**, **Обновить**, **Экспорт списка** и **Справка**. Эти параметры доступны в MMC и не являются элементами диспетчера моментальных снимков StorSimple. Эти параметры описаны в таблице.
+>[AZURE.NOTE] The **Actions** pane and **Action** menus contain additional options, such as **View**, **New Window from here**, **Refresh**, **Export List**, and **Help**. These options are available as a part of the MMC, and are not specific to StorSimple Snapshot Manager. The table includes descriptions of these options.
  
-| Действие | Навигация | Описание |
+| Action  | Navigation  | Description  |
 |:--------|:------------|:-------------|
-| Проверка подлинности | Выберите узел **Устройства** и щелкните правой кнопкой мыши устройство на панели **Результаты**. | Щелкните **Проверка подлинности**, чтобы ввести пароль, который вы задали для этого устройства. |
-| Клонировать | Последовательно разверните узлы **Каталог архивов** и **Облачные моментальные снимки**, щелкните датированную резервную копию, а затем выберите том на панели **Результаты**. | Щелкните **Клонировать**, чтобы создать копию облачного моментального снимка и сохранить ее в указанном расположении. |
-| Настройка устройства | Щелкните правой кнопкой мыши узел **Устройства**. | Щелкните **Настройка устройства**, чтобы настроить одно или несколько устройств для подключения к узлу Windows. |
-| Создать политику архивации | Выполните одно из следующих действий.<ul><li>Щелкните правой кнопкой мыши **Политики архивации**.</li><li>Щелкните или разверните узел **Группы томов**, а затем щелкните правой кнопкой мыши группу томов.</li><li>Щелкните или разверните узел **Каталог архивов**, а затем щелкните правой кнопкой мыши группу томов.</li></ul> | Щелкните **Создать политику архивации**, чтобы настроить для группы томов архивацию по расписанию. |
-| Создать группу томов | Выполните одно из указанных ниже действий.<ul><li>Щелкните узел **Тома**, а затем щелкните правой кнопкой мыши том на панели **Результаты**.</li><li>Щелкните правой кнопкой мыши узел **Группы томов**.</li></ul> | Щелкните **Создать группу томов**, чтобы назначить тома группе томов. |
-| Удалить | Щелкните узел или результат (этот элемент появляется во многих меню **Действие** и на панелях **Действия**). | Щелкните **Удалить**, чтобы удалить выбранный узел или результат. Когда появится диалоговое окно подтверждения, подтвердите или отмените удаление. |
-| Сведения | Выберите узел **Устройства**, а затем щелкните правой кнопкой мыши устройство на панели **Результаты**. | Щелкните **Сведения**, чтобы просмотреть данные о конфигурации устройства. |
-| Редактирование | Выберите **Политики архивации**, а затем щелкните правой кнопкой мыши политику на панели **Результаты**. | Щелкните **Изменить**, чтобы изменить расписание архивации для группы томов. |
-| Экспорт списка | Щелкните любой узел или результат (этот элемент появляется во всех меню **Действие** и на всех панелях **Действия**). | Щелкните **Экспорт списка**, чтобы сохранить список как файл с разделителями-запятыми (CSV). Затем этот файл можно импортировать в приложение электронных таблиц для анализа. |
-| Справка | Щелкните любой узел или результат. (Этот элемент появляется во всех меню **Действие** и на всех панелях **Действия**.) | Щелкните **Справка**, чтобы открыть справку в Интернете в отдельном окне браузера. |
-| Создать окно отсюда | Щелкните любой узел или результат (этот элемент появляется во всех меню **Действие** и на всех панелях **Действия**). | Щелкните **Создать окно отсюда**, чтобы открыть новое окно диспетчера моментальных снимков StorSimple.|
-| Обновить | Щелкните любой узел или результат (этот элемент появляется во всех меню **Действие** и на всех панелях **Действия**). | Щелкните **Обновить**, чтобы обновить отображаемое окно диспетчера моментальных снимков StorSimple. |
-| Обновить устройство | Выберите узел **Устройства** и щелкните правой кнопкой мыши устройство на панели **Результаты**. | Щелкните **Обновить устройство**, чтобы синхронизировать конкретное подключенное устройство с диспетчером моментальных снимков StorSimple. |
-| Обновить устройства | Щелкните правой кнопкой мыши узел **Устройства**. | Щелкните **Обновить устройства**, чтобы синхронизировать подключенные устройства, перечисленные в списке, с диспетчером моментальных снимков StorSimple. |
-| Повторное сканирование томов | Щелкните правой кнопкой мыши узел **Тома**. | Щелкните **Повторное сканирование томов**, чтобы обновить список томов, отображающихся на панели **Результаты**. |
-| Восстановление | Последовательно разверните узел **Каталог архивов** и группу томов. Разверните узел **Локальные моментальные снимки** или **Облачные моментальные снимки**, а затем щелкните резервную копию правой кнопкой мыши. | Щелкните **Восстановить**, чтобы заменить текущие данные группы томов данными из выбранной резервной копии. |
-| Создать резервную копию | Выполните одно из указанных ниже действий.<ul><li>Разверните узел **Группы томов**, а затем щелкните правой кнопкой мыши группу томов.</li><li>Разверните узел **Каталог архивов** и щелкните правой кнопкой мыши группу томов.</li></ul> | Щелкните **Создать резервную копию**, чтобы немедленно запустить задание архивации. |
-| Переключение отображения импорта | Щелкните правой кнопкой мыши верхний узел на панели **Область** (узел **Диспетчер моментальных снимков StorSimple** в примерах). | Щелкните **Переключение отображения импорта**, чтобы показать или скрыть группы томов и связанные резервные копии, импортированные из панели мониторинга службы диспетчера StorSimple. |
+| Authenticate | Click the **Devices** node, and right-click a device in the **Results** pane. | Click **Authenticate** to enter the password that you configured for the device. |
+| Clone  | Expand **Backup Catalog**, expand **Cloud Snapshots**, click a dated backup, and then select a volume in the **Results** pane. | Click **Clone** to create a copy of a cloud snapshot and store it in a location that you designate. |
+| Configure a Device | Right-click the **Devices** node. | Click **Configure a Device** to configure a single device or multiple devices to connect to the Windows host. |
+| Create Backup Policy | Do one of the following:<ul><li>Right-click **Backup Policies**.</li><li>Click or expand **Volume Groups**, and then right-click a volume group.</li><li>Click or expand **Backup Catalog**, and then right-click a volume group.</li></ul> | Click **Create Backup Policy** to configure a scheduled backup for a volume group. |
+| Create Volume Group | Do one of the following:<ul><li>Click the **Volumes** node, and then right-click a volume in the **Results** pane.</li><li>Right-click the **Volume Groups** node.</li></ul> | Click **Create Volume Group** to assign volumes to a volume group. |
+| Delete | Click a node or result (This item appears on many **Action** menus and  **Actions** panes.) | Click **Delete** to delete the node or result that you selected. When the confirmation dialog box appears, confirm or cancel the deletion. |
+| Details | Click the **Devices** node, and then right-click a device in the **Results** pane. | Click **Details** to see the configuration details for a device. |
+| Edit | Click **Backup Policies**, and then right-click a policy in the **Results** pane. | Click **Edit** to change the backup schedule for a volume group. |
+| Export List | Click any node or result (This item appears on all **Action** menus and **Actions** panes.) | Click **Export List** to save a list in a comma-separated value (CSV) file. You can then import this file into a spreadsheet application for analysis. |
+| Help | Click any node or result. (This item appears on all **Action** menus and **Actions** panes.) | Click **Help** to open online Help in a separate browser window. |
+| New Window from Here | Click any node or result (This item appears on all **Action** menus and **Actions** panes.) | Click **New Window from Here** to open a new StorSimple Snapshot Manager window.|
+| Refresh | Click any node or result (This item appears on all **Action** menus and **Actions** panes.) | Click **Refresh** to update the currently displayed StorSimple Snapshot Manager window. |
+| Refresh Device | Click the **Devices** node, and right-click a device in the **Results** pane. | Click **Refresh Device** to synchronize a specific connected device with StorSimple Snapshot Manager. |
+| Refresh Devices | Right-click the **Devices** node. | Click **Refresh Devices** to synchronize your list of connected devices with StorSimple Snapshot Manager. |
+| Rescan volumes | Right-click the **Volumes** node. | Click **Rescan volumes** to update the list of volumes that appears in the **Results** pane. |
+| Restore | Expand **Backup Catalog**, expand a volume group, expand **Local Snapshots** or **Cloud Snapshots**, and then right-click a backup. | Click **Restore** to replace the current volume group data with the data from the selected backup. |
+| Take Backup | Do one of the following:<ul><li>Expand **Volume Groups**, and then right-click a volume group.</li><li>Expand **Backup Catalog**, and then right-click a volume group.</li></ul> | Click **Take Backup** to start a backup job immediately. |
+| Toggle Imports Display | Right-click the top node in the **Scope** pane (the **StorSimple Snapshot Manager** node in the examples). | Click **Toggle Imports Display** to show or hide the volume groups and associated backups that were imported from the StorSimple Manager service dashboard. |
 
-### Меню "Вид"
+### <a name="view-menu"></a>View menu
 
-Меню **Вид** позволяет создать пользовательское представление содержимого панели **Результаты**. Меню **Вид** содержит элементы **Добавить или удалить столбцы** и **Настроить**.
+Use the **View** menu to create a custom view of the **Results** pane contents. The **View** menu contains **Add/Remove Columns** and **Customize** options.
 
-#### Доступ к меню
+#### <a name="menu-access"></a>Menu access
 
-Доступ к меню **Вид** можно получить из строки меню или панели **Действия**.
+You can access the **View** menu on the menu bar or in the **Actions** pane.
 
-![Меню "Вид" диспетчера моментальных снимков StorSimple](./media/storsimple-use-snapshot-manager/HCS_SSM_View_menu.png)
+![StorSimple Snapshot Manager View menu](./media/storsimple-use-snapshot-manager/HCS_SSM_View_menu.png) 
 
-#### Описание меню
+#### <a name="menu-description"></a>Menu description
 
-В таблице ниже описаны элементы меню **Вид**.
+The following table describes items that appear on the **View** menu.
 
-| Элемент меню | Описание |
+| Menu item  | Description |
 |:-----------|:-------------|
-| Добавить или удалить столбцы | Щелкните **Добавить или удалить столбцы**, чтобы добавить или удалить столбцы на панели **Результаты**. |
-| Настроить | Щелкните **Настроить**, чтобы показать или скрыть элементы в окне консоли диспетчера моментальных снимков StorSimple. |
+| Add/Remove Columns | Click **Add/Remove Columns** to add or remove columns in the **Results** pane. |
+| Customize | Click **Customize** to show or hide items in the StorSimple Snapshot Manager console window. |
 
-### Меню "Избранное"
+### <a name="favorites-menu"></a>Favorites menu
 
-Меню **Избранное** позволяет добавлять, удалять и упорядочивать представления страниц и задачи, которые часто используются.
+Use the **Favorites** menu to add, remove, and organize page views and tasks that you use frequently. 
 
-#### Доступ к меню
+#### <a name="menu-access"></a>Menu access
 
-Открыть меню **Избранное** можно из строки меню.
+You can access the **Favorites** menu on the menu bar.
 
-![Меню "Избранное" диспетчера моментальных снимков StorSimple](./media/storsimple-use-snapshot-manager/HCS_SSM_FavoritesMenu.png)
+![StorSimple Snapshot Manager Favorites menu](./media/storsimple-use-snapshot-manager/HCS_SSM_FavoritesMenu.png)
 
-#### Описание меню
+#### <a name="menu-description"></a>Menu description
 
-В таблице ниже описаны элементы меню **Избранное**.
+The following table describes items that appear on the **Favorites** menu.
 
-| Элемент меню | Описание |
+| Menu item |  Description |
 |:----------|:-------------|
-| Добавить в избранное | Щелкните **Добавить в избранное**, чтобы добавить текущее представление в список избранного. |
-| Упорядочить избранное | Щелкните **Упорядочить избранное**, чтобы упорядочить содержимое папки "Избранное". |
+| Add to Favorites | Click **Add to Favorites** to add the current view to your list of favorites. |
+| Organize Favorites | Click **Organize Favorites** to organize the contents of your Favorites folder. |
 
-### Меню "Окно"
+### <a name="window-menu"></a>Window menu
 
-Меню **Окно** используется для добавления и упорядочивания окон консоли диспетчера моментальных снимков StorSimple.
+Use the **Window** menu to add and rearrange StorSimple Snapshot Manager console windows.
 
-#### Доступ к меню
+#### <a name="menu-access"></a>Menu access
 
-Открыть меню **Окно** можно из строки меню.
+You can access the **Window** menu on the menu bar.
 
-![Меню "Окно" диспетчера моментальных снимков StorSimple](./media/storsimple-use-snapshot-manager/HCS_SSM_WindowMenu.png)
+![StorSimple Snapshot Manager Window menu](./media/storsimple-use-snapshot-manager/HCS_SSM_WindowMenu.png)
 
-В нумерованном списке в нижней части меню отображаются окна, которые открыты в настоящий момент. Щелкните любое окно в этом списке, чтобы вывести его на передний план.
+The numbered list at the bottom of the menu shows the windows that are currently open. Click any window in that list to bring the window into the foreground. 
 
-#### Описание меню
+#### <a name="menu-description"></a>Menu description
 
-В следующей таблице описаны элементы меню "Окно".
+The following table describes the items that appear on the Window menu.
 
-| Элемент меню | Описание |
+| Menu item  | Description |
 |:-----------|:-------------|
-| Создать окно | Щелкните **Создать окно**, чтобы открыть новое окно консоли (в дополнение к существующему). |
-| Каскадом | Щелкните **Каскадом**, чтобы отобразить открытые окна консоли каскадом. |
-| Сверху вниз | Щелкните **Сверху вниз**, чтобы отобразить открытые окна консоли в формате плиток (или сетки). |
-| Упорядочить значки | Если по рабочему столу разбросано несколько открытых окон консоли, сверните их, а затем нажмите кнопку **Упорядочить значки**, чтобы эти окна расположились одной строкой по горизонтали в нижней части экрана. |
+| New Window | Click **New Window** to open a new console window (in addition to the existing window). |
+| Cascade   | Click **Cascade** to display the open console windows in a cascading style. |
+| Tile Horizontally | Click **Tile Horizontally** to display the open console windows in a tile (or grid) format. |
+| Arrange Icons | If you have multiple console windows open and scattered over your desktop, minimize them and then click **Arrange Icons** to arrange them in a horizontal row on the bottom of your screen. |
 
-### Меню "Справка"
+### <a name="help-menu"></a>Help menu
 
-Меню **Справка** используется для просмотра справки по диспетчеру моментальных снимков StorSimple и MMC, доступной в Интернете. Вы также можете просмотреть сведения о версиях программного обеспечения MMC и диспетчера моментальных снимков StorSimple, установленных в системе.
+Use the **Help** menu to view available online help for StorSimple Snapshot Manager and the MMC. You can also view information about the MMC and StorSimple Snapshot Manager software versions that are currently installed on your system. 
 
-Открыть меню **Справка** можно из строки меню. Доступ к разделам справки по диспетчеру моментальных снимков StorSimple также можно получить на панели **Действия**.
+You can access the **Help** menu on the menu bar. You can also access StorSimple Snapshot Manager help topics from the **Actions** pane.
 
-![Меню "Справка" диспетчера моментальных снимков StorSimple](./media/storsimple-use-snapshot-manager/HCS_SSM_HelpMenu.png)
+![StorSimple Snapshot Manager Help menu](./media/storsimple-use-snapshot-manager/HCS_SSM_HelpMenu.png)
 
-#### Описание меню
+#### <a name="menu-description"></a>Menu description
 
-В следующей таблице описаны элементы меню "Справка".
+The following table describes items that appear on the Help menu.
 
-| Элемент меню | Описание |
+| Menu item  | Description  |
 |:-----------|:-------------|
-| Справка по диспетчеру моментальных снимков StorSimple | Щелкните **Справка по диспетчеру моментальных снимков StorSimple**, чтобы открыть соответствующую справку в отдельном окне. |
-| Разделы справки |Щелкните **Разделы справки**, чтобы открыть справку по MMC в отдельном окне. |
-| Веб-сайт TechCenter | Щелкните **Веб-сайт TechCenter**, чтобы открыть домашнюю страницу технического центра Microsoft TechNet в отдельном окне. |
-| О консоли управления (MMC) | Щелкните **О консоли управления (MMC)**, чтобы узнать, какая версия этой консоли установлена в системе. |
-| О диспетчере моментальных снимков StorSimple | Щелкните **О диспетчере моментальных снимков StorSimple**, чтобы узнать, какая версия оснастки установлена в системе. |
+| Help on StorSimple Snapshot Manager | Click **Help on StorSimple Snapshot Manager** to open StorSimple Snapshot Manager help in a separate window. |
+| Help Topics |Click **Help Topics** to open MMC online help in a separate window. |
+| TechCenter Web Site | Click **TechCenter Web Site** to open the Microsoft TechNet Tech Center home page in a separate window. |
+| About Microsoft Management Console | Click **About Microsoft Management Console** to see which version of the Microsoft Management Console is installed on your system. |
+| About StorSimple Snapshot Manager | Click **About StorSimple Snapshot Manager** to see which version of the snap-in is installed on your system. |
 
-## Панель инструментов
+## <a name="tool-bar"></a>Tool bar
 
-Панель инструментов, расположенная под строкой меню, содержит значки навигации и задач. Каждый значок — это ярлык для определенной задачи.
+The tool bar, located below the menu bar, contains navigation and task icons. Each icon is a shortcut to a specific task.
 
-### Описания значков
+### <a name="icon-descriptions"></a>Icon descriptions
 
-В следующей таблице перечислены значки, которые отображаются на панели инструментов.
+The following table describes the icons that appear on the tool bar. 
 
-| Значок | Описание |
+| Icon  | Description  |
 |:------|:-------------| 
-| ![Стрелка влево](./media/storsimple-use-snapshot-manager/HCS_SSM_LeftArrow.png) | Щелкните значок со стрелкой влево, чтобы вернуться на предыдущую страницу. |
-| ![Стрелка вправо](./media/storsimple-use-snapshot-manager/HCS_SSM_RightArrow.png) | Щелкните стрелку вправо, чтобы перейти на следующую страницу (если стрелка серого цвета, это действие недоступно). |
-| ![Значок "Вверх"](./media/storsimple-use-snapshot-manager/HCS_SSM_Up.png) | Щелкните значок "Вверх", чтобы перейти на один уровень выше в дереве консоли (на панели **Область**). |
-| ![Показать/скрыть дерево консоли](./media/storsimple-use-snapshot-manager/HCS_SSM_ShowConsoleTree.png) | Щелкните значок "Показать/скрыть дерево консоли", чтобы отобразить или скрыть панель **Область**. |
-| ![Экспорт списка](./media/storsimple-use-snapshot-manager/HCS_SSM_ExportListIcon.png) | Щелкните значок экспорта списка, чтобы экспортировать список в указанный CSV-файл. |
-| ![Значок справки](./media/storsimple-use-snapshot-manager/HCS_SSM_HelpIcon.png) |Щелкните значок справки, чтобы открыть раздел справки по MMC. |
-| ![Показать/скрыть панель "Действия"](./media/storsimple-use-snapshot-manager/HCS_SSM_ShowAction.png) | Щелкните значок отображения или скрытия панели **Действия**, чтобы показать или скрыть панель **Действия**. 
+| ![Left arrow](./media/storsimple-use-snapshot-manager/HCS_SSM_LeftArrow.png) | Click the left arrow icon to return to the previous page. |
+| ![Right arrow](./media/storsimple-use-snapshot-manager/HCS_SSM_RightArrow.png) | Click the right arrow to go to the next page (if the arrow is gray, the action is unavailable). |
+| ![Up icon](./media/storsimple-use-snapshot-manager/HCS_SSM_Up.png) | Click the up icon to go up one level in the console tree (the **Scope** pane). |
+| ![Show/hide console tree](./media/storsimple-use-snapshot-manager/HCS_SSM_ShowConsoleTree.png) | Click the show/hide console tree icon to show or hide the **Scope** pane. |
+| ![Export list](./media/storsimple-use-snapshot-manager/HCS_SSM_ExportListIcon.png) | Click the export list icon to export a list to a CSV file that you specify. |
+| ![Help icon](./media/storsimple-use-snapshot-manager/HCS_SSM_HelpIcon.png)  |Click the help icon to open an online MMC help topic. |
+| ![Show/hide Actions pane](./media/storsimple-use-snapshot-manager/HCS_SSM_ShowAction.png) | Click the show/hide **Actions** pane icon to show or hide the **Actions** pane. 
  
-## Панель "Область"
+## <a name="scope-pane"></a>Scope pane
 
-Панель **Область** расположена слева в пользовательском интерфейсе Snapshot Manager StorSimple. Она содержит дерево консоли (или узла) и является основным средством навигации между разделами диспетчера моментальных снимков StorSimple.
+The **Scope** pane is the leftmost pane in the StorSimple Snapshot Manager UI. It contains the console (or node) tree and is the primary navigation mechanism for StorSimple Snapshot Manager. 
  
-### Структура панели "Область"
+### <a name="scope-pane-structure"></a>Scope pane structure
 
-Панель **Область** включает ряд объектов (узлов), упорядоченных в виде древовидной структуры, которые можно активировать щелчком мыши.
+The **Scope** pane contains a series of clickable objects (nodes) organized in a tree structure. 
 
-![Панель "Область"](./media/storsimple-use-snapshot-manager/HCS_SSM_Scope_pane.png)
+![Scope pane](./media/storsimple-use-snapshot-manager/HCS_SSM_Scope_pane.png) 
 
-- Чтобы развернуть или свернуть узел, щелкните значок стрелки рядом с именем узла.
+- To expand or collapse a node, click the arrow icon next to the node name.
 
-- Чтобы просмотреть состояние или содержимое узла, щелкните его имя. Эти сведения отображаются на панели **Результаты**.
+- To view the status or contents of a node, click the node name. The information appears in the **Results** pane. 
 
-Панель **Область** содержит следующие узлы:
+The **Scope** pane contains the following nodes: 
 
-- [узел "Устройства";](#devices-node) 
-- [узел "Тома";](#volumes-node) 
-- [узел "Группы томов";](#volume-groups-node) 
-- [узел "Политики архивации";](#backup-policies-node) 
-- [узел "Каталог архивов";](#backup-catalog-node) 
-- [узел "Задания".](#jobs-node) 
+- [Devices node](#devices-node) 
+- [Volumes node](#volumes-node) 
+- [Volume Groups node](#volume-groups-node) 
+- [Backup Policies node](#backup-policies-node) 
+- [Backup Catalog node](#backup-catalog-node) 
+- [Jobs node](#jobs-node) 
 
-### Панель "Область": задачи
+### <a name="scope-pane-tasks"></a>Scope pane tasks
 
-С помощью панели **Область** можно выполнить действие на определенном узле. Чтобы выбрать задачу, выполните одно из следующих действий.
+You can use the **Scope** pane to complete an action on a specific node. To select a task, do one of the following:
 
-- Щелкните правой кнопкой мыши узел и выберите задачу в появившемся меню.
+- Right-click the node, and then select the task from the menu that appears.
 
-- Щелкните узел и нажмите кнопку **Действие** в строке меню. Выберите задачу в появившемся меню.
+- Click the node, and then click **Action** on the menu bar. Select the task from the menu that appears.
 
-- Щелкните узел, а затем выберите действие на панели **Действия**.
+- Click the node, and then select the action in the **Actions** pane.
 
-Когда вы выбирает узел и просматриваете список задач любым из этих способов, отображаются только действия, которые можно выполнить на этом узле.
+When you select a node and use any of these methods to see a task list, only those actions that can be performed on that node are shown.
 
-### Узел "Устройства"
+### <a name="devices-node"></a>Devices node
 
-На узле **Устройства** представлены физические и виртуальные устройства StorSimple, подключенные к диспетчеру моментальных снимков StorSimple. Этот узел позволяет подключить и настроить устройство, импортировать связанные с ним тома, тома групп и существующие резервные копии. К одному узлу можно подключить несколько устройств.
+The **Devices** node represents the StorSimple devices and StorSimple virtual devices that are connected to StorSimple Snapshot Manager. Select this node to connect and configure a device, and import its associated volumes, volumes groups, and existing backup copies. Multiple devices can be connected to a single host.
 
-- Чтобы развернуть этот узел, щелкните значок стрелки рядом с пунктом **Устройства**.
+- To expand the node, click the arrow icon next to **Devices**.
 
-- Чтобы просмотреть меню доступных действий, щелкните правой кнопкой мыши узел **Устройства** или любой из узлов, отображающихся в развернутом представлении.
+- To see a menu of available actions, right-click the **Devices** node or right-click any of the nodes that appear in the expanded view.
 
-- Чтобы просмотреть список настроенных устройств, щелкните **Устройства** на панели **Область**. На панели **Результаты** отобразится список устройств вместе со сведениями о каждом из них.
+- To see a list of configured devices, click **Devices** in the **Scope** pane. The list of devices, together with information about each device, appears in the **Results** pane.
 
-### Узел "Тома"
+### <a name="volumes-node"></a>Volumes node
 
-На узле **Тома** представлены диски, которые соответствуют томам, подключенным с использованием узла, в том числе обнаруженным с помощью iSCSI и устройства. Этот узел используется для просмотра списка доступных томов и назначения отдельных томов группам томов.
+The **Volumes** node represents the drives that correspond to the volumes mounted by the host, including those discovered through iSCSI and those discovered through a device. Use this node to view the list of available volumes and assign individual volumes to volume groups.
 
-- Чтобы развернуть этот узел, щелкните значок стрелки рядом с пунктом **Тома**.
+- To expand the node, click the arrow icon next to **Volumes**.
 
-- Чтобы просмотреть меню доступных действий, щелкните правой кнопкой мыши узел **Тома** или любой из узлов, отображающихся в развернутом представлении.
+- To see a menu of available actions, right-click the **Volumes** node or right-click any of the nodes that appear in the expanded view.
 
-- Чтобы просмотреть список томов, щелкните **Тома** на панели **Область**. На панели **Результаты** отобразится список томов вместе со сведениями о каждом из них.
+- To see a list of volumes, click **Volumes** in the **Scope** pane. The list of volumes, together with information about each volume, appears in the **Results** pane.
 
-### Узел "Группы томов"
+### <a name="volume-groups-node"></a>Volume Groups node
 
-Группы томов также называются группами согласованности. Каждая группа томов представляет собой пул томов, связанных с приложением, который позволяет обеспечить согласованность приложения во время архивации. Узел **Группы томов** используется для настройки этих групп, а также интерактивного создания резервных копий или расписаний архивации.
+Volume groups are also known as consistency groups. Each volume group is a pool of application-related volumes that helps to ensure application consistency during backup operations. Use the **Volume Groups** node to configure these groups and to take interactive backups or create backup schedules. 
 
-- Чтобы развернуть этот узел, щелкните значок стрелки рядом с пунктом **Группы томов**.
+- To expand the node, click the arrow icon next to **Volume Groups**.
 
-- Чтобы просмотреть меню доступных действий, щелкните правой кнопкой мыши узел **Группы томов** или любой из узлов, отображающихся в развернутом представлении.
+- To see a menu of available actions, right-click the **Volume Groups** node or right-click any of the nodes that appear in the expanded view.
 
-- Чтобы просмотреть список групп томов, щелкните **Группы томов** на панели **Область**. На панели **Результаты** отобразится список групп томов вместе со сведениями о каждой из них.
+- To see a list of volume groups, click **Volume Groups** in the **Scope** pane. The list of volume groups, together with information about each volume group, appears in the **Results** pane.
 
-### Узел "Политики архивации"
+### <a name="backup-policies-node"></a>Backup Policies node
 
-Политики архивации — это расписания заданий для локальных и облачных моментальных снимков. Узел **Политики архивации** позволяет указать частоту создания резервной копии и длительность ее хранения.
+Backup policies are job schedules for local and cloud snapshots. Use the **Backup Policies** node to specify how often a backup is created and how long a backup should be retained. 
 
-- Чтобы развернуть этот узел, щелкните значок стрелки рядом с пунктом **Политики архивации**.
+- To expand the node, click the arrow icon next to **Backup Policies**.
 
-- Чтобы просмотреть меню доступных действий, щелкните правой кнопкой мыши узел **Политики архивации** или любой из узлов, отображающихся в развернутом представлении.
+- To see a menu of available actions, right-click the **Backup Policies** node or right-click any of the nodes that appear in the expanded view.
 
-- Чтобы просмотреть список политик архивации, щелкните **Политики архивации** на панели **Область**. На панели **Результаты** отобразится список политик архивации вместе со сведениями о каждой из них.
+- To see a list of backup policies, click **Backup Policies** in the **Scope** pane. The list of backup policies, together with information about each policy, appears in the **Results** pane.
 
->[AZURE.NOTE] Можно сохранить не более 64 резервных копий.
+>[AZURE.NOTE] You can retain a maximum of 64 backups.
 
 
-### Узел "Каталог архивов"
+### <a name="backup-catalog-node"></a>Backup Catalog node
 
-Узел **Каталог архивов** содержит списки локальных и внешних резервных копий томов Azure StorSimple. Содержимое этого узла упорядочивается по группе томов, и каждый контейнер группы томов содержит отдельные структуры для локальных (узел **Локальные моментальные снимки**) и облачных моментальных снимков (узел **Облачные моментальные снимки**). При развертывании в каждом контейнере группы томов перечисляются все успешные операции архивации, выполненные в интерактивном режиме или с помощью настроенной политики.
+The **Backup Catalog** node contains lists of on-site and off-site backups of Azure StorSimple volumes. This node is organized by volume group, and each volume group container contains separate structures for local snapshots (the **Local Snapshot**s node) and cloud snapshots (the **Cloud Snapshots** node). When expanded, each volume group container lists all the successful backups that were taken interactively or by a configured policy.
 
-- Чтобы развернуть этот узел, щелкните значок стрелки рядом с пунктом **Каталог архивов**.
+- To expand the node, click the arrow icon next to **Backup Catalog**.
 
-- Чтобы просмотреть меню доступных действий, щелкните правой кнопкой мыши узел **Каталог архивов** или любой из узлов, отображающихся в развернутом представлении.
+- To see a menu of available actions, right-click the **Backup Catalog** node or right-click any of the nodes that appear in the expanded view.
 
-- Чтобы просмотреть список моментальных снимков резервных копий, щелкните **Каталог архивов** на панели **Область**. На панели **Результаты** отобразится список моментальных снимков вместе со сведениями о каждом из них.
+- To see a list of backup snapshots, click **Backup Catalog** in the **Scope** pane. The list of snapshots, together with information about each snapshot, appears in the **Results** pane.
 
-### Узел "Локальные моментальные снимки"
+### <a name="local-snapshots-node"></a>Local Snapshots node
 
-На узле **Локальные моментальные снимки** перечисляются локальные моментальные снимки для конкретной группы томов. Этот узел находится на узле **Каталог архивов** на панели **Область**. Локальные моментальные снимки — это копии данных тома на определенный момент времени, которые хранятся на устройстве Azure StorSimple. Как правило, резервную копию этого типа можно быстро создать и восстановить. Локальный моментальный снимок используется так же, как и локальная резервная копия.
+The **Local Snapshots** node lists local snapshots for a specific volume group. The node is located under the **Backup Catalog** node in the **Scope** pane. Local snapshots are point-in-time copies of volume data that are stored on the Azure StorSimple device. Typically, this type of backup can be created and restored quickly. You can use a local snapshot as you would a local backup copy.
 
-- Чтобы развернуть этот узел, щелкните значок стрелки рядом с пунктом **Локальные моментальные снимки**.
+- To expand the node, click the arrow icon next to **Local Snapshots**.
 
-- Чтобы просмотреть меню доступных действий, щелкните правой кнопкой мыши узел **Локальные моментальные снимки** или любой из узлов, отображающихся в развернутом представлении.
+- To see a menu of available actions, right-click the **Local Snapshots** node or right-click any of the nodes that appear in the expanded view.
 
-- Чтобы просмотреть список локальных моментальных снимков, щелкните **Локальные моментальные снимки** на панели **Область**. На панели **Результаты** отобразится список моментальных снимков вместе со сведениями о каждом из них.
+- To see a list of local snapshots, click **Local Snapshots** in the **Scope** pane. The list of snapshots, together with information about each snapshot, appears in the **Results** pane.
 
-### Узел "Облачные моментальные снимки"
+### <a name="cloud-snapshots-node"></a>Cloud Snapshots node
 
-На узле **Облачные моментальные снимки** перечисляются облачные моментальные снимки для конкретной группы томов. Этот узел находится на узле **Каталог архивов** на панели **Область**. Облачные моментальные снимки — это копии данных тома на определенный момент времени, которые хранятся в облаке. Облачный моментальный снимок ничем не отличается от снимка, реплицированного в другой, внешней системе хранения. Облачные моментальные снимки особенно полезны в сценариях аварийного восстановления.
+The **Cloud Snapshots** node lists cloud snapshots for a specific volume group. The node is located under the **Backup Catalog** node in the **Scope** pane. Cloud snapshots are point-in-time copies of volume data that are stored in the cloud. A cloud snapshot is equivalent to a snapshot replicated on a different, off-site storage system. Cloud snapshots are particularly useful in disaster recovery scenarios.
 
-- Чтобы развернуть этот узел, щелкните значок стрелки рядом с пунктом **Облачные моментальные снимки**.
+- To expand the node, click the arrow icon next to **Cloud Snapshots**.
 
-- Чтобы просмотреть меню доступных действий, щелкните правой кнопкой мыши узел **Облачные моментальные снимки** или любой из узлов, отображающихся в развернутом представлении.
+- To see a menu of available actions, right-click the **Cloud Snapshots** node or right-click any of the nodes that appear in the expanded view.
 
-- Чтобы просмотреть список облачных моментальных снимков, щелкните **Облачные моментальные снимки** на панели **Область**. На панели **Результаты** отобразится список моментальных снимков вместе со сведениями о каждом из них.
+- To see a list of cloud snapshots, click **Cloud Snapshots** in the **Scope** pane. The list of snapshots, together with information about each snapshot, appears in the **Results** pane.
 
-### Узел "Задания"
+### <a name="jobs-node"></a>Jobs node
 
-Узел **Задания** содержит сведения о запланированных, запущенных и недавно завершенных заданиях архивации.
+The **Jobs** node contains information about scheduled, running, and recently completed backup jobs. 
 
-- Чтобы развернуть этот узел, щелкните значок стрелки рядом с пунктом **Задания**.
+- To expand the node, click the arrow icon next to **Jobs**.
 
-- Чтобы просмотреть меню доступных действий, щелкните правой кнопкой мыши узел **Задания** или любой из узлов, отображающихся в развернутом представлении.
+- To see a menu of available actions, right-click the **Jobs** node or right-click any of the nodes that appear in the expanded view.
 
-- Чтобы просмотреть список запланированных заданий, разверните узел **Задания**, а затем щелкните **Запланированные**. На панели **Результаты** отобразится список ранее настроенных заданий вместе со сведениями о каждом из них.
+- To see a list of scheduled jobs, expand the **Jobs** node, and then click **Scheduled**. The list of previously configured jobs and information about each job appears in the **Results** pane. 
 
-- Чтобы просмотреть список недавно завершенных заданий, разверните узел **Задания**, а затем щелкните **За последние 24 часа**. На панели **Результаты** отобразится список заданий, выполненных за последние 24 часа. Панель **Результаты** также будет содержать сведения о каждом из завершенных заданий.
+- To see a list of recently completed jobs, expand the **Jobs** node, and then click **Last 24 Hours**. A list of jobs that were completed in the last 24 hours appears in the **Results** pane. The **Results** pane also contains information about each completed job.
 
-- Чтобы просмотреть список заданий, которые вы выполняете в настоящий момент, разверните узел **Задания**, а затем щелкните **Выполняется**. На панели **Результаты** отобразится список заданий, которые выполняются в настоящий момент, вместе со сведениями о каждом из них.
+- To see a list of jobs that are currently running, expand the **Jobs** node, and then click **Running**. The list of currently running jobs and information about each job appears in the **Results** pane.
 
-## Панель "Результаты"
+## <a name="results-pane"></a>Results pane
 
-Панель **Результаты** расположена в центральной части пользовательского интерфейса диспетчера моментальных снимков StorSimple. Она содержит списки и подробные сведения о состоянии для узла, который вы выбрали на панели **Область**.
+The **Results** pane is the center pane in the StorSimple Snapshot Manager UI. It contains lists and detailed status information for the node you selected in the **Scope** pane.
 
-### Пример
+### <a name="example"></a>Example
 
-Чтобы просмотреть следующий пример, щелкните узел **Группы томов** на панели **Область**. На панели **Результаты** отобразится список групп томов с подробными сведениями о каждой из них.
+To see the following example, click the **Volume Groups** node in the **Scope** pane. The **Results** pane displays a list of volume groups with details about each group.
 
-![Панель "Результаты"](./media/storsimple-use-snapshot-manager/HCS_SSM_Results_pane.png)
+![Results pane](./media/storsimple-use-snapshot-manager/HCS_SSM_Results_pane.png) 
 
-Вы можете настроить сведения, отображаемые на панели **Результаты**. Для этого щелкните правой кнопкой мыши узел на панели **Область**, а затем последовательно щелкните **Вид** и **Добавить или удалить столбцы**.
+You can configure the details shown in the **Results** pane: right-click a node in the **Scope** pane, click **View**, and then click **Add/Remove Columns**.
 
-## Панель "Действия"
+## <a name="actions-pane"></a>Actions pane
 
-Панель **Действия** расположена справа в пользовательском интерфейсе диспетчера моментальных снимков StorSimple. Она включает меню операций, которые можно выполнять на узле или в представлении, или данные, которые вы выбираете на панели **Область** или **Результаты**. Панель **Действия** содержит те же команды, что и различные меню **Действие**, доступные для элементов на панели **Область** и **Результаты**. Описание каждого действия см. в таблице в разделе меню **Действие**.
+The **Actions** pane is the right pane in the StorSimple Snapshot Manager UI. It contains a menu of operations that you can perform on the node, view, or data that you select in the **Scope** pane or **Results** pane. The **Actions** pane contains the same commands as the **Action** menus that are available for items in the **Scope** pane and **Results** pane. For a description of each action, see the table in the **Action** menu section.
 
-### Примеры
+### <a name="examples"></a>Examples
 
-Чтобы просмотреть следующий пример, на панели **Область** разверните узел **Задания** и щелкните **Запланированные**. На панели **Действия** отобразятся действия, доступные для узла **Запланированные**.
+To see the following example, in the **Scope** pane, expand the **Jobs** node and click **Scheduled**. The **Actions** pane displays the available actions for the **Scheduled** node.
 
-![Пример: запланированные задания на панели "Действия"](./media/storsimple-use-snapshot-manager/HCS_SSM_ActionsPane.png)
+![Actions pane scheduled jobs example](./media/storsimple-use-snapshot-manager/HCS_SSM_ActionsPane.png) 
 
-Чтобы просмотреть дополнительные параметры, на панели **Область** разверните узел **Задания**, щелкните **Запланированные** и выберите запланированное задание на панели **Результаты**. На панели **Действия** отобразятся действия, доступные для узла запланированного задания, как показано в следующем примере.
+To see more options, in the **Scope** pane, expand the **Jobs** node, click **Scheduled**, and then click a scheduled job in the **Results** pane. The **Actions** pane displays the available actions for the scheduled job, as shown in the following example.
 
-![Пример: активные задания на панели "Действия"](./media/storsimple-use-snapshot-manager/HCS_SSM_ActionsPane_Results.png)
+![Actions pane job actions example](./media/storsimple-use-snapshot-manager/HCS_SSM_ActionsPane_Results.png)
 
-## Навигация с помощью клавиатуры и сочетания клавиш
+## <a name="keyboard-navigation-and-shortcuts"></a>Keyboard navigation and shortcuts
 
-Диспетчер моментальных снимков StorSimple поддерживает специальные возможности операционной системы Windows и консоли управления (MMC). Этот диспетчер также включает некоторые функции навигации с помощью клавиатуры и сочетания клавиш, относящиеся к диспетчеру моментальных снимков StorSimple, как описано в следующих разделах.
+StorSimple Snapshot Manager enables the accessibility features of the Windows operating system and the Microsoft Management Console (MMC). It also includes some keyboard navigation features and shortcuts that are specific to the StorSimple Snapshot Manager, as described in the following sections.
  
-- [Клавиши навигации с помощью клавиатуры](#keyboard-navigation-keys) 
-- [Сочетания клавиш для работы со строкой меню](#menu-bar-shortcut-keys) 
-- [Сочетания клавиш для работы с панелью "Область"](#scope-pane-shortcut-keys) 
+- [Keyboard navigation keys](#keyboard-navigation-keys) 
+- [Menu bar shortcut keys](#menu-bar-shortcut-keys) 
+- [Scope pane shortcut keys](#scope-pane-shortcut-keys) 
 
-### Клавиши навигации с помощью клавиатуры
+### <a name="keyboard-navigation-keys"></a>Keyboard navigation keys
 
-В таблице ниже приведены клавиши, с помощью которых вы можете перемещаться по пользовательскому интерфейсу диспетчера моментальных снимков StorSimple.
+The following table describes the keys that you can use to navigate the StorSimple Snapshot Manager user interface. 
 
-| Клавиша навигации | Действие |
+| Navigation key  | Action  |
 |:----------------|:--------| 
-| Клавиша со стрелкой вниз | Клавиша со стрелкой вниз позволяет перейти к следующему элементу в меню или на панели по вертикали. |
-| Введите: | Нажмите клавишу ВВОД, чтобы завершить действие и перейти к следующему шагу. Например, вы можете нажать клавишу "ВВОД", чтобы выбрать пункт **Далее**, **ОК** или **Создать**, а затем перейти к следующему шагу в мастере.|
-| ESC | Нажмите клавишу ESC, чтобы закрыть меню или отменить действие и закрыть страницу.|
-| F1 | Нажмите клавишу F1, чтобы просмотреть раздел справки для активного окна.|
-| F5 | Нажмите клавишу F5, чтобы обновить узел. |
-| F6, | Нажмите клавишу F6, чтобы перейти с панели **Область** на панель **Результаты**.|
-| F10 | Нажмите клавишу F10, чтобы перейти к строке меню. |
-| Клавиша со стрелкой влево | Клавиша со стрелкой влево позволяет перейти от параметра строки меню к предыдущему параметру по горизонтали. При переходе к предыдущему элементу в строке меню появится меню действия (или контекстное меню) для этого элемента. |
-| Клавиша со стрелкой вправо | Клавиша со стрелкой вправо позволяет перейти от текущего параметра строки меню к следующему по горизонтали. При переходе к следующему элементу в строке меню появится меню действия (или контекстное меню) для нового элемента.
-| Клавиша TAB | Клавиша TAB позволяет перейти к следующей панели на консоли, а также к следующему пункту выбора или текстовому полю на странице. |
-| Клавиша со стрелкой вверх | Клавиша со стрелкой вверх позволяет перейти к предыдущему элементу в меню или на панели по вертикали. |
+| Down arrow key | Use the down arrow key to move vertically to the next item in a menu or pane. |
+| Enter | Press the Enter key to complete an action and then proceed to the next step. For example, you can press Enter to select **Next**, **OK**, or **Create**, and then go to the next step in a wizard.|
+| Esc | Press the Esc key to close a menu or to cancel and close a page.|
+| F1 | Press the F1 key to view a help topic for the currently active window.|
+| F5 | Press the F5 key to refresh a node. |
+| F6 | Press the F6 key to move from the **Scope** pane to the **Results** pane.|
+| F10 | Press the F10 key to go to the menu bar. |
+| Left arrow key | Use the left arrow key to move horizontally from a menu bar option to the previous option. When you move to the previous item on the menu bar, the action (or context) menu for the previous item appears. |
+| Right arrow key | Use the right arrow key to move horizontally from one menu bar option to the next. When you move to the next item on the menu bar, the action (or context) menu for the new item appears.
+| Tab key | Use the Tab key to move to the next pane on the console or to the next selection or text box in a page. |
+| Up arrow key | Use the up arrow key to move vertically to the previous item on a menu or pane. |
 
-### Сочетания клавиш для работы со строкой меню
+### <a name="menu-bar-shortcut-keys"></a>Menu bar shortcut keys
 
-В следующей таблице приведены сочетания клавиш для работы со строкой меню. После нажатия сочетаний клавиш и открытия соответствующего меню вы можете использовать клавиши меню (подчеркнутые клавиши в меню). Дополнительные сведения о строке меню см. в разделе [Строка меню](#menu-bar).
+The following table describes the shortcut key combinations for the menu bar. After you press the shortcut keys and the menu opens, you can use menu shortcut keys (the underlined keys on the menu). For more information about the menu bar, go to [Menu bar](#menu-bar).
 
-| Клавиша | Результат | Клавиша для работы с меню | Результат |
+| Shortcut | Result                    | Menu Shortcut Key | Result          |
 |:---------|:--------------------------|:------------------|:----------------|
-| ALT+F | Открытие меню **Файл**. | Нет | Открытие нового экземпляра консоли. |
-| | | O | Открытие страницы **Администрирование**. |
-| | | S | Сохранение консоли диспетчера моментальных снимков StorSimple.|
-| | | Файл , | Открытие страницы **Сохранить как**. |
-| | | M | Открытие страницы **Добавить или удалить оснастку**.|
-| | | P | Открытие страницы **Параметры**. |
-| | | H | Открытие справки в Интернете.|
-| ALT+A | Открытие меню **Действие**.| I | Включение и отключение параметра отображения импорта.|
-| | | W | Открытие новой консоли диспетчера моментальных снимков StorSimple.|
-| | | F | Обновление консоли диспетчера моментальных снимков StorSimple.|
-| | | L | Открытие страницы **Экспорт списка**. 
-| | | H | Открытие справки в Интернете.|
-| ALT+V | Открытие меню **Вид**. | Файл , | Открытие страницы **Добавить или удалить столбцы**. |
-| | | U | Открытие страницы **Настройка представления**. |
-| ALT+O | Открытие меню **Избранное**. | Файл , | Открытие страницы **Добавить в избранное**. |
-| | | O | Открытие страницы **Упорядочить избранное**.|
-| ALT+W | Открытие меню **Окно**.| Нет | Открытие другого окна диспетчера моментальных снимков StorSimple.|
-| | | C | Отображение всех открытых окон консоли каскадом.|
-| | | T | Отображение всех открытых окон консоли в виде сетки. |
-| | | I | Размещение значков в горизонтальной строке в нижней части экрана.|
-| ALT+H | Открытие меню **Справка**. | H | Открытие справки в Интернете.|
-| | | T | Открытие веб-страницы технического центра Microsoft TechNet.|
-| | | Файл , | Открытие страницы **О консоли управления (MMC)**. |
+| ALT+F    | Opens the **File** menu.  | N | Opens a new console instance.   |
+|          |                           | O | Opens the **Administrative Tools** page. |
+|          |                           | S | Saves the StorSimple Snapshot Manager console.|
+|          |                           | A | Opens the **Save As** page. |
+|          |                           | M | Opens the **Add/Remove Snap-in** page.|
+|          |                           | P | Opens the **Options** page. |
+|          |                           | H | Opens online Help.|
+| ALT+A    | Opens the **Action** menu.| I | Turns the import display option on and off.|
+|          |                           | W | Opens a new StorSimple Snapshot Manager console.|
+|          |                           | F | Updates the StorSimple Snapshot Manager console.|
+|          |                           | L | Opens the **Export List** page. 
+|          |                           | H | Opens online Help.|
+| ALT+V    | Opens the **View** menu.  | A | Opens the **Add/Remove Columns** page. |
+|          |                           | U | Opens the **Customize View** page. |
+| ALT+O    | Opens the **Favorites** menu. | A | Opens the **Add to Favorites** page. |
+|          |                           | O | Opens the **Organize Favorites** page.|
+| ALT+W    | Opens the **Window** menu.| N | Opens another StorSimple Snapshot Manager window.|
+|          |                           | C | Displays all open console windows in a cascading style.|
+|          |                           | T | Displays all open console windows in a grid pattern. |
+|          |                           | I | Arranges icons in a horizontal row at the bottom of your screen.|
+| ALT+H    | Opens the **Help** menu.  | H | Opens online Help.|
+|          |                           | T | Opens the Microsoft TechNet Tech Center web page.|
+|          |                           | A | Opens the **About Microsoft Management Console** page. |
  
-### Сочетания клавиш для работы с панелью "Область"
+### <a name="scope-pane-shortcut-keys"></a>Scope pane shortcut keys
 
-В таблицах ниже приведены сочетания клавиш для каждого узла на панели **Область**.
+The following tables show the shortcut key combinations for each node in the **Scope** pane. 
 
-- [Сочетания клавиш для работы с узлом "Устройства"](#devices-node-shortcut-keys)
-- [Сочетания клавиш для работы с узлом "Тома"](#volumes-node-shortcut-keys)
-- [Сочетания клавиш для работы с узлом "Группы томов"](#volume-groups-node-shortcut-keys)
-- [Сочетания клавиш для работы с узлом "Политики архивации"](#backup-policies-node-shortcut-keys)
-- [Сочетания клавиш для работы с узлом "Каталог архивов"](#backup-catalog-node-shortcut-keys)
-- [Сочетания клавиш для работы с узлом "Задания"](#jobs-node-shortcut-keys)
+- [Devices node shortcut keys](#devices-node-shortcut-keys)
+- [Volumes node shortcut keys](#volumes-node-shortcut-keys)
+- [Volume Groups node shortcut keys](#volume-groups-node-shortcut-keys)
+- [Backup Policies node shortcut keys](#backup-policies-node-shortcut-keys)
+- [Backup Catalog node shortcut keys](#backup-catalog-node-shortcut-keys)
+- [Jobs node shortcut keys](#jobs-node-shortcut-keys)
 
-#### Сочетания клавиш для работы с узлом "Устройства"
+#### <a name="devices-node-shortcut-keys"></a>Devices node shortcut keys
 
-| Клавиша для работы с меню | Результат |
+| Menu Shortcut | Result                               |
 |:--------------|:-------------------------------------|
-| C | Открытие страницы **Настройка устройства**. |
-| D | Обновление списка устройств и сведений о них.|
-| V | Открытие меню **Вид**. |
-| W | Открытие узла **Сведения** в новой консоли диспетчера моментальных снимков StorSimple. |
-| F | Обновление консоли диспетчера моментальных снимков StorSimple. |
-| L | Открытие страницы **Экспорт списка**. 
-| H | Открытие справки в Интернете.|
+| C             | Opens the **Configure a Device** page. |
+| D             | Refreshes the list of devices and device details.|
+| V             | Opens the **View** menu. |
+| W             | Opens a new StorSimple Snapshot Manager console focused on the **Details** node. |
+| F             | Updates the StorSimple Snapshot Manager console. |
+| L             | Opens the **Export List** page. 
+| H             | Opens online Help.|
  
 
-#### Сочетания клавиш для работы с узлом "Тома"
+#### <a name="volumes-node-shortcut-keys"></a>Volumes node shortcut keys
 
-| Клавиша для работы с меню | Результат |
+| Menu Shortcut   | Result                              |
 |:----------------|:------------------------------------|
-| V | Обновление списка томов. |
-| V (нажмите дважды) | Открытие меню **Вид**. |
-| W | Открытие узла **Тома** в новой консоли диспетчера моментальных снимков StorSimple.|
-| F | Обновление консоли диспетчера моментальных снимков StorSimple.|
-| L | Открытие страницы **Экспорт списка**. 
-| H | Открытие справки в Интернете.|
+| V               | Updates the list of volumes.        |
+| V (press twice) | Opens the **View** menu.            |
+| W               | Opens a new StorSimple Snapshot Manager console focused on the **Volumes** node.|
+| F               | Updates the StorSimple Snapshot Manager console.|
+| L               | Opens the **Export List** page. 
+| H               | Opens online Help.|
  
-#### Сочетания клавиш для работы с узлом "Группы томов"
+#### <a name="volume-groups-node-shortcut-keys"></a>Volume Groups node shortcut keys
 
-| Клавиша для работы с меню | Результат |
+| Menu Shortcut   | Result                              |
 |:----------------|:------------------------------------|
-| G. | Открытие страницы **Создание группы томов**. |
-| V | Открытие меню **Вид**. |
-| W | Открытие узла **Группы томов** в новой консоли диспетчера моментальных снимков StorSimple.|
-| F | Обновление консоли диспетчера моментальных снимков StorSimple. |
-| L | Открытие страницы **Экспорт списка**. |
-| H | Открытие справки в Интернете.|
+| G               | Opens the **Create a Volume Group** page. |
+| V               | Opens the **View** menu. |
+| W               | Opens a new StorSimple Snapshot Manager console focused on the **Volume Groups** node.|
+| F               | Updates the StorSimple Snapshot Manager console. |
+| L               | Opens the **Export List** page. |
+| H               | Opens online Help.|
 
-#### Сочетания клавиш для работы с узлом "Политики архивации"
+#### <a name="backup-policies-node-shortcut-keys"></a>Backup Policies node shortcut keys
 
-| Клавиша для работы с меню | Результат |
+| Menu Shortcut   | Result                              |
 |:----------------|:------------------------------------|
-| B | Открытие страницы **Создание политики**. |
-| V | Открытие меню **Вид**. |
-| W | Открытие узла **Группы томов** в новой консоли диспетчера моментальных снимков StorSimple.|
-| F | Обновление консоли диспетчера моментальных снимков StorSimple.|
-| L | Открытие страницы **Экспорт списка**. 
-| H | Открытие справки в Интернете.|
+| B               | Opens the **Create a Policy** page. |
+| V               | Opens the **View** menu.            |
+| W               | Opens a new StorSimple Snapshot Manager console focused on the **Volume Groups** node.|
+| F               | Updates the StorSimple Snapshot Manager console.|
+| L               | Opens the **Export List **page. 
+| H               | Opens online Help.|
  
-#### Сочетания клавиш для работы с узлом "Каталог архивов"
+#### <a name="backup-catalog-node-shortcut-keys"></a>Backup Catalog node shortcut keys
 
-| Клавиша для работы с меню | Результат |
+| Menu Shortcut   | Result                              |
 |:----------------|:------------------------------------|
-| W | Открытие узла **Группы томов** в новой консоли диспетчера моментальных снимков StorSimple. |
-| F | Обновление консоли диспетчера моментальных снимков StorSimple. |
-| H | Открытие справки в Интернете.|
+| W               | Opens a new StorSimple Snapshot Manager console focused on the **Volume Groups** node. |
+| F               | Updates the StorSimple Snapshot Manager console. |
+| H               | Opens online Help.|
  
-#### Сочетания клавиш для работы с узлом "Задания"
+#### <a name="jobs-node-shortcut-keys"></a>Jobs node shortcut keys
 
-| Клавиша для работы с меню | Результат |
+| Menu Shortcut   | Result                              |
 |:----------------|:------------------------------------|
-| V | Открытие меню **Вид**. |
-| W | Открытие узла **Задания** в новой консоли диспетчера моментальных снимков StorSimple.|
-| F | Обновление консоли диспетчера моментальных снимков StorSimple.|
-| L | Открытие страницы **Экспорт списка**. |
-| H | Открытие справки в Интернете |
+| V               | Opens the **View** menu.            |
+| W               | Opens a new StorSimple Snapshot Manager console focused on the **Jobs** node.|
+| F               | Updates the StorSimple Snapshot Manager console.|
+| L               | Opens the **Export List** page.     |
+| H               | Opens online Help                   |
  
-## Дальнейшие действия
+## <a name="next-steps"></a>Next steps
 
-- Узнайте об [использовании диспетчера моментальных снимков StorSimple для администрирования решения StorSimple](storsimple-snapshot-manager-admin.md).
-- Узнайте, как [подключать устройства и управлять ими с помощью диспетчера моментальных снимков StorSimple](storsimple-snapshot-manager-manage-devices.md).
+- Learn how to [use StorSimple Snapshot Manager to administer your StorSimple solution](storsimple-snapshot-manager-admin.md).
+- Learn how to [use StorSimple Snapshot Manager to connect and manage devices](storsimple-snapshot-manager-manage-devices.md).
 
-<!---HONumber=AcomDC_0511_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

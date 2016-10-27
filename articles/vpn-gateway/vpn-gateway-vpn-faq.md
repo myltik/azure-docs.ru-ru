@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="VPN-шлюз виртуальной сети: вопросы и ответы | Microsoft Azure"
-   description="VPN-шлюз: вопросы и ответы Распределенные подключения в виртуальной сети Microsoft Azure, подключения гибридных конфигураций и VPN-шлюзы: вопросы и ответы"
+   pageTitle="Virtual Network VPN Gateway FAQ | Microsoft Azure"
+   description="The VPN Gateway FAQ. FAQ for Microsoft Azure Virtual Network cross-premises connections, hybrid configuration connections, and VPN Gateways"
    services="vpn-gateway"
    documentationCenter="na"
    authors="yushwang"
@@ -15,265 +15,273 @@
    ms.date="03/10/2016"
    ms.author="yushwang" />
 
-# VPN-шлюз: вопросы и ответы
 
-## Подключение к виртуальным сетям
+# <a name="vpn-gateway-faq"></a>VPN Gateway FAQ
 
-### Можно ли подключать виртуальные сети в разных регионах Azure?
-Да. Ограничений по регионам нет. Одна виртуальная сеть может подключаться к другой в том же или другом регионе Azure.
+## <a name="connecting-to-virtual-networks"></a>Connecting to Virtual Networks
 
-### Можно ли подключать виртуальные сети в разных подписках?
-Да.
+### <a name="can-i-connect-virtual-networks-in-different-azure-regions?"></a>Can I connect virtual networks in different Azure regions?
+Yes. In fact, there is no region constraint. One virtual network can connect to another virtual network in the same region, or in a different Azure region.
 
-### Можно ли подключаться к нескольким сайтам из одной виртуальной сети?
+### <a name="can-i-connect-virtual-networks-in-different-subscriptions?"></a>Can I connect virtual networks in different subscriptions?
+Yes.
 
-Вы можете подключиться к нескольким сайтам с помощью Windows PowerShell и интерфейсов REST API Azure. См. раздел этой статьи [Возможности подключения нескольких сайтов и подключения между виртуальными сетями](#multi-site-and-vnet-to-vnet-connectivity).
-## Какими вариантами распределенного подключения я могу воспользоваться?
+### <a name="can-i-connect-to-multiple-sites-from-a-single-virtual-network?"></a>Can I connect to multiple sites from a single virtual network?
 
-Поддерживаются следующие подключения между организациями:
+You can connect to multiple sites by using Windows PowerShell and the Azure REST APIs. See the [Multi-Site and VNet-to-VNet Connectivity](#multi-site-and-vnet-to-vnet-connectivity) FAQ section.
+## <a name="what-are-my-cross-premises-connection-options?"></a>What are my cross-premises connection options?
 
-- [Сеть — сеть](vpn-gateway-site-to-site-create.md). VPN-подключение по протоколу IPsec (протоколы IKE v1 и IKE v2). Для этого типа подключения требуется VPN-устройство или RRAS.
+The following cross-premises connections are supported:
 
-- [Точка — сеть](vpn-gateway-point-to-site-create.md). VPN-подключение по протоколу SSTP (Secure Socket Tunneling Protocol). Для этого подключения не требуется VPN-устройство.
+- [Site-to-Site](vpn-gateway-site-to-site-create.md) – VPN connection over IPsec (IKE v1 and IKE v2). This type of connection requires a VPN device or RRAS.
 
-- [Виртуальная сеть — виртуальная сеть](virtual-networks-configure-vnet-to-vnet-connection.md). Этот тип подключения аналогичен конфигурации "сеть-сеть". Конфигурация «Виртуальная сеть — виртуальная сеть» — это VPN-подключение по протоколу IPsec (протоколы IK v1 и IKE v2). Для этого варианта подключения не требуется VPN-устройство.
+- [Point-to-Site](vpn-gateway-point-to-site-create.md) – VPN connection over SSTP (Secure Socket Tunneling Protocol). This connection does not require a VPN device.
 
-- [Несколько сайтов](vpn-gateway-multi-site.md). Это вариация конфигурации "сеть-сеть", позволяющая подключить несколько локальных сайтов к виртуальной сети.
+- [VNet-to-VNet](virtual-networks-configure-vnet-to-vnet-connection.md) – This type of connection is the same as a Site-to-Site configuration. VNet to VNet is a VPN connection over IPsec (IKE v1 and IKE v2). It does not require a VPN device.
 
-- [ExpressRoute](../expressroute/expressroute-introduction.md). Это прямое подключение к Azure из глобальной сети, а не через общедоступное подключение к Интернету. Дополнительную информацию см. в статьях [Технический обзор ExpressRoute](../expressroute/expressroute-introduction.md) и [ExpressRoute: вопросы и ответы](../expressroute/expressroute-faqs.md).
+- [Multi-Site](vpn-gateway-multi-site.md) – This is a variation of a Site-to-Site configuration that allows you to connect multiple on-premises sites to a virtual network.
 
-Дополнительную информацию о подключениях см. в статье [Основные сведения о VPN-шлюзах Azure](vpn-gateway-about-vpngateways.md).
+- [ExpressRoute](../expressroute/expressroute-introduction.md) – ExpressRoute is a direct connection to Azure from your WAN, not over the public Internet. See the [ExpressRoute Technical Overview](../expressroute/expressroute-introduction.md) and the [ExpressRoute FAQ](../expressroute/expressroute-faqs.md) for more information.
 
-### Чем отличаются подключения "сеть — сеть" и "точка — сеть"?
+For more information about connections, see [About VPN Gateway](vpn-gateway-about-vpngateways.md).
 
-Подключения **сеть-сеть** позволяют подключать любые компьютеры, находящиеся в локальной среде, к любой виртуальной машине или экземпляру роли в виртуальной сети в зависимости от настроек маршрутизации. Это отличный вариант для всегда доступного распределенного подключения, который подходит для гибридных конфигураций. Для этого типа подключения требуется устройство VPN с поддержкой IPsec (оборудование или программное обеспечение), которое необходимо развернуть на границе сети. Для создания этого типа соединения необходимо иметь соответствующее оборудование VPN и внешний адрес IPv4.
+### <a name="what-is-the-difference-between-a-site-to-site-connection-and-point-to-site?"></a>What is the difference between a Site-to-Site connection and Point-to-Site?
 
-Подключения **точка-сеть** позволяют подключаться с одного компьютера, который может находиться где угодно, к любому расположению в виртуальной сети. Для этого подключения используется VPN-клиент, поставляемый с Windows. В рамках конфигурации подключения "точка — сеть" вы должны установить сертификат и пакет конфигурации VPN-клиента, который содержит параметры, позволяющие компьютеру подключаться к любой виртуальной машине или экземпляру роли в виртуальной сети. Эта конфигурация идеально подходит для подключения к виртуальной сети, если вы не находитесь в локальной. Этот вариант удобно использовать при отсутствии доступа к оборудованию VPN или внешнего адреса IPv4, которые необходимы для подключения "сеть — сеть".
+**Site-to-Site** connections let you connect between any of the computers located on your premises to any virtual machine or role instance within your virtual network, depending on how you choose to configure routing. It's a great option for an always-available cross-premises connection and is well-suited for hybrid configurations. This type of connection relies on an IPsec VPN appliance (hardware or soft appliance), which must be deployed at the edge of your network. To create this type of connection, you must have the required VPN hardware and an externally facing IPv4 address.
 
-Вы можете настроить виртуальную сеть на параллельное использование подключений "сеть — сеть" и "точка — сеть" при условии, что вы создаете подключение "сеть — сеть" с помощью типа VPN, основанного на маршрутизации, для своего шлюза. В классической модели развертывания типы VPN на основе маршрутов называются динамическими шлюзами.
+**Point-to-Site** connections let you connect from a single computer from anywhere to anything located in your virtual network. It uses the Windows in-box VPN client. As part of the Point-to-Site configuration, you install a certificate and a VPN client configuration package, which contains the settings that allow your computer to connect to any virtual machine or role instance within the virtual network. It's great when you want to connect to a virtual network, but aren't located on-premises. It's also a good option when you don't have access to VPN hardware or an externally facing IPv4 address, both of which are required for a Site-to-Site connection. 
 
-### Что такое ExpressRoute?
+You can configure your virtual network to use both Site-to-Site and Point-to-Site concurrently, provided that you create your Site-to-Site connection using a route-based VPN type for your gateway. Route-based VPN types are called dynamic gateways in the classic deployment model.
 
-ExpressRoute позволяет создавать частные подключения между центрами обработки данных Microsoft и инфраструктурой вашей локальной среды или среды для совместной работы. С помощью ExpressRoute вы можете устанавливать подключения к облачным службам Майкрософт (например, Microsoft Azure и Office 365) в партнерском расположении совместного размещения ExpressRoute. Также вы можете подключаться напрямую из имеющейся глобальной сети (например, MPLS VPN), предоставленной поставщиком сетевых услуг.
+### <a name="what-is-expressroute?"></a>What is ExpressRoute?
 
-Подключения ExpressRoute обеспечивают повышенный уровень безопасности, надежность, высокую пропускную способность, а также минимальные задержки по сравнению с обычными подключениями через Интернет. В некоторых случаях использование подключений ExpressRoute для передачи данных между локальной сетью и Azure дает возможность значительно сократить затраты. Если у вас уже создано перекрестное подключение из локальной сети к Azure, вы можете перейти на подключение ExpressRoute, не изменяя свою виртуальную сеть.
+ExpressRoute lets you create private connections between Microsoft datacenters and infrastructure that’s on your premises or in a co-location environment. With ExpressRoute, you can establish connections to Microsoft cloud services such as Microsoft Azure and Office 365 at an ExpressRoute partner co-location facility, or directly connect from your existing WAN network (such as an MPLS VPN provided by a network service provider).
 
-Дополнительные сведения см. в разделе [Вопросы и ответы по ExpressRoute](../expressroute/expressroute-faqs.md).
+ExpressRoute connections offer better security, more reliability, higher bandwidth, and lower latencies than typical connections over the Internet. In some cases, using ExpressRoute connections to transfer data between your on-premises network and Azure can also yield significant cost benefits. If you already have created a cross-premises connection from your on-premises network to Azure, you can migrate to an ExpressRoute connection while keeping your virtual network intact.
 
-## Подключения типа "сеть-сеть" и VPN-устройства
+See the [ExpressRoute FAQ](../expressroute/expressroute-faqs.md) for more details.
 
-### Что следует учесть при выборе VPN-устройства?
+## <a name="site-to-site-connections-and-vpn-devices"></a>Site-to-Site connections and VPN devices
 
-Для подключения "сеть — сеть" мы утвердили набор стандартных VPN-устройств в сотрудничестве с поставщиками устройств. Список известных совместимых устройств VPN, соответствующие инструкции по настройке или образцы конфигураций, а также спецификации устройств можно найти [здесь](vpn-gateway-about-vpn-devices.md). Все устройства, перечисленные в семействах устройств как совместимые, должны работать с виртуальной сетью. Чтобы настроить VPN-устройство, см. образец конфигурации устройства или перейдите по ссылке, которая соответствует семейству устройств.
+### <a name="what-should-i-consider-when-selecting-a-vpn-device?"></a>What should I consider when selecting a VPN device?
 
-### Что делать, если мое VPN-устройство отсутствует в списке известных совместимых устройств?
+We have validated a set of standard Site-to-Site VPN devices in partnership with device vendors. A list of known compatible VPN devices, their corresponding configuration instructions or samples, and device specs can be found [here](vpn-gateway-about-vpn-devices.md). All devices in the device families listed as known compatible should work with Virtual Network. To help configure your VPN device, refer to the device configuration sample or link that corresponds to appropriate device family.
 
-Если вашего устройства нет в списке известных совместимых VPN-устройств и вы хотите использовать его для VPN-подключения, убедитесь, что оно соответствует параметрам конфигурации поддерживаемого протокола IPsec/IKE. Эти параметры перечислены [здесь](vpn-gateway-about-vpn-devices.md#devices-not-on-the-compatible-list). Устройства, соответствующие минимальным требованиям, должны хорошо работать с VPN-шлюзами. Чтобы получить дополнительную информацию и инструкции по настройке, обратитесь к изготовителю устройства.
+### <a name="what-do-i-do-if-i-have-a-vpn-device-that-isn't-in-the-known-compatible-device-list?"></a>What do I do if I have a VPN device that isn't in the known compatible device list?
 
-### Почему мой туннель VPN на основе политики выключается при отсутствии трафика?
+If you do not see your device listed as a known compatible VPN device and you want to use it for your VPN connection, you'll need to verify that it meets the supported IPsec/IKE configuration options and parameters listed [here](vpn-gateway-about-vpn-devices.md#devices-not-on-the-compatible-list). Devices meeting the minimum requirements should work well with VPN gateways. Contact your device manufacturer for additional support and configuration instructions.
 
-Это ожидаемое поведение для шлюзов VPN на основе политики. Такое поведение также называют "статическая маршрутизация". Когда трафик через туннель отсутствует более 5 минут, туннель выключается. Когда трафик начинает поступать в одном из направлений, туннель сразу же возобновляет работу.
+### <a name="why-does-my-policy-based-vpn-tunnel-go-down-when-traffic-is-idle?"></a>Why does my policy-based VPN tunnel go down when traffic is idle?
 
-### Можно ли использовать сети VPN для подключения к Azure?
+This is expected behavior for policy-based (also known as static routing) VPN gateways. When the traffic over the tunnel is idle for more than 5 minutes, the tunnel will be torn down. When traffic starts flowing in either direction, the tunnel will be reestablished immediately.
 
-Мы поддерживаем использование серверов маршрутизации и удаленного доступа (RRAS) Windows Server 2012 для настройки распределенного подключения "сеть — сеть".
+### <a name="can-i-use-software-vpns-to-connect-to-azure?"></a>Can I use software VPNs to connect to Azure?
 
-Другие программные решения VPN должны работать с нашим шлюзом при условии, что они соответствуют реализации промышленного стандарта IPsec. Для получения инструкций по настройке и поддержке обратитесь к поставщику программного обеспечения.
+We support Windows Server 2012 Routing and Remote Access (RRAS) servers for Site-to-Site cross-premises configuration.
 
-## Подключения "точка-сеть"
+Other software VPN solutions should work with our gateway as long as they conform to industry standard IPsec implementations. Contact the vendor of the software for configuration and support instructions.
 
-### Какие операционные системы можно использовать для подключения "точка — сеть"?
+## <a name="point-to-site-connections"></a>Point-to-Site connections
 
-Поддерживаются перечисленные ниже операционные системы.
+### <a name="what-operating-systems-can-i-use-with-point-to-site?"></a>What operating systems can I use with Point-to-Site?
 
-- Windows 7 (32-разрядная и 64-разрядная версии)
+The following operating systems are supported:
 
-- Windows Server 2008 R2 (только 64-разрядная версия)
+- Windows 7 (32-bit and 64-bit)
 
-- Windows 8 (32-разрядная и 64-разрядная версии)
+- Windows Server 2008 R2 (64-bit only)
 
-- Windows 8.1 (32-разрядная и 64-разрядная версии)
+- Windows 8 (32-bit and 64-bit)
 
-- Windows Server 2012 (только 64-разрядная версия)
+- Windows 8.1 (32-bit and 64-bit)
 
-- Windows Server 2012 R2 (только 64-разрядная версия)
+- Windows Server 2012 (64-bit only)
+
+- Windows Server 2012 R2 (64-bit only)
 
 - Windows 10
 
-### Можно ли использовать для подключения "точка — сеть" любой VPN-клиент, поддерживающий SSTP?
+### <a name="can-i-use-any-software-vpn-client-for-point-to-site-that-supports-sstp?"></a>Can I use any software VPN client for Point-to-Site that supports SSTP?
 
-Нет. Поддержка предоставляется только для версий операционной системы Windows, перечисленных выше.
+No. Support is limited only to the Windows operating system versions listed above.
 
-### Сколько конечных точек VPN-клиента можно настроить в конфигурации "точка — сеть"?
+### <a name="how-many-vpn-client-endpoints-can-i-have-in-my-point-to-site-configuration?"></a>How many VPN client endpoints can I have in my Point-to-Site configuration?
 
-Поддерживаются до 128 VPN-клиентов с возможностью одновременного подключения к виртуальной сети.
+We support up to 128 VPN clients to be able to connect to a virtual network at the same time.
 
-### Можно ли использовать корневой ЦС собственной внутренней системы PKI для подключения "точка — сеть"?
+### <a name="can-i-use-my-own-internal-pki-root-ca-for-point-to-site-connectivity?"></a>Can I use my own internal PKI root CA for Point-to-Site connectivity?
 
-Да. Раньше поддерживались только самозаверяющие корневые сертификаты. Вы по-прежнему можете загружать до 20 корневых сертификатов.
+Yes. Previously, only self-signed root certificates could be used. You can still upload 20 root certificates.
 
-### Можно ли просматривать прокси-серверы и брандмауэры с использованием возможности "точка — сеть"?
+### <a name="can-i-traverse-proxies-and-firewalls-using-point-to-site-capability?"></a>Can I traverse proxies and firewalls using Point-to-Site capability?
 
-Да. Для туннелирования через брандмауэры используется протокол SSTP (Secure Socket Tunneling Protocol). Этот туннель будет отображаться как HTTPs-соединение.
+Yes. We use SSTP (Secure Socket Tunneling Protocol) to tunnel through firewalls. This tunnel will appear as an HTTPs connection.
 
-### Если перезапустить клиентский компьютер, настроенный для подключения "точка — сеть", произойдет ли автоматическое переподключение VPN?
+### <a name="if-i-restart-a-client-computer-configured-for-point-to-site,-will-the-vpn-automatically-reconnect?"></a>If I restart a client computer configured for Point-to-Site, will the VPN automatically reconnect?
 
-По умолчанию клиентский компьютер не восстанавливает VPN-подключение автоматически.
+By default, the client computer will not reestablish the VPN connection automatically.
 
-### Поддерживает ли подключение "точка — сеть" автоматическое повторное подключение и DDNS для VPN-клиентов?
+### <a name="does-point-to-site-support-auto-reconnect-and-ddns-on-the-vpn-clients?"></a>Does Point-to-Site support auto-reconnect and DDNS on the VPN clients?
 
-В конфигурациях VPN "точка — сеть" в настоящее время не поддерживаются автоматическое повторное подключение и DDNS.
+Auto-reconnect and DDNS are currently not supported in Point-to-Site VPNs.
 
-### Могут ли сосуществовать в одной виртуальной сети конфигурации "сеть — сеть" и "точка — сеть"?
+### <a name="can-i-have-site-to-site-and-point-to-site-configurations-coexist-for-the-same-virtual-network?"></a>Can I have Site-to-Site and Point-to-Site configurations coexist for the same virtual network?
 
-Да. Оба этих решения будут работать, если ваш шлюз использует тип VPN на основе маршрутов. В классической модели развертывания требуется динамический шлюз. Мы не поддерживаем подключения "точка — сеть" для VPN-шлюзов статической маршрутизации или шлюзов, использующих тип VPN PolicyBased.
+Yes. Both these solutions will work if you have a RouteBased VPN type for your gateway. For the classic deployment model, you need a dynamic gateway. We do not support Point-to-Site for static routing VPN gateways or gateways using -VpnType PolicyBased.
 
-### Можно ли настроить клиент "точка — сеть" для подключения к нескольким виртуальным сетям одновременно?
+### <a name="can-i-configure-a-point-to-site-client-to-connect-to-multiple-virtual-networks-at-the-same-time?"></a>Can I configure a Point-to-Site client to connect to multiple virtual networks at the same time?
 
-Да, это возможно. Но виртуальные сети не могут иметь перекрывающиеся префиксы IP-адресов и адресные пространства "точка — сеть" не должны перекрываться между виртуальными сетями.
+Yes, it is possible. But the virtual networks cannot have overlapping IP prefixes and the Point-to-Site address spaces must not overlap between the virtual networks.
 
-### На какую пропускную способность можно рассчитывать в конфигурациях подключения "сеть — сеть" и "точка — сеть"?
+### <a name="how-much-throughput-can-i-expect-through-site-to-site-or-point-to-site-connections?"></a>How much throughput can I expect through Site-to-Site or Point-to-Site connections?
 
-Сложно поддерживать конкретную пропускную способность для туннелей VPN. IPsec и SSTP — это надежно зашифрованные протоколы VPN. Пропускная способность также зависит от задержки и пропускной способности между локальной сетью и Интернетом.
+It's difficult to maintain the exact throughput of the VPN tunnels. IPsec and SSTP are crypto-heavy VPN protocols. Throughput is also limited by the latency and bandwidth between your premises and the Internet.
 
-## Шлюзы
+## <a name="gateways"></a>Gateways
 
-### Что такое шлюз на основе политик (со статической маршрутизацией)?
+### <a name="what-is-a-policy-based-(static-routing)-gateway?"></a>What is a policy-based (static-routing) gateway?
 
-Шлюзы на основе политик реализуют подключения VPN на основе политик. VPN на основе политики шифруют и направляют пакеты через туннели IPsec на основе комбинаций префиксов адресов между местной сетью и виртуальной сетью Azure. Политика (или селектор трафика) обычно определяется как список доступа в конфигурации VPN.
+Policy-based gateways implement policy-based VPNs. Policy-based VPNs encrypt and direct packets through IPsec tunnels based on the combinations of address prefixes between your on-premises network and the Azure VNet. The policy (or Traffic Selector) is usually defined as an access list in the VPN configuration.
 
-### Что такое шлюз на основе маршрутов (с динамической маршрутизацией)?
+### <a name="what-is-a-route-based-(dynamic-routing)-gateway?"></a>What is a route-based (dynamic-routing) gateway?
 
-Шлюзы на основе маршрутов реализуют VPN на основе маршрутов. VPN на основе маршрутов используют «маршруты» в таблице маршрутизации и переадресации для направления пакетов в интерфейсы соответствующих туннелей. Затем интерфейсы туннелей шифруют пакеты в туннели или расшифровывают их из туннелей. Политика или селектор трафика для VPN на основе маршрутов настроены как «любая точка — любая точка» (или подстановочные знаки).
+Route-based gateways implement the route-based VPNs. Route-based VPNs use "routes" in the IP forwarding or routing table to direct packets into their corresponding tunnel interfaces. The tunnel interfaces then encrypt or decrypt the packets in and out of the tunnels. The policy or traffic selector for route based VPNs are configured as any-to-any (or wild cards).
 
-### Можно ли получить IP-адрес своего VPN-шлюза до его создания?
+### <a name="can-i-get-my-vpn-gateway-ip-address-before-i-create-it?"></a>Can I get my VPN gateway IP address before I create it?
 
-Нет. Чтобы получить IP-адрес, необходимо сначала создать шлюз. IP-адрес изменится, если вы удалите или повторно создадите VPN-шлюз.
+No. You have to create your gateway first to get the IP address. The IP address changes if you delete and recreate your VPN gateway.
 
-### Как проверить подлинность моего VPN-туннеля?
+### <a name="how-does-my-vpn-tunnel-get-authenticated?"></a>How does my VPN tunnel get authenticated?
 
-VPN Azure использует проверку подлинности с помощью общего ключа (PSK). Во время создания VPN-туннеля генерируется общий ключ (PSK). Вы можете заменить автоматически созданный PSK собственным. Для этого используйте PowerShell или API REST для задания общего ключа.
+Azure VPN uses PSK (Pre-Shared Key) authentication. We generate a pre-shared key (PSK) when we create the VPN tunnel. You can change the auto-generated PSK to your own with the Set Pre-Shared Key PowerShell cmdlet or REST API.
 
-### Можно ли использовать API для задания общего ключа для настройки VPN-шлюза со статической маршрутизацией (на основе политик)?
+### <a name="can-i-use-the-set-pre-shared-key-api-to-configure-my-policy-based-(static-routing)-gateway-vpn?"></a>Can I use the Set Pre-Shared Key API to configure my policy-based (static routing) gateway VPN?
 
-Да, API и командлет PowerShell для задания общего ключа можно использовать для настройки VPN Azure со статической (на основе политик) и динамической (на основе маршрутов) маршрутизацией.
+Yes, the Set Pre-Shared Key API and PowerShell cmdlet can be used to configure both Azure policy-based (static) VPNs and route-based (dynamic) routing VPNs.
 
-### Можно ли использовать другие способы проверки подлинности
+### <a name="can-i-use-other-authentication-options?"></a>Can I use other authentication options?
 
-Нет. Для проверки подлинности можно использовать только общие ключи (PSK).
+We are limited to using pre-shared keys (PSK) for authentication.
 
-### Что такое «подсеть шлюза» и зачем она нужна?
+### <a name="what-is-the-"gateway-subnet"-and-why-is-it-needed?"></a>What is the "gateway subnet" and why is it needed?
 
-Для обеспечения распределенного подключения запускается служба шлюза.
+We have a gateway service that we run to enable cross-premises connectivity. 
 
-Чтобы настроить шлюз VPN, нужно создать подсеть шлюза для сети VNet. Чтобы подсети шлюзов работали надлежащим образом, каждую из них нужно назвать GatewaySubnet. Не следует называть подсеть шлюза по-другому. Кроме того, не следует развертывать в подсети шлюза виртуальные машины или что-либо другое.
+You'll need to create a gateway subnet for your VNet to configure a VPN gateway. All gateway subnets must be named GatewaySubnet to work properly. Don't name your gateway subnet something else. And don't deploy VMs or anything else to the gateway subnet.
 
-Минимальный размер подсети шлюза зависит исключительно от того, какую конфигурацию вы хотите создать. Хотя можно создать подсеть шлюза размером /29, мы рекомендуем создавать подсети размером /28 или больше (/28, /27, /26 и т. д.).
+The gateway subnet minimum size depends entirely on the configuration that you want to create. Although it is possible to create a gateway subnet as small as /29 for some configurations, we recommend that you create a gateway subnet of /28 or larger (/28, /27, /26 etc.). 
 
-### Могу ли я развернуть виртуальные машины или экземпляры ролей в моей подсети шлюза?
+### <a name="can-i-deploy-virtual-machines-or-role-instances-to-my-gateway-subnet?"></a>Can I deploy Virtual Machines or role instances to my gateway subnet?
 
-Нет.
+No.
 
-### Как установить, какой именно трафик проходит через VPN-шлюз?
+### <a name="how-do-i-specify-which-traffic-goes-through-the-vpn-gateway?"></a>How do I specify which traffic goes through the VPN gateway?
 
-Если вы пользуетесь классическим порталом Azure, на странице "Сети" в разделе локальных сетей добавьте все диапазоны, которые нужно отправить через шлюз виртуальной сети.
+If you are using the Azure Classic Portal, add each range that you want sent through the gateway for your virtual network on the Networks page under Local Networks.
 
-### Можно ли настроить принудительное туннелирование?
+### <a name="can-i-configure-forced-tunneling?"></a>Can I configure Forced Tunneling?
 
-Да. См. статью [Настройка принудительного туннелирования](vpn-gateway-about-forced-tunneling.md).
+Yes. See [Configure forced tunneling](vpn-gateway-about-forced-tunneling.md).
 
-### Можно ли настроить собственный VPN-сервер в Azure и использовать его для подключения к локальной сети?
+### <a name="can-i-set-up-my-own-vpn-server-in-azure-and-use-it-to-connect-to-my-on-premises-network?"></a>Can I set up my own VPN server in Azure and use it to connect to my on-premises network?
 
-Да. Вы можно развернуть собственные VPN-шлюзы или серверы в Azure из магазина Azure. Вы также можете развернуть собственные VPN-шлюзы или серверы в Azure, создав собственные VPN-маршрутизаторы. Вам нужно будет настроить в виртуальной сети пользовательские маршруты, чтобы правильно маршрутизировать трафик между локальными сетями и подсетями вашей виртуальной сети.
+Yes, you can deploy your own VPN gateways or servers in Azure either from the Azure Marketplace or creating your own VPN routers. You will need to configure user defined routes in your virtual network to ensure traffic is routed properly between your on-premises networks and your virtual network subnets.
 
-### Почему на моем VPN-шлюзе открыты определенные порты?
+### <a name="why-are-certain-ports-opened-on-my-vpn-gateway?"></a>Why are certain ports opened on my VPN gateway?
 
-Они необходимы для обмена данными в рамках инфраструктуры Azure. Они защищены (заблокированы) посредством сертификатов Azure. Без подходящих сертификатов внешние сущности, включая клиентов этих шлюзов, не смогут как-либо повлиять на эти конечные точки.
+They are required for Azure infrastructure communication. They are protected (locked down) by Azure certificates. Without proper certificates, external entities, including the customers of those gateways, will not be able to cause any effect on those endpoints.
 
-По своей сути VPN-шлюз является многосетевым устройством, у которого одна сетевая карта взаимодействует с частной сетью клиента, а другая — с общедоступной сетью. Сущности инфраструктуры Azure не могут получить доступ к частным сетям клиента в целях обеспечения соответствия, поэтому вынуждены использовать общедоступные конечные точки для обмена данными в рамках инфраструктуры. Общедоступные конечные точки периодически проверяются функцией аудита безопасности Azure.
+A VPN gateway is fundamentally a multi-homed device with one NIC tapping into the customer private network, and one NIC facing the public network. Azure infrastructure entities cannot tap into customer private networks for compliance reasons, so they need to utilize public endpoints for infrastructure communication. The public endpoints are periodically scanned by Azure security audit.
 
 
-### Дополнительные сведения о типах шлюзов, требованиях и пропускной способности
+### <a name="more-information-about-gateway-types,-requirements,-and-throughput"></a>More information about gateway types, requirements, and throughput
 
-Дополнительные сведения о конкретных параметрах шлюза см. в статье [Сведения о параметрах VPN-шлюза](vpn-gateway-about-vpn gateway-settings.md).
+For more information, see [About VPN Gateway Settings](vpn-gateway-about-vpn-gateway-settings.md).
 
-## Возможности подключения нескольких сайтов и подключения между виртуальными сетями
+## <a name="multi-site-and-vnet-to-vnet-connectivity"></a>Multi-Site and VNet-to-VNet connectivity
 
-### Какой тип шлюзов поддерживает возможность подключения нескольких сайтов и подключения между виртуальными сетями?
+### <a name="which-type-of-gateways-can-support-multi-site-and-vnet-to-vnet-connectivity?"></a>Which type of gateways can support multi-site and VNet-to-VNet connectivity?
 
-Только основанные на маршрутах (динамическая маршрутизация) VPN.
+Only route-based (dynamic routing) VPNs.
 
-### Могу ли я подключить виртуальную сеть с типом VPN RouteBased к другой виртуальной сети с типом VPN PolicyBased?
+### <a name="can-i-connect-a-vnet-with-a-routebased-vpn-type-to-another-vnet-with-a-policybased-vpn-type?"></a>Can I connect a VNet with a RouteBased VPN Type to another VNet with a PolicyBased VPN type?
 
-Нет, обе виртуальные сети ДОЛЖНЫ использовать VPN-шлюзы с динамической маршрутизацией (на основе маршрутов).
+No, both virtual networks MUST be using route-based (dynamic routing) VPNs.
 
-### Защищен ли трафик между двумя виртуальными сетями?
+### <a name="is-the-vnet-to-vnet-traffic-secure?"></a>Is the VNet-to-VNet traffic secure?
 
-Да. Он защищен шифрованием IPsec/IKE.
+Yes, it is protected by IPsec/IKE encryption.
 
-### Проходит ли трафик между виртуальными сетями через магистральную сеть Azure?
+### <a name="does-vnet-to-vnet-traffic-travel-over-the-azure-backbone?"></a>Does VNet-to-VNet traffic travel over the Azure backbone?
 
-Да.
+Yes.
 
-### К какому количеству локальных сайтов и виртуальных сетей может подключаться одна виртуальная сеть?
+### <a name="how-many-on-premises-sites-and-virtual-networks-can-one-virtual-network-connect-to?"></a>How many on-premises sites and virtual networks can one virtual network connect to?
 
-Макс. 10 вместе взятых для базовых и стандартных шлюзов с динамической маршрутизацией; 30 — для высокопроизводительных VPN-шлюзов.
+Max. 10 combined for the Basic and Standard Dynamic Routing gateways; 30 for the High Performance VPN gateways.
 
-### Можно ли использовать VPN типа "точка — сеть" с виртуальной сетью с несколькими VPN-туннелями?
+### <a name="can-i-use-point-to-site-vpns-with-my-virtual-network-with-multiple-vpn-tunnels?"></a>Can I use Point-to-Site VPNs with my virtual network with multiple VPN tunnels?
 
-Да. VPN типа "точка — сеть" (P2S) можно использовать с VPN-шлюзами, подключающимися к нескольким локальным сайтам и другим виртуальным сетям.
+Yes, Point-to-Site (P2S) VPNs can be used with the VPN gateways connecting to multiple on-premises sites and other virtual networks.
 
-### Можно ли настроить несколько туннелей между виртуальной сетью и локальным сайтом с помощью VPN с несколькими сайтами?
+### <a name="can-i-configure-multiple-tunnels-between-my-virtual-network-and-my-on-premises-site-using-multi-site-vpn?"></a>Can I configure multiple tunnels between my virtual network and my on-premises site using multi-site VPN?
 
-Нет. Избыточные туннели между виртуальной сетью Azure и локальным сайтом не поддерживаются.
+No, redundant tunnels between an Azure virtual network and an on-premises site are not supported.
 
-### Существуют ли пересекающиеся адресные пространства между подключенными виртуальными сетями и локальными сайтами?
+### <a name="can-there-be-overlapping-address-spaces-among-the-connected-virtual-networks-and-on-premises-local-sites?"></a>Can there be overlapping address spaces among the connected virtual networks and on-premises local sites?
 
-Нет. Перекрытие адресных пространств приведет к ошибке при создании виртуальной сети или передаче файла конфигурации сети.
+No. Overlapping address spaces will cause the network configuration file upload or "Creating Virtual Network" to fail.
 
-### Смогу ли я увеличить пропускную способность, если вместо одной виртуальной сети буду использовать VPN "точка — сеть"?
+### <a name="do-i-get-more-bandwidth-with-more-site-to-site-vpns-than-for-a-single-virtual-network?"></a>Do I get more bandwidth with more Site-to-Site VPNs than for a single virtual network?
 
-Нет. Все VPN-туннели, включая VPN типа "точка — сеть", используют один шлюз VPN Azure и доступную пропускную способность.
+No, all VPN tunnels, including Point-to-Site VPNs, share the same Azure VPN gateway and the available bandwidth.
 
-### Можно ли использовать шлюз VPN Azure для передачи трафика между локальными сайтами или в другую виртуальную сеть?
+### <a name="can-i-use-azure-vpn-gateway-to-transit-traffic-between-my-on-premises-sites-or-to-another-virtual-network?"></a>Can I use Azure VPN gateway to transit traffic between my on-premises sites or to another virtual network?
 
-**Классическая модель развертывания**<br> Передача трафика через VPN-шлюз Azure возможна в рамках классической модели развертывания, если имеется статически заданное адресное пространство в файле конфигурации сети. BGP еще не поддерживается в виртуальных сетях Azure и VPN-шлюзах с использованием классической модели развертывания. Если вручную и без BGP определять адресные пространства для передачи, вероятность ошибки очень высока. Поэтому мы рекомендуем не делать это.<br> **Модель развертывания с помощью Resource Manager**<br> Если вы используете модель развертывания с помощью Resource Manager, дополнительные сведения см. в разделе [BGP](#bgp).
+**Classic deployment model**<br>
+Transit traffic via Azure VPN gateway is possible using the classic deployment model, but relies on statically defined address spaces in the network configuration file. BGP is not yet supported with Azure Virtual Networks and VPN gateways using the classic deployment model. Without BGP, manually defining transit address spaces is very error prone, and not recommended.<br>
+**Resource Manager deployment model**<br>
+If you are using the Resource Manager deployment model, see the [BGP](#bgp) section for more information.
 
-### Создает ли Azure один общий ключ IPsec/IKE для всех VPN-подключений для той же виртуальной сети?
+### <a name="does-azure-generate-the-same-ipsec/ike-pre-shared-key-for-all-my-vpn-connections-for-the-same-virtual-network?"></a>Does Azure generate the same IPsec/IKE pre-shared key for all my VPN connections for the same virtual network?
 
-Нет. По умолчанию Azure создает разные общие ключи для разных VPN-подключений. Однако можно использовать командлет API REST или PowerShell для задания ключа VPN-шлюза, чтобы установить собственное значение ключа. Ключ ДОЛЖЕН быть строкой, которая содержит от 1 до 128 буквенных и цифровых символов.
+No, Azure by default generates different pre-shared keys for different VPN connections. However, you can use the Set VPN Gateway Key REST API or PowerShell cmdlet to set the key value you prefer. The key MUST be alphanumerical string of length between 1 to 128 characters.
 
-### Взимает ли Azure плату за трафик между виртуальными сетями?
+### <a name="does-azure-charge-for-traffic-between-virtual-networks?"></a>Does Azure charge for traffic between virtual networks?
 
-Azure взимает плату за трафик, проходящий между разными виртуальными сетями, только если они находятся в разных регионах Azure. Тарифы указаны на странице [Цены на VPN-шлюзы](https://azure.microsoft.com/pricing/details/vpn-gateway/) Azure.
+For traffic between different Azure virtual networks, Azure charges only for traffic traversing from one Azure region to another. The charge rate is listed in the Azure [VPN Gateway Pricing](https://azure.microsoft.com/pricing/details/vpn-gateway/) page.
 
 
-### Можно ли подключить виртуальную сеть с VPN IPsec к каналу ExpressRoute?
+### <a name="can-i-connect-a-virtual-network-with-ipsec-vpns-to-my-expressroute-circuit?"></a>Can I connect a virtual network with IPsec VPNs to my ExpressRoute circuit?
 
-Да, это поддерживается. Дополнительные сведения см. в статье [Настройка сосуществующих соединений ExpressRoute и VPN типа "сеть-сеть"](../expressroute/expressroute-howto-coexist-classic.md).
+Yes, this is supported. For more information, see [Configure ExpressRoute and Site-to-Site VPN connections that coexist](../expressroute/expressroute-howto-coexist-classic.md).
 
-## <a name="bgp"></a>BGP
+## <a name="<a-name="bgp"></a>bgp"></a><a name="bgp"></a>BGP
 
-[AZURE.INCLUDE [vpn-gateway-bgp-faq-include](../../includes/vpn-gateway-bpg-faq-include.md)]
+[AZURE.INCLUDE [vpn-gateway-bgp-faq-include](../../includes/vpn-gateway-bpg-faq-include.md)] 
 
 
 
-## Подключения между организациями и виртуальные машины
+## <a name="cross-premises-connectivity-and-vms"></a>Cross-premises connectivity and VMs
 
-### Если моя виртуальная машина находится в виртуальной сети с распределенным подключением, как следует подключаться к виртуальной машине?
+### <a name="if-my-virtual-machine-is-in-a-virtual-network-and-i-have-a-cross-premises-connection,-how-should-i-connect-to-the-vm?"></a>If my virtual machine is in a virtual network and I have a cross-premises connection, how should I connect to the VM?
 
-Есть несколько вариантов. Если включен протокол удаленного рабочего стола и создана конечная точка, можно подключиться к виртуальной машине с помощью виртуального IP-адреса. В этом случае нужно указать виртуальный IP-адрес и порт, к которому вы хотите подключиться. Необходимо настроить на виртуальной машине порт для трафика. Обычно для этого нужно перейти на классический портал Azure и сохранить параметры подключения к компьютеру через RDP. Параметры содержат необходимые сведения о подключении.
+You have a few options. If you have RDP enabled and you have created an endpoint, you can connect to your virtual machine by using the VIP. In that case, you would specify the VIP and the port that you want to connect to. You'll need to configure the port on your virtual machine for the traffic. Typically, you would go to the Azure Classic Portal and save the settings for the RDP connection to your computer. The settings contain the necessary connection information.
 
-Если у вас есть виртуальная сеть с настроенным распределенным подключением, вы можете подключиться к своей виртуальной машине с помощью внутреннего выделенного IP-адреса или частного IP-адреса. Можно также подключиться к виртуальной машине через внутренний выделенный IP-адрес с другой виртуальной машины, расположенной в той же виртуальной сети. Нельзя подключиться к виртуальной машине через протокол удаленного рабочего стола с помощью выделенного IP-адреса, если вы подключаетесь из расположения за пределами виртуальной сети. Например, если вы настроили виртуальную сеть "точка — сеть", но не установили подключение с компьютера, вы не сможете подключиться к виртуальной машине с помощью выделенного IP-адреса.
+If you have a virtual network with cross-premises connectivity configured, you can connect to your virtual machine by using the internal DIP or private IP address. You can also connect to your virtual machine by internal DIP from another virtual machine that's located on the same virtual network. You can't RDP to your virtual machine by using the DIP if you are connecting from a location outside of your virtual network. For example, if you have a Point-to-Site virtual network configured and you don't establish a connection from your computer, you can't connect to the virtual machine by DIP.
 
-### Если виртуальная машина находится в виртуальной сети с распределенным подключением, проходит ли весь трафик с моей виртуальной машины через это подключение?
+### <a name="if-my-virtual-machine-is-in-a-virtual-network-with-cross-premises-connectivity,-does-all-the-traffic-from-my-vm-go-through-that-connection?"></a>If my virtual machine is in a virtual network with cross-premises connectivity, does all the traffic from my VM go through that connection?
 
-Нет. Через шлюз виртуальной сети будет проходить только трафик с IP-адресом назначения, т. е. находящийся в указанном диапазоне локальных IP-адресов виртуальной сети. Трафик с IP-адресом назначения, расположенным в пределах виртуальной сети, остается в виртуальной сети. Остальной трафик отправляется через балансировщик нагрузки в общедоступные сети или, если используется принудительное туннелирование, отправляется через VPN-шлюз Azure. Во время устранения неполадок очень важно указать в локальной сети все диапазоны, которые нужно отправлять через шлюз. Убедитесь, что диапазоны адресов локальной сети не перекрываются диапазонами адресов в виртуальной сети. Кроме того, убедитесь, что используемый DNS-сервер преобразует имя в правильный IP-адрес.
+No. Only the traffic that has a destination IP that is contained in the virtual network Local Network IP address ranges that you specified will go through the virtual network gateway. Traffic has a destination IP located within the virtual network stays within the virtual network. Other traffic is sent through the load balancer to the public networks, or if forced tunneling is used, sent through the Azure VPN gateway. If you are troubleshooting, it's important to make sure that you have all the ranges listed in your Local Network that you want to send through the gateway. Verify that the Local Network address ranges do not overlap with any of the address ranges in the virtual network. Also, you want to verify that the DNS server you are using is resolving the name to the proper IP address.
 
 
-## Часто задаваемые вопросы по виртуальной сети
+## <a name="virtual-network-faq"></a>Virtual Network FAQ
 
-Дополнительные сведения о виртуальных сетях см. в статье [Часто задаваемые вопросы по виртуальной сети](../virtual-network/virtual-networks-faq.md).
+You view additional virtual network information in the [Virtual Network FAQ](../virtual-network/virtual-networks-faq.md).
  
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

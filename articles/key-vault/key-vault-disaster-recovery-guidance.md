@@ -1,49 +1,54 @@
 <properties
-	pageTitle="Что делать, если прерывание работы службы Azure влияет на хранилище ключей Azure | Microsoft Azure"
-	description="Узнайте, что делать, если прерывание работы службы Azure влияет на хранилище ключей Azure."
-	services="key-vault"
-	documentationCenter=""
-	authors="adamglick"
-	manager="mbaldwin"
-	editor=""/>
+    pageTitle="What to do in the event of an Azure service disruption that impacts Azure Key Vault | Microsoft Azure"
+    description="Learn what to do in the event of an Azure service disruption that impacts Azure Key Vault."
+    services="key-vault"
+    documentationCenter=""
+    authors="adamglick"
+    manager="mbaldwin"
+    editor=""/>
 
 <tags
-	ms.service="key-vault"
-	ms.workload="key-vault"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/26/2016"
-	ms.author="sumedhb;aglick"/>
+    ms.service="key-vault"
+    ms.workload="key-vault"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="08/26/2016"
+    ms.author="sumedhb;aglick"/>
 
 
-# Доступность и избыточность хранилища ключей Azure
 
-Хранилище ключей Azure имеет несколько уровней избыточности, благодаря которым ключи и секреты остаются доступными для приложения даже при сбое отдельных компонентов службы.
+# <a name="azure-key-vault-availability-and-redundancy"></a>Azure Key Vault availability and redundancy
 
-Содержимое хранилища ключей реплицируется в пределах региона, а также в дополнительный регион, расположенный на расстоянии не менее 240 км от основного, но в той же географической области. Это обеспечивает высокий уровень надежности ключей и секретов.
+Azure Key Vault features multiple layers of redundancy to make sure that your keys and secrets remain available to your application even if individual components of the service fail.
 
-При сбое отдельных компонентов службы хранилища ключей ваши запросы будут обслуживаться дополнительными компонентами в текущем регионе, чтобы не допустить снижения функциональности. Для этого не нужно предпринимать какие-либо действия. Все будет выполняться автоматически и незаметно для пользователя.
+The contents of your key vault are replicated within the region as well as to a secondary region at least 150 miles away but within the same geography. This maintains high durability of your keys and secrets.
 
-В редких случаях, когда становится недоступным весь регион Azure, ваши запросы к хранилищу ключей Azure в этом регионе автоматически перенаправляются в дополнительный регион (это называется "отработкой отказа"). Когда основной регион снова становится доступным, запросы отправляются обратно в основной регион (это называется "восстановлением размещения"). Опять же, так как это происходит автоматически, то никаких дополнительных действий предпринимать не нужно.
+If individual components within the Key Vault service fail, alternate components within the region step in to serve your request to make sure that there is no degradation of functionality. You do not need to take any action to trigger this. It will happen automatically and will be transparent to you.
 
-Существует несколько моментов, на которые следует обратить внимание.
+In the rare event that an entire Azure region is unavailable, the requests that you make of Azure Key Vault in that region are automatically routed (“failed over”) to a secondary region. When the primary region is available again, requests are routed back (“failed back”) to the primary region. Again, you do not need to take any action because this will happen automatically.
 
-* В случае отработки отказа для региона на отработку отказа службы может потребоваться несколько минут. Запросы, отправленные в это время, могут завершаться ошибкой, пока не завершится отработка отказа.
-* После завершения отработки отказа хранилище ключей находится в режиме ___только для чтения___. В этом режиме поддерживаются следующие запросы:
- * получение списка хранилищ ключей
- * получение свойств из хранилищ ключей
- * получение списка секретов
- * получение секретов
- * получение списка ключей
- * получение ключей и их свойств
+There are a few caveats that you should be aware of:
+
+* In the event of a region fail-over, it may take a few minutes for the service to fail over. Requests that are made during this time may fail until the fail-over completes.
+* After a fail-over is complete, your key vault is in ___read-only___ mode. Requests that are supported in this mode are:
+ * list key vaults
+ * get properties of key vaults
+ * list secrets
+ * get secrets
+ * list keys
+ * get (properties of) keys
  * encrypt
- * расшифровка
- * оборачивание
- * разворачивание
- * проверка
- * подписывание
+ * decrypt
+ * wrap
+ * unwrap
+ * verify
+ * sign
  * backup
-* После восстановления размещения становятся доступными все типы запросов (т. е. чтение ___и___ запись).
+* After a failover is failed back, all request types (i.e. read ___and___ write requests) are available.
 
-<!---HONumber=AcomDC_0831_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

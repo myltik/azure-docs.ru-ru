@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Использование функций Azure с приложениями логики | Microsoft Azure"
-   description="Узнайте, как использовать функции Azure с приложениями логики"
+   pageTitle="Using Azure Functions with Logic Apps | Microsoft Azure"
+   description="See how to use Azure Functions with Logic Apps"
    services="logic-apps,functions"
    documentationCenter=".net,nodejs,java"
    authors="jeffhollan"
@@ -16,19 +16,20 @@
    ms.date="09/01/2016"
    ms.author="jehollan"/>
 
-# Использование функций Azure с приложениями логики
 
-Настраиваемые фрагменты кода C# или Node.js можно выполнять с помощью функций Azure из приложения логики. [Функции Azure](../azure-functions/functions-overview.md) позволяют производить в Microsoft Azure вычисления без использования серверов. Это полезно для выполнения следующих задач.
+# <a name="using-azure-functions-with-logic-apps"></a>Using Azure Functions with Logic Apps
 
-* Форматирование значения действия (например, преобразование значения типа DateTime в строку даты).
-* Выполнение вычислений в рабочем процессе
-* Расширение функциональных возможностей приложений логики с помощью функций, поддерживаемых в C# или Node.js.
+You can run custom snippets of C# or node.js by using Azure Functions from within a logic app.  [Azure Functions](../azure-functions/functions-overview.md) offers server-free computing in Microsoft Azure. This is useful for performing the following tasks:
 
-## Создание функции для приложения логики.
+* Formatting the value of an action (for example, converting from DateTime to a date string)
+* Performing calculations within a workflow
+* Extending the functionality of Logic Apps with functions that are supported in C# or node.js
 
-Мы рекомендуем создавать новые функции на портале функций Azure с помощью шаблонов **универсальный веб-перехватчик — узел** или **универсальный веб-перехватчик — C#**. Таким образом автоматически заполняется шаблон, который принимает `application/json` из приложения логики. Функции, которые используют эти шаблоны, обнаруживаются автоматически и включаются в список в разделе **Функции Azure в моем регионе** в конструкторе приложений логики.
+## <a name="create-a-function-for-logic-apps"></a>Create a function for Logic Apps
 
-Функции веб-перехватчика принимают запрос и передают его методу в виде переменной `data`. Для доступа к свойствам рабочей нагрузки можно использовать запись с точками типа `data.foo`. Вот пример простой функции JavaScript, которая преобразует значение DateTime в строку даты:
+We recommend that you create a new function in the Azure Functions portal by using the **Generic Webhook - Node** or **Generic Webhook - C#** templates. This auto-populates a template that accepts `application/json` from a logic app. Functions that use these templates are automatically discovered and listed in the Logic Apps designer under **Azure Functions in my region.**
+
+Webhook functions accept a request and pass it into the method via a `data` variable. You can access the properties of your payload by using dot notation like `data.foo`.  For example, a simple JavaScript function that converts a DateTime value into a date string looks like the following example:
 
 ```
 function start(req, res){
@@ -39,29 +40,29 @@ function start(req, res){
 }
 ```
 
-## Вызов функций Azure из приложения логики
+## <a name="call-azure-functions-from-a-logic-app"></a>Call Azure Functions from a logic app
 
-В меню **действий** в конструкторе вы можете выбрать пункт **Функции Azure в моем регионе**. Откроется список контейнеров в подписке, из которого вы сможете выбрать нужную функцию.
+In the designer, if you click the **Actions** menu, you can select **Azure Functions in my Region**.  This lists the containers in your subscription and enables you to choose the function that you want to call.  
 
-После выбора функции вам будет предложено указать объект входных данных. Это сообщение, которое должно быть объектом в формате JSON и которое приложение логики передает функции. Например, если вы хотите передать **дату последнего изменения** из триггера Salesforce, полезные данные функции могут выглядеть примерно так:
+After you select the function, you are prompted to specify an input payload object. This is the message that the logic app sends to the function, and it must be a JSON object. For example, if you want to pass in the **Last Modified** date from a Salesforce trigger, the function payload might look like this:
 
-![Дата последнего изменения][1]
+![Last modfied date][1]
 
-## Запуск приложения логики из функции
+## <a name="trigger-logic-apps-from-a-function"></a>Trigger logic apps from a function
 
-Приложение логики можно также запустить из самой функции. Для этого создайте приложение логики с ручным запуском. Дополнительные сведения см. в статье [Приложения логики как вызываемые конечные точки](app-service-logic-http-endpoint.md). Затем в функции создайте HTTP-запрос POST к URL-адресу ручного запуска, включающий полезные данные, которые нужно отправить в приложение логики.
+It's also possible to trigger a logic app from within a function.  To do this, simply create a logic app with a manual trigger. For more information, see [Logic apps as callable endpoints](app-service-logic-http-endpoint.md).  Then, within your function, generate an HTTP POST to the manual trigger URL with the payload that you want to send to the logic app.
 
-### Создание функции из конструктора
+### <a name="create-a-function-from-the-designer"></a>Create a function from the designer
 
-Функцию веб-перехватчика node.js можно также создать из конструктора. Для начала выберите раздел **Функции Azure в моем регионе**, а затем контейнер для своей функции. Если у вас еще нет контейнера, его необходимо создать на [портале функций Azure](https://functions.azure.com/signin). Щелкните **Создать**.
+You can also create a node.js webhook function from within the designer. First, select **Azure Functions in my Region,** and then choose a container for your function.  If you don't yet have a container, you need to create one from the [Azure Functions portal](https://functions.azure.com/signin). Then select **Create New**.  
 
-Чтобы создать шаблон на основе данных для вычисления, укажите объект контекста, который будет передан в функцию. Это должен быть объект JSON. Например, если передать содержимое файла из действия FTP, полезные данные контекста будут выглядеть так:
+To generate a template based on the data that you want to compute, specify the context object that you plan to pass into a function. This must be a JSON object. For example, if you pass in the file content from an FTP action, the context payload will look like this:
 
-![Полезные данные контекста][2]
+![Context payload][2]
 
->[AZURE.NOTE] Поскольку для объекта не выполнялось приведение к строковому типу, содержимое будет добавлено непосредственно в полезные данные JSON. Но если содержимое не является маркером JSON (т. е. строкой, объектом или массивом JSON), возникнет ошибка. Чтобы преобразовать содержимое в строку, просто заключите его в кавычки, как показано на первом рисунке в этой статье.
+>[AZURE.NOTE] Because this object wasn't cast as a string, the content will be added directly to the JSON payload. However, it will error out if it is not a JSON token (that is, a string or a JSON object/array). To cast it as a string, simply add quotes as shown in the first illustration in this article.
 
-Затем конструктор создаст шаблон функции, который позволит создавать встроенные функции. Переменные создаются заранее в зависимости от содержимого, которое вы планируете передать в функцию.
+The designer then generates a function template that you can create inline. Variables are pre-created based on the context that you plan to pass into the function.
 
 
 
@@ -70,4 +71,8 @@ function start(req, res){
 [1]: ./media/app-service-logic-azure-functions/callFunction.png
 [2]: ./media/app-service-logic-azure-functions/createFunction.png
 
-<!---HONumber=AcomDC_0907_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

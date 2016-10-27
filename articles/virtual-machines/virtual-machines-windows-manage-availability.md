@@ -1,23 +1,24 @@
 <properties
-	pageTitle="Управление доступностью виртуальных машин Windows | Microsoft Azure"
-	description="Описывается, как использовать несколько виртуальных машин для обеспечения высокой доступности приложения Windows в Azure."
-	services="virtual-machines-windows"
-	documentationCenter=""
-	authors="cynthn"
-	manager="timlt"
-	editor="tysonn"
-	tags="azure-resource-manager,azure-service-management"/>
+    pageTitle="Управление доступностью виртуальных машин Windows | Microsoft Azure"
+    description="Описывается, как использовать несколько виртуальных машин для обеспечения высокой доступности приложения Windows в Azure."
+    services="virtual-machines-windows"
+    documentationCenter=""
+    authors="cynthn"
+    manager="timlt"
+    editor="tysonn"
+    tags="azure-resource-manager,azure-service-management"/>
 
 <tags
-	ms.service="virtual-machines-windows"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-windows"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/27/2016"
-	ms.author="cynthn"/>
+    ms.service="virtual-machines-windows"
+    ms.workload="infrastructure-services"
+    ms.tgt_pltfrm="vm-windows"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/27/2016"
+    ms.author="cynthn"/>
 
-# Управление доступностью виртуальных машин
+
+# <a name="manage-the-availability-of-virtual-machines"></a>Управление доступностью виртуальных машин
 
 Изучите способы настройки нескольких виртуальных машин и управления ими для обеспечения высокой доступности приложения Windows в Azure. Вы также можете [управлять доступностью виртуальных машин Linux](virtual-machines-linux-manage-availability.md).
 
@@ -27,8 +28,11 @@
 
 [AZURE.INCLUDE [virtual-machines-common-manage-availability](../../includes/virtual-machines-common-manage-availability.md)]
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Дальнейшие действия
 
 Чтобы больше узнать о балансировке нагрузки виртуальных машин, ознакомьтесь с разделом [Балансировка нагрузки виртуальных машин](virtual-machines-windows-load-balance.md).
 
-<!---HONumber=AcomDC_0928_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

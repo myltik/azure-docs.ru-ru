@@ -1,6 +1,6 @@
 <properties 
-    pageTitle="Учебник. Интеграция Azure Active Directory с Thirdlight | Microsoft Azure" 
-    description="Узнайте, как использовать Thirdlight вместе с Azure Active Directory для реализации единого входа, автоматической подготовки пользователей и выполнения других задач." 
+    pageTitle="Tutorial: Azure Active Directory Integration with Thirdlight | Microsoft Azure" 
+    description="Learn how to use Thirdlight with Azure Active Directory to enable single sign-on, automated provisioning, and more!" 
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
@@ -14,133 +14,141 @@
     ms.date="09/11/2016" 
     ms.author="jeedes" />
 
-#Учебник. Интеграция Azure Active Directory с Thirdlight
+
+#<a name="tutorial:-azure-active-directory-integration-with-thirdlight"></a>Tutorial: Azure Active Directory Integration with Thirdlight
   
-Цель данного учебника — показать интеграцию Azure и Thirdlight. Сценарий, описанный в этом учебнике, предполагает, что у вас уже имеется:
+The objective of this tutorial is to show the integration of Azure and Thirdlight.  
+The scenario outlined in this tutorial assumes that you already have the following items:
 
--   Действующая подписка на Azure
--   Подписка с поддержкой единого входа Thirdlight.
+-   A valid Azure subscription
+-   A Thirdlight single sign-on enabled subscription
   
-После завершения этого руководства пользователи Azure AD, назначенные Thirdlight, смогут пользоваться единым входом в приложение на веб-сайте Thirdlight для вашей компании (вход, инициированный поставщиком услуг) или с помощью инструкций из статьи [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
+After completing this tutorial, the Azure AD users you have assigned to Thirdlight will be able to single sign into the application at your Thirdlight company site (service provider initiated sign on), or using the [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
   
-Сценарий, описанный в этом учебнике, состоит из следующих блоков:
+The scenario outlined in this tutorial consists of the following building blocks:
 
-1.  Включение интеграции приложений для Thirdlight
-2.  Настройка единого входа
-3.  Настройка подготовки учетных записей пользователей
-4.  Назначение пользователей
+1.  Enabling the application integration for Thirdlight
+2.  Configuring single sign-on
+3.  Configuring user provisioning
+4.  Assigning users
 
-![Сценарий](./media/active-directory-saas-thirdlight-tutorial/IC805836.png "Сценарий")
+![Scenario](./media/active-directory-saas-thirdlight-tutorial/IC805836.png "Scenario")
 
-##Включение интеграции приложений для Thirdlight
+##<a name="enabling-the-application-integration-for-thirdlight"></a>Enabling the application integration for Thirdlight
   
-В этом разделе показано, как включить интеграцию приложений для Thirdlight.
+The objective of this section is to outline how to enable the application integration for Thirdlight.
 
-###Чтобы включить интеграцию приложений для Thirdlight, выполните следующие действия:
+###<a name="to-enable-the-application-integration-for-thirdlight,-perform-the-following-steps:"></a>To enable the application integration for Thirdlight, perform the following steps:
 
-1.  На классическом портале Azure в области навигации слева щелкните **Active Directory**.
+1.  In the Azure classic portal, on the left navigation pane, click **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-thirdlight-tutorial/IC700993.png "Active Directory")
 
-2.  Из списка **Каталог** выберите каталог, для которого нужно включить интеграцию каталогов.
+2.  From the **Directory** list, select the directory for which you want to enable directory integration.
 
-3.  Чтобы открыть представление приложений, в представлении каталога нажмите **Приложения** в верхнем меню.
+3.  To open the applications view, in the directory view, click **Applications** in the top menu.
 
-    ![Приложения](./media/active-directory-saas-thirdlight-tutorial/IC700994.png "Приложения")
+    ![Applications](./media/active-directory-saas-thirdlight-tutorial/IC700994.png "Applications")
 
-4.  В нижней части страницы нажмите кнопку **Добавить**.
+4.  Click **Add** at the bottom of the page.
 
-    ![Добавление приложения](./media/active-directory-saas-thirdlight-tutorial/IC749321.png "Добавление приложения")
+    ![Add application](./media/active-directory-saas-thirdlight-tutorial/IC749321.png "Add application")
 
-5.  В диалоговом окне **Что необходимо сделать?** нажмите **Добавить приложение из коллекции**.
+5.  On the **What do you want to do** dialog, click **Add an application from the gallery**.
 
-    ![Добавить приложение из коллекции](./media/active-directory-saas-thirdlight-tutorial/IC749322.png "Добавить приложение из коллекции")
+    ![Add an application from gallerry](./media/active-directory-saas-thirdlight-tutorial/IC749322.png "Add an application from gallerry")
 
-6.  В **поле поиска** введите **Thirdlight**.
+6.  In the **search box**, type **Thirdlight**.
 
-    ![Коллекция приложений](./media/active-directory-saas-thirdlight-tutorial/IC805837.png "Коллекция приложений")
+    ![Application Gallery](./media/active-directory-saas-thirdlight-tutorial/IC805837.png "Application Gallery")
 
-7.  В области результатов выберите **Thirdlight** и нажмите кнопку **Завершить**, чтобы добавить приложение.
+7.  In the results pane, select **Thirdlight**, and then click **Complete** to add the application.
 
     ![ThirdLight](./media/active-directory-saas-thirdlight-tutorial/IC805838.png "ThirdLight")
 
-##Настройка единого входа
+##<a name="configuring-single-sign-on"></a>Configuring single sign-on
   
-В этом разделе показано, как разрешить пользователям проходить проверку подлинности в Thirdlight со своей учетной записью Azure AD, используя федерацию на основе протокола SAML. Чтобы настроить единый вход для Thirdlight, необходимо извлечь значение отпечатка из сертификата. Если вы не знакомы с этой процедурой, посмотрите видео [Как извлечь значение отпечатка из сертификата](http://youtu.be/YKQF266SAxI).
+The objective of this section is to outline how to enable users to authenticate to Thirdlight with their account in Azure AD using federation based on the SAML protocol.  
+Configuring single sign-on for Thirdlight requires you to retrieve a thumbprint value from a certificate.  
+If you are not familiar with this procedure, see [How to retrieve a certificate's thumbprint value](http://youtu.be/YKQF266SAxI).
 
-###Чтобы настроить единый вход, выполните следующие действия.
+###<a name="to-configure-single-sign-on,-perform-the-following-steps:"></a>To configure single sign-on, perform the following steps:
 
-1.  На странице интеграции с приложением **Thirdlight** классического портала Azure щелкните **Настройка единого входа**, чтобы открыть диалоговое окно **Настройка единого входа**.
+1.  In the Azure classic portal, on the **Thirdlight** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
 
-    ![Настройка единого входа](./media/active-directory-saas-thirdlight-tutorial/IC805839.png "Настройка единого входа")
+    ![Configure Single Sign-On](./media/active-directory-saas-thirdlight-tutorial/IC805839.png "Configure Single Sign-On")
 
-2.  На странице **Как пользователи будут входить в Thirdlight?** выберите **Единый вход Microsoft Azure AD** и нажмите кнопку **Далее**.
+2.  On the **How would you like users to sign on to Thirdlight** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
-    ![Настройка единого входа](./media/active-directory-saas-thirdlight-tutorial/IC805840.png "Настройка единого входа")
+    ![Configure Single Sign-On](./media/active-directory-saas-thirdlight-tutorial/IC805840.png "Configure Single Sign-On")
 
-3.  На странице **Настроить URL-адрес приложения** в текстовом поле **URL-адрес входа в Thirdlight** введите URL-адрес, используемый вашими пользователями для входа в приложение Thirdlight (например, "*http://azuresso2.thirdlight.com/*"), и нажмите кнопку **Далее**.
+3.  On the **Configure App URL** page, in the **Thirdlight Sign In URL** textbox, type your URL used by your users to sign on to your Thirdlight application (e.g.: "*http://azuresso2.thirdlight.com/*"), and then click **Next**.
 
-    ![Настройка URL-адреса приложения](./media/active-directory-saas-thirdlight-tutorial/IC805841.png "Настройка URL-адреса приложения")
+    ![Configure App URL](./media/active-directory-saas-thirdlight-tutorial/IC805841.png "Configure App URL")
 
-4.  На странице **Настройка единого входа в Thirdlight** нажмите кнопку **Загрузить метаданные**, чтобы скачать их, а затем сохраните файл данных на локальный компьютер.
+4.  On the **Configure single sign-on at Thirdlight** page, to download your metadata, click **Download metadata**, and then save the metadata file locally on your computer.
 
-    ![Настройка единого входа](./media/active-directory-saas-thirdlight-tutorial/IC805842.png "Настройка единого входа")
+    ![Configure Single Sign-On](./media/active-directory-saas-thirdlight-tutorial/IC805842.png "Configure Single Sign-On")
 
-5.  В другом окне веб-браузера войдите на свой корпоративный веб-сайт Thirdlight в качестве администратора.
+5.  In a different web browser window, log into your Thirdlight company site as an administrator.
 
-6.  Выберите пункты **Конфигурация > Системное администрирование**, а затем щелкните **SAML2**.
+6.  Go to **Configuration \> System Administration**, and then click **SAML2**.
 
-    ![Системное администрирование](./media/active-directory-saas-thirdlight-tutorial/IC805843.png "Системное администрирование")
+    ![System Administration](./media/active-directory-saas-thirdlight-tutorial/IC805843.png "System Administration")
 
-7.  В разделе конфигурации SAML2 выполните следующие действия:
+7.  In the SAML2 configuration section, perform the following steps:
 
-    ![Единый вход SAML](./media/active-directory-saas-thirdlight-tutorial/IC805844.png "Единый вход SAML")
+    ![SAML Single Sign-On](./media/active-directory-saas-thirdlight-tutorial/IC805844.png "SAML Single Sign-On")
 
-    1.  Выберите параметр **Разрешить единый вход SAML2**.
-    2.  В качестве **источника для метаданных IdP** выберите пункт **Загрузить метаданные IdP из XML**.
-    3.  Откройте скачанный файл метаданных, скопируйте его содержимое и вставьте его в текстовое поле **XML с метаданными IdP**.
-    4.  Щелкните **Сохранить параметры SAML2**.
+    1.  Select **Enable SAML2 Single Sign-On**.
+    2.  As **Source for IdP Metadata**, select **Load IdP Metadata from XML**.
+    3.  Open the downloaded metadata file, copy the content, and then paste it into the **IdP Metadata XML** textbox.
+    4.  Click **Save SAML2 settings**.
 
-8.  На классическом портале Azure выберите подтверждение конфигурации единого входа, а затем нажмите кнопку **Завершить**, чтобы закрыть диалоговое окно **Настройка единого входа**.
+8.  On the Azure classic portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
 
-    ![Настройка единого входа](./media/active-directory-saas-thirdlight-tutorial/IC805845.png "Настройка единого входа")
+    ![Configure Single Sign-On](./media/active-directory-saas-thirdlight-tutorial/IC805845.png "Configure Single Sign-On")
 
-##Настройка подготовки учетных записей пользователей
+##<a name="configuring-user-provisioning"></a>Configuring user provisioning
   
-Чтобы пользователи Azure AD могли выполнять вход в систему Thirdlight, они должны быть подготовлены для нее. В случае с Thirdlight подготовка выполняется вручную.
+In order to enable Azure AD users to log into Thirdlight, they must be provisioned into Thirdlight.  
+In the case of Thirdlight, provisioning is a manual task.
 
-###Чтобы настроить подготовку учетных записей пользователей, выполните следующие действия.
+###<a name="to-configure-user-provisioning,-perform-the-following-steps:"></a>To configure user provisioning, perform the following steps:
 
-1.  Выполните вход на веб-сайт **Thirdlight** вашей компании в качестве администратора.
+1.  Log in to your **Thirdlight** company site as an administrator.
 
-2.  Перейдите на вкладку **Пользователи**.
+2.  Go to **Users** tab.
 
-3.  Выберите пункт **Пользователи и группы**.
+3.  Select **Users and Groups**.
 
-4.  Щелкните **Добавить пользователя**.
+4.  Click **Add new User** button.
 
-5.  Введите **имя пользователя, имя или описание, адрес электронной почты, выберите предустановку или группу новых участников** для действующей учетной записи AAD, которую необходимо подготовить.
+5.  Enter **the Username, Name or Description, Email, Choose a Preset or Group of New Members** of a valid AAD account you want to provision.
 
-6.  Щелкните **Создать**.
+6.  Click **Create**.
 
->[AZURE.NOTE] Вы можете использовать любые другие инструменты создания учетных записей пользователя Thirdlight или API-интерфейсы, предоставляемые Thirdlight для подготовки учетных записей пользователей AAD.
+>[AZURE.NOTE] You can use any other Thirdlight user account creation tools or APIs provided by Thirdlight to provision AAD user accounts.
 
-##Назначение пользователей
+##<a name="assigning-users"></a>Assigning users
   
-Чтобы проверить свою конфигурацию, предоставьте пользователям Azure AD, которые должны использовать приложение, доступ путем их назначения.
+To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.
 
-###Чтобы назначить пользователей Thirdlight, выполните следующие действия:
+###<a name="to-assign-users-to-thirdlight,-perform-the-following-steps:"></a>To assign users to Thirdlight, perform the following steps:
 
-1.  На классическом портале Azure создайте тестовую учетную запись.
+1.  In the Azure classic portal, create a test account.
 
-2.  На странице интеграции с приложением **Thirdlight** нажмите кнопку **Назначить пользователей**.
+2.  On the **Thirdlight **application integration page, click **Assign users**.
 
-    ![Назначить пользователей](./media/active-directory-saas-thirdlight-tutorial/IC805846.png "Назначить пользователей")
+    ![Assign Users](./media/active-directory-saas-thirdlight-tutorial/IC805846.png "Assign Users")
 
-3.  Выберите тестового пользователя, нажмите кнопку **Назначить**, а затем — **Да**, чтобы подтвердить назначение.
+3.  Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.
 
-    ![Да](./media/active-directory-saas-thirdlight-tutorial/IC767830.png "Да")
+    ![Yes](./media/active-directory-saas-thirdlight-tutorial/IC767830.png "Yes")
   
-Если вы хотите проверить параметры единого входа, откройте панель доступа. Дополнительные сведения о панели доступа см. в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
+If you want to test your single sign-on settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0914_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

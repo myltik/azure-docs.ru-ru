@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Диспетчер кластерных ресурсов Service Fabric: группы приложений | Microsoft Azure"
-   description="Общие сведения о назначении групп приложений в диспетчере кластерных ресурсов службы Fabric Service"
+   pageTitle="Service Fabric Cluster Resource Manager - Application Groups | Microsoft Azure"
+   description="Overview of the Application Group functionality in the Service Fabric Cluster Resource Manager"
    services="service-fabric"
    documentationCenter=".net"
    authors="masnider"
@@ -16,32 +16,33 @@
    ms.date="08/19/2016"
    ms.author="masnider"/>
 
-# Введение в группы приложений
-Диспетчер кластерных ресурсов Service Fabric, который управляет ресурсами кластера, обычно равномерно распределяет нагрузку (представленную в метриках) по всему кластеру. Service Fabric также управляет емкостью узлов в кластере и кластером в целом в рамках концепции емкости. Это применимо для многих типов рабочих нагрузок, но для структур, активно использующих разные экземпляры приложений Service Fabric, иногда возникают дополнительные требования. К таким дополнительным требованиям обычно относятся:
 
-- возможность резервировать емкость для служб экземпляров приложений на некотором количестве узлов;
-- возможность ограничивать общее количество узлов, на которых может выполняться определенный набор служб в рамках приложения;
-- определение емкости для самого экземпляра приложения, чтобы ограничивать внутренний объем потребления ресурсов.
+# <a name="introduction-to-application-groups"></a>Introduction to Application Groups
+Service Fabric's Cluster Resource Manager typically manages cluster resources by spreading the load (represented via Metrics) evenly throughout the cluster. Service Fabric also manages the capacity of the nodes in the cluster and the cluster as a whole through the notion of capacity. This works great for a lot of different types of workloads, but patterns that make heavy use of different Service Fabric Application Instances sometimes bring in additional requirements. Some additional requirements are typically:
 
-Чтобы выполнить эти требования, мы организовали поддержку так называемых групп приложений.
+- Ability to reserve capacity for an Application Instance's services on some number of nodes
+- Ability to limit the total number of nodes that a given set of services within an application is allowed to run on
+- Defining capacities on the application instance itself in order to limit the number or total resource consumption of the services inside it
 
-## Управление емкостью приложения
-Емкость приложения можно использовать для ограничения количества узлов, используемых приложением, а также общей нагрузки, представленной метриками, для экземпляров приложений на отдельных узлах. Также вы можете резервировать ресурсы кластера для приложения.
+In order to meet these requirements, we developed support for what we call Application Groups.
 
-Емкость приложения можно настраивать при создании новых приложений или уже существующих (созданных без указания емкости приложения).
+## <a name="managing-application-capacity"></a>Managing Application capacity
+Application capacity can be used to limit the number of nodes spanned by an application, as well as the total metric load of that the applications’ instances on individual nodes. It can also be used to reserve resources in the cluster for the application.
 
-### Ограничение максимального количества узлов
-В простейшем варианте использования емкость приложения позволяет ограничить количество узлов, на которых создаются экземпляры приложения. Если емкость приложения не указана, диспетчер кластерных ресурсов Service Fabric будет создавать реплики по обычным правилам (для балансировки или дефрагментации). Обычно это означает, что службы будут распределены по всем доступным узлам в кластере или по некоторому произвольному меньшему количеству узлов, если включена дефрагментация.
+Application capacity can be set for new applications when they are created; it can also be updated for existing applications that were created without specifying Application capacity.
 
-На следующем рисунке показаны варианты размещения экземпляра приложения для сценария, в котором не ограничено максимальное количество узлов. Рядом показан сценарий с тем же приложением, когда указано максимальное количество узлов. Обратите внимание: такой подход не определяет, какие реплики или экземпляры каких служб будут расположены вместе.
+### <a name="limiting-the-maximum-number-of-nodes"></a>Limiting the maximum number of nodes
+The simplest use case for Application capacity is when an application instantiation needs to be limited to a certain maximum number of nodes. If no Application Capacity is specified, the Service Fabric Cluster Resource Manager will instantiate replicas according to normal rules (balancing or defragmentation), which usually means that its services will be spread across all of the available nodes in the cluster, or if defragmentation is turned on some arbitrary but smaller number of nodes.
 
-![Определение максимального количества узлов для экземпляров приложения][Image1]
+The following image shows the potential placement of an application instance without the maximum number of nodes defined and then same application with a maximum number of nodes set. Note that there is no guarantees made about which replicas or instances of which services will get placed together.
 
-В примере слева для приложения с тремя службами не задана емкость приложения. Логичное решение CRM — распределить реплики по всем шести доступным узлам, чтобы сбалансировать нагрузку на кластер. В примере справа мы видим то же приложение, но с установленным ограничением до трех узлов. Service Fabric CRM использует оптимальное соотношение реплик для служб этого приложения.
+![Application Instance Defining Maximum Number of Nodes][Image1]
 
-Такое поведение управляется параметром MaximumNodes. Этот параметр можно задать при создании приложения или обновить для уже запущенного экземпляра приложения. В этом случае Service Fabric CRM будет ограничивать количество реплик служб приложения в соответствии с определенным максимальным количеством узлов.
+In the left example, the application doesn’t have Application Capacity set, and it has three services. CRM has made a logical decision to spread out all replicas across six available nodes in order to achieve the best balance in the cluster. In the right example, we see the same application that is constrained on three nodes, and where Service Fabric CRM has achieved the best balance for the replicas of application’s services.
 
-PowerShell
+The parameter that controls this behavior is called MaximumNodes. This parameter can be set during application creation, or updated for an application instance which was already running, in which case Service Fabric CRM will constrain the replicas of application’s services to the defined maximum number of nodes.
+
+Powershell
 
 ``` posh
 New-ServiceFabricApplication -ApplicationName fabric:/AppName -ApplicationTypeName AppType1 -ApplicationTypeVersion 1.0.0.0 -MaximumNodes 3
@@ -69,103 +70,109 @@ appMetric.TotalApplicationCapacity = 1000;
 adUpdate.Metrics.Add(appMetric);
 ```
 
-## Метрики, нагрузка и емкость приложения
-Группы приложений позволяют также определять метрики, связанные с определенным экземпляром приложения, а также емкость приложения для этих метрик. Например, вы можете определить, сколько служб будет создаваться.
+## <a name="application-metrics,-load,-and-capacity"></a>Application Metrics, Load, and Capacity
+Application Groups also allow you to define metrics associated with a given application instance, as well as the capacity of the application with regard to those metrics. So for example you could define that as many services as you want could be created in
 
-Для каждой метрики вы можете задать два значения, которые описывают емкость для экземпляра приложения.
+For each metric, there are 2 values that can be set to describe the capacity for that application instance:
 
--	Общая емкость приложения — представляет общую емкость всего приложения по определенной метрике. Service Fabric CRM попытается удерживать сумму показателей по этой метрике для всех служб этого приложения не выше указанного ограничения. Более того, если службы приложения уже создают предельную нагрузку, диспетчер кластерных ресурсов Service Fabric запретит создание новых служб или секций, которые могут привести к превышению заданного ограничения.
--	Максимальная емкость узла — определяет максимальную общую нагрузку для реплик служб приложения на одном узле. Если общая нагрузка на одном узле превысит эту емкость, Service Fabric CRM попытается переместить реплики на другие узлы, чтобы соблюдать ограничение по емкости.
+-   Total Application Capacity – Represents the total capacity of the application for a particular metric. Service Fabric CRM will try to limit the sum of metric loads of this application’s services to the specified value; furthermore, if the application’s services are already consuming load up to this limit, Service Fabric Cluster Resource Manager will disallow the creation of any new services or partitions which would cause total load to go over this limit.
+-   Maximum Node Capacity – Specifies the maximum total load for replicas of the applications’ services on a single node. If total load on the node goes over this capacity, Service Fabric CRM will attempt to move replicas to other nodes so that the capacity constraint is respected.
 
-## Резервирование емкости
-Другой распространенный вариант использования групп приложения — резервирование ресурсов кластера для конкретного экземпляра приложения, который еще не содержит службы или содержит службы, которые пока не потребляют ресурсы. Рассмотрим, как это должно работать.
+## <a name="reserving-capacity"></a>Reserving Capacity
+Another common use for application groups is to ensure that resources within the cluster are reserved for a given application instance, even if the application instance doesn't have the services within it yet, or even if they aren't consuming the resources yet. Let's take a look at how that would work.  
 
-### Минимальное количество узлов и резервирование ресурсов
-Чтобы зарезервировать ресурсы для экземпляра приложения, следует использовать два других дополнительных параметра: *MinimumNodes* и *NodeReservationCapacity*.
+### <a name="specifying-a-minimum-number-of-nodes-and-resource-reservation"></a>Specifying a minimum number of nodes and resource reservation
+Reserving resources for an application instance requires specifying a couple additional parameters: *MinimumNodes* and *NodeReservationCapacity*
 
-- MinimumNodes — позволяет указать минимальное количество узлов, на которых должно выполняться приложение. Этот параметр используется примерно так же, как и максимальное количество узлов, на которых могут работать службы приложения. Этот параметр фактически определяет количество узлов, на которых будут зарезервированы ресурсы, обеспечивая определенную емкость ресурсов кластера для экземпляра приложения при его создании.
-- NodeReservationCapacity — этот параметр можно установить для любой метрики в пределах приложения. Он устанавливает, какая величина этой метрики будет зарезервирована для приложения на любом узле, на котором размещаются любые реплики или экземпляры служб этого приложения.
+- MinimumNodes - Just like specifying a target maximum number of nodes that the services within an application can run on, you can also specify the minimum number of nodes that an application should run on. This setting effectively defines the number of nodes that the resources should be reserved on at a minimum, guaranteeing capacity within the cluster as a part of creating the application instance.
+- NodeReservationCapacity - The NodeReservationCapacity can be defined for each metric within the application. This defines the amount of metric load reserved for the application on any node where any of the replicas or instances of the services within it are placed.
 
-Рассмотрим пример резервирования емкости.
+Let's take a look at an example of capacity reservation:
 
-![Определение резервируемой емкости для экземпляров приложения][Image2]
+![Application Instances Defining Reserved Capacity][Image2]
 
-В примере слева для приложений не определены параметры емкости. Диспетчер кластерных ресурсов Service Fabric распределяет реплики и экземпляры дочерних служб как нашего приложения, так и других приложений, поддерживая баланс в кластере.
+In the left example, applications do not have any Application Capacity defined. Service Fabric Cluster Resource Manager will balance the application’s child services replicas and instances along with those from other services (outside of the application) to ensure balance in the cluster.
 
-В примере справа мы предположили, что при создании приложения параметру MinimumNodes присвоено значение 2, параметру MaximumNodes — значение 3, а также определена метрика с резервированием на уровне 20. Максимальная емкость одного узла составляет 50, а общая емкость приложения — 100. Service Fabric в такой ситуации будет резервировать для синего приложения ресурсы на двух узлах, и не позволит использовать эту емкость другим репликам в этом кластере. Зарезервированная для приложения емкость будет считаться потребляемой и будет учитываться при определении доступной емкости кластера.
+In the example on the right, let's say that the application was created with a MinimumNodes set to 2, MaximumNodes set to 3 and an application Metric defined with a reservation of 20, max capacity on a node of 50, and a total application capacity of 100, Service Fabric will reserve capacity on two nodes for the blue application, and will not allow other replicas in the cluster to consume that capacity. This reserved application capacity will be considered consumed and counted against the remaining cluster capacity.
 
-Если приложение создается с резервированием, диспетчер кластерных ресурсов зарезервирует в кластере емкость, равную произведению MinimumNodes на NodeReservationCapacity. Но он не резервирует емкость на конкретных узлах, пока на них не будут созданы или перемещены реплики служб приложения. Это обеспечивает гибкость, так как узлы назначаются для новых реплик только при их создании. Емкость резервируется на конкретном узле, когда на нем появляется хотя бы одна реплика.
+When an application is created with reservation, the Cluster Resource Manager will reserve capacity equal to MinimumNodes * NodeReservationCapacity in the cluster, but it will not reserve capacity on specific nodes until the replicas of the application’s services are created and placed. This allows for flexibility, since nodes are chosen for new replicas only when they are created. Capacity is reserved on a specific node when at least one replica is placed on it.
 
-## Получение сведений о нагрузке приложения
-Для каждого приложения с определенной емкостью вы можете получить сведения о суммарной нагрузке, создаваемой репликами его служб. В Service Fabric для этого можно использовать запросы PowerShell и управляемого API.
+## <a name="obtaining-the-application-load-information"></a>Obtaining the application load information
+For each application that has Application Capacity defined you can obtain the information about the aggregate load reported by replicas of its services. Service Fabric provides PowerShell and Managed API queries for this purpose.
 
-Например, следующий командлет PowerShell позволяет получить информацию о нагрузке:
+For example, load can be retrieved using the following PowerShell cmdlet:
 
 ``` posh
 Get-ServiceFabricApplicationLoad –ApplicationName fabric:/MyApplication1
 
 ```
 
-Результаты этого запроса содержат основные сведения о емкости приложения, которая была указана для приложения, в том числе параметры для минимального и максимального количества узлов. Также будут предоставлены сведения о количестве узлов, используемых приложением в текущий момент. Так, для каждой метрики нагрузки вы получите следующие данные.
-- Metric Name: имя метрики.
--	Reservation Capacity: емкость, зарезервированная в кластере для этого приложения.
--	Application Load: общая нагрузка, создаваемая дочерними репликами этого приложения.
--	Application Capacity: максимально допустимое значение нагрузки приложения.
+The output of this query will contain the basic information about Application Capacity that was specified for the application, such as Minimum Nodes and Maximum Nodes. There will also be information about the number of nodes that the application is currently using. Thus, for each load metric there will be information about:
+- Metric Name: Name of the metric.
+-   Reservation Capacity: Cluster Capacity that is reserved in the cluster for this Application.
+-   Application Load: Total Load of this Application’s child replicas.
+-   Application Capacity: Maximum permitted value of Application Load.
 
-## Удаление емкости приложения
-Когда для приложения будут установлены параметры емкости приложения, их можно будет удалить с помощью API-интерфейсов обновления приложения или командлетов PowerShell. Например:
+## <a name="removing-application-capacity"></a>Removing Application Capacity
+Once the Application Capacity parameters are set for an application, they can be removed using Update Application APIs or PowerShell cmdlets. For example:
 
 ``` posh
 Update-ServiceFabricApplication –Name fabric:/MyApplication1 –RemoveApplicationCapacity
 
 ```
 
-Эта команда удалит все параметры емкости приложения, установленные для приложения. После этого диспетчер кластерных ресурсов Service Fabric будет обрабатывать это приложение как обычное приложение, для которого эти параметры не определены. Команда применяется немедленно, и диспетчер ресурсов кластера удаляет все параметры емкости приложения, установленные для этого приложения. Чтобы снова применить эти параметры, следует снова вызвать API-интерфейсы обновления приложения с соответствующими параметрами.
+This command will remove all Application Capacity parameters from the application, and Service Fabric Cluster Resource Manager will start treating this application as any other application in the cluster that does not have these parameters defined. The effect of the command is immediate, and Cluster Resource Manager will delete all Application Capacity parameters for this application; specifying them again would require Update Application APIs to be called with the appropriate parameters.
 
-## Ограничения на емкость приложений
-Существует ряд ограничений на параметры емкости приложений, которые необходимо соблюдать. Если при проверке параметров обнаружатся ошибки, создание или обновление приложения будет отклонено. Все числовые параметры должны иметь неотрицательные значения. Также есть следующие ограничения для отдельных параметров.
+## <a name="restrictions-on-application-capacity"></a>Restrictions on Application Capacity
+There are several restrictions on Application Capacity parameters that must be respected. In case of validation errors, the creation or update of the application will be rejected with an error.
+All integer parameters must be non-negative numbers.
+Moreover, for individual parameters restrictions are as follows:
 
--	MinimumNodes не может иметь значение больше, чем MaximumNodes.
--	Если определены емкости для метрики нагрузки, они должны соответствовать следующим правилам.
-  - NodeReservationCapacity не может иметь значение больше, чем MaximumNodeCapacity. Например, вы не можете для показателя ЦП на узле установить ограничение в 2 единицы и одновременно зарезервировать по 3 единицы этого ресурса на каждом узле.
-  - Если указан параметр MaximumNodes, произведение значений MaximumNodes и MaximumNodeCapacity не может быть больше, чем значение TotalApplicationCapacity. Например, если максимальная емкость узла для метрики нагрузки ЦП имеет значение 8, а максимальное количество узлов имеет значение 10, общая емкость приложения для этой метрики нагрузки должна быть больше 80.
+-   MinimumNodes must never be greater than MaximumNodes.
+-   If capacities for a load metric are defined, then they must follow these rules:
+  - Node Reservation Capacity must not be greater than Maximum Node Capacity. For example, you cannot limit the capacity for metric “CPU” on the node to 2 units, and try to reserve 3 units on each node.
+  - If MaximumNodes is specified, then the product of MaximumNodes and Maximum Node Capacity must not be greater than Total Application Capacity. For example, if you set the Maximum Node Capacity for load metric “CPU” to 8 and you set the Maximum Nodes to 10, then Total Application Capacity must be greater than 80 for this load metric.
 
-Эти ограничения применяются как при создании приложения (на стороне клиента), так и при его обновлении (на стороне сервера). Ниже указан пример команды создания приложения, в котором явно нарушены описанные выше требования (MaximumNodes < MinimumNodes). Такая команда завершится ошибкой в клиенте до этапа отправки запроса в кластер Service Fabric.
+The restrictions are enforced both during application creation (on the client side), and during application update (on the server side). During creation, this is an example of a clear violation of the requirements since MaximumNodes < MinimumNodes, and the command will fail in the client before the request is even sent to Service Fabric cluster:
 
 ``` posh
 New-ServiceFabricApplication –Name fabric:/MyApplication1 –MinimumNodes 6 –MaximumNodes 2
 ```
 
-Ниже приведен пример недопустимого обновления. Если мы хотим для существующего приложения указать некоторое значение максимального количества узлов, запрос на обновление будет выглядеть так:
+An example of invalid update is as follows. If we take an existing application and update maximum nodes to some value, the update will pass:
 
 ``` posh
 Update-ServiceFabricApplication –Name fabric:/MyApplication1 6 –MaximumNodes 2
 ```
 
-Предположим, что после этого мы пытаемся обновить минимальное количество узлов:
+After that, we can attempt to update minimum nodes:
 
 ``` posh
 Update-ServiceFabricApplication –Name fabric:/MyApplication1 6 –MinimumNodes 6
 ```
 
-Клиент не имеет достаточной информации о приложении, поэтому такое обновление будет передано в кластер Service Fabric. Однако затем Service Fabric проверит новый параметр для этого кластера вместе с другими установленными параметрами. Обновление завершится сбоем, так как предложенное минимальное количество узлов превышает установленное максимальное количество узлов. В этом случае параметры емкости приложения останутся неизменными.
+The client does not have enough context about the application so it will allow the update to pass to the Service Fabric cluster. However, in the cluster, Service Fabric will validate the new parameter together with the existing parameters and will fail the update operation because the value foe minimum nodes is greater than the value for maximum nodes. In this case, Application Capacity parameters will remain unchanged.
 
-Эти ограничения нужны для того, чтобы позволить диспетчеру кластерных ресурсов правильно размещать реплики служб приложения.
+These restrictions are put in place in order for Cluster Resource Manager to be able to provide the best placement for replicas of applications’ services.
 
-## Как не следует использовать емкость приложения
+## <a name="how-not-to-use-application-capacity"></a>How not to use Application Capacity
 
--	Не пытайтесь с помощью емкости приложения привязать приложение к конкретному набору узлов. Хотя Service Fabric будет соблюдать максимальное количество узлов для каждого приложения с указанной емкостью, пользователь не сможет выбрать, на каких именно узлах это приложение будет развертываться. Для этого следует использовать ограничения на размещение для служб.
--	Не пытайтесь с помощью емкости приложений разместить две службы одного приложения вместе. Для этого можно использовать отношения сходства между службами, но их следует применять только для тех служб, для которых совместное размещение действительно необходимо.
+-   Do not use the Application Capacity to constrain the application to a specific subset of nodes: Although Service Fabric will ensure that Maximum Nodes is respected for each application that has Application Capacity specified, users cannot decide which nodes it will be instantiated on. This can be achieved using placement constraints for services.
+-   Do not use the Application Capacity to ensure that two services from the same application will always be placed alongside each other. This can be achieved by using affinity relationship between services, and affinity can be limited only to the services that should actually be placed together.
 
-## Дальнейшие действия
-- Дополнительные сведения о других вариантах настройки служб см. в статье [Настройка параметров диспетчера кластерных ресурсов для служб Service Fabric](service-fabric-cluster-resource-manager-configure-services.md).
-- Чтобы узнать, как диспетчер кластерных ресурсов управляет нагрузкой кластера и балансирует ее, ознакомьтесь со статьей о [балансировке нагрузки](service-fabric-cluster-resource-manager-balancing.md).
-- Начните с самого начала, [изучив общие сведения о диспетчере кластерных ресурсов Service Fabric](service-fabric-cluster-resource-manager-introduction.md).
-- Дополнительные сведения об использовании метрик см. в статье [Управление потреблением ресурсов и нагрузкой в Service Fabric с помощью метрик](service-fabric-cluster-resource-manager-metrics.md).
-- В диспетчере кластерных ресурсов много параметров для описания кластера. Дополнительные сведения о них см. в статье с [описанием кластера Service Fabric](service-fabric-cluster-resource-manager-cluster-description.md).
+## <a name="next-steps"></a>Next steps
+- For more information about the other options available for configuring services check out the topic on the other Cluster Resource Manager configurations available [Learn about configuring Services](service-fabric-cluster-resource-manager-configure-services.md)
+- To find out about how the Cluster Resource Manager manages and balances load in the cluster, check out the article on [balancing load](service-fabric-cluster-resource-manager-balancing.md)
+- Start from the beginning and [get an Introduction to the Service Fabric Cluster Resource Manager](service-fabric-cluster-resource-manager-introduction.md)
+- For more information on how metrics work generally, read up on [Service Fabric Load Metrics](service-fabric-cluster-resource-manager-metrics.md)
+- The Cluster Resource Manager has a lot of options for describing the cluster. To find out more about them check out this article on [describing a Service Fabric cluster](service-fabric-cluster-resource-manager-cluster-description.md)
 
 
-[Image1]: ./media/service-fabric-cluster-resource-manager-application-groups/application-groups-max-nodes.png
-[Image2]: ./media/service-fabric-cluster-resource-manager-application-groups/application-groups-reserved-capacity.png
+[Image1]:./media/service-fabric-cluster-resource-manager-application-groups/application-groups-max-nodes.png
+[Image2]:./media/service-fabric-cluster-resource-manager-application-groups/application-groups-reserved-capacity.png
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Задания архивации диспетчера моментальных снимков StorSimple | Microsoft Azure"
-   description="Узнайте, как использовать оснастку консоли MMC ";Диспетчер моментальных снимков StorSimple"; для просмотра запланированных, выполняющихся и завершенных заданий архивации, а также управления ими."
+   pageTitle="StorSimple Snapshot Manager backup jobs | Microsoft Azure"
+   description="Describes how to use the StorSimple Snapshot Manager MMC snap-in to view and manage scheduled, currently running, and completed backup jobs."
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
@@ -16,100 +16,101 @@
    ms.author="v-sharos" />
 
 
-# Просмотр заданий архивации и управление ими с помощью диспетчера моментальных снимков StorSimple
 
-## Обзор
+# <a name="use-storsimple-snapshot-manager-to-view-and-manage-backup-jobs"></a>Use StorSimple Snapshot Manager to view and manage backup jobs
 
-В узле **Задания** на панели **Область** отображаются отсортированные по категориям **Запланированные**, **За последние 24 часа** и **Выполняются** задачи архивации, которые вы инициировали в интерактивном режиме или с помощью настроенной политики.
+## <a name="overview"></a>Overview
 
-В этом учебнике объясняется, как с помощью узла **Задания** отобразить сведения о запланированных, последних и выполняющихся заданиях архивации. (Список заданий и соответствующие сведения о них отображаются на панели **Результаты**.) Кроме того, вы можете щелкнуть правой кнопкой мыши задание в списке и просмотреть контекстное меню, в котором перечисляются доступные действия.
+The **Jobs** node in the **Scope** pane shows the **Scheduled**, **Last 24 hours**, and **Running** backup tasks that you initiated interactively or by a configured policy. 
 
-## Просмотр запланированных заданий
+This tutorial explains how you can use the **Jobs** node to display information about scheduled, recent, and currently running backup jobs. (The list of jobs and corresponding information appears in the **Results** pane.) Additionally, you can right-click a listed job and see a context menu that lists available actions.
 
-Чтобы просмотреть запланированные задания резервного копирования, выполните указанные ниже действия.
+## <a name="view-scheduled-jobs"></a>View scheduled jobs
 
-#### Просмотр запланированных заданий
+Use the following procedure to view scheduled backup jobs.
 
-1. Щелкните соответствующий значок на рабочем столе, чтобы запустить диспетчер моментальных снимков StorSimple. 
+#### <a name="to-view-scheduled-jobs"></a>To view scheduled jobs
 
-2. На панели **Область** разверните узел **Задания** и щелкните **Запланированные**. На панели **Результаты** отобразятся следующие сведения.
+1. Click the desktop icon to start StorSimple Snapshot Manager. 
 
-    - **Имя**: имя запланированного моментального снимка
+2. In the **Scope** pane, expand the **Jobs** node, and click **Scheduled**. The following information appears in the **Results** pane:
 
-    - **Следующее выполнение**: дата и время следующего запланированного моментального снимка
+    - **Name** – the name of the scheduled snapshot
 
-    - **Последнее выполнение**: дата и время последнего запланированного моментального снимка
+    - **Next Run** – the date and time of the next scheduled snapshot
 
-    >[AZURE.NOTE] Если моментальный снимок создается только один раз, значения параметров **Следующее выполнение** и **Последнее выполнение** будут совпадать.
+    - **Last Run** – the date and time of the most recent scheduled snapshot
+
+    >[AZURE.NOTE] For one-time only snapshots, the **Next Run** and **Last Run** will be the same. 
  
-    ![Запланированные задания архивации](./media/storsimple-snapshot-manager-manage-backup-jobs/HCS_SSM_Jobs_scheduled.png)
+    ![Scheduled backup jobs](./media/storsimple-snapshot-manager-manage-backup-jobs/HCS_SSM_Jobs_scheduled.png) 
  
-3. Чтобы выполнить дополнительные действия для конкретного задания, щелкните правой кнопкой мыши имя задания на панели **Результаты** и выберите необходимые параметры меню.
+3. To perform additional actions on a specific job, right-click the job name in the **Results** pane and select from the menu options.
 
-## Просмотр последних заданий
+## <a name="view-recent-jobs"></a>View recent jobs
 
-Выполните указанные ниже действия, чтобы просмотреть задания резервного копирования и восстановления, завершенные за последние 24 часа.
+Use the following procedure to view backup and restore jobs that were completed in the last 24 hours.
 
-#### Просмотр последних заданий
+#### <a name="to-view-recent-jobs"></a>To view recent jobs
 
-1. Щелкните соответствующий значок на рабочем столе, чтобы запустить диспетчер моментальных снимков StorSimple.
+1. Click the desktop icon to start StorSimple Snapshot Manager.
 
-2. На панели **Область** разверните узел **Задания** и щелкните **За последние 24 часа**. На панели **Результаты** отобразятся задания архивации за последние 24 часа (не более 64 заданий). В зависимости от параметров, указанных в меню **Вид**, на панели **Результаты** отобразятся указанные ниже сведения.
+2. In the **Scope** pane, expand the **Jobs** node, and click **Last 24 hours**. The **Results** pane shows backup jobs for the last 24 hours (to a maximum of 64 jobs). The following information appears in the **Results** pane, depending on the **View** options you specify:
 
-    - **Имя**: имя запланированного моментального снимка.
+    - **Name** – the name of the scheduled snapshot.
  
-    - **Запущено**: дата и время начала создания моментального снимка.
+    - **Started** – the date and time when the snapshot began.
 
-    - **Остановлено**: дата и время, когда создание моментального снимка было завершено или прервано.
+    - **Stopped** – the date and time when the snapshot finished or was terminated.
 
-    - **Прошло**: промежуток времени между значениями параметров **Запущено** и **Остановлено**.
+    - **Elapsed** – the amount of time between the **Started** and **Stopped** times.
 
-    - **Состояние**: состояние недавно выполненного задания. **Успешно**: резервная копия создана. **Сбой**: задание не выполнено.
+    - **Status** – the state of the recently completed job. **Success** indicates that the backup was created successfully. **Failed** indicates that the job did not run successfully.
 
-    - **Сведения**: причина сбоя.
+    - **Information** – the reason for the failure.
 
-    - **Обработано байт (МБ)**: объем обработанных данных группы томов (в мегабайтах).
+    - **Bytes processed (MB)** – the amount of data from the volume group that was processed (in MBs). 
 
-    ![Задания, которые выполнялись за последние 24 часа](./media/storsimple-snapshot-manager-manage-backup-jobs/HCS_SSM_Jobs_Last_24_hours.png)
+    ![Jobs that ran in the last 24 hours](./media/storsimple-snapshot-manager-manage-backup-jobs/HCS_SSM_Jobs_Last_24_hours.png) 
 
-3. Чтобы выполнить дополнительные действия для конкретного задания, щелкните правой кнопкой мыши имя задания на панели **Результаты** и выберите необходимые параметры меню.
+3. To perform additional actions on a specific job, right-click the job name in the **Results** pane and select from the menu options.
 
-    ![Удаление задания](./media/storsimple-snapshot-manager-manage-backup-catalog/HCS_SSM_Delete_backup.png)
+    ![Delete a job](./media/storsimple-snapshot-manager-manage-backup-catalog/HCS_SSM_Delete_backup.png) 
      
-## Просмотр выполняющихся заданий
+## <a name="view-currently-running-jobs"></a>View currently running jobs
 
-Выполните указанные ниже действия, чтобы просмотреть выполняющиеся задания.
+Use the following procedure to view jobs that are currently running.
 
-#### Просмотр текущих заданий
+#### <a name="to-view-currently-running-jobs"></a>To view currently running jobs
 
-1. Щелкните соответствующий значок на рабочем столе, чтобы запустить диспетчер моментальных снимков StorSimple.
+1. Click the desktop icon to start StorSimple Snapshot Manager.
 
-2. На панели **Область** разверните узел **Задания** и щелкните **Выполняются**. В зависимости от параметров, указанных в меню **Вид**, на панели **Результаты** отобразятся указанные ниже сведения.
+2. In the **Scope** pane, expand the **Jobs** node, and click **Running**. Depending on the **View** options you specify, the following information appears in the **Results** pane: 
 
-    - **Имя**: имя запланированного моментального снимка.
+    - **Name** – the name of the scheduled snapshot.
 
-    - **Запущено**: дата и время начала создания моментального снимка.
+    - **Started** – the date and time when the snapshot began.
 
-    - **Контрольная точка**: текущее действие по архивации.
+    - **Checkpoint** – the current action of the backup.
 
-    - **Состояние**: процент выполнения.
+    - **Status** – the percentage of completion.
     
-    - **Прошло**: время после начала архивации.
+    - **Elapsed** – the amount of time that has passed since the backup began. 
 
-    - **Средняя пропускная способность (МБ)** — отношение общего числа байтов обработанных данных и общего времени, необходимого для обработки (в МБ).
+    - **Average throughput (MB)** – ratio of total bytes of data processed to that of total time taken for processing (MBs).
 
-    - **Обработано байтов (МБ)** — общее число байтов обработанных данных (в МБ).
+    - **Bytes processed (MB)** – total bytes of data processed (in MBs).
 
-    - **Записано байтов (МБ)** — общее число байтов записанных данных (в МБ). Сюда входят как данные, так и метаданные, поэтому это значение обычно больше, чем значение "Обработано байтов".
+    - **Bytes written (MB)** – total bytes of data written (in MBs). It includes the data as well as the metadata and hence is typically greater than the Bytes Processed.
 
-    ![Выполняющиеся задания](./media/storsimple-snapshot-manager-manage-backup-jobs/HCS_SSM_Jobs_running.png)
+    ![Jobs currently running](./media/storsimple-snapshot-manager-manage-backup-jobs/HCS_SSM_Jobs_running.png)
 
-3. Чтобы выполнить дополнительные действия для конкретного задания, щелкните правой кнопкой мыши имя задания на панели **Результаты** и выберите необходимые параметры меню.
+3. To perform additional actions on a specific job, right-click the job name in the **Results** pane and select from the menu options.
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Next steps
 
-- Узнайте об [использовании диспетчера моментальных снимков StorSimple для администрирования решения StorSimple](storsimple-snapshot-manager-admin.md).
-- Узнайте об [использовании диспетчера моментальных снимков StorSimple для управления каталогом резервных копий](storsimple-snapshot-manager-manage-backup-catalog.md).
+- Learn how to [use StorSimple Snapshot Manager to administer your StorSimple solution](storsimple-snapshot-manager-admin.md).
+- Learn how to [use StorSimple Snapshot Manager to manage the backup catalog](storsimple-snapshot-manager-manage-backup-catalog.md).
 
 
 
@@ -130,4 +131,9 @@
 
  
 
-<!---HONumber=AcomDC_0511_2016-->
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

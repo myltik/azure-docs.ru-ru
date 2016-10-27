@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Управление политиками архивации StorSimple | Microsoft Azure"
-   description="Объясняет, как использовать службу диспетчера StorSimple для создания резервных копий, созданных вручную, расписания снятия резервных копий и срока хранения резервных копий, а также для управления ими."
+   pageTitle="Manage your StorSimple backup policies | Microsoft Azure"
+   description="Explains how you can use the StorSimple Manager service to create and manage manual backups, backup schedules, and backup retention."
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
@@ -15,79 +15,84 @@
    ms.date="05/10/2016"
    ms.author="v-sharos"/>
 
-# Использование службы диспетчера StorSimple для управления политиками архивации
+
+# <a name="use-the-storsimple-manager-service-to-manage-backup-policies"></a>Use the StorSimple Manager service to manage backup policies
 
 [AZURE.INCLUDE [storsimple-version-selector-manage-backup-policies](../../includes/storsimple-version-selector-manage-backup-policies.md)]
 
-## Обзор
+## <a name="overview"></a>Overview
 
-В данном учебнике рассказывается, как на странице **Политики архивации** службы диспетчера StorSimple управлять процессами архивации и хранения резервных копий для томов StorSimple. Кроме того, в нем описан способ выполнения архивации вручную.
+This tutorial explains how to use the StorSimple Manager service **Backup Policies** page to control backup processes and backup retention for your StorSimple volumes. It also describes how to complete a manual backup.
 
-На странице **Политики архивации** можно управлять политиками архивации и планировать создание локальных и облачных моментальных копий. (Политики архивации используются для настройки расписаний архивации и хранения резервных копий для коллекции томов). Политики архивации позволяют делать снимок нескольких томов одновременно. Это означает, что резервные копии, созданные политикой архивации, будут отказоустойчивыми. На этой странице отображаются политики архивации, их типы, сопоставленные тома, количество хранимых резервных копий и переключатели для включения этих политик.
+The **Backup Policies** page allows you to manage backup policies and schedule local and cloud snapshots. (Backup policies are used to configure backup schedules and backup retention for a collection of volumes.) Backup policies enable you to take a snapshot of multiple volumes simultaneously. This means that the backups created by a backup policy will be crash-consistent copies. This page lists the backup policies, their types, the associated volumes, the number of backups retained, and the option to enable these policies.
 
-Кроме того, на странице **Политики архивации** можно отфильтровать имеющиеся политики архивации по одному или нескольким указанным ниже полям.
+The **Backup Policies** page also allows you to filter the existing backup policies by one or more of the following fields:
 
-- **Имя политики** — имя, сопоставленное с политикой. Ниже перечислены возможные типы политик.
+- **Policy name** – The name associated with the policy. The different types of policies include:
 
-   - Запланированные политики, которые явно созданы пользователем.
-   - Автоматические политики, которые создаются, если при создании тома был включен параметр архивации тома по умолчанию. Названия этих политик выглядят следующим образом: «ИмяТома\_Default», где «ИмяТома» — это название тома StorSimple, заданное пользователем на классическом портале Azure. При использовании автоматических политик облачные моментальные снимки создаются ежедневно, начиная c 22:30 по настроенному в устройстве времени.
-   - Импортированные политики, изначально созданные в диспетчере моментальных снимков StorSimple. У них имеется тег, описывающий узел диспетчера моментальных снимков StorSimple, из которого импортированы политики.
+   - Scheduled policies, which are explicitly created by the user.
+   - Automatic policies, which are created when the default backup for this volume option was enabled at the time of volume creation. These policies are named as VolumeName_Default where Volume name refers to the name of the StorSimple volume configured by the user in the Azure classic portal. The automatic policies result in daily cloud snapshots beginning at 22:30 device time.
+   - Imported policies, which were originally created in the StorSimple Snapshot Manager. These have a tag that describes the StorSimple Snapshot Manager host that the policies were imported from.
 
-- **Тома** — тома, сопоставленные с политикой. При создании резервных копий все тома, сопоставленные с политикой архивации, будут объединены в одну группу.
+- **Volumes** – The volumes associated with the policy. All the volumes associated with a backup policy are grouped together when backups are created.
 
-- **Последняя успешная архивация** — дата и время последней успешной архивации, выполненной с помощью политики.
+- **Last successful backup** – The date and time of the last successful backup that was taken with this policy.
 
-- **Следующая архивация** — дата и время следующей запланированной архивации, которая будет запущена политикой.
+- **Next backup** – The date and time of the next scheduled backup that will be initiated by this policy.
 
-- **Расписания** — количество расписаний, сопоставленных с политикой архивации.
+- **Schedules** – The number of schedules associated with the backup policy.
 
-Ниже перечислены часто используемые операции, которые можно выполнить на этой странице.
+The frequently used operations that you can perform from this page are:
 
-- Добавление политики архивации 
-- Добавление или изменение расписания 
-- Удаление политики архивации 
-- Создание резервной копии вручную 
-- Создание пользовательской политики архивации с несколькими томами и расписаниями 
+- Add a backup policy 
+- Add or modify a schedule 
+- Delete a backup policy 
+- Take a manual backup 
+- Create a custom backup policy with multiple volumes and schedules 
 
-## Добавление политики архивации
+## <a name="add-a-backup-policy"></a>Add a backup policy
 
-Добавление политики архивации для автоматического планирования архивации. Чтобы добавить политику архивации для устройства StorSimple, выполните указанные ниже действия на классическом портале Azure. После добавления политики можно задать расписание (см. раздел [Добавление или изменение расписания](#add-or-modify-a-schedule)).
+Add a backup policy to automatically schedule your backups. Perform the following steps in the Azure classic portal to add a backup policy for your StorSimple device. After you add the policy, you can define a schedule (see [Add or modify a schedule](#add-or-modify-a-schedule)).
 
 [AZURE.INCLUDE [storsimple-add-backup-policy](../../includes/storsimple-add-backup-policy.md)]
 
-![Доступно видео](./media/storsimple-manage-backup-policies/Video_icon.png) **Доступно видео**
+![Video available](./media/storsimple-manage-backup-policies/Video_icon.png) **Video available**
 
-Чтобы просмотреть видео о создании локальной или облачной политики архивации, щелкните [здесь](https://azure.microsoft.com/documentation/videos/create-storsimple-backup-policies/).
+To watch a video that demonstrates how to create a local or cloud backup policy, click [here](https://azure.microsoft.com/documentation/videos/create-storsimple-backup-policies/).
 
 
-## Добавление или изменение расписания
+## <a name="add-or-modify-a-schedule"></a>Add or modify a schedule
 
-Вы можете добавить или изменить расписание, присоединенное к существующей политике архивации на устройстве StorSimple. Чтобы создать или изменить расписание, выполните указанные ниже действия на классическом портале Azure.
+You can add or modify a schedule that is attached to an existing backup policy on your StorSimple device. Perform the following steps in the Azure classic portal to add or modify a schedule.
 
 [AZURE.INCLUDE [storsimple-add-modify-backup-schedule](../../includes/storsimple-add-modify-backup-schedule.md)]
 
-## Удаление политики архивации
+## <a name="delete-a-backup-policy"></a>Delete a backup policy
 
-Чтобы удалить политику архивации на устройстве StorSimple, выполните указанные ниже действия на классическом портале Azure.
+Perform the following steps in the Azure classic portal to delete a backup policy on your StorSimple device.
 
 [AZURE.INCLUDE [storsimple-delete-backup-policy](../../includes/storsimple-delete-backup-policy.md)]
 
 
-## Создание резервной копии вручную
+## <a name="take-a-manual-backup"></a>Take a manual backup
 
-Чтобы создать резервную копию по запросу (вручную) для одного тома, выполните указанные ниже действия на классическом портале Azure.
+Perform the following steps in the Azure classic portal to create an on-demand (manual) backup for a single volume.
 
 [AZURE.INCLUDE [storsimple-create-manual-backup](../../includes/storsimple-create-manual-backup.md)]
 
-## Создание пользовательской политики архивации с несколькими томами и расписаниями
+## <a name="create-a-custom-backup-policy-with-multiple-volumes-and-schedules"></a>Create a custom backup policy with multiple volumes and schedules
 
-Чтобы создать пользовательскую политику архивации с несколькими томами и расписаниями, выполните указанные ниже действия на классическом портале Azure.
+Perform the following steps in the Azure classic portal to create a custom backup policy that has multiple volumes and schedules.
 
 [AZURE.INCLUDE [storsimple-create-custom-backup-policy](../../includes/storsimple-create-custom-backup-policy.md)]
 
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Next steps
 
-Узнайте больше об [использовании службы диспетчера StorSimple для администрирования устройства StorSimple](storsimple-manager-service-administration.md).
+Learn more about [using the StorSimple Manager service to administer your StorSimple device](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_0511_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

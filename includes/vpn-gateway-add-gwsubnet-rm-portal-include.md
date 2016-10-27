@@ -1,15 +1,19 @@
-1. На портале перейдите к виртуальной сети, которую необходимо подключить к шлюзу.
+1. In the portal, navigate to the virtual network to which you want to connect a gateway.
 
-2. В колонке виртуальной сети в разделе **Параметры** щелкните **Подсети**, чтобы открыть соответствующую колонку.
+2. In the **Settings** section of your VNet blade, click **Subnets** to expand the Subnets blade.
 
-3. В колонке **Подсети** щелкните **+ Подсеть шлюза**. Откроется колонка **Добавление подсети**.
+3. On the **Subnets** blade, click **+Gateway subnet** at the top. This will open the **Add subnet** blade. 
 
-	![Добавление подсети шлюза](./media/vpn-gateway-add-gwsubnet-rm-portal-include/newgwsubnet450.png "Добавление подсети шлюза")
+    ![Add the gateway subnet](./media/vpn-gateway-add-gwsubnet-rm-portal-include/newgwsubnet450.png "Add the gateway subnet")
 
-4. В поле **Имя** автоматически добавляется значение GatewaySubnet. По этому имени Azure идентифицирует подсеть как подсеть шлюза. Замените автоматически заполненное значение **диапазона адресов** с учетом собственных требований к конфигурации.
+4. The **Name** for your subnet will automatically be filled in with the value 'GatewaySubnet'. This value is required in order for Azure to recognize the subnet as the gateway subnet. Adjust the auto-filled **Address range** values to match your configuration requirements.
 
-	![Добавление подсети](./media/vpn-gateway-add-gwsubnet-rm-portal-include/addgwsubnet300.png "Добавление подсети")
+    ![Adding the subnet](./media/vpn-gateway-add-gwsubnet-rm-portal-include/addgwsubnet300.png "Adding the subnet")
 
-6. В нижней части колонки нажмите кнопку **ОК**, чтобы создать подсеть.
+6. Click **OK** at the bottom of the blade to create the subnet.
 
-<!---HONumber=AcomDC_1005_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

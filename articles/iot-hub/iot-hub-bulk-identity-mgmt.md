@@ -1,6 +1,6 @@
 <properties
- pageTitle="Импорт и экспорт удостоверений устройств центра IoT | Microsoft Azure"
- description="Основные понятия и фрагменты кода .NET для массового управления удостоверениями устройств центра IoT"
+ pageTitle="Import export of IoT Hub device identities | Microsoft Azure"
+ description="Concepts and .NET code snippets for bulk management of IoT Hub device identities"
  services="iot-hub"
  documentationCenter=".net"
  authors="dominicbetts"
@@ -13,36 +13,37 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="07/19/2016"
+ ms.date="10/05/2016"
  ms.author="dobett"/>
 
-# Массовое управление удостоверениями устройств центра IoT
 
-В каждом центре IoT есть реестр удостоверений устройств, который можно использовать для создания в службе уникальных ресурсов устройства (например очередь с сообщениями, отправленными из облака в устройство) и который обеспечивает доступ к конечным точкам, обращенным к устройствам. В этой статье описывается массовый импорт удостоверений устройств в реестр удостоверений устройств и массовый экспорт удостоверений из реестра.
+# <a name="bulk-management-of-iot-hub-device-identities"></a>Bulk management of IoT Hub device identities
 
-Операции импорта и экспорта выполняются в контексте *заданий*, позволяющих выполнять операции массового обслуживания в центре IoT.
+Each IoT hub has a device identity registry you can use to create per-device resources in the service, such as a queue that contains in-flight cloud-to-device messages. The device identity registry also enables you to control access to the device-facing endpoints. This article describes how to import and export device identities in bulk to and from a device identity registry.
 
-Класс **RegistryManager** содержит методы **ExportDevicesAsync** и **ImportDevicesAsync**, которые используют платформу **заданий**. С помощью этих методов можно экспортировать, импортировать и синхронизировать весь реестр устройств центра IoT.
+Import and export operations take place in the context of *Jobs* that enable you to execute bulk service operations against an IoT hub.
 
-## Что такое задания?
+The **RegistryManager** class includes the **ExportDevicesAsync** and **ImportDevicesAsync** methods that use the **Job** framework. These methods enable you to export, import, and synchronize the entirety of an IoT hub device registry.
 
-Операции реестра удостоверений устройств используют систему **задания**, когда операция
+## <a name="what-are-jobs?"></a>What are Jobs?
 
-*  характеризуется длительным временем выполнения по сравнению со стандартными операциями среды выполнения или
-*  возвращает пользователю большой объем данных.
+Device identity registry operations use the **Job** system when the operation:
 
-В этих случаях вместо одного вызова API-интерфейса, ожидающего или блокирующего результат операции, операция асинхронно создает **задание** для этого центра IoT и сразу же возвращает объект **JobProperties**.
+*  Has a potentially long execution time compared to standard runtime operations, or
+*  Returns a large amount of data to the user.
 
-В следующем фрагменте кода C# показано, как создать задание экспорта.
+In these cases, instead of a single API call waiting or blocking on the result of the operation, the operation asynchronously creates a **Job** for that IoT hub. The operation then immediately returns a **JobProperties** object.
+
+The following C# code snippet shows how to create an export job:
 
 ```
 // Call an export job on the IoT Hub to retrieve all devices
 JobProperties exportJob = await registryManager.ExportDevicesAsync(containerSasUri, false);
 ```
 
-После этого можно использовать класс **RegistryManager** для запросов состояния **задания** с помощью возвращенных метаданных **JobProperties**.
+Then you can use the **RegistryManager** class to query the state of the **Job** using the returned **JobProperties** metadata.
 
-В следующем фрагменте кода C# показано, как каждые пять секунд выполнять опрос, чтобы увидеть, завершено ли выполнение задания.
+The following C# code snippet shows how to poll every five seconds to see if the job has finished executing:
 
 ```
 // Wait until job is finished
@@ -61,23 +62,23 @@ while(true)
 }
 ```
 
-## Экспорт устройств
+## <a name="export-devices"></a>Export devices
 
-Используйте метод **ExportDevicesAsync** для экспорта всего реестра устройств центра IoT в контейнер BLOB-объектов [хранилища Azure](https://azure.microsoft.com/documentation/services/storage/) с помощью [подписанного URL-адреса](https://msdn.microsoft.com/library/ee395415.aspx).
+Use the **ExportDevicesAsync** method to export the entirety of an IoT hub device registry to an [Azure storage](https://azure.microsoft.com/documentation/services/storage/) blob container using a [Shared Access Signature](https://msdn.microsoft.com/library/ee395415.aspx).
 
-Этот метод позволяет создавать надежные резервные копии данных устройства в контейнере BLOB-объектов, которым вы управляете.
+This method enables you to create reliable backups of your device information in a blob container that you control.
 
-Для использования метода **ExportDevicesAsync** требуется два параметра.
+The **ExportDevicesAsync** method requires two parameters:
 
-*  *Строковый*, содержащий URI контейнера BLOB-объектов. Этот URI должен содержать маркер SAS, который предоставляет доступ на запись в контейнер. Задание создает в этом контейнере блочный BLOB-объект для хранения сериализованных данных экспорта устройств. Маркер SAS должен включать следующие разрешения.
+*  A *string* that contains a URI of a blob container. This URI must contain a SAS token that grants write access to the container. The job creates a block blob in this container to store the serialized export device data. The SAS token must include these permissions:
     
     ```
     SharedAccessBlobPermissions.Write | SharedAccessBlobPermissions.Read | SharedAccessBlobPermissions.Delete
     ```
 
-*  *Логический*, указывающий, следует ли исключить из данных экспорта ключи проверки подлинности. Если задано значение **false**, ключи проверки подлинности включены в выходные данные экспорта. В противном случае экспортируются ключи со значением **NULL**.
+*  A *boolean* that indicates if you want to exclude authentication keys from your export data. If **false**, authentication keys are included in export output; otherwise, keys are exported as **null**.
 
-В следующем фрагменте кода C# показано, как запустить задание экспорта, содержащее ключи проверки подлинности устройства в данных экспорта, а затем выполнить запрос данных о завершении:
+The following C# code snippet shows how to initiate an export job that includes device authentication keys in the export data and then poll for completion:
 
 ```
 // Call an export job on the IoT Hub to retrieve all devices
@@ -99,9 +100,9 @@ while(true)
 }
 ```
 
-Задание сохраняет выходные данные в указанном контейнере BLOB-объектов в виде блочного BLOB-объекта с именем **devices.txt**. Выходные данные состоят из сериализованных данных устройств JSON с одним устройством в строке.
+The job stores its output in the provided blob container as a block blob with the name **devices.txt**. The output data consists of JSON serialized device data, with one device per line.
 
-Ниже приведен пример выходных данных.
+The following example shows the output data:
 
 ```
 {"id":"Device1","eTag":"MA==","status":"enabled","authentication":{"symmetricKey":{"primaryKey":"abc=","secondaryKey":"def="}}}
@@ -111,7 +112,7 @@ while(true)
 {"id":"Device5","eTag":"MA==","status":"enabled","authentication":{"symmetricKey":{"primaryKey":"abc=","secondaryKey":"def="}}}
 ```
 
-Если вам нужен доступ к этим данным в коде, их можно легко десериализовать с помощью класса **ExportImportDevice**. В следующем фрагменте кода C# показано, как считать сведения об устройстве, которые ранее были экспортированы в блочный BLOB-объект.
+If you need access to this data in code, you can easily deserialize this data using the **ExportImportDevice** class. The following C# code snippet shows how to read device information that was previously exported to a block blob:
 
 ```
 var exportedDevices = new List<ExportImportDevice>();
@@ -127,67 +128,71 @@ using (var streamReader = new StreamReader(await blob.OpenReadAsync(AccessCondit
 }
 ```
 
-> [AZURE.NOTE]  Для получения списка устройств можно использовать метод **GetDevicesAsync** класса **RegistryManager**. Однако такой подход имеет жесткое ограничение в 1000 возвращаемых объектов устройств. Метод **GetDevicesAsync** предназначен для использования в сценариях разработки для упрощения отладки. Он не рекомендуется для производственных рабочих нагрузок.
+> [AZURE.NOTE]  You can also use the **GetDevicesAsync** method of the **RegistryManager** class to fetch a list of your devices. However, this approach has a hard cap of 1000 on the number of device objects that are returned. The expected use case for the **GetDevicesAsync** method is for development scenarios to aid debugging and is not recommended for production workloads.
 
-## Импорт устройств
+## <a name="import-devices"></a>Import devices
 
-Метод **ImportDevicesAsync** в классе **RegistryManager** позволяет выполнять операции массового импорта и синхронизации в реестре устройств центра IoT. Как и метод **ExportDevicesAsync**, метод **ImportDevicesAsync** использует платформу **заданий**.
+The **ImportDevicesAsync** method in the **RegistryManager** class enables you to perform bulk import and synchronization operations in an IoT hub device registry. Like the **ExportDevicesAsync** method, the **ImportDevicesAsync** method uses the **Job** framework.
 
-Использовать метод **ImportDevicesAsync** следует с осторожностью, так как наряду с подготовкой новых устройств в реестре удостоверений устройств он также может обновлять и удалять существующие устройства.
+Take care using the **ImportDevicesAsync** method because in addition to provisioning new devices in your device identity registry, it can also update and delete existing devices.
 
-> [AZURE.WARNING]  Операцию импорта отменить нельзя. Прежде чем вносить массовые изменения в реестр удостоверений устройств, всегда необходимо создавать резервную копию существующих данных в другом контейнере BLOB-объектов с помощью метода **ExportDevicesAsync**.
+> [AZURE.WARNING]  An import operation cannot be undone. Always back up your existing data using the **ExportDevicesAsync** method to another blob container before you make bulk changes to your device identity registry.
 
-Метод **ImportDevicesAsync** принимает два следующих параметра.
+The **ImportDevicesAsync** method takes two parameters:
 
-*  *Строка*, содержащая URI контейнера BLOB-объектов [хранилища Azure](https://azure.microsoft.com/documentation/services/storage/), в качестве *входных данных* для задания. Этот URI должен содержать маркер SAS, который предоставляет доступ на чтение контейнера. Этот контейнер должен включать BLOB-объект с именем **devices.txt**, содержащий сериализованные данные устройств для импорта в реестр удостоверений устройств. Импортируемые данные должны включать в себя сведения об устройствах в том же формате JSON, который задание **ExportImportDevice** использует при создании BLOB-объекта **devices.txt**. Маркер SAS должен включать следующие разрешения.
+*  A *string* that contains a URI of an [Azure storage](https://azure.microsoft.com/documentation/services/storage/) blob container to as *input* to the job. This URI must contain a SAS token that grants read access to the container. This container must contain a blob with the name **devices.txt** that contains the serialized device data to import into your device identity registry. The import data must contain device information in the same JSON format that the **ExportImportDevice** job uses when it creates a **devices.txt** blob. The SAS token must include these permissions:
 
     ```
     SharedAccessBlobPermissions.Read
     ```
 
-*  *Строка*, содержащая URI контейнера BLOB-объектов [хранилища Azure](https://azure.microsoft.com/documentation/services/storage/), в качестве *выходных данных* задания. Задание создает в этом контейнере блочный BLOB-объект для хранения сведений об ошибках из завершенного **задания** импорта. Маркер SAS должен включать следующие разрешения.
+*  A *string* that contains a URI of an [Azure storage](https://azure.microsoft.com/documentation/services/storage/) blob container to as *output* from the job. The job creates a block blob in this container to store any error information from the completed import **Job**. The SAS token must include these permissions:
     
     ```
     SharedAccessBlobPermissions.Write | SharedAccessBlobPermissions.Read | SharedAccessBlobPermissions.Delete
     ```
 
-> [AZURE.NOTE]  Два параметра могут указывать на один и тот же контейнер BLOB-объектов. Отдельные параметры предоставляют больший уровень контроля над выходными данными, так как для выходного контейнера требуются дополнительные разрешения.
+> [AZURE.NOTE]  The two parameters can point to the same blob container. The separate parameters simply enable more control over your data as the output container requires additional permissions.
 
-В следующем фрагменте кода C# показано, как инициировать задание импорта.
+The following C# code snippet shows how to initiate an import job:
 
 ```
 JobProperties importJob = await registryManager.ImportDevicesAsync(containerSasUri, containerSasUri);
 ```
 
-## Поведение при импорте
+## <a name="import-behavior"></a>Import behavior
 
-Метод **ImportDevicesAsync** можно использовать для выполнения следующих массовых операций в реестре удостоверений устройств.
+You can use the **ImportDevicesAsync** method to perform the following bulk operations in your device identity registry:
 
--   Массовая регистрация новых устройств
--   Массовое удаление существующих устройств
--   Массовое изменение состояния (включение или отключение устройств)
--   Массовое назначение новых ключей проверки подлинности устройств
--   Массовое автоматическое повторное создание ключей проверки подлинности устройств
+-   Bulk registration of new devices
+-   Bulk deletions of existing devices
+-   Bulk status changes (enable or disable devices)
+-   Bulk assignment of new device authentication keys
+-   Bulk auto-regeneration of device authentication keys
 
-Один вызов метода **ImportDevicesAsync** позволяет выполнять любое сочетание приведенных выше операций. Например, можно регистрировать новые устройства и одновременно удалять или обновлять существующие. Если этот метод использовать вместе с методом **ExportDevicesAsync**, можно полностью перенести все устройства из одного центра IoT в другой.
+You can perform any combination of the preceding operations within a single **ImportDevicesAsync** call. For example, you can register new devices and delete or update existing devices at the same time. When used along with the **ExportDevicesAsync** method, you can completely migrate all your devices from one IoT hub to another.
 
-Управление процессом импорта на уровне каждого устройства осуществляется с помощью необязательного свойства **importMode** в сериализованных данных импорта для каждого устройства. Свойство **importMode** имеет следующие параметры:
+Use the optional **importMode** property in the import serialization data for each device to control the import process per-device. The **importMode** property has the following options:
 
-| importMode | Описание |
+| importMode |  Description |
 | -------- | ----------- |
-| **createOrUpdate** | Если устройство с указанным **идентификатором** не существует, оно регистрируется заново. <br/>Если устройство уже существует, имеющиеся данные заменяются предоставленными входными данными вне зависимости от значения **ETag**. |
-| **создание** | Если устройство с указанным **идентификатором** не существует, оно регистрируется заново. <br/>Если устройство уже существует, в файл журнала записывается ошибка. |
-| **обновить** | Если устройство с указанным **идентификатором** уже существует, имеющиеся данные заменяются предоставленными входными данными вне зависимости от значения **ETag**. <br/>Если устройство не существует, в файл журнала записывается ошибка. |
-| **updateIfMatchETag** | Если устройство с указанным **идентификатором** уже существует, имеющиеся данные заменяются предоставленными входными данными только при совпадении **ETag**. <br/>Если устройство не существует, в файл журнала записывается ошибка. <br/>Если имеется несовпадение **ETag**, в файл журнала записывается ошибка. |
-| **createOrUpdateIfMatchETag** | Если устройство с указанным **идентификатором** не существует, оно регистрируется заново. <br/>Если устройство уже существует, имеющиеся данные заменяются предоставленными входными данными только при совпадении **ETag**. <br/>Если имеется несовпадение **ETag**, в файл журнала записывается ошибка. |
-| **delete** | Если устройство с указанным **идентификатором** уже существует, оно удаляется вне зависимости от значения **ETag**. <br/>Если устройство не существует, в файл журнала записывается ошибка. |
-| **deleteIfMatchETag** | Если устройство с указанным **идентификатором** уже существует, оно удаляется только при совпадении **ETag**. Если устройство не существует, в файл журнала записывается ошибка. <br/>Если имеется несовпадение ETag, в файл журнала записывается ошибка. |
+| **createOrUpdate** | If a device does not exist with the specified **id**, it is newly registered. <br/>If the device already exists, existing information is overwritten with the provided input data without regard to the **ETag** value. |
+| **create** | If a device does not exist with the specified **id**, it is newly registered. <br/>If the device already exists, an error is written to the log file. |
+| **update** | If a device already exists with the specified **id**, existing information is overwritten with the provided input data without regard to the **ETag** value. <br/>If the device does not exist, an error is written to the log file. |
+| **updateIfMatchETag** | If a device already exists with the specified **id**, existing information is overwritten with the provided input data only if there is an **ETag** match. <br/>If the device does not exist, an error is written to the log file. <br/>If there is an **ETag** mismatch, an error is written to the log file. |
+| **createOrUpdateIfMatchETag** | If a device does not exist with the specified **id**, it is newly registered. <br/>If the device already exists, existing information is overwritten with the provided input data only if there is an **ETag** match. <br/>If there is an **ETag** mismatch, an error is written to the log file. |
+| **delete** | If a device already exists with the specified **id**, it is deleted without regard to the **ETag** value. <br/>If the device does not exist, an error is written to the log file. |
+| **deleteIfMatchETag** | If a device already exists with the specified **id**, it is deleted only if there is an **ETag** match. If the device does not exist, an error is written to the log file. <br/>If there is an ETag mismatch, an error is written to the log file. |
 
-> [AZURE.NOTE] Если данные сериализации явно не определяют флаг **importMode** для устройства, то по умолчанию используется **createOrUpdate** во время операции импорта.
+> [AZURE.NOTE] If the serialization data does not explicitly define an **importMode** flag for a device, it defaults to **createOrUpdate** during the import operation.
 
-## Пример импорта устройств — массовая подготовка устройств 
+## <a name="import-devices-example-–-bulk-device-provisioning"></a>Import devices example – bulk device provisioning 
 
-В следующем примере кода C# показано, как создать несколько удостоверений устройств, которые включают ключи проверки подлинности, записывают сведения об этом устройстве в блочный BLOB-объект хранилища Azure и затем импортируют устройства в реестр удостоверений устройств.
+The following C# code sample illustrates how to generate multiple device identities that:
+
+- Include authentication keys.
+- Write that device information to an Azure storage block blob.
+- Import the devices into the device identity registry.
 
 ```
 // Provision 1,000 more devices
@@ -250,9 +255,9 @@ while(true)
 }
 ```
 
-## Пример импорта устройств — массовое удаление
+## <a name="import-devices-example-–-bulk-deletion"></a>Import devices example – bulk deletion
 
-В следующем примере кода показано, как удалить устройства, добавленные с помощью предыдущего примера кода.
+The following code sample shows you how to delete the devices you added using the previous code sample:
 
 ```
 // Step 1: Update each device's ImportMode to be Delete
@@ -301,10 +306,10 @@ while(true)
 
 ```
 
-## Получение URI SAS контейнера
+## <a name="getting-the-container-sas-uri"></a>Getting the container SAS URI
 
 
-В следующем примере кода показано, как создать [URI SAS](../storage/storage-dotnet-shared-access-signature-part-2.md) с разрешениями на чтение, запись и удаление контейнера BLOB-объектов.
+The following code sample shows you how to generate a [SAS URI](../storage/storage-dotnet-shared-access-signature-part-2.md) with read, write, and delete permissions for a blob container:
 
 ```
 static string GetContainerSasUri(CloudBlobContainer container)
@@ -330,28 +335,25 @@ static string GetContainerSasUri(CloudBlobContainer container)
 
 ```
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Next steps
 
-В этой статье вы узнали, как выполнять массовые операции с реестром удостоверений устройств в центре IoT. Дополнительные сведения об управлении центром IoT в Azure см. по следующим ссылкам:
+In this article, you learned how to perform bulk operations against the device identity registry in an IoT hub. Follow these links to learn more about managing Azure IoT Hub:
 
-- [Показатели использования][lnk-metrics]
-- [Мониторинг операций][lnk-monitor]
-- [Настройка и управление доступом к центру IoT][lnk-itpro]
+- [Usage metrics][lnk-metrics]
+- [Operations monitoring][lnk-monitor]
 
-Для дальнейшего изучения возможностей центра IoT см. следующие статьи:
+To further explore the capabilities of IoT Hub, see:
 
-- [Разработка решения][lnk-design]
-- [Руководство разработчика по центру Azure IoT (IoT — Интернет вещей)][lnk-devguide]
-- [Обзор управления устройствами центра IoT с помощью примера пользовательского интерфейса][lnk-dmui]
-- [Пакет SDK для шлюза IoT (бета-версия): отправка сообщений с устройства в облако через виртуальное устройство с помощью Linux][lnk-gateway]
+- [Developer guide][lnk-devguide]
+- [Simulating a device with the Gateway SDK][lnk-gateway]
 
 [lnk-metrics]: iot-hub-metrics.md
 [lnk-monitor]: iot-hub-operations-monitoring.md
-[lnk-itpro]: iot-hub-itpro-info.md
 
-[lnk-design]: iot-hub-guidance.md
 [lnk-devguide]: iot-hub-devguide.md
-[lnk-dmui]: iot-hub-device-management-ui-sample.md
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
 
-<!---HONumber=AcomDC_0720_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

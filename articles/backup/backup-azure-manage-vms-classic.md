@@ -1,245 +1,250 @@
 
 <properties
-	pageTitle="Управление резервными копиями виртуальных машин Azure и их мониторинг | Microsoft Azure"
-	description="Узнайте, как управлять резервными копиями виртуальных машин Azure и осуществлять и мониторинг"
-	services="backup"
-	documentationCenter=""
-	authors="trinadhk"
-	manager="shreeshd"
-	editor=""/>
+    pageTitle="Manage and monitor Azure virtual machine backups | Microsoft Azure"
+    description="Learn how to manage and monitor an Azure virtual machine backups"
+    services="backup"
+    documentationCenter=""
+    authors="trinadhk"
+    manager="shreeshd"
+    editor=""/>
 
 <tags
-	ms.service="backup"
-	ms.workload="storage-backup-recovery"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/31/2016"
-	ms.author="trinadhk; jimpark; markgal;"/>
+    ms.service="backup"
+    ms.workload="storage-backup-recovery"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="08/31/2016"
+    ms.author="trinadhk; jimpark; markgal;"/>
 
-# Управление резервными копиями виртуальных машин Azure и их мониторинг
+
+# <a name="manage-and-monitor-azure-virtual-machine-backups"></a>Manage and monitor Azure virtual machine backups
 
 > [AZURE.SELECTOR]
-- [Управление архивацией виртуальных машин Azure](backup-azure-manage-vms.md)
-- [Управление архивацией классических виртуальных машин](backup-azure-manage-vms-classic.md)
+- [Manage Azure VM backups](backup-azure-manage-vms.md)
+- [Manage Classic VM backups](backup-azure-manage-vms-classic.md)
 
-В этой статье содержится информация об общих задачах управления и мониторинга для виртуальных машин классической модели, защищенных в Azure.
+This article provides information about common management and monitoring tasks for Classic-model virtual machines protected in Azure.  
 
->[AZURE.NOTE] В Azure предусмотрены две модели развертывания, позволяющие создавать ресурсы и работать с ними: [модель Resource Manager и классическая модель](../resource-manager-deployment-model.md). Дополнительные сведения о работе с виртуальными машинами, развернутыми с использованием классической модели, см. в статье [Подготовка среды для резервного копирования виртуальных машин Azure](backup-azure-vms-prepare.md).
+>[AZURE.NOTE] Azure has two deployment models for creating and working with resources: [Resource Manager and Classic](../resource-manager-deployment-model.md). See [Prepare your environment to back up Azure virtual machines](backup-azure-vms-prepare.md) for details on working with Classic deployment model VMs.
 
-## Управление защищенными виртуальными машинами
+## <a name="manage-protected-virtual-machines"></a>Manage protected virtual machines
 
-Для управления защищенными виртуальными машинами сделайте вот что:
+To manage protected virtual machines:
 
-1. Для просмотра параметров резервного копирования виртуальной машины и управления ими перейдите на вкладку **Защищенные элементы**.
+1. To view and manage backup settings for a virtual machine click the **Protected Items** tab.
 
-2. Щелкните имя защищенного элемента, чтобы открыть вкладку **Сведения об архивации**. Здесь отображается информация о последней резервной копии.
+2. Click on the name of a protected item to see the **Backup Details** tab, which shows you information about the last backup.
 
-    ![Резервное копирование виртуальной машины](./media/backup-azure-manage-vms/backup-vmdetails.png)
+    ![Virtual machine backup](./media/backup-azure-manage-vms/backup-vmdetails.png)
 
-3. Для просмотра параметров политики резервного копирования виртуальной машины и управления ими перейдите на вкладку **Политики**.
+3. To view and manage backup policy settings for a virtual machine click the **Policies** tab.
 
-    ![Политика резервного копирования виртуальных машин](./media/backup-azure-manage-vms/manage-policy-settings.png)
+    ![Virtual machine policy](./media/backup-azure-manage-vms/manage-policy-settings.png)
 
-    На вкладке **Политики резервного копирования** отображается существующая политика. Ее параметры можно изменить при необходимости. Если необходимо создать новую политику, на странице **Политики** щелкните **Создать**. Обратите внимание, что если вы хотите удалить политику, с ней не должна быть связана ни одна виртуальная машина.
+    The **Backup Policies** tab shows you the existing policy. You can modify as needed. If you need to create a new policy click **Create** on the **Policies** page. Note that if you want to remove a policy it shouldn't have any virtual machines associated with it.
 
-    ![Политика резервного копирования виртуальных машин](./media/backup-azure-manage-vms/backup-vmpolicy.png)
+    ![Virtual machine policy](./media/backup-azure-manage-vms/backup-vmpolicy.png)
 
-4. Дополнительные сведения о действиях и состоянии виртуальной машины можно найти на странице **Задания**. Щелкните задание в списке, чтобы получить дополнительные сведения или отфильтровать задания для конкретной виртуальной машины.
+4. You can get more information about actions or status for a virtual machine on the **Jobs** page. Click a job in the list to get more details, or filter jobs for a specific virtual machine.
 
-    ![Задания](./media/backup-azure-manage-vms/backup-job.png)
+    ![Jobs](./media/backup-azure-manage-vms/backup-job.png)
 
-## Резервное копирование виртуальной машины по запросу
-Резервное копирование виртуальной машины по запросу можно выполнять, когда для нее настроена защита. Если процесс первоначального резервного копирования находится в состоянии ожидания для виртуальной машины, то процесс резервного копирования по запросу создаст полную копию виртуальной машины в хранилище службы архивации Azure. Если процесс первой архивации завершен, при архивации по запросу будут отправляться только изменения, произошедшие со времени предыдущей архивации, в хранилище службы архивации Azure (т. е. она всегда будет добавочной).
+## <a name="on-demand-backup-of-a-virtual-machine"></a>On-demand backup of a virtual machine
+You can take an on-demand backup of a virtual machine once it is configured for protection. If the initial backup is pending for the virtual machine, on-demand backup will create a full copy of the virtual machine in Azure backup vault. If first backup is completed, on-demand backup will only send changes from previous backup to Azure backup vault i.e. it is always incremental.
 
->[AZURE.NOTE] В политике архивации, соответствующей виртуальной машине, для диапазона сохранения резервной копии по запросу указано значение ежедневного сохранения.
+>[AZURE.NOTE] Retention range of an on-demand backup is set to retention value specified for Daily retention in backup policy corresponding to the VM.  
 
-Чтобы выполнить резервное копирование виртуальной машины по запросу, выполните следующие действия:
+To take an on-demand backup of a virtual machine:
 
-1. Перейдите на страницу **Защищенные элементы**, выберите в поле **Тип** значение **Виртуальная машина Azure** (если оно еще не выбрано) и нажмите кнопку **Выбрать**.
+1. Navigate to the **Protected Items** page and select **Azure Virtual Machine** as **Type** (if not already selected) and click on **Select** button.
 
-    ![Тип виртуальной машины](./media/backup-azure-manage-vms/vm-type.png)
+    ![VM Type](./media/backup-azure-manage-vms/vm-type.png)
 
-2. Выберите виртуальную машину, для которой требуется выполнить резервное копирование по запросу, и нажмите кнопку **Создать резервную копию** в нижней части страницы.
+2. Select the virtual machine on which you want to take an on-demand backup and click on **Backup Now** button at the bottom of the page.
 
-    ![Создать резервную копию](./media/backup-azure-manage-vms/backup-now.png)
+    ![Back up now](./media/backup-azure-manage-vms/backup-now.png)
 
-    В результате для выбранной виртуальной машины будет создано задание на резервное копирование. Период хранения точки восстановления, созданной с помощью этого задания, будет таким же, как и период времени, указанный в политике, связанной с виртуальной машиной.
+    This will create a backup job on the selected virtual machine. Retention range of recovery point created through this job will be same as that specified in the policy associated with the virtual machine.
 
-    ![Создание задания резервного копирования](./media/backup-azure-manage-vms/creating-job.png)
+    ![Creating backup job](./media/backup-azure-manage-vms/creating-job.png)
 
-    >[AZURE.NOTE] Чтобы просмотреть политику, связанную с виртуальной машиной, выберите виртуальную машину на странице **Защищенные элементы** и перейдите на вкладку политики резервного копирования.
+    >[AZURE.NOTE] To view the policy associated with a virtual machine, drill down into virtual machine in the **Protected Items** page and go to backup policy tab.
 
-3. После создания задания можно нажать кнопку **Просмотреть задание** на всплывающей панели для просмотра соответствующего задания на странице "Задания".
+3. Once the job is created, you can click on **View job** button in the toast bar to see the corresponding job in the jobs page.
 
-    ![Задание резервного копирования создано](./media/backup-azure-manage-vms/created-job.png)
+    ![Backup job created](./media/backup-azure-manage-vms/created-job.png)
 
-4. После успешного завершения задания будет создана точка восстановления, которую можно использовать для восстановления виртуальной машины. При этом на странице **Защищенные элементы** также будет увеличено на 1 значение в столбце точки восстановления.
+4. After successful completion of the job, a recovery point will be created which you can use to restore the virtual machine. This will also increment the recovery point column value by 1 in **Protected Items** page.
 
-## Отключение защиты виртуальных машин
-Для останова будущих процессов резервного копирования виртуальной машины можно использовать следующие варианты:
+## <a name="stop-protecting-virtual-machines"></a>Stop protecting virtual machines
+You can choose to stop the future backups of a virtual machine with the following options:
 
-- Сохранить резервную копию данных, связанную с виртуальной машиной, в хранилище службы архивации Azure.
-- Удалить резервную копию данных, связанную с виртуальной машиной.
+- Retain backup data associated with virtual machine in Azure Backup vault
+- Delete backup data associated with virtual machine
 
-Если вы решили сохранить резервные копии виртуальной машиной, эти данные можно использовать для ее восстановления. Для получения дополнительных сведений о ценах для таких виртуальных машин щелкните [здесь](https://azure.microsoft.com/pricing/details/backup/).
+If you have selected to retain backup data associated with virtual machine, you can use the backup data to restore the virtual machine. For pricing details for such virtual machines, click [here](https://azure.microsoft.com/pricing/details/backup/).
 
-Чтобы остановить защиту для виртуальной машины, выполните следующие действия:
+To Stop protection for a virtual machine:
 
-1. Перейдите на страницу **Защищенные элементы**, выберите тип фильтра **Виртуальная машина Azure** (если он еще не выбран) и нажмите кнопку **Выбрать**.
+1. Navigate to **Protected Items** page and select **Azure virtual machine** as the filter type (if not already selected) and click on **Select** button.
 
-    ![Тип виртуальной машины](./media/backup-azure-manage-vms/vm-type.png)
+    ![VM Type](./media/backup-azure-manage-vms/vm-type.png)
 
-2. Выберите виртуальную машину и нажмите кнопку **Остановить защиту** в нижней части страницы.
+2. Select the virtual machine and click on **Stop Protection** at the bottom of the page.
 
-    ![остановка защиты;](./media/backup-azure-manage-vms/stop-protection.png)
+    ![Stop protection](./media/backup-azure-manage-vms/stop-protection.png)
 
-3. По умолчанию служба архивации Azure не удаляет данные резервных копий, связанные с виртуальной машиной.
+3. By default, Azure Backup doesn’t delete the backup data associated with the virtual machine.
 
-    ![Подтверждение остановки защиты](./media/backup-azure-manage-vms/confirm-stop-protection.png)
+    ![Confirm stop protection](./media/backup-azure-manage-vms/confirm-stop-protection.png)
 
-    Если вы хотите удалить данные резервных копий, установите флажок.
+    If you want to delete backup data, select the check box.
 
-    ![Флажок](./media/backup-azure-manage-vms/checkbox.png)
+    ![Checkbox](./media/backup-azure-manage-vms/checkbox.png)
 
-    Выберите причину остановки процесса резервного копирования. Хотя это и необязательно, указание причины остановки поможет рабочей группе службы архивации Azure понять причину остановки и определять приоритеты для сценариев клиентов.
+    Please select a reason for stopping the backup. While this is optional, providing a reason will help Azure Backup to work on the feedback and prioritize the customer scenarios.
 
-4. Нажмите кнопку **Отправить** для отправки задания **Остановить защиту**. Щелкните **Просмотреть задание** для просмотра соответствующего задания на странице **Задания**.
+4. Click on **Submit** button to submit the **Stop protection** job. Click on **View Job** to see the corresponding the job in **Jobs** page.
 
-    ![Остановить защиту](./media/backup-azure-manage-vms/stop-protect-success.png)
+    ![Stop protection](./media/backup-azure-manage-vms/stop-protect-success.png)
 
-    Если вы не выбрали вариант **Удалить связанные данные резервных копий** в мастере **Остановка защиты**, то после завершения задания состояние защиты изменится на **Защита остановлена**. Данные остаются в службе архивации Azure, пока не будут явно удалены. Данные всегда можно удалить, выбрав виртуальную машину на странице **Защищенные элементы** и нажав кнопку **Удалить**.
+    If you have not selected **Delete associated backup data** option during **Stop Protection** wizard, then post job completion, protection status changes to **Protection Stopped**. The data remains with Azure Backup until it is explicitly deleted. You can always delete the data by selecting the virtual machine in the **Protected Items** page and clicking **Delete**.
 
-    ![Защита остановлена](./media/backup-azure-manage-vms/protection-stopped-status.png)
+    ![Stopped protection](./media/backup-azure-manage-vms/protection-stopped-status.png)
 
-    Если выбран вариант **Удаление связанных архивируемых данных**, виртуальная машина не будет отображаться на странице **Защищенные элементы**.
+    If you have selected the **Delete associated backup data** option, the virtual machine won’t be part of the **Protected Items** page.
 
-## Повторное включение защиты для виртуальной машины
-Если вариант **Удалить связанные данные резервных копий** в мастере **Остановка защиты** не выбран, виртуальную машину можно защитить повторно путем выполнения процедуры, похожей на процедуру резервного копирования зарегистрированных виртуальных машин. После включения защиты для этой виртуальной машины сохранятся данные резервных копий, созданных до остановки защиты, и точек восстановления, созданных после повторной защиты.
+## <a name="re-protect-virtual-machine"></a>Re-protect Virtual machine
+If you have not selected the **Delete associate backup data** option in **Stop Protection**, you can re-protect the virtual machine by following the steps similar to backing up registered virtual machines. Once protected, this virtual machine will have backup data retained prior to stop protection and recovery points created after re-protect.
 
-После повторной защиты состояние защиты виртуальной машины изменится на **Защищено** при наличии точек восстановления до **остановки защиты**.
+After re-protect, the virtual machine’s protection status will be changed to **Protected** if there are recovery points prior to **Stop Protection**.
 
-  ![Виртуальная машина защищена повторно](./media/backup-azure-manage-vms/reprotected-status.png)
+  ![Reprotected VM](./media/backup-azure-manage-vms/reprotected-status.png)
 
->[AZURE.NOTE] При повторной защите виртуальной машины можно выбрать другую политику, отличную от политики, с помощью которой виртуальная машина была защищена изначально.
+>[AZURE.NOTE] When re-protecting the virtual machine, you can choose a different policy than the policy with which virtual machine was protected initially.
 
-## Отмена регистрации виртуальных машин
+## <a name="unregister-virtual-machines"></a>Unregister virtual machines
 
-Чтобы удалить виртуальную машину из хранилища службы архивации, выполните следующие действия.
+If you want to remove the virtual machine from the backup vault:
 
-1. Нажмите в нижней части страницы кнопку **ОТМЕНИТЬ РЕГИСТРАЦИЮ**.
+1. Click on the **UNREGISTER** button at the bottom of the page.
 
-    ![Отключение защиты](./media/backup-azure-manage-vms/unregister-button.png)
+    ![Disable protection](./media/backup-azure-manage-vms/unregister-button.png)
 
-    В нижней части экрана отобразится всплывающее уведомление с запросом на подтверждение. Чтобы продолжить, щелкните **ДА**.
+    A toast notification will appear at the bottom of the screen requesting confirmation. Click **YES** to continue.
 
-    ![Отключение защиты](./media/backup-azure-manage-vms/confirm-unregister.png)
+    ![Disable protection](./media/backup-azure-manage-vms/confirm-unregister.png)
 
-## Удаление данных резервных копий
-Резервные копии виртуальной машины можно удалить одним из двух способов:
+## <a name="delete-backup-data"></a>Delete Backup data
+You can delete the backup data associated with a virtual machine, either:
 
-- либо во время выполнения задания остановки защиты,
-- либо по окончании данного задания на виртуальной машине.
+- During Stop Protection Job
+- After a stop protection job is completed on a virtual machine
 
-Чтобы удалить резервные копии на виртуальной машине, которая находится в состоянии *Защита остановлена* после успешного завершения задания **Прекратить резервное копирование**:
+To delete backup data on a virtual machine, which is in the *Protection Stopped* state post successful completion of a **Stop Backup** job:
 
-1. Перейдите на страницу **Защищенные элементы**, выберите в поле *Тип* значение **Виртуальная машина Azure** и нажмите кнопку **Выбрать**.
+1. Navigate to the **Protected Items** page and select **Azure Virtual Machine** as *type* and click the **Select** button.
 
-    ![Тип виртуальной машины](./media/backup-azure-manage-vms/vm-type.png)
+    ![VM Type](./media/backup-azure-manage-vms/vm-type.png)
 
-2. Выберите виртуальную машину. Виртуальная машина будет находиться в состоянии **Защита остановлена** .
+2. Select the virtual machine. The virtual machine will be in **Protection Stopped** state.
 
-    ![Защита остановлена](./media/backup-azure-manage-vms/protection-stopped-b.png)
+    ![Protection stopped](./media/backup-azure-manage-vms/protection-stopped-b.png)
 
-3. Нажмите кнопку **УДАЛИТЬ** в нижней части страницы.
+3. Click the **DELETE** button at the bottom of the page.
 
-    ![Удаление резервных копий](./media/backup-azure-manage-vms/delete-backup.png)
+    ![Delete backup](./media/backup-azure-manage-vms/delete-backup.png)
 
-4. В мастере **удаления данных архивации** укажите причину удаления резервных копий (настоятельно рекомендуем) и нажмите кнопку **Отправить**.
+4. In the **Delete backup data** wizard, select a reason for deleting backup data (highly recommended) and click **Submit**.
 
-    ![Удаление данных резервных копий](./media/backup-azure-manage-vms/delete-backup-data.png)
+    ![Delete backup data](./media/backup-azure-manage-vms/delete-backup-data.png)
 
-5. При этом будет создано задание для удаления данных резервных копий для выбранной виртуальной машины. Нажмите **Просмотреть задание**, чтобы просмотреть соответствующее задание на странице "Задания".
+5. This will create a job to delete backup data of selected virtual machine. Click **View job** to see corresponding job in Jobs page.
 
-    ![Удаление данных выполнено](./media/backup-azure-manage-vms/delete-data-success.png)
+    ![Data deletion successful](./media/backup-azure-manage-vms/delete-data-success.png)
 
-    После завершения задания запись, соответствующая виртуальной машине, будет удалена со страницы **Защищенные элементы**.
+    Once the job is completed, the entry corresponding to the virtual machine will be removed from **Protected items** page.
 
-## Панель мониторинга
-На странице **Панель мониторинга** можно просмотреть сведения о виртуальных машинах Azure, их хранилище и заданиях, которые с ними связаны (за последние 24 часа). Здесь также можно просмотреть состояние резервного копирования и все связанные с ним ошибки.
+## <a name="dashboard"></a>Dashboard
+On the **Dashboard** page you can review information about Azure virtual machines, their storage, and jobs associated with them in the last 24 hours. You can view backup status and any associated backup errors.
 
-![Панель мониторинга](./media/backup-azure-manage-vms/dashboard-protectedvms.png)
+![Dashboard](./media/backup-azure-manage-vms/dashboard-protectedvms.png)
 
->[AZURE.NOTE] Значения на панели мониторинга обновляются каждые 24 часа.
+>[AZURE.NOTE] Values in the dashboard are refreshed once every 24 hours.
 
-## Аудит операций
-В службе архивации Azure можно просматривать журналы операций резервного копирования, запущенных пользователем. В них можно увидеть, какие именно операции управления выполнялись в хранилище службы архивации. Журналы операций позволяет проводить эффективный анализ и аудит операций резервного копирования.
+## <a name="auditing-operations"></a>Auditing Operations
+Azure backup provides review of the "operation logs" of backup operations triggered by the customer making it easy to see exactly what management operations were performed on the backup vault. Operations logs enable great post-mortem and audit support for the backup operations.
 
-В журналы операций записываются следующие операции:
+The following operations are logged in Operation logs:
 
-- регистрация;
-- отмена регистрации;
-- настройка защиты;
-- резервное копирование (как запланированное, так и запущенное по запросу с помощью кнопки «Моментальная архивация»);
-- восстановление;
-- остановка защиты;
-- удаление резервных копий;
-- добавление политики;
-- удаление политики;
-- изменение политики;
-- отмена задания.
+- Register
+- Unregister
+- Configure protection
+- Backup ( Both scheduled as well as on-demand backup through BackupNow)
+- Restore
+- Stop protection
+- Delete backup data
+- Add policy
+- Delete policy
+- Update policy
+- Cancel job
 
-Чтобы просмотреть журналы операций в соответствующем хранилище службы архивации, сделайте вот что:
+To view operation logs corresponding to a backup vault:
 
-1. На портале Azure перейдите в раздел **Службы управления** и откройте вкладку **Журналы операций**.
+1. Navigate to **Management services** in Azure portal, and then click the **Operation Logs** tab.
 
-    ![Журналы операций](./media/backup-azure-manage-vms/ops-logs.png)
+    ![Operation Logs](./media/backup-azure-manage-vms/ops-logs.png)
 
-2. В фильтрах в поле *Тип* выберите значение **Резервное копирование**, в поле *Имя службы* укажите имя хранилища службы архивации и нажмите кнопку **Отправить**.
+2. In the filters, select **Backup** as *Type* and specify the backup vault name in *service name* and click on **Submit**.
 
-    ![Фильтр журналов операций](./media/backup-azure-manage-vms/ops-logs-filter.png)
+    ![Operation Logs Filter](./media/backup-azure-manage-vms/ops-logs-filter.png)
 
-3. В журналах операций выберите любую операцию и нажмите **Сведения**, чтобы просмотреть соответствующую информацию.
+3. In the operations logs, select any operation and click  **Details** to see details corresponding to an operation.
 
-    ![Сведения о выборке из журналов операций](./media/backup-azure-manage-vms/ops-logs-details.png)
+    ![Operation Logs-Fetching details](./media/backup-azure-manage-vms/ops-logs-details.png)
 
-    Мастер **Сведения** содержит информацию о запущенной операции, коде задания, ресурсе, на котором была запущена операция, и времени начала операции.
+    The **Details wizard** contains information about the operation triggered, job Id, resource on which this operation is triggered, and start time of the operation.
 
-    ![Сведения об операции](./media/backup-azure-manage-vms/ops-logs-details-window.png)
+    ![Operation Details](./media/backup-azure-manage-vms/ops-logs-details-window.png)
 
-## Оповещения
-Вы можете получать настраиваемые оповещения о заданиях на портале. Для этого в PowerShell нужно определить правила оповещений для событий журналов операций. Мы рекомендуем использовать *PowerShell версии 1.3.0 или более поздней*.
+## <a name="alert-notifications"></a>Alert notifications
+You can get custom alert notifications for the jobs in portal. This is achieved by defining PowerShell-based alert rules on operational logs events. We recommend using *PowerShell version 1.3.0 or above*.
 
-Чтобы настроить пользовательское оповещение об ошибках резервного копирования, используйте команду такого типа:
+To define a custom notification to alert for backup failures, a sample command will look like:
 
 ```
 PS C:\> $actionEmail = New-AzureRmAlertRuleEmail -CustomEmail contoso@microsoft.com
 PS C:\> Add-AzureRmLogAlertRule -Name backupFailedAlert -Location "East US" -ResourceGroup RecoveryServices-DP2RCXUGWS3MLJF4LKPI3A3OMJ2DI4SRJK6HIJH22HFIHZVVELRQ-East-US -OperationName Microsoft.Backup/backupVault/Backup -Status Failed -TargetResourceId /subscriptions/86eeac34-eth9a-4de3-84db-7a27d121967e/resourceGroups/RecoveryServices-DP2RCXUGWS3MLJF4LKPI3A3OMJ2DI4SRJK6HIJH22HFIHZVVELRQ-East-US/providers/microsoft.backupbvtd2/BackupVault/trinadhVault -Actions $actionEmail
 ```
 
-**ResourceId**. Этот параметр можно получить во всплывающем окне "Журналы операций", как описано в разделе выше. ResourceUri во всплывающем окне сведений об операции — это и есть параметр ResourceId, который необходимо указать для этого командлета.
+**ResourceId**: You can get this from Operations Logs popup as described in above section. ResourceUri in details popup window of an operation is the ResourceId to be supplied for this cmdlet.
 
-**OperationName**. Этот параметр будет иметь формат Microsoft.Backup/backupvault/<EventName>, где EventName соответствует одному из следующих значений: Register,Unregister,ConfigureProtection,Backup,Restore,StopProtection,DeleteBackupData,CreateProtectionPolicy,DeleteProtectionPolicy,UpdateProtectionPolicy.
+**OperationName**: This will be of the format "Microsoft.Backup/backupvault/<EventName>" where EventName is one of Register,Unregister,ConfigureProtection,Backup,Restore,StopProtection,DeleteBackupData,CreateProtectionPolicy,DeleteProtectionPolicy,UpdateProtectionPolicy
 
-**Status**. Поддерживаемые значения: Started, Succeeded и Failed.
+**Status**: Supported values are- Started, Succeeded and Failed.
 
-**ResourceGroup**. Группа ресурсов, к которой принадлежит ресурс, где запущена операция. Это значение можно получить из значения ResourceId. Значение между полями */resourceGroups/* и */providers/* в значении ResourceId — это значение для параметра ResourceGroup.
+**ResourceGroup**:ResourceGroup of the resource on which operation is triggered. You can obtain this from ResourceId value. Value between fields */resourceGroups/* and */providers/* in ResourceId value is the value for ResourceGroup.
 
-**Name**. Имя правила оповещения.
+**Name**: Name of the Alert Rule.
 
-**CustomEmail**. Это адрес электронной почты для отправки оповещений.
+**CustomEmail**: Specify the custom email address to which you want to send alert notification
 
-**SendToServiceOwners**. Этот параметр отправляет оповещения всем администраторам и соадминистраторам подписки. Кроме того, его можно использовать в командлете **New-AzureRmAlertRuleEmail**.
+**SendToServiceOwners**: This option sends alert notification to all administrators and co-administrators of the subscription. It can be used in **New-AzureRmAlertRuleEmail** cmdlet
 
-### Связанные с оповещениями ограничения
-К оповещениям на основе событий применяются следующие ограничения.
+### <a name="limitations-on-alerts"></a>Limitations on Alerts
+Event-based alerts are subjected to the following limitations:
 
-1. Оповещения активируются на всех виртуальных машинах в хранилище службы архивации. Оповещения нельзя настроить для определенного набора виртуальных машин в хранилище службы архивации.
-2. Эта функция предоставляется в предварительной версии. [Подробнее](../azure-portal/insights-powershell-samples.md#create-alert-rules)
-3. Вы будете получать оповещения от отправителя alerts-noreply@mail.windowsazure.com. В настоящее время невозможно изменить отправителя электронной почты.
+1. Alerts are triggered on all virtual machines in the backup vault. You cannot customize it to get alerts for specific set of virtual machines in a backup vault.
+2. This feature is in Preview. [Learn more](../azure-portal/insights-powershell-samples.md#create-alert-rules)
+3. You will receive alerts from "alerts-noreply@mail.windowsazure.com". Currently you can't modify the email sender.
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Next steps
 
-- [Восстановление виртуальных машин Azure](backup-azure-restore-vms.md)
+- [Restore Azure VMs](backup-azure-restore-vms.md)
 
-<!---HONumber=AcomDC_0907_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

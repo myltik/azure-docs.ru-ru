@@ -1,6 +1,6 @@
 <properties
-pageTitle="Добавление фирменной символики организации для определенного языка на страницу входа в предварительной версии Azure Active Directory | Microsoft Azure"
-description="Узнайте, как добавить изображения фирменной символики и текст организации для определенных языков на страницу входа Azure."
+pageTitle="Add language-specific company branding to your sign-in page in the Azure Active Directory preview | Microsoft Azure"
+description="Learn how to add a language specific company branding pictures and text to an Azure sign-in page"
 services="active-directory"
 documentationCenter=""
 authors="curtand"
@@ -16,42 +16,47 @@ ms.topic="article"
 ms.date="09/12/2016"
 ms.author="curtand"/>
 
-# Добавление фирменной символики организации для определенного языка на страницу входа в предварительной версии Azure Active Directory
 
-Чтобы избежать путаницы, многие компании используют единый стиль оформления всех веб-сайтов и служб, которыми они управляют. Предварительная версия Azure Active Directory предоставляет такую возможность, позволяя настроить внешний вид страницы входа, добавив на нее логотип организации и цветовые схемы. [Что есть в предварительной версии?](active-directory-preview-explainer.md) Страница входа: эта страница отображается при входе в Office 365 или другие веб-приложения, использующие Azure AD в качестве поставщика удостоверений. На этой странице вводятся учетные данные.
+# <a name="add-language-specific-company-branding-to-your-sign-in-page-in-the-azure-active-directory-preview"></a>Add language-specific company branding to your sign-in page in the Azure Active Directory preview
 
-## Настройка страницы входа для другого языка
+To avoid confusion, many companies want to apply a consistent look and feel across all the websites and services they manage. Azure Active Directory preview provides this capability by allowing you to customize the appearance of the sign-in page with your company logo and custom color schemes. [What's in the preview?](active-directory-preview-explainer.md) The sign-in page is the page that appears when you sign in to Office 365 or other web-based applications that are using Azure AD as your identity provider. You interact with this page to enter your credentials.
 
-Вы можете добавить на пользовательскую страницу входа элементы, зависящие от языка, только в том случае, если вы уже создали пользовательскую страницу входа, как описано в разделе [Добавление фирменной символики организации на страницу входа](active-directory-branding-custom-signon-azure-portal.md). Можно настроить по одному набору настраиваемых элементов по умолчанию для страницы входа каждого каталога. Настроив набор элементов страницы по умолчанию, вы сможете настроить дополнительные версии для разных языков. Вы также можете смешивать разные элементы. Например, можно выполнить следующее.
+## <a name="customizing-the-sign-in-page-for-another-language"></a>Customizing the sign-in page for another language
 
-- Создайте **изображение для страницы по умолчанию**, подходящее для всех языков, а затем создайте отдельные версии для английского и русского языков. Когда вы настроите в браузере эти языки (один или оба), отобразится соответствующее изображение. Для всех других языков отобразится изображение по умолчанию.
+You can add language-specific elements to your custom sign-in page only if you have already created a custom sign-in page as described in [Add company branding to your sign-in page](active-directory-branding-custom-signon-azure-portal.md). You can configure one sign-in page per directory with a default set of customizable elements. After you’ve configured the default set of page elements, you can configure more versions for different locales. You can also mix and match various elements. For example, you could:
 
-- Настройте разные логотипы для организации (например, японскую и китайскую версии).
+- Create a default **Sign-in page image** that works for all cultures, then create specific versions for English and French. When you set your browsers to one of these two languages, the language-specific image appears, while the default illustration appears for all other languages.
 
-Мы рекомендуем использовать небольшое количество языковых версий, чтобы не усложнять обслуживание и не понижать производительность.
+- Configure different logos for your organization (for example, Japanese or Hebrew versions).
 
-**Добавление фирменной символики компании в ваш каталог:**
+We recommend that you keep the number of language variations low, for maintenance and performance reasons.
 
-1.  Войдите на [портал Azure](https://portal.azure.com) с помощью учетной записи глобального администратора каталога.
+**To add company branding to your directory:**
 
-2.  Выберите **Больше служб**, введите **Пользователи и группы** в текстовое поле, а затем нажмите клавишу **ВВОД**.
+1.  Sign in to the [Azure portal](https://portal.azure.com) with an account that's a global admin for the directory.
 
-    ![Открытие страницы "Управление пользователями"](./media/active-directory-branding-localize-azure-portal/user-management.png)
+2.  Select **More services**, enter **Users and groups** in the text box, and then select **Enter**.
 
-3. В колонке **Пользователи и группы** выберите **Company branding** (Фирменная символика компании).
+    ![Opening user management](./media/active-directory-branding-localize-azure-portal/user-management.png)
 
-4. В колонке **Company branding** (Фирменная символика компании) щелкните **Добавить язык**.
+3. On the **Users and groups** blade, select **Company branding**.
 
-    ![Добавление элементов фирменной символики для определенного языка](./media/active-directory-branding-localize-azure-portal/add-language.png)
+4. On the **Users and groups - Company branding** blade, select the **Add language** command.
 
-5. Измените элементы, которые нужно настроить. Все элементы необязательные.
+    ![Add language-specific branding elements](./media/active-directory-branding-localize-azure-portal/add-language.png)
 
-6. Щелкните **Сохранить**.
+5. Modify the elements you want to customize. All elements are optional.
 
-Применение каких-либо изменений фирменной символики страницы входа может занять до одного часа.
+6. Click **Save**.
 
-## Дальнейшие действия
+It can take up to an hour for any changes you made to the sign-in page branding to appear.
 
-[Добавление фирменной символики организации на страницу входа](active-directory-branding-custom-signon-azure-portal.md)
+## <a name="next-steps"></a>Next steps
 
-<!---HONumber=AcomDC_0914_2016-->
+[Add company branding to your sign-in page](active-directory-branding-custom-signon-azure-portal.md)
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

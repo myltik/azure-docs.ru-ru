@@ -1,44 +1,49 @@
 <properties
-	pageTitle="Цена и производительности пула эластичных БД SQL"
-	description="Сведения о ценах на пулы эластичных баз данных."
-	services="sql-database"
-	documentationCenter=""
-	authors="srinia"
-	manager="jhubbard"
-	editor=""/>
+    pageTitle="SQL Database elastic pool price and performance"
+    description="Pricing information specific to elastic database pools."
+    services="sql-database"
+    documentationCenter=""
+    authors="srinia"
+    manager="jhubbard"
+    editor=""/>
 
 <tags
-	ms.service="sql-database"
-	ms.devlang="NA"
-	ms.date="05/27/2016"
-	ms.author="srinia"
-	ms.workload="data-management"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"/>
+    ms.service="sql-database"
+    ms.devlang="NA"
+    ms.date="05/27/2016"
+    ms.author="srinia"
+    ms.workload="data-management"
+    ms.topic="article"
+    ms.tgt_pltfrm="NA"/>
 
 
-# Информация о выставлении счетов и ценах на пул эластичных баз данных
 
-Счета по эластичным пулам баз данных выставляются в соответствии со следующими характеристиками:
+# <a name="elastic-database-pool-billing-and-pricing-information"></a>Elastic database pool billing and pricing information
 
-- Счет по эластичному пулу выставляется после его создания, даже если в нем нет баз данных.
-- Оплата за эластичный пул является почасовой. Она совпадает с частотой измерения уровней производительности отдельных баз данных.
-- Если размер пула эластичных БД изменен на новое значение eDTU, то оплата пула согласно этому новому значению eDTU начисляется только после завершения операции по изменению размера. Используется та же схема, как при изменении уровня производительности автономных баз данных.
+Elastic database pools are billed per the following characteristics:
 
-
-- Цена пула эластичных БД основывается на количестве eDTU пула. Стоимость пула эластичных БД не зависит от числа эластичных баз данных в нем и их использования.
-- Цена вычисляется по формуле: (количество eDTU пула) x (цена за единицу eDTU).
-
-Цена за единицу eDTU для пула эластичных БД выше, чем цена за единицу eDTU для автономной базы данных того же уровня служб. Подробнее об этом можно узнать в статье [Стоимость использования Базы данных SQL](https://azure.microsoft.com/pricing/details/sql-database/).
+- An elastic pool is billed upon its creation, even when there are no databases in the pool.
+- An elastic pool is billed hourly. This is the same metering frequency as for performance levels of single databases.
+- If an elastic pool is resized to a new amount of eDTUs, then the pool is not billed according to the new amount of eDTUS until the resizing operation completes. This follows the same pattern as changing the performance level of standalone databases.
 
 
-Описание единиц eDTU и уровней служб см. в разделе [Параметры базы данных SQL и производительность: возможности разных уровней служб](sql-database-service-tiers.md).
+- The price of an elastic pool is based on the number of eDTUs of the pool. The price of an elastic pool is independent of the number and utilization of the elastic databases within it.
+- Price is computed by (number of pool eDTUs)x(unit price per eDTU).
 
-## Дальнейшие действия
+The unit eDTU price for an elastic pool is higher than the unit DTU price for a standalone database in the same service tier. For details, see [SQL Database pricing](https://azure.microsoft.com/pricing/details/sql-database/). 
 
-- [Создание пула эластичных баз данных](sql-database-elastic-pool-create-portal.md)
-- [Мониторинг, управление и размер пула эластичных баз данных](sql-database-elastic-pool-manage-portal.md)
-- [Параметры и производительность баз данных SQL: возможности разных уровней службы](sql-database-service-tiers.md)
-- [Сценарий PowerShell для идентификации баз данных, подходящих для пула эластичных баз данных](sql-database-elastic-pool-database-assessment-powershell.md)
 
-<!---HONumber=AcomDC_0601_2016-->
+To understand the eDTUs and service tiers, see [SQL Database options and performance](sql-database-service-tiers.md).
+
+## <a name="next-steps"></a>Next steps
+
+- [Create an elastic database pool](sql-database-elastic-pool-create-portal.md)
+- [Monitor, manage, and size an elastic database pool](sql-database-elastic-pool-manage-portal.md)
+- [SQL Database options and performance: understand what's available in each service tier](sql-database-service-tiers.md)
+- [PowerShell script for identifying databases suitable for an elastic database pool](sql-database-elastic-pool-database-assessment-powershell.md)
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

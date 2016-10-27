@@ -1,17 +1,20 @@
 
-| УРОВЕНЬ | БЕСПЛАТНЫЙ | BASIC | СТАНДАРТ |
+| TIER: | FREE | BASIC | STANDARD |
 |----|----|----|----|
-| Количество вызовов API | 500 тыс. | 1,5 млн на единицу | 15 млн на единицу |
-| Количество активных устройств | 500 | Без ограничений | Без ограничений |
-| Масштаб | Недоступно | До 6 единиц | Неограниченное количество единиц |
-| Push-уведомления | Включен уровень Free Центров уведомлений, до 1 млн push-уведомлений | Включен уровень Basic Центров уведомлений, до 10 млн push-уведомлений | Включен уровень Standard Центров уведомлений, до 10 млн push-уведомлений |
-| Обмен сообщениями в режиме реального времени и <br/>веб-сокеты | Ограничено | 350 на мобильную службу | Без ограничений |
-| Синхронизация в автономном режиме | Ограничено | Включено | Включено |
-| Запланированные задания | Ограничено | Включено | Включено |
-| База данных SQL (обязательный компонент) <br/>Для увеличения емкости применяются стандартные тарифы | Включено 20 МБ | Включено 20 МБ | Включено 20 МБ |
-| Производительность ЦП | 60 мин в день | Без ограничений | Без ограничений |
-| Передача исходящих данных | 165 МБ в день (данный объем выделяется каждый день) | Включено | Включено |
+| API Calls | 500 K | 1.5 M / unit | 15 M / unit |
+| Active Devices | 500 | Unlimited | Unlimited |
+| Scale | N/A | Up to 6 units | Unlimited units |
+| Push Notifications | Notification Hubs Free Tier included, up to 1 M pushes | Notification Hubs Basic Tier included, up to 10 M pushes | Notification Hubs Standard Tier included, up to 10 M pushes |
+| Real time messaging/<br/>Web Sockets | Limited | 350 / mobile service | Unlimited |
+| Offline synchronizations | Limited | Included | Included |
+| Scheduled jobs  | Limited | Included | Included |
+| SQL Database (required) <br/>Standard rates apply for additional capacity | 20 MB included | 20 MB included | 20 MB included |
+| CPU capacity | 60 minutes / day | Unlimited | Unlimited |
+| Outbound data transfer | 165 MB per day (daily Rollover) | Included | Included |
 
-Дополнительные сведения об этих ограничениях и ценах см. в статье [Цены на использование мобильных служб](https://azure.microsoft.com/pricing/details/mobile-services/).
+For additional details on these limits and for information on pricing, see [Mobile Services Pricing](https://azure.microsoft.com/pricing/details/mobile-services/). 
 
-<!---HONumber=Oct15_HO3-->
+
+<!--HONumber=Oct16_HO2-->
+
+

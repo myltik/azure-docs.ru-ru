@@ -1,6 +1,6 @@
 <properties
-   pageTitle="События Reliable Actors | Microsoft Azure"
-   description="Общие сведения о событиях для Reliable Actors Service Fabric."
+   pageTitle="Reliable Actors events | Microsoft Azure"
+   description="Introduction to events for Service Fabric Reliable Actors."
    services="service-fabric"
    documentationCenter=".net"
    authors="vturecek"
@@ -17,12 +17,13 @@
    ms.author="amanbha"/>
 
 
-# События субъекта
-События субъекта — это способ отправки уведомлений от субъекта клиентам без гарантии доставки. Они предназначены для взаимодействия между субъектом и клиентами, и их не следует использовать для обмена данными между субъектами.
 
-В следующих фрагментах кода показано, как использовать события субъекта в приложении.
+# <a name="actor-events"></a>Actor events
+Actor events provide a way to send best-effort notifications from the actor to the clients. Actor events are designed for actor-to-client communication and should not be used for actor-to-actor communication.
 
-Определите интерфейс, который описывает события, публикуемые субъектом. Он должен быть производным от интерфейса `IActorEvents`. Аргументы методов должны относиться к типу [сериализуемых контрактов данных](service-fabric-reliable-actors-notes-on-actor-type-serialization.md). Методы не должны ничего возвращать, так как уведомления являются однонаправленными и их доставка не гарантируется.
+The following code snippets show how to use actor events in your application.
+
+Define an interface that describes the events published by the actor. This interface must be derived from the `IActorEvents` interface. The arguments of the methods must be [data contract serializable](service-fabric-reliable-actors-notes-on-actor-type-serialization.md). The methods must return void, as event notifications are one way and best effort.
 
 ```csharp
 public interface IGameEvents : IActorEvents
@@ -31,7 +32,7 @@ public interface IGameEvents : IActorEvents
 }
 ```
 
-Объявите события, публикуемые субъектом, в интерфейсе субъекта.
+Declare the events published by the actor in the actor interface.
 
 ```csharp
 public interface IGameActor : IActor, IActorEventPublisher<IGameEvents>
@@ -42,7 +43,7 @@ public interface IGameActor : IActor, IActorEventPublisher<IGameEvents>
 }
 ```
 
-На стороне клиента реализуйте обработчик событий.
+On the client side, implement the event handler.
 
 ```csharp
 class GameEventsHandler : IGameEvents
@@ -54,7 +55,7 @@ class GameEventsHandler : IGameEvents
 }
 ```
 
-Также на стороне клиента создайте прокси-сервер для субъекта, который публикует события, и подпишитесь на его события.
+On the client, create a proxy to the actor that publishes the event and subscribe to its events.
 
 ```csharp
 var proxy = ActorProxy.Create<IGameActor>(
@@ -63,19 +64,23 @@ var proxy = ActorProxy.Create<IGameActor>(
 await proxy.SubscribeAsync<IGameEvents>(new GameEventsHandler());
 ```
 
-В случае отработки отказа субъект может переключиться на другой процесс или узел. Прокси-сервер субъекта управляет активными подписками и автоматически повторно выполняет подписывание на них. Чтобы изменить интервал между повторными операциями подписывания, используйте API `ActorProxyEventExtensions.SubscribeAsync<TEvent>`. Для отмены подписки используйте API `ActorProxyEventExtensions.UnsubscribeAsync<TEvent>`.
+In the event of failovers, the actor may fail over to a different process or node. The actor proxy manages the active subscriptions and automatically re-subscribes them. You can control the re-subscription interval through the `ActorProxyEventExtensions.SubscribeAsync<TEvent>` API. To unsubscribe, use the `ActorProxyEventExtensions.UnsubscribeAsync<TEvent>` API.
 
-На стороне субъекта достаточно просто публиковать события, когда они происходят. При наличии подписчиков на событие субъекта среда выполнения будет отправлять им уведомление.
+On the actor, simply publish the events as they happen. If there are subscribers to the event, the Actors runtime will send them the notification.
 
 ```csharp
 var ev = GetEvent<IGameEvents>();
 ev.GameScoreUpdated(Id.GetGuidId(), score);
 ```
 
-## Дальнейшие действия
- - [Повторный вход субъекта](service-fabric-reliable-actors-reentrancy.md)
- - [Диагностика и мониторинг производительности в Reliable Actors](service-fabric-reliable-actors-diagnostics.md)
- - [Справочная документация по API субъектов](https://msdn.microsoft.com/library/azure/dn971626.aspx)
- - [Пример кода](https://github.com/Azure/servicefabric-samples)
+## <a name="next-steps"></a>Next steps
+ - [Actor reentrancy](service-fabric-reliable-actors-reentrancy.md)
+ - [Actor diagnostics and performance monitoring](service-fabric-reliable-actors-diagnostics.md)
+ - [Actor API reference documentation](https://msdn.microsoft.com/library/azure/dn971626.aspx)
+ - [Sample code](https://github.com/Azure/servicefabric-samples)
 
-<!---HONumber=AcomDC_0907_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

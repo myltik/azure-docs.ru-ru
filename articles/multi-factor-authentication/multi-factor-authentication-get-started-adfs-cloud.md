@@ -1,96 +1,106 @@
 <properties
-	pageTitle="Защита облачных ресурсов с помощью Azure Multi-Factor Authentication и AD FS"
-	description="Эта страница посвящена Azure Multi-Factor Authentication. Она содержит сведения по началу работы с Azure MFA и AD FS в облаке."
-	services="multi-factor-authentication"
-	documentationCenter=""
-	authors="kgremban"
-	manager="femila"
-	editor="curtland"/>
+    pageTitle="Securing cloud resources with Azure Multi-Factor Authentication and AD FS"
+    description="This is the Azure Multi-Factor authentication page that describes how to get started with Azure MFA and AD FS in the cloud."
+    services="multi-factor-authentication"
+    documentationCenter=""
+    authors="kgremban"
+    manager="femila"
+    editor="curtland"/>
 
 <tags
-	ms.service="multi-factor-authentication"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="08/04/2016"
-	ms.author="kgremban"/>
-
-# Защита облачных ресурсов с помощью Azure Multi-Factor Authentication и AD FS
-
-Если в организации настроена федерация с Azure Active Directory и имеются ресурсы, доступные для Azure AD, то, чтобы обеспечить безопасность этих ресурсов, вы можете использовать Azure Multi-Factor Authentication или службы федерации Active Directory. Чтобы защитить ресурсы Azure Active Directory с помощью Azure Multi-Factor Authentication или служб федерации Active Directory, следуйте инструкциям, приведенным ниже.
-
-## Вот что нужно сделать, чтобы защитить ресурсы Azure AD с помощью AD FS.
+    ms.service="multi-factor-authentication"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="08/04/2016"
+    ms.author="kgremban"/>
 
 
+# <a name="securing-cloud-resources-with-azure-multi-factor-authentication-and-ad-fs"></a>Securing cloud resources with Azure Multi-Factor Authentication and AD FS
 
-1. Чтобы активировать учетную запись, выполните действия, описанные в статье [Включение многофакторной проверки подлинности](active-directory/multi-factor-authentication-get-started-cloud.md#turn-on-multi-factor-authentication-for-users).
-2. Чтобы настроить правило утверждений, используйте такую процедуру:
+If your organization is federated with Azure Active Directory and you have resources that are accessed by Azure AD, you can use Azure Multi-Factor Authentication or Active Directory Federation Services to secure these resources. Use the procedures below to secure Azure Active Directory resources with either Azure Multi-Factor Authentication or Active Directory Federation Services.
 
-![Облако](./media/multi-factor-authentication-get-started-adfs-cloud/adfs1.png)
-
-- 	Запустите консоль управления AD FS.
-- 	Перейдите к папке «Отношения доверия с проверяющей стороной» и щелкните нужное отношение правой кнопкой мыши. Выберите элемент «Изменить правила утверждения…».
-- 	Нажмите кнопку «Добавить правило…».
-- 	В раскрывающемся меню выберите пункт «Отправлять утверждения с помощью пользовательского правила» и нажмите кнопку «Далее».
-- 	Введите имя для правила утверждений.
-- 	Под заголовком «Пользовательское правило» добавьте приведенный ниже код.
-
-
-		=> issue(Type = "http://schemas.microsoft.com/claims/authnmethodsreferences", Value = "http://schemas.microsoft.com/claims/multipleauthn");
-
-	Соответствующее утверждение.
-
-		<saml:Attribute AttributeName="authnmethodsreferences" AttributeNamespace="http://schemas.microsoft.com/claims">
-		<saml:AttributeValue>http://schemas.microsoft.com/claims/multipleauthn</saml:AttributeValue>
-		</saml:Attribute>
-- Нажмите кнопку ОК. Нажмите кнопку Готово. Закройте консоль управления AD FS.
-
-После этого пользователи смогут выполнять вход с помощью локальных средств (например, с помощью смарт-карты).
-
-## Доверенные IP-адреса для федеративных пользователей
-Доверенные IP-адреса позволяют администраторам обойти многофакторную проверку подлинности для конкретного IP-адреса или для федеративных пользователей, запросы от которых формируются в их собственной интрасети. В следующих разделах описывается настройка многофакторной проверки подлинности с доверенными IP-адресами в Azure для федеративных пользователей и для обхода многофакторной проверки подлинности, когда запросы от федеративных пользователей формируются в их собственной интрасети. Для этого необходимо настроить транзит в службе федерации Active Directory или отфильтровывать входящие шаблоны утверждения с типом утверждения внутри корпоративной сети. В этом примере для доверенных отношений с проверяющей стороной используется Office 365.
-
-### Настройка правил утверждений AD FS
-
-Первое, что необходимо сделать, — настроить утверждения AD FS. Мы создадим два правила утверждений: одно для типа утверждений внутри корпоративной сети и второе для пользователей, выполнивших вход.
-
-1. Откройте оснастку управления AD FS.
-2. В левой части выберите «Доверенные отношения с проверяющей стороной».
-3. В середине щелкните правой кнопкой мыши на «Платформе идентификации Microsoft Office 365» и выберите **Изменение правил для утверждений...**. ![Облако](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip1.png)
-4. В «Правилах преобразования выдачи» выберите **Добавить правило**. ![Облако](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip2.png)
-5. В мастере добавления правила преобразования утверждения выберите «Транзит» или «Отфильтровать входящее утверждение» из раскрывающегося списка и нажмите кнопку «Далее». ![Облако](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip3.png)
-6. В поле рядом с именем правила утверждения укажите имя правила. Пример: InsideCorpNet.
-7. Из раскрывающегося списка рядом с «Типом входящего утверждения» выберите «Внутри корпоративной сети». ![Облако](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip4.png)
-8. Нажмите кнопку Готово.
-9. В «Правилах преобразования выдачи» выберите **Добавить правило**.
-10. В мастере добавления правила преобразования утверждения выберите «Отправка утверждений с помощью настраиваемого правила» из раскрывающегося списка и нажмите кнопку Далее.
-11. В поле рядом с «Именем правила утверждения» выберите «Не затрагивать пользователей, вошедших в систему».
-12. В поле «Пользовательское правило» введите следующее:
-
-		c:[Type == "http://schemas.microsoft.com/2014/03/psso"]
-			=> issue(claim = c);
-![Облако](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip5.png)
-13. Нажмите кнопку **Готово**
-14. Нажмите кнопку **Применить**.
-15. Нажмите кнопку **ОК**.
-16. Откройте оснастку управления AD FS.
+## <a name="to-secure-azure-ad-resources-using-ad-fs-do-the-following:"></a>To secure Azure AD resources using AD FS do the following:
 
 
 
-### Настройка Multi-Factor Authentication с доверенными IP-адресами в Azure для федеративных пользователей
-Теперь, когда утверждения добавлены, можно настроить доверенные IP-адреса.
+1. Use the steps outlined in [turn-on multi-factor authentication](active-directory/multi-factor-authentication-get-started-cloud.md#turn-on-multi-factor-authentication-for-users) for users to enable an account.
+2. Use the following procedure to setup a claims rule:
 
-1. Войдите на портал управления Azure.
-2. В левой части щелкните Active Directory.
-3. В пункте «Каталог» выберите каталог, для которого необходимо задать «Доверенные IP-адреса».
-4. На выбранном каталоге щелкните "Настроить".
-5. В разделе многофакторной проверки подлинности щелкните "Управление параметрами службы".
-6. На странице настроек службы в списке доверенных IP-адресов выберите **Для запросов от федеративных пользователей, поступающих из моей интрасети**. ![Облако](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip6.png)
-7. Щелкните "Сохранить".
-8. После применения обновлений щелкните "Закрыть".
+![Cloud](./media/multi-factor-authentication-get-started-adfs-cloud/adfs1.png)
+
+-   Start the AD FS Management console.
+-   Navigate to Relying Party Trusts and right-click on the Relying Party Trust. Select Edit Claim Rules…
+-   Click Add Rule…
+-   From the drop down, select Send Claims Using a Custom Rule and click Next.
+-   Enter a name for the claim rule.
+-   Under Custom rule: add the following:
 
 
-Это все! Теперь федеративные пользователи Office 365 должны использовать MFA только в том случае, если утверждение сформировано за пределами корпоративной сети.
+        => issue(Type = "http://schemas.microsoft.com/claims/authnmethodsreferences", Value = "http://schemas.microsoft.com/claims/multipleauthn");
 
-<!---HONumber=AcomDC_0921_2016-->
+    Corresponding claim:
+
+        <saml:Attribute AttributeName="authnmethodsreferences" AttributeNamespace="http://schemas.microsoft.com/claims">
+        <saml:AttributeValue>http://schemas.microsoft.com/claims/multipleauthn</saml:AttributeValue>
+        </saml:Attribute>
+- Click OK. Click Finish. Close the AD FS Management console.
+
+Users then can complete signing in using the on-premises method (such as smartcard).
+
+## <a name="trusted-ips-for-federated-users"></a>Trusted IPs for federated users
+Trusted IPs allow administrators to by-pass multi-factor authentication for specific IP address or for federated users that have requests originating from within their own intranet. The following sections will describe how to configure Azure Multi-Factor Authentication Trusted IPs with federated users and by-pass multi-factor authentication, when a request originates from within a federated users intranet.  This is achieved by configuring AD FS to use a pass through or filter an incoming claim template with the Inside Corporate Network claim type.  This example uses Office 365 for our Relying Party Trusts.
+
+### <a name="configure-the-ad-fs-claims-rules"></a>Configure the AD FS claims rules
+
+The first thing we need to do is to configure the AD FS claims. We will be creating two claims rules, one for the Inside the Corporate Network claim type and an additional one for keeping our users signed in.
+
+1. Open AD FS Management.
+2. On the left, select Relying Party Trusts.
+3. In the middle, right-click on Microsoft Office 365 Identity Platform and select **Edit Claim Rules…**
+![Cloud](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip1.png)
+4. On Issuance Transform Rules click **Add Rule.**
+![Cloud](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip2.png)
+5. On the Add Transform Claim Rule Wizard, select Pass Through or Filter an Incoming Claim from the drop down and click Next.
+![Cloud](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip3.png)
+6. In the box next to Claim rule name, give your rule a name. For example: InsideCorpNet.
+7. From the drop-down, next to Incoming claim type, select Inside Corporate Network.
+![Cloud](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip4.png)
+8. Click Finish.
+9. On Issuance Transform Rules click **Add Rule**.
+10. On the Add Transform Claim Rule Wizard, select Send Claims Using a Custom Rule from the drop down and click Next.
+11. In the box under Claim rule name: enter Keep Users Signed In.
+12. In the Custom rule box enter:
+
+        c:[Type == "http://schemas.microsoft.com/2014/03/psso"]
+            => issue(claim = c);
+![Cloud](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip5.png)
+13. Click **Finish**.
+14. Click **Apply**.
+15. Click **Ok**.
+16. Close AD FS Management.
+
+
+
+### <a name="configure-azure-multi-factor-authentication-trusted-ips-with-federated-users"></a>Configure Azure Multi-Factor Authentication Trusted IPs with Federated Users
+Now that the claims are in place, we cane configure trusted ips.
+
+1. Sign-in to the Azure Management Portal.
+2. On the left, click Active Directory.
+3. Under, Directory click on the directory you wish to setup Trusted IPs on.
+4. On the Directory you have selected, click Configure.
+5. In the multi-factor authentication section, click Manage service settings.
+6. On the Service Settings page, under Trusted IPs, select **For requests from federated users originating from my intranet.**
+![Cloud](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip6.png)
+7. Click save.
+8. Once the updates have been applied, click close.
+
+
+That’s it! At this point, federated Office 365 users should only have to use MFA when a claim originates from outside the corporate intranet.
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

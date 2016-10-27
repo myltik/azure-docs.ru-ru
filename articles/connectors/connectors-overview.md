@@ -1,12 +1,12 @@
 <properties
-	pageTitle="Обзор соединителей приложений логики | Microsoft Azure"
-	description="Общие сведения о соединителях, которые можно использовать в приложении логики"
-	services=""
-	documentationCenter="" 
-	authors="jeffhollan"
-	manager="erikre"
-	editor=""
-	tags="connectors"/>
+    pageTitle="Overview of Logic Apps Connectors | Microsoft Azure"
+    description="Overview of connectors that can be used in a logic app"
+    services=""
+    documentationCenter="" 
+    authors="jeffhollan"
+    manager="erikre"
+    editor=""
+    tags="connectors"/>
 
 <tags
    ms.service="logic-apps"
@@ -17,53 +17,57 @@
    ms.date="07/15/2016"
    ms.author="jehollan"/>
 
-# Использование соединителей в приложении логики
 
-Соединители обеспечивают быстрый доступ к событиям, данным и действиям в службах, протоколах и на платформах. Полный список соединителей, которые поддерживают приложения логики, см. [здесь](apis-list.md). Соединители можно использовать в качестве триггера или действия в приложении логики. Для их работы может требоваться настроенное *подключение* (например, авторизация учетной записи Twitter для доступа или публикации от вашего имени).
+# <a name="using-connectors-in-a-logic-app"></a>Using connectors in a logic app
 
-## Основы
+Connectors provide quick access to events, data, and actions across services, protocols, and platforms.  The full list of connectors that Logic Apps supports can [be found here](apis-list.md).  Connectors can be used as a trigger or an action in a logic app, and may require a configured *connection* to use (for example: authorizing a Twitter account to access or post on your behalf).
 
-Соединители — это размещенные службы, которые доступны как часть приложения логики для интеграции с другими службами, например Dynamics, Azure, Salesforce и [не только](apis-list.md). Развертывание этих приложений и управление ими осуществляет корпорация Майкрософт. Поэтому вы можете создавать рабочие процессы интеграции, не беспокоясь о масштабе, пропускной способности и безопасности. Чтобы добавить соединитель в приложение логики, необходимо выполнить поиск и выбрать действие или триггер для соединителя при выбранном пункте **Show Microsoft managed APIs** (Показать управляемые API Microsoft).
+## <a name="basics"></a>Basics
 
-![Меню действий для выбора триггера][1]
+Connectors are hosted services you can access as part of a logic app to integrate with other services like Dynamics, Azure, Salesforce, [and more](apis-list.md).  They are deployed and managed by Microsoft, so you can build your integration workflows with scale, throughput, and security taken care of.  You can add a connector to a logic app by searching and selecting a connector action or trigger under **Show Microsoft managed APIs**.
 
-Для каждого действия или триггера соединителя необходимо настроить отдельный набор свойств. Чтобы просмотреть описание действия, можно нажать кнопку дополнительных сведений или открыть [соответствующую документацию](apis-list.md).
+![Action menu for selecting trigger][1]
 
-Вы можете выполнить интеграцию со службой или API, которые еще не являются соединителями. Для этого можно расширить приложения логики с помощью [настраиваемого соединителя](../app-service-logic/app-service-logic-create-api-app.md) или отправить вызов непосредственно к службе через протокол, например HTTP.
+Each connector action or trigger will have its set of properties to configure.  You can click on the info buttons to learn more about action, or reference its documentation [to learn more](apis-list.md).
 
-## триггеры;
+If you want to integrate with a service or API that isn't yet a connector, you can also extend logic apps through a [custom connector](../app-service-logic/app-service-logic-create-api-app.md) or just call directly to the service over a protocol like HTTP.
 
-У некоторых соединителей есть триггер. Это событие, с помощью которого соединитель запускает приложение логики и передает данные. Триггер — это всегда первый шаг в приложении логики. Распространенные триггеры включают такие операции:
+## <a name="triggers"></a>Triggers
+
+Some connectors have a trigger, which means an event from that connector will fire a logic app and pass in any data as part of the trigger.  A trigger is always the first step in a logic app.  Popular triggers include operations like:
  
- * повторение: запуск каждый час;
- * при получении HTTP-запроса;
- * при добавлении элемента в очередь;
- * срабатывание при получении сообщения электронной почты.
+ * Recurrence - run every hour
+ * When an HTTP request is received
+ * When an item is added to a queue
+ * When an email is received
  
-Некоторые триггеры срабатывают, как только происходит событие (в приложении логики приходит уведомление). Для других триггеров необходимо настроить интервал повторения, т. е. частоту, с которой приложение логики будет проверять наличие события в службе (не больше, чем через каждые 15 секунд).
+Some triggers will fire the instant an event happens through a notification to the logic app, and others will need a recurrence interval configured on how often the logic app will check the service for an event (up to every 15 seconds).  
 
-После получения события срабатывает приложение логики и запускаются действия в рабочем процессе. С помощью триггера также можно получить доступ к любым данным в рабочем процессе. (Например, триггер, срабатывающий после нового твита, передаст твит в рабочий процесс.)
+Once an event is received, the logic app run will fire and the actions in the workflow will start.  You will also be able to access any data from the trigger throughout the workflow (for example the 'On a new tweet' trigger will pass the tweet into the run).
 
-## Действия
+## <a name="actions"></a>Actions
 
-Большинство соединителей предусматривают одно или несколько действий, которые могут выполняться как часть рабочего процесса. Действия представляют собой шаги, происходящие после запуска, выполненного триггером. Чтобы добавить действие, нажмите кнопку **Новый шаг** и найдите соединитель, который нужно использовать. Как только вы его выберете (и настроите требуемые [подключения](#connections)), отобразится карточка действия, которую можно настроить. Данные можно выбрать из предыдущих шагов. Для этого нужно щелкнуть маркер выходных данных. При необходимости можно ввести другую конфигурацию.
+Most connectors have one or many actions that can be executed as part of the workflow.  Actions are any steps that happen after the run has fired from a trigger.  To add an action click the **New Step** button and search for the connector you want to use.  Once selected (and after configuring any [connections](#connections) that may be required) you will see the action card you can configure.  You can select data from previous steps by clicking on any of the tokens for outputs, or enter in any other configuration as needed.
 
-![Настройка действия соединителя][2]
+![Configuring a connector action][2]
 
-## Подключения
+## <a name="connections"></a>Connections
 
-Перед использованием для большинства соединителей требуется настроить *подключение*. *Подключение* — это конфигурация входа или подключения, которая требуется для доступа к соединителю. Для соединителей, использующих OAuth, создать подключение значит войти в службу (например, Office 365, Salesforce или GitHub), где маркер доступа будет зашифрован и безопасно сохранен в секретном хранилище Azure. Для других соединителей (например, FTP и SQL) требуется подключение, которое содержит такие настройки, как адрес сервера, имя и пароль пользователя. Эти сведения о конфигурации подключения также безопасно хранятся в зашифрованном виде. Подключения смогут получать доступ к службе, пока она это позволяет. Для подключений OAuth Azure Active Directory (например, Office 365 и Dynamics) маркер доступа можно обновлять бесконечно. Другие службы могут ограничивать время использования маркера, который не обновляется. В целом при определенных действиях, например изменении пароля, все маркеры доступа становятся недействительными.
+Most connectors require you to configure a *connection* before you can use the connector.  A *connection* is any login or connection configuration needed to access the connector.  For connectors that use OAuth, create a connection means signing into the service (like Office 365, Salesforce, or GitHub) where your access token can be encrypted and securely stored in an Azure secret store.  Other connectors (like FTP and SQL) require a connection that contains configuration like server address, username, and password.  These connection configuration details are also encrypted and securely stored.  Connections will be able to access the service for as long as the service allows.  For Azure Active Directory OAuth connections (like Office 365 and Dynamics) we can continue to refresh the access token indefinitely.  Other services may put limits on how long we can use a token without it being refreshed.  In general certain actions like changing a password will invalidate all access tokens.  
 
-Просматривать подключения, а также управлять ими можно в Azure, щелкнув **Обзор** и выбрав **API Connections** (Подключения API). В ресурсе подключений API можно просматривать, изменять, обновлять и повторно авторизовать все созданные подключения.
+Connections can be viewed and managed in Azure by clicking **Browse** and selecting **API Connections**.  From the API Connections resource you can view, edit, update, or re-authorize any connections you have created.
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Next Steps
 
-- [Создание приложения логики](../app-service-logic/app-service-logic-create-a-logic-app.md)
-- [Примеры приложений логики и распространенные сценарии](../app-service-logic/app-service-logic-examples-and-scenarios.md)
-- [Начало работы с триггерами и действиями интеграции Enterprise](../app-service-logic/app-service-logic-enterprise-integration-overview.md)
+- [Create your first logic app](../app-service-logic/app-service-logic-create-a-logic-app.md)
+- [Learn common uses and examples of logic apps](../app-service-logic/app-service-logic-examples-and-scenarios.md)
+- [Get started with enterprise integration triggers and actions](../app-service-logic/app-service-logic-enterprise-integration-overview.md)
 
 <!--Image References -->
 [1]: ./media/connectors-overview/addAction.png
 [2]: ./media/connectors-overview/configureAction.png
 
-<!---HONumber=AcomDC_0727_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,261 +1,268 @@
 <properties
-   pageTitle="Часто задаваемые вопросы о службе архивации Azure | Microsoft Azure"
-   description="Ответы на часто задаваемые вопросы о службе архивации, агенте службы архивации, резервном копировании и периоде удержания, восстановлении, безопасности, а также ответы на другие распространенные вопросы об аварийном восстановлении и резервном копировании."
+   pageTitle="Azure Backup FAQ | Microsoft Azure"
+   description="Answers to frequently asked questions about the backup service, backup agent, backup and retention, recovery, security and other common questions about backup and disaster recovery."
    services="backup"
    documentationCenter=""
    authors="markgalioto"
    manager="jwhit"
    editor=""
-   keywords="резервное копирование и аварийное восстановление; служба архивации"/>
+   keywords="backup and disaster recovery; backup service"/>
 
 <tags
    ms.service="backup"
    ms.workload="storage-backup-recovery"
-	 ms.tgt_pltfrm="na"
-	 ms.devlang="na"
-	 ms.topic="get-started-article"
-	 ms.date="08/29/2016"
-	 ms.author="trinadhk; giridham; arunak; markgal; jimpark;"/>
+     ms.tgt_pltfrm="na"
+     ms.devlang="na"
+     ms.topic="get-started-article"
+     ms.date="08/29/2016"
+     ms.author="trinadhk; giridham; arunak; markgal; jimpark;"/>
 
-# Служба архивации Azure: часто задаваемые вопросы
+
+# <a name="azure-backup-service--faq"></a>Azure Backup service- FAQ
 
 > [AZURE.SELECTOR]
-- [Часто задаваемые вопросы: резервное копирование в классической модели развертывания](backup-azure-backup-faq.md)
-- [Вопросы и ответы: резервное копирование в модели Resource Manager](backup-azure-backup-ibiza-faq.md)
+- [Backup FAQ for Classic mode](backup-azure-backup-faq.md)
+- [Backup FAQ for Resource Manager mode](backup-azure-backup-ibiza-faq.md)
 
-В этой статье приведены ответы на часто задаваемые вопросы о службе архивации Azure. Специалисты сообщества отвечают на вопросы в кратчайшие сроки. Если какой-то вопрос задают часто, мы добавляем ответ на него в эту статью. В ответах обычно указываются ссылки или сведения о поддержке. Вопросы о службе архивации Azure можно задать в разделе обсуждений этой статьи или другой связанной статьи. Кроме того, их также можно задать на [форуме для обсуждений](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
+This article is a list of commonly asked questions (and the respective answers) about the Azure Backup service. Our community replies quickly, and if a question is asked often, we add it to this article. The answers to questions typically provide reference or support information. You can ask questions about Azure Backup in the Disqus section of this article or a related article. You can also post questions about the Azure Backup service in the [discussion forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
 
 
-## Какие операционные системы поддерживают резервное копирование в Azure с помощью службы архивации Azure? <br/>
-Служба архивации Azure поддерживает следующие операционные системы для резервного копирования файлов и папок, а также резервного копирования приложений с помощью сервера службы архивации Azure и SCDPM.
+## <a name="what-is-the-list-of-supported-operating-systems-from-which-i-can-back-up-to-azure-using-azure-backup?-<br/>"></a>What is the list of supported operating systems from which I can back up to Azure using Azure Backup? <br/>
+Azure Backup supports the following list of operating systems for file-folder backup, application backup using Azure Backup Server and SCDPM. 
 
-| Операционная система | Платформа | SKU |
+| Operating System        | Platform           | SKU  |
 | :------------- |-------------| :-----|
-| Windows 8 и последние пакеты обновления | 64-разрядная | Корпоративная, Профессиональная |
-| Windows 7 и последние пакеты обновления | 64-разрядная | Максимальная, Корпоративная, Профессиональная, Домашняя расширенная, Домашняя базовая, Начальная |
-| Windows 8.1 и последние пакеты обновления | 64-разрядная | Корпоративная, Профессиональная |
-| Windows 10 | 64-разрядная | Корпоративная, Профессиональная, Домашняя |
-|Windows Server 2012 R2 и последние пакеты обновления|	64-разрядная|	Standard, Datacenter, Foundation|
-|Windows Server 2012 и последние пакеты обновления|	64-разрядная|	Datacenter, Foundation, Standard|
-|Windows Storage Server 2012 R2 и последние пакеты обновления |64-разрядная|	Standard, Workgroup|
-|Windows Storage Server 2012 и последние пакеты обновления |64-разрядная |Standard, Workgroup
-|Windows Server 2012 R2 и последние пакеты обновления |64-разрядная|	Essential|
-|Windows Server 2008 R2 с пакетом обновления 1 |64-разрядная|	Standard, Enterprise, Datacenter, Foundation|
-|Windows Server 2008 с пакетом обновления 2 (SP2) |64-разрядная|	Standard, Enterprise, Datacenter, Foundation|
+| Windows 8 and latest SPs      | 64 bit | Enterprise, Pro |
+| Windows 7 and latest SPs      | 64 bit | Ultimate, Enterprise, Professional, Home Premium, Home Basic, Starter |
+| Windows 8.1 and latest SPs | 64 bit      |    Enterprise, Pro |
+| Windows 10      | 64 bit | Enterprise, Pro, Home |
+|Windows Server 2012 R2 and latest SPs| 64 bit| Standard, Datacenter, Foundation|
+|Windows Server 2012 and latest SPs|    64 bit| Datacenter, Foundation, Standard|
+|Windows Storage Server 2012 R2 and latest SPs  |64 bit|    Standard, Workgroup|
+|Windows Storage Server 2012 and latest SPs |64 bit |Standard, Workgroup
+|Windows Server 2012 R2 and latest SPs  |64 bit|    Essential|
+|Windows Server 2008 R2 SP1 |64 bit|    Standard, Enterprise, Datacenter, Foundation|
+|Windows Server 2008 SP2    |64 bit|    Standard, Enterprise, Datacenter, Foundation|
 
-Резервное копирование виртуальных машин Azure
+For Azure VM backup,
 
-- **Linux**: служба архивации Azure поддерживает весь [список дистрибутивов, рекомендуемых для использования в Azure](../virtual-machines/virtual-machines-linux-endorsed-distros.md), за исключением CoreOS Linux. Другие собственные дистрибутивы Linux также должны работать, если агент виртуальной машины доступен на виртуальной машине и есть поддержка Python.
-- **Windows Server**: версии до Windows Server 2008 R2 не поддерживаются.
+- **Linux**: Azure Backup supports  [a list of distributions that are endorsed by Azure](../virtual-machines/virtual-machines-linux-endorsed-distros.md) except Core OS Linux.  Other Bring-Your-Own-Linux distributions also might work as long as the VM agent is available on the virtual machine and support for Python exists.
+- **Windows Server**:  Versions older than Windows Server 2008 R2 are not supported.
 
-## Откуда можно скачать последнюю версию агента службы архивации Azure? <br/>
-Последнюю версию агента для резервного копирования Windows Server, System Center DPM и клиента Windows можно скачать [отсюда](http://aka.ms/azurebackup_agent). Если вы хотите сделать резервную копию виртуальной машины, используйте агент виртуальной машины (он автоматически устанавливает нужное расширение). Как правило, агент виртуальной машины уже есть на виртуальных машинах, созданных с использованием коллекции Azure.
+## <a name="where-can-i-download-the-latest-azure-backup-agent?-<br/>"></a>Where can I download the latest Azure Backup agent? <br/>
+You can download the latest agent for backing up Windows Server, System Center DPM, or Windows client, from  [here](http://aka.ms/azurebackup_agent). If you want to back up a virtual machine, use the VM Agent (which automatically installs the proper extension). The VM Agent is already present on virtual machines created from the Azure gallery.
 
-## Какая версия сервера SCDPM поддерживается? <br/>
-Рекомендуется установить [последнюю](http://aka.ms/azurebackup_agent) версию агента службы архивации Azure на последний накопительный пакет обновления SCDPM (UR11 по состоянию на август 2016 г.).
+## <a name="which-version-of-scdpm-server-is-supported?-<br/>"></a>Which version of SCDPM server is supported? <br/>
+We recommend that you install the [latest](http://aka.ms/azurebackup_agent) Azure Backup agent on the latest update rollup of SCDPM (UR11 as of August 2016)
 
-## При настройке агента службы архивации Azure появляется запрос на ввод учетных данных хранилища. Ограничен ли срок действия этих учетных данных?
-Да, учетные данные хранилища действительны в течение 48 часов. Если срок действия файла истек, войдите на портал Azure и скачайте новый файл учетных данных из хранилища.
+## <a name="when-configuring-the-azure-backup-agent,-i-am-prompted-to-enter-the-vault-credentials.-do-vault-credentials-expire?"></a>When configuring the Azure Backup agent, I am prompted to enter the vault credentials. Do vault credentials expire?
+Yes, the vault credentials expire after 48 hours. If the file expires, log in to the Azure portal and download the vault credentials files from your vault. 
 
-## Существует ли ограничение на число хранилищ, которые можно создать в каждой подписке Azure? <br/>
-Да. Начиная с августа 2016 г. можно создать до 25 хранилищ (учитывается каждое хранилище службы архивации и хранилище служб восстановления) на одну подписку. Если необходимо создать больше хранилищ, создайте новую подписку.
+## <a name="is-there-any-limit-on-the-number-of-vaults-that-can-be-created-in-each-azure-subscription?-<br/>"></a>Is there any limit on the number of vaults that can be created in each Azure subscription? <br/>
+Yes. As of September 2016, you can create 25 backup vaults per subscription. You can create upto 25 Recovery Services vaults per each supported region of Azure backup per subscription. If you need more vaults, then create a new subscription.
 
-## Существует ли ограничение на число серверов и компьютеров, которые можно зарегистрировать в каждом хранилище? <br/>
-Да, в одном хранилище можно зарегистрировать не более 50 компьютеров. и не более 200 виртуальных машин Azure IaaS. Если необходимо зарегистрировать больше, создайте новое хранилище.
+## <a name="are-there-any-limits-on-the-number-of-servers/machines-that-can-be-registered-against-each-vault?-<br/>"></a>Are there any limits on the number of servers/machines that can be registered against each vault? <br/>
+Yes, you can register up to 50 machines per vault. For Azure IaaS virtual machines, limit is 200 VMs per vault. If you need to register more machines, create a new vault.
 
-## Как зарегистрировать сервер в другом центре обработки данных?<br/>
-Данные резервной копии отправляются в центр обработки данных хранилища, в котором выполнена регистрация. Самый простой способ изменить ЦОД — удалить агент, установить его повторно и зарегистрироваться в новом хранилище, которое принадлежит к нужному центру обработки данных.
+## <a name="how-do-i-register-my-server-to-another-datacenter?<br/>"></a>How do I register my server to another datacenter?<br/>
+Backup data is sent to the datacenter of the vault to which it is registered. The easiest way to change the datacenter is to uninstall the agent and reinstall the agent and register to a new vault that belongs to desired datacenter.
 
-## Что произойдет, если переименовать сервер Windows, выполняющий резервное копирование данных в службу Azure?<br/>
-Если переименовать сервер, остановятся все настроенные процессы резервного копирования. Сервер нужно будет снова зарегистрировать в хранилище службы архивации. При новой регистрации создание первой резервной копии предусматривает полное резервное копирование, а не добавочное. Если вам нужно восстановить резервные копии данных из хранилища со старым именем сервера, используйте переключатель [**Другой сервер**](backup-azure-restore-windows-server.md#recover-to-an-alternate-machine) в мастере **восстановления данных**.
+## <a name="what-happens-if-i-rename-a-windows-server-that-is-backing-up-data-to-azure?<br/>"></a>What happens if I rename a Windows server that is backing up data to Azure?<br/>
+When you rename a server, all currently configured backups are stopped.
+You need to register the new name of the server with the Backup vault. When you create a new registration, the first backup operation is a full backup, and not an incremental backup. If you need to recover data that was previously backed up to the vault with the old server name, you can recover that data using the [**Another server**](backup-azure-restore-windows-server.md#recover-to-an-alternate-machine) option in the **Recover Data** wizard.
 
-## С каких типов дисков можно создавать резервные копии файлов и папок? <br/>
-Резервные копии нельзя создавать для следующих дисков и томов:
+## <a name="what-types-of-drives-can-i-backup-files-and-folders-from?-<br/>"></a>What types of drives can I backup files and folders from? <br/>
+The following set of drives/volumes can't get backup:
 
-- Съемные носители. Диск должен быть фиксированным. Только такой диск можно использовать в качестве источника для резервного копирования.
-- Тома только для чтения. Том должен быть доступный для записи, иначе служба теневого копирования томов (VSS) не будет работать.
-- Автономные тома. Том должен быть в сети, иначе служба VSS не будет работать.
-- Сетевая папка. Том должен быть локальным томом сервера, иначе оперативное резервное копирование не будет выполняться.
-- Тома, зашифрованные по технологии Bitlocker. Для создания резервной копии том должен быть разблокирован.
-- Идентификация файловой системы. Данная версия службы онлайн-архивации поддерживает только файловую систему NTFS.
+- Removable Media: The drive must report as a fixed to be used a backup item source.
+- Read-only Volumes: The volume must be writable for the volume shadow copy service (VSS) to function.
+- Offline Volumes: The volume must be online for VSS to function.
+- Network share: The volume must be local to the server to be backed up using online backup.
+- Bitlocker protected volumes: The volume must be unlocked before the backup can occur.
+- File System Identification: NTFS is the only file system supported for this version of the online backup service.
 
-## Для каких типов файлов и папок можно создавать резервные копии с моего сервера?<br/>
-Поддерживаются такие типы:
+## <a name="what-file-and-folder-types-can-i-back-up-from-my-server?<br/>"></a>What file and folder types can I back up from my server?<br/>
+The following types are supported:
 
-- зашифрованные;
-- сжатые;
-- разреженные;
-- сжатые и разреженные;
-- жесткие связи (не поддерживаются, пропускаются);
-- точки повторного анализа (не поддерживаются, пропускаются);
-- зашифрованные и сжатые (не поддерживаются, пропускаются);
-- зашифрованные и разреженные (не поддерживаются, пропускаются);
-- сжатые потоки (не поддерживаются, пропускаются);
-- разреженные потоки (не поддерживаются, пропускаются).
+- Encrypted
+- Compressed
+- Sparse
+- Compressed + Sparse
+- Hard Links: Not supported, skipped
+- Reparse Point: Not supported, skipped
+- Encrypted + Compressed: Not supported, skipped
+- Encrypted + Sparse: Not supported, skipped
+- Compressed Stream: Not supported, skipped
+- Sparse Stream: Not supported, skipped
 
-## Каков минимальный необходимый размер папки кэша? <br/>
-Размер папки кэша определяет объем данных, для которых выполняется резервное копирование. Для папки кэша выделяется 5 % пространства, необходимого для хранения данных.
+## <a name="what's-the-minimum-size-requirement-for-the-cache-folder?-<br/>"></a>What's the minimum size requirement for the cache folder? <br/>
+The size of the cache folder determines the amount of data that you are backing up. Your cache folder should be 5% of the space required for data storage.
 
-## Если у моей организации есть одно хранилище, как изолировать восстановление данных определенного сервера от других серверов?<br/>
-Все серверы, зарегистрированные в одном и том же хранилище, могут восстанавливать данные резервных копий, созданные другими серверами, для которых *используется одна парольная фраза*. Если вам нужно изолировать восстановление данных резервной копии сервера от других серверов в организации, настройте для него уникальную парольную фразу. Например, серверы отдела по работе с персоналом могут использовать одну зашифрованную парольную фразу, серверы бухгалтерии — другую, а серверы-хранилища — третью.
+## <a name="if-my-organization-has-one-vault,-how-can-i-isolate-one-server's-data-from-another-server-when-restoring-data?<br/>"></a>If my organization has one vault, how can I isolate one server's data from another server when restoring data?<br/>
+All servers that are registered to the same vault can recover the data backed up by other servers *that use the same passphrase*. If you have servers whose backup data you want to isolate from other servers in your organization, use a designated passphrase for those servers. For example, human resources servers could use one encryption passphrase, accounting servers another, and storage servers a third.
 
-## Можно ли перенести резервные копии данных или хранилище резервных копий из одной подписки в другую? <br/>
-Нет. Хранилище создается на уровне подписки и после создания не может быть перенесено в другую подписку.
+## <a name="can-i-“migrate”-my-backup-data-or-vault-between-subscriptions?-<br/>"></a>Can I “migrate” my backup data or vault between subscriptions? <br/>
+No. The vault is created at a subscription level and cannot be reassigned to another subscription once it’s created.
 
-## Работает ли агент службы архивации Azure на сервере, где используется дедупликация Windows Server 2012? <br/>
-Да. При подготовке операции резервного копирования служба агента преобразует дедуплицированные данные в обычные. Затем она оптимизирует данные для резервного копирования, шифрует их и отправляет зашифрованные данные в службу онлайн-архивации.
+## <a name="does-the-azure-backup-agent-work-on-a-server-that-uses-windows-server-2012-deduplication?-<br/>"></a>Does the Azure Backup Agent work on a server that uses Windows Server 2012 deduplication? <br/>
+Yes. The agent service converts the deduplicated data to normal data when it prepares the backup operation. It then optimizes the data for backup, encrypts the data, and then sends the encrypted data to the online backup service.
 
-## Удаляются ли переданные данные резервной копии при отмене запущенной операции резервного копирования? <br/>
-Нет. Данные резервных копий, переданные до отмены операции, хранятся в хранилище службы архивации. Служба архивации Azure использует механизм контрольных точек, чтобы добавлять точки в данные резервной копии во время резервного копирования. Благодаря наличию контрольных точек во время следующего резервного копирования можно проверить целостность файлов. Следующая операция резервного копирования пропускает данные, архивированные в прошлый раз. Добавочное резервное копирование обеспечивает более эффективный расход пропускной способности, так как не требует повторной передачи одних и тех же данных.
+## <a name="if-i-cancel-a-backup-job-once-it-has-started,-is-the-transferred-backup-data-deleted?-<br/>"></a>If I cancel a backup job once it has started, is the transferred backup data deleted? <br/>
+No. The backup vault stores the backed-up data that had been transferred up to the point of the cancellation. Azure Backup uses a checkpoint mechanism to occasionally add checkpoints to the backup data during the backup. Because there are checkpoints in the backup data, the next backup process can validate the integrity of the files. The next backup triggered would be incremental over the data that had been backed up previously. An incremental backup provides better utilization of bandwidth, so that you do not need to transfer the same data repeatedly.
 
-При отмене резервного копирования виртуальных машин Azure переданные данные игнорируются, и новая операция резервного копирования передает добавочные данные из предыдущего успешно выполненного задания резервного копирования.
+In case of Azure VM backup, once the job is canceled, transferred data is ignored and fresh backup transfers incremental data from previously successful backup job. 
 
-## Почему отображается предупреждение "Служба архивации Azure для этого сервера не настроена", хотя регулярное резервное копирование было запланировано? <br/>
-Это предупреждение появляется, если параметры расписания резервного копирования, сохраненные на локальном сервере, не совпадают с параметрами в хранилище службы архивации. Восстановление сервера или параметров до известного рабочего состояния может привести к потере синхронизации между расписаниями. Если вы получили это предупреждение, [повторно настройте политику резервного копирования](backup-azure-manage-windows-server.md) и выберите команду **Запустить архивацию сейчас**, чтобы заново синхронизировать локальный сервер с Azure.
+## <a name="why-am-i-seeing-the-warning-"azure-backups-have-not-been-configured-for-this-server"-even-though-i-had-scheduled-regular-backups-previously?-<br/>"></a>Why am I seeing the warning "Azure Backups have not been configured for this server" even though I had scheduled regular backups previously? <br/>
+This warning occurs when the backup schedule settings stored on the local server are not the same as the settings stored in the backup vault. When either the server or the settings have been recovered to a known good state, the backup schedules can lose synchronization. If you receive this warning, [reconfigure the backup policy](backup-azure-manage-windows-server.md) and then **Run Back Up Now** to resynchronize the local server with Azure.
 
-## Какие правила брандмауэра следует настроить для использования службы архивации Azure? <br/>
-Чтобы обеспечить эффективную защиту данных, передаваемых из локального сервера и при рабочей нагрузке в Azure, рекомендуем настроить для брандмауэра обмен данными с сайтами со следующими URL-адресами:
+## <a name="what-firewall-rules-should-be-configured-for-azure-backup?-<br/>"></a>What firewall rules should be configured for Azure Backup? <br/>
+For seamless protection of on-premises-to-Azure and workload-to-Azure data, it is recommended that you allow your firewall to communicate with the following URLs:
 
 - www.msftncsi.com
-- *.Microsoft.com
-- *.WindowsAzure.com
-- *.microsoftonline.com
-- *.windows.net
+- \*.Microsoft.com
+- \*.WindowsAzure.com
+- \*.microsoftonline.com
+- \*.windows.net
 
-##Можно ли установить агент службы архивации Azure на виртуальной машине Azure, резервная копия которой уже создана службой архивации Azure с использованием расширения виртуальной машины? <br/>
-Конечно. Служба архивации Azure предоставляет возможность резервного копирования виртуальных машин Azure с использованием расширения. Вы можете установить агент службы архивации Azure в гостевой ОС Windows, чтобы защитить ее файлы и папки.
+##<a name="can-i-install-the-azure-backup-agent-on-an-azure-vm-already-backed-by-the-azure-backup-service-using-the-vm-extension?-<br/>"></a>Can I install the Azure Backup agent on an Azure VM already backed by the Azure Backup service using the VM extension? <br/>
+Absolutely. Azure Backup provides VM-level backup for Azure VMs using the VM extension. You can install the Azure Backup agent on a Guest Windows OS to protect files and folders on that guest OS.
 
-## Можно ли установить агент службы архивации Azure на виртуальной машине Azure для резервного копирования файлов и папок, расположенных во временном хранилище на виртуальной машине Azure? <br/>
-Вы можете установить агент службы архивации Azure в гостевой ОС Windows и создать резервную копию файлов и папок во временном хранилище. Но учитывайте, что стирание данных из временного хранилища приведет к сбою резервного копирования. Кроме того, если удалить данные из временного хранилища, их можно восстановить только в постоянном хранилище.
+## <a name="can-i-install-the-azure-backup-agent-on-an-azure-vm-to-back-up-files-and-folders-present-on-temporary-storage-provided-by-the-azure-vm?-<br/>"></a>Can I install the Azure Backup agent on an Azure VM to back up files and folders present on temporary storage provided by the Azure VM? <br/>
+You can install the Azure Backup agent on the Guest Windows OS and back up files and folders to temporary storage. However, please note that backups fail once temporary storage data is wiped out. Also, if the temporary storage data has been deleted, you can only restore to non-volatile storage.
 
-## У меня установлен агент службы архивации Azure для защиты файлов и папок. Можно ли теперь установить SCDPM для работы с агентом службы архивации Azure, чтобы защитить рабочие нагрузки локальных приложений и виртуальных машин в Azure? <br/>
-Чтобы использовать службу архивации Azure Backup с SCDPM, рекомендуем сначала установить SCDPM и только потом — агент службы архивации Azure. Это обеспечит полную интеграцию агента службы архивации Azure с SCDPM, а также сделает возможной защиту файлов и папок, рабочих нагрузок приложений и виртуальных машин в Azure непосредственно из консоли управления SCDPM. Установка SCDPM после агента службы архивации Azure для этих целей не рекомендуется и не поддерживается.
+## <a name="i-have-installed-azure-backup-agent-to-protect-my-files-and-folders.-can-i-now-install-scdpm-to-work-with-azure-backup-agent-to-protect-on-premises-application/vm-workloads-to-azure?-<br/>"></a>I have installed Azure Backup agent to protect my files and folders. Can I now install SCDPM to work with Azure Backup agent to protect on-premises application/VM workloads to Azure? <br/>
+To use Azure Backup with SCDPM, it is advised to install SCDPM first and only then to install Azure Backup agent. This ensures seamless integration of the Azure Backup agent with SCDPM and allows protecting files/folders, application-workloads and VMs to Azure, directly from the management console of SCDPM. Installing SCDPM after installing Azure Backup agent for purposes mentioned above is not advised or supported.
 
-## Какой длины может быть путь к файлу, определяемый в политике резервного копирования Azure с помощью агента службы архивации Azure? <br/>  
-Агент службы архивации Azure использует NTFS. [Длина путей к файлам ограничена согласно параметрам API Windows](https://msdn.microsoft.com/library/aa365247.aspx#fully_qualified_vs._relative_paths). Если длина путей к файлам, для которых выполняется резервное копирование, больше длины, заданной в Windows API, пользователи могут выполнить резервное копирование родительской папки или диска с этими файлами.
+## <a name="what-is-the-length-of-file-path-that-can-be-specified-as-part-of-azure-backup-policy-using-azure-backup-agent?-<br/>"></a>What is the length of file path that can be specified as part of Azure Backup policy using Azure Backup agent? <br/>  
+Azure Backup agent relies on NTFS. The [filepath length specification is limited by Windows API](https://msdn.microsoft.com/library/aa365247.aspx#fully_qualified_vs._relative_paths). In case of backing up files with file path length greater than the ones specified by Windows API, customers can choose to backup the parent folder or the disk drive of backup files.  
 
-## Какие символы можно использовать в пути к файлу, определяемом в политике резервного копирования Azure с помощью агента службы архивации Azure? <br>  
- Агент службы архивации Azure использует NTFS. Поэтому, указывая файлы, можно использовать [символы, которые поддерживаются в NTFS](https://msdn.microsoft.com/library/aa365247.aspx#naming_conventions).
+## <a name="what-characters-are-allowed-in-file-path-of-azure-backup-policy-using-azure-backup-agent?-<br>"></a>What characters are allowed in file path of Azure Backup policy using Azure Backup agent? <br>  
+ Azure Backup agent relies on NTFS. It enables [NTFS supported characters](https://msdn.microsoft.com/library/aa365247.aspx#naming_conventions) as part of file specification.  
 
-## Можно ли использовать сервер службы архивации Azure, чтобы создать резервную копию для восстановления исходного состояния физического сервера? <br/>
-Да.
+## <a name="can-i-use-azure-backup-server-to-create-a-bare-metal-recovery-(bmr)-backup-for-a-physical-server?-<br/>"></a>Can I use Azure Backup Server to create a Bare Metal Recovery (BMR) backup for a physical server? <br/>
+Yes.
 
-## Можно ли настроить в службе резервного копирования отправку сообщений электронной почты при сбое задания резервного копирования? <br/>
-Да, в службе резервного копирования предусмотрено несколько оповещений на основе событий. Эти оповещения можно отправлять с помощью сценариев PowerShell. Полное описание см. в разделе [Оповещения](backup-azure-manage-vms.md#alert-notifications).
+## <a name="can-i-configure-the-backup-service-to-send-mail-if-a-backup-job-fails?-<br/>"></a>Can I configure the Backup service to send mail if a backup job fails? <br/>
+Yes, the Backup service has several event-based alerts that can be used with a PowerShell script. For a full description, see [Alert notifications](backup-azure-manage-vms.md#alert-notifications)
 
-## Существует ли ограничение на размер каждого источника данных, для которого выполняется резервное копирование? <br/>
-Хотя на уровне хранилища не существует ограничений на объем данных, для которых можно создать резервную копию, в службе архивации Azure есть ограничение на максимальный размер источника данных (из практических соображений применяются очень высокие ограничения). По состоянию на август 2015 г. существуют следующие ограничения максимального размера источника данных для поддерживаемых операционных систем:
+## <a name="is-there-a-limit-on-the-size-of-each-data-source-being-backed-up?-<br/>"></a>Is there a limit on the size of each data source being backed up? <br/>
+While at vault level there is no limit on the amount of data you can backup, Azure Backup does impose a restriction(for all practical purposes, these limits are very high) on maximum size of data source. As of August 2015, the maximum size data source for the supported operating systems is:
 
-|Серийный номер |	операционная система |	Максимальный размер источника данных |
+|S.No | Operating system |  Maximum size of data source |
 | :-------------: |:-------------| :-----|
-|1| Windows Server 2012 или более поздней версии| 54 400 ГБ|
-|2| Windows 8 или более поздняя версия| 54 400 ГБ|
-|3| Windows Server 2008, Windows Server 2008 R2 | 1700 ГБ|
-|4\.| Windows 7 | 1700 ГБ|
+|1| Windows Server 2012 or above| 54400 GB|
+|2| Windows 8 or above| 54400 GB|
+|3| Windows Server 2008, Windows Server 2008 R2 | 1700 GB|
+|4| Windows 7 | 1700 GB|
 
-В таблице ниже описано, по какому принципу определяется размер источника данных.
+The following table explains how each data source size is determined.
 
-|	Источник данных |	Сведения |
+|   Datasource  |   Details |
 | :-------------: |:-------------|
-|Том |Объем данных, для которых выполняется резервное копирование из одного тома сервера или клиентского компьютера|
-|Виртуальные машины Hyper-V | Общий объем данных всех виртуальных жестких дисков виртуальной машины, для которой выполняется резервное копирование|
-|База данных Microsoft SQL Server | Размер одной базы данных SQL, для которой выполняется резервное копирование |
-|Microsoft SharePoint |Общий объем баз данных содержимого и конфигурации в ферме SharePoint, для которой выполняется резервное копирование|
-|Microsoft Exchange |Общее количество баз данных Exchange на сервере Exchange, для которого выполняется резервное копирование|
-|Восстановление исходного состояния системы и состояние системы |Каждая отдельная копия восстановления исходного состояния системы или состояния системы компьютера, для которого выполняется резервное копирование|
+|Volume |The amount of data being backed up from single volume of a server or client machine|
+|Hyper-V virtual machine | Sum of data of all the VHDs of the virtual machine being backed up|
+|Microsoft SQL Server database | Size of single SQL database size being backed up |
+|Microsoft SharePoint |Sum of the content and configuration databases within a SharePoint farm being backed up|
+|Microsoft Exchange |Sum of all Exchange databases in an Exchange server being backed up|
+|BMR/System State |Each individual copy of BMR or system state of the machine being backed up|
 
-## Существует ли ограничение на количество запланированных заданий резервного копирования в день?<br/>
-С помощью Windows Server или клиента Windows можно выполнять до трех заданий резервного копирования в день. С помощью System Center DPM можно выполнять не больше двух заданий резервного копирования в день. Для виртуальных машин IaaS резервное копирование можно выполнять один раз в день.
+## <a name="are-there-limits-on-the-number-of-times-a-backup-job-can-be-scheduled-per-day?<br/>"></a>Are there limits on the number of times a backup job can be scheduled per day?<br/>
+Yes, you can run backup jobs on Windows Server or Windows client up to three times/day. You can run backup jobs on System Center DPM up to twice a day. You can run a backup job for IaaS VMs once a day.
 
-## Есть ли отличия между политикой планирования DPM и Windows Server (т. е. на сервере Windows Server без DPM)? <br/>
-Да. При использовании DPM можно настроить ежедневное, еженедельное, ежемесячное и ежегодное расписание. С помощью Windows Server (без DPM) можно задать только ежедневное и еженедельное расписание.
+## <a name="is-there-a-difference-between-the-scheduling-policy-for-dpm-and-windows-server-(i.e.-on-windows-server-without-dpm)?-<br/>"></a>Is there a difference between the scheduling policy for DPM and Windows Server (i.e. on Windows Server without DPM)? <br/>
+Yes. Using DPM, you can specify daily, weekly, monthly, and yearly schedules. Windows Server (without DPM) allows you to specify only daily and weekly schedules.
 
-## Есть ли отличия между политикой хранения DPM и Windows Server или клиента Windows (т. е. на сервере Windows Server без DPM)?<br/>
-Нет, с помощью DPM, Windows Server и клиента Windows можно настроить ежедневную, еженедельную, ежемесячную и ежегодную политику хранения.
+## <a name="is-there-a-difference-between-the-retention-policy-for-dpm-and-windows-server/client-(i.e.-on-windows-server-without-dpm)?<br/>"></a>Is there a difference between the retention policy for DPM and Windows Server/client (i.e. on Windows Server without DPM)?<br/>
+No, both DPM and Windows Server/client have daily, weekly, monthly, and yearly retention policies.
 
-## Можно ли настроить политики хранения выборочно, т. е. настроить еженедельную и ежедневную политики, но не ежегодную или ежемесячную?<br/>
-Да, структура хранения службы архивации Azure обеспечивает полную гибкость в определении политики хранения в соответствии с вашими требованиями.
+## <a name="can-i-configure-my-retention-policies-selectively-–-i.e.-configure-weekly-and-daily-but-not-yearly-and-monthly?<br/>"></a>Can I configure my retention policies selectively – i.e. configure weekly and daily but not yearly and monthly?<br/>
+Yes, the Azure Backup retention structure allows you to have full flexibility in defining the retention policy as per your requirements.
 
-## Можно ли запланировать резервное копирование на 18:00, а политики хранения настроить на другое время?<br/>
-Нет. Политики хранения можно применять только в точках резервного копирования. На изображении ниже политика хранения указывается для резервных копий, создаваемых в 00:00 и 18:00. <br/>
+## <a name="can-i-“schedule-a-backup”-at-6pm-and-specify-“retention-policies”-at-a-different-time?<br/>"></a>Can I “schedule a backup” at 6pm and specify “retention policies” at a different time?<br/>
+No. Retention policies can only be applied on backup points. In the following image, the retention policy is specified for backups taken at 12am and 6pm. <br/>
 
-![Планирование резервного копирования и хранения](./media/backup-azure-backup-faq/Schedule.png) <br/>
+![Schedule Backup and Retention](./media/backup-azure-backup-faq/Schedule.png)
+<br/>
 
-## Передается ли для запланированных политик хранения добавочная копия? <br/>
-Нет, добавочная копия отправляется в то время, которое указано на странице расписания резервного копирования. Точки, которые могут храниться, определяются на основе политики хранения.
+## <a name="is-an-incremental-copy-transferred-for-the-retention-policies-scheduled?-<br/>"></a>Is an incremental copy transferred for the retention policies scheduled? <br/>
+No, the incremental copy is sent based on the time mentioned in the backup schedule page. The points that can be retained are determined based on the retention policy.
 
-## Если резервная копия хранится в течение длительного времени, занимает ли восстановление старой точки данных больше времени? <br/>
- Нет. Время восстановления старых и новых точек является одинаковым. Каждая точка восстановления ведет себя как полная точка.
+## <a name="if-a-backup-is-retained-for-a-long-duration,-does-it-take-more-time-to-recover-an-older-data-point?-<br/>"></a>If a backup is retained for a long duration, does it take more time to recover an older data point? <br/>
+ No – the time to recover the oldest or the newest point is the same. Each recovery point behaves like a full point.
 
-## Если каждая точка представляет собой полную точку, влияет ли это на общее оплачиваемое хранилище резервных копий?<br/>
-Обычно продукты с точками длительного срока хранения хранят резервные данные как полные точки. Полные точки *неэффективно* используют хранилище, но их восстановление осуществляется проще и быстрее. Добавочные копии используют хранилище *эффективно*, но для них необходимо выполнять восстановление цепочки данных, что влияет на время восстановления. В архитектуре хранилища службы архивации Azure учтены все преимущества обоих подходов: вы получаете оптимальное хранилище с возможностью быстрого восстановления данных и низкими затратами на хранение. Этот подход обеспечивает эффективное использование пропускной способности (как для входящих, так и для исходящих данных). При этом использование емкости хранилища данных и время восстановления сводятся к минимуму. Дополнительные сведения об эффективности хранения [добавочных резервных копий](https://azure.microsoft.com/blog/microsoft-azure-backup-save-on-long-term-storage/).
+## <a name="if-each-recovery-point-is-like-a-full-point,-does-it-impact-the-total-billable-backup-storage?<br/>"></a>If each recovery point is like a full point, does it impact the total billable backup storage?<br/>
+Typical long-term retention point products store backup data as full points. The full points are storage *inefficient* but are easier and faster to restore. Incremental copies are storage *efficient* but require you to restore a chain of data, which impacts your recovery time. Azure Backup storage architecture gives you the best of both worlds by optimally storing data for fast restores and incurring low storage costs. This data storage approach ensures that your ingress and egress bandwidth is used efficiently. Both the amount of data storage and the time needed to recover the data, is kept to a minimum. Learn more on how [incremental backups](https://azure.microsoft.com/blog/microsoft-azure-backup-save-on-long-term-storage/) save are efficient. 
 
-## Существует ли ограничение на число создаваемых точек восстановления?<br/>
-Нет. Мы сняли ограничения на точки восстановления. Вы можете создать сколько угодно точек восстановления.
+## <a name="is-there-a-limit-on-the-number-of-recovery-points-that-can-be-created?<br/>"></a>Is there a limit on the number of recovery points that can be created?<br/>
+No. We have eliminated limits on recovery points. You can create as many recovery points as you desire.
 
-## Почему объем данных, переданных при резервном копировании, не равен объему данных, для которых создана резервная копия?<br/>
- Все данные, для которых создается резервная копия из агента службы архивации Azure, а также из SCDPM или с сервера службы архивации Azure, сжимаются и шифруются перед передачей. После сжатия и шифрования данные, которые попадают в резервное хранилище, становятся на 30–40 % меньше.
+## <a name="why-is-the-amount-of-data-transferred-in-backup-not-equal-to-the-amount-of-data-i-backed-up?<br/>"></a>Why is the amount of data transferred in backup not equal to the amount of data I backed up?<br/>
+ All the data that is backed up from Azure Backup Agent or SCDPM or Azure Backup Server, is compressed and encrypted before being transferred. Once the compression and encryption is applied, the data in the backup vault is 30-40% smaller.
 
-## Можно ли настроить пропускную способность для службы архивации?<br/>
- Да, чтобы настроить пропускную способность, можно использовать команду **Изменить свойства** в агенте службы архивации. Вы можете настроить объем пропускной способности и время ее использования. Дополнительные сведения см. в разделе о [регулировании сети](../backup-configure-vault.md#enable-network-throttling).
+## <a name="is-there-a-way-to-adjust-the-amount-of-bandwidth-used-by-the-backup-service?<br/>"></a>Is there a way to adjust the amount of bandwidth used by the Backup service?<br/>
+ Yes, use the **Change Properties** option in the Backup Agent to adjust bandwidth. Adjust the amount of bandwidth and the times when you use that bandwidth. See [Network Throttling](../backup-configure-vault.md#enable-network-throttling), for more information.
 
-## Пропускной способности моего интернет-канала недостаточно для объема данных, для которых требуется создать резервную копию. Как можно переместить данные в определенное расположение с широким сетевым каналом, а затем передать их в Azure? <br/>
-Вы можете выполнить резервное копирование данных в Azure с помощью стандартного процесса оперативного резервного копирования или использовать службу импорта и экспорта Azure, чтобы передать данные в хранилище BLOB-объектов Azure. Других способов создать резервную копию данных в службе хранилища Azure не существует. Сведения о том, как использовать службу импорта и экспорта Azure со службой архивации Azure, см. в статье [Автономное резервное копирование в службе архивации Azure](backup-azure-backup-import-export.md).
+## <a name="my-internet-bandwidth-is-limited-for-the-amount-of-data-i-need-to-back-up.-is-there-a-way-i-can-move-data-to-a-certain-location-with-a-large-network-pipe-and-push-that-data-into-azure?-<br/>"></a>My internet bandwidth is limited for the amount of data I need to back up. Is there a way I can move data to a certain location with a large network pipe and push that data into Azure? <br/>
+You can back up data into Azure via the standard online backup process, or you can use the Azure Import/Export service to transfer data to blob storage in Azure. There are no additional ways of getting backup date into Azure storage. For information on how to use the Azure Import/Export service with Azure Backup, please see the [Offline Backup workflow](backup-azure-backup-import-export.md) article.
 
-## Сколько раз можно восстанавливать данные из резервной копии в Azure?<br/>
-Ограничение на количество операций восстановления из службы архивации Azure отсутствует.
+## <a name="how-many-recoveries-can-i-perform-on-the-data-that-is-backed-up-to-azure?<br/>"></a>How many recoveries can I perform on the data that is backed up to Azure?<br/>
+There is no limit on the number of recoveries from Azure Backup.
 
-## Нужно ли платить за исходящий трафик из центра обработки данных Azure при восстановлении?<br/>
- Нет. Восстановление является бесплатным, а плата за исходящий трафик не взимается.
+## <a name="do-i-have-to-pay-for-the-egress-traffic-from-azure-data-center-during-recoveries?<br/>"></a>Do I have to pay for the egress traffic from Azure data center during recoveries?<br/>
+ No. Your recoveries are free and you are not charged for the egress traffic.
 
-## Шифруются ли передаваемые в Azure данные? <br/>
-Да. Данные шифруются на локальном сервере, клиенте или компьютере SCDPM с помощью AES256 и передаются через защищенное соединение HTTPS.
+## <a name="is-the-data-sent-to-azure-encrypted?-<br/>"></a>Is the data sent to Azure encrypted? <br/>
+Yes. Data is encrypted on the on-premises server/client/SCDPM machine using AES256 and the data is sent over a secure HTTPS link.
 
-## Шифруются ли резервные копии данных в Azure?<br/>
- Да. Отправленные в Azure данные остаются зашифрованными (при хранении). Мы никогда не расшифровываем резервные копии данных. При резервном копировании виртуальных машин Azure служба архивации Azure применяет шифрование виртуальной машины. Если виртуальная машина зашифрована с помощью шифрования дисков Azure или другой технологии шифрования, служба архивации Azure использует эту технологию для защиты данных.
+## <a name="is-the-backup-data-on-azure-encrypted-as-well?<br/>"></a>Is the backup data on Azure encrypted as well?<br/>
+ Yes. The data sent to Azure remains encrypted (at rest). Microsoft does not decrypt the backup data at any point. For Azure VM backup, Azure Backup relies on encryption of the virtual machine i.e. if your VM is encrypted using Azure Disk Encryption or some other encryption technology, Azure Backup uses that encryption to secure your data. 
 
-## Какова минимальная длина ключа шифрования, используемого для шифрования резервных копий данных? <br/>
- Ключ шифрования должен состоять из не менее 16 символов.
+## <a name="what-is-the-minimum-length-of-encryption-key-used-to-encrypt-backup-data?-<br/>"></a>What is the minimum length of encryption key used to encrypt backup data? <br/>
+ The encryption key should be at least 16 characters.
 
-## Что будет в случае потери ключа шифрования? Смогу ли я или корпорация Майкрософт восстановить данные? <br/>
-Ключ, используемый для шифрования резервной копии данных, есть только у клиента. Мы не храним копии ключей в Azure и не имеет к ключам никакого доступа. Если клиент потеряет ключ, мы не сможем восстановить данные из резервных копий.
+## <a name="what-happens-if-i-misplace-the-encryption-key?-can-i-recover-the-data-(or)-can-microsoft-recover-the-data?-<br/>"></a>What happens if I misplace the encryption key? Can I recover the data (or) can Microsoft recover the data? <br/>
+The key used to encrypt the backup data is present only on the customer premises. Microsoft does not maintain a copy in Azure and does not have any access to the key. If the customer misplaces the key, Microsoft cannot recover the backup data.
 
-## Как изменить расположение кэша, указанное для агента службы архивации Azure?<br/>
- Чтобы изменить расположение кэша, последовательно выполните действия, описанные в маркированном списке ниже.
-- Остановите работу модуля архивации, выполнив следующую команду в командной строке с повышенными привилегиями:
+## <a name="how-do-i-change-the-cache-location-specified-for-the-azure-backup-agent?<br/>"></a>How do I change the cache location specified for the Azure Backup agent?<br/>
+ Go sequentially through the bullet list below to change the cache location.
+- Stop the Backup engine by executing the following command in an elevated command prompt:
 
   ```PS C:\> Net stop obengine```
 
-- Не перемещайте файлы. Скопируйте папку пространства кэша на другой диск с достаточным объемом свободного места. Исходную папку кэша можно удалить, когда убедитесь, что резервные копии используют новый кэш.
+- Do not move the files. Instead, copy the cache space folder to a different drive with sufficient space. The original cache space can be removed after confirming the backups are working with the new cache space.
 
-- Обновите следующие записи реестра, указав путь к новой папке размера кэша. <br/>
+- Update the following registry entries with the path to the new cache space folder.<br/>
 
-|Путь к элементу реестра | Ключ реестра | Значение |
+|Registry path | Registry Key | Value |
 | ------ | ------- | ------|
-| `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config` | ScratchLocation | *Новое расположение папки кэша* |
-| `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider` | ScratchLocation | *Новое расположение папки кэша* |
+| `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config` | ScratchLocation | *New cache folder location* |
+| `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider` | ScratchLocation | *New cache folder location* |
 
-- Перезапустите модуль архивации, выполнив следующую команду в командной строке с повышенными привилегиями:
+- Restart the Backup engine by executing the following command in an elevated command prompt:
 
   ```PS C:\> Net start obengine```
 
-  После успешного выполнения заданий архивации с использованием нового кэша вы можете удалить изначальную папку кэша.
+  Once the backup creation is successfully completed in the new cache location, you can remove the original cache folder.
 
-## Где можно сохранить папку кэша, чтобы агент службы архивации Azure работал должным образом?<br/>
-Для папки кэша не рекомендуется использовать следующие расположения.
+## <a name="where-can-i-put-the-cache-folder-for-the-azure-backup-agent-to-work-as-expected?<br/>"></a>Where can I put the cache-folder for the Azure Backup Agent to work as expected?<br/>
+The following locations for the cache-folder are not recommended:
 
-- Сетевая папка или съемный носитель. Папка кэша должна быть локальной по отношению к серверу, которому требуется резервное копирование с помощью оперативного резервного копирования. Сетевые расположения и съемные носители (например, USB-накопители) не поддерживаются.
-- Автономные тома. Папка кэша должна быть подключена к сети, если планируется резервное копирование с помощью агента службы архивации Azure.
+- Network share or Removable Media: The cache-folder must be local to the server that needs backing up using online backup. Network locations or removable media like USB drives are not supported.
+- Offline Volumes: The cache-folder must be online for expected backup using Azure Backup Agent.
 
-## Существуют ли неподдерживаемые атрибуты папки кэша?<br/>
- Для папки кэша не поддерживаются следующие атрибуты и их комбинации:
+## <a name="are-there-any-attributes-of-the-cache-folder-that-are-not-supported?<br/>"></a>Are there any attributes of the cache-folder that are not supported?<br/>
+ The following attributes or their combinations are not supported for the cache-folder:
 
-- зашифрованные;
-- дедупликация;
-- сжатые;
-- разреженные;
-- точка повторного анализа.
+- Encrypted
+- De-duplicated
+- Compressed
+- Sparse
+- Reparse-Point
 
-Для надлежащей работы агента службы архивации Azure не рекомендуется использовать указанные выше атрибуты для папки кэша и виртуального жесткого диска метаданных.
+It is recommended that neither the cache-folder nor the metadata VHD has the attributes above for expected functioning of the Azure Backup agent.
 
-<!---HONumber=AcomDC_0831_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

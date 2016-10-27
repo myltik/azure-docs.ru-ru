@@ -1,32 +1,34 @@
-## Подготовка решения
+## <a name="provision-the-solution"></a>Provision the solution
 
-1.  Войдите на сайт [azureiotsuite.com][lnk-azureiotsuite] с помощью учетных данных Azure и нажмите кнопку **+**, чтобы создать решение.
+1.  Log on to [azureiotsuite.com][lnk-azureiotsuite] using your Azure account credentials, and click **+** to create a new solution.
 
-2.  На плитке **Удаленный мониторинг** щелкните **Выбрать**.
+2.  Click **Select** on the **Remote monitoring** tile.
 
-3.  Укажите **имя** для предварительно настроенного решения удаленного мониторинга.
+3.  Enter a **Solution name** for your remote monitoring preconfigured solution.
 
-4.  Укажите **регион** и **подписку**, которые будут использоваться при подготовке решения.
+4.  Select the **Region** and **Subscription** you want to use to provision the solution.
 
-5.  Щелкните **Создать решение**, чтобы начать процесс подготовки. Это обычно занимает несколько минут.
+5.  Click **Create Solution** to begin the provisioning process. This typically takes several minutes to run.
 
-### Дождитесь завершения процесса подготовки.
+### <a name="wait-for-the-provisioning-process-to-complete"></a>Wait for the provisioning process to complete
 
-1. Щелкните плитку решения с состоянием **Подготовка**.
+1. Click on the tile for your solution with **Provisioning** status.
  
-2. Следите за **состояниями подготовки** по мере развертывания служб Azure в рамках подписки Azure.
+2. Notice the **Provisioning states** as Azure services are deployed in your Azure subscription.
 
-3. Когда подготовка будет завершена, состояние изменится на **Готово**.
+3. Once provisioning completes, the status changes to **Ready**.
 
-4. Щелкните элемент, и вы увидите подробные сведения о решении в правой панели.
+4. Click on the tile and you'll see the details of your solution in the right-hand pane.
 
-> [AZURE.NOTE] Если при развертывании предварительно настроенного решения возникают проблемы, см. статьи [Разрешения на сайте azureiotsuite.com][lnk-permissions] и [Часто задаваемые вопросы об IoT Suite][lnk-faq]. Если проблемы не удается устранить, отправьте запрос в службу поддержки на [портале][lnk-portal].
+> [AZURE.NOTE] If you are encountering issues deploying the pre-configured solution, take a look at [Permissions on the azureiotsuite.com site][lnk-permissions] and the [FAQ][lnk-faq]. If the issues persist, please create a service ticket on the [portal][lnk-portal].
 
-Есть ли сведения, которые вы ожидали увидеть и которые не указаны для вашего решения? Сообщите нам о своих предложениях на сайте [User Voice](https://feedback.azure.com/forums/321918-azure-iot).
+Are there details you'd expect to see that aren't listed for your solution? Give us feature suggestions on [User Voice](https://feedback.azure.com/forums/321918-azure-iot).
 
 [lnk-azureiotsuite]: https://www.azureiotsuite.com
 [lnk-permissions]: ../articles/iot-suite/iot-suite-permissions.md
 [lnk-portal]: http://portal.azure.com/
 [lnk-faq]: ../articles/iot-suite/iot-suite-faq.md
 
-<!---HONumber=AcomDC_0720_2016-->
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,233 +1,234 @@
 <properties
-	pageTitle="Использование подчиненного подключаемого модуля Azure на сервере непрерывной интеграции Hudson | Microsoft Azure"
-	description="В статье описывается, как использовать подчиненный подключаемый модуль Azure на сервере непрерывной интеграции Hudson."
-	services="virtual-machines-linux"
-	documentationCenter=""
-	authors="rmcmurray"
-	manager="wpickett"
-	editor="" />
+    pageTitle="How to use the Azure slave plug-in with Hudson Continuous Integration | Microsoft Azure"
+    description="Describes how to use the Azure slave plug-in with Hudson Continuous Integration."
+    services="virtual-machines-linux"
+    documentationCenter=""
+    authors="rmcmurray"
+    manager="wpickett"
+    editor="" />
 
 <tags
-	ms.service="virtual-machines-linux"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-multiple"
-	ms.devlang="java"
-	ms.topic="article"
-	ms.date="09/20/2016"
-	ms.author="robmcm"/>
+    ms.service="virtual-machines-linux"
+    ms.workload="infrastructure-services"
+    ms.tgt_pltfrm="vm-multiple"
+    ms.devlang="java"
+    ms.topic="article"
+    ms.date="09/20/2016"
+    ms.author="robmcm"/>
 
-# Использование подчиненного подключаемого модуля Azure на сервере непрерывной интеграции Hudson
 
-Подчиненный подключаемый модуль Azure для Hudson позволяет подготовить подчиненные узлы в Azure при выполнении распределенных сборок.
+# <a name="how-to-use-the-azure-slave-plug-in-with-hudson-continuous-integration"></a>How to use the Azure slave plug-in with Hudson Continuous Integration
 
-## Установка подчиненного подключаемого модуля Azure
+The Azure slave plug-in for Hudson enables you to provision slave nodes on Azure when running distributed builds.
 
-1. На панели мониторинга Hudson щелкните элемент **Manage Hudson** (Управление Hudson).
+## <a name="install-the-azure-slave-plug-in"></a>Install the Azure Slave plug-in
 
-1. На странице **Manage Hudson** щелкните **Manage Plugins** (Управление подключаемыми модулями).
+1. In the Hudson dashboard, click **Manage Hudson**.
 
-1. Перейдите на вкладку **Available** (Доступный).
+1. In the **Manage Hudson** page, click on **Manage Plugins**.
 
-1. Щелкните **Search** (Поиск) и введите **Azure**, чтобы ограничить список результатов соответствующими подключаемыми модулями.
+1. Click the **Available** tab.
 
-	Подключаемый модуль также можно найти в прокручиваемом списке. Подчиненный подключаемый модуль Azure находится в разделе **Cluster Management and Distributed Build** (Управление кластером и распределенная сборка) на вкладке **Others** (Другие).
+1. Click **Search** and type **Azure** to limit the list to relevant plug-ins.
 
-1. Установите флажок **Azure Slave Plugin** (Подчиненный подключаемый модуль Azure).
+    If you opt to scroll through the list of available plug-ins, you will find the Azure slave plug-in under the **Cluster Management and Distributed Build** section in the **Others** tab.
 
-1. Нажмите **Установить**.
+1. Select the checkbox for **Azure Slave Plugin**.
 
-1. Перезапустите Hudson.
+1. Click **Install**.
 
-Теперь, когда подключаемый модуль установлен, необходимо настроить его с помощью профиля подписки Azure и создать шаблон, который будет использоваться при создании виртуальной машины для подчиненного узла.
+1. Restart Hudson.
 
-## Настройка подчиненного подключаемого модуля Azure с помощью профиля подписки
+Now that the plug-in is installed, the next steps would be to configure the plug-in with your Azure subscription profile and to create a template that will be used in creating the VM for the slave node.
 
-Профиль подписки, также называемый настройками публикации, представляет собой XML-файл, содержащий защищенные учетные данные и некоторые дополнительные сведения, необходимые для использования Azure в среде разработки. Для настройки подчиненного подключаемого модуля Azure необходимы следующие данные:
+## <a name="configure-the-azure-slave-plug-in-with-your-subscription-profile"></a>Configure the Azure Slave plug-in with your subscription profile
 
-* идентификатор подписки;
-* сертификат управления подпиской.
+A subscription profile, also referred to as publish settings, is an XML file that contains secure credentials and some additional information you'll need to work with Azure in your development environment. To configure the Azure slave plug-in, you need:
 
-Эти сведения можно найти в [профиле подписки]. Ниже приведен пример профиля подписки.
+* Your subscription id
+* A management certificate for your subscription
 
-	<?xml version="1.0" encoding="utf-8"?>
+These can be found in your [subscription profile]. Below is an example of a subscription profile.
 
-		<PublishData>
+    <?xml version="1.0" encoding="utf-8"?>
 
-  		<PublishProfile SchemaVersion="2.0" PublishMethod="AzureServiceManagementAPI">
+        <PublishData>
 
-    	<Subscription
+        <PublishProfile SchemaVersion="2.0" PublishMethod="AzureServiceManagementAPI">
 
-      		ServiceManagementUrl="https://management.core.windows.net"
+        <Subscription
 
-      		Id="<Subscription ID>"
+            ServiceManagementUrl="https://management.core.windows.net"
 
-      		Name="Pay-As-You-Go"
-			ManagementCertificate="<Management certificate value>" />
+            Id="<Subscription ID>"
 
-  		</PublishProfile>
+            Name="Pay-As-You-Go"
+            ManagementCertificate="<Management certificate value>" />
 
-	</PublishData>
+        </PublishProfile>
 
-После создания профиля подписки выполните перечисленные ниже действия, чтобы настроить подчиненный подключаемый модуль Azure.
+    </PublishData>
 
-1. На панели мониторинга Hudson щелкните элемент **Manage Hudson** (Управление Hudson).
+Once you have your subscription profile, follow these steps to configure the Azure slave plug-in.
 
-1. Щелкните **Configure System** (Настройка системы).
+1. In the Hudson dashboard, click **Manage Hudson**.
 
-1. Прокрутите страницу вниз до раздела **Cloud** (Облако).
+1. Click **Configure System**.
 
-1. Щелкните **Add new cloud > Microsoft Azure** (Добавить новое облако > Microsoft Azure).
+1. Scroll down the page to find the **Cloud** section.
 
-    ![добавление нового облака][add new cloud]
+1. Click **Add new cloud > Microsoft Azure**.
 
-    Появятся поля, в которые необходимо ввести сведения о подписке.
+    ![add new cloud][add new cloud]
 
-    ![настройка профиля][configure profile]
+    This will show the fields where you need to enter your subscription details.
 
-1. Скопируйте идентификатор подписки и сертификат управления из профиля подписки и вставьте их в соответствующие поля.
+    ![configure profile][configure profile]
 
-    При копировании идентификатора подписки и сертификата управления **не** копируйте кавычки, в которые заключены значения.
+1. Copy the subscription id and management certificate from your subscription profile and paste them in the appropriate fields.
 
-1. Щелкните **Verify configuration** (Проверить конфигурацию).
+    When copying the subscription id and management certificate, **do not** include the quotes that enclose the values.
 
-1. После проверки правильности конфигурации щелкните **Save** (Сохранить).
+1. Click on **Verify configuration**.
 
-## Настройка шаблона виртуальной машины для подчиненного подключаемого модуля Azure
+1. When the configuration is verified successfully, click **Save**.
 
-Шаблон виртуальной машины определяет параметры, которые подключаемый модуль будет использовать для создания подчиненного узла в Azure. Далее мы создадим шаблон для виртуальной машины Ubuntu.
+## <a name="set-up-a-virtual-machine-template-for-the-azure-slave-plug-in"></a>Set up a virtual machine template for the Azure Slave plug-in
 
-1. На панели мониторинга Hudson щелкните элемент **Manage Hudson** (Управление Hudson).
+A virtual machine template defines the parameters the plug-in will use to create a slave node on Azure. In the following steps we'll be creating template for an Ubuntu VM.
 
-1. Щелкните **Configure System** (Настройка системы).
+1. In the Hudson dashboard, click **Manage Hudson**.
 
-1. Прокрутите страницу вниз до раздела **Cloud** (Облако).
+1. Click on **Configure System**.
 
-1. В разделе **Cloud** найдите элемент **Add Azure Virtual Machine Template** (Добавить шаблон виртуальной машины Azure) и нажмите кнопку **Add** (Добавить).
+1. Scroll down the page to find the **Cloud** section.
 
-    ![добавление шаблона виртуальной машины][add vm template]
+1. Within the **Cloud** section, find **Add Azure Virtual Machine Template** and click the **Add** button.
 
-1. В поле **Name** (Имя) введите имя облачной службы. Если указанное имя ссылается на уже существующую облачную службу, виртуальная машина будет подготовлена в ней. В противном случае Azure создаст новую службу.
+    ![add vm template][add vm template]
 
-1. В поле **Description** (Описание) введите описание создаваемого вами шаблона. Эти сведения будут использоваться только в информационных целях и при подготовке виртуальной машины не учитываются.
+1. Specify a cloud service name in the **Name** field. If the name you specify refers to an existing cloud service, the VM will be provisioned in that service. Otherwise, Azure will create a new one.
 
-1. В поле **Labels** (Метки) введите **linux**. Эта метка идентифицирует создаваемый вами шаблон и используется для обращения к нему при создании задания Hudson.
+1. In the **Description** field, enter text that describes the template you are creating. This information is only for documentary purposes and is not used in provisioning a VM.
 
-1. Выберите регион для создания виртуальной машины.
+1. In the **Labels** field, enter **linux**. This label is used to identify the template you are creating and is subsequently used to reference the template when creating a Hudson job.
 
-1. Выберите размер виртуальной машины.
+1. Select a region where the VM will be created.
 
-1. Укажите учетную запись хранения, в которой будет создана виртуальная машина. Убедитесь, что она находится в одном регионе с облачной службой, которую вы собираетесь использовать. Если вы хотите создать новое хранилище, оставьте это поле пустым.
+1. Select the appropriate VM size.
 
-1. Время хранения — это время в минутах, которое должно пройти до удаления неактивного подчиненного модуля из Hudson. Оставьте значение по умолчанию 60.
+1. Specify a storage account where the VM will be created. Make sure that it is in the same region as the cloud service you'll be using. If you want new storage to be created, you can leave this field blank.
 
-1. В поле **Usage** (Использование) выберите условие для использования этого подчиненного узла. На этом этапе выберите вариант **Utilize this node as much as possible** (Использовать этот узел постоянно).
+1. Retention time specifies the number of minutes before Hudson deletes an idle slave. Leave this at the default value of 60.
 
-    На этом этапе заполняемая форма будет выглядеть примерно так:
+1. In **Usage**, select the appropriate condition when this slave node will be used. For now, select **Utilize this node as much as possible**.
 
-    ![настройка шаблона][template config]
+    At this point, your form would look somewhat similar to this:
 
-1. В поле **Image Family or Id** (Семейство или идентификатор образов) укажите, какой образ системы будет установлен на вашей виртуальной машине. Выберите образ из списка семейств или укажите пользовательский вариант.
+    ![template config][template config]
 
-    Если вы хотите выбрать образ из списка семейств, введите первую букву имени семейства (с учетом регистра). Например, если вы введете **U**, появится список семейств Ubuntu Server. При подготовке виртуальной машины Jenkins будет использовать последнюю версию образа системы из семейства, выбранного в списке.
+1. In **Image Family or Id** you have to specify what system image will be installed on your VM. You can either select from a list of image families or specify a custom image.
 
-    ![список семейств ОС][OS family list]
+    If you want to select from a list of image families, enter the first character (case-sensitive) of the image family name. For instance, typing **U** will bring up a list of Ubuntu Server families. Once you select from the list, Jenkins will use the latest version of that system image from that family when provisioning your VM.
 
-    Если вы хотите использовать пользовательский образ, введите его имя. Имена пользовательских образов не отображаются в списке, поэтому его необходимо ввести правильно.
+    ![OS family list][OS family list]
 
-    В данном примере при вводе буквы **U** открывается список образов Ubuntu и мы выбираем вариант **Ubuntu Server 14.04 LTS**.
+    If you have a custom image that you want to use instead, enter the name of that custom image. Custom image names are not shown in a list so you have to ensure that the name is entered correctly.    
 
-1. В поле **Launch method** (Способ запуска) выберите **SSH**.
+    For this tutorial, type **U** to bring up a list of Ubuntu images and select **Ubuntu Server 14.04 LTS**.
 
-1. Скопируйте приведенный ниже сценарий и вставьте его в поле **Init script** (Сценарий инициализации).
+1. For **Launch method**, select **SSH**.
 
-		# Install Java
+1. Copy the script below and paste in the **Init script** field.
 
-		sudo apt-get -y update
+        # Install Java
 
-		sudo apt-get install -y openjdk-7-jdk
+        sudo apt-get -y update
 
-		sudo apt-get -y update --fix-missing
+        sudo apt-get install -y openjdk-7-jdk
 
-		sudo apt-get install -y openjdk-7-jdk
+        sudo apt-get -y update --fix-missing
 
-		# Install git
+        sudo apt-get install -y openjdk-7-jdk
 
-		sudo apt-get install -y git
+        # Install git
 
-		#Install ant
+        sudo apt-get install -y git
 
-		sudo apt-get install -y ant
+        #Install ant
 
-		sudo apt-get -y update --fix-missing
+        sudo apt-get install -y ant
 
-		sudo apt-get install -y ant
+        sudo apt-get -y update --fix-missing
 
-    **Сценарий инициализации** будет выполнен после создания виртуальной машины. В этом примере сценарий устанавливает Java, Git и Ant.
+        sudo apt-get install -y ant
 
-1. В полях **Username** (Имя пользователя) и **Password** (Пароль) введите значения для учетной записи администратора, которая будет создана на вашей виртуальной машине.
+    The **Init script** will be executed after the VM is created. In this example, the script installs Java, git, and ant.
 
-1. Чтобы проверить допустимость указанных параметров, щелкните **Verify Template** (Проверить шаблон).
+1. In the **Username** and **Password** fields, enter your preferred values for the administrator account that will be created on your VM.
 
-1. Щелкните **Save** (Сохранить).
+1. Click on **Verify Template** to check if the parameters you specified are valid.
 
-## Создание задания Hudson, выполняемого в подчиненном узле в Azure
+1. Click on **Save**.
 
-В этом разделе вы узнаете, как создать задачу Hudson, которая должна выполняться в подчиненном узле в Azure.
+## <a name="create-a-hudson-job-that-runs-on-a-slave-node-on-azure"></a>Create a Hudson job that runs on a slave node on Azure
 
-1. На панели мониторинга Hudson щелкните элемент **New Job** (Создать задание).
+In this section, you'll be creating a Hudson task that will run on a slave node on Azure.
 
-1. Введите название создаваемого задания.
+1. In the Hudson dashboard, click **New Job**.
 
-1. В качестве типа задания выберите **Build a free-style software job** (Создание программного задания в свободной форме).
+1. Enter a name for the job you are creating.
 
-1. Нажмите кнопку **ОК**.
+1. For the job type, select **Build a free-style software job**.
 
-1. На странице настройки задания выберите **Restrict where this project can be run** (Ограничения для запуска этого проекта).
+1. Click **OK**.
 
-1. Откройте меню **Node and label** (Узел и метка) и выберите вариант **linux** (мы указали эту метку при создании шаблона виртуальной машины в предыдущем разделе).
+1. In the job configuration page, select **Restrict where this project can be run**.
 
-1. В поле **Build** (Сборка) щелкните **Add build step** (Добавить шаг сборки) и выберите **Execute shell** (Запустить оболочку).
+1. Select **Node and label menu** and select **linux** (we specified this label when creating the virtual machine template in the previous section).
 
-1. В показанном ниже сценарии вместо **{имени учетной записи github}**, **{названия проекта}** и **{каталога проекта}** укажите соответствующие значения и вставьте измененный сценарий в появившуюся текстовую область.
+1. In the **Build** section, click **Add build step** and select **Execute shell**.
 
-		# Clone from git repo
+1. Edit the following script, replacing **{your github account name}**, **{your project name}**, and **{your project directory}** with appropriate values, and paste the edited script in the text area that appears.
 
-		currentDir="$PWD"
+        # Clone from git repo
 
-		if [ -e {your project directory} ]; then
+        currentDir="$PWD"
 
-  			cd {your project directory}
+        if [ -e {your project directory} ]; then
 
-  			git pull origin master
+            cd {your project directory}
 
-		else
+            git pull origin master
 
-  			git clone https://github.com/{your github account name}/{your project name}.git
+        else
 
-		fi
+            git clone https://github.com/{your github account name}/{your project name}.git
 
-		# change directory to project
+        fi
 
-		cd $currentDir/{your project directory}
+        # change directory to project
 
-		#Execute build task
+        cd $currentDir/{your project directory}
 
-		ant
+        #Execute build task
 
-1. Щелкните **Save** (Сохранить).
+        ant
 
-1. На панели мониторинга Hudson найдите только что созданное задание и щелкните значок **Schedule a build** (Назначить сборку).
+1. Click on **Save**.
 
-Затем на основании шаблона, созданного в предыдущем разделе, Hudson создаст подчиненный узел и выполнит сценарий, который вы указали на этапе сборки данной задачи.
+1. In the Hudson dashboard, find the job you just created and click on the **Schedule a build** icon.
 
-## Дальнейшие действия
+Hudson will then create a slave node using the template created in the previous section and execute the script you specified in the build step for this task.
 
-Дополнительные сведения об использовании Azure с Java см. в [центре разработчиков Java для Azure].
+## <a name="next-steps"></a>Next Steps
+
+For more information about using Azure with Java, see the [Azure Java Developer Center].
 
 <!-- URL List -->
 
-[центре разработчиков Java для Azure]: https://azure.microsoft.com/develop/java/
-[профиле подписки]: http://go.microsoft.com/fwlink/?LinkID=396395
+[Azure Java Developer Center]: https://azure.microsoft.com/develop/java/
+[subscription profile]: http://go.microsoft.com/fwlink/?LinkID=396395
 
 <!-- IMG List -->
 
@@ -237,4 +238,9 @@
 [template config]: ./media/virtual-machines-azure-slave-plugin-for-hudson/hudson-setup-templateconfig1-withdata.png
 [OS family list]: ./media/virtual-machines-azure-slave-plugin-for-hudson/hudson-oslist.png
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

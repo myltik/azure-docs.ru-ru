@@ -1,34 +1,34 @@
-1. Войдите на [портал Azure][].
+1. Log on to the [Azure portal][].
 
-2. В левой области навигации на портале щелкните **Создать**, **Интеграция Enterprise**, **Служебная шина**.
+2. In the left navigation pane of the portal, click **New**, then click **Enterprise Integration**, and then click **Service Bus**.
 
-4. В диалоговом окне **Создание пространства имен** укажите имя пространства имен. Система немедленно проверяет, доступно ли оно.
+4. In the **Create namespace** dialog, enter a namespace name. The system immediately checks to see if the name is available.
 
-5. Убедившись, что пространство имен доступно, выберите ценовую категорию: "Базовый", "Стандартный" или "Премиум".
+5. After making sure the namespace name is available, choose the pricing tier (Basic, Standard, or Premium).
 
-7. Выберите **подписку** Azure, в рамках которой будет создано пространство имен.
+7. In the **Subscription** field, choose an Azure subscription in which to create the namespace.
 
-9. Выберите существующую **группу ресурсов**, в которую будет включено это пространство имен, или создайте новую.
+9. In the **Resource group** field, choose an existing resource group in which the namespace will live, or create a new one.      
 
-8. Укажите **расположение** — страну или регион для размещения пространства имен.
+8. In **Location**, choose the country or region in which your namespace should be hosted.
 
-	![Создание пространства имен][create-namespace]
+    ![Create namespace][create-namespace]
 
-6. Щелкните **Создать**. Теперь система создает пространство имен и включает его. Возможно, вам придется подождать несколько минут, пока система выделит ресурсы для вашей учетной записи.
+6. Click **Create**. The system now creates your namespace and enables it. You might have to wait several minutes as the system provisions resources for your account.
  
-### Получение учетных данных управления
+### <a name="obtain-the-management-credentials"></a>Obtain the management credentials
 
-1. В списке пространств имен щелкните имя только что созданного пространства имен.
+1. In the list of namespaces, click the newly created namespace name.
  
-3. В колонке пространства имен щелкните **Политики общего доступа**.
+3. In the namespace blade, click **Shared access policies**.
 
-4. В колонке **Политики общего доступа** щелкните **RootManageSharedAccessKey**.
+4. In the **Shared access policies** blade, click **RootManageSharedAccessKey**.
 
-	![Сведения о подключении][connection-info]
+    ![connection-info][connection-info]
 
-5. В колонке **Политика: RootManageSharedAccessKey** нажмите кнопку копирования рядом с полем **Строка подключения — первичный ключ**, чтобы скопировать строку подключения в буфер обмена для последующего использования. Вставьте на время эти значения в Блокноте или любом другом месте.
+5. In the **Policy: RootManageSharedAccessKey** blade, click the copy button next to **Connection string–primary key**, to copy the connection string to your clipboard for later use. Paste this value into Notepad or some other temporary location.
 
-	![Строка подключения][connection-string]
+    ![connection-string][connection-string]
 
 <!--Image references-->
 
@@ -37,6 +37,8 @@
 [connection-string]: ./media/service-bus-create-namespace-portal/connection-string.png
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
-[портал Azure]: https://portal.azure.com
+[Azure portal]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0921_2016-->
+<!--HONumber=Oct16_HO2-->
+
+

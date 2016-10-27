@@ -1,46 +1,49 @@
 <!--author=alkohli last changed: 9/16/15-->
 
 
-#### Подключение питания к устройству
+#### <a name="to-cable-your-device-for-power"></a>To cable your device for power
 
->[AZURE.NOTE]Оба корпусах устройстве StorSimple имеют резервные блоки PCM. Их необходимо установить и подключить к разным источникам питания, чтобы обеспечить высокий уровень доступности.
+>[AZURE.NOTE] Both enclosures on your StorSimple device include redundant PCMs. For each enclosure, the PCMs must be installed and connected to different power sources to ensure high availability.
 
-1. Убедитесь, что переключатели питания на всех блоках питания и охлаждения PCM установлены в положение OFF.
+1. Make sure that the power switches on all the PCMs are in the OFF position.
 
-2. На основном корпусе подключите кабели питания к обоим блокам PCM. На схеме подключения ниже кабели питания обозначены красным цветом.
+2. On the primary enclosure, connect the power cords to both PCMs. The power cords are identified in red in the power cabling diagram, below.
 
-3. Убедитесь, что для двух блоков PCM на основном корпусе используются разные источники питания.
+3. Make sure that the two PCMs on the primary enclosure use separate power sources.
 
-4. Присоедините кабели питания к сети на распределительных блоках стойки, как показано на схеме подключения.
+4. Attach the power cords to the power on the rack distribution units as shown in the power cabling diagram.
 
-5. Повторите шаги со 2 по 4 для корпуса EBOD.
+5. Repeat steps 2 through 4 for the EBOD enclosure.
 
-6. Включите питание корпуса EBOD, установив переключатели питания на каждом блоке PCM в положение ON.
+6. Turn on the EBOD enclosure by flipping the power switch on each PCM to the ON position.
 
-7. Проверьте питание корпуса EBOD: зеленые индикаторы на задней панели контроллера EBOD должны светиться.
+7. Verify that the EBOD enclosure is turned on by checking that the green LEDs on the back of the EBOD controller are turned ON.
 
-8. Включите питание основного корпуса, установив переключатели каждого блока PCM в положение ON.
+8. Turn on the primary enclosure by flipping each PCM switch to the ON position.
 
-9. Проверьте питание системы: индикаторы контроллера устройства должны светиться.
+9. Verify that the system is on by ensuring the device controller LEDs have turned ON.
 
-10. Проверьте активность соединения между контроллером EBOD и контроллером устройства: четыре индикатора рядом с портом SAS на контроллере EBOD должны светиться зеленым.
+10. Make sure that the connection between the EBOD controller and the device controller is active by verifying that the four LEDs next to the SAS port on the EBOD controller are green.
 
-    >[AZURE.IMPORTANT]Чтобы обеспечить высокий уровень доступности системы, рекомендуем строго придерживаться схемы подключения кабелей питания, показанной на следующей диаграмме.
+    >[AZURE.IMPORTANT] To ensure high availability for your system, we recommend that you strictly adhere to the power cabling scheme shown in the following diagram.
 
-    ![Подключите питание к устройству 4U](./media/storsimple-cable-8600-for-power/HCSCableYour4UDeviceforPower.png)
+    ![Cable your 4U device for power](./media/storsimple-cable-8600-for-power/HCSCableYour4UDeviceforPower.png)
 
-    **кабели питания.**
+    **Power cabling**
 
-    |Метка|Описание|
+    |Label|Description|
     |:----|:----------|
-    |1|Основной корпус|
+    |1|Primary enclosure|
     |2|PCM 0|
     |3|PCM 1|
-    |4\.|Контроллер 0|
-    |5|Контроллер 1|
-    |6|Контроллер EBOD 0|
-    |7|Контроллер EBOD 1|
-    |8|Корпус EBOD|
-    |9|Блоки распределения питания|
+    |4|Controller 0|
+    |5|Controller 1|
+    |6|EBOD controller 0|
+    |7|EBOD controller 1|
+    |8|EBOD enclosure|
+    |9|PDUs|
 
-<!---HONumber=Oct15_HO3-->
+
+<!--HONumber=Oct16_HO2-->
+
+

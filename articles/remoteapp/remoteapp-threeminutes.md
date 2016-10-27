@@ -1,7 +1,7 @@
 
 <properties
-    pageTitle="Испытайте Azure RemoteApp на своем устройстве за 3 минуты или меньше | Microsoft Azure"
-    description="Протестируйте функции Azure RemoteApp, не устанавливая службу."
+    pageTitle="Try Azure RemoteApp on your device in 3 minutes or less | Microsoft Azure"
+    description="Test drive Azure RemoteApp functionality without installing the service."
     services="remoteapp"
     documentationCenter=""
     authors="lizap"
@@ -18,24 +18,29 @@
 
 
 
-# Испытайте Azure RemoteApp на своем устройстве за 3 минуты или меньше
+
+# <a name="try-azure-remoteapp-on-your-device-in-3-minutes-or-less"></a>Try Azure RemoteApp on your device in 3 minutes or less
 
 > [AZURE.IMPORTANT]
-Мы выводим удаленное приложение Azure RemoteApp из эксплуатации. Дополнительные сведения см. в [объявлении](https://go.microsoft.com/fwlink/?linkid=821148).
+> Azure RemoteApp is being discontinued. Read the [announcement](https://go.microsoft.com/fwlink/?linkid=821148) for details.
 
-Хотите опробовать Azure RemoteApp на своем устройстве? Вы можете получить доступ к демоверсии развертывания в течение 10 минут, если у вас есть учетная запись Майкрософт. Мы предоставляем доступ к Office и некоторым другим приложениям. Это отличный способ протестировать пользовательский интерфейс для Azure RemoteApp меньше чем за 3 минуты.
+Want to see Azure RemoteApp on your device? You can access our demo deployment for 10 minutes, as long as you have a Microsoft account. We have Office and a few other applications available. This is a great way to test drive the user experience for Azure RemoteApp in less than 3 minutes.
 
-Заинтересовались?
+Interested?
 
-1. Перейдите по ссылке [http://remoteapp.azure.com](http://remoteapp.azure.com).
-2. Щелкните **Установить клиент** в правом верхнем углу.
-3. Система автоматически определит ваше устройство и перенаправит вас к клиенту для вашего устройства. Установите клиент.
-4. Вернитесь на сайт [http://remoteapp.azure.com](http://remoteapp.azure.com) и войдите по учетной записи Майкрософт.
+1. Go to to [http://remoteapp.azure.com](http://remoteapp.azure.com).
+2. Click **Install Client** in the upper right corner.  
+3. The system automatically detects your device and will take you to the client for your device. Install the client.
+4. Go back [http://remoteapp.azure.com](http://remoteapp.azure.com) and  sign in with your Microsoft account.
 
-Теперь вы можете получить доступ к выполняющимся приложениям в Azure RemoteApp.
+You can now access applications running in real time on Azure RemoteApp.
 
-Нам важно ваше мнение. В конце каждого сеанса вы увидите диалоговое окно для отзыва. Если у вас найдется минутка, сообщите нам, может ли Майкрософт связаться с вами для получения дополнительных сведений.
+Your opinion matters. At the end of each session, you will see a dialog box for your feedback. If you have a minute, tell us your thoughts and let us know whether you would like Microsoft to contact you for additional information.
 
->[AZURE.NOTE] Так как это управляемая среда демоверсии, внешний доступ к Интернету из опубликованных демоверсий приложений отключен. По этой причине такие службы, как OneDrive, недоступны. Также отключен общий доступ к буферу обмена (копирование и вставка), подключение по USB и перенаправление принтера.
+>[AZURE.NOTE] Because this is a controlled environment for demo use, we have not enabled external internet access from the published demo applications. Because of this, services like OneDrive are not accessible. Also, clipboard sharing (Copy & Paste) and USB and printer redirection are disabled.  
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

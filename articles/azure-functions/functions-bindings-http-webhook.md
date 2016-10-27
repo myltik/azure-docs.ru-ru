@@ -1,50 +1,51 @@
 <properties
-	pageTitle="Привязки HTTP и webhook в функциях Azure | Microsoft Azure"
-	description="Узнайте, как использовать триггеры и привязки HTTP и webhook в функциях Azure."
-	services="functions"
-	documentationCenter="na"
-	authors="christopheranderson"
-	manager="erikre"
-	editor=""
-	tags=""
-	keywords="функции azure, функции, обработка событий, веб-перехватчики, динамические вычисления, независимая архитектура"/>
+    pageTitle="Azure Functions HTTP and webhook bindings | Microsoft Azure"
+    description="Understand how to use HTTP and webhook triggers and bindings in Azure Functions."
+    services="functions"
+    documentationCenter="na"
+    authors="christopheranderson"
+    manager="erikre"
+    editor=""
+    tags=""
+    keywords="azure functions, functions, event processing, webhooks, dynamic compute, serverless architecture"/>
 
 <tags
-	ms.service="functions"
-	ms.devlang="multiple"
-	ms.topic="reference"
-	ms.tgt_pltfrm="multiple"
-	ms.workload="na"
-	ms.date="08/22/2016"
-	ms.author="chrande"/>
+    ms.service="functions"
+    ms.devlang="multiple"
+    ms.topic="reference"
+    ms.tgt_pltfrm="multiple"
+    ms.workload="na"
+    ms.date="08/22/2016"
+    ms.author="chrande"/>
 
-# Привязки HTTP и webhook в функциях Azure
+
+# <a name="azure-functions-http-and-webhook-bindings"></a>Azure Functions HTTP and webhook bindings
 
 [AZURE.INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
-Эта статья объясняет, как настроить и запрограммировать триггеры и привязки HTTP и webhook в функциях Azure.
+This article explains how to configure and code HTTP and webhook triggers and bindings in Azure Functions. 
 
-[AZURE.INCLUDE [общие сведения](../../includes/functions-bindings-intro.md)]
+[AZURE.INCLUDE [intro](../../includes/functions-bindings-intro.md)] 
 
-## Файл function.json для привязок HTTP и webhook
+## <a name="function.json-for-http-and-webhook-bindings"></a>function.json for HTTP and webhook bindings
 
-В файле *function.json* содержатся свойства, которые относятся как к запросу, так и к ответу.
+The *function.json* file provides properties that pertain to both the request and response.
 
-Свойства HTTP-запроса:
+Properties for the HTTP request:
 
-- `name` — имя переменной, используемой в коде функции для объекта запроса (или для текста запроса, если используются функции Node.js).
-- `type` — для этого свойства нужно задать значение *httpTrigger*.
-- `direction` — для этого свойства необходимо задать значение *in*.
-- `webHookType` — для триггеров webhook допустимыми значениями являются *github*, *slack* и *genericJson*. Для триггера HTTP, отличного от триггера веб-перехватчика, в качестве значения для этого свойства задается пустая строка. Дополнительные сведения о webhook см. в приведенном ниже разделе [Триггеры webhook](#webhook-triggers).
-- `authLevel` — это свойство не применяется к триггерам webhook. Задайте значение function, чтобы появлялся запрос на ключ API, anonymous, чтобы требование ключа API игнорировалось, или admin, чтобы появлялся запрос на главный ключ API. Дополнительные сведения см. в приведенном ниже разделе [Ключи API](#apikeys).
+- `name` : Variable name used in function code for the request object (or the request body in the case of Node.js functions).
+- `type` : Must be set to *httpTrigger*.
+- `direction` : Must be set to *in*. 
+- `webHookType` : For WebHook triggers, valid values are *github*, *slack*, and *genericJson*. For an HTTP trigger that isn't a WebHook, set this property to an empty string. For more information on WebHooks, see the following [WebHook triggers](#webhook-triggers) section.
+- `authLevel` : Doesn't apply to WebHook triggers. Set to "function" to require the API key, "anonymous" to drop the API key requirement, or "admin" to require the master API key. See [API keys](#apikeys) below for more information.
 
-Свойства HTTP-ответа:
+Properties for the HTTP response:
 
-- `name` — имя переменной, используемой в коде функции для объекта ответа.
-- `type` — для этого свойства нужно задать значение *http*.
-- `direction` — для этого свойства необходимо задать значение *out*.
+- `name` : Variable name used in function code for the response object.
+- `type` : Must be set to *http*.
+- `direction` : Must be set to *out*. 
  
-Пример файла *function.json*:
+Example *function.json*:
 
 ```json
 {
@@ -66,29 +67,29 @@
 }
 ```
 
-## Триггеры веб-перехватчика
+## <a name="webhook-triggers"></a>WebHook triggers
 
-Триггер веб-перехватчика — это триггер HTTP, обладающий следующими возможностями, предназначенными для веб-перехватчиков:
+A WebHook trigger is an HTTP trigger that has the following features designed for WebHooks:
 
-* Для отдельных поставщиков веб-перехватчиков (сейчас поддерживаются GitHub и Slack) среда выполнения Функций проверяет подпись поставщика.
-* Для функций Node.js среда выполнения Функций предоставляет текст запроса, а не объект запроса. Функции C# не обрабатываются особым образом, так как вы управляете предоставляемыми объектами, указывая тип параметра. Указывая `HttpRequestMessage`, вы получаете объект запроса. При указании типа POCO среда выполнения Функций пытается проанализировать объект JSON в тексте запроса, чтобы указать свойства объекта.
-* Для активации функции веб-перехватчика HTTP-запрос должен содержать ключ API. Для триггеров HTTP, отличных от веб-перехватчиков, это требование необязательно.
+* For specific WebHook providers (currently GitHub and Slack are supported), the Functions runtime validates the provider's signature.
+* For Node.js functions, the Functions runtime provides the request body instead of the request object. There is no special handling for C# functions, because you control what is provided by specifying the parameter type. If you specify `HttpRequestMessage` you get the request object. If you specify a POCO type, the Functions runtime tries to parse a JSON object in the body of the request to populate the object properties.
+* To trigger a WebHook function the HTTP request must include an API key. For non-WebHook HTTP triggers,  this requirement is optional.
 
-Сведения о настройке webhook GitHub см. в статье [Creating WebHooks](http://go.microsoft.com/fwlink/?LinkID=761099&clcid=0x409) (Создание webhook) на сайте GitHub Developer.
+For information about how to set up a GitHub WebHook, see [GitHub Developer - Creating WebHooks](http://go.microsoft.com/fwlink/?LinkID=761099&clcid=0x409).
 
-## URL-адрес для запуска функции
+## <a name="url-to-trigger-the-function"></a>URL to trigger the function
 
-Для запуска функции необходимо отправить HTTP-запрос на URL-адрес, который состоит из URL-адреса приложения-функции и имени функции:
+To trigger a function, you send an HTTP request to a URL that is a combination of the function app URL and the function name:
 
 ```
  https://{function app name}.azurewebsites.net/api/{function name} 
 ```
 
-## Ключи API
+## <a name="api-keys"></a>API keys
 
-По умолчанию API-ключ следует добавить в HTTP-запрос, чтобы активировать функцию HTTP или веб-перехватчика. Ключ можно добавить в переменную строки запроса с именем `code` или в заголовок HTTP `x-functions-key`. Для функций, отличных от функций веб-перехватчика, можно указать, что ключ API не требуется, задав для свойства `authLevel` значение anonymous в файле *function.json*.
+By default, an API key must be included with an HTTP request to trigger an HTTP or WebHook function. The key can be included in a query string variable named `code`, or it can be included in an `x-functions-key` HTTP header. For non-WebHook functions, you can indicate that an API key is not required by setting the `authLevel` property to "anonymous" in the *function.json* file.
 
-Значения ключа API можно найти в папке с путем *D:\\home\\data\\Functions\\secrets* в файловой системе приложения функций. Главный ключ и ключ функции устанавливаются в файле *host.json*, как показано в следующем примере.
+You can find API key values in the *D:\home\data\Functions\secrets* folder in the file system of the function app.  The master key and function key are set in the *host.json* file, as shown in this example. 
 
 ```json
 {
@@ -97,9 +98,9 @@
 }
 ```
 
-Ключ функции из файла *host.json* можно использовать для активации любой функции. Однако с его помощью нельзя активировать отключенную функцию. С помощью главного ключа можно активировать любую функцию, даже если она отключена. Функцию можно настроить таким образом, чтобы для ее активации требовался главный ключ. Для этого нужно задать для свойства `authLevel` значение admin.
+The function key from *host.json* can be used to trigger any function but won't trigger a disabled function. The master key can be used to trigger any function and will trigger a function even if it's disabled. You can configure a function to require the master key by setting the `authLevel` property to "admin". 
 
-Если папка *secrets* содержит JSON-файл с тем же именем, что и у функции, с помощью свойства `key` в этом файле можно также активировать эту функцию, а этот ключ можно будет использовать только с функцией, на которую он ссылается. Например, ключ API для функции с именем `HttpTrigger` указывается в файле *HttpTrigger.json* в папке *secrets*. Пример:
+If the *secrets* folder contains a JSON file with the same name as a function, the `key` property in that file can also be used to trigger the function, and this key will only work with the function it refers to. For example, the API key for a function named `HttpTrigger` is specified in *HttpTrigger.json* in the *secrets* folder. Here is an example:
 
 ```json
 {
@@ -107,11 +108,11 @@
 }
 ```
 
-> [AZURE.NOTE] При настройке триггера веб-перехватчика не предоставляйте поставщику веб-перехватчика общий доступ к главному ключу. Воспользуйтесь ключом, который можно использовать только с функцией, обрабатывающей веб-перехватчик. С помощью главного ключа можно активировать любую функцию, даже отключенную.
+> [AZURE.NOTE] When you're setting up a WebHook trigger, don't share the master key with the WebHook provider. Use a key that will only work with the function that processes the WebHook.  The master key can be used to trigger any function, even disabled functions.
 
-## Пример кода C# для функции триггера HTTP 
+## <a name="example-c#-code-for-an-http-trigger-function"></a>Example C# code for an HTTP trigger function 
 
-В примере кода выполняется поиск параметра `name` в строке запроса или в тексте HTTP-запроса.
+The example code looks for a `name` parameter either in the query string or the body of the HTTP request.
 
 ```csharp
 using System.Net;
@@ -138,9 +139,9 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceW
 }
 ```
 
-## Пример кода F# для функции триггера HTTP
+## <a name="example-f#-code-for-an-http-trigger-function"></a>Example F# code for an HTTP trigger function
 
-В примере кода выполняется поиск параметра `name` в строке запроса или в тексте HTTP-запроса.
+The example code looks for a `name` parameter either in the query string or the body of the HTTP request.
 
 ```fsharp
 open System.Net
@@ -164,7 +165,7 @@ let Run(req: HttpRequestMessage) =
     } |> Async.StartAsTask
 ```
 
-Вам потребуется файл `project.json`, который использует NuGet для ссылки на сборки `FSharp.Interop.Dynamic` и `Dynamitey`, как показано ниже.
+You will need a `project.json` file that uses NuGet to reference the `FSharp.Interop.Dynamic` and `Dynamitey` assemblies, like this:
 
 ```json
 {
@@ -179,11 +180,11 @@ let Run(req: HttpRequestMessage) =
 }
 ```
 
-С помощью NuGet файл извлекает зависимости и создает на них ссылки в сценарии.
+This will use NuGet to fetch your dependencies and will reference them in your script.
 
-## Пример кода Node.js для функции триггера HTTP 
+## <a name="example-node.js-code-for-an-http-trigger-function"></a>Example Node.js code for an HTTP trigger function 
 
-В этом примере кода выполняется поиск параметра `name` в строке запроса или в тексте HTTP-запроса.
+This example code looks for a `name` parameter either in the query string or the body of the HTTP request.
 
 ```javascript
 module.exports = function(context, req) {
@@ -205,9 +206,9 @@ module.exports = function(context, req) {
 };
 ```
 
-## Пример кода C# для функции веб-перехватчика GitHub 
+## <a name="example-c#-code-for-a-github-webhook-function"></a>Example C# code for a GitHub WebHook function 
 
-В этом примере кода регистрируются комментарии о выдаче GitHub.
+This example code logs GitHub issue comments.
 
 ```csharp
 #r "Newtonsoft.Json"
@@ -230,9 +231,9 @@ public static async Task<object> Run(HttpRequestMessage req, TraceWriter log)
 }
 ```
 
-## Пример кода F# для функции перехватчика webhook на GitHub
+## <a name="example-f#-code-for-a-github-webhook-function"></a>Example F# code for a GitHub WebHook function
 
-В этом примере кода регистрируются комментарии о выдаче GitHub.
+This example code logs GitHub issue comments.
 
 ```fsharp
 open System.Net
@@ -255,9 +256,9 @@ let Run(req: HttpRequestMessage, log: TraceWriter) =
     } |> Async.StartAsTask
 ```
 
-## Пример кода Node.js для функции веб-перехватчика GitHub 
+## <a name="example-node.js-code-for-a-github-webhook-function"></a>Example Node.js code for a GitHub WebHook function 
 
-В этом примере кода регистрируются комментарии о выдаче GitHub.
+This example code logs GitHub issue comments.
 
 ```javascript
 module.exports = function (context, data) {
@@ -267,8 +268,12 @@ module.exports = function (context, data) {
 };
 ```
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Next steps
 
-[AZURE.INCLUDE [дальнейшие действия](../../includes/functions-bindings-next-steps.md)]
+[AZURE.INCLUDE [next steps](../../includes/functions-bindings-next-steps.md)] 
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

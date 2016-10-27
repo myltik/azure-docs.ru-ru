@@ -1,11 +1,11 @@
 
 <properties 
-    pageTitle="Оценка использования пропускной способности сети Azure RemoteApp | Microsoft Azure"
-	description="Дополнительные сведения о требованиях к пропускной способности сети для приложений и коллекций Azure RemoteApp."
-	services="remoteapp"
-	documentationCenter="" 
-	authors="lizap" 
-	manager="mbaldwin" />
+    pageTitle="Estimate Azure RemoteApp network bandwidth usage | Microsoft Azure"
+    description="Learn about the network bandwidth requirements for your Azure RemoteApp collections and apps."
+    services="remoteapp"
+    documentationCenter="" 
+    authors="lizap" 
+    manager="mbaldwin" />
 
 <tags 
     ms.service="remoteapp" 
@@ -16,30 +16,34 @@
     ms.date="08/15/2016" 
     ms.author="elizapo" />
 
-# Оценка использования пропускной способности сети Azure RemoteApp 
+
+# <a name="estimate-azure-remoteapp-network-bandwidth-usage"></a>Estimate Azure RemoteApp network bandwidth usage 
 
 > [AZURE.IMPORTANT]
-Мы выводим удаленное приложение Azure RemoteApp из эксплуатации. Дополнительные сведения см. в [объявлении](https://go.microsoft.com/fwlink/?linkid=821148).
+> Azure RemoteApp is being discontinued. Read the [announcement](https://go.microsoft.com/fwlink/?linkid=821148) for details.
 
-Azure RemoteApp использует протокол удаленного рабочего стола (RDP) для взаимодействия между приложениями, запущенными в облаке Azure, и пользователями. Эта статья содержит основные рекомендации, позволяющие оценить использование этой сети и потенциально оценить применение пропускной способности сети на пользователя Azure RemoteApp.
+Azure RemoteApp uses the Remote Desktop Protocol (RDP) to communicate between applications running in the Azure cloud and your users. This article provides some basic guidelines you can use to estimate that network usage and potentially evaluate network bandwidth usage per Azure RemoteApp user.
 
-Оценка использования пропускной способности на пользователя довольно сложна и требует одновременного выполнения нескольких приложений в многозадачных сценариях, где приложения могут влиять на производительность в зависимости от их требований к пропускной способности сети. Даже тип клиента удаленного рабочего стола (например клиент Mac или HTML5) может повлиять на результаты по пропускной способности. Чтобы упростить эту задачу, мы разбили сценарии использования на несколько общих категорий, отражающих реальные сценарии работы. (Здесь реальный сценарий представлен сочетанием категорий и отличается для разных пользователей.)
+Estimating bandwidth usage per user is very complex and requires running multiple applications simultaneously in multitasking scenarios where applications might impact each other's performance based on their demand for network bandwidth. Even the type of Remote Desktop client (such as Mac client versus HTML5 client) can lead to different bandwidth results. To help you work through these complications, we'll break the usage scenarios into several of the common categories to replicate real-world scenarios. (Where the real-world scenario is, of course, a mix of categories and differs by user.)
 
-Перед продолжением обратите внимание на то, что протокол удаленного рабочего стола обеспечивает прекрасное взаимодействие для большинства сценариев использования в сетях с задержкой ниже 120 мс и пропускной способностью более 5 МБ/с. Это основано на способности динамической настройки протокола RDP с учетом доступной пропускной способности сети и предполагаемых потребностях приложений в пропускной способности. Эта статья выходит за рамки "большинства сценариев использования", рассматривая граничные варианты, в которых сценарии начинают отклоняться от намеченного курса, а взаимодействие с пользователем — ухудшаться.
+Before we go further - note that we assume RDP provides a good to excellent experience for most usage scenarios on networks with latency below 120 ms and bandwidth over 5 MBs - this is based on RDP's ability to dynamically adjust by using the available network bandwidth and the estimated application bandwidth needs. This article goes beyond those "most usage scenarios" to look at the edge, where scenarios begin to unwind and user experience begins to degrade.
 
-Ознакомьтесь со следующими статьями для получения подробных сведений, включая учитываемые факторы, базовые рекомендации и все, что мы не включили в свои оценки.
+Now check out the following articles for the details, including factors to consider, baseline recommendations, and what we did not include in our estimates.
 
-- [Как пропускная способность сети и качество взаимодействия связаны друг с другом?](remoteapp-bandwidthexperience.md)
-- [Тест использования пропускной способности сети в рамках распространенных сценариев](remoteapp-bandwidthtests.md)
-- [Краткие рекомендации на случай невозможности тестирования](remoteapp-bandwidthguidelines.md)
+- [How do network bandwidth and quality of experience work together?](remoteapp-bandwidthexperience.md)
+- [Testing your network bandwidth usage with some common scenarios](remoteapp-bandwidthtests.md)
+- [Quick guidelines if you don't have the time or ability to test](remoteapp-bandwidthguidelines.md)
 
 
-## Что мы не включаем?
+## <a name="what-are-we-not-including?"></a>What are we not including?
 
-При просмотре предложенных тестов и наших общих рекомендаций помните о том, что мы не принимали во внимание несколько факторов. Например, проблемы взаимодействия с пользователем, связанные с асимметричным характером пропускной способности для отправки и скачивания. Кроме того, на производительность и качество взаимодействия влияет асимметричный характер большинства сетей Wi-Fi. Для интерактивных сценариев приоритет у трафика скачивания может быть ниже, чем у трафика отправки, в результате чего может увеличиваться число потерянных кадров видео или аудио, что негативно влияет на восприятие процедуры потоковой передачи пользователем. Вы можете запускать собственные эксперименты, чтобы определить, что лучше подходит для заданного варианта использования и используемой сети.
+When you review the proposed tests and our overall (and admittedly generic) recommendations, be aware that there are several factors that we did not consider. For example, the user experience complications provided by the asymmetric nature of upload vs. download bandwidth. The asymmetric nature of most Wi-Fi networks will additionally impact the performance and the user experience perception. For interactive scenarios the downstream traffic may be prioritized lower than the upstream, which may increase the number of lost video or audio frames and therefore impact the user perception of the streaming experience. You can run your own experiments to see what is good for your specific use case and network.
 
-Хотя мы и рассматриваем перенаправление устройств, при этом не учитывается влияние на пропускную способность сетевого трафика, создаваемого подключенными устройствами, такими как хранилище, принтеры, сканеры, веб-камеры и другие USB-устройства. Такие устройства обычно создают временные пики пропускной способности, которые исчезают после выполнения задачи. Однако при высокой частоте таких задач это использование пропускной способности может быть довольно значительным.
+Although we discuss device redirection, we did not take into consideration the bandwidth impact of the network traffic caused by attached devices, like storage, printers, scanners, web cameras, and other USB devices. The effect of those devices usually spikes the bandwidth needs temporarily and goes away when the task is complete. But if done frequently, that bandwidth demand could be quite noticeable.
 
-Мы также не рассматриваем, как один пользователь может повлиять на остальных в рамках одной сети. Например, когда один пользователь, просматривает видео в формате 4K по сети 100 МБ/с, это может существенно ухудшить работу других пользователей, пытающихся сделать то же самое. К сожалению, бывает значительно труднее определить влияние одновременного использования, чтобы выработать общие или универсальные рекомендации по совокупной работе системы. Мы можем лишь отметить, что базовый протокол будет оптимально использовать доступную пропускную способность сети, однако он имеет свои ограничения.
+We also do not discuss how one user can impact other users within the same network. For example, one user consuming 4K video on a 100 MB/s network might significantly impact other users on that same network trying to do the same task. Unfortunately it gets progressively harder to determine the impact of concurrent usage to give a common or all-encompassing recommendation about how the system performs at aggregate. All we can say is that the underlying protocol technology will make the best use of the available network bandwidth, but it does have its limitations.
 
-<!---HONumber=AcomDC_0817_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

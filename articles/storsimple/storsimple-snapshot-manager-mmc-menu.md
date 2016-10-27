@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Меню действий ММС в диспетчере моментальных снимков StorSimple | Microsoft Azure"
-   description="Узнайте, как использовать стандартные действия меню консоли управления (MMC) в диспетчере моментальных снимков StorSimple."
+   pageTitle="StorSimple Snapshot Manager MMC menu actions | Microsoft Azure"
+   description="Describes how to use the standard Microsoft Management Console (MMC) menu actions in StorSimple Snapshot Manager."
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
@@ -15,115 +15,120 @@
    ms.date="04/25/2016"
    ms.author="v-sharos" />
 
-# Использование действий меню MMC в диспетчере моментальных снимков StorSimple
 
-## Обзор
+# <a name="use-the-mmc-menu-actions-in-storsimple-snapshot-manager"></a>Use the MMC menu actions in StorSimple Snapshot Manager
 
-В диспетчере моментальных снимков StorSimple все меню действия и варианты панели **Действия** включают указанные ниже действия.
+## <a name="overview"></a>Overview
 
-- Просмотр
-- Новое окно отсюда 
-- Обновить 
-- Экспорт списка 
-- Справка 
+In StorSimple Snapshot Manager, you will see the following actions listed on all action menus and all variations of the **Actions** pane. 
 
-Эти действия доступны в консоли управления (MMC), а не только в диспетчере моментальных снимков StorSimple. В этом учебнике описываются эти действия и объясняется, как использовать каждую из них в диспетчере моментальных снимков StorSimple.
+- View
+- New Window from Here 
+- Refresh 
+- Export List 
+- Help 
 
-## Просмотр
+These actions are part of the Microsoft Management Console (MMC) and are not specific to StorSimple Snapshot Manager. This tutorial describes these actions and explains how to use each of them in StorSimple Snapshot Manager.
 
-Параметр **Вид** позволяет изменить представления панели **Результаты** и окна консоли.
+## <a name="view"></a>View
 
-#### Изменение представления панели "Результаты"
+You can use the **View** option to change the **Results** pane view and to change the console window view. 
 
-1. Щелкните соответствующий значок на рабочем столе, чтобы запустить диспетчер моментальных снимков StorSimple.
+#### <a name="to-change-the-results-pane-view"></a>To change the Results pane view
 
-2. На панели **Область** щелкните правой кнопкой мыши любой узел либо разверните узел и щелкните правой кнопкой мыши элемент на панели **Результаты**, а затем щелкните **Вид**.
+1. Click the desktop icon to start StorSimple Snapshot Manager.
 
-3. Чтобы добавить или удалить столбцы, которые отображаются на панели **Результаты**, щелкните **Добавить или удалить столбцы**. Откроется диалоговое окно **Добавление или удаление столбцов**.
+2. In the **Scope** pane, right-click any node or expand the node and right-click an item in the **Results** pane, and then click the **View** option. 
 
-    ![Добавление или удаление столбцов на панели "Результаты"](./media/storsimple-snapshot-manager-mmc-menu/HCS_SSM_Add_remove_columns.png)
+3. To add or remove the columns that appear in the **Results** pane, click **Add/Remove Columns**. The **Add/Remove Columns** dialog box appears.
 
-4. Заполните форму следующим образом.
+    ![Add or remove columns from Results pane](./media/storsimple-snapshot-manager-mmc-menu/HCS_SSM_Add_remove_columns.png) 
 
-    - В списке **Доступные столбцы** выберите элементы и нажмите кнопку **Добавить**, чтобы добавить их в список **Отображаемые столбцы**. 
+4. Complete the form as follows:
 
-    - Щелкните элементы в списке **Отображаемые столбцы** и нажмите кнопку **Удалить**, чтобы удалить их из списка.
+    - Select items from the **Available** columns list and click **Add** to add them to the **Displayed columns** list. 
 
-    - Выберите элемент в списке **Отображаемые столбцы** и нажмите кнопку **Вверх** или **Вниз**, чтобы переместить элемент вверх или вниз в списке.
+    - Click items in the **Displayed columns** list, and click **Remove** to remove them from the list. 
 
-    - Щелкните **Восстановить значения по умолчанию**, чтобы вернуться к конфигурации панели **Результаты** по умолчанию.
+    - Select an item in the **Displayed** columns list and click **Move Up** or **Move Down** to move the item up or down in the list. 
 
-5. Выбрав необходимые параметры, нажмите кнопку **ОК**.
+    - Click **Restore Defaults** to return to the default **Results** pane configuration. 
 
-#### Изменение представления окна консоли
+5. When you are finished with your selections, click **OK**. 
 
-1. Щелкните соответствующий значок на рабочем столе, чтобы запустить диспетчер моментальных снимков StorSimple.
+#### <a name="to-change-the-console-window-view"></a>To change the console window view
 
-2. На панели **Область** щелкните правой кнопкой мыши любой узел, выберите пункт **Вид**, а затем нажмите кнопку **Настроить**. Откроется диалоговое окно **Настройка**.
+1. Click the desktop icon to start StorSimple Snapshot Manager.
 
-    ![Настройка окна консоли](./media/storsimple-snapshot-manager-mmc-menu/HCS_SSM_Customize.png)
+2. In the **Scope** pane, right-click any node, click **View**, and then click **Customize**. The **Customize** dialog box appears.
 
-3. Установите или снимите флажки, чтобы показать или скрыть элементы в окне консоли. Выбрав необходимые параметры, нажмите кнопку **ОК**.
+    ![Customize the console window](./media/storsimple-snapshot-manager-mmc-menu/HCS_SSM_Customize.png) 
 
-## Новое окно отсюда
+3. Select or clear the check boxes to show or hide items in the console window. When you are finished with your selections, click **OK**.
 
-Параметр **Новое окно отсюда** позволяет открыть новое окно консоли.
+## <a name="new-window-from-here"></a>New Window from Here
 
-#### Открытие нового окна консоли
+You can use the **New Window from Here** option to open a new console window.
 
-1. Щелкните соответствующий значок на рабочем столе, чтобы запустить диспетчер моментальных снимков StorSimple.
+#### <a name="to-open-a-new-console-window"></a>To open a new console window
 
-2. На панели **Область** щелкните правой кнопкой мыши любой узел, а затем выберите пункт **Новое окно отсюда**.
+1. Click the desktop icon to start StorSimple Snapshot Manager.
 
-    В новом окне отобразятся только выбранные параметры. Например, если щелкнуть правой кнопкой мыши узел **Политики архивации**, в новом окне отобразятся только узел **Политики архивации** на панели **Область** и список заданных политик архивации на панели **Результаты**. См. указанный ниже пример.
+2. In the **Scope** pane, right-click any node, and then click **New Window from Here**. 
 
-    ![Новое окно отсюда](./media/storsimple-snapshot-manager-mmc-menu/HCS_SSM_NewWindow.png)
+    A new window appears, showing only the scope that you selected. For example, if you right-click the **Backup Policies** node, the new window will show only the **Backup Policies** node in the **Scope** pane and a list of defined backup policies in the **Results** pane. See the following example.
+
+    ![New Window from Here](./media/storsimple-snapshot-manager-mmc-menu/HCS_SSM_NewWindow.png) 
  
-## Обновить
+## <a name="refresh"></a>Refresh
 
-Действие **Обновить** позволяет обновить окно консоли.
+You can use the **Refresh** action to update the console window.
 
-#### Обновление окна консоли
+#### <a name="to-update-the-console-window"></a>To update the console window
 
-1. Щелкните соответствующий значок на рабочем столе, чтобы запустить диспетчер моментальных снимков StorSimple.
+1. Click the desktop icon to start StorSimple Snapshot Manager.
 
-2. На панели **Область** щелкните правой кнопкой мыши любой узел либо разверните узел и щелкните правой кнопкой мыши элемент на панели **Результаты**, а затем щелкните **Обновить**.
+2. In the **Scope** pane, right-click any node or expand the node and right-click an item in the **Results** pane, and then click **Refresh**. 
 
-## Экспорт списка
+## <a name="export-list"></a>Export List
 
-Действие **Экспорт списка** позволяет сохранить список как файл с разделителями-запятыми (CSV). Например, можно экспортировать список политик архивации или каталог резервных копий. Затем CSV-файл можно импортировать в приложение электронных таблиц для анализа.
+You can use the **Export List** action to save a list in a comma-separated value (CSV) file. For example, you can export the list of backup policies or the backup catalog. You can then import the CSV file into a spreadsheet application for analysis.
 
-#### Сохранение списка как файла с разделителями-запятыми (CSV)
+#### <a name="to-save-a-list-in-a-comma-separated-value-(csv)-file"></a>To save a list in a comma-separated value (CSV) file
 
-1. Щелкните соответствующий значок на рабочем столе, чтобы запустить диспетчер моментальных снимков StorSimple. 
+1. Click the desktop icon to start StorSimple Snapshot Manager. 
 
-2. На панели **Область** щелкните правой кнопкой мыши любой узел либо разверните узел и щелкните правой кнопкой мыши элемент на панели **Результаты**, а затем щелкните **Экспорт списка**.
+2. In the **Scope** pane, right-click any node or expand the node and right-click an item in the **Results** pane, and then click **Export List**. 
 
-3. Откроется диалоговое окно **Экспорт списка**. Заполните форму следующим образом.
+3. The **Export List** dialog box appears. Complete the form as follows: 
 
-    1. В поле **Имя файла** введите имя CSV-файла или щелкните стрелку, чтобы выбрать файл в раскрывающемся списке.
+    1. In the **File name** box, type a name for the CSV file or click the arrow to select from the drop-down list.
 
-    2. В поле **Тип файла** щелкните стрелку и выберите тип файла в раскрывающемся списке.
+    2. In the **Save as type** box, click the arrow and select a file type from the drop-down list.
 
-    3. Чтобы сохранить только выбранные элементы, выделите строки и установите флажок **Сохранить только выбранные строки**. Чтобы сохранить все экспортированные списки, снимите флажок **Сохранить только выбранные строки**.
+    3. To save only selected items, select the rows and then click the **Save Only Selected Rows** check box. To save all exported lists, clear the **Save Only Selected Rows** check box.
 
-    4. Щелкните **Сохранить**.
+    4. Click **Save**.
 
-    ![Экспорт списка в виде файла с разделителями-запятыми](./media/storsimple-snapshot-manager-mmc-menu/HCS_SSM_Export_List.png)
+    ![Export list as a comma-separated value file](./media/storsimple-snapshot-manager-mmc-menu/HCS_SSM_Export_List.png) 
  
-## Справка
+## <a name="help"></a>Help
 
-В меню **Справка** вы можете просмотреть справку по диспетчеру моментальных снимков StorSimple и MMC, доступную в Интернете.
+You can use the **Help** menu to view available online help for StorSimple Snapshot Manager and the MMC.
 
-#### Просмотр доступной справки в Интернете
+#### <a name="to-view-available-online-help"></a>To view available online help
 
-1. Щелкните соответствующий значок на рабочем столе, чтобы запустить диспетчер моментальных снимков StorSimple.
+1. Click the desktop icon to start StorSimple Snapshot Manager.
 
-2. На панели **Область** щелкните правой кнопкой мыши любой узел либо разверните узел и щелкните правой кнопкой мыши элемент на панели **Результаты**, а затем щелкните **Справка**.
+2. In the **Scope** pane, right-click any node or expand the node and right-click an item in the **Results** pane, and then click **Help**. 
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Next steps
 
-- Узнайте больше о [пользовательском интерфейсе диспетчера моментальных снимков StorSimple](storsimple-use-snapshot-manager.md).
-- Узнайте больше об [использовании диспетчера моментальных снимков StorSimple для администрирования решения StorSimple](storsimple-snapshot-manager-admin.md).
+- Learn more about the [StorSimple Snapshot Manager user interface](storsimple-use-snapshot-manager.md).
+- Learn more about [using StorSimple Snapshot Manager to administer your StorSimple solution](storsimple-snapshot-manager-admin.md).
 
-<!---HONumber=AcomDC_0427_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

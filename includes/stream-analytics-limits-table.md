@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Таблица ограничений для Stream Analytics"
-   description="В таблице описаны системные ограничения и рекомендуемые размеры для компонентов и подключений Stream Analytics."
+   pageTitle="Stream Analytics limits table"
+   description="Describes system limits and recommended sizes for Stream Analytics components and connections."
    services="stream-analytics"
    documentationCenter="NA"
    authors="jeffstokes72"
@@ -15,13 +15,17 @@
    ms.date="07/25/2016"
    ms.author="jeffstok" />
 
-| Идентификатор ограничения | Ограничение | Комментарии |
-|----------------- | ------------|--------- |
-| Максимальное количество единиц потоковой передачи на одну подписку для одного региона | 50 | Чтобы сделать запрос на увеличение количества единиц потоковой передачи свыше 50 шт., обратитесь в [службу технической поддержки корпорации Майкрософт](https://support.microsoft.com/ru-RU). |
-| Максимальная пропускная способность единицы потоковой передачи | 1 МБ/с* | Максимальная пропускная способность на одну единицу потоковой передачи зависит от используемого сценария. Фактическая пропускная способность может быть меньше, и она зависит от сложности запроса и секционирования. Дополнительные сведения см. в статье [Масштабирование заданий Azure Stream Analytics для увеличения пропускной способности](../articles/stream-analytics/stream-analytics-scale-jobs.md). |
-| Максимальное количество операций ввода на задание | 60 | Для каждого задания Stream Analytics существует фиксированный предел в 60 операций ввода. |
-| Максимальное количество операций вывода на задание | 60 | Для каждого задания Stream Analytics существует фиксированный предел в 60 операций вывода. |
-| Максимальное количество функций на задание | 60 | Для каждого задания Stream Analytics существует фиксированный предел в 60 функций. |
-| Максимальное количество заданий на регион | 1500 | У каждой подписки может быть до 1500 заданий в одном географическом регионе. |
 
-<!---HONumber=AcomDC_0727_2016-->
+| Limit identifier | Limit       | Comments |
+|----------------- | ------------|--------- |
+| Maximum number of Streaming Units per subscription per region | 50 | A request to increase streaming units for your subscription beyond 50 can be made by contacting [Microsoft Support](https://support.microsoft.com/en-us). |
+| Maximum throughput of a Streaming Unit | 1MB/s* | Maximum throughput per SU depends on the scenario. Actual throughput may be lower and depends upon query complexity and partitioning. Further details can be found in the [Scale Azure Stream Analytics jobs to increase throughput](../articles/stream-analytics/stream-analytics-scale-jobs.md) article. |
+| Maximum number of inputs per job | 60 | There is a hard limit of 60 inputs per Stream Analytics job. |
+| Maximum number of outputs per job | 60 | There is a hard limit of 60 outputs per Stream Analytics job. |
+| Maximum number of functions per job | 60 | There is a hard limit of 60 functions per Stream Analytics job. |
+| Maximum number of jobs per region | 1500 | Each subscription may have up to 1500 jobs per geographical region. |
+
+
+<!--HONumber=Oct16_HO2-->
+
+

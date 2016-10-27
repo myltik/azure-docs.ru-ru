@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Инструкции. Миграция и публикация веб-приложения в облачную службу Azure из среды Visual Studio | Microsoft Azure"
-   description="Узнайте, как перенести и опубликовать веб-приложение в облачную службу Azure из среды Visual Studio."
+   pageTitle="How to Migrate and Publish a Web Application to an Azure Cloud Service from Visual Studio | Microsoft Azure"
+   description="Learn how to migrate and publish your web application to an Azure cloud service by using Visual Studio."
    services="visual-studio-online"
    documentationCenter="na"
    authors="TomArcher"
@@ -15,197 +15,203 @@
    ms.date="08/15/2016"
    ms.author="tarcher" />
 
-# Инструкции. Миграция и публикация веб-приложения в облачную службу Azure из среды Visual Studio
 
-Чтобы использовать все возможности служб размещения и масштабирования, предлагаемые Azure, необходимо выполнить миграцию и публикацию веб-приложения в облачную службу Azure. Для запуска веб-приложения в Azure вам нужно будет внести в свое приложение минимальные изменения.
+# <a name="how-to:-migrate-and-publish-a-web-application-to-an-azure-cloud-service-from-visual-studio"></a>How to: Migrate and Publish a Web Application to an Azure Cloud Service from Visual Studio
 
->[AZURE.NOTE] Эта статья посвящена развертыванию в облачных службах, а не на веб-сайтах. Сведения о развертывании веб-сайтов см. в статье [Развертывание веб-приложения в службе приложений Azure](./app-service-web/web-sites-deploy.md).
+To take advantage of the hosting services and scalability of Azure, you might want to migrate and publish your web application to an Azure cloud service. You can run a web application in Azure with minimal changes to your existing application.
 
-Список поддерживаемых шаблонов для Visual C# и Visual Basic см. в разделе **Поддерживаемые шаблоны проектов** этой статьи.
+>[AZURE.NOTE] This topic is about deploying to cloud services, not to web sites. For information about deploying to web sites, see [Deploy a web app in Azure App Service](./app-service-web/web-sites-deploy.md).
 
-Для начала необходимо предоставить Azure доступ к веб-приложению из Visual Studio. На приведенном ниже рисунке показаны основные этапы публикации существующего веб-приложения путем добавления проекта Azure, который будет использоваться в развертывании. В ходе этого процесса проект Azure с необходимой веб-ролью добавляется в решение. В зависимости от типа веб-проекта, если пакету служб требуются дополнительные сборки для развертывания, обновляются также свойства проекта для сборок.
+For a list of specific templates that are supported for both Visual C# and Visual Basic, see the section **Supported Project Templates** later in this topic.
 
-![Публикация веб-приложения в Azure Майкрософт](./media/vs-azure-tools-migrate-publish-web-app-to-cloud-service/IC748917.png)
+You must first enable your web application for Azure from Visual Studio. The following illustration shows the key steps to publish your existing web application by adding an Azure project to use for deployment. This process adds an Azure project with the required web role to your solution. Based on the type of web project that you have, the project properties for assemblies are also updated if the service package requires additional assemblies for deployment.
 
->[AZURE.NOTE] Команда **Преобразовать**, **Преобразовать в проект облачной службы Azure** отображается только для веб-проекта в решении. Например, для проекта Silverlight в решении эта команда недоступна. При создании пакета службы или публикации приложения в Azure могут появляться предупреждения и ошибки. Они помогут вам устранить проблемы до развертывания приложения в Azure. Например, может отобразиться предупреждение об отсутствии сборки. Дополнительные сведения об обработке предупреждений в виде ошибок см. в статье [Настройка проекта облачной службы Azure с помощью Visual Studio](vs-azure-tools-configuring-an-azure-project.md). При локальном запуске созданного приложения с помощью эмулятора вычислений или публикации этого приложения в Azure в окне **Список ошибок** может отобразиться следующее сообщение об ошибке: **Указанный путь, или имя файла, или и то и другое слишком длинные**. Причиной этой ошибки является слишком длинное полное имя проекта Azure. Длина имени проекта, включая полный путь, не должна превышать 146 символов. Например, так выглядит полное имя проекта, включая путь к файлу проекта Azure, созданного для приложения Silverlight: `c:\users<user name>\documents\visual studio 2015\Projects\SilverlightApplication4\SilverlightApplication4.Web.Azure.ccproj`. Чтобы сократить полное имя проекта, можно перенести решение в другой каталог с более коротким путем.
+![Publish a Web application to Microsft Azure](./media/vs-azure-tools-migrate-publish-web-app-to-cloud-service/IC748917.png)
 
-Для переноса и публикации веб-приложения в Azure из Visual Studio выполните указанные ниже действия.
+>[AZURE.NOTE] The **Convert**, **Convert to Azure Cloud Service Project** command is displayed only for the web project in your solution. For example, the command is not available for a Silverlight project in your solution.
+When you create a service package or publish your application to Azure, warnings or errors might occur. These warnings and errors can help you fix issues before you deploy to Azure. For example, you might receive a warning about a missing assembly. For more information about how to treat any warnings as errors, see [Configure an Azure Cloud Service Project with Visual Studio](vs-azure-tools-configuring-an-azure-project.md). If you build your application, run it locally using the compute emulator, or publish it to Azure, you might see the following error in the **Error List** window: **The specified path, file name, or both are too long**. This error occurs because the length of the fully qualified Azure project name is too long. The length of the project name, including the full path, cannot be more than 146 characters. For example, this is the full project name including file path for an Azure project that is created for a Silverlight application: `c:\users\<user name>\documents\visual studio 2015\Projects\SilverlightApplication4\SilverlightApplication4.Web.Azure.ccproj`. You might have to move your solution to a different directory that has a shorter path to reduce the length of the fully qualified project name.
 
-## Включение веб-приложения для развертывания в Azure
+To migrate and publish a web application to Azure from Visual Studio, follow these steps.
 
-### Включение веб-приложения для развертывания в Azure
+## <a name="enable-a-web-application-for-deployment-to-azure"></a>Enable a Web Application for Deployment to Azure
 
-1. Чтобы включить веб-приложение для развертывания в Azure, откройте контекстное меню веб-проекта в решении и выберите пункт «Добавить проект развертывания Azure».
+### <a name="to-enable-a-web-application-for-deployment-to-azure"></a>To enable a web application for deployment to Azure
 
-    После этого будут выполнены указанные ниже действия.
+1. To enable your web application for deployment to Azure, open the shortcut menu for a web project in your solution and choose Add Azure Deployment Project.
 
-    - В решение будет добавлен проект Azure с именем `<name of the web project>.Azure` для приложения.
+    The following actions occur:
 
-    - В этот проект Azure будет добавлена веб-роль для веб-проекта.
+    - An Azure project called `<name of the web project>.Azure` is added to the solution for your application.
 
-    - Свойству **Копировать локально** будет присвоено значение true для всех сборок, необходимых для MVC 2, MVC 3, MVC 4 и бизнес-приложений Silverlight. В результате эти сборки будут добавлены в пакет служб, используемый для развертывания.
+    - A web role for the web project is added to this Azure project.
 
-  >[AZURE.IMPORTANT] Если для веб-приложения требуются другие сборки или файлы, свойства этих файлов необходимо настроить вручную. Инструкции по настройке этих свойств см. в разделе **Включение файлов в пакет службы**, который приводится ниже.
+    - The **Copy Local** property is set to true for any assemblies that are required for MVC 2, MVC 3, MVC 4, and Silverlight Business Applications. This adds these assemblies to the service package that is used for deployment.
 
-  >[AZURE.NOTE] Если веб-роль для конкретного веб-проекта уже существует в проекте Azure соответствующего решения, команды **Преобразовать**, **Преобразовать в проект облачной службы Azure** в контекстном меню этого веб-проекта отображаться не будут.
+  >[AZURE.IMPORTANT] If you have other assemblies or files that are required for this web application, you must manually set the properties for these files. For information about how to set these properties, see the section **Include Files in the Service Package** later in this article.
 
-  Если веб-приложение содержит несколько веб-проектов и вы хотите создать веб-роли для каждого из них, выполните описанные действия для каждого веб-проекта. В результате для каждой веб-роли будут созданы отдельные проекты Azure, а каждый веб-проект можно будет опубликовать отдельно. Кроме того, в существующий проект Azure в веб-приложении можно вручную добавить другую веб-роль. Для этого откройте контекстное меню папки **Роли** в проекте Azure, последовательно щелкните пункты **Добавить** и **Проект веб-роли в решение**, выберите проект, который нужно добавить в качестве веб-роли, и нажмите кнопку **ОК**.
+  >[AZURE.NOTE] If a web role for a specific web project already exists in an Azure project in the solution, **Convert**, **Convert to Azure Cloud Service Project** is not displayed on the shortcut menu for this web project.
 
-## Использование базы данных SQL Azure для приложения
+  If you have multiple web projects in your web application and you want to create web roles for each web project, you must perform the steps in this procedure for each web project. This creates separate Azure projects for each web role. Each web project can be published separately. Alternatively, you can manually add another web role to an existing Azure project in your web application. To do this, open the shortcut menu for the **Roles** folder in your Azure project, choose **Add**, then **Web Role Project in solution**, choose the project to add as a web role, and then choose the **OK** button.
 
-Если у вас есть строка подключения к веб-приложению, указывающая на локальную базу данных SQL Server, строку подключения необходимо изменить таким образом, чтобы вместо локальной базы данных использовалась база данных SQL на сервере Azure.
+## <a name="use-an-azure-sql-database-for-your-application"></a>Use an Azure SQL Database for Your Application
 
->[AZURE.IMPORTANT] Ваша подписка должна позволять использование базы данных SQL. Если доступ к подписке осуществляется через [классический портал Azure](http://go.microsoft.com/fwlink/?LinkID=213885), вы можете определить, какие услуги в нее включены. К выпущенному [классическому порталу Azure](http://go.microsoft.com/fwlink/?LinkID=213885) применяются описанные ниже инструкции. Если используется предварительная версия [портала Azure](http://portal.microsoft.com), перейдите к следующей процедуре.
+If you have a connection string for your web application that uses a SQL Server database that's on the premises, you must change this connection string to use an instance of SQL Database that Azure hosts instead.
 
-### Использование экземпляра базы данных SQL в веб-роли для строки подключения
+>[AZURE.IMPORTANT] Your subscription must enable you to use SQL Database. If you access your subscription from the [Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=213885), you can determine what services your subscription provides. The following instructions apply to the released [Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=213885). If you are using the [Azure portal](http://portal.microsoft.com), skip to the next procedure.
 
-1. Чтобы создать экземпляр базы данных SQL на [классическом портале Azure](http://go.microsoft.com/fwlink/?LinkID=213885), выполните действия, описанные в статье [Создание сервера базы данных SQL](http://go.microsoft.com/fwlink/?LinkId=225109).
+### <a name="to-use-a-sql-database-instance-in-your-web-role-for-your-connection-string"></a>To use a SQL Database instance in your web role for your connection string
 
-    >[AZURE.NOTE] При настройке правил брандмауэра для экземпляра базы данных SQL необходимо установить флажок **Разрешить другим службам Azure доступ к этому серверу**.
+1. To create an instance of SQL Database in the [Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=213885), follow the steps in the following article: [Create a SQL Database Server](http://go.microsoft.com/fwlink/?LinkId=225109).
 
-1. Для создания экземпляра базы данных SQL, который будет использоваться в строке подключения, выполните действия, описанные в следующем статьи [Создание базы данных SQL](http://go.microsoft.com/fwlink/?LinkId=225110).
+    >[AZURE.NOTE] When you set up the firewall rules for your instance of SQL Database, you must select the **Allow other Azure services to access this server** check box.
 
-1. Чтобы скопировать строку подключения ADO.NET для использования в своей строке подключения, на [классическом портале Azure](http://go.microsoft.com/fwlink/?LinkID=213885) выполните следующие действия.
+1. To create an instance of SQL Database to use for your connection string, follow the steps in the next section in the following article: [Create a SQL Database](http://go.microsoft.com/fwlink/?LinkId=225110).
 
-  1. Нажмите кнопку **База данных** и откройте узел для подписки, которую вы использовали для создания экземпляра базы данных SQL.
+1. To copy the ADO.NET connection string to use for your connection string, perform the following steps in the [Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=213885).  
 
-  1. Чтобы отобразить доступные экземпляры баз данных SQL, выберите узел **Базы данных SQL**.
+  1. Choose the **Database** button, and then open the node for the subscription that you used to create your instance of SQL Database.
 
-  1. Чтобы отобразить свойства базы данных, выберите базу данных. Откроется представление **Свойства**.
+  1. To display the available instances of SQL Database, choose the **SQL Databases** node.
 
-      >[AZURE.NOTE] Если представление **Свойства** не отображается, необходимо открыть его с помощью разделителя.
+  1. To display the properties for the database, choose the database. The **Properties** view appears.
 
-  1. Чтобы отобразить строки подключения, нажмите кнопку с многоточием рядом с пунктом "Просмотр".
+      >[AZURE.NOTE] If the **Properties** view doesn't appear, you might need to open it by using the divider.
 
-    Откроется диалоговое окно **Строки подключения**.
+  1. To display the connection strings, choose the ellipsis (...) button next to View.
 
-  1. Чтобы скопировать строку подключения ADO.NET, выделите текст и нажмите сочетание клавиш CTRL+C.
+    The **Connection Strings** dialog box appears.
 
-  1. Чтобы закрыть диалоговое окно, нажмите кнопку **Закрыть**.
+  1. To copy the ADO.NET connection string, highlight the text, and choose the Ctrl+C keys.
 
-1. Чтобы заменить строку подключения в файле web.config для использования этого экземпляра базы данных SQL, откройте файл web.config, выделите существующую строку подключения и нажмите сочетание клавиш CTRL+V. Существующая строка подключения будет заменена на строку подключения ADO.NET для экземпляра базы данных SQL.
+  1. To close the dialog box, choose the **Close** button.
 
-1. В строку подключения необходимо также добавить параметр `MultipleActiveResultSets=True`. Строка подключения должна иметь следующий формат:
+1. To replace the connection string in the web.config file to use this instance of SQL Database, open the web.config file, highlight the existing connection string entry, and then choose the Ctrl+V keys. The ADO.NET connection string for the instance of SQL Database replaces the existing connection string.
+
+1. You must also add the parameter `MultipleActiveResultSets=True` to the connection string. The connection string should have the following format:
 
     ```
     connectionString=”Server=tcp:<database_server>.database.windows.net,1433;Database=<database_name>;User ID=<user_name>@<database_server>;Password=<myPassword>;Trusted_Connection=False;Encrypt=True;MultipleActiveResultSets=True"
     ```
 
-1. (Необязательно) Изменить строку подключения можно также непосредственно в файле web.config, добавив соответствующий раздел в один из файлов преобразования web.config в зависимости от конфигурации построения, которая использовалась для создания пакета служб. Откройте файл Web.Debug.Config или Web.Release.Config и добавьте в него следующий раздел:
+1. (Optional) An alternative method to changing the connection string directly in the web.config file is to add a section into one of the web.config transformation files, depending on the build configuration that you use to create your service package. Open either the Web.Debug.Config file or the Web.Release.Config file. Add the following section into this file:
 
     ```
     XMLCopy<connectionStrings><addname="DefaultConnection"connectionString="Server=tcp:<database_server>.database.windows.net,1433;Database=<database_name>;User ID=<user_name>@<database_server>;Password=<myPassword>;Trusted_Connection=False;Encrypt=True;MultipleActiveResultSets=True"xdt:Transform="SetAttributes"xdt:Locator="Match(name)"/></connectionStrings>
     ```
 
-1. Сохраните измененный файл и опубликуйте приложение заново.
+1. Save the file that you modified and republish your application.
 
-### Использование экземпляра базы данных SQL с помощью классического портала Azure
+### <a name="to-use-an-instance-of-sql-database-by-using-the-azure-classic-portal"></a>To use an instance of SQL Database by using the Azure classic portal
 
-1. На [классическом портале Azure](http://go.microsoft.com/fwlink/?LinkID=213885) выберите узел баз данных SQL.
+1. In the [Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=213885), choose the SQL Databases node.
 
-  - Если появится экземпляр базы данных SQL, который вы хотите использовать, выберите и откройте его.
+  - If the instance of SQL Database that you want to use appears, choose to open it.
 
-  - Если ни одного экземпляра еще не было создано, перейдите по соответствующей ссылке и создайте экземпляр.
+  - If you haven't created any instances, choose the appropriate link, and then create an instance.
 
-1. После открытия или создания экземпляра базы данных перейдите по ссылке **Строки подключения**.
+1. After you open or create a database instance, choose the **Connection Strings** link.
 
-1. В нижней части странице перейдите по ссылке для настройки параметров брандмауэра и примите параметры по умолчанию или задайте нужные вам значения.
+1. At the bottom of the page, choose the link to configure firewall settings, and accept the default values or configure the values that you need.
 
-1. Скопируйте строку подключения ADO.NET и вставьте ее в файл web.config вместо старой строки подключения для локальной базы данных, а также добавьте значение `MultipleActiveResultSets=True`.
+1. Copy the ADO.NET connection string, paste it into your web.config file over the old connection string for the on-premises database, and be sure to add `MultipleActiveResultSets=True`.
 
-## Публикация веб-приложения в Azure
+## <a name="publish-a-web-application-to-azure"></a>Publish a Web Application to Azure
 
-### Публикация веб-приложения в Azure
+### <a name="to-publish-a-web-application-to-azure"></a>To publish a Web application to Azure
 
-1. Чтобы протестировать приложение в локальной среде разработки с использованием эмулятора вычислений Azure, откройте контекстное меню проекта Azure для веб-роли и выберите команду **Назначить запускаемым проектом**. Затем выберите пункт **Отладка**, **Начать отладку** (клавиша **F5**).
+1. To test the application in the local development environment using the Azure compute emulator, open the shortcut menu for the Azure project for the web role and choose **Set as Startup Project**. Then choose **Debug**, **Start Debugging** (Keyboard: **F5**).
 
-    Появится диалоговое окно **Запустить среду отладки Azure**, а приложение будет запущено в браузере. Точные сведения о запуске веб-приложений разных типов в эмуляторе вычислений см. в таблице, представленной в этом разделе.
+    The **Start the Azure Debugging Environment** dialog box opens and the application starts in the browser. For specific details about how to start each type of web application in the compute emulator, see the table in this section.
 
-1. Для подготовки служб приложения к публикации в Azure требуется учетная запись Майкрософт и подписка на Azure. Чтобы настроить службы, следуйте инструкциям в статье [Подготовка к публикации или развертыванию приложения Azure из Visual Studio](vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio.md).
+1. To set up the services for your application to publish to Azure, you must have a Microsoft account and an Azure subscription. Use the steps in the following topic to set up your services: [Prepare to publish or deploy an Azure application from Visual Studio](vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio.md).
 
-1. Чтобы опубликовать веб-приложение в Azure, откройте контекстное меню веб-проекта и выберите пункт **Опубликовать в Azure**.
+1. To publish the web application to Azure, open the shortcut menu for the web project and choose **Publish to Azure**.
 
-    Появится диалоговое окно **Публикация приложения Azure**, а Visual Studio запустит процесс развертывания. Дополнительные сведения о публикации приложения см. в разделе **Публикация приложения Azure из Visual Studio** статьи [Публикация облачной службы с помощью средств Azure](vs-azure-tools-publishing-a-cloud-service.md).
+    The **Publish Azure Application** dialog box opens and Visual Studio starts the deployment process. For more information about how to publish the application, see the section **Publish an Azure Application from Visual Studio** in [Publishing a Cloud Service using the Azure Tools](vs-azure-tools-publishing-a-cloud-service.md).
 
-    >[AZURE.NOTE] Веб-приложение можно также опубликовать из проекта Azure. Для этого откройте контекстное меню проекта Azure и выберите пункт **Опубликовать**.
+    >[AZURE.NOTE] You can also publish the web application from the Azure project. To do this, open the shortcut menu for the Azure project and choose **Publish**.
 
-1. Ход развертывания можно наблюдать в окне **Журнал действий Azure**. Этот лог отображается автоматически при запуске процесса развертывания. Чтобы открыть подробные сведения, разверните соответствующую строку в журнале действий, как показано на следующей иллюстрации:
+1. To see the progress of the deployment, you can view the **Azure Activity Log** window. This log is automatically displayed when the deployment process starts. You can expand the line item in the activity log to show detailed information, as shown in the following illustration:
 
-    ![VST\_AzureActivityLog](./media/vs-azure-tools-migrate-publish-web-app-to-cloud-service/IC744149.png)
+    ![VST_AzureActivityLog](./media/vs-azure-tools-migrate-publish-web-app-to-cloud-service/IC744149.png)
 
-1. (Необязательно) Чтобы отменить процесс развертывания, откройте контекстное меню строки в журнале действий и выберите пункт **Отменить и удалить**. Это позволит остановить процесс развертывания и удалить среду развертывания из Azure.
+1. (Optional) To cancel the deployment process, open the shortcut menu for the line item in the activity log and choose **Cancel and remove**. This stops the deployment process and deletes the deployment environment from Azure.
 
-    >[AZURE.NOTE] Чтобы удалить среду развертывания после развертывания, воспользуйтесь [классическим порталом Azure](http://go.microsoft.com/fwlink/?LinkID=213885).
+    >[AZURE.NOTE] To remove this deployment environment after it has been deployed, you must use the [Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=213885).
 
-1. (Необязательно) После запуска экземпляров ролей Visual Studio автоматически отображает среду развертывания в узле **Вычисление Azure** в **обозревателе облака** или в **обозревателе серверов**. Здесь можно просматривать состояние отдельных экземпляров ролей.
+1. (Optional) After your role instances have started, Visual Studio automatically shows the deployment environment in the **Azure Compute** node in **Cloud Explorer** or **Server Explorer**. From here you can view the status of the individual role instances.
 
-    На приведенной ниже иллюстрации показаны экземпляры роли в **обозревателе серверов**, находящиеся в состоянии «Инициализация».
+    The following illustration shows the role instances in **Server Explorer** while they are still in the Initializing state:
 
-    ![VST\_DeployComputeNode](./media/vs-azure-tools-migrate-publish-web-app-to-cloud-service/IC744134.png)
+    ![VST_DeployComputeNode](./media/vs-azure-tools-migrate-publish-web-app-to-cloud-service/IC744134.png)
 
-1. Для доступа к приложению после развертывания выберите стрелку рядом с развертыванием, когда в **журнале действий Azure** появится статус **Завершено**. Это действие позволит отобразить URL-адрес веб-приложения в Azure. Сведения о запуске веб-приложения определенного типа из Azure см. в следующей таблице.
+1. To access your application after deployment, choose the arrow next to your deployment when a status of **Completed** appears in the **Azure Activity log**. This displays the URL for your web application in Azure. See the following table for the details about how to start a specific type of web application from Azure.
 
-    В приведенной ниже таблице представлены сведения о запуске веб-приложений определенного типа из Azure и локальном запуске или отладке веб-приложения с использованием эмулятора вычислений Azure.
+    The following table lists the details about how to start specific web applications from Azure or to run or debug a web application locally using the Azure Compute Emulator:
 
-    |Тип веб-приложения|Локальный запуск и отладка с помощью эмулятора вычислений|Выполнение в Azure|
-    |---|---|---|
-    |Веб-приложение ASP.NET|В строке меню выберите **Отладка**, **Начать отладку** (клавиша **F5**).|Щелкните гиперссылку URL-адреса, отображаемую на вкладке **Развертывание** окна **Журнал действий Azure** для загрузки начальной страницы в браузере.|
-    |Веб-приложение ASP.NET MVC 2|В строке меню выберите **Отладка**, **Начать отладку** (клавиша **F5**).|Щелкните гиперссылку URL-адреса, отображаемую на вкладке **Развертывание** окна **Журнал действий Azure** для загрузки начальной страницы в браузере.|
-    |Веб-приложение ASP.NET MVC 3|В строке меню выберите **Отладка**, **Начать отладку** (клавиша **F5**).|Щелкните гиперссылку URL-адреса, отображаемую на вкладке **Развертывание** окна **Журнал действий Azure** для загрузки начальной страницы в браузере.|
-    |Веб-приложение ASP.NET MVC 4|В строке меню выберите **Отладка**, **Начать отладку** (клавиша **F5**).|Щелкните гиперссылку URL-адреса, отображаемую на вкладке **Развертывание** окна **Журнал действий Azure** для загрузки начальной страницы в браузере.|
-    |Пустое веб-приложение ASP.NET|В приложение необходимо добавить ASPX-страницу, которая будет служить начальной страницей веб-проекта. Затем в строке меню выберите **Отладка**, **Начать отладку** (клавиша **F5**).|Если в приложении есть ASPX-страница по умолчанию, щелкните гиперссылку URL-адреса, отображаемую на вкладке **Развертывание** окна **Журнал действий Azure**, а эта страница будет загружена в браузере. Чтобы открыть другую ASPX-страницу, введите URL-адрес в следующем формате: `<url for deployment>/<name of page>.aspx`.|
-    |Приложение Silverlight|В строке меню выберите **Отладка**, **Начать отладку** (клавиша **F5**).|Чтобы перейти к заданной странице вашего приложения, введите URL-адрес в следующем формате: `<url for deployment>/<name of page>.aspx`.|
-    |Бизнес-приложение Silverlight|В строке меню выберите **Отладка**, **Начать отладку** (клавиша **F5**).|Чтобы перейти к заданной странице вашего приложения, введите URL-адрес в следующем формате: `<url for deployment>/<name of page>.aspx`.|
-    |Приложение навигации Silverlight|В строке меню выберите **Отладка**, **Начать отладку** (клавиша **F5**).|Чтобы перейти к заданной странице вашего приложения, введите URL-адрес в следующем формате: `<url for deployment>/<name of page>.aspx`.|
-    |Приложение службы WCF|Задайте SVC-файл в качестве начальной страницы для проекта службы WCF. Затем в строке меню выберите **Отладка**, **Начать отладку** (клавиша **F5**).|Чтобы перейти к SVC-файлу вашего приложения, введите URL-адрес в следующем формате: `<url for deployment>/<name of service file>.svc`.|
-    |Приложение службы рабочего процесса WCF|Задайте SVC-файл в качестве начальной страницы для проекта службы WCF. Затем в строке меню выберите **Отладка**, **Начать отладку** (клавиша **F5**).|Чтобы перейти к SVC-файлу вашего приложения, введите URL-адрес в следующем формате: `<url for deployment>/<name of service file>.svc`.|
-    |Динамические сущности ASP.NET|В строке меню выберите **Отладка**, **Начать отладку** (клавиша **F5**).|Обновите строку подключения (см. следующий раздел). Чтобы перейти к заданной странице вашего приложения, введите URL-адрес в следующем формате: `<url for deployment>/<name of page>.aspx`.|
-    |Платформа динамических данных ASP.NET типа Linq to SQL|В строке меню выберите **Отладка**, **Начать отладку** (клавиша **F5**).|Выполните инструкции из раздела "Использование базы данных SQL Azure для приложения" (см. выше в этой статье). Чтобы перейти к заданной странице вашего приложения, введите URL-адрес в следующем формате: `<url for deployment>/<name of page>.aspx`.|
+  	|Web Application Type|Run/Debug Locally Using the Compute Emulator|Running in Azure|
+  	|---|---|---|
+  	|ASP.NET Web Application|On the menu bar, choose **Debug**, **Start Debugging** (Keyboard: Choose the **F5** key.).|Choose the URL hyperlink displayed in the **Deployment** tab for the **Azure Activity log** to load the start page in the browser.|
+  	|ASP.NET MVC 2 Web Application|On the menu bar, choose **Debug**, **Start Debugging** (Keyboard: Choose the **F5** key.).|Choose the URL hyperlink displayed in the **Deployment** tab for the **Azure Activity log** to load the start page in the browser.|
+  	|ASP.NET MVC 3 Web Application|On the menu bar, choose **Debug**, **Start Debugging** (Keyboard: Choose the **F5** key.).|Choose the URL hyperlink displayed in the **Deployment** tab for the **Azure Activity log** to load the start page in the browser.|
+  	|ASP.NET MVC 4 Web Application|On the menu bar, choose **Debug**, **Start Debugging** (Keyboard: Choose the **F5** key.).|Choose the URL hyperlink displayed in the **Deployment** tab for the **Azure Activity log** to load the start page in the browser.|
+  	|ASP.NET Empty Web Application|You must add an .aspx page in your application that you set as the start page for your web project. Then on the menu bar, choose **Debug**, **Start Debugging** (Keyboard: Choose the **F5** key.).|If you have a default .aspx page in your application, choose the URL hyperlink displayed in the **Deployment** tab for the **Azure Activity log** and this page is loaded in the browser. If you have a different .aspx page, you need to navigate to this specific page using the following format for your url: `<url for deployment>/<name of page>.aspx`|
+  	|Silverlight Application|On the menu bar, choose **Debug**, **Start Debugging** (Keyboard: Choose the **F5** key.).|You need to navigate to the specific page for your application using the following format for your url: `<url for deployment>/<name of page>.aspx`|
+  	|Silverlight Business Application|On the menu bar, choose **Debug**, **Start Debugging** (Keyboard: Choose the **F5** key.).|You need to navigate to the specific page for your application using the following format for your url: `<url for deployment>/<name of page>.aspx`|
+  	|Silverlight Navigation Application|On the menu bar, choose **Debug**, **Start Debugging** (Keyboard: Choose the **F5** key.).|You need to navigate to the specific page for your application using the following format for your url:`<url for deployment>/<name of page>.aspx`|
+  	|WCF Service Application|You must set the .svc file as the start page for your WCF Service project. Then on the menu bar, choose **Debug**, **Start Debugging** (Keyboard: Choose the **F5** key.).|You need to navigate to the svc file for your application using the following format for your url: `<url for deployment>/<name of service file>.svc`|
+  	|WCF Workflow Service Application|You must set the .svc file as the start page for your WCF Service project. Then on the menu bar, choose **Debug**, **Start Debugging** (Keyboard: Choose the **F5** key.).|You need to navigate to the svc file for your application using the following format for your url: `<url for deployment>/<name of service file>.svc`|
+  	|ASP.NET Dynamic Entities|On the menu bar, choose **Debug**, **Start Debugging** (Keyboard: Choose the **F5** key.).|You must update the connection string (see next section). You also need to navigate to the specific page for your application using the following format for your url: `<url for deployment>/<name of page>.aspx`|
+  	|ASP.NET Dynamic Data Linq to SQL|On the menu bar, choose **Debug**, **Start Debugging** (Keyboard: Choose the **F5** key.).|You must follow the steps in this procedure: Use a SQL Azure database for your application (see earlier section in this topic). You also need to navigate to the specific page for your application using the following format for your url: `<url for deployment>/<name of page>.aspx`|
 
-## Обновление строки подключения для динамических сущностей ASP.NET
+## <a name="update-a-connection-string-for-asp.net-dynamic-entities"></a>Update a Connection String for ASP.NET Dynamic Entities
 
-### Обновление строки подключения для динамических сущностей ASP.NET
+### <a name="to-update-a-connection-string-for-asp.net-dynamic-entities"></a>To Update a Connection String for ASP.NET Dynamic Entities
 
-1. Чтобы создать базу данных SQL Azure, которую можно будет использовать в веб-приложении динамических сущностей ASP.NET, выполните инструкции из раздела **Использование базы данных SQL Azure для приложения** (см. выше в этой статье).
+1. To create a SQL Azure database that can be used for a ASP.NET Dynamic Entities web application, follow the steps in the procedure **Use a SQL Azure database for your application** earlier in this topic.
 
-1. Добавьте таблицы и поля, необходимые для этой базы данных, из [классического портала Azure](http://go.microsoft.com/fwlink/?LinkID=213885).
+1. Add the tables and fields that you need for this database from the [Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=213885).
 
-1. Строка подключения для приложений этого типа имеет в файле web.config следующий формат:
-
-    ```
-    <addname="tempdbEntities"connectionString="metadata=res://*/Model1.csdl|res://*/Model1.ssdl|res://*/Model1.msl;provider=System.Data.SqlClient;provider connection string=";data source=<server name>\SQLEXPRESS;initial catalog=<database name>;integrated security=True;multipleactiveresultsets=True;App=EntityFramework";"providerName="System.Data.EntityClient"/>
-    ```
-
-    Обновите значение *connectionString*, используя строку подключения ADO.NET для базы данных SQL Azure, следующим образом:
+1. The connection string for this type of application has the following format in the web.config file:  
 
     ```
-    XMLCopy<addname="tempdbEntities"connectionString="metadata=res://*/Model1.csdl|res://*/Model1.ssdl|res://*/Model1.msl;provider=System.Data.SqlClient;provider connection string=";Server=tcp:<SQL Azure server name>.database.windows.net,1433;Database=<database name>;User ID=<user name>;Password=<password>;Trusted_Connection=False;Encrypt=True;multipleactiveresultsets=True;App=EntityFramework";"providerName="System.Data.EntityClient"/>
+    <addname="tempdbEntities"connectionString="metadata=res://*/Model1.csdl|res://*/Model1.ssdl|res://*/Model1.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=<server name>\SQLEXPRESS;initial catalog=<database name>;integrated security=True;multipleactiveresultsets=True;App=EntityFramework&quot;"providerName="System.Data.EntityClient"/>
     ```
 
-1. Чтобы сохранить файл web.config с внесенными в строку подключения изменениями, последовательно выберите пункты **Файл**, **Сохранить web.config** в строке меню.
+    Update the *connectionString* value with the ADO.NET connection string for your SQL Azure database as follows:
 
-## Поддерживаемые шаблоны проектов
+    ```
+    XMLCopy<addname="tempdbEntities"connectionString="metadata=res://*/Model1.csdl|res://*/Model1.ssdl|res://*/Model1.msl;provider=System.Data.SqlClient;provider connection string=&quot;Server=tcp:<SQL Azure server name>.database.windows.net,1433;Database=<database name>;User ID=<user name>;Password=<password>;Trusted_Connection=False;Encrypt=True;multipleactiveresultsets=True;App=EntityFramework&quot;"providerName="System.Data.EntityClient"/>
+    ```
 
-Для публикации веб-приложения в Azure приложение должно быть основано на одном из шаблонов проектов для C# или Visual Basic, перечисленных в приведенной ниже таблице.
+1. To save the web.config file with the changes that you have made to the connection string, on the menu bar choose **File**, **Save web.config**.
 
-|Группа шаблонов проекта|Шаблон проекта|
+## <a name="supported-project-templates"></a>Supported Project Templates
+
+To publish a web application to Azure, the application must use one of the project templates for C# or Visual Basic that is listed in the table below.
+
+|Project Template Group|Project Template|
 |---|---|
-|Web|Веб-приложение ASP.NET|
-|Web|Веб-приложение ASP.NET MVC 2|
-|Web|Веб-приложение ASP.NET MVC 3|
-|Веб-приложения|Веб-приложение ASP.NET MVC 4|
-|Web|Пустое веб-приложение ASP.NET|
-|Web|Пустое веб-приложение ASP.NET MVC 2|
-|Web|Веб-приложение динамических сущностей данных ASP.NET|
-|Web|Веб-приложение динамических сущностей данных Linq to SQL ASP.NET|
-|Silverlight|Приложение Silverlight|
-|Silverlight|Бизнес-приложение Silverlight|
-|Silverlight|Приложение навигации Silverlight|
-|WCF|Приложение службы WCF|
-|WCF|Приложение службы рабочего процесса WCF|
-|Рабочий процесс|Приложение службы рабочего процесса WCF|
+|Web|ASP.NET Web Application|
+|Web|ASP.NET MVC 2 Web Application|
+|Web|ASP.NET MVC 3 Web Application|
+|Web|ASP.NET MVC4 Web Application|
+|Web|ASP.NET Empty Web Application|
+|Web|ASP.NET MVC 2 Empty Web Application|
+|Web|ASP.NET Dynamic Data Entities Web Application|
+|Web|ASP.NET Dynamic Data Linq to SQL Web Application|
+|Silverlight|Silverlight Application|
+|Silverlight|Silverlight Business Application|
+|Silverlight|Silverlight Navigation Application|
+|WCF|WCF Service Application|
+|WCF|WCF Workflow Service Application|
+|Workflow|WCF Workflow Service Application|
 
-## Дальнейшие действия
-Дополнительные сведения о публикации см. в статье [Подготовка к публикации или развертыванию приложения Azure из Visual Studio](vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio.md). Также см. статью [Настройка именованных учетных данных для проверки подлинности](vs-azure-tools-setting-up-named-authentication-credentials.md).
+## <a name="next-steps"></a>Next Steps
+For more information on publishing, see [Prepare to Publish or Deploy an Azure Application from Visual Studio](vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio.md). Also check out [Setting Up Named Authentication Credentials](vs-azure-tools-setting-up-named-authentication-credentials.md).
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

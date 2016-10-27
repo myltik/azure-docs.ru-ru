@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Индекс технических руководств по обеспечению устойчивости | Microsoft Azure"
-   description="Указатель технических статей, посвященных разработке надежных высокодоступных отказоустойчивых приложений, а также планированию аварийного восстановления и обеспечению непрерывности бизнес-процессов"
+   pageTitle="Resiliency technical guidance index | Microsoft Azure"
+   description="Index of technical articles on understanding and designing resilient, highly available, fault-tolerant applications, as well as planning for disaster recovery and business continuity"
    services=""
    documentationCenter="na"
    authors="adamglick"
@@ -16,49 +16,67 @@
    ms.date="08/18/2016"
    ms.author="aglick"/>
 
-#Техническое руководство по обеспечению устойчивости в Azure
 
-##Введение
+#<a name="azure-resiliency-technical-guidance"></a>Azure resiliency technical guidance
 
-Чтобы соответствовать требованиям к высокой доступности и аварийному восстановлению, необходимы следующие знания:
+##<a name="introduction"></a>Introduction
 
-- доскональное понимание технических возможностей облачной платформы;
-- умение правильно создать архитектуру распределенной службы.
+Meeting high availability and disaster recovery requirements requires two types of knowledge:
 
-В этой серии статей рассматривается первая часть — возможности и ограничения платформы Azure в отношении устойчивости (иногда называемой непрерывностью бизнес-процессов). Если вас интересует информация по второй теме, см. серию статей, посвященных [аварийному восстановлению и высокой доступности приложений Azure](https://aka.ms/drtechguide). Несмотря на то, что в этой серии статей затрагиваются вопросы архитектуры и разработки, они не являются главной темой. С рекомендациями по разработке можно ознакомиться в разделе [Дополнительные ресурсы](#additional-resources) этой статьи.
+- Detailed technical understanding of a cloud platform’s capabilities
+- Knowledge of how to properly architect a distributed service
 
-Представленная информация разделена на следующие статьи:
+This series of articles covers the former: the capabilities and limitations of the Azure platform with respect to resiliency (sometimes called business continuity). If you're interested in the latter, please see the article series focused on [disaster recovery and high availability for Azure applications](https://aka.ms/drtechguide). Although this article series touches on architecture and design patterns, that's not the focus of the series. For design guidance, you can consult the material in the [Additional resources](#additional-resources) section.
 
-- [Техническое руководство по обеспечению устойчивости в Azure. Восстановление после локальных сбоев в Azure](resiliency-technical-guidance-recovery-local-failures.md). В физическом оборудовании (например, дисках, серверах и сетевых устройствах) могут возникать сбои. Кроме того, во время пиковых нагрузок ресурсы могут быть исчерпаны. В этой статье описываются возможности, предоставляемые платформой Azure для обеспечения высокой доступности в таких условиях.
+The information is organized into the following articles:
 
-- [Техническое руководство по обеспечению устойчивости в Azure. Восстановление после прерывания работы служб во всем регионе](resiliency-technical-guidance-recovery-loss-azure-region.md). Крупные сбои происходят нечасто, но теоретически они возможны. Целые регионы могут оказаться изолированными из-за сетевых сбоев или физических повреждений в результате стихийных бедствий. В этой статье приводятся рекомендации об использовании Azure для создания приложений, которые охватывают различные географические регионы.
+- [Recovery from local failures](resiliency-technical-guidance-recovery-local-failures.md).
+Physical hardware (for example, drives, servers, and network devices) can fail. Resources can be exhausted when load spikes. This article describes the capabilities that Azure provides to maintain high availability under these conditions.
 
-- [Техническое руководство по обеспечению устойчивости в Azure. Восстановление из локальной среды в Azure](resiliency-technical-guidance-recovery-on-premises-azure.md). Облачные технологии существенно меняют экономику аварийного восстановления, что позволяет организациям использовать Azure в качестве второго сайта для восстановления. При этом затраты на это небольшие по сравнению с затратами на создание и поддержку дополнительного центра обработки данных. В этой статье описываются возможности Azure по расширению локального центра данных в облако.
+- [Recovery from an Azure region-wide service disruption](resiliency-technical-guidance-recovery-loss-azure-region.md).
+Widespread failures are rare, but they are theoretically possible. Entire regions can become isolated due to network failures, or they can be physically damaged from natural disasters. This article explains how to use Azure to create applications that span geographically diverse regions.
 
-- [Техническое руководство по устойчивости для Azure. Восстановление данных после повреждения или случайного удаления](resiliency-technical-guidance-recovery-data-corruption.md). В приложениях могут содержаться ошибки, которые приводят к повреждению данных. Операторы могут случайно удалить важные данные. В этой статье приводятся сведения о возможностях Azure в отношении резервного копирования и восстановления данных на определенный момент времени.
+- [Recovery from on-premises to Azure](resiliency-technical-guidance-recovery-on-premises-azure.md).
+The cloud significantly alters the economics of disaster recovery, enabling organizations to use Azure to establish a second site for recovery. You can do this at a fraction of the cost of building and maintaining a secondary datacenter. This article explains the capabilities that Azure provides for extending an on-premises datacenter to the cloud.
 
-##Дополнительные ресурсы
+- [Recovery from data corruption or accidental deletion](resiliency-technical-guidance-recovery-data-corruption.md).
+Applications can have bugs that corrupt data. Operators can incorrectly delete important data. This article explains what Azure provides for backing up data and restoring to a previous point it time.
 
-- [Аварийное восстановление и высокая доступность для приложений на платформе Azure](resiliency-disaster-recovery-high-availability-azure-applications.md). Данная статья содержит подробное описание высокого уровня доступности и аварийного восстановления. Здесь рассматриваются вопросы ручной репликации для ссылочных и транзакционных данных. В заключительных разделах подытоживаются сведения о различных типах топологий аварийного восстановления, охватывающих различные регионы Azure для обеспечения максимально высокого уровня доступности.
+##<a name="additional-resources"></a>Additional resources
 
-- [High-availability checklist](resiliency-high-availability-checklist.md) (Контрольный список для обеспечения высокой доступности). В этой статье приведен список функций, служб и схем, с помощью которых можно повысить устойчивость и доступность приложения.
+- [Disaster recovery and high availability for applications built on Microsoft Azure](resiliency-disaster-recovery-high-availability-azure-applications.md).
+This article is a detailed overview of availability and disaster recovery. It covers the challenge of manual replication for reference and transactional data. The final sections provide summaries of different types of disaster recovery topologies that span Azure regions for the highest level of availability.
 
-- [Руководство по обеспечению устойчивости службы Microsoft Azure](resiliency-service-guidance-index.md). В этой статье содержится указатель служб Azure и ссылки на рекомендации по аварийному восстановлению и проектированию для такого сценария.
+- [High-availability checklist](resiliency-high-availability-checklist.md).
+This article is a list of features, services, and designs that can help you increase the resiliency and availability of your application.
 
-- [Обзор. Непрерывность облачных бизнес-процессов и аварийное восстановление баз данных с базой данных SQL](../sql-database/sql-database-business-continuity.md). В этой статье описываются способы обеспечения доступности Базы данных SQL Azure. В первую очередь она посвящена стратегиям резервного копирования и восстановления. Если вы используете базы данных SQL Azure в облачной службе, вам следует изучить этот документ и связанные с ним ресурсы.
+- [Microsoft Azure service resiliency guidance](resiliency-service-guidance-index.md).
+This article is an index of Azure services and provides links to both disaster recovery guidance and design guidance.
 
-- [Высокий уровень доступности и аварийное восстановление для SQL Server на виртуальных машинах Azure](../virtual-machines/virtual-machines-windows-sql-high-availability-dr.md). В этой статье описываются возможности обеспечения высокой доступности при использовании инфраструктуры как услуги (IaaS) для размещения служб базы данных. Здесь описываются такие функциональные возможности, как группы доступности AlwaysOn, зеркальное отображение базы данных, доставка журналов, а также резервное копирование и восстановление. Использование этих методов описывается в нескольких руководствах.
+- [Overview: Cloud business continuity and database disaster recovery with SQL Database](../sql-database/sql-database-business-continuity.md).
+This article provides Azure SQL Database techniques for availability. It primarily centers on backup and restore strategies. If you use Azure SQL Database in your cloud service, you should review this paper and its related resources.
 
-- [Best Practices for Designing Large-Scale Services on Microsoft Azure](https://azure.microsoft.com//blog/best-practices-for-designing-large-scale-services-on-windows-azure/) (Рекомендации по разработке крупномасштабных служб на базе облачных служб Azure). Эта статья посвящена разработке высокомасштабируемых облачных архитектур. Многие из методик повышения масштабируемости позволяют повысить также и доступность. Кроме того, если при повышении нагрузки масштабирование вашего приложения не выполняется, вопрос масштабируемости превращается в проблему доступности.
+- [High availability and disaster recovery for SQL Server in Azure Virtual Machines](../virtual-machines/virtual-machines-windows-sql-high-availability-dr.md).
+This article discusses availability options that you can explore when you use infrastructure as a service (IaaS) to host your database services. It discusses AlwaysOn Availability Groups, database mirroring, log shipping, and backup/restore. Several tutorials show how to use these techniques.
 
-- [Резервное копирование и восстановление SQL Server в виртуальных машинах Azure](../virtual-machines/virtual-machines-windows-sql-backup-recovery.md). Эта статья представляет собой техническое руководство по резервному копированию и восстановлению Microsoft SQL Server на виртуальных машинах Azure.
+- [Best practices for designing large-scale services on Azure Cloud Services](https://azure.microsoft.com//blog/best-practices-for-designing-large-scale-services-on-windows-azure/).
+This article focuses on developing highly scalable cloud architectures. Many of the techniques that you employ to improve scalability also improve availability. Also, if your application can't scale under increased load, scalability becomes an availability issue.
 
-- [FailSafe: Building Scalable, Resilient Cloud Services](https://channel9.msdn.com/Series/FailSafe) (Отказоустойчивость. Создание устойчивой облачной архитектуры). Эта статья содержит рекомендации по созданию устойчивых облачных архитектур и их внедрению с использованием технологий Майкрософт, а также способы реализации таких архитектур в конкретных случаях.
+- [Backup and restore for SQL Server in Azure Virtual Machines](../virtual-machines/virtual-machines-windows-sql-backup-recovery.md).
+This article provides technical guidance on how to back up and restore Microsoft SQL Server running on Azure Virtual Machines.
 
-- [Технический пример. Применение облачных технологий для улучшения аварийного восстановления](https://www.microsoft.com/itshowcase/Article/Content/737/Using-cloud-technologies-to-improve-disaster-recovery). В этой статье содержится пример, показывающий, как ИТ-специалисты Майкрософт использовали Azure для улучшения аварийного восстановления.
+- [Failsafe: Guidance for resilient cloud architectures](https://channel9.msdn.com/Series/FailSafe).
+This article provides guidance for building resilient cloud architectures, guidance for implementing those architectures on Microsoft technologies, and recipes for implementing these architectures for specific scenarios.
 
-##Дальнейшие действия
+- [Technical case study: Using cloud technologies to improve disaster recovery](https://www.microsoft.com/itshowcase/Article/Content/737/Using-cloud-technologies-to-improve-disaster-recovery).
+This case study shows how Microsoft IT used Azure to improve disaster recovery.
 
-Этот материал входит в цикл статей, составляющих техническое руководство по обеспечению устойчивости в Azure. Если вы хотите ознакомиться с другими материалами из этой серии, рекомендуем перейти к следующей статье под названием [Техническое руководство по обеспечению устойчивости в Azure. Восстановление после локальных сбоев в Azure](resiliency-technical-guidance-recovery-local-failures.md).
+##<a name="next-steps"></a>Next steps
 
-<!---HONumber=AcomDC_0824_2016-->
+This article is part of a series focused on technical guidance for Azure resiliency. If you're interested in reading other articles in this series, you can start with [Recovery from local failures](resiliency-technical-guidance-recovery-local-failures.md).
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

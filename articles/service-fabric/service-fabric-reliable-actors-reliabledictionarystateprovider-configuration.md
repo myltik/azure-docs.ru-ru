@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Общие сведения о конфигурации ReliableDictionaryActorStateProvider при использовании надежных субъектов Azure Service Fabric | Microsoft Azure"
-   description="Узнайте о настройке субъектов Azure Service Fabric с отслеживанием состояния и типом ReliableDictionaryActorStateProvider."
+   pageTitle="Overview of the Azure Service Fabric Reliable Actors ReliableDictionaryActorStateProvider configuration | Microsoft Azure"
+   description="Learn about configuring Azure Service Fabric stateful actors of type ReliableDictionaryActorStateProvider."
    services="Service-Fabric"
    documentationCenter=".net"
    authors="sumukhs"
@@ -16,32 +16,33 @@
    ms.date="07/18/2016"
    ms.author="sumukhs"/>
 
-# Настройка надежных субъектов: ReliableDictionaryActorStateProvider
-Конфигурацию ReliableDictionaryActorStateProvider по умолчанию можно изменить. Для этого нужно обновить файл settings.xml, созданный в папке Config корневого каталога пакета Visual Studio для данного субъекта.
 
-Среда выполнения Azure Service Fabric ищет предварительно заданные имена разделов в файле settings.xml, использует значения параметров конфигурации и создает базовые компоненты среды выполнения.
+# <a name="configuring-reliable-actors--reliabledictionaryactorstateprovider"></a>Configuring Reliable Actors--ReliableDictionaryActorStateProvider
+You can modify the default configuration of ReliableDictionaryActorStateProvider by changing the settings.xml file generated in the Visual Studio package root under the Config folder for the specified actor.
 
->[AZURE.NOTE] **Не** удаляйте и не изменяйте имена разделов в перечисленных ниже конфигурациях в файле settings.xml, который создается в решении Visual Studio.
+The Azure Service Fabric runtime looks for predefined section names in the settings.xml file and consumes the configuration values while creating the underlying runtime components.
 
-Также существуют глобальные параметры, влияющие на конфигурацию ReliableDictionaryActorStateProvider.
+>[AZURE.NOTE] Do **not** delete or modify the section names of the following configurations in the settings.xml file that is generated in the Visual Studio solution.
 
-## Глобальная конфигурация
+There are also global settings that affect the configuration of ReliableDictionaryActorStateProvider.
 
-Глобальная конфигурация задается в манифесте кластера в разделе KtlLogger. Она позволяет настраивать расположение и размер общего журнала, а также глобальные ограничения памяти для средства ведения журнала. Обратите внимание, что изменения в манифесте кластера влияют на все службы, использующие ReliableDictionaryActorStateProvider, и надежные службы с отслеживанием состояния.
+## <a name="global-configuration"></a>Global Configuration
 
-Манифест кластера — это XML-файл, содержащий параметры и настройки, которые относятся ко всем узлам и службам в кластере. Обычно он имеет имя ClusterManifest.xml. Манифест кластера можно просмотреть с помощью команды PowerShell Get-ServiceFabricClusterManifest.
+The global configuration is specified in the cluster manifest for the cluster under the KtlLogger section. It allows configuration of the shared log location and size plus the global memory limits used by the logger. Note that changes in the cluster manifest affect all services that use ReliableDictionaryActorStateProvider and reliable stateful services.
 
-### Имена конфигураций
+The cluster manifest is a single XML file that holds settings and configurations that apply to all nodes and services in the cluster. The file is typically called ClusterManifest.xml. You can see the cluster manifest for your cluster using the Get-ServiceFabricClusterManifest powershell command.
 
-|Имя|Единица измерения|Значение по умолчанию|Примечания|
+### <a name="configuration-names"></a>Configuration names
+
+|Name|Unit|Default value|Remarks|
 |----|----|-------------|-------|
-|WriteBufferMemoryPoolMinimumInKB|Килобайты|8388608|Минимальное количество КБ, выделяемое для пула памяти буфера записи в журнал в режиме ядра. Этот пул памяти используется для кэширования сведений о состоянии перед записью на диск.|
-|WriteBufferMemoryPoolMaximumInKB|Килобайты|Без ограничений|Максимальный размер, до которого может увеличиваться пул памяти для буфера записи в журнал.|
-|SharedLogId|GUID|""|Уникальный идентификатор GUID, который определяет файл общего журнала по умолчанию, используемый всеми службами Reliable Services во всех узлах кластера, для которых в конфигурации службы не указан параметр SharedLogId. Если параметр SharedLogId задан, то также необходимо задать параметр SharedLogPath.|
-|SharedLogPath|Полное имя пути|""|Полный путь к файлу общего журнала, используемому всеми службами Reliable Services во всех узлах кластера, для которых в конфигурации службы не указан параметр SharedLogId. Однако если параметр SharedLogPath задан, то также необходимо задать SharedLogId.|
-|SharedLogSizeInMB|Мегабайты|8192|Определяет дисковое пространство в МБ, выделяемое для общего журнала в статическом режиме. Значение должно быть больше или равно 2048.|
+|WriteBufferMemoryPoolMinimumInKB|Kilobytes|8388608|Minimum number of KB to allocate in kernel mode for the logger write buffer memory pool. This memory pool is used for caching state information before writing to disk.|
+|WriteBufferMemoryPoolMaximumInKB|Kilobytes|No Limit|Maximum size to which the logger write buffer memory pool can grow.|
+|SharedLogId|GUID|""|Specifies a unique GUID to use for identifying the default shared log file used by all reliable services on all nodes in the cluster that do not specify the SharedLogId in their service specific configuration. If SharedLogId is specified, then SharedLogPath must also be specified.|
+|SharedLogPath|Fully qualified path name|""|Specifies the fully qualified path where the shared log file used by all reliable services on all nodes in the cluster that do not specify the SharedLogPath in their service specific configuration. However, if SharedLogPath is specified, then SharedLogId must also be specified.|
+|SharedLogSizeInMB|Megabytes|8192|Specifies the number of MB of disk space to statically allocate for the shared log. The value must be 2048 or larger.|
 
-### Образец раздела манифеста кластера
+### <a name="sample-cluster-manifest-section"></a>Sample cluster manifest section
 ```xml
    <Section Name="KtlLogger">
      <Parameter Name="WriteBufferMemoryPoolMinimumInKB" Value="8192" />
@@ -52,42 +53,44 @@
    </Section>
 ```
 
-### Примечания
-Средство ведения журнала имеет глобальный пул памяти, который выделяется из невыгружаемой памяти ядра. Он доступен всем службам Reliable Services в узле для кэширования данных состояния перед их записью в выделенный журнал, связанный с репликой службы Reliable Services. Размер пула определяется параметрами WriteBufferMemoryPoolMinimumInKB и WriteBufferMemoryPoolMaximumInKB. Параметр WriteBufferMemoryPoolMinimumInKB определяет как начальный размер этого пула памяти, так и его минимальный размер. Значение WriteBufferMemoryPoolMaximumInKB — это максимальный размер, до которого может увеличиваться пул памяти. Каждая открываемая реплика службы Reliable Services может увеличивать размер пула памяти на определенный в системе размер, но не более чем до значения параметра WriteBufferMemoryPoolMaximumInKB. Если размера пула памяти недостаточно, запросы будут откладываться, пока не появится доступная память. Поэтому, если пул памяти буфера записи слишком мал для конкретной конфигурации, производительность может снижаться.
+### <a name="remarks"></a>Remarks
+The logger has a global pool of memory allocated from non paged kernel memory that is available to all reliable services on a node for caching state data before being written to the dedicated log associated with the reliable service replica. The pool size is controlled by the WriteBufferMemoryPoolMinimumInKB and WriteBufferMemoryPoolMaximumInKB settings. WriteBufferMemoryPoolMinimumInKB specifies both the initial size of this memory pool and the lowest size to which the memory pool may shrink. WriteBufferMemoryPoolMaximumInKB is the highest size to which the memory pool may grow. Each reliable service replica that is opened may increase the size of the memory pool by a system determined amount up to WriteBufferMemoryPoolMaximumInKB. If there is more demand for memory from the memory pool than is available, requests for memory will be delayed until memory is available. Therefore if the write buffer memory pool is too small for a particular configuration then performance may suffer.
 
-Параметры SharedLogId и SharedLogPath всегда используются совместно и определяют идентификатор GUID и расположение общего журнала по умолчанию для всех узлов кластера. Общий журнал по умолчанию используется для всех служб Reliable Services, для которых эти параметры не заданы в связанном со службой файле settings.xml. Для обеспечения максимальной производительности файлы общих журналов следует размещать на дисках, которые используются исключительно в этих целях. Это позволяет уменьшить конфликты.
+The SharedLogId and SharedLogPath settings are always used together to define the GUID and location for the default shared log for all nodes in the cluster. The default shared log is used for all reliable services that do not specify the settings in the settings.xml for the specific service. For best performance, shared log files should be placed on disks that are used solely for the shared log file to reduce contention.
 
-Параметр SharedLogSizeInMB определяет объем дискового пространства, предварительно выделяемого для хранения общего журнала по умолчанию на всех узлах. При указании параметра SharedLogSizeInMB не обязательно задавать параметры SharedLogId и SharedLogPath.
+SharedLogSizeInMB specifies the amount of disk space to preallocate for the default shared log on all nodes.  SharedLogId and SharedLogPath do not need to be specified in order for SharedLogSizeInMB to be specified.
 
-## Конфигурация безопасности репликатора
-Конфигурации безопасности репликаторов используются для защиты канала связи, который используется во время репликации. Это означает, что службы не будут "видеть" реплицируемый трафик друг друга, что позволит обеспечить высокую доступность и высокий уровень защиты. По умолчанию пустой раздел конфигурации безопасности означает, что канал репликации не защищен.
+## <a name="replicator-security-configuration"></a>Replicator security configuration
+Replicator security configurations are used to secure the communication channel that is used during replication. This means that services cannot see each other's replication traffic, ensuring the data that is made highly available is also secure.
+By default, an empty security configuration section prevents replication security.
 
-### Имя раздела
+### <a name="section-name"></a>Section name
 &lt;ActorName&gt;ServiceReplicatorSecurityConfig
 
-## Конфигурация репликатора
-Конфигурации репликатора используются для настройки репликатора, отвечающего за надежность состояния поставщика состояний субъекта путем репликации и локального сохранения состояния. Конфигурация по умолчанию создается шаблоном Visual Studio и подходит для большинства случаев. В этом разделе мы расскажем о дополнительных конфигурациях, с помощью которых можно выполнить более тонкую настройку репликатора.
+## <a name="replicator-configuration"></a>Replicator configuration
+Replicator configurations are used to configure the replicator that is responsible for making the Actor State Provider state highly reliable by replicating and persisting the state locally.
+The default configuration is generated by the Visual Studio template and should suffice. This section talks about additional configurations that are available to tune the replicator.
 
-### Имя раздела
+### <a name="section-name"></a>Section name
 &lt;ActorName&gt;ServiceReplicatorConfig
 
-### Имена конфигураций
+### <a name="configuration-names"></a>Configuration names
 
-|Имя|Единица измерения|Значение по умолчанию|Примечания|
+|Name|Unit|Default value|Remarks|
 |----|----|-------------|-------|
-|BatchAcknowledgementInterval|Секунды|0,015|Период времени, в течение которого дополнительный репликатор после получения операции находится в режиме ожидания, а затем отправляет подтверждение обратно основному репликатору. Любые другие подтверждения, отправляемые для операций, обработанных в течение этого интервала, отправляются как один ответ.||
-|ReplicatorEndpoint|Недоступно|Значение по умолчанию не задано — обязательный параметр|IP-адрес и порт, которые будут использоваться основным и дополнительным репликаторами для связи с другими репликаторами в наборе реплик. Значение должно быть ссылкой на конечную точку ресурса TCP в манифесте службы. Дополнительные сведения об определении ресурсов конечных точек в манифесте службы см. в статье [Ресурсы манифеста службы](service-fabric-service-manifest-resources.md). |
-|MaxReplicationMessageSize|Байты|50 MB|Максимальный размер данных репликации, которые могут быть переданы в одном сообщении.|
-|MaxPrimaryReplicationQueueSize|Количество операций|8192|Максимальное количество операций в основной очереди. Операция освобождается после того, как основной репликатор получит подтверждение от всех дополнительных репликаторов. Это значение должно быть больше 64 и представлять собой степень числа 2.|
-|MaxSecondaryReplicationQueueSize|Количество операций|16 384|Максимальное количество операций в дополнительной очереди. Операция освобождается после того, как для ее состояния будет обеспечена высокая доступность посредством сохранения. Это значение должно быть больше 64 и представлять собой степень числа 2.|
-|CheckpointThresholdInMB|МБ|200|Объем места для файлов журнала, после заполнения которого создается контрольная точка состояния.|
-|MaxRecordSizeInKB|КБ|1024|Максимальный размер записи, которую репликатор может записать в журнал. Это значение должно быть кратно 4 и больше 16.|
-|OptimizeLogForLowerDiskUsage|Логический|Да|При значении True журнал настраивается таким образом, чтобы отдельный файл журнала реплики создавался с использованием разреженного файла NTFS. Это уменьшает фактически используемое файлом место на диске. Если значение равно False, создаваемому файлу назначается фиксированный размер места на диске, что обеспечивает оптимальную производительность записи.|
-|SharedLogId|guid|""|Уникальный идентификатор GUID для определения общего файла журнала, используемого с данной репликой. Обычно этот параметр в службах не используется. Однако если параметр SharedLogId задан, то также необходимо задать SharedLogPath.|
-|SharedLogPath|Полное имя пути|""|Полный путь к расположению, где будет создан общий файл журнала для данной реплики. Обычно этот параметр в службах не используется. Однако если параметр SharedLogPath задан, то также необходимо задать SharedLogId.|
+|BatchAcknowledgementInterval|Seconds|0.015|Time period for which the replicator at the secondary waits after receiving an operation before sending back an acknowledgement to the primary. Any other acknowledgements to be sent for operations processed within this interval are sent as one response.||
+|ReplicatorEndpoint|N/A|No default--required parameter|IP address and port that the primary/secondary replicator will use to communicate with other replicators in the replica set. This should reference a TCP resource endpoint in the service manifest. Refer to [Service manifest resources](service-fabric-service-manifest-resources.md) to read more about defining endpoint resources in service manifest. |
+|MaxReplicationMessageSize|Bytes|50 MB|Maximum size of replication data that can be transmitted in a single message.|
+|MaxPrimaryReplicationQueueSize|Number of operations|8192|Maximum number of operations in the primary queue. An operation is freed up after the primary replicator receives an acknowledgement from all the secondary replicators. This value must be greater than 64 and a power of 2.|
+|MaxSecondaryReplicationQueueSize|Number of operations|16384|Maximum number of operations in the secondary queue. An operation is freed up after making its state highly available through persistence. This value must be greater than 64 and a power of 2.|
+|CheckpointThresholdInMB|MB|200|Amount of log file space after which the state is checkpointed.|
+|MaxRecordSizeInKB|KB|1024|Largest record size that the replicator may write in the log. This value must be a multiple of 4 and greater than 16.|
+|OptimizeLogForLowerDiskUsage|Boolean|true|When true, the log is configured so that the replica's dedicated log file is created by using an NTFS sparse file. This lowers the actual disk space usage for the file. When false, the file is created with fixed allocations, which provide the best write performance.|
+|SharedLogId|guid|""|Specifies a unique guid to use for identifying the shared log file used with this replica. Typically, services should not use this setting. However, if SharedLogId is specified, then SharedLogPath must also be specified.|
+|SharedLogPath|Fully qualified path name|""|Specifies the fully qualified path where the shared log file for this replica will be created. Typically, services should not use this setting. However, if SharedLogPath is specified, then SharedLogId must also be specified.|
 
 
-## Образец файла конфигурации
+## <a name="sample-configuration-file"></a>Sample configuration file
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -109,15 +112,20 @@
 </Settings>
 ```
 
-## Примечания
-Параметр BatchAcknowledgementInterval управляет задержкой репликации. Значение 0 обеспечивает минимальную возможную задержку за счет уменьшения скорости репликации (потому что необходимо отправлять и обрабатывать большее количество сообщений с подтверждениями, каждое из которых содержит меньше подтверждений). По мере увеличения значения BatchAcknowledgementInterval увеличивается общая скорость репликации и задержка операций. Это непосредственно перетекает в задержку фиксаций транзакций.
+## <a name="remarks"></a>Remarks
+The BatchAcknowledgementInterval parameter controls replication latency. A value of '0' results in the lowest possible latency, at the cost of throughput (as more acknowledgement messages must be sent and processed, each containing fewer acknowledgements).
+The larger the value for BatchAcknowledgementInterval, the higher the overall replication throughput, at the cost of higher operation latency. This directly translates to the latency of transaction commits.
 
-Значение CheckpointThresholdInMB позволяет управлять объемом места на диске, которое репликатор может использовать для хранения сведений о состоянии в выделенном файле журнала реплики. Увеличение этого параметра выше значения по умолчанию может привести к ускорению перенастройки при добавлении новой реплики в набор. Это вызвано частичным состоянием передачи, которое возникает из-за доступности дополнительной истории операций в журнале. Это потенциально может увеличить время восстановления реплики после сбоя.
+The CheckpointThresholdInMB parameter controls the amount of disk space that the replicator can use to store state information in the replica's dedicated log file. Increasing this to a higher value than the default could result in faster reconfiguration times when a new replica is added to the set. This is due to the partial state transfer that takes place due to the availability of more history of operations in the log. This can potentially increase the recovery time of a replica after a crash.
 
-Если параметр OptimizeForLowerDiskUsage установлен в true, для файлов журналов подготовлено больше места, чем им фактически нужно. Поэтому активные реплики смогут сохранять в журналах больше сведений о состоянии, тогда как неактивные реплики будут использовать меньше дискового пространства. Это позволяет разместить на узле несколько реплик. Если установить параметр OptimizeForLowerDiskUsage в значение false, сведения о состоянии будут быстрее записываться в файлы журнала.
+If you set OptimizeForLowerDiskUsage to true, log file space will be over-provisioned so that active replicas can store more state information in their log files, while inactive replicas will use less disk space. This makes it possible to host more replicas on a node. If you set OptimizeForLowerDiskUsage to false, the state information is written to the log files more quickly.
 
-Параметр MaxRecordSizeInKB определяет максимальный размер записи, которая может быть записана репликатором в файл журнала. В большинстве случаев размер записи по умолчанию в 1024 КБ является оптимальным. Однако если служба предусматривает запись в сведения о состоянии больших фрагментов данных, может возникнуть необходимость увеличить это значение. Особой пользы от установки значения MaxRecordSizeInKB меньше 1024 нет, так как для меньших записей используется ровно столько места, сколько они занимают. Это значение необходимо изменять лишь в редких случаях.
+The MaxRecordSizeInKB setting defines the maximum size of a record that can be written by the replicator into the log file. In most cases, the default 1024-KB record size is optimal. However, if the service is causing larger data items to be part of the state information, then this value might need to be increased. There is little benefit in making MaxRecordSizeInKB smaller than 1024, as smaller records use only the space needed for the smaller record. We expect that this value would need to be changed only in rare cases.
 
-Параметры SharedLogId и SharedLogPath всегда используются совместно и позволяют службе использовать отдельный общий журнал из установленного по умолчанию общего журнала для узла. Для достижения наилучшей эффективности один и тот же общий журнал следует указывать в как можно большем количестве служб. Общие файлы журналов следует размещать на дисках, которые используются исключительно для хранения общих журналов. Это позволяет уменьшить конфликты перемещения головок. Эти значения необходимо изменять лишь в редких случаях.
+The SharedLogId and SharedLogPath settings are always used together to make a service use a separate shared log from the default shared log for the node. For best efficiency, as many services as possible should specify the same shared log. Shared log files should be placed on disks that are used solely for the shared log file, to reduce head movement contention. We expect that these values would need to be changed only in rare cases.
 
-<!---HONumber=AcomDC_0720_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

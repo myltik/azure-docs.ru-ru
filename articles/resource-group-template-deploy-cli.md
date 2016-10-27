@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Развертывание ресурсов с помощью Azure CLI и шаблона | Microsoft Azure"
-   description="Узнайте, как использовать Azure Resource Manager и Azure CLI для развертывания ресурсов в Azure. Эти ресурсы определяются в шаблоне Resource Manager."
+   pageTitle="Deploy resources with Azure CLI and template | Microsoft Azure"
+   description="Use Azure Resource Manager and Azure CLI to deploy a resources to Azure. The resources are defined in a Resource Manager template."
    services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
@@ -16,60 +16,61 @@
    ms.date="08/15/2016"
    ms.author="tomfitz"/>
 
-# Развертывание ресурсов с использованием шаблонов Resource Manager и Azure CLI
+
+# <a name="deploy-resources-with-resource-manager-templates-and-azure-cli"></a>Deploy resources with Resource Manager templates and Azure CLI
 
 > [AZURE.SELECTOR]
 - [PowerShell](resource-group-template-deploy.md)
-- [Интерфейс командной строки Azure](resource-group-template-deploy-cli.md)
-- [Портал](resource-group-template-deploy-portal.md)
-- [ИНТЕРФЕЙС REST API](resource-group-template-deploy-rest.md)
+- [Azure CLI](resource-group-template-deploy-cli.md)
+- [Portal](resource-group-template-deploy-portal.md)
+- [REST API](resource-group-template-deploy-rest.md)
 
-В этой статье объясняется, как использовать интерфейс командной строки Azure и шаблоны Resource Manager для развертывания ресурсов в Azure.
+This topic explains how to use Azure CLI with Resource Manager templates to deploy your resources to Azure.  
 
-> [AZURE.TIP] Справку по отладке ошибок во время развертывания можно получить в следующих статьях.
+> [AZURE.TIP] For help with debugging an error during deployment, see:
 >
-> - Статья [Просмотр операций развертывания с помощью интерфейса командной строки Azure](resource-manager-troubleshoot-deployments-cli.md) содержит информацию о том, как получить сведения, которые помогут устранить ошибку.
-> - [Устранение распространенных ошибок при развертывании ресурсов в Azure с помощью Azure Resource Manager](resource-manager-common-deployment-errors.md) — руководство по устранению распространенных ошибок при развертывании.
+> - [View deployment operations with Azure CLI](resource-manager-troubleshoot-deployments-cli.md) to learn about getting information that helps you troubleshoot your error
+> - [Troubleshoot common errors when deploying resources to Azure with Azure Resource Manager](resource-manager-common-deployment-errors.md) to learn how to resolve common deployment errors
 
-Шаблон может быть локальным файлом или внешним файл, доступным по универсальному коду ресурса (URI). Если шаблон находится в учетной записи хранения, то во время развертывания можно ограничить доступ к шаблону и предоставить маркер подписанного URL-адреса (SAS).
+Your template can be either a local file or an external file that is available through a URI. When your template resides in a storage account, you can restrict access to the template and provide a shared access signature (SAS) token during deployment.
 
-## Быстрое развертывание
+## <a name="quick-steps-to-deployment"></a>Quick steps to deployment
 
-В этой статье описаны все доступные во время развертывания параметры. Но обычно достаточно двух простых команд. Чтобы быстро приступить к выполнению развертывания, воспользуйтесь следующими командами:
+This article describes all the different options available to you during deployment. However, often you only need two simple commands. To quickly get started with deployment, use the following commands:
 
     azure group create -n ExampleResourceGroup -l "West US"
     azure group deployment create -f <PathToTemplate> -e <PathToParameterFile> -g ExampleResourceGroup -n ExampleDeployment
 
-Дополнительные сведения о параметрах развертывания, которые могут быть более подходящими для вашего сценария, см. в последующих разделах этой статьи.
+To learn more about options for deployment that might be better suited to your scenario, continue reading this article.
 
 [AZURE.INCLUDE [resource-manager-deployments](../includes/resource-manager-deployments.md)]
 
-## Развертывание с помощью интерфейса командной строки Azure
+## <a name="deploy-with-azure-cli"></a>Deploy with Azure CLI
 
-Информацию об использовании интерфейса командной строки Azure с диспетчером ресурсов см. в статье [Использование интерфейса командной строки Azure для Mac, Linux и Windows в режиме управления ресурсами Azure](xplat-cli-azure-resource-manager.md).
+If you have not previously used Azure CLI with Resource Manager, see [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management](xplat-cli-azure-resource-manager.md).
 
-1. Войдите в свою учетную запись Azure. После предоставления учетных данных команда возвращает результат вашего входа.
+1. Log in to your Azure account. After providing your credentials, the command returns the result of your login.
 
         azure login
   
         ...
         info:    login command OK
 
-2. Если у вас несколько подписок, укажите подписку, которую вы хотите использовать для развертывания.
+2. If you have multiple subscriptions, provide the subscription id you wish to use for deployment.
 
         azure account set <YourSubscriptionNameOrId>
 
-3. Переключитесь на модуль диспетчера ресурсов Azure. Вы получите подтверждение о новом режиме.
+3. Switch to Azure Resource Manager module. You receive confirmation of the new mode.
 
         azure config mode arm
    
         info:     New mode is arm
 
-4. Создайте группу ресурсов, если у вас нет существующей группы ресурсов. Введите имя группы ресурсов и расположение, необходимое для решения. Вам нужно указать расположение группы, так как она хранит метаданные ресурсов. Для соответствия требованиям вам, возможно, нужно указать, где хранятся эти метаданные. Обычно мы рекомендуем указывать расположение, в котором будет храниться большинство ресурсов. Используя одно и то же расположение, можно упростить шаблон.
+4. If you do not have an existing resource group, create a resource group. Provide the name of the resource group and location that you need for your solution. You need to provide a location for the resource group because the resource group stores metadata about the resources. For compliance reasons, you may want to specify where that metadata is stored. In general, we recommend that you specify a location where most of your resources will reside. Using the same location can simplify your template.
 
         azure group create -n ExampleResourceGroup -l "West US"
 
-     Появится сводка по новой группе ресурсов.
+     A summary of the new resource group is returned.
    
         info:    Executing command group create
         + Getting resource group ExampleResourceGroup
@@ -83,27 +84,27 @@
         data:
         info:    group create command OK
 
-5. Проверьте развернутую службу перед ее выполнением. Для этого выполните команду **azure group template validate**. При тестировании развернутой службы укажите точно такие же параметры, как и при ее выполнении (как показано на следующем шаге).
+5. Validate your deployment before executing it by running the **azure group template validate** command. When testing the deployment, provide parameters exactly as you would when executing the deployment (shown in the next step).
 
-        azure group template validate -f <PathToTemplate> -p "{"ParameterName":{"value":"ParameterValue"}}" -g ExampleResourceGroup
+        azure group template validate -f <PathToTemplate> -p "{\"ParameterName\":{\"value\":\"ParameterValue\"}}" -g ExampleResourceGroup
 
-5. Чтобы развернуть ресурсы в группе ресурсов, выполните следующую команду и укажите необходимые параметры — имя развертывания, имя группы ресурсов, путь или URL-адрес шаблона, а также другие необходимые вам параметры.
+5. To deploy resources to your resource group, run the following command and provide the necessary parameters. The parameters include a name for your deployment, the name of your resource group, the path or URL to the template, and any other parameters needed for your scenario. 
    
-     Для предоставления значений параметров доступно три следующих способа.
+     You have the following three options for providing parameter values: 
 
-     1. Использование встроенных параметров и локального шаблона. Каждый параметр имеет следующий формат: `"ParameterName": { "value": "ParameterValue" }`. В приведенном ниже примере показаны параметры с escape-символами.
+     1. Use inline parameters and a local template. Each parameter is in the format: `"ParameterName": { "value": "ParameterValue" }`. The following example shows the parameters with escape characters.
 
-            azure group deployment create -f <PathToTemplate> -p "{"ParameterName":{"value":"ParameterValue"}}" -g ExampleResourceGroup -n ExampleDeployment
+            azure group deployment create -f <PathToTemplate> -p "{\"ParameterName\":{\"value\":\"ParameterValue\"}}" -g ExampleResourceGroup -n ExampleDeployment
 
-     2. Использование встроенных параметров и ссылки на шаблон.
+     2. Use inline parameters and a link to a template.
 
-            azure group deployment create --template-uri <LinkToTemplate> -p "{"ParameterName":{"value":"ParameterValue"}}" -g ExampleResourceGroup -n ExampleDeployment
+            azure group deployment create --template-uri <LinkToTemplate> -p "{\"ParameterName\":{\"value\":\"ParameterValue\"}}" -g ExampleResourceGroup -n ExampleDeployment
 
-     3. Использование файла параметров. Дополнительную информацию о файле шаблона см. в разделе [Файл параметров](./#parameter-file).
+     3. Use a parameter file. For information about the template file, see [Parameter file](#parameter-file).
     
             azure group deployment create -f <PathToTemplate> -e <PathToParameterFile> -g ExampleResourceGroup -n ExampleDeployment
 
-     После развертывания ресурсов посредством одного из трех методов, приведенных выше, вы увидите сводку по развертыванию.
+     After the resources have been deployed through one of the three methods above, you will see a summary of the deployment.
   
         info:    Executing command group deployment create
         + Initializing template configurations and parameters
@@ -111,66 +112,71 @@
         ...
         info:    group deployment create command OK
 
-     Чтобы выполнить полное развертывание, установите для параметра **Режим** значение **Полный**. Будьте внимательны при использовании этого режима, так как вы можете случайно удалить ресурсы, которые находятся не в шаблоне.
+     To run a complete deployment, set **mode** to **Complete**. Be careful when using this mode as you can inadvertently delete resources that are not in your template.
 
         azure group deployment create --mode Complete -f <PathToTemplate> -e <PathToParameterFile> -g ExampleResourceGroup -n ExampleDeployment
 
-6. Если вы хотите добавлять в журнал дополнительные сведения о развертывании, которые могут помочь в устранении ошибок развертывания, используйте параметр **debug-setting**. Можно задать регистрацию в журнале содержимого запроса или содержимого ответа (или и того, и другого) при операции развертывания.
+6. If you want to log additional information about the deployment that may help you troubleshoot any deployment errors, use the **debug-setting** parameter. You can specify that request content, response content, or both be logged with the deployment operation.
 
         azure group deployment create --debug-setting All -f <PathToTemplate> -e <PathToParameterFile> -g ExampleResourceGroup -n ExampleDeployment
 
-## Развертывание шаблона из хранилища с помощью маркера SAS
+## <a name="deploy-template-from-storage-with-sas-token"></a>Deploy template from storage with SAS token
 
-Шаблоны можно добавить в учетную запись хранения и создать ссылки на них во время развертывания с помощью маркера SAS.
+You can add your templates to a storage account and link to them during deployment with a SAS token.
 
-> [AZURE.IMPORTANT] Если выполнить приведенные ниже действия, то большой двоичный объект, содержащий шаблон, будет доступен только владельцу учетной записи. Тем не менее, если создать маркер SAS для этого большого двоичного объекта, то он будет доступен любому пользователю, обладающему этим универсальным кодом ресурса (URI). Если другой пользователь перехватит этот универсальный код ресурса (URI), то сможет получить доступ к шаблону. Применение маркера SAS — хороший способ ограничить доступ к своим шаблонам, но не следует указывать конфиденциальные данные, например пароли, непосредственно в шаблоне.
+> [AZURE.IMPORTANT] By following the steps below, the blob containing the template is accessible to only the account owner. However, when you create a SAS token for the blob, the blob is accessible to anyone with that URI. If another user intercepts the URI, that user is able to access the template. Using a SAS token is a good way of limiting access to your templates, but you should not include sensitive data like passwords directly in the template.
 
-### Добавление частного шаблона в учетную запись хранения
+### <a name="add-private-template-to-storage-account"></a>Add private template to storage account
 
-Ниже приведены действия по настройке учетной записи хранения для шаблонов.
+The following steps set up a storage account for templates:
 
-1. Создайте группу ресурсов.
+1. Create a resource group.
 
         azure group create -n "ManageGroup" -l "westus"
 
-2. Создайте учетную запись хранения. Имя учетной записи хранения должно быть уникальным в Azure, поэтому введите собственное имя для учетной записи.
+2. Create a storage account. The storage account name must be unique across Azure, so provide your own name for the account.
 
         azure storage account create -g ManageGroup -l "westus" --sku-name LRS --kind Storage storagecontosotemplates
 
-3. Задайте переменные для учетной записи хранения и ключа.
+3. Set variables for the storage account and key.
 
         export AZURE_STORAGE_ACCOUNT=storagecontosotemplates
         export AZURE_STORAGE_ACCESS_KEY={storage_account_key}
 
-4. Создайте контейнер. Разрешение имеет значение **Off**, это означает, что контейнер доступен только владельцу.
+4. Create a container. The permission is set to **Off** which means the container is only accessible to the owner.
 
         azure storage container create --container templates -p Off 
         
-4. Добавьте свой шаблон в контейнер.
+4. Add your template to the container.
 
         azure storage blob upload --container templates -f c:\Azure\Templates\azuredeploy.json
         
-### Предоставление маркера SAS во время развертывания
+### <a name="provide-sas-token-during-deployment"></a>Provide SAS token during deployment
 
-Чтобы развернуть частный шаблон в учетной записи хранения, извлеките маркер SAS и добавьте его в универсальный код ресурса (URI) для шаблона.
+To deploy a private template in a storage account, retrieve a SAS token and include it in the URI for the template.
 
-1. Создайте маркер SAS с разрешениями на чтение и сроком действия, чтобы ограничить доступ. Задайте срок действия, достаточный для выполнения развертывания. Извлеките полный универсальный код ресурса (URI) шаблона с маркером SAS.
+1. Create a SAS token with read permissions and an expiry time to limit access. Set the expiry time to allow enough time to complete the deployment. Retrieve the full URI of the template including the SAS token.
 
         expiretime=$(date -I'minutes' --date "+30 minutes")
         fullurl=$(azure storage blob sas create --container templates --blob azuredeploy.json --permissions r --expiry $expiretimetime --json  | jq ".url")
 
-2. Разверните шаблон, указав универсальный код ресурса (URI), который включает в себя маркер SAS.
+2. Deploy the template by providing the URI that includes the SAS token.
 
         azure group deployment create --template-uri $fullurl -g ExampleResourceGroup
 
-Пример использования маркера SAS со связанными шаблонами см. в статье [Использование связанных шаблонов в Azure Resource Manager](resource-group-linked-templates.md).
+For an example of using a SAS token with linked templates, see [Using linked templates with Azure Resource Manager](resource-group-linked-templates.md).
 
 [AZURE.INCLUDE [resource-manager-parameter-file](../includes/resource-manager-parameter-file.md)]
 
-## Дальнейшие действия
-- Пример развертывания ресурсов с помощью клиентской библиотеки .NET см. в статье [Развертывание виртуальной машины Azure с помощью C# и шаблона Resource Manager](virtual-machines/virtual-machines-windows-csharp-template.md).
-- Сведения об определении параметров в шаблоне см. в разделе [Параметры](resource-group-authoring-templates.md#parameters).
-- Инструкции по развертыванию своего решения в различных средах см. в статье [Среды разработки и тестирования в Microsoft Azure](solution-dev-test-environments.md).
-- Дополнительные сведения об использовании ссылки на KeyVault для передачи безопасных значений см. в статье [Передача безопасных значений в процессе развертывания](resource-manager-keyvault-parameter.md).
+## <a name="next-steps"></a>Next steps
+- For an example of deploying resources through the .NET client library, see [Deploy resources using .NET libraries and a template](virtual-machines/virtual-machines-windows-csharp-template.md).
+- To define parameters in template, see [Authoring templates](resource-group-authoring-templates.md#parameters).
+- For guidance on deploying your solution to different environments, see [Development and test environments in Microsoft Azure](solution-dev-test-environments.md).
+- For details about using a KeyVault reference to pass secure values, see [Pass secure values during deployment](resource-manager-keyvault-parameter.md).
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,6 +1,6 @@
 <properties
- pageTitle="Включение управляемых устройств за шлюзом IoT | Microsoft Azure"
- description="Раздел руководства с использованием шлюза IoT, созданного с помощью пакета SDK для шлюза, а также устройств, управляемых центром IoT."
+ pageTitle="Enable managed devices behind an IoT gateway | Microsoft Azure"
+ description="Guidance topic using an IoT Gateway created using the Gateway SDK along with devices managed by IoT Hub."
  services="iot-hub"
  documentationCenter=""
  authors="chipalost"
@@ -16,81 +16,71 @@
  ms.date="04/29/2016"
  ms.author="cstreet"/>
  
-# Включение управляемых устройств за шлюзом IoT
 
-## Изоляция основного устройства
+# <a name="enable-managed-devices-behind-an-iot-gateway"></a>Enable managed devices behind an IoT gateway
 
-Организации часто используют шлюзы IoT для повышения общей безопасности своих решений IoT. Некоторые устройства должны отправлять данные в облако, но не могут защититься от угроз в Интернете. Для защиты от внешних угроз такие устройства должны взаимодействовать с внешним миром через шлюз.
+## <a name="basic-device-isolation"></a>Basic device isolation
 
-Шлюз располагается на границе между безопасной средой и открытым Интернетом. Устройства обращаются к шлюзу, а тот передает сообщения в соответствующее место назначения в облаке. Шлюз защищен от внешних угроз, блокирует неавторизованные запросы, пропускает авторизованный входящий трафик и переадресует его на правильное устройство.
+Organizations often use IoT gateways to increase the overall security of their IoT solutions. Some devices need to send data to the cloud but are not capable of protecting themselves from threats on the internet. You can shield these devices from external threads by having them communicate with the outside world through a gateway.
+
+The gateway sits on the border between a secure environment and the open internet. Devices talk to the gateway and the gateway passes the messages along to the correct cloud destination. The gateway is hardened against external threads, blocks unauthorized requests, allows authorized in-bound traffic, and forwards that in-bound traffic to the correct device.
 
 ![][1]
 
-За шлюзом можно также размещать устройства, которые могут себя защитить, чтобы обеспечить дополнительный уровень защиты. В этом сценарии вместо обновления операционной системы на каждом устройстве нужно установить в операционной системе шлюза только исправления, необходимые для защиты от новых уязвимостей.
+You can also place devices that can protect themselves behind a gateway for an added layer of security. In this scenario you only need to keep the gateway OS patched against the latest vulnerabilities, instead of updating the OS on every device.
 
-## Изоляция плюс аналитика
+## <a name="isolation-plus-intelligence"></a>Isolation plus intelligence
 
-Для простой изоляции устройств достаточно усиленного маршрутизатора. В то же время решениям IoT часто требуется шлюз с более широкими возможностями, чем простая изоляция устройств. Например, вам может потребоваться управление устройствами из облака. Для управления облаком в решении можно использовать LWM2M — стандартный протокол управления устройствами. При этом устройства могут отправлять данные телеметрии по протоколу без поддержки TCP/IP. Кроме того, устройства выдают большой объем данных, а передавать должны отфильтрованное подмножество данных телеметрии. Для этого можно собрать решение с использованием шлюза IoT, способного работать с двумя отдельными потоками данных. Такой шлюз должен:
+A hardened router is a sufficient gateway to simply isolate devices. However, IoT solutions often require that a gateway provides more intelligence than simply isolating devices. For example, you may want to manage your devices from the cloud. You are able use LWM2M, a standard device management protocol, for the cloud management part of the solution. However, the devices send telemetry using a non TCP/IP enabled protocol. Furthermore, the devices produce lots of data and you only want to upload a filtered subset of the telemetry. You can build a solution that incorporates an IoT gateway capable of dealing with two distinct streams of data. The gateway should:
 
--   понимать данные **телеметрии**, фильтровать их, а затем отправлять в облако через шлюз. Шлюз больше не является простым маршрутизатором, способным только пересылать данные между устройством и облаком.
+-   Understand the **Telemetry**, filter it, and then upload it to the cloud through the gateway. The gateway is no longer a simple router that simply forwards data between the device and the cloud.
 
--   Осуществлять простой обмен **данными по управлению устройствами LWM2M** между устройствами и облаком. Шлюз не обязан понимать поступающие данные и должен только обеспечивать прохождение данных между устройствами и облаком.
+-   Simply exchange the **LWM2M device management data** between the devices and the cloud. The gateway does not need to understand the data coming into it, and only needs to make sure the data gets passed back and forth between the devices and the cloud.
 
-Этот сценарий показан на следующей схеме:
+The following figure illustrates this scenario:
 
 ![][2]
 
-## Решение: управление устройствами в IoT Azure и пакет SDK для шлюза 
+## <a name="the-solution:-azure-iot-device-management-and-the-gateway-sdk"></a>The solution: Azure IoT device management and the Gateway SDK 
 
-Это сценарий активируют общедоступная предварительная версия [управления устройствами в IoT Azure][lnk-device-management] и бета-версия [пакета SDK для шлюза IoT Azure]. Шлюз обрабатывает каждый поток данных следующим образом.
+The public preview release of [Azure IoT device management][lnk-device-management] and beta release of the [Azure IoT Gateway SDK] enable this scenario. The gateway handles each stream of data as follows:
 
--   **Данные телеметрии**: пакет SDK для шлюза можно использовать для создания конвейера, который понимает, фильтрует и отправляет данные телеметрии в облако. Пакет SDK для шлюза предоставляет код, реализующий компоненты этого конвейера от имени разработчика. Дополнительные сведения об архитектуре пакета SDK см. в учебнике [IoT Gateway SDK - Get Started][lnk-gateway-get-started] \(Пакет SDK для шлюза IoT: приступая к работе).
+-   **Telemetry**: You can use the Gateway SDK to build a pipeline that understands, filters, and sends telemetry data to the cloud. The Gateway SDK provides code that implements parts of this pipeline on behalf of the developer. You can find more information on the architecture of the SDK in the [IoT Gateway SDK - Get Started][lnk-gateway-get-started] tutorial.
 
--   **Управление устройствами**: функция управления устройствами Azure предоставляет клиент LWM2M, выполняемый на устройстве, а также облачный интерфейс для передачи команд управления на устройство.
+-   **Device management**: Azure device management provides an LWM2M client that runs on the device as well as a cloud interface for issuing management commands to the device.
     
-    Использовать специальную логику в шлюзе не требуется, поскольку ему не нужно обрабатывать данные LWM2M, пересылаемые между устройством и центром IoT. Для поддержки обмена данными LWM2M можно включить в шлюзе общий доступ к Интернету — эту функцию поддерживают многие современные операционные системы. Пакет SDK поддерживает разные операционные системы, а значит, вы можете выбрать ту, что подходит для данного сценария. Ниже представлены инструкции по включению общего доступа к Интернету в [Windows 10] и [Ubuntu] — двух из множества поддерживаемых операционных систем.
+    You don't require any special logic on the gateway because it does not need to process the LWM2M data exchanged between the device and your IoT hub. You can enable internet connection sharing, a feature of many modern operating systems, on the gateway to enable the exchange of LWM2M data. You can can choose a suitable operating system for this scenario because the gateway SDK supports a variety of operating systems. Here are instructions for enabling internet connection sharing on [Windows 10] and [Ubuntu], two of the many supported operating systems.
 
-На следующей схеме показана архитектура высокого уровня, которая используется для включения данного сценария с использованием [управления устройствами Azure IoT][lnk-device-management] и [пакета SDK для IoT Azure].
+The following illustration shows the high level architecture used to enable this scenario using [Azure IoT device management][lnk-device-management] and the [Azure IoT Gateway SDK].
 
 ![][3]
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Next steps
 
-Информацию об использовании пакета SDK для шлюза см. в следующих учебниках:
+To learn about how to use the Gateway SDK, see the following tutorials:
 
-- [IoT Gateway SDK - Get started using Linux][lnk-gateway-get-started] \(Пакет SDK для шлюза IoT: приступая к работе с Linux)
-- [IoT Gateway SDK – send device-to-cloud messages with a simulated device using Linux][lnk-gateway-simulated] \(Пакет SDK для шлюза IoT: отправка сообщений с устройства в облако через виртуальное устройство с помощью Linux)
+- [IoT Gateway SDK - Get started using Linux][lnk-gateway-get-started]
+- [IoT Gateway SDK – send device-to-cloud messages with a simulated device using Linux][lnk-gateway-simulated]
 
-Дополнительные сведения об управлении устройствами с помощью центра IoT см. в статье [Знакомство с клиентской библиотекой управления устройствами для центра Azure IoT.][lnk-library-c].
+To further explore the capabilities of IoT Hub, see:
 
-Для дальнейшего изучения возможностей центра IoT см. следующие статьи:
-
-- [Разработка решения][lnk-design]
-- [Руководство разработчика по центру Azure IoT (IoT — Интернет вещей)][lnk-devguide]
-- [Пакет SDK для шлюза IoT (бета-версия): отправка сообщений с устройства в облако через виртуальное устройство с помощью Linux][lnk-gateway]
-- [Управление центрами IoT через портал Azure][lnk-portal]
+- [Developer guide][lnk-devguide]
+- [Simulating a device with the Gateway SDK][lnk-gateway-simulated]
 
 <!-- Images and links -->
 [1]: media/iot-hub-gateway-device-management/overview.png
 [2]: media/iot-hub-gateway-device-management/manage.png
-[пакета SDK для IoT Azure]: https://github.com/Azure/azure-iot-gateway-sdk/
-[пакета SDK для шлюза IoT Azure]: https://github.com/Azure/azure-iot-gateway-sdk/
-[Windows 10]: http://windows.microsoft.com/ru-RU/windows/using-internet-connection-sharing#1TC=windows-7
+[Azure IoT Gateway SDK]: https://github.com/Azure/azure-iot-gateway-sdk/
+[Windows 10]: http://windows.microsoft.com/en-us/windows/using-internet-connection-sharing#1TC=windows-7
 [Ubuntu]: https://help.ubuntu.com/community/Internet/ConnectionSharing
 [3]: media/iot-hub-gateway-device-management/manage_2.png
 [lnk-gateway-get-started]: iot-hub-linux-gateway-sdk-get-started.md
 [lnk-gateway-simulated]: iot-hub-linux-gateway-sdk-simulated-device.md
 [lnk-device-management]: iot-hub-device-management-overview.md
 
-[lnk-tutorial-twin]: iot-hub-device-management-device-twin.md
-[lnk-tutorial-queries]: iot-hub-device-management-device-query.md
-[lnk-tutorial-jobs]: iot-hub-device-management-device-jobs.md
-[lnk-dm-gateway]: iot-hub-gateway-device-management.md
-[lnk-library-c]: iot-hub-device-management-library.md
-
-[lnk-design]: iot-hub-guidance.md
 [lnk-devguide]: iot-hub-devguide.md
-[lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
-[lnk-portal]: iot-hub-manage-through-portal.md
 
-<!---HONumber=AcomDC_0713_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

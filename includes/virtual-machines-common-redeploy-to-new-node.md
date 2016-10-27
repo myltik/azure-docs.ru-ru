@@ -1,23 +1,25 @@
-## Использование портала Azure
+## <a name="using-azure-portal"></a>Using Azure portal
 
-1. Выберите виртуальную машину для повторного развертывания и нажмите кнопку "Повторить развертывание" в колонке "Параметры". Прокрутите вниз, чтобы отобразить раздел **Поддержка и устранение проблем**, содержащий кнопку "Развернуть", как показано в следующем примере.
+1. Select the VM you wish to redeploy, and click the 'Redeploy' button in the 'Settings' blade. Scroll down to see the **Support and Troubleshooting** section that contains the 'Redeploy' button as in the following example:
 
-	![Колонка виртуальной машины Azure](./media/virtual-machines-common-redeploy-to-new-node/vmoverview.png)
+    ![Azure VM blade](./media/virtual-machines-common-redeploy-to-new-node/vmoverview.png)
 
-2. Для подтверждения операции нажмите кнопку "Повторить развертывание".
+2. To confirm the operation, click the 'Redeploy' button:
 
-	![Колонка повторного развертывания виртуальной машины](./media/virtual-machines-common-redeploy-to-new-node/redeployvm.png)
+    ![Redeploy a VM blade](./media/virtual-machines-common-redeploy-to-new-node/redeployvm.png)
 
-3. Текущее **состояние** виртуальной машины изменится на *Выполняется обновление* при подготовке к повторному развертыванию, как показано ниже.
+3. The **Status** of the VM changes to *Updating* as the VM prepares to redeploy, as in the following example:
 
-	![Обновление виртуальной машины](./media/virtual-machines-common-redeploy-to-new-node/vmupdating.png)
+    ![VM updating](./media/virtual-machines-common-redeploy-to-new-node/vmupdating.png)
 
-4. Затем **состояние** изменится на *Запуск* при загрузке виртуальной машины на новый узел Azure, как показано ниже.
+4. The **Status** then changes to *Starting* as the VM boots up on a new Azure host, as in the following example:
 
-	![Запуск виртуальной машины](./media/virtual-machines-common-redeploy-to-new-node/vmstarting.png)
+    ![VM starting](./media/virtual-machines-common-redeploy-to-new-node/vmstarting.png)
 
-5. По завершении процесса загрузки **состояние** виртуальной машины снова будет иметь значение *Работает*. Это значит, что повторное развертывание виртуальной машины успешно завершено.
+5. After the VM finishes the boot process, the **Status** then returns to *Running*, indicating the VM has been successfully redeployed:
 
-	![Выполнение виртуальной машины](./media/virtual-machines-common-redeploy-to-new-node/vmrunning.png)
+    ![VM running](./media/virtual-machines-common-redeploy-to-new-node/vmrunning.png)
 
-<!---HONumber=AcomDC_0921_2016-->
+<!--HONumber=Oct16_HO2-->
+
+

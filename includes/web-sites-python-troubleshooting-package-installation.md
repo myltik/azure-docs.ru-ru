@@ -1,71 +1,74 @@
-Некоторые пакеты могут не установиться с помощью pip при запуске Azure. Возможно, пакет просто недоступен в каталоге пакетов Python. Возможно, требуется компилятор (компилятор недоступен в системе, в которой выполняется веб-приложение в службе приложений Azure).
+Some packages may not install using pip when run on Azure.  It may simply be that the package is not available on the Python Package Index.  It could be that a compiler is required (a compiler is not available on the machine running the web app in Azure App Service).
 
-В этом разделе будут рассмотрены способы решения этой проблемы.
+In this section, we'll look at ways to deal with this issue.
 
-### Запрос архивов wheel
+### <a name="request-wheels"></a>Request wheels
 
-Если для установки пакета требуется компилятор, необходимо обратиться к владельцу пакета для получения доступа к wheel для пакета.
+If the package installation requires a compiler, you should try contacting the package owner to request that wheels be made available for the package.
 
-Благодаря тому, что недавно стал доступным компилятор [Microsoft Visual C++ для Python 2.7][], теперь проще создавать пакеты с машинным кодом для Python 2.7.
+With the recent availability of [Microsoft Visual C++ Compiler for Python 2.7][], it is now easier to build packages that have native code for Python 2.7.
 
-### Сборки wheel (требуется Windows)
+### <a name="build-wheels-(requires-windows)"></a>Build wheels (requires Windows)
 
-Примечание. При использовании этого параметра выполняйте компиляцию пакета с помощью среды Python, совпадающей с платформой, архитектурой или версией, которая использовалась в веб-приложении Azure (Windows, 32-разрядная версия, 2.7 или 3.4).
+Note: When using this option, make sure to compile the package using a Python environment that matches the platform/architecture/version that is used on the web app in Azure App Service (Windows/32-bit/2.7 or 3.4).
 
-Если пакет не установился из-за того, что требуется компилятор, можно установить компилятор на локальном компьютере и выполнить сборку wheel для пакета, который потом будет включен в репозиторий.
+If the package doesn't install because it requires a compiler, you can install the compiler on your local machine and build a wheel for the package, which you will then include in your repository.
 
-Пользователи Mac/Linux: если у вас нет доступа к компьютеру под управлением Windows, сведения о создании виртуальной машины в Azure см. в разделе [Создание виртуальной машины под управлением Windows][]. С его помощью можно выполнить сборки wheel, добавить их в репозиторий и при необходимости удалить виртуальную машину.
+Mac/Linux Users: If you don't have access to a Windows machine, see [Create a Virtual Machine Running Windows][] for how to create a VM on Azure.  You can use it to build the wheels, add them to the repository, and discard the VM if you like. 
 
-Для Python 2.7 можно установить компилятор [Microsoft Visual C++ для Python 2.7][].
+For Python 2.7, you can install [Microsoft Visual C++ Compiler for Python 2.7][].
 
-Для Python 3.4 можно установить [Microsoft Visual C++ 2010 Express][].
+For Python 3.4, you can install [Microsoft Visual C++ 2010 Express][].
 
-Для выполнения сборки архива wheel потребуется пакет wheel.
+To build wheels, you'll need the wheel package:
 
     env\scripts\pip install wheel
 
-Для компиляции зависимости будет использоваться `pip wheel`.
+You'll use `pip wheel` to compile a dependency:
 
     env\scripts\pip wheel azure==0.8.4
 
-В папке \\wheelhouse будет создан WHL-файл. Добавьте папку \\wheelhouse и файлы wheel в репозиторий.
+This creates a .whl file in the \wheelhouse folder.  Add the \wheelhouse folder and wheel files to your repository.
 
-Добавьте параметр `--find-links` в начало файла requirements.txt. Это позволит pip искать точное совпадение в локальной папке перед тем, как перейти к каталогу пакетов Python.
+Edit your requirements.txt to add the `--find-links` option at the top. This tells pip to look for an exact match in the local folder before going to the python package index.
 
     --find-links wheelhouse
     azure==0.8.4
 
-Если необходимо включить все зависимости в папку \\wheelhouse и не использовать каталог пакетов Python, можно задать в pip принудительный пропуск каталога пакетов, добавив `--no-index` в начало файла requirements.txt.
+If you want to include all your dependencies in the \wheelhouse folder and not use the python package index at all, you can force pip to ignore the package index by adding `--no-index` to the top of your requirements.txt.
 
     --no-index
 
-### Настройка установки
+### <a name="customize-installation"></a>Customize installation
 
-Скрипт развертывания можно настроить для установки пакета в виртуальной среде с помощью другого установщика, например easy\\_install. Закомментированный пример см. в файле deploy.cmd. Убедитесь, что такие пакеты не указаны в файле requirements.txt, чтобы команда pip не устанавливала их.
+You can customize the deployment script to install a package in the virtual environment using an alternate installer, such as easy\_install.  See deploy.cmd for an example that is commented out.  Make sure that such packages aren't listed in requirements.txt, to prevent pip from installing them.
 
-Добавьте следующее в скрипт развертывания:
+Add this to the deployment script:
 
     env\scripts\easy_install somepackage
 
-Вы также сможете использовать easy\\_install для установки из установщика EXE-файлов (некоторые совместимы с ZIP-файлами, и easy\\_install поддерживает их). Добавьте установщик в свой репозиторий и вызовите easy\\_install, передав путь к исполняемому файлу.
+You may also be able to use easy\_install to install from an exe installer (some are zip compatible, so easy\_install supports them).  Add the installer to your repository, and invoke easy\_install by passing the path to the executable.
 
-Добавьте следующее в скрипт развертывания:
+Add this to the deployment script:
 
     env\scripts\easy_install "%DEPLOYMENT_SOURCE%\installers\somepackage.exe"
 
-### Включите виртуальную среду в репозиторий (требуется Windows)
+### <a name="include-the-virtual-environment-in-the-repository-(requires-windows)"></a>Include the virtual environment in the repository (requires Windows)
 
-Примечание. При использовании этого параметра убедитесь, что используется виртуальная среда, совпадающая с платформой, архитектурой или версией, которая используется на веб-сайте Azure (Windows, 32-разрядная версия, 2.7 или 3.4).
+Note: When using this option, make sure to use a virtual environment that matches the platform/architecture/version that is used on the web app in Azure App Service (Windows/32-bit/2.7 or 3.4).
 
-При включении виртуальной среды в репозиторий можно предотвратить выполнение скриптом развертывания управления виртуальной средой Azure, создав пустой файл:
+If you include the virtual environment in the repository, you can prevent the deployment script from doing virtual environment management on Azure by creating an empty file:
 
     .skipPythonDeployment
 
-Рекомендуется удалить существующую виртуальную среду в приложении, чтобы при автоматическом управлении виртуальной средой не оставалось лишних файлов.
+We recommend that you delete the existing virtual environment on the app, to prevent leftover files from when the virtual environment was managed automatically.
 
 
-[Создание виртуальной машины под управлением Windows]: http://azure.microsoft.com/documentation/articles/virtual-machines-windows-hero-tutorial/
-[Microsoft Visual C++ для Python 2.7]: http://aka.ms/vcpython27
+[Create a Virtual Machine Running Windows]: http://azure.microsoft.com/documentation/articles/virtual-machines-windows-hero-tutorial/
+[Microsoft Visual C++ Compiler for Python 2.7]: http://aka.ms/vcpython27
 [Microsoft Visual C++ 2010 Express]: http://go.microsoft.com/?linkid=9709949
 
-<!---HONumber=AcomDC_0323_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

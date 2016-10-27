@@ -1,22 +1,23 @@
 <properties
-	pageTitle="Просмотр данных в таблицах Hive с помощью запросов Hive | Microsoft Azure"
-	description="Просмотр данных в таблицах Hive с помощью запросов Hive."
-	services="machine-learning"
-	documentationCenter=""
-	authors="bradsev"
-	manager="jhubbard" 
-	editor="cgronlun"  />
+    pageTitle="Просмотр данных в таблицах Hive с помощью запросов Hive | Microsoft Azure"
+    description="Просмотр данных в таблицах Hive с помощью запросов Hive."
+    services="machine-learning"
+    documentationCenter=""
+    authors="bradsev"
+    manager="jhubbard"
+    editor="cgronlun"  />
 
 <tags
-	ms.service="machine-learning"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/13/2016"
-	ms.author="bradsev" />
+    ms.service="machine-learning"
+    ms.workload="data-services"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/13/2016"
+    ms.author="bradsev" />
 
-# Просмотр данных в таблицах Hive с помощью запросов Hive 
+
+# <a name="explore-data-in-hive-tables-with-hive-queries"></a>Просмотр данных в таблицах Hive с помощью запросов Hive
 
 В этом документе представлено несколько примеров сценариев Hive, которые используются для анализа данных в таблицах Hive в кластере HDInsight Hadoop.
 
@@ -24,58 +25,62 @@
 
 [AZURE.INCLUDE [cap-explore-data-selector](../../includes/cap-explore-data-selector.md)]
 
-## Предварительные требования
+## <a name="prerequisites"></a>Предварительные требования
 В этой статье предполагается, что вы:
 
-* Создали учетную запись хранения Azure. Инструкции можно найти в статье [Создание учетной записи хранения в Azure](../hdinsight-get-started.md#storage).
-* Подготовили настраиваемый кластер Hadoop с помощью службы HDInsight. Инструкции см. в статье [Настройка кластеров Azure HDInsight Hadoop для расширенного процесса обработки аналитических данных](machine-learning-data-science-customize-hadoop-cluster.md).
-* Отправили данные в таблицы Hive, которые находятся в кластерах Azure HDInsight Hadoop. Если данные не загружены, необходимо предварительно загрузить их в таблицы Hive, воспользовавшись инструкциями из статьи [Создание и загрузка данных в таблицы Hive из хранилища больших двоичных объектов Azure](machine-learning-data-science-move-hive-tables.md).
+* Создали учетную запись хранения Azure. Инструкции см. в разделе [Создание учетной записи хранения](../storage/storage-create-storage-account.md#create-a-storage-account).
+* Подготовили настраиваемый кластер Hadoop с помощью службы HDInsight. Инструкции см. в статье [Настройка кластеров Azure HDInsight Hadoop для процесса обработки и анализа данных группы](machine-learning-data-science-customize-hadoop-cluster.md).
+* Отправили данные в таблицы Hive, которые находятся в кластерах Azure HDInsight Hadoop. Если данные не загружены, необходимо предварительно загрузить их в таблицы Hive, воспользовавшись инструкциями из статьи [Создание и загрузка данных в таблицы Hive из хранилища больших двоичных объектов Azure](machine-learning-data-science-move-hive-tables.md) .
 * Включили удаленный доступ к кластеру. Инструкции можно найти в разделе [Доступ к головному узлу в кластере Hadoop](machine-learning-data-science-customize-hadoop-cluster.md#headnode).
 * Инструкции по отправке запросов Hive см. в разделе [Отправка запросов Hive](machine-learning-data-science-move-hive-tables.md#submit).
 
-## Пример сценариев запроса Hive для просмотра данных
+## <a name="example-hive-query-scripts-for-data-exploration"></a>Пример сценариев запроса Hive для просмотра данных
 
-1. Получение количества наблюдений на раздел `SELECT <partitionfieldname>, count(*) from <databasename>.<tablename> group by <partitionfieldname>;`
+1. Получение количества наблюдений на раздел  `SELECT <partitionfieldname>, count(*) from <databasename>.<tablename> group by <partitionfieldname>;`
 
-2. Получение количества наблюдений в день `SELECT to_date(<date_columnname>), count(*) from <databasename>.<tablename> group by to_date(<date_columnname>);`
+2. Получение количества наблюдений в день  `SELECT to_date(<date_columnname>), count(*) from <databasename>.<tablename> group by to_date(<date_columnname>);`
 
-3. Получение уровней в столбце категорий `SELECT  distinct <column_name> from <databasename>.<tablename>`
+3. Получение уровней в столбце категорий   
+    `SELECT  distinct <column_name> from <databasename>.<tablename>`
 
-4. Получение числа уровней в сочетании двух столбцов категорий `SELECT <column_a>, <column_b>, count(*) from <databasename>.<tablename> group by <column_a>, <column_b>`
+4. Получение числа уровней в сочетании двух столбцов категорий  `SELECT <column_a>, <column_b>, count(*) from <databasename>.<tablename> group by <column_a>, <column_b>`
 
-5. Получение распределения для числовых столбцов `SELECT <column_name>, count(*) from <databasename>.<tablename> group by <column_name>`
+5. Получение распределения для числовых столбцов   
+    `SELECT <column_name>, count(*) from <databasename>.<tablename> group by <column_name>`
 
 6. Извлечение записей из двух объединенных таблиц
 
-	    SELECT
-			a.<common_columnname1> as <new_name1>,
-			a.<common_columnname2> as <new_name2>,
-    		a.<a_column_name1> as <new_name3>,
-    		a.<a_column_name2> as <new_name4>,
-    		b.<b_column_name1> as <new_name5>,
-    		b.<b_column_name2> as <new_name6>
-    	FROM
-    		(
-    		SELECT <common_columnname1>,
-    			<common_columnname2>,
-				<a_column_name1>,
-				<a_column_name2>,
-			FROM <databasename>.<tablename1>
-			) a
-			join
-			(
-			SELECT <common_columnname1>,
-    			<common_columnname2>,
-				<b_column_name1>,
-				<b_column_name2>,
-			FROM <databasename>.<tablename2>
-			) b
-			ON a.<common_columnname1>=b.<common_columnname1> and a.<common_columnname2>=b.<common_columnname2>
+        SELECT
+            a.<common_columnname1> as <new_name1>,
+            a.<common_columnname2> as <new_name2>,
+            a.<a_column_name1> as <new_name3>,
+            a.<a_column_name2> as <new_name4>,
+            b.<b_column_name1> as <new_name5>,
+            b.<b_column_name2> as <new_name6>
+        FROM
+            (
+            SELECT <common_columnname1>,
+                <common_columnname2>,
+                <a_column_name1>,
+                <a_column_name2>,
+            FROM <databasename>.<tablename1>
+            ) a
+            join
+            (
+            SELECT <common_columnname1>,
+                <common_columnname2>,
+                <b_column_name1>,
+                <b_column_name2>,
+            FROM <databasename>.<tablename2>
+            ) b
+            ON a.<common_columnname1>=b.<common_columnname1> and a.<common_columnname2>=b.<common_columnname2>
 
-## Дополнительные сценарии запросов для сценариев данных о поездках такси
+## <a name="additional-query-scripts-for-taxi-trip-data-scenarios"></a>Дополнительные сценарии запросов для сценариев данных о поездках такси
 
-Примеры запросов, использующихся для сценариев наподобие [Данные о поездках такси по Нью-Йорку](http://chriswhong.com/open-data/foil_nyc_taxi/), также приведены в [репозитории Github](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts). Для этих запросов уже задана схема данных, и они готовы к отправке и запуску.
+Кроме того, в [репозитории Github](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts) приведены примеры запросов, которые используются для сценариев, похожих на [Данные о поездках в такси по Нью-Йорку](http://chriswhong.com/open-data/foil_nyc_taxi/). Для этих запросов уже задана схема данных, и они готовы к отправке и запуску.
 
- 
 
-<!---HONumber=AcomDC_0914_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

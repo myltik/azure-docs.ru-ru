@@ -1,15 +1,17 @@
-Тип | служба | Триггер | Входные данные | Выходные данные 
+Type | Service | Trigger | Input | Output 
 -----|---------|---------|-------|--------
-Расписание | Функции Azure | &#10004; | | 
-HTTP (REST или веб-перехватчика) | Функции Azure | &#10004; | | &#10004;*
-Хранилище BLOB-объектов | Хранилище Azure | &#10004; | &#10004; | &#10004; 
-События | Концентраторы событий Azure | &#10004; | | &#10004;
-Очереди | Хранилище Azure | &#10004; | | &#10004;
-Таблицы | Хранилище Azure | | &#10004; | &#10004;
-Таблицы | Мобильные приложения Azure | | &#10004; | &#10004;
-База данных NoSQL | Azure DocumentDB. | | &#10004; | &#10004;
-Push-уведомления | Концентраторы уведомлений Azure | | | &#10004;
+Schedule | Azure Functions | &#10004; |  | 
+HTTP (REST or webhook) | Azure Functions | &#10004; |  | &#10004;\*
+Blob Storage | Azure Storage | &#10004; | &#10004; | &#10004; 
+Events | Azure Event Hubs | &#10004; | | &#10004;
+Queues | Azure Storage | &#10004; |  | &#10004;
+Tables | Azure Storage |  | &#10004; | &#10004;
+Tables | Azure Mobile Apps |  | &#10004; | &#10004;
+No-SQL DB | Azure DocumentDB |  | &#10004; | &#10004;
+Push Notifications | Azure Notification Hubs | | | &#10004;
 
-(\* - Для привязки выходных HTTP-данных требуется триггер HTTP.)
+(\* - The http out binding requires an http trigger)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!--HONumber=Oct16_HO2-->
+
+

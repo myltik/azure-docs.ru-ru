@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Шаблоны разработки мультитенантных приложений SaaS и Базы данных SQL Azure | Microsoft Azure"
-   description="В этой статье описаны требования и общие шаблоны архитектуры данных мультитенантных приложений баз данных, работающих в облачной среде, а также различные компромиссы, связанные с этими шаблонами. Здесь также объясняется, как База данных SQL Azure с пулами эластичных БД и инструментами эластичных баз данных позволяет выполнить эти требования без компромиссов."
+   pageTitle="Design patterns for multitenant SaaS applications and Azure SQL Database | Microsoft Azure"
+   description="This article discusses the requirements and common data architecture patterns of multitenant database applications running in a cloud environment need to consider and the various tradeoffs associated with these patterns. It also explains how Azure SQL Database, with its elastic pools and elastic tools, help address these requirements in a no-compromise fashion."
    keywords=""
    services="sql-database"
    documentationCenter=""
@@ -17,151 +17,157 @@
    ms.date="08/24/2016"
    ms.author="carlrab"/>
 
-# Шаблоны разработки для мультитенантных приложений SaaS и Базы данных SQL Azure
 
-В этой статье рассматриваются требования и общие шаблоны архитектуры данных для мультитенантных приложений базы данных программного обеспечения как услуги (SaaS), работающих в облачной среде. Здесь также описываются факторы, которые необходимо учесть, и компромиссы различных шаблонов разработки. Пулы эластичных БД и инструменты эластичных баз данных в Базе данных SQL Azure помогают обеспечить соответствие конкретным требованиям без ущерба для других целей.
+# <a name="design-patterns-for-multitenant-saas-applications-and-azure-sql-database"></a>Design patterns for multitenant SaaS applications and Azure SQL Database
 
-При разработке клиентских моделей для уровней данных мультитенантных приложений разработчики иногда принимают решения, которые идут вразрез с их долгосрочными целями. По меньшей мере изначально простота разработки и низкая стоимость услуг поставщика облачных служб имела для разработчика большее значение, чем изоляция клиентов и масштабируемость приложений. Как результат — неудовлетворенные клиенты и дорогостоящее изменение стратегии в будущем.
+In this article, you can learn about the requirements and common data architecture patterns of multitenant software as a service (SaaS) database applications that run in a cloud environment. It also explains the factors you need to consider and the trade-offs of different design patterns. Elastic pools and elastic tools in Azure SQL Database can help you meet your specific requirements without compromising other objectives.
 
-Мультитенатное приложение — это приложение, расположенное в облачной среде и предоставляющее одинаковый набор служб сотням или тысячам клиентов, которые не используют данные совместно и не обращаются к данным друг друга. В качестве примера можно привести приложение SaaS, которое предоставляет службы для клиентов в размещенной в облаке среде.
+Developers sometimes make choices that work against their long-term best interests when they design tenancy models for the data tiers of multitenant applications. Initially, at least, a developer might perceive ease of development and lower cloud service provider costs as more important than tenant isolation or the scalability of an application. This choice can lead to customer satisfaction concerns and a costly course-correction later.
 
-## Мультитенантные приложения
+A multitenant application is an application hosted in a cloud environment and that provides the same set of services to hundreds or thousands of tenants who do not share or see each other’s data. An example is an SaaS application that provides services to tenants in a cloud-hosted environment.
 
-В мультитенантных приложениях данные и рабочую нагрузку можно легко секционировать. Это можно сделать, к примеру, вдоль границ между клиентами, так как большинство запросов выполняются в пределах клиента. Это свойство присуще данным и рабочей нагрузке, а шаблоны приложений, рассматриваемые в этой статье, поддерживают его.
+## <a name="multitenant-applications"></a>Multitenant applications
 
-Разработчики используют этот тип приложения по всему спектру облачных приложений, включая следующие:
+In multitenant applications, data and workload can be easily partitioned. You can partition data and workload, for example, along tenant boundaries, because most requests occur within the confines of a tenant. That property is inherent in the data and the workload, and it favors the application patterns discussed in this article.
 
-- приложения партнерской базы данных, перемещаемые в облако в качестве приложений SaaS;
-- приложения SaaS, созданные для облака с нуля;
-- приложения, напрямую предоставляемые потребителям;
-- корпоративные приложения для сотрудников.
+Developers use this type of application across the whole spectrum of cloud-based applications, including:
 
-Приложения SaaS, предназначенные для облака, и приложения базы данных от партнеров, как правило, представляют собой мультитенантные приложения. Эти приложения SaaS предоставляют клиентам возможности специального программного приложения как услуги. У клиентов есть доступ к службе приложения, и они полностью владеют связанными данными, хранимыми в приложении. Но чтобы воспользоваться преимуществами SaaS, клиенты должны отказаться от определенной части контроля над своими данными. Они передают их доверенному поставщику службы SaaS, который сможет обеспечить защиту этих данных и изолировать их от данных других клиентов. Примерами такого мультитенантного приложения SaaS являются MYOB, SnelStart и Salesforce.com. Каждое из этих приложений можно секционировать вдоль границ между клиентами. Кроме того, они поддерживают шаблоны разработки приложений, рассмотренные в этой статье.
+- Partner database applications that are being transitioned to the cloud as SaaS applications
+- SaaS applications built for the cloud from the ground up
+- Direct, customer-facing applications
+- Employee-facing enterprise applications
 
-Приложения, предоставляющие службы пользователям или сотрудникам в организации напрямую (их зачастую называют пользователями, а не клиентами), представляют другую категорию в спектре мультитенантных приложений. Клиенты подписываются на службу и не владеют данными, которые собирает и хранит поставщик услуг. К поставщикам услуг применяются менее строгие требования относительно изоляции данных клиентов, помимо принятых государством законов о конфиденциальности. Примерами такого мультитенантного приложения для клиентов выступают поставщики мультимедийного содержимого, например Netflix, Spotify и Xbox LIVE. К другим примерам приложений с простым секционированием можно отнести веб-приложения для клиентов или приложения "Интернета вещей", где каждый клиент или каждое устройство может служить в качестве секции. При этом границы секций могут отделять разных пользователей или устройства.
+SaaS applications that are designed for the cloud and those with roots as partner database applications typically are multitenant applications. These SaaS applications deliver a specialized software application as a service to their tenants. Tenants can access the application service and have full ownership of associated data stored as part of the application. But to take advantage of the benefits of SaaS, tenants must surrender some control over their own data. They trust the SaaS service provider to keep their data safe and isolated from other tenants’ data. Examples of this kind of multitenant SaaS application are MYOB, SnelStart, and Salesforce.com. Each of these applications can be partitioned along tenant boundaries and support the application design patterns we discuss in this article.
 
-Не все приложения можно легко секционировать по одному свойству, например клиент, потребитель, пользователь или устройство. В сложном приложении планирования ресурсов, например, содержатся продукты, заказы и клиенты. Как правило, у них сложная схема с тысячами тесно взаимосвязанных таблиц.
+Applications that provide a direct service to customers or to employees within an organization (often referred to as users, rather than tenants) are another category on the multitenant application spectrum. Customers subscribe to the service and do not own the data that the service provider collects and stores. Service providers have less stringent requirements to keep their customers’ data isolated from each other beyond government-mandated privacy regulations. Examples of this kind of customer-facing multitenant application are media content providers like Netflix, Spotify, and Xbox LIVE. Other examples of easily partitionable applications are customer-facing, Internet-scale applications, or Internet of Things (IoT) applications in which each customer or device can serve as a partition. Partition boundaries can separate users and devices.
 
-Невозможно разработать такую стратегию секционирования, которая охватывала бы все таблицы и задания в рабочей нагрузке приложения. В этой статье рассматриваются мультитенантные приложения, данные и рабочие нагрузки которых легко секционировать.
+Not all applications partition easily along a single property such as tenant, customer, user, or device. A complex enterprise resource planning (ERP) application, for example, has products, orders, and customers. It usually has a complex schema with thousands of highly interconnected tables.
 
-## Компромиссы при разработке мультитенантного приложения
+No single partition strategy can apply to all tables and work across an application's workload. This article focuses on multitenant applications that have easily partitionable data and workloads.
 
-Выбирая шаблон разработки, разработчику мультитенантного приложения следует учитывать следующие факторы:
+## <a name="multitenant-application-design-trade-offs"></a>Multitenant application design trade-offs
 
--	**Изоляция клиентов**. Разработчик должен обеспечить, чтобы ни один клиент не смог получить несанкционированный доступ к данным других клиентов. Это требование изоляции распространяется и на другие свойства, например защиту от "шумных соседей", возможность восстановления данных конкретного клиента и выполнение настройки для определенного клиента.
--	**Стоимость облачных ресурсов**. Цена приложения SaaS должна быть оптимальной. Используя облачные ресурсы, разработчик мультитенантного приложения может снизить затраты на ресурсы хранения и вычислительные ресурсы.
--	**Простота разработки и выполнения операций**. Разработчику мультитенантного приложения необходимо внедрить защиту путем изоляции, поддерживать и отслеживать работоспособность приложений и схемы базы данных, а также устранять неполадки клиентов. Сложность разработки и выполнения операций приложения создает дополнительные расходы и влечет неудовлетворенность клиентов.
--	**Масштабируемость**. Чтобы приложение SaaS успешно работало, оно должно иметь возможность поэтапного добавления дополнительных клиентов, а также дополнительной емкости для клиентов, которым она необходима.
+The design pattern that a multitenant application developer chooses typically is based on a consideration of the following factors:
 
-Каждый из этих факторов в сравнении характеризуется определенными компромиссами. Облачное решение с минимальной стоимостью может оказаться не самым удобным в плане разработки. В процессе разработки приложения разработчику очень важно принимать осознанные решения относительно этих аспектов, учитывая их компромиссы.
+-   **Tenant isolation**. The developer needs to ensure that no tenant has unwanted access to other tenants’ data. The isolation requirement extends to other properties, such as providing protection from noisy neighbors, being able to restore a tenant’s data, and implementing tenant-specific customizations.
+-   **Cloud resource cost**. An SaaS application needs to be cost-competitive. A multitenant application developer might choose to optimize for lower cost in the use of cloud resources, such as storage and compute costs.
+-   **Ease of DevOps**. A multitenant application developer needs to incorporate isolation protection, maintain, and monitor the health of their application and database schema, and troubleshoot tenant issues. Complexity in application development and operation translates directly to increased cost and challenges with tenant satisfaction.
+-   **Scalability**. The ability to incrementally add more tenants and capacity for tenants who require it is imperative to a successful SaaS operation.
 
-Популярный шаблон разработки — объединение нескольких клиентов в одной или в нескольких базах данных. Преимуществом этого подхода является более низкая стоимость, так как вы платите за небольшое количество баз данных, и относительная простота работы с ограниченным количеством баз данных. Но со временем разработчик мультитенантного приложения SaaS увидит, что у этого варианта есть существенные недостатки, касающиеся изоляции и масштабируемости клиентов. Когда возникает необходимость в изоляции клиентов, приходится прилагать дополнительные усилия, чтобы защитить данные клиента в общем хранилище от несанкционированного доступа или "шумных соседей". Из-за этих дополнительных усилий процесс разработки может значительно усложниться, а затраты на поддержку изоляции — повыситься. Аналогичным образом, если необходимо добавить клиентов, потребуется определенный опыт, чтобы с помощью этого шаблона разработки перераспределить данные клиента между базами данных для надлежащего масштабирования уровня данных приложения.
+Each of these factors has trade-offs compared to another. The lowest-cost cloud offering might not offer the most convenient development experience. It’s important for a developer to make informed choices about these options and their trade-offs during the application design process.
 
-Изоляция клиентов зачастую является фундаментальным требованием в мультитенантных приложениях SaaS, предназначенных для предприятий и организаций. Разработчиков привлекают явные преимущества простоты и стоимости, и они игнорируют изоляцию клиентов и масштабируемость. Из-за такого компромисса в будущем придется приложить дополнительные усилия и потратить дополнительные средства, так как по мере роста службы требования к изоляции клиентов становятся все более важными и должны выполняться на уровне приложения. Тем не менее для мультитенантных приложений, предоставляющих потребительские службы для пользователей напрямую, изоляция клиентов может оказаться не столь приоритетной, как оптимизация стоимости облачных ресурсов.
+A popular development pattern is to pack multiple tenants into one or a few databases. The benefits of this approach are a lower cost because you pay for a few databases, and the relative simplicity of working with a limited number of databases. But over time, a SaaS multitenant application developer will realize that this choice has substantial downsides in tenant isolation and scalability. If tenant isolation becomes important, additional effort is required to protect tenant data in shared storage from unauthorized access or noisy neighbors. This additional effort might significantly boost development efforts and isolation maintenance costs. Similarly, if adding tenants is required, this design pattern typically requires expertise to redistribute tenant data across databases to properly scale the data tier of an application.  
 
-## Модели данных мультитенантного приложения
+Tenant isolation often is a fundamental requirement in SaaS multitenant applications that cater to businesses and organizations. A developer might be tempted by perceived advantages in simplicity and cost over tenant isolation and scalability. This trade-off can prove complex and expensive as the service grows and tenant isolation requirements become more important and managed at the application layer. However, in multitenant applications that provide a direct, consumer-facing service to customers, tenant isolation might be a lower priority than optimizing for cloud resource cost.
 
-Общие рекомендации по разработке для размещения данных клиента можно представить в виде трех отдельных моделей, показанных на рис. 1.
+## <a name="multitenant-data-models"></a>Multitenant data models
+
+Common design practices for placing tenant data follow three distinct models, shown in Figure 1.
 
 
-  ![Модели данных мультитенантных приложений](./media/sql-database-design-patterns-multi-tenancy-saas-applications/sql-database-multi-tenant-data-models.png) Рис. 1. Общие рекомендации по разработке для моделей данных мультитенантных приложений
+  ![Multitenant application data models](./media/sql-database-design-patterns-multi-tenancy-saas-applications/sql-database-multi-tenant-data-models.png)
+    Figure 1: Common design practices for multitenant data models
 
--	**База данных для каждого клиента**. У каждого клиента есть своя база данных. Все данные конкретного клиента ограничены его базой данных и изолированы от других клиентов и их данных.
--	**Сегментированная общая база данных**. Несколько клиентов совместно используют одну из нескольких баз данных. Каждой базе данных назначается отдельный набор клиентов с использованием стратегии секционирования, например хэш-секционирования, секционирования по диапазонам или по спискам. Эту стратегию распределения данных часто называют сегментированием.
--	**Отдельная общая база данных**. Отдельная большая база данных содержит данные для всех клиентов, которые различаются по столбцу идентификатора клиента.
+-   **Database-per-tenant**. Each tenant has its own database. All tenant-specific data is confined to the tenant’s database and isolated from other tenants and their data.
+-   **Shared database-sharded**. Multiple tenants share one of multiple databases. A distinct set of tenants is assigned to each database by using a partitioning strategy such as hash, range, or list partitioning. This data distribution strategy often is referred to as sharding.
+-   **Shared database-single**. A single, sometimes large, database contains data for all tenants, which are disambiguated in a tenant ID column.
 
-> [AZURE.NOTE] Разработчик приложения может разместить разные клиенты в разных схемах баз данных, а затем использовать имя схемы для устранения неоднозначностей между разными клиентами. Мы не рекомендуем использовать этот подход, так как он, как правило, требует использования динамического SQL. Кроме того, он не может обеспечить эффективное кэширование плана. В оставшейся части этой статьи для этой категории мультитенантного приложения рассматривается подход, предусматривающий использование общей таблицы.
+> [AZURE.NOTE] An application developer might choose to place different tenants in different database schemas, and then use the schema name to disambiguate the different tenants. We do not recommend this approach because it usually requires the use of dynamic SQL, and it can’t be effective in plan caching. In the remainder of this article, we focus on the shared table approach for this category of multitenant application.
 
-## Популярные модели данных мультитенантного приложения
+## <a name="popular-multitenant-data-models"></a>Popular multitenant data models
 
-Очень важно оценивать различные типы моделей данных мультитенантного приложения с точки зрения компромиссов разработки приложения, которые мы уже обозначили. Эти факторы позволяют охарактеризовать три самые распространенные модели данных мультитенантного приложения, описанные ранее, и соответствующее использование базы данных, как показано на рис. 2.
+It’s important to evaluate the different types of multitenant data models in terms of the application design trade-offs we’ve already identified. These factors help characterize the three most common multitenant data models described earlier and their database usage as shown in Figure 2.
 
--	**Изоляция**. Уровень изоляции клиентов — это мера, определяющая степень изоляции клиентов, которой можно добиться при использовании модели данных.
--	**Стоимость облачных ресурсов**. При оптимизации стоимости облачных ресурсов учитывается объем общих ресурсов для клиентов. Стоимость ресурсов можно определить как стоимость вычислительных ресурсов и ресурсов хранения.
--	**Стоимость разработки и выполнения операций**. Простота разработки и развертывания приложений, а также управления ими позволяет уменьшить общую стоимость работы приложения SaaS.
+-   **Isolation**. The degree of isolation between tenants can be a measure of how much tenant isolation a data model achieves.
+-   **Cloud resource cost**. The amount of resource sharing between tenants can optimize cloud resource cost. A resource can be defined as the compute and storage cost.
+-   **DevOps cost**. The ease of application development, deployment, and manageability reduces overall SaaS operation cost.  
 
-На рис. 2 на оси Y показан уровень изоляции клиентов. На оси X показан уровень совместного использования ресурсов. Серая диагональная стрелка посередине указывает направление стоимости разработки и операций в сторону увеличения или уменьшения.
+In Figure 2, the Y axis shows the level of tenant isolation. The X axis shows the level of resource sharing. The gray, diagonal arrow in the middle indicates the direction of DevOps costs, tending to increase or decrease.
 
-![Популярные шаблоны разработки мультитенантного приложения](./media/sql-database-design-patterns-multi-tenancy-saas-applications/sql-database-popular-application-patterns.png) Рис. 2. Популярные модели данных мультитенантного приложения
+![Popular multitenant application design patterns](./media/sql-database-design-patterns-multi-tenancy-saas-applications/sql-database-popular-application-patterns.png) Figure 2: Popular multitenant data models
 
-На рисунке 2 в нижнем правом квадранте представлен шаблон приложения, в котором используется подход с применением потенциально большой отдельной общей базы данных и общей таблицы (или отдельной схемы). Этот вариант подходит для совместного использования ресурсов, так как все клиенты используют одни и те же ресурсы базы данных (ЦП, память, операции ввода-вывода) в одной базе данных. Но изоляция клиентов ограничена. Возможно, потребуется принять дополнительные меры, чтобы защитить клиенты друг от друга на уровне приложения. Из-за этих дополнительных действий может значительно увеличиться стоимость разработки и выполнения операций при разработке приложения и управлении им. Масштабируемость ограничивается масштабом оборудования, используемого для размещения базы данных.
+The lower-right quadrant in Figure 2 shows an application pattern that uses a potentially large, shared single database, and the shared table (or separate schema) approach. It's good for resource sharing because all tenants use the same database resources (CPU, memory, input/output) in a single database. But tenant isolation is limited. You might need to take additional steps to protect tenants from each other at the application layer. These additional steps can significantly increase the DevOps cost of developing and managing the application. Scalability is limited by the scale of the hardware that hosts the database.
 
-На рис. 2 в нижнем левом квадранте показаны несколько клиентов, сегментированных между несколькими базами данных (как правило, между разными единицами масштабирования оборудования). В каждой базе данных содержится подмножество клиентов. Такой подход решает проблему масштабируемости других шаблонов. Если требуется дополнительная емкость для добавления клиентов, их можно легко разместить в новых базах данных, выделенных новым единицам масштабирования оборудования. Но из-за этого уменьшится объем общих ресурсов. Совместно использовать ресурсы могут только клиенты, размещенные в одной и той же единице масштабирования. При этом подходе уровень изоляции клиентов меняется несущественно, так как множество клиентов по-прежнему находятся в одном размещении и для них не реализована автоматическая защита от взаимного вмешательства. Сложность приложения остается высокой.
+The lower-left quadrant in Figure 2 illustrates multiple tenants sharded across multiple databases (typically, different hardware scale units). Each database hosts a subset of tenants, which addresses the scalability concern of other patterns. If more capacity is required for more tenants, you can easily place the tenants on new databases allocated to new hardware scale units. However, the amount of resource sharing is reduced. Only tenants placed on the same scale units share resources. This approach provides little improvement to tenant isolation because many tenants are still collocated without being automatically protected from each other’s actions. Application complexity remains high.
 
-Верхний левый квадрант на рис. 2 представляет собой третий подход. При этом данные каждого клиента помещаются в отдельную базу данных. Для такого подхода характерны высокий уровень изоляции клиентов и ограничение объема общих ресурсов, так как в каждой базе данных есть собственные выделенные ресурсы. Этот подход эффективен при наличии у всех клиентов прогнозируемых рабочих нагрузок. Но поставщик не может оптимизировать совместное использование ресурсов, если рабочие нагрузки клиентов становятся менее предсказуемыми. А для приложений SaaS характерна непредсказуемость. Поставщику необходимо выделить избыточное количество ресурсов в соответствии с требованиями или сократить количество ресурсов. В обоих случаях это приведет к увеличению затрат или неудовлетворенности клиентов. Предпочтительно увеличить объем общих ресурсов для клиентов, чтобы еще больше снизить стоимость решения. Увеличение количества баз данных также приводит к увеличению стоимости разработки и выполнения операций при разработке и обслуживании приложений. Несмотря на эти проблемы, этот метод обеспечивает максимальный уровень изоляции с минимальными усилиями для клиентов.
+The upper-left quadrant in Figure 2 is the third approach. It places each tenant’s data in its own database. This approach has good tenant-isolation properties but limits resource sharing when each database has its own dedicated resources. This approach is good if all tenants have predictable workloads. If tenant workloads become less predictable, the provider cannot optimize resource sharing. Unpredictability is common for SaaS applications. The provider must either over-provision to meet demands or lower resources. Either action results in either higher costs or lower tenant satisfaction. A higher degree of resource sharing across tenants becomes desirable to make the solution more cost-effective. Increasing the number of databases also increases DevOps cost to deploy and maintain the application. Despite these concerns, this method provides the best and easiest isolation for tenants.
 
-При выборе шаблона разработки также учитываются следующие факторы:
+These factors also influence the design pattern a customer chooses:
 
--	**Владение данными клиента**. Для приложения, в котором клиенты являются владельцами своих данных, лучше всего подходит шаблон с использованием отдельной базы данных на клиента.
--	**Масштабирование.** Для приложения, предназначенного для множества клиентов, лучше всего применить подход с совместным использованием базы данных, например сегментирование. В этом случае по-прежнему остаются жесткие требования к изоляции.
--	**Стоимость и бизнес-модель**. Если доход на клиента приложения мал (менее одного доллара), то требования к изоляции отходят на второй план. В этом случае разумно использовать общую базу данных. Если доход для клиента составляет несколько долларов или более, целесообразно использовать базу данных для каждого клиента. Благодаря этому можно снизить затраты на разработку.
+-   **Ownership of tenant data**. An application in which tenants retain ownership of their own data favors the pattern of a single database per tenant.
+-   **Scale**. An application that targets hundreds of thousands or millions of tenants favors database sharing approaches such as sharding. Isolation requirements still can pose challenges.
+-   **Value and business model**. If an application’s per-tenant revenue if small (less than a dollar), isolation requirements become less critical and a shared database makes sense. If per-tenant revenue is a few dollars or more, a database-per-tenant model is more feasible. It might help reduce development costs.
 
-Учитывая компромиссы, как показано на рис. 2, идеальная мультитенантная модель должна предусматривать высокий уровень изоляции клиентов и оптимальный уровень совместного использования ресурсов между клиентами. Эта модель подходит для категории, описанной в правом верхнем квадранте на рисунке 2.
+Given the design trade-offs shown in Figure 2, an ideal multitenant model needs to incorporate good tenant isolation properties with optimal resource sharing among tenants. This model fits in the category described in the upper-right quadrant of Figure 2.
 
-## Поддержка мультитенантности в Базе данных SQL Azure
+## <a name="multitenancy-support-in-azure-sql-database"></a>Multitenancy support in Azure SQL Database
 
-База данных SQL Azure поддерживает все шаблоны мультитенантных приложений, указанных на рис. 2. Благодаря пулам эластичных БД она также поддерживает шаблон приложения, который объединяет в себе преимущества изоляции и совместного использования ресурсов, характерных для подхода с использованием одной базы данных для каждого клиента (см. верхний правый квадрант на рисунке 3). С помощью инструментов эластичных баз данных и возможностей в Базе данных SQL можно уменьшить стоимость разработки и эксплуатации приложения с несколькими базами данных (как показано в затененной области на рисунке 3). Эти инструменты позволяют создавать приложения, в которых используется любой из шаблонов с использованием нескольких баз данных, и управлять ими.
+Azure SQL Database supports all multitenant application patterns outlined in Figure 2. With elastic pools, it also supports an application pattern that combines good resource sharing and the isolation benefits of the database-per-tenant approach (see the upper-right quadrant in Figure 3). Elastic database tools and capabilities in SQL Database help reduce the cost to develop and operate an application that has many databases (shown in the shaded area in Figure 3). These tools can help you build and manage applications that use any of the multi-database patterns.
 
-![Шаблоны в Базе данных SQL Azure](./media/sql-database-design-patterns-multi-tenancy-saas-applications/sql-database-patterns-sqldb.png) Рис. 3. Шаблоны мультитенантных приложений в Базе данных SQL Azure
+![Patterns in Azure SQL Database](./media/sql-database-design-patterns-multi-tenancy-saas-applications/sql-database-patterns-sqldb.png) Figure 3: Multitenant application patterns in Azure SQL Database
 
-## Модель, предусматривающая использование одной базы данных для каждого клиента, с пулами и инструментами эластичных БД
+## <a name="database-per-tenant-model-with-elastic-pools-and-tools"></a>Database-per-tenant model with elastic pools and tools
 
-Пулы эластичных БД в Базе данных SQL объединяют преимущества изоляции клиентов и совместного использования ресурсов в базах данных. Таким образом, улучшается поддержка подхода с использованием базы данных для каждого клиента. База данных SQL является решением уровня данных для поставщиков SaaS, которые создают мультитенантные приложения. Задача предоставления клиентам общего доступа к ресурсам перемещается с уровня приложения на уровень службы базы данных. Управление или выполнение запросов в масштабе в нескольких базах данных упрощается благодаря заданиям обработки эластичных БД, эластичным запросам, эластичным транзакциям и клиентской библиотеке эластичной базы данных.
+Elastic pools in SQL Database combine tenant isolation with resource sharing among tenant databases to better support the database-per-tenant approach. SQL Database is a data tier solution for SaaS providers who build multitenant applications. The burden of resource sharing among tenants shifts from the application layer to the database service layer. The complexity of managing and querying at scale across databases is simplified with elastic jobs, elastic query, elastic transactions, and the elastic database client library.
 
-| Требования к приложению | Возможности Базы данных SQL |
+| Application requirements | SQL database capabilities |
 | ------------------------ | ------------------------- |
-| Изоляция клиентов и совместное использование ресурсов | [Пулы эластичных БД](sql-database-elastic-pool.md) позволяют выделить пул ресурсов Базы данных SQL и распределить эти ресурсы между разными базами данных. Кроме того, отдельные базы данных могут извлекать из пула ресурсы, необходимые при пиковом потреблении емкости из-за изменений рабочей нагрузки клиентов. При необходимости масштаб пула эластичных БД можно увеличить или уменьшить. Пулы эластичных БД также обеспечивают простоту управления, мониторинга и устранения неполадок на уровне пула. |
-| Простота разработки и выполнения операций в базах данных | [Пулы эластичных БД](sql-database-elastic-pool.md) (см. выше).|
-||[Эластичные запросы](sql-database-elastic-query-horizontal-partitioning.md) позволяют выполнять запросы к базам данных для формирования отчетов или выполнения анализа между клиентами.|
-||[Задания обработки эластичных БД](sql-database-elastic-jobs-overview.md) упаковывают и надежно развертывают операции обслуживания или изменения схемы в нескольких базах данных.|
-||[Эластичные транзакции](sql-database-elastic-transactions-overview.md) обрабатывают изменения в нескольких базах данных в атомарном и изолированном режиме. Эластичные транзакции необходимы, если приложение требует абсолютно гарантированного выполнения операций с несколькими базами данных. |
-||[Клиентская библиотека эластичной базы данных](sql-database-elastic-database-client-library.md) обеспечивает управление распределением данных и сопоставляет клиенты с базами данных. |
+| Tenant isolation and resource sharing | [Elastic pools](sql-database-elastic-pool.md): Allocate a pool of SQL Database resources and share the resources across various databases. Also, individual databases can draw as much resources from the pool as needed to accommodate capacity demand spikes due to changes in tenant workloads. The elastic pool itself can be scaled up or down as needed. Elastic pools also provide ease of manageability and monitoring and troubleshooting at the pool level. |
+| Ease of DevOps across databases | [Elastic pools](sql-database-elastic-pool.md): As noted earlier.|
+||[Elastic query](sql-database-elastic-query-horizontal-partitioning.md): Query across databases for reporting or cross-tenant analysis.|
+||[Elastic jobs](sql-database-elastic-jobs-overview.md): Package and reliably deploy database maintenance operations or database schema changes to multiple databases.|
+||[Elastic transactions](sql-database-elastic-transactions-overview.md): Process changes to several databases in an atomic and isolated way. Elastic transactions are needed when applications need “all or nothing” guarantees over several database operations. |
+||[Elastic database client library](sql-database-elastic-database-client-library.md): Manage data distributions and map tenants to databases. |
 
-## Общие модели
+## <a name="shared-models"></a>Shared models
 
-Как описано выше, для большинства поставщиков SaaS подходы с использованием общей модели могут создавать проблемы с изоляцией клиентов, а также вызывать трудности при разработке и обслуживании приложений. Но для мультитенантных приложений, предоставляющих службы пользователям напрямую, требования к изоляции клиентов могут быть не такими приоритетными, как оптимизация затрат. В них можно плотно разместить клиенты в одной или нескольких базах данных, чтобы снизить затраты. Модели с общими базами данных, в которых используется одна или несколько сегментированных баз данных, повышают эффективность совместного использования ресурсов и уменьшают совокупную стоимость. База данных SQL Azure предоставляет некоторые возможности, которые позволяют клиентам повысить безопасность и обеспечить управление путем изоляции в масштабе на уровне данных.
+As described earlier, for most SaaS providers, a shared model approach might pose problems with tenant isolation issues and complexities with application development and maintenance. However, for multitenant applications that provide a service directly to consumers, tenant isolation requirements may not be as high a priority as minimizing cost. They might be able to pack tenants in one or more databases at a high density to reduce costs. Shared-database models using a single database or multiple sharded databases might result in additional efficiencies in resource sharing and overall cost. Azure SQL Database provides some features that help customers build isolation for improved security and management at scale in the data tier.
 
-| Требования к приложению | Возможности Базы данных SQL |
+| Application requirements | SQL database capabilities |
 | ------------------------ | ------------------------- |
-| Возможности обеспечения защиты путем изоляции | [Безопасность на уровне строк](https://msdn.microsoft.com/library/dn765131.aspx) |
-|| [Схема базы данных](https://msdn.microsoft.com/library/dd207005.aspx) |
-| Простота разработки и выполнения операций в базах данных | [Запросы к эластичным БД](sql-database-elastic-query-horizontal-partitioning.md) |
-|| [Задания обработки эластичных БД](sql-database-elastic-jobs-overview.md) |
-|| [Эластичные транзакции](sql-database-elastic-transactions-overview.md) |
-|| [Клиентская библиотека эластичной базы данных](sql-database-elastic-database-client-library.md) |
-|| [Разделение и объединение эластичной базы данных](sql-database-elastic-scale-overview-split-and-merge.md) |
+| Security isolation features | [Row-level security](https://msdn.microsoft.com/library/dn765131.aspx) |
+|| [Database schema](https://msdn.microsoft.com/library/dd207005.aspx) |
+| Ease of DevOps across databases | [Elastic query](sql-database-elastic-query-horizontal-partitioning.md) |
+|| [Elastic jobs](sql-database-elastic-jobs-overview.md) |
+|| [Elastic transactions](sql-database-elastic-transactions-overview.md) |
+|| [Elastic database client library](sql-database-elastic-database-client-library.md) |
+|| [Elastic database split and merge](sql-database-elastic-scale-overview-split-and-merge.md) |
 
-## Сводка
+## <a name="summary"></a>Summary
 
-Требования к изоляции клиентов важны в большинстве мультитенантных приложений SaaS. Самый лучший вариант с точки зрения изоляции — это подход с использованием одной базы данных для каждого клиента. Остальные два подхода требуют множества дополнительных действий на уровне приложения. Изоляцию при этом должны обеспечивать опытные разработчики, что заметно повышает затраты и риск. Если требования к изоляции не учитываются на ранней стадии разработки службы, в первых двух моделях со временем это может создать больше затрат. Основные недостатки модели с использованием одной базы данных для каждого клиента связаны с увеличением стоимости облачных ресурсов, вызванным ограниченным совместным использованием, а также обслуживанием множества баз данных и управлением ими. Зачастую разработчикам приложений SaaS очень сложно идти на эти компромиссы.
+Tenant isolation requirements are important for most SaaS multitenant applications. The best option to provide isolation leans heavily toward the database-per-tenant approach. The other two approaches require investments in complex application layers that require skilled development staff to provide isolation, which significantly increases cost and risk. If isolation requirements are not accounted for early in the service development, retrofitting them can be even more costly in the first two models. The main drawbacks associated with the database-per-tenant model are related to increased cloud resource costs due to reduced sharing, and maintaining and managing many databases. SaaS application developers often struggle when they make these trade-offs.
 
-Хотя эти компромиссы и могут быть главными препятствиями для большинства поставщиков облачных служб баз данных, пул эластичных БД и возможности эластичных баз данных Базы данных Azure SQL позволяют устранить их. Разработчики SaaS могут сочетать характеристики изоляции, которые предлагает модель с использованием одной базы данных для каждого клиента, оптимизировать совместное использование ресурсов и применять улучшенное управление множеством баз данных, используя пулы эластичных БД и связанные инструменты.
+Although trade-offs might be major barriers with most cloud database service providers, Azure SQL Database eliminates the barriers with its elastic pool and elastic database capabilities. SaaS developers can combine the isolation characteristics of a database-per-tenant model and optimize resource sharing and the manageability improvements of many databases by using elastic pools and associated tools.
 
-Для поставщиков мультитенантных приложений, которые не предъявляют требования к изоляции клиентов и могут плотно разместить клиенты в базе данных, могут быть полезны общие модели данных. Они позволят повысить эффективность совместного использования ресурсов и уменьшить общую стоимость. Используя средства эластичных баз данных, библиотеки сегментирования и функции обеспечения безопасности Базы данных SQL Azure, поставщики SaaS могут создавать такие приложения и управлять ими.
+Multitenant application providers who have no tenant isolation requirements and who can pack tenants in a database at a high density might find that shared data models result in additional efficiency in resource sharing and reduce overall cost. Azure SQL Database elastic database tools, sharding libraries, and security features help SaaS providers build and manage multitenant applications.
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Next steps
 
-[Приступите к работе с инструментами эластичных баз данных](sql-database-elastic-scale-get-started.md) с помощью примера приложения, демонстрирующего клиентскую библиотеку.
+[Get started with elastic database tools](sql-database-elastic-scale-get-started.md) with a sample app that demonstrates the client library.
 
-Создайте [настраиваемую панель мониторинга пула эластичных БД для SaaS](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-sql-db-elastic-pools-custom-dashboard) с помощью примера приложения, использующего пулы эластичных БД для экономичного и масштабируемого решения базы данных.
+Create an [elastic pool custom dashboard for SaaS](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-sql-db-elastic-pools-custom-dashboard) with a sample app that uses elastic pools for a cost-effective, scalable database solution.
 
-Воспользуйтесь инструментами Базы данных SQL Azure, чтобы [перенести имеющиеся базы данных для масштабирования](sql-database-elastic-convert-to-use-elastic-tools.md).
+Use the Azure SQL Database tools to [migrate existing databases to scale out](sql-database-elastic-convert-to-use-elastic-tools.md).
 
-Просмотрите руководство по [созданию пула эластичных БД](sql-database-elastic-pool-create-portal.md).
+View our tutorial on how to [create an elastic pool](sql-database-elastic-pool-create-portal.md).  
 
-Узнайте, как осуществлять [мониторинг пула эластичных БД и управлять им](sql-database-elastic-pool-manage-portal.md).
+Learn how to [monitor and manage an elastic pool](sql-database-elastic-pool-manage-portal.md).
 
-## Дополнительные ресурсы
+## <a name="additional-resources"></a>Additional resources
 
-- [Что такое пул эластичных БД Azure?](sql-database-elastic-pool.md)
-- [Общие сведения о возможностях эластичных баз данных](sql-database-elastic-scale-introduction.md)
-- [Мультитенантные приложения со средствами эластичных баз данных и безопасностью на уровне строк](sql-database-elastic-tools-multi-tenant-row-level-security.md)
-- [Authentication in multitenant apps by using Azure Active Directory and OpenID Connect (Проверка подлинности в мультитенантных приложениях с помощью Azure Active Directory и OpenID Connect)](../guidance/guidance-multitenant-identity-authenticate.md)
-- [Сведения о приложении Tailspin Surveys](../guidance/guidance-multitenant-identity-tailspin.md)
-- [Краткие руководства по решениям](sql-database-solution-quick-starts.md)
+- [What is an Azure elastic pool?](sql-database-elastic-pool.md)
+- [Scaling out with Azure SQL Database](sql-database-elastic-scale-introduction.md)
+- [Multitenant applications with elastic database tools and row-level security](sql-database-elastic-tools-multi-tenant-row-level-security.md)
+- [Authentication in multitenant apps by using Azure Active Directory and OpenID Connect](../guidance/guidance-multitenant-identity-authenticate.md)
+- [Tailspin Surveys application](../guidance/guidance-multitenant-identity-tailspin.md)
+- [Solution quick starts](sql-database-solution-quick-starts.md)
 
-## Вопросы и запросы на функции
+## <a name="questions-and-feature-requests"></a>Questions and feature requests
 
-Вопросы можно задать на [форуме по Базе данных SQL](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted). Запрос на функцию можно добавить на [форуме обратной связи Базы данных SQL](https://feedback.azure.com/forums/217321-sql-database/).
+For questions, find us in the [SQL Database forum](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted). Add a feature request in the [SQL Database feedback forum](https://feedback.azure.com/forums/217321-sql-database/).
 
-<!---HONumber=AcomDC_0831_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

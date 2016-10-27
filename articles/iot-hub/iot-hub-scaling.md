@@ -1,6 +1,6 @@
 <properties
- pageTitle="Масштабирование центра IoT в Azure | Microsoft Azure"
- description="Описание процесса масштабирования центра IoT Azure."
+ pageTitle="Azure IoT Hub scaling | Microsoft Azure"
+ description="Describes how to scale Azure IoT Hub."
  services="iot-hub"
  documentationCenter=""
  authors="fsautomata"
@@ -16,61 +16,56 @@
  ms.date="09/19/2016"
  ms.author="elioda"/>
 
-# Масштабирование центра IoT
 
-Центр IoT Azure может поддерживать до миллиона одновременно подключенных устройств. Подробнее см. в разделе [Цены на центр IoT][lnk-pricing]. Каждая единица центра IoT предусматривает определенное количество сообщений в день.
+# <a name="scaling-iot-hub"></a>Scaling IoT Hub
 
-Для надлежащего масштабирования решения необходимо учитывать конкретную модель использования центра IoT. В частности, необходимо учитывать требования к пиковой пропускной способности для таких категорий операций:
+Azure IoT Hub can support up to a million simultaneously connected devices. For more information, see [IoT Hub pricing][lnk-pricing]. Each IoT Hub unit allows a certain number of daily messages.
 
-* Отправка сообщений с устройства в облако
-* Получение сообщений из облака на устройство
-* операции с реестром удостоверений.
+To properly scale your solution, consider your particular use of IoT Hub. In particular, consider the required peak throughput for the following categories of operations:
 
-Помимо этих сведений о пропускной способности, изучите документ [Квоты и ограничения центра IoT][] и спроектируйте свое решение соответствующим образом.
+* Device-to-cloud messages
+* Cloud-to-device messages
+* Identity registry operations
 
-## Пропускная способность для передачи сообщений с устройств в облако и из облака на устройства
+In addition to this throughput information, see [IoT Hub quotas and throttles][] and design your solution accordingly.
 
-Лучший способ определить размер решения центра IoT — оценить трафик в пересчете на одну единицу.
+## <a name="device-to-cloud-and-cloud-to-device-message-throughput"></a>Device-to-cloud and cloud-to-device message throughput
 
-Для сообщений, передаваемых с устройства в облако, следует соблюдать такие правила.
+The best way to size an IoT Hub solution is to evaluate the traffic on a per-unit basis.
 
-| Уровень | Непрерывная пропускная способность | Непрерывная скорость отправки |
+Device-to-cloud messages follow these sustained throughput guidelines.
+
+| Tier | Sustained throughput | Sustained send rate |
 | ---- | -------------------- | ------------------- |
-| S1 | До 1111 КБ/мин на единицу<br/>(1,5 ГБ/день на единицу) | В среднем 278 сообщений/мин на единицу<br/>(400 000 сообщений/день на единицу) |
-| S2 | До 16 МБ/мин на единицу<br/>(22,8 ГБ/день на единицу) | В среднем 4167 сообщений/мин на единицу<br/>(6 миллионов сообщений/день на единицу) |
-| S3 | До 814 МБ/мин на единицу<br/>(1144,4 ГБ/день на единицу). | В среднем 208 333 сообщения/мин на единицу<br/>(300 млн сообщений/день на единицу). |
+| S1 | Up to 1111 KB/minute per unit<br/>(1.5 GB/day/unit) | Average of 278 messages/minute per unit<br/>(400,000 messages/day per unit) |
+| S2 | Up to 16 MB/minute per unit<br/>(22.8 GB/day/unit) | Average of 4167 messages/minute per unit<br/>(6 million messages/day per unit) |
+| S3 | Up to 814 MB/minute per unit<br/>(1144.4 GB/day/unit) | Average of 208,333 messages/minute per unit<br/>(300 million messages/day per unit) |
 
-## Пропускная способность для операций с реестром удостоверений
+## <a name="identity-registry-operation-throughput"></a>Identity registry operation throughput
 
-Операции с реестром удостоверений центра IoT не должны выполняться в среде выполнения, так как они в основном связаны с подготовкой устройств.
+IoT Hub identity registry operations are not supposed to be runtime operations, as they are mostly related to device provisioning.
 
-Конкретные показатели пиковой пропускной способности см. в документе [Квоты и ограничения центра IoT][].
+For specific burst performance numbers, see [IoT Hub quotas and throttles][].
 
-## Сегментирование
+## <a name="sharding"></a>Sharding
 
-Хотя один центр IoT может обслуживать миллионы устройств, иногда для существующего решения требуются особые характеристики производительности. Такие, которые не может гарантировать один центр IoT. В этом случае рекомендуется распределить устройства между несколькими центрами IoT. Использование нескольких центров IoT сглаживает пики трафика и обеспечивает необходимую пропускную способность или скорость операций.
+While a single IoT hub can scale to millions of devices, sometimes your solution requires specific performance characteristics that a single IoT hub cannot guarantee. In that case, it is recommended that you partition your devices into multiple IoT hubs. Multiple IoT hubs smooth traffic bursts and obtain the required throughput or operation rates that are required.
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Next steps
 
-Для дальнейшего изучения возможностей центра IoT см. следующие статьи:
+To further explore the capabilities of IoT Hub, see:
 
-- [Руководство разработчика по центру Azure IoT (IoT — Интернет вещей)][lnk-devguide]
-- [Обзор управления устройствами центра IoT с помощью примера пользовательского интерфейса][lnk-dmui]
-- [Пакет SDK для шлюза IoT (бета-версия): отправка сообщений с устройства в облако через виртуальное устройство с помощью Linux][lnk-gateway]
-- [Управление центрами IoT через портал Azure][lnk-portal]
+- [Developer guide][lnk-devguide]
+- [Simulating a device with the Gateway SDK][lnk-gateway]
 
 [lnk-pricing]: https://azure.microsoft.com/pricing/details/iot-hub
-[Квоты и ограничения центра IoT]: iot-hub-devguide.md#throttling
+[IoT Hub quotas and throttles]: iot-hub-devguide-quotas-throttling.md
 
-[lnk-design]: iot-hub-guidance.md
-[lnk-mqtt]: iot-hub-mqtt-support.md
-[lnk-devices]: iot-hub-tested-configurations.md
-[lnk-protocols]: iot-hub-protocol-gateway.md
-[lnk-compare]: iot-hub-compare-event-hubs.md
-[lnk-scaling]: iot-hub-scaling.md
 [lnk-devguide]: iot-hub-devguide.md
-[lnk-dmui]: iot-hub-device-management-ui-sample.md
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
-[lnk-portal]: iot-hub-manage-through-portal.md
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

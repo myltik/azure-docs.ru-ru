@@ -1,5 +1,5 @@
 
-Код всех функций в заданном приложении-функции хранится в корневой папке, содержащей файл конфигурации главного узла и одну или несколько вложенных папок, каждая из которых содержит код отдельной функции, как показано в следующем примере.
+The code for all of the functions in a given function app lives in a root folder that contains a host configuration file and one or more subfolders, each of which contain the code for a separate function, as in the following example
 
 ```
 wwwroot
@@ -15,8 +15,10 @@ wwwroot
  | | - run.csx
 ```
 
-Файл *host.json* содержит конфигурацию среды выполнения и находится в корневой папке приложения-функция. Дополнительные сведения о доступных параметрах см. в разделе [host.json](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json) на вики-сайте репозитория WebJobs.Script.
+The *host.json* file contains some runtime-specific configuration and sits in the root folder of the function app. For information on settings that are available, see [host.json](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json) in the WebJobs.Script repository wiki.
 
-У каждой функции есть папка, содержащая один или несколько файлов кода, файл конфигурации function.json и другие зависимости.
+Each function has a folder that contains one or more code files, the function.json configuration and other dependencies.
 
-<!---HONumber=AcomDC_0824_2016-->
+<!--HONumber=Oct16_HO2-->
+
+

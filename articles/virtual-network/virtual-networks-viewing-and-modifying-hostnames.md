@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Просмотр и изменение имен узлов | Microsoft Azure"
-   description="Просмотр и изменение имен узлов для виртуальных машин Azure, веб- и рабочих ролей для разрешения имен"
+   pageTitle="Viewing and Modifying Hostnames | Microsoft Azure"
+   description="How to view and change hostnames for Azure virtual machines, web and worker roles for name resolution"
    services="virtual-network"
    documentationCenter="na"
    authors="jimdial"
@@ -15,60 +15,65 @@
    ms.date="04/27/2016"
    ms.author="jdial" />
 
-# Просмотр и изменение имен узлов
 
-Чтобы позволить ссылаться на экземпляры ролей по имени узла, необходимо задать значение имени узла в файле конфигурации службы для каждой роли. Для этого добавьте имя нужного узла в атрибут **vmName** элемента **Role**. Значение атрибута **vmName** используется в качестве основы для имени узла каждого экземпляра роли. Например, если **vmName** — *webrole* и существуют три экземпляра этой роли, имена узлов экземпляров будут следующими: *webrole0*, *webrole1* и *webrole2*. Вам не нужно указывать имя узла для виртуальных машин в файле конфигурации, так как имя узла виртуальной машины заполняется на основе ее имени. Дополнительные сведения о настройке службы Microsoft Azure см. в разделе [Схема конфигурации службы Azure (файл CSCFG)](https://msdn.microsoft.com/library/azure/ee758710.aspx).
+# <a name="viewing-and-modifying-hostnames"></a>Viewing and modifying hostnames
 
-## Просмотр имен узлов
+To allow your role instances to be referenced by host name, you must set the value for the host name in the service configuration file for each role. You do that by adding the desired host name to the **vmName** attribute of the **Role** element. The value of the **vmName** attribute is used as a base for the host name of each role instance. For example, if **vmName** is *webrole* and there are three instances of that role, the host names of the instances will be *webrole0*, *webrole1*, and *webrole2*. You do not need to specify a host name for virtual machines in the configuration file, because the host name for a virtual machine is populated based on the virtual machine name. For more information about configuring a Microsoft Azure service, see [Azure Service Configuration Schema (.cscfg File)](https://msdn.microsoft.com/library/azure/ee758710.aspx)
 
-Имена узлов виртуальных машин и экземпляров ролей в облачной службе можно просмотреть с помощью приведенных ниже средств.
+## <a name="viewing-hostnames"></a>Viewing hostnames
 
-### Портал Azure
+You can view the host names of virtual machines and role instances in a cloud service by using any of the tools below.
 
-Просмотреть имена узлов для виртуальных машин можно в колонке обзора виртуальной машины на [портале Azure](http://portal.azure.com). Обратите внимание, что в колонке отображаются значения полей **Имя** и **Имя узла**. Хотя изначально они одинаковые, изменение имени узла не изменит имя виртуальной машины или экземпляра роли.
+### <a name="azure-portal"></a>Azure Portal
 
-Экземпляры роли также можно просмотреть на портале Azure, но при перечислении экземпляров в облачной службе имя узла не отображается. Вы увидите имя каждого экземпляра, но это имя не является именем узла.
+You can use the [Azure portal](http://portal.azure.com) to view the host names for virtual machines on the overview blade for a virtual machine. Keep in mind that the blade shows a value for **Name** and **Host Name**. Although they are initially the same, changing the host name will not change the name of the virtual machine or role instance.
 
-### Файл конфигурации службы
+Role instances can also be viewed in the Azure portal, but when you list the instances in a cloud service, the host name is not displayed. You will see a name for each instance, but that name does not represent the host name.
 
-Файл конфигурации для развернутой службы можно скачать в колонке **настройки** службы на портале Azure. Затем найдите атрибут **vmName** для элемента **Role name**, чтобы увидеть имя узла. Обратите внимание, что имя узла используется в качестве основы для имени узла каждого экземпляра роли. Например, если **vmName** — *webrole* и существуют три экземпляра этой роли, имена узлов экземпляров будут следующими: *webrole0*, *webrole1* и *webrole2*.
+### <a name="service-configuration-file"></a>Service configuration file
 
-### удаленный рабочий стол;
+You can download the service configuration file for a deployed service from the **Configure** blade of the service in the Azure portal. You can then look for the **vmName** attribute for the **Role name** element to see the host name. Keep in mind that this host name is used as a base for the host name of each role instance. For example, if **vmName** is *webrole* and there are three instances of that role, the host names of the instances will be *webrole0*, *webrole1*, and *webrole2*.
 
-После включения подключений к удаленному рабочему столу (Windows), для удаленного взаимодействия с Windows PowerShell (Windows) или SSH (Linux и Windows) в виртуальных машинах или экземплярах роли можно просматривать имя узла из активного подключения к удаленному рабочему столу разными способами.
+### <a name="remote-desktop"></a>Remote Desktop
 
-- Введите hostname в командной строке или терминале SSH.
+After you enable Remote Desktop (Windows), Windows PowerShell remoting (Windows), or SSH (Linux and Windows) connections to your virtual machines or role instances, you can view the host name from an active Remote Desktop connection in various ways:
 
-- Введите ipconfig/all в командной строке (только Windows).
+- Type hostname at the command prompt or SSH terminal.
 
-- Просмотрите имя компьютера в параметрах системы (только Windows).
+- Type ipconfig /all at the command prompt (Windows only).
 
-### Интерфейс API REST управления службой Azure
+- View the computer name in the system settings (Windows only).
 
-В клиенте REST выполните следующие действия:
+### <a name="azure-service-management-rest-api"></a>Azure Service Management REST API
 
-1. Убедитесь, что у вас есть сертификат клиента для подключения к порталу Azure. Чтобы получить сертификат клиента, выполните действия, описанные в разделе [Пошаговое руководство. Скачивание и импорт параметров публикации и информации о подписке](https://msdn.microsoft.com/library/dn385850.aspx).
+From a REST client, follow these instructions:
 
-1. Задайте запись заголовка с именем x-ms-version и значением 2013-11-01.
+1. Ensure that you have a client certificate to connect to the Azure portal. To obtain a client certificate, follow the steps presented in [How to: Download and Import Publish Settings and Subscription Information](https://msdn.microsoft.com/library/dn385850.aspx). 
 
-1. Отправьте запрос в следующем формате: https://management.core.windows.net/\<subscrition-id>/services/hostedservices/<service-name>?embed-detail=true.
+1. Set a header entry named x-ms-version with a value of 2013-11-01.
 
-1. Найдите элемент **HostName** для каждого элемента **RoleInstance**.
+1. Send a request in the following format: https://management.core.windows.net/\<subscrition-id\>/services/hostedservices/\<service-name\>?embed-detail=true
 
->[AZURE.WARNING] Вы можете также просмотреть суффикс внутреннего домена для облачной службы из ответа на вызов REST, просмотрев элемент **InternalDnsSuffix** или запустив команду ipconfig /all из командной строки в сеансе удаленного рабочего стола (Windows), а также выполнив команду cat /etc/resolv.conf из терминала SSH (Linux).
+1. Look for the **HostName** element for each **RoleInstance** element.
 
-## Изменение имени узла
+>[AZURE.WARNING] You can also view the internal domain suffix for your cloud service from the REST call response by checking the **InternalDnsSuffix** element, or by running ipconfig /all from a command prompt in a Remote Desktop session (Windows), or by running cat /etc/resolv.conf from an SSH terminal (Linux).
 
-Вы можете изменить имя узла для любой виртуальной машины или экземпляра роли, отправив измененный файл конфигурации службы или переименовав компьютер из сеанса удаленного рабочего стола.
+## <a name="modifying-a-hostname"></a>Modifying a hostname
 
-## Дальнейшие действия
+You can modify the host name for any virtual machine or role instance by uploading a modified service configuration file, or by renaming the computer from a Remote Desktop session.
 
-[Разрешение имен (DNS)](virtual-networks-name-resolution-for-vms-and-role-instances.md)
+## <a name="next-steps"></a>Next steps
 
-[Схема конфигурации службы Azure (CSCFG-файл)](https://msdn.microsoft.com/library/windowsazure/ee758710.aspx)
+[Name Resolution (DNS)](virtual-networks-name-resolution-for-vms-and-role-instances.md)
 
-[Схема настройки виртуальной сети Azure](http://go.microsoft.com/fwlink/?LinkId=248093)
+[Azure Service Configuration Schema (.cscfg)](https://msdn.microsoft.com/library/windowsazure/ee758710.aspx)
 
-[Укажите параметры DNS с помощью файлов конфигурации сети](virtual-networks-specifying-a-dns-settings-in-a-virtual-network-configuration-file.md)
+[Azure Virtual Network Configuration Schema](http://go.microsoft.com/fwlink/?LinkId=248093)
 
-<!---HONumber=AcomDC_0810_2016-->
+[Specify DNS settings using network configuration files](virtual-networks-specifying-a-dns-settings-in-a-virtual-network-configuration-file.md)
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

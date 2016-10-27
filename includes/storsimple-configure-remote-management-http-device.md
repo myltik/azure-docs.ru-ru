@@ -1,16 +1,18 @@
 
-####Настройка удаленного управления на устройстве
+####<a name="to-configure-remote-management-on-the-device"></a>To configure remote management on the device
 
-1. На виртуальном устройстве последовательно выберите **Устройства > Настройка**.
+1. On your virtual device, go to **Devices > Configure**.
 
-2. Прокрутите экран вниз, к разделу **Удаленное управление**.
+2. Scroll down to the **Remote Management** section.
 
-3. Задайте для пункта **Включить удаленное управление** значение **Да**.
+3. Set **Enable Remote Management** to **Yes**.
 
-4. Теперь вы можете выбрать подключение по HTTP. По умолчанию выбрано подключение по HTTPS. Подключение по HTTP допустимо только в доверенных сетях.
+4. You can now choose to connect using HTTP. The default is to connect over HTTPS. Connecting over HTTP is acceptable only on trusted networks.
 
-5. Щелкните **Скачать сертификат удаленного управления**, чтобы скачать сертификат удаленного управления. Необходимо будет указать расположение, в котором следует сохранить этот файл. Затем этот сертификат потребуется установить на клиентском компьютере или хост-компьютере, который будет использоваться для подключения к виртуальному устройству.
+5. Click **Download Remote Management Certificate** to download a remote management certificate. You will specify a location in which to save this file. This certificate then needs to be installed on the client or host machine that you will use to connect to the virtual device.
 
-6. В нижней части страницы нажмите кнопку **Сохранить**.
+6. Click **Save** at the bottom of the page.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,46 +1,51 @@
 <properties
-	pageTitle="Что такое концентраторы событий Azure? | Microsoft Azure"
-	description="Обзор и описание концентраторов событий Azure"
-	services="event-hubs"
-	documentationCenter=".net"
-	authors="sethmanheim"
-	manager="timlt"
-	editor=""/>
+    pageTitle="What is Azure Event Hubs? | Microsoft Azure"
+    description="Overview and description of Azure Event Hubs"
+    services="event-hubs"
+    documentationCenter=".net"
+    authors="sethmanheim"
+    manager="timlt"
+    editor=""/>
 
 <tags
-	ms.service="event-hubs"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="08/17/2016"
-	ms.author="sethm"/>
+    ms.service="event-hubs"
+    ms.workload="na"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="08/17/2016"
+    ms.author="sethm"/>
 
-# Что такое концентраторы событий Azure?
 
-Концентраторы событий Azure — это высокомасштабируемая служба приема данных, которая может обрабатывать миллионы событий в секунду, позволяя вам обрабатывать и анализировать огромное количество данных, создаваемых подключенными устройствами и приложениями. Концентраторы событий — это аналог парадного входа для событий конвейера. Когда данные поступают в концентратор событий, они могут быть преобразованы и сохранены с использованием любого поставщика средств оперативной аналитики либо адаптера пакетной обработки или хранения. Концентраторы событий отделяют создание потока событий от потребления этих событий, чтобы потребители событий могли обращаться к событиям по собственному расписанию. Дополнительную информацию и технические подробности см. в статье [Общие сведения о концентраторах событий Azure](event-hubs-overview.md).
+# <a name="what-is-azure-event-hubs?"></a>What is Azure Event Hubs?
 
-## Возможности концентраторов событий
+Azure Event Hubs is a highly scalable data ingress service that can ingest millions of events per second so that you can process and analyze the massive amounts of data produced by your connected devices and applications. Event Hubs acts as the "front door" for an event pipeline, and once data is collected into an Event Hub, it can be transformed and stored using any real-time analytics provider or batching/storage adapters. Event Hubs decouples the production of a stream of events from the consumption of those events, so that event consumers can access the events on their own schedule. For more information and technical details, see the [Event Hubs overview](event-hubs-overview.md).
 
-Концентраторы событий — это служба для крупномасштабной обработки событий и данных телеметрии при низкой задержке и с высокой надежностью. Эта служба особенно полезна для:
+## <a name="event-hubs-capabilities"></a>Event Hubs capabilities
 
-- инструментирования приложения;
-- взаимодействия с пользователем или обработки рабочих процессов
-- использования сценариев "Интернета вещей" (IoT).
+Event Hubs is an event processing service that provides event and telemetry processing at massive scale, with low latency and high reliability. This service is especially useful for:
 
-Другие ключевые возможности концентраторов событий включают отслеживание поведения в мобильных приложениях, регистрацию событий в играх для игровых консолей а также сбор данных о трафике от веб-ферм или данных телеметрии, полученных от промышленного оборудования или подключенных автомобилей.
+- Application instrumentation
+- User experience or workflow processing
+- Internet of Things (IoT) scenarios
 
-## Дальнейшие действия
+Some other key Event Hubs capabilities include behavior tracking in mobile apps, traffic information from web farms, in-game event capture in console games, or telemetry collected from industrial machines or connected vehicles.
 
-Подробные сведения о концентраторах событий см. в следующих статьях.
+## <a name="next-steps"></a>Next steps
 
-- [Обзор концентраторов событий](event-hubs-overview.md)
-- [Руководство по программированию концентраторов событий](event-hubs-programming-guide.md)
-- [Доступность и поддержка концентраторов событий: часто задаваемые вопросы](event-hubs-availability-and-support-faq.md)
-- Начало работы с помощью [учебника по концентраторам событий][].
-- Завершенный [пример приложения, использующего концентраторы событий][]
+For detailed information about Event Hubs, see the following topics.
 
-[учебника по концентраторам событий]: event-hubs-csharp-ephcs-getstarted.md
-[пример приложения, использующего концентраторы событий]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
+- [Event Hubs overview](event-hubs-overview.md)
+- [Event Hubs programming guide](event-hubs-programming-guide.md)
+- [Event Hubs availability and support FAQ](event-hubs-availability-and-support-faq.md)
+- Get started with an [Event Hubs tutorial][]
+- A complete [sample application that uses Event Hubs][]
 
-<!---HONumber=AcomDC_0907_2016-->
+[Event Hubs tutorial]: event-hubs-csharp-ephcs-getstarted.md
+[sample application that uses Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

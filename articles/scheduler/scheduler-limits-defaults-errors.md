@@ -1,10 +1,10 @@
 <properties
- pageTitle="Ограничения и значения по умолчанию планировщика"
- description="Ограничения и значения по умолчанию планировщика"
+ pageTitle="Scheduler Limits and Defaults"
+ description="Scheduler Limits and Defaults"
  services="scheduler"
  documentationCenter=".NET"
- authors="krisragh"
- manager="dwrede"
+ authors="derek1ee"
+ manager="kevinlam1"
  editor=""/>
 <tags
  ms.service="scheduler"
@@ -13,37 +13,42 @@
  ms.devlang="dotnet"
  ms.topic="article"
  ms.date="08/18/2016"
- ms.author="krisragh"/>
+ ms.author="deli"/>
 
-# Ограничения и значения по умолчанию планировщика
 
-## Квоты планировщика, ограничения, значения по умолчанию и регулирования
+# <a name="scheduler-limits-and-defaults"></a>Scheduler Limits and Defaults
+
+## <a name="scheduler-quotas,-limits,-defaults,-and-throttles"></a>Scheduler Quotas, Limits, Defaults, and Throttles
 
 [AZURE.INCLUDE [scheduler-limits-table](../../includes/scheduler-limits-table.md)]
 
-## Заголовок x-ms-идентификатор-запроса
+## <a name="the-x-ms-request-id-header"></a>The x-ms-request-id Header
 
-Каждый запрос к службе планировщика возвращает заголовок ответа с именем **x-ms-идентификатор-запроса**. Этот заголовок содержит непрозрачное значение, которое однозначно определяет запрос.
+Every request made against the Scheduler service returns a response header named**x-ms-request-id**. This header contains an opaque value that uniquely identifies the request.
 
-Если запрос постоянно завершается неудачей, но однозначно составлен правильно, используйте это значение, чтобы сообщить об ошибке в корпорацию Майкрософт. Укажите в отчете значение ofx-x-ms-request-id, примерное время создания запроса, идентификатор подписки, коллекцию заданий и (или) задание и тип операции, которую пытался выполнить запрос.
+If a request is consistently failing and you have verified that the request is properly formulated, you may use this value to report the error to Microsoft. In your report, include the value of x-ms-request-id, the approximate time that the request was made, the identifier of the subscription, job collection, and/or job, and the type of operation that the request attempted.
 
-## См. также
+## <a name="see-also"></a>See Also
 
 
- [Что такое планировщик?](scheduler-intro.md)
+ [What is Scheduler?](scheduler-intro.md)
 
- [Основные понятия, терминология и иерархия сущностей планировщика Azure](scheduler-concepts-terms.md)
+ [Azure Scheduler concepts, terminology, and entity hierarchy](scheduler-concepts-terms.md)
 
- [Приступая к работе с планировщиком Azure на портале Azure](scheduler-get-started-portal.md)
+ [Get started using Scheduler in the Azure portal](scheduler-get-started-portal.md)
 
- [Планы и выставление счетов в планировщике Azure](scheduler-plans-billing.md)
+ [Plans and billing in Azure Scheduler](scheduler-plans-billing.md)
 
- [Справочник по API REST планировщика Azure](https://msdn.microsoft.com/library/mt629143)
+ [Azure Scheduler REST API reference](https://msdn.microsoft.com/library/mt629143)
 
- [Справочник по командлетам PowerShell планировщика Azure](scheduler-powershell-reference.md)
+ [Azure Scheduler PowerShell cmdlets reference](scheduler-powershell-reference.md)
 
- [Высокая доступность и надежность планировщика Azure](scheduler-high-availability-reliability.md)
+ [Azure Scheduler high-availability and reliability](scheduler-high-availability-reliability.md)
 
- [Исходящая аутентификация планировщика Azure](scheduler-outbound-authentication.md)
+ [Azure Scheduler outbound authentication](scheduler-outbound-authentication.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

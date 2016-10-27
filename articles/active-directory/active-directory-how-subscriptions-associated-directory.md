@@ -1,137 +1,138 @@
 <properties
-	pageTitle="Связь между подписками Azure и службой Azure Active Directory | Microsoft Azure"
-	description="Вход в Microsoft Azure и другие связанные темы, такие как связь между подпиской Azure и службой Azure Active Directory."
-	services="active-directory"
-	documentationCenter=""
-	authors="curtand"
-	manager="femila"
-	editor=""/>
+    pageTitle="How Azure subscriptions are associated with Azure Active Directory | Microsoft Azure"
+    description="Signing in to Microsoft Azure and related issues, such as the relationship between an Azure subscription and Azure Active Directory."
+    services="active-directory"
+    documentationCenter=""
+    authors="curtand"
+    manager="femila"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="08/15/2016"
-	ms.author="curtand"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="08/15/2016"
+    ms.author="curtand"/>
 
-# Связь между подписками Azure и службой Azure Active Directory
 
-В этой статье приведены сведения о входе в Microsoft Azure, а также освещены другие связанные с этим темы (например, отношение между подпиской Azure и службой Azure Active Directory (Azure AD)).
+# <a name="how-azure-subscriptions-are-associated-with-azure-active-directory"></a>How Azure subscriptions are associated with Azure Active Directory
 
-## Учетные записи, которые можно использовать для входа
-Начнем с учетных записей, которые можно использовать для входа. Существуют учетные записи двух типов: учетная запись Майкрософт (ранее называлась Microsoft Live ID) и рабочая учетная запись, которая хранится в Azure AD.
+This topic covers information about signing in to Microsoft Azure and related issues, such as the relationship between an Azure subscription and Azure Active Directory (Azure AD).
 
- Учетная запись Майкрософт | Учетная запись Azure AD
-	------------- | -------------
-Система идентификации потребителей, выполняемая под управлением Майкрософт | Система идентификации организаций, выполняемая под управлением Майкрософт
-Проверка подлинности служб, ориентированных на потребителей, например Hotmail и MSN | Проверка подлинности служб, ориентированных на организации, например Office 365
-Потребители создают собственные учетные записи Майкрософт, например при регистрации на электронную почту | Компании и организации создают собственные рабочие учетные записи и управляют ими
-Удостоверения создаются и хранятся в системе учетных записей Майкрософт | Удостоверения создаются с помощью Azure или другой службы, например Office 365. Они хранятся в экземпляре Azure AD, который назначен организации
+## <a name="accounts-that-you-can-use-to-sign-in"></a>Accounts that you can use to sign in
+Let’s start with the accounts that you can use to sign in. There are two types: a Microsoft account (formerly known as Microsoft Live ID) and a work or school account, which is an account stored in Azure AD.
 
-Хотя изначально система Azure разрешала доступ только пользователям учетных записей Майкрософт, теперь она позволяет получать доступ пользователям *обеих* систем. Для этого было сделано так, чтобы все свойства Azure стали доверять процессу проверки подлинности Azure AD, чтобы Azure AD стала выполнять проверку подлинности пользователей организации, а также путем создания федеративных отношений, при которых Azure AD доверяет системе идентификации Майкрософт для учетных записей потребителей выполнять проверку подлинности пользователей. В результате Azure AD может проверять подлинность "гостевых" учетных записей Майкрософт, а также "собственных" учетных записей Azure AD.
+ Microsoft account  | Azure AD account
+    ------------- | -------------
+The consumer identity system run by Microsoft | The business identity system run by Microsoft
+Authentication to services that are consumer-oriented, such as Hotmail and MSN | Authentication to services that are business-oriented, such as Office 365
+Consumers create their own Microsoft accounts, such when they sign up for email | Companies and organizations create and manage their own work or school accounts
+Identities are created and stored in the Microsoft account system | Identities are created by using Azure or another service such as Office 365, and they are stored in an Azure AD instance assigned to the organization
 
-Например, здесь пользователь с учетной записью Майкрософт входит на классический портал Azure.
+Although Azure originally allowed access only by Microsoft account users, it now allows access by users from *both* systems. This was done by having all the Azure properties trust Azure AD for authentication, having Azure AD authenticate organizational users, and by creating a federation relationship where Azure AD trusts the Microsoft account consumer identity system to authenticate consumer users. As a result, Azure AD is able to authenticate “guest” Microsoft accounts as well as “native” Azure AD accounts.
+
+For example, here a user with a Microsoft account signs in to the Azure classic portal.
 
 > [AZURE.NOTE]
-Чтобы войти на классический портал Azure, учетная запись msmith@hotmail.com должна иметь подписку на Azure и принадлежать администратору службы или соадминистратору подписки.
+> To sign in to the Azure classic portal, msmith@hotmail.com must have a subscription to Azure. The account must be either a Service administrator or a co-administrator of the subscription.
 
 ![][1]
 
-Так как этот адрес Hotmail является учетной записью потребителя, на этапе входа проверку подлинности выполняет система идентификации потребителей и учетных записей Майкрософт. Система идентификации Azure AD доверяет процессу проверки подлинности, которую выполняет система учетных записей Майкрософт, и будет выдавать маркер для доступа к службам Azure.
+Because this Hotmail address is a consumer account, the sign in is authenticated by the Microsoft account consumer identity system. The Azure AD identity system trusts the authentication done by the Microsoft account system and will issue a token to access Azure services.
 
-## Как подписка Azure связана с Azure AD
+## <a name="how-an-azure-subscription-is-related-to-azure-ad"></a>How an Azure subscription is related to Azure AD
 
-Между каждой подпиской Azure и экземпляром Azure AD установлено отношение доверия. Это означает, что она доверяет каталогу проверять подлинность пользователей, служб и устройств. Несколько подписок могут доверять одному и тому же каталогу, но одна конкретная подписка доверяет только одному каталогу. Каталог, которому доверяет определенная подписка, можно просмотреть на вкладке "Параметры". Чтобы задать другой доверенный каталог, можно [изменить параметры подписки](active-directory-understanding-resource-access.md).
+Every Azure subscription has a trust relationship with an Azure AD instance. This means that it trusts that directory to authenticate users, services, and devices. Multiple subscriptions can trust the same directory, but a subscription trusts only one directory. You can see which directory is trusted by your subscription under the Settings tab. You can [edit the subscription settings](active-directory-understanding-resource-access.md) to change which directory it trusts.
 
-Данное отношение доверия, которое подписка имеет с каталогом, отличается от отношения, которую подписка имеет со всеми другими ресурсами в Azure (веб-сайтами, базами данных и т. д.), которые больше похожи на дочерние ресурсы подписки. Если срок действия подписки истекает, доступ к другим ресурсам, связанным с этой подпиской, также прекращается. Однако каталог останется в Azure, вы можете связать другую подписку с этим каталогом и продолжать управлять пользователями каталога.
+This trust relationship that a subscription has with a directory is unlike the relationship that a subscription has with all other resources in Azure (websites, databases, and so on), which are more like child resources of a subscription. If a subscription expires, then access to those other resources associated with the subscription also stops. But the directory remains in Azure, and you can associate another subscription with that directory and continue to manage the directory users.
 
-Подобным образом расширение для Azure AD, отображаемое в подписке, работает не так, как другие расширения на классическом портале Azure. Это связано с тем, что другие расширения на классическом портале Azure относятся к подписке Azure. То, что отображается в расширении Azure AD, не зависит от подписки: в ней указываются только каталоги, связанные с пользователем, который вошел в систему.
+Similarly, the Azure AD extension you see in your subscription doesn’t work like the other extensions in the Azure classic portal. Other extensions in the Azure classic portal are scoped to the Azure subscription. What you see in the Azure AD extension does not vary based on subscription – it shows only directories based on the signed-in user.
 
-Все пользователи имеют единый домашний каталог, который проверяет их подлинность. Они также могут быть гостями в других каталогах. В расширении Azure AD отображаются все каталоги, в которых зарегистрирована ваша учетная запись пользователя. Каталоги, членом которых ваша учетная запись не является, отображаться не будут. Каталог может выдавать маркеры для рабочих учетных записей в Azure AD или для пользователей учетных записей Майкрософт (так как Azure AD объединена в федерацию с системой учетных записей Майкрософт).
+All users have a single home directory which authenticates them, but they can also be guests in other directories. In the Azure AD extension, you will see every directory your user account is a member of. Any directory that your account is not a member of will not appear. A directory can issue tokens for work or school accounts in Azure AD or for Microsoft account users (because Azure AD is federated with the Microsoft account system).
 
-На следующей схеме показана подписка Григория Авдеева после того, как он зарегистрировался с помощью рабочей учетной записи для Contoso.
+This diagram shows a subscription for Michael Smith after he signed up by using a work account for Contoso.
 
 ![][2]
 
-## Как управлять подпиской и каталогом
-Управление ресурсами, привязанными к подписке Azure, осуществляется с помощью административных ролей для подписки Azure. Дополнительные сведения о ролях и рекомендации по управлению подпиской см. в статье [Назначение ролей администратора в Azure Active Directory](active-directory-assign-admin-roles.md).
+## <a name="how-to-manage-a-subscription-and-a-directory"></a>How to manage a subscription and a directory
+The administrative roles for an Azure subscription manage resources tied to the Azure subscription. These roles and the best practices for managing your subscription are covered at [Assigning administrator roles in Azure Active Directory](active-directory-assign-admin-roles.md).
 
-По умолчанию при регистрации вам назначается роль администратора службы. Если другим пользователям нужно войти в систему и получить доступ к службам с помощью той же подписки, их можно добавить как соадминистраторов. Администратор и соадминистраторы службы могут иметь либо учетные записи Майкрософт, либо рабочие или учебные учетные записи из каталога, с которым связана подписка Azure.
+By default, you are assigned the Service Administrator role when you sign up. If others need to sign in and access services using the same subscription, you can add them as co-administrators. The Service Administrator and co-administrators can be either Microsoft accounts or work or school accounts from the directory that the Azure subscription is associated with.
 
-Для управления функциями, связанными с каталогом и идентификацией, в Azure AD имеется другой набор ролей администратора. Например, глобальный администратор каталога может добавлять пользователей и группы в каталог либо требовать выполнения многофакторной проверки подлинности для пользователей. Пользователю, который создает каталог, назначается роль глобального администратора. Такие пользователи могут назначать роли администраторов другим пользователям.
+Azure AD has a different set of administrative roles to manage the directory and identity-related features. For example, the global administrator of a directory can add users and groups to the directory, or require multifactor authentication for users. A user who creates a directory is assigned to the global administrator role and they can assign administrator roles to other users.
 
-Так же как и с администраторами подписки, роли администраторов Azure AD могут иметь либо учетные записи Майкрософт, либо рабочие или учебные учетные записи. Роли администраторов Azure AD также используются другими службами, например Office 365 и Microsoft Intune. Дополнительные сведения см. в разделе [Назначение ролей администратора](active-directory-assign-admin-roles.md).
+As with subscription administrators, the Azure AD administrative roles can be either Microsoft accounts or work or school accounts. Azure AD administrative roles are also used by other services such as Office 365 and Microsoft Intune. For more information, see [Assigning administrator roles](active-directory-assign-admin-roles.md).
 
-Однако важно отметить, что администраторы подписки Azure существенно отличаются от администраторов каталогов Azure AD. Администраторы подписки Azure могут управлять ресурсами в Azure, а также просматривать расширение Active Directory на классическом портале Azure (так как классический портал Azure представляет собой ресурс Azure). Администраторы каталога могут управлять свойствами в каталоге.
+But the important point here is that Azure subscription admins and Azure AD directory admins are two separate concepts. Azure subscription admins can manage resources in Azure and can view the Active Directory extension in the Azure classic portal (because the Azure classic portal is an Azure resource). Directory admins can manage properties in the directory.
 
-Пользователю можно назначить обе эти роли, но это не требуется. Пользователю может быть назначена роль глобального администратора каталога. Но его нельзя назначить в качестве администратора службы или соадминистратора подписки Azure. Не являясь администратором подписки, пользователь не сможет войти на классический портал Azure. Однако пользователь может администрировать каталог с помощью других средств, например Azure AD PowerShell или Центра администрирования Office 365.
+A person can be in both roles but this isn’t required. A user can be assigned to the directory global administrator role but not be assigned as Service administrator or co-administrator of an Azure subscription. Without being an administrator of the subscription, this user cannot sign in to the Azure classic portal. But the user could perform directory administration tasks using other tools such as Azure AD PowerShell or Office 365 Admin Center.
 
-## Почему я не могу управлять каталогом с моей текущей учетной записью пользователя?
+## <a name="why-can't-i-manage-the-directory-with-my-current-user-account?"></a>Why can't I manage the directory with my current user account?
 
-Пользователь может попытаться войти на классический портал Azure с помощью рабочей или учебной учетной записи (до регистрации подписки Azure). В этом случае он получит сообщение, что для этой учетной записи подписки отсутствуют. Кроме того, в нем будет содержаться ссылка для оформления бесплатной пробной подписки.
+Sometimes a user may try to sign in to the Azure classic portal using a work or school account prior to signing up for an Azure subscription. In this case, the user will receive a message that there is no subscription for that account. The message will include a link to start a free trial subscription.
 
-После оформления бесплатной пробной версии пользователь увидит каталог организации на классическом портале Azure, но не сможет им управлять (то есть не сможет добавлять пользователей или изменять свойства существующих пользователей), так как он не является глобальным администратором каталога. Подписка позволит пользователю использовать классический портал Azure и видеть расширение Azure Active Directory, но для управления каталогом понадобятся дополнительные разрешения глобального администратора.
+After signing up for the free trial, the user will see the directory for the organization in the Azure classic portal but be unable to manage it (that is, be unable to add users, or edit any existing user properties) because the user is not a directory global administrator. The subscription allows the user to use the Azure classic portal and see the Azure Active Directory extension, but the additional permissions of a global administrator are needed to manage the directory.
 
-## Использование рабочей или учебной учетной записи для управления подпиской Azure, которая была создана с помощью учетной записи Майкрософт
+## <a name="using-your-work-or-school-account-to-manage-an-azure-subscription-that-was-created-by-using-a-microsoft-account"></a>Using your work or school account to manage an Azure subscription that was created by using a Microsoft account
 
-Рекомендуется [зарегистрироваться в Azure как организация](sign-up-organization.md) и использовать рабочую учетную запись для управления ресурсами в Azure. Рабочие учетные записи являются предпочтительными, так как ими может централизованно управлять организация, которая их выдала, они имеют больше возможностей, чем учетные записи Майкрософт, а их подлинность непосредственно проверяет система Azure AD. Одна и та же учетная запись предоставляет доступ к другим веб-службам Microsoft, которые предлагаются компаниям и организациям, например Office 365 или Microsoft Intune. Если у вас уже имеется учетная запись, которую вы используете с другими такими свойствами, скорее всего, вы захотите применять эту учетную запись с Azure. У вас также уже будет экземпляр Active Directory, выполняющий резервное копирование этих свойств, которым должна доверять подписка Azure.
+As a best practice, you should [sign up for Azure as an organization](sign-up-organization.md) and use a work or school account to manage resources in Azure. Work or school accounts are preferred because they can be centrally managed by the organization that issued them, they have more features than Microsoft accounts, and they are directly authenticated by Azure AD. The same account provides access to other Microsoft online services that are offered to businesses and organizations, such as Office 365 or Microsoft Intune. If you already have an account that you use with those other properties, you likely want to use that same account with Azure. You will also already have an Active Directory instance backing those properties that you will want your Azure subscription to trust.
 
-По сравнению с учетной записью Майкрософт, для управления рабочими учетными записями также можно использовать больше способов. Например, администратор может сбросить пароль рабочей учетной записи или потребовать для нее выполнения многофакторной проверки подлинности.
+Work or school accounts can also be managed in more ways than a Microsoft account. For example, an administrator can reset the password of an a work or school account, or require multifactor authentication for it.
 
-В некоторых случаях может понадобиться, чтобы пользователь из вашей организации мог управлять ресурсами, связанными с подпиской Azure для учетной записи потребителя Майкрософт. Дополнительные сведения о применении разных учетных записей для управления подписками или каталогами см. в разделе [Управление каталогом для подписки Office 365 в Azure](#manage-the-directory-for-your-office-365-subscription-in-azure).
+In some cases, you may want a user from your organization to be able to manage resources that are associated with an Azure subscription for a consumer Microsoft account. For more information about how to transition to have different accounts manage subscriptions or directories, see [Manage the directory for your Office 365 subscription in Azure](#manage-the-directory-for-your-office-365-subscription-in-azure).
 
 
-## Вход, если вы использовали рабочий адрес электронной почты для своей учетной записи Майкрософт
+## <a name="signing-in-when-you-used-your-work-email-for-your-microsoft-account"></a>Signing in when you used your work email for your Microsoft account
 
-Если ранее вы создали учетную запись потребителя Майкрософт, используя в качестве идентификатора пользователя рабочий адрес электронной почты, может появиться страница с просьбой выбрать либо систему учетных записей Microsoft Azure, либо систему учетных записей Майкрософт.
+If at some point of time in the past you created a consumer Microsoft account using your work email as a user identifier, you may see a page asking you to select from either the Microsoft Azure Account system or the Microsoft Account system.
 
 ![][3]
 
-У вас есть учетные записи пользователей с одним и тем же именем: одна в Azure AD, а другая — в системе учетных записей потребителей Майкрософт. Выберите необходимую учетную запись, связанную с подпиской Azure. Если появляется сообщение об ошибке с информацией о том, что для данного пользователя подписка отсутствует, вероятно, вы выбрали неправильный вариант. Выйдите из системы и повторите попытку. Дополнительные сведения об ошибках при входе см. в статье [Troubleshooting "We were unable to find any subscriptions associated with your account" errors](https://social.msdn.microsoft.com/Forums/ru-RU/f952f398-f700-41a1-8729-be49599dd7e2/troubleshooting-we-were-unable-to-find-any-subscriptions-associated-with-your-account-errors-in?forum=windowsazuremanagement) (Устранение ошибки "Нам не удалось найти подписки, связанные с вашей учетной записью").
+You have user accounts with the same name, one in Azure AD and the other in the consumer Microsoft account system. You should pick the account that is associated with the Azure subscription you want to use. If you get an error saying a subscription does not exist for this user, you likely just chose the wrong option. Sign out and try again. For more information about errors that can prevent sign in, see [Troubleshooting "We were unable to find any subscriptions associated with your account" errors](https://social.msdn.microsoft.com/Forums/en-US/f952f398-f700-41a1-8729-be49599dd7e2/troubleshooting-we-were-unable-to-find-any-subscriptions-associated-with-your-account-errors-in?forum=windowsazuremanagement).
 
-## Управление каталогом для подписки Office 365 в Azure
+## <a name="manage-the-directory-for-your-office-365-subscription-in-azure"></a>Manage the directory for your Office 365 subscription in Azure
 
-Предположим, вы зарегистрировались в Office 365 перед регистрацией в Azure. Теперь вы хотите управлять каталогом в подписке Office 365 на классическом портале Azure. В зависимости от того, зарегистрированы вы в Azure или нет, можно использовать один из следующих способов.
+Let's say you signed up for Office 365 before you sign up for Azure. Now you want to manage the directory for the Office 365 subscription in the Azure classic portal. There are two ways to do this, depending on whether you have signed up for Azure or you have not.
 
-### У меня нет подписки на Azure
+### <a name="i-do-not-have-a-subscription-for-azure"></a>I do not have a subscription for Azure
 
-В этом случае вам просто [зарегистрируйтесь на Azure](sign-up-organization.md) с помощью той же рабочей учетной записи, которую вы используете для входа в Office 365. В форму регистрации Azure будет подставлена релевантная информация из учетной записи Office 365. Ваша учетная запись будет назначена роли администратора службы для подписки.
+In this case, just [sign up for Azure](sign-up-organization.md) using the same work or school account that you use to sign in to Office 365. Relevant information from the Office 365 account will be prepopulated in the Azure sign-up form. Your account will be assigned to the Service Administrator role of the subscription.  
 
-### У меня есть подписка на Azure (используется моя учетная запись Майкрософт)
+### <a name="i-do-have-a-subscription-for-azure-using-my-microsoft-account"></a>I do have a subscription for Azure using my Microsoft account
 
-Если вы зарегистрировались в Office 365 с помощью рабочей учетной записи, а затем зарегистрировались в Azure с помощью учетной записи Майкрософт, то у вас есть два каталога: каталог для работы или учебы и каталог по умолчанию, который был создан при регистрации в Azure.
+If you signed up for Office 365 using a work or school account and then signed up for Azure using a Microsoft account, then you have two directories: one for your work or school and a Default directory that was created when you signed up for Azure.
 
-Для управления обоими каталогами на классическом портале Azure выполните следующие действия.
+To manage both of the directories in the Azure classic portal, complete these steps.
 
 > [AZURE.NOTE]
-Эти действия может выполнить только пользователь, который входит в систему с помощью учетной записи Майкрософт. Если пользователь вошел в систему с помощью рабочей учетной записи, вариант **Использовать существующий каталог** будет недоступен, так как проверку подлинности рабочей учетной записи может выполнять только его домашний каталог (то есть каталог, где хранится рабочая учетная запись и которым владеет организация).
+> These steps can only be completed while a user is signed in with a Microsoft account. If the user is signed in with a work or school account, the option **Use existing directory** is not available because a work or school account can be authenticated only by its home directory (that is, the directory where the work or school account is stored, and which is owned by the work or school).
 
-1. Войдите на классический портал Azure с помощью учетной записи Майкрософт.
+1. Sign in to the Azure classic portal using your Microsoft account.
 
-2. Щелкните **Создать** > **Службы приложений** > **Active Directory** > **Каталог** > **Настраиваемое создание**.
+2. Click **New** > **App services** > **Active Directory** > **Directory** > **Custom Create**.
 
-3. Щелкните **Использовать существующий каталог**, установите флажок **Готов к выходу** и щелкните галочку для выполнения действия.
+3. Click **Use existing directory** and check **I am ready to be signed out now** and click the check mark to complete the action.
 
-4. Войдите на классический портал Azure с помощью учетной записи с правами глобального администратора для рабочего или учебного каталога.
+4. Sign in to the Azure classic portal using an account that has global admin rights for the work or school directory.
 
-5. При появлении запроса **Использовать каталог Contoso с Azure?** нажмите **Продолжить**.
+5. When prompted to **Use the Contoso directory with Azure?**, and click **continue**.
 
-6. Щелкните **Выйти сейчас**.
+6. Click **Sign out now**.
 
-7. Снова войдите на классический портал Azure с помощью учетной записи Майкрософт. Оба каталога появятся в расширении Active Directory.
+7. Sign back in to the Azure classic portal using your Microsoft account. Both directories will appear in the Active Directory extension.
 
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Next Steps
 
-- Дополнительные сведения об изменении администраторов для подписки Azure см. в статье [Добавление или изменение ролей администратора Azure](../billing-add-change-azure-subscription-administrator.md).
+- To learn more about how to change administrators for an Azure subscription, see [How to add or change Azure administrator roles](../billing-add-change-azure-subscription-administrator.md)
 
-- Чтобы подробнее узнать о том, как осуществляется доступ к ресурсам в Microsoft Azure, обратитесь к статье [Основные сведения о доступе к ресурсам в Azure](active-directory-understanding-resource-access.md).
+- To learn more about how resource access is controlled in Microsoft Azure, see [Understanding resource access in Azure](active-directory-understanding-resource-access.md)
 
-- Дополнительные сведения о назначении ролей в Azure AD см. в статье [Назначение ролей администратора в Azure Active Directory](active-directory-assign-admin-roles.md).
+- For more information on how to assign roles in Azure AD, see [Assigning administrator roles in Azure Active Directory](active-directory-assign-admin-roles.md)
 
-- [Регистрация организации в Azure](sign-up-organization.md)
+- [Sign up for Azure as an organization](sign-up-organization.md)
 
 
 <!--Image references-->
@@ -139,4 +140,8 @@
 [2]: ./media/active-directory-how-subscriptions-associated-directory/WAAD_OrgAccountSubscription.png
 [3]: ./media/active-directory-how-subscriptions-associated-directory/WAAD_SignInDisambiguation.PNG
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

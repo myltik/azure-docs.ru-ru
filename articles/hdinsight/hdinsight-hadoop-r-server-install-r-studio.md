@@ -1,11 +1,11 @@
 <properties
-	pageTitle="Установка RStudio с R Server в HDInsight (предварительная версия) | Microsoft Azure"
-	description="Процедура установки RStudio с R Server в кластере HDInsight (предварительная версия)."
-	services="hdinsight"
-	documentationCenter=""
-	authors="jeffstokes72"
-	manager="jhubbard"
-	editor="cgronlun"/>
+    pageTitle="Install RStudio with R Server on HDInsight (preview) | Microsoft Azure"
+    description="How to install RStudio with R Server on HDInsight (preview)."
+    services="hdinsight"
+    documentationCenter=""
+    authors="jeffstokes72"
+    manager="jhubbard"
+    editor="cgronlun"/>
 
 <tags
    ms.service="hdinsight"
@@ -17,113 +17,118 @@
    ms.author="jeffstok"/>
 
 
-# Установка RStudio с R Server в HDInsight (предварительная версия)
 
-Сегодня для R существует несколько интегрированных сред разработки (IDE), включая недавно заявленное корпорацией Майкрософт решение [R Tools for Visual Studio](https://www.visualstudio.com/ru-RU/features/rtvs-vs.aspx) (RTVS), семейство локальных и серверных инструментов от [RStudio](https://www.rstudio.com/products/rstudio-server/) или [StatET](http://www.walware.de/goto/statet) на базе Eclipse от Walware. Чаще всего в Linux используется [RStudio Server](https://www.rstudio.com/products/rstudio-server/) — IDE на основе браузера, предназначенная для удаленных клиентов. Установка RStudio Server на граничном узле кластера HDInsight Premium предоставляет доступ ко всем функциональным возможностям IDE для разработки и выполнения R-скриптов с использованием R Server в кластере и может значительно повысить производительность по сравнению со стандартным применением R-консоли.
+# <a name="installing-rstudio-with-r-server-on-hdinsight-(preview)"></a>Installing RStudio with R Server on HDInsight (preview)
 
-В этой статье вы узнаете, как установить бесплатную версию RStudio Server для сообщества на граничном узле кластера с помощью пользовательского скрипта. Если вы хотите использовать коммерческую версию RStudio Server Pro, необходимо выполнить инструкции по установке из [RStudio Server](https://www.rstudio.com/products/rstudio/download-server/).
+There are multiple integrated development environments (IDE) available for R today, including Microsoft’s recently announced [R Tools for Visual Studio](https://www.visualstudio.com/en-us/features/rtvs-vs.aspx) (RTVS), a family of desktop and server tools from [RStudio](https://www.rstudio.com/products/rstudio-server/), or Walware’s Eclipse-based [StatET](http://www.walware.de/goto/statet). Among the most popular on Linux is the use of [RStudio Server](https://www.rstudio.com/products/rstudio-server/) that provides a browser-based IDE for use by remote clients.  Installing RStudio Server on the edge node of an HDInsight Premium cluster provides a full IDE experience for the development and execution of R scripts with R Server on the cluster, and can be considerably more productive than default use of the R Console.
 
-> [AZURE.NOTE] Для процедур, рассматриваемых в этом документе, требуется сервер R Server в кластере HDInsight. Они не будут работать при использовании кластера HDInsight, где среда R была установлена с помощью [действия сценария "Установить R"](hdinsight-hadoop-r-scripts-linux.md).
+In this article you will learn how to install the community (free) version of RStudio Server on the edge node of a cluster by using a custom script. If you prefer the commercially licensed Pro version of RStudio Server, you must follow the installation instructions from [RStudio Server](https://www.rstudio.com/products/rstudio/download-server/).
 
-## Предварительные требования
+> [AZURE.NOTE] The steps in this document require an R Server on HDInsight cluster and will not work correctly if you are using an HDInsight cluster where R was installed using the [Install R Script Action](hdinsight-hadoop-r-scripts-linux.md).
 
-* Кластер Azure HDInsight, на котором установлен R Server. Инструкции см. в разделе [Приступая к работе с R Server в кластерах HDInsight](hdinsight-hadoop-r-server-get-started.md).
-* Клиент SSH. В дистрибутивах Linux и Unix и Macintosh OS X команда `ssh` входит в состав операционной системы. Для Windows мы рекомендуем [Cygwin](http://www.redhat.com/services/custom/cygwin/) (с [параметром OpenSSH](https://www.youtube.com/watch?v=CwYSvvGaiWU)) или [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
+## <a name="prerequisites"></a>Prerequisites
+
+* An Azure HDInsight cluster with R Server installed. For instructions, see [Get started with R Server on HDInsight clusters](hdinsight-hadoop-r-server-get-started.md).
+* An SSH client. For Linux and Unix distributions or Macintosh OS X, the `ssh` command is provided with the operating system. For Windows, we recommend [Cygwin](http://www.redhat.com/services/custom/cygwin/) with the [OpenSSH option](https://www.youtube.com/watch?v=CwYSvvGaiWU), or [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).  
 
 
-## Установка RStudio в кластере с помощью пользовательского скрипта
+## <a name="install-rstudio-on-the-cluster-using-a-custom-script"></a>Install RStudio on the cluster using a custom script
 
-1. Определите граничный узел кластера. Ниже указано соглашение об именовании головных и граничных узлов для кластера HDInsight с R Server.
+1. Identify the edge node of the cluster. For an HDInsight cluster with R Server, following is the naming convention for head node and edge node.
 
-	* Головной узел — `CLUSTERNAME-ssh.azurehdinsight.net`
-	* Граничный узел — `R-Server.CLUSTERNAME-ssh.azurehdinsight.net`
+    * Head node - `CLUSTERNAME-ssh.azurehdinsight.net`
+    * Edge node - `R-Server.CLUSTERNAME-ssh.azurehdinsight.net` 
 
-2. Подключитесь к граничному узлу кластера по протоколу SSH, используя шаблон именования выше.
+2. SSH into the edge node of the cluster using the above naming pattern. 
  
-	* При подключении из клиента Linux см. статью [Подключение к кластеру HDInsight на основе Linux](hdinsight-hadoop-linux-use-ssh-unix.md#connect-to-a-linux-based-hdinsight-cluster).
-	* При подключении из клиента Windows см. статью [Подключение к кластеру HDInsight на основе Linux с использованием PuTTY](hdinsight-hadoop-linux-use-ssh-windows.md#connect-to-a-linux-based-hdinsight-cluster).
+    * If you are connecting from a Linux client, see [Connect to a Linux-based HDInsight cluster](hdinsight-hadoop-linux-use-ssh-unix.md#connect-to-a-linux-based-hdinsight-cluster).
+    * If you are connecting from a Windows client, see [Connect to a Linux-based HDInsight cluster using PuTTY](hdinsight-hadoop-linux-use-ssh-windows.md#connect-to-a-linux-based-hdinsight-cluster).
 
-3. После подключения используйте учетные данные привилегированного пользователя в кластере. В сеансе SSH используйте следующую команду:
+3. Once you are connected, become a root user on the cluster. In the SSH session, use the following command.
 
-		sudo su -
+        sudo su -
 
-4. Скачайте пользовательский скрипт для установки RStudio. Используйте следующую команду:
+4. Download the custom script to install RStudio. Use the following command.
 
-		wget http://mrsactionscripts.blob.core.windows.net/rstudio-server-community-v01/InstallRStudio.sh
+        wget http://mrsactionscripts.blob.core.windows.net/rstudio-server-community-v01/InstallRStudio.sh
 
-5. Измените разрешения для файла пользовательского скрипта и запустите скрипт. Используйте такие команды:
+5. Change the permissions on the custom script file and run the script. Use the following commands.
 
-		chmod 755 InstallRStudio.sh
-		./InstallRStudio.sh
+        chmod 755 InstallRStudio.sh
+        ./InstallRStudio.sh
 
-6. Если при создании кластера HDInsight с R Server использовался пароль SSH, можно пропустить этот шаг и перейти к следующему. Если вместо него для создания кластера использовался ключ SSH, необходимо задать пароль для пользователя SSH. Он понадобится при подключении к RStudio. Выполните команды ниже. При появлении запроса на ввод **текущего пароля Kerberos** просто нажмите клавишу **ВВОД**. Обратите внимание, что `USERNAME` необходимо заменить именем пользователя SSH для кластера HDInsight.
+6. If you used an SSH password while creating an HDInsight cluster with R Server, you can skip this step and proceed to the next. If you used an SSH key instead to create the cluster, you must set a password for your SSH user. You will need this password when connecting to RStudio. Run the following commands. When prompted for **Current Kerberos password**, just press **ENTER**.  Note that you must replace `USERNAME` with an SSH user for your HDInsight cluster.
 
-		passwd USERNAME
-		Current Kerberos password:
-		New password:
-		Retype new password:
-		Current Kerberos password:
-		
-	При успешной установке пароля отобразится примерно следующее сообщение:
+        passwd USERNAME
+        Current Kerberos password:
+        New password:
+        Retype new password:
+        Current Kerberos password:
+        
+    If your password is successfully set, you should see a message like this.
 
-		passwd: password updated successfully
+        passwd: password updated successfully
 
 
-	Выйдите из сеанса SSH.
+    Exit the SSH session.
 
-7. Создайте туннель SSH для кластера, сопоставив `localhost:8787` в кластере HDInsight с клиентским компьютером. Туннель SSH следует создать перед открытием нового сеанса браузера.
+7. Create an SSH tunnel to the cluster by mapping `localhost:8787` on the HDInsight cluster to the client machine. You must create an SSH tunnel before opening a new browser session.
 
-	* В клиенте Linux или Windows (используя [Cygwin](http://www.redhat.com/services/custom/cygwin/)) откройте сеанс терминала и введите следующую команду:
+    * On a Linux client or a Windows client with [Cygwin](http://www.redhat.com/services/custom/cygwin/) then open a terminal session and use the following command.
 
-			ssh -L localhost:8787:localhost:8787 USERNAME@R-Server.CLUSTERNAME-ssh.azurehdinsight.net
-			
-		Замените **ИМЯ\_ПОЛЬЗОВАТЕЛЯ** именем пользователя SSH для кластера HDInsight, а **ИМЯ\_КЛАСТЕРА** — именем кластера HDInsight. Вы также можете использовать ключ SSH вместо пароля, добавив `-i id_rsa_key`
+            ssh -L localhost:8787:localhost:8787 USERNAME@R-Server.CLUSTERNAME-ssh.azurehdinsight.net
+            
+        Replace **USERNAME** with an SSH user for your HDInsight cluster, and replace **CLUSTERNAME** with the name of your HDInsight cluster   You can also use a SSH key rather than a password by adding `-i id_rsa_key`     
 
-	* Если вы используете клиент Windows и PuTTY, выполните следующие действия:
+    * If using a Windows client with PuTTY then
 
-		1.  Откройте PuTTY и введите информацию о подключении. Если вы не знакомы с PuTTY, обратитесь к разделу [Использование SSH с Hadoop на основе Linux в HDInsight из Windows](hdinsight-hadoop-linux-use-ssh-windows.md), чтобы узнать, как пользоваться PuTTY с HDInsight.
-		2.  В разделе **Категории** в левой части диалогового окна последовательно разверните **Подключение**, **SSH** и выберите **Туннели**.
-		3.  Введите следующую информацию в форме **Параметры, управляющие перенаправлением портов SSH**:
+        1.  Open PuTTY, and enter your connection information. If you are not familiar with PuTTY, see [Use SSH with Linux-based Hadoop on HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows.md) for information on how to use it with HDInsight.
+        2.  In the **Category** section to the left of the dialog, expand **Connection**, expand **SSH**, and then select **Tunnels**.
+        3.  Provide the following information on the **Options controlling SSH port forwarding** form:
 
-			* **Порт источника** — порт на стороне клиента, трафик которого нужно перенаправлять. Например, **8787**.
-			* **Назначение** — место назначения, которое следует сопоставить с локальным клиентским компьютером. Например, **localhost:8787**.
+            * **Source port** - The port on the client that you wish to forward. For example, **8787**.
+            * **Destination** - The destination that must be mapped to the local client machine. For example, **localhost:8787**.
 
-			![Создание туннеля SSH](./media/hdinsight-hadoop-r-server-install-r-studio/createsshtunnel.png "Создание туннеля SSH")
+            ![Create an SSH tunnel](./media/hdinsight-hadoop-r-server-install-r-studio/createsshtunnel.png "Create an SSH tunnel")
 
-		4. Щелкните **Добавить**, чтобы добавить параметры, а затем щелкните **Открыть**, чтобы открыть подключение SSH.
-		5. При появлении запроса войдите на сервер. При этом будет установлен сеанс SSH и включен туннель.
+        4. Click **Add** to add the settings, and then click **Open** to open an SSH connection.
+        5. When prompted, log in to the server. This will establish an SSH session and enable the tunnel.
 
-8. Откройте браузер и введите следующий URL-адрес с учетом порта, введенного для туннеля.
+8. Open a web browser and enter the following URL based on the port you entered for the tunnel.
 
-		http://localhost:8787/ 
+        http://localhost:8787/ 
 
-9. Появится запрос на ввод имени пользователя и пароля SSH для подключения к кластеру. Если при создании кластера использовался ключ SSH, необходимо ввести пароль, созданный на шаге 5.
+9. You will be prompted to enter the SSH username and password to connect to the cluster. If you used an SSH key while creating the cluster, you must enter the password you created in step 5 above.
 
-	![Подключение к RStudio](./media/hdinsight-hadoop-r-server-install-r-studio/connecttostudio.png "Создание туннеля SSH")
+    ![Connect to R Studio](./media/hdinsight-hadoop-r-server-install-r-studio/connecttostudio.png "Create an SSH tunnel")
 
-10. Чтобы проверить успешность установки RStudio, можно запустить тестовый скрипт, выполняющий задания MapReduce и Spark в кластере на языке R. Вернитесь к консоли SSH и введите следующие команды, чтобы скачать тестовый скрипт для запуска в RStudio.
+10. To test whether the RStudio installation was successful, you can run a test script that executes R based MapReduce and Spark jobs on the cluster. Go back to the SSH console and enter the following commands to download the test script to run in RStudio.
 
-	* При создании кластера Hadoop на языке R используйте эту команду:
-		
-			wget http://mrsactionscripts.blob.core.windows.net/rstudio-server-community-v01/testhdi.r
+    * If you created a Hadoop cluster with R, use this command.
+        
+            wget http://mrsactionscripts.blob.core.windows.net/rstudio-server-community-v01/testhdi.r
 
-	* При создании кластера Spark на языке R используйте эту команду:
+    * If you created a Spark cluster with R, use this command.
 
-			wget http://mrsactionscripts.blob.core.windows.net/rstudio-server-community-v01/testhdi_spark.r
+            wget http://mrsactionscripts.blob.core.windows.net/rstudio-server-community-v01/testhdi_spark.r
 
-11. В RStudio появится скачанный тестовый скрипт. Дважды щелкните файл, чтобы открыть его, выделите содержимое файла и нажмите кнопку **Run** (Запустить). Результаты появятся в области **Console** (Консоль).
+11. In RStudio, you will see the test script you downloaded. Double click the file to open it, select the contents of the file, and then click **Run**. You should see the output in the **Console** pane.
  
-	![Проверка установки](./media/hdinsight-hadoop-r-server-install-r-studio/test-r-script.png "Проверка установки")
+    ![Test the installation](./media/hdinsight-hadoop-r-server-install-r-studio/test-r-script.png "Test the installation")
 
-Еще один вариант — ввести `source(testhdi.r)` или `source(testhdi_spark.r)` для выполнения скрипта.
+Another option would be to type `source(testhdi.r)` or `source(testhdi_spark.r)` to execute the script.
 
-## Дополнительные материалы
+## <a name="see-also"></a>See also
 
-- [Compute context options for R Server on HDInsight clusters (Параметры контекста вычислений для R Server в кластерах HDInsight)](hdinsight-hadoop-r-server-compute-contexts.md)
+- [Compute context options for R Server on HDInsight clusters](hdinsight-hadoop-r-server-compute-contexts.md)
 
 - [Azure Storage options for R Server on HDInsight premium](hdinsight-hadoop-r-server-storage.md)
 
 
  
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

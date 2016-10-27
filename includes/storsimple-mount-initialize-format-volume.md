@@ -1,38 +1,41 @@
 <!--author=SharS last changed: 9/17/15-->
 
-#### Подключение, инициализация и форматирование тома
+#### <a name="to-mount,-initialize,-and-format-a-volume"></a>To mount, initialize, and format a volume
 
-1. Запустите инициатор iSCSI (Майкрософт).
+1. Start the Microsoft iSCSI initiator.
 
-2. В окне **Свойства инициатора iSCSI** на вкладке **Обнаружение** щелкните **Обнаружить портал**.
+2. In the **iSCSI Initiator Properties** window, on the **Discovery** tab, click **Discover Portal**.
 
-3. В диалоговом окне **Обнаружение целевого портала** укажите IP-адрес интерфейса сети с поддержкой iSCSI и нажмите кнопку **ОК**.
+3. In the **Discover Target Portal** dialog box, supply the IP address of your iSCSI-enabled network interface, and then click **OK**. 
 
-4. В окне **Свойства инициатора iSCSI** на вкладке **Конечные объекты** найдите **Обнаруженные конечные объекты**. Устройство должно быть в состоянии **Неактивно**.
+4. In the **iSCSI Initiator Properties** window, on the **Targets** tab, locate the **Discovered targets**. The device status should appear as **Inactive**.
 
-5. Выберите целевое устройство и нажмите кнопку **Подключиться**. После подключения устройства состояние должно измениться на **Подключено**. (Дополнительные сведения об использовании инициатора iSCSI (Майкрософт) см. в разделе [Установка и настройка инициатора iSCSI][1]).
+5. Select the target device and then click **Connect**. After the device is connected, the status should change to **Connected**. (For more information about using the Microsoft iSCSI initiator, see [Installing and Configuring Microsoft iSCSI Initiator][1]).
 
-6. На узле Windows нажмите клавиши Windows + X, а затем щелкните **Выполнить**.
+6. On your Windows host, press the Windows Logo key + X, and then click **Run**. 
 
-7. В диалоговом окне **Выполнить** введите **Diskmgmt.msc**. Нажмите кнопку **ОК**. На экране отобразится диалоговое окно **Управление дисками**. На панели справа будут показаны тома на вашем узле.
+7. In the **Run** dialog box, type **Diskmgmt.msc**. Click **OK**, and the **Disk Management** dialog box will appear. The right pane will show the volumes on your host.
 
-8. В окне **Управление дисками** подключенные тома отображаются так, как показано на следующем рисунке. Щелкните правой кнопкой мыши обнаруженные тома (щелкните имя диска) и выберите пункт **Подключить**.
+8. In the **Disk Management** window, the mounted volumes will appear as shown in the following illustration. Right-click the discovered volume (click the disk name), and then click **Online**.
 
-     ![Инициализация форматирования тома](./media/storsimple-mount-initialize-format-volume/HCS_InitializeFormatVolume-include.png)
+     ![Initialize format volume](./media/storsimple-mount-initialize-format-volume/HCS_InitializeFormatVolume-include.png) 
 
-9. Щелкните правой кнопкой мыши том (щелкните имя диска), а затем нажмите кнопку **Инициализировать**.
+9. Right-click the volume (click the disk name) again, and then click **Initialize**.
 
-10. Чтобы отформатировать простой том, выполните такие действия.
-  1. Выберите том, щелкните его правой кнопкой мыши (щелкните область справа), а затем нажмите кнопку **Создать простой том**.
-  2. В мастере создания простого тома укажите размер и букву диска для тома и настройте том с файловой системой NTFS.
-  3. Выберите размер кластера 64 КБ. Этот размер кластера прекрасно подходит для алгоритмов дедупликации, используемых в решении StorSimple.
-  4. Выполните быстрое форматирование.
+10. To format a simple volume, perform the following steps:
+  1. Select the volume, right-click it (click the right area), and click **New Simple Volume**.
+  2. In the New Simple Volume wizard, specify the volume size and drive letter and configure the volume as an NTFS file system.
+  3. Specify a 64 KB allocation unit size. This allocation unit size works well with the deduplication algorithms used in the StorSimple solution.
+  4. Perform a quick format.
 
-![Доступный видеоролик](./media/storsimple-mount-initialize-format-volume/Video_icon.png) **Доступный видеоролик**
+![Video available](./media/storsimple-mount-initialize-format-volume/Video_icon.png) **Video available**
 
-Чтобы просмотреть видеоролик о том, как монтировать, инициализировать и форматировать том StorSimple, щелкните [здесь](https://azure.microsoft.com/documentation/videos/mount-initialize-and-format-a-storsimple-volume/).
+To watch a video that demonstrates how to mount, initialize, and format a StorSimple volume, click [here](https://azure.microsoft.com/documentation/videos/mount-initialize-and-format-a-storsimple-volume/).
 
 <!--Link references-->
 [1]: https://technet.microsoft.com/library/ee338480(WS.10).aspx
 
-<!---HONumber=AcomDC_0128_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

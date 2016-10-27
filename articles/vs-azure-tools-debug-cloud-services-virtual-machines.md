@@ -1,193 +1,199 @@
 <properties 
-	pageTitle="Отладка облачной службы или виртуальной машины Azure в Visual Studio | Microsoft Azure"
-	description="Отладка облачной службы или виртуальной машины в Visual Studio"
-	services="visual-studio-online"
-	documentationCenter="na"
-	authors="TomArcher"
-	manager="douge"
-	editor="" />
+    pageTitle="Debugging an Azure cloud service or virtual machine in Visual Studio | Microsoft Azure"
+    description="Debugging a Cloud Service or Virtual Machine in Visual Studio"
+    services="visual-studio-online"
+    documentationCenter="na"
+    authors="TomArcher"
+    manager="douge"
+    editor="" />
 <tags 
-	ms.service="visual-studio-online"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.tgt_pltfrm="multiple"
-	ms.workload="na"
-	ms.date="08/15/2016"
-	ms.author="tarcher" />
+    ms.service="visual-studio-online"
+    ms.devlang="multiple"
+    ms.topic="article"
+    ms.tgt_pltfrm="multiple"
+    ms.workload="na"
+    ms.date="08/15/2016"
+    ms.author="tarcher" />
 
-# Отладка облачной службы или виртуальной машины Azure в Visual Studio
 
-Visual Studio предоставляет разнообразные варианты отладки облачных служб и виртуальных машин Azure.
+# <a name="debugging-an-azure-cloud-service-or-virtual-machine-in-visual-studio"></a>Debugging an Azure cloud service or virtual machine in Visual Studio
 
+Visual Studio gives you different options for debugging Azure cloud services and virtual machines.
 
 
-## Отладка облачной службы на локальном компьютере
 
-Вы можете сэкономить время и деньги, воспользовавшись эмулятором вычислений Azure для отладки облачной службы на локальном компьютере. Посредством локальной отладки службы перед ее развертыванием можно повысить надежность и производительность службы, не платя за время использования вычислительных ресурсов. Однако некоторые ошибки могут возникнуть только при запуске облачной службы непосредственно в среде Azure. Эти ошибки можно устранить, если включить удаленную отладку при публикации службы, а затем подключить отладчик к экземпляру роли.
+## <a name="debug-your-cloud-service-on-your-local-computer"></a>Debug your cloud service on your local computer
 
-Эмулятор имитирует службу вычислений Azure и выполняется в локальной среде, благодаря чему можно осуществить тестирование и отладку облачной службы перед ее развертыванием. Эмулятор обрабатывает жизненный цикл экземпляров ролей и предоставляет доступ к имитируемым ресурсам, таким как локальное хранилище. При отладке или запуске службы в системе Visual Studio она автоматически запускает эмулятор в качестве фонового приложения, а затем выполняет развертывание службы в эмуляторе. Вы можете использовать эмулятор для просмотра службы, запущенной в локальной среде. Можно запустить полную версию или экспресс-версию эмулятора. (Начиная с Azure 2.3 экспресс-версия эмулятора используется по умолчанию.) См. статью [Использование Emulator Express для локального выполнения и отладки облачной службы](https://msdn.microsoft.com/library/dn339018.aspx).
+You can save time and money by using the Azure compute emulator to debug your cloud service on a local machine. By debugging a service locally before you deploy it, you can improve reliability and performance without paying for compute time. However, some errors might occur only when you run a cloud service in Azure itself. You can debug these errors if you enable remote debugging when you publish your service and then attach the debugger to a role instance.
 
-### Порядок отладки облачной службы на локальном компьютере
+The emulator simulates the Azure Compute service and runs in your local environment so that you can test and debug your cloud service before you deploy it. The emulator handles the lifecycle of your role instances and provides access to simulated resources, such as local storage. When you debug or run your service from Visual Studio, it automatically starts the emulator as a background application and then deploys your service to the emulator. You can use the emulator to view your service when it runs in the local environment. You can run the full version or the express version of the emulator. (Starting with Azure 2.3, the express version of the emulator is the default.) See [Using Emulator Express to Run and Debug a Cloud Service Locally](https://msdn.microsoft.com/library/dn339018.aspx).
 
-1. В строке меню выберите **Отладка** и **Начать отладку**, чтобы запустить проект облачной службы Azure. Также можно просто нажать клавишу F5. Вы увидите сообщение о том, что запускается эмулятор вычислений. На запуск эмулятора указывает значок в области уведомлений.
+### <a name="to-debug-your-cloud-service-on-your-local-computer"></a>To debug your cloud service on your local computer
 
-    ![Эмулятор Azure в области уведомлений](./media/vs-azure-tools-debug-cloud-services-virtual-machines/IC783828.png)
+1. On the menu bar, choose **Debug**, **Start Debugging** to run your Azure cloud service project. As an alternative, you can press F5. You’ll see a message that the Compute Emulator is starting. When the emulator starts, the system tray icon confirms it.
 
-1. Откройте пользовательский интерфейс эмулятора вычислений. Для этого в области уведомлений правой кнопкой мыши щелкните значок Azure и выберите пункт **Show Compute Emulator UI** (Показать пользовательский интерфейс эмулятора вычислений).
+    ![Azure emulator in the system tray](./media/vs-azure-tools-debug-cloud-services-virtual-machines/IC783828.png)
 
-    В левой области пользовательского интерфейса показаны службы, которые сейчас развернуты в эмуляторе вычислений, и экземпляры ролей, которые выполняет каждая служба. Вы можете выбрать службу или роль для отображения жизненного цикла, журналов и диагностических сведений в области справа. При установке фокуса на верхнее поле вложенного окна оно развертывается, заполняя правую область.
+1. Display the user interface for the compute emulator by opening the shortcut menu for the Azure icon in the notification area, and then select **Show Compute Emulator UI**.
 
-1. Поэтапно работая в приложении, выбирайте в меню **Отладка** соответствующие команды и задавайте в коде точки останова. По мере работы с приложением в отладчике в областях будет отображаться текущее состояние приложения. При остановке отладки развертывание приложения удаляется. Если приложение включает в себя веб-роль и было задано свойство Startup action для запуска веб-браузера, Visual Studio запускает веб-приложение в браузере. Если вы изменили количество экземпляров роли в конфигурации службы, необходимо остановить облачную службу и затем перезапустить отладку, чтобы можно было отлаживать эти новые экземпляры роли.
+    The left pane of the UI shows the services that are currently deployed to the compute emulator and the role instances that each service is running. You can choose the service or roles to display lifecycle, logging, and diagnostic information in the right pane. If you put the focus in the top margin of an included window, it expands to fill the right pane.
 
-    **Примечание**. После остановки выполнения или отладки службы локальный эмулятор вычислений и эмулятор хранения не останавливаются. Необходимо остановить их явным образом в области уведомлений.
+1. Step through the application by selecting commands on the **Debug** menu and setting breakpoints in your code. As you step through the application in the debugger, the panes are updated with the current status of the application. When you stop debugging, the application deployment is deleted.If your application includes a web role and you've set the Startup action property to start the web browser, Visual Studio starts your web application in the browser.If you change the number of instances of a role in the service configuration, you must stop your cloud service and then restart debugging so that you can debug these new instances of the role.
 
+    **Note:** When you stop running or debugging your service, the local compute emulator and storage emulator aren't stopped. You must stop them explicitly from the notification area.
 
-## Отладка облачной службы в Azure
 
-Чтобы выполнить отладку облачной службы с удаленного компьютера, необходимо включить эту функциональную возможность явным образом при развертывании облачной службы, чтобы необходимые службы (например, msvsmon.exe) были установлены на виртуальных машинах, где выполняются ваши экземпляры ролей. Если вы не включили удаленную отладку при публикации службы, необходимо повторно опубликовать эту службу с включенной удаленной отладкой.
+## <a name="debug-a-cloud-service-in-azure"></a>Debug a cloud service in Azure
 
-Если вы включили удаленную отладку для облачной службы, это не приводит к снижению производительности и не требует дополнительных затрат. Не следует использовать удаленную отладку для рабочей службы, поскольку это может негативно сказаться на работе клиентов, использующих эту службу.
+To debug a cloud service from a remote machine, you must enable that functionality explicitly when you deploy your cloud service so that required services (msvsmon.exe, for example) are installed on the virtual machines that run your role instances. If you didn't enable remote debugging when you published the service, you have to republish the service with remote debugging enabled.
 
->[AZURE.NOTE] При публикации облачной службы из Visual Studio для всех ролей в службе, которые используют .NET Framework 4 или 4.5, можно активировать **IntelliTrace**. С помощью **IntelliTrace** можно изучить события, произошедшие в экземпляре роли в прошлом, и воспроизвести контекст за тот период времени. См. статьи [Отладка опубликованной облачной службы с помощью IntelliTrace и Visual Studio](http://go.microsoft.com/fwlink/?LinkID=623016) и [Использование IntelliTrace](https://msdn.microsoft.com/library/dd264915.aspx).
+If you enable remote debugging for a cloud service, it doesn't exhibit degraded performance or incur additional charges. You shouldn't use remote debugging on a production service, because clients who use the service might be adversely affected.
 
-### Порядок включения удаленной отладки для облачной службы
+>[AZURE.NOTE] When you publish a cloud service from Visual Studio, you can enable **IntelliTrace** for any roles in that service that target the .NET Framework 4 or the .NET Framework 4.5. By using **IntelliTrace**, you can examine events that occurred in a role instance in the past and reproduce the context from that time. See [Debugging a published cloud service with IntelliTrace and Visual Studio](http://go.microsoft.com/fwlink/?LinkID=623016) and [Using IntelliTrace](https://msdn.microsoft.com/library/dd264915.aspx).
 
-1. Откройте контекстное меню проекта Azure и выберите пункт **Опубликовать**.
+### <a name="to-enable-remote-debugging-for-a-cloud-service"></a>To enable remote debugging for a cloud service
 
-1. Выберите среду **Промежуточное хранение** и конфигурацию **Отладка**.
+1. Open the shortcut menu for the Azure project, and then select **Publish**.
 
-    Это всего лишь рекомендация. Вы можете запустить тестовую среду в рабочей среде. Однако включение удаленной отладки в рабочей среде может отрицательно сказаться на работе пользователей. Вы можете выбрать конфигурацию выпуска, однако конфигурация отладки облегчает процесс отладки.
+1. Select the **Staging** environment and the **Debug** configuration.
 
-    ![Выберите конфигурацию отладки](./media/vs-azure-tools-debug-cloud-services-virtual-machines/IC746717.gif)
+    This is only a guideline. You can opt to run your test environments in a Production environment. However, you may adversely affect users if you enable remote debugging on the Production environment. You can choose the Release configuration, but the Debug configuration makes debugging easier.
 
-1. Дальше выполните стандартную процедуру, но на вкладке **Дополнительные параметры** установите флажок **Включить удаленный отладчик для всех ролей**.
+    ![Choose the Debug configuration](./media/vs-azure-tools-debug-cloud-services-virtual-machines/IC746717.gif)
 
-    ![Конфигурация отладки](./media/vs-azure-tools-debug-cloud-services-virtual-machines/IC746718.gif)
+1. Follow the usual steps, but select the **Enable Remote Debugger for all roles** check box on the **Advanced Settings** tab.
 
-### Порядок подключения отладчика к облачной службе в Azure
+    ![Debug Configuration](./media/vs-azure-tools-debug-cloud-services-virtual-machines/IC746718.gif)
 
-1. В обозревателе серверов разверните узел своей облачной службы.
+### <a name="to-attach-the-debugger-to-a-cloud-service-in-azure"></a>To attach the debugger to a cloud service in Azure
 
-1. Откройте контекстное меню роли или экземпляра роли, к которому требуется присоединить отладчик, и выберите **Присоединить отладчик**.
+1. In Server Explorer, expand the node for your cloud service.
 
-    При отладке роли отладчик Visual Studio подключается к каждому ее экземпляру. Отладчик останавливается в точке останова для первого экземпляра роли, который запускает эту строку кода и удовлетворяет условиям этой точки останова. При отладке экземпляра отладчик подключается только к данному экземпляру и останавливается на точке останова только в том случае, если данный конкретный экземпляр запускает эту строку кода и удовлетворяет условиям точки останова.
+1. Open the shortcut menu for the role or role instance to which you want to attach, and then select **Attach Debugger**.
 
-    ![Присоединить отладчик](./media/vs-azure-tools-debug-cloud-services-virtual-machines/IC746719.gif)
+    If you debug a role, the Visual Studio debugger attaches to each instance of that role. The debugger will break on a breakpoint for the first role instance that runs that line of code and meets any conditions of that breakpoint. If you debug an instance, the debugger attaches to only that instance and breaks on a breakpoint only when that specific instance runs that line of code and meets the breakpoint's conditions.
 
-1. После подключения отладчика к экземпляру выполняйте отладку в обычном режиме. Отладчик автоматически подключается к соответствующему хост-процессу для вашей роли. В зависимости от того, что представляет собой эта роль, отладчик подключается к w3wp.exe, WaWorkerHost.exe или WaIISHost.exe. Чтобы проверить процесс, к которому подключен отладчик, разверните узел экземпляра в обозревателе серверов. Дополнительные сведения о процессах Azure см. в статье [Архитектура ролей Azure](http://blogs.msdn.com/b/kwill/archive/2011/05/05/windows-azure-role-architecture.aspx).
+    ![Attach Debugger](./media/vs-azure-tools-debug-cloud-services-virtual-machines/IC746719.gif)
 
-    ![Диалоговое окно "Выбор типа кода"](./media/vs-azure-tools-debug-cloud-services-virtual-machines/IC718346.png)
+1. After the debugger attaches to an instance, debug as usual.The debugger automatically attaches to the appropriate host process for your role. Depending on what the role is, the debugger attaches to w3wp.exe, WaWorkerHost.exe, or WaIISHost.exe. To verify the process to which the debugger is attached, expand the instance node in Server Explorer. See [Azure Role Architecture](http://blogs.msdn.com/b/kwill/archive/2011/05/05/windows-azure-role-architecture.aspx) for more information about Azure processes.
 
-1. Чтобы определить процессы, к которым подключен отладчик, откройте диалоговое окно "Процессы", выбрав в строке меню "Отладка", "Окна", "Процессы". (Сочетание клавиш: CTRL + ALT + Z) Чтобы отключить определенный процесс, откройте его контекстное меню и выберите пункт **Отсоединить процесс**. Или перейдите к узлу экземпляра в обозревателе сервера, найдите процесс, откройте его контекстное меню и выберите пункт **Отсоединить процесс**.
+    ![Select code type dialog box](./media/vs-azure-tools-debug-cloud-services-virtual-machines/IC718346.png)
 
-    ![Отладить процессы](./media/vs-azure-tools-debug-cloud-services-virtual-machines/IC690787.gif)
+1. To identify the processes to which the debugger is attached, open the Processes dialog box by, on the menu bar, choosing Debug, Windows, Processes. (Keyboard: Ctrl+Alt+Z)To detach a specific process, open its shortcut menu, and then select **Detach Process**. Or, locate the instance node in Server Explorer, find the process, open its shortcut menu, and then select **Detach Process**.
 
->[AZURE.WARNING] Во время удаленной отладки избегайте длинных остановок на точках останова. Azure обрабатывает процесс, остановленный дольше, чем на несколько минут, как не отвечающий на запросы, и прекращает направлять трафик в этот экземпляр. В случае остановки на слишком длительный срок msvsmon.exe отключается от процесса.
+    ![Debug Processes](./media/vs-azure-tools-debug-cloud-services-virtual-machines/IC690787.gif)
 
-Чтобы отключить отладчик от всех процессов в экземпляре или роли, откройте контекстное меню роли или экземпляра, для которых выполняется отладка, и выберите пункт **Отсоединить отладчик**.
+>[AZURE.WARNING] Avoid long stops at breakpoints when remote debugging. Azure treats a process that's stopped for longer than a few minutes as unresponsive and stops sending traffic to that instance. If you stop for too long, msvsmon.exe detaches from the process.
 
-## Ограничения удаленной отладки в Azure
+To detach the debugger from all processes in your instance or role, open the shortcut menu for the role or instance that you're debugging, and then select **Detach Debugger**.
 
-Начиная с пакета Azure SDK 2.3 удаленная отладка имеет следующие ограничения.
+## <a name="limitations-of-remote-debugging-in-azure"></a>Limitations of remote debugging in Azure
 
-- При включенной удаленной отладке нельзя опубликовать облачную службу, в которой любая роль содержит более 25 экземпляров.
+From Azure SDK 2.3, remote debugging has the following limitations.
 
-- Отладчик использует порты 30400–30424, 31400–31424 и 32400–32424. Если вы попытаетесь использовать любой из этих портов, то не сможете опубликовать службу, а в журнале действий для Azure появится одно из следующих сообщений об ошибке:
+- With remote debugging enabled, you can't publish a cloud service in which any role has more than 25 instances.
 
-    - Ошибка проверки CSCFG-файла на основе CSDEF-файла. Зарезервированный диапазон портов "диапазон" для конечной точки Microsoft.WindowsAzure.Plugins.RemoteDebugger.Connector роли "роль" перекрывается с уже заданным портом или диапазоном.
-    - Ошибка выделения. Повторите попытку позднее. Попытайтесь уменьшить размер ВМ или число экземпляров роли или попробуйте выполнить развертывание в другом регионе.
+- The debugger uses ports 30400 to 30424, 31400 to 31424 and 32400 to 32424. If you try to use any of these ports, you won't be able to publish your service, and one of the following error messages will appear in the activity log for Azure: 
 
+    - Error validating the .cscfg file against the .csdef file. 
+    The reserved port range 'range' for endpoint Microsoft.WindowsAzure.Plugins.RemoteDebugger.Connector of role 'role' overlaps with an already defined port or range.
+    - Allocation failed. Please retry later, try reducing the VM size or number of role instances, or try deploying to a different region.
 
-## Отладка виртуальных машин Azure
 
-Вы можете выполнять отладку программ, выполняемых на виртуальных машинах Azure, с помощью обозревателя серверов в Visual Studio. При включении удаленной отладки на виртуальной машине Azure среда Azure устанавливает в виртуальной машине расширение удаленной отладки. После этого вы можете подключиться к процессам на виртуальной машине и выполнить отладку обычным образом.
+## <a name="debugging-azure-virtual-machines"></a>Debugging Azure virtual machines
 
->[AZURE.NOTE] Виртуальные машины, созданные через стек диспетчера ресурсов Azure, можно отлаживать удаленно с помощью Cloud Explorer в Visual Studio 2015. Дополнительные сведения см. в статье [Управление ресурсами Azure с помощью Cloud Explorer](http://go.microsoft.com/fwlink/?LinkId=623031).
+You can debug programs that run on Azure virtual machines by using Server Explorer in Visual Studio. When you enable remote debugging on an Azure virtual machine, Azure installs the remote debugging extension on the virtual machine. Then, you can attach to processes on the virtual machine and debug as you normally would.
 
-### Порядок отладки виртуальной машины Azure
+>[AZURE.NOTE] Virtual machines created through the Azure resource manager stack can be remotely debugged by using Cloud Explorer in Visual Studio 2015. For more information, see [Managing Azure Resources with Cloud Explorer](http://go.microsoft.com/fwlink/?LinkId=623031).
 
-1. В обозревателе серверов разверните узел "Виртуальные машины" и выберите узел той виртуальной машины, для которой необходимо выполнить отладку.
+### <a name="to-debug-an-azure-virtual-machine"></a>To debug an Azure virtual machine
 
-1. Откройте контекстное меню и выберите пункт **Включить отладку**. Когда появится запрос о подтверждении включения отладки на виртуальной машине, нажмите кнопку **Да**.
+1. In Server Explorer, expand the Virtual Machines node and select the node of the virtual machine that you want to debug.
 
-    Azure установит расширение для удаленной отладки на виртуальную машину, что позволит выполнять отладку.
+1. Open the context menu and select **Enable Debugging**. When asked if you're sure if you want to enable debugging on the virtual machine, select **Yes**.
 
-    ![Команда включения отладки в виртуальной машине](./media/vs-azure-tools-debug-cloud-services-virtual-machines/IC746720.png)
+    Azure installs the remote debugging extension on the virtual machine to enable debugging.
 
-    ![Журнал действий Azure](./media/vs-azure-tools-debug-cloud-services-virtual-machines/IC746721.png)
+    ![Virtual machine enable debugging command](./media/vs-azure-tools-debug-cloud-services-virtual-machines/IC746720.png)
 
-1. По окончании установки расширения для удаленной отладки откройте контекстное меню виртуальной машины и выберите пункт **Присоединить отладчик...**
+    ![Azure activity log](./media/vs-azure-tools-debug-cloud-services-virtual-machines/IC746721.png)
 
-    Azure получит список процессов на виртуальной машине и покажет их в окне «Присоединение к процессу».
+1. After the remote debugging extension finishes installing, open the virtual machine's context menu and select **Attach Debugger...**
 
-    ![Команда подключения отладчика](./media/vs-azure-tools-debug-cloud-services-virtual-machines/IC746722.png)
+    Azure gets a list of the processes on the virtual machine and shows them in the Attach to Process dialog box.
 
-1. В диалоговом окне **Присоединение к процессу** нажмите кнопку **Выбрать** и выберите только те типы кода, для которых требуется отладка. Вы можете осуществлять отладку 32- или 64-разрядного управляемого и/или машинного кода.
+    ![Attach debugger command](./media/vs-azure-tools-debug-cloud-services-virtual-machines/IC746722.png)
 
-    ![Диалоговое окно "Выбор типа кода"](./media/vs-azure-tools-debug-cloud-services-virtual-machines/IC718346.png)
+1. In the **Attach to Process** dialog box, select **Select** to limit the results list to show only the types of code you want to debug. You can debug 32- or 64-bit managed code, native code, or both.
 
-1. Выберите процессы, которые необходимо отладить на виртуальной машине, и нажмите кнопку **Присоединить**. Например, можно выбрать процесс w3wp.exe, если требуется выполнить отладку веб-приложения на виртуальной машине. Дополнительные сведения см. в статьях [Отладка одного или нескольких процессов в Visual Studio](https://msdn.microsoft.com/library/jj919165.aspx) и [Архитектура ролей Azure](http://blogs.msdn.com/b/kwill/archive/2011/05/05/windows-azure-role-architecture.aspx).
+    ![Select code type dialog box](./media/vs-azure-tools-debug-cloud-services-virtual-machines/IC718346.png)
 
-## Создание веб-проекта и виртуальной машины для отладки
+1. Select the processes you want to debug on the virtual machine and then select **Attach**. For example, you might choose the w3wp.exe process if you wanted to debug a web app on the virtual machine. See [Debug One or More Processes in Visual Studio](https://msdn.microsoft.com/library/jj919165.aspx) and [Azure Role Architecture](http://blogs.msdn.com/b/kwill/archive/2011/05/05/windows-azure-role-architecture.aspx) for more information.
 
-Перед публикацией проекта Azure может оказаться удобным протестировать его в автономной среде, которая поддерживает сценарии отладки и тестирования и где можно установить программы для тестирования и мониторинга. Одним из способов сделать это является удаленная отладка приложения на виртуальной машине.
+## <a name="create-a-web-project-and-a-virtual-machine-for-debugging"></a>Create a web project and a virtual machine for debugging
 
-Проекты Visual Studio ASP.NET позволяют создать удобную виртуальную машину, которую можно использовать для тестирования приложений. Эта виртуальная машина включает в себя часто используемые конечные точки, такие как PowerShell, удаленный рабочий стол и WebDeploy.
+Before publishing your Azure project, you might find it useful to test it in a contained environment that supports debugging and testing scenarios, and where you can install testing and monitoring programs. One way to do this is to remotely debug your app on a virtual machine.
 
-### Порядок создания веб-проекта и виртуальной машины для отладки
+Visual Studio ASP.NET projects offer an option to create a handy virtual machine that you can use for app testing. The virtual machine includes commonly-needed endpoints such as PowerShell, remote desktop, and WebDeploy.
 
-1. Создайте в Visual Studio новое веб-приложение ASP.NET.
+### <a name="to-create-a-web-project-and-a-virtual-machine-for-debugging"></a>To create a web project and a virtual machine for debugging
 
-1. В диалоговом окне «Новый проект ASP.NET» в разделе Azure выберите в раскрывающемся списке пункт **Виртуальная машина**. Оставьте флажок **Создать удаленные ресурсы** установленным. Нажмите кнопку **ОК**, чтобы продолжить.
+1. In Visual Studio, create a new ASP.NET Web Application.
 
-    Откроется диалоговое окно **Создание виртуальной машины в Azure**.
+1. In the New ASP.NET Project dialog, in the Azure section, choose **Virtual Machine** in the dropdown list box. Leave the **Create remote resources** check box selected. Select **OK** to proceed.
 
+    The **Create virtual machine on Azure** dialog box appears.
 
-    ![Диалоговое окно "Создать веб-проект ASP.NET"](./media/vs-azure-tools-debug-cloud-services-virtual-machines/IC746723.png)
 
-    **Примечание**. Если вы еще не выполнили вход, появится запрос войти в вашу учетную запись Azure.
+    ![Create ASP.NET web project dialog box](./media/vs-azure-tools-debug-cloud-services-virtual-machines/IC746723.png)
 
-1. Выберите параметры для виртуальной машины, а затем нажмите кнопку **ОК**. Дополнительные сведения см. в статье [Виртуальные машины](http://go.microsoft.com/fwlink/?LinkId=623033).
+    **Note:** You'll be asked to sign in to your Azure account if you're not already signed in.
 
-    Имя, которое вы указали в поле DNS-имени, будет использоваться как имя виртуальной машины.
+1. Select the various settings for the virtual machine and then select **OK**. See [Virtual Machines]( http://go.microsoft.com/fwlink/?LinkId=623033) for more information.
 
-    ![Диалоговое окно "Создать виртуальную машину"](./media/vs-azure-tools-debug-cloud-services-virtual-machines/IC746724.png)
+    The name you enter for DNS name will be the name of the virtual machine. 
 
-    Azure создает виртуальную машину, а также подготавливает и настраивает конечные точки, такие как удаленный рабочий стол и веб-развертывание.
+    ![Create virtual machine on Azure dialog box](./media/vs-azure-tools-debug-cloud-services-virtual-machines/IC746724.png)
 
+    Azure creates the virtual machine and then provisions and configures the endpoints, such as Remote Desktop and Web Deploy
 
 
-1. После окончательной настройки виртуальной машины выберите ее узел в обозревателе серверов.
 
-1. Откройте контекстное меню и выберите пункт **Включить отладку**. Когда появится запрос о подтверждении включения отладки на виртуальной машине, нажмите кнопку **Да**.
+1. After the virtual machine is fully configured, select the virtual machine’s node in Server Explorer.
 
-    Azure устанавливает расширение удаленной отладки в виртуальной машине для включения отладки.
+1. Open the context menu and select **Enable Debugging**. When asked if you're sure if you want to enable debugging on the virtual machine, select **Yes**. 
 
-    ![Команда включения отладки в виртуальной машине](./media/vs-azure-tools-debug-cloud-services-virtual-machines/IC746720.png)
+    Azure installs the remote debugging extension to the virtual machine to enable debugging.
 
-    ![Журнал действий Azure](./media/vs-azure-tools-debug-cloud-services-virtual-machines/IC746721.png)
+    ![Virtual machine enable debugging command](./media/vs-azure-tools-debug-cloud-services-virtual-machines/IC746720.png)
 
-1. Опубликуйте проект в соответствии с инструкциями из статьи [Развертывание веб-проекта с помощью публикации одним щелчком в Visual Studio](https://msdn.microsoft.com/library/dd465337.aspx). Поскольку вы хотите осуществлять отладку на виртуальной машине, в мастере **Публикация веб-сайта** на странице **Параметры** выберите конфигурацию **Отладка**. Это позволяет просматривать символы кода во время отладки.
+    ![Azure activity log](./media/vs-azure-tools-debug-cloud-services-virtual-machines/IC746721.png)
 
-    ![Параметры публикации](./media/vs-azure-tools-debug-cloud-services-virtual-machines/IC718349.png)
+1. Publish your project as outlined in [How to: Deploy a Web Project Using One-Click Publish in Visual Studio](https://msdn.microsoft.com/library/dd465337.aspx). Because you want to debug on the virtual machine, on the **Settings** page of the **Publish Web** wizard, select **Debug** as the configuration. This makes sure that code symbols are available while debugging.
 
-1. В разделе **Параметры публикации файлов** установите флажок **Удалить дополнительные файлы в месте назначения**, если проект был развернут ранее.
+    ![Publish settings](./media/vs-azure-tools-debug-cloud-services-virtual-machines/IC718349.png)
 
-1. Когда проект опубликуется, в обозревателе сервера в контекстном меню виртуальной машины выберите **Присоединить отладчик...**
+1. In the **File Publish Options**, select **Remove additional files at destination** if the project was already deployed at an earlier time.
 
-    Azure получит список процессов на виртуальной машине и покажет их в окне «Присоединение к процессу».
+1. After the project publishes, on the virtual machine's context menu in Server Explorer, select **Attach Debugger...**
 
-    ![Команда подключения отладчика](./media/vs-azure-tools-debug-cloud-services-virtual-machines/IC746722.png)
+    Azure gets a list of the processes on the virtual machine and shows them in the Attach to Process dialog box.
 
-1. В диалоговом окне **Присоединение к процессу** нажмите кнопку **Выбрать** и выберите только те типы кода, для которых требуется отладка. Вы можете осуществлять отладку 32- или 64-разрядного управляемого и/или машинного кода.
+    ![Attach debugger command](./media/vs-azure-tools-debug-cloud-services-virtual-machines/IC746722.png)
 
-    ![Диалоговое окно "Выбор типа кода"](./media/vs-azure-tools-debug-cloud-services-virtual-machines/IC718346.png)
+1. In the **Attach to Process** dialog box, select **Select** to limit the results list to show only the types of code you want to debug. You can debug 32- or 64-bit managed code, native code, or both.
 
-1. Выберите процессы, которые необходимо отладить на виртуальной машине, и нажмите кнопку **Присоединить**. Например, можно выбрать процесс w3wp.exe, если требуется выполнить отладку веб-приложения на виртуальной машине. Дополнительные сведения см. в статье [Отладка одного или нескольких процессов в Visual Studio](https://msdn.microsoft.com/library/jj919165.aspx).
+    ![Select code type dialog box](./media/vs-azure-tools-debug-cloud-services-virtual-machines/IC718346.png)
 
-## Дальнейшие действия
+1. Select the processes you want to debug on the virtual machine and then select **Attach**. For example, you might choose the w3wp.exe process if you wanted to debug a web app on the virtual machine. See [Debug One or More Processes in Visual Studio](https://msdn.microsoft.com/library/jj919165.aspx) for more information.
 
-- Используйте **Intellitrace** для сбора журнала вызовов и событий с сервера выпуска. См. статью [Отладка опубликованной облачной службы с помощью IntelliTrace и Visual Studio](http://go.microsoft.com/fwlink/?LinkID=623016).
-- Используйте **систему диагностики Azure** для регистрации подробных сведений из кода, выполняющегося в ролях, независимо от того, запущены ли эти роли в среде разработки или в Azure. См. статью [Сбор данных журналов с помощью средств диагностики Azure](http://go.microsoft.com/fwlink/p/?LinkId=400450).
+## <a name="next-steps"></a>Next steps
 
-<!---HONumber=AcomDC_0817_2016-->
+- Use **Intellitrace** to collect a log of calls and events from a release server. See [Debugging a Published Cloud Service with IntelliTrace and Visual Studio](http://go.microsoft.com/fwlink/?LinkID=623016).
+- Use **Azure Diagnostics** to log detailed information from code running within roles, whether the roles are running in the development environment or in Azure. See [Collecting logging data by using Azure Diagnostics](http://go.microsoft.com/fwlink/p/?LinkId=400450).
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

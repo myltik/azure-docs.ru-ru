@@ -1,6 +1,6 @@
 <properties
- pageTitle="Создание головного узла пакета HPC в виртуальной машине Azure | Microsoft Azure"
- description="Узнайте, как использовать портал Azure и модель развертывания диспетчера ресурсов для создания головного узла пакета Microsoft HPC на виртуальной машине Azure."
+ pageTitle="Create an HPC Pack head node in an Azure VM | Microsoft Azure"
+ description="Learn how to use the Azure portal and the Resource Manager deployment model to create a Microsoft HPC Pack head node in an Azure VM."
  services="virtual-machines-windows"
  documentationCenter=""
  authors="dlepow"
@@ -16,76 +16,81 @@ ms.service="virtual-machines-windows"
  ms.date="08/17/2016"
  ms.author="danlep"/>
 
-# Создание головного узла кластера пакета HPC на виртуальной машине Azure с помощью образа Marketplace
+
+# <a name="create-the-head-node-of-an-hpc-pack-cluster-in-an-azure-vm-with-a-marketplace-image"></a>Create the head node of an HPC Pack cluster in an Azure VM with a Marketplace image
 
 
-Для создания головного узла кластера HPC с помощью портала Azure используйте [образ виртуальной машины пакета Microsoft HPC](https://azure.microsoft.com/marketplace/partners/microsoft/hpcpack2012r2onwindowsserver2012r2/) из Azure Marketplace. Этот образ виртуальной машины пакета HPC основан на ОС Windows Server 2012 R2 Datacenter с предустановленным пакетом HPC 2012 R2 с обновлением 3. Используйте этот головной узел для экспериментального развертывания пакета HPC в Azure. Затем можно добавить к кластеру вычислительные узлы для запуска рабочих нагрузок HPC.
+Use a [Microsoft HPC Pack virtual machine image](https://azure.microsoft.com/marketplace/partners/microsoft/hpcpack2012r2onwindowsserver2012r2/) from the Azure Marketplace and the Azure portal to create the head node of an HPC cluster. This HPC Pack VM image is based on Windows Server 2012 R2 Datacenter with HPC Pack 2012 R2 Update 3 pre-installed. Use this head node for a proof of concept deployment of HPC Pack in Azure. You can then add compute nodes to the cluster to run HPC workloads.
 
 
 
->[AZURE.TIP]Чтобы развернуть в Azure полный кластер пакета HPC, который включает в себя головной узел и вычислительные узлы, рекомендуется использовать автоматизированный метод. Для этого можно использовать [сценарий развертывания IaaS пакета HPC](virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md) и шаблон Resource Manager [кластера пакета HPC для рабочих нагрузок Windows](https://azure.microsoft.com/marketplace/partners/microsofthpc/newclusterwindowscn/). В разделе [параметров кластера пакета HPC в Azure](virtual-machines-windows-hpcpack-cluster-options.md) можно найти дополнительные шаблоны.
+>[AZURE.TIP]To deploy a complete HPC Pack cluster in Azure that includes the head node and compute nodes, we recommend that you use an automated method. Options include the [HPC Pack IaaS deployment script](virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md) and the [HPC Pack cluster for Windows workloads](https://azure.microsoft.com/marketplace/partners/microsofthpc/newclusterwindowscn/) Resource Manager template. See [HPC Pack cluster options in Azure](virtual-machines-windows-hpcpack-cluster-options.md) for additional templates. 
 
 
-## Рекомендации относительно планирования
+## <a name="planning-considerations"></a>Planning considerations
 
-Как показано на следующей схеме, головной узел должен кластера пакета HPC быть развернут в домене Active Directory в виртуальной сети Azure.
+As shown in the following figure, you deploy the HPC Pack head node in an Active Directory domain in an Azure virtual network.
 
-![Головной узел пакета HPC][headnode]
+![HPC Pack head node][headnode]
 
-* **Домен Active Directory** — перед запуском служб HPC головной узел пакета HPC должен быть присоединен к домену Active Directory в Azure на виртуальной машине. Как показано в этой статье, для экспериментального развертывания перед запуском служб HPC можно повысить уровень виртуальной машины, создаваемой для головного узла, до контроллера домена. Другой вариант — развертывание отдельного контроллера домена и леса в Azure, к которому можно присоединить виртуальную машину головного узла.
+* **Active Directory domain** - The HPC Pack head node must be joined to an Active Directory domain in Azure before you start the HPC services on the VM. As shown in this article, for a proof of concept deployment, you can promote the VM you create for the head node as a domain controller before starting the HPC services. Another option is to deploy a separate domain controller and forest in Azure to which you join the head node VM.
 
-* **Виртуальная сеть Azure** — при использовании модели развертывания с помощью Resource Manager для развертывания головного узла следует указать или создать виртуальную сеть Azure. Виртуальная сеть используется в том случае, если необходимо присоединить головной узел к существующему домену Active Directory. Кроме того, она потребуются позднее для добавления виртуальных машин вычислительных узлов в кластер.
+* **Azure virtual network** - When you use the Resource Manager deployment model to deploy the head node, you specify or create an Azure virtual network. You use the virtual network if you need to join the head node to an existing Active Directory domain. You also need it later to add compute node VMs to the cluster.
 
     
-## Шаги по созданию головного узла
+## <a name="steps-to-create-the-head-node"></a>Steps to create the head node
 
-Ниже в общих чертах описывается, как с помощью портала Azure создать виртуальную машину Azure для головного узла пакета HPC, используя модель развертывания с помощью Resource Manager.
+Following are high-level steps to use the Azure portal to create an Azure VM for the HPC Pack head node by using the Resource Manager deployment model. 
 
 
-1. Если вы хотите создать новый лес Active Directory в Azure с отдельными виртуальными машинами контроллера домена, одним из вариантов является использование [шаблона Resource Manager](https://azure.microsoft.com/documentation/templates/active-directory-new-domain-ha-2-dc/). Для простого подтверждающего концепцию развертывания этот шаг можно пропустить и настроить саму виртуальную машину головного узла в качестве контроллера домена. Этот вариант описан далее в этой статье.
+1. If you want to create a new Active Directory forest in Azure with separate domain controller VMs, one option is to use a [Resource Manager template](https://azure.microsoft.com/documentation/templates/active-directory-new-domain-ha-2-dc/). For a simple proof of concept deployment, it's fine to omit this step and configure the head node VM itself as a domain controller. This option is described later in this article.
     
-2. На странице [HPC Pack 2012 R2 on Windows Server 2012 R2](https://azure.microsoft.com/marketplace/partners/microsoft/hpcpack2012r2onwindowsserver2012r2/) (Пакет HPC 2012 R2 на основе Windows Server 2012 R2) в Azure Marketplace щелкните **Создать виртуальную машину**.
+2. On the [HPC Pack 2012 R2 on Windows Server 2012 R2 page](https://azure.microsoft.com/marketplace/partners/microsoft/hpcpack2012r2onwindowsserver2012r2/) in the Azure Marketplace, click **Create Virtual Machine**. 
 
-3. На портале на странице **HPC Pack 2012 R2 on Windows Server 2012 R2** (Пакет HPC 2012 R2 на основе Windows Server 2012 R2) выберите модель развертывания **Resource Manager**, а затем нажмите кнопку **Создать**.
+3. In the portal, on the **HPC Pack 2012 R2 on Windows Server 2012 R2** page, select the **Resource Manager** deployment model and then click **Create**.
 
-    ![Образ пакета HPC][marketplace]
+    ![HPC Pack image][marketplace]
 
-4. Используйте портал для указания настроек и создания виртуальной машины. Если вы новичок в Azure, то ознакомьтесь с подробными инструкциями в учебнике [Создание виртуальной машины Windows на портале Azure](virtual-machines-windows-hero-tutorial.md). Для подтверждающего концепцию развертывания большинство параметров можно оставить без изменения, приняв значения по умолчанию или рекомендуемые значения.
+4. Use the portal to configure the settings and create the VM. If you're new to Azure, follow the tutorial [Create a Windows virtual machine in the Azure portal](virtual-machines-windows-hero-tutorial.md). For a proof of concept deployment, you can usually accept the default or recommended settings.
 
-    >[AZURE.NOTE]Если вы хотите присоединить головной узел к существующему домену Active Directory в Azure, то при создании виртуальной машины укажите виртуальную сеть для этого домена.
+    >[AZURE.NOTE]If you want to join the head node to an existing Active Directory domain in Azure, make sure you specify the virtual network for that domain when creating the VM.
        
-4. После создания и запуска виртуальной машины [подключитесь к ней](virtual-machines-windows-connect-logon.md) через удаленный рабочий стол.
+4. After you create the VM and the VM is running, [connect to the VM](virtual-machines-windows-connect-logon.md) by Remote Desktop. 
 
-5. Присоедините ее к существующему доменному лесу или создайте новый доменный лес на самой виртуальной машине.
+5. Join the VM to an existing domain forest, or create a domain forest on the VM itself.
 
-    * В случае, если виртуальная машина создана в виртуальной сети Azure с существующим доменным лесом, используйте стандартный диспетчер сервера или инструменты Windows PowerShell для присоединения виртуальной машины к лесу. Выполните перезапуск.
+    * If you created the VM in an Azure virtual network with an existing domain forest, join the VM to the forest by using standard Server Manager or Windows PowerShell tools. Then restart.
 
-    * Если вы создали виртуальную машину в новой виртуальной сети без доменного леса, повысьте эту виртуальную машину до контроллера домена. Следуйте стандартной процедуре установки и настройки роли доменных служб Active Directory на головном узле. Подробные инструкции см. в разделе [Установка нового леса Active Directory Windows Server 2012](https://technet.microsoft.com/library/jj574166.aspx).
+    * If you created the VM in a new virtual network (without an existing domain forest), then promote the VM as a domain controller. Use standard steps to install and configure the Active Directory Domain Services role on the head node. For detailed steps, see [Install a New Windows Server 2012 Active Directory Forest](https://technet.microsoft.com/library/jj574166.aspx).
 
-5. Когда виртуальная машина будет запущена и присоединена к лесу Active Directory, запустите службы пакета HPC, как показано ниже.
+5. After the VM is running and is joined to an Active Directory forest, start the HPC Pack services as follows:
 
-    а. Подключитесь к виртуальной машине головного узла, используя учетную запись домена, которая является участником локальной группы администраторов. Например, можно использовать учетную запись администратора, настроенную при создании виртуальной машины головного узла.
+    a. Connect to the head node VM using a domain account that is a member of the local Administrators group. For example, use the administrator account you set up when you created the head node VM.
 
-    b. Для использования конфигурации головного узла по умолчанию запустите Windows PowerShell от имени администратора и введите следующую команду:
+    b. For a default head node configuration, start Windows PowerShell as an administrator and type the following:
 
     ```
     & $env:CCP_HOME\bin\HPCHNPrepare.ps1 –DBServerInstance ".\ComputeCluster"
     ```
 
-    Запуск служб пакета HPC может занять несколько минут.
+    It can take several minutes for the HPC Pack services to start.
 
-    Для вывода сведений о дополнительных параметрах конфигурации головного узла введите `get-help HPCHNPrepare.ps1`.
+    For additional head node configuration options, type `get-help HPCHNPrepare.ps1`.
 
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Next steps
 
-* Теперь вы можете работать с головным узлом кластера пакета HPC. Например, запустите диспетчер кластеров HPC и завершите [список дел развертывания](https://technet.microsoft.com/library/jj884141.aspx).
-* Если требуется увеличивать вычислительную мощность кластера по запросу, добавьте [расширительные узлы Azure](virtual-machines-windows-classic-hpcpack-cluster-node-burst.md) в облачную службу.
+* You can now work with the head node of your HPC Pack cluster. For example, start HPC Cluster Manager, and complete the [Deployment To-do List](https://technet.microsoft.com/library/jj884141.aspx).
+* If you want to increase the cluster compute capacity on-demand, add [Azure burst nodes](virtual-machines-windows-classic-hpcpack-cluster-node-burst.md) in a cloud service. 
 
-* Попробуйте запустить рабочую нагрузку в кластере. См. пример в [руководстве по началу работы](https://technet.microsoft.com/library/jj884144) с пакетом HPC.
+* Try running a test workload on the cluster. For an example, see the HPC Pack [getting started guide](https://technet.microsoft.com/library/jj884144).
 
 <!--Image references-->
 [headnode]: ./media/virtual-machines-windows-hpcpack-cluster-headnode/headnode.png
 [marketplace]: ./media/virtual-machines-windows-hpcpack-cluster-headnode/marketplace.png
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

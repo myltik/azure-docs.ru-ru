@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Обновление приложения Service Fabric | Microsoft Azure"
-   description="Эта статья содержит вводные сведения об обновлении приложения Service Fabric, включая выбор режимов обновления и выполнение проверок работоспособности."
+   pageTitle="Service Fabric application upgrade | Microsoft Azure"
+   description="This article provides an introduction to upgrading a Service Fabric application, including choosing upgrade modes and performing health checks."
    services="service-fabric"
    documentationCenter=".net"
    authors="mani-ramaswamy"
@@ -17,57 +17,62 @@
    ms.author="subramar"/>
 
 
-# Обновление приложения Service Fabric
 
-Приложение Azure Service Fabric представляет собой коллекцию служб. Во время обновления структура служб сравнивает новый [манифест приложения](service-fabric-application-model.md#describe-an-application) с предыдущей версией и определяет, каким службам в приложении требуется обновление. Service Fabric сравнивает номера версий в манифестах служб с номерами версий для предыдущей версии. Если служба не была изменена, эта служба не обновляется.
+# <a name="service-fabric-application-upgrade"></a>Service Fabric application upgrade
 
-## Обзор последовательных обновлений
+An Azure Service Fabric application is a collection of services. During an upgrade, Service Fabric compares the new [application manifest](service-fabric-application-model.md#describe-an-application) with the previous version and determines which services in the application require updates. Service Fabric compares the version numbers in the service manifests with the version numbers in the previous version. If a service has not changed, that service is not upgraded.
 
-При последовательном обновлении приложения обновление выполняется поэтапно. На каждом этапе обновление применяется к определенному подмножеству узлов в кластере, который называется доменом обновления. В результате этого приложение остается доступным в течение всего времени обновления. Во время обновления в кластере может содержаться сочетание старых и новых версий приложения.
+## <a name="rolling-upgrades-overview"></a>Rolling upgrades overview
 
-По этой причине обе версии должны обладать прямой и обратной совместимостью. Если такая совместимость отсутствует, администратор приложения несет ответственность за поэтапное многофазное обновление для обеспечения доступности. При многоэтапном обновлении сначала выполняется обновление до промежуточной версии приложения, которая совместима с предыдущей версией. Затем выполняется обновление до окончательной версии, которая несовместима с версией, предшествующей обновлению, но совместима с промежуточной версией.
+In a rolling application upgrade, the upgrade is performed in stages. At each stage, the upgrade is applied to a subset of nodes in the cluster, called an update domain. As a result, the application remains available throughout the upgrade. During the upgrade, the cluster may contain a mix of the old and new versions.
 
-Домены обновления указываются в манифесте кластера при его настройке. Домены обновления не получают обновления в определенном порядке. Домен обновления представляет собой логическую единицу, в пределах которой развертывается то или иное приложение. Домены обновления позволяют сохранять высокий уровень доступности служб во время обновления.
+For that reason, the two versions must be forward and backward compatible. If they are not compatible, the application administrator is responsible for staging a multiple-phase upgrade to maintain availability. In a multiple-phase upgrade, the first step is upgrading to an intermediate version of the application that is compatible with the previous version. The second step is to upgrade the final version that breaks compatibility with the pre-update version, but is compatible with the intermediate version.
 
-Непоследовательные обновления возможны в том случае, если обновление применяется ко всем узлам кластера, что и происходит, если у приложения имеется только один домен обновления. Этот подход не рекомендуется, так как служба будет отключена и недоступна в течение процесса обновления. Кроме того, Azure не предоставляет никаких гарантий в случаях, когда кластер настраивается только с одним доменом обновления.
+Update domains are specified in the cluster manifest when you configure the cluster. Update domains do not receive updates in a particular order. An update domain is a logical unit of deployment for an application. Update domains allow the services to remain at high availability during an upgrade.
 
-## Проверки работоспособности во время обновления
+Non-rolling upgrades are possible if the upgrade is applied to all nodes in the cluster, which is the case when the application has only one update domain. This approach is not recommended, since the service goes down and isn't available at the time of upgrade. Additionally, Azure doesn't provide any guarantees when a cluster is set up with only one update domain.
 
-Для обновления необходимо настроить политики работоспособности (могут также использоваться значения по умолчанию). Обновление считается успешным, когда все домены обновления обновлены в пределах заданного времени ожидания, а все домены обновления считаются работоспособными. Работоспособное обновление домена означает, что обновленный домен прошел все проверки работоспособности, указанные в политике работоспособности. Например, политика работоспособности может подразумевать обязательную *работоспособность* всех служб в экземпляре приложения, так как работоспособность определяется Service Fabric.
+## <a name="health-checks-during-upgrades"></a>Health checks during upgrades
 
-Политики работоспособности и проверки во время обновлений средствами Service Fabric не опираются на службы и приложения. Это означает, что проверок, зависящих от конкретных служб, не выполняется. Например, службе может требоваться определенная пропускная способность, но в Service Fabric отсутствуют сведения для проверки пропускной способности. Сведения о выполняемых проверках см. в [статьях о работоспособности](service-fabric-health-introduction.md). Проверки, которые происходят во время обновления, включают проверки того, был ли пакет приложения скопирован правильно, был ли экземпляр запущен и т. д.
+For an upgrade, health policies have to be set (or default values may be used). An upgrade is termed successful when all update domains are upgraded within the specified time-outs, and when all update domains are deemed healthy.  A healthy update domain means that the update domain passed all the health checks specified in the health policy. For example, a health policy may mandate that all services within an application instance must be *healthy*, as health is defined by Service Fabric.
 
-Работоспособность приложения фактически представляет собой коллекцию дочерних сущностей приложения. Одним словом, Service Fabric выполняет оценку работоспособности приложения по данным о работоспособности, которые передает само приложение. Она также проверяет работоспособность всех служб приложения таким образом. Service Fabric выполняет дальнейшую проверку работоспособности служб приложения путем статистической обработки данных о работоспособности их дочерних элементов, таких как реплики служб. После того как политика работоспособности приложения удовлетворена, обновление продолжается. При нарушении политики работоспособности обновление приложения считается неудачным.
+Health policies and checks during upgrade by Service Fabric are service and application agnostic. That is, no service-specific tests are done.  For example, your service might have a throughput requirement, but Service Fabric does not have the information to check throughput. Refer to the [health articles](service-fabric-health-introduction.md) for the checks that are performed. The checks that happen during an upgrade include tests for whether the application package was copied correctly, whether the instance was started, and so on.
 
-## Режимы обновления
+The application health is an aggregation of the child entities of the application. In short, Service Fabric evaluates the health of the application through the health that is reported on the application. It also evaluates the health of all the services for the application this way. Service Fabric further evaluates the health of the application services by aggregating the health of their children, such as the service replica. Once the application health policy is satisfied, the upgrade can proceed. If the health policy is violated, the application upgrade fails.
 
-Мы рекомендуем использовать для обновления приложения отслеживаемый режим. Он используется наиболее часто. В отслеживаемом режиме обновление выполняется на одном домене обновления. При успешном разрешении всех проверок безопасности (в соответствии с заданной политикой) осуществляется автоматический переход к следующему домену обновления. Если проверки работоспособности завершаются ошибкой и (или) превышено время ожидания, то выполняется либо откат обновления для домена обновления, либо изменение режима на неотслеживаемый ручной. Вы можете настроить обновление, чтобы выбрать один из этих двух режимов для обновлений, завершенных ошибкой.
+## <a name="upgrade-modes"></a>Upgrade modes
 
-При использовании неотслеживаемого ручного режима после каждого обновления домена обновления потребуется вручную запустить обновление на следующем домене обновления. Проверок работоспособности Service Fabric не выполняется. Администратор проверяет работоспособность или состояние перед запуском обновления в следующем домене обновления.
+The mode that we recommend for application upgrade is the monitored mode, which is the commonly used mode. Monitored mode performs the upgrade on one update domain, and if all health checks pass (per the policy specified), moves on to the next update domain automatically.  If health checks fail and/or time-outs are reached, the upgrade is either rolled back for the update domain, or the mode is changed to unmonitored manual. You can configure the upgrade to choose one of those two modes for failed upgrades. 
 
-## Блок-схема обновления приложения
+Unmonitored manual mode needs manual intervention after every upgrade on an update domain, to kick off the upgrade on the next update domain. No Service Fabric health checks are performed. The administrator performs the health or status checks before starting the upgrade in the next update domain.
 
-Блок-схема, приведенная далее в этом абзаце, поможет понять процесс обновления приложения Service Fabric. В частности, она описывает, как параметры времени ожидания, в том числе *HealthCheckStableDuration*, *HealthCheckRetryTimeout* и *UpgradeHealthCheckInterval*, помогают управлять тем, при каких условиях обновление домена обновления считается успешным или неудачным.
+## <a name="application-upgrade-flowchart"></a>Application upgrade flowchart
 
-![Процесс обновления приложения структуры служб][image]
+The flowchart following this paragraph can help you understand the upgrade process of a Service Fabric application. In particular, the flow describes how the time-outs, including *HealthCheckStableDuration*, *HealthCheckRetryTimeout*, and *UpgradeHealthCheckInterval*, help control when the upgrade in one update domain is considered a success or a failure.
+
+![The upgrade process for a Service Fabric Application][image]
 
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Next steps
 
-[Руководство по обновлению приложений Service Fabric с помощью Visual Studio](service-fabric-application-upgrade-tutorial.md) поможет вам выполнить поэтапное обновление приложения с помощью Visual Studio.
+[Upgrading your Application Using Visual Studio](service-fabric-application-upgrade-tutorial.md) walks you through an application upgrade using Visual Studio.
 
-Пошаговое руководство [Обновление приложения с помощью PowerShell](service-fabric-application-upgrade-tutorial-powershell.md) поможет вам выполнить обновление приложения с помощью PowerShell.
+[Upgrading your Application Using Powershell](service-fabric-application-upgrade-tutorial-powershell.md) walks you through an application upgrade using PowerShell.
 
-Управление обновлениями приложения осуществляется с помощью [параметров обновления](service-fabric-application-upgrade-parameters.md).
+Control how your application upgrades by using [Upgrade Parameters](service-fabric-application-upgrade-parameters.md).
 
-Узнайте, как использовать [сериализацию данных](service-fabric-application-upgrade-data-serialization.md), чтобы обеспечить совместимость обновлений приложения.
+Make your application upgrades compatible by learning how to use [Data Serialization](service-fabric-application-upgrade-data-serialization.md).
 
-[Дополнительные разделы](service-fabric-application-upgrade-advanced.md) содержат сведения о работе с расширенными функциями при обновлении приложения.
+Learn how to use advanced functionality while upgrading your application by referring to [Advanced Topics](service-fabric-application-upgrade-advanced.md).
 
-Сведения об устранении распространенных проблем при обновлении приложений см. в разделе [Устранение неполадок обновления приложения](service-fabric-application-upgrade-troubleshooting.md).
+Fix common problems in application upgrades by referring to the steps in [Troubleshooting Application Upgrades](service-fabric-application-upgrade-troubleshooting.md).
  
 
 
 [image]: media/service-fabric-application-upgrade/service-fabric-application-upgrade-flowchart.png
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

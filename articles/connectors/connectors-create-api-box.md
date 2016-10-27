@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Добавление соединителя Box в приложения логики | Microsoft Azure"
-    description="Обзор соединителя Box с параметрами API REST"
+    pageTitle="Add the Box connector to your Logic Apps | Microsoft Azure"
+    description="Overview of the Box connector with REST API parameters"
     services=""
     documentationCenter="" 
     authors="MandiOhlinger"
@@ -17,246 +17,262 @@
    ms.date="08/18/2016"
    ms.author="mandia"/>
 
-# Начало работы с соединителем Box
-Подключение к Box позволяет создавать и удалять файлы, а также выполнять многие другие действия.
 
->[AZURE.NOTE] Эта версия статьи предназначена для приложений логики со схемой версии 2015-08-01-preview.
+# <a name="get-started-with-the-box-connector"></a>Get started with the Box connector
+Connect to Box and create files, delete files, and more. 
 
-С помощью Box можно:
+>[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version.
 
-- формировать бизнес-процессы на основе данных, получаемых из Box;
-- использовать триггеры при создании или обновлении файла;
-- использовать действия по копированию, удалению файлов и т. д. Эти действия получают ответ и делают выходные данные доступными для использования другими действиями. Например, при изменении файла в Box можно отправить измененный файл по электронной почте с помощью Office 365.
+With Box, you can:
 
-Сведения о добавлении операции в приложения логики см. в статье [Создание приложения логики](../app-service-logic/app-service-logic-create-a-logic-app.md).
+- Build your business flow based on the data you get from Box. 
+- Use triggers when a file is created or updated.
+- Use actions that copy a file, delete a file, and more. These actions get a response, and then make the output available for other actions. For example, when a file is changed on Box, you can take that file and email it using Office 365.
 
-## Триггеры и действия
-Box предоставляет следующие триггеры и действия.
+To add an operation in logic apps, see [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-| триггеры; | Действия|
+## <a name="triggers-and-actions"></a>Triggers and actions
+Box includes the following trigger and actions.
+
+| Triggers | Actions|
 | --- | --- |
-|<ul><li>При создании файла</li><li>При изменении файла</li></ul> | <ul><li>Создание файла</li><li>При создании файла</li><li>Копирование файла</li><li>Удаление файла</li><li>Извлечение архива в папку</li><li>Получение содержимого файла с помощью идентификатора</li><li>Получение содержимого файла с помощью пути</li><li>Получение метаданных файла с помощью идентификатора</li><li>Получение метаданных файла с помощью пути</li><li>Обновление файла</li><li>При изменении файла</li></ul>
+|<ul><li>When a file is created</li><li>When a file is modified</li></ul> | <ul><li>Create file</li><li>When a file is created</li><li>Copy file</li><li>Delete file</li><li>Extract archive to folder</li><li>Get file content using id</li><li>Get file content using path</li><li>Get file metadata using id</li><li>Get file metadata using path</li><li>Update file</li><li>When a file is modified</li></ul>
 
-Все соединители поддерживают данные в форматах JSON и XML.
+All connectors support data in JSON and XML formats.
 
-## Создание подключения к Box
-При добавлении соединителя в приложения логики эти приложения необходимо авторизовать для подключения к Box.
+## <a name="create-a-connection-to-box"></a>Create a connection to Box
+When you add this connector to your logic apps, you must authorize logic apps to connect to your Box.
 
->[AZURE.INCLUDE [Шаги по созданию подключения к Box](../../includes/connectors-create-api-box.md)]
+>[AZURE.INCLUDE [Steps to create a connection to box](../../includes/connectors-create-api-box.md)]
 
-После создания подключения нужно ввести свойства Box. Эти свойства описаны далее в **справочнике по REST API**.
+After you create the connection, you enter the Box properties. The **REST API reference** in this topic describes these properties.
 
->[AZURE.TIP] Это подключение к Box можно также использовать в других приложениях логики.
+>[AZURE.TIP] You can use this same Box connection in other logic apps.
 
-## Справочник по REST API Swagger
-Относится к версии 1.0.
+## <a name="swagger-rest-api-reference"></a>Swagger REST API reference
+Applies to version: 1.0.
 
-### Создание файла
-Передает файл в Box. ```POST: /datasets/default/files```
+### <a name="create-file"></a>Create file
+Uploads a file to Box.  
+```POST: /datasets/default/files```
 
-| Имя|Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
+| Name|Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|folderPath|string|Да|запрос|None |Путь к папке для отправки файла в Box|
-|name|string|Да|запрос|None |Имя файла, создаваемого в Box|
-|текст|string(binary) |Да|текст|None |Содержимое файла, отправляемого в Box|
+|folderPath|string|Yes|query|None |Folder path to upload the file to Box|
+|name|string|Yes|query|None |Name of the file to create in Box|
+|body|string(binary) |Yes|body|None |Content of the file to upload to Box|
 
-#### Ответ
-|Name (Имя)|Описание|
+#### <a name="response"></a>Response
+|Name|Description|
 |---|---|
-|200|ОК|
-|по умолчанию|Операция завершилась ошибкой.|
+|200|OK|
+|default|Operation Failed.|
 
 
-### При создании файла
-Активирует поток при создании файла в папке Box. ```GET: /datasets/default/triggers/onnewfile```
+### <a name="when-a-file-is-created"></a>When a file is created
+Triggers a flow when a new file is created in a Box folder.  
+```GET: /datasets/default/triggers/onnewfile```
 
-| Name (Имя)|Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
+| Name|Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|folderId|string|Да|запрос|None |Уникальный идентификатор папки в Box|
+|folderId|string|Yes|query|None |Unique identifier of the folder in Box|
 
-#### Ответ
-|Name (Имя)|Описание|
+#### <a name="response"></a>Response
+|Name|Description|
 |---|---|
-|200|ОК|
-|по умолчанию|Операция завершилась ошибкой.|
+|200|OK|
+|default|Operation Failed.|
 
 
-### Копирование файла
-Копирует файл в Box. ```POST: /datasets/default/copyFile```
+### <a name="copy-file"></a>Copy file
+Copies a file to Box.  
+```POST: /datasets/default/copyFile```
 
-| Имя|Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Description (Описание)|
+| Name|Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|источник|string|Да|запрос|None |URL-адрес исходного файла|
-|ресурс destination|string|Да|запрос| None|Путь к конечному файлу в Box, включая имя конечного файла|
-|перезаписать|Логическое|Нет|запрос| None|Перезаписывает конечный файл, если задано значение "true"|
+|source|string|Yes|query|None |Url to source file|
+|destination|string|Yes|query| None|Destination file path in Box, including target filename|
+|overwrite|boolean|No|query| None|Overwrites the destination file if set to 'true'|
 
-#### Ответ
-|Name (Имя)|Описание|
+#### <a name="response"></a>Response
+|Name|Description|
 |---|---|
-|200|ОК|
-|по умолчанию|Операция завершилась ошибкой.|
+|200|OK|
+|default|Operation Failed.|
 
 
-### Удаление файла
-Удаляет файл из Box. ```DELETE: /datasets/default/files/{id}```
+### <a name="delete-file"></a>Delete file
+Deletes a file from Box.  
+```DELETE: /datasets/default/files/{id}```
 
 
-| Имя|Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
+| Name|Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|id|string|Да|path|None |Уникальный идентификатор файла, удаляемого из Box|
+|id|string|Yes|path|None |Unique identifier of the file to delete from Box|
 
-#### Ответ
-|Имя|Описание|
+#### <a name="response"></a>Response
+|Name|Description|
 |---|---|
-|200|ОК|
-|по умолчанию|Операция завершилась ошибкой.|
+|200|OK|
+|default|Operation Failed.|
 
 
-### Извлечение архива в папку
-Извлекает файл архива в папку с помощью Box (например, ZIP-файл). ```POST: /datasets/default/extractFolderV2```
+### <a name="extract-archive-to-folder"></a>Extract archive to folder
+Extracts an archive file into a folder in Box (example: .zip).  
+```POST: /datasets/default/extractFolderV2```
 
-| Имя|Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Description (Описание)|
+| Name|Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|источник|string|Да|запрос| |Путь к файлу архива|
-|ресурс destination|string|Да|запрос| |Путь в Box для извлечения содержимого архива|
-|overwrite|Логическое|Нет|запрос| |Перезаписывает конечные файлы, если задано значение "true"|
+|source|string|Yes|query| |Path to the archive file|
+|destination|string|Yes|query| |Path in Box to extract the archive contents|
+|overwrite|boolean|No|query| |Overwrites the destination files if set to 'true'|
 
-#### Ответ
-|Имя|Описание|
+#### <a name="response"></a>Response
+|Name|Description|
 |---|---|
-|200|ОК|
-|по умолчанию|Операция завершилась ошибкой.|
+|200|OK|
+|default|Operation Failed.|
 
 
-### Получение содержимого файла с помощью идентификатора
-Получает содержимое файла из Box с помощью идентификатора. ```GET: /datasets/default/files/{id}/content```
+### <a name="get-file-content-using-id"></a>Get file content using id
+Retrieves file contents from Box using id.  
+```GET: /datasets/default/files/{id}/content```
 
-| Name (Имя)|Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
+| Name|Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|id|string|Да|path|None |Уникальный идентификатор файла в Box|
+|id|string|Yes|path|None |Unique identifier of the file in Box|
 
-#### Ответ
-|Name (Имя)|Описание|
+#### <a name="response"></a>Response
+|Name|Description|
 |---|---|
-|200|ОК|
-|по умолчанию|Операция завершилась ошибкой.|
+|200|OK|
+|default|Operation Failed.|
 
 
-### Получение содержимого файла с помощью пути
-Извлекает содержимое файла из Box с помощью пути. ```GET: /datasets/default/GetFileContentByPath```
+### <a name="get-file-content-using-path"></a>Get file content using path
+Retrieves file contents from Box using path.  
+```GET: /datasets/default/GetFileContentByPath```
 
-| Name (Имя)|Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
+| Name|Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|path|string|Да|запрос|None |Уникальный путь к файлу в Box|
+|path|string|Yes|query|None |Unique path to the file in Box|
 
-#### Ответ
-|Имя|Описание|
+#### <a name="response"></a>Response
+|Name|Description|
 |---|---|
-|200|ОК|
-|по умолчанию|Операция завершилась ошибкой.|
+|200|OK|
+|default|Operation Failed.|
 
 
-### Получение метаданных файла с помощью идентификатора
-Извлекает метаданные файла из Box с помощью идентификатора файла. ```GET: /datasets/default/files/{id}```
+### <a name="get-file-metadata-using-id"></a>Get file metadata using id
+Retrieves file metadata from Box using file id.  
+```GET: /datasets/default/files/{id}```
 
-| Имя|Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
+| Name|Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|id|string|Да|path| None|Уникальный идентификатор файла в Box|
+|id|string|Yes|path| None|Unique identifier of the file in Box|
 
-#### Ответ
-|Name (Имя)|Описание|
+#### <a name="response"></a>Response
+|Name|Description|
 |---|---|
-|200|ОК|
-|по умолчанию|Операция завершилась ошибкой.|
+|200|OK|
+|default|Operation Failed.|
 
 
-### Получение метаданных файла с помощью пути
-Извлекает метаданные файла из Box с помощью пути. ```GET: /datasets/default/GetFileByPath```
+### <a name="get-file-metadata-using-path"></a>Get file metadata using path
+Retrieves file metadata from Box using path.  
+```GET: /datasets/default/GetFileByPath```
 
-| Имя|Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
+| Name|Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|path|string|Да|запрос|None |Уникальный путь к файлу в Box|
+|path|string|Yes|query|None |Unique path to the file in Box|
 
-#### Ответ
-|Name (Имя)|Описание|
+#### <a name="response"></a>Response
+|Name|Description|
 |---|---|
-|200|ОК|
-|по умолчанию|Операция завершилась ошибкой.|
+|200|OK|
+|default|Operation Failed.|
 
 
-### Обновление файла
-Обновляет файл в Box. ```PUT: /datasets/default/files/{id}```
+### <a name="update-file"></a>Update file
+Updates a file in Box.  
+```PUT: /datasets/default/files/{id}```
 
-| Имя|Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
+| Name|Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|id|string|Да|path| None|Уникальный идентификатор файла, обновляемого в Box|
-|текст|string(binary) |Да|текст|None |Содержимое файла, обновляемого в Box|
+|id|string|Yes|path| None|Unique identifier of the file to update in Box|
+|body|string(binary) |Yes|body|None |Content of the file to update in Box|
 
-#### Ответ
-|Name (Имя)|Описание|
+#### <a name="response"></a>Response
+|Name|Description|
 |---|---|
-|200|ОК|
-|по умолчанию|Операция завершилась ошибкой.|
+|200|OK|
+|default|Operation Failed.|
 
 
-### При изменении файла
-Активирует поток при изменении файла в папке Box. ```GET: /datasets/default/triggers/onupdatedfile```
+### <a name="when-a-file-is-modified"></a>When a file is modified
+Triggers a flow when a file is modified in a Box folder.  
+```GET: /datasets/default/triggers/onupdatedfile```
 
-| Имя|Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Description (Описание)|
+| Name|Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|folderId|string|Да|запрос|None |Уникальный идентификатор папки в Box|
+|folderId|string|Yes|query|None |Unique identifier of the folder in Box|
 
-#### Ответ
-|Имя|Описание|
+#### <a name="response"></a>Response
+|Name|Description|
 |---|---|
-|200|ОК|
-|по умолчанию|Операция завершилась ошибкой.|
+|200|OK|
+|default|Operation Failed.|
 
 
-## Определения объектов
+## <a name="object-definitions"></a>Object definitions
 
-#### DataSetsMetadata
+#### <a name="datasetsmetadata"></a>DataSetsMetadata
 
-|Имя свойства | Тип данных | Обязательно|
+|Property Name | Data Type | Required|
 |---|---|---|
-|tabular|Не определен|Нет|
-|blob-объект|не определено|Нет|
+|tabular|not defined|no|
+|blob|not defined|no|
 
-#### TabularDataSetsMetadata
+#### <a name="tabulardatasetsmetadata"></a>TabularDataSetsMetadata
 
-|Имя свойства | Тип данных |Обязательно|
+|Property Name | Data Type |Required|
 |---|---|---|
-|источник|string|Нет|
-|displayName|string|Нет|
-|urlEncoding|string|Нет|
-|tableDisplayName|string|Нет|
-|tablePluralName|string|Нет|
+|source|string|no|
+|displayName|string|no|
+|urlEncoding|string|no|
+|tableDisplayName|string|no|
+|tablePluralName|string|no|
 
-#### BlobDataSetsMetadata
+#### <a name="blobdatasetsmetadata"></a>BlobDataSetsMetadata
 
-|Имя свойства | Тип данных |Обязательно|
+|Property Name | Data Type |Required|
 |---|---|---|
-|источник|string|Нет|
-|displayName|string|Нет|
-|urlEncoding|string|Нет|
+|source|string|no|
+|displayName|string|no|
+|urlEncoding|string|no|
 
-#### BlobMetadata
+#### <a name="blobmetadata"></a>BlobMetadata
 
-|Имя свойства | Тип данных |Обязательно|
+|Property Name | Data Type |Required|
 |---|---|---|
-|Идентификатор|string|Нет|
-|Name (Имя)|string|Нет|
-|DisplayName|string|Нет|
-|Путь|string|Нет|
-|LastModified|string|Нет|
-|Размер|целое число|Нет|
-|MediaType|string|Нет|
-|IsFolder|Логическое|Нет|
-|ETag|string|Нет|
-|FileLocator|string|Нет|
+|Id|string|no|
+|Name|string|no|
+|DisplayName|string|no|
+|Path|string|no|
+|LastModified|string|no|
+|Size|integer|no|
+|MediaType|string|no|
+|IsFolder|boolean|no|
+|ETag|string|no|
+|FileLocator|string|no|
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Next steps
 
-[Создайте приложение логики](../app-service-logic/app-service-logic-create-a-logic-app.md).
+[Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

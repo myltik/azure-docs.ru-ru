@@ -1,156 +1,160 @@
 <properties 
-	pageTitle="Запуск и остановка виртуальных машин — графические модули | Microsoft Azure"
-	description="Версия сценария службы автоматизации Azure с рабочим процессом PowerShell включает модули Runbook для запуска и остановки классических виртуальных машин."
-	services="automation"
-	documentationCenter=""
-	authors="mgoedtel"
-	manager="jwhit"
-	editor="tysonn" />
+    pageTitle="Starting and stopping virtual machines - Graph | Microsoft Azure"
+    description="PowerShell Workflow version of Azure Automation scenario including runbooks to start and stop classic virtual machines."
+    services="automation"
+    documentationCenter=""
+    authors="mgoedtel"
+    manager="jwhit"
+    editor="tysonn" />
 <tags 
-	ms.service="automation"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="07/06/2016"
-	ms.author="bwren" />
+    ms.service="automation"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="infrastructure-services"
+    ms.date="07/06/2016"
+    ms.author="bwren" />
 
-# Сценарий для службы автоматизации Azure: запуск и остановка виртуальных машин
 
-В этот сценарий для службы автоматизации Azure входят модули Runbook для запуска и остановки классических виртуальных машин. С этим сценарием вы можете:
+# <a name="azure-automation-scenario---starting-and-stopping-virtual-machines"></a>Azure Automation scenario - starting and stopping virtual machines
 
-- использовать модули Runbook без внесения изменений в свою рабочую среду;
-- реализовать дополнительные функциональные возможности посредством изменения модулей Runbook;
-- вызывать модули Runbook из другого модуля Runbook в рамках общего решения;
-- использовать модули Runbook в качестве учебников для ознакомления с основными концепциями создания таких модулей.
+This Azure Automation scenario includes runbooks to start and stop classic virtual machines.  You can use this scenario for any of the following:  
+
+- Use the runbooks without modification in your own environment. 
+- Modify the runbooks to perform customized functionality.  
+- Call the runbooks from another runbook as part of an overall solution. 
+- Use the runbooks as tutorials to learn runbook authoring concepts. 
 
 > [AZURE.SELECTOR]
-- [Графический](automation-solution-startstopvm-graphical.md)
-- [Рабочий процесс PowerShell](automation-solution-startstopvm-psworkflow.md)
+- [Graphical](automation-solution-startstopvm-graphical.md)
+- [PowerShell Workflow](automation-solution-startstopvm-psworkflow.md)
 
-Это версия сценария с графическим модулем Runbook. Доступно также решение с использованием [модулей Runbook рабочего процесса PowerShell](automation-solution-startstopvm-psworkflow.md).
+This is the graphical runbook version of this scenario. It is also available using [PowerShell Workflow runbooks](automation-solution-startstopvm-psworkflow.md).
 
-## Получение сценария
+## <a name="getting-the-scenario"></a>Getting the scenario
 
-Этот сценарий состоит из двух графических модулей Runbook, которые можно скачать по следующим ссылкам. Ссылки на модули Runnbook рабочего процесса PowerShell см. в разделе [Версия с рабочим процессом PowerShell](automation-solution-startstopvm-psworkflow.md) этого сценария.
+This scenario consists of two two graphical runbooks that you can download from the following links.  See the [PowerShell Workflow version](automation-solution-startstopvm-psworkflow.md) of this scenario for links to the PowerShell Workflow runbooks.
 
 
-| Модуль Runbook | Ссылка | Тип | Описание |
+| Runbook | Link | Type | Description |
 |:---|:---|:---|:---|
-| StartAzureClassicVM | [Запуск графического модуля Runbook классической виртуальной машины Azure](https://gallery.technet.microsoft.com/scriptcenter/Start-Azure-Classic-VM-c6067b3d) | Графический модуль | Запуск всех классических виртуальных машин в подписке Azure или всех виртуальных машин с определенным именем службы. |
-| StopAzureClassicVM | [Остановка графического модуля Runbook классической виртуальной машины Azure](https://gallery.technet.microsoft.com/scriptcenter/Stop-Azure-Classic-VM-397819bd) | Графический модуль | Остановка всех классических виртуальных машин в учетной записи службы автоматизации или всех виртуальных машин с определенным именем службы. |
+| StartAzureClassicVM | [Start Azure Classic VM Graphical Runbook](https://gallery.technet.microsoft.com/scriptcenter/Start-Azure-Classic-VM-c6067b3d) | Graphical | Starts all classic virtual machines in an Azure subscription or all virtual machines with a particular service name. |
+| StopAzureClassicVM | [Stop Azure Classic VM Graphical Runbook](https://gallery.technet.microsoft.com/scriptcenter/Stop-Azure-Classic-VM-397819bd) | Graphical | Stops all virtual machines in an automation account or all virtual machines with a particular service name.  |
 
 
-## Установка и настройка сценария
+## <a name="installing-and-configuring-the-scenario"></a>Installing and configuring the scenario
 
-### 1\. Установите модули Runbook.
+### <a name="1.-install-the-runbooks"></a>1. Install the runbooks
 
-После загрузки модулей Runbook вы можете импортировать их с помощью процедуры, описанной в статье [Процедуры графических модулей Runbook](automation-graphical-authoring-intro.md#graphical-runbook-procedures).
+After downloading the runbooks, you can import them using the procedure in [Graphical runbook procedures](automation-graphical-authoring-intro.md#graphical-runbook-procedures).
 
-### 2\. Просмотрите описание и требования
-Модуль Runbook включает действие с именем **Read Me**, содержащее описание и необходимые ресурсы. Чтобы просмотреть эти сведения, выберите действие **Read Me**, а затем параметр **Сценарий рабочего процесса**. Аналогичную информацию можно получить из этой статьи.
+### <a name="2.-review-the-description-and-requirements"></a>2. Review the description and requirements
+The runbooks include an activity called **Read Me** that includes a description and required assets.  You can view this information by selecting the **Read Me** activity and then the **Workflow Script** parameter.  You can also get the same information from this article. 
 
-### 3\. Настройка ресурсов
-Модулям Runbook требуются следующие ресурсы, которые необходимо создать и заполнить соответствующими значениями. Имена присваиваются по умолчанию. Чтобы использовать ресурсы с другими, при запуске модуля Runbook укажите эти имена во [входных параметрах](#using-the-runbooks).
+### <a name="3.-configure-assets"></a>3. Configure assets
+The runbooks require the following assets that you must create and populate with appropriate values.  The names are default.  You can use assets with different names if you specify those names in the [input parameters](#using-the-runbooks) when you start the runbook.
 
-| Тип ресурса | Имя по умолчанию | Описание |
+| Asset Type | Default Name | Description |
 |:---|:---|:---|:---|
-| [Учетные данные](automation-credentials.md) | AzureCredential | Содержит учетные данные для учетной записи, имеющей полномочия для запуска и остановки виртуальных машин в подписке Azure. |
-| [Переменная](automation-variables.md) | AzureSubscriptionId | Содержит идентификатор вашей подписки Azure. |
+| [Credential](automation-credentials.md) | AzureCredential | Contains credentials for an account that has authority to start and stop virtual machines in the Azure subscription.  |
+| [Variable](automation-variables.md) | AzureSubscriptionId | Contains the subscription ID of your Azure subscription. |
 
-## Использование сценария
+## <a name="using-the-scenario"></a>Using the scenario
 
-### Параметры
+### <a name="parameters"></a>Parameters
 
-Модули Runbooks имеют следующие [входные параметры](automation-starting-a-runbook.md#runbook-parameters). Вам потребуется указать значения всех обязательных параметров и, при необходимости, указать значения дополнительных параметров.
+The runbooks each have the following [input parameters](automation-starting-a-runbook.md#runbook-parameters).  You must provide values for any mandatory parameters and can optionally provide values for other parameters depending on your requirements.
 
-| Параметр | Тип | Обязательно | Описание |
+| Parameter | Type | Mandatory | Description |
 |:---|:---|:---|:---|
-| ServiceName | string | Нет | Если значение указано, запускаются или останавливаются все виртуальные машины с таким именем службы. Если значение не указано, запускаются или останавливаются все классические виртуальные машины в подписке Azure. |
-| AzureSubscriptionIdAssetName | string | Нет | Содержит имя [ресурса переменной](#installing-and-configuring-the-scenario), в котором указан идентификатор вашей подписки Azure. Если значение не указано, используется значение *AzureSubscriptionId*. |
-| AzureCredentialAssetName | string | Нет | Содержит имя [ресурса учетных данных](#installing-and-configuring-the-scenario), в котором указаны учетные данные используемого модуля Runbook. Если не указать это значение, будет использоваться значение *AzureCredential*. |
+| ServiceName | string | No | If a value is provided, then all virtual machines with that service name are started or stopped.  If no value is provided, then all classic virtual machines in the Azure subscription are started or stopped. |
+| AzureSubscriptionIdAssetName | string | No | Contains the name of the [variable asset](#installing-and-configuring-the-scenario) that contains the subscription ID of your Azure subscription.  If you don't specify a value, *AzureSubscriptionId* is used.  |
+| AzureCredentialAssetName | string | No | Contains the name of the [credential asset](#installing-and-configuring-the-scenario) that contains the credentials for the runbook to use.  If you don't specify a value, *AzureCredential* is used.  |
 
-### Запуск модулей Runbook
+### <a name="starting-the-runbooks"></a>Starting the runbooks
 
-Для запуска упомянутых в этой статье модулей Runbook можно использовать любой из методов, описанных в статье [Запуск модуля Runbook в службе автоматизации Azure](automation-starting-a-runbook.md).
+You can use any of the methods in [Starting a runbook in Azure Automation](automation-starting-a-runbook.md) to start either of the runbooks in this article.
 
-Приведенные ниже команды использует Windows PowerShell для запуска модуля **StartAzureClassicVM**, который запускает все виртуальные машины с именем службы *MyVMService*.
+The following sample commands uses Windows PowerShell to run **StartAzureClassicVM** to start all virtual machines with the service name *MyVMService*.
 
-	$params = @{"ServiceName"="MyVMService"}
-	Start-AzureAutomationRunbook –AutomationAccountName "MyAutomationAccount" –Name "StartAzureClassicVM" –Parameters $params
+    $params = @{"ServiceName"="MyVMService"}
+    Start-AzureAutomationRunbook –AutomationAccountName "MyAutomationAccount" –Name "StartAzureClassicVM" –Parameters $params
 
-### Выходные данные
+### <a name="output"></a>Output
 
-При выполнении модулей выводятся [сообщения](automation-runbook-output-and-messages.md) для каждой виртуальной машины. Из них можно узнать о результатах инструкций запуска или остановки. Чтобы определить результат выполнения каждого модуля Runbook, найдите в выходных данных соответствующую строку. В следующей таблице перечислены возможные варианты выходных данных.
+The runbooks will [output a message](automation-runbook-output-and-messages.md) for each virtual machine indicating whether or not the start or stop instruction was successfully submitted.  You can look for a specific string in the output to determine the result for each runbook.  The possible output strings are listed in the following table.
 
-| Модуль Runbook | Условие | Сообщение |
+| Runbook | Condition | Message |
 |:---|:---|:---|
-| StartAzureClassicVM | Виртуальная машина уже запущена | MyVM is already running |
-| StartAzureClassicVM | Запрос запуска виртуальной машины успешно отправлен | MyVM запущена |
-| StartAzureClassicVM | Не удалось выполнить запрос запуска виртуальной машины | Не удалось запустить MyVM |
-| StopAzureClassicVM | Виртуальная машина уже запущена | MyVM уже остановлена |
-| StopAzureClassicVM | Запрос запуска виртуальной машины успешно отправлен | MyVM запущена |
-| StopAzureClassicVM | Не удалось выполнить запрос запуска виртуальной машины | Не удалось запустить MyVM |
+| StartAzureClassicVM | Virtual machine is already running  | MyVM is already running |
+| StartAzureClassicVM | Start request for virtual machine successfully submitted | MyVM has been started |
+| StartAzureClassicVM | Start request for virtual machine failed  | MyVM failed to start |
+| StopAzureClassicVM | Virtual machine is already running  | MyVM is already stopped |
+| StopAzureClassicVM | Start request for virtual machine successfully submitted | MyVM has been started |
+| StopAzureClassicVM | Start request for virtual machine failed  | MyVM failed to start |
 
 
-Ниже показано использование **StartAzureClassicVM** в качестве [дочернего модуля Runbook](automation-child-runbooks.md) в образце графического модуля Runbook. При этом используются условное ссылки, приведенные в следующей таблице.
+Following is an image of using the **StartAzureClassicVM** as a [child runbook](automation-child-runbooks.md) in a sample graphical runbook.  This uses the conditional links in the following table.
 
-| Ссылка | Критерии |
+| Link | Criteria |
 |:---|:---|
-| Рабочая ссылка | $ActivityOutput['StartAzureClassicVM'] -like "* запущена" |
-| Ошибочная ссылка | $ActivityOutput['StartAzureClassicVM'] -notlike "* запущена" |
+| Success link | $ActivityOutput['StartAzureClassicVM'] -like "\* has been started"    |
+| Error link   | $ActivityOutput['StartAzureClassicVM'] -notlike "\* has been started" |
 
-![Пример дочернего модуля Runbook](media/automation-solution-startstopvm/graphical-childrunbook-example.png)
+![Child runbook example](media/automation-solution-startstopvm/graphical-childrunbook-example.png)
 
 
-## Подробный разбор
+## <a name="detailed-breakdown"></a>Detailed breakdown
 
-Ниже приведен подробный разбор модулей Runbook из этого сценария. Вы можете использовать эти сведения для настройки модулей Runbook или просто для их изучения с целью создания собственных сценариев автоматизации.
+Following is a detailed breakdown of the runbooks in this scenario.  You can use this information to either customize the runbooks or just to learn from them for authoring your own automation scenarios.
  
 
-### Аутентификация
+### <a name="authentication"></a>Authentication
 
-![Аутентификация](media/automation-solution-startstopvm/graphical-authentication.png)
+![Authentication](media/automation-solution-startstopvm/graphical-authentication.png)
 
-После запуска модуль Runbook выполняет действия, устанавливающие [учетные данные](automation-configuring.md#configuring-authentication-to-azure-resources) и подписку Azure, которая будет использоваться для остальной части модуля Runbook.
+The runbook starts with activities to set the [credentials](automation-configuring.md#configuring-authentication-to-azure-resources) and Azure subscription that will be used for the rest of the runbook.
 
-Первые два действия **Get Subscription Id** (Получить идентификатор подписки) и **Get Azure Credential** (Получить учетные данные Azure), получают [ресурсы](#installing-the-runbook), которые используются в следующих двух действиях. Эти действия могут определять ресурсы напрямую, но для этого им нужны имена ресурсов. Поскольку мы позволяем пользователю указать эти имена во [входных параметрах](#using-the-runbooks), нужно сделать так, чтобы эти ресурсы извлекали ресурсы с именем, определенным входным параметром.
+The first two activities, **Get Subscription Id** and **Get Azure Credential**, retrieve the [assets](#installing-the-runbook) that are used by the next two activities.  Those activities could directly specify the assets, but they need the asset names.  Since we are allowing the user to specify those names in the [input parameters](#using-the-runbooks), we need these activities to retrieve the assets with a name specified by an input parameter.
 
-Командлет **Add-AzureAccount** определяет, какие учетные данные будут использоваться в остальной части модуля Runbook. Ресурс учетных данных, извлекаемый из модуля **Get Azure Credential** (Получить учетные данные Azure), должен иметь доступ для запуска и остановки виртуальных машин в подписке Azure. Используется подписка, выбранная командлетом **Select-AzureSubscription**, которая использует идентификатор подписки из метода **Get Subscription Id** (Получить идентификатор подписки).
+**Add-AzureAccount** sets the credentials that will be used for the rest of the runbook.  The credential asset that it retrieves from **Get Azure Credential** must have access to start and stop virtual machines in the Azure subscription.  The subscription that's used is selected by **Select-AzureSubscription** which uses the subscription Id from **Get Subscription Id**.
 
-### Получение виртуальных машин
+### <a name="get-virtual-machines"></a>Get virtual machines
 
-![Получение виртуальных машин](media/automation-solution-startstopvm/graphical-getvms.png)
+![Get VMs](media/automation-solution-startstopvm/graphical-getvms.png)
 
-Модуль Runbook должен определить, с какими виртуальными машинами он будет работать, а также запущены они или остановлены (в зависимости от модуля Runbook). Одно из двух действий извлечет виртуальные машины. Действие **Get VMs in Service** (Получить ВМ в службе) будет выполняться, если входной параметр *ServiceName* для модуля Runbook содержит значение. Действие **Get All VMs** (Получить все ВМ) будет выполняться, если входной параметр *ServiceName* для модуля Runbook не содержит значение. Эта логика выполняется с помощью условных связей, предшествующих каждому действию.
+The runbook needs to determine which virtual machines it will be working with and whether they are already started or stopped (depending on the runbook).   One of two activities will retrieve the VMs.  **Get VMs in Service** will run if the *ServiceName* input parameter for the runbook contains a value.  **Get All VMs** will run if the *ServiceName* input parameter for the runbook does not contain a value.  This logic is performed by the conditional links preceding each activity.
 
-Оба действия используют командлет **Get-AzureVM**. Действие **Get All VMs** (Получить все ВМ) использует набор параметров **ListAllVMs** для возврата всех виртуальных машин. В действии **Get VMs in Service** (Получить ВМ в службе) используется набор параметров **GetVMByServiceAndVMName** и предоставляет входной параметр **ServiceName** для параметра **ServiceName**.
+Both activities use the **Get-AzureVM** cmdlet.  **Get All VMs** uses the **ListAllVMs** parameter set to return all virtual machines.  **Get VMs in Service** uses the **GetVMByServiceAndVMName** parameter set and provides the **ServiceName** input parameter for the **ServiceName** parameter.  
 
-### Объединение виртуальных машин
+### <a name="merge-vms"></a>Merge VMs
 
-![Объединение виртуальных машин](media/automation-solution-startstopvm/graphical-mergevms.png)
+![Merge VMs](media/automation-solution-startstopvm/graphical-mergevms.png)
 
-Действие **Merge VMs** (Объединить ВМ) должно обеспечивать входные данные для действия **Start-AzureVM**, для запуска которого требуются имя и имя службы. Входные данные могут быть получены из действия **Get All VMs** (Получить все ВМ) или **Get VMs in Service** (Получить ВМ в службе), но **Start-AzureVM** позволяет указать в качестве источника только одно из этих действий.
+The **Merge VMs** activity is required to provide input to **Start-AzureVM** which needs the name and service name of the vm(s) to start.  That input could come from either **Get All VMs** or **Get VMs in Service**, but **Start-AzureVM** can only specify one activity for its input.   
 
-Сценарий заключается в создании действия **Merge VMs** (Объединить ВМ), которое выполняет командлет **Write-Output**. Параметром **InputObject** для этого командлета является выражение PowerShell, объединяющее выходные параметры двух предыдущих действий. Только одно из этих действий будет выполнено, так что результатом станет только один набор выходных файлов. Командлет **Start-AzureVM** может использовать его как входные параметры.
+The scenario is to create **Merge VMs** which runs the **Write-Output** cmdlet.  The **InputObject** parameter for that cmdlet is a PowerShell Expression that combines the input of the previous two activities.  Only one of those activities will run, so only one set of output is expected.  **Start-AzureVM** can use that output for its input parameters. 
 
-### Запуск и остановка виртуальных машин
+### <a name="start/stop-virtual-machines"></a>Start/Stop virtual machines
 
-![Запуск виртуальных машин](media/automation-solution-startstopvm/graphical-startvm.png) ![Остановка виртуальных машин](media/automation-solution-startstopvm/graphical-stopvm.png)
+![Start VMs](media/automation-solution-startstopvm/graphical-startvm.png) ![Stop VMs](media/automation-solution-startstopvm/graphical-stopvm.png)
 
-Дальнейшие действия попытаются запустить или остановить модуль Runbook с помощью командлета **Start-AzureVM** или **Stop-AzureVM** в зависимости от типа этого модуля. Поскольку действию предшествует конвейерная связь, оно будет выполнено по одному разу для каждого объекта, полученного из метода **Merge VMs** (Объединить ВМ). Эта связь условна, так что действие будет выполняться только в том случае, если параметр *RunningState* (Состояние выполнения) виртуальной машины имеет значение *Stopped* (Остановлена) для командлета **Start-AzureVM** или *Started* (Запущена) для командлета **Stop-AzureVM**. Если это условие не соблюдено, выполняется действие **Notify Already Started** (Сообщить, что уже запущена) или **Notify Already Stopped** (Сообщить, что уже остановлена), отправляющее сообщение с помощью команды **Write-Output** (Записать выходные данные).
+Depending on the runbook, the next activities attempt to start or stop the runbook using **Start-AzureVM** or **Stop-AzureVM**.  Since the activity is preceded by a pipeline link, it will run once for each object returned from **Merge VMs**.  The link is conditional so that the activity will only run if the *RunningState* of the virtual machine is *Stopped* for **Start-AzureVM** and *Started* for **Stop-AzureVM**. If this condition is not met, then **Notify Already Started** or **Notify Already Stopped** is run to send a message using **Write-Output**.
 
-### Передача выходных данных
+### <a name="send-output"></a>Send output
 
-![Сообщение о запуске ВМ](media/automation-solution-startstopvm/graphical-notifystart.png) ![Сообщение об остановке ВМ](media/automation-solution-startstopvm/graphical-notifystop.png)
+![Notify Start VMs](media/automation-solution-startstopvm/graphical-notifystart.png) ![Notify Stop VMs](media/automation-solution-startstopvm/graphical-notifystop.png)
 
-Последний шаг в модуле — это передача выходных данных об успешности выполнения запроса о запуске или остановке каждой виртуальной машины. Для каждой машины создается отдельное действие **Write-Output** (Записать выходные данные) и определяется, какая из них будет запущена с условными связями.После Действие **Notify VM Started** (Сообщить о запуске ВМ) или **Notify VM Stopped** (Сообщить об остановке ВМ), если параметр *OperationStatus* (Состояние операции) имеет значение *Succeeded* (Успешно). Если параметр *OperationStatus* (Состояние операции) имеет другое значение, выполняется действие **Notify Failed To Start** (Сообщить о сбое запуска) или **Notify Failed to Stop** (Сообщить о сбое остановки).
+The final step in the runbook is to send output whether the start or stop request for each virtual machine was successfully submitted. There is a separate **Write-Output** activity for each, and we determine which one to run with conditional links.  **Notify VM Started** or **Notify VM Stopped** is run if *OperationStatus* is *Succeeded*.  If *OperationStatus* is any other value, then **Notify Failed To Start** or **Notify Failed to Stop** is run.
 
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Next steps
 
-- [Графическая разработка в службе автоматизации Azure](automation-graphical-authoring-intro.md)
-- [Дочерние модули Runbook в службе автоматизации Azure](automation-child-runbooks.md)
-- [Выходные данные и сообщения Runbook в службе автоматизации Azure](automation-runbook-output-and-messages.md)
+- [Graphical authoring in Azure Automation](automation-graphical-authoring-intro.md)
+- [Child runbooks in Azure Automation](automation-child-runbooks.md) 
+- [Runbook output and messages in Azure Automation](automation-runbook-output-and-messages.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

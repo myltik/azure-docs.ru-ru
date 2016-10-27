@@ -1,7 +1,11 @@
-| | **Классическое развертывание** | **Развертывание диспетчера ресурсов** |
-|----------------------------------------|--------------|------------------------|
-| **Классический портал** | [Статья](../articles/vpn-gateway/vpn-gateway-point-to-site-create.md) | Не поддерживается |
-| **Портал Azure** | Поддерживаются | Не поддерживается |
-| **PowerShell** | Поддерживаются | [Статья](../articles/vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md)|
+|**Модель и метод развертывания**|**Портал Azure**| **Классический портал** | **PowerShell**|
+|-------------------------------------|-----------------|---------------------|---------------|
+|**Классический** |  [Статья](../articles/vpn-gateway/vpn-gateway-howto-point-to-site-classic-azure-portal.md)| [Статья](../articles/vpn-gateway/point-to-site-create.md)  | Поддерживаются |
+|**Диспетчер ресурсов** |Не поддерживается| Не поддерживается   | [Статья](../articles/vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md)  |
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

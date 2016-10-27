@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Общие сведения о терминологии Service Fabric | Microsoft Azure"
-   description="Общие сведения о терминологии Service Fabric. Обсуждаются ключевые понятия и термины, используемые в остальной части документации."
+   pageTitle="Service Fabric terminology overview | Microsoft Azure"
+   description="A terminology overview of Service Fabric. Discusses key terminology concepts and terms used in the rest of the documentation."
    services="service-fabric"
    documentationCenter=".net"
    authors="rwike77"
@@ -16,78 +16,83 @@
    ms.date="08/25/2016"
    ms.author="ryanwi"/>
 
-# Общие сведения о терминологии Service Fabric
 
-Service Fabric — это платформа распределенных систем, которая дает возможность не только легко упаковывать и развертывать масштабируемые и надежные микрослужбы, но и управлять ими. В этом разделе описана терминология Service Fabric, повсеместно используемая в документации.
+# <a name="service-fabric-terminology-overview"></a>Service Fabric terminology overview
 
-## Основные понятия для инфраструктуры
-**Кластер**. Подключенный к сети набор виртуальных машин или физических компьютеров, в котором вы развертываете микрослужбы и управляете ими. Кластеры можно масштабировать до нескольких тысяч машин.
+Service Fabric is a distributed systems platform that makes it easy to package, deploy, and manage scalable and reliable microservices. This topic details the terminology used by Service Fabric in order to understand the terms used in the documentation.
 
-**Узел**. Компьютер или виртуальная машина, которая входит в состав кластера, называется узлом. Каждому узлу назначается имя (строка). Узлы имеют свои характеристики, в частности свойства размещения. Каждый компьютер или виртуальная машина имеет автоматически запускаемую службу Windows, `FabricHost.exe`. Она запускается после загрузки системы и запускает два исполняемых файла: `Fabric.exe` и `FabricGateway.exe`. Эти два файла формируют узел. В целях тестирования на одном компьютере или виртуальной машине можно разместить несколько узлов, запустив несколько экземпляров `Fabric.exe` и `FabricGateway.exe`.
+## <a name="infrastructure-concepts"></a>Infrastructure concepts
+**Cluster**: A network-connected set of virtual or physical machines into which your microservices are deployed and managed.  Clusters can scale to thousands of machines.
 
-## Основные понятия для приложений
-**Тип приложения**. Имя и версия, назначенные набору типов служб. Эта информация указывается в файле `ApplicationManifest.xml`, который хранится в каталоге пакета приложения. Этот каталог затем копируется в хранилище образов кластера Service Fabric. Из этого типа приложения в кластере можно создать именованное приложение.
+**Node**: A machine or VM that is part of a cluster is called a node. Each node is assigned a node name (a string). Nodes have characteristics such as placement properties. Each machine or VM has an auto-start Windows service, `FabricHost.exe`, which starts running upon boot and then starts two executables: `Fabric.exe` and `FabricGateway.exe`. These two executables make up the node. For testing scenarios, you can host multiple nodes on a single machine or VM by running multiple instances of `Fabric.exe` and `FabricGateway.exe`.
 
-Дополнительные сведения о модели приложений см. [здесь](service-fabric-application-model.md).
+## <a name="application-concepts"></a>Application concepts
+**Application Type**: The name/version assigned to a collection of service types. Defined in an `ApplicationManifest.xml` file, embedded in an application package directory, which is then copied to the Service Fabric cluster's image store. You can then create a named application from this application type within the cluster.
 
-**Пакет приложения**. Каталог на диске, в котором хранится файл типа приложения, `ApplicationManifest.xml`. В этом файле указаны ссылки на пакеты служб, типы которых определяют тип приложения. Файлы в каталоге пакета приложения копируются в хранилище образов кластера Service Fabric. Например, пакет почтового приложения может содержать ссылки на пакет службы очередей, пакет службы внешнего интерфейса и пакет службы базы данных.
+Read the [Application Model](service-fabric-application-model.md) article for more information.
 
-**Именованное приложение**. Когда пакет приложения будет скопирован в хранилище образов, вы сможете создать в кластере экземпляр приложения. Для этого нужно указать тип приложения в пакете приложения (имя и версию). Каждому экземпляру приложения этого типа назначается универсальный код ресурса (URI), который выглядит так: `"fabric:/MyNamedApp"`. Из одного типа приложения в кластере можно создать несколько именованных приложений. Именованные приложения можно также создавать из разных типов приложений. Для каждого именованного приложения управление и контроль версий выполняются отдельно.
+**Application Package**: A disk directory containing the application type's `ApplicationManifest.xml` file. References the service packages for each service type that makes up the application type. The files in the application package directory are copied to Service Fabric cluster's image store. For example, an application package for an email application type could contain references to a queue service package, a frontend service package, and a database service package.
 
-**Тип службы**. Имя и версия, назначенные пакетам кода, пакетам данных и пакетам конфигураций службы. Эта информация указывается в файле `ServiceManifest.xml`, который хранится в каталоге пакета службы. Затем ссылка на этот каталог добавляется в файл пакета приложения `ApplicationManifest.xml`. Создав именованное приложение, вы можете создать в кластере именованную службу, используя для этого один из типов служб соответствующего типа приложения. Файл типа службы, `ServiceManifest.xml`, содержит ее описание.
+**Named Application**: After an application package is copied to the image store, you create an instance of the application within the cluster by specifying the application package's application type (using its name/version). Each application type instance is assigned a URI name that looks like this: `"fabric:/MyNamedApp"`. Within a cluster, you can create multiple named applications from a single application type. You can also create named applications from different application types. Each named application is managed and versioned independently.      
 
-Дополнительные сведения о модели приложений см. [здесь](service-fabric-application-model.md).
+**Service Type**: The name/version assigned to a service's code packages, data packages, and configuration packages. Defined in a `ServiceManifest.xml` file, embedded in a service package directory and the service package directory is then referenced by an application package's `ApplicationManifest.xml` file. Within the cluster, after creating a named application, you can create a named service from one of the application type's service types. The service type's `ServiceManifest.xml` file describes the service.
 
-Существует два типа служб.
+Read the [Application Model](service-fabric-application-model.md) article for more information.
 
-- **Без отслеживания состояния**. Служба без отслеживания состояния используется, когда устойчивое состояние службы хранится во внешней службе хранилища, например в службе хранилища Azure, базе данных SQL Azure или Azure DocumentDB. Службу без отслеживания состояния следует использовать, когда у службы нет постоянного хранилища. Примером может быть служба калькулятора: в службу передаются значения, служба выполняет вычисления с использованием этих значений и возвращает результат.
+There are two types of services:
 
-- **С отслеживанием состояния**. Служба с отслеживанием состояния используется, когда нужно, чтобы платформа Service Fabric управляла состоянием службы через модели программирования Reliable Collections или Reliable Actors. Укажите количество секций, на которые вы хотите распределить состояние (для масштабируемости) при создании именованной службы. Укажите также, сколько раз следует реплицировать состояние между узлами (для обеспечения надежности). У каждой именованной службы есть одна первичная реплика и несколько вторичных. Изменение состояния именованной службы происходит при записи в первичную реплику. Затем Service Fabric реплицирует это состояние на все вторичные реплики, тем самым синхронизируя состояние. Когда происходит сбой первичной реплики, Service Fabric автоматически обнаруживает это и делает одну вторичную реплику первичной. После этого Service Fabric создает новую вторичную реплику.
+- **Stateless:** Use a stateless service when the service's persistent state is stored in an external storage service such as Azure Storage, Azure SQL Database, or Azure DocumentDB. Use a stateless service when the service has no persistent storage at all. For example, a calculator service where values are passed to the service, a computation is performed using these values, and a result is returned.
 
-**Пакет службы**. Каталог на диске, в котором хранится файл типа службы, `ServiceManifest.xml`. В этом файле указаны ссылки на пакеты кода, статических данных и конфигураций для данного типа службы. Ссылки на файлы из каталога пакетов служб указываются в файле `ApplicationManifest.xml` для соответствующего типа приложения. Например, в пакете службы могут быть указаны ссылки на пакеты кода, статических данных и конфигураций, определяющие службу баз данных.
+- **Stateful:** Use a stateful service when you want Service Fabric to manage your service's state via its Reliable Collections or Reliable Actors programming models. Specify how many partitions you want to spread your state over (for scalability) when creating a named service. Also specify how many times to replicate your state across nodes (for reliability). Each named service has a single primary replica and multiple secondary replicas. You modify your named service's state by writing to the primary replica. Service Fabric then replicates this state to all the secondary replicas keeping your state in sync. Service Fabric automatically detects when a primary replica fails and promotes an existing secondary replica to a primary replica. Service Fabric then creates a new secondary replica.  
 
-**Именованная служба**. Создав именованное приложение, вы можете создать в кластере экземпляр одной из его служб определенного типа, используя для этого соответствующий тип службы (имя и версию). Каждому экземпляру службы определенного типа назначается код URI, частью которого будет URI именованного приложения. Например, если в именованном приложении MyNamedApp вы создадите именованную службу MyDatabase, то ее универсальный код ресурса (URI) будет выглядеть так: `"fabric:/MyNamedApp/MyDatabase"`. В именованном приложении можно создать несколько именованных служб. У каждой именованной службы может быть своя схема секционирования и свое количество реплик и экземпляров.
+**Service Package**: A disk directory containing the service type's `ServiceManifest.xml` file. This file references the code, static data, and configuration packages for the service type. The files in the service package directory are referenced by the application type's `ApplicationManifest.xml` file. For example, a service package could refer to the code, static data, and configuration packages that make up a database service.
 
-**Пакет кода**. Каталог на диске, в котором хранятся исполняемые файлы службы определенного типа (обычно файлы EXE или DLL). Ссылки на файлы из каталога пакетов кода указываются в файле `ServiceManifest.xml` для соответствующего типа службы. При создании именованной службы пакет кода копируется на один или несколько узлов, выбранных для запуска этой службы. Затем начинается выполнение этого кода. Существует два типа исполняемых файлов для пакетов кода.
+**Named Service**: After creating a named application, you can create an instance of one of its service types within the cluster by specifying the service type (using its name/version). Each service type instance is assigned a URI name scoped under its named application's URI. For example, if you create a "MyDatabase" named service within a "MyNamedApp" named application, the URI looks like: `"fabric:/MyNamedApp/MyDatabase"`. Within a named application, you can create several named services. Each named service can have its own partition scheme and instance/replica counts.
 
-- **Гостевые исполняемые файлы**. Исполняемые файлы, выполняющиеся "как есть" в операционной системе сервера виртуальных машин (Windows или Linux). То есть эти исполняемые файлы никак не связаны с файлами среды выполнения Service Fabric, поэтому они не используют ни одну из моделей программирования Service Fabric. Эти исполняемые файлы не могут использовать некоторые возможности Service Fabric, в том числе службу именования для обнаружения конечных точек. Гостевые исполняемый файлы не могут сообщать о метриках нагрузки, относящихся к каждому экземпляру службы.
+**Code Package**: A disk directory containing the service type's executable files (typically EXE/DLL files). The files in the code package directory are referenced by the service type's `ServiceManifest.xml` file. When a named service is created, the code package is copied to the one or more nodes selected to run the named service. Then the code starts running. There are two types of code package executables:
 
-- **Исполняемые файлы узла службы**. Это исполняемые файлы, использующие модели программирования Service Fabric. Они создают связи с файлами среды выполнения Service Fabric и позволяют использовать возможности Service Fabric. Например, экземпляр именованной службы может регистрировать конечные точки в службе именования Service Fabric и передавать показатели нагрузки.
+- **Guest executables**: Executables that run as-is on the host operating system (Windows or Linux). That is, these executables do not link to or reference any Service Fabric runtime files and therefore do not use any Service Fabric programming models. These executables are unable to use some Service Fabric features such as the naming service for endpoint discovery. Guest executables cannot report load metrics specific to each service instance.
 
-**Пакет данных**. Каталог на диске, в котором хранятся статические файлы данных службы определенного типа, предназначенные только для чтения (обычно фотографии, аудио и видео). Ссылки на файлы из каталога пакетов данных указываются в файле `ServiceManifest.xml` для соответствующего типа службы. При создании именованной службы пакет данных копируется на один или несколько узлов, выбранных для запуска этой службы. После этого начинается выполнение кода, и теперь у него имеется доступ к файлам данных.
+- **Service Host Executables**: Executables that use Service Fabric programming models by linking to Service Fabric runtime files, enabling Service Fabric features. For example, a named service instance can register endpoints with Service Fabric's Naming Service and can also report load metrics.      
 
-**Пакет конфигурации**. Каталог на диске, в котором хранятся статические файлы конфигурации службы определенного типа, предназначенные только для чтения (обычно текстовые файлы). Ссылки на файлы из каталога пакетов конфигураций указываются в файле `ServiceManifest.xml` для соответствующего типа службы. При создании именованной службы файлы из пакета конфигурации копируются на один или несколько узлов, выбранных для запуска этой службы. Затем начинается выполнение кода, и теперь у него имеется доступ к файлам конфигурации.
+**Data Package**: A disk directory containing the service type's static, read-only data files (typically photo, sound, and video files). The files in the data package directory are referenced by the service type's `ServiceManifest.xml` file. When a named service is created, the data package is copied to the one or more nodes selected to run the named service.  The code starts running and can now access the data files.
 
-**Схема секционирования**. При создании именованной службы указывается схема секционирования. Службы с большим количеством состояний разделяют данные по секциям, которые распределены между узлами кластера. Это позволяет состоянию именованной службы масштабироваться. В пределах одной секции именованные службы без отслеживания состояния хранят экземпляры, а именованные службы с отслеживанием состояния — реплики. Как правило, именованные службы без отслеживания состояния используют только одну секцию, так как у них нет внутреннего состояния. Экземпляры в секциях обеспечивают доступность службы — если один экземпляр выходит из строя, другие продолжают работать нормально, а Service Fabric создает новый экземпляр. Именованные службы с отслеживанием состояния хранят сведения о своем состоянии в репликах, и у каждой секции есть свой набор реплик. Все сведения о состоянии службы постоянно синхронизируются. Если в реплике возникает сбой, Service Fabric создает новую реплику из существующих.
+**Configuration Package**: A disk directory containing the service type's static, read-only configuration files (typically text files). The files in the configuration package directory are referenced by the service type's `ServiceManifest.xml` file. When a named service is created, the files in the configuration package are copied to the one or more nodes selected to run the named service. Then the code starts running and can now access the configuration files.
 
-Дополнительные сведения см. в статье [Секционирование служб Reliable Services в Service Fabric](service-fabric-concepts-partitioning.md).
+**Partition Scheme**: When creating a named service, you specify a partition scheme. Services with large amounts of state split the data across partitions which spreads it across the cluster's nodes. This allows your named service's state to scale. Within a partition, stateless named services have instances while stateful named services have replicas. Usually, stateless named services only ever have one partition since they have no internal state. The partition instances provide for availability; if one instance fails, other instances continue to operate normally and then Service Fabric will create a new instance. Stateful named services maintain their state within replicas and each partition has its own replica set with all the state being kept in sync. Should a replica fail, Service Fabric builds a new replica from the existing replicas.
 
-## Системные службы
-Существуют системные службы, которые создаются в каждом кластере и предоставляют возможности платформы Service Fabric.
+Read the [Partition Service Fabric reliable services](service-fabric-concepts-partitioning.md) article for more information.
 
-**Служба именования**. У каждого кластера Service Fabric есть служба именования, которая разрешает имена службы в определенные расположения в кластере. Вы можете управлять именами и свойствами служб так же, как и DNS Интернета для кластера. Используя службу именования для разрешения имени службы в ее расположение, клиенты могут безопасно обмениваться данными с любым узлом в кластере. Клиенты получают фактические IP-адрес и порт компьютера, на котором она запущена. Можно разрабатывать службы и клиенты, которые способны разрешать текущее сетевое расположение несмотря на перемещение приложений в кластере, например из-за ошибок, балансировки ресурсов или изменения размера кластера.
+## <a name="system-services"></a>System services
+There are system services that are created in every cluster that provide the platform capabilities of Service Fabric.
 
-Прочтите статью [Взаимодействие со службами](service-fabric-connect-and-communicate-with-services.md), чтобы получить дополнительные сведения об использовании интерфейсов API связи клиента и службы, которые работают со службой именования.
+**Naming Service**: Each Service Fabric cluster has a Naming service, which resolves service names to a location in the cluster. You manage the service names and properties, similar to an internet Domain Name Service (DNS) for the cluster. Clients securely communicate with any node in the cluster using the Naming Service to resolve a service name and its location.  Clients obtain the actual machine IP address and port where it is currently running. You can develop services and clients capable of resolving the current network location despite applications being moved within the cluster for example due to failures, resource balancing, or the resizing of the cluster.
 
-**Служба хранилища образов**. У каждого кластера Service Fabric есть служба хранилища образов, в которой хранятся развернутые пакеты приложения с контролем версий. Скопируйте содержимое пакета приложения в хранилище образов и затем зарегистрируйте тип приложения, содержащегося в этом пакете приложения. Когда тип приложения будет подготовлен, вы сможете создавать из него именованные приложения. Отменить регистрацию типа приложения в службе хранилища образов можно только после удаления всех связанных с этим типом именованных приложений.
+Read [Communicate with services](service-fabric-connect-and-communicate-with-services.md) for more information on the client and service communication APIs that work with the Naming service.
 
-Дополнительные сведения о развертывании приложений в службе хранилища образов см. в статье [Развертывание приложения](service-fabric-deploy-remove-applications.md).
+**Image Store Service**: Each Service Fabric cluster has an Image Store service where deployed, versioned application packages are kept. Copy an application package to the Image Store and then register the application type contained within that application package. After the application type is provisioned, you create a named applications from it. You can unregister an application type from the Image Store service after all its named applications have been deleted.
 
-## Встроенные модели программирования
-Существуют следующие модели программирования для .NET Framework, с помощью которых вы можете создавать службы Service Fabric.
+Read the [Deploy an application](service-fabric-deploy-remove-applications.md) article for more information on deploying applications to the Image store service.
 
-**Reliable Services**. API для создания служб без отслеживания и с отслеживанием состояния. Служба с отслеживанием состояния хранит сведения о своем состоянии в коллекциях Reliable Collections (например, словарь или очередь). Кроме того, вы можете использовать разнообразные коммуникационные стеки, например веб-API и Windows Communication Foundation (WCF).
+## <a name="built-in-programming-models"></a>Built-in programming models
+There are .NET Framework programming models available for you to build Service Fabric services:
 
-**Reliable Actors**. API для создания объектов без отслеживания и с отслеживанием состояния с помощью модели программирования с виртуальными субъектами. Эту модель целесообразно использовать, если у вас есть множество независимых единиц вычисления или состояния. Так как в этой модели применяется пошаговая потоковая модель, мы не рекомендуем использовать код, который обращается к другим акторам или службам, потому что отдельный актор не может обрабатывать другие входящие запросы, пока не будут обработаны все его исходящие запросы.
+**Reliable Services**: An API to build stateless and stateful services. Stateful service store their state in Reliable Collections (such as a dictionary or a queue). You also get to plug in a variety of communication stacks such as Web API and Windows Communication Foundation (WCF).
 
-Дополнительные сведения см. в статье [Выбор модели программирования для службы](service-fabric-choose-framework.md).
+**Reliable Actors**: An API to build stateless and stateful objects through the virtual Actor programming model. This model can be useful when you have lots of independent units of computation/state. Because this model uses a turn-based threading model, it is best to avoid code that calls out to other actors or services since an individual actor cannot process other incoming requests until all its outbound requests have completed.
+
+Read the [Choose a Programming Model for your service](service-fabric-choose-framework.md) article for more information.
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
-## Дальнейшие действия
-Дополнительные сведения о платформе Service Fabric см. в следующих статьях.
+## <a name="next-steps"></a>Next steps
+To learn more about Service Fabric:
 
-- [Общие сведения о Service Fabric](service-fabric-overview.md)
-- [Разработка приложений с использованием микрослужб](service-fabric-overview-microservices.md)
-- [Сценарии приложений](service-fabric-application-scenarios.md)
+- [Overview of Service Fabric](service-fabric-overview.md)
+- [Why a microservices approach to building applications?](service-fabric-overview-microservices.md)
+- [Application scenarios](service-fabric-application-scenarios.md)
 
-<!---HONumber=AcomDC_0831_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,250 +1,254 @@
 <properties
-	pageTitle="Руководство. Интеграция Azure Active Directory с Cimpl | Microsoft Azure"
-	description="Узнайте, как настроить единый вход между Azure Active Directory и Cimpl."
-	services="active-directory"
-	documentationCenter=""
-	authors="jeevansd"
-	manager="femila"
-	editor=""/>
+    pageTitle="Tutorial: Azure Active Directory integration with Cimpl | Microsoft Azure"
+    description="Learn how to configure single sign-on between Azure Active Directory and Cimpl."
+    services="active-directory"
+    documentationCenter=""
+    authors="jeevansd"
+    manager="femila"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/05/2016"
-	ms.author="jeedes"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/24/2016"
+    ms.author="jeedes"/>
 
 
-# Руководство. Интеграция Azure Active Directory с Cimpl
 
-Цель этого учебника — показать, как интегрировать Azure Active Directory (Azure AD) с приложением Cimpl. Интеграция Azure AD с приложением Cimpl обеспечивает следующие преимущества.
+# <a name="tutorial:-azure-active-directory-integration-with-cimpl"></a>Tutorial: Azure Active Directory integration with Cimpl
 
-- С помощью Azure AD вы можете контролировать доступ к Cimpl.
-- Вы можете включить автоматический вход пользователей в Cimpl (единый вход) с учетной записью Azure AD.
-- Вы можете управлять учетными записями централизованно — через классический портал Azure.
+The objective of this tutorial is to show you how to integrate Cimpl with Azure Active Directory (Azure AD).  
+Integrating Cimpl with Azure AD provides you with the following benefits:
 
+- You can control in Azure AD who has access to Cimpl
+- You can enable your users to automatically get signed-on to Cimpl (Single Sign-On) with their Azure AD accounts
+- You can manage your accounts in one central location - the Azure classic portal
 
-Подробнее узнать об интеграции приложений SaaS с Azure AD можно в статье [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md).
 
-## Предварительные требования
+If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-Чтобы настроить интеграцию Azure AD с Cimpl, вам потребуется:
+## <a name="prerequisites"></a>Prerequisites
 
-- подписка Azure AD;
-- подписка на Cimpl с поддержкой единого входа.
+To configure Azure AD integration with Cimpl, you need the following items:
 
+- An Azure AD subscription
+- A Cimpl single-sign on enabled subscription
 
-> [AZURE.NOTE] Мы не рекомендуем использовать рабочую среду для проверки действий в этом учебнике.
 
+> [AZURE.NOTE] To test the steps in this tutorial, we do not recommend using a production environment.
 
-При проверке действий в этом учебнике соблюдайте следующие рекомендации:
 
-- Не следует использовать рабочую среду при отсутствии необходимости.
-- Если у вас нет пробной среды Azure AD, вы можете получить пробную версию на один месяц по [этой ссылке](https://azure.microsoft.com/pricing/free-trial/).
+To test the steps in this tutorial, you should follow these recommendations:
 
+- You should not use your production environment, unless this is necessary.
+- If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).
 
-## Описание сценария
-Цель этого учебника — научить вас проверять единый вход в Azure AD в пробной среде. Сценарий, описанный в этом учебнике, состоит из двух основных блоков:
 
-1. Добавление Cimpl из коллекции
-2. Настройка и проверка единого входа в Azure AD
+## <a name="scenario-description"></a>Scenario Description
+The objective of this tutorial is to enable you to test Azure AD single sign-on in a test environment.  
+The scenario outlined in this tutorial consists of two main building blocks:
 
+1. Adding Cimpl from the gallery
+2. Configuring and testing Azure AD single sign-on
 
-## Добавление Cimpl из коллекции
-Чтобы настроить интеграцию Cimpl с Azure AD, необходимо добавить Cimpl из коллекции в список управляемых приложений SaaS.
 
-**Чтобы добавить Cimpl из коллекции, выполните следующие действия.**
+## <a name="adding-cimpl-from-the-gallery"></a>Adding Cimpl from the gallery
+To configure the integration of Cimpl into Azure AD, you need to add Cimpl from the gallery to your list of managed SaaS apps.
 
-1. На **классическом портале Azure** в области навигации слева щелкните **Active Directory**.
+**To add Cimpl from the gallery, perform the following steps:**
 
-	.![Active Directory][1]
+1. In the **Azure classic portal**, on the left navigation pane, click **Active Directory**. 
 
-2. Из списка **Каталог** выберите каталог, для которого нужно включить интеграцию каталогов.
+    ![Active Directory][1]
 
-3. Чтобы открыть представление приложений, в представлении каталога нажмите **Приложения** в верхнем меню.
+2. From the **Directory** list, select the directory for which you want to enable directory integration.
 
-	![Приложения][2]
+3. To open the applications view, in the directory view, click **Applications** in the top menu.
 
-4. В нижней части страницы нажмите кнопку **Добавить**.
+    ![Applications][2]
 
-	.![Приложения][3]
+4. Click **Add** at the bottom of the page.
 
-5. В диалоговом окне **Что необходимо сделать?** нажмите **Добавить приложение из коллекции**.
+    ![Applications][3]
 
-	![Приложения][4]
+5. On the **What do you want to do** dialog, click **Add an application from the gallery**.
 
-6. В поле поиска введите **Cimpl**.
+    ![Applications][4]
 
-	.![Создание тестового пользователя Azure AD](./media/active-directory-saas-cimpl-tutorial/tutorial_cimpl_01.png)
+6. In the search box, type **Cimpl**.
 
-7. В области результатов выберите **Cimpl** и нажмите кнопку **Завершить**, чтобы добавить приложение.
+    ![Creating an Azure AD test user](./media/active-directory-saas-cimpl-tutorial/tutorial_cimpl_01.png)
 
+7. In the results pane, select **Cimpl**, and then click **Complete** to add the application.
 
-##  Настройка и проверка единого входа в Azure AD
-Цель этого раздела — показать, как настроить и проверить единый вход Azure AD в Cimpl с использованием тестового пользователя Britta Simon.
 
-Для настройки единого входа в Azure AD необходимо знать, какой пользователь в Cimpl соответствует пользователю в Azure AD. Иными словами, необходимо установить связь между пользователем Azure AD и соответствующим пользователем в Cimpl. Чтобы установить эту связь, следует назначить **имя пользователя** в Azure AD в качестве значения **имени пользователя** в Cimpl.
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuring and testing Azure AD single sign-on
+The objective of this section is to show you how to configure and test Azure AD single sign-on with Cimpl based on a test user called "Britta Simon".
 
-Чтобы настроить и проверить единый вход Azure AD в Cimpl, вам потребуется выполнить действия в следующих стандартных блоках.
+For single sign-on to work, Azure AD needs to know what the counterpart user in Cimpl to an user in Azure AD is. In other words, a link relationship between an Azure AD user and the related user in Cimpl needs to be established.  
+This link relationship is established by assigning the value of the **user name** in Azure AD as the value of the **Username** in Cimpl.
 
-1. **[Настройка единого входа Azure AD](#configuring-azure-ad-single-single-sign-on)** необходима, чтобы пользователи могли использовать эту функцию.
-2. **[Создание тестового пользователя Azure AD](#creating-an-azure-ad-test-user)** требуется для проверки работы единого входа Azure AD от имени пользователя Britta Simon.
-4. **[Создание тестового пользователя Cimpl](#creating-a-cimpl-test-user)** требуется для создания пользователя Britta Simon в Cimpl, связанного с соответствующим представлением в Azure AD.
-5. **[Назначение тестового пользователя Azure AD](#assigning-the-azure-ad-test-user)** необходимо, чтобы позволить Britta Simon использовать единый вход Azure AD;
-5. **[Проверка единого входа](#testing-single-sign-on)** необходима, чтобы убедиться в корректной работе конфигурации.
+To configure and test Azure AD single sign-on with Cimpl, you need to complete the following building blocks:
 
-### Настройка единого входа в Azure AD
+1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-single-sign-on)** - to enable your users to use this feature.
+2. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
+4. **[Creating a Cimpl test user](#creating-a-cimpl-test-user)** - to have a counterpart of Britta Simon in Cimpl that is linked to the Azure AD representation of her.
+5. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
+5. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
 
-В этом разделе описано, как включить единый вход Azure AD на классическом портале Azure AD и настроить единый вход в приложении Cimpl.
+### <a name="configuring-azure-ad-single-sign-on"></a>Configuring Azure AD Single Sign-On
 
+The objective of this section is to enable Azure AD single sign-on in the Azure classic portal and to configure single sign-on in your Cimpl application.
 
 
-**Чтобы настроить единый вход Azure AD в Cimpl, выполните следующие действия.**
 
-1. На классическом портале Azure на странице интеграции с приложением **Cimpl** щелкните **Настройка единого входа**, чтобы открыть диалоговое окно **Настройка единого входа**.
+**To configure Azure AD single sign-on with Cimpl, perform the following steps:**
 
-	.![Настройка единого входа][6]
+1. In the Azure classic portal, on the **Cimpl** application integration page, click **Configure single sign-on** to open the **Configure Single Sign-On**  dialog.
 
-2. На странице **Как пользователи должны входить в Cimpl?** выберите **Единый вход Azure AD** и нажмите кнопку **Далее**.
+    ![Configure Single Sign-On][6] 
 
-	.![Настройка единого входа](./media/active-directory-saas-cimpl-tutorial/tutorial_cimpl_03.png)
+2. On the **How would you like users to sign on to Cimpl** page, select **Azure AD Single Sign-On**, and then click **Next**.
 
-3. На странице диалогового окна **Настроить параметры приложения** выполните следующие действия.
+    ![Configure Single Sign-On](./media/active-directory-saas-cimpl-tutorial/tutorial_cimpl_03.png) 
 
-	![Настройка единого входа](./media/active-directory-saas-cimpl-tutorial/tutorial_cimpl_04.png)
+3. On the **Configure App Settings** dialog page, perform the following steps:.
 
+    ![Configure Single Sign-On](./media/active-directory-saas-cimpl-tutorial/tutorial_cimpl_04.png) 
 
-    а. В текстовом поле "URL-адрес для входа" введите URL-адрес, используемый для входа в приложение Cimpl, в формате **https://login.bws.cimpl.com/SAMLSSO/Service.aspx?cimpl.idpid=<TENANT ID PID>**.
 
+    a. In the Sign On URL textbox, type the URL used by your users to sign-on to your Cimpl application using the following pattern: **“https://login.bws.cimpl.com/SAMLSSO/Service.aspx?cimpl.idpid=\<TENANT ID PID\>”**.
 
-4. На странице **Настройка единого входа в Cimpl** выполните следующие действия.
 
-	.![Настройка единого входа](./media/active-directory-saas-cimpl-tutorial/tutorial_cimpl_05.png)
+4. On the **Configure single sign-on at Cimpl** page, perform the following steps:
 
-    а. Нажмите **Загрузить сертификат** и сохраните файл сертификата на свой компьютер.
+    ![Configure Single Sign-On](./media/active-directory-saas-cimpl-tutorial/tutorial_cimpl_05.png) 
 
-    b. Нажмите кнопку **Далее**.
+    a. Click **Download certificate**, and then save the file on your computer.
 
+    b. Click **Next**.
 
-5. Чтобы получить данные единого входа, настроенные для вашего приложения, обратитесь в службу поддержки Cimpl по телефону +1 866-982-8250 и отправьте по электронной почте скачанный файл сертификата. Также укажите идентификатор поставщика удостоверений и URL-адрес удаленного входа, чтобы настроить их для интеграции единого входа.
 
+5. To get SSO configured for your application, contact your Cimpl support team on +1 866-982-8250 and email the attach downloaded certificate file. Also please do provide the Identity Provider ID and Remote Login URL so that they can be configured for SSO integration.
 
-6. На классическом портале Azure выберите подтверждение конфигурации единого входа и нажмите кнопку **Далее**.
 
-	![Единый вход в Azure AD][10]
+6. In the Azure classic portal, select the single sign-on configuration confirmation, and then click **Next**.
 
-7. На странице **Подтверждение единого входа** нажмите кнопку **Завершить**.
+    ![Azure AD Single Sign-On][10]
 
-	.![Единый вход в Azure AD][11]
+7. On the **Single sign-on confirmation** page, click **Complete**.  
 
+    ![Azure AD Single Sign-On][11]
 
 
-### Создание тестового пользователя Azure AD
-Цель этого раздела — создать на классическом портале Azure тестового пользователя с именем Britta Simon.
 
-.![Создание пользователя Azure AD][20]
+### <a name="creating-an-azure-ad-test-user"></a>Creating an Azure AD test user
+The objective of this section is to create a test user in the Azure classic portal called Britta Simon.  
 
-**Чтобы создать тестового пользователя в Azure AD, выполните следующие действия:**
+![Create Azure AD User][20]
 
-1. На **классическом портале Azure** в области навигации слева щелкните **Active Directory**.
+**To create a test user in Azure AD, perform the following steps:**
 
-	.![Создание тестового пользователя Azure AD](./media/active-directory-saas-cimpl-tutorial/create_aaduser_09.png)
+1. In the **Azure classic portal**, on the left navigation pane, click **Active Directory**.
 
-2. Из списка **Каталог** выберите каталог, для которого нужно включить интеграцию каталогов.
+    ![Creating an Azure AD test user](./media/active-directory-saas-cimpl-tutorial/create_aaduser_09.png) 
 
-3. Чтобы отобразить список пользователей, в меню вверху выберите **Пользователи**.
+2. From the **Directory** list, select the directory for which you want to enable directory integration.
 
-	![Создание тестового пользователя Azure AD](./media/active-directory-saas-cimpl-tutorial/create_aaduser_03.png)
+3. To display the list of users, in the menu on the top, click **Users**.
 
-4. Чтобы открыть диалоговое окно **Добавление пользователя**, на панели инструментов внизу нажмите кнопку **Добавить пользователя**.
+    ![Creating an Azure AD test user](./media/active-directory-saas-cimpl-tutorial/create_aaduser_03.png) 
 
-	.![Создание тестового пользователя Azure AD](./media/active-directory-saas-cimpl-tutorial/create_aaduser_04.png)
+4. To open the **Add User** dialog, in the toolbar on the bottom, click **Add User**.
 
-5. На странице диалогового окна **Тип учетной записи пользователя** выполните следующие действия.
+    ![Creating an Azure AD test user](./media/active-directory-saas-cimpl-tutorial/create_aaduser_04.png) 
 
-	.![Создание тестового пользователя Azure AD](./media/active-directory-saas-cimpl-tutorial/create_aaduser_05.png)
+5. On the **Tell us about this user** dialog page, perform the following steps:
 
-    а. В поле «Тип пользователя» выберите значение «Новый пользователь в вашей организации».
+    ![Creating an Azure AD test user](./media/active-directory-saas-cimpl-tutorial/create_aaduser_05.png) 
 
-    b. В текстовом поле **Имя пользователя**, введите **BrittaSimon**.
+    a. As Type Of User, select New user in your organization.
 
-    c. Нажмите кнопку **Далее**.
+    b. In the User Name **textbox**, type **BrittaSimon**.
 
-6.  На странице диалогового окна **Профиль пользователя** выполните следующие действия.
+    c. Click **Next**.
 
-	.![Создание тестового пользователя Azure AD](./media/active-directory-saas-cimpl-tutorial/create_aaduser_06.png)
+6.  On the **User Profile** dialog page, perform the following steps:
 
-    а. В текстовом поле **Имя** введите **Britta**.
+    ![Creating an Azure AD test user](./media/active-directory-saas-cimpl-tutorial/create_aaduser_06.png) 
 
-    b. В текстовое поле **Фамилия** введите **Simon**.
+    a. In the **First Name** textbox, type **Britta**.  
 
-    c. В текстовое поле **Отображаемое имя** введите **Britta Simon**.
+    b. In the **Last Name** textbox, type, **Simon**.
 
-    г) В списке **Роль** выберите **Пользователь**.
+    c. In the **Display Name** textbox, type **Britta Simon**.
 
-    д. Нажмите кнопку **Далее**.
+    d. In the **Role** list, select **User**.
 
-7. На странице диалогового окна **Получить временный пароль** нажмите кнопку **Создать**.
+    e. Click **Next**.
 
-	.![Создание тестового пользователя Azure AD](./media/active-directory-saas-cimpl-tutorial/create_aaduser_07.png)
+7. On the **Get temporary password** dialog page, click **create**.
 
-8. На странице диалогового окна **Получить временный пароль** выполните следующие действия.
+    ![Creating an Azure AD test user](./media/active-directory-saas-cimpl-tutorial/create_aaduser_07.png) 
 
-	.![Создание тестового пользователя Azure AD](./media/active-directory-saas-cimpl-tutorial/create_aaduser_08.png)
+8. On the **Get temporary password** dialog page, perform the following steps:
 
-    а. Запишите значение поля **Новый пароль**.
+    ![Creating an Azure AD test user](./media/active-directory-saas-cimpl-tutorial/create_aaduser_08.png) 
 
-    b. Нажмите **Завершено**.
+    a. Write down the value of the **New Password**.
 
+    b. Click **Complete**.   
 
 
-### Создание тестового пользователя Cimpl
 
-Цель этого раздела — создать пользователя с именем Britta Simon в приложении Cimpl. Обратитесь в службу поддержки Cimpl, чтобы добавить пользователей в систему Cimpl.
+### <a name="creating-a-cimpl-test-user"></a>Creating a Cimpl test user
 
+The objective of this section is to create a user called Britta Simon in Cimpl. Please work with Cimpl support team to add the users in the Cimpl account. 
 
-> [AZURE.NOTE] Чтобы создать пользователя вручную, необходимо обратиться в службу поддержки Cimpl.
 
+> [AZURE.NOTE] If you need to create an user manually, you need to contact the Cimpl support team.
 
-### Назначение тестового пользователя Azure AD
 
-Цель этого раздела — разрешить пользователю Britta Simon использовать единый вход Azure, предоставив ей доступ к Cimpl.
+### <a name="assigning-the-azure-ad-test-user"></a>Assigning the Azure AD test user
 
-.![Назначение пользователя][200]
+The objective of this section is to enabling Britta Simon to use Azure single sign-on by granting her access to Cimpl.
 
-**Чтобы назначить пользователя Britta Simon в Cimpl, выполните следующие действия.**
+![Assign User][200] 
 
-1. Чтобы открыть представление приложений, на классическом портале Azure в представлении каталога щелкните **Приложения** в меню вверху.
+**To assign Britta Simon to Cimpl, perform the following steps:**
 
-	![Назначение пользователя][201]
+1. On the Azure classic portal, to open the applications view, in the directory view, click **Applications** in the top menu.
 
-2. В списке приложений выберите **Cimpl**.
+    ![Assign User][201] 
 
-	.![Настройка единого входа](./media/active-directory-saas-cimpl-tutorial/tutorial_cimpl_50.png)
+2. In the applications list, select **Cimpl**.
 
-1. В меню в верхней части страницы щелкните **Пользователи**.
+    ![Configure Single Sign-On](./media/active-directory-saas-cimpl-tutorial/tutorial_cimpl_50.png) 
 
-	![Назначение пользователя][203]
+1. In the menu on the top, click **Users**.
 
-1. В списке пользователей выберите **Britta Simon**.
+    ![Assign User][203] 
 
-2. На панели инструментов внизу щелкните **Назначить**.
+1. In the Users list, select **Britta Simon**.
 
-	.![Назначение пользователя][205]
+2. In the toolbar on the bottom, click **Assign**.
 
+    ![Assign User][205]
 
 
-### Проверка единого входа
 
-Цель этого раздела — проверить конфигурацию единого входа Azure AD с помощью панели доступа. Щелкнув элемент Cimpl на панели доступа, вы автоматически войдете в приложение Cimpl.
+### <a name="testing-single-sign-on"></a>Testing Single Sign-On
 
+The objective of this section is to test your Azure AD single sign-on configuration using the Access Panel.  hen you click the Cimpl tile in the Access Panel, you should get automatically signed-on to your Cimpl application.
 
-## дополнительные ресурсы.
 
-* [Список учебников по интеграции приложений SaaS с Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+## <a name="additional-resources"></a>Additional Resources
+
+* [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 
 <!--Image references-->
@@ -265,4 +269,8 @@
 [204]: ./media/active-directory-saas-cimpl-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-cimpl-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,42 +1,43 @@
 <properties 
-	pageTitle="Повторное развертывание виртуальных машин Linux | Microsoft Azure" 
-	description="В этой статье описывается, как повторно развернуть виртуальные машины Linux для устранения проблем подключения по протоколу SSH." 
-	services="virtual-machines-linux" 
-	documentationCenter="virtual-machines" 
-	authors="iainfoulds" 
-	manager="timlt"
-	tags="azure-resource-manager,top-support-issue" 
+    pageTitle="Redeploy Linux Virtual Machines | Microsoft Azure" 
+    description="Describes how to redeploy Linux virtual machines to mitigate SSH connection issues." 
+    services="virtual-machines-linux" 
+    documentationCenter="virtual-machines" 
+    authors="iainfoulds" 
+    manager="timlt"
+    tags="azure-resource-manager,top-support-issue" 
 />
-	
+    
 
 <tags 
-	ms.service="virtual-machines-linux" 
-	ms.devlang="na" 
-	ms.topic="support-article" 
-	ms.tgt_pltfrm="vm-linux"
-	ms.workload="infrastructure" 
-	ms.date="09/19/2016" 
-	ms.author="iainfou" 
+    ms.service="virtual-machines-linux" 
+    ms.devlang="na" 
+    ms.topic="support-article" 
+    ms.tgt_pltfrm="vm-linux"
+    ms.workload="infrastructure" 
+    ms.date="09/19/2016" 
+    ms.author="iainfou" 
 />
 
-# Повторное развертывание виртуальной машины на новом узле Azure
 
-Если у вас возникли сложности при устранении неполадок подключения SSH и получения доступа к приложению на виртуальной машине Azure, можно попробовать повторно развернуть виртуальную машину. При повторном развертывании виртуальная машина перемещается на новый узел в рамках инфраструктуры Azure. Там она снова включается с сохранением всех параметров конфигурации и связанных ресурсов. В этой статье показано, как повторно развернуть виртуальную машину с помощью интерфейса командной строки Azure или портала Azure.
+# <a name="redeploy-virtual-machine-to-new-azure-node"></a>Redeploy virtual machine to new Azure node
 
-> [AZURE.NOTE] После развертывания временный диск будет удален, а связанные с виртуальным сетевым интерфейсом динамические IP-адреса будут обновлены.
+If you have been facing difficulties troubleshooting SSH or application access to an Azure virtual machine (VM), redeploying the VM may help. When you redeploy a VM, it moves the VM to a new node within the Azure infrastructure and then powers it back on, retaining all your configuration options and associated resources. This article shows you how to redeploy a VM using Azure CLI or the Azure portal.
+
+> [AZURE.NOTE] After you redeploy a VM, the temporary disk is lost and dynamic IP addresses associated with virtual network interface are updated. 
 
 
-## Использование Azure CLI
+## <a name="using-azure-cli"></a>Using Azure CLI
 
-На виртуальной машине должен быть [установлен интерфейс командной строки Azure (Azure CLI) последней версии](../xplat-cli-install.md). Его нужно переключить в режим Resource Manager (`azure config mode arm`).
+Make sure you have the [latest Azure CLI installed](../xplat-cli-install.md) on your machine and you are in Resource Manager mode (`azure config mode arm`).
 
-Чтобы повторно развернуть виртуальную машину, выполните следующую команду интерфейса командной строки Azure:
+Use the following Azure CLI command to redeploy your virtual machine:
 
 ```bash
 azure vm redeploy --resourcegroup <resourcegroup> --vm-name <vmname> 
 ```
 
-Вы можете отслеживать изменение состояния виртуальной машины, которая повторно развертывается. В ходе повторного развертывания виртуальной машины на новом узле значение состояния в свойстве `PowerState` будет меняться с "Работает" на "Выполняется обновление", а затем на "Запуск" и снова на "Работает". Проверьте состояние виртуальных машин в группе ресурсов с помощью следующей команды:
+You can see the status of the VM change as it goes through the redeploy process. The `PowerState` of the VM goes from 'Running' to 'Updating', then 'Starting', and finally 'Running' as it goes through the process of redeploying to a new host. Check the status of the VMs within a resource group with:
 
 ```bash
 azure vm list -g <resourcegroup>
@@ -46,7 +47,10 @@ azure vm list -g <resourcegroup>
 [AZURE.INCLUDE [virtual-machines-common-redeploy-to-new-node](../../includes/virtual-machines-common-redeploy-to-new-node.md)]
 
 
-## Дальнейшие действия
-При проблемах с подключением к виртуальной машине ознакомьтесь со статьями [Устранение неполадок SSH-подключения к виртуальной машине Azure](virtual-machines-linux-troubleshoot-ssh-connection.md) и [Подробное описание устранения неполадок SSH](virtual-machines-linux-detailed-troubleshoot-ssh-connection.md). При проблемах с доступом к приложению, выполняющемуся в виртуальной машине, ознакомьтесь со статьей [Устранение неполадок доступа к приложению, выполняющемуся в виртуальной машине Azure](virtual-machines-linux-troubleshoot-app-connection.md).
+## <a name="next-steps"></a>Next steps
+If you are having issues connecting to your VM, you can find specific help on [troubleshooting SSH connections](virtual-machines-linux-troubleshoot-ssh-connection.md) or [detailed SSH troubleshooting steps](virtual-machines-linux-detailed-troubleshoot-ssh-connection.md). If you cannot access an application running on your VM, you can also read [application troubleshooting issues](virtual-machines-linux-troubleshoot-app-connection.md).
 
-<!---HONumber=AcomDC_0921_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,161 +1,164 @@
-Вы можете создавать виртуальные машины Azure с помощью обозревателя серверов в Visual Studio.
+You can create virtual machines in Azure by using Server Explorer in Visual Studio.
 
-## Создание виртуальной машины Azure в обозревателе серверов.
+## <a name="create-an-azure-virtual-machine-in-server-explorer"></a>Create an Azure virtual machine in Server Explorer
 
-Вы можете создавать виртуальные машины не только на [портале управления Azure](http://go.microsoft.com/fwlink/?LinkID=253103), но также с помощью команд в обозревателе серверов. Виртуальные машины можно использовать в качестве внешнего интерфейса для общедоступной конечной точки с балансировкой нагрузки.
+While you can create a virtual machine in the [Azure Management Portal](http://go.microsoft.com/fwlink/?LinkID=253103), you can also create a virtual machine in Azure by using commands in Server Explorer. Virtual machines can be used, for example, to provide a front end behind a common load-balanced public endpoint.
 
-### Создание новой виртуальной машины.
+### <a name="to-create-a-new-virtual-machine"></a>To create a new virtual machine
 
-1. В обозревателе серверов откройте узел **Azure** и выберите элемент **Виртуальные машины**.
+1. In Server Explorer, open the **Azure** node and click **Virtual Machines**.
 
-1. В контекстном меню выберите команду **Создать виртуальную машину**.
+1. On the context menu, click **Create Virtual Machine**.
 
-    Откроется мастер **Создание новой виртуальной машины**.
+    The **Create a New Virtual Machine** wizard appears.
 
-    ![Команда создания виртуальной машины.](./media/virtual-machines-common-classic-create-manage-visual-studio/IC718342.png)
+    ![The Create Virtual Machine command](./media/virtual-machines-common-classic-create-manage-visual-studio/IC718342.png)
 
-1. На странице **Выбор подписки** выберите подписку, которая будет использоваться при создании виртуальной машины, и нажмите кнопку **Далее**.
+1. On the **Choose a Subscription** page, select a subscription to use when creating the virtual machine and then click **Next**.
 
-    Если вы не выполнили вход в Azure, нажмите кнопку **Войти**. Затем в раскрывающемся списке выберите подписку Azure, если она еще не выбрана.
+    If you aren’t signed in to Azure, click **Sign In** to sign in. Then, select your Azure subscription in the dropdown list box if it’s not already selected.
 
-1. На странице **Выбор образа виртуальной машины** в раскрывающемся списке **Тип образа** выберите тип образа, а затем выберите образ виртуальной машины в списке **Имя образа**. Закончив, нажмите кнопку **Далее**.
+1. On the **Select a Virtual Machine Image** page, select an image type in the **Image type** dropdown list box, and then select a virtual machine images in the **Image name** list box. When you're done, click **Next**.
 
-    ![Страница выбора образа виртуальной машины.](./media/virtual-machines-common-classic-create-manage-visual-studio/IC744137.png)
+    ![Select a virtual machine image page](./media/virtual-machines-common-classic-create-manage-visual-studio/IC744137.png)
 
-    Для выбора доступны следующие типы образов.
+    You can choose the following image types.
 
-    - **Общедоступные образы** содержат образы виртуальных машин операционных систем и серверного программного обеспечения, таких как Windows Server и SQL Server.
+    - **Public Images** lists virtual machine images of operating systems and server software such as Windows Server and SQL Server.
 
-    - **Образы MSDN** содержат образы виртуальных машин программного обеспечения, доступного подписчикам MSDN, такого как Visual Studio и Microsoft Dynamics.
+    - **MSDN Images** lists virtual machine images of software available to MSDN subscribers, such as Visual Studio and Microsoft Dynamics.
 
-    - **Частные образы** содержат образы специальных и обобщенных виртуальных машин, созданных вами.
+    - **Private Images** lists specialized and generalized virtual machine images that you've created.
 
-    Дополнительные сведения о специальных и обобщенных виртуальных машинах см. в статье [Образ виртуальной машины](https://azure.microsoft.com/blog/2014/04/14/vm-image-blog-post/). Сведения о включении виртуальной машины в шаблон, который можно использовать для быстрого создания новых предварительно настроенных виртуальных машин, см. в статье [Создание образа виртуальной машины Windows для использования в качестве шаблона](https://azure.microsoft.com/documentation/articles/virtual-machines-capture-image-windows-server/).
+    To learn about specialized and generalized virtual machines, see [VM Image](https://azure.microsoft.com/blog/2014/04/14/vm-image-blog-post/). See [How to Capture a Windows Virtual Machine to Use as a Template](https://azure.microsoft.com/documentation/articles/virtual-machines-capture-image-windows-server/) for information about how to turn a virtual machine into a template that you can use to quickly create new pre-configured virtual machines.
 
-    Если щелкнуть имя образа виртуальной машины, то в правой части страницы отобразится информация о выбранном образе.
+    You can click a virtual machine image name to see information about the image on the right side of the page.
 
-    >[AZURE.NOTE] Добавить новые образы в списки **Общедоступные образы** и **Образы MSDN** нельзя, так как эти списки доступны только для чтения. Все создаваемые вами виртуальные машины добавляются в список **Частные образы**.
+    >[AZURE.NOTE] You can't add virtual machine images to the **Public Images** or **MSDN Images** lists because they are read-only. All virtual machines that you create are added to the **Private Images** list.
 
-    Если вы являетесь подписчиком MSDN уровня Visual Studio, то вы можете создавать предварительно настроенные виртуальные машины Azure, которые содержат Visual Studio. Кроме того, вам доступно несколько других образов. Дополнительные сведения см. в статьях [Create a Virtual Machine in Visual Studio by Using Images Visual Studio 2013 Gallery image for MSDN subscribers](http://visualstudio2013msdngalleryimage.azurewebsites.net) (Создание виртуальной машины в Visual Studio с помощью образа из коллекции образов Visual Studio 2013 для подписчиков MSDN) и [Преимущества для подписчиков](https://www.visualstudio.com/products/msdn-subscriptions-vs).
+    If you're an MSDN subscriber with a Visual Studio-level subscription, you can create a pre-built Azure virtual machine that contains Visual Studio, as well as several other images. For more information, see [Create a Virtual Machine in Visual Studio by Using Images Visual Studio 2013 Gallery image for MSDN subscribers](http://visualstudio2013msdngalleryimage.azurewebsites.net) and [MSDN subscriptions](https://www.visualstudio.com/products/msdn-subscriptions-vs).|
 
-1. На странице **Основные параметры виртуальной машины** введите имя компьютера и укажите характеристики виртуальной машины, такие как размер, имя пользователя и пароль. Закончив, нажмите кнопку **Далее**.
+1. On the **Virtual Machine Basic Settings** page, enter a machine name and then add the specifications for the virtual machine, including the size, and a user name and password. When you're done, click **Next**.
 
-    Для доступа к машине с помощью удаленного рабочего стола вам потребуется новое имя пользователя и пароль, поэтому рекомендуется сохранить эти данные, чтобы не забыть их. После создания виртуальной машины Azure в Visual Studio вы сможете изменить ее размер и другие параметры на [портале управления Azure](http://go.microsoft.com/fwlink/?LinkID=253103).
+    You’ll use the new name and password to log into the machine using remote desktop, so it’s a good idea to write them down in case you forget. After you create an Azure virtual machine in Visual Studio, you can change its size and other settings in the [Azure Management Portal](http://go.microsoft.com/fwlink/?LinkID=253103).
 
-    >[AZURE.NOTE] За увеличение размера виртуальной машины может взиматься дополнительная плата. Дополнительные сведения см. в статье [Сведения о ценах — виртуальные машины](https://azure.microsoft.com/pricing/details/virtual-machines/).
+    >[AZURE.NOTE] If you choose larger sizes for the virtual machine, extra charges may apply. See [Virtual Machines Pricing Details](https://azure.microsoft.com/pricing/details/virtual-machines/) for more information.
 
-1. Виртуальные машины, созданные в Visual Studio, требуют наличия облачной службы. На странице **Параметры облачной службы** в раскрывающемся списке выберите облачную службу для виртуальной машины или выберите **<Создать...>**, если облачной службы еще нет или вы хотите создать новую. Кроме того, вам потребуется учетная запись хранения. Для этого в раскрывающемся списке **Учетная запись хранения** выберите учетную запись (или создайте новую). Дополнительную информацию см. в статье [Общие сведения о службе хранилища Microsoft Azure](../articles/storage/storage-introduction.md) .
+1. Virtual machines created in Visual Studio require a cloud service. On the **Cloud Service Settings** page, select a cloud service for the virtual machine, or click **<Create New…>** in the dropdown list if you don’t already have a cloud service or want to use a new one. A storage account is also required, so choose a storage account (or create a new storage account) in the **Storage account** dropdown list box. See [Introduction to Microsoft Azure Storage](../articles/storage/storage-introduction.md) for more information.
 
-1. Если вы хотите указать виртуальную сеть (необязательно), выберите ее в раскрывающихся списках "Виртуальная сеть" и "Подсеть".
+1. If you want to specify a virtual network (which is optional), select it in the Virtual Network and Subnet dropdown list boxes.
 
-    Виртуальные машины, входящие в группу доступности, развертываются в разные домены сбоя. Дополнительные сведения см. в статье [Виртуальная сеть Azure](https://azure.microsoft.com/services/virtual-network/).
+    Virtual machines that are members of an availability set are deployed to different fault domains. See [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network/) for more information.
 
-1. Если вы хотите включить виртуальную машину в группу доступности (необязательно), установите флажок **Указать группу доступности** и выберите группу в раскрывающемся списке. По завершении нажмите кнопку **Далее**.
+1. If you want your virtual machine to belong to an availability set (also optional), select the **Specify an availability set** check box and then choose an availability set in the dropdown list box. When you're done, choose the **Next** button.
 
-    Добавление виртуальной машины в группу доступности помогает обеспечить доступность приложения в случае сбоев сети, локальных жестких дисков, а также при плановых простоях. Для создания виртуальных сетей, подсетей и групп доступности вам потребуется использовать [портал управления Azure](http://go.microsoft.com/fwlink/?LinkID=253103). Дополнительные сведения см. в статье [Управление доступностью виртуальных машин](https://azure.microsoft.com/documentation/articles/manage-availability-virtual-machines/).
+    Adding your virtual machine to an availability set helps your application stay available during network failures, local disk hardware failures, and any planned downtime. You need to use the [Azure Management Portal](http://go.microsoft.com/fwlink/?LinkID=253103) to create virtual networks, subnets, and availability sets. See [Manage the Availability of Virtual Machines](https://azure.microsoft.com/documentation/articles/manage-availability-virtual-machines/) for more information.
 
-1. На странице **Конечные точки** выберите общедоступные конечные точки, которые должны быть доступны пользователям вашей виртуальной машины. Например, кроме конечных точек удаленного рабочего стола и PowerShell, которые включены по умолчанию, вы можете включить HTTP (порт 80). Чтобы добавить конечную точку, выберите ее в раскрывающемся списке **Имя порта** и нажмите кнопку **Добавить**. Чтобы удалить конечную точку, щелкните красный значок **X** рядом с именем в списке конечных точек.
+1. On the **Endpoints** page, specify the public endpoints that you want available to users of your virtual machine. For example, you might choose to enable HTTP (Port 80) in addition to the Remote Desktop and PowerShell endpoints, which are enabled by default. To add an endpoint, choose one in the **Port Name** dropdown list box and then choose the **Add** button. To remove an endpoint, choose the red **X** next to the name in the endpoints list.
 
-    ![Страница "Конечные точки" мастера виртуальных машин.](./media/virtual-machines-common-classic-create-manage-visual-studio/IC718351.png)
+    ![The Endpoints page in the virtual machines wizard.](./media/virtual-machines-common-classic-create-manage-visual-studio/IC718351.png)
 
-    Доступность той или иной конечной точки зависит от облачной службы, выбранной для вашей виртуальной машины. Дополнительные сведения см. в статье [Конечные точки службы Azure](https://azure.microsoft.com/documentation/articles/virtual-machines-set-up-endpoints/).
+    The endpoints that are available depend on the cloud service you selected for your virtual machine. See [Azure Service Endpoints](https://azure.microsoft.com/documentation/articles/virtual-machines-set-up-endpoints/) for more information.
 
-    >[AZURE.NOTE] Включение общедоступных конечных точек позволяет открыть доступ к вашей виртуальной машине из Интернета. Не забудьте установить и правильно настроить конечные точки и службы на виртуальной машине, такие как списки управления доступом (ACL) для конечных точек. Дополнительные сведения см. в статье [Настройка конечных точек виртуальной машины](https://azure.microsoft.com/documentation/articles/virtual-machines-set-up-endpoints/).
+    >[AZURE.NOTE] Enabling public endpoints makes services on your virtual machine available to the internet. Be sure to install and properly configure the endpoints and services on your virtual machine, such as setting access control lists (ACLs) for the endpoints. See [How to Set Up Endpoints to a Virtual Machine](https://azure.microsoft.com/documentation/articles/virtual-machines-set-up-endpoints/) for more information.
 
-1. Завершив настройку параметров виртуальной машины, нажмите кнопку **Создать**, чтобы создать виртуальную машину.
+1. After you’re done configuring the virtual machine settings, choose the **Create** button to create the virtual machine.
 
-    Пока Azure создает виртуальную машину, в разделе **Журнал действий Azure** отображается ход создания виртуальной машины.
+    As Azure creates the virtual machine, the **Azure Activity Log** shows the progress of the virtual machine creation operation.
 
-    ![Журнал действий виртуальной машины — выполняется.](./media/virtual-machines-common-classic-create-manage-visual-studio/IC744138.png)
+    ![Virtual machine activity log - in progress.](./media/virtual-machines-common-classic-create-manage-visual-studio/IC744138.png)
 
-    Чтобы отобразить только сведения о виртуальной машине, в разделе **Журнал действий Azure** выберите вкладку **Виртуальные машины**.
+    To view only virtual machine information, choose the **Virtual Machines** tab in the **Azure Activity Log**.
 
-    ![Журнал действий виртуальной машины — завершено.](./media/virtual-machines-common-classic-create-manage-visual-studio/IC744139.png)
+    ![Virtual machine activity log - completed.](./media/virtual-machines-common-classic-create-manage-visual-studio/IC744139.png)
 
-    Если операция будет завершена успешно, в узел **Виртуальные машины** обозревателя серверов будет добавлена новая виртуальная машина. Для входа в нее выберите ярлык **Подключение с помощью удаленного рабочего стола**.
+    If the operation completes successfully, the new virtual machine appears under the **Virtual Machines** node in Server Explorer. You can log into it by clicking the **Connect using Remote Desktop** shortcut.
 
-    ![Отображение виртуальной машины в обозревателе серверов.](./media/virtual-machines-common-classic-create-manage-visual-studio/IC744140.png)
+    ![Virtual machine appearing in Server Explorer.](./media/virtual-machines-common-classic-create-manage-visual-studio/IC744140.png)
 
-## Управление виртуальными машинами
+## <a name="manage-your-virtual-machines"></a>Manage your virtual machines
 
-На странице конфигурации виртуальной машины, помимо завершения работы, соединения, обновления и добавления контрольных точек, вы также можете просматривать и изменять параметры виртуальной машины. Вы можете:
+On the virtual machine configuration page, in addition to shutting down, connecting, refreshing, and adding checkpoints to the selected virtual machine, you can also view or change settings for the virtual machine. You can:
 
-- изменить размер виртуальной машины;
+- Change the virtual machine size.
 
-- выбрать группу доступности для виртуальной машины;
+- Select the availability set to use with the virtual machine.
 
-- добавить, удалить и изменить настройки общедоступных конечных точек;
+- Add, remove, or change settings for public endpoints.
 
-- добавить, удалить и настроить расширения для виртуальной машины;
+- Add, remove, or configure virtual machine extensions.
 
-- просмотреть сведения о дисках, связанных с виртуальной машиной;
+- View information about the disks associated with the virtual machine.
 
-### просмотреть и изменить параметры виртуальной машины.
+### <a name="view-or-change-virtual-machine-settings"></a>View or change virtual machine settings
 
-1. В обозревателе серверов выберите виртуальную машину, развернув узел **Виртуальные машины Azure**.
+1. In Server Explorer, choose your virtual machine in the **Azure Virtual Machines** node.
 
-1. В контекстном меню выберите элемент **Настройка**, чтобы открыть страницу конфигурации виртуальной машины.
+1. On the shortcut menu, choose **Configure** to view the virtual machine configuration page.
 
-    ![Страница настройки виртуальной машины Azure.](./media/virtual-machines-common-classic-create-manage-visual-studio/IC744141.png)
+    ![The Azure virtual machine configuration page](./media/virtual-machines-common-classic-create-manage-visual-studio/IC744141.png)
 
-1. Просмотрите информацию о виртуальной машине или измените параметры.
+1. View the virtual machine information or change it.
 
-### Сохранение или восстановление состояния виртуальной машины.
+### <a name="save-or-restore-the-status-of-your-virtual-machine"></a>Save or restore the status of your virtual machine
 
-По мере настройки виртуальной машины и установки программного обеспечения рекомендуется регулярно сохранять ее состояние путем создания контрольных точек. Контрольная точка представляет собой моментальный снимок (или образ) текущего состояния вашей виртуальной машины. Если с виртуальной машиной что-то случится или вы захотите заново ее настроить, то для экономии времени вы можете восстановить предыдущее состояние из контрольной точки, а не начинать все заново.
+As you configure your virtual machine and install software on it, it's a good idea to regularly save your progress by creating virtual machine checkpoints. A checkpoint is a snapshot, or image, of the current state of your virtual machine. If something goes wrong with the virtual machine, or you want to reconfigure the virtual machine, you can save time by restoring it to a previous checkpoint state rather than starting over from scratch.
 
-### Создание контрольной точки виртуальной машины.
+### <a name="to-create-a-virtual-machine-checkpoint"></a>To create a virtual machine checkpoint
 
-1. В обозревателе серверов выберите виртуальную машину, развернув узел **Виртуальные машины Azure**.
+1. In Server Explorer, choose your virtual machine in the **Azure Virtual Machines** node.
 
-1. В контекстном меню выберите элемент **Настройка**, чтобы открыть страницу конфигурации виртуальной машины.
+1. On the shortcut menu, choose **Configure** to view the virtual machine configuration page.
 
-1. На странице конфигурации нажмите кнопку **Записать образ**.
+1. On the configuration page, choose the **Capture Image** button.
 
-    ![Кнопка записи на странице настройки Azure.](./media/virtual-machines-common-classic-create-manage-visual-studio/IC744142.png)
+    ![Azure configuration page capture button](./media/virtual-machines-common-classic-create-manage-visual-studio/IC744142.png)
 
-    Отображается диалоговое окно **Запись виртуальной машины**.
+    The **Capture Virtual Machine** dialog appears.
 
-    ![Диалоговое окно записи виртуальной машины Azure.](./media/virtual-machines-common-classic-create-manage-visual-studio/IC744143.png)
+    ![Azure capture virtual machine dialog box](./media/virtual-machines-common-classic-create-manage-visual-studio/IC744143.png)
 
-1. Укажите название образа и описание. Поля названия и описания будут заполнены значениями по умолчанию, но вы можете ввести собственные значения.
+1. Provide an image label and description. A default label and description are provided, but you can overwrite them with your own if you like.
 
-1. Если на виртуальной машине уже запущена программа Sysprep, установите флажок **Программа Sysprep запущена на виртуальной машине**.
+1. If you have already run Sysprep on this virtual machine, select the **I have run Sysprep on the virtual machine** box.
 
-    Sysprep — это средство, которое, помимо прочего, позволяет удалить информацию, относящуюся к конкретной версии Windows на виртуальной машине. В результате такая система может использоваться в качестве шаблона для установки на других машинах. Дополнительные сведения см. в статье [Создание образа виртуальной машины Windows для использования в качестве шаблона](https://azure.microsoft.com/documentation/articles/virtual-machines-capture-image-windows-server/). Перед выполнением программы Sysprep выполните архивацию виртуальной машины.
+    Sysprep is a tool that, among other things, removes systems-specific data from the virtual machine’s version of Windows, making it template that others can use. See [How to Capture a Windows Virtual Machine to Use as a Template](https://azure.microsoft.com/documentation/articles/virtual-machines-capture-image-windows-server/) for more information. Back up the VM before running Sysprep.
 
-1. Когда параметры создания образа будут настроены, нажмите кнопку **Записать**, чтобы создать контрольную точку.
+1. After you’re done configuring the capture settings, choose the **Capture** button to create the checkpoint.
 
-    Во время создания контрольной точки в разделе **Журнал действий Azure** будет отображаться ход выполнения операции.
+    As Azure creates the checkpoint, the **Azure Activity Log** shows the progress of the operation.
 
-    ![Контрольная точка записи виртуальной машины.](./media/virtual-machines-common-classic-create-manage-visual-studio/IC744144.png)
+    ![Capturing a virtual machine checkpoint](./media/virtual-machines-common-classic-create-manage-visual-studio/IC744144.png)
 
-    После завершения создания контрольной точки вы увидите сообщение в разделе **Журнал действий Azure**.
+    When the checkpoint operation completes, you’ll see it in the **Azure Activity Log**.
 
-    ![Операция контрольной точки завершена.](./media/virtual-machines-common-classic-create-manage-visual-studio/IC744145.png)
+    ![Checkpoint operation completed](./media/virtual-machines-common-classic-create-manage-visual-studio/IC744145.png)
 
-## Управление контрольными точками виртуальной машины.
+## <a name="to-manage-virtual-machine-checkpoints"></a>To manage virtual machine checkpoints
 
-### Восстановление виртуальной машины до ранее сохраненного состояния.
+### <a name="to-restore-a-virtual-machine-to-a-previously-saved-state"></a>To restore a virtual machine to a previously saved state
 
-- Выполните действия, описанные в статье [Пошаговое руководство по восстановлению виртуальных машин Microsoft Azure в облаке с помощью PowerShell, часть 2](http://blogs.technet.com/b/keithmayer/archive/2014/02/04/step-by-step-perform-cloud-restores-of-windows-azure-virtual-machines-using-powershell-part-2.aspx).
+- Follow the steps outlined in [Step-by-Step: Perform Cloud Restores of Microsoft Azure Virtual Machines using PowerShell - Part 2](http://blogs.technet.com/b/keithmayer/archive/2014/02/04/step-by-step-perform-cloud-restores-of-windows-azure-virtual-machines-using-powershell-part-2.aspx).
 
-### Удаление контрольной точки.
+### <a name="to-delete-a-checkpoint"></a>To delete a checkpoint
 
-1. Перейдите на [портал управления Azure](http://go.microsoft.com/fwlink/?LinkID=253103).
+1. Go to the [Azure Management Portal](http://go.microsoft.com/fwlink/?LinkID=253103).
 
-1. На странице конфигурации виртуальной машины в верхней части страницы выберите вкладку **Образы**.
+1. On the virtual machine configuration page, choose the **Images** tab at the top of the page.
 
-1. Выберите контрольную точку, которую необходимо удалить, и нажмите кнопку **Удалить** в нижней части страницы.
+1. Choose the checkpoint you want to delete, and then choose the **Delete**  button at the bottom of the page.
 
-## Завершение работы виртуальной машины.
+## <a name="shut-down-your-virtual-machine"></a>Shut down your virtual machine
 
-1. В обозревателе серверов раскройте узел **Виртуальные машины Azure** и выберите виртуальную машину, работу которой необходимо завершить.
+1. In Server Explorer, choose the virtual machine you want to shut down in the **Azure Virtual Machines** node.
 
-1. В контекстном меню выберите команду **Завершение работы** или **Настройка**, чтобы открыть страницу конфигурации виртуальной машины. На этой странице нажмите кнопку **Завершение работы**.
+1. On the shortcut menu, either choose the **Shutdown** command, or choose **Configure** to view the virtual machine configuration page, and then choose the **Shutdown** button.
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Next steps
 
-Дополнительные сведения о создании виртуальных машин см. в статьях [Создание виртуальной машины под управлением Linux](../articles/virtual-machines/virtual-machines-linux-quick-create-cli.md) и [Создание виртуальной машины под управлением Windows на портале предварительной версии Azure](../articles/virtual-machines/virtual-machines-windows-hero-tutorial.md).
+To learn more about creating virtual machines, see [Create a Virtual Machine Running Linux](../articles/virtual-machines/virtual-machines-linux-quick-create-cli.md) and [Create a virtual machine running Windows in the Azure preview portal](../articles/virtual-machines/virtual-machines-windows-hero-tutorial.md).
 
-<!---HONumber=AcomDC_0831_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

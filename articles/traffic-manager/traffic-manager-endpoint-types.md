@@ -1,147 +1,135 @@
 <properties
-   pageTitle="Типы конечных точек диспетчера трафика | Microsoft Azure"
-   description="В этой статье описываются разные типы конечных точек, которые можно использовать с диспетчером трафика Azure"
-   services="traffic-manager"
-   documentationCenter=""
-   authors="sdwheeler"
-   manager="carmonm"
-   editor="tysonn" />
+    pageTitle="Traffic Manager Endpoint Types | Microsoft Azure"
+    description="This article explains different types of endpoints that can be used with Azure Traffic Manager"
+    services="traffic-manager"
+    documentationCenter=""
+    authors="sdwheeler"
+    manager="carmonm"
+    editor=""
+/>
 <tags
-   ms.service="traffic-manager"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="06/08/2016"
-   ms.author="sewhee" />
+    ms.service="traffic-manager"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="infrastructure-services"
+    ms.date="10/11/2016"
+    ms.author="sewhee"
+/>
 
-# Конечные точки диспетчера трафика
 
-С помощью диспетчера трафика Microsoft Azure можно управлять распределением пользовательского трафика среди приложений, развернутых в различных центрах обработки данных или в других расположениях по всему миру.
+# <a name="traffic-manager-endpoints"></a>Traffic Manager endpoints
 
-В диспетчере трафика каждое развертывание приложения необходимо настроить в качестве конечной точки. После получения запроса DNS диспетчер трафика выбирает одну из этих конечных точек, которая будет возвращена в ответе DNS, в зависимости от текущей доступности конечных точек и выбранного метода маршрутизации трафика. Дополнительные сведения см. в статье [Как работает диспетчер трафика](traffic-manager-how-traffic-manager-works.md).
+Microsoft Azure Traffic Manager allows you to control how network traffic is distributed to application deployments running in different datacenters. You configure each application deployment as an 'endpoint' in Traffic Manager. When Traffic Manager receives a DNS request, it chooses an available endpoint to return in the DNS response. Traffic manager bases the choice on the current endpoint status and the traffic-routing method. For more information, see [How Traffic Manager Works](traffic-manager-how-traffic-manager-works.md).
 
-Здесь описывается, как диспетчер трафика поддерживает различные типы конечных точек.
+There are three types of endpoint supported by Traffic Manager:
 
-## Типы конечных точек, поддерживаемых диспетчером трафика
+- **Azure endpoints** are used for services hosted in Azure.
+- **External endpoints** are used for services hosted outside Azure, either on-premises or with a different hosting provider.
+- **Nested endpoints** are used to combine Traffic Manager profiles to create more flexible traffic-routing schemes to support the needs of larger, more complex deployments.
 
-Диспетчер трафика поддерживает три типа конечных точек:
+There is no restriction on how endpoints of different types are combined in a single Traffic Manager profile. Each profile can contain any mix of endpoint types.
 
-- **конечные точки Azure**, используемые для служб, размещенных в Azure;
-- **внешние конечные точки**, используемые для служб, размещенных за пределами Azure: локально или с помощью другого поставщика услуг размещения;
-- **вложенные конечные точки**, используемые для объединения профилей диспетчера трафика, что позволяет создавать более гибкие и эффективные схемы маршрутизации трафика для поддержки потребностей более крупных и сложных развертываний.
+The following sections describe each endpoint type in greater depth.
 
-Разные типы конечных точек можно объединять в одном профиле диспетчера трафика без каких-либо ограничений. В каждом профиле может содержаться любое сочетание типов конечных точек.
+## <a name="azure-endpoints"></a>Azure endpoints
 
-В следующих разделах каждый тип конечной точки описывается более подробно.
+Azure endpoints are used for Azure-based services in Traffic Manager. The following Azure resource types are supported:
 
-### Конечные точки Azure
+- 'Classic' IaaS VMs and PaaS cloud services.
+- Web Apps
+- PublicIPAddress resources (which can be connected to VMs either directly or via an Azure Load Balancer). The publicIpAddress must have a DNS name assigned to be used in a Traffic Manager profile.
 
-В диспетчере трафика конечные точки Azure используются для настройки служб на основе Azure. Сейчас конечные точки Azure поддерживают следующие типы ресурсов Azure:
+PublicIPAddress resources are Azure Resource Manager resources. They do not exist in the classic deployment model. Thus they are only supported in Traffic Manager's Azure Resource Manager experiences. The other endpoint types are supported via both Resource Manager and the classic deployment model.
 
-- классические виртуальные машины IaaS и облачные службы PaaS;
-- Веб-приложения
-- ресурсы PublicIPAddress (которые можно подключить к виртуальным машинам: напрямую или с помощью Azure Load Balancer). Обратите внимание, что для использования в диспетчере трафика к конечной точке publicIpAddress должно быть привязано DNS-имя.
+When using Azure endpoints, Traffic Manager detects when a 'Classic' IaaS VM, cloud service, or a Web App is stopped and started. This status is reflected in the endpoint status. See [Traffic Manager endpoint monitoring](traffic-manager-monitoring.md#endpoint-and-profile-status) for details. When the underlying service is stopped, Traffic Manager does not perform endpoint health checks or direct traffic to the endpoint. No Traffic Manager billing events occur for the stopped instance. When the service is restarted, billing resumes and the endpoint is eligible to receive traffic. This detection does not apply to PublicIpAddress endpoints.
 
-Ресурсы PublicIPAddress — это ресурсы Azure Resource Manager, которые не находятся в API управления службами Azure. Таким образом, они поддерживаются только в Azure Resource Manager в рамках диспетчера трафика. Остальные типы конечных точек поддерживаются как в Resource Manager, так и в средстве управления службами в диспетчере трафика.
+## <a name="external-endpoints"></a>External endpoints
 
-При использовании конечных точек Azure диспетчер трафика определяет время остановки и запуска классической виртуальной машины IaaS, облачной службы PaaS или веб-приложения. Оно отображается в разделе состояния конечной точки (дополнительные сведения см. в статье [О мониторинге диспетчера трафика](traffic-manager-monitoring.md#endpoint-and-profile-status)). При остановке работы основной службы диспетчер трафика больше не будет выставлять счета за проверки работоспособности конечной точки и не будет направлять трафик к этой конечной точке. При перезапуске службы выставление счетов возобновляется и конечная точка снова может принимать трафик. Это не распространяется на конечные точки PublicIpAddress.
+External endpoints are used for services outside of Azure. For example, a service hosted on-premises or with a different provider. External endpoints can be used individually or combined with Azure Endpoints in the same Traffic Manager profile. Combining Azure endpoints with External endpoints enables various scenarios:
 
-### Внешние конечные точки
+- In either an active-active or active-passive failover model, use Azure to provide increased redundancy for an existing on-premises application.
+- To reduce application latency for users around the world, extend an existing on-premises application to additional geographic locations in Azure. For more information, see [Traffic Manager 'Performance' traffic routing](traffic-manager-routing-methods.md#performance-traffic-routing-method).
+- Use Azure to provide additional capacity for an existing on-premises application, either continuously or as a 'burst-to-cloud' solution to meet a spike in demand.
 
-Используя внешние конечные точки, диспетчер трафика можно настроить таким образом, чтобы он направлял трафик в службы, находящиеся за пределами Azure, например в службу, размещенную локально, или службу, размещенную через другого поставщика.
+In certain cases, it is useful to use External endpoints to reference Azure services (for examples, see the [FAQ](#faq)). In this case, health checks are billed at the Azure endpoints rate, not the External endpoints rate. However, unlike Azure endpoints, if you stop or delete the underlying service, health check billing continues until you disable or delete the endpoint in Traffic Manager.
 
-В одном и том же профиле диспетчера трафика внешние конечные точки можно использовать как отдельно, так и в сочетании с конечными точками Azure. Объединение конечных точек Azure с внешними конечными точками позволяет реализовать различные сценарии:
+## <a name="nested-endpoints"></a>Nested endpoints
 
-- использование Azure для повышения избыточности в имеющемся локальном приложении в рамках модели отработки отказа "активный — активный" или "активный — пассивный";
-- использование Azure для расширения имеющегося локального приложения в дополнительные географические расположения вместе с [маршрутизацией трафика для повышения производительности диспетчера трафика](traffic-manager-routing-methods.md#performance-traffic-routing-method), чтобы уменьшить задержку приложения и повысить производительность для пользователей;
-- использование Azure для получения дополнительной емкости для имеющегося локального приложения непрерывно или путем расширения в облако, чтобы обеспечить обработку всплеска запросов.
+Nested endpoints combine multiple Traffic Manager profiles to create flexible traffic-routing schemes and support the needs of larger, complex deployments. With Nested endpoints, a 'child' profile is added as an endpoint to a 'parent' profile. Both the child and parent profiles can contain other endpoints of any type, including other nested profiles. For more information, see [nested Traffic Manager profiles](traffic-manager-nested-profiles.md).
 
-В некоторых случаях внешние конечные точки также можно использовать для ссылки на службы Azure (примеры см. в разделе [Часто задаваемые вопросы](#faq)). В этом случае счета за проверки работоспособности выставляются по тарифу конечных точек Azure, а не внешних конечных точек. Тем не менее в отличие от конечных точек Azure при остановке или удалении основной службы за соответствующие проверки работоспособности могут по-прежнему выставляться счета, пока вы явно не отключите или удалите конечную точку в диспетчере трафика.
+## <a name="web-apps-as-endpoints"></a>Web Apps as endpoints
 
-### Вложенные конечные точки
+Some additional considerations apply when configuring Web Apps as endpoints in Traffic Manager:
 
-Вложенные конечные точки используются для объединения профилей диспетчера трафика, что позволяет создавать более гибкие и эффективные схемы маршрутизации трафика для поддержки потребностей более крупных и сложных развертываний.
+1. Only Web Apps at the 'Standard' SKU or above are eligible for use with Traffic Manager. Attempts to add a Web App of a lower SKU fail. Downgrading the SKU of an existing Web App results in Traffic Manager no longer sending traffic to that Web App.
 
-При использовании вложенных конечных точек дочерний профиль добавляется в качестве конечной точки в родительский профиль, чтобы создать иерархию. Дочерний и родительский профили могут содержать другие конечные точки любого типа, в том числе другие вложенные профили.
+2. When an endpoint receives an HTTP request, it uses the 'host' header in the request to determine which Web App should service the request. The host header contains the DNS name used to initiate the request, for example 'contosoapp.azurewebsites.net'. To use a different DNS name with your Web App, the DNS name must be registered as a custom domain name for the App. When adding a Web App endpoint as an Azure endpoint, the Traffic Manager profile DNS name is automatically registered for the App. This registration is automatically removed when the endpoint is deleted.
 
-Дополнительные сведения см. в статье [Вложенные профили диспетчера трафика](traffic-manager-nested-profiles.md).
+3. Each Traffic Manager profile can have at most one Web App endpoint from each Azure region. To work around for this constraint, you can configure a Web App as an External endpoint. For more information, see the [FAQ](#faq).
 
-## Веб-приложения в качестве конечных точек
+## <a name="enabling-and-disabling-endpoints"></a>Enabling and disabling endpoints
 
-При настройке веб-приложений в качестве конечных точек в диспетчере трафика необходимо учитывать дополнительные рекомендации:
+Disabling an endpoint in Traffic Manager can be useful to temporarily remove traffic from an endpoint that is in maintenance mode or being redeployed. Once the endpoint is running again, it can be re-enabled.
 
-1. В диспетчере трафика можно использовать только веб-приложения с номером SKU уровня "Стандартный" или выше. Вызовы к диспетчеру трафика для добавления веб-приложения с номером SKU более низкого уровня будут завершаться с ошибкой. Если снизить уровень SKU имеющегося веб-приложения, диспетчер трафика больше не будет отправлять трафик в это веб-приложение, что может привести к удалению конечной точки из диспетчера трафика.
+Endpoints can be enabled and disabled via the Traffic Manager portal, PowerShell, CLI or REST API, all of which are supported in both Resource Manager and the classic deployment model.
 
-2. Когда в службу веб-приложений поступает HTTP-запрос, для определения веб-приложения, которое должно обработать запрос, используется заголовок узла. Заголовок узла содержит DNS-имя, используемое для отправки запроса, например contosoapp.azurewebsites.net. Чтобы использовать другое DNS-имя в веб-приложении, это имя необходимо зарегистрировать в качестве личного домена приложения. При добавлении конечной точки веб-приложения в качестве конечной точки Azure в профиль диспетчера трафика DNS-имя этого профиля автоматически регистрируется как личный домен приложения. При удалении конечной точки эта регистрация автоматически отменяется.
+>[AZURE.NOTE] Disabling an Azure endpoint has nothing to do with its deployment state in Azure. An Azure service (such as a VM or Web App remains running and able to receive traffic even when disabled in Traffic Manager. Traffic can be addressed directly to the service instance rather than via the Traffic Manager profile DNS name. For more information, see [how Traffic Manager works](traffic-manager-how-traffic-manager-works.md).
 
-3. Как правило, веб-приложение настраивается как конечная точка Azure. Однако при некоторых обстоятельствах рекомендуется настраивать веб-приложение в качестве внешней конечной точки (пример см. в следующем пункте). Веб-приложения можно настроить в качестве внешней конечной точки в диспетчере трафика только при использовании диспетчера трафика Resource Manager. Настройка при использовании управления службами не поддерживается.
+The current eligibility of each endpoint to receive traffic depends on the following factors:
 
-4. В каждом профиле диспетчера трафика может быть только одна конечная точка веб-приложения из каждого региона Azure. Обходное решение для этого ограничения приведено в разделе [Часто задаваемые вопросы](#faq).
+- The profile status (enabled/disabled)
+- The endpoint status (enabled/disabled)
+- The results of the health checks for that endpoint
 
-## Включение и отключение конечных точек
+For details, see [Traffic Manager endpoint monitoring](traffic-manager-monitoring.md#endpoint-and-profile-status).
 
-Отключить конечную точку в диспетчере трафика целесообразно, если нужно временно удалить трафик из конечной точки, которая находится в режиме обслуживания или повторно развертывается. После того, как конечная точка восстановится и заработает, ее можно включить снова.
+>[AZURE.NOTE] Since Traffic Manager works at the DNS level, it is unable to influence existing connections to any endpoint. When an endpoint is unavailable, Traffic Manager directs new connections to another available endpoint. However, the host behind the disabled or unhealthy endpoint may continue to receive traffic via existing connections until those sessions are terminated. Applications should limit the session duration to allow traffic to drain from existing connections.
 
-Конечные точки можно включать и отключать на портале диспетчера трафика с помощью PowerShell, интерфейса командной строки или REST API, которые поддерживаются как в Resource Manager, так и в управлении службами.
+If all endpoints in a profile are disabled, or if the profile itself is disabled, then Traffic Manager sends an 'NXDOMAIN' response to a new DNS query.
 
->[AZURE.NOTE] Отключение конечной точки Azure никак не отражается на состоянии ее развертывания в Azure. Служба Azure, например виртуальная машина или веб-приложение, будет продолжать работу и сможет получать трафик, даже если она отключена в диспетчере трафика (если трафик направляется непосредственно в эту службу, а не через DNS-имя профиля диспетчера трафика). Дополнительные сведения см. в статье [Как работает диспетчер трафика](traffic-manager-how-traffic-manager-works.md).
+## <a name="faq"></a>FAQ
 
-Если конечная точка отключена, она больше не будет возвращаться в ответах DNS и, таким образом, трафик не будет направляться в конечную точку. Кроме того, проверки работоспособности для отключенной конечной точки не выполняются, и за них не выставляются счета. Отключение конечной точки аналогично ее удалению, за исключением того, что в этом случае проще включить ее снова.
+### <a name="can-i-use-traffic-manager-with-endpoints-from-multiple-subscriptions?"></a>Can I use Traffic Manager with endpoints from multiple subscriptions?
 
-Текущая способность каждой конечной точки принимать трафик зависит от состояния профиля (включен или отключен), состояния конечной точки (включена или отключена) и результатов проверок работоспособности этой конечной точки. Дополнительные сведения см. в статье [О мониторинге диспетчера трафика](traffic-manager-monitoring.md#endpoint-and-profile-status).
+Using endpoints from multiple subscriptions is not possible with Azure Web Apps. Azure Web Apps requires that any custom domain name used with Web Apps is only used within a single subscription. It is not possible to use Web Apps from multiple subscriptions with the same domain name.
 
->[AZURE.NOTE] Так как диспетчер трафика работает на уровне DNS, он не влияет на существующие подключения к какой-либо конечной точке. При направлении трафика между конечными точками (путем изменения параметров профиля либо во время отработки отказа или восстановления после сбоя) диспетчер трафика будет направлять новые подключения в доступные конечные точки. Однако другие конечные точки могут по-прежнему получать трафик через имеющиеся подключения, пока эти сеансы не будут прерваны. Чтобы трафик не проходил через имеющиеся подключения, для приложений следует ограничить продолжительность сеанса в каждой конечной точке.
+For other endpoint types, it is possible to use Traffic Manager with endpoints from more than one subscription. How you configure Traffic Manager depends on whether you are using the classic deployment model or the Resource Manager experience.
 
-Если все конечные точки в профиле отключены или отключен сам профиль, запросы DNS выполняются с ответом NXDOMAIN. Если профиль удален, происходит то же самое.
+- In Resource Manager, endpoints from any subscription can be added to Traffic Manager, so long as the person configuring the Traffic Manager profile has read access to the endpoint. These permissions can be granted using [Azure Resource Manager role-based access control (RBAC)](../active-directory/role-based-access-control-configure.md).
+- In the classic deployment model interface, Traffic Manager requires that Cloud Services or Web Apps configured as Azure endpoints reside in the same subscription as the Traffic Manager profile. Cloud Service endpoints in other subscriptions can be added to Traffic Manager as 'external' endpoints. These external endpoints are billed as Azure endpoints, rather than the external rate.
 
-## Часто задаваемые вопросы
+### <a name="can-i-use-traffic-manager-with-cloud-service-'staging'-slots?"></a>Can I use Traffic Manager with Cloud Service 'Staging' slots?
 
-### Можно ли использовать в диспетчере трафика конечные точки из нескольких подписок?
-Для веб-приложений Azure это невозможно. Причина этого в том, что для работы веб-приложений требуется, чтобы любое имя личного домена, используемое в них, использовалось только в пределах одной подписки. Невозможно использовать веб-приложения из нескольких подписок с одним и тем же доменным именем. Поэтому их нельзя использовать с диспетчером трафика.
+Yes. Cloud Service 'staging' slots can be configured in Traffic Manager as External endpoints. Health checks are still be charged at the Azure Endpoints rate. Because the External endpoint type is in use, changes to the underlying service are not picked up automatically. With external endpoints, Traffic Manager cannot detect when the Cloud Service is stopped or deleted. Therefore, the Traffic Manager continues billing for health checks until the endpoint is disabled or deleted.
 
-Для других типов конечных точек можно использовать диспетчер трафика, если эти конечные точки расположены в нескольких подписках. Способ использования зависит от того, какой API используется для диспетчера трафика: API управления службами или API Resource Manager. На [портале Azure](https://portal.azure.com) используется API Resource Manager, а на [классическом портале](https://manage.windowsazure.com) — API управления службами.
+### <a name="does-traffic-manager-support-ipv6-endpoints?"></a>Does Traffic Manager support IPv6 endpoints?
 
-В рамках Resource Manager в диспетчер трафика можно добавить конечные точки из любой подписки при условии, что у пользователя, настраивающего профиль диспетчера трафика, есть доступ на чтение к этим конечным точкам. Эти разрешения можно предоставить с помощью [управления доступом на основе ролей Azure Resource Manager](../active-directory/role-based-access-control-configure.md).
+Traffic Manager does not currently provide IPv6-addressible name servers. However, Traffic Manager can still be used by IPv6 clients connecting to IPv6 endpoints. A client does not make DNS requests directly to Traffic Manager. Instead, the client uses a recursive DNS service. An IPv6-only client sends requests to the recursive DNS service via IPv6. Then the recursive service should be able to contact the Traffic Manager name servers using IPv4.
 
-В управлении службами для работы диспетчера трафика требуется, чтобы облачная служба или веб-приложение, настроенные в качестве конечной точки Azure, находились в той же подписке, что и профиль диспетчера трафика. Конечные точки облачной службы в других подписках можно добавить в диспетчер трафика в качестве внешних конечных точек (за них будут по-прежнему выставляться счета по тарифу внутренней конечной точки).
+Traffic Manager responds with the DNS name of the endpoint. To support an IPv6 endpoint, a DNS AAAA record pointing the endpoint DNS name to the IPv6 address must exist. Traffic Manager health checks only support IPv4 addresses. The service needs to expose an IPv4 endpoint on the same DNS name.
 
-### Можно ли использовать диспетчер трафика с промежуточными слотами облачной службы?
-Да. Промежуточные слоты облачной службы можно настроить в диспетчере трафика в качестве внешних конечных точек.
+### <a name="can-i-use-traffic-manager-with-more-than-one-web-app-in-the-same-region?"></a>Can I use Traffic Manager with more than one Web App in the same region?
 
-Из-за того, что служба, на которую ссылается конечная точка, находится в Azure, за проверки работоспособности по-прежнему будут выставляться счета по тарифу конечных точек Azure.
+Typically, Traffic Manager is used to direct traffic to applications deployed in different regions. However, it can also be used where an application has more than one deployment in the same region. The Traffic Manager Azure endpoints do not permit more than one Web App endpoint from the same Azure region to be added to the same Traffic Manager profile.
 
-Так как тип внешней конечной точки уже используется, изменения основной службы не применяются автоматически. Таким образом, если облачная служба остановлена или удалена, за проверки работоспособности конечной точки диспетчера трафика будут по-прежнему выставляться счета, пока эта конечная точка не будет отключена или удалена в диспетчере трафика.
+The following steps provide a workaround to this constraint:
 
-### Поддерживает ли диспетчер трафика конечные точки IP версии 6?
+1. Check that your endpoints are in different web app 'scale units'. A domain name must map to a single site in a given scale unit. Therefore, two Web Apps in the same scale unit cannot share a Traffic Manager profile.
+2. Add your vanity domain name as a custom hostname to each Web App. Each Web App must be in a different scale unit. All Web Apps must belong to the same subscription.
+3. Add one (and only one) Web App endpoint to your Traffic Manager profile, as an Azure endpoint.
+4. Add each additional Web App endpoint to your Traffic Manager profile as an External endpoint. External endpoints can only be added using the Resource Manager deployment model.
+5. Create a DNS CNAME record in your vanity domain that points to your Traffic Manager profile DNS name (<...>.trafficmanager.net).
+6. Access your site via the vanity domain name, not the Traffic Manager profile DNS name.
 
-Да. Несмотря на то, что диспетчер трафика сейчас не поддерживает серверы доменных имен, к которым можно обратиться через IP версии 6, его по-прежнему могут использовать клиенты IP версии 6, подключающиеся к конечным точкам IP версии 6.
+## <a name="next-steps"></a>Next steps
 
-Клиент, использующий только IP версии 6, по-прежнему может использовать диспетчер трафика, так как он не отправляет DNS-запросы непосредственно в этот диспетчер. Вместо этого он использует рекурсивную службу DNS. Он также может отправлять запросы в эту службу через IP версии 6, а рекурсивная служба должна иметь возможность связаться с серверами доменных имен диспетчера трафика, используя IPv4-адрес.
+- Learn [how Traffic Manager works](traffic-manager-how-traffic-manager-works.md).
+- Learn about Traffic Manager [endpoint monitoring and automatic failover](traffic-manager-monitoring.md).
+- Learn about Traffic Manager [traffic routing methods](traffic-manager-routing-methods.md).
 
-При получении запроса DNS диспетчер трафика отправит ответ с DNS-именем конечной точки, к которой клиенту необходимо подключиться. Чтобы конечная точка IP версии 6 поддерживалась, достаточно настроить запись DNS типа AAAA, которая направляет DNS-имя конечной точки по IPv6-адресу.
 
-Обратите внимание, что для выполнения проверок работоспособности диспетчера трафика надлежащим образом служба должна предоставлять доступ к конечной точке IPv4. Для этого необходимо выполнить сопоставление с использованием одного и того же DNS-имени конечной точки и записи DNS типа A.
 
-### Можно ли использовать в диспетчере трафика несколько веб-приложений в одном и том же регионе?
+<!--HONumber=Oct16_HO2-->
 
-Как правило, диспетчер трафика используется для перенаправления трафика в приложения, развернутые в разных регионах. Тем не менее его также можно использовать с приложениями, у которых есть несколько развертываний в одном и том же регионе.
 
-В случае использования веб-приложений конечные точки Azure диспетчера трафика не допускают добавление нескольких конечных точек веб-приложения, находящихся в одном и том же регионе Azure, в один и тот же профиль. Ниже приведены обходные решения для этого ограничения:
-
-1.	Убедитесь, что веб-приложения, находящиеся в одном регионе, представлены в разных единицах масштабирования веб-приложения, т. е. в разных экземплярах службы веб-приложений. Для этого проверьте путь DNS для записи DNS <...>.azurewebsites.net. Единица масштабирования будет выглядеть примерно следующим образом: waws-prod-xyz-123.vip.azurewebsites.net. Доменное имя необходимо сопоставить с одним сайтом в этой единице масштабирования. Именно поэтому для двух веб-приложений, представленных в одной единице масштабирования, не может использоваться один профиль диспетчера трафика.
-2.	Если веб-приложения представлены в разных единицах масштабирования, добавьте для каждого из них личное доменное имя в качестве пользовательского имени узла. Для этого все веб-приложения должны принадлежать одной и той же подписке.
-3.	Добавьте одну-единственную конечную точку веб-приложения в профиль диспетчера трафика в качестве конечной точки Azure обычным способом.
-4.	Добавьте каждую дополнительную конечную точку веб-приложения в профиль диспетчера трафика в качестве внешней конечной точки. При этом для диспетчера трафика необходимо использовать Resource Manager, а не управление службами.
-5.	Создайте запись DNS CNAME из личного домена (как описано на шаге 2 выше) для DNS-имени профиля диспетчера трафика (<…>.trafficmanager.net).
-6.	Откройте свой сайт, используя личное доменное имя, а не DNS-имя профиля диспетчера трафика.
-
-## Дальнейшие действия
-
-- Узнайте больше о том, [как работает диспетчер трафика](traffic-manager-how-traffic-manager-works.md).
-
-- Узнайте больше о [мониторинге конечных точек и автоматической отработке отказов](traffic-manager-monitoring.md) диспетчера трафика.
-
-- Узнайте больше о [методах маршрутизации трафика](traffic-manager-routing-methods.md) в диспетчере трафика.
-
-<!---HONumber=AcomDC_0824_2016-->

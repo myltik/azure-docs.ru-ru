@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Загрузка данных из CSV-файла в базу данных SQL Azure (с использованием bcp) | Microsoft Azure"
-   description="Для импорта небольших объемов данных в базу данных SQL Azure используйте программу bcp."
+   pageTitle="Load data from CSV file into Azure SQL Databaase (bcp) | Microsoft Azure"
+   description="For a small data size, uses bcp to import data into Azure SQL Database."
    services="sql-database"
    documentationCenter="NA"
    authors="CarlRabeler"
@@ -17,31 +17,32 @@
    ms.author="carlrab"/>
 
 
-# Загрузка данных из CSV-файла в хранилище данных SQL Azure (неструктурированные файлы)
 
-Для импорта данных из CSV-файла в базу данных SQL Azure можно использовать программу командной строки bcp.
+# <a name="load-data-from-csv-into-azure-sql-data-warehouse-(flat-files)"></a>Load data from CSV into Azure SQL Data Warehouse (flat files)
 
-## Перед началом работы
+You can use the bcp command-line utility to import data from a CSV file into Azure SQL Database.
 
-### Предварительные требования
+## <a name="before-you-begin"></a>Before you begin
 
-Для выполнения этих действий необходимо иметь следующее:
+### <a name="prerequisites"></a>Prerequisites
 
-- Логический сервер и база данных SQL Azure
-- установленная служебная программа командной строки bcp;
-- установленная служебная программа командной строки sqlcmd.
+To step through this tutorial, you need:
 
-Вы можете загрузить служебные программы bcp и sqlcmd в [Центре загрузки Майкрософт][].
+- An Azure SQL Database logical server and database
+- The bcp command-line utility installed
+- The sqlcmd command-line utility installed
 
-### Данные в формате ASCII или UTF-16
+You can download the bcp and sqlcmd utilities from the [Microsoft Download Center][].
 
-Чтобы выполнить действия, описанные в этом руководстве, необходимо использовать данные в формате ASCII или UTF-16, так как bcp не поддерживает кодировку UTF-8.
+### <a name="data-in-ascii-or-utf-16-format"></a>Data in ASCII or UTF-16 format
 
-## 1\. Создание целевой таблицы
+If you are trying this tutorial with your own data, your data needs to use the ASCII or UTF-16 encoding since bcp does not support UTF-8. 
 
-Определите таблицу в базе данных SQL как целевую таблицу. Столбцы в таблице должны соответствовать данным в каждой строке файла данных.
+## <a name="1.-create-a-destination-table"></a>1. Create a destination table
 
-Чтобы создать таблицу, откройте окно командной строки и используйте sqlcmd.exe для выполнения следующей команды:
+Define a table in SQL Database as the destination table. The columns in the table must correspond to the data in each row of your data file.
+
+To create a table, open a command prompt and use sqlcmd.exe to run the following command:
 
 
 ```sql
@@ -57,9 +58,9 @@ sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q
 ```
 
 
-## 2) Создание файла источника данных
+## <a name="2.-create-a-source-data-file"></a>2. Create a source data file
 
-Откройте блокнот и скопируйте следующие строки данных в новый текстовый файл, а затем сохраните этот файл в локальный временный каталог (C:\\Temp\\DimDate2.txt). Эти данные имеют формат ASCII.
+Open Notepad and copy the following lines of data into a new text file and then save this file to your local temp directory, C:\Temp\DimDate2.txt. This data is in ASCII format.
 
 ```
 20150301,1,3
@@ -76,26 +77,26 @@ sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q
 20150101,1,3
 ```
 
-Чтобы экспортировать данные из базы данных SQL Server, откройте окно командной строки и выполните команду ниже (необязательно). Замените значения TableName, ServerName, DatabaseName, Username и Password на собственные.
+(Optional) To export your own data from a SQL Server database, open a command prompt and run the following command. Replace TableName, ServerName, DatabaseName, Username, and Password with your own information.
 
 ```sql
 bcp <TableName> out C:\Temp\DimDate2_export.txt -S <ServerName> -d <DatabaseName> -U <Username> -P <Password> -q -c -t ','
 ```
 
-## 3\. Загрузка данных
-Чтобы загрузить данные, откройте окно командной строки и выполните следующую команду, подставив собственные значения имени сервера, базы данных, пользователя и пароль.
+## <a name="3.-load-the-data"></a>3. Load the data
+To load the data, open a command prompt and run the following command, replacing the values for Server Name, Database name, Username, and Password with your own information.
 
 ```sql
 bcp DimDate2 in C:\Temp\DimDate2.txt -S <ServerName> -d <DatabaseName> -U <Username> -P <password> -q -c -t  ','
 ```
 
-Используйте команду ниже, чтобы убедиться, что данные загружены правильно.
+Use this command to verify the data was loaded properly
 
 ```sql
 sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q "SELECT * FROM DimDate2 ORDER BY 1;"
 ```
 
-Результат должен выглядеть следующим образом:
+The results should look like this:
 
 DateId |CalendarQuarter |FiscalQuarter
 ----------- |--------------- |-------------
@@ -113,15 +114,19 @@ DateId |CalendarQuarter |FiscalQuarter
 20151201 |4 |2
 
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Next steps
 
-Миграция базы данных SQL Server описана в статье [Миграция базы данных SQL Server в базу данных SQL в облаке](sql-database-cloud-migrate.md).
+To migrate a SQL Server database, see [SQL Server database migration](sql-database-cloud-migrate.md).
 
 <!--MSDN references-->
 [bcp]: https://msdn.microsoft.com/library/ms162802.aspx
 [CREATE TABLE syntax]: https://msdn.microsoft.com/library/mt203953.aspx
 
 <!--Other Web references-->
-[Центре загрузки Майкрософт]: https://www.microsoft.com/download/details.aspx?id=36433
+[Microsoft Download Center]: https://www.microsoft.com/download/details.aspx?id=36433
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,54 +1,59 @@
 <properties
-	pageTitle="Обзор Mobile Engagement | Microsoft Azure"
-	description="Обзор Azure Mobile Engagement"
-	services="mobile-engagement"
-	documentationCenter="mobile"
-	authors="piyushjo"
-	manager="erikre"
-	editor="" />
+    pageTitle="Mobile Engagement Overview | Microsoft Azure"
+    description="Overview of Azure Mobile Engagement"
+    services="mobile-engagement"
+    documentationCenter="mobile"
+    authors="piyushjo"
+    manager="erikre"
+    editor="" />
 
 <tags
-	ms.service="mobile-engagement"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-multiple"
-	ms.devlang="na"
-	ms.topic="hero-article" 
-	ms.date="01/04/2016"
-	ms.author="piyushjo;matt-gibbs" />
+    ms.service="mobile-engagement"
+    ms.workload="mobile"
+    ms.tgt_pltfrm="mobile-multiple"
+    ms.devlang="na"
+    ms.topic="hero-article" 
+    ms.date="01/04/2016"
+    ms.author="piyushjo;matt-gibbs" />
 
-#Общие сведения об Azure Mobile Engagement
 
-Azure Mobile Engagement — предоставляемая по принципу SaaS платформа вовлечения пользователей, которая обеспечивает анализ использования приложения на основе данных, позволяет сегментировать пользователей в реальном времени и выдает контекстные push-уведомления и сообщения в приложениях.
+#<a name="azure-mobile-engagement-overview"></a>Azure Mobile Engagement overview
 
-###Обзорное видео
+Azure Mobile Engagement is a software-as-a-service (SaaS) user-engagement platform that provides data-driven insights into app usage, real-time user segmentation, and enables contextually-aware push notifications and in-app messaging.
+
+###<a name="overview-video"></a>Overview video
 > [AZURE.VIDEO azure-mobile-engagement-overview]
 
-Azure Mobile Engagement помогает издателям приложений и маркетологам лучше понимать пользователей и взаимодействовать с ними.
+With Azure Mobile Engagement, application publishers and marketing professionals can better understand and interact with the app users.
 
-##Аналитика важнейшей информации в реальном времени для максимальной рентабельности инвестиций
+##<a name="real-time-actionable-analytics-to-maximize-return-on-investment"></a>Real-time actionable analytics to maximize return on investment
 
-Запуск сценариев вовлечения в соответствии с демографическими сведениями и поведением пользователей путем объединения сбора `big data` с обработкой сообщений в реальном времени. Служба Mobile Engagement может дать ответ практически на любой вопрос, относящийся к потребностям конкретного бизнеса. Например, можно создавать настраиваемые панели мониторинга для отслеживания ключевых показателей эффективности (KPI), быстро находить и устранять узкие места в воронке потребителей, отслеживать удержание и сохранение клиентов и по этим значениям определять, какие кампании обеспечивают наивысшую рентабельность инвестиций. Служба Mobile Engagement предоставляет полную картину поведения пользователей, благодаря чему вы легко можете постоянно улучшать и оптимизировать взаимодействие с пользователем, обеспечивая тем самым более высокий процент сохранения клиентов и повышая активность использования приложений.
+Trigger engagement scenarios according to user behavior and demographics by combining `big data` collection with real-time message processing. Mobile Engagement can answer nearly any question relevant to your particular business needs. For example, you can create custom dashboards to measure key performance indicators (KPIs), rapidly find and fix usage bottlenecks in a user funnel path, track retention and user stickiness, and by that determine what campaigns are driving the highest return on investment. Mobile Engagement’s 360° user path view allows you to easily and continually enhance and optimize the user experience – driving higher retention rates and improve app usage.
 
-##Платформа push-уведомлений и связи для создания дополнительных услуг
+##<a name="value-added-push-and-communications-platform"></a>Value-added push and communications platform
 
-Служба Mobile Engagement предоставляет возможность отображения сообщений в приложениях и безупречно работает с такими собственными шлюзами push-уведомлений, как GCM от Google, APNS от Apple и MPNS от Майкрософт. Но этим ее возможности не ограничиваются. Она позволяет создавать адресные кампании, анализируя поведение пользователей и выявляя уникальные потребительские сегменты.
+Mobile Engagement provides in-app messaging capabilities and works seamlessly with native push notifications gateways such as Google’s GCM, Apple’s APNS and Microsoft MPNS. And it goes beyond to give you the power to create targeted campaigns by analyzing user behaviors to identify unique customer segments.
 
-Благодаря этому разработчики приложений могут чрезвычайно эффективно и ненавязчиво обращаться к своим клиентам.
+This benefits app developers by reaching their customers in a highly effective and non-intrusive manner.
 
-##Открытые API-интерфейсы и простота интеграции
+##<a name="open-apis-and-ease-of-integration"></a>Open APIs and ease of integration
 
-Наличие открытых API-интерфейсов и пакетов SDK для простой интеграции позволяет использовать данные из имеющихся CRM, CMS и других вспомогательных систем. Это позволяет еще больше улучшить выбор целевой аудитории и защитить ваши вложения.
+By providing open APIs and SDKs that ease integration, you can leverage data from your existing CRM, CMS or other backend systems. This allows you to further improve your audience targeting and protect your investments.
 
-##Защита данных и конфиденциальность во всем мире
+##<a name="data-protection-&-privacy-across-the-globe"></a>Data protection & privacy across the globe
 
-Корпорация Майкрософт всегда стремится обеспечивать конфиденциальность, которая является неотъемлемой частью жизненного цикла наших продуктов и служб. Наша работа направлена на то, чтобы методы обеспечения конфиденциальности были прозрачными, при этом мы предлагаем пользователям возможность выбора уровня конфиденциальности, организовывая безопасное хранение данных. Как и все службы Azure, служба Mobile Engagement не предоставляет общего доступа и не продает информацию, полученную из свойств пользователей. Решение Mobile Engagement доступно в любой точке мира. Оно позволяет обеспечивать соблюдение региональных или национальных законов о защите конфиденциальности данных.
+Microsoft has a longstanding commitment to privacy, which is an integral part of our product and services lifecycle. We work to be transparent in our privacy practices, offering customers meaningful privacy choices, and responsibly manage the data we store. As with all Azure services, Mobile Engagement does not share or sell information derived from customers’ property. Mobile Engagement is available globally, allowing for regional or country specific data privacy laws to be upheld.
 
-###Дальнейшие действия
+###<a name="next-steps:"></a>Next Steps:
 
-[Рекомендации и ход работы по созданию Mobile Engagement](mobile-engagement-getting-started-best-practices.md)
+[Best practices and process to create your Mobile Engagement](mobile-engagement-getting-started-best-practices.md)
 
-[Приступая к работе](/documentation/services/mobile-engagement/)
+[Getting Started](/documentation/services/mobile-engagement/)
 
-[Демонстрационное приложение Azure Mobile Engagement](https://aka.ms/azmedemoapps)
+[Download demo apps with source code](https://aka.ms/azmedemoapps)
 
-<!---HONumber=AcomDC_0608_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

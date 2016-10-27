@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Начало работы с частными шаблонами | Microsoft Azure"
-   description="Добавление и совместное использование частных шаблонов, а также управление ими с помощью портала Azure, интерфейса командной строки Azure или PowerShell."
+   pageTitle="Get started with private Templates | Microsoft Azure"
+   description="Add, manage and share your private templates using the Azure portal, the Azure CLI, or PowerShell."
    services="marketplace-customer"
    documentationCenter=""
    authors="VybavaRamadoss"
@@ -18,117 +18,125 @@
    ms.date="05/18/2016"
    ms.author="vybavar"/>
 
-# Начало работы с частными шаблонами на портале Azure
 
-Шаблон [Azure Resource Manager](../resource-group-authoring-templates.md) — это декларативный шаблон, который используется для определения развертывания. С его помощью можно определить ресурсы для развертывания решения и указать параметры и переменные, позволяющие вводить значения для различных сред. Шаблон состоит из JSON и выражений, на основе которых можно создавать значения для развертывания.
+# <a name="get-started-with-private-templates-on-the-azure-portal"></a>Get started with private Templates on the Azure Portal
 
-Новую функцию **Шаблоны** на [портале Azure](https://portal.azure.com) можно использовать вместе с поставщиком ресурсов **Microsoft.Gallery** в дополнение к [Azure Marketplace](https://azure.microsoft.com/marketplace/), давая пользователям возможность создавать и развертывать частные шаблоны, а также управлять ими из личной библиотеки.
+An [Azure Resource Manager](../resource-group-authoring-templates.md) template is a declarative template used to define your deployment. You can define the resources to deploy for a solution, and specify parameters and variables that enable you to input values for different environments. The template consists of JSON and expressions which you can use to construct values for your deployment.
 
-В этом документе рассматривается добавление и совместное использование частного **шаблона**, а также управление им с помощью портала Azure.
+You can use the new **Templates** capability in the [Azure Portal](https://portal.azure.com) along with the **Microsoft.Gallery** resource provider as an extension of the [Azure Marketplace](https://azure.microsoft.com/marketplace/) to enable users to create, manage and deploy private templates from a personal library.
 
-## Руководство
+This document walks you through adding, managing and sharing a private **Template** using the Azure Portal.
 
-Следующие рекомендации помогут вам использовать все преимущества **шаблонов** при работе с вашими решениями.
+## <a name="guidance"></a>Guidance
 
-- **Шаблон** представляет собой инкапсулирующий ресурс, который содержит шаблон Resource Manager и дополнительные метаданные. По своему поведению он аналогичен элементам в Marketplace. Основное отличие заключается в том, что это закрытый элемент, тогда как элементы Marketplace являются общедоступными.
-- Библиотека **Шаблоны** подходит пользователям, которым требуется настроить свои развертывания.
-- **Шаблоны** хорошо подходят пользователям, которым необходим простой репозиторий в Azure.
-- Начните работу с существующего шаблона Resource Manager. Вы можете найти шаблоны на портале [GitHub](https://github.com/Azure/azure-quickstart-templates) или [экспортировать шаблон](../resource-manager-export-template.md) из имеющейся группы ресурсов.
-- **Шаблоны** связаны с пользователем, который публикует их. Имя издателя отображается для всех, у кого есть доступ на чтение к шаблону.
-- **Шаблоны** — это ресурсы Resource Manager. Их нельзя переименовать после публикации.
+The following suggestions will help you take full advantage of **Templates** when working with your solutions:
 
-## Добавление ресурса шаблона
+- A **Template** is an encapsulating resource that contains an Resource Manager template and additional metadata. It behaves very similarly to an item in the Marketplace. The key difference is that it is a private item as opposed to the public Marketplace items.
+- The **Templates** library works well for users who need to customize their deployments.
+- **Templates** work well for users who need a simple repository within Azure.
+- Start with an existing Resource Manager template. Find templates in [github](https://github.com/Azure/azure-quickstart-templates) or [Export template](../resource-manager-export-template.md) from an existing resource group.
+- **Templates** are tied to the user who publishes them. The publisher name is visible to everyone who has read access to it.
+- **Templates** are Resource Manager resources and cannot be renamed once published.
 
-Ресурс **шаблона** на портале Azure можно создать двумя способами.
+## <a name="add-a-template-resource"></a>Add a Template resource
 
-### Способ 1. Создание нового ресурса шаблона из работающей группы ресурсов
+There are two ways to create a **Template** resource in the Azure portal.
 
-1. Перейдите в существующую группу ресурсов на портале Azure. В разделе **Параметры** выберите **Экспорт шаблона**.
-2. После экспорта шаблона Resource Manager нажмите кнопку **Сохранить шаблон**, чтобы сохранить его в репозитории **Шаблоны**. Дополнительные сведения об экспорте шаблона см. [здесь](../resource-manager-export-template.md). <br /><br /> ![Экспорт группы ресурсов](media/rg-export-portal1.PNG) <br />
+### <a name="method-1-:-create-a-new-template-resource-from-a-running-resource-group"></a>Method 1 : Create a new Template resource from a running resource group
 
-3. Нажмите кнопку **Сохранить шаблон**. <br /><br />
+1. Navigate to an existing resource group on the Azure Portal. Select **Export template** in **Settings**.
+2. Once the Resource Manager template is exported, use the **Save Template** button to save it to the **Templates** repository. Find complete details for Export template [here](../resource-manager-export-template.md).
+<br /><br />
+![Resource group export](media/rg-export-portal1.PNG)  <br />
 
-4. Введите следующие сведения:
+3. Select the **Save to Template** command button.
+<br /><br />
 
-    - Имя — имя объекта шаблона. (Примечание. Это имя на основе Azure Resource Manager. К нему применяются все ограничения именования, и его нельзя изменить после создания).
-    - Описание — краткая сводка сведений о шаблоне.
+4. Enter the following information:
 
-    ![Сохранение шаблона](media/save-template-portal1.PNG) <br />
+    - Name – Name of the template object (NOTE: This is an Azure Resource Manager based name. All naming restrictions apply and it cannot be changed once created).
+    - Description – Quick summary about the template.
 
-5. Щелкните **Сохранить**.
+    ![Save Template](media/save-template-portal1.PNG)  <br />
 
-    > [AZURE.NOTE] Если экспортированный шаблон Resource Manager содержит ошибки, в колонке "Экспорт шаблона" отображаются соответствующие уведомления, но этот шаблон Resource Manager все равно можно сохранить в репозитории "Шаблоны". Обязательно проверьте и устраните все ошибки в шаблоне Resource Manager, прежде чем повторно развертывать его после экспорта.
+5. Click **Save**.
 
-### B. Способ 2. Добавление нового ресурса шаблона с помощью команды "Обзор"
+    > [AZURE.NOTE] The Export template blade shows notifications when the exported Resource Manager template has errors, but you will still be able to save this Resource Manager template to the Templates. Ensure that you check and fix any Resource Manager template issues before redeploying the exported Resource Manager template.
 
-Новый **шаблон** также можно добавить с нуля, последовательно выбрав элементы **Обзор > Шаблоны > +Добавить**. Вам потребуется указать имя, описание и JSON-файл шаблона Resource Manager.
+### <a name="b.-method-2-:-add-a-new-template-resource-from-browse"></a>B. Method 2 : Add a new Template resource from browse
 
-![Добавление шаблона](media/add-template-portal1.PNG) <br />
+You can also add a new **Template** from scratch using the +Add command button in **Browse > Templates**. You will need to provide a Name, Description and the Resource Manager template JSON.
 
-> [AZURE.NOTE] Microsoft.Gallery — это поставщик ресурсов Azure на основе клиента. Ресурс шаблона связан с пользователем, создавшим его. Он не привязывается к конкретной подписке. Подписку необходимо выбрать только при развертывании шаблона.
+![Add Template](media/add-template-portal1.PNG)  <br />
 
-## Просмотр ресурсов шаблонов
+> [AZURE.NOTE] Microsoft.Gallery is a Tenant based Azure resource provider. The Template resource is tied to the user who created it. It is not tied to any specific subscription. A subscription needs to be chosen only when deploying a Template.
 
-Все доступные **шаблоны** можно просмотреть в разделе **Обзор > Шаблоны**. Сюда входят созданные вами **шаблоны**, а также шаблоны, к которым вам предоставлен общий доступ с различными уровнями разрешений. Дополнительную информацию см. в разделе о [контроле доступа](#access-control-for-a-tenant-resource-provider) ниже.
+## <a name="view-template-resources"></a>View Template resources
 
-![Просмотр шаблона](media/view-template-portal1.PNG) <br />
+All **Templates** available to you can be seen at **Browse > Templates**. This includes **Templates** you have created as well as ones that have been shared with you with varying levels of permissions. More details in the [access control](#access-control-for-a-tenant-resource-provider) section below.
 
-Чтобы просмотреть подробные сведения о **шаблоне**, щелкните элемент в списке.
+![View Template](media/view-template-portal1.PNG)  <br />
 
-![Просмотр шаблона](media/view-template-portal2c.png) <br />
+You can view the details of a **Template** by clicking into an item in the list.
 
-## Изменение ресурса шаблона
+![View Template](media/view-template-portal2c.png)  <br />
 
-Чтобы инициировать поток редактирования для **шаблона**, щелкните правой кнопкой мыши элемент в списке "Обзор" или нажмите кнопку "Изменить".
+## <a name="edit-a-template-resource"></a>Edit a Template resource
 
-![Изменение шаблона](media/edit-template-portal1a.PNG) <br />
+You can initiate the edit flow for a **Template** by right clicking the item on the Browse list or by choosing the Edit command button.
 
-Вы можете изменить описание или текст шаблона Resource Manager. Имя изменить нельзя, так как это имя ресурса Resource Manager. При редактировании JSON шаблона Resource Manager проверяется допустимость данных JSON. Щелкните **ОК**, а затем — **Сохранить**, чтобы сохранить обновленный шаблон.
+![Edit Template](media/edit-template-portal1a.PNG)  <br />
 
-![Изменение шаблона](media/edit-template-portal2a.PNG) <br />
+You can edit the description or Resource Manager template text. You cannot edit the name since it is an Resource Manager resource name. When you edit the Resource Manager template JSON we will validate to ensure that it is valid JSON. Choose **OK** and then **Save** to save your updated template.
 
-После сохранения **шаблона** появится уведомление с подтверждением.
+![Edit Template](media/edit-template-portal2a.PNG)  <br />
 
-![Изменение шаблона](media/edit-template-portal3b.png) <br />
+Once the **Template** is saved you will see a confirmation notification.
 
-## Развертывание ресурса шаблона
+![Edit Template](media/edit-template-portal3b.png)  <br />
 
-Вы можете развернуть любой **шаблон**, для которого у вас есть разрешения на **чтение**. Поток развертывания открывает стандартную колонку развертывания шаблона Azure. Чтобы приступить к развертыванию, введите значения для параметров шаблона Resource Manager.
+## <a name="deploy-a-template-resource"></a>Deploy a Template resource
 
-![Развертывание шаблона](media/deploy-template-portal1b.png) <br />
+You can deploy any **Template** that you have **Read** permissions on. The deployment flow launches the standard Azure Template deployment blade. Fill out the values for the Resource Manager template parameters to proceed with the deployment.
 
-## Совместное использование ресурса шаблона
+![Deploy Template](media/deploy-template-portal1b.png)  <br />
 
-Ресурс **шаблона** можно использовать совместно с коллегами. Совместное использование очень похоже на [назначение ролей для любого ресурса в Azure](../active-directory/role-based-access-control-configure.md). Владелец **шаблона** предоставляет разрешения другим пользователям, которые могут взаимодействовать с ресурсом шаблона. Пользователь или группа пользователей, которым предоставляется общий доступ к **шаблону**, смогут просматривать шаблон Resource Manager и его свойства коллекции.
+## <a name="share-a-template-resource"></a>Share a Template resource
 
-### Контроль доступа к ресурсам Microsoft.Gallery
+A **Template** resource can be shared with your peers. Sharing behaves similarly to [role assignment for any resource on Azure](../active-directory/role-based-access-control-configure.md). The **Template** owner provides permissions to other users who can interact with a Template resource. The person or group of people you share the **Template** with will be able to see the Resource Manager template and its gallery properties.
 
-Роль | Разрешения
+### <a name="access-control-for-the-microsoft.gallery-resources"></a>Access control for the Microsoft.Gallery resources
+
+Role | Permissions
 ---|----
-Владелец | Разрешение на полный доступ к ресурсу шаблона, включая предоставление общего доступа.
-читатель. | Разрешение на чтение и выполнение (развертывание) ресурса шаблона.
-Участник | Разрешение на изменение и удаление ресурса шаблона. Пользователь не может использовать шаблон совместно с другими пользователями.
+Owner | Allows full control on the Template resource including Share
+Reader | Allows Read and Execute(Deploy) on the Template resource
+Contributor | Allows Edit and Delete permission on the Template resource. User cannot Share the Template with others
 
-Выберите команду **Поделиться** в контекстном меню элемента, которое можно открыть правой кнопкой мыши, или в колонке "Просмотр" этого элемента. Так вы сможете предоставить общий доступ к ресурсу другим пользователям.
+Select **Share** on the browse item by right clicking or on the view blade of a specific item. This launches a Share experience.
 
-![Совместное использование шаблона](media/share-template-portal1a.png) <br />
+![Share Template](media/share-template-portal1a.png)  <br />
 
- Теперь можно выбрать роль и пользователя или группу для предоставления доступа к конкретному **шаблону**. Доступные роли: "Владелец", "Читатель" и "Участник". Дополнительную информацию см. в разделе о [контроле доступа](#access-control-for-a-tenant-resource-provider) выше.
+ You can now choose a role and a user or group to provide access to a particular **Template**. The available roles are Owner, Reader and Contributor. More details in the [access control](#access-control-for-a-tenant-resource-provider) section above.
 
-![Совместное использование шаблона](media/share-template-portal2b.png) <br />
+![Share Template](media/share-template-portal2b.png)  <br />
 
-![Совместное использование шаблона](media/share-template-portal3b.png) <br />
+![Share Template](media/share-template-portal3b.png)  <br />
 
-Щелкните **Выбрать** и **ОК**. Теперь вы можете видеть, какие пользователи и группы добавлены к ресурсу.
+Click **Select** and **Ok**. You can now see the users or groups you added to the resource.
 
-![Совместное использование шаблона](media/share-template-portal4b.png) <br />
+![Share Template](media/share-template-portal4b.png)  <br />
 
-> [AZURE.NOTE] Шаблон можно совместно использовать только с пользователями и группами в том же клиенте Azure Active Directory. Если вы хотите предоставить общий доступ к шаблону по адресу электронной почты, который не относится к вашему клиенту, пользователю будет отправлено приглашение с запросом на присоединение к клиенту в качестве гостя.
+> [AZURE.NOTE] A Template can only be shared with users and groups in the same Azure Active Directory tenant. If you share a Template with an email address that is not in your tenant, an invitation will be sent asking the user to join the tenant as a guest.
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Next steps
 
-- Сведения о создании шаблонов Resource Manager см. в [этой статье](../resource-group-authoring-templates.md).
-- Функции, которые можно использовать в шаблоне Resource Manager, описаны в статье [Функции шаблонов Azure Resource Manager](../resource-group-template-functions.md).
-- Рекомендации по разработке шаблонов см. в статье [Рекомендации по разработке шаблонов диспетчера ресурсов Azure](../best-practices-resource-manager-design-templates.md).
+- To learn about creating Resource Manager templates, see [Authoring templates](../resource-group-authoring-templates.md)
+- To understand the functions you can use in an Resource Manager template, see [Template functions](../resource-group-template-functions.md)
+- For guidance on designing your templates, see [Best practices for designing Azure Resource Manager templates](../best-practices-resource-manager-design-templates.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

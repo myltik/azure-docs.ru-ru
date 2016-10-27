@@ -1,55 +1,59 @@
 <properties
-	pageTitle="Сброс пароля пользователя в предварительной версии Azure Active Directory | Microsoft Azure"
-	description="В этом разделе описывается, как сбросить пароль пользователя в Azure Active Directory."
-	services="active-directory"
-	documentationCenter=""
-	authors="curtand"
-	manager="femila"
-	editor=""/>
+    pageTitle="Reset the password for a user in Azure Active Directory preview | Microsoft Azure"
+    description="Explains how to reset the password for a user in Azure Active Directory"
+    services="active-directory"
+    documentationCenter=""
+    authors="curtand"
+    manager="femila"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/12/2016"
-	ms.author="curtand"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/13/2016"
+    ms.author="curtand"/>
 
-# Сброс пароля пользователя в предварительной версии Azure Active Directory
+
+# <a name="reset-the-password-for-a-user-in-azure-active-directory-preview"></a>Reset the password for a user in Azure Active Directory preview
 
 > [AZURE.SELECTOR]
-- [Портал Azure](active-directory-users-reset-password-azure-portal.md)
-- [Классический портал Azure](active-directory-create-users-reset-password.md)
+- [Azure portal](active-directory-users-reset-password-azure-portal.md)
+- [Azure classic portal](active-directory-create-users-reset-password.md)
 
-В этой статье объясняется, как удалить пользователя из каталога в предварительной версии Azure Active Directory (Azure AD). [Что есть в предварительной версии?](active-directory-preview-explainer.md) Сведения о добавлении новых пользователей в организации см. в статье [Добавление новых пользователей в Azure Active Directory](active-directory-users-create-azure-portal.md).
 
-## Сброс пароля пользователя
+## <a name="how-to-reset-the-password-for-a-user"></a>How to reset the password for a user
 
-1.  Войдите на [портал Azure](https://portal.azure.com) с помощью учетной записи глобального администратора каталога.
+1.  Sign in to the [Azure portal](https://portal.azure.com) with an account that's a global admin for the directory.
 
-2.  Выберите **Больше служб**, введите **Пользователи и группы** в текстовое поле, а затем нажмите клавишу **ВВОД**.
+2.  Select **More services**, enter **Users and groups** in the text box, and then select **Enter**.
 
-    ![Открытие страницы "Управление пользователями"](./media/active-directory-users-reset-password-azure-portal/create-users-user-management.png)
+    ![Opening user management](./media/active-directory-users-reset-password-azure-portal/create-users-user-management.png)
 
-3.  В колонке **Пользователи и группы** выберите **Пользователи**.
+3.  On the **Users and groups** blade, select **Users**.
 
-    ![Открытие колонки "Пользователи"](./media/active-directory-users-reset-password-azure-portal/create-users-open-users-blade.png)
+    ![Opening the Users blade](./media/active-directory-users-reset-password-azure-portal/create-users-open-users-blade.png)
 
-4. В колонке **Пользователи и группы — Пользователи** выберите пользователя из списка.
+4. On the **Users and groups - Users** blade, select a user from the list.
 
-5. В колонке для выбранного пользователя щелкните **Обзор**, затем на панели команд щелкните **Сбросить пароль**.
+5. On the blade for the selected user, select **Overview**, and then in the command bar, select **Reset password**.
 
-    ![Выбор команды "Сбросить пароль"](./media/active-directory-users-reset-password-azure-portal/create-users-reset-password-command.png)
+    ![Selecting the Reset password command](./media/active-directory-users-reset-password-azure-portal/create-users-reset-password-command.png)
 
-6. В колонке **Сброс пароля** щелкните **Сбросить пароль**.
+6. On the **Reset password** blade, select **Reset password**.
 
-## Что дальше?
+## <a name="what's-next"></a>What's next
 
-- [Добавление пользователей](active-directory-users-create-azure-portal.md)
-- [Назначение пользователей в предварительной версии Azure AD](active-directory-users-assign-role-azure-portal.md)
-- [Изменение сведений о работе пользователя](active-directory-users-work-info-azure-portal.md)
-- [Управление профилями пользователей](active-directory-users-profile-azure-portal.md)
-- [Удаление пользователя из Azure AD](active-directory-users-delete-user-azure-portal.md)
+- [Add a user](active-directory-users-create-azure-portal.md)
+- [Assign a user to a role in your Azure AD](active-directory-users-assign-role-azure-portal.md)
+- [Change a user's work information](active-directory-users-work-info-azure-portal.md)
+- [Manage user profiles](active-directory-users-profile-azure-portal.md)
+- [Delete a user in your Azure AD](active-directory-users-delete-user-azure-portal.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

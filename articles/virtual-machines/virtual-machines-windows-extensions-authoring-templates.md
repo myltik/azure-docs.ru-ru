@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Создание шаблонов с помощью расширений виртуальной машины Windows | Microsoft Azure"
-   description="Узнайте о разработке шаблонов Azure Resource Manager с расширениями для виртуальных машин Windows."
+   pageTitle="Authoring Templates with Windows VM extensions | Microsoft Azure"
+   description="Learn about authoring Azure Resource Manager templates with extensions for Windows VMs"
    services="virtual-machines-windows"
    documentationCenter=""
    authors="kundanap"
@@ -17,37 +17,42 @@
    ms.date="03/29/2016"
    ms.author="kundanap"/>
 
-# Authoring Azure Resource Manager templates with Windows VM extensions
+
+# <a name="authoring-azure-resource-manager-templates-with-windows-vm-extensions"></a>Authoring Azure Resource Manager templates with Windows VM extensions
 
 [AZURE.INCLUDE [virtual-machines-common-extensions-authoring-templates](../../includes/virtual-machines-common-extensions-authoring-templates.md)]
 
-Выполните следующий командлет в Azure PowerShell:
+From Azure PowerShell, run the following Azure PowerShell cmdlet:
 
       Get-AzureVMAvailableExtension
 
 
-Данный командлет возвращает имя издателя, имя расширения и версию в следующем виде.
+This cmdlet returns the publisher name, extension name, and version as follows:
 
       Publisher                   : Microsoft.Azure.Extensions  
       ExtensionName               : DockerExtension
       Version                     : 1.0
 
-Эти три свойства сопоставляются со значениями publisher, type и typeHandlerVersion в приведенном выше фрагменте шаблона.
+These three properties map to "publisher", "type", and "typeHandlerVersion" respectively in the above template snippet.
 
->[AZURE.NOTE]Рекомендуется всегда использовать самую последнюю версию расширения для обеспечения максимальной функциональности.
+>[AZURE.NOTE]It's always recommended to use the latest extension version to get the most updated functionality.
 
-## Определение схемы для параметров конфигурации расширения
+## <a name="identifying-the-schema-for-the-extension-configuration-parameters"></a>Identifying the schema for the extension configuration parameters
 
-Следующий шаг при создании шаблона расширения заключается в определении формата для предоставления параметров конфигурации. Каждое расширение поддерживает собственный набор параметров.
+The next step with authoring an extension template is to identify the format for providing configuration parameters. Each extension supports its own set of parameters.
 
-Чтобы ознакомиться с примером конфигурации для расширений Windows, см. [примеры расширений Windows](virtual-machines-windows-extensions-configuration-samples.md).
-
-
-Ознакомьтесь со следующими разделами, чтобы получить полноценный шаблон с расширениями виртуальной машины.
-
-[Расширение Custom Script на виртуальной машине Windows](https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/201-list-storage-keys-windows-vm/azuredeploy.json/)
+To look at sample configurations for Windows extensions, see [Windows extensions samples](virtual-machines-windows-extensions-configuration-samples.md).
 
 
-После разработки шаблон можно развернуть с помощью Azure PowerShell.
+Please refer to the following to get a fully complete template with VM extensions.
 
-<!---HONumber=AcomDC_0601_2016-->
+[Custom Script Extension on a Windows VM](https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/201-list-storage-keys-windows-vm/azuredeploy.json/)
+
+
+After authoring the template, you can deploy it using Azure PowerShell.
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

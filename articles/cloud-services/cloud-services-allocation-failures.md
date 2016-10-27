@@ -1,86 +1,91 @@
 <properties
-	pageTitle="Устранение ошибок выделения ресурсов для облачной службы | Microsoft Azure"
-	description="Устранение ошибки выделения при развертывании облачных служб в Azure"
-	services="azure-service-management, cloud-services"
-	documentationCenter=""
-	authors="simonxjx"
-	manager="felixwu"
-	editor=""
-	tags="top-support-issue"/>
+    pageTitle="Troubleshooting Cloud Service allocation failure | Microsoft Azure"
+    description="Troubleshooting allocation failure when you deploy Cloud Services in Azure"
+    services="azure-service-management, cloud-services"
+    documentationCenter=""
+    authors="simonxjx"
+    manager="felixwu"
+    editor=""
+    tags="top-support-issue"/>
 
 <tags
-	ms.service="cloud-services"
-	ms.workload="na"
-	ms.tgt_pltfrm="ibiza"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/14/2016"
-	ms.author="v-six"/>
+    ms.service="cloud-services"
+    ms.workload="na"
+    ms.tgt_pltfrm="ibiza"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/12/2016"
+    ms.author="v-six"/>
 
 
 
-# Устранение ошибки выделения при развертывании облачных служб в Azure
 
-## Сводка
-При развертывании экземпляров в облачной службе или добавлении новых экземпляров веб-узлов или рабочих ролей Microsoft Azure выделяет вычислительные ресурсы. Иногда во время выполнения этих операций могут возникать ошибки, даже если еще не достигнуты ограничения подписки Azure. В этой статье объясняются причины возникновения некоторых распространенных ошибок выделения, а также представлены возможные способы их устранения. Эта информация также может быть полезна при планировании развертывания служб.
+# <a name="troubleshooting-allocation-failure-when-you-deploy-cloud-services-in-azure"></a>Troubleshooting allocation failure when you deploy Cloud Services in Azure
+
+## <a name="summary"></a>Summary
+When you deploy instances to a Cloud Service or add new web or worker role instances, Microsoft Azure allocates compute resources. You may occasionally receive errors when performing these operations even before you reach the Azure subscription limits. This article explains the causes of some of the common allocation failures and suggests possible remediation. The information may also be useful when you plan the deployment of your services.
 
 [AZURE.INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
-### Общая информация — принцип выделения ресурсов
-Серверы в центрах обработки данных Azure разделены на кластеры. Запрос о выделении новой облачной службы отправляется в несколько кластеров. Когда первый экземпляр развертывается в облачной службе (в тестовой или рабочей области), эта облачная служба прикрепляется к кластеру. Все последующие развертывания облачной службы выполняются в том же кластере. В этой статье мы будем называть этот процесс прикреплением к кластеру. На приведенной ниже схеме 1 показано, как обычно происходит выделение при попытке выполнения в нескольких кластерах. На схеме 2 показано выделение ресурсов, прикрепленное к кластеру 2, так как в нем размещена существующая облачная служба CS\_1.
+### <a name="background-–-how-allocation-works"></a>Background – How allocation works
+The servers in Azure datacenters are partitioned into clusters. A new cloud service allocation request is attempted in multiple clusters. When the first instance is deployed to a cloud service(in either staging or production), that cloud service gets pinned to a cluster. Any further deployments for the cloud service will happen in the same cluster. In this article, we'll refer to this as "pinned to a cluster". Diagram 1 below illustrates the case of a normal allocation which is attempted in multiple clusters; Diagram 2 illustrates the case of an allocation that's pinned to Cluster 2 because that's where the existing Cloud Service CS_1 is hosted.
 
-![Схема выделения ресурсов](./media/cloud-services-allocation-failure/Allocation1.png)
+![Allocation Diagram](./media/cloud-services-allocation-failure/Allocation1.png)
 
-### Причины возникновения ошибок выделения ресурсов
-Если запрос на выделение прикреплен к одному кластеру, возрастает вероятность того, что не удастся найти свободные ресурсы, так как пул доступных ресурсов ограничен размером кластера. Кроме того, если запрос на выделение прикреплен к одному кластеру, а тип запрошенного ресурса не поддерживается, запрос завершится ошибкой, даже если в кластере есть свободные ресурсы. На схеме 3 ниже показан случай, когда ошибка выделения прикрепленных ресурсов произошла из-за отсутствия свободных ресурсов в единственном подходящем кластере. На схеме 4 показан случай, когда ошибка выделения прикрепленных ресурсов произошла потому, что единственный подходящий кластер не поддерживает запрошенный размер виртуальной машины, несмотря на наличие свободных ресурсов в кластере.
+### <a name="why-allocation-failure-happens"></a>Why allocation failure happens
+When an allocation request is pinned to a cluster, there's a higher chance of failing to find free resources since the available resource pool is limited to a cluster. Furthermore, if your allocation request is pinned to a cluster but the type of resource you requested is not supported by that cluster, your request will fail even if the cluster has free resource. Diagram 3 below illustrates the case where a pinned allocation fails because the only candidate cluster does not have free resources. Diagram 4 illustrates the case where a pinned allocation fails because the only candidate cluster does not support the requested VM size, even though the cluster has free resources.
 
-![Ошибка выделения прикрепленных ресурсов](./media/cloud-services-allocation-failure/Allocation2.png)
+![Pinned Allocation Failure](./media/cloud-services-allocation-failure/Allocation2.png)
 
-## Устранение ошибок выделения для облачных служб
-### Сообщение об ошибке
-Вы можете получить следующее сообщение об ошибке:
+## <a name="troubleshooting-allocation-failure-for-cloud-services"></a>Troubleshooting allocation failure for cloud services
+### <a name="error-message"></a>Error Message
+You may see the following error message:
 
-	"Azure operation '{operation id}' failed with code Compute.ConstrainedAllocationFailed. Details: Allocation failed; unable to satisfy constraints in request. The requested new service deployment is bound to an Affinity Group, or it targets a Virtual Network, or there is an existing deployment under this hosted service. Any of these conditions constrains the new deployment to specific Azure resources. Please retry later or try reducing the VM size or number of role instances. Alternatively, if possible, remove the aforementioned constraints or try deploying to a different region."
+    "Azure operation '{operation id}' failed with code Compute.ConstrainedAllocationFailed. Details: Allocation failed; unable to satisfy constraints in request. The requested new service deployment is bound to an Affinity Group, or it targets a Virtual Network, or there is an existing deployment under this hosted service. Any of these conditions constrains the new deployment to specific Azure resources. Please retry later or try reducing the VM size or number of role instances. Alternatively, if possible, remove the aforementioned constraints or try deploying to a different region."
 
-### Распространенные проблемы
-В этом разделе описаны распространенные сценарии выделения ресурсов, вызывающие прикрепление запросов о распределении к отдельному кластеру.
+### <a name="common-issues"></a>Common Issues
+Here are the common allocation scenarios that cause an allocation request to be pinned to a single cluster.
 
-- Развертывание в промежуточном слоте. Если в одном из слотов облачной службы имеется развертывание, вся облачная служба прикрепляется к определенному кластеру. Это означает, что если развертывание уже существует в рабочей области, то новое промежуточное развертывание может быть выделено только в том же кластере, что и рабочая область. Если кластер близок к заполнению, запрос может завершиться ошибкой.
+- Deploying to Staging Slot - If a cloud service has a deployment in either slot, then the entire cloud service is pinned to a specific cluster.  This means that if a deployment already exists in the production slot, then a new staging deployment can only be allocated in the same cluster as the production slot. If the cluster is nearing capacity, the request may fail.
 
-- Масштабирование. Для добавления новых экземпляров в существующую облачную службу требуется выделение ресурсов в том же кластере. Для мелких запросов масштабирования ресурсы обычно выделяются, но это происходит не всегда. Если кластер близок к заполнению, запрос может завершиться ошибкой.
+- Scaling - Adding new instances to an existing cloud service must allocate in the same cluster.  Small scaling requests can usually be allocated, but not always. If the cluster is nearing capacity, the request may fail.
 
-- Территориальная группа. Если облачная служба не прикреплена ни к какой территориальной группе, структура может распределить новое развертывание в пустую облачную службу в любом кластере соответствующего региона. По возможности развертывания в одну и ту же территориальную группу будут выполняться в одном и том же кластере. Если кластер близок к заполнению, запрос может завершиться ошибкой.
+- Affinity Group - A new deployment to an empty cloud service can be allocated by the fabric in any cluster in that region, unless the cloud service is pinned to an affinity group. Deployments to the same affinity group will be attempted on the same cluster. If the cluster is nearing capacity, the request may fail.
 
-- Территориальная группа vNet. Раньше виртуальные сети привязывались не к регионам, а к территориальным группам, а облачные службы в этих виртуальных сетях — к кластеру территориальной группы. По возможности развертывания в виртуальную сеть такого типа будут выполняться в связанном кластере. Если кластер близок к заполнению, запрос может завершиться ошибкой.
+- Affinity Group vNet - Older Virtual Networks were tied to affinity groups instead of regions, and cloud services in these Virtual Networks would be pinned to the affinity group cluster. Deployments to this type of virtual network will be attempted on the pinned cluster. If the cluster is nearing capacity, the request may fail.
 
-## Решения
+## <a name="solutions"></a>Solutions
 
-1. Повторное развертывание в новую облачную службу. Данное решение, как правило, является самым удачным, поскольку позволяет платформе выбрать все кластеры в соответствующем регионе.
+1. Redeploy to a new cloud service - This solution is likely to be most successful as it allows the platform to choose from all clusters in that region.
 
-	- Разверните рабочую нагрузку в новую облачную службу.
+    - Deploy the workload to a new cloud service  
 
-	- Обновите запись CNAME или A таким образом, чтобы она направляла трафик в новую облачную службу.
+    - Update the CNAME or A record to point traffic to the new cloud service
 
-	- После того как трафик, направляемый на старый сайт, станет нулевым, старую облачную службу можно будет удалить. В этом случае время простоя должно быть нулевым.
+    - Once zero traffic is going to the old site, you can delete the old cloud service. This solution should incur zero downtime.
 
-2. Удалите рабочий и промежуточный слоты. Данное решение позволяет сохранить существующее имя DNS, но вызывает простой приложения.
+2. Delete both production and staging slots - This solution will preserve your existing DNS name, but will cause downtime to your application.
 
-	- Удалите рабочий и промежуточный слоты существующей облачной службы, чтобы облачная служба стала пустой.
+    - Delete the production and staging slots of an existing cloud service so that the cloud service is empty, and then
 
-	- Создайте в существующей облачной службе новое развертывание. Оно попытается заново распределить все кластеры в регионе. Убедитесь, что облачная служба не привязана к территориальной группе.
+    - Create a new deployment in the existing cloud service. This will re-attempt to allocation on all clusters in the region. Ensure the cloud service is not tied to an affinity group.
 
-3. Зарезервированный IP-адрес. Данное решение позволяет сохранить существующий IP-адрес, но вызывает простой приложения.
+3. Reserved IP -  This solution will preserve your existing IP address, but will cause downtime to your application.  
 
-	- Создайте адрес ReservedIP для существующего развертывания с помощью Powershell.
+    - Create a ReservedIP for your existing deployment using Powershell
 
-	```
-	New-AzureReservedIP -ReservedIPName {new reserved IP name} -Location {location} -ServiceName {existing service name}
-	```
+    ```
+    New-AzureReservedIP -ReservedIPName {new reserved IP name} -Location {location} -ServiceName {existing service name}
+    ```
 
-	- Выполните описанный выше пункт 2 и убедитесь, что в CSCFG службы указан новый адрес ReservedIP.
+    - Follow #2 from above, making sure to specify the new ReservedIP in the service's CSCFG.
 
-4. Удалите территориальную группу для новых развертываний. Использовать территориальные группы больше не рекомендуются. Выполните описанный выше пункт 1, чтобы развернуть новую облачную службу. Убедитесь, что облачная служба не входит в территориальную группу.
+4. Remove affinity group for new deployments - Affinity Groups are no longer recommended. Follow steps for #1 above to deploy a new cloud service. Ensure cloud service is not in an affinity group.
 
-5. Выполните преобразование в региональную виртуальную сеть: см. статью [Переход от территориальных групп к региональной виртуальной сети](../virtual-network/virtual-networks-migrate-to-regional-vnet.md).
+5. Convert to a Regional Virtual Network - See [How to migrate from Affinity Groups to a Regional Virtual Network (VNet)](../virtual-network/virtual-networks-migrate-to-regional-vnet.md).
 
-<!---HONumber=AcomDC_0720_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

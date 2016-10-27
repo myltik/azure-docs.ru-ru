@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Диагностика сбоев приложений логики | Microsoft Azure"
-   description="Описание распространенных подходов к анализу сбоев приложений логики"
+   pageTitle="Diagnosing logic apps failures | Microsoft Azure"
+   description="Common approaches to understanding where logic apps are failing"
    services="logic-apps"
    documentationCenter=".net,nodejs,java"
    authors="jeffhollan"
@@ -13,67 +13,68 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="05/18/2016"
+   ms.date="10/18/2016"
    ms.author="jehollan"/>
 
-# Диагностика сбоев приложений логики
 
-Когда вы сталкиваетесь с проблемами или сбоями в работе приложений логики службы приложений Azure, для поиска их причин можно применять разные подходы.
+# <a name="diagnosing-logic-app-failures"></a>Diagnosing logic app failures
 
-## Инструменты портала Azure
+If you experience issues or failures with the Logic Apps feature of Azure App Service, a few approaches can help you better understand where the failures are coming from.  
 
-Портал Azure предоставляет множество инструментов для диагностики каждого приложения логики на любом этапе.
+## <a name="azure-portal-tools"></a>Azure portal tools
 
-### Журнал триггера
+The Azure portal provides many tools to diagnose each logic app at each step.
 
-Каждое приложение логики имеет по крайней мере один триггер. Если вы заметите, что определенные приложения не запускаются, первым делом следует проверить журнал триггеров. Журнал триггеров можно открыть в главной колонке приложений логики.
+### <a name="trigger-history"></a>Trigger history
 
-![Поиск журнала триггера][1]
+Each logic app has at least one trigger. If you notice that apps aren't firing, the first place to look for additional information is the trigger history. You can access the trigger history on the logic app main blade.
 
-Отобразится список всех попыток приложения логики с использованием триггера. Можно щелкнуть любую из записей, чтобы получить информацию следующего уровня детализации (например, входные и выходные данные, которые были созданы при попытке запуска по триггеру). Если вы видите сбой триггера, щелкните такой триггер и изучите данные по ссылке **Выходные данные**. Здесь могут находиться сообщения об ошибках, если они создавались (например, сообщение о неправильных учетных данных для FTP-подключения).
+![Locating the trigger history][1]
 
-Ниже приводятся разные возможные статусы.
+This lists all of the trigger attempts that your logic app has made. You can click each trigger attempt to get the next level of detail (specifically, any inputs or outputs that the trigger attempt generated). If you see any failed triggers, click the trigger attempt and drill into the **Outputs** link to see any error messages that might have been generated (for example, for invalid FTP credentials).
 
-* **Пропущено**. Триггер опросил конечную точку на предмет наличия данных и получил в ответ сообщение о том, что доступных данных нет.
-* **Успешно**. Триггер получил ответ, что данные доступны. Это может быть ответ от запускаемого вручную триггера, а также повторяющегося или опрашивающего триггера. Обычно такой ответ сопровождается статусом **Fired** (Запущено). Но это может быть не так, если в представлении кода вы указали условие или команду SplitOn, которые не были удовлетворены.
-* **Сбой**. Произошла ошибка.
+The different statuses you might see are:
 
-#### Запуск триггера вручную
+* **Skipped**. It polled the endpoint to check for data and received a response that no data was available.
+* **Succeeded**. The trigger received a response that data was available. This could be from a manual trigger, a recurrence trigger, or a polling trigger. This likely will be accompanied with a status of **Fired**, but it might not if you have a condition or SplitOn command in code view that wasn't satisfied.
+* **Failed**. An error was generated.
 
-Если вы хотите, чтобы приложение логики немедленно проверило доступность триггера (не дожидаясь следующего повторения), вы можете запустить проверку принудительно, нажав ссылку **Select Trigger** (Выбрать триггер) в главной колонке. Например, если нажать эту ссылку для триггера Dropbox, рабочий процесс немедленно обратится к Dropbox и проверит наличие новых файлов.
+#### <a name="starting-a-trigger-manually"></a>Starting a trigger manually
 
-### Журнал выполнения
+If you want the logic app to check for an available trigger immediately (without waiting for the next recurrence), you can click **Select Trigger** on the main blade to force a check. For example, clicking this link with a Dropbox trigger will cause the workflow to immediately poll Dropbox for new files.
 
-Каждое срабатывание триггера завершается запуском. Состояние запуска можно просмотреть в главной колонке, содержащей большой объем сведений, которые позволяют разобраться в событиях, произошедших при выполнении рабочего потока.
+### <a name="run-history"></a>Run history
 
-![Поиск журнала выполнения][2]
+Every trigger that is fired results in a run. You can access run information from the main blade, which contains a lot of information that can be helpful in understanding what happened during the workflow.
 
-Отображается одно из следующих состояний запуска:
+![Locating the run history][2]
 
-* **Успешно**. Все действия выполнены успешно, а если происходили сбои, все они успешно обработаны другими действиями в рабочем процессе. Например, было запущено новое действие после действия, завершившегося сбоем.
-* **Сбой**. По крайней мере одно действие завершилось ошибкой, которая не была обработана последующими действиями в рабочем процессе.
-* **Отменено**. Рабочий процесс был запущен, но получил запрос на отмену.
-* **Выполняется**. Рабочий процесс выполняется в данный момент. Это может происходить для рабочих процессов, которые регулируются, или в рамках текущего плана службы приложений. Ограничения для действий описаны на [странице цен](https://azure.microsoft.com/pricing/details/app-service/plans/). Настройка диагностики (диаграммы под журналом выполнения) также поможет узнать, выполняются ли события регулирования.
+A run displays one of the following statuses:
 
-Просматривая журнал выполнения, можно ознакомиться с подробностями процесса.
+* **Succeeded**. All actions succeeded, or, if there was a failure, it was handled by an action that occurred later in the workflow. That is, it was handled by an action that was set to run after a failed action.
+* **Failed**. At least one action had a failure that was not handled by an action later in the workflow.
+* **Cancelled**. The workflow was running but received a cancel request.
+* **Running**. The workflow is currently running. This may occur for workflows that are being throttled, or because of the current App Service plan. Please see action limits on the [pricing page](https://azure.microsoft.com/pricing/details/app-service/plans/) for details. Configuring diagnostics (the charts listed below the run history) also can provide information about any throttle events that are occurring.
 
-#### Выходные данные триггера
+When you are looking at a run history, you can drill in for more details.  
 
-Выходные данные триггера отображают данные, которые были получены от триггера. Это поможет разобраться, все ли свойства возвращаются так, как требуется.
+#### <a name="trigger-outputs"></a>Trigger outputs
 
->[AZURE.NOTE] Также они помогут вам понять, как функция приложений логики [обрабатывает разные типы содержимого](app-service-logic-content-type.md), если вы не понимаете некоторое содержимое.
+Trigger outputs show the data that was received from the trigger. This can help you determine whether all properties returned as expected.
 
-![Примеры выводных данных триггера][3]
+>[AZURE.NOTE] It might be helpful to understand how the Logic Apps feature [handles different content types](app-service-logic-content-type.md) if you see any content that you don't understand.
 
-#### Входные и выходные данные действия
+![Trigger output examples][3]
 
-Вы можете более подробно изучить входные и выходные данные, которые получало и возвращало действие. Это поможет понять, какие данные и в каком количестве были переданы, а также найти любые созданные сообщения об ошибках.
+#### <a name="action-inputs-and-outputs"></a>Action inputs and outputs
 
-![Входные и выходные данные действия][4]
+You can drill into the inputs and outputs that an action received. This is useful for understanding the size and shape of the outputs, as well as to see any error messages that may have been generated.
 
-## Среда отладки рабочего процесса
+![Action inputs and outputs][4]
 
-Помимо отслеживания входящих и выходящих данных и триггеров запуска, часто бывает полезно добавить в рабочий процесс дополнительные действия для отладки. Например, вы можете включить в рабочий процесс такой мощный инструмент, как [RequestBin](http://requestb.in). RequestBin позволяет настроить инспектор HTTP-запроса, чтобы точно выяснить размер, форму и формат HTTP-запроса. Вы можете создать новый элемент RequestBin и вставить в действие HTTP POST своего приложения логики URL-адрес с любым содержимым тела запроса (например, выражением, выходными данными другого шага и т. д.). После выполнения приложения логики следует обновить этот элемент RequestBin, чтобы увидеть, как механизм приложений логики создавал запрос.
+## <a name="debugging-workflow-runtime"></a>Debugging workflow runtime
+
+In addition to monitoring the inputs, outputs, and triggers of a run, it could be useful to add some steps within a workflow to help with debugging. [RequestBin](http://requestb.in) is a powerful tool that you can add as a step in a workflow. By using RequestBin, you can set up an HTTP request inspector to determine the exact size, shape, and format of an HTTP request. You can create a new RequestBin and paste the URL in a logic app HTTP POST action along with body content you want to test (for example, an expression or another step output). After you run the logic app, you can refresh your RequestBin to see how the request was formed as it was generated from the Logic Apps engine.
 
 
 
@@ -84,4 +85,8 @@
 [3]: ./media/app-service-logic-diagnosing-failures/triggerOutputsLink.PNG
 [4]: ./media/app-service-logic-diagnosing-failures/ActionOutputs.PNG
 
-<!---HONumber=AcomDC_0803_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

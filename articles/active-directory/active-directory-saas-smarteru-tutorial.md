@@ -1,6 +1,6 @@
 <properties 
-    pageTitle="Руководство. Интеграция Azure Active Directory с SmarterU | Microsoft Azure" 
-    description="Узнайте, как использовать SmarterU вместе с Azure Active Directory для реализации единого входа, автоматической подготовки к работе и многого другого." 
+    pageTitle="Tutorial: Azure Active Directory integration with SmarterU | Microsoft Azure" 
+    description="Learn how to use SmarterU with Azure Active Directory to enable single sign-on, automated provisioning, and more!" 
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
@@ -14,132 +14,138 @@
     ms.date="09/19/2016" 
     ms.author="jeedes" />
 
-#Учебник. Интеграция Azure Active Directory с SmarterU
+
+#<a name="tutorial:-azure-active-directory-integration-with-smarteru"></a>Tutorial: Azure Active Directory Integration with SmarterU
   
-Цель данного учебника — показать интеграцию Azure и SmarterU. Сценарий, описанный в этом учебнике, предполагает, что у вас уже имеется:
+The objective of this tutorial is to show the integration of Azure and SmarterU.  
+The scenario outlined in this tutorial assumes that you already have the following items:
 
--   Действующая подписка на Azure
--   Клиент SmarterU.
+-   A valid Azure subscription
+-   A SmarterU tenant
   
-После завершения этого руководства пользователи Azure AD, назначенные SmarterU, будут иметь возможность единого входа в приложение на веб-сайте компании SmarterU (вход, инициированный поставщиком услуг) или с помощью указаний из статьи [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
+After completing this tutorial, the Azure AD users you have assigned to SmarterU will be able to single sign into the application at your SmarterU company site (service provider initiated sign on), or using the [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
   
-Сценарий, описанный в этом учебнике, состоит из следующих блоков:
+The scenario outlined in this tutorial consists of the following building blocks:
 
-1.  Включение интеграции приложений для SmarterU
-2.  Настройка единого входа
-3.  Настройка подготовки учетных записей пользователей
-4.  Назначение пользователей
+1.  Enabling the application integration for SmarterU
+2.  Configuring single sign-on
+3.  Configuring user provisioning
+4.  Assigning users
 
-![Сценарий](./media/active-directory-saas-smarteru-tutorial/IC777320.png "Сценарий")
+![Scenario](./media/active-directory-saas-smarteru-tutorial/IC777320.png "Scenario")
 
-##Включение интеграции приложений для SmarterU
+##<a name="enabling-the-application-integration-for-smarteru"></a>Enabling the application integration for SmarterU
   
-В этом разделе показано, как включить интеграцию приложений для SmarterU.
+The objective of this section is to outline how to enable the application integration for SmarterU.
 
-###Чтобы включить интеграцию приложений для SmarterU, выполните следующие действия:
+###<a name="to-enable-the-application-integration-for-smarteru,-perform-the-following-steps:"></a>To enable the application integration for SmarterU, perform the following steps:
 
-1.  На классическом портале Azure в области навигации слева щелкните **Active Directory**.
+1.  In the Azure classic portal, on the left navigation pane, click **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-smarteru-tutorial/IC700993.png "Active Directory")
 
-2.  Из списка **Каталог** выберите каталог, для которого нужно включить интеграцию каталогов.
+2.  From the **Directory** list, select the directory for which you want to enable directory integration.
 
-3.  Чтобы открыть представление приложений, в представлении каталога нажмите **Приложения** в верхнем меню.
+3.  To open the applications view, in the directory view, click **Applications** in the top menu.
 
-    ![Приложения](./media/active-directory-saas-smarteru-tutorial/IC700994.png "Приложения")
+    ![Applications](./media/active-directory-saas-smarteru-tutorial/IC700994.png "Applications")
 
-4.  В нижней части страницы нажмите кнопку **Добавить**.
+4.  Click **Add** at the bottom of the page.
 
-    ![Добавление приложения](./media/active-directory-saas-smarteru-tutorial/IC749321.png "Добавление приложения")
+    ![Add application](./media/active-directory-saas-smarteru-tutorial/IC749321.png "Add application")
 
-5.  В диалоговом окне **Что необходимо сделать?** нажмите **Добавить приложение из коллекции**.
+5.  On the **What do you want to do** dialog, click **Add an application from the gallery**.
 
-    ![Добавить приложение из коллекции](./media/active-directory-saas-smarteru-tutorial/IC749322.png "Добавление приложения из коллекции")
+    ![Add an application from gallerry](./media/active-directory-saas-smarteru-tutorial/IC749322.png "Add an application from gallerry")
 
-6.  В **поле поиска** введите **SmarterU**.
+6.  In the **search box**, type **SmarterU**.
 
-    ![Коллекция приложений](./media/active-directory-saas-smarteru-tutorial/IC777321.png "Коллекция приложений")
+    ![Application fallery](./media/active-directory-saas-smarteru-tutorial/IC777321.png "Application fallery")
 
-7.  В области результатов выберите **SmarterU** и нажмите кнопку **Завершить**, чтобы добавить приложение.
+7.  In the results pane, select **SmarterU**, and then click **Complete** to add the application.
 
     ![SmarterU](./media/active-directory-saas-smarteru-tutorial/IC777322.png "SmarterU")
 
-##Настройка единого входа
+##<a name="configuring-single-sign-on"></a>Configuring single sign-on
   
-В этом разделе показано, как разрешить пользователям проходить аутентификацию в SmarterU со своей учетной записью Azure AD, используя федерацию на основе протокола SAML.
+The objective of this section is to outline how to enable users to authenticate to SmarterU with their account in Azure AD using federation based on the SAML protocol.
 
-###Чтобы настроить единый вход, выполните следующие действия.
+###<a name="to-configure-single-sign-on,-perform-the-following-steps:"></a>To configure single sign-on, perform the following steps:
 
-1.  На классическом портале Azure AD на странице интеграции с приложением **SmarterU** щелкните **Настроить единый вход**, чтобы открыть диалоговое окно **Настройка единого входа**.
+1.  In the Azure classic portal, on the **SmarterU** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
 
-    ![Настройка единого входа](./media/active-directory-saas-smarteru-tutorial/IC777323.png "Настройка единого входа")
+    ![Configure Single Sign-On](./media/active-directory-saas-smarteru-tutorial/IC777323.png "Configure Single Sign-On")
 
-2.  На странице **Как пользователи должны входить в SmarterU?** выберите **Единый вход Microsoft Azure AD** и нажмите кнопку **Далее**.
+2.  On the **How would you like users to sign on to SmarterU** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
-    ![Настройка единого входа](./media/active-directory-saas-smarteru-tutorial/IC777324.png "Настройка единого входа")
+    ![Configure Single Sign-On](./media/active-directory-saas-smarteru-tutorial/IC777324.png "Configure Single Sign-On")
 
-3.  На странице **Настройка единого входа в SmarterU** нажмите кнопку **Загрузить метаданные** для скачивания метаданных, а затем сохраните файл данных локально как **c:\\SmarterUMetaData.cer**.
+3.  On the **Configure single sign-on at SmarterU** page, to download your metadata, click **Download metadata**, and then the data file locally as **c:\\SmarterUMetaData.cer**.
 
-    ![Настройка единого входа](./media/active-directory-saas-smarteru-tutorial/IC777325.png "Настройка единого входа")
+    ![Configure Single Sign-On](./media/active-directory-saas-smarteru-tutorial/IC777325.png "Configure Single Sign-On")
 
-4.  В другом окне веб-браузера войдите на сайт SmarterU своей компании в качестве администратора.
+4.  In a different web browser window, log into your SmarterU company site as an administrator.
 
-5.  На панели инструментов вверху щелкните **Параметры учетной записи**.
+5.  In the toolbar on the top, click **Account Settings**.
 
-    ![Параметры учетной записи](./media/active-directory-saas-smarteru-tutorial/IC777326.png "Параметры учетной записи")
+    ![Account Settings](./media/active-directory-saas-smarteru-tutorial/IC777326.png "Account Settings")
 
-6.  На странице конфигурации учетной записи выполните следующие действия.
+6.  On the account configuration page, perform the following steps:
 
-    ![Внешняя авторизация](./media/active-directory-saas-smarteru-tutorial/IC777327.png "Внешняя авторизация")
+    ![External Authorization](./media/active-directory-saas-smarteru-tutorial/IC777327.png "External Authorization")
 
-    1.  Установите флажок **Включить внешнюю авторизацию**.
-    2.  В разделе **Управление универсальным именем для входа** щелкните вкладку **SmarterU**.
-    3.  В разделе **Имя для входа пользователей по умолчанию** щелкните вкладку **SmarterU**.
-    4.  Выберите **Включить Okta**.
-    5.  Скопируйте содержимое скачанного файла метаданных и вставьте его в текстовое поле **Метаданные Okta**.
-    6.  Щелкните **Сохранить**.
+    1.  Select **Enable External Authorization**.
+    2.  In the **Master Login Control** section, select the **SmarterU** tab.
+    3.  In the **User Default Login** section, select the **SmarterU** tab.
+    4.  Select **Enable Okta**.
+    5.  Copy the content of the downloaded metadata file, and then paste it into the **Okta Metadata** textbox.
+    6.  Click **Save**.
 
-7.  На классическом портале Azure выберите подтверждение конфигурации единого входа, а затем нажмите кнопку **Завершить**, чтобы закрыть диалоговое окно **Настройка единого входа**.
+7.  On the Azure classic portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
 
-    ![Настройка единого входа](./media/active-directory-saas-smarteru-tutorial/IC777328.png "Настройка единого входа")
+    ![Configure Single Sign-On](./media/active-directory-saas-smarteru-tutorial/IC777328.png "Configure Single Sign-On")
 
-##Настройка подготовки учетных записей пользователей
+##<a name="configuring-user-provisioning"></a>Configuring user provisioning
   
-Чтобы пользователи Azure AD могли входить в SmarterU, их необходимо подготовить для SmarterU. В случае SmarterU подготовка выполняется вручную.
+In order to enable Azure AD users to log into SmarterU, they must be provisioned into SmarterU.  
+In the case of SmarterU, provisioning is a manual task.
 
-###Чтобы подготовить учетные записи пользователей, выполните следующие действия:
+###<a name="to-provision-a-user-accounts,-perform-the-following-steps:"></a>To provision a user accounts, perform the following steps:
 
-1.  Выполните вход в клиент **SmarterU**.
+1.  Log in to your **SmarterU** tenant.
 
-2.  Перейдите в раздел **Пользователи**.
+2.  Go to **Users**.
 
-3.  В разделе «Пользователи» выполните следующие действия:
+3.  In the user section, perform the following steps:
 
-    ![Новый пользователь](./media/active-directory-saas-smarteru-tutorial/IC777329.png "Новый пользователь")
+    ![New User](./media/active-directory-saas-smarteru-tutorial/IC777329.png "New User")
 
-    1.  Щелкните **+ Пользователь**.
-    2.  Введите соответствующие значения атрибутов учетной записи Azure AD в следующие текстовые поля: **Основной электронный адрес**, **Идентификатор сотрудника**, **Пароль**, **Проверка пароля**, **Имя** и **Фамилия**.
-    3.  Нажмите **Активный**.
-    4.  Щелкните **Сохранить**.
+    1.  Click **+User**.
+    2.  Type the related attribute values of the Azure AD user account into the following textboxes: **Primary Email**, **Employee ID**, **Password**, **Verify Password**, **Given Name**, **Surname**.
+    3.  Click **Active**.
+    4.  Click **Save**.
 
->[AZURE.NOTE] Вы можете использовать любые другие инструменты создания учетных записей пользователей SmarterU или API, предоставляемые SmarterU для подготовки учетных записей пользователей AAD.
+>[AZURE.NOTE] You can use any other SmarterU user account creation tools or APIs provided by SmarterU to provision AAD user accounts.
 
-##Назначение пользователей
+##<a name="assigning-users"></a>Assigning users
   
-Чтобы проверить свою конфигурацию, предоставьте пользователям Azure AD, которые должны использовать приложение, доступ путем их назначения.
+To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.
 
-###Чтобы назначить пользователей SmarterU, выполните следующие действия:
+###<a name="to-assign-users-to-smarteru,-perform-the-following-steps:"></a>To assign users to SmarterU, perform the following steps:
 
-1.  На классическом портале Azure создайте тестовую учетную запись.
+1.  In the Azure classic portal, create a test account.
 
-2.  На странице интеграции с приложением **SmarterU** нажмите кнопку **Назначить пользователей**.
+2.  On the **SmarterU **application integration page, click **Assign users**.
 
-    ![Назначить пользователей](./media/active-directory-saas-smarteru-tutorial/IC777330.png "Назначить пользователей")
+    ![Assign Users](./media/active-directory-saas-smarteru-tutorial/IC777330.png "Assign Users")
 
-3.  Выберите тестового пользователя, нажмите кнопку **Назначить**, а затем — **Да**, чтобы подтвердить назначение.
+3.  Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.
 
-    ![Да](./media/active-directory-saas-smarteru-tutorial/IC767830.png "Да")
+    ![Yes](./media/active-directory-saas-smarteru-tutorial/IC767830.png "Yes")
   
-Если вы хотите проверить параметры единого входа, откройте панель доступа. Дополнительные сведения о панели доступа см. в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
+If you want to test your single sign-on settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0921_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

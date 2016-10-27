@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Доступ к виртуальным машинам Azure из обозревателя сервера | Microsoft Azure"
-   description="Общие сведения о просмотре и создании виртуальных машин Azure, а также об управлении ими в обозревателе сервера в Visual Studio."
+   pageTitle="Accessing Azure Virtual Machines from Server Explorer | Microsoft Azure"
+   description="Get an overview of how to view create and manage Azure virtual machines (VMs) in Server Explorer in Visual Studio."
    services="visual-studio-online"
    documentationCenter="na"
    authors="TomArcher"
@@ -15,42 +15,47 @@
    ms.date="08/15/2016"
    ms.author="tarcher" />
 
-# Доступ к виртуальным машинам Azure из обозревателя сервера
 
-С помощью обозревателя сервера в Visual Studio можно отображать сведения о виртуальных машинах, размещенных в Azure.
+# <a name="accessing-azure-virtual-machines-from-server-explorer"></a>Accessing Azure Virtual Machines from Server Explorer
 
-## Доступ к виртуальным машинам из обозревателя сервера
+By using Server Explorer in Visual Studio, you can display information about your virtual machines hosted by Azure.
 
-Виртуальные машины, размещенные в Azure, можно открыть в обозревателе сервера. Чтобы просмотреть мобильные службы, войдите в свою подписку Azure. Для этого откройте контекстное меню узла Azure в обозревателе сервера и выберите пункт **Подключиться к Microsoft Azure**.
+## <a name="accessing-virtual-machines-in-server-explorer"></a>Accessing virtual machines in Server Explorer
 
-### Получение сведений о виртуальных машинах
+If you have virtual machines hosted by Azure, you can access them in Server Explorer. You must first sign in to your Azure subscription to view your mobile services. To sign in, open the shortcut menu for the Azure node in Server Explorer, and choose **Connect to Microsoft Azure**.
 
-1. В обозревателе сервера выберите виртуальную машину и нажмите клавишу F4, чтобы открыть окно с ее свойствами.
+### <a name="to-get-information-about-your-virtual-machines"></a>To get information about your virtual machines
 
-    В следующей таблице показаны доступные свойства. Обратите внимание, что все они доступны только для чтения. Чтобы изменить их, используйте [классический портал Azure](http://go.microsoft.com/fwlink/?LinkID=213885).
+1. In Server Explorer, choose a virtual machine, and then choose the F4 key to show its properties window.
 
-  	|Свойство|Описание|
+    The following table shows what properties are available, but they are all read-only. To change them, use the [Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=213885).
+
+  	|Property|Description|
   	|---|---|
-  	|DNS-имя|URL-адрес виртуальной машины в Интернете.|
-  	|Среда|У виртуальной машины значение этого свойства всегда равно "Производство".|
-  	|Имя|Имя виртуальной машины.|
-  	|Размер|Размер виртуальной машины, который отражает объем памяти и доступного дискового пространства. Дополнительные сведения см. в статье "Практическое руководство по настройке размеров виртуальных машин".|
-  	|Состояние|Возможные значения: "Запуск", "Запущено", "Остановка", "Остановлено" и "Получение состояния". Если отображается значение "Получение состояния", текущее состояние неизвестно. Значения этого свойства отличаются от значений, используемых на [классическом портале Azure](http://go.microsoft.com/fwlink/?LinkID=213885).|
-  	|SubscriptionID|Идентификатор подписки вашей учетной записи Azure. Эти сведения можно узнать на [классическом портале Azure](http://go.microsoft.com/fwlink/?LinkID=213885), просмотрев свойства подписки.|
+  	|DNS Name|The URL with the Internet address of the virtual machine.|
+  	|Environment|For a virtual machine, the value of this property is always Production.|
+  	|Name|The name of the virtual machine.|
+  	|Size|The size of the virtual machine, which reflects the amount of memory and disk space that’s available. For more information, see How To: Configure Virtual Machine Sizes.|
+  	|Status|Values include Starting, Started, Stopping, Stopped, and Retrieving Status. If Retrieving Status appears, the current status is unknown. The values for this property differ from the values that are used on the [Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=213885).|
+  	|SubscriptionID|The subscription ID for your Azure account. You can show this information on the [Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=213885) by viewing the properties for a subscription.|
 
-1. Выберите узел конечной точки, а затем просмотрите окно **Свойства**.
+1. Choose an endpoint node, and then view the **Properties** window.
 
-1. В следующей таблице описаны доступные свойства конечных точек, но они доступны только для чтения. Чтобы добавить или изменить конечные точки для виртуальной машины, используйте [классический портал Azure](http://go.microsoft.com/fwlink/?LinkID=213885).
+1. The following table describes the available properties of endpoints, but they are read-only. To add or edit the endpoints for a virtual machine, use the [Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=213885). 
 
-  	|Свойство|Описание|
+  	|Property|Description|
   	|---|---|
-  	|Имя|Идентификатор конечной точки.|
-  	|Закрытый порт|Порт для доступа к сети, являющийся внутренним для приложения.|
-  	|Протокол|Протокол, используемый на транспортном уровне для этой конечной точки (TCP или UDP).|
-  	|Общий порт|Порт, используемый для общего доступа к приложению.|
+  	|Name|An identifier for the endpoint.|
+  	|Private Port|The port for network access internal to your application.|
+  	|Protocol|The protocol that the transport layer for this endpoint uses, either TCP or UDP.|
+  	|Public Port|The port that’s used for public access to your application.|
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Next steps
 
-Дополнительные сведения об использовании ролей Azure в Visual Studio см. в статье [Использование удаленного рабочего стола с ролями Azure](vs-azure-tools-remote-desktop-roles.md).
+To learn more about using Azure roles in Visual Studio, see [Using Remote Desktop with Azure Roles](vs-azure-tools-remote-desktop-roles.md).
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

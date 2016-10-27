@@ -1,12 +1,12 @@
 <properties
-	pageTitle="Добавление действия запроса в приложения логики | Microsoft Azure"
-	description="Обзор действия запроса для выполнения таких операций, как фильтрация массива."
-	services=""
-	documentationCenter=""
-	authors="jeffhollan"
-	manager="erikre"
-	editor=""
-	tags="connectors"/>
+    pageTitle="Add the query action in logic apps | Microsoft Azure"
+    description="Overview of the query action for performing actions like filter array."
+    services=""
+    documentationCenter=""
+    authors="jeffhollan"
+    manager="erikre"
+    editor=""
+    tags="connectors"/>
 
 <tags
    ms.service="logic-apps"
@@ -17,68 +17,74 @@
    ms.date="07/20/2016"
    ms.author="jehollan"/>
 
-# Приступая к работе с действием запроса
 
-Действие запроса позволяет работать с пакетами и массивами. Оно выполняется рабочими процессами и дает возможность:
+# <a name="get-started-with-the-query-action"></a>Get started with the query action
 
-- создать задачу для всех записей с высоким приоритетом, имеющихся в базе данных;
-- сохранить все вложения в формате PDF для электронной почты в большой двоичный объект Azure.
+By using the query action, you can work with batches and arrays to accomplish workflows to:
 
-Сведения о начале работы с действием запроса в приложении логики см. в статье, посвященной [созданию приложения логики](../app-service-logic/app-service-logic-create-a-logic-app.md).
+- Create a task for all high-priority records from a database.
+- Save all PDF attachments for emails into an Azure blob.
 
-## Использование действия запроса
+To get started using the query action in a logic app, see [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-Действие — это операция, выполняемая рабочим процессом, определенным в приложении логики. Дополнительные сведения о действиях см. [здесь](connectors-overview.md).
+## <a name="use-the-query-action"></a>Use the query action
 
-В настоящее время действие запроса имеет одну операцию, называемую фильтрацией массива, которая представлена в конструкторе. Она позволяет опрашивать массив и возвращать отфильтрованные результаты.
+An action is an operation that is carried out by the workflow that is defined in a logic app. [Learn more about actions](connectors-overview.md).  
 
-Ниже описан процесс добавления этой операции в приложение логики.
+The query action currently has one operation, called the filter array, that is exposed in the designer. This allows you to query an array and return a set of filtered results.
 
-1. Нажмите кнопку **Новый шаг**.
-2. Выберите **Добавить действие**.
-3. В поле поиска действий введите **filter**, чтобы в списке отобразилось действие **Filter array** (Фильтрация массива).
+Here's how you can add it in a logic app:
 
-	![Выбор действия запроса](./media/connectors-native-query/using-action-1.png)
+1. Select the **New Step** button.
+2. Choose **Add an action**.
+3. In the action search box, type **filter** to list the **Filter array** action.
 
-4. Выберите массив для фильтрации. (На приведенном ниже снимке экрана показан массив результатов из поиска Twitter).
-5. Создайте условие для оценки каждого элемента. (На приведенном ниже снимке экрана отфильтрованы твиты от пользователей, имеющих более 100 подписчиков).
+    ![Select the query action](./media/connectors-native-query/using-action-1.png)
 
-	![Завершение действия запроса](./media/connectors-native-query/using-action-2.png)
+4. Select an array to filter. (The following screenshot shows the array of results from a Twitter search.)
+5. Create a condition to evaluate on each item. (The following screenshot filters tweets from users who have more than 100 followers.)
 
-	Выходными данными действия будет новый массив, содержащий только те результаты, которые удовлетворяют требованиям фильтрации.
-6. Щелкните верхний левый угол панели для сохранения. После этого приложение логики будет сохранено и опубликовано (активировано).
+    ![Complete the query action](./media/connectors-native-query/using-action-2.png)
 
-## Действие запроса
+    The action will output a new array that contains only results that met the filter requirements.
+6. Click the upper-left corner of the toolbar to save, and your logic app will both save and publish (activate).
 
-Ниже приведены подробные сведения о действии, которое поддерживает этот соединитель. У соединителя одно возможное действие.
+## <a name="query-action"></a>Query action
 
-|Действие|Описание|
+Here are the details for the action that this connector supports. The connector has one possible action.
+
+|Action|Description|
 |---|---|
-|Фильтрация массива|Оценивает условие для каждого элемента в массиве и возвращает результаты.|
+|Filter array|Evaluates a condition for each item in an array and returns the results|
 
-## Сведения о действиях
+## <a name="action-details"></a>Action details
 
-Действие запроса содержит одно возможное действие. В следующих таблицах приведены обязательные и необязательные поля ввода для действия, а также соответствующие выходные данные, связанные с его использованием.
+The query action comes with one possible action. The following tables describe the required and optional input fields for the action and the corresponding output details that are associated with using the action.
 
-### Фильтрация массива
-Ниже перечислены поля ввода для действия, выполняющего исходящий HTTP-запрос. Звездочка (*) означает, что это поле обязательное для заполнения.
+### <a name="filter-array"></a>Filter array
+The following are input fields for the action, which makes an HTTP outbound request.
+A * means that it is a required field.
 
-|Отображаемое имя|Имя свойства|Описание|
+|Display name|Property name|Description|
 |---|---|---|
-|Из*|from|Массив для фильтрации.|
-|Условие*|где:|Условие, проверяемое для каждого элемента.|
-.<br>
+|From*|from|The array to filter|
+|Condition*|where|The condition to evaluate for each item|
+<br>
 
-### Сведения о выходных данных
+### <a name="output-details"></a>Output details
 
-Ниже приведены сведения о выходных данных для ответа HTTP.
+The following are output details for the HTTP response.
 
-|Имя свойства|Тип данных|Описание|
+|Property name|Data type|Description|
 |---|---|---|
-|Отфильтрованный массив|array|Массив, содержащий объект для каждого результата фильтрации.|
+|Filtered array|array|An array that contains an object for each filtered result|
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Next steps
 
-Теперь опробуйте платформу и [создайте приложение логики](../app-service-logic/app-service-logic-create-a-logic-app.md). Чтобы узнать, какие еще соединители доступны в приложениях логики, ознакомьтесь со [списком интерфейсов API](apis-list.md).
+Now, try out the platform and [create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md). You can explore the other available connectors in logic apps by looking at our [APIs list](apis-list.md).
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

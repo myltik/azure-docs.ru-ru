@@ -1,322 +1,330 @@
 <properties 
-	pageTitle="Мониторинг конвейеров фабрики данных Azure и управление ими" 
-	description="Узнайте, как отслеживать фабрики данных и конвейеры Azure и управлять ими с помощью приложения по мониторингу и управлению." 
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
-	editor="monicar"/>
+    pageTitle="Monitor and manage Azure Data Factory pipelines" 
+    description="Learn how to use Monitoring and Management App to monitor and manage Azure data factories and pipelines." 
+    services="data-factory" 
+    documentationCenter="" 
+    authors="spelluru" 
+    manager="jhubbard" 
+    editor="monicar"/>
 
 <tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/06/2016" 
-	ms.author="spelluru"/>
+    ms.service="data-factory" 
+    ms.workload="data-services" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="09/06/2016" 
+    ms.author="spelluru"/>
 
-# Мониторинг конвейеров фабрики данных Azure и управление ими с помощью нового приложения по мониторингу и управлению
+
+# <a name="monitor-and-manage-azure-data-factory-pipelines-using-new-monitoring-and-management-app"></a>Monitor and manage Azure Data Factory pipelines using new Monitoring and Management App
 > [AZURE.SELECTOR]
-- [Использование портала Azure или Azure PowerShell](data-factory-monitor-manage-pipelines.md)
-- [Использование приложения по мониторингу и управлению](data-factory-monitor-manage-app.md)
+- [Using Azure Portal/Azure PowerShell](data-factory-monitor-manage-pipelines.md)
+- [Using Monitoring and Management App](data-factory-monitor-manage-app.md)
 
-В этой статье описываются процедуры мониторинга, управления и отладки конвейеров, а также создания оповещений для получения уведомлений о сбоях с помощью **приложения по мониторингу и управлению**. Посмотрите следующий видеоролик, чтобы узнать, как использовать приложение управления и мониторинга.
+This article describes how to monitor, manage and debug your pipelines, and create alerts to get notified on failures using the **Monitoring and Management App**. You can also watch the following video to learn about using the Monitoring and Management App.
    
 
 > [AZURE.VIDEO azure-data-factory-monitoring-and-managing-big-data-piplines]
       
-## Запуск приложения по мониторингу и управлению
-Чтобы запустить приложение по мониторингу и управлению, щелкните элемент **Мониторинг и управление** в колонке **ФАБРИКА ДАННЫХ** для фабрики данных.
+## <a name="launching-the-monitoring-and-management-app-a"></a>Launching the Monitoring and Management App a
+To launch the Monitor and Management App, click **Monitoring & Manage** tile on the **DATA FACTORY** blade for your data factory.
 
-![Элемент "Мониторинг" на домашней странице фабрики данных](./media/data-factory-monitor-manage-app/MonitoringAppTile.png)
+![Monitoring tile on Data Factory home page](./media/data-factory-monitor-manage-app/MonitoringAppTile.png) 
 
-Приложение по мониторингу и управлению будет запущено в отдельном окне или вкладке.
+You should see the Monitoring and Management App launched in a separate tab/window.  
 
-![Приложение по мониторингу и управлению](./media/data-factory-monitor-manage-app/AppLaunched.png)
+![Monitoring and Management App](./media/data-factory-monitor-manage-app/AppLaunched.png)
 
-> [AZURE.NOTE] Если веб-браузер завис на действии "Авторизация...", отключите параметр или снимите флажок **Block third-party cookies and site data** (Блокировать сторонние файлы cookie и данные сайта). Либо оставьте флажок и создайте исключение для адреса **login.microsoftonline.com**, а затем попробуйте запустить приложение еще раз.
-
-
-Если окна действий не отображаются в нижней части, на панели инструментов нажмите кнопку **Обновить**, чтобы обновить список. Кроме того, установите правильные значения для фильтров **Время начала** и **Время окончания**.
+> [AZURE.NOTE] If you see that the web browser is stuck at "Authorizing...", disable/uncheck **Block third-party cookies and site data** setting (or) keep it enabled and create an exception for **login.microsoftonline.com** and then try launching the app again.
 
 
-## Общие сведения о приложении по мониторингу и управлению
-В левой части находятся три вкладки (**Обозреватель ресурсов**, **Monitoring Views** (Представления мониторинга) и **Оповещения**). Первая вкладка ("Обозреватель ресурсов") выбрана по умолчанию.
+If you do not see activity windows in the list at the bottom, click the **Refresh** button on the toolbar to refresh the list. In addition, set the right values for the **Start time** and **End time** filters.  
 
-### Обозреватель ресурсов
-Отображается следующее:
 
-- **представление в виде дерева** обозревателя ресурсов в левой области;
-- **представление схемы** в верхней части страницы;
-- список **окон действий** на нижней панели в центре страницы;
-- вкладки **Свойства** и **Activity Window Explorer** (Обозреватель окон действий) в правой области.
+## <a name="understanding-the-monitoring-and-management-app"></a>Understanding the Monitoring and Management App
+There are three tabs (**Resource Explorer**, **Monitoring Views**, and **Alerts**) on the left and the first tab (Resource Explorer) is selected by default. 
 
-В обозревателе ресурсов все ресурсы (конвейеры, наборы данных, связанные службы) в фабрике данных отображаются в представлении в виде дерева. При выборе объекта в обозревателе ресурсов вы заметите следующее:
+### <a name="resource-explorer"></a>Resource Explorer
+You see the following: 
 
-- связанная сущность фабрики данных будет выделена в представлении схемы;
-- связанные окна действий (щелкните [здесь](data-factory-scheduling-and-execution.md) для получения сведений о них) будут выделены в списке Activity Windows (Окна действий) в нижней части экрана;
-- свойства выбранного объекта будут отображаться в окне "Свойства" в правой области.
-- определение JSON выбранного объекта, если это применимо. Например: связанная служба, или набор данных, или конвейер.
+- Resource Explorer **tree view** in the left pane.
+- **Diagram View** at the top.
+- **Activity Windows** list at the bottom in the middle pane.
+- **Properties**/**Activity Window Explorer** tabs in the right pane. 
 
-![Обозреватель ресурсов](./media/data-factory-monitor-manage-app/ResourceExplorer.png)
+In Resource Explorer, you see all resources (pipelines, datasets, linked services) in the data factory in a tree view. When you select an object in Resource Explorer, you notice the following: 
 
-Дополнительные сведения об окнах действий см. в статье [Планирование и исполнение с использованием фабрики данных](data-factory-scheduling-and-execution.md).
+- associated Data Factory entity is highlighted in the Diagram View.
+- associated activity windows (click [here](data-factory-scheduling-and-execution.md) to learn about activity windows) are highlighted in the Activity Windows list at the bottom.  
+- properties of the selected object in the Properties window in the right pane. 
+- JSON definition of the selected object if applicable. For example: a linked service or a dataset or a pipeline. 
 
-### Представление схемы
-Представление схемы позволяет отслеживать состояние фабрики данных и всех ее ресурсов, а также управлять ими. При выборе сущности фабрики данных (набора данных или конвейера) в представлении схемы вы заметите следующее:
+![Resource Explorer](./media/data-factory-monitor-manage-app/ResourceExplorer.png)
+
+See [Scheduling and Execution](data-factory-scheduling-and-execution.md) article for detailed conceptual information about activity window. 
+
+### <a name="diagram-view"></a>Diagram View
+The Diagram View of a data factory provides a single pane of glass to monitor and manage the data factory and its assets. When you select a Data Factory entity (dataset/pipeline) in the diagram view, you notice the following:
  
-- сущность фабрики данных будет выбрана в представлении в виде дерева;
-- связанные окна действий будут выделены в списке "Окна действий";
-- свойства выбранного объекта будут отображаться в окне "Свойства".
+- the data factory entity is selected in the tree view
+- associated activity windows are highlighted in the Activity Windows list.
+- properties of the selected object in the Properties window
 
-Если конвейер включен (не находится в приостановленном состоянии), он отображается с зеленой линией.
+When the pipeline is enabled (not in paused state), it is shown with a green line. 
 
-![Выполняющийся конвейер](./media/data-factory-monitor-manage-app/PipelineRunning.png)
+![Pipeline Running](./media/data-factory-monitor-manage-app/PipelineRunning.png)
 
-В представлении схемы для конвейера доступны три кнопки. Вторая кнопка используется для приостановки конвейера. Во время приостановки текущие выполняющиеся действия не останавливаются, а завершаются до конца. Третья кнопка используется для приостановки конвейера и завершения текущих выполняющихся действий. Первая кнопка позволяет возобновить работу конвейера. Если конвейер приостановлен, цвет соответствующего элемента меняется, как показано ниже.
+You notice that there are three command buttons for the pipeline in the diagram view. You can use the second button to pause the pipeline. Pausing does not terminate the currently running activities and let them proceed to completion. Third button pauses the pipeline and terminates its existing executing activities. First button resumes the pipeline. When your pipeline is paused, you notice the color change for the pipeline tile as follows.
 
-![Кнопки приостановки и возобновления на элементе](./media/data-factory-monitor-manage-app/SuspendResumeOnTile.png)
+![Pause/Resume on Tile](./media/data-factory-monitor-manage-app/SuspendResumeOnTile.png)
 
-Можно выбрать два конвейера или более (используя клавишу CTRL) и с помощью кнопок панели команд приостанавливать или возобновлять работу нескольких конвейеров одновременно.
+You can multi-select two or more pipelines (using CTRL) and use command bar buttons to pause/resume multiple pipelines at a time.
 
-![Приостановка или возобновление на панели команд](./media/data-factory-monitor-manage-app/SuspendResumeOnCommandBar.png)
+![Pause/Resume on Command bar](./media/data-factory-monitor-manage-app/SuspendResumeOnCommandBar.png)
 
-Чтобы просмотреть все действия в конвейере, щелкните элемент конвейера правой кнопкой мыши и выберите команду **Открыть конвейер**.
+You can see all the activities in the pipeline, by right-clicking the pipeline tile, and clicking **Open pipeline**.
 
-![Меню открытия конвейера](./media/data-factory-monitor-manage-app/OpenPipelineMenu.png)
+![Open Pipeline menu](./media/data-factory-monitor-manage-app/OpenPipelineMenu.png)
 
-В открывшемся представлении конвейера вы увидите все действия в конвейере. В этом примере в конвейере существует только одно действие — действие копирования. Чтобы перейти к предыдущему представлению, щелкните имя фабрики данных в меню навигации вверху.
+In the opened pipeline view, you see all activities in the pipeline. In this example, there is only one activity: Copy Activity. To go back to the previous view, click data factory name in the breadcrumb menu at the top.
 
-![Открытый конвейер](./media/data-factory-monitor-manage-app/OpenedPipeline.png)
+![Opened Pipeline](./media/data-factory-monitor-manage-app/OpenedPipeline.png)
 
-При щелчке выходного набора данных или наведении на него указателя мыши в представлении конвейера вы увидите всплывающее окно Activity Windows (Окна действий) для этого набора данных.
+In the pipeline view, when you click an output dataset or when you move your mouse over the output dataset, you see the Activity Windows pop-up for that dataset.
 
-![Всплывающее окно "Окна действий"](./media/data-factory-monitor-manage-app/ActivityWindowsPopup.png)
+![Activity Windows popup](./media/data-factory-monitor-manage-app/ActivityWindowsPopup.png)
 
-Щелкните окно действий, чтобы просмотреть сведения о нем в окне **Свойства** в правой области.
+You can click an activity window to see details for it in the **Property** window in the right pane. 
 
-![Свойства окна действия](./media/data-factory-monitor-manage-app/ActivityWindowProperties.png)
+![Activity Window Properties](./media/data-factory-monitor-manage-app/ActivityWindowProperties.png)
 
-Чтобы просмотреть дополнительные сведения, в правой области перейдите на вкладку **Activity Window Explorer** (Обозреватель окон действий).
+In the right pane, switch to **Activity Window Explorer** tab to see more details.
 
-![Обозреватель окон действий](./media/data-factory-monitor-manage-app/ActivityWindowExplorer.png)
+![Activity Window Explorer](./media/data-factory-monitor-manage-app/ActivityWindowExplorer.png) 
 
-Вы также увидите **разрешенные переменные** для каждой попытки запуска действия в разделе **Попытки**.
+You also see **resolved variables** for each activity run attempt in the **Attempts** section. 
 
-![Разрешенные переменные](./media/data-factory-monitor-manage-app/ResolvedVariables.PNG)
+![Resolved variables](./media/data-factory-monitor-manage-app/ResolvedVariables.PNG)
 
-Перейдите на вкладку **Скрипт**, чтобы просмотреть определение скриптов JSON для выбранного объекта.
+Switch to the **Script** tab to see the JSON script definition for the selected object.   
 
-![Вкладка "Скрипт"](./media/data-factory-monitor-manage-app/ScriptTab.png)
+![Script tab](./media/data-factory-monitor-manage-app/ScriptTab.png)
 
-Окна действий можно просматривать в трех местах:
+You can see activity windows in three places:
 
-- всплывающее окно Activity Windows (Окна действий) в представлении схемы (средняя область);
-- обозреватель окон действий в правой области;
-- список "Окна действий" в нижней области.
+- Activity Windows pop-up in the diagram view (middle pane).
+- Activity Window Explorer in the right pane.
+- Activity Windows list in the bottom pane.
 
-Во всплывающем окне Activity Windows (Окна действий) и в обозревателе окон действий можно перейти к прошлой неделе, используя кнопки со стрелками влево и вправо.
+In the Activity Windows pop-up and Activity Window Explorer, you can scroll to previous week and next week using left and right arrows.
 
-![Кнопки со стрелками вправо и влево в обозревателе окон действий](./media/data-factory-monitor-manage-app/ActivityWindowExplorerLeftRightArrows.png)
+![Activity Window Explorer Left/Right Arrows](./media/data-factory-monitor-manage-app/ActivityWindowExplorerLeftRightArrows.png)
 
-В нижней части представления схемы находятся кнопки для увеличения и уменьшения масштаба, выбора 100-процентного масштаба, масштаба по размеру и блокировки структуры схемы. Кнопка блокировки структуры включена по умолчанию. Она позволяет предотвратить случайное перемещение таблиц и конвейеров в представлении схемы. Ее можно отключить и перемещать объекты в рамках схемы. Если кнопка отключена, для автоматического размещения таблиц и конвейеров можно использовать последнюю кнопку. Увеличивать или уменьшать масштаб можно также с помощью колесика мыши.
+At the bottom of the Diagram View, you see buttons to Zoom In, Zoom Out, Zoom to Fit, Zoom 100%, Lock layout. The Lock layout button prevents you from accidentally moving tables and pipelines in the diagram view and is ON by default. You can turn it off and move entities around in the diagram. When you turn it OFF, you can use the last button to automatically position tables and pipelines. You can also Zoom in/Zoom Out using mouse wheel.
 
-![Команды изменения масштаба в представлении схемы](./media/data-factory-monitor-manage-app/DiagramViewZoomCommands.png)
-
-
-### Список "Окна действий"
-В списке "Окна действий" в нижней части средней области отображаются все окна действий для набора данных, выбранного в обозревателе ресурсов или представлении схемы. По умолчанию список отсортирован по убыванию. Это значит, что в его верхней части находится самое последнее окно действия.
-
-![Список "Окна действий"](./media/data-factory-monitor-manage-app/ActivityWindowsList.png)
-
-Этот список не обновляется автоматически, поэтому воспользуйтесь кнопкой "Обновить" на панели инструментов, чтобы обновить его вручную.
+![Diagram View Zoom commands](./media/data-factory-monitor-manage-app/DiagramViewZoomCommands.png)
 
 
-Окна действий могут находиться в одном из указанных ниже состояний.
+### <a name="activity-windows-list"></a>Activity Windows List
+The Activity windows list in the bottom of the middle pane displays all activity windows for the dataset you selected in the resource explorer or diagram view. By default, the list is in the descending order, which means that you see the latest activity window at the top. 
+
+![Activity Windows List](./media/data-factory-monitor-manage-app/ActivityWindowsList.png)
+
+This list does not refresh automatically, so use the refresh button on the toolbar to manually refresh it.  
+
+
+The activity windows can be in one of the following statuses:
 
 <table>
 <tr>
-	<th align="left">Состояние</th><th align="left">Подсостояние</th><th align="left">Описание</th>
+    <th align="left">Status</th><th align="left">Substatus</th><th align="left">Description</th>
 </tr>
 <tr>
-	<td rowspan="8">Waiting</td><td>ScheduleTime</td><td>Время выполнения окна действия еще не наступило.</td>
+    <td rowspan="8">Waiting</td><td>ScheduleTime</td><td>The time has not come for the activity window to run.</td>
 </tr>
 <tr>
-<td>DatasetDependencies</td><td>Восходящие зависимости не готовы.</td>
+<td>DatasetDependencies</td><td>The upstream dependencies are not ready.</td>
 </tr>
 <tr>
-<td>ComputeResources</td><td>Вычислительные ресурсы недоступны.</td>
+<td>ComputeResources</td><td>The compute resources are not available.</td>
 </tr>
 <tr>
-<td>ConcurrencyLimit</td> <td>Все экземпляры действия заняты выполнением других окон действий.</td>
+<td>ConcurrencyLimit</td> <td>All the activity instances are busy running other activity windows.</td>
 </tr>
 <tr>
-<td>ActivityResume</td><td>Действие приостановлено, и до его возобновления выполнять окна действий нельзя.</td>
+<td>ActivityResume</td><td>Activity is paused and cannot run the activity windows until it is resumed.</td>
 </tr>
 <tr>
-<td>Retry</td><td>Действие будет выполнено повторно.</td>
+<td>Retry</td><td>Activity execution is retried.</td>
 </tr>
 <tr>
-<td>Проверка</td><td>Проверка еще не начата.</td>
+<td>Validation</td><td>Validation has not started yet.</td>
 </tr>
 <tr>
-<td>ValidationRetry</td><td>Ожидание повторения проверки.</td>
+<td>ValidationRetry</td><td>Waiting for the validation to be retried.</td>
 </tr>
 <tr>
-&lt;tr
-<td rowspan="2">InProgress</td><td>Validating</td><td>Проверка выполняется.</td>
+<tr
+<td rowspan="2">InProgress</td><td>Validating</td><td>Validation in progress.</td>
 </tr>
 <td></td>
-<td>Выполняется обработка окна действия.</td>
+<td>The activity window is being processed.</td>
 </tr>
 <tr>
-<td rowspan="4">Сбой</td><td>TimedOut</td><td>Выполнение заняло больше времени, чем это разрешено для действия.</td>
+<td rowspan="4">Failed</td><td>TimedOut</td><td>Execution took longer than that is allowed by the activity.</td>
 </tr>
 <tr>
-<td>Canceled</td><td>Отменено пользователем.</td>
+<td>Canceled</td><td>Canceled by user action.</td>
 </tr>
 <tr>
-<td>Проверка</td><td>Сбой проверки.</td>
+<td>Validation</td><td>Validation has failed.</td>
 </tr>
 <tr>
-<td></td><td>Не удалось создать и (или) проверить окно действия.</td>
+<td></td><td>Failed to generate and/or validate the activity window.</td>
 </tr>
-<td>Ready</td><td></td><td>Окно действия готово к использованию.</td>
-</tr>
-<tr>
-<td>Skipped</td><td></td><td>Окно действия на обрабатывается.</td>
+<td>Ready</td><td></td><td>The activity window is ready for consumption.</td>
 </tr>
 <tr>
-<td>None</td><td></td><td>Окно действия, которое ранее существовало с другим состоянием, но было сброшено.</td>
+<td>Skipped</td><td></td><td>The activity window is not processed.</td>
+</tr>
+<tr>
+<td>None</td><td></td><td>An activity window that used to exist with a different status, but has been reset.</td>
 </tr>
 </table>
 
 
-При выборе окна действия в списке вы увидите сведения о нем в **обозревателе окон действий** или в окне **Свойства** в правой части.
+When you click an activity window in the list, you see details about it in **Activity Windows Explorer** or **Properties** window on the right.
 
-![Обозреватель окон действий](./media/data-factory-monitor-manage-app/ActivityWindowExplorer-2.png)
+![Activity Window Explorer](./media/data-factory-monitor-manage-app/ActivityWindowExplorer-2.png)
 
-### Обновление окон действий  
-Данные не обновляются автоматически, поэтому воспользуйтесь кнопкой **Обновить** (вторая по счету) на панели команд, чтобы обновить список окон действий вручную.
+### <a name="refresh-activity-windows"></a>Refresh activity windows  
+The details are not automatically refreshed, so you use the **refresh** button (second button) on the command bar to manually refresh the activity windows list.  
  
 
-### Окно "Свойства"
-Окно "Свойства" доступно в правой области приложения по мониторингу и управлению.
+### <a name="properties-window"></a>Properties window
+The Properties window is in the right-most pane of the Monitoring and Management app. 
 
-![Окно "Свойства"](./media/data-factory-monitor-manage-app/PropertiesWindow.png)
+![Properties window](./media/data-factory-monitor-manage-app/PropertiesWindow.png)
 
-В нем отображаются свойства для элемента, выбранного в обозревателе ресурсов (в представлении в виде дерева), представлении схемы или списке "Окна действий".
+It displays properties for the item you selected in the resource explorer (tree view) (or) diagram view (or) activity windows list. 
 
-### Обозреватель окон действий
+### <a name="activity-window-explorer"></a>Activity Window Explorer
 
-Окно **Activity Window Explorer** (Обозреватель окон действий) находится в правой области приложения по мониторингу и управлению. В нем отображаются сведения об окне действия, выбранном во всплывающем окне или списке Activity Windows (Окна действий).
+The **Activity Window Explorer** window is in the right-most pane of the Monitoring and Management App. It displays details about the activity window you selected in the Activity Windows pop-up or Activity Windows list. 
 
-![Обозреватель окон действий](./media/data-factory-monitor-manage-app/ActivityWindowExplorer-3.png)
+![Activity Window Explorer](./media/data-factory-monitor-manage-app/ActivityWindowExplorer-3.png)
 
-Вы можете переключиться между окнами действий, щелкнув нужное окно в представлении календаря в верхней части. Чтобы просмотреть окна действий на прошлой или следующей неделе, используйте кнопки **Стрелка влево** и **Стрелка вправо** в верхней части.
+You can switch to another activity window by clicking it in the calendar view at the top. You can also use the **left arrow**/**right arrow** buttons at the top to see activity windows from the previous/next week.
 
-Чтобы **повторно выполнить** окно действия или **обновить** сведения, используйте кнопки панели инструментов в нижней области.
+You can use the toolbar buttons in the bottom pane to **rerun** the activity window or **refresh** the details in the pane. 
 
-### Скрипт 
-Откройте вкладку **Скрипт**, чтобы просмотреть определение JSON выбранной сущности фабрики данных (связанную службу, набор данных и конвейер).
+### <a name="script"></a>Script 
+You can use the **Script** tab to view the JSON definition of the selected Data Factory entity (linked service, dataset, and pipeline). 
 
-![Вкладка "Скрипт"](./media/data-factory-monitor-manage-app/ScriptTab.png)
+![Script tab](./media/data-factory-monitor-manage-app/ScriptTab.png)
 
-## Использование системных представлений
-Приложение по мониторингу и управлению содержит встроенные системные представления (**Recent activity windows** (Последние окна действий), **Failed activity windows** (Ошибки окон действий), **Progress activity windows** (Выполняющиеся окна действий)), позволяющие просматривать последние, завершившиеся ошибкой или выполняющиеся окна действий для фабрики данных.
+## <a name="using-system-views"></a>Using system views
+The Monitoring and Management App includes pre-built system views (**Recent activity windows**, **Failed activity windows**, **In-Progress activity windows**) that allows you to view recent/failed/in-progress activity windows for your data factory. 
 
-В левой части откройте вкладку **Monitoring Views** (Представления мониторинга), щелкнув ее.
+Switch to the **Monitoring Views** tab on the left by clicking it. 
 
-![Вкладка "Представления мониторинга"](./media/data-factory-monitor-manage-app/MonitoringViewsTab.png)
+![Monitoring Views tab](./media/data-factory-monitor-manage-app/MonitoringViewsTab.png)
 
-Сейчас поддерживаются три системных представления. Выберите, что нужно просмотреть в списке "Окна действий" (в нижней части средней области) — последние окна действий, завершившиеся ошибкой окна действий или выполняющиеся окна действий.
+Currently, there are three system views supported. Select an option to see recent activity windows (or) failed activity windows (or) in-progress activity windows in the Activity Windows list (at the bottom of the middle pane). 
 
-При выборе варианта **Recent activity windows** (Последние окна действий) будут отображены все последние окна действий в порядке убывания **времени последней попытки**.
+When you select **Recent activity windows** option, you see all recent activity windows in the descending order of **last attempt time**. 
 
-В представлении **Failed activity windows** (Ошибки окон действий) в списке отображаются все завершившиеся ошибкой окна действий. Выберите в списке завершившееся ошибкой окно действия, чтобы просмотреть подробные сведения о нем в окне **Свойства** или в **обозревателе окон действий**. Можно также загрузить журналы для завершившегося ошибкой окна действия.
-
-
-## Сортировка и фильтрация окон действий
-Чтобы отфильтровать окна действий, измените значение параметров **Время начала** и **Время окончания** в командной строке. После изменения времени начала и окончания нажмите кнопку рядом с параметром "Время окончания", чтобы обновить список "Окна действий".
-
-![Время начала и окончания](./media/data-factory-monitor-manage-app/StartAndEndTimes.png)
-
-> [AZURE.NOTE] Сейчас в приложении по мониторингу и управлению все значения времени указываются в формате UTC.
-
-В **списке окон действий** щелкните имя столбца (например, "Состояние").
-
-![Меню столбца списка "Окна действий"](./media/data-factory-monitor-manage-app/ActivityWindowsListColumnMenu.png)
-
-Можно сделать следующее:
-
-- выполнить сортировку в порядке возрастания;
-- выполнить сортировку в порядке убывания;
-- выполнить фильтрацию по одному или нескольким значениям ("Готово", "Ожидание" и т. д.).
-
-После указания фильтра в столбце будет активирована кнопка "Фильтр", указывающая, что значения в столбце являются отфильтрованными.
-
-![Фильтр в столбце списка "Окна действий"](./media/data-factory-monitor-manage-app/ActivityWindowsListFilterInColumn.png)
-
-Чтобы очистить фильтры, можно использовать то же самое всплывающее окно. Чтобы очистить все фильтры для списка "Окна действий", нажмите кнопку очистки фильтров на панели команд.
-
-![Очистка всех фильтров в списке "Окна действий"](./media/data-factory-monitor-manage-app/ClearAllFiltersActivityWindowsList.png)
+You can use the **Failed activity windows** view to see all failed activity windows in the list. Select a failed activity window in the list to see details about it in the **Properties** window (or) **Activity Window Explorer**. You can also download any logs for a failed activity window. 
 
 
-## Выполнение пакетных действий
+## <a name="sorting-and-filtering-activity-windows"></a>Sorting and filtering activity windows
+Change the **start time** and **end time** settings in the command bar to filter activity windows. After you change Start time and End time, click the button next to end-time to refresh the Activity Windows list.
 
-### Повторное выполнение выбранных окон действий
-Выберите окно действия, нажмите кнопку со стрелкой вниз (первая кнопка на панели команд) и выберите **Выполнить снова** или **Rerun with upstream in pipeline** (Повторно выполнить с параметром UpstreamInPipeline). При выборе варианта **Rerun with upstream in pipeline** (Повторно выполнить с параметром UpstreamInPipeline) также будут возвращены все вышестоящие окна действий. ![Повторное выполнение окна действия](./media/data-factory-monitor-manage-app/ReRunSlice.png)
+![Start and End Times](./media/data-factory-monitor-manage-app/StartAndEndTimes.png)
 
-Кроме того, в списке можно выбрать несколько окон действий и повторно выполнить сразу все эти окна. Вы можете отфильтровать окна действий на основе состояния (например, **Ошибка**), а после устранения причины сбоя запустить окна действий повторно. Дополнительные сведения о фильтрации окон действий см. в следующем разделе.
+> [AZURE.NOTE] Currently, all times are in UTC format in the Monitoring and Management App. 
 
-### Приостановка и возобновление нескольких конвейеров
-Можно выбрать два конвейера или более (с помощью клавиши CTRL) и воспользоваться кнопками на панели команд (на следующем рисунке выделены красным прямоугольником), чтобы приостановить или возобновить все эти конвейеры одновременно.
+In the **Activity Windows list**, click the name of a column (for example: Status). 
 
-![Приостановка или возобновление на панели команд](./media/data-factory-monitor-manage-app/SuspendResumeOnCommandBar.png)
+![Activity Windows List column menu](./media/data-factory-monitor-manage-app/ActivityWindowsListColumnMenu.png)
 
-## Создание оповещений 
-На странице "Оповещения" можно создать оповещение, а также просмотреть, изменить или удалить имеющееся оповещение. Можно также включить или отключить оповещение. Щелкните вкладку "Оповещения", чтобы открыть страницу оповещений.
+You can do the following:
 
-![Вкладка "Оповещения"](./media/data-factory-monitor-manage-app/AlertsTab.png)
+- Sort in the ascending order.
+- Sort in the descending order.
+- Filter by one or more values (Ready, Waiting, etc.)
 
-### Создание оповещения
+When you specify a filter on a column, you see the filter button enabled for that column to indicate that the values in the column are filtered values. 
 
-1. Чтобы добавить оповещение, нажмите кнопку **Добавить оповещение**. Появится страница "Сведения".
+![Filter in column of Activity Windows list](./media/data-factory-monitor-manage-app/ActivityWindowsListFilterInColumn.png)
 
-	![Создание оповещений — страница "Сведения"](./media/data-factory-monitor-manage-app/CreateAlertDetailsPage.png)
-1. Укажите **имя** и введите **описание** оповещения, а затем нажмите кнопку **Далее**. Должна открыться страница **Фильтры**.
+You can use the same pop-up window to clear filters. To clear all filters for the activity windows list, click the clear filter button on the command bar. 
 
-	![Создание оповещений — страница "Фильтры"](./media/data-factory-monitor-manage-app/CreateAlertFiltersPage.png)
+![Clear all filters in Activity Windows list](./media/data-factory-monitor-manage-app/ClearAllFiltersActivityWindowsList.png)
 
-2. Выберите **событие**, **состояние** и **подсостояние** (необязательно), о которых служба фабрики данных должна выводить оповещение, а затем нажмите кнопку **Далее**. Откроется страница **Получатели**.
 
-	![Создание оповещений — страница "Получатели"](./media/data-factory-monitor-manage-app/CreateAlertRecipientsPage.png)
-3. Выберите параметр **Email subscription admins** (Администраторы подписки электронной почты) и/или укажите значение параметра **Дополнительный адрес электронной почты администратора**, а затем нажмите кнопку **Готово**. Оповещение должно появиться в списке.
-	
-	![Список "Оповещения"](./media/data-factory-monitor-manage-app/AlertsList.png)
+## <a name="performing-batch-actions"></a>Performing batch actions
 
-В списке "Оповещения" используйте связанные с оповещением кнопки, чтобы изменить, удалить, включить или отключить оповещение.
+### <a name="rerun-selected-activity-windows"></a>Rerun selected activity windows
+Select an activity window, click the down arrow for the first command bar button and select **Rerun** / **Rerun with upstream in pipeline**. When you select **Rerun with upstream in pipeline** option, it reruns all upstream activity windows as well. 
+    ![Rerun an activity window](./media/data-factory-monitor-manage-app/ReRunSlice.png)
 
-### Событие, состояние и подсостояние
-В приведенной далее таблице содержится список возможных событий и состояний (и подсостояний).
+You can also select multiple activity windows in the list and rerun them at the same time. You may want to filter activity windows based on the status (for example: **Failed**) and then rerun the failed activity windows after correcting the issue that causes the activity windows to fail. See the following section for details about filtering activity windows in the list.  
 
-Имя события | Состояние | Дополнительное состояние
+### <a name="pause/resume-multiple-pipelines"></a>Pause/resume multiple pipelines
+You can multi-select two or more pipelines (using CTRL) and use command bar buttons (highlighted in red rectangle in the following image) to pause/resume them at a time.
+
+![Suspend/Resume on Command bar](./media/data-factory-monitor-manage-app/SuspendResumeOnCommandBar.png)
+
+## <a name="creating-alerts"></a>Creating alerts 
+The Alerts page lets you create an alert, view/edit/delete existing alerts. You can also disable/enable an alert. To see the ALerts page, click the Alerts tab.
+
+![Alerts tab](./media/data-factory-monitor-manage-app/AlertsTab.png)
+
+### <a name="to-create-an-alert"></a>To create an alert
+
+1. Click **Add Alert** to add an alert. You see the Details page. 
+
+    ![Create Alerts - Details page](./media/data-factory-monitor-manage-app/CreateAlertDetailsPage.png)
+1. Specify the **name** and **description** for the alert, and click **Next**. You should see the **Filters** page.
+
+    ![Create Alerts - Filters page](./media/data-factory-monitor-manage-app/CreateAlertFiltersPage.png)
+
+2. Select the **event**, **status**, and **substatus** (optional) on which you want the Data Factory service to alert you, and click **Next**. You should see the **Recipients** page.
+
+    ![Create Alerts - Recipients page](./media/data-factory-monitor-manage-app/CreateAlertRecipientsPage.png) 
+3. Select **Email subscription admins** option and/or enter **additional administrator email**, and click **Finish**. You should see the alert in the list. 
+    
+    ![Alerts list](./media/data-factory-monitor-manage-app/AlertsList.png)
+
+In the Alerts list, use the buttons associated with the alert to edit/delete/disable/enable an alert. 
+
+### <a name="event/status/substatus"></a>Event/status/substatus
+The following table provides the list of available events and statuses (and substatuses).
+
+Event name | Status | Sub status
 -------------- | ------ | ----------
-Выполнение действия начато | Started | Запуск
-Выполнение действия завершено | Успешно | Успешно 
-Выполнение действия завершено | Сбой| Неудачное выделение ресурсов<br/><br/>Сбой при выполнении<br/><br/>Время ожидания истекло<br/><br/>Неудачная проверка<br/><br/>Прервано
-Создание кластера HDI по запросу начато | Started | &nbsp; |
-Кластер HDI по запросу успешно создан | Успешно | &nbsp; |
-Кластер HDI по запросу удален | Успешно | &nbsp; |
-### Изменение, удаление или отключение оповещения
+Activity Run Started | Started | Starting
+Activity Run Finished | Succeeded | Succeeded 
+Activity Run Finished | Failed| Failed Resource Allocation<br/><br/>Failed Execution<br/><br/>Timed Out<br/><br/>Failed Validation<br/><br/>Abandoned
+On-Demand HDI Cluster Create Started | Started | &nbsp; |
+On-Demand HDI Cluster Created Successfully | Succeeded | &nbsp; |
+On-Demand HDI Cluster Deleted | Succeeded | &nbsp; |
+### <a name="to-edit/delete/disable-an-alert"></a>To edit/delete/disable an alert
 
 
-![Кнопки оповещений](./media/data-factory-monitor-manage-app/AlertButtons.png)
+![Alerts buttons](./media/data-factory-monitor-manage-app/AlertButtons.png)
 
 
 
     
  
 
-<!---HONumber=AcomDC_0907_2016-->
+
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

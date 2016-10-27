@@ -1,160 +1,122 @@
 <properties
-	pageTitle="Экспорт шаблона Azure Resource Manager | Microsoft Azure"
-	description="Используйте Azure Resource Manager для экспорта шаблона из существующей группы ресурсов."
-	services="azure-resource-manager"
-	documentationCenter=""
-	authors="tfitzmac"
-	manager="timlt"
-	editor="tysonn"/>
+    pageTitle="Export Azure Resource Manager template | Microsoft Azure"
+    description="Use Azure Resource Manage to export a template from an existing resource group."
+    services="azure-resource-manager"
+    documentationCenter=""
+    authors="tfitzmac"
+    manager="timlt"
+    editor="tysonn"/>
 
 <tags
-	ms.service="azure-resource-manager"
-	ms.workload="multiple"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="08/03/2016"
-	ms.author="tomfitz"/>
+    ms.service="azure-resource-manager"
+    ms.workload="multiple"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="08/03/2016"
+    ms.author="tomfitz"/>
 
-# Экспорт шаблона Azure Resource Manager из существующих ресурсов
 
-Resource Manager позволяет экспортировать шаблон из существующих ресурсов в подписке. Используя созданный шаблон, можно изучить синтаксис шаблонов или при необходимости автоматизировать повторное развертывание решения.
+# <a name="export-an-azure-resource-manager-template-from-existing-resources"></a>Export an Azure Resource Manager template from existing resources
 
-Важно отметить, что экспортировать шаблон можно двумя разными способами.
+Resource Manager enables you to export a Resource Manager template from existing resources in your subscription. You can use that generated template to learn about the template syntax or to automate the redeployment of your solution as needed.
 
-- Вы можете экспортировать шаблон, который использовался для развертывания. Он содержит все параметры и переменные, указанные в исходном шаблоне. Этот метод удобно использовать при развертывании ресурсов на портале. Теперь нужно узнать, как построить шаблон для создания этих ресурсов.
-- Вы можете экспортировать шаблон, который представляет текущее состояние группы ресурсов. Он не основан на каком-либо шаблоне, который использовался для развертывания. Напротив, создается шаблон, который является моментальным снимком группы ресурсов. Экспортированный шаблон содержит много жестко заданных значений и, скорее всего, меньше параметров, чем вы обычно определяете. Этот метод подходит, если вы изменили группу ресурсов с помощью портала или скриптов и теперь на ее основе необходимо создать шаблон.
+It is important to note that there are two different ways to export a template:
 
-В этой статье показаны оба способа. В статье [Настройка экспортированного шаблона Azure Resource Manager](resource-manager-customize-template.md) содержатся сведения о том, как сделать шаблон, созданный на основе текущего состояния группы ресурсов, более пригодным для повторного развертывания решения.
+- You can export the actual template that you used for a deployment. The exported template includes all the parameters and variables exactly as they appeared in the original template. This approach is helpful when you have deployed resources through the portal. Now, you want to see how to construct the template to create those resources.
+- You can export a template that represents the current state of the resource group. The exported template is not based on any template that you used for deployment. Instead, it creates a template that is a snapshot of the resource group. The exported template has many hard-coded values and probably not as many parameters as you would typically define. This approach is useful when you have modified the resource group through the portal or scripts. Now, you need to capture the resource group as a template.
 
-При работе с этим руководством вы войдете на портал Azure, создадите учетную запись хранения, а затем экспортируете для нее шаблон. Вы также добавите виртуальную сеть, чтобы изменить группу ресурсов. Наконец, вы экспортируете новый шаблон, который представляет текущее состояние группы. Хотя в этой статье рассматривается упрощенная инфраструктура, с помощью описанных действий можно экспортировать шаблоны и для более сложных решений.
+This topic shows both approaches. In the [Customize an exported Azure Resource Manager template](resource-manager-customize-template.md) article, you see how to take a template you generated from the current state of the resource group and make it more useful for redeploying your solution.
 
-## Создайте учетную запись хранения.
+In this tutorial, you sign in to the Azure portal, create a storage account, and export the template for that storage account. You add a virtual network to modify the resource group. Finally, you export a new template that represents its current state. Although this article focuses on a simplified infrastructure, you could use these same steps to export a template for a more complicated solution.
 
-1. На [портале Azure](https://portal.azure.com) последовательно выберите **Создать**, **Данные+хранилище** и **Учетная запись хранения**.
+## <a name="create-a-storage-account"></a>Create a storage account
 
-      ![создание хранилища](./media/resource-manager-export-template/create-storage.png)
+1. In the [Azure portal](https://portal.azure.com), select **New** > **Data + Storage** > **Storage account**.
 
-2. Создайте учетную запись хранения с именем **storage**, добавив свои инициалы и дату. Имя учетной записи хранения должно быть уникальным в среде Azure. Если указанное имя уже используется, введите другое. В качестве группы ресурсов используйте **ExportGroup**. Для других свойств можно использовать значения по умолчанию. Нажмите кнопку **Создать**.
+      ![create storage](./media/resource-manager-export-template/create-storage.png)
 
-      ![указывание значений для хранилища](./media/resource-manager-export-template/provide-storage-values.png)
+2. Create a storage account with the name **storage**, your initials, and the date. The storage account name must be unique across Azure. If you initially try a name that's already in use, try a variation. For resource group, use **ExportGroup**. You can use the default values for the other properties. Select **Create**.
 
-После завершения развертывания в подписке появится учетная запись хранения.
+      ![provide values for storage](./media/resource-manager-export-template/provide-storage-values.png)
 
-## Экспорт шаблона из журнала развертываний
+After the deployment finishes, your subscription contains the storage account.
 
-1. Перейдите в колонку новой группы ресурсов. Обратите внимание, что в этой колонке показан результат последнего развертывания. Щелкните эту ссылку.
+## <a name="export-the-template-from-deployment-history"></a>Export the template from deployment history
 
-      ![колонка группы ресурсов](./media/resource-manager-export-template/resource-group-blade.png)
+1. Go to the resource group blade for your new resource group. Notice that the blade shows the result of the last deployment. Select this link.
 
-2. Отобразится журнал развертываний для группы. В вашем случае в колонке, скорее всего, будет отображаться только одно развертывание. Выберите его.
+      ![resource group blade](./media/resource-manager-export-template/resource-group-blade.png)
 
-     ![последнее развертывание](./media/resource-manager-export-template/last-deployment.png)
+2. You see a history of deployments for the group. In your case, the blade probably lists only one deployment. Select this deployment.
 
-3. В колонке отобразится сводка по развертыванию. В сводке содержатся сведения о состоянии развертывания и операциях, а также значения, указанные для параметров. Чтобы увидеть шаблон, который использовался для развертывания, щелкните **Просмотреть шаблон**.
+     ![last deployment](./media/resource-manager-export-template/last-deployment.png)
 
-     ![просмотр сводки по развертыванию](./media/resource-manager-export-template/deployment-summary.png)
+3. The blade displays a summary of the deployment. The summary includes the status of the deployment and its operations and the values that you provided for parameters. To see the template that you used for the deployment, select **View template**.
 
-4. Resource Manager извлекает следующие шесть файлов:
+     ![view deployment summary](./media/resource-manager-export-template/deployment-summary.png)
 
-   1. **Шаблон**. Шаблон, определяющий инфраструктуру решения. При создании учетной записи хранения на портале Resource Manager использовал шаблон, чтобы развернуть ее, и сохранил его для дальнейшего использования.
-   2. **Параметры**. Файл параметров, который можно использовать для передачи значений во время развертывания. Он содержит значения, указанные при первом развертывании. Но любое из них можно изменить при повторном развертывании шаблона.
-   3. **Интерфейс командной строки**. Файл скрипта интерфейса командной строки Azure, который можно использовать для развертывания шаблона.
-   4. **PowerShell**. Файл скрипта Azure PowerShell, который можно использовать для развертывания шаблона.
-   5. **.NET**. Класс .NET, который можно использовать для развертывания шаблона.
-   6. **Ruby**. Класс Ruby, который можно использовать для развертывания шаблона.
+4. Resource Manager retrieves the following six files for you:
 
-     К файлам можно получить доступ, используя ссылки в колонке. По умолчанию шаблон отображается в колонке.
+   1. **Template** - The template that defines the infrastructure for your solution. When you created the storage account through the portal, Resource Manager used a template to deploy it and saved that template for future reference.
+   2. **Parameters** - A parameter file that you can use to pass in values during deployment. It contains the values that you provided during the first deployment, but you can change any of these values when you redeploy the template.
+   3. **CLI** - An Azure command-line-interface (CLI) script file that you can use to deploy the template.
+   4. **PowerShell** - An Azure PowerShell script file that you can use to deploy the template.
+   5. **.NET** - A .NET class that you can use to deploy the template.
+   6. **Ruby** - A Ruby class that you can use to deploy the template.
 
-       ![просмотр шаблона](./media/resource-manager-export-template/view-template.png)
+     The files are available through links across the blade. By default, the blade displays the template.
 
-     Обратим на него особое внимание. Шаблон должен иметь примерно такой вид:
+       ![view template](./media/resource-manager-export-template/view-template.png)
 
-        {
-          "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-          "contentVersion": "1.0.0.0",
-          "parameters": {
-            "name": {
-              "type": "String"
-            },
-            "accountType": {
-              "type": "String"
-            },
-            "location": {
-              "type": "String"
-            },
-            "encryptionEnabled": {
-              "defaultValue": false,
-              "type": "Bool"
-            }
-          },
-          "resources": [
-            {
-              "type": "Microsoft.Storage/storageAccounts",
-              "sku": {
-                "name": "[parameters('accountType')]"
-              },
-              "kind": "Storage",
-              "name": "[parameters('name')]",
-              "apiVersion": "2016-01-01",
-              "location": "[parameters('location')]",
-              "properties": {
-                "encryption": {
-                  "services": {
-                    "blob": {
-                      "enabled": "[parameters('encryptionEnabled')]"
-                    }
-                  },
-                  "keySource": "Microsoft.Storage"
-                }
-              }
-            }
-          ]
-        }
+     Let's pay particular attention to the template. Your template should look similar to:
+
+        {     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",     "contentVersion": "1.0.0.0",     "parameters": {       "name": {         "type": "String"       },       "accountType": {         "type": "String"       },       "location": {         "type": "String"       },       "encryptionEnabled": {         "defaultValue": false,         "type": "Bool"       }     },     "resources": [       {         "type": "Microsoft.Storage/storageAccounts",         "sku": {           "name": "[parameters('accountType')]"         },         "kind": "Storage",         "name": "[parameters('name')]",         "apiVersion": "2016-01-01",         "location": "[parameters('location')]",         "properties": {           "encryption": {             "services": {               "blob": {                 "enabled": "[parameters('encryptionEnabled')]"               }             },             "keySource": "Microsoft.Storage"           }         }       }     ]   }
  
-Это фактический шаблон, который используется для создания учетной записи хранения. Обратите внимание, что он содержит параметры, которые позволяют развертывать учетные записи хранения разных типов. Дополнительные сведения о структуре шаблона см. в статье [Создание шаблонов диспетчера ресурсов Azure](resource-group-authoring-templates.md). Полный список функций, которые можно использовать в шаблоне, см. в статье [Функции шаблонов диспетчера ресурсов Azure](resource-group-template-functions.md).
+This template is the actual template used to create your storage account. Notice it contains parameters that enable you to deploy different types of storage accounts. To learn more about the structure of a template, see [Authoring Azure Resource Manager templates](resource-group-authoring-templates.md). For the complete list of the functions you can use in a template, see [Azure Resource Manager template functions](resource-group-template-functions.md).
 
 
-## Добавление виртуальной сети
+## <a name="add-a-virtual-network"></a>Add a virtual network
 
-Шаблон, скачанный в предыдущем разделе, представляет инфраструктуру для исходного развертывания. Но он не отражает изменения, внесенные после развертывания. Чтобы продемонстрировать это, давайте изменим группу ресурсов, добавив виртуальную сеть на портале.
+The template that you downloaded in the previous section represented the infrastructure for that original deployment. However, it will not account for any changes you make after the deployment.
+To illustrate this issue, let's modify the resource group by adding a virtual network through the portal.
 
-1. В колонке группы ресурсов щелкните **Добавить**.
+1. In the resource group blade, select **Add**.
 
-      ![Добавить ресурсы](./media/resource-manager-export-template/add-resource.png)
+      ![add resource](./media/resource-manager-export-template/add-resource.png)
 
-2. Выберите **Виртуальная сеть** в списке доступных ресурсов.
+2. Select **Virtual network** from the available resources.
 
-      ![выбор виртуальной сети](./media/resource-manager-export-template/select-vnet.png)
+      ![select virtual network](./media/resource-manager-export-template/select-vnet.png)
 
-2. Присвойте виртуальной сети имя **VNET** и используйте значения по умолчанию для остальных свойств. Нажмите кнопку **Создать**.
+2. Name your virtual network **VNET**, and use the default values for the other properties. Select **Create**.
 
-      ![настройка оповещения](./media/resource-manager-export-template/create-vnet.png)
+      ![set alert](./media/resource-manager-export-template/create-vnet.png)
 
-3. После успешного развертывания виртуальной сети в группе ресурсов проверьте журнал развертывания еще раз. Теперь там два развертывания. Если второе развертывание не отображается, закройте колонку группы ресурсов и откройте ее снова. Выберите последнее развертывание.
+3. After the virtual network has successfully deployed to your resource group, look again at the deployment history. You now see two deployments. If you do not see the second deployment, you may need to close your resource group blade and reopen it. Select the more recent deployment.
 
-      ![журнал развертываний](./media/resource-manager-export-template/deployment-history.png)
+      ![deployment history](./media/resource-manager-export-template/deployment-history.png)
 
-4. Просмотрите шаблон для него. Обратите внимание, что он определяет только изменения, внесенные при добавлении виртуальной сети.
+4. Look at the template for that deployment. Notice that it defines only the changes that you have made to add the virtual network.
 
-Обычно рекомендуется использовать шаблон, который развертывает всю инфраструктуру для решения в рамках одной операции. Этот надежнее, чем запоминать разные шаблоны для развертывания.
+It is generally a best practice to work with a template that deploys all the infrastructure for your solution in a single operation. This approach is more reliable than remembering many different templates to deploy.
 
 
-## Экспорт шаблона из группы ресурсов
+## <a name="export-the-template-from-resource-group"></a>Export the template from resource group
 
-Хотя в каждом развертывании отображаются только изменения, внесенные в группу ресурсов, вы можете в любой момент экспортировать шаблон для отображения атрибутов всей группы ресурсов.
+Although each deployment shows only the changes that you have made to your resource group, at any time you can export a template to show the attributes of your entire resource group.  
 
-> [AZURE.NOTE] Нельзя экспортировать шаблон для группы ресурсов, которая содержит более 200 ресурсов.
+> [AZURE.NOTE] You cannot export a template for a resource group that has more than 200 resources.
 
-1. Чтобы просмотреть шаблон для группы ресурсов, щелкните **Сценарий автоматизации**.
+1. To view the template for a resource group, select **Automation script**.
 
-      ![экспорт группы ресурсов](./media/resource-manager-export-template/export-resource-group.png)
+      ![export resource group](./media/resource-manager-export-template/export-resource-group.png)
 
-     Функция экспорта шаблона поддерживается не для всех типов ресурсов. Если ваша группа ресурсов содержит только учетную запись хранения и виртуальную сеть, как описано в этой статье, при экспорте не возникнут проблемы. Однако если вы создали другие типы ресурсов, может отобразиться сообщение о том, что при экспорте произошла ошибка. Дополнительные сведения об устранении таких ошибок см. в разделе [Устранение проблем при экспорте](#устранение-проблем-при-экспорте).
+     Not all resource types support the export template function. If your resource group only contains the storage account and virtual network shown in this article, you will not see an error. However, if you have created other resource types, you may see an error stating that there is a problem with the export. You learn how to handle those issues in the [Fix export issues](#fix-export-issues) section.
 
       
 
-2. Снова появятся шесть файлов, которые можно использовать для повторного развертывания решения. Но в этот раз шаблон выглядит немного иначе. Этот шаблон содержит только два параметра: по одному для имени учетной записи хранения и имени виртуальной сети.
+2. You again see the six files that you can use to redeploy the solution, but this time the template is a little different. This template has only two parameters: one for the storage account name, and one for the virtual network name.
 
         "parameters": {
           "virtualNetworks_VNET_name": {
@@ -167,7 +129,7 @@ Resource Manager позволяет экспортировать шаблон и
           }
         },
 
-     Использованные при развертывании шаблоны не извлекались с помощью Resource Manager. Вместо этого был создан новый шаблон на основе текущей конфигурации ресурсов. Например, шаблон задает для расположения и репликации учетной записи хранения следующие значения:
+     Resource Manager did not retrieve the templates that you used during deployment. Instead, it generated a new template that's based on the current configuration of the resources. For example, the template sets the storage account location and replication value to:
 
         "location": "northeurope",
         "tags": {},
@@ -175,31 +137,31 @@ Resource Manager позволяет экспортировать шаблон и
             "accountType": "Standard_RAGRS"
         },
 
-3. Скачайте шаблон, чтобы с ним можно было работать локально.
+3. Download the template so that you can work on it locally.
 
-      ![скачивание шаблона](./media/resource-manager-export-template/download-template.png)
+      ![download template](./media/resource-manager-export-template/download-template.png)
 
-4. Найдите загруженный ZIP-файл и извлеките его содержимое. Этот скачанный шаблон можно использовать для повторного развертывания инфраструктуры.
+4. Find the .zip file that you downloaded and extract the contents. You can use this downloaded template to redeploy your infrastructure.
 
-## Устранение проблем при экспорте
+## <a name="fix-export-issues"></a>Fix export issues
 
-Функция экспорта шаблона поддерживается не для всех типов ресурсов. Resource Manager специально не экспортирует некоторые ресурсы, чтобы предотвратить доступ к конфиденциальным данным. Например, если в конфигурации сайта используется строка подключения, вы, вероятно, не захотите, чтобы она отображалась в экспортированном шаблоне. Эту проблему можно решить, добавив недостающие ресурсы в шаблон вручную.
+Not all resource types support the export template function. Resource Manager specifically does not export some resource types to prevent exposing sensitive data. For example, if you have a connection string in your site config, you probably do not want it explicitly displayed in an exported template. You can get around this issue by manually adding the missing resources back into your template.
 
-> [AZURE.NOTE] Проблемы при экспорте могут возникать, только если шаблон экспортируется из группы ресурсов, а не из журнала развертываний. Если последнее развертывание представляет точное состояние группы ресурсов, шаблон необходимо экспортировать из журнала развертываний, а не из группы ресурсов. Шаблон следует экспортировать из группы ресурсов, если вы внесли в группу ресурсов изменения, которые не определены в одном шаблоне.
+> [AZURE.NOTE] You only encounter export issues when exporting from a resource group rather than from your deployment history. If your last deployment accurately represents the current state of the resource group, you should export the template from the deployment history rather than from the resource group. Only export from a resource group when you have made changes to the resource group that are not defined in a single template.
 
-Например, если вы экспортируете шаблон для группы ресурсов, содержащий веб-приложение, базу данных SQL и строку подключения в конфигурации сайта, отобразится следующее сообщение:
+For example, if you export a template for a resource group that contains a web app, SQL Database, and a connection string in the site config, you will see the following message.
 
-![показать ошибку](./media/resource-manager-export-template/show-error.png)
+![show error](./media/resource-manager-export-template/show-error.png)
 
-Если выбрать это сообщение, вы увидите список типов ресурсов, которые не были экспортированы.
+Selecting the message shows you exactly which resource types were not exported. 
      
-![показать ошибку](./media/resource-manager-export-template/show-error-details.png)
+![show error](./media/resource-manager-export-template/show-error-details.png)
 
-В этой статье показаны распространенные способы исправления ошибок. Чтобы реализовать их, необходимо добавить параметры в шаблон. Дополнительные сведения см. в статье [Настройка экспортированного шаблона Azure Resource Manager](resource-manager-customize-template.md).
+This topic shows the following common fixes. To implement these resources, you need to add parameters to template. For more information, see [Customize and redeploy exported template](resource-manager-customize-template.md).
 
-### Строка подключения
+### <a name="connection-string"></a>Connection string
 
-В ресурсе веб-сайтов добавьте определение строки подключения к базе данных.
+In the web sites resource, add a definition for the connection string to the database:
 
 ```
 {
@@ -224,9 +186,9 @@ Resource Manager позволяет экспортировать шаблон и
 }
 ```    
 
-### Расширение веб-сайта
+### <a name="web-site-extension"></a>Web site extension
 
-В ресурсе веб-сайта добавьте определение кода для установки.
+In the web site resource, add a definition for the code to install:
 
 ```
 {
@@ -254,13 +216,13 @@ Resource Manager позволяет экспортировать шаблон и
 }
 ```
 
-### Расширение виртуальной машины
+### <a name="virtual-machine-extension"></a>Virtual machine extension
 
-Примеры расширений виртуальных машин см. в статье [Примеры конфигурации расширения виртуальной машины Microsoft Azure](./virtual-machines/virtual-machines-windows-extensions-configuration-samples.md).
+For examples of virtual machine extensions, see [Azure Windows VM Extension Configuration Samples](./virtual-machines/virtual-machines-windows-extensions-configuration-samples.md).
 
-### Шлюз виртуальной сети
+### <a name="virtual-network-gateway"></a>Virtual network gateway
 
-Добавьте тип ресурса шлюза виртуальной сети.
+Add a virtual network gateway resource type.
 
 ```
 {
@@ -294,9 +256,9 @@ Resource Manager позволяет экспортировать шаблон и
 },
 ```
 
-### Шлюз локальной сети
+### <a name="local-network-gateway"></a>Local network gateway
 
-Добавьте тип ресурса шлюза локальной сети.
+Add a local network gateway resource type.
 
 ```
 {
@@ -312,9 +274,9 @@ Resource Manager позволяет экспортировать шаблон и
 }
 ```
 
-### Подключение
+### <a name="connection"></a>Connection
 
-Добавьте тип ресурса подключения.
+Add a connection resource type.
 
 ```
 {
@@ -337,12 +299,16 @@ Resource Manager позволяет экспортировать шаблон и
 ```
 
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Next steps
 
-Поздравляем! Вы узнали, как экспортировать шаблон из ресурсов, созданных на портале.
+Congratulations! You have learned how to export a template from resources that you created in the portal.
 
-- Во второй части этого руководства вы настроите скачанный шаблон, добавив дополнительные параметры, и повторно развернете его с помощью скрипта. См. статью [Настройка экспортированного шаблона Azure Resource Manager](resource-manager-customize-template.md).
-- Чтобы узнать, как экспортировать шаблон с помощью PowerShell, см. статью [Использование Azure PowerShell с диспетчером ресурсов Azure](powershell-azure-resource-manager.md).
-- Чтобы узнать, как экспортировать шаблон с помощью интерфейса командной строки Azure, см. статью [Использование Azure CLI для Mac, Linux и Windows с диспетчером ресурсов Azure](xplat-cli-azure-resource-manager.md).
+- In the second part of this tutorial, you customize the template that you downloaded by adding more parameters and redeploy it through a script. See [Customize and redeploy exported template](resource-manager-customize-template.md).
+- To see how to export a template through PowerShell, see [Using Azure PowerShell with Azure Resource Manager](powershell-azure-resource-manager.md).
+- To see how to export a template through Azure CLI, see [Use the Azure CLI for Mac, Linux, and Windows with Azure Resource Manager](xplat-cli-azure-resource-manager.md).
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,7 +1,7 @@
 
 <properties
-    pageTitle="Советы и рекомендации по работе с клиентами Azure RemoteApp | Microsoft Azure"
-    description="Изучите рекомендации по использованию клиентов RemoteApp"
+    pageTitle="Best practices for Azure RemoteApp clients | Microsoft Azure"
+    description="Learn about best practices for using the RemoteApp clients"
     services="remoteapp"
     documentationCenter=""
     authors="lizap"
@@ -18,15 +18,20 @@
 
 
 
-# Советы и рекомендации по работе с клиентами Azure RemoteApp
+
+# <a name="best-practices-for-azure-remoteapp-clients"></a>Best practices for Azure RemoteApp clients
 
 > [AZURE.IMPORTANT]
-Мы выводим удаленное приложение Azure RemoteApp из эксплуатации. Дополнительные сведения см. в [объявлении](https://go.microsoft.com/fwlink/?linkid=821148).
+> Azure RemoteApp is being discontinued. Read the [announcement](https://go.microsoft.com/fwlink/?linkid=821148) for details.
 
-Приведенные ниже сведения помогут вам эффективно настроить и использовать клиенты Azure RemoteApp.
+The following information can help you use Azure RemoteApp clients:
 
-- Всегда используйте клиент последней версии. В клиенте последней версии гарантировано установлены последние исправления ошибок, усовершенствований и функциональных возможностей. Вам может потребоваться регистрация в соответствующем магазине для автоматического получения обновлений клиента.
+- Always use the latest client. This ensures that the client version you are running has the latest bug fixes, improvements and features. You might need to sign up to automatically receive updates for the client in the appropriate Store.
 
-- Удаленное приложение RemoteApp автоматически выводит вас из системы, если вы не используете его в течение определенного периода времени. Во избежание потери данных рекомендуется закрыть приложения после завершения использования службы.
+- RemoteApp will automatically log you off if you are inactive for a certain period of time. In order to prevent data loss, we recommend closing your applications when you finish using the service.
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

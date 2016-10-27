@@ -1,49 +1,50 @@
 <properties 
-	pageTitle="Заметки о выпуске Stream Analytics | Microsoft Azure" 
-	description="Заметки о выпуске Stream Analytics" 
-	services="stream-analytics" 
-	documentationCenter="" 
-	authors="jeffstokes72" 
-	manager="jhubbard" 
-	editor="cgronlun"/>
+    pageTitle="Заметки о выпуске Stream Analytics | Microsoft Azure" 
+    description="Заметки о выпуске Stream Analytics" 
+    services="stream-analytics" 
+    documentationCenter="" 
+    authors="jeffstokes72" 
+    manager="jhubbard" 
+    editor="cgronlun"/>
 
 <tags 
-	ms.service="stream-analytics" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="na" 
-	ms.workload="data-services" 
-	ms.date="09/26/2016" 
-	ms.author="jeffstok"/>
+    ms.service="stream-analytics" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="data-services" 
+    ms.date="09/26/2016" 
+    ms.author="jeffstok"/>
 
-#Заметки о выпуске Stream Analytics
 
-## Заметки о выпуске Stream Analytics 15.04.2016 ##
+#<a name="stream-analytics-release-notes"></a>Заметки о выпуске Stream Analytics
 
-Этот выпуск содержит следующее обновление.
-
-Название | Описание
----|---
-Широкая доступность выходных данных Power BI | Сейчас [выходные данные Power BI](stream-analytics-power-bi-dashboard.md) уже являются общедоступными. 90-дневный срок действия авторизации для Power BI был удален. Дополнительные сведения о сценариях, в которых необходимо продлить авторизацию, см. в разделе [Обновление авторизации](stream-analytics-power-bi-dashboard.md#Renew-authorization) статьи о создании панели мониторинга Power BI.
-
-## Заметки о выпуске Stream Analytics за 03.03.2016 ##
+## <a name="notes-for-04/15/2016-release-of-stream-analytics"></a>Заметки о выпуске Stream Analytics 15.04.2016 ##
 
 Этот выпуск содержит следующее обновление.
 
 Название | Описание
 ---|---
-Новые элементы языка запросов Stream Analytics | Теперь в SAQL есть [GetType](https://msdn.microsoft.com/library/azure/mt643890.aspx "Страница MSDN о GetType"), [TRY\_CAST](https://msdn.microsoft.com/library/azure/mt643735.aspx "Страница MSDN о TRY_CAST") и [REGEXMATCH](https://msdn.microsoft.com/library/azure/mt643891.aspx "Страница MSDN о REGEXMATC").
+Широкая доступность выходных данных Power BI  | Сейчас [выходные данные Power BI](stream-analytics-power-bi-dashboard.md) уже являются общедоступными. 90-дневный срок действия авторизации для Power BI был удален. Дополнительные сведения о сценариях, в которых необходимо продлить авторизацию, см. в разделе [Продление авторизации](stream-analytics-power-bi-dashboard.md#Renew-authorization) в статье о создании панели мониторинга Power BI.
 
-## Заметки о выпуске Stream Analytics от 10.12.2015 ##
+## <a name="notes-for-03/03/2016-release-of-stream-analytics"></a>Заметки о выпуске Stream Analytics за 03.03.2016 ##
 
 Этот выпуск содержит следующее обновление.
 
 Название | Описание
 ---|---
-Обновление версии API REST | API REST обновлен до версии от 01.10.2015. Дополнительную информацию можно найти на сайте MSDN, в разделах [Stream Analytics Management REST API Reference](https://msdn.microsoft.com/library/azure/dn835031.aspx) и [Machine Learning integration in Stream Analytics](stream-analytics-how-to-configure-azure-machine-learning-endpoints-in-stream-analytics.md).
-Интеграция машинного обучения Azure | В этом выпуске обеспечена поддержка определяемых пользователем функций машинного обучения Azure. Подробнее об этом см. в [учебнике](stream-analytics-machine-learning-integration-tutorial.md), а также в [общих объявлениях в блоге](http://blogs.technet.com/b/machinelearning/archive/2015/12/10/apply-azure-ml-as-a-function-in-azure-stream-analytics.aspx).
+Новые элементы языка запросов Stream Analytics  | В MSDN добавлены следующие страницы для SAQL: [для GetType](https://msdn.microsoft.com/library/azure/mt643890.aspx "страница MSDN о GetType"), [для TRY_CAST](https://msdn.microsoft.com/library/azure/mt643735.aspx "страница MSDN о TRY_CAST") и [для REGEXMATCH](https://msdn.microsoft.com/library/azure/mt643891.aspx "страница MSDN о REGEXMATCH").
 
-## Заметки о выпуске Stream Analytics от 12.11.2015 ##
+## <a name="notes-for-12/10/2015-release-of-stream-analytics"></a>Заметки о выпуске Stream Analytics от 10.12.2015 ##
+
+Этот выпуск содержит следующее обновление.
+
+Название | Описание
+---|---
+Обновление версии API REST | API REST обновлен до версии от 01.10.2015. Дополнительную информацию можно найти на сайте MSDN, в разделах [Справочник по REST API для управления Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx) и [Интеграция машинного обучения в Stream Analytics](stream-analytics-how-to-configure-azure-machine-learning-endpoints-in-stream-analytics.md).
+Интеграция машинного обучения Azure | В этом выпуске обеспечена поддержка определяемых пользователем функций машинного обучения Azure. Дополнительные сведения см. в [учебнике](stream-analytics-machine-learning-integration-tutorial.md), а также в [объявлении в блоге](http://blogs.technet.com/b/machinelearning/archive/2015/12/10/apply-azure-ml-as-a-function-in-azure-stream-analytics.aspx).
+
+## <a name="notes-for-11/12/2015-release-of-stream-analytics"></a>Заметки о выпуске Stream Analytics от 12.11.2015 ##
 
 Этот выпуск содержит следующее обновление.
 
@@ -51,19 +52,19 @@
 ---|---
 Новое поведение оператора SELECT | Оператор SELECT в службе Stream Analytics был расширен и теперь позволяет использовать * как метод доступа к свойству вложенной записи. Дополнительные сведения см. по адресу [http://msdn.microsoft.com/library/mt622759.aspx](http://msdn.microsoft.com/library/mt622759.aspx "Сложные типы данных").
 
-## Заметки о выпуске Stream Analytics от 22.10.15 ##
+## <a name="notes-for-10/22/2015-release-of-stream-analytics"></a>Заметки о выпуске Stream Analytics от 22.10.15 ##
 
 Этот выпуск содержит следующие обновления.
 
 Название | Описание
 ---|---
 Дополнительные возможности языка запросов | Stream Analytics расширяет язык запросов, добавляя следующие функции: [ABS](https://msdn.microsoft.com/library/azure/mt574054.aspx), [CEILING](https://msdn.microsoft.com/library/azure/mt605286.aspx), [EXP](https://msdn.microsoft.com/library/azure/mt605289.aspx), [FLOOR](https://msdn.microsoft.com/library/azure/mt605240.aspx), [POWER](https://msdn.microsoft.com/library/azure/mt605287.aspx), [SIGN](https://msdn.microsoft.com/library/azure/mt605290.aspx), [SQUARE](https://msdn.microsoft.com/library/azure/mt605288.aspx) и [SQRT](https://msdn.microsoft.com/library/azure/mt605238.aspx).
-Сняты ограничения статистических функций | В этом выпуске сняты ограничения для 15 статистических функций запросов. Теперь нет ограничений на количество статистических выражений в запросе.
-Добавлена функция GROUP BY System.Timestamp | Функция [GROUP BY](https://msdn.microsoft.com/library/azure/dn835023.aspx) теперь поддерживает параметры window\_type и [System.Timestamp](https://msdn.microsoft.com/library/azure/mt598501.aspx).
+Сняты ограничения статистических функций  | В этом выпуске сняты ограничения для 15 статистических функций запросов. Теперь нет ограничений на количество статистических выражений в запросе.
+Добавлена функция GROUP BY System.Timestamp | Функция [GROUP BY](https://msdn.microsoft.com/library/azure/dn835023.aspx) теперь поддерживает параметры window_type и [System.Timestamp](https://msdn.microsoft.com/library/azure/mt598501.aspx).
 Добавлена функция OFFSET для «переворачивающегося» и «прыгающего» окон | По умолчанию [переворачивающиеся](https://msdn.microsoft.com/library/azure/dn835055.aspx) и [прыгающие](https://msdn.microsoft.com/library/azure/dn835041.aspx) окна настраиваются по нулевому времени (01.01.0001 12:00:00 по Гринвичу). Новый (необязательный) параметр offsetsize позволяет задавать собственное смещение (или выравнивание).
 
 
-## Заметки о выпуске Stream Analytics от 29.09.2015 ##
+## <a name="notes-for-09/29/2015-release-of-stream-analytics"></a>Заметки о выпуске Stream Analytics от 29.09.2015 ##
 
 Этот выпуск содержит следующие обновления.
 
@@ -75,7 +76,7 @@
 Поддержка ввода из центра IoT | Теперь задания Stream Analytics могут принимать данные из центров IoT.
 TIMESTAMP BY для разнородных событий | Если один поток данных содержит события нескольких типов с временными метками в разных полях, то вы можете использовать команду [TIMESTAMP BY](http://msdn.microsoft.com/library/mt573293.aspx) с выражениями, чтобы указывать разные поля временных меток для каждого случая.
 
-## Заметки о выпуске Stream Analytics 10.09.2015 ##
+## <a name="notes-for-09/10/2015-release-of-stream-analytics"></a>Заметки о выпуске Stream Analytics 10.09.2015 ##
 
 Этот выпуск содержит следующие обновления.
 
@@ -83,7 +84,7 @@ TIMESTAMP BY для разнородных событий | Если один п
 ---|---
 Поддержка групп PowerBI|Чтобы разрешить совместное использование данных с другими пользователями Power BI, теперь задания Stream Analytics могут выполнять запись в [группы Power BI](stream-analytics-define-outputs.md#power-bi) внутри вашей учетной записи Power BI.
 
-## Заметки о выпуске Stream Analytics от 20.08.2015 ##
+## <a name="notes-for-08/20/2015-release-of-stream-analytics"></a>Заметки о выпуске Stream Analytics от 20.08.2015 ##
 
 Этот выпуск содержит следующие обновления.
 
@@ -93,17 +94,17 @@ TIMESTAMP BY для разнородных событий | Если один п
 Новые функции массивов|Теперь доступны функции массивов [GetArrayElement](http://msdn.microsoft.com/library/mt270218.aspx), [GetArrayElements](http://msdn.microsoft.com/library/mt298451.aspx) и [GetArrayLength](http://msdn.microsoft.com/library/mt270226.aspx).
 Новые функции записи|Теперь доступны функции записей [GetRecordProperties](http://msdn.microsoft.com/library/mt270221.aspx) и [GetRecordPropertyValue](http://msdn.microsoft.com/library/mt270220.aspx).
 
-## Заметки о выпуске Stream Analytics от 30.07.2015 ##
+## <a name="notes-for-07/30/2015-release-of-stream-analytics"></a>Заметки о выпуске Stream Analytics от 30.07.2015 ##
 
 Этот выпуск содержит следующие обновления.
 
 Название|Описание
 ---|---
 ИД организации Power BI отключен от идентификатора Azure|Эта функция позволяет получать [выходные данные Power BI](stream-analytics-power-bi-dashboard.md) для задания ASA с любого типа учетной записи Azure (Live ID или идентификатора организации). Кроме того, можно иметь один ИД организации для вашей учетной записи Azure и использовать другой для авторизации выходных данных Power BI.
-Поддержка выходных данных очередей служебной шины|Выходные данные [очередей служебной шины](stream-analytics-connect-data-event-outputs.md#service-bus-queues) теперь доступны в заданиях Stream Analytics.
-Поддержка выходных данных разделов служебной шины|Выходные данные [разделов служебной шины](stream-analytics-connect-data-event-outputs.md#service-bus-topics) теперь доступны в заданиях Stream Analytics.
+Поддержка выходных данных очередей служебной шины|Вывод [очередей служебной шины](stream-analytics-define-outputs.md#service-bus-queues) теперь доступен в заданиях Stream Analytics.
+Поддержка выходных данных разделов служебной шины|Вывод [разделов служебной шины](stream-analytics-define-outputs.md#service-bus-topics) теперь доступен в заданиях Stream Analytics.
 
-## Заметки о выпуске Stream Analytics 09.07.2015 ##
+## <a name="notes-for-07/09/2015-release-of-stream-analytics"></a>Заметки о выпуске Stream Analytics 09.07.2015 ##
 
 Этот выпуск содержит следующие обновления.
 
@@ -112,7 +113,7 @@ TIMESTAMP BY для разнородных событий | Если один п
 ---|---
 Секционирование выходных данных пользовательского большого двоичного объекта|Теперь возможно указывать частоту написания выходных данных больших двоичных объектов, а также структуру и формат структуры пути папки выходных данных для выходных данных хранилища больших двоичных объектов. 
 
-## Заметки о выпуске Stream Analytics от 03.05.2015 ##
+## <a name="notes-for-05/03/2015-release-of-stream-analytics"></a>Заметки о выпуске Stream Analytics от 03.05.2015 ##
 
 Этот выпуск содержит следующие обновления.
 
@@ -122,7 +123,7 @@ TIMESTAMP BY для разнородных событий | Если один п
 Увеличено максимальное значение неупорядоченного диапазона отклонений|Максимальный размер неупорядоченного диапазона отклонений теперь составляет 59:59 (MM:СС)
 Формат выходных данных JSON: разделенные строки или массив|При выводе в большие двоичные объекты или концентратор событий теперь существует возможность получать в результате либо массив объектов JSON, либо разделенные новыми строками объекты JSON. 
 
-## Заметки о выпуске Stream Analytics 16.04.2015 ##
+## <a name="notes-for-04/16/2015-release-of-stream-analytics"></a>Заметки о выпуске Stream Analytics 16.04.2015 ##
 
 
 Название|Описание
@@ -137,10 +138,10 @@ TIMESTAMP BY для разнородных событий | Если один п
 Ограничение по объему событий базы данных SQL|При использовании базы данных SQL в качестве места назначения выходных данных большой объем выходных данных может привести к тому, что задание Stream Analytics превысит время ожидания. Для решения этой проблемы следует либо снизить объем выходных данных с помощью статистических выражений или операторов фильтрации, либо выбрать хранилище больших двоичных объектов или концентратор событий в качестве целевого объекта выходных данных.
 Наборы данных PowerBI могут содержать только одну таблицу|PowerBI не поддерживает несколько таблиц в заданном наборе данных.
 
-## Получение справки
-Дополнительную помощь и поддержку вы можете получить на нашем [форуме Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/ru-RU/home?forum=AzureStreamAnalytics).
+## <a name="get-help"></a>Получение справки
+Дополнительную помощь и поддержку вы можете получить на нашем [форуме Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Дальнейшие действия
 
 - [Введение в Azure Stream Analytics](stream-analytics-introduction.md)
 - [Приступая к работе с Azure Stream Analytics](stream-analytics-get-started.md)
@@ -149,4 +150,8 @@ TIMESTAMP BY для разнородных событий | Если один п
 - [Справочник по API-интерфейсу REST управления Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

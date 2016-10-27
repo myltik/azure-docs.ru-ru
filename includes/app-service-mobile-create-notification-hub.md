@@ -1,15 +1,17 @@
-Выполните следующие действия, чтобы создать новый центр уведомлений для использования push-уведомлений. Если у вас уже есть центр уведомлений, вы также можете подключить его к серверной части мобильного приложения.
+Follow these steps to create a new notification hub to use for push notifications. If you already have a notification hub, you can also connect it to your Mobile App backend. 
 
-1. На [портале Azure] щелкните **Обзор** > **Службы приложений**, выберите серверную часть мобильного приложения > **Все параметры**, а затем в разделе **Мобильный** щелкните **Push-уведомления** > **Концентратор уведомлений**.
+1. In the [Azure Portal], click **Browse** > **App Services**, then click your Mobile App backend > **All settings**, then under **Mobile** click **Push** > **Notification Hub**.
 
-2. Щелкните **+ Концентратор уведомлений**, введите имя нового **центра уведомлений**, которое может совпадать с именем серверной части мобильного приложения, введите новое имя пространства имен или используйте существующее, затем щелкните **ОК** и, наконец, нажмите кнопку **Создать**.
+2. Click **+Notification Hub**, type a new **Notification Hub** name, which can be the same as your Mobile App backend, type a new namespace name or use an existing one, then click **OK** and finally **Create**.
 
-	![](./media/app-service-mobile-create-notification-hub/create-new-hub-flow.png)
+    ![](./media/app-service-mobile-create-notification-hub/create-new-hub-flow.png)
 
-	Будет создан новый центр уведомлений, который будет подключен к мобильному приложению. Если у вас уже есть центр уведомлений, вы можете подключить его к серверной части мобильного приложения вместо того, чтобы создавать новый.
+    This creates a new notification hub and connects it to your mobile app. If you have an existing notification hub, you can choose to connect it to your Mobile App backend instead of creating a new one.
 
-Теперь центр уведомлений подключен к серверной части вашего мобильного приложения. Далее вы настроите этот центр уведомлений для подключения к службе уведомлений платформы (PNS), которая отправляет push-уведомления на собственное устройство.
+Now you have connected a notification hub to your Mobile App backend. Later you will configure this notification hub to connect to a platform notification service (PNS) that sends push notifications to the native device.
 
-[портале Azure]: https://portal.azure.com/
+[Azure Portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!--HONumber=Oct16_HO2-->
+
+

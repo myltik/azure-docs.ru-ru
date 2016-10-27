@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Включение аудита для баз данных SQL в центре безопасности Azure | Microsoft Azure"
-   description="В этом документе объясняется, как выполнить рекомендацию центра безопасности Azure по включению аудита для баз данных SQL."
+   pageTitle="Enable auditing on SQL databases in Azure Security Center | Microsoft Azure"
+   description="This document shows you how to implement the Azure Security Center recommendation **Enable auditing on SQL databases**."
    services="security-center"
    documentationCenter="na"
    authors="TerryLanfear"
@@ -16,45 +16,53 @@
    ms.date="07/29/2016"
    ms.author="terrylan"/>
 
-# Включение аудита для баз данных SQL в центре безопасности Azure
 
-Центр безопасности Azure порекомендует включить аудит для всех баз данных SQL, если аудит еще не включен. Аудит может помочь вам соблюсти требования нормативов, проанализировать работу с базой данных и получить представление о расхождениях и аномалиях, которые могут указывать на бизнес-проблемы или предполагаемые нарушения безопасности.
+# <a name="enable-auditing-on-sql-databases-in-azure-security-center"></a>Enable auditing on SQL databases in Azure Security Center
 
-После включения аудита можно настроить параметры обнаружения угроз и электронных сообщений для получения оповещений системы безопасности. Система обнаружения угроз обнаруживает подозрительную активность в базе данных, указывающую на наличие потенциальных угроз безопасности. Это позволяет выявлять потенциальные угрозы и соответствующим образом реагировать при их возникновении.
+Azure Security Center will recommend that you turn on auditing for all SQL databases if auditing is not already enabled. Auditing can help you maintain regulatory compliance, understand database activity, and gain insight into discrepancies and anomalies that could indicate business concerns or suspected security violations.
 
-Данная рекомендация относится только к службе SQL Azure и не охватывает службы SQL, работающие на виртуальных машинах.
+Once you’ve turned on auditing you can configure Threat Detection settings and emails to receive security alerts. Threat Detection detects anomalous database activities indicating potential security threats to the database. This enables you to detect and respond to potential threats as they occur.
 
-> [AZURE.NOTE] В документе приводится обзор службы с помощью примера развертывания. Он не является пошаговым руководством.
+This recommendation applies to the Azure SQL service only; doesn't include SQL running on your virtual machines.
 
-## Выполнение рекомендаций
+> [AZURE.NOTE] This document introduces the service by using an example deployment.  This is not a step-by-step guide.
 
-1. В колонке **Рекомендации** выберите **Включить аудит для баз данных SQL**. Откроется колонка **Включить аудит для баз данных SQL**. ![Включение аудита для баз данных SQL][1]
+## <a name="implement-the-recommendation"></a>Implement the recommendation
 
-2. Выберите базу данных SQL для включения аудита. Откроется колонка **Аудит и обнаружение и угроз**. ![Аудит и обнаружение угроз][2]
-3. В колонке **Аудит и обнаружение и угроз** в разделе **Аудит** щелкните **ВКЛ**. ![Включение аудита и обнаружения угроз][3]
+1. In the **Recommendations** blade, select **Enable Auditing on SQL databases**.  This opens the **Enable Auditing on SQL databases** blade.
+![Enable auditing on SQL databases][1]
+
+2. Select a SQL database to enable auditing on. This opens the **Auditing & Threat detection** blade.
+![Auditing and threat detection][2]
+3. On the **Auditing & Threat detection** blade, select **ON** under **Auditing**.
+![Turn on auditing and threat detection][3]
 
 
-5. Следуйте указаниям в разделе [Приступая к работе с системой обнаружения угроз базы данных SQL](../sql-database/sql-database-threat-detection-get-started.md), чтобы включить и настроить обнаружение угроз, а также настроить список электронных адресов, на которые будут отправляться предупреждения системы безопасности при обнаружении аномальных действий.
+5. Follow the steps in [Get started with SQL Database Threat Detection](../sql-database/sql-database-threat-detection-get-started.md) to turn on and configure Threat Detection and to configure the list of emails that will receive security alerts upon detection of anomalous activities.
 
-## См. также
+## <a name="see-also"></a>See also
 
-В этой статье показано, как выполнить рекомендацию центра безопасности по включению аудита баз данных SQL. Чтобы узнать больше о защите базы данных SQL, ознакомьтесь со следующими статьями.
+This article showed you how to implement the Security Center recommendation "Enable auditing on SQL databases." To learn more about securing your SQL database, see the following:
 
-- [Защита Базы данных SQL](../sql-database/sql-database-security.md)
+- [Securing your SQL Database](../sql-database/sql-database-security.md)
 
-Дополнительные сведения о Центре безопасности см. в следующих статьях:
+To learn more about Security Center, see the following:
 
-- [Настройка политик безопасности в Центре безопасности Azure](security-center-policies.md) — узнайте, как настроить политики безопасности для подписок и групп ресурсов Azure.
-- [Управление рекомендациями по безопасности в Центре безопасности Azure](security-center-recommendations.md) — узнайте, как рекомендации могут помочь вам защитить ресурсы Azure.
-- [Наблюдение за работоспособностью системы безопасности в Центре безопасности Azure](security-center-monitoring.md) — узнайте, как наблюдать за работоспособностью ресурсов Azure.
-- [Управление оповещениями безопасности в Центре безопасности Azure и реагирование на них](security-center-managing-and-responding-alerts.md) — узнайте, как управлять оповещениями системы безопасности и реагировать на них.
-- [Мониторинг решений партнеров с помощью центра безопасности Azure](security-center-partner-solutions.md) — узнайте, как отслеживать состояние работоспособности решений партнеров.
-- [Центр безопасности Azure: часто задаваемые вопросы](security-center-faq.md) — часто задаваемые вопросы об использовании этой службы.
-- [Блог по безопасности Azure](http://blogs.msdn.com/b/azuresecurity/) — последние новости и информация об обеспечении безопасности в Azure.
+- [Setting security policies in Azure Security Center](security-center-policies.md) -- Learn how to configure security policies for your Azure subscriptions and resource groups.
+- [Managing security recommendations in Azure Security Center](security-center-recommendations.md) -- Learn how recommendations help you protect your Azure resources.
+- [Security health monitoring in Azure Security Center](security-center-monitoring.md) -- Learn how to monitor the health of your Azure resources.
+- [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md) -- Learn how to manage and respond to security alerts.
+- [Monitoring partner solutions with Azure Security Center](security-center-partner-solutions.md) -- Learn how to monitor the health status of your partner solutions.
+- [Azure Security Center FAQ](security-center-faq.md) -- Find frequently asked questions about using the service.
+- [Azure Security blog](http://blogs.msdn.com/b/azuresecurity/) -- Get the latest Azure security news and information.
 
 <!--Image references-->
 [1]: ./media/security-center-enable-auditing-on-sql-databases/enable-auditing-on-sql-databases.png
-[2]: ./media/security-center-enable-auditing-on-sql-databases/auditing-threat-detection.png
+[2]:./media/security-center-enable-auditing-on-sql-databases/auditing-threat-detection.png
 [3]: ./media/security-center-enable-auditing-on-sql-databases/auditing-threat-detection-blade.png
 
-<!---HONumber=AcomDC_0803_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

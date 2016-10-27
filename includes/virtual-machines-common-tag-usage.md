@@ -1,22 +1,27 @@
 
 
 
-## Просмотр тегов в сведениях об использовании
+## <a name="viewing-your-tags-in-the-usage-details"></a>Viewing your tags in the usage details
 
-Теги, добавленные к ресурсам вычисления, сети и хранения с помощью модели развертывания Resource Manage, будут указаны в сведениях о использовании на [портале выставления счетов](https://account.windowsazure.com/).
+Tags placed on Compute, Network, and Storage resources in the Resource Manager deployment model will be populated in your usage details in the [billing portal](https://account.windowsazure.com/).
 
-Нажмите **Скачать сведения об использовании**, чтобы просмотреть сведения о применении подписки.
+Click on **Download usage details** to view the usage details in your subscription.
 
-![Сведения об использовании на портале Azure](./media/virtual-machines-common-tag-usage/azure-portal-tags-usage-details.png)
+![Usage details in Azure portal](./media/virtual-machines-common-tag-usage/azure-portal-tags-usage-details.png)
 
-Выберите платежный документ и **версию 2** сведений об использовании:
+Select your billing statement and the **Version 2** usage details:
 
-![Сведения об использовании предварительной версии 2 на портале Azure](./media/virtual-machines-common-tag-usage/azure-portal-version2-usage-details.png)
+![Version 2 Preview Usage Details in Azure portal](./media/virtual-machines-common-tag-usage/azure-portal-version2-usage-details.png)
 
-В сведениях об использовании все теги отображаются в столбце **Теги**:
+From the usage details, you can see all of the tags in the **Tags** column:
 
-![Столбец "Теги" на портале Azure](./media/virtual-machines-common-tag-usage/azure-portal-tags-column.png)
+![Tags column in Azure portal](./media/virtual-machines-common-tag-usage/azure-portal-tags-column.png)
 
-Проанализировав эти теги и сведения об использовании, организации смогут узнать больше из данных о потреблении.
+By analyzing these tags along with usage, organizations will be able to gain new insights into their consumption data.
+
+
+
+
+<!--HONumber=Oct16_HO2-->
 
 

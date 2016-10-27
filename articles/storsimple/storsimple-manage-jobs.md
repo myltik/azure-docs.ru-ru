@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Просмотр заданий StorSimple и управление ими | Microsoft Azure"
-   description="Описывает страницу заданий службы диспетчера StorSimple и способы ее использования для отслеживания недавних, текущих и запланированных заданий."
+   pageTitle="View and manage StorSimple jobs | Microsoft Azure"
+   description="Describes the StorSimple Manager service Jobs page and how to use it to track recent, current, and scheduled backup jobs."
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
@@ -15,82 +15,87 @@
    ms.date="08/17/2016"
    ms.author="alkohli" />
 
-# Использование службы управления StorSimple для просмотра заданий StorSimple и управления ими
+
+# <a name="use-the-storsimple-manager-service-to-view-and-manage-storsimple-jobs"></a>Use the StorSimple Manager service to view and manage StorSimple jobs
 
 [AZURE.INCLUDE [storsimple-version-selector-manage-jobs](../../includes/storsimple-version-selector-manage-jobs.md)]
 
-## Обзор
+## <a name="overview"></a>Overview
 
-Страница **Задания** — это центральный портал для просмотра заданий, которые были запущены на устройствах, подключенных к службе StorSimple Manager, и управления ими. Вы можете просмотреть запланированные, запущенные, завершенные и неудачные задания для нескольких устройств. Результаты представляются в табличном формате.
+The **Jobs** page provides a single central portal for viewing and managing jobs that were started on devices connected to your StorSimple Manager service. You can view scheduled, running, completed, and failed jobs for multiple devices. Results are presented in a tabular format. 
 
-![Страница "Задания"](./media/storsimple-manage-jobs/HCS_JobsPage.png)
+![Jobs page](./media/storsimple-manage-jobs/HCS_JobsPage.png)
 
-Вы можете быстро найти задания, которые вам нужны, фильтруя данные по следующим полям:
+You can quickly find the jobs you are interested in by filtering on fields such as:
 
-- **Состояние** — у заданий могут быть следующие состояния: запущено, запланировано, ошибка, завершено, отменяется или отменено.
+- **Status** – Jobs can be running, scheduled, failed, completed, canceling, or canceled.
 
-- **Тип** — задания могут быть созданы по расписанию или по запросу (**создание резервной копии**), в результате клонирования, восстановления устройства или операции обновления.
+- **Type** – Jobs can be created as a result of a scheduled or an on-demand backup (**Take Backup**), cloning, a device restore, or an update operation.
 
-- **Устройства** — задания инициируются на определенном устройстве, подключенном к службе.
+- **Devices** – Jobs are initiated on a certain device connected to your service.
 
-- **Диапазон** — задания можно фильтровать по диапазону даты и времени.
+- **From and To** – Jobs can be filtered based on the date and time range.
 
-Затем отфильтрованные задания будут представлены в табличной форме на основе следующих атрибутов:
+The filtered jobs are then tabulated on the basis of the following attributes:
 
-- **Тип** — архивация, клонирование, восстановление, отработка отказа или обновление.
+- **Type** – Backup, clone, restore, failover, or update.
 
-- **Состояние** — запущено, запланировано, ошибка, завершено, отменяется или отменено.
+- **Status** – Running, scheduled, failed, completed, canceling, or canceled.
 
-- **Сущность** — задания могут быть связаны с томом, политикой архивации или устройством. Задание клонирования связано с томом, тогда как запланированное задание резервного копирования связано с политикой резервного копирования. Задание устройства создается в результате аварийного восстановления (DR) или операции восстановления.
+- **Entity** – The jobs can be associated with a volume, a backup policy, or a device. A clone job is associated with a volume, whereas a scheduled backup job is associated with a backup policy. A device job is created as a result of a disaster recovery (DR) or a restore operation.
 
-- **Устройство** — имя устройства, на котором запущено задание.
+- **Device** – The name of the device on which the job was started.
 
-- **Время запуска** — время начала задания.
+- **Started On** – The time when the job was started.
 
-- **Ход выполнения** — процент завершения задания. Для завершенного задания это значение равно 100 %.
+- **Progress** – The percentage completion of a running job. For a completed job, this should always be 100%.
 
-Список заданий обновляется каждые 30 секунд.
+The list of jobs is refreshed every 30 seconds.
 
-На этой странице можно выполнить следующие действия, связанные с заданием.
+You can perform the following job-related actions on this page:
 
-- Просмотр сведений о задании
+- View job details
 
-- Отмена задания
+- Cancel a job
 
-## Просмотр сведений о задании
+## <a name="view-job-details"></a>View job details
 
-Выполните следующие действия для просмотра сведений о любом задании.
+Perform the following steps to view the details of any job.
 
-#### Просмотр сведений о задании
+#### <a name="to-view-job-details"></a>To view job details
 
-1. На странице **Задания** можно отобразить интересующие вас задания, выполнив запрос с соответствующими фильтрами. Можно искать завершенные, выполняющиеся или отмененные задания.
+1. On the **Jobs** page, display the job(s) you are interested in by running a query with appropriate filters. You can search for completed, running, or canceled jobs.
 
-2. Выберите задание.
+2. Select a job.
 
-3. В нижней части страницы нажмите кнопку **Сведения**.
+3. At the bottom of the page, click **Details**.
 
-4. В диалоговом окне **Сведения о задании резервного копирования** можно просмотреть состояние, сведения, временную статистику и статистику по данным.
+4. In the **Backup Job Details** dialog box, you can view the status, details, time statistics, and data statistics.
 
-## Отмена задания
+## <a name="cancel-a-job"></a>Cancel a job
 
-Выполните следующие действия для отмены запущенного задания.
+Perform the following steps to cancel a running job.
 
-### Отмена задания
+### <a name="to-cancel-a-job"></a>To cancel a job
 
-1. На странице **Задания** можно отобразить задания, которые нужно отменить, выполнив запрос с соответствующими фильтрами.
+1. On the **Jobs** page, display the running job(s) that you want to cancel by running a query with appropriate filters.
 
-1. Выберите задание.
+1. Select the job.
 
-1. В нижней части страницы щелкните **Отмена**.
+1. At the bottom of the page, click **Cancel**.
 
-1. При появлении запроса на подтверждение, нажмите кнопку **Да**.
+1. When prompted for confirmation, click **Yes**.
 
-Теперь это задание отменено.
+This job is now canceled.
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Next steps
 
-- Узнайте об [ управлении политиками архивации StorSimple](storsimple-manage-backup-policies.md).
+- Learn how to [manage your StorSimple backup policies](storsimple-manage-backup-policies.md).
 
-- Узнайте об [использовании службы StorSimple Manager для администрирования устройства StorSimple](storsimple-manager-service-administration.md).
+- Learn how to [use the StorSimple Manager service to administer your StorSimple device](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

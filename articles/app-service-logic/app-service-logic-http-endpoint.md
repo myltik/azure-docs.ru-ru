@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Приложения логики как вызываемые конечные точки"
-   description="Как создать и настроить конечные точки триггера и использовать их в приложении логики в службе приложений Azure"
+   pageTitle="Logic apps as callable endpoints"
+   description="How to create and configure trigger endpoints and use them in a Logic app in Azure App Service"
    services="logic-apps"
    documentationCenter=".net,nodejs,java"
    authors="jeffhollan"
@@ -17,48 +17,49 @@
    ms.author="jehollan"/>
 
 
-# Приложения логики как вызываемые конечные точки
 
-В приложениях логики встроена возможность предоставлять синхронную конечную точку HTTP в качестве триггера. Можно также использовать схему вызываемых конечных точек для вызова приложений логики в качестве вложенного рабочего процесса с помощью действия "рабочего процесса" в приложении логики.
+# <a name="logic-apps-as-callable-endpoints"></a>Logic apps as callable endpoints
 
-Существует три типа триггеров, которые могут получать запросы:
+Logic Apps natively can expose a synchronous HTTP endpoint as a trigger.  You can also use the pattern of callable endpoints to invoke Logic Apps as a nested workflow through the "workflow" action in a Logic App.
 
-* Запрос
-* apiConnectionWebhook,
-* httpWebhook.
+There are 3 types of triggers that can receive requests:
 
-В этой статье для примера используется триггер **request**. Все описанные принципы точно так же применяются и к двум остальным типам триггеров.
+* Request
+* ApiConnectionWebhook
+* HttpWebhook
 
-## Добавление триггера в определение
-Первый шаг — это добавить триггер в определение приложения логики, способное принимать входящие запросы. Можно выполнить поиск "HTTP Request" в конструкторе, чтобы добавить карту триггера. Вы можете определить схему JSON текста запроса, а конструктор создаст маркеры для анализа и передачи данных из триггера manual посредством рабочего процесса. Я рекомендую использовать такой инструмент, как [jsonschema.net](http://jsonschema.net), для создания схемы JSON из примера полезных данных текста.
+For the remainder of the article, we will use **request** as the example, but all of the principles apply identically to the other 2 types of triggers.
 
-.![Карта триггера запросов][2]
+## <a name="adding-a-trigger-to-your-definition"></a>Adding a trigger to your definition
+The first step is to add a trigger to your Logic app definition that can receive incoming requests.  You can search in the designer for "HTTP Request" to add the trigger card. You can define a request body JSON Schema and the designer will generate tokens to help you parse and pass data from the manual trigger through the workflow.  I recommend using a tool like [jsonschema.net](http://jsonschema.net) to generate a JSON schema from a sample body payload.
 
-После сохранения определения приложения логики будет создан URL-адрес обратного вызова следующим образом.
+![Request Trigger Card][2]
+
+After you save your Logic App definition, a callback URL will be generated similar to this one:
  
 ``` text
 https://prod-03.eastus.logic.azure.com:443/workflows/080cb66c52ea4e9cabe0abf4e197deff/triggers/myendpointtrigger?...
 ```
 
-Этот URL-адрес содержит ключ SAS в параметрах запроса, используемого для аутентификации.
+This URL contains a SAS key in the query parameters used for authentication.
 
-Эту конечную точку также можно получить на портале Azure.
+You can also get this endpoint in the Azure portal:
 
-.![][1]
+![][1]
 
-Также можно вызвать следующий метод:
+Or, by calling:
 
 ``` text
 POST https://management.azure.com/{resourceID of your logic app}/triggers/myendpointtrigger/listCallbackURL?api-version=2015-08-01-preview
 ```
 
-## Вызов конечной точки триггера для приложения логики
+## <a name="calling-the-logic-app-trigger's-endpoint"></a>Calling the Logic app trigger's endpoint
 
-Созданную конечную точку триггера можно и вызывать с помощью метода `POST` по полному URL-адресу. В текст можно включать дополнительные заголовки и любое другое содержимое.
+Once you have created the endpoint for your trigger, you can trigger it via a `POST` to the full URL. You can include additional headers, and any content in the body.
 
-Тип содержимого `application/json` позволяет ссылаться на свойства из самого запроса. При использовании других типов содержимого запрос считается отдельной двоичной единицей, которая может передаваться в другие API, но недоступна для ссылок внутри рабочего процесса без преобразования содержимого. Например, чтобы передать содержимое `application/xml`, можно использовать `@xpath()` для извлечения XPath или `@json()` для преобразования XML в JSON. Дополнительные сведения о работе с типами содержимого [можно найти здесь](app-service-logic-content-type.md).
+If the content-type is `application/json` then you will be able to reference properties from inside the request. Otherwise, it will be treated as a single binary unit that can be passed to other APIs but cannot be referenced inside the workflow without converting the content.  For example, if you pass `application/xml` content you could use `@xpath()` to do an xpath extraction, or `@json()` to convert from XML to JSON.  More information on working with content types [can be found here](app-service-logic-content-type.md)
 
-Кроме того, в определении можно указать схему JSON. Тогда конструктор создаст маркеры, которые затем можно будет передать в действия. Например, следующий код делает маркеры `title` и `name` доступными в конструкторе.
+In addition, you can specify a JSON schema in the definition. This causes the designer to generate tokens that you can then pass into steps.  For example the following will make a `title` and `name` token available in the designer:
 
 ```
 {
@@ -78,9 +79,9 @@ POST https://management.azure.com/{resourceID of your logic app}/triggers/myendp
 }
 ```
 
-## Ссылка на содержимое входящего запроса
+## <a name="referencing-the-content-of-the-incoming-request"></a>Referencing the content of the incoming request
 
-Функция `@triggerOutputs()` выводит содержимое входящего запроса. Это может выглядеть следующим образом:
+The `@triggerOutputs()` function will output the contents of the incoming request. For example, it would look like:
 
 ```
 {
@@ -93,13 +94,13 @@ POST https://management.azure.com/{resourceID of your logic app}/triggers/myendp
 }
 ```
 
-Для доступа непосредственно к свойству `body` можно использовать сокращенный вариант `@triggerBody()`.
+You can use the `@triggerBody()` shortcut to access the `body` property specifically. 
 
-## Ответ на запрос
+## <a name="responding-to-the-request"></a>Responding to the request
 
-Некоторые запросы, запускающие приложение логики, подразумевают определенный ответ. Для составления кода состояния, текста и заголовков ответа можно использовать новый тип действия под названием **response**. Обратите внимание, что если фигура **response** отсутствует, то конечная точка приложения логики *немедленно* вернет ответ **202 — Запрос принят**.
+For some requests that start a Logic app, you may want to respond with some content to the caller. There is a new action type called **response** that can be used to construct the status code, body and headers for your response. Note that if no **response** shape is present, the Logic app endpoint will *immediately* respond with **202 Accepted**.
 
-.![Действие ответа HTTP][3]
+![HTTP Response Action][3]
 
 ``` json
 "Response": {
@@ -118,41 +119,45 @@ POST https://management.azure.com/{resourceID of your logic app}/triggers/myendp
         }
 ```
 
-Ответы содержат следующее:
+Responses have the following:
 
-| Свойство | Описание |
+| Property | Description |
 | -------- | ----------- |
-| statusCode | Код состояния HTTP для ответа на входящий запрос. Это может быть любой допустимый код состояния, который начинается с 2xx, 4xx или 5xx. Коды состояния 3xx не допускаются. | 
-| текст | Тело ответа. Это может быть строка, объект JSON и даже двоичное содержимое из предыдущего шага. | 
-| headers | В ответ можно включить любое число заголовков. | 
+| statusCode | The HTTP status code to respond to the incoming request. It can be any valid status code that starts with 2xx, 4xx, or 5xx. 3xx status codes are not permitted. | 
+| body | A body object that can be a string, a JSON object, or even binary content referenced from a previous step. | 
+| headers | You can define any number of headers to be included in the response | 
 
-Чтобы исходный запрос получил ответ, все необходимые для этого действия в приложении логики должны быть выполнены в течение *60 секунд*, **если только рабочий процесс не вызывается как вложенное приложение логики**. Если в течение 60 секунд действие response выполнено не будет, срок действия входящего запроса истечет и будет получен ответ HTTP **408 время ожидания клиента истекло**. Для вложенных приложений логики родительское приложение логики будет продолжать ожидать ответ до конца, независимо от того, сколько это потребует времени.
+All of the steps in the Logic app that are required for the response must complete within *60 seconds* for the original request to receive the response **unless the workflow is being called as a nested Logic App**. If no response action is reached within 60 seconds then the incoming request will time out and receive a **408 Client timeout** HTTP response.  For nested Logic Apps, the parent Logic App will continue to wait for a response until completed, regardless of the amount of time it takes.
 
-## Расширенная настройка конечной точки
+## <a name="advanced-endpoint-configuration"></a>Advanced endpoint configuration
 
-Приложения логики имеют встроенную поддержку конечной точки прямого доступа и для запуска выполнения приложения логики всегда используют метод `POST`. Ранее приложение API **Прослушиватель HTTP** также поддерживало изменение сегментов URL-адреса и метода HTTP. Можно даже настроить дополнительную защиту или пользовательский домен, добавив его в узел приложения API (веб-приложение, в котором находится приложения API).
+Logic apps have built in support for the direct access endpoint and always use the `POST` method to start a run of the Logic app. The **HTTP Listener** API app previously also supported changing the URL segments and the HTTP method. You could even set up additional security or a custom domain by adding it to the API app host (the Web app that hosted the API app). 
 
-Эти функции доступны через **управление API**.
-* [Изменение метода запроса](https://msdn.microsoft.com/library/azure/dn894085.aspx#SetRequestMethod)
-* [Изменение сегментов URL-адреса запроса](https://msdn.microsoft.com/library/azure/7406a8ce-5f9c-4fae-9b0f-e574befb2ee9#RewriteURL)
-* Настройка доменов управления API на вкладке **Настройка** классического портала Azure
-* Настройка политики для применения обычной проверки подлинности (**требуется ссылка**)
+This functionality is available through **API management**:
+* [Change the method of the request](https://msdn.microsoft.com/library/azure/dn894085.aspx#SetRequestMethod)
+* [Change the URL segments of the request](https://msdn.microsoft.com/library/azure/7406a8ce-5f9c-4fae-9b0f-e574befb2ee9#RewriteURL)
+* Set up your API management domains on the **Configure** tab in the classic Azure portal
+* Set up policy to check for Basic authentication (**link needed**)
 
-## Отличия от версии 2014-12-01-preview
+## <a name="summary-of-migration-from-2014-12-01-preview"></a>Summary of migration from 2014-12-01-preview
 
-| 2014-12-01-preview | 2016-06-01 |
+|  2014-12-01-preview | 2016-06-01 |
 |---------------------|--------------------|
-| Щелкните приложение API **Прослушиватель HTTP**. | Щелкните параметр **Активация вручную** (приложение API не требуется). |
-| Параметр прослушивателя HTTP *Sends response automatically* (Отправляет ответ автоматически). | Добавьте действие **response** в определение рабочего процесса или не делайте этого. |
-| Настройка базовой проверки подлинности или OAuth | через управление API |
-| Настройка метода HTTP | через управление API |
-| Настройка относительного пути | через управление API |
-| Ссылка на текст входящего ответа через `@triggerOutputs().body.Content`. | Ссылка через `@triggerOutputs().body`. |
-| Действие **Отправка HTTP-ответа** для прослушивателя HTTP. | Щелкните **Respond to HTTP request** (Ответить на HTTP-запрос) (приложение API не требуется).
+| Click on **HTTP Listener** API app | Click on **Manual trigger** (no API app required) |
+| HTTP Listener setting "*Sends response automatically*" | Either include a **response** action or not in the workflow definition |
+| Configure basic or OAuth authentication | via API management |
+| Configure HTTP method | via API management |
+| Configure relative path | via API management |
+| Reference the incoming body via  `@triggerOutputs().body.Content` | Reference via `@triggerOutputs().body` |
+| **Send HTTP response** action on the HTTP Listener | Click on **Respond to HTTP request** (no API app required)
 
 
 [1]: ./media/app-service-logic-http-endpoint/manualtriggerurl.png
 [2]: ./media/app-service-logic-http-endpoint/manualtrigger.png
 [3]: ./media/app-service-logic-http-endpoint/response.png
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

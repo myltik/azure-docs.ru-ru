@@ -1,6 +1,6 @@
 <properties 
-    pageTitle="Руководство. Интеграция Azure Active Directory с личным порталом Mimecast | Microsoft Azure" 
-    description="Узнайте, как использовать Mimecast Personal Portal с Azure Active Directory для реализации единого входа, автоматической подготовки пользователей и выполнения других задач." 
+    pageTitle="Tutorial: Azure Active Directory Integration with Mimecast Personal Portal | Microsoft Azure" 
+    description="Learn how to use Mimecast Personal Portal with Azure Active Directory to enable single sign-on, automated provisioning, and more!" 
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
@@ -11,166 +11,174 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="07/08/2016" 
+    ms.date="09/29/2016" 
     ms.author="jeedes" />
 
-#Руководство. Интеграция Azure Active Directory с личным порталом Mimecast
+
+#<a name="tutorial:-azure-active-directory-integration-with-mimecast-personal-portal"></a>Tutorial: Azure Active Directory Integration with Mimecast Personal Portal
   
-Цель данного учебника — продемонстрировать интеграцию Azure и личного портала Mimecast. Сценарий, описанный в этом учебнике, предполагает, что у вас уже имеется:
+The objective of this tutorial is to show the integration of Azure and Mimecast Personal Portal.  
+The scenario outlined in this tutorial assumes that you already have the following items:
 
--   Действующая подписка на Azure
--   Подписка на личный портал Mimecast с поддержкой единого входа
+-   A valid Azure subscription
+-   A Mimecast Personal Portal single sign-on enabled subscription
   
-По завершении работы с этим руководством пользователи Azure AD, назначенные на портале Mimecast Personal Portal, смогут выполнять единый вход в приложение Mimecast Personal Portal на веб-сайте компании (вход, инициированный поставщиком услуг) или следуя указаниям в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
+After completing this tutorial, the Azure AD users you have assigned to Mimecast Personal Portal will be able to single sign into the application at your Mimecast Personal Portal company site (service provider initiated sign on), or using the [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
   
-Сценарий, описанный в этом учебнике, состоит из следующих блоков:
+The scenario outlined in this tutorial consists of the following building blocks:
 
-1.  Включение интеграции приложений для личного портала Mimecast
-2.  Настройка единого входа
-3.  Настройка подготовки учетных записей пользователей
-4.  Назначение пользователей
+1.  Enabling the application integration for Mimecast Personal Portal
+2.  Configuring single sign-on
+3.  Configuring user provisioning
+4.  Assigning users
 
-![Сценарий](./media/active-directory-saas-mimecast-personal-portal-tutorial/IC794991.png "Сценарий")
-##Включение интеграции приложений для личного портала Mimecast
+![Scenario](./media/active-directory-saas-mimecast-personal-portal-tutorial/IC794991.png "Scenario")
+##<a name="enabling-the-application-integration-for-mimecast-personal-portal"></a>Enabling the application integration for Mimecast Personal Portal
   
-В этом разделе показано, как включить интеграцию приложений для личного портала Mimecast.
+The objective of this section is to outline how to enable the application integration for Mimecast Personal Portal.
 
-###Чтобы включить интеграцию приложений для личного портала Mimecast, выполните следующие действия.
+###<a name="to-enable-the-application-integration-for-mimecast-personal-portal,-perform-the-following-steps:"></a>To enable the application integration for Mimecast Personal Portal, perform the following steps:
 
-1.  На классическом портале Azure в области навигации слева щелкните **Active Directory**.
+1.  In the Azure classic portal, on the left navigation pane, click **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-mimecast-personal-portal-tutorial/IC700993.png "Active Directory")
 
-2.  Из списка **Каталог** выберите каталог, для которого нужно включить интеграцию каталогов.
+2.  From the **Directory** list, select the directory for which you want to enable directory integration.
 
-3.  Чтобы открыть представление приложений, в представлении каталога нажмите **Приложения** в верхнем меню.
+3.  To open the applications view, in the directory view, click **Applications** in the top menu.
 
-    ![Приложения](./media/active-directory-saas-mimecast-personal-portal-tutorial/IC700994.png "Приложения")
+    ![Applications](./media/active-directory-saas-mimecast-personal-portal-tutorial/IC700994.png "Applications")
 
-4.  В нижней части страницы нажмите кнопку **Добавить**.
+4.  Click **Add** at the bottom of the page.
 
-    ![Добавление приложения](./media/active-directory-saas-mimecast-personal-portal-tutorial/IC749321.png "Добавление приложения")
+    ![Add application](./media/active-directory-saas-mimecast-personal-portal-tutorial/IC749321.png "Add application")
 
-5.  В диалоговом окне **Что необходимо сделать?** нажмите **Добавить приложение из коллекции**.
+5.  On the **What do you want to do** dialog, click **Add an application from the gallery**.
 
-    ![Добавить приложение из коллекции](./media/active-directory-saas-mimecast-personal-portal-tutorial/IC749322.png "Добавить приложение из коллекции")
+    ![Add an application from gallerry](./media/active-directory-saas-mimecast-personal-portal-tutorial/IC749322.png "Add an application from gallerry")
 
-6.  В **поле поиска** введите **Mimecast Personal Portal**.
+6.  In the **search box**, type **Mimecast Personal Portal**.
 
-    ![Коллекция приложений](./media/active-directory-saas-mimecast-personal-portal-tutorial/IC794992.png "Коллекция приложений")
+    ![Application Gallery](./media/active-directory-saas-mimecast-personal-portal-tutorial/IC794992.png "Application Gallery")
 
-7.  В области результатов выберите **Mimecast Personal Portal** и нажмите кнопку **Завершить**, чтобы добавить приложение.
+7.  In the results pane, select **Mimecast Personal Portal**, and then click **Complete** to add the application.
 
     ![Mimecast Personal Portal](./media/active-directory-saas-mimecast-personal-portal-tutorial/IC794993.png "Mimecast Personal Portal")
-##Настройка единого входа
+##<a name="configuring-single-sign-on"></a>Configuring single sign-on
   
-В этом разделе показано, как разрешить пользователям проходить проверку подлинности в личном портале Mimecast со своей учетной записью Azure AD, используя федерацию на основе протокола SAML. В рамках этой процедуры потребуется создать файл сертификата в кодировке Base-64. Если вы не знакомы с этой процедурой, посмотрите видео [Как преобразовать двоичный сертификат в текстовый файл](http://youtu.be/PlgrzUZ-Y1o).
+The objective of this section is to outline how to enable users to authenticate to Mimecast Personal Portal with their account in Azure AD using federation based on the SAML protocol.  
+As part of this procedure, you are required to create a base-64 encoded certificate file.  
+If you are not familiar with this procedure, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o).
 
-###Чтобы настроить единый вход, выполните следующие действия.
+###<a name="to-configure-single-sign-on,-perform-the-following-steps:"></a>To configure single sign-on, perform the following steps:
 
-1.  На странице интеграции с приложением **Mimecast Personal Portal** классического портала Azure щелкните **Настройка единого входа**, чтобы открыть диалоговое окно **Настройка единого входа**.
+1.  In the Azure classic portal, on the **Mimecast Personal Portal** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
 
-    ![Настройка единого входа](./media/active-directory-saas-mimecast-personal-portal-tutorial/IC794994.png "Настройка единого входа")
+    ![Configure Single Sign-On](./media/active-directory-saas-mimecast-personal-portal-tutorial/IC794994.png "Configure Single Sign-On")
 
-2.  На странице **Как пользователи должны входить на Mimecast Personal Portal** выберите **Единый вход Microsoft Azure AD** и нажмите кнопку **Далее**.
+2.  On the **How would you like users to sign on to Mimecast Personal Portal** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
-    ![Настройка единого входа](./media/active-directory-saas-mimecast-personal-portal-tutorial/IC794995.png "Настройка единого входа")
+    ![Configure Single Sign-On](./media/active-directory-saas-mimecast-personal-portal-tutorial/IC794995.png "Configure Single Sign-On")
 
-3.  На странице **Настройка URL-адреса приложения** в текстовом поле **URL-адрес для входа на Mimecast Personal Portal** введите URL-адрес, который используется для входа в приложение Mimecast Personal Portal (например, https://webmail-uk.mimecast.com или https://webmail-us.mimecast.com), и нажмите кнопку**Далее**.
+3.  On the **Configure App URL** page, in the **Mimecast Personal Portal Sign On URL** textbox, type the URL used by your users to sign on to your Mimecast Personal Portal application (e.g.: “https://webmail-uk.mimecast.com” or “https://webmail-us.mimecast.com”), and then click **Next**.
 
-    >[AZURE.NOTE] URL-адрес для входа зависит от региона.
+    >[AZURE.NOTE] The sign on URL is region specific.
 
-    ![Настройка URL-адреса приложения](./media/active-directory-saas-mimecast-personal-portal-tutorial/IC794996.png "Настройка URL-адреса приложения")
+    ![Configure App URL](./media/active-directory-saas-mimecast-personal-portal-tutorial/IC794996.png "Configure App URL")
 
-4.  На странице **Настройка единого входа в личный портал Mimecast** нажмите кнопку **Загрузить сертификат**, а затем сохраните файл сертификата на локальном компьютере.
+4.  On the **Configure single sign-on at Mimecast Personal Portal** page, to download your certificate, click **Download certificate**, and then save the certificate file locally on your computer.
 
-    ![Настройка единого входа](./media/active-directory-saas-mimecast-personal-portal-tutorial/IC794997.png "Настройка единого входа")
+    ![Configure Single Sign-On](./media/active-directory-saas-mimecast-personal-portal-tutorial/IC794997.png "Configure Single Sign-On")
 
-5.  В другом окне веб-браузера войдите в личный портал Mimecast в качестве администратора.
+5.  In a different web browser window, log into your Mimecast Personal Portal as an administrator.
 
-6.  Выберите **Службы > Приложение**.
+6.  Go to **Services \> Application**.
 
-    ![Приложения](./media/active-directory-saas-mimecast-personal-portal-tutorial/IC794998.png "Приложения")
+    ![Applications](./media/active-directory-saas-mimecast-personal-portal-tutorial/IC794998.png "Applications")
 
-7.  Щелкните **Профили проверки подлинности**.
+7.  Click **Authentication Profiles**.
 
-    ![Профили проверки подлинности](./media/active-directory-saas-mimecast-personal-portal-tutorial/IC794999.png "Профили проверки подлинности")
+    ![Authentication Profiles](./media/active-directory-saas-mimecast-personal-portal-tutorial/IC794999.png "Authentication Profiles")
 
-8.  Щелкните **Новый профиль проверки подлинности**.
+8.  Click **New Authentication Profile**.
 
-    ![Новый профиль проверки подлинности](./media/active-directory-saas-mimecast-personal-portal-tutorial/IC795000.png "Новый профиль проверки подлинности")
+    ![New Authentication Profil](./media/active-directory-saas-mimecast-personal-portal-tutorial/IC795000.png "New Authentication Profil")
 
-9.  В разделе **Профиль проверки подлинности** сделайте следующее:
+9.  In the **Authentication Profile** section, perform the following steps:
 
-    ![Профиль проверки подлинности](./media/active-directory-saas-mimecast-personal-portal-tutorial/IC795001.png "Профиль проверки подлинности")
+    ![Authentication Profil](./media/active-directory-saas-mimecast-personal-portal-tutorial/IC795001.png "Authentication Profil")
 
-    1.  В текстовом поле **Описание** введите имя конфигурации.
-    2.  Выберите **Обязательное использование проверки подлинности SAML для личного портала Mimecast**.
-    3.  В поле **Поставщик** выберите **Azure Active Directory**.
-    4.  На диалоговой странице **Настройка единого входа в Mimecast Personal Portal** классического портала Azure скопируйте значение поля **URL-адрес издателя** и вставьте его в текстовое поле **URL-адрес издателя**.
-    5.  На диалоговой странице **Настройка единого входа на Mimecast Personal Portal** классического портала Azure скопируйте значение поля **URL-адрес удаленного входа** и вставьте его в текстовое поле **URL-адрес входа**.
-    6.  На диалоговой странице **Настройка единого входа на Mimecast Personal Portal** классического портала Azure скопируйте значение поля **URL-адрес удаленного входа** и вставьте его в текстовое поле **URL-адрес выхода**.
+    1.  In the **Description** textbox, type a name for your configuration.
+    2.  Select **Enforce SAML Authentication for Mimecast Personal Portal**.
+    3.  As **Provider**, select **Azure Active Directory**.
+    4.  In the Azure classic portal, on the **Configure single sign-on at Mimecast Personal Portal** dialog page, copy the **Issuer URL** value, and then paste it into the **Issuer URL** textbox.
+    5.  In the Azure classic portal, on the **Configure single sign-on at Mimecast Personal Portal** dialog page, copy the **Remote Login URL** value, and then paste it into the **Login URL** textbox.
+    6.  In the Azure classic portal, on the **Configure single sign-on at Mimecast Personal Portal** dialog page, copy the **Remote Login URL** value, and then paste it into the **Logout URL** textbox.  
 
-        >[AZURE.NOTE] Значения URL-адреса входа в систему и URL-адреса выхода из системы для личного портала Mimecast одинаковы.
+        >[AZURE.NOTE] The Login URL value and the Logout URL value are for the -on at Mimecast Personal Portal the same.
 
-    7.  Создайте файл **в кодировке Base-64** из скачанного сертификата.
+    7.  Create a **base-64 encoded** file from your downloaded certificate.  
 
-        >[AZURE.TIP]Дополнительные сведения вы можете узнать в видео [Преобразование двоичного сертификата в текстовый файл](http://youtu.be/PlgrzUZ-Y1o).
+        >[AZURE.TIP]For more details, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o).
 
-    8.  Откройте сертификат в кодировке Base-64 в Блокноте, удалите первую строку ("*--*") и последнюю строку ("*--*"), скопируйте остальное содержимое в буфер обмена и вставьте его в текстовое поле **Identity Provider Certificate (Metadata)** (Сертификат поставщика удостоверений (метаданные)).
-    9.  Установите флажок **Разрешить единый вход**.
-    10. Щелкните **Сохранить**.
+    8.  Open your base-64 encoded certificate in notepad, remove the first line (“*--*“) and the last line (“*--*“), copy the remaining content of it into your clipboard, and then paste it to the **Identity Provider Certificate (Metadata)** textbox.
+    9.  Select **Allow Single Sign On**.
+    10. Click **Save**.
 
-10. На классическом портале Azure выберите подтверждение конфигурации единого входа, а затем нажмите кнопку **Завершить**, чтобы закрыть диалоговое окно **Настройка единого входа**.
+10. On the Azure classic portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
 
-    ![Настройка единого входа](./media/active-directory-saas-mimecast-personal-portal-tutorial/IC795002.png "Настройка единого входа")
-##Настройка подготовки учетных записей пользователей
+    ![Configure Single Sign-On](./media/active-directory-saas-mimecast-personal-portal-tutorial/IC795002.png "Configure Single Sign-On")
+##<a name="configuring-user-provisioning"></a>Configuring user provisioning
   
-Чтобы разрешить пользователям Azure AD вход в личный портал Mimecast, они должны быть подготовлены для личного портала Mimecast. В случае с личным порталом Mimecast подготовка выполняется вручную.
+In order to enable Azure AD users to log into Mimecast Personal Portal, they must be provisioned into Mimecast Personal Portal.  
+In the case of Mimecast Personal Portal, provisioning is a manual task.
   
-Перед созданием пользователей необходимо зарегистрировать домен.
+You need to register a domain before you can create users.
 
-###Чтобы настроить подготовку учетных записей пользователей, выполните следующие действия.
+###<a name="to-configure-user-provisioning,-perform-the-following-steps:"></a>To configure user provisioning, perform the following steps:
 
-1.  Войдите на **Mimecast Personal Portal** в качестве администратора.
+1.  Sign on to your **Mimecast Personal Portal** as administrator.
 
-2.  Выберите **Каталоги > Внутренние**.
+2.  Go to **Directories \> Internal**.
 
-    ![Каталоги](./media/active-directory-saas-mimecast-personal-portal-tutorial/IC795003.png "Каталоги")
+    ![Directories](./media/active-directory-saas-mimecast-personal-portal-tutorial/IC795003.png "Directories")
 
-3.  Щелкните **Зарегистрировать новый домен**.
+3.  Click **Register New Domain**.
 
-    ![Зарегистрировать новый домен](./media/active-directory-saas-mimecast-personal-portal-tutorial/IC795004.png "Зарегистрировать новый домен")
+    ![Register New Domain](./media/active-directory-saas-mimecast-personal-portal-tutorial/IC795004.png "Register New Domain")
 
-4.  После создания нового домена щелкните **Новый адрес**.
+4.  After your new domain has been created, click **New Address**.
 
-    ![Новый адрес](./media/active-directory-saas-mimecast-personal-portal-tutorial/IC795005.png "Новый адрес")
+    ![New Address](./media/active-directory-saas-mimecast-personal-portal-tutorial/IC795005.png "New Address")
 
-5.  В окне нового адреса выполните следующие действия.
+5.  In the new address dialog, perform the following steps:
 
-    ![Сохранить](./media/active-directory-saas-mimecast-personal-portal-tutorial/IC795006.png "Сохранить")
+    ![Save](./media/active-directory-saas-mimecast-personal-portal-tutorial/IC795006.png "Save")
 
-    1.  Введите атрибуты **Адрес электронной почты**, **Глобальное имя**, **Пароль** и **Подтверждение пароля** действующей учетной записи AAD, которую необходимо подготовить, в соответствующие текстовые поля.
-    2.  Щелкните **Сохранить**.
+    1.  Type the **Email Address**, **Global Name**, **Password** and **Confirm Password** attributes of a valid AAD account you want to provision into the related textboxes.
+    2.  Click **Save**.
 
->[AZURE.NOTE]Для подготовки учетных записей пользователей AAD можно использовать любые другие средства создания учетных записей личного портала Mimecast или API, предоставляемые личным порталом Mimecast.
+>[AZURE.NOTE]You can use any other Mimecast Personal Portal user account creation tools or APIs provided by Mimecast Personal Portal to provision AAD user accounts.
 
-##Назначение пользователей
+##<a name="assigning-users"></a>Assigning users
 
-Чтобы проверить свою конфигурацию, предоставьте пользователям Azure AD, которые должны использовать приложение, доступ путем их назначения.
+To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.
 
-###Чтобы назначить пользователей личному порталу Mimecast, выполните следующие действия.
+###<a name="to-assign-users-to-mimecast-personal-portal,-perform-the-following-steps:"></a>To assign users to Mimecast Personal Portal, perform the following steps:
 
-1.  На классическом портале Azure создайте тестовую учетную запись.
+1.  In the Azure classic portal, create a test account.
 
-2.  На странице интеграции с приложением **Mimecast Personal Portal** щелкните **Назначить пользователей**.
+2.  On the **Mimecast Personal Portal **application integration page, click **Assign users**.
 
-    ![Назначить пользователей](./media/active-directory-saas-mimecast-personal-portal-tutorial/IC795007.png "Назначить пользователей")
+    ![Assign Users](./media/active-directory-saas-mimecast-personal-portal-tutorial/IC795007.png "Assign Users")
 
-3.  Выберите тестового пользователя, нажмите кнопку **Назначить**, а затем — **Да**, чтобы подтвердить назначение.
+3.  Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.
 
-    ![Да](./media/active-directory-saas-mimecast-personal-portal-tutorial/IC767830.png "Да")
+    ![Yes](./media/active-directory-saas-mimecast-personal-portal-tutorial/IC767830.png "Yes")
   
-Если вы хотите проверить параметры единого входа, откройте панель доступа. Дополнительные сведения о панели доступа см. в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
+If you want to test your single sign-on settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0713_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

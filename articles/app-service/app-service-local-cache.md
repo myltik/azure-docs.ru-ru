@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Общие сведения о локальном кэше службы приложений Azure | Microsoft Azure"
-   description="В этой статье описывается, как включить функцию локального кэша службы приложений Azure, а также как изменить его размер и запросить его состояние."
+   pageTitle="Azure App Service Local Cache overview | Microsoft Azure"
+   description="This article describes how to enable, resize, and query the status of the Azure App Service Local Cache feature"
    services="app-service"
    documentationCenter="app-service"
    authors="SyntaxC4"
@@ -18,48 +18,49 @@
    ms.date="03/04/2016"
    ms.author="cfowler"/>
 
-# Общие сведения о локальном кэше службы приложений Azure
 
-Содержимое веб-приложения Azure хранится в службе хранилища Azure; оно доступно в долгосрочном режиме в общей папке содержимого. Эта схема рассчитана на работу с различными приложениями и имеет следующие атрибуты:
+# <a name="azure-app-service-local-cache-overview"></a>Azure App Service Local Cache overview
 
-* Содержимое разделяется между несколькими экземплярами виртуальных машин в веб-приложении.
-* Содержимое хранится в долгосрочном режиме и может быть изменено путем запуска веб-приложений.
-* Файлы журналов и диагностических данных доступны в той же общей папке содержимого.
-* При публикации нового содержимого происходит явное обновление содержимого общей папки. То же содержимое можно моментально просмотреть с помощью веб-сайта диспетчера служб, запустив веб-приложение (обычно некоторые технологии, такие как ASP.NET, перезапускают веб-приложение при каких-либо изменениях файлов, чтобы получить обновленное содержимое).
+Azure web app content is stored on Azure Storage and is surfaced up in a durable manner as a content share. This design is intended to work with a variety of apps and has the following attributes:  
 
-Многие веб-приложения используют все перечисленные возможности или одну из них, но некоторым веб-приложениям требуется лишь высокопроизводительное хранилище с содержимым только для чтения, из которого они могут запускаться с высоким уровнем доступности. Эти приложения могут использовать экземпляр виртуальной машины определенного локального кэша.
+* The content is shared across multiple virtual machine (VM) instances of the web app.
+* The content is durable and can be modified by running web apps.
+* Log files and diagnostic data files are available under the same shared content folder.
+* Publishing new content directly updates the content folder. You can immediately view the same content through the SCM website and the running web app (typically some technologies such as ASP.NET do initiate a web app restart on some file changes to get the latest content).
 
-Функция локального кэша службы приложений Azure позволяет получить представление содержимого от лица веб-роли. Это содержимое представляет собой кэш содержимого хранилища с записью и отменой, который асинхронно создается во время запуска сайта. Когда кэш готов, сайт переключается на работу с кэшированным содержимым. Веб-приложения, работающие в локальном кэше, отличаются следующими преимуществами:
+While many web apps use one or all of these features, some web apps just need a high-performance, read-only content store that they can run from with high availability. These apps can benefit from a VM instance of a specific local cache.
 
-* На них не влияют задержки, возникающие во время доступа к содержимому службы хранилища Azure.
-* На них не влияют запланированные обновления или незапланированные простои серверов, на которых размещена общая папка содержимого, а также любые другие перебои в работе службы хранилища Azure.
-* Эти приложения реже перезапускаются после изменений, выполненных в общей папке хранилища.
+The Azure App Service Local Cache feature provides a web role view of your content. This content is a write-but-discard cache of your storage content that is created asynchronously on site startup. When the cache is ready, the site is switched to run against the cached content. Web apps that run on Local Cache have the following benefits:
 
-## Как локальный кэш изменяет поведение службы приложений
+* They are immune to latencies that occur when they access content on Azure Storage.
+* They are immune to the planned upgrades or unplanned downtimes and any other disruptions with Azure Storage that occur on servers that serve the content share.
+* They have fewer app restarts due to storage share changes.
 
-* Локальный кэш — это копия папок /site и /siteextensions веб-приложения. Он создается на локальном экземпляре виртуальной машины во время запуска веб-приложения. Размер локального кэша каждого веб-приложения по умолчанию ограничен 300 МБ, но может быть увеличен до 1 ГБ.
-* Локальный кэш доступен для чтения и записи. Но при перемещении виртуальных машин или перезапуске веб-приложения все изменения в кэше отменяются. Не следует использовать локальный кэш для приложений, которые хранят критически важные данные в хранилище содержимого.
-* Веб-приложения могут продолжать записывать файлы журналов и диагностические данные, как они делают это в настоящее время. Однако файлы и данные журналов хранятся локально на виртуальной машине. Затем они периодически копируются в общее хранилище содержимого. Наилучшим вариантом является копирование в общее хранилище содержимого. Результаты обратной записи могут быть потеряны из-за внезапного сбоя экземпляра виртуальной машины.
-* В структуре папок для файлов журналов и данных для веб-приложений, использующих локальный кэш, есть некоторые изменения. Теперь в папках хранилища LogFiles и Data есть вложенные папки, в которых используется следующий шаблон именования: "уникальный идентификатор + метка времени". Каждая вложенная папка соответствует экземпляру виртуальной машины, на котором запущено веб-приложение.  
-* Во время публикации изменений в веб-приложении с помощью любого механизма эти же изменения публикуются в общем хранилище содержимого. Это поведение предусмотрено системой, так как публикуемое содержимое должно храниться долго. Чтобы обновить локальный кэш веб-приложения, его необходимо перезапустить. Этот шаг кажется вам избыточным? Чтобы организовать эффективный жизненный цикл, см. инструкции далее в этой статье.
-* В папке D:\\Home будет размещаться локальный кэш. В папке D:\\local будет по-прежнему размещаться временное хранилище конкретной виртуальной машины.
-* На веб-сайте диспетчера управления службами в качестве представления содержимого по умолчанию по-прежнему будет отображаться общая папка хранилища.
+## <a name="how-local-cache-changes-the-behavior-of-app-service"></a>How Local Cache changes the behavior of App Service
 
-## Включение локального кэша в службе приложений
+* The local cache is a copy of the /site and /siteextensions folders of the web app. It is created on the local VM instance on web app startup. The size of the local cache per web app is limited to 300 MB by default, but you can increase it up to 1 GB.
+* The local cache is read-write. However, any modifications will be discarded when the web app moves virtual machines or gets restarted. You should not use Local Cache for apps that store mission-critical data in the content store.
+* Web apps can continue to write log files and diagnostic data as they do currently. Log files and data, however, are stored locally on the VM. Then they are copied over periodically to the shared content store. The copy to the shared content store is a best-case effort--write backs could be lost due to a sudden crash of a VM instance.
+* There is a change in the folder structure of the LogFiles and Data folders for web apps that use Local Cache. There are now subfolders in the storage LogFiles and Data folders that follow the naming pattern of "unique identifier" + time stamp. Each of the subfolders corresponds to a VM instance where the web app is running or has run.  
+* Publishing changes to the web app through any of the publishing mechanisms will publish to the shared content store. This is by design because we want the published content to be durable. To refresh the local cache of the web app, it needs to be restarted. Does this seem like an excessive step? To make the lifecycle seamless, see the information later in this article.
+* D:\Home will point to the local cache. D:\local will continue pointing to the temporary VM specific storage.
+* The default content view of the SCM site will continue to be that of the shared content store.
 
-Локальный кэш настраивается с помощью нескольких зарезервированных параметров приложения. Эти параметры приложения можно настроить следующими способами.
+## <a name="enable-local-cache-in-app-service"></a>Enable Local Cache in App Service
 
-* [Портал Azure](#Configure-Local-Cache-Portal)
-* [Диспетчер ресурсов Azure](#Configure-Local-Cache-ARM)
+You configure Local Cache by using a combination of reserved app settings. You can configure these app settings by using the following methods:
 
-### Настройка локального кэша на портале Azure
+* [Azure portal](#Configure-Local-Cache-Portal)
+* [Azure Resource Manager](#Configure-Local-Cache-ARM)
+
+### <a name="configure-local-cache-by-using-the-azure-portal"></a>Configure Local Cache by using the Azure portal
 <a name="Configure-Local-Cache-Portal"></a>
 
-Включите локальный кэш для каждого веб-приложения с помощью этого параметра приложения: `WEBSITE_LOCAL_CACHE_OPTION` = `Always`
+You enable Local Cache on a per-web-app basis by using this app setting: `WEBSITE_LOCAL_CACHE_OPTION` = `Always`  
 
-![Параметры приложения на портале Azure: локальный кэш](media/app-service-local-cache/app-service-local-cache-configure-portal.png)
+![Azure portal app settings: Local Cache](media/app-service-local-cache/app-service-local-cache-configure-portal.png)
 
-### Настройка локального кэша с помощью Azure Resource Manager
+### <a name="configure-local-cache-by-using-azure-resource-manager"></a>Configure Local Cache by using Azure Resource Manager
 <a name="Configure-Local-Cache-ARM"></a>
 
 ```
@@ -81,40 +82,44 @@
 ...
 ```
 
-## Изменение размера локального кэша
+## <a name="change-the-size-setting-in-local-cache"></a>Change the size setting in Local Cache
 
-По умолчанию размер локального кэша равен **300 МБ**. Он включает папки /site и /siteextensions, которые копируются из хранилища содержимого, а также любые другие локально созданные журналы и папки данных. Чтобы увеличить это ограничение, используйте параметр приложения `WEBSITE_LOCAL_CACHE_SIZEINMB`. Размер кэша для каждого веб-приложения можно увеличить до **1 ГБ** (1000 МБ).
+By default, the local cache size is **300 MB**. This includes the /site and /siteextensions folders that are copied from the content store, as well as any locally created logs and data folders. To increase this limit, use the app setting `WEBSITE_LOCAL_CACHE_SIZEINMB`. You can increase the size up to **1 GB** (1000 MB) per web app.
 
-## Рекомендации по использованию локального кэша службы приложений
+## <a name="best-practices-for-using-app-service-local-cache"></a>Best practices for using App Service Local Cache
 
-Мы рекомендуем использовать локальный кэш в сочетании с функцией [промежуточных сред](../app-service-web/web-sites-staged-publishing.md).
+We recommend that you use Local Cache in conjunction with the [Staging Environments](../app-service-web/web-sites-staged-publishing.md) feature.
 
-* Добавьте _прикрепленный_ параметр приложения `WEBSITE_LOCAL_CACHE_OPTION` со значением `Always` в **рабочий** слот. Если вы используете параметр `WEBSITE_LOCAL_CACHE_SIZEINMB`, также добавьте его в рабочий слот в качестве прикрепленного параметра.
-* Создайте **промежуточный** слот и выполните в нем публикацию. Если вы используете локальный кэш для рабочего слота, настройте промежуточный слот так, чтобы он не использовал локальный кэш. Таким образом упрощается жизненный цикл построения, развертывания и тестирования для промежуточного слота.
-*	Протестируйте свой веб-сайт относительно промежуточной области.  
-*	По завершении выполните [операцию переключения](../app-service-web/web-sites-staged-publishing.md#to-swap-deployment-slots) между промежуточным и рабочим слотами.  
-*	Прикрепленные параметры имеют имена и привязаны к слоту. Поэтому при переключении между промежуточным и рабочим слотами промежуточный слот наследует параметры локального кэша приложения. Через несколько минут новый рабочий слот будет запущен с локальным кэшем и будет разогрет после переключения. После завершения переключения слотов рабочий слот будет работать с локальным кэшем.
+* Add the _sticky_ app setting `WEBSITE_LOCAL_CACHE_OPTION` with the value `Always` to your **Production** slot. If you're using `WEBSITE_LOCAL_CACHE_SIZEINMB`, also add it as a sticky setting to your Production slot.
+* Create a **Staging** slot and publish to your Staging slot. You typically don't set the staging slot to use Local Cache to enable a seamless build-deploy-test lifecycle for staging if you get the benefits of Local Cache for the production slot.
+*   Test your site against your Staging slot.  
+*   When you are ready, issue a [swap operation](../app-service-web/web-sites-staged-publishing.md#to-swap-deployment-slots) between your Staging and Production slots.  
+*   Sticky settings include name and sticky to a slot. So when the Staging slot gets swapped into Production, it will inherit the Local Cache app settings. The newly swapped Production slot will run against the local cache after a few minutes and will be warmed up as part of slot warmup after swap. So when the slot swap is complete, your Production slot will be running against the local cache.
 
-## Часто задаваемые вопросы
+## <a name="frequently-asked-questions-(faq)"></a>Frequently asked questions (FAQ)
 
-### Как узнать, можно ли использовать локальный кэш с моим веб-приложением?
+### <a name="how-can-i-tell-if-local-cache-applies-to-my-web-app?"></a>How can I tell if Local Cache applies to my web app?
 
-Да, если веб-приложению требуется высокопроизводительное надежное хранилище содержимого, а также если это веб-приложение не сохраняет в хранилище важные данные во время работы, а его общий размер не превышает 1 ГБ. Чтобы узнать общий размер папок /site и /siteextensions, используйте расширение сайта "Использование диска веб-приложениями Azure".
+If your web app needs a high-performance, reliable content store, does not use the content store to write critical data at runtime, and is less than 1 GB in total size, then the answer is "yes"! To get the total size of your /site and /siteextensions folders, you can use the site extension "Azure Web Apps Disk Usage".  
 
-### Как узнать, переключился ли мой веб-сайт на использование локального кэша?
+### <a name="how-can-i-tell-if-my-site-has-switched-to-using-local-cache?"></a>How can I tell if my site has switched to using Local Cache?
 
-При использовании функции локального кэша с функцией промежуточных сред операция переключения не завершится, пока не разогреется локальный кэш. Чтобы определить, работает ли веб-сайт с локальным кэшем, можно проверить переменную среды `WEBSITE_LOCALCACHE_READY` для рабочего процесса. Следуйте инструкциям на странице [переменных среды рабочего процесса](https://github.com/projectkudu/kudu/wiki/Process-Threads-list-and-minidump-gcdump-diagsession#process-environment-variable), чтобы получить доступ к переменной среды рабочего процесса для нескольких экземпляров.
+If you're using the Local Cache feature with Staging Environments, the swap operation will not complete until Local Cache is warmed up. To check if your site is running against Local Cache, you can check the worker process environment variable `WEBSITE_LOCALCACHE_READY`. Use the instructions on the [worker process environment variable](https://github.com/projectkudu/kudu/wiki/Process-Threads-list-and-minidump-gcdump-diagsession#process-environment-variable) page to access the worker process environment variable on multiple instances.  
 
-### Новые изменения только что опубликованы, но они еще не отразились в моем веб-приложении. Почему?
+### <a name="i-just-published-new-changes,-but-my-web-app-does-not-seem-to-have-them.-why?"></a>I just published new changes, but my web app does not seem to have them. Why?
 
-Если веб-приложение использует локальный кэш, перезапустите сайт, чтобы применить последние изменения. Не хотите публиковать изменения на рабочем сайте? См. информацию о вариантах слотов в предыдущем разделе рекомендаций.
+If your web app uses Local Cache, then you need to restart your site to get the latest changes. Don’t want to publish changes to a production site? See the slot options in the previous best practices section.
 
-### Где находятся мои журналы?
+### <a name="where-are-my-logs?"></a>Where are my logs?
 
-Если вы используете локальный кэш, журналы и папки данных выглядят немного иначе. Однако структура вложенных папок остается прежней, за исключением того, что они размещаются во вложенной папке с именем в формате "уникальный идентификатор виртуальной машины + метка времени".
+With Local Cache, your logs and data folders do look a little different. However, the structure of your subfolders remains the same, except that the subfolders are nestled under a subfolder with the format "unique VM identifier" + time stamp.
 
-### Локальный кэш включен, но мое веб-приложение все равно перезапускается. Почему? Я подумал, что локальный кэш поможет снизить частоту перезапуска приложения.
+### <a name="i-have-local-cache-enabled,-but-my-web-app-still-gets-restarted.-why-is-that?-i-thought-local-cache-helped-with-frequent-app-restarts."></a>I have Local Cache enabled, but my web app still gets restarted. Why is that? I thought Local Cache helped with frequent app restarts.
 
-Локальный кэш помогает предотвратить перезапуск веб-приложений, которые используют хранилище. Но ваше веб-приложение все равно может быть перезапущено во время планируемых обновлений инфраструктуры виртуальной машины. В целом при использовании локального кэша приложение перезапускается реже.
+Local Cache does help prevent storage-related web app restarts. However, your web app could still undergo restarts during planned infrastructure upgrades of the VM. The overall app restarts that you experience with Local Cache enabled should be fewer.
 
-<!---HONumber=AcomDC_0330_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

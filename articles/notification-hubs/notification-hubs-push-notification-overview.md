@@ -1,157 +1,158 @@
 <properties
-	pageTitle="Концентраторы уведомлений Azure"
-	description="Узнайте, как использовать push-уведомления в Azure. Примеры кода написаны на C# с использованием API .NET."
-	authors="wesmc7777"
-	manager="erikre"
-	editor=""
-	services="notification-hubs"
-	documentationCenter=""/>
+    pageTitle="Azure Notification Hubs"
+    description="Learn how to use push notifications in Azure. Code samples written in C# using the .NET API."
+    authors="wesmc7777"
+    manager="erikre"
+    editor=""
+    services="notification-hubs"
+    documentationCenter=""/>
 
 <tags
-	ms.service="notification-hubs"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="multiple"
-	ms.devlang="multiple"
-	ms.topic="hero-article"
-	ms.date="08/25/2016"
-	ms.author="wesmc"/>
-
-
-#Концентраторы уведомлений Azure
-
-##Обзор
-
-Центры уведомлений Azure – это простая в использовании масштабируемая многоплатформенная инфраструктура для отправки push-уведомлений на мобильные устройства с любой серверной части (облачной или локальной).
-
-Центры уведомлений позволяют без труда отправлять персонализированные push-уведомления между различными платформами без учета особенностей разных систем отправки уведомлений платформы (PNS). С помощью одного вызова API вы можете выбирать отдельных пользователей или целые группы, содержащие миллионы пользователей, на любом устройстве.
-
-Центры уведомлений можно использовать как для сценариев обслуживания отдельных потребителей, так и целых предприятий. Например:
-
-- Отправка уведомлений об экстренных новостях миллионам пользователей с низкой задержкой (центры уведомлений используют приложения Bing, предустановленные на всех устройствах с ОС Windows и Windows Phone).
-- Отправка купонов в соответствии с местоположением сегментам пользователей.
-- Отправка уведомлений о событиях пользователям или группам пользователей для спортивных, финансовых или игровых приложений.
-- Уведомление пользователей о корпоративных событиях, например новые сообщения и сообщения электронной почты, а также информация о потенциальных покупателях.
-- Отправка одноразовых паролей, необходимых для многофакторной проверки подлинности.
+    ms.service="notification-hubs"
+    ms.workload="mobile"
+    ms.tgt_pltfrm="multiple"
+    ms.devlang="multiple"
+    ms.topic="hero-article"
+    ms.date="08/25/2016"
+    ms.author="wesmc"/>
 
 
 
-##Что такое push-уведомления
+#<a name="azure-notification-hubs"></a>Azure Notification Hubs
 
-Смартфоны и планшеты могут "уведомлять" пользователей о наступлении определенных событий. Эти уведомления могут быть представлены в различных формах.
+##<a name="overview"></a>Overview
 
-В приложениях Windows Store и Windows Phone может появляться _всплывающее уведомление_, то есть отображается немодальное окно со звуком, сигнализирующее о появлении нового push-уведомления. Кроме того, поддерживаются другие типы уведомлений, включая уведомления на _плитке_, _необработанные_ уведомления и уведомления через _индикаторы событий_. Дополнительные сведения о типах уведомлений, поддерживаемых на устройствах Windows, см. в статье [Плитки, индикаторы событий и уведомления (приложения среды выполнения Windows)](http://msdn.microsoft.com/library/windows/apps/hh779725.aspx).
+Azure Notification Hubs provide an easy-to-use, multiplatform, scaled-out push infrastructure that enables you to send mobile push notifications from any backend (in the cloud or on-premises) to any mobile platform.
 
-На устройствах iOS Apple получение push-уведомления приводит к отображению диалогового окна, запрашивающего у пользователя просмотр или закрытие уведомления. Щелкнув **Вид**, можно открыть приложение, которое получает сообщение. Дополнительные сведения об уведомлениях на устройствах с iOS см. в статье [Notifications](http://go.microsoft.com/fwlink/?LinkId=615245) (Уведомления).
+With Notification Hubs, you can easily send cross-platform, personalized push notifications, abstracting the details of the different platform notification systems (PNS). With a single API call, you can target individual users or entire audience segments containing millions of users, across all their devices.
 
-Push-уведомлений помогают мобильным устройствам отображать новую информацию и при этом экономить энергию. Уведомления могут отправляться с серверных систем на мобильные устройства даже в том случае, если соответствующие приложения на устройстве не активны. Push-уведомления являются жизненно важным компонентом приложений для потребителей, где они служат для увеличения степени вовлеченности и использования таких приложений. Уведомления также полезны для предприятий, когда обновленная информация увеличивает скорость реагирования сотрудника на бизнес-события.
+You can use Notification Hubs for both enterprise and consumer scenarios. For example:
 
-Ниже приведены некоторые конкретные примеры сценариев использования push-уведомлений в мобильных приложениях:
+- Send breaking news notifications to millions with low latency (Notification Hubs powers Bing applications pre-installed on all Windows and Windows Phone devices).
+- Send location-based coupons to user segments.
+- Send event notifications to users or groups for sports/finance/games applications.
+- Notify users of enterprise events like new messages/emails, and sales leads.
+- Send one-time-passwords required for multi-factor authentication.
 
-1.  Обновление плитки на Windows 8 и Windows Phone с текущей финансовой информацией.
-2.  Оповещение пользователя о рабочем задании с помощью всплывающего уведомления в корпоративном приложении на основе рабочего процесса.
-3.  Отображение значка с количеством текущих потенциальных продаж в приложении CRM (например, Microsoft Dynamics CRM).
 
-##Как работают push-уведомления
 
-Push-уведомления доставляются через инфраструктуры, предназначенные для конкретных платформ, называемые _системами уведомления платформ_ (PNS). PNS предоставляют только одни функции (то есть без поддержки вещания, персонализации) и не имеют общего интерфейса. Например, чтобы отправить уведомление в приложение Магазина Windows, разработчик должен связаться со службой WNS (службой уведомлений Windows). Чтобы отправить уведомление на устройство iOS, тот же разработчик должен связаться со службой APNs (службой push-уведомлений Apple) и отправить сообщение второй раз. Центры уведомлений Azure предоставляют общий интерфейс и другие возможности для поддержки push-уведомлений на всех платформах.
+##<a name="what-are-push-notifications?"></a>What are Push Notifications?
 
-На высоком уровне, однако, все системы уведомления платформ выполняют одну и ту же процедуру:
+Smartphones and tablets can "notify" users when an event has occurred. These notifications can take many forms.
 
-1.  Клиентское приложение обращается к PNS для извлечения _дескриптора_. Тип дескриптора зависит от системы. Для WNS это URI или "канал уведомлений". Для APNS это маркер.
-2.  Клиентское приложение хранит этот дескриптор в _серверной части_ приложения для дальнейшего использования. Для WNS серверной частью обычно является облачная служба. Для Apple эта система называется _поставщик_.
-3.  Для отправки push-уведомления серверная часть приложения обращается к PNS, используя дескриптор, чтобы указать определенный экземпляр клиентского приложения.
-4.  PNS перенаправляет уведомление на устройство, указанное дескриптором.
+In Windows Store and Windows Phone applications, the notification can be in the form of a _toast_: a modeless window appears, with a sound, to signal a new notification. Other notification types that are supported include _tile_, _raw_, and _badge_ notifications. For more information on the types of notifications supported on Windows devices, see [Tiles, Badges, and Notifications](http://msdn.microsoft.com/library/windows/apps/hh779725.aspx).
+
+On Apple iOS devices, the push similarly notifies the user with a dialog box, requesting the user to view or close the notification. Clicking **View** opens the application that is receiving the message. For more information on iOS Notifications, see [iOS Notifications](http://go.microsoft.com/fwlink/?LinkId=615245).
+
+Push notifications help mobile devices display fresh information while remaining energy-efficient. Notifications can be sent by backend systems to mobile devices even when corresponding apps on a device are not active. Push notifications are a vital component for consumer apps, where they are used to increase app engagement and usage. Notifications are also useful to enterprises, when up-to-date information increases employee responsiveness to business events.
+
+Some specific examples of mobile engagement scenarios are:
+
+1.  Updating a tile on Windows 8 or Windows Phone with current financial information.
+2.  Alerting a user with a toast that some work item has been assigned to that user, in a workflow-based enterprise app.
+3.  Displaying a badge with the number of current sales leads in a CRM app (such as Microsoft Dynamics CRM).
+
+##<a name="how-push-notifications-work"></a>How Push Notifications Work
+
+Push notifications are delivered through platform-specific infrastructures called _Platform Notification Systems_ (PNS). A PNS offers barebones functions (that is, no support for broadcast, personalization) and have no common interface. For instance, to send a notification to a Windows Store app, a developer must contact the WNS (Windows Notification Service). To send a notification to an iOS device, the same developer has to contact APNS (Apple Push Notification Service), and send the message a second time. Azure Notification hubs help by providing a common interface, along with other features to support push notifications across each platform.
+
+At a high level, though, all platform notification systems follow the same pattern:
+
+1.  The client app contacts the PNS to retrieve its _handle_. The handle type depends on the system. For WNS, it is a URI or "notification channel." For APNS, it is a token.
+2.  The client app stores this handle in the app _back-end_ for later usage. For WNS, the back-end is typically a cloud service. For Apple, the system is called a _provider_.
+3.  To send a push notification, the app back-end contacts the PNS using the handle to target a specific client app instance.
+4.  The PNS forwards the notification to the device specified by the handle.
 
 ![][0]
 
-##Трудности в работе с push-уведомлениями
+##<a name="the-challenges-of-push-notifications"></a>The Challenges of Push Notifications
 
-Хотя эти системы являются очень мощным средством, разработчикам приложений по-прежнему требуется прилагать много усилий для реализации даже распространенных сценариев использования push-уведомлений, например вещания или отправки push-уведомлений сегментированным пользователям.
+While these systems are very powerful, they still leave much work to the app developer in order to implement even common push notification scenarios, such as broadcasting or sending push notifications to segmented users.
 
-Push-уведомления являются одним из наиболее востребованных компонентов облачных служб для мобильных приложений. Это объясняется тем, что инфраструктура, необходимая для их работы, довольно сложная и обычно не связана с основной бизнес-логикой приложения. Ниже приведены некоторые из задач, стоящих перед разработчиком при создании инфраструктуры для push-уведомлений по требованию.
+Push notifications are one of the most requested features in cloud services for mobile apps. The reason for this is that the infrastructure required to make them work is fairly complex and mostly unrelated to the main business logic of the app. Some of the challenges in building an on-demand push infrastructure are:
 
-- **Зависимость платформы.** Для отправки уведомлений на устройства на разных платформах необходимо закодировать несколько интерфейсов в серверной части. Отличаются не только низкоуровневые детали, но и само представление уведомлений (плитка, всплывающее уведомление или значок) также зависит от платформы. Эти трудности могут привести к созданию сложного и тяжелого в поддержании кода серверной части.
+- **Platform dependency.** In order to send notifications to devices on different platforms, multiple interfaces must be coded in the back-end. Not only are the low-level details different, but the presentation of the notification (tile, toast, or badge) is also platform-dependent. These differences can lead to complex and hard-to-maintain back-end code.
 
-- **Масштабирование.** Масштабирование этой инфраструктуры имеет два аспекта:
-	+ По инструкции PNS маркеры устройства необходимо обновлять каждый раз, когда запускается приложение. Это приводит к большому объему трафика (и последовательным обращениям к базе данных) только для обновления маркеров устройств. Когда возрастает количество устройств (возможно, до миллионов), затраты на создание и поддержку такой инфраструктуры уже нельзя игнорировать.
+- **Scale.** Scaling this infrastructure has two aspects:
+    + Per PNS guidelines, device tokens must be refreshed every time the app is launched. This leads to a large amount of traffic (and consequent database accesses) just to keep the device tokens up to date. When the number of devices grows (possibly to millions), the cost of creating and maintaining this infrastructure is nonnegligible.
 
-	+ Большинство PNS не поддерживают вещание на несколько устройств. Следовательно, вещание на миллионы устройств приведет к миллионам вызовов систем PNS. Возможность масштабировать эти запросы является нетривиальной задачей, так как обычно разработчики приложений стремятся сохранить малое время задержки. Например, если последнее из получающих уведомление устройств получает его через 30 минут после отправки, это лишает смысла использование push-уведомлений в целом.
-- **Маршрутизация.** Системы PNS предоставляют способ отправки сообщения на устройство. Однако в большинстве приложений уведомления направляются пользователям и/или заинтересованным группам (например, всем сотрудникам, связанным с определенной учетной записью клиента). Таким образом, чтобы направить уведомления на нужные устройства, серверная часть приложения должна поддерживать реестр, который связывает заинтересованные группы с маркерами устройств. Это увеличивает общее время выхода приложения на рынок и повышает затраты на его обслуживание.
+    + Most PNSs do not support broadcast to multiple devices. It follows that a broadcast to millions of devices results in millions of calls to the PNSs. Being able to scale these requests is nontrivial, because usually app developers want to keep the total latency down. For example, the last device to receive the message should not receive the notification 30 minutes after the notifications has been sent, as for many cases it would defeat the purpose to have push notifications.
+- **Routing.** PNSs provide a way to send a message to a device. However, in most apps notifications are targeted at users and/or interest groups (for example, all employees assigned to a certain customer account). As such, in order to route the notifications to the correct devices, the app back-end must maintain a registry that associates interest groups with device tokens. This overhead adds to the total time to market and maintenance costs of an app.
 
-##Зачем использовать центры уведомлений
+##<a name="why-use-notification-hubs?"></a>Why Use Notification Hubs?
 
-Центры уведомлений упрощают работу: больше не нужно преодолевать трудности в работе с push-уведомлениями. Вместо этого можно использовать концентратор уведомлений. Центры уведомлений используют полную многоплатформенную масштабируемую инфраструктуру для отправки push-уведомлений и значительно сокращают количество необходимого для push-уведомлений кода, выполняемого в серверной части приложения. Центры уведомлений реализуют все функции инфраструктуры push-уведомлений. Устройству остается лишь зарегистрировать дескрипторы PNS, а приложению – отправить зависящие от платформы сообщения пользователям или группам пользователей, как показано на рисунке.
+Notification Hubs eliminate complexity: you do not have to manage the challenges of push notifications. Instead, you can use a Notification Hub. Notification Hubs use a full multiplatform, scaled-out push notification infrastructure, and considerably reduce the push-specific code that runs in the app backend. Notification Hubs implement all the functionality of a push infrastructure. Devices are only responsible for registering PNS handles, and the backend is responsible for sending platform-independent messages to users or interest groups, as shown in the following figure:
 
 ![][1]
 
 
-Центры уведомлений предоставляют готовую инфраструктуру для отправки push-уведомлений, которая обеспечивает следующие преимущества.
+Notification hubs provide a ready-to-use push notification infrastructure with the following advantages:
 
-- **Несколько платформ.**
-	+  Поддержка всех основных мобильных платформ. Концентраторы уведомлений могут отправлять push-уведомления в приложения Магазина Windows, iOS, Android и Windows Phone.
+- **Multiple platforms.**
+    +  Support for all major mobile platforms. Notification hubs can send push notifications to Windows Store, iOS, Android, and Windows Phone apps.
 
-	+  Концентраторы уведомлений предоставляют общий интерфейс для отправки уведомлений на все поддерживаемые платформы. Специальные протоколы для каждой платформы больше не нужны. Серверная часть приложения может отправлять уведомления в форматах, которые используются для конкретной платформы, или в форматах, которые не зависят от платформы. Приложение соединяется только с центрами уведомлений.
+    +  Notification hubs provide a common interface to send notifications to all supported platforms. Platform-specific protocols are not required. The app back-end can send notifications in platform-specific, or platform-independent formats. The application only communicates with Notification Hubs.
 
-	+  Управление маркером устройства. Центры уведомлений выполняют регистрацию маркеров и обеспечивают обратную связь с PNS.
+    +  Device handle management. Notification Hubs maintains the handle registry and feedback from PNSs.
 
-- **Совместимость с любой серверной частью**: в облаке или локально, .NET, PHP, Java, Node и т. д.
+- **Works with any back-end**: Cloud or on-premises, .NET, PHP, Java, Node, etc.
 
-- **Масштабирование.** Концентраторы уведомлений поддерживают масштабирование на миллионы устройств без необходимости повторного проектирования или переделки архитектуры.
-
-
-- **Широкий набор схем доставки**:
-
-	- *Вещание*: обеспечивает практически одновременное вещание на миллионы устройств с помощью одного вызова API.
-
-	- *Одноадресная или многоадресная рассылка*: отправка по тегам, представляющим отдельных пользователей, включая все их устройства, или более широкую группу, например особые форм-факторы (планшет или телефон).
-
-	- *Сегментация*: отправка в составной сегмент, заданный выражениями тегов (например, устройства, находящиеся в г. Нью-Йорк, подписанные на обновления клуба «Янкиз»).
-
-	Каждое устройство, отправляя свой дескриптор на концентратор уведомлений, может задать один или несколько _тегов_. Более подробную информация о тегах см. [здесь]. Заранее подготавливать или размещать теги не требуется. Теги предоставляют простой способ для отправки уведомлений пользователям или заинтересованным группам. Поскольку теги могут содержать любой идентификатор конкретного приложения (например, идентификаторы пользователя или группы), их использование освобождает серверную часть приложения от необходимости хранить дескрипторы устройств и управлять ими.
-
-- **Персонализация**: каждое устройство может иметь один или несколько шаблонов, обеспечивающих локализацию и персонализацию каждого устройства, не меняя серверный код.
-
-- **Безопасность**: Shared Access Secret (SAS) или федеративная проверка подлинности.
-
-- **Обширная телеметрия**: доступна на портале и с помощью программных средств.
+- **Scale.** Notification hubs scale to millions of devices without the need to re-architect or shard.
 
 
-##Интеграция с мобильными приложениями службы приложений
+- **Rich set of delivery patterns**:
 
-Для упрощения и унификации взаимодействия между службами Azure [мобильные приложения службы приложений] располагают встроенной поддержкой push-уведомлений с помощью центров уведомлений. [мобильные приложения службы приложений] — это доступная по всему миру высокомасштабируемая платформа разработки мобильных приложений, предназначенная для корпоративных разработчиков и системных интеграторов и расширяющая возможности разработки мобильных приложений.
+    - *Broadcast*: allows for near-simultaneous broadcast to millions of devices with a single API call.
 
-Разработчики мобильных приложений могут использовать концентраторы уведомлений в следующем рабочем процессе.
+    - *Unicast/Multicast*: Push to tags representing individual users, including all of their devices; or wider group; for example, separate form factors (tablet vs. phone).
 
-1. Получение дескриптора PNS устройства.
-2. Регистрация устройства и [шаблонов] в центрах уведомлений с помощью удобного API регистрации клиентского пакета SDK для мобильных приложений.
-    + Обратите внимание, что в целях безопасности мобильные приложения удаляют в регистрациях все теги. Работа с концентраторами уведомлений непосредственно на стороне сервера для связывания тегов с устройствами.
-3. Отправка уведомлений из серверной части приложения с помощью концентраторов уведомлений.
+    - *Segmentation*: Push to complex segment defined by tag expressions (for example, devices in New York following the Yankees).
 
-Далее перечислены некоторые преимущества, получаемые разработчиками в рамках интеграции:
+    Each device, when sending its handle to a notification hub, can specify one or more _tags_. For more information about [tags]. Tags do not have to be pre-provisioned or disposed. Tags provide a simple way to send notifications to users or interest groups. Since tags can contain any app-specific identifier (such as user or group IDs), their use frees the app back-end from the burden of having to store and manage device handles.
 
-- **Пакеты SDK для клиента мобильных приложений.** Эти многоплатформенные пакеты SDK предоставляют простые API-интерфейсы для регистрации и обращения к концентратору уведомлений, автоматически связанному с мобильным приложением. Разработчикам не нужно хранить учетные данные для разных концентраторов уведомлений и прибегать к дополнительной службе.
-    + Пакеты SDK автоматически помечают заданное устройство с помощью идентификатора, прошедшего проверку подлинности пользователя мобильных приложений, позволяя реализовать сценарий принудительной отправки пользователю.
-    + Пакеты SDK автоматически используют идентификатор установки мобильных приложений в качестве GUID, чтобы зарегистрироваться в концентраторах уведомлений. Это упрощает работу разработчиков, так как им не требуется использовать несколько GUID для разных служб.
+- **Personalization**: Each device can have one or more templates, to achieve per-device localization and personalization without affecting back-end code.
+
+- **Security**: Shared Access Secret (SAS) or federated authentication.
+
+- **Rich telemetry**: Available in the portal and programmatically.
+
+
+##<a name="integration-with-app-service-mobile-apps"></a>Integration with App Service Mobile Apps
+
+To facilitate a seamless and unifying experience across Azure services, [App Service Mobile Apps] has built-in support for push notifications using Notification Hubs. [App Service Mobile Apps] offers a highly scalable, globally available mobile application development platform for Enterprise Developers and System Integrators that brings a rich set of capabilities to mobile developers.
+
+Mobile Apps developers can utilize Notification Hubs with the following workflow:
+
+1. Retrieve device PNS handle
+2. Register device and [templates] with Notification Hubs through convenient Mobile Apps Client SDK register API
+    + Note that Mobile Apps strips away all tags on registrations for security purposes. Work with Notification Hubs from your backend directly to associate tags with devices.
+3. Send notifications from your app backend with Notification Hubs
+
+Here are some conveniences brought to developers with this integration:
+
+- **Mobile Apps Client SDKs.** These multi-platform SDKs provide simple APIs for registration and talk to the notification hub linked up with the mobile app automatically. Developers do not need to dig through Notification Hubs credentials and work with an additional service.
+    + The SDKs automatically tag the given device with Mobile Apps authenticated User ID to enable push to user scenario.
+    + The SDKs automatically use the Mobile Apps Installation ID as GUID to register with Notification Hubs, saving developers the trouble of maintaining multiple service GUIDs.
     
-- **Модель установки.** Мобильные приложения работают с последней моделью принудительной отправки в концентраторах уведомлений, чтобы представить все свойства извещения, связанные с устройством в установке JSON, которое соответствует службам push-уведомлений и просто в использовании.
+- **Installation model.** Mobile Apps works with Notification Hubs' latest push model to represent all push properties associated with a device in a JSON Installation that aligns with Push Notification Services and is easy to use.
 
-- **Гибкость.** Несмотря на интеграцию, разработчики всегда могут работать с концентраторами уведомлений напрямую.
+- **Flexibility.** Developers can always choose to work with Notification Hubs directly even with the integration in place.
 
-- **Интегрированный интерфейс на [портале Azure].** Отправка push-уведомлений как возможность визуально представлена в мобильных приложениях, с помощью которых разработчики могут легко взаимодействовать со связанным концентратором уведомлений.
+- **Integrated experience in [Azure portal].** Push as a capability is represented visually in Mobile Apps and developers can easily work with the associated notification hub through Mobile Apps.
 
 
 
-##Дальнейшие действия
+##<a name="next-steps"></a>Next Steps
 
-Дополнительную информацию о центрах уведомлений можно найти в следующих статьях:
+You can find out more about Notification Hubs in these topics:
 
-+ **[Использование центров уведомлений клиентами]**
++ **[How customers are using Notification Hubs]**
 
-+ **[Учебники и руководства по работе с центрами уведомлений]**
++ **[Notification Hubs tutorials and guides]**
 
-+ **Учебники по началу работы с концентраторами уведомлений** ([iOS], [Android], [Windows Universal], [Windows Phone], [Kindle], [Xamarin.iOS], [Xamarin.Android])
++ **Notification Hubs Getting Started tutorials** ([iOS], [Android], [Windows Universal], [Windows Phone], [Kindle], [Xamarin.iOS], [Xamarin.Android])
 
-Соответствующие управляемые API-ссылки .NET на push-уведомления приведены ниже.
+The relevant .NET managed API references for push notifications are located here:
 
 + [Microsoft.WindowsAzure.Messaging.NotificationHub]
 + [Microsoft.ServiceBus.Notifications]
@@ -159,8 +160,8 @@ Push-уведомления являются одним из наиболее в
 
   [0]: ./media/notification-hubs-overview/registration-diagram.png
   [1]: ./media/notification-hubs-overview/notification-hub-diagram.png
-  [Использование центров уведомлений клиентами]: http://azure.microsoft.com/services/notification-hubs
-  [Учебники и руководства по работе с центрами уведомлений]: http://azure.microsoft.com/documentation/services/notification-hubs
+  [How customers are using Notification Hubs]: http://azure.microsoft.com/services/notification-hubs
+  [Notification Hubs tutorials and guides]: http://azure.microsoft.com/documentation/services/notification-hubs
   [iOS]: http://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started
   [Android]: http://azure.microsoft.com/documentation/articles/notification-hubs-android-get-started
   [Windows Universal]: http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started
@@ -170,9 +171,13 @@ Push-уведомления являются одним из наиболее в
   [Xamarin.Android]: http://azure.microsoft.com/documentation/articles/partner-xamarin-notification-hubs-android-get-started
   [Microsoft.WindowsAzure.Messaging.NotificationHub]: http://msdn.microsoft.com/library/microsoft.windowsazure.messaging.notificationhub.aspx
   [Microsoft.ServiceBus.Notifications]: http://msdn.microsoft.com/library/microsoft.servicebus.notifications.aspx
-  [мобильные приложения службы приложений]: https://azure.microsoft.com/documentation/articles/app-service-mobile-value-prop/
-  [шаблонов]: notification-hubs-templates-cross-platform-push-messages.md
-  [портале Azure]: https://portal.azure.com
-  [здесь]: (http://msdn.microsoft.com/library/azure/dn530749.aspx)
+  [App Service Mobile Apps]: https://azure.microsoft.com/en-us/documentation/articles/app-service-mobile-value-prop/
+  [templates]: notification-hubs-templates-cross-platform-push-messages.md
+  [Azure portal]: https://portal.azure.com
+  [tags]: (http://msdn.microsoft.com/library/azure/dn530749.aspx)
 
-<!---HONumber=AcomDC_0907_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

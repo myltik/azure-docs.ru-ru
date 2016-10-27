@@ -1,68 +1,68 @@
 > [AZURE.SELECTOR]
-- [C в Windows](../articles/iot-suite/iot-suite-connecting-devices.md)
-- [C в Linux](../articles/iot-suite/iot-suite-connecting-devices-linux.md)
-- [C в mbed](../articles/iot-suite/iot-suite-connecting-devices-mbed.md)
+- [C on Windows](../articles/iot-suite/iot-suite-connecting-devices.md)
+- [C on Linux](../articles/iot-suite/iot-suite-connecting-devices-linux.md)
+- [C on mbed](../articles/iot-suite/iot-suite-connecting-devices-mbed.md)
 - [Node.js](../articles/iot-suite/iot-suite-connecting-devices-node.md)
 
-## Обзор сценария
+## <a name="scenario-overview"></a>Scenario overview
 
-В этом примере вы создадите устройство, которое отправляет следующие данные телеметрии в [предварительно настроенное решение][lnk-what-are-preconfig-solutions] для удаленного мониторинга:
+In this scenario, you create a device that sends the following telemetry to the remote monitoring [preconfigured solution][lnk-what-are-preconfig-solutions]:
 
-- наружная температура;
-- внутренняя температура;
-- влажность.
+- External temperature
+- Internal temperature
+- Humidity
 
-В целях упрощения код на устройстве генерирует образцы значений, но мы рекомендуем расширить пример и подключить к устройству реальные датчики и отправить реальные данные телеметрии.
+For simplicity, the code on the device generates sample values, but we encourage you to extend the sample by connecting real sensors to your device and sending real telemetry.
 
-Для работы с этим руководством требуется активная учетная запись Azure. Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе [Бесплатная пробная версия Azure][lnk-free-trial].
+To complete this tutorial, you need an active Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial][lnk-free-trial].
 
-## Перед началом работы
+## <a name="before-you-start"></a>Before you start
 
-До написания кода для устройства необходимо подготовить свое предварительно настроенное решение для удаленного мониторинга, а затем подготовить в нем новое пользовательское устройство.
+Before you write any code for your device, you must provision your remote monitoring preconfigured solution and then provision a new custom device in that solution.
 
-### Подготовка предварительно настроенного решения для удаленного мониторинга
+### <a name="provision-your-remote-monitoring-preconfigured-solution"></a>Provision your remote monitoring preconfigured solution
 
-Созданное в этом учебнике устройство отправляет данные в экземпляр предварительно настроенного решения для [удаленного мониторинга][lnk-remote-monitoring]. Если вы еще не подготовили это решение в своей учетной записи Azure, то выполните следующие действия.
+The device you create in this tutorial sends data to an instance of the [remote monitoring][lnk-remote-monitoring] preconfigured solution. If you haven't already provisioned the remote monitoring preconfigured solution in your Azure account, follow the steps below:
 
-1. На странице <https://www.azureiotsuite.com/> нажмите кнопку **+**, чтобы создать решение.
+1. On the <https://www.azureiotsuite.com/> page, click **+** to create a new solution.
 
-2. Щелкните **Выбрать** в области **Удаленный мониторинг**, чтобы создать решение.
+2. Click **Select** on the **Remote monitoring** panel to create your new solution.
 
-3. На странице **Создание решения "Удаленный мониторинг"** введите нужное имя в поле **Имя решения**, выберите значение поля **Регион** для развертывания и выберите нужную подписку Azure. Затем щелкните **Создать решение**.
+3. On the **Create Remote monitoring solution** page, enter a **Solution name** of your choice, select the **Region** you want to deploy to, and select the Azure subscription to want to use. Then click **Create solution**.
 
-4. Дождитесь завершения процесса подготовки.
+4. Wait until the provisioning process completes.
 
-> [AZURE.WARNING] В предварительно настроенных решениях используются платные службы Azure. Закончив работу с предварительно настроенным решением, не забудьте удалить его из подписки, чтобы избежать ненужных расходов. Чтобы полностью удалить предварительно настроенное решение из подписки, посетите страницу <https://www.azureiotsuite.com/>.
+> [AZURE.WARNING] The preconfigured solutions use billable Azure services. Be sure to remove the preconfigured solution from your subscription when you are done with it to avoid any unnecessary charges. You can completely remove a preconfigured solution from your subscription by visiting the <https://www.azureiotsuite.com/> page.
 
-После завершения подготовки решения для удаленного мониторинга щелкните **Запустить**, чтобы открыть панель мониторинга этого решения в браузере.
+When the provisioning process for the remote monitoring solution finishes, click **Launch** to open the solution dashboard in your browser.
 
 ![][img-dashboard]
 
-### Подготовка устройства в решении для удаленного мониторинга
+### <a name="provision-your-device-in-the-remote-monitoring-solution"></a>Provision your device in the remote monitoring solution
 
-> [AZURE.NOTE] Если вы уже подготовили устройство в решении, пропустите этот шаг. При создании клиентского приложения необходимо знать учетные данные устройства.
+> [AZURE.NOTE] If you have already provisioned a device in your solution, you can skip this step. You will need to know the device credentials when you create the client application.
 
-Чтобы устройство смогло подключиться к предварительно настроенному решению, оно должно пройти идентификацию в центре IoT с использованием допустимых учетных данных. Учетные данные устройства можно получить на панели мониторинга решения. Вы добавите их в клиентское приложение далее в этом учебнике.
+For a device to connect to the preconfigured solution, it must identify itself to IoT Hub using valid credentials. You can retrieve the device credentials from the solution dashboard. You include the device credentials in your client application later in this tutorial. 
 
-Чтобы добавить новое устройство в решение для удаленного мониторинга, выполните следующие действия на панели мониторинга решения.
+To add a new device to your remote monitoring solution, complete the following steps in the solution dashboard:
 
-1.  В левом нижнем углу панели мониторинга щелкните **Добавить устройство**.
+1.  In the lower left-hand corner of the dashboard, click **Add a device**.
 
     ![][1]
 
-2.  На панели **Пользовательское устройство** нажмите кнопку **Добавить новое**.
+2.  In the **Custom Device** panel, click on **Add new**.
 
     ![][2]
 
-3.  Выберите **Позвольте мне определить собственный идентификатор устройства**, введите идентификатор устройства, например **mydevice**, щелкните **Проверить идентификатор**, чтобы убедиться, что имя не используется, а затем нажмите кнопку **Создать**, чтобы подготовить устройство.
+3.  Choose **Let me define my own Device ID**, enter a Device ID such as **mydevice**, click **Check ID** to verify that name isn't already in use, and then click **Create** to provision the device.
 
     ![][3]
 
-5. Запишите учетные данные устройства (идентификатор устройства, имя узла центра IoT, ключ устройства). Они потребуются клиентскому приложению, чтобы подключиться к решению для удаленного мониторинга. Затем нажмите кнопку **Done** (Готово).
+5. Make a note the device credentials (Device ID, IoT Hub Hostname, and Device Key), your client application needs them to connect to the remote monitoring solution. Then click **Done**.
 
     ![][4]
 
-6. В разделе "Устройства" убедитесь, что ваше устройство отображается. Для него будет отображаться состояние **В ожидании**, пока устройство не установит подключение к решению для удаленного мониторинга.
+6. Make sure your device displays in the devices section. The device status is **Pending** until the device establishes a connection to the remote monitoring solution.
 
     ![][5]
 
@@ -77,4 +77,6 @@
 [lnk-remote-monitoring]: ../articles/iot-suite/iot-suite-remote-monitoring-sample-walkthrough.md
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 
-<!---HONumber=AcomDC_0720_2016-->
+<!--HONumber=Oct16_HO2-->
+
+

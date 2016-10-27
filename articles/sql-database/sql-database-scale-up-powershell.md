@@ -1,112 +1,115 @@
 <properties 
-    pageTitle="Изменение уровня обслуживания и уровня производительности базы данных SQL Azure с помощью PowerShell" 
-    description="Измените уровень производительности и уровень обслуживания базы данных SQL Azure для масштабирования базы данных с помощью PowerShell. Изменение ценовой категории базы данных SQL Azure с помощью PowerShell." 
-	services="sql-database"
-	documentationCenter=""
-	authors="stevestein"
-	manager="jhubbard"
-	editor=""/>
+    pageTitle="Change the service tier and performance level of an Azure SQL database using PowerShell | Microsoft Azure" 
+    description="Change the service tier and performance level of an Azure SQL database shows how to scale your SQL database up or down with PowerShell. Changing the pricing tier of an Azure SQL database with PowerShell." 
+    services="sql-database"
+    documentationCenter=""
+    authors="stevestein"
+    manager="jhubbard"
+    editor=""/>
 
 <tags
-	ms.service="sql-database"
-	ms.devlang="NA"
-	ms.date="07/19/2016"
-	ms.author="sstein"
-	ms.workload="data-management"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"/>
+    ms.service="sql-database"
+    ms.devlang="NA"
+    ms.date="10/12/2016"
+    ms.author="sstein"
+    ms.workload="data-management"
+    ms.topic="article"
+    ms.tgt_pltfrm="NA"/>
 
 
-# Изменение уровня обслуживания и уровня производительности (ценовой категории) базы данных SQL с помощью PowerShell
+
+# <a name="change-the-service-tier-and-performance-level-(pricing-tier)-of-a-sql-database-with-powershell"></a>Change the service tier and performance level (pricing tier) of a SQL database with PowerShell
 
 
 > [AZURE.SELECTOR]
-- [Портал Azure](sql-database-scale-up.md)
-- [PowerShell](sql-database-scale-up-powershell.md)
+- [Azure portal](sql-database-scale-up.md)
+- [**PowerShell**](sql-database-scale-up-powershell.md)
 
 
-Уровни службы и уровни производительности описывают функции и ресурсы, доступные для базы данных SQL. Их можно обновлять в соответствии с потребностями приложения. Дополнительные сведения см. в статье [Уровни служб](sql-database-service-tiers.md).
+Service tiers and performance levels describe the features and resources available for your SQL database and can be updated as the needs of your application change. For details, see [Service Tiers](sql-database-service-tiers.md).
 
-Обратите внимание, что при изменении уровня обслуживания или уровня производительности базы данных создается реплика исходной базы данных с новым уровнем производительности, после чего устанавливаются подключения к реплике. Во время этого процесса данные не теряются, но в течение короткого периода, когда производится переподключение к реплике, соединения с базой данных становятся неактивны, поэтому некоторые текущие транзакции могут откатиться. Этот период может быть разным, но обычно он не превышает 4 секунд, а в более чем 99 % случаев его длительность составляет менее 30 секунд. В очень редких случаях, особенно если в момент отключения соединений выполняется большое количество транзакций, этот период может быть длиннее.
+Note that changing the service tier and/or performance level of a database creates a replica of the original database at the new performance level, and then switches connections over to the replica. No data is lost during this process but during the brief moment when we switch over to the replica, connections to the database are disabled, so some transactions in flight may be rolled back. This window varies, but is on average under 4 seconds, and in more than 99% of cases is less than 30 seconds. Very infrequently, especially if there are large numbers of transactions in flight at the moment connections are disabled, this window may be longer.  
 
-Длительность всего процесса вертикального масштабирования зависит от размера и уровня службы базы данных до и после изменения. Например, если база данных размером 250 ГБ переводится с уровня службы "Стандартный", на этот уровень или в его пределах, процесс должен завершиться в течение 6 часов. Если уровень производительности базы данных того же размера меняется в пределах уровня службы "Премиум", процесс должен завершиться в течение 3 часов.
-
-
-- При снижении уровня базы данных ее размер не должен превышать максимально допустимый размер целевого уровня служб.
-- При обновлении базы данных с включенной [георепликацией](sql-database-geo-replication-portal.md) перед обновлением базы данных-источника необходимо сначала обновить базы данных-получатели до требуемого уровня производительности.
-- При понижении от уровня обслуживания Premium необходимо сначала завершить все активные отношения георепликации. Чтобы остановить процесс репликации между базой данных-источником и активными базами данных-получателями, выполните действия, описанные в разделе [Восстановление после сбоя](sql-database-disaster-recovery.md).
-- Предложения службы восстановления отличаются для разных уровней служб. При переходе на более низкий уровень можно потерять возможность восстановления на момент времени или получить меньший срок хранения резервных копий. Дополнительные сведения см. в статье [Резервное копирование и восстановление Базы данных SQL Azure](sql-database-business-continuity.md).
-- Новые свойства базы данных не применяются до тех пор, пока изменение не завершится.
+The duration of the entire scale-up process depends on both the size and service tier of the database before and after the change. For example, a 250 GB database that is changing to, from, or within a Standard service tier, should complete within 6 hours. For a database of the same size that is changing performance levels within the Premium service tier, it should complete within 3 hours.
 
 
+- To downgrade a database, the database should be smaller than the maximum allowed size of the target service tier. 
+- When upgrading a database with [Geo-Replication](sql-database-geo-replication-portal.md) enabled, you must first upgrade its secondary databases to the desired performance tier before upgrading the primary database.
+- When downgrading from a Premium service tier, you must first terminate all Geo-Replication relationships. You can follow the steps described in the [Recover from an outage](sql-database-disaster-recovery.md) topic to stop the replication process between the primary and the active secondary databases.
+- The restore service offerings are different for the various service tiers. If you are downgrading you may lose the ability to restore to a point in time, or have a lower backup retention period. For more information, see [Azure SQL Database Backup and Restore](sql-database-business-continuity.md).
+- The new properties for the database are not applied until the changes are complete.
 
-**Для работы с этой статьей необходимо следующее:**
 
-- Подписка Azure. Если вам требуется подписка Azure, нажмите в верхней части этой страницы кнопку **БЕСПЛАТНАЯ УЧЕТНАЯ ЗАПИСЬ**. Оформив подписку, вернитесь к этой статье.
-- База данных SQL Azure. Если у вас нет базы данных SQL, создайте ее в соответствии с инструкциями в следующей статье: [Создание первой базы данных SQL Azure](sql-database-get-started.md).
+
+**To complete this article you need the following:**
+
+- An Azure subscription. If you need an Azure subscription simply click **FREE ACCOUNT** at the top of this page, and then come back to finish this article.
+- An Azure SQL database. If you do not have a SQL database, create one following the steps in this article: [Create your first Azure SQL Database](sql-database-get-started.md).
 - Azure PowerShell.
 
 
-[AZURE.INCLUDE [Запуск сеанса PowerShell](../../includes/sql-database-powershell.md)]
+[AZURE.INCLUDE [Start your PowerShell session](../../includes/sql-database-powershell.md)]
 
 
 
-## Изменение уровня обслуживания и уровня производительности базы данных SQL
+## <a name="change-the-service-tier-and-performance-level-of-your-sql-database"></a>Change the service tier and performance level of your SQL database
 
-Выполните командлет **Set-AzureRMSqlDatabase** и задайте в параметре **- RequestedServiceObjectiveName** уровень производительности требуемой ценовой категории, например *S0*, *S1*, *S2*, *S3*, *P1*, *P2* …
+Run the **Set-AzureRmSqlDatabase** cmdlet and set the **-RequestedServiceObjectiveName** to the performance level of the desired pricing tier; for example *S0*, *S1*, *S2*, *S3*, *P1*, *P2*, ...
 
-    $ResourceGroupName = "resourceGroupName"
+```
+$ResourceGroupName = "resourceGroupName"
     
-    $ServerName = "serverName"
-    $DatabaseName = "databaseName"
+$ServerName = "serverName"
+$DatabaseName = "databaseName"
 
-    $NewEdition = "Standard"
-    $NewPricingTier = "S2"
+$NewEdition = "Standard"
+$NewPricingTier = "S2"
 
-    $ScaleRequest = Set-AzureRmSqlDatabase -DatabaseName $DatabaseName -ServerName $ServerName -ResourceGroupName $ResourceGroupName -Edition $NewEdition -RequestedServiceObjectiveName $NewPricingTier
-
+Set-AzureRmSqlDatabase -DatabaseName $DatabaseName -ServerName $ServerName -ResourceGroupName $ResourceGroupName -Edition $NewEdition -RequestedServiceObjectiveName $NewPricingTier
+```
 
   
 
    
 
 
-## Пример скрипта PowerShell для изменения уровня обслуживания и уровня производительности базы данных SQL
+## <a name="sample-powershell-script-to-change-the-service-tier-and-performance-level-of-your-sql-database"></a>Sample PowerShell script to change the service tier and performance level of your SQL database
 
-    
+Replace ```{variables}``` with your values (do not include the curly braces).
 
+```
+$SubscriptionId = "{4cac86b0-1e56-bbbb-aaaa-000000000000}"
     
-    $SubscriptionId = "4cac86b0-1e56-bbbb-aaaa-000000000000"
+$ResourceGroupName = "{resourceGroup}"
+$Location = "{AzureRegion}"
     
-    $ResourceGroupName = "resourceGroupName"
-    $Location = "Japan West"
+$ServerName = "{server}"
+$DatabaseName = "{database}"
     
-    $ServerName = "serverName"
-    $DatabaseName = "databaseName"
+$NewEdition = "{Standard}"
+$NewPricingTier = "{S2}"
     
-    $NewEdition = "Standard"
-    $NewPricingTier = "S2"
+Add-AzureRmAccount
+Set-AzureRmContext -SubscriptionId $SubscriptionId
     
-    Add-AzureRmAccount
-    Select-AzureRmSubscription -SubscriptionId $SubscriptionId
-    
-    $ScaleRequest = Set-AzureRmSqlDatabase -DatabaseName $DatabaseName -ServerName $ServerName -ResourceGroupName $ResourceGroupName -Edition $NewEdition -RequestedServiceObjectiveName $NewPricingTier
-    
-    $ScaleRequest
-    
+Set-AzureRmSqlDatabase -DatabaseName $DatabaseName -ServerName $ServerName -ResourceGroupName $ResourceGroupName -Edition $NewEdition -RequestedServiceObjectiveName $NewPricingTier
+```
         
 
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Next steps
 
-- [Масштабирование](sql-database-elastic-scale-get-started.md)
-- [Подключение к базе данных SQL и выполнение запросов с помощью SSMS](sql-database-connect-query-ssms.md)
-- [Экспорт базы данных SQL Azure](sql-database-export-powershell.md)
+- [Scale out and in](sql-database-elastic-scale-get-started.md)
+- [Connect and query a SQL database with SSMS](sql-database-connect-query-ssms.md)
+- [Export an Azure SQL database](sql-database-export-powershell.md)
 
-## Дополнительные ресурсы
+## <a name="additional-resources"></a>Additional resources
 
-- [Общие сведения о непрерывности бизнес-процессов](sql-database-business-continuity.md)
-- [База данных SQL — документация](http://azure.microsoft.com/documentation/services/sql-database/)
-- [Командлеты Базы данных SQL Azure](http://msdn.microsoft.com/library/mt574084.aspx)
+- [Business Continuity Overview](sql-database-business-continuity.md)
+- [SQL Database documentation](http://azure.microsoft.com/documentation/services/sql-database/)
+- [Azure SQL Database Cmdlets](http://msdn.microsoft.com/library/mt574084.aspx)
 
-<!---HONumber=AcomDC_0720_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

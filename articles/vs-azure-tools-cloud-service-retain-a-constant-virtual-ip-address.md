@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Сохранение постоянного виртуального IP-адреса для облачной службы | Microsoft Azure"
-   description="Узнайте, как сохранить постоянный виртуальный IP-адрес (VIP) облачной службы Azure."
+   pageTitle="How to retain a constant virtual IP address for a cloud service | Microsoft Azure"
+   description="Learn how to ensure that the virtual IP address (VIP) of your Azure cloud service doesn't change."
    services="visual-studio-online"
    documentationCenter="na"
    authors="TomArcher"
@@ -15,34 +15,39 @@
    ms.date="08/15/2016"
    ms.author="tarcher" />
 
-# Сохранение постоянного виртуального IP-адреса облачной службы
 
-При обновлении облачной службы, размещенной в Azure, необходимо убедиться в том, что виртуальный IP-адрес (VIP) службы не изменяется. Многие службы управления доменом используют службу доменных имен (DNS) для регистрации доменных имен. Регистрация с помощью DNS возможна, только если виртуальный IP-адрес остается неизменным. Проверить, изменяется ли виртуальный IP-адрес облачной службы при обновлении, можно с помощью **мастера публикации** в инструментах Azure. Дополнительные сведения об управлении доменами DNS для облачных служб см. в статье [Настройка имени личного домена для облачной службы Azure](./cloud-services/cloud-services-custom-domain-name.md).
+# <a name="how-to-retain-a-constant-virtual-ip-address-for-a-cloud-service"></a>How to retain a constant virtual IP address for a cloud service
 
-## Публикация облачной службы без изменения ее виртуального IP-адреса
+When you update a cloud service that's hosted in Azure, you might need to ensure that the virtual IP address (VIP) of the service doesn't change. Many domain management services use the Domain Name System (DNS) for registering domain names. DNS works only if the VIP remains the same. You can use the **Publish Wizard** in Azure Tools to ensure that the VIP of your cloud service doesn’t change when you update it. For more information about how to use DNS domain management for cloud services, see [Configuring a custom domain name for an Azure cloud service](./cloud-services/cloud-services-custom-domain-name.md).
 
-Виртуальный IP-адрес (VIP) облачной службы назначается при первом развертывании службы в Azure в конкретной среде, например в рабочей среде. Виртуальный IP-адрес изменяется, только если развертывание удаляется явно или если оно удаляется неявно в процессе обновления. Чтобы сохранить виртуальный IP-адрес, нельзя удалять развертывание. Кроме того, необходимо убедиться, что Visual Studio не удаляет развертывание автоматически. Для управления поведением можно указать параметры развертывания в **мастере публикации**, который поддерживает несколько вариантов развертывания. Можно указать новое развертывание или развертывание обновления, которое может быть добавочным или одновременным. Оба вида развертывания сохраняют виртуальный IP-адрес. Определение разных типов развертывания см. в статье [Мастер публикации приложений Azure](vs-azure-tools-publish-azure-application-wizard.md). Кроме того, можно указать, нужно ли удалять предыдущее развертывание облачной службы при возникновении ошибки. Виртуальный IP-адрес может неожиданно измениться, если этот параметр не установлен правильно.
+## <a name="publishing-a-cloud-service-without-changing-its-vip"></a>Publishing a cloud service without changing its VIP
 
-### Обновление облачной службы без изменения ее виртуального IP-адреса
+The VIP of a cloud service is allocated when you first deploy it to Azure in a particular environment, such as the Production environment. The VIP doesn’t change unless you delete the deployment explicitly or it is implicitly deleted by the deployment update process. To retain the VIP, you must not delete your deployment, and you must also make sure that Visual Studio doesn’t delete your deployment automatically. You can control the behavior by specifying deployment settings in the **Publish Wizard**, which supports several deployment options. You can specify a fresh deployment or an update deployment, which can be incremental or simultaneous, and both kinds of update deployments retain the VIP. For definitions of these different types of deployment, see [Publish Azure Application Wizard](vs-azure-tools-publish-azure-application-wizard.md).  In addition, you can control whether the previous deployment of a cloud service is deleted if an error occurs. The VIP might unexpectedly change if you don't set that option correctly.
 
-1. Развернув облачную службу как минимум один раз, откройте контекстное меню узла проекта Azure и выберите **Опубликовать**. Откроется **мастер публикации приложений Azure**.
+### <a name="to-update-a-cloud-service-without-changing-its-vip"></a>To update a cloud service without changing its VIP
 
-1. В списке подписок выберите подписку для развертывания, а затем нажмите кнопку **Далее**. Откроется страница **Параметры** мастера.
+1. After you deploy your cloud service at least once, open the shortcut menu for the node for your Azure project, and then choose **Publish**. The **Publish Azure Application** wizard appears.
 
-1. На вкладке **Общие параметры** проверьте правильность имени облачной службы, для которой выполняется развертывание, а также значений параметров **Среда**, **Конфигурация сборки** и **Конфигурация службы**.
+1. In the list of subscriptions, choose the one to which you want to deploy, and then choose the **Next** button. The **Settings** page of the wizard appears.
 
-1. На вкладке **Дополнительные параметры** проверьте правильность учетной записи хранения и метки развертывания. Кроме того, убедитесь в том, что флажок **Удалить развертывание при сбое** снят, а флажок **Обновлять развертывание** установлен. Установленный флажок **Обновлять развертывание** гарантирует, что развертывание не будет удалено, а виртуальный IP-адрес не будет потерян при повторной публикации приложения. Снятый флажок **Удалить развертывание при сбое** гарантирует, что виртуальный IP-адрес не будет потерян при возникновении ошибки во время развертывания.
+1. On the **Common Settings** tab, verify that the name of the cloud service to which you’re deploying, the **Environment**, the **Build Configuration**, and the **Service Configuration** are all correct.
 
-1. Чтобы указать способ обновления в дальнейшем, перейдите по ссылке **Параметры** рядом с полем **Обновлять развертывание**. Затем в диалоговом окне **Параметры обновления развертывания** выберите добавочное или одновременное обновление. Если указать добавочное обновление, все экземпляры будут обновляться по очереди, обеспечивая доступность приложения в любое время. Если указать одновременное обновление, все экземпляры будут обновляться одновременно. Одновременное обновление выполняется быстрее, но служба может быть недоступна во время обновления.
+1. On the **Advanced Settings** tab, verify that the storage account and the deployment label are correct, that the **Delete deployment on failure** check box is cleared, and that the **Deployment** update check box is selected. By selecting the **Deployment** update check box, you ensure that your deployment won't be deleted and your VIP won't be lost when you republish your application. By clearing the **Delete deployment on failure check box**, you ensure that your VIP won't be lost if an error occurs during deployment.
 
-1. Изменив настройки, нажмите кнопку **Далее**.
+1. To further specify how you want the roles to be updated, choose the  **Settings** link next to the **Deployment update** box, and then choose either the incremental update or simultaneous update option in the **Deployment update** settings dialog box. If you choose incremental update, each instance is updated one after another, so that the application is always available. If you choose simultaneous update, all instances are updated at the same time. Simultaneous updating is faster, but your service might not be available during the update process.
 
-1. На странице **Сводка** мастера проверьте параметры, а затем нажмите кнопку **Опубликовать**.
+1. When you’re satisfied with your settings, choose the **Next** button.
 
-  >[AZURE.WARNING] Если развертывание завершается ошибкой, следует незамедлительно устранить причину сбоя и выполнить повторное развертывание. Облачная служба не должна оставаться в поврежденном состоянии.
+1. On the **Summary** page of the wizard, verify your settings, and then choose the **Publish** button.
 
-## Дальнейшие действия
+  >[AZURE.WARNING] If the deployment fails, you should address why it failed and redeploy promptly, to avoid leaving your cloud service in a corrupted state.
 
-Дополнительные сведения о публикации в Azure в среде Visual Studio см. в статье [Мастер публикации приложений Azure](vs-azure-tools-publish-azure-application-wizard.md).
+## <a name="next-steps"></a>Next steps
 
-<!---HONumber=AcomDC_0817_2016-->
+To learn about publishing to Azure from Visual Studio, see [Publish Azure application wizard](vs-azure-tools-publish-azure-application-wizard.md).
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

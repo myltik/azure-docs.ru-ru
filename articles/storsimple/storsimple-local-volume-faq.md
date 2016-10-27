@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Часто задаваемые вопросы о локально закрепленных томах StorSimple | Microsoft Azure"
-   description="В этой статье приводятся ответы на часто задаваемые вопросы о локально закрепленных томах StorSimple."
+   pageTitle="StorSimple locally pinned volumes FAQ|Microsoft Azure"
+   description="Provides answers to frequently asked questions about StorSimple locally pinned volumes."
    services="storsimple"
    documentationCenter="NA"
    authors="manuaery"
@@ -15,202 +15,209 @@
    ms.date="08/16/2016"
    ms.author="manuaery" />
 
-# Локально закрепленные тома StorSimple: часто задаваемые вопросы
 
-## Обзор
+# <a name="storsimple-locally-pinned-volumes:-frequently-asked-questions-(faq)"></a>StorSimple locally pinned volumes: frequently asked questions (FAQ)
 
-Ниже приведены вопросы и ответы о создании локально закрепленного тома StorSimple, преобразовании многоуровневого тома в локально закрепленный (и наоборот) или резервном копировании и восстановлении локально закрепленного тома.
+## <a name="overview"></a>Overview
 
-Вопросы и ответы упорядочены по следующим категориям:
+The following are questions and answers that you might have when you create a StorSimple locally pinned volume, convert a tiered volume to a locally pinned volume (and vice versa), or back up and restore a locally pinned volume.
 
-- создание локально закрепленного тома;
-- резервное копирование локально закрепленного тома;
-- преобразование многоуровневого тома в локально закрепленный;
-- восстановление локально закрепленного тома;
-- отработка отказа локально закрепленного тома.
+Questions and answers are arranged into the following categories
 
-## Вопросы о создании локально закрепленного тома
+- Creating a locally pinned volume
+- Backing up a locally pinned
+- Converting a tiered volume to a locally pinned volume
+- Restoring a locally pinned volume
+- Failing over a locally pinned volume
 
-**Вопрос.** Каков максимальный размер локально закрепленного тома, который можно создать на устройствах серии 8000?
+## <a name="questions-about-creating-a-locally-pinned-volume"></a>Questions about creating a locally pinned volume
 
-**Ответ.** На устройстве 8100 можно подготавливать локально закрепленные тома размером до 8,5 ТБ ИЛИ многоуровневые тома размером до 200 ТБ. На устройстве 8600, которое отличается большим размером, можно подготавливать локально закрепленные тома размером до 22,5 ТБ и многоуровневые тома размером до 500 ТБ.
+**Q.** What is the maximum size of a locally pinned volume that I can create on the 8000 series devices?
 
-**Вопрос.** На моем устройстве 8100 недавно установлено обновление 2. При попытке создать локально закрепленный том его максимальный доступный размер составляет 6 ТБ, а не 8,5 ТБ. Почему не удается создать том размером 8,5 ТБ?
+**A** You can provision locally pinned volumes up to 8.5 TB or tiered volumes up to 200 TB on the 8100 device. On the larger 8600 device, you can provision locally pinned volumes up to 22.5 TB or tiered volumes up to 500 TB.
 
-**Ответ.** На устройстве 8100 можно подготавливать локально закрепленные тома размером до 8,5 ТБ ИЛИ многоуровневые тома размером до 200 ТБ. Если на устройстве уже есть многоуровневые тома, доступное место для создания локально закрепленного тома будет соразмерно меньше максимального значения. Например, если на устройстве 8100 уже подготовлено 100 ТБ для многоуровневых томов (половина предусмотренной емкости), максимальный размер локально закрепленного тома, который можно создать на устройстве 8100, будет соответственно уменьшен до 4 ТБ (примерно половина предусмотренной максимальной емкости).
+**Q.** I recently upgraded my 8100 device to Update 2 and when I try to create a locally pinned volume, the maximum available size is only 6 TB and not 8.5 TB. Why can’t I create an 8.5 TB volume?
 
-Так как часть локального пространства на устройстве используется для размещения рабочего набора многоуровневых томов, доступное место для создания локально закрепленного тома уменьшается, если на устройстве есть многоуровневые тома. И наоборот, при создании локально закрепленного тома соразмерно уменьшается доступное место для многоуровневых томов. В следующей таблице указана доступная емкость для многоуровневых томов на устройствах 8100 и 8600 при создании локально закрепленных томов.
+**A** You can provision locally pinned volumes up to 8.5 TB OR tiered volumes up to 200 TB on the 8100 device. If your device already has tiered volumes, then the space available for creating a locally pinned volume will be proportionally lower than this maximum limit. For example, if 100 TB of tiered volumes have already been provisioned on your 8100 device (which is half of the tiered capacity), then the maximum size of a local volume that you can create on the 8100 device will be correspondingly reduced to 4 TB (roughly half of the maximum locally pinned volume capacity).
 
-|Емкость для подготовки локально закрепленных томов|Доступная емкость для подготовки многоуровневых томов на устройствах 8100|Доступная емкость для подготовки многоуровневых томов на устройствах 8600|
+Because some local space on the device is used to host the working set of tiered volumes, the available space for creating a locally pinned volume is reduced if the device has tiered volumes. Conversely, creating a locally pinned volume proportionally reduces the available space for tiered volumes. The following table summarizes the available tiered capacity on the 8100 and 8600 devices when locally pinned volumes are created.
+
+|Locally pinned volumes provisioned capacity|Available capacity to be provisioned for tiered volumes - 8100|Available capacity to be provisioned for tiered volumes - 8600|
 |-----|------|------|
-|0 | 200 ТБ | 500 TБ |
-|1 TБ | 176,5 TБ | 477,8 TБ|
-|4 TБ | 105,9 TБ | 411,1 ТБ |
-|8,5 TБ | 0 TБ | 311,1 ТБ|
-|10 ТБ | Нет данных | 277,8 TБ |
-|15 ТБ | Нет данных | 166,7 TБ |
-|22,5 ТБ | Нет данных | 0 TБ |
+|0 | 200 TB | 500 TB |
+|1 TB | 176.5 TB | 477.8 TB|
+|4 TB | 105.9 TB | 411.1 TB |
+|8.5 TB | 0 TB | 311.1 TB|
+|10 TB | NA | 277.8 TB |
+|15 TB | NA | 166.7 TB |
+|22.5 TB | NA | 0 TB |
 
 
-**Вопрос.** Почему создание локально закрепленного тома — это длительная операция?
+**Q.** Why is locally pinned volume creation a long running operation? 
 
-**Ответ.** Для локально закрепленных томов выполняется фиксированная подготовка. Для создания пространства на локальных уровнях устройства данные из существующих многоуровневых томов могут частично перемещаться в облако в процессе подготовки. Так как это зависит от размера подготавливаемого тома, существующих данных на устройстве и доступной пропускной способности в облаке, создание локального тома может занять несколько часов.
+**A.** Locally pinned volumes are thickly provisioned. To create space on the local tiers of the device, some data from existing tiered volumes might be pushed to the cloud during the provisioning process. And since this depends upon the size of the volume being provisioned, the existing data on your device and the available bandwidth to the cloud, the time taken to create a local volume may be several hours.
 
-**Вопрос.** Сколько времени занимает создание локально закрепленного тома?
+**Q.** How long does it take to create a locally pinned volume?
 
-**Ответ.** Так как для локально закрепленных томов выполняется фиксированная подготовка, существующие данные из многоуровневых томов могут частично перемещаться в облако в процессе подготовки. Поэтому время, необходимое для создания локально закрепленного тома, зависит от нескольких факторов, включая размер тома, данные на устройстве и доступную пропускную способность. На только что установленном устройстве без томов время для создания локально закрепленного тома составляет около 10 минут на терабайт данных. Однако создание локальных томов на устройстве, которое уже используется, может занять несколько часов в зависимости от факторов, описанных выше.
+**A.** Because locally pinned volumes are thickly provisioned, some existing data from tiered volumes might be pushed to the cloud during the provisioning process. Therefore, the time taken to create a locally pinned volume depends upon multiple factors, including the size of the volume, the data on your device and the available bandwidth. On a freshly installed device that has no volumes, the time to create a locally pinned volume is about 10 minutes per terabyte of data. However, creation of local volumes may take several hours based on the factors explained above on a device that is in use.
 
-**Вопрос.** Я хочу создать локально закрепленный том. Существуют ли какие-либо рекомендации, которые необходимо учитывать?
+**Q.** I want to create a locally pinned volume. Are there any best practices I need to be aware of?
 
-**Ответ.** Локально закрепленные тома подходят для рабочих нагрузок, данные для которых должны все время быть доступными локально и которые чувствительны к задержкам в облаке. Планируя использование локальных томов для любых рабочих нагрузок, следует учитывать следующее.
+**A.** Locally pinned volumes are suitable for workloads that require local guarantees of data at all times and are sensitive to cloud latencies. While considering usage of local volumes for any of your workloads, please be aware of the following:
 
-- Для локально закрепленных томов выполняется фиксированная подготовка. Кроме того, создание локальных томов влияет на доступное пространство для многоуровневых томов. Поэтому мы рекомендуем начать с томов небольшого размера, увеличивая их масштаб, когда вам потребуется дополнительный объем для хранения данных.
+- Locally pinned volumes are thickly provisioned, and creating local volumes impacts the available space for tiered volumes. Therefore, we suggest you start with smaller-sized volumes and scale up as your storage requirement increases.
 
-- Подготовка локальных томов является длительной операцией, в ходе которой существующие данные из многоуровневых томов могут перемещаться в облако. В результате этого может наблюдаться снижение производительности в этих томах.
+- Provisioning of local volumes is a long running operation that might involve pushing existing data from tiered volumes to the cloud. As a result, you may experience reduced performance on these volumes.
 
-- Подготовка локальных томов является длительной операцией. Фактически затраченное время зависит от нескольких факторов: размер подготавливаемого тома, данные на устройстве и доступная пропускная способность. Если вы не выполнили резервное копирование существующих томов в облако, том создается медленнее. Мы рекомендуем создать облачные моментальные снимки существующих томов перед подготовкой локального тома.
+- Provisioning of local volumes is a time consuming operation. The actual time involved depends on multiple factors: the size of the volume being provisioned, data on your device, and available bandwidth. If you have not backed up your existing volumes to the cloud, then volume creation is slower. We suggest you take cloud snapshots of your existing volumes before you provision a local volume.
  
-- Существующие многоуровневые тома можно преобразовать в локально закрепленные. Это преобразование включает подготовку места на устройстве для локально закрепленного тома (помимо переноса данных многоуровневого тома [при их наличии] из облака). Опять же, это длительная операция, которая зависит от факторов, упомянутых выше. Рекомендуем создать резервные копии существующих томов перед преобразованием, так как без резервных копий этот процесс займет больше времени. В ходе операции также может снизиться скорость работы устройства.
-	
-См. дополнительные сведения о том, как [создать локально закрепленный том](storsimple-manage-volumes-u2.md#add-a-volume).
+- You can convert existing tiered volumes to locally pinned volumes, and this conversion involves provisioning of space on the device for the resulting locally pinned volume (in addition to bringing down tiered data [if any] from the cloud). Again, this is a long running operation that depends on factors we’ve discussed above. We suggest that you back up your existing volumes prior to conversion as the process will be even slower if existing volumes are not backed up. Your device might also experience reduced performance during this process.
+    
+More information on how to [create a locally pinned volume](storsimple-manage-volumes-u2.md#add-a-volume)
 
-**Вопрос.** Можно ли создать несколько локально закрепленных томов одновременно?
+**Q.** Can I create multiple locally pinned volumes at the same time?
 
-**Ответ.** Да, но все задания по созданию и расширению локально закрепленных томов обрабатываются последовательно.
+**A.** Yes, but any locally pinned volume creation and expansion jobs are processed sequentially.
 
-Для локально закрепленных томов выполняется фиксированная подготовка. Для этого на устройстве необходимо создать локальное пространство (что может привести к перемещению существующих данных из многоуровневых томов в облако в процессе подготовки). Поэтому в ходе задания подготовки другие задания по созданию локального тома помещаются в очередь до завершения этого задания.
+Locally pinned volumes are thickly provisioned and this requires creation of local space on the device (which might result in existing data from tiered volumes to be pushed to the cloud during the provisioning process). Therefore, if a provisioning job is in progress, other local volume creation jobs will be queued until that job is finished.
 
-Аналогично, если существующий локальный том расширяется или многоуровневый том преобразуется в локально закрепленный, то операция по созданию локально закрепленного тома помещается в очередь до завершения предыдущего задания. При увеличении размера локально закрепленного тома также расширяется локальное пространство для этого тома. При преобразовании многоуровневого тома в локально закрепленный также необходимо создать локальное пространство для полученного локально закрепленного тома. Обе эти операции — создание и расширение локального пространства — являются заданиями, выполнение которых занимает много времени.
+Similarly, if an existing local volume is being expanded or a tiered volume is being converted to a locally pinned volume, then the creation of a new locally pinned volume is queued until the previous job is completed. Expanding the size of a locally pinned volume involves the expansion of the existing local space for that volume. Conversion from a tiered to locally pinned volume also involves the creation of local space for the resulting locally pinned volume. In both of these operations, creation or expansion of local space is a long running job.
 
-Их можно просмотреть на странице **Задания** службы диспетчера Azure StorSimple. Задание, которое активно обрабатывается, постоянно обновляется и отражает ход выполнения подготовки пространства. Оставшиеся задания локально закрепленных томов помечаются как выполняющиеся; их выполнение приостанавливается, а затем возобновляется в том порядке, в котором они были поставлены в очередь.
+You can view these jobs in the **Jobs** page of the Azure StorSimple Manager service. The job that is actively being processed is continually updated to reflect the progress of space provisioning. The remaining locally pinned volume jobs is marked as running, but their progress is stalled and they are picked in the order they were queued.
 
-**Вопрос.** Локально закрепленный том удален. Почему при попытке создать новый том не отображается освобожденное пространство?
+**Q.** I deleted a locally pinned volume. Why don't I see the reclaimed space reflected in the available space when I try to create a new volume? 
 
-**Ответ.** При удалении локально закрепленного тома пространство для новых томов может обновляться не сразу. Служба диспетчера StorSimple обновляет доступное локальное пространство с частотой примерно один раз в час. Рекомендуем подождать около часа, прежде чем приступать к созданию нового тома.
+**A.** If you delete a locally pinned volume, the space available for new volumes may not be updated immediately. The StorSimple Manager Service updates the local space available approximately every hour. We suggest you wait for an hour before you try to create the new volume.
 
-**Вопрос.** Поддерживаются ли локально закрепленные тома на облачных устройствах?
+**Q.** Are locally pinned volumes supported on the cloud appliance?
 
-**Ответ.** Локально закрепленные тома не поддерживаются на облачных устройствах (устройства 8010 и 8020, прежнее название — виртуальное устройство StorSimple).
+**A.** Locally pinned volumes are not supported on the cloud appliance (8010 and 8020 devices formerly referred to as the StorSimple virtual device).
 
-**Вопрос.** Можно ли использовать командлеты Azure PowerShell для создания локально закрепленных томов и управления ими?
+**Q.** Can I use the Azure PowerShell cmdlets to create and manage locally pinned volumes? 
 
-**Ответ.** Нет, с помощью командлетов Azure PowerShell нельзя создавать локально закрепленные тома (все тома, созданные с помощью Azure PowerShell, являются многоуровневыми). Также не рекомендуется использовать командлеты Azure PowerShell для изменения свойств локально закрепленных томов, так как это приведет к нежелательным последствиям — изменению типа тома на многоуровневый.
+**A.** No, you cannot create locally pinned volumes via Azure PowerShell cmdlets (any volume you create via Azure PowerShell is tiered). We also suggest that you do not use the Azure PowerShell cmdlets to modify any properties of a locally pinned volume, as it will have the undesired effect of modifying the volume type to tiered.
 
-## Вопросы о резервном копировании локально закрепленного тома
+## <a name="questions-about-backing-up-a-locally-pinned-volume"></a>Questions about backing up a locally pinned volume
 
-**Вопрос.** Поддерживаются ли локальные моментальные снимки локально закрепленных томов?
+**Q.** Are local snapshots of locally pinned volumes supported?
 
-**Ответ.** Да, вы можете создавать локальные моментальные снимки локально закрепленных томов. Однако мы настоятельно рекомендуем регулярно создавать резервные копии локально закрепленных томов с помощью облачных моментальных снимков, чтобы обеспечить защиту данных на случай аварии.
+**A.** Yes, you can take local snapshots of your locally pinned volumes. However, we strongly suggest that you regularly back up your locally pinned volumes with cloud snapshots to ensure that your data is protected in the eventuality of a disaster.
 
-**Вопрос.** Существуют ли рекомендации по управлению локальными моментальными снимками для локально закрепленных томов?
+**Q.** Are there any guidelines for managing local snapshots for locally pinned volumes?
 
-**Ответ.** Частое создание локальных моментальных снимков наряду с высокой частотой обработки данных в локально закрепленном томе может привести к быстрому заполнению локального пространства на устройстве и перемещению данных из многоуровневых томов в облако. Поэтому рекомендуем минимизировать количество локальных моментальных снимков.
+**A.** Frequent local snapshots alongside a high rate of data churn in the locally pinned volume might cause local space on the device to be consumed quickly and result in data from tiered volumes being pushed to the cloud. We therefore suggest you minimize the number of local snapshots.
 
-**Вопрос.** Поступило предупреждение о том, что мои локальные моментальные снимки локально закрепленных томов могут стать недействительными. Когда это может случиться?
+**Q.** I received an alert stating that my local snapshots of locally pinned volumes might be invalidated. When can this happen?
 
-**Ответ.** Частое создание локальных моментальных снимков наряду с высокой частотой обработки данных в локально закрепленном томе может привести к быстрому заполнению локального пространства на устройстве. Если локальные уровни устройства активно используются, длительный сбой в облаке может привести к переполнению устройства, и входящие записи на томе могут сделать моментальные снимки недействительными (так как для обновления моментальных снимков, ссылающихся на старые блоки данных, которые были перезаписаны, нет места). В таком случае операции записи на томе будут продолжать выполняться, но локальные моментальные снимки могут быть недействительными. Это не повлияет на существующие облачные моментальные снимки.
+**A.** Frequent local snapshots alongside a high rate of data churn in the locally pinned volume might cause local space on the device to be consumed quickly. If the local tiers of the device are heavily used, an extended cloud outage might result in the device becoming full, and incoming writes to the volume might result in invalidation of the snapshots (as no space exists to update the snapshots to refer to the older blocks of data that have been overwritten). In such a situation the writes to the volume will continue to be served, but the local snapshots might be invalid. There is no impact to your existing cloud snapshots.
 
-Предупреждение сообщает о том, что такая ситуация может возникнуть, позволяя вам своевременно принять меры для ее предотвращения. Это можно сделать, изменив расписание локальных моментальных снимков и уменьшив частоту их создания или удалив старые локальные моментальные снимки, которые больше не требуются.
+The alert warning is to notify you that such a situation can arise and ensure you address the same in a timely manner by either reviewing your local snapshots schedules to take less frequent local snapshots or deleting older local snapshots that are no longer required.
 
-Если локальные моментальные снимки станут недействительными, вы получите информационное оповещение о том, что локальные моментальные снимки для определенной политики резервного копирования стали недействительными, а также список меток времени таких снимков. Эти снимки будут удалены автоматически, и вы больше не сможете просматривать их на странице **каталогов службы архивации** на классическом портале Azure.
+If the local snapshots are invalidated, you will receive an information alert notifying you that the local snapshots for the specific backup policy have been invalidated alongside the list of timestamps of the local snapshots that were invalidated. These snapshots will be auto-deleted and you will no longer be able to view them in the **Backup Catalogs** page in the Azure classic portal.
 
-## Вопросы о преобразовании многоуровневого тома в локально закрепленный
+## <a name="questions-about-converting-a-tiered-volume-to-a-locally-pinned-volume"></a>Questions about converting a tiered volume to a locally pinned volume
 
-**Вопрос.** При преобразовании многоуровневого тома в локально закрепленный работа устройства замедляется. Почему это происходит?
+**Q.** I’m observing some slowness on the device while converting a tiered volume to a locally pinned volume. Why is this happening? 
 
-**Ответ.** Процесс преобразования включает два этапа.
+**A.** The conversion process involves two steps: 
 
-  1. Подготовка места на устройстве для локально закрепленного тома, который вскоре будет создан в результате преобразования.
-  2. Загрузка многоуровневых данных из облака для обеспечения доступности данных локально.
+  1. Provisioning of space on the device for the soon-to-be-converted locally pinned volume.
+  2. Downloading any tiered data from the cloud to ensure local guarantees.
 
-Оба эти действия являются длительными операциями, зависящими от размера преобразуемого тома, данных на устройстве и доступной пропускной способности. Так как в ходе подготовки некоторые данные из существующих многоуровневых томов могут сбрасываться в облако, в это время работа устройства может замедляться. Кроме того, процесс преобразования может выполняться медленнее, если:
+Both of these steps are long running operations that are dependent on the size of the volume being converted, data on the device, and available bandwidth. As some data from existing tiered volumes might spill to the cloud as part of the provisioning process, your device might experience reduced performance during this time. In addition, the conversion process can be slower if:
 
-- Не выполнено резервное копирование существующих томов в облако. Рекомендуем это сделать, прежде чем начинать преобразование.
+- Existing volumes have not been backed up to the cloud; so we suggest you backup your volumes prior to initiating a conversion.
 
-- Применены политики регулирования пропускной способности, что может ограничить доступную пропускную способность в облаке. Поэтому мы рекомендуем выделить для подключения к облаку не менее 40 Мбит/с.
+- Bandwidth throttling policies have been applied, which might constrain the available bandwidth to the cloud; we therefore recommend you have a dedicated 40 Mbps or more connection to the cloud.
 
-- Процесс преобразования может занять несколько часов из-за ряда факторов, описанных выше. Поэтому рекомендуем выполнять эту операцию во время низкой нагрузки или на выходных, чтобы это не отразилось на работе пользователей.
+- The conversion process can take several hours due to the multiple factors explained above; therefore, we suggest that you perform this operation during non-peaks times or on a weekend to avoid the impact on end consumers.
 
-См. дополнительные сведения о том, как [преобразовать многоуровневый том в локально закрепленный](storsimple-manage-volumes-u2.md#change-the-volume-type).
+More information on how to [convert a tiered volume to a locally pinned volume](storsimple-manage-volumes-u2.md#change-the-volume-type)
 
-**Вопрос.** Можно ли отменить операцию преобразования тома?
+**Q.** Can I cancel the volume conversion operation?
 
-**Ответ.** Нет, начатую операцию преобразования отменить нельзя. Как уже упоминалось в предыдущем вопросе, при планировании преобразования необходимо учитывать возможные проблемы производительности, которые могут возникнуть во время этого процесса, и следовать перечисленным выше рекомендациям.
+**A.** No, you cannot the cancel the conversion operation once initiated. As discussed in the previous question, please be aware of the potential performance issues that you might encounter during the process, and follow the best practices listed above when you plan your conversion.
 
-**Вопрос.** Что произойдет с томом, если операция преобразования завершится сбоем?
+**Q.** What happens to my volume if the conversion operation fails?
 
-**Ответ.** Преобразование тома может завершиться сбоем из-за проблем с подключением к облаку. Устройство может остановить процесс преобразования после нескольких неудачных попыток перенести многоуровневые данные из облака. В этом случае тип тома останется таким же, как до преобразования. Кроме того:
+**A.** Volume conversion can fail due to cloud connectivity issues. The device may eventually stop the conversion process after a series of unsuccessful attempts to bring down tiered data from the cloud. In such a scenario, the volume type will continue to be the source volume type prior to conversion, and:
 
-- Появится критическое оповещение о сбое преобразования тома. См. дополнительные сведения о [предупреждениях, связанных с локально закрепленными томами](storsimple-manage-alerts.md#locally-pinned-volume-alerts).
+- A critical alert will be raised to notify you of the volume conversion failure. More information on [alerts related to locally pinned volumes](storsimple-manage-alerts.md#locally-pinned-volume-alerts)
 
-- Если многоуровневый том преобразуется в локально закрепленный, он будет и дальше обладать свойствами многоуровневого тома, так как данные по-прежнему могут оставаться в облаке. Рекомендуем устранить проблемы с подключением и повторить попытку преобразования.
+- If you are converting a tiered to a locally pinned volume, the volume will continue to exhibit properties of a tiered volume as data might still reside on the cloud. We suggest that you resolve the connectivity issues and then retry the conversion operation.
  
-- Аналогичным образом при сбое преобразования локально закрепленного тома в многоуровневый, хотя том будет помечен как локально закрепленный, он будет функционировать как многоуровневый (так как данные могли быть перенесены в облако). Тем не менее он будет занимать место на локальных уровнях устройства. Это пространство будет недоступно для других локально закрепленных томов. Рекомендуем повторить эту операцию, чтобы завершить преобразование тома и освободить локальное пространство на устройстве.
+- Similarly, when conversion from a locally pinned to a tiered volume fails, although the volume will be marked as a locally pinned volume, it will function as a tiered volume (because data could have spilled to the cloud). However, it will continue to occupy space on the local tiers of the device. This space will not be available for other locally pinned volumes. We suggest that you retry this operation to ensure that the volume conversion is complete and the local space on the device can be reclaimed.
 
-## Вопросы о восстановлении локально закрепленного тома
+## <a name="questions-about-restoring-a-locally-pinned-volume"></a>Questions about restoring a locally pinned volume
 
-**Вопрос.** Мгновенно ли восстанавливаются локально закрепленные тома?
+**Q.** Are locally pinned volumes restored instantly?
 
-**Ответ.** Да, локально закрепленные тома восстанавливаются мгновенно. Как только метаданные для тома будут извлечены из облака в рамках операции восстановления, том будет подключен к сети и станет доступен для узла. Однако данные тома могут оставаться недоступными локально, пока все данные не будут загружены из облака. Кроме того, во время восстановления возможно снижение производительности в этих томах.
+**A.** Yes, locally pinned volumes are restored instantly. As soon as the metadata information for the volume is pulled from the cloud as part of the restore operation, the volume is brought online and can be accessed by the host. However, local guarantees for the volume data will not be present until all the data has been downloaded from the cloud, and you may experience reduced performance on these volumes for the duration of the restore.
 
-**Вопрос.** Сколько времени занимает восстановление локально закрепленного тома?
+**Q.** How long does it take to restore a locally pinned volume?
 
-**Ответ.** Локально закрепленные тома восстанавливаются мгновенно и подключаются к сети, как только метаданные тома извлекаются из облака, а данные тома тем временем продолжают загружаться в фоновом режиме. Последняя часть операции восстановления — обеспечение доступности данных тома локально — является длительной операцией, которая может занимать несколько часов, пока все данные снова не станут локальными. Время, необходимое для ее выполнения, зависит от нескольких факторов, таких как размер восстанавливаемого тома и доступная пропускная способность. Если исходный том, который восстанавливается, был удален, необходимо дополнительное время для создания локального пространства на устройстве в рамках операции восстановления.
+**A.** Locally pinned volumes are restored instantly and brought online as soon as the volume metadata information is retrieved from the cloud, while the volume data continues to be downloaded in the background. This latter part of the restore operation--getting back the local guarantees for the volume data--is a long running operation and might take several hours for all the data to be made local again. The time taken to complete the same depends on multiple factors, such as the size of the volume being restored and the available bandwidth. If the original volume that is being restored has been deleted, additional time will be taken to create the local space on the device as part of the restore operation.
 
-**Вопрос.** Мне нужно восстановить существующий локально закрепленный том из старого моментального снимка (сделанного, когда том был многоуровневым). Будет ли том в этом случае восстановлен как многоуровневый?
+**Q.** I need to restore my existing locally pinned volume to an older snapshot (taken when the volume was tiered). Will the volume be restored as tiered in this case?
 
-**Ответ.** Нет, том будет восстановлен как локально закрепленный. Хотя моментальный снимок был сделан, когда том был многоуровневым, при восстановлении существующих томов StorSimple всегда использует тип тома на диске, существующий в данный момент.
+**A.** No, the volume will be restored as a locally pinned volume. Although the snapshot dates to the time when the volume was tiered, while restoring existing volumes, StorSimple always uses the type of volume on the disk as it exists currently.
 
-**Вопрос.** Недавно мой локально закрепленный том был расширен, но теперь мне нужно восстановить данные, относящиеся к периоду, когда том был меньшего размера. Изменится ли текущий размер тома при восстановлении и придется ли мне увеличить размер тома после завершения восстановления?
+**Q.** I extended my locally pinned volume recently, but I now need to restore the data to a time when the volume was smaller in size. Will restore resize the current volume and will I need to extend the size of the volume once the restore is completed?
 
-**Ответ.** Да, при восстановлении текущий размер тома изменится, и вам придется увеличить размер тома по завершении восстановления.
+**A.** Yes, the restore will resize the volume, and you will need to extend the size of the volume after the restore is completed.
 
-**Вопрос.** Можно ли изменить тип тома во время восстановления?
+**Q.** Can I change the type of a volume during restore?
 
-**Ответ.**Нет, изменить тип тома во время восстановления нельзя.
+**A.**No, you cannot change the volume type during restore.
 
-- Удаленные тома восстанавливаются на основе типа, сохраненного в моментальном снимке.
+- Volumes that have been deleted are restored as the type stored in the snapshot.
 
-- Существующие тома восстанавливаются на основе текущего типа, независимо от типа, сохраненного в моментальном снимке (см. предыдущие два вопроса).
+- Existing volumes are restored based on their current type, irrespective of the type stored in the snapshot (refer to the previous two questions).
  
-**Вопрос.** Мне нужно восстановить локально закрепленный том, но был выбран моментальный снимок, относящийся к неправильному моменту времени. Можно ли отменить текущую операцию восстановления?
+**Q.** I need to restore my locally pinned volume, but I picked an incorrect point in time snapshot. Can I cancel the current restore operation?
 
-**Ответ.** Да, операцию восстановления можно отменить во время выполнения. Будет выполнен откат состояния тома до состояния в начале восстановления. Однако все записи, выполненные в томе во время восстановления, будут утеряны.
+**A.** Yes, you can cancel an on-going restore operation. The state of the volume will be rolled back to the state at the start of the restore. However, any writes that were made to the volume while the restore was in progress will be lost.
 
-**Вопрос.** Когда было запущено восстановление одного из моих локально закрепленных томов, в каталоге невыполненной работы отобразился моментальный снимок, о создании которого я не помню. Для чего он используется?
+**Q.** I started a restore operation on one of my locally pinned volumes, and now I see a snapshot in my backlog catalog that I don't recollect creating. What is this used for?
 
-**Ответ.** Это временный моментальный снимок, созданный перед восстановлением. Он используется для отката в случае отмены или сбоя восстановления. Не удаляйте этот моментальный снимок — он будет удален автоматически после завершения восстановления. Это может происходить, если задание восстановления включает только локально закрепленные тома или комбинацию локально закрепленных и многоуровневых томов. Если задание восстановления включает только многоуровневые тома, этого не произойдет.
+**A.** This is the temporary snapshot that is created prior to the restore operation and is used for rollback in case the restore is canceled or fails. Do not delete this snapshot; it will be automatically deleted when the restore is complete. This behavior can occur if your restore job has only locally pinned volumes or a mix of locally pinned and tiered volumes. If the restore job includes only tiered volumes, then this behavior will not occur.
 
-**Вопрос.** Можно ли клонировать локально закрепленный том?
+**Q.** Can I clone a locally pinned volume?
 
-**Ответ.** Да, можно. Однако локально закрепленный том будет по умолчанию клонирован как многоуровневый том. Дополнительные сведения см. в статье [Клонирование тома с помощью службы диспетчера StorSimple (обновление 2)](storsimple-clone-volume-u2.md).
+**A.** Yes, you can. However, the locally pinned volume will be cloned as a tiered volume by default. More information on how to [clone a  locally pinned volume](storsimple-clone-volume-u2.md)
 
-## Вопросы об отработке отказа локально закрепленного тома.
+## <a name="questions-about-failing-over-a-locally-pinned-volume"></a>Questions about failing over a locally pinned volume
 
-**Вопрос.** Мне нужно выполнить отработку отказа устройства на другое физическое устройство. Как будет выполнена отработка отказа для локально закрепленных томов — как для локально закрепленных или многоуровневых томов?
+**Q.** I need to fail over my device to another physical device. Will my locally pinned volumes be failed over as locally pinned or tiered?
 
-**Ответ.** В зависимости от версии программного обеспечения целевого устройства отработка отказа для локально закрепленных томов будет выполнена как для:
+**A.** Depending on the software version of the target device, locally pinned volumes will be failed over as:
 
-- локально закрепленных томов, если на целевом устройстве установлено обновление 2 для StorSimple серии 8000;
-- многоуровневых томов, если на целевом устройстве установлено обновление 1.x для StorSimple серии 8000;
-- многоуровневых томов, если целевым является облачное устройство (обновление 2 или обновление 1.x).
+- Locally pinned if the target device is running StorSimple 8000 series update 2
+- Tiered if the target device is running StorSimple 8000 series update 1.x
+- Tiered if the target device is the cloud appliance (software version update 2 or update 1.x)
 
-Дополнительные сведения см. в статье [Отработка отказа и аварийное восстановление для устройства StorSimple](storsimple-device-failover-disaster-recovery.md#device-failover-across-software-versions).
+More information on [failover and DR of locally pinned volumes across versions](storsimple-device-failover-disaster-recovery.md#device-failover-across-software-versions)
 
-**Вопрос.** Мгновенно ли восстанавливаются локально закрепленные тома во время аварийного восстановления?
+**Q.** Are locally pinned volumes instantly restored during disaster recovery (DR)?
 
-**Ответ.** Да, локально закрепленные тома восстанавливаются мгновенно во время отработки отказа. Как только метаданные для тома будут извлечены из облака в рамках отработки отказа, том будет подключен к сети на целевом устройстве и станет доступен для узла. Тем временем данные тома будут продолжать загружаться в фоновом режиме. На время отработки отказа скорость работы в этих томах может снизиться.
+**A.** Yes, locally pinned volumes are restored instantly during failover. As soon as the metadata information for the volume is pulled from the cloud as part of the failover operation, the volume is brought online on the target device and can be accessed by the host. Meanwhile, the volume data will continue to download in the background, and you may experience reduced performance on these volumes for the duration of the failover.
 
-**Вопрос.** Я вижу, что задание отработки отказа выполнено. Как отследить восстановление локально закрепленного тома на целевом устройстве?
+**Q.** I see the failover job completed, how can I track the progress of locally pinned volume that is being restored on the target device?
 
-**Ответ.** Во время отработки отказа задание отработки отказа будет помечено как выполненное, как только все тома в наборе отработки отказа будут мгновенно восстановлены и подключены к сети на целевом устройстве. Это относится ко всем локально закрепленным томам, для которых может выполняться отработка отказа. Однако данные станут доступными локально только после загрузки всех данных тома. Вы можете отслеживать этот процесс для каждого локально закрепленного тома, для которого выполнена отработка отказа, в ходе мониторинга соответствующих заданий восстановления, созданных в рамках отработки отказа. Эти отдельные задания восстановления будут созданы только для локально закрепленных томов.
+**A.** During a failover operation, the failover job is marked as complete once all the volumes in the failover set have been instantly restored and brought online on the target device. This includes any locally pinned volumes that might have been failed over; however, local guarantees of the data will only be available when all the data for the volume has been downloaded. You can track this progress for each locally pinned volume that was failed over by monitoring the corresponding restore jobs that are created as part of the failover. These individual restore jobs will only be created for locally pinned volumes.
 
-**Вопрос.** Можно ли изменить тип тома во время отработки отказа?
+**Q.** Can I change the type of a volume during failover?
 
-**Ответ.** Нет, изменить тип тома во время отработки отказа нельзя. Если отработка отказа выполняется на другое физическое устройство под управлением StorSimple серии 8000 с обновлением 2, для томов будет выполнена отработка отказа на основе типа тома, сохраненного в моментальном снимке. При отработке отказа на устройство любой другой версии см. приведенный выше вопрос о типе тома после отработки отказа.
+**A.** No, you cannot change the volume type during a failover. If you are failing over to another physical device that is running StorSimple 8000 series update 2, the volumes will be failed over based on the volume type stored in the snapshot. When failing over to any other device version, refer to the question above on the volume type after a failover.
 
-**Вопрос.** Можно ли выполнить отработку отказа для контейнера томов с локально закрепленными томами на облачное устройство?
+**Q.** Can I fail over a volume container with locally pinned volumes to the cloud appliance?
 
-**Ответ.** Да, можно. Для локально закрепленных томов отработка отказа будет выполнена как для многоуровневых томов. Дополнительные сведения см. в статье [Отработка отказа и аварийное восстановление для устройства StorSimple](storsimple-device-failover-disaster-recovery.md#considerations-for-device-failover).
+**A.** Yes, you can. The locally pinned volumes will be failed over as tiered volumes. More information on [failover and DR of locally pinned volumes across versions](storsimple-device-failover-disaster-recovery.md#considerations-for-device-failover)
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,24 +1,25 @@
 <properties
-	pageTitle="Совместное использование учетных записей с помощью Azure AD | Microsoft Azure"
-	description="Описывает, как Azure Active Directory позволяет организациям обеспечить безопасное совместное использование учетных записей для локальных приложений и потребительских облачных служб."
-	services="active-directory"
-	documentationCenter=""
-	authors="msStevenPo"
- 	manager="femila"
-	editor=""/>
+    pageTitle="Совместное использование учетных записей с помощью Azure AD | Microsoft Azure"
+    description="Описывает, как Azure Active Directory позволяет организациям обеспечить безопасное совместное использование учетных записей для локальных приложений и потребительских облачных служб."
+    services="active-directory"
+    documentationCenter=""
+    authors="msStevenPo"
+    manager="femila"
+    editor=""/>
 
  <tags
-	ms.service="active-directory"
- 	ms.workload="identity"
- 	ms.tgt_pltfrm="na"
- 	ms.devlang="na"
- 	ms.topic="article"
- 	ms.date="02/09/2016"  
- 	ms.author="stevenpo"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="02/09/2016"  
+    ms.author="stevenpo"/>
 
-# Совместное использование учетных записей в Azure AD
 
-## Обзор
+# <a name="sharing-accounts-with-azure-ad"></a>Совместное использование учетных записей в Azure AD
+
+## <a name="overview"></a>Обзор
 Иногда организациям необходимо использовать одно имя пользователя и пароль для нескольких пользователей. Обычно это происходит в двух следующих случаях:
 
 - при доступе к приложениям, требующим уникальное имя входа и пароль для каждого пользователя: это могут быть локальные приложения или потребительские облачные службы (например, учетные записи корпоративной социальной сети);
@@ -34,7 +35,7 @@
 - Невозможно определить, кто именно осуществлял *доступ* к приложению.
 - Когда требуется запретить доступ к приложению, необходимо обновить учетные данные и повторно передать их всем людям, которым нужен доступ к этому приложению.
 
-## Предоставление учетной записи Azure Active Directory
+## <a name="azure-active-directory-account-sharing"></a>Предоставление учетной записи Azure Active Directory
 
 Azure AD предлагает новый подход к использованию общих учетных записей, который устраняет описанные недостатки.
 
@@ -57,20 +58,24 @@ Azure AD поддерживает общие учетные записи для 
 - [Прокси приложения](active-directory-application-proxy-get-started.md)
 - [Active Directory Marketplace](https://azure.microsoft.com/marketplace/active-directory/all/)
 
-## Общий доступ к учетной записи
+## <a name="sharing-an-account"></a>Общий доступ к учетной записи
 Чтобы использовать Azure AD для общего доступа к учетной записи, необходимо выполнить следующие действия:
 
 - Добавьте приложение из [коллекции приложений](https://azure.microsoft.com/marketplace/active-directory/) или [пользовательское приложение](http://blogs.technet.com/b/ad/archive/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-gt-now-in-preview.aspx).
 - настройте приложение для единого входа по паролю;
 - Выполните [назначение на основе групп](active-directory-accessmanagement-group-saasapps.md) и выберите способ ввода общих учетных данных.
-- Необязательно: в некоторых приложениях, таких как Facebook, Twitter или LinkedIn, можно включить [автоматическое изменение пароля Azure AD](http://blogs.technet.com/b/ad/archive/2015/02/20/azure-ad-automated-password-roll-over-for-facebook-twitter-and-linkedin-now-in-preview.aspx).
+- Необязательно: в некоторых приложениях, таких как Facebook, Twitter или LinkedIn, можно включить [автоматическое изменение пароля Azure AD](http://blogs.technet.com/b/ad/archive/2015/02/20/azure-ad-automated-password-roll-over-for-facebook-twitter-and-linkedin-now-in-preview.aspx)
 
-Также можно сделать свою общую учетную запись более безопасной с помощью многофакторной проверки подлинности (MFA) (ознакомьтесь с дополнительными сведениями о [защите приложений с помощью Azure AD](../multi-factor-authentication/multi-factor-authentication-get-started.md)). Кроме того, можно делегировать возможность управления доступом приложению с помощью функции управления группами в компоненте [самообслуживания Azure AD](active-directory-accessmanagement-self-service-group-management.md).
+Можно также сделать свою общую учетную запись более безопасной с помощью Многофакторной идентификации (MFA) (ознакомьтесь с дополнительными сведениями о [защите приложений с помощью Azure AD](../multi-factor-authentication/multi-factor-authentication-get-started.md)). Кроме того, можно делегировать возможность управления доступом приложению с помощью функции управления группами в компоненте [самообслуживания Azure AD](active-directory-accessmanagement-self-service-group-management.md).
 
-## Связанные статьи
+## <a name="related-articles"></a>Связанные статьи
 
 - [Указатель статьей по управлению приложениями в Azure Active Directory](active-directory-apps-index.md)
 - [Защита приложений с помощью условного доступа](active-directory-conditional-access.md)
 - [Самостоятельное управление группами/SSAA](active-directory-accessmanagement-self-service-group-management.md)
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

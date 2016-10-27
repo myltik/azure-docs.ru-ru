@@ -1,77 +1,78 @@
 <properties
-	pageTitle="Защита привилегированного доступа в Azure AD | Microsoft Azure"
-	description="В этом разделе описаны подходы к защите привилегированного доступа в Azure, Azure Active Directory и Microsoft Online Services."
-	services="active-directory"
-	documentationCenter=""
-	authors="kgremban"
-	manager="femila"
-	editor="mwahl"/>
+    pageTitle="Securing Privileged Access in Azure AD | Microsoft Azure"
+    description="A topic that explains the approaches for securing privileged access across Azure, Azure Active Directory and Microsoft Online Services."
+    services="active-directory"
+    documentationCenter=""
+    authors="kgremban"
+    manager="femila"
+    editor="mwahl"/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/14/2016"
-	ms.author="kgremban"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="07/14/2016"
+    ms.author="kgremban"/>
 
 
-# Защита привилегированного доступа в Azure AD
 
-Защита привилегированного доступа — исключительно важный первый шаг для защиты корпоративных ресурсов в современных организациях. Привилегированные учетные записи — это учетные записи, которые администрируют ИТ-системы и управляют ими. Злоумышленники в Интернете обычно используют эти учетные записи для доступа к данным и системам организации. Чтобы защитить привилегированный доступ, необходимо исключить риск доступа злоумышленников к учетным записям и системам.
+# <a name="securing-privileged-access-in-azure-ad"></a>Securing privileged access in Azure AD
 
-Многие пользователи начинают получать привилегированный доступ через облачные службы. Это могут быть глобальные администраторы Office 365, администраторы подписок Azure и пользователи, имеющие административный доступ на виртуальных машинах или в приложениях SaaS.
+Securing privileged access is a critical first step to help protect business assets in a modern organization. Privileged accounts are those that administer and manage IT systems. Cyber-attackers target these accounts to gain access to an organization’s data and systems. In order to secure privileged access, you should isolate the accounts and systems from the risk of being exposed to a malicious user.
 
-Корпорация Майкрософт рекомендует придерживаться следующего плана: [Защита привилегированного доступа](https://technet.microsoft.com/library/mt631194.aspx).
+More users are starting to get privileged access through cloud services. This can include global administrators of Office365, Azure subscription administrators, and users who have administrative access in VMs or on SaaS apps.
 
-Клиенты, использующие Azure Active Directory для управления доступом к Azure, Office 365 или другим службам и приложениям, могут использовать эти принципы независимо от того, где осуществляются управление учетными записями пользователей и проверка подлинности — в Active Directory или в Azure Active Directory. В следующих разделах предоставляются дополнительные сведения о функциях для поддержки защиты привилегированного доступа Azure AD.
+Microsoft recommends you follow this roadmap on [Securing Privileged Access](https://technet.microsoft.com/library/mt631194.aspx).
 
-## Многофакторная проверка подлинности
+For customers using Azure Active Directory to manage access to Azure, Office 365, or other Microsoft services and applications, these principles apply whether user accounts are managed and authenticated by Active Directory or in Azure Active Directory. The following sections provide more information on Azure AD features to support securing privileged access.
 
-Для повышения безопасности при проверке подлинности администратора необходимо принудительно использовать многофакторную проверку подлинности (MFA). MFA — это метод проверки идентичности пользователя, при котором используются дополнительные средства, а не только имя пользователя и пароль. Это второй уровень безопасности, который применяется для входа пользователя в систему и выполнения транзакций.
+## <a name="multi-factor-authentication"></a>Multi-factor authentication
 
-Azure Multi-Factor Authentication помогает защитить доступ к данным и приложениям, при этом не усложняя процесс входа пользователя в систему. Этот метод обеспечивает строгую проверку подлинности с помощью широкого диапазона простых вариантов проверки, включая телефонные звонки, текстовые сообщения, уведомления в мобильном приложении, код подтверждения и сторонние OATH-токены.
+To increase the security of administrator authentication, you should require multi-factor authentication (MFA) before granting privileges. MFA is a method of verifying who you are that requires the use of more than just a username and password. It provides a second layer of security to user sign-ins and transactions.
 
-Общие сведения о принципах работы Multi-Factor Authentication см. в следующем видео.
+Azure Multi-Factor Authentication helps safeguard access to data and applications while meeting user demand for a simple sign-in process. It delivers strong authentication via a range of easy verification options including phone calls, text messages, mobile app notifications, or verification code and 3rd party OATH tokens.
+
+For an overview of how Azure Multi-Factor Authentication works see the following video.
 
 >[AZURE.VIDEO windows-azure-multi-factor-authentication]
 
-Дополнительные сведения см. в статье [MFA for Office 365 and MFA for Azure](https://blogs.technet.microsoft.com/ad/2014/02/11/mfa-for-office-365-and-mfa-for-azure/) (Многофакторная проверка подлинности (MFA) для Office 365 и Azure).
+For more details, see [MFA for Office 365 and MFA for Azure](https://blogs.technet.microsoft.com/ad/2014/02/11/mfa-for-office-365-and-mfa-for-azure/).
 
-## Временное ограничение привилегий
+## <a name="time-bound-privileges"></a>Time-bound privileges
 
-В некоторых организациях может оказаться, что пользователей с высоким уровнем привилегий оказалось слишком много. Например, пользователю могла быть назначена роль для определенного действия, например для подписки на службу, но после этого он не слишком часто использовал эти привилегии.
+Some organizations may find that they have too many users in highly privileged roles. A user might have been added to the role for a particular activity, like to sign up for a service, but didn't use those privileges frequently afterward.
 
-Чтобы уменьшить продолжительность действия привилегий и повысить вашу осведомленность об их использовании, предоставляйте привилегии только на определенное время (JIT), когда требуется выполнить задачу. Для Azure Active Directory и Microsoft Online Services можно использовать [управление привилегированными пользователями (PIM) в Azure AD](http://aka.ms/AzurePIM).
-
-
-![Панель мониторинга PIM][2]
+To lower the exposure time of privileges and increase your visibility into their use, limit users to only taking on their privileges Just in Time (JIT), when they need to perform a task. For Azure Active Directory and Microsoft Online Services, you can use [Azure AD Privileged Identity Management (PIM)](http://aka.ms/AzurePIM).
 
 
-## Обнаружение атак
-
-[Служба защиты идентификации Azure Active Directory](active-directory-identityprotection.md) предоставляет единое представление для просмотра сведений обо всех представляющих риск событиях и возможных уязвимостях, которые могут повлиять на учетные записи вашей организации. Она позволяет рассчитать уровень риска для каждого пользователя на основе соответствующих событий и настроить политики рисков, чтобы обеспечить автоматическую защиту удостоверений в организации. Эти политики наряду с другими средствами условного контроля доступа Azure Active Directory и EMS могут автоматически блокировать пользователя или предлагать ему выполнить различные действия, включая сброс пароля и принудительную многофакторную проверку подлинности.
-
-![Защита идентификации Azure AD][3]
-
-## Условный доступ
-
-С условным контролем доступа Azure Active Directory проверяет определенные условия проверки подлинности пользователя, которые вы можете выбрать. Если эти условия выполняются, пользователь проходит проверку подлинности, и ему дается доступ к приложению.
+![PIM dashboard][2]
 
 
-![Настройка правил условного доступа с использованием многофакторной проверки подлинности][4]
+## <a name="attack-detection"></a>Attack detection
+
+[Azure Active Directory Identity Protection](active-directory-identityprotection.md) provides a consolidated view into risk events and potential vulnerabilities affecting your organization’s identities. Based on risk events, Identity Protection calculates a user risk level for each user, enabling you to configure risk-based policies to automatically protect the identities of your organization. These policies, along with other conditional access controls provided by Azure Active Directory and EMS, can automatically block the user or offer suggestions that include password resets and multi-factor authentication enforcement.
+
+![Azure AD Identity Protection][3]
+
+## <a name="conditional-access"></a>Conditional access
+
+With conditional access control, Azure Active Directory checks the specific conditions you choose when authenticating a user, before allowing access to an application. Once those conditions are met, the user is authenticated and allowed access to the application.
 
 
-## Связанные статьи
-
-- Включите [многофакторную проверку подлинности Azure](../multi-factor-authentication/multi-factor-authentication-get-started-cloud.md)
-- Включите [управление привилегированными пользователями Azure AD](active-directory-privileged-identity-management-configure.md)
-- Включите [защиту идентификации Azure AD](active-directory-identityprotection.md)
-- Включите [элементы условного контроля доступа](active-directory-conditional-access.md)
+![Setting conditional access rules with MFA][4]
 
 
-Дополнительные сведения о создании полной стратегии защиты см. в разделе «Обязанности клиента и стратегия» документа [Защита Microsoft Cloud для архитекторов решений](http://aka.ms/securecustomer). Дополнительные сведения об использовании служб Майкрософт для любой из этих задач можно получить у своего представителя Майкрософт или на нашей [странице решений кибербезопасности](https://www.microsoft.com/microsoftservices/campaigns/cybersecurity-protection.aspx).
+## <a name="related-articles"></a>Related articles
+
+- Enable [Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication-get-started-cloud.md)
+- Enable [Azure AD Privileged Identity Management](active-directory-privileged-identity-management-configure.md)
+- Enable [Azure AD Identity Protection](active-directory-identityprotection.md)
+- Enable [conditional access controls](active-directory-conditional-access.md)
+
+
+For more information on building a complete security roadmap, see the “Customer responsibilities and roadmap” section of the [Microsoft Cloud Security for Enterprise Architects](http://aka.ms/securecustomer) document. For more information on engaging Microsoft services to assist with any of these topics, contact your Microsoft representative or visit our [Cybersecurity solutions page](https://www.microsoft.com/microsoftservices/campaigns/cybersecurity-protection.aspx).
 
 <!--Image references-->
 [1]: ./media/active-directory-privileged-identity-management-configure/Search_PIM.png
@@ -79,4 +80,8 @@ Azure Multi-Factor Authentication помогает защитить доступ
 [3]: ./media/active-directory-identityprotection/29.png
 [4]: ./media/active-directory-conditional-access/conditionalaccess-saas-apps.png
 
-<!---HONumber=AcomDC_0720_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

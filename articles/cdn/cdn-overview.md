@@ -1,90 +1,95 @@
 <properties
-	pageTitle="Обзор Azure CDN | Microsoft Azure"
-	description="Узнайте, что собой представляет сеть доставки содержимого (CDN) Azure и как ее использовать для доставки больших объемов содержимого посредством кэширования BLOB-объектов и статического содержимого."
-	services="cdn"
-	documentationCenter=""
-	authors="camsoper"
-	manager="erikre"
-	editor=""/>
+    pageTitle="Azure CDN Overview | Microsoft Azure"
+    description="Learn what the Azure Content Delivery Network (CDN) is and how to use it to deliver high-bandwidth content by caching blobs and static content."
+    services="cdn"
+    documentationCenter=""
+    authors="camsoper"
+    manager="erikre"
+    editor=""/>
 
 <tags
-	ms.service="cdn"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="hero-article"
-	ms.date="09/30/2016"
-	ms.author="casoper"/>
-
-# Общие сведения о сети доставки содержимого(CDN) Azure
-
-> [AZURE.NOTE] В этом документе объясняется, что такое сеть доставки содержимого Azure (CDN), принципы ее работы и функции каждого продукта Azure CDN. Если вы хотите пропустить эту информацию и перейти сразу к руководству по созданию конечной точки CDN, см. статью [Использование Azure CDN](cdn-create-new-endpoint.md). Список текущих расположений узлов CDN см. в статье [Расположение узлов POP сети доставки содержимого Azure (CDN)](cdn-pop-locations.md).
-
-Сеть доставки содержимого (CDN) Azure кэширует статическое веб-содержимое в стратегически расположенных точках. Это позволяет обеспечить максимальную пропускную способность для доставки содержимого пользователям. CDN предлагает разработчикам глобальное решение для доставки содержимого с высокой пропускной способностью путем кэширования содержимого на физических узлах по всему миру.
-
-Использование сети CDN для кэширования ресурсов веб-сайтов приносит следующие преимущества.
-
-- Повышение производительности и улучшение взаимодействия с конечными пользователями, особенно для тех приложений, в которых для загрузки содержимого требуется много циклов приема-передачи.
-- Высокий уровень масштабирования, который улучшает обработку пиковых нагрузок, например при запуске нового продукта.
-- Снижение трафика, отправляемого на источник содержимого, благодаря распределению запросов пользователей и доставке контента с пограничных серверов.
+    ms.service="cdn"
+    ms.workload="tbd"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="hero-article"
+    ms.date="09/30/2016"
+    ms.author="casoper"/>
 
 
-## Принцип работы
+# <a name="overview-of-the-azure-content-delivery-network-(cdn)"></a>Overview of the Azure Content Delivery Network (CDN)
 
-![Обзор сети доставки содержимого](./media/cdn-overview/cdn-overview.png)
+> [AZURE.NOTE] This document describes what the Azure Content Delivery Network (CDN) is, how it works, and the features of each Azure CDN product.  If you want to skip this information and go straight to a tutorial on how to create a CDN endpoint, see [Using Azure CDN](cdn-create-new-endpoint.md).  If you want to see a list of current CDN node locations, see [Azure CDN POP Locations](cdn-pop-locations.md).
 
-1. Пользователь (Alice) запрашивает файл (ресурс), обращаясь к нему по URL-адресу со специальным доменным именем, например `<endpointname>.azureedge.net`. Служба DNS перенаправляет запрос на оптимальную точку присутствия (POP). Обычно используется точка присутствия, которая географически ближе к пользователю.
+The Azure Content Delivery Network (CDN) caches static web content at strategically placed locations to provide maximum throughput for delivering content to users.  The CDN offers developers a global solution for delivering high-bandwidth content by caching the content at physical nodes across the world. 
 
-2. Если в кэше пограничных серверов этой точки присутствия нет нужного файла, пограничный сервер запрашивает файл у источника содержимого. Источником может служить веб-приложение Azure, облачная служба Azure, учетная запись хранилища Azure или любой общедоступный веб-сервер.
+The benefits of using the CDN to cache web site assets include:
 
-3. Источник содержимого возвращает пограничному серверу нужный файл и необязательные заголовки HTTP с информацией о сроке жизни (TTL) этого файла.
-
-4. Пограничный сервер помещает файл в кэш, и одновременно передает его пользователю (Alice). Файл будет храниться в кэше на пограничном сервере до истечения срока жизни. Если источник не указывает срок жизни, по умолчанию принимается 7 дней.
-
-5. После этого другой пользователь обращается к тому же файлу, используя тот же URL-адрес, и получает перенаправление на ту же точку присутствия.
-
-6. Если срок жизни файла еще не истек, пограничный сервер возвращает файл из кэша. Такая схема повышает скорость взаимодействия с пользователем и устраняет задержки.
+- Better performance and user experience for end users, especially when using applications where multiple round-trips are required to load content.
+- Large scaling to better handle instantaneous high load, like at the start of a product launch event.
+- By distributing user requests and serving content from edge servers, less traffic is sent to the origin.
 
 
-## Компоненты Azure CDN
+## <a name="how-it-works"></a>How it works
 
-Существует три продукта Azure CDN: **Azure CDN уровня "Стандартный" от Akamai**, **Azure CDN уровня "Стандартный" от Verizon** и **Azure CDN уровня "Премиум" от Verizon**. В следующей таблице перечислены функции, доступные в каждом из продуктов.
+![CDN Overview](./media/cdn-overview/cdn-overview.png)
 
-| | Akamai уровня "Стандартный" | Verizon уровня "Стандартный" | Verizon уровня "Premium" |
+1. A user (Alice) requests a file (also called an asset) using a URL with a special domain name, such as `<endpointname>.azureedge.net`.  DNS routes the request to the best performing Point-of-Presence (POP) location.  Usually this is the POP that is geographically closest to the user.
+
+2. If the edge servers in the POP do not have the file in their cache, the edge server requests the file from the origin.  The origin can be an Azure Web App, Azure Cloud Service, Azure Storage account, or any publicly accessible web server.
+
+3. The origin returns the file to the edge server, including optional HTTP headers describing the file's Time-to-Live (TTL).
+
+4. The edge server caches the file and returns the file to the original requestor (Alice).  The file remains cached on the edge server until the TTL expires.  If the origin didn't specify a TTL, the default TTL is seven days.
+
+5. Additional users may then request the same file using that same URL, and may also be directed to that same POP.
+
+6. If the TTL for the file hasn't expired, the edge server returns the file from the cache.  This results in a faster, more responsive user experience.
+
+
+## <a name="azure-cdn-features"></a>Azure CDN Features
+
+There are three Azure CDN products:  **Azure CDN Standard from Akamai**, **Azure CDN Standard from Verizon**, and **Azure CDN Premium from Verizon**.  The following table lists the features available with each product.
+
+|       | Standard Akamai | Standard Verizon | Premium Verizon |
 |-------|-----------------|------------------|-----------------|
-| Простая интеграция со службами Azure, такими как [служба хранилища](cdn-create-a-storage-account-with-cdn.md), [облачные службы](cdn-cloud-service-with-cdn.md), [веб-приложения](../app-service-web/cdn-websites-with-cdn.md) и [службы мультимедиа](../media-services/media-services-manage-origins.md#enable-cdn). | **&#x2713;** | **&#x2713;** | **&#x2713;**|
-| Управление с помощью [REST API](https://msdn.microsoft.com/library/mt634456.aspx), [.NET](./cdn-app-dev-net.md), [Node.js](./cdn-app-dev-node.md) или [PowerShell](./cdn-manage-powershell.md). | **&#x2713;** | **&#x2713;** | **&#x2713;** |
-| Поддержка HTTPS. | **&#x2713;** | **&#x2713;** | **&#x2713;** |
-| Балансировка нагрузки. | **&#x2713;** | **&#x2713;** | **&#x2713;** |
-| Защита от [DDOS-атак](https://www.us-cert.gov/ncas/tips/ST04-015) | **&#x2713;** | **&#x2713;** | **&#x2713;** |
-| Двойной стек IPv4/IPv6 | **&#x2713;** | **&#x2713;** | **&#x2713;** |
-| [Поддержка пользовательских доменных имен.](cdn-map-content-to-custom-domain.md) | **&#x2713;** | **&#x2713;** | **&#x2713;** |
-| [Кэширование строк запроса.](cdn-query-string.md) | **&#x2713;** | **&#x2713;** | **&#x2713;** |
-| [Фильтрация по странам.](cdn-restrict-access-by-country.md) | | **&#x2713;** | **&#x2713;** |
-| [Быстрая очистка.](cdn-purge-endpoint.md) | **&#x2713;** | **&#x2713;** | **&#x2713;** |
-| [Предварительная загрузка ресурса.](cdn-preload-endpoint.md) | | **&#x2713;** | **&#x2713;** |
-| [Базовая аналитика.](cdn-analyze-usage-patterns.md) | | **&#x2713;** | **&#x2713;** |
-| [Поддержка HTTP/2](https://msdn.microsoft.com/library/mt762901.aspx) | **&#x2713;** | | |
-| [Расширенные HTTP-отчеты.](cdn-advanced-http-reports.md) | | | **&#x2713;** |
-| [Статистика в режиме реального времени.](cdn-real-time-stats.md) | | | **&#x2713;** |
-| [Оповещения в реальном времени](cdn-real-time-alerts.md) | | | **&#x2713;** |
-| [Настраиваемый модуль доставки контента на основе правил.](cdn-rules-engine.md) | | | **&#x2713;** |
-| Параметры кэша и заголовка (с использованием [обработчика правил](cdn-rules-engine.md)) | | | **&#x2713;** |
-| Перенаправление или перезапись URL-адреса (с использованием [обработчика правил](cdn-rules-engine.md)) | | | **&#x2713;** |
-| Правила для мобильных устройств (с использованием [обработчик правил](cdn-rules-engine.md)) | | | **&#x2713;** |
+| Easy integration with Azure services such as [Storage](cdn-create-a-storage-account-with-cdn.md), [Cloud Services](cdn-cloud-service-with-cdn.md), [Web Apps](../app-service-web/cdn-websites-with-cdn.md), and [Media Services](../media-services/media-services-manage-origins.md#enable-cdn) | **&#x2713;** | **&#x2713;** | **&#x2713;**|
+| Management via [REST API](https://msdn.microsoft.com/library/mt634456.aspx), [.NET](./cdn-app-dev-net.md), [Node.js](./cdn-app-dev-node.md), or [PowerShell](./cdn-manage-powershell.md). | **&#x2713;** | **&#x2713;** | **&#x2713;** |
+| HTTPS support | **&#x2713;** | **&#x2713;** | **&#x2713;** |
+| Load balancing | **&#x2713;** | **&#x2713;** | **&#x2713;** |
+| [DDOS](https://www.us-cert.gov/ncas/tips/ST04-015) protection | **&#x2713;** | **&#x2713;** | **&#x2713;** |
+| IPv4/IPv6 dual-stack | **&#x2713;** | **&#x2713;** | **&#x2713;** |
+| [Custom domain name support](cdn-map-content-to-custom-domain.md) | **&#x2713;** | **&#x2713;** | **&#x2713;** |
+| [Query string caching](cdn-query-string.md) | **&#x2713;** | **&#x2713;** | **&#x2713;** |
+| [Country filtering](cdn-restrict-access-by-country.md) |  | **&#x2713;** | **&#x2713;** |
+| [Fast purge](cdn-purge-endpoint.md) | **&#x2713;** | **&#x2713;** | **&#x2713;** |
+| [Asset pre-loading](cdn-preload-endpoint.md) |  | **&#x2713;** | **&#x2713;** |
+| [Core analytics](cdn-analyze-usage-patterns.md) |  | **&#x2713;** | **&#x2713;** |
+| [HTTP/2 support](https://msdn.microsoft.com/library/mt762901.aspx) | **&#x2713;**  |  |  |
+| [Advanced HTTP reports](cdn-advanced-http-reports.md) | | | **&#x2713;** |
+| [Real-time stats](cdn-real-time-stats.md) | | | **&#x2713;** |
+| [Real-time alerts](cdn-real-time-alerts.md) | | | **&#x2713;** |
+| [Customizable, rule-based content delivery engine](cdn-rules-engine.md) | | | **&#x2713;** |
+| Cache/header settings (using [rules engine](cdn-rules-engine.md))  | | | **&#x2713;** |
+| URL redirect/rewrite  (using [rules engine](cdn-rules-engine.md)) | | | **&#x2713;** |
+| Mobile device rules (using [rules engine](cdn-rules-engine.md))  | | | **&#x2713;** |
 
->[AZURE.TIP] Хотите добавить в Azure CDN новую функцию? [Расскажите нам о ней](https://feedback.azure.com/forums/169397-cdn).
+>[AZURE.TIP] Is there a feature you'd like to see in Azure CDN?  [Give us feedback](https://feedback.azure.com/forums/169397-cdn)! 
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Next steps
 
-Чтобы начать работу с сетью CDN, см. сведения в статье [Использование Azure CDN](./cdn-create-new-endpoint.md).
+To get started with CDN, see [Using Azure CDN](./cdn-create-new-endpoint.md).
 
-Если вы являетесь действующим клиентом CDN, то сможете управлять своими конечными точками CDN с помощью [портала Microsoft Azure](https://portal.azure.com) или [PowerShell](cdn-manage-powershell.md).
+If you are an existing CDN customer, you can now manage your CDN endpoints through the [Microsoft Azure portal](https://portal.azure.com) or with [PowerShell](cdn-manage-powershell.md).
 
-Чтобы увидеть сеть CDN в действии, просмотрите [видео с конференции Build 2016](https://azure.microsoft.com/documentation/videos/build-2016-leveraging-the-new-azure-cdn-apis-to-build-wicked-fast-applications/).
+To see the CDN in action, check out the [video of our Build 2016 session](https://azure.microsoft.com/documentation/videos/build-2016-leveraging-the-new-azure-cdn-apis-to-build-wicked-fast-applications/).
 
-Узнайте об автоматизации Azure CDN с помощью [.NET](./cdn-app-dev-net.md) или [Node.js](./cdn-app-dev-node.md).
+Learn how to automate Azure CDN with [.NET](./cdn-app-dev-net.md) or [Node.js](./cdn-app-dev-node.md).
 
-Сведения о ценах на CDN см. на [этой странице](https://azure.microsoft.com/pricing/details/cdn/).
+For pricing information, see [CDN Pricing](https://azure.microsoft.com/pricing/details/cdn/).
 
-<!---HONumber=AcomDC_1005_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

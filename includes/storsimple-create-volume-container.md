@@ -1,23 +1,26 @@
 <!--author=SharS last changed: 9/17/15-->
 
-#### Создание контейнера томов
+#### <a name="to-create-a-volume-container"></a>To create a volume container
 
-1. На странице устройства **Быстрый запуск** щелкните **Добавить контейнер томов**. Откроется диалоговое окно **Создание контейнера томов**.
+1. In the device **Quick Start** page, click **Add a volume container**. The **Create Volume Container** dialog box appears.
 
-    ![Создать контейнер томов](./media/storsimple-create-volume-container/HCS_CreateVolumeContainerM-include.png)
+    ![Create Volume Container](./media/storsimple-create-volume-container/HCS_CreateVolumeContainerM-include.png)
 
-2. В диалоговом окне **Создание контейнера томов** выполните следующие действия.
-  1. В поле **Имя** укажите имя контейнера томов. Имя должно содержать от 3 до 32 символов.
-  2. В списке **Учетная запись хранения** выберите учетную запись, которая будет связана с этим контейнером томов. Можно выбрать учетную запись по умолчанию, которая автоматически создается во время создания службы. Можно также использовать параметр **Добавить новую**, чтобы указать учетную запись хранения, не привязанную к этой подписке службы.
-  3. Выберите **Включить шифрование облачного хранилища**, чтобы выполнять шифрование данных, передаваемых между устройством и облаком.
-  4. Укажите и подтвердите **ключ шифрования облачного хранилища** длиной от 8 до 32 символов. Этот ключ используется устройством для доступа к зашифрованным данным.
-  5. Выберите **Неограниченно** в раскрывающемся списке **Укажите пропускную способность**, если вы хотите использовать всю доступную пропускную способность. Этому параметру также можно присвоить значение **Пользовательская**, чтобы задействовать элементы управления пропускной способностью и указать значение от 1 до 1000 Мбит/с. Если у вас имеются данные об использовании пропускной способности, возможно, вы сможете выделять пропускную способность по расписанию, указав значение в разделе **Выберите шаблон пропускной способности**. Чтобы ознакомиться с пошаговой процедурой, перейдите к разделу [Добавление шаблона пропускной способности](storsimple-manage-bandwidth-templates.md#add-a-bandwidth-template).
-  6. Щелкните значок галочки ![значок с изображением флажка](./media/storsimple-create-volume-container/HCS_CheckIcon-include.png), чтобы сохранить этот контейнер томов и выйти из мастера. 
+2. In the **Create Volume container** dialog box:
+  1. Supply a **Name** for your volume container. The name must be 3 to 32 characters long.
+  2. Select a **Storage Account** to associate with this volume container. You can choose the default account that is generated at the time of service creation. You can also use the **Add new** option to specify a storage account that is not linked to this service subscription.
+  3. Select **Enable Cloud Storage Encryption** to enable encryption of the data sent from the device to the cloud.
+  4. Provide and confirm a **Cloud Storage Encryption Key** that is 8 to 32 characters long. This key is used by the device to access encrypted data.
+  5. Select **Unlimited** in the **Specify bandwidth** drop-down list if you wish to consume all the available bandwidth. You can also set this option to **Custom** to employ bandwidth controls, and specify a value between 1 and 1,000 Mbps. 
+  If you have your bandwidth usage information available, you may be able to allocate bandwidth based on a schedule by specifying **Select a bandwidth template**. For a step-by-step procedure, go to [Add a bandwidth template](storsimple-manage-bandwidth-templates.md#add-a-bandwidth-template).
+  6. Click the check icon ![check-icon](./media/storsimple-create-volume-container/HCS_CheckIcon-include.png) to save this volume container and exit the wizard. 
 
-  Вновь созданный контейнер томов появится в списке на странице **Контейнеры томов**.
+  The newly created volume container will be listed on the **Volume containers** page.
 
-![Доступно видео](./media/storsimple-create-volume-container/Video_icon.png) **Доступный видеоролик**
+![Video available](./media/storsimple-create-volume-container/Video_icon.png) **Video available**
 
-Чтобы просмотреть видеоролик о том, как создать контейнер тома в решении StorSimple, щелкните [здесь](https://azure.microsoft.com/documentation/videos/create-a-volume-container-in-your-storsimple-solution/).
+To watch a video that demonstrates how to create a volume container in your StorSimple solution, click [here](https://azure.microsoft.com/documentation/videos/create-a-volume-container-in-your-storsimple-solution/).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,53 +1,60 @@
 <properties
-	pageTitle="Руководство по базам данных SQL: обеспечение безопасности"
-	description="Узнайте, как создавать учетные записи пользователей для доступа к базе данных и управления ею."
-	keywords=""
-	services="sql-database"
-	documentationCenter=""
-	authors="CarlRabeler"
-	manager="jhubbard"
-	editor=""/>
+    pageTitle="SQL Database tutorial: Getting Started with Security"
+    description="Learn how to create user accounts to access and to manage a database."
+    keywords=""
+    services="sql-database"
+    documentationCenter=""
+    authors="CarlRabeler"
+    manager="jhubbard"
+    editor=""/>
 
 
 <tags
-	ms.service="sql-database"
-	ms.workload="data-management"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="hero-article"
-	ms.date="08/17/2016"
-	ms.author="carlrab"/>
+    ms.service="sql-database"
+    ms.workload="data-management"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="hero-article"
+    ms.date="08/17/2016"
+    ms.author="carlrab"/>
 
-# Руководство по базам данных SQL: создание учетных записей пользователей базы данных SQL для доступа к базе данных и управления ею с помощью портала Azure
+
+# <a name="sql-database-tutorial:-create-sql-database-user-accounts-to-access-and-manage-a-database"></a>SQL Database tutorial: Create SQL database user accounts to access and manage a database
 
 
 > [AZURE.SELECTOR]
-- [Учебник по началу работы](sql-database-get-started-security.md)
-- [Предоставление доступа](sql-database-manage-logins.md)
+- [Get started tutorial](sql-database-get-started-security.md)
+- [Grant access](sql-database-manage-logins.md)
 
-В этом учебнике вы узнаете, как с помощью SQL Server Management Studio (SSMS) выполнять такие действия:
+In this tutorial, you learn how to use SQL Server Management Studio (SSMS) to:
 
-- входить в базу данных SQL с использованием учетных данных субъекта на уровне сервера;
-- создавать учетную запись пользователя базы данных SQL;
-- предоставлять новому пользователю базы данных [разрешения db\_owner](https://msdn.microsoft.com/library/ms189121.aspx#Anchor_0);
-- подключаться к базе данных SQL с помощью учетной записи, которая не является субъектом уровня сервера.
+- Log in to SQL Database using a server-level principal login.
+- Create a SQL Database user account.
+- Grant a SQL Database user [db_owner permissions](https://msdn.microsoft.com/library/ms189121.aspx#Anchor_0).
+- Connect to a SQL database with a user account that is not a server-level principal.
 
-[AZURE.INCLUDE [Вход](../../includes/azure-getting-started-portal-login.md)]
-
-
-[AZURE.INCLUDE [Создание логического сервера базы данных SQL](../../includes/sql-database-sql-server-management-studio-connect-server-principal.md)]
+[AZURE.INCLUDE [Login](../../includes/azure-getting-started-portal-login.md)]
 
 
-[AZURE.INCLUDE [Создание базы данных SQL](../../includes/sql-database-create-new-database-user.md)]
+[AZURE.INCLUDE [Create SQL Database logical server](../../includes/sql-database-sql-server-management-studio-connect-server-principal.md)]
 
 
-[AZURE.INCLUDE [Создание базы данных SQL](../../includes/sql-database-grant-database-user-dbo-permissions.md)]
+[AZURE.INCLUDE [Create SQL Database database](../../includes/sql-database-create-new-database-user.md)]
 
 
-[AZURE.INCLUDE [Создание базы данных SQL](../../includes/sql-database-sql-server-management-studio-connect-user.md)]
+[AZURE.INCLUDE [Create SQL Database database](../../includes/sql-database-grant-database-user-dbo-permissions.md)]
 
 
-## Дальнейшие действия
-Теперь, когда вы завершили работу с этим руководством по базам данных SQL, создав учетную запись пользователя и предоставив разрешения dbo учетной записи пользователя, узнайте, как [защитить базу данных SQL](sql-database-manage-logins.md).
+[AZURE.INCLUDE [Create SQL Database database](../../includes/sql-database-sql-server-management-studio-connect-user.md)]
 
-<!---HONumber=AcomDC_0824_2016-->
+
+## <a name="next-steps"></a>Next steps
+Now that you've completed this SQL Database tutorial and created a user account and granted the user account dbo permissions, you are ready to learn more about [SQL Database security](sql-database-manage-logins.md).
+
+
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

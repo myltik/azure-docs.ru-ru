@@ -1,5 +1,7 @@
-Настройка пользовательского доменного имени в веб-приложении в службе приложений Azure с балансировкой нагрузки диспетчера трафика доступно только для веб-сайтов с планом **Standard**. Прежде чем перевести веб-приложение с плана Free службы приложений на план Shared, Basic или Standard, необходимо снять существующие ограничения расходов, установленные для вашей подписки на службу приложений.
+Setting a custom domain name on a web app in Azure App Service that is load balanced by Traffic Manager is only available for **Standard** mode websites. Before switching a web app from the Free App Service plan mode to the Shared, Basic or Standard mode, you must first remove spending caps in place for your App Service subscription. 
 
-Дополнительные сведения о режимах плана службы приложений, включая информацию о способах изменения режима веб-сайта, см. на странице [Масштабирование веб-приложений](../articles/app-service-web/web-sites-scale.md).
+For more information on the App Service plan modes, including how to change the mode of your site, see [How to scale web sites](../articles/app-service-web/web-sites-scale.md).
 
-<!---HONumber=AcomDC_0211_2016-->
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,5 +1,8 @@
-Теперь перейдите к колонке учетной записи DocumentDB и щелкните **Ключи**. Отображенные значения понадобятся в веб-приложении, которое мы создадим далее.
+  Now navigate to the DocumentDB account blade, and click **Keys**, as we will use these values in the web application we create next.
 
-![Снимок экрана портала Azure, на котором показана учетная запись DocumentDB, выделена кнопка "Ключи" в колонке учетной записи DocumentDB, а также выделены значения "URI", "ПЕРВИЧНЫЙ КЛЮЧ" и "ВТОРИЧНЫЙ КЛЮЧ" в колонке "Ключи"](./media/documentdb-keys/keys.png)
+![Screen shot of the Azure portal, showing a DocumentDB account, with the Keys button highlighted on the DocumentDB account blade, and the URI, PRIMARY KEY and SECONDARY KEY values highlighted on the Keys blade](./media/documentdb-keys/keys.png)
 
-<!---HONumber=AcomDC_0914_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,105 +1,107 @@
 
 <properties
-	pageTitle="Создание расширенных правил членства в группе с помощью атрибутов в предварительной версии Azure Active Directory | Microsoft Azure"
-	description="Узнайте, как создать расширенные правила для динамического членства в группе, используя поддерживаемые операторы и параметры выражений правила."
-	services="active-directory"
-	documentationCenter=""
-	authors="curtand"
-	manager="femila"
-	editor=""/>
+    pageTitle="Using attributes to create advanced rules for group membership in Azure Active Directory preview | Microsoft Azure"
+    description="How to create advanced rules for dynamic group membership including supported expression rule operators and parameters."
+    services="active-directory"
+    documentationCenter=""
+    authors="curtand"
+    manager="femila"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/12/2016"
-	ms.author="curtand"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/12/2016"
+    ms.author="curtand"/>
 
 
-# Создание расширенных правил членства в группе с помощью атрибутов в предварительной версии Azure Active Directory
 
-Портал Azure предоставляет возможность создания расширенных правил для поддержки более сложного динамического членства в группах предварительной версии Azure Active Directory (Azure AD) на основе атрибутов. [Что есть в предварительной версии?](active-directory-preview-explainer.md) В этой статье подробно описываются атрибуты правил и синтаксис для создания этих расширенных правил.
+# <a name="using-attributes-to-create-advanced-rules-for-group-membership-in-azure-active-directory-preview"></a>Using attributes to create advanced rules for group membership in Azure Active Directory preview
 
-## Создание расширенного правила
+The Azure portal provides you with the ability to create advanced rules to enable more complex attribute-based dynamic memberships for Azure Active Directory (Azure AD) preview groups. [What's in the preview?](active-directory-preview-explainer.md) This article details the rule attributes and syntax to create these advanced rules.
 
-1.  Войдите на [портал Azure](https://portal.azure.com) с помощью учетной записи глобального администратора каталога.
+## <a name="to-create-the-advanced-rule"></a>To create the advanced rule
 
-2.  Выберите **Больше служб**, введите **Пользователи и группы** в текстовое поле, а затем нажмите клавишу **ВВОД**.
+1.  Sign in to the [Azure portal](https://portal.azure.com) with an account that's a global admin for the directory.
 
-  ![Открытие страницы "Управление пользователями"](./media/active-directory-groups-dynamic-membership-azure-portal/search-user-management.png)
+2.  Select **More services**, enter **Users and groups** in the text box, and then select **Enter**.
 
-3.  В колонке **Пользователи и группы** выберите **Все группы**.
+  ![Opening user management](./media/active-directory-groups-dynamic-membership-azure-portal/search-user-management.png)
 
-  ![Открытие колонки группы](./media/active-directory-groups-dynamic-membership-azure-portal/view-groups-blade.png)
+3.  On the **Users and groups** blade, select **All groups**.
 
-4. В колонке **Пользователи и группы — Все группы** щелкните **Добавить**.
+  ![Opening the groups blade](./media/active-directory-groups-dynamic-membership-azure-portal/view-groups-blade.png)
 
-  ![Добавление новой группы](./media/active-directory-groups-dynamic-membership-azure-portal/add-group-type.png)
+4. On the **Users and groups - All groups** blade, select the **Add** command.
 
-5. В колонке **Группа** введите имя и описание новой группы. Для параметра **Тип членства** выберите значение **Dynamic User** (Динамический пользователь) или **Dynamic Device** (Динамическое устройство) в зависимости от того, требуется создать правило для пользователей либо устройств, а затем щелкните **Add dynamic query** (Добавить динамический запрос). Атрибуты, используемые для правил устройств, описаны в разделе [Создание правил для объектов устройств с помощью атрибутов](#using-attributes-to-create-rules-for-device-objects).
+  ![Add new group](./media/active-directory-groups-dynamic-membership-azure-portal/add-group-type.png)
 
-  ![Добавление правила динамического членства](./media/active-directory-groups-dynamic-membership-azure-portal/add-dynamic-group-rule.png)
+5. On the **Group** blade, enter a name and description for the new group. Select a **Membership type** of either **Dynamic User** or **Dynamic Device**, depending on whether you want to create a rule for users or devices, and then select **Add dynamic query**. For the attributes used for device rules, see [Using attributes to create rules for device objects](#using-attributes-to-create-rules-for-device-objects).
 
-6. В колонке **Dynamic membership rules** (Правила динамического членства) введите правило в поле **Add dynamic membership advanced rule** (Добавление расширенного правила динамического членства) и нажмите клавишу ВВОД. Затем щелкните **Создать** в нижней части колонки.
+  ![Add dynamic membership rule](./media/active-directory-groups-dynamic-membership-azure-portal/add-dynamic-group-rule.png)
 
-7. Щелкните **Создать** в колонке **Группа**, чтобы создать группу.
+6. On the **Dynamic membership rules** blade, enter your rule into the **Add dynamic membership advanced rule** box, press Enter, and then select **Create** at the bottom of the blade.
 
-## Создание текста расширенного правила
+7. Select **Create** on the **Group** blade to create the group.
 
-Расширенное правило, которое можно создать для динамического членства в группах, является по сути бинарным выражением из трех частей, результат которого — значение true или false. Вот эти три части:
+## <a name="constructing-the-body-of-an-advanced-rule"></a>Constructing the body of an advanced rule
 
-- параметр в левой части;
-- бинарный оператор;
-- константа в правой части.
+The advanced rule that you can create for the dynamic memberships for groups is essentially a binary expression that consists of three parts and results in a true or false outcome. The three parts are:
 
-Полное расширенное правило выглядит примерно так: (параметр\_слева бинарный\_оператор "константа\_справа"), где все двоичное выражение обязательно помещается между открывающей и закрывающей скобками, константа в правой части обязательно заключается в двойные кавычки, а синтаксис параметра в левой части — «пользователь.свойство». Расширенное правило может состоять из нескольких двоичных выражений, разделенных логическими операторами -and, -or, и -not.
+- Left parameter
+- Binary operator
+- Right constant
 
-Ниже приведены примеры правильно составленных расширенных правил:
+A complete advanced rule looks similar to this: (leftParameter binaryOperator "RightConstant"), where the opening and closing parenthesis are required for the entire binary expression, double quotes are required for the right constant, and the syntax for the left parameter is user.property. An advanced rule can consist of more than one binary expressions separated by the -and, -or, and -not logical operators.
+
+The following are examples of a properly constructed advanced rule:
 
 - (user.department -eq "Sales") -or (user.department -eq "Marketing")
 - (user.department -eq "Sales") -and -not (user.jobTitle -contains "SDE")
 
-Полный список поддерживаемых параметров и операторов выражений правил см. в приведенных ниже разделах. Атрибуты, используемые для правил устройств, описаны в разделе [Создание правил для объектов устройств с помощью атрибутов](#using-attributes-to-create-rules-for-device-objects).
+For the complete list of supported parameters and expression rule operators, see sections below. For the attributes used for device rules, see [Using attributes to create rules for device objects](#using-attributes-to-create-rules-for-device-objects).
 
-Общая длина текста расширенного правила не должна превышать 2048 символов.
+The total length of the body of your advanced rule cannot exceed 2048 characters.
 
 > [AZURE.NOTE]
-В операциях со строками и регулярными выражениями учитывается регистр. Можно также выполнить проверку наличия значений Null, используя $null как константу, например: user.department - eq $null. Строки, содержащие кавычки ("), следует экранировать с помощью знака '. Например: user.department -eq `"Sales".
+>String and regex operations are case insensitive. You can also perform Null checks, using $null as a constant, for example, user.department -eq $null.
+Strings containing quotes " should be escaped using 'character, for example, user.department -eq \`"Sales".
 
-## Поддерживаемые операторы выражений правил
-В следующей таблице перечислены все поддерживаемые операторы выражений правил и их синтаксис, используемый в тексте расширенного правила:
+## <a name="supported-expression-rule-operators"></a>Supported expression rule operators
+The following table lists all the supported expression rule operators and their syntax to be used in the body of the advanced rule:
 
-| Оператор | Синтаксис |
+| Operator        | Syntax         |
 |-----------------|----------------|
-| Не равно | -ne |
-| Равно | -eq |
-| Не начинается с | -notStartsWith |
-| Начинается с | -startsWith |
-| Не содержит | -notContains |
-| Содержит | -contains |
-| Не соответствует | -notMatch |
-| Соответствует | -match |
+| Not Equals      | -ne            |
+| Equals          | -eq            |
+| Not Starts With | -notStartsWith |
+| Starts With     | -startsWith    |
+| Not Contains    | -notContains   |
+| Contains        | -contains      |
+| Not Match       | -notMatch      |
+| Match           | -match         |
 
 
-## Исправление ошибки запроса
-В следующей таблице перечислены потенциальные ошибки и способы их исправления, если они встречаются
+## <a name="query-error-remediation"></a>Query error remediation
+The following table lists potential errors and how to correct them if they occur
 
-| Ошибка анализа запроса | Неправильное использование | Правильное использование |
+| Query Parse Error     | Error Usage       | Corrected Usage             |
 |-----------------------|-------------------|-----------------------------|
-| Ошибка: атрибут не поддерживается. | (user.invalidProperty -eq "Value") | (user.department -eq "value")<br/>Свойство должно соответствовать одному из свойств [в списке поддерживаемых свойств](#supported-properties). |
-| Ошибка: не поддерживается оператор для атрибута. | (user.accountEnabled -contains true) | (user.accountEnabled - eq true)<br/>Свойство имеет логический тип. Используйте поддерживаемые операторы (-eq и - ne) для логического типа из списка выше. |
-| Ошибка: ошибка компиляции запроса. | (user.department -eq "Sales") -and (user.department -eq "Marketing")(user.userPrincipalName -match "*@domain.ext") | (user.department -eq "Sales") -and (user.department -eq "Marketing")<br/>Логический оператор должен соответствовать одному из поддерживаемых свойств из приведенного выше списка.(user.userPrincipalName -match ".*@domain.ext")or(user.userPrincipalName -match "@domain.ext$")Ошибка в регулярном выражении. |
-| Ошибка: неправильный формат двоичного выражения. | (user.department –eq “Sales”) (user.department -eq "Sales")(user.department-eq"Sales") | (user.accountEnabled -eq true) -and (user.userPrincipalName -contains "alias@domain")<br/>Запрос содержит несколько ошибок. Скобки не в нужном месте. |
-| Ошибка: неизвестная ошибка при настройке динамического членства. | (user.accountEnabled -eq "True" AND user.userPrincipalName -contains "alias@domain") | (user.accountEnabled -eq true) -and (user.userPrincipalName -contains "alias@domain")<br/>Запрос содержит несколько ошибок. Скобки не в нужном месте. |
+| Error: Attribute not supported.                                      | (user.invalidProperty -eq "Value")       | (user.department -eq "value")<br/>Property should match one from the [supported properties list](#supported-properties).                          |
+| Error: Operator is not supported on attribute.                       | (user.accountEnabled -contains true)                                                                               | (user.accountEnabled -eq true)<br/>Property is of type boolean. Use the supported operators (-eq or -ne) on boolean type from the above list.                                                                                                                                   |
+| Error: Query compilation error.                                      | (user.department -eq "Sales") -and (user.department -eq "Marketing")(user.userPrincipalName -match "*@domain.ext") | (user.department -eq "Sales") -and (user.department -eq "Marketing")<br/>Logical operator should match one from the supported properties list above.(user.userPrincipalName -match ".*@domain.ext")or(user.userPrincipalName -match "@domain.ext$")Error in regular expression. |
+| Error: Binary expression is not in right format.                     | (user.department –eq “Sales”) (user.department -eq "Sales")(user.department-eq"Sales")                             | (user.accountEnabled -eq true) -and (user.userPrincipalName -contains "alias@domain")<br/>Query has multiple errors. Parenthesis not in right place.                                                                                                                            |
+| Error: Unknown error occurred during setting up dynamic memberships. | (user.accountEnabled -eq "True" AND user.userPrincipalName -contains "alias@domain")                               | (user.accountEnabled -eq true) -and (user.userPrincipalName -contains "alias@domain")<br/>Query has multiple errors. Parenthesis not in right place.                                                                                                                            |
 
-## Поддерживаемые свойства
-Ниже приведены все свойства пользователя, которые можно использовать в расширенном правиле.
+## <a name="supported-properties"></a>Supported properties
+The following are all the user properties that you can use in your advanced rule:
 
-### Свойства логического типа
+### <a name="properties-of-type-boolean"></a>Properties of type boolean
 
-Допустимые операторы
+Allowed operators
 
 * -eq
 
@@ -107,14 +109,14 @@
 * -ne
 
 
-| Свойства | Допустимые значения | Использование |
+| Properties     | Allowed values  | Usage                          |
 |----------------|-----------------|--------------------------------|
-| AccountEnabled | true, false | (user.accountEnabled -eq true) |
-| dirSyncEnabled | true, false, null | (user.dirSyncEnabled -eq true) |
+| accountEnabled | true false      | user.accountEnabled -eq true)  |
+| dirSyncEnabled | true false null | (user.dirSyncEnabled -eq true) |
 
-### Свойства строкового типа
+### <a name="properties-of-type-string"></a>Properties of type string
 
-Допустимые операторы
+Allowed operators
 
 * -eq
 
@@ -139,98 +141,104 @@
 
 * -notMatch
 
-| Свойства | Допустимые значения | Использование |
+| Properties                 | Allowed values                                                                                        | Usage                                                     |
 |----------------------------|-------------------------------------------------------------------------------------------------------|-----------------------------------------------------------|
-| city | Любое строковое значение или $null | (user.city -eq "value") |
-| country | Любое строковое значение или $null | (user.country -eq "value") |
-| department | Любое строковое значение или $null | (user.department -eq "value") |
-| displayName | Любое строковое значение. | (user.displayName -eq "value") |
-| facsimileTelephoneNumber | Любое строковое значение или $null | (user.facsimileTelephoneNumber -eq "value") |
-| givenName | Любое строковое значение или $null | (user.givenName -eq "value") |
-| jobTitle | Любое строковое значение или $null | (user.jobTitle -eq "value") |
-| mail | Любое строковое значение или $null (SMTP-адрес пользователя) | (user.mail -eq "value") |
-| mailNickName | Любое строковое значение (псевдоним электронной почты пользователя) | (user.mailNickName -eq "value") |
-| mobile | Любое строковое значение или $null | (user.mobile -eq "value") |
-| objectId | GUID объекта пользователя. | (user.objectId -eq "1111111-1111-1111-1111-111111111111") |
-| passwordPolicies | None, DisableStrongPassword, DisablePasswordExpiration, DisablePasswordExpiration, DisableStrongPassword | (user.passwordPolicies -eq "DisableStrongPassword") |
-| physicalDeliveryOfficeName | Любое строковое значение или $null | (user.physicalDeliveryOfficeName -eq "value") |
-| postalCode | Любое строковое значение или $null | (user.postalCode -eq "value") |
-| preferredLanguage | Код ISO 639-1. | (user.preferredLanguage -eq "ru-RU") |
-| sipProxyAddress | Любое строковое значение или $null | (user.sipProxyAddress -eq "value") |
-| state | Любое строковое значение или $null | (user.state -eq "value") |
-| streetAddress | Любое строковое значение или $null | (user.streetAddress -eq "value") |
-| surname | Любое строковое значение или $null | (user.surname -eq "value") |
-| TelephoneNumber | Любое строковое значение или $null | (user.telephoneNumber -eq "value") |
-| usageLocation | Двухбуквенный код страны. | (user.usageLocation -eq "US") |
-| userPrincipalName | Любое строковое значение. | (user.userPrincipalName -eq "alias@domain") |
-| userType | member, guest, $null | (user.userType -eq "Member") |
+| city                       | Any string value or $null                                                                           | (user.city -eq "value")                                   |
+| country                    | Any string value or $null                                                                            | (user.country -eq "value")                                |
+| department                 | Any string value or $null                                                                          | (user.department -eq "value")                             |
+| displayName                | Any string value                                                                                 | (user.displayName -eq "value")                            |
+| facsimileTelephoneNumber   | Any string value or $null                                                                           | (user.facsimileTelephoneNumber -eq "value")               |
+| givenName                  | Any string value or $null                                                                           | (user.givenName -eq "value")                              |
+| jobTitle                   | Any string value or $null                                                                           | (user.jobTitle -eq "value")                               |
+| mail                       | Any string value or $null (SMTP address of the user)                                                  | (user.mail -eq "value")                                   |
+| mailNickName               | Any string value (mail alias of the user)                                                            | (user.mailNickName -eq "value")                           |
+| mobile                     | Any string value or $null                                                                           | (user.mobile -eq "value")                                 |
+| objectId                   | GUID of the user object                                                                            | (user.objectId -eq "1111111-1111-1111-1111-111111111111") |
+| passwordPolicies           | None DisableStrongPassword DisablePasswordExpiration DisablePasswordExpiration, DisableStrongPassword |   (user.passwordPolicies -eq "DisableStrongPassword")                                                      |
+| physicalDeliveryOfficeName | Any string value or $null                                                                            | (user.physicalDeliveryOfficeName -eq "value")             |
+| postalCode                 | Any string value or $null                                                                            | (user.postalCode -eq "value")                             |
+| preferredLanguage          | ISO 639-1 code                                                                                        | (user.preferredLanguage -eq "en-US")                      |
+| sipProxyAddress            | Any string value or $null                                                                            | (user.sipProxyAddress -eq "value")                        |
+| state                      | Any string value or $null                                                                            | (user.state -eq "value")                                  |
+| streetAddress              | Any string value or $null                                                                            | (user.streetAddress -eq "value")                          |
+| surname                    | Any string value or $null                                                                            | (user.surname -eq "value")                                |
+| telephoneNumber            | Any string value or $null                                                                            | (user.telephoneNumber -eq "value")                        |
+| usageLocation              | Two lettered country code                                                                           | (user.usageLocation -eq "US")                             |
+| userPrincipalName          | Any string value                                                                                     | (user.userPrincipalName -eq "alias@domain")               |
+| userType                   | member guest $null                                                                                    | (user.userType -eq "Member")                              |
 
-### Свойства типа коллекции строк
+### <a name="properties-of-type-string-collection"></a>Properties of type string collection
 
-Допустимые операторы
+Allowed operators
 
 * -contains
 
 
 * -notContains
 
-| Свойства | Допустимые значения | Использование |
+| Poperties      | Allowed values                        | Usage                                                |
 |----------------|---------------------------------------|------------------------------------------------------|
-| otherMails | Любое строковое значение. | (user.otherMails -contains "alias@domain") |
-| proxyAddresses | SMTP: alias@domain, smtp: alias@domain | (user.proxyAddresses -contains "SMTP: alias@domain") |
+| otherMails     | Any string value                      | (user.otherMails -contains "alias@domain")           |
+| proxyAddresses | SMTP: alias@domain smtp: alias@domain | (user.proxyAddresses -contains "SMTP: alias@domain") |
 
-## Атрибуты расширения и настраиваемые атрибуты
-Атрибуты расширения и настраиваемые атрибуты поддерживаются в правилах динамического членства.
+## <a name="extension-attributes-and-custom-attributes"></a>Extension attributes and custom attributes
+Extension attributes and custom attributes are supported in dynamic membership rules.
 
-Атрибуты расширения синхронизируются из локального каталога Windows Server AD и принимают формат ExtensionAttributeX, где X равно 1–15. Пример правила, которое использует атрибут расширения:
+Extension attributes are synced from on premise Window Server AD and take the format of "ExtensionAttributeX", where X equals 1 - 15.
+An example of a rule that uses an extension attribute would be
 
 (user.extensionAttribute15 -eq "Marketing")
 
-Настраиваемые атрибуты синхронизируются из локального каталога Windows Server AD или из подключенного приложения SaaS в формате user.extension_[GUID]\__[Attribute], где [GUID] — уникальный идентификатор в AAD для приложения, создавшего атрибут в AAD, а [Attribute] — имя атрибута, присвоенное при создании. Пример правила, которое использует настраиваемый атрибут:
+Custom Attributes are synced from on premise Windows Server AD or from a connected SaaS application and the the format of "user.extension_[GUID]\__[Attribute]", where [GUID] is the unique identifier in AAD for the application that created the attribute in AAD and [Attribute] is the name of the attribute as it was created.
+An example of a rule that uses a custom attribute is
 
-user.extension\_c272a57b722d4eb29bfe327874ae79cb\_\_OfficeNumber
+user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber  
 
-Имя настраиваемого атрибута можно найти в каталоге, отправив запрос на атрибут пользователя с помощью обозревателя графов и выполнив поиск по имени атрибута.
+The custom attribute name can be found in the directory by querying a user's attribute using Graph Explorer and searching for the attribute name.
 
-## Правило Direct Reports
-Теперь вы можете включать членов в группу на основе атрибута руководителя пользователя.
+## <a name="direct-reports-rule"></a>Direct Reports Rule
+You can now populate members in a group based on the manager attribute of a user.
 
-**Настройка группы в качестве группы «Руководитель»**
+**To configure a group as a “Manager” group**
 
-1. Выполните шаги 1–5 из раздела [Создание расширенного правила](#to-create-the-advanced-rule) и для параметра **Тип членства** выберите значение **Dynamic User** (Динамический пользователь).
+1. Follow steps 1-5 in [To create the advanced rule](#to-create-the-advanced-rule), and select a **Membership type** of **Dynamic User**.
 
-2. В колонке **Dynamic membership rules** (Правила динамического членства) введите правило, используя приведенный ниже синтаксис.
+2. On the **Dynamic membership rules** blade, enter the rule with the following syntax:
 
-	Direct Reports for *Direct Reports for {obectID\_of\_manager}*. Пример допустимого правила для Direct Reports:
+    Direct Reports for *Direct Reports for {obectID_of_manager}*. An example of a valid rule for Direct Reports is
 
-					Direct Reports for "62e19b97-8b3d-4d4a-a106-4ce66896a863”
+                    Direct Reports for "62e19b97-8b3d-4d4a-a106-4ce66896a863”
 
-	где "62e19b97-8b3d-4d4a-a106-4ce66896a863" — идентификатор объекта руководителя. Идентификатор объекта можно найти в Azure AD на **вкладке профиля** пользователя, который является руководителем.
+    where “62e19b97-8b3d-4d4a-a106-4ce66896a863” is the objectID of the manager. The object ID can be found in the Azure AD on the **Profile tab** of the user page for the user who is the manager.
 
-3. После сохранения этого правила все пользователи, которые отвечают правилу, будут присоединены как члены группы. Процесс первоначального заполнения группы может занять несколько минут.
+3. When saving this rule, all users that satisfy the rule will be joined as members of the group. It can take some minutes for the group to initially populate.
 
 
-## Создание правил для объектов устройств с помощью атрибутов
+## <a name="using-attributes-to-create-rules-for-device-objects"></a>Using attributes to create rules for device objects
 
-Можно также создать правило, которое выбирает объекты устройств для членства в группе. Можно использовать следующие атрибуты устройства:
+You can also create a rule that selects device objects for membership in a group. The following device attributes can be used:
 
-| Свойства | Допустимые значения | Использование |
+| Properties           | Allowed values                  | Usage                                                |
 |----------------------|---------------------------------|------------------------------------------------------|
-| displayName | Любое строковое значение | (device.displayName -eq "Rob Iphone”) |
-| deviceOSType | Любое строковое значение | (device.deviceOSType -eq "IOS") |
-| deviceOSVersion | Любое строковое значение | (device.OSVersion -eq "9.1") |
-| isDirSynced | true, false, null | (device.isDirSynced -eq "true") |
-| isManaged | true, false, null | (device.isManaged -eq "false") |
-| isCompliant | true, false, null | (device.isCompliant -eq "true") |
+| displayName          | any string value                | (device.displayName -eq "Rob Iphone”)                 |
+| deviceOSType         | any string value                | (device.deviceOSType -eq "IOS")                      |
+| deviceOSVersion      | any string value                | (device.OSVersion -eq "9.1")                         |
+| isDirSynced          | true false null                 | (device.isDirSynced -eq "true")                      |
+| isManaged            | true false null                 | (device.isManaged -eq "false")                       |
+| isCompliant          | true false null                 | (device.isCompliant -eq "true")                      |
 
 
-## Дополнительная информация
-В следующих статьях содержатся дополнительные сведения о группах в Azure Active Directory.
+## <a name="additional-information"></a>Additional information
+These articles provide additional information on groups in Azure Active Directory.
 
-* [Просмотр существующих групп](active-directory-groups-view-azure-portal.md)
-* [Создание группы и добавление участников](active-directory-groups-create-azure-portal.md)
-* [Управление параметрами группы](active-directory-groups-settings-azure-portal.md)
-* [Управление членством в группе](active-directory-groups-membership-azure-portal.md)
-* [Управление динамическими правилами для пользователей в группе](active-directory-groups-dynamic-membership-azure-portal.md)
+* [See existing groups](active-directory-groups-view-azure-portal.md)
+* [Create a new group and adding members](active-directory-groups-create-azure-portal.md)
+* [Manage settings of a group](active-directory-groups-settings-azure-portal.md)
+* [Manage memberships of a group](active-directory-groups-membership-azure-portal.md)
+* [Manage dynamic rules for users in a group](active-directory-groups-dynamic-membership-azure-portal.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

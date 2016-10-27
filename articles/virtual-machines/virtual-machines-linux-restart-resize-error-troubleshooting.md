@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Неполадки при перезапуске или изменении размера виртуальной машины | Microsoft Azure"
-   description="Устранение неполадок в развертывании Resource Manager при перезагрузке или изменении размера существующей виртуальной машины Linux в Azure"
+   pageTitle="VM restarting or resizing issues | Microsoft Azure"
+   description="Troubleshoot Resource Manager deployment issues with restarting or resizing an existing Linux Virtual Machine in Azure"
    services="virtual-machines-linux, azure-resource-manager"
    documentationCenter=""
    authors="Deland-Han"
@@ -17,61 +17,66 @@
    ms.date="09/09/2016"
    ms.author="delhan"/>
 
-# Устранение неполадок в развертывании Resource Manager при перезагрузке или изменении размера существующей виртуальной машины Linux в Azure
 
-Когда вы запускаете остановленную виртуальную машину Azure или изменяете размер существующей виртуальной машины Azure, часто возникает ошибка выделения ресурсов. Это происходит, когда кластер или регион не имеют доступных ресурсов или не поддерживают запрашиваемый размер виртуальной машины.
+# <a name="troubleshoot-resource-manager-deployment-issues-with-restarting-or-resizing-an-existing-linux-virtual-machine-in-azure"></a>Troubleshoot Resource Manager deployment issues with restarting or resizing an existing Linux Virtual Machine in Azure
+
+When you try to start a stopped Azure Virtual Machine (VM), or resize an existing Azure VM, the common error you encounter is an allocation failure. This error results when the cluster or region either does not have resources available or cannot support the requested VM size.
 
 [AZURE.INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
-## Сбор журналов аудита
+## <a name="collect-audit-logs"></a>Collect audit logs
 
-Для устранения неполадок прежде всего соберите журналы аудита, чтобы определить ошибку, связанную с этой проблемой. Ниже представлены ссылки на подробные сведения о процессе.
+To start troubleshooting, collect the audit logs to identify the error associated with the issue. The following links contain detailed information on the process:
 
-[Устранение неполадок развертываний групп ресурсов с помощью портала Azure](../resource-manager-troubleshoot-deployments-portal.md)
+[Troubleshooting resource group deployments with Azure Portal](../resource-manager-troubleshoot-deployments-portal.md)
 
-[Операции аудита с помощью диспетчера ресурсов](../resource-group-audit.md)
+[Audit operations with Resource Manager](../resource-group-audit.md)
 
-## Проблема: ошибка во время запуска остановленной виртуальной машины
+## <a name="issue:-error-when-starting-a-stopped-vm"></a>Issue: Error when starting a stopped VM
 
-При попытке запустить остановленную виртуальную машину отображается сообщение об ошибке выделения.
+You try to start a stopped VM but get an allocation failure.
 
-### Причина:
+### <a name="cause"></a>Cause
 
-Запрос на запуск остановленной виртуальной машины нужно выполнять в исходном кластере, в котором размещена облачная служба. Но этот кластер не имеет свободного места для выполнения запроса.
+The request to start the stopped VM has to be attempted at the original cluster that hosts the cloud service. However, the cluster does not have free space available to fulfill the request.
 
-### Способы устранения:
+### <a name="resolution"></a>Resolution
 
-*	Остановите все виртуальные машины в группе доступности, затем перезапустите каждую из них.
+*   Stop all the VMs in the availability set, and then restart each VM.
 
-  1. Для этого последовательно выберите **Группы ресурсов** > _имя вашей группы ресурсов_ > **Ресурсы** > _имя вашей группы доступности_ > **Виртуальные машины** > _имя вашей виртуальной машины_ > **Остановить**.
+  1. Click **Resource groups** > _your resource group_ > **Resources** > _your availability set_ > **Virtual Machines** > _your virtual machine_ > **Stop**.
 
-  2. После остановки всех виртуальных машин выберите каждую из них и нажмите кнопку "Пуск".
+  2. After all the VMs stop, select each of the stopped VMs and click Start.
 
-*	Повторите запрос на перезапуск позже.
+*   Retry the restart request at a later time.
 
-## Проблема: ошибка при изменении размера существующей виртуальной машины
+## <a name="issue:-error-when-resizing-an-existing-vm"></a>Issue: Error when resizing an existing VM
 
-При попытке изменить размер существующей виртуальной машины отображается сообщение об ошибке выделения.
+You try to resize an existing VM but get an allocation failure.
 
-### Причина:
+### <a name="cause"></a>Cause
 
-Запрос на изменение размера виртуальной машины нужно выполнять в исходном кластере, в котором размещена облачная служба. Но этот кластер не поддерживает запрашиваемый размер виртуальной машины.
+The request to resize the VM has to be attempted at the original cluster that hosts the cloud service. However, the cluster does not support the requested VM size.
 
-### Способы устранения:
+### <a name="resolution"></a>Resolution
 
-* Повторите запрос с указанием меньшего размера виртуальной машины.
+* Retry the request using a smaller VM size.
 
-* Если нельзя изменить размер запрошенной виртуальной машины,
+* If the size of the requested VM cannot be changed：
 
-  1. остановите все виртуальные машины в группе доступности.
+  1. Stop all the VMs in the availability set.
 
-    * Для этого последовательно выберите **Группы ресурсов** > _имя вашей группы ресурсов_ > **Ресурсы** > _имя вашей группы доступности_ > **Виртуальные машины** > _имя вашей виртуальной машины_ > **Остановить**.
+    * Click **Resource groups** > _your resource group_ > **Resources** > _your availability set_ > **Virtual Machines** > _your virtual machine_ > **Stop**.
 
-  2. После остановки всех виртуальных машин увеличьте размер требуемой виртуальной машины.
-  3. Выберите виртуальную машину с измененным размером, нажмите кнопку **Запустить** и запустите каждую из остановленных виртуальных машин.
+  2. After all the VMs stop, resize the desired VM to a larger size.
+  3. Select the resized VM and click **Start**, and then start each of the stopped VMs.
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Next steps
 
-При возникновении проблем во время создания виртуальной машины Linux в Azure см. статью, посвященную [устранению неполадок в развертывании](../virtual-machines/virtual-machines-linux-troubleshoot-deployment-new-vm.md).
+If you encounter issues when you create a new Linux VM in Azure, see [Troubleshoot deployment issues with creating a new Linux virtual machine in Azure](../virtual-machines/virtual-machines-linux-troubleshoot-deployment-new-vm.md).
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

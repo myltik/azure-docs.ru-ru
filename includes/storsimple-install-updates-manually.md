@@ -1,15 +1,17 @@
 <!--author=SharS last changed: 9/17/15-->
 
-#### Установка обычных обновлений через классический портал Azure
+#### <a name="to-install-regular-updates-via-the-azure-classic-portal"></a>To install regular updates via the Azure classic portal
 
-1. На странице **Устройства** выберите устройство, на котором требуется установить обновления.
+1. On the **Devices** page, select the device on which you want to install updates.
 
-2. Перейдите в раздел **Устройства** > **Обслуживание** и прокрутите вниз до раздела **Обновления программного обеспечения**.
+2. Navigate to **Devices** > **Maintenance** and scroll down to **Software Updates**.
 
-3. Чтобы проверить наличие обновлений, нажмите кнопку **Проверить наличие обновлений** в нижней части страницы.
+3. To check for updates, click **Check Updates** at the bottom of the page.
 
-4. Появится сообщение о доступных обновлениях программного обеспечения. Щелкните **Установить обновления**, чтобы начать обновление устройства.
+4. You will see a message if software updates are available. Click **Install Updates** to begin updating the device.
 
-    Вы получите уведомление, когда обновление установится успешно.
+    You will be notified when the update is successfully installed.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!--HONumber=Oct16_HO2-->
+
+

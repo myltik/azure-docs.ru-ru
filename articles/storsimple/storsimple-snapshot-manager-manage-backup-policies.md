@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Политики архивации диспетчера моментальных снимков StorSimple | Microsoft Azure"
-   description="Узнайте, как использовать оснастку консоли MMC ";Диспетчер моментальных снимков StorSimple"; для создания политик архивации, которые контролируют архивацию по расписанию, и управления этими политиками."
+   pageTitle="StorSimple Snapshot Manager backup policies | Microsoft Azure"
+   description="Describes how to use the StorSimple Snapshot Manager MMC snap-in to create and manage the backup policies that control scheduled backups."
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
@@ -15,109 +15,114 @@
    ms.date="05/12/2016"
    ms.author="v-sharos" />
 
-# Создание политик архивации и управление ими с помощью диспетчера моментальных снимков StorSimple
 
-## Обзор
+# <a name="use-storsimple-snapshot-manager-to-create-and-manage-backup-policies"></a>Use StorSimple Snapshot Manager to create and manage backup policies
 
-Политика архивации создает расписание архивации данных томов. Данные могут сохраняться как локально, так и в облаке. Создавая политику архивации, вы также можете указать политику хранения. (Можно сохранить не более 64 моментальных снимков.) Дополнительные сведения о политиках архивации см. в разделе [Типы резервного копирования](storsimple-what-is-snapshot-manager.md#backup-type) в статье [Хранилище StorSimple серии 8000: гибридное облачное решение](storsimple-overview.md).
+## <a name="overview"></a>Overview
 
-В этом учебнике объясняется, как выполнить такие задачи:
+A backup policy creates a schedule for backing up volume data locally or in the cloud. When you create a backup policy, you can also specify a retention policy. (You can retain a maximum of 64 snapshots.) For more information about backup policies, see [Backup types](storsimple-what-is-snapshot-manager.md#backup-type) in [StorSimple 8000 series: a hybrid cloud solution](storsimple-overview.md).
 
-- создание политики архивации; 
-- внесение изменений в политику архивации; 
-- Удаление политики архивации 
+This tutorial explains how to:
 
-## создание политики архивации.
+- Create a backup policy 
+- Edit a backup policy 
+- Delete a backup policy 
 
-Выполните указанные ниже действия, чтобы создать политику архивации.
+## <a name="create-a-backup-policy"></a>Create a backup policy
 
-#### Создание политики архивации
+Use the following procedure to create a new backup policy.
 
-1. Щелкните соответствующий значок на рабочем столе, чтобы запустить диспетчер моментальных снимков StorSimple.
+#### <a name="to-create-a-backup-policy"></a>To create a backup policy
 
-2. На панели **Область** щелкните правой кнопкой мыши **Политики архивации** и выберите пункт **Создать политику архивации**.
+1. Click the desktop icon to start StorSimple Snapshot Manager.
 
-    ![создание политики архивации.](./media/storsimple-snapshot-manager-manage-backup-policies/HCS_SSM_Create_BU_policy.png)
+2. In the **Scope** pane, right-click **Backup Policies**, and click **Create Backup Policy**.
 
-    Откроется диалоговое окно **Создание политики**.
+    ![Create a backup policy](./media/storsimple-snapshot-manager-manage-backup-policies/HCS_SSM_Create_BU_policy.png)
 
-    ![Создание политики — вкладка "Общие"](./media/storsimple-snapshot-manager-manage-backup-policies/HCS_SSM_Create_policy_general.png)
+    The **Create a Policy** dialog box appears. 
 
-3. На вкладке **Общие** введите такие данные:
+    ![Create a Policy - General tab](./media/storsimple-snapshot-manager-manage-backup-policies/HCS_SSM_Create_policy_general.png)
 
-   1. В текстовом поле **Имя** введите имя политики.
+3. On the **General** tab, complete the following information:
 
-   2. В текстовом поле **Группа томов** введите имя группы томов, связанной с политикой.
+   1. In the **Name** text box, type a name for the policy.
 
-   3. Выберите **Локальный моментальный снимок** или **Облачный моментальный снимок**.
+   2. In the **Volume group** text box, type the name of the volume group associated with the policy.
 
-   4. Выберите число сохраняемых моментальных снимков. Если выбрать параметр **Все**, будет сохраняться 64 моментальных снимка (максимум).
+   3. Select either **Local Snapshot** or **Cloud Snapshot**.
 
-4. Перейдите на вкладку **Расписание**.
+   4. Select the number of snapshots to retain. If you select **All**, 64 snapshots will be retained (the maximum). 
 
-    ![Создание политики — вкладка "Расписание"](./media/storsimple-snapshot-manager-manage-backup-policies/HCS_SSM_Create_policy_schedule.png)
+4. Click the **Schedule** tab.
 
-5. На вкладке **Расписание** введите указанные ниже данные.
+    ![Create a Policy - Schedule tab](./media/storsimple-snapshot-manager-manage-backup-policies/HCS_SSM_Create_policy_schedule.png)
 
-   1. Установите флажок **Включить**, чтобы запланировать следующую архивацию.
+5. On the **Schedule** tab, complete the following information: 
 
-   2. В разделе **Параметры** выберите вариант **Один раз**, **Ежедневно**, **Еженедельно** или **Ежемесячно**.
+   1. Click the **Enable** check box to schedule the next backup.
 
-   3. В текстовом поле **Начало** щелкните значок календаря и выберите дату начала.
+   2. Under **Settings**, select **One time**, **Daily**, **Weekly**, or **Monthly**. 
 
-   4. В разделе **Дополнительные параметры** можно задать дополнительные расписания и дату окончания.
+   3. In the **Start** text box, click the calendar icon and select a start date.
 
-   5. Нажмите кнопку **ОК**.
+   4. Under **Advanced Settings**, you can set optional repeat schedules and an end date.
 
-После создания политики архивации на панели **Результаты** отобразится указанная ниже информация.
+   5. Click **OK**.
 
-- **Имя**: имя политики архивации.
+After you create a backup policy, the following information appears in the **Results** pane:
 
-- **Тип**: тип моментального снимка (локальный или облачный).
+- **Name** – the name of backup policy.
 
-- **Группа томов** — группа томов, связанная с политикой.
+- **Type** – local snapshot or cloud snapshot.
 
-- **Хранение** — количество сохраняемых моментальных снимков (не более 64).
+- **Volume Group** – the volume group associated with the policy.
 
-- **Создано** — дата создания политики.
+- **Retention** – the number of snapshots retained; the maximum is 64.
 
-- **Включено** — указывает, активирована ли политика в настоящий момент. Значение **True** означает, что политика активирована, а значение **False** — что она отключена.
+- **Created** – the date that this policy was created.
 
-## внесение изменений в политику архивации;
+- **Enabled** – whether the policy is currently in effect: **True** indicates that it is in effect; **False** indicates that it is not in effect. 
 
-Выполните указанные ниже действия, чтобы внести изменения в имеющуюся политику архивации.
+## <a name="edit-a-backup-policy"></a>Edit a backup policy
 
-#### Внесение изменений в политику архивации
+Use the following procedure to edit an existing backup policy.
 
-1. Щелкните соответствующий значок на рабочем столе, чтобы запустить диспетчер моментальных снимков StorSimple. 
+#### <a name="to-edit-a-backup-policy"></a>To edit a backup policy
 
-2. На панели **Область** щелкните узел **Политики архивации**. На панели **Результаты** отобразятся все политики архивации.
+1. Click the desktop icon to start StorSimple Snapshot Manager. 
 
-3. Щелкните правой кнопкой мыши политику, в которую нужно внести изменения, и щелкните **Изменить**.
+2. In the **Scope** pane, click the **Backup Policies** node. All the backup policies appear in the **Results** pane. 
 
-    ![внесение изменений в политику архивации;](./media/storsimple-snapshot-manager-manage-backup-policies/HCS_SSM_Edit_BU_policy.png)
+3. Right-click the policy that you want to edit, and then click **Edit**. 
 
-4. Когда появится окно **Создание политики**, внесите изменения и нажмите кнопку **ОК**.
+    ![Edit a backup policy](./media/storsimple-snapshot-manager-manage-backup-policies/HCS_SSM_Edit_BU_policy.png) 
 
-## Удаление политики архивации
+4. When the **Create a Policy** window appears, enter your changes, and then click **OK**. 
 
-Выполните указанные ниже действия, чтобы удалить политику архивации.
+## <a name="delete-a-backup-policy"></a>Delete a backup policy
 
-#### Удаление политики архивации
+Use the following procedure to delete a backup policy.
 
-1. Щелкните соответствующий значок на рабочем столе, чтобы запустить диспетчер моментальных снимков StorSimple. 
+#### <a name="to-delete-a-backup-policy"></a>To delete a backup policy
 
-2. На панели **Область** щелкните узел **Политики архивации**. На панели **Результаты** отобразятся все политики архивации.
+1. Click the desktop icon to start StorSimple Snapshot Manager. 
 
-3. Щелкните правой кнопкой мыши политику архивации, которую нужно удалить, и щелкните **Удалить**.
+2. In the **Scope** pane, click the **Backup Policies** node. All the backup policies appear in the **Results** pane. 
 
-4. В появившемся сообщении с подтверждением щелкните **Да**.
+3. Right-click the backup policy that you want to delete, and then click **Delete**.
 
-    ![Подтверждение удаления политики архивации](./media/storsimple-snapshot-manager-manage-backup-policies/HCS_SSM_Delete_BU_policy.png)
+4. When the confirmation message appears, click **Yes**.
 
-## Дальнейшие действия
+    ![Delete backup policy confirmation](./media/storsimple-snapshot-manager-manage-backup-policies/HCS_SSM_Delete_BU_policy.png)
 
-- Узнайте об [использовании диспетчера моментальных снимков StorSimple для администрирования решения StorSimple](storsimple-snapshot-manager-admin.md).
-- Узнайте о [просмотре заданий архивации и управлении ими с помощью диспетчера моментальных снимков StorSimple](storsimple-snapshot-manager-manage-backup-jobs.md).
+## <a name="next-steps"></a>Next steps
 
-<!---HONumber=AcomDC_0518_2016-->
+- Learn how to [use StorSimple Snapshot Manager to administer your StorSimple solution](storsimple-snapshot-manager-admin.md).
+- Learn how to [use StorSimple Snapshot Manager to view and manage backup jobs](storsimple-snapshot-manager-manage-backup-jobs.md).
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

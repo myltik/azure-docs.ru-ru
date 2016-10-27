@@ -1,44 +1,48 @@
 <properties
-	pageTitle="Расположения POP Azure CDN | Microsoft Azure"
-	description="В этом разделе перечислены расположения узлов POP сети доставки содержимого Azure (CDN)."
-	services="cdn"
-	documentationCenter=""
-	authors="camsoper"
-	manager="erikre"
-	editor=""/>
+    pageTitle="Azure CDN POP Locations | Microsoft Azure"
+    description="This topic lists Azure CDN POP Locations."
+    services="cdn"
+    documentationCenter=""
+    authors="camsoper"
+    manager="erikre"
+    editor=""/>
 
 <tags
-	ms.service="cdn"
-	ms.workload="media"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/29/2016"
-	ms.author="casoper"/>
+    ms.service="cdn"
+    ms.workload="media"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="07/29/2016"
+    ms.author="casoper"/>
 
 
-# Расположение узлов POP сети Azure CDN
 
-В этом разделе перечислены доступные в текущий момент расположения узлов POP для **Azure CDN от Verizon** и **Azure CDN от Akamai**.
+# <a name="azure-cdn-pop-locations"></a>Azure CDN POP Locations
 
->[AZURE.IMPORTANT] *Сведения о расположении узлов POP **Azure CDN от Akamai*** не раскрываются каждому пользователю.
+This topic lists current POP locations for **Azure CDN from Verizon** and **Azure CDN from Akamai**.
+
+>[AZURE.IMPORTANT] \***Azure CDN from Akamai** POP locations are not individually disclosed.  
 >
->Оба поставщика создают инфраструктуры CDN двумя различными способами. Мы не рекомендуем выбирать тип продукта Azure CDN по расположению узлов POP. Вместо этого рассмотрите функции и производительность каждого продукта. Чтобы выбрать подходящий для ваших пользователей продукт, рекомендуется протестировать производительность продуктов обоих поставщиков.
+>Both providers have distinct ways of building their CDN infrastructures.  We recommend against using POP locations to decide which Azure CDN product to use, and instead consider features and end-user performance.  Test the performance with both providers to choose the right Azure CDN product for your users. 
  
-| Регион | Verizon | Akamai |
+| Region | Verizon | Akamai |
 |--------|---------|--------|
-| Северная Америка | Атланта, штат Джорджия<br />Филадельфия, штат Пенсильвания<br />Нью-Йорк, штат Нью-Йорк<br />Майами, штат Флорида<br />Вашингтон, округ Колумбия<br />Бостон, штат Массачусетс<br />Denver, штат Колорадо<br />Чикаго, штат Иллинойс<br />Даллас, штат Техас<br />Лос-Анджелес, штат Калифорния<br />Сан-Хосе, штат Калифорния<br />Сиэтл, штат Вашингтон | **&#x2713;*** |
-| Северная Америка | Сан-Паулу, Бразилия<br />Рио-де-Жанейро, Бразилия<br />Кито, Эквадор<br />Барранкилья, Колумбия,<br />Медельин, Колумбия<br/>Буэнос-Айрес, Аргентина| **&#x2713;*** | 
-| Восточная и Северная Европа| Копенгаген, Дания<br />Хельсинки, Финляндия<br />Лондон, Великобритания<br />Стокгольм, Швеция<br />Варшава, Польша | **&#x2713;*** |
-| Западная Европа | Амстердам, Нидерланды<br />Франкфурт, Германия<br />Париж, Франция<br />Вена, Австрия | **&#x2713;*** |
-| Южная Европа | Мадрид, Испания<br />Милан, Италия | **&#x2713;*** |
-| Восточная Азия | Токио, Япония<br />Осака, Япония<br />Батам, Индонезия<br />Джакарта, Индонезия<br />Гонконг<br />Гаосюн, Тайвань<br />Сеул, Южная Корея<br />Сингапур| **&#x2713;*** |
-| Южная и Центральная Азия | Бангалор, Индия<br />Ченнай, Индия<br />Дели, Индия<br />Мумбай, Индия | **&#x2713;*** |
-| Ближний Восток и Западная Азия | Мускат, Оман | **&#x2713;*** |
-| Африка | | **&#x2713;*** |
-| Австралия и Новая Зеландия | Мельбурн, Австралия<br />Сидней, Австралия | **&#x2713;*** |
+| North America | Atlanta, GA<br />Philadelphia, PA<br />New York, NY<br />Miami, FL<br />Washington DC<br />Boston, MA<br />Denver, CO<br />Chicago, IL<br />Dallas, TX<br />Los Angeles, CA<br />San Jose, CA<br />Seattle, WA | **&#x2713;**\* |
+| South America | São Paulo, Brazil<br />Rio de Janeiro, Brazil<br />Quito, Ecuador<br />Barranquilla, Colombia<br />Medellin, Colombia<br/>Buenos Aires, Argentina| **&#x2713;**\* | 
+| North and East Europe| Copenhagen, Denmark<br />Helsinki, Finland<br />London, UK<br />Stockholm, Sweden<br />Warsaw, Poland | **&#x2713;**\* |
+| West Europe | Amsterdam, Netherlands<br />Frankfurt, Germany<br />Paris, France<br />Vienna, Austria | **&#x2713;**\* |
+| South Europe | Madrid, Spain<br />Milan, Italy | **&#x2713;**\* |
+| East Asia | Tokyo, Japan<br />Osaka, Japan<br />Batam, Indonesia<br />Jakarta, Indonesia<br />Hong Kong<br />Kaohsiung, Taiwan<br />Seoul, South Korea<br />Singapore| **&#x2713;**\* |
+| South and Central Asia | Bangalore, India<br />Chennai, India<br />Delhi, India<br />Mumbai, India | **&#x2713;**\* |
+| Middle East/West Asia | Muscat, Oman | **&#x2713;**\* |
+| Africa | | **&#x2713;**\* |
+| Australia and New Zealand | Melbourne, Australia<br />Sydney, Australia | **&#x2713;**\* |
 
-## См. также
-* [Azure CDN from Verizon Edge Server IP Ranges (Диапазоны IP-адресов пограничного сервера Azure CDN от Verizon)](https://msdn.microsoft.com/library/mt757330.aspx)
+## <a name="see-also"></a>See Also
+* [Azure CDN from Verizon Edge Server IP Ranges](https://msdn.microsoft.com/library/mt757330.aspx)
 
-<!---HONumber=AcomDC_0803_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

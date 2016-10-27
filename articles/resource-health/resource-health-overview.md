@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Обзор службы работоспособности ресурсов Azure | Microsoft Azure"
-   description="Обзор службы работоспособности ресурсов Azure"
+   pageTitle="Azure Resource health overview | Microsoft Azure"
+   description="Overview of Azure Resource health"
    services="Resource health"
    documentationCenter="dev-center-name"
    authors="BernardoAMunoz"
@@ -16,95 +16,100 @@
    ms.date="06/01/2016"
    ms.author="BernardoAMunoz"/>
 
-# Обзор службы работоспособности ресурсов Azure
 
-Служба работоспособности ресурсов Azure определяет состояние работоспособности отдельных ресурсов Azure и предоставляет рекомендации по устранению проблем. В облачной среде, где невозможно получить прямой доступ к серверам и компонентам инфраструктуры, цель этой службы — сократить время, которое клиенты затрачивают на устранение неполадок, в частности ускорить определение того, что является первопричиной проблемы: само приложение или событие на платформе Azure.
+# <a name="azure-resource-health-overview"></a>Azure Resource health overview
 
-## Что представляет собой ресурс и каким образом служба работоспособности ресурсов определяет его состояние? 
-Ресурс — это созданный пользователем экземпляр ресурса, предоставленного службой, например виртуальная машина, веб-приложение или база данных SQL.
+Azure Resource health is a service that exposes the health of individual Azure resources and provides actionable guidance to troubleshoot problems. In a cloud environment where it isn’t possible to directly access servers or infrastructure elements, the goal for Resource health is to reduce the time customers spend on troubleshooting, in particular reducing the time spent determining if the root of the problem lays inside the application or if it is caused by an event inside the Azure platform.
 
-Для определения состояния ресурса в службе работоспособности ресурсов используются сигналы, генерируемые ресурсом и/или службой. Важно отметить, что в настоящее время служба работоспособности ресурсов учитывает состояние одного конкретного ресурса и не рассматривает другие компоненты, которые могут влиять на общую работоспособность. Например, при оповещении о состоянии виртуальной машины учитывается только вычислительная часть инфраструктуры, т. е. сведения о проблемах в сети в колонке этой службы отображаться не будут. Однако в случае явного простоя службы соответствующие сведения будут отображены на баннере в верхней части колонки. Дополнительные сведения о простое службы представлены далее.
+## <a name="what-is-considered-a-resource-and-how-does-resource-health-decides-if-the-resource-is-healthy-or-not?"></a>What is considered a Resource and how does resource health decides if the resource is healthy or not? 
+A resource is a user created instance of a resource type provided by a service, for example: a virtual machine, a Web app or a SQL database. 
 
-## Чем служба работоспособности ресурсов отличается от панели мониторинга работоспособности службы?
+Resource health relies on signals emitted by the resource and/or the service to determine if a resource is healthy or not. It is important to notice that currently Resource health only accounts for the health of one specific resource type and does not consider other elements that may contribute to the overall health. For example, when reporting the status of a virtual machine, only the compute portion of the infrastructure is considered, i.e. issues in the network will not be shown in Resource health, unless there is a declared service outage, in which case, it will be surfaced through the banner at the top of the blade. More information about service outage is offered later in this article. 
 
-Служба работоспособности ресурсов предоставляет более детализированные сведения, чем панель мониторинга работоспособности службы. В то время как на панели содержатся сведения о событиях, которые влияют на доступность службы в регионе, служба работоспособности ресурсов предоставляет сведения, касающиеся конкретного ресурса, например информацию о событиях, которые влияют на доступность виртуальной машины, веб-приложения или базы данных SQL. Например, если узел неожиданно перезагружается, пользователи, чьи виртуальные машины выполнялись на этом узле, смогут узнать, почему их виртуальная машина была некоторое время недоступна.
+## <a name="how-is-resource-health-different-from-service-health-dashboard?"></a>How is Resource health different from Service Health Dashboard?
 
-## Как получить доступ к службе работоспособности ресурсов
-Существует 2 способа, которыми можно получить доступ к службе работоспособности ресурсов, для поддерживаемых ею служб.
+The information provided by Resource health is more granular than what is provided by the Service Health Dashboard. While SHD communicates events that impact the availability of a service in a region, Resource health exposes information relevant to a specific resource, e.g. it will expose events that impact the availability of a virtual machine, a web app, or a SQL database. For example, if a node unexpectedly reboots, customers whose virtual machines were running on that node will be able to obtain the reason why their VM was unavailable for a period of time.   
 
-### Портал Azure
-В колонке работоспособности ресурсов на портале Azure предоставляются подробные сведения о состоянии работоспособности ресурса, а также рекомендуемые действия, которые зависят от текущего состояния ресурса. Эта колонка упрощает доступ к другим ресурсам на портале путем запроса состояния работоспособности ресурса. Как упоминалось ранее, набор рекомендуемых действий в колонке работоспособности ресурсов зависит от текущего состояния работоспособности.
+## <a name="how-to-access-resource-health"></a>How to access Resource health
+For the services available through Resource health, there are 2 ways to access Resource health.
 
-* Работоспособные ресурсы. Так как проблемы, которые могут повлиять на работоспособность ресурса, не обнаружены, приведенные действия предназначены помочь в процессе устранения неполадок. Например, предоставляется прямой доступ к колонке устранения неполадок, где содержатся рекомендации по устранению наиболее распространенных проблем.
-* Неисправные ресурсы. Если проблемы связаны со службой Azure, в колонке отображаются действия, которые предпринимает корпорация Майкрософт (или предприняла), чтобы восстановить работу ресурса. Если проблемы вызваны действиями пользователей, в колонке приводится перечень действий, которые можно предпринять, чтобы устранить проблему и восстановить работу ресурса.
+### <a name="azure-portal"></a>Azure Portal
+The Resource health blade in the Azure Portal, provides detailed information about the health of the resource as well as recommended actions that vary depending on the current health of the resource. This blade provides the best experience when querying Resource health, as it facilitates access to other resources inside the portal. As mentioned before, the set of recommended actions in the Resource health blade will vary based on the current health:
 
-Войдя на портал Azure, вы можете получить доступ к колонке работоспособности ресурсов двумя способами.
+* Healthy resources: Since no issue that could impact the health of the resource has been detected, the actions are focused on helping the troubleshooting process. For example, it provides direct access to the Troubleshooting blade, which offers guidance on how to solve the most common problems customers face.
+* Unhealthy resource: For problems caused by Azure, the blade will display actions Microsoft is taking (or has taken) to recover the resource. For problems caused by user initiated actions, the blade will a list of actions customers can take so address the problem and recover the resource.  
 
-###Колонка ресурса
-Откройте колонку определенного ресурса. В колонке параметров, которая откроется рядом с колонкой ресурса, щелкните пункт "Работоспособность ресурсов", чтобы открыть колонку работоспособности ресурсов.
+Once you have logged into the Azure Portal, there are two ways to access the Resource health blade: 
 
-![Колонка работоспособности ресурсов](./media/resource-health-overview/resourceBladeAndResourceHealth.png)
+###<a name="open-the-resource-blade"></a>Open the Resource blade
+Open the Resource blade for a given resource. On the Settings blade that opens next to the Resource blade, click on Resource Health to open the Resource health blade. 
 
-### Колонка "Справка и поддержка"
-Чтобы открыть колонку "Справка и поддержка", щелкните вопросительный знак в правом верхнем углу и выберите "Справка и поддержка".
+![Resource health blade](./media/resource-health-overview/resourceBladeAndResourceHealth.png)
 
-**Использование верхней панели навигации**
+### <a name="help-and-support-blade"></a>Help and Support blade
+Open the Help and Support blade by clicking on the question mark in the upper right corner then selecting Help + Support. 
 
-![Справка + поддержка](./media/resource-health-overview/HelpAndSupport.png)
+**From the top navigation bar**
 
-Если щелкнуть элемент, откроется колонка подписки "Работоспособность ресурсов", где будут перечислены все ресурсы в подписке. Рядом с каждым ресурсом отображается значок, указывающий его состояние работоспособности. Чтобы открыть колонку работоспособности ресурсов, щелкните соответствующий ресурс.
+![Help + support](./media/resource-health-overview/HelpAndSupport.png)
 
-**Плитка работоспособности ресурсов**
+Clicking the tile opens the Resource health subscription blade which will list all of the resources in your subscription. Beside each resource, there is an icon indicating its health. Clicking on each resource will open the Resource health blade.
 
-![Плитка работоспособности ресурсов](./media/resource-health-overview/resourceHealthTile.png)
+**Resource health tile**
 
-## Что означает состояние работоспособности ресурса?
-В ответе может прийти одно из 4 различных состояний работоспособности.
+![Resource health tile](./media/resource-health-overview/resourceHealthTile.png)
 
-### Доступна
-Служба не обнаружила на платформе проблем, которые могут повлиять на доступность ресурса. Это состояние обозначается зеленым значком галочки.
+## <a name="what-does-my-resource-health-status-mean?"></a>What does my Resource health status mean?
+There are 4 different health statuses that you might see for your resource.
 
-![Ресурс доступен](./media/resource-health-overview/Available.png)
+### <a name="available"></a>Available
+The service has not detected any problems in the platform that could be impacting the availability of the resource. This is indicated by a green check mark icon. 
 
-### Рекомендации недоступны
+![Resource is available](./media/resource-health-overview/Available.png)
 
-Служба обнаружила на платформе текущую проблему, которая влияет на доступность данного ресурса, например узел, где выполнялась виртуальная машина, был неожиданно перезагружен. Это состояние обозначается красным значком предупреждения. В средней части колонки содержатся дополнительные сведения о проблеме, в частности следующее:
+### <a name="unavailable"></a>Unavailable
 
-1.	Какие действия предпринимает корпорация Майкрософт для восстановления работы ресурса.
-2.	Подробная временная шкала проблемы, включая ожидаемое время разрешения.
-3.	Список рекомендуемых действий для пользователей.
+In this case the service has detected an ongoing problem in the platform that is impacting the availability of this resource, for example, the node where the VM was running unexpectedly rebooted. This is indicated by a red warning icon. Additional information about the problem is provided in the middle section of the blade, including: 
 
-![Ресурс недоступен](./media/resource-health-overview/Unavailable.png)
+1.  What actions Microsoft is taking to recover the resource 
+2.  A detailed timeline of the problem, including the expected resolution time
+3.  A list recommended actions for users 
 
-### Недоступен из-за действий пользователя
-Ресурс недоступен из-за запроса пользователя, например на остановку или перезагрузку ресурса. Это состояние обозначается синим информационным значком.
+![Resource is unavailable](./media/resource-health-overview/Unavailable.png)
 
-![Ресурс недоступен из-за инициированного пользователем действия](./media/resource-health-overview/userInitiated.png)
+### <a name="unavailable-–-customer-initiated"></a>Unavailable – customer initiated
+The resource is unavailable due to a customer request such as stopping a resource or requesting a restart. This is indicated by a blue informational icon. 
 
-### Unknown
-Служба не получала сведения об этом ресурсе более 5 минут. Это состояние обозначается серым значком с вопросительным знаком.
+![Resource is unavailable due to user an initiated action](./media/resource-health-overview/userInitiated.png)
 
-Важно отметить, что это не всегда означает, что с ресурсом возникла проблема. Поэтому пользователям необходимо соблюдать следующие рекомендации:
+### <a name="unknown"></a>Unknown
+The service has not received information about this resource for more than 5 minutes. This is indicated by a grey question mark icon. 
 
-* Если ресурс работает в обычном режиме, но в колонке работоспособности указано состояние "Неизвестно", то все в порядке и через несколько минут состояние ресурса изменится на работоспособное.
-* Если возникают проблемы при доступе к ресурсу и в колонке работоспособности указано состояние "Неизвестно", это может быть ранним признаком проблемы и того, что необходимо провести дополнительный анализ еще до того, как состояние изменится на "Работоспособен" или "Неработоспособен".
+It is important to note that this is not a definitive indication that there is something wrong with a resource, so customers should follow these recommendations:
 
-![Состояние работоспособности ресурса неизвестное.](./media/resource-health-overview/unknown.png)
+* If the resource is running as expected but its health is set to Unknown in Resource health, there are no problems and you can expect the status of the resource to update to healthy after a few minutes.
+* If there are problems accessing the resource and its health is set to Unknown in Resource health, this could be an early indication there could be an issue and additional investigations should be done until the health is updated to either healthy or unhealthy
 
-## События, влияющие на службы
-Если на работу ресурса может повлиять текущее событие, влияющее на службы, в верхней части колонки работоспособности ресурсов отобразится соответствующий баннер. Если щелкнуть этот баннер, откроется колонка "События аудита", содержащая дополнительные сведения о простое.
+![Resource health is unknown](./media/resource-health-overview/unknown.png)
 
-![На работоспособность ресурса могло повлиять событие прерывания службы](./media/resource-health-overview/serviceImpactingEvent.png)
+## <a name="service-impacting-events"></a>Service Impacting Events
+If the resource may be impacted by an ongoing Service Impacting Event, a banner will be displayed at the top of the Resource health blade. Clicking on the banner will open the Audit Events blade, which will display additional information about the outage.
 
-## Что еще необходимо знать о службе работоспособности ресурсов?
+![Resource health may be impacted by a SIE](./media/resource-health-overview/serviceImpactingEvent.png)
 
-### Задержка сигналов
-Сигналы, на которые полагается служба работоспособности ресурсов, могут быть отложены на период до 15 минут, что может привести к несоответствию текущего и фактического состояния работоспособности ресурса. Важно помнить об этом, так как это поможет сэкономить время на поиск возможных проблем.
+## <a name="what-else-do-i-need-to-know-about-resource-health?"></a>What else do I need to know about Resource health?
 
-### Исключение, касающееся SQL 
-Служба работоспособности ресурсов сообщает состояние базы данных SQL, а не SQL Server. Хотя таким образом можно получить более реалистичную картину работоспособности, для определения состояния базы данных необходимо учитывать много компонентов и служб. Текущий сигнал зависит от операций входа в базу данных. Это означает, что состояние работоспособности баз данных, в которые постоянно выполняется вход (и которые, помимо прочего, получают запросы на выполнение запроса), будет отображаться регулярно. Если к базе данных в течение 10 минут или более не осуществлялся доступ, ее состояние меняется на "Неизвестное". Это не означает, что база данных недоступна. Просто сигнал не отправляется, так как не осуществляются операции входа. При подключении к базе данных и выполнении запроса снова начнут отправляться сигналы, необходимые для определения и обновления ее состояния работоспособности.
+### <a name="signal-latency"></a>Signal latency
+The signals that feed Resource health, may be up to 15 min delayed, which can cause discrepancies between the current health status of the resource and its actual availability. It is important to keep this in mind as it will help eliminate unnecessary time spent investigating possible issues. 
 
-## Отзыв
-Мы всегда рады вашим отзывам и предложениям! Отправьте нам свои [предложения](https://feedback.azure.com/forums/266794-support-feedback). Кроме того, с нами можно связаться через [Twitter](https://twitter.com/azuresupport) или [форумы MSDN](https://social.msdn.microsoft.com/Forums/azure).
+### <a name="special-case-for-sql"></a>Special case for SQL 
+Resource health reports the status of the SQL database, not the SQL server. While going this route provides a more realistic health picture, it requires that multiple components and services be taken into consideration to determine the health of the database. The current signal relies on logins to the database, which means that for databases that receive regular logins (which includes among other things, receiving query execution requests) the health status will be regularly displayed. If the database has not been accessed for a period of 10 minutes or more, it will be moved to the unknown state. This does not mean that the database is unavailable, just that no signal has been emitted because no logins have been performed. Connecting to the database and running a query will emit the signals needed to determine and update the health status of the database.
 
-<!---HONumber=AcomDC_0831_2016-->
+## <a name="feedback"></a>Feedback
+We are always open to feedback and suggestions! Please send us your [suggestions](https://feedback.azure.com/forums/266794-support-feedback). Additionally, you can engage with us via [Twitter](https://twitter.com/azuresupport) or the [MSDN forums](https://social.msdn.microsoft.com/Forums/azure).
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

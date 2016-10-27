@@ -1,78 +1,79 @@
 <properties 
-	pageTitle="Что такое приложения логики?" 
-	description="Дополнительные сведения о приложениях логики службы приложений" 
-	authors="kevinlam1" 
-	manager="dwrede" 
-	editor="" 
-	services="logic-apps" 
-	documentationCenter=""/>
+    pageTitle="What are Logic Apps?" 
+    description="Learn more about App Service Logic Apps" 
+    authors="kevinlam1" 
+    manager="dwrede" 
+    editor="" 
+    services="logic-apps" 
+    documentationCenter=""/>
 
 <tags
-	ms.service="logic-apps"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="hero-article" 
-	ms.date="07/12/2016"
-	ms.author="klam"/>
+    ms.service="logic-apps"
+    ms.workload="na"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="hero-article" 
+    ms.date="10/12/2016"
+    ms.author="klam"/>
 
-#Что такое приложения логики?
 
-Приложения логики позволяют упростить и реализовать масштабируемые рабочие процессы и сценарии интеграции в облаке. Это визуальный конструктор для моделирования и автоматизации процессов в виде ряда операций, которые называются рабочим процессом. Для облачных и локальных сред доступно [множество соединителей](../connectors/apis-list.md), которые позволяют быстро реализовать сценарии интеграции в службах и протоколах. Приложение логики запускается при срабатывании триггера (например, When an account is added to Dynamics CRM (При добавлении учетной записи в Dynamics CRM)), после чего могут выполняться разные комбинации действий, преобразования и условная логика.
+# <a name="what-are-logic-apps?"></a>What are Logic Apps?
 
-Использование приложений логики связано со следующими преимуществами.
+Logic Apps provide a way to simplify and implement scalable integrations and workflows in the cloud. It provides a visual designer to model and automate your process as a series of steps known as a workflow.  There are [many connectors](../connectors/apis-list.md) across the cloud and on-premises to quickly integrate across services and protocols.  A logic app begins with a trigger (like 'When an account is added to Dynamics CRM') and after firing can begin many combinations actions, conversions, and condition logic.
 
-- Экономия времени при разработке сложных процессов с помощью простых в использовании средств проектирования.
-- Относительно простая реализация шаблонов и рабочих процессов, которые иначе было бы трудно реализовать в коде.
-- Быстрое начало работы с шаблонами.
-- Настройка приложений логики с помощью собственных настраиваемых интерфейсов API, кода и действий.
-- Подключение и синхронизация разрозненных систем в локальных и облачных средах.
-- Сборка с использованием BizTalk Server, службы управления API, Функций Azure и служебной шины Azure при первоклассной поддержке интеграции.
+The advantages of using Logic Apps include the following:  
 
-Приложения логики — это полностью управляемые решения iPaaS (платформа интеграции как услуга), при разработке которых вам не нужно выполнять дополнительные действия для обеспечения размещения, масштабируемости, доступности и возможности управления. Приложения логики автоматически масштабируются в соответствии с требованиями.
+- Saving time by designing complex processes using easy to understand design tools
+- Implementing patterns and workflows seamlessly, that would otherwise be difficult to implement in code
+- Getting started quickly from templates
+- Customizing your logic app with your own custom APIs, code, and actions
+- Connect and synchronise disparate systems across on-premises and the cloud
+- Build off of BizTalk server, API Management, Azure Functions, and Azure Service Bus with first-class integration support
 
-![Конструктор потока приложения](./media/app-service-logic-what-are-logic-apps/LogicAppCapture2.png)
+Logic Apps is a fully managed iPaaS (integration Platform as a Service) allowing developers not to have to worry about building hosting, scalability, availability and management.  Logic Apps will scale up automatically to meet demand.
 
-Как уже упоминалось, благодаря приложениям логики можно автоматизировать бизнес-процессы. Вот несколько примеров:
+![Flow app designer](./media/app-service-logic-what-are-logic-apps/LogicAppCapture2.png)
+
+As mentioned, with Logic Apps, you can automate business processes. Here are a couple examples:  
  
-* перемещение файлов из FTP-сервера в службу хранилища Azure;
-* обработка и перенаправление заказов в облачные и локальные системы;
-* отслеживания твитов на определенные темы, анализ мнений, создание оповещений и заданий для соответствующих элементов.
+* Move files uploaded to an FTP server into Azure Storage
+* Process and route orders across on-premises and cloud systems
+* Monitor all tweets about a certain topic, analyze the sentiment, and create alerts and tasks for items needing followup.
 
-Такие сценарии можно настроить в визуальном конструкторе, не написав ни строчки кода. Приступите к [созданию приложения логики][create] прямо сейчас. После написания приложение логики можно [быстро развернуть](app-service-logic-create-deploy-template.md) в нескольких средах и регионах, а также перенастроить.
+Scenarios such as these can be configured all from the visual designer and without writing a single line of code. Get started [building your logic app now][create].  Once written - a logic app can be [quickly deployed and reconfigured](app-service-logic-create-deploy-template.md) across multiple environments and regions.
 
-## Причины использования приложений логики
+## <a name="why-logic-apps?"></a>Why Logic Apps?
 
-Приложения логики обеспечивают быстродействие и масштабируемость корпоративных интеграций. Благодаря удобному конструктору, большому количеству доступных триггеров и действий, а также мощным средствам управления централизация интерфейсов API выполняется проще, чем когда-либо. Так как все больше предприятий переходят на электронные каналы взаимодействия, приложения логики позволяют использовать устаревшие и современные системы вместе.
+Logic Apps brings speed and scalability into the enterprise integration space.  The ease of use of the designer, variety of available triggers and actions, and powerful management tools make centralizing your APIs simpler than ever.  As businesses move towards digitalization, Logic Apps allows you to connect legacy and cutting-edge systems together.
 
-С помощью [учетной записи пакета интеграции Enterprise][biztalk] и таких возможностей, как [обмен сообщениями XML][xml] и [управление торговыми партнерами][tpm], вы можете реализовывать даже сложные сценарии интеграции.
+Additionally, with our [Enterprise Integration Account][biztalk] you can scale to mature integration scenarios with the power of a [XML messaging][xml], [trading partner management][tpm], and more.
 
-- **Простые в использовании средства проектирования** — приложения логики можно полностью разработать в браузере или с помощью средств Visual Studio. Сначала настройте триггер. Он может запускаться как по расписанию, так и при возникновении проблемы с GitHub. Далее можно управлять любым количеством действий с помощью богатой коллекции соединителей.
+- **Easy to use design tools** - Logic Apps can be designed end-to-end in the browser or with Visual Studio tools. Start with a trigger - from a simple schedule to when a GitHub issue is created. Then orchestrate any number of actions using the rich gallery of connectors.
 
-- **Простое подключение к интерфейсам API** — даже композиционные задачи, которые очень легко описать, трудно реализовать в коде. Приложения логики упрощают подключение разрозненных систем. Хотите подключить свое облачное коммерческое решение к локальной системе выставления счетов? Хотите централизовать обмен сообщениями между интерфейсами API и системами с помощью корпоративной служебной шины? Приложения логики представляют самый быстрый и самый надежный способ решения этих проблем.
+- **Connect APIs easily** - Even composition tasks that are easy to describe are difficult to implement in code. Logic Apps makes it easy to connect disparate systems. Want to connect your cloud marketing solution to your on-premises billing system? Want to centralize messaging across APIs and systems with an Enterprise Service Bus? Logic apps are the fastest, most reliable way to deliver solutions to these problems.
 
-- **Быстрое начало работы из шаблонов** — чтобы помочь вам начать работу, мы предусмотрели [коллекцию шаблонов][templates], которые позволяют быстро создать некоторые простые решения. От современных решений B2B до простой возможности подключения SaaS и даже больше — эта коллекция является самым быстрым способом начать работу с приложениями логики.
+- **Get started quickly from templates** - To help you get started we've provided a [gallery of templates][templates] that allow you to rapidly create some common solutions. From advanced B2B solutions to simple SaaS connectivity, and even a few that are just 'for fun' - the gallery is the fastest way to get started with the power of Logic Apps.
 
-- **Интегрированная расширяемость** — не удается найти нужный соединитель? Приложения логики предназначены для работы с собственными интерфейсами API и кодом. Вы можете с легкостью создать собственное приложение API для использования в качестве настраиваемого соединителя или при необходимости вызвать [Функцию Azure](https://functions.azure.com) для выполнения необходимого фрагмента кода.
+- **Extensibility baked-in** - Don't see the connector you need? Logic Apps is designed to work with your own APIs and code; you can easily create your own API app to use as a custom connector, or call into an [Azure Function](https://functions.azure.com) to execute snippets of code on-demand. 
 
-- **Мощность реальной интеграции** — начните с простого и увеличивайте сложность по мере необходимости. Приложения логики могут легко использовать возможности BizTalk, ведущее отраслевое решение интеграции от корпорации Майкрософт, чтобы специалисты в области интеграции могли строить необходимые решения. Узнайте больше о [пакете интеграции Enterprise](./app-service-logic-enterprise-integration-overview.md).
+- **Real integration horsepower** - Start easy and grow as you need. Logic Apps can easily leverage the power of BizTalk, Microsoft's industry leading integration solution to enable integration professionals to build the solutions they need. Find out more about the [Enterprise Integration Pack](./app-service-logic-enterprise-integration-overview.md).
 
-## Основные понятия приложений логики
+## <a name="logic-app-concepts"></a>Logic App Concepts
 
-Далее приводятся некоторые ключевые элементы, охватывающие возможности приложений логики.
+The following are some of the key pieces that comprise the Logic Apps experience. 
 
-- **Рабочий процесс.** Приложения логики предоставляют графический способ моделирования бизнес-процессов в виде последовательности шагов или рабочего процесса.
-- **Управляемые соединители**. Приложениям логики требуется доступ к данным и службам. Управляемые соединители упрощают подключение к данным и работу с ними. Список доступных соединителей см. в статье [Список соединителей][managedapis].
-- **Триггеры**. Некоторые управляемые соединители могут также действовать как триггеры. Триггер запускает новый экземпляр рабочего процесса на основе определенного события, такого как поступление электронной почты или изменение в учетной записи хранения Azure.
--  **Действия.** Каждый шаг после вызова действия триггера в рабочем процессе. Каждое действие обычно сопоставляется с операцией управляемого соединителя или пользовательских приложений API.
-- **Пакет интеграции Enterprise**. Для более сложных сценариев, связанных с интеграцией приложений логики, доступны средства BizTalk. BizTalk — это ведущая отраслевая платформа интеграции от корпорации Майкрософт. Входящие в пакет интеграции Enterprise соединители позволяют легко включать проверку, преобразование, правила и другие функции в рабочие процессы приложений логики.
+- **Workflow** - Logic Apps provides a graphical way to model your business processes as a series of steps or a workflow.
+- **Managed Connectors** - Your logic apps need access to data and services. Managed connectors are created specifically to aid you when you are connecting to and working with your data. See the list of connectors available now in [managed connectors][managedapis].
+- **Triggers** - Some Managed Connectors can also act as a trigger. A trigger starts a new instance of a workflow based on a specific event, like the arrival of an e-mail or a change in your Azure Storage account.
+-  **Actions** - Each step after the trigger in a workflow is called an action. Each action typically maps to an operation on your managed connector or custom API apps.
+- **Enterprise Integration Pack** - For more advanced integration scenarios, Logic Apps includes capabilities from BizTalk. BizTalk is Microsoft's industry leading integration platform. The Enterprise Integration Pack connectors allow you to easily include validation, transformation, and more in to your Logic App workflows.
 
-## Приступая к работе  
+## <a name="getting-started"></a>Getting Started  
 
-- Чтобы начать работу с приложениями логики, выполните задания из учебника [Создание приложения логики][create].
-- [Примеры приложений логики и распространенные сценарии](app-service-logic-examples-and-scenarios.md)
-- [Вы можете автоматизировать бизнес-процессы с помощью приложений логики](http://channel9.msdn.com/Events/Build/2016/T694)
-- [Узнайте, как интегрировать системы с приложениями логики](http://channel9.msdn.com/Events/Build/2016/P462)
+- To get started with Logic Apps, follow the [create a Logic App][create] tutorial.  
+- [View common examples and scenarios](app-service-logic-examples-and-scenarios.md)
+- [You can automate business processes with Logic Apps](http://channel9.msdn.com/Events/Build/2016/T694) 
+- [Learn How to Integrate your systems with Logic Apps](http://channel9.msdn.com/Events/Build/2016/P462)
 
 [biztalk]: app-service-logic-enterprise-integration-accounts.md
 [appservice]: ../app-service/app-service-value-prop-what-is.md
@@ -82,4 +83,8 @@
 [xml]: app-service-logic-enterprise-integration-b2b.md
 [templates]: app-service-logic-use-logic-app-templates.md
 
-<!---HONumber=AcomDC_0803_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

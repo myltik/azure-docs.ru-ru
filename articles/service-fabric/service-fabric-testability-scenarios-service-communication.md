@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Подсистема тестирования: взаимодействие между службами | Microsoft Azure"
-   description="Взаимодействие между службами — критически важная точка интеграции приложения Service Fabric. В этой статье обсуждаются вопросы разработки и методы тестирования."
+   pageTitle="Testability: Service communication | Microsoft Azure"
+   description="Service-to-service communication is a critical integration point of a Service Fabric application. This article discusses design considerations and testing techniques."
    services="service-fabric"
    documentationCenter=".net"
    authors="vturecek"
@@ -16,42 +16,43 @@
    ms.date="07/06/2016"
    ms.author="vturecek"/>
 
-# Сценарии тестирования платформы Service Fabric: обмен данными между службами
 
-Микрослужбы и стили сервисноориентированной архитектуры естественным образом развертываются на платформе Azure Service Fabric. В распределенных архитектурах этих типов компонентные приложения микрослужб обычно состоят из нескольких служб, которые должны взаимодействовать друг с другом. Даже в простейших случаях у вас обычно есть как минимум веб-служба без отслеживания состояния и служба хранилища данных с отслеживанием состояния, которые должны взаимодействовать друг с другом.
+# <a name="service-fabric-testability-scenarios:-service-communication"></a>Service Fabric testability scenarios: Service communication
 
-Обмен данными между службами — критически важная точка интеграции приложения, так как каждая служба предоставляет удаленный API-интерфейс для других служб. Работа с набором границ API, включающая ввод-вывод данных, обычно требует тщательного подхода с интенсивным тестированием и проверкой.
+Microservices and service-oriented architectural styles surface naturally in Azure Service Fabric. In these types of distributed architectures, componentized microservice applications are typically composed of multiple services that need to talk to each other. In even the simplest cases, you generally have at least a stateless web service and a stateful data storage service that need to communicate.
 
-При объединении этих границ служб другом в распределенной системе следует ответить на ряд вопросов.
+Service-to-service communication is a critical integration point of an application, because each service exposes a remote API to other services. Working with a set of API boundaries that involves I/O generally requires some care, with a good amount of testing and validation.
 
- - *Транспортный протокол*. Вы будете использовать протокол HTTP для улучшения взаимодействия или пользовательский двоичный протокол, чтобы обеспечить максимальную пропускную способность?
- - *Обработка ошибок*. Как будут обрабатываться постоянные и временные ошибки? Что произойдет, когда служба переместится на другой узел?
- - *Время ожидания и задержка*. Как каждый слой службы будет обрабатывать задержку через стек для пользователя в многоуровневых приложениях?
+There are numerous considerations to make when these service boundaries are wired together in a distributed system:
 
-Если вы используете один из встроенных компонентов обмена данными между службами, доступных в Service Fabric, или выполняете сборку собственного компонента, тестирование взаимодействия между службами является критически важным для обеспечения устойчивости приложения.
+ - *Transport protocol*. Will you use HTTP for increased interoperability, or a custom binary protocol for maximum throughput?
+ - *Error handling*. How will permanent and transient errors be handled? What will happen when a service moves to a different node?
+ - *Timeouts and latency*. In multitiered applications, how will each service layer handle latency through the stack and to the user?
 
-## Подготовка служб к перемещению
+Whether you use one of the built-in service communication components provided by Service Fabric or you build your own, testing the interactions between your services is critical to ensuring resiliency in your application.
 
-Со временем экземпляры служб могут перемещаться, особенно если они настроены с использованием метрик нагрузки для оптимальной балансировки ресурсов. Service Fabric перемещает экземпляры вашей службы, чтобы обеспечить максимальную доступность даже во время обновлений, отработки отказов, масштабирования и других ситуаций, которые возникают за время существования распределенной системы.
+## <a name="prepare-for-services-to-move"></a>Prepare for services to move
 
-По мере перемещения служб в кластере ваши клиенты и другие службы должны быть готовы к двум сценариям, возникающим при взаимодействии со службой.
+Service instances may move around over time. This is especially true when they are configured with load metrics for custom-tailored optimal resource balancing. Service Fabric moves your service instances to maximize their availability even during upgrades, failovers, scale-out, and other situations that occur over the lifetime of a distributed system.
 
-- Экземпляр службы или реплика раздела перемещены с момента последнего обмена данными с ними. Это характерно для жизненного цикла службы и вполне может произойти в течение жизненного цикла приложения.
-- Экземпляр службы или реплика раздела перемещается. Хотя отработка отказа службы с одного узла на другой выполняется в Service Fabric очень быстро, возможны задержки в доступности, если компонент связи службы медленно запускается.
+As services move around in the cluster, your clients and other services should be prepared to handle two scenarios when they talk to a service:
 
-Для бесперебойной работы системы важно правильно обрабатывать такие сценарии. Чтобы сделать это, помните следующее.
+- The service instance or partition replica has moved since the last time you talked to it. This is a normal part of a service lifecycle, and it should be expected to happen during the lifetime of your application.
+- The service instance or partition replica is in the process of moving. Although failover of a service from one node to another occurs very quickly in Service Fabric, there may be a delay in availability if the communication component of your service is slow to start.
 
-- Каждая служба, к которой можно подключиться, имеет *адрес* для прослушивания (например, HTTP или WebSockets). При перемещении экземпляра или раздела службы меняется адрес соответствующей конечной точки (она перемещается на другой узел с другим IP-адресом). Если вы используете встроенные компоненты связи, они будут автоматически обрабатывать повторно разрешающиеся адреса служб.
-- Может наблюдаться временное увеличение задержки, так как экземпляр службы снова запускает свой прослушиватель. Это зависит от того, насколько быстро служба открывает прослушиватель после перемещения экземпляра службы.
-- При открытии службы на новом узле все существующие подключения потребуется закрыть и открыть заново. Нормальное завершение работы (или перезапуск узла) предоставляет достаточно времени для нормального завершения работы существующих подключений.
+Handling these scenarios gracefully is important for a smooth-running system. To do so, keep in mind that:
 
-### Тестирование. Перемещение экземпляров службы
+- Every service that can be connected to has an *address* that it listens on (for example, HTTP or WebSockets). When a service instance or partition moves, its address endpoint changes. (It moves to a different node with a different IP address.) If you're using the built-in communication components, they will handle re-resolving service addresses for you.
+- There may be a temporary increase in service latency as the service instance starts up its listener again. This depends on how quickly the service opens the listener after the service instance is moved.
+- Any existing connections need to be closed and reopened after the service opens on a new node. A graceful node shutdown or restart allows time for existing connections to be shut down gracefully.
 
-С помощью средств тестирования в Service Fabric можно создать сценарий тестирования для проверки этих ситуаций разными способами.
+### <a name="test-it:-move-service-instances"></a>Test it: Move service instances
 
-1. Переместите первичную реплику службы с отслеживанием состояния.
+By using Service Fabric's testability tools, you can author a test scenario to test these situations in different ways:
 
-    Первичную реплику раздела службы с отслеживанием состояния может понадобиться переместить по ряду причин. Используйте это применительно к первичной реплике определенного раздела, чтобы посмотреть, как ваши службы реагируют на перемещение, полностью их контролируя.
+1. Move a stateful service's primary replica.
+
+    The primary replica of a stateful service partition can be moved for any number of reasons. Use this to target the primary replica of a specific partition to see how your services react to the move in a very controlled manner.
 
     ```powershell
 
@@ -59,11 +60,11 @@
 
     ```
 
-2. Остановите работу узла.
+2. Stop a node.
 
-    Когда работа узла будет остановлена, Service Fabric переместит все экземпляры или разделы службы, которые находились на этом узле, на один из других доступных узлов в кластере. Используйте это при проверке ситуации, при которой узел теряется для кластера, что приводит к необходимости переместить все экземпляры служб и реплики на этом узле.
+    When a node is stopped, Service Fabric moves all of the service instances or partitions that were on that node to one of the other available nodes in the cluster. Use this to test a situation where a node is lost from your cluster and all of the service instances and replicas on that node have to move.
 
-    Узел можно остановить с помощью следующего командлета PowerShell **Stop-ServiceFabricNode**:
+    You can stop a node by using the PowerShell **Stop-ServiceFabricNode** cmdlet:
 
     ```powershell
 
@@ -71,17 +72,17 @@
 
     ```
 
-## Поддержание доступности службы
+## <a name="maintain-service-availability"></a>Maintain service availability
 
-Платформа Service Fabric обеспечивает высокую доступность служб. Но в исключительных случаях проблемы с базовой инфраструктурой все еще могут привести к недоступности. Эти сценарии также важно проверить.
+As a platform, Service Fabric is designed to provide high availability of your services. But in extreme cases, underlying infrastructure problems can still cause unavailability. It is important to test for these scenarios, too.
 
-В службах с отслеживанием состояния используется система на основе кворума для репликации данных о состоянии и обеспечения высокого уровня доступности. Это значит, что для выполнения операций записи кворум реплик должен быть доступным. В редких случаях, например при масштабном сбое оборудования, кворум реплик может быть недоступен. В этом случае вы не сможете выполнять операции записи, но по-прежнему будете иметь возможность выполнять операции чтения.
+Stateful services use a quorum-based system to replicate state for high availability. This means that a quorum of replicas needs to be available to perform write operations. In rare cases, such as a widespread hardware failure, a quorum of replicas may not be available. In these cases, you will not be able to perform write operations, but you will still be able to perform read operations.
 
-### Тестирование. Недоступность операции записи
+### <a name="test-it:-write-operation-unavailability"></a>Test it: Write operation unavailability
 
-Средства тестирования в Service Fabric позволяют выполнять проверку путем внесения ошибки, которая приводит к потере кворума. Хотя такие случаи возникают редко, клиенты и службы, которые зависят от службы с отслеживанием состояния, должны быть готовы к ситуациям, когда они не смогут отправлять запросы на запись в эту службу. Также следует помнить, что сама служба с отслеживанием состояния знает о такой возможности и может надлежащим образом сообщить о ней вызывающим сторонам.
+By using the testability tools in Service Fabric, you can inject a fault that induces quorum loss as a test. Although such a scenario is rare, it is important that clients and services that depend on a stateful service are prepared to handle situations where they cannot make write requests to it. It is also important that the stateful service itself is aware of this possibility and can gracefully communicate it to callers.
 
-Потерю кворума можно вызвать с помощью командлета PowerShell **Invoke-ServiceFabricPartitionQuorumLoss**:
+You can induce quorum loss by using the PowerShell **Invoke-ServiceFabricPartitionQuorumLoss** cmdlet:
 
 ```powershell
 
@@ -89,12 +90,16 @@ PS > Invoke-ServiceFabricPartitionQuorumLoss -ServiceName fabric:/Myapplication/
 
 ```
 
-В этом примере мы задаем для параметра `QuorumLossMode` значение `QuorumReplicas`, чтобы указать, что нам нужно вызвать потерю кворума без отключения всех реплик. Таким образом выполнение операций чтения по-прежнему возможно. Чтобы протестировать сценарий, при котором недоступен весь раздел, для этого параметра можно задать значение `AllReplicas`.
+In this example, we set `QuorumLossMode` to `QuorumReplicas` to indicate that we want to induce quorum loss without taking down all replicas. This way, read operations are still possible. To test a scenario where an entire partition is unavailable, you can set this switch to `AllReplicas`.
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Next steps
 
-[Дополнительные сведения о действиях, доступных благодаря подсистеме тестирования](service-fabric-testability-actions.md)
+[Learn more about testability actions](service-fabric-testability-actions.md)
 
-[Дополнительные сведения о сценариях подсистемы тестирования](service-fabric-testability-scenarios.md)
+[Learn more about testability scenarios](service-fabric-testability-scenarios.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

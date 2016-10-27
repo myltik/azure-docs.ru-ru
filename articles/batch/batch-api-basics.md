@@ -1,459 +1,461 @@
 <properties
-	pageTitle="Обзор функций пакетной службы Azure для разработчиков | Microsoft Azure"
-	description="Ознакомьтесь с функциями пакетной службы и ее API-интерфейсов с точки зрения разработки."
-	services="batch"
-	documentationCenter=".net"
-	authors="mmacy"
-	manager="timlt"
-	editor=""/>
+    pageTitle="Azure Batch feature overview for developers | Microsoft Azure"
+    description="Learn the features of the Batch service and its APIs from a development standpoint."
+    services="batch"
+    documentationCenter=".net"
+    authors="mmacy"
+    manager="timlt"
+    editor=""/>
 
 <tags
-	ms.service="batch"
-	ms.devlang="multiple"
-	ms.topic="get-started-article"
-	ms.tgt_pltfrm="na"
-	ms.workload="big-compute"
-	ms.date="09/29/2016"
-	ms.author="marsma"/>
+    ms.service="batch"
+    ms.devlang="multiple"
+    ms.topic="get-started-article"
+    ms.tgt_pltfrm="na"
+    ms.workload="big-compute"
+    ms.date="09/29/2016"
+    ms.author="marsma"/>
 
-# Обзор функций пакетной службы для разработчиков
 
-В этом обзоре рассматриваются основные функции и ресурсы пакетной службы Azure, которые могут использовать разработчики при создании решений для крупномасштабных параллельных вычислительных нагрузок.
+# <a name="batch-feature-overview-for-developers"></a>Batch feature overview for developers
 
-Как при разработке распределенного вычислительного приложения или службы, которая отправляет прямые вызовы [REST API][batch_rest_api], так и при использовании одного из [пакетов SDK для пакетной службы](batch-technical-overview.md#batch-development-apis) вам понадобятся многие ресурсы и функции, описанные в этой статье.
+In this overview of the core components of the Azure Batch service, we discuss the primary service features and resources that Batch developers can use to build large-scale parallel compute solutions.
 
-> [AZURE.TIP] Дополнительные сведения о пакетной службе Azure см. в [этой статье](batch-technical-overview.md).
+Whether you're developing a distributed computational application or service that issues direct [REST API][batch_rest_api] calls or you're using one of the [Batch SDKs](batch-technical-overview.md#batch-development-apis), you'll use many of the resources and features discussed in this article.
 
-## Рабочий процесс пакетной службы
+> [AZURE.TIP] For a higher-level introduction to the Batch service, see [Basics of Azure Batch](batch-technical-overview.md).
 
-Далее приводится обобщенная схема рабочего процесса практически для всех приложений и служб, использующих пакетную службу для обработки параллельных рабочих нагрузок.
+## <a name="batch-service-workflow"></a>Batch service workflow
 
-1. Отправьте **файлы данных**, которые необходимо обработать, в учетную запись [службы хранилища Azure][azure_storage]. В пакетную службу встроена поддержка доступа к хранилищу BLOB-объектов Azure, и эти файлы могут быть скачаны на [вычислительные узлы](#compute-node) в ходе выполнения задач.
+The following high-level workflow is typical of nearly all applications and services that use the Batch service for processing parallel workloads:
 
-2. Отправьте **файлы приложения**, которые будут выполнять задачи. Это могут быть двоичные файлы или сценарии и их зависимости. Они выполняются с помощью задач в заданиях. Эти файлы можно скачать из учетной записи службы хранения. Либо можно использовать [пакеты приложений](#application-packages) пакетной службы для развертывания приложений и управления ими.
+1. Upload the **data files** that you want to process to an [Azure Storage][azure_storage] account. Batch includes built-in support for accessing Azure Blob storage, and your tasks can download these files to [compute nodes](#compute-node) when the tasks are run.
 
-3. Создайте [пул](#pool) вычислительных узлов. При создании пула указывается количество вычислительных узлов, их размер и операционная система. Каждая задача в задании выполняется на одном из узлов в пуле.
+2. Upload the **application files** that your tasks will run. These files can be binaries or scripts and their dependencies, and are executed by the tasks in your jobs. Your tasks can download these files from your Storage account, or you can use the [application packages](#application-packages) feature of Batch for application management and deployment.
 
-4. Создайте [задание](#job). Задание — это набор задач. Каждое задание назначается конкретному пулу, в котором будут выполняться задачи этого задания.
+3. Create a [pool](#pool) of compute nodes. When you create a pool, you specify the number of compute nodes for the pool, their size, and the operating system. When each task in your job runs, it's assigned to execute on one of the nodes in your pool.
 
-5. Добавьте [задачи](#task) в задание. Каждая задача выполняет приложение или сценарий, загруженные для обработки файлов данных, скачанных из учетной записи службы хранилища. Выходные данные каждой задачи после ее завершения могут быть отправлены в службу хранилища Azure.
+4. Create a [job](#job). A job manages a collection of tasks. You associate each job to a specific pool where that job's tasks will run.
 
-6. Отслеживайте ход выполнения заданий и получайте выходные данные задач из службы хранилища Azure.
+5. Add [tasks](#task) to the job. Each task runs the application or script that you uploaded to process the data files it downloads from your Storage account. As each task completes, it can upload its output to Azure Storage.
 
-В следующих разделах рассматриваются эти и другие ресурсы пакетной службы, которые позволяют использовать распределенные вычисления.
+6. Monitor job progress and retrieve the task output from Azure Storage.
 
-> [AZURE.NOTE] Для использования пакетной службы вам потребуется [учетная запись пакетной службы](batch-account-create-portal.md). Кроме того, почти любое решение предполагает наличие учетной записи [службы хранилища Azure][azure_storage] для хранения и извлечения файлов. В настоящее время пакетная служба поддерживает только учетные записи хранения **общего назначения**, как описано в шаге 5 раздела о [создании учетной записи хранения](../storage/storage-create-storage-account.md#create-a-storage-account) в статье [Об учетных записях хранения Azure](../storage/storage-create-storage-account.md).
+The following sections discuss these and the other resources of Batch that enable your distributed computational scenario.
 
-## Ресурсы пакетной службы
+> [AZURE.NOTE] You need a [Batch account](batch-account-create-portal.md) to use the Batch service. Also, nearly all solutions use an [Azure Storage][azure_storage] account for file storage and retrieval. Batch currently supports only the **General purpose** storage account type, as described in step 5 of [Create a storage account](../storage/storage-create-storage-account.md#create-a-storage-account) in [About Azure storage accounts](../storage/storage-create-storage-account.md).
 
-Для всех решений, использующих пакетную службу, требуются такие ресурсы, как учетные записи, вычислительные узлы, пулы, задания и задачи. Другие ресурсы, например расписания заданий и пакеты приложений, являются полезными дополнительными функциями.
+## <a name="batch-service-resources"></a>Batch service resources
 
-- [Учетная запись.](#account)
-- [Вычислительный узел.](#compute-node)
-- [Пул.](#pool)
-- [Задание.](#job)
+Some of the following resources--accounts, compute nodes, pools, jobs, and tasks--are required by all solutions that use the Batch service. Others, like job schedules and application packages, are helpful, but optional, features.
 
-  - [Расписания заданий](#scheduled-jobs)
+- [Account](#account)
+- [Compute node](#compute-node)
+- [Pool](#pool)
+- [Job](#job)
 
-- [Задача.](#task)
+  - [Job schedules](#scheduled-jobs)
 
-  - [Задача запуска](#start-task)
-  - [Задача диспетчера заданий](#job-manager-task)
-  - [Задачи подготовки и завершения заданий.](#job-preparation-and-release-tasks)
-  - [Задачи с несколькими экземплярами](#multi-instance-tasks)
-  - [Зависимости задачи](#task-dependencies)
+- [Task](#task)
 
-- [Пакеты приложений](#application-packages)
+  - [Start task](#start-task)
+  - [Job manager task](#job-manager-task)
+  - [Job preparation and release tasks](#job-preparation-and-release-tasks)
+  - [Multi-instance task (MPI)](#multi-instance-tasks)
+  - [Task dependencies](#task-dependencies)
 
-## Учетная запись
+- [Application packages](#application-packages)
 
-Учетная запись Пакетной службы — это уникально идентифицируемая сущность в Пакетной службе. Вся обработка данных привязана к учетной записи пакетной службы. Для выполнения операций пакетной службы нужно имя и один из ключей учетной записи. Вы можете создать [учетную запись пакетной службы Azure с помощью портала Azure](batch-account-create-portal.md).
+## <a name="account"></a>Account
 
-## Вычислительный узел.
+A Batch account is a uniquely identified entity within the Batch service. All processing is associated with a Batch account. When you perform operations with the Batch service, you need both the account name and one of its account keys. You can [create an Azure Batch account using the Azure portal](batch-account-create-portal.md).
 
-Вычислительный узел — это виртуальная машина Azure, назначенная для обработки определенной рабочей нагрузки вашего приложения. Размер узла определяет количество ядер ЦП, объем памяти и размер локальной файловой системы, которые выделяются узлу. Вы можете создать пулы узлов Windows или Linux с помощью облачных служб Azure или образов из магазина виртуальных машин Marketplace. Дополнительные сведения см. в разделе [Пул](#pool) ниже.
+## <a name="compute-node"></a>Compute node
 
-На узлах может выполняться любой исполняемый файл или скрипт, поддерживаемый его операционной системой: скрипты EXE, CMD, BAT и PowerShell для Windows и двоичные файлы, скрипты оболочки и Python для Linux.
+A compute node is an Azure virtual machine (VM) that is dedicated to processing a portion of your application's workload. The size of a node determines the number of CPU cores, memory capacity, and local file system size that is allocated to the node. You can create pools of Windows or Linux nodes by using either Azure Cloud Services or Virtual Machines Marketplace images. See the following [Pool](#pool) section for more information on these options.
 
-Для всех вычислительных узлов в пакетной службе характерно следующее:
+Nodes can run any executable or script that is supported by the operating system environment of the node. This includes \*.exe, \*.cmd, \*.bat and PowerShell scripts for Windows--and binaries, shell, and Python scripts for Linux.
 
-- Стандартная [структура папок](#files-and-directories) и связанные [переменные среды](#environment-settings-for-tasks), на которые могут ссылаться задачи.
-- Параметры **брандмауэра**, настроенные для управления доступом.
-- [Удаленный доступ](#connecting-to-compute-nodes) к узлам Windows (по протоколу RDP) и Linux (по протоколу SSH).
+All compute nodes in Batch also include:
 
-## Пул
+- A standard [folder structure](#files-and-directories) and associated [environment variables](#environment-settings-for-tasks) that are available for reference by tasks.
+- **Firewall** settings that are configured to control access.
+- [Remote access](#connecting-to-compute-nodes) to both Windows (Remote Desktop Protocol (RDP)) and Linux (Secure Shell (SSH)) nodes.
 
-Пул — это коллекция узлов, на которых выполняется приложение. Пул может быть создан как вами (вручную), так и пакетной службой (автоматически) при указании выполняемых работ. Вы можете создавать и изменять пулы в соответствии с потребностями ресурсов своего приложения. Пул может использоваться только той учетной записью пакетной службы, в которой он был создан. Учетная запись Пакетной службы может содержать более одного пула.
+## <a name="pool"></a>Pool
 
-Пулы пакетной службы Azure основаны на базовой вычислительной платформе Azure. Они удобны для крупномасштабных операций выделения ресурсов, установки приложений, распространения данных и мониторинга работоспособности. Кроме того, пулы позволяют выполнять [масштабирование](#scaling-compute-resources) — гибкое изменение числа вычислительных узлов в пуле.
+A pool is a collection of nodes that your application runs on. The pool can be created manually by you, or automatically by the Batch service when you specify the work to be done. You can create and manage a pool that meets the resource requirements of your application. A pool can be used only by the Batch account in which it was created. A Batch account can have more than one pool.
 
-Каждому узлу, который добавляется в пул, присваивается уникальное имя и IP-адрес. При удалении узла из пула будут потеряны любые изменения, внесенные в операционную систему или файлы. Имя и IP-адрес удаленного узла освобождаются для использования в других целях. Когда узел покидает пул, он перестает существовать.
+Azure Batch pools build on top of the core Azure compute platform. They provide large-scale allocation, application installation, data distribution, health monitoring, and flexible adjustment of the number of compute nodes within a pool ([scaling](#scaling-compute-resources)).
 
-При создании пула можно указать следующие атрибуты:
+Every node that is added to a pool is assigned a unique name and IP address. When a node is removed from a pool, any changes that are made to the operating system or files are lost, and its name and IP address are released for future use. When a node leaves a pool, its lifetime is over.
 
-- **Операционная система** и **версия** вычислительного узла.
+When you create a pool, you can specify the following attributes:
 
-	При выборе операционной системы узлов в пуле предоставляется два варианта: **конфигурация виртуальной машины** и **конфигурация облачных служб**.
+- Compute node **operating system** and **version**
 
-	Параметр **Конфигурация виртуальной машины** предоставляет образы Linux и Windows для вычислительных узлов из [магазина виртуальных машин Azure Marketplace][vm_marketplace]. При создании пула, содержащего узлы конфигурации виртуальных машин, необходимо указать не только размер узлов, но и **ссылку на образ виртуальной машины** и **номер SKU агента узла** пакетной службы для установки на узлах. Дополнительные сведения об указании этих свойств пула см. в статье [Подготовка вычислительных узлов Linux в пулах пакетной службы Azure](batch-linux-nodes.md).
+    You have two options when you select an operating system for the nodes in your pool: **Virtual Machine Configuration** and **Cloud Services Configuration**.
 
-	Параметр **Cloud Services Configuration** (Конфигурация облачных служб) предоставляет *только* вычислительные узлы Windows. Доступные операционные системы пулов с конфигурацией облачных служб перечислены в статье [Таблица совместимости выпусков гостевых ОС Azure и пакетов SDK](../cloud-services/cloud-services-guestos-update-matrix.md). При создании пула, содержащего узлы облачных служб, необходимо указать только размер узла и соответствующее *семейство ОС*. При создании пулов вычислительных узлов Windows чаще всего используются облачные службы.
+    **Virtual Machine Configuration** provides both Linux and Windows images for compute nodes from the [Azure Virtual Machines Marketplace][vm_marketplace].
+    When you create a pool that contains Virtual Machine Configuration nodes, you must specify not only the size of the nodes, but also the **virtual machine image reference** and the Batch **node agent SKU** to be installed on the nodes. For more information about specifying these pool properties, see [Provision Linux compute nodes in Azure Batch pools](batch-linux-nodes.md).
 
-    - *Семейство ОС* также определяет, какие версии .NET устанавливаются вместе с операционной системой.
-	- Вы можете выбрать для узлов *версию ОС* так же, как и для рабочих ролей в облачных службах (дополнительные сведения о рабочих ролях см. в разделе [Информация об облачных службах](../cloud-services/cloud-services-choose-me.md#tell-me-about-cloud-services) статьи [Стоит ли сделать выбор в пользу облачных служб или чего-то другого?](../cloud-services/cloud-services-choose-me.md)).
-    - Как и для рабочих ролей, мы рекомендуем указывать значение `*` в качестве *версии ОС*. Тогда узлы будут обновляться автоматически, и вам не нужно будет выполнять дополнительные действия при выходе новых версий. Выбор конкретной версии ОС обычно нужен только для гарантии совместимости приложений. Это позволит протестировать обратную совместимость перед установкой обновлений. После успешной проверки вам нужно будет обновить *версию ОС* для пула и установить новый образ ОС. Все выполняемые задачи будут при этом прерваны и повторно поставлены в очередь.
+    **Cloud Services Configuration** provides Windows compute nodes *only*. Available operating systems for Cloud Services Configuration pools are listed in the [Azure Guest OS releases and SDK compatibility matrix](../cloud-services/cloud-services-guestos-update-matrix.md). When you create a pool that contains Cloud Services nodes, you need to specify only the node size and its *OS Family*. When you create pools of Windows compute nodes, you most commonly use Cloud Services.
 
-- **Размер узлов.**
+    - The *OS Family* also determines which versions of .NET are installed with the OS.
+    - As with worker roles within Cloud Services, you can specify an *OS Version* (for more information on worker roles, see the [Tell me about cloud services](../cloud-services/cloud-services-choose-me.md#tell-me-about-cloud-services) section in the [Cloud Services overview](../cloud-services/cloud-services-choose-me.md)).
+    - As with worker roles, we recommend that you specify `*` for the *OS Version* so that the nodes are automatically upgraded, and there is no work required to cater to newly released versions. The primary use case for selecting a specific OS version is to ensure application compatibility, which allows backward compatibility testing to be performed before allowing the version to be updated. After validation, the *OS Version* for the pool can be updated and the new OS image can be installed--any running tasks are interrupted and requeued.
 
-	Размеры вычислительных узлов, доступные в **конфигурации облачных служб**, приведены в статье [Размеры для облачных служб](../cloud-services/cloud-services-sizes-specs.md). Пакетная служба поддерживает все размеры облачных служб, кроме `ExtraSmall`.
+- **Size of the nodes**
 
-	Размеры вычислительных узлов, доступные в **конфигурации виртуальной машины**, перечислены в статьях [Размеры виртуальных машин в Azure](../virtual-machines/virtual-machines-linux-sizes.md) для Linux и [Размеры виртуальных машин в Azure](../virtual-machines/virtual-machines-windows-sizes.md) для Windows. Пакетная служба поддерживает все размеры виртуальных машин Azure, кроме `STANDARD_A0`. Для хранилища класса Premium также не поддерживаются размеры таких серий: `STANDARD_GS`, `STANDARD_DS` и `STANDARD_DSV2`.
+    **Cloud Services Configuration** compute node sizes are listed in [Sizes for Cloud Services](../cloud-services/cloud-services-sizes-specs.md). Batch supports all Cloud Services sizes except `ExtraSmall`.
 
-	При выборе размера вычислительного узла учтите характеристики и требования приложений, которые будут на нем выполняться. Чтобы выбрать правильный размер узла, что позволит снизить затраты, также следует учитывать такие аспекты, как многопоточность приложений и требуемый объем памяти. Обычно при выборе размера узла предполагается, что единовременно на нем будет выполняться одна задача. Вы можете настроить [параллельное выполнение](batch-parallel-node-tasks.md) нескольких задач (а значит и нескольких экземпляров приложения) на вычислительном узле во время выполнения задания. В таком случае обычно выбирается более крупный узел с учетом роста потребностей, связанных с выполнением параллельных задач. Дополнительные сведения см. в описании атрибута [Политика планирования задач](#task-scheduling-policy).
+    **Virtual Machine Configuration** compute node sizes are listed in [Sizes for virtual machines in Azure](../virtual-machines/virtual-machines-linux-sizes.md) (Linux) and [Sizes for virtual machines in Azure](../virtual-machines/virtual-machines-windows-sizes.md) (Windows). Batch supports all Azure VM sizes except `STANDARD_A0` and those with premium storage (`STANDARD_GS`, `STANDARD_DS`, and `STANDARD_DSV2` series).
 
-	Все узлы в пуле имеют одинаковый размер. Если вы планируете выполнять приложения с разными требованиями к системе и/или с разной нагрузкой, рекомендуется использовать отдельные пулы.
+    When selecting a compute node size, consider the characteristics and requirements of the applications you'll run on the nodes. Aspects like whether the application is multithreaded and how much memory it consumes can help determine the most suitable and cost-effective node size. It's typical to select a node size assuming one task will run on a node at a time. However, it is possible to have multiple tasks (and therefore multiple application instances) [run in parallel](batch-parallel-node-tasks.md) on compute nodes during job execution. In this case, it is common to choose a larger node size to accommodate the increased demand of parallel task execution. See [Task scheduling policy](#task-scheduling-policy) for more information.
 
-- **Целевое количество узлов.**
+    All of the nodes in a pool are the same size. If intend to run applications with differing system requirements and/or load levels, we recommend that you use separate pools.
 
-	Это количество вычислительных узлов, которое нужно развернуть в пуле. Оно называется *целевым*, так как в некоторых случаях пул не может достигнуть требуемого числа узлов. Это может произойти из-за достижения [квоты на ядра](batch-quota-limit.md#batch-account-quotas) для учетной записи пакетной службы или если примененная к пулу формула автоматического масштабирования ограничивает максимальное количество узлов (см. описание атрибута "Политика масштабирования" ниже).
+- **Target number of nodes**
 
-- **Политика масштабирования.**
+    This is the number of compute nodes that you want to deploy in the pool. This is referred to as a *target* because, in some situations, your pool might not reach the desired number of nodes. A pool might not reach the desired number of nodes if it reaches the [core quota](batch-quota-limit.md#batch-account-quotas) for your Batch account--or if there is an auto-scaling formula that you have applied to the pool that limits the maximum number of nodes (see the following "Scaling policy" section).
 
-	Вместо указания статического количества узлов можно написать [формулу автоматического масштабирования](#scaling-compute-resources) и применить ее к пулу. По этой формуле пакетная служба периодически вычисляет и изменяет количество узлов в пуле в зависимости от выбранных вами параметров пула, заданий и задач.
+- **Scaling policy**
 
-- **Политика планирования задач.**
+    In addition to specifying a static number of nodes, you can instead write and apply an [auto-scaling formula](#scaling-compute-resources) to a pool. The Batch service periodically evaluates your formula and adjusts the number of nodes within the pool based on various pool, job, and task parameters that you can specify.
 
-	Параметр конфигурации [Максимальное число заданий на узел](batch-parallel-node-tasks.md) определяет максимальное число задач, которые могут параллельно выполняться на каждом вычислительном узле пула.
+- **Task scheduling policy**
 
-	По умолчанию устанавливается выполнение только одной задачи на узле в любое время. Но в некоторых ситуациях выполнение нескольких задач на одном узле будет более правильным выбором. Сведения о преимуществах выполнения нескольких задач на узле см. в разделе [Пример сценария](batch-parallel-node-tasks.md#example-scenario) статьи [Повышение эффективности вычислительных ресурсов в пакетной службе Azure благодаря параллельному выполнению задач на узлах](batch-parallel-node-tasks.md).
+    The [max tasks per node](batch-parallel-node-tasks.md) configuration option determines the maximum number of tasks that can be run in parallel on each compute node within the pool.
 
-	Вы также можете выбрать *тип заполнения*. Пакетная служба может равномерно распределять задачи между всеми узлами в пуле или назначать каждому узлу максимально возможное число задач, прежде чем переходить к загрузке следующего узла пула.
+    The default configuration is that one task at a time runs on a node, but there are scenarios where it is beneficial to have more than one task executed on a node simultaneously. See the [example scenario](batch-parallel-node-tasks.md#example-scenario) in the [concurrent node tasks](batch-parallel-node-tasks.md) article to see how you can benefit from multiple tasks per node.
 
-- **Состояние взаимодействия** между вычислительными узлами.
+    You can also specify a *fill type* which determines whether Batch spreads the tasks evenly across all nodes in a pool, or packs each node with the maximum number of tasks before assigning tasks to another node.
 
-	В большинстве случаев задачи работают независимо друг от друга и взаимодействие между ними не требуется. Но в некоторых приложениях задачи должны взаимодействовать (например, при использовании [задач с несколькими экземплярами](batch-mpi.md)).
+- **Communication status** of compute nodes
 
-	Вы можете разрешить **обмен данными между узлами**, входящими в один пул. При включении обмена данными между узлами узлы в пулах с конфигурацией облачных служб могут взаимодействовать друг с другом через порты с номерами выше 1100. При этом пулы с конфигурацией виртуальной машины не ограничивают трафик через какой-либо порт.
+    In most scenarios, tasks operate independently and do not need to communicate with one another. However, there are some applications in which tasks must communicate, like [MPI scenarios](batch-mpi.md).
 
-	Обратите внимание, что включение обмена данными между узлами также влияет на размещение узлов в кластерах и из-за ограничений развертывания может ограничить максимальное количество узлов в пуле. Если приложению не требуется обмен данными между узлами, пакетная служба может выделить для пула большое количество узлов из разных кластеров и центров обработки данных. Это позволяет увеличить производительность параллельной обработки.
+    You can configure a pool to allow communication between the nodes within it--**internode communication**. When internode communication is enabled, nodes in Cloud Services Configuration pools can communicate with each other on ports greater than 1100, and Virtual Machine Configuration pools do not restrict traffic on any port.
 
-- **Задача запуска** для вычислительных узлов
+    Note that enabling internode communication also impacts the placement of the nodes within clusters and might limit the maximum number of nodes in a pool because of deployment restrictions. If your application does not require communication between nodes, the Batch service can allocate a potentially large number of nodes to the pool from many different clusters and datacenters to enable increased parallel processing power.
 
-	*Задача запуска* (необязательный параметр) будет выполняться на каждом узле при его присоединении к пулу, а также при каждом перезапуске или пересоздании образа узла. Она особенно полезна для подготовки вычислительных узлов к выполнению таких операций, как установка приложений, которые запускаются задачами на вычислительных узлах.
+- **Start task** for compute nodes
 
-- **Пакеты приложений**
+    The optional *start task* executes on each node as that node joins the pool, and each time a node is restarted or reimaged. The start task is especially useful for preparing compute nodes for the execution of tasks, like installing the applications that your tasks run on the compute nodes.
 
-	Вы можете указать [пакеты приложений](#application-packages) для развертывания на вычислительных узлах в пуле. Пакеты приложений обеспечивают упрощенное развертывание и управление версиями для приложений, запускаемых с помощью задач. Пакеты приложений, которые указываются для пула, устанавливаются на каждый вычислительный узел, который присоединяется к пулу, а также каждый раз, когда узел перезагружается или для него пересоздается образ. Пакеты приложений сейчас не поддерживаются на вычислительных узлах Linux.
+- **Application packages**
 
-- **Конфигурация сети**
+    You can specify [application packages](#application-packages) to deploy to the compute nodes in the pool. Application packages provide simplified deployment and versioning of the applications that your tasks run. Application packages that you specify for a pool are installed on every node that joins that pool, and every time a node is rebooted or reimaged. Application packages are currently unsupported on Linux compute nodes.
 
-	Можно указать идентификатор [виртуальной сети](../virtual-network/virtual-networks-overview.md) Azure, в которой необходимо создать вычислительные узлы для пула. Требования по определению виртуальной сети для пула см. в статье [Add a pool to an account][vnet] \(Добавление пула к учетной записи) в справочнике по REST API пакетной службы.
+- **Network configuration**
 
-> [AZURE.IMPORTANT] Для всех учетных записей пакетной службы установлена **квота** по умолчанию, которая ограничивает количество **ядер** (и, следовательно, вычислительных узлов) в учетной записи. Дополнительные сведения о квотах по умолчанию и инструкцию по [увеличению квоты](batch-quota-limit.md#increase-a-quota) (например, максимального количества ядер в учетной записи пакетной службы) см. в статье [Квоты и ограничения пакетной службы Azure](batch-quota-limit.md). Если возник вопрос о том, почему пул не использует больше определенного количества узлов, причиной может быть квота на ядра.
+    You can specify the ID of an Azure [virtual network (VNet)](../virtual-network/virtual-networks-overview.md) in which the pool's compute nodes should be created. Requirements for specifying a VNet for your pool can be found in [Add a pool to an account][vnet] in the Batch REST API reference.
 
-## Задание
+> [AZURE.IMPORTANT] All Batch accounts have a default **quota** that limits the number of **cores** (and thus, compute nodes) in a Batch account. You can find the default quotas and instructions on how to [increase a quota](batch-quota-limit.md#increase-a-quota) (such as the maximum number of cores in your Batch account) in [Quotas and limits for the Azure Batch service](batch-quota-limit.md). If you find yourself asking "Why won't my pool reach more than X nodes?" this core quota might be the cause.
 
-Задание представляет собой набор задач. Оно управляет порядком выполнения вычислений каждой задачей на вычислительных узлах в пуле.
+## <a name="job"></a>Job
 
-- Задание указывает **пул**, в котором будет выполняться работа. Вы можете создавать отдельный пул для каждого задания или использовать один пул для множества заданий. Кроме того, вы можете создавать пул для каждого задания, включенного в расписание, или единый пул для всех заданий в одном расписании.
+A job is a collection of tasks. It manages how computation is performed by its tasks on the compute nodes in a pool.
 
-- Вы можете указать **приоритет задания**, но это необязательный параметр. Если вы создаете задание с более высоким приоритетом, его задачи добавляются в очередь перед задачами менее приоритетных заданий. Задачи с более низким приоритетом, которые уже выполняются, прерываться не будут.
+- The job specifies the **pool** in which the work is to be run. You can create a new pool for each job, or use one pool for many jobs. You can create a pool for each job that is associated with a job schedule, or for all jobs that are associated with a job schedule.
 
-- Вы можете задать некоторые **ограничения** для заданий.
+- You can specify an optional **job priority**. When a job is submitted with a higher priority than jobs that are currently in progress, the tasks for the higher-priority job are inserted into the queue ahead of tasks for the lower-priority jobs. Tasks in lower-priority jobs that are already running are not preempted.
 
-	Например, **максимальное время выполнения**. Таким образом, если задание выполняется дольше этого времени, оно будет завершено вместе со всеми задачами.
+- You can use job **constraints** to specify certain limits for your jobs:
 
-	Пакетная служба может обнаруживать и повторно выполнять незавершенные задачи. В качестве ограничения можно указать **максимальное число повторных попыток задачи**, а также следует ли пытаться повторно выполнить задачу (*всегда* или *никогда*). Повторное выполнение задачи означает, что она повторно помещается в очередь и будет снова запущена.
+    You can set a **maximum wallclock time**, so that if a job runs for longer than the maximum wallclock time that is specified, the job and all of its tasks are terminated.
 
-- Задачи к заданию может добавлять клиентское приложение. Кроме того, можно настроить [задачу диспетчера заданий](#job-manager-task). Задача диспетчера заданий содержит всю информацию для создания необходимых задач в рамках задания. Эту задачу выполняет один из вычислительных узлов пула. Задача диспетчера заданий обрабатывается пакетной службой особым образом: она помещается в очередь сразу при создании задания и перезапускается, если происходит сбой. Задача диспетчера заданий *необходима* для заданий, создаваемых согласно [расписанию заданий](#scheduled-jobs), так как это единственный способ определить задачи перед созданием экземпляра задания.
+    Batch can detect and then retry failed tasks. You can specify the **maximum number of task retries** as a constraint, including whether a task is *always* or *never* retried. Retrying a task means that the task is requeued to be run again.
 
-- По умолчанию задания остаются в активном состоянии после выполнения всех задач в задании. Это поведение можно изменить, чтобы задание автоматически завершалось после выполнения всех входящих в него задач. Для этого следует присвоить свойству **onAllTasksComplete** ([OnAllTasksComplete][net_onalltaskscomplete] в .NET пакетной службы) значение *terminatejob*.
+- Your client application can add tasks to a job, or you can specify a [job manager task](#job-manager-task). A job manager task contains the information that is necessary to create the required tasks for a job, with the job manager task being run on one of the compute nodes in the pool. The job manager task is handled specifically by Batch--it is queued as soon as the job is created, and is restarted if it fails. A job manager task is *required* for jobs that are created by a [job schedule](#scheduled-jobs) because it is the only way to define the tasks before the job is instantiated.
 
-	Обратите внимание, что пакетная служба считает задание *без* задач заданием, все задачи которого выполнены. Поэтому этот параметр чаще всего используется с [задачами диспетчера заданий](#job-manager-task). Если вы хотите использовать автоматическое завершение заданий без диспетчера заданий, необходимо сначала присвоить свойству **onAllTasksComplete** нового задания значение *noaction*. Значение *terminatejob* следует присвоить этому свойству только после добавления задач в задание.
+- By default, jobs remain in the active state when all tasks within the job are complete. You can change this behavior so that the job is automatically terminated when all tasks in the job are complete. Set the job's **onAllTasksComplete** property ([OnAllTasksComplete][net_onalltaskscomplete] in Batch .NET) to *terminatejob* to automatically terminate the job when all of its tasks are in the completed state.
 
-### Приоритет задания
+    Note that the Batch service considers a job with *no* tasks to have all of its tasks completed. Therefore, this option is most commonly used with a [job manager task](#job-manager-task). If you want to use automatic job termination without a job manager, you should initially set a new job's **onAllTasksComplete** property to *noaction*, then set it to *terminatejob* only after you've finished adding tasks to the job.
 
-При создании задания в пакетной службе ему можно назначить приоритет. Пакетная служба использует значения приоритетов заданий, чтобы определять порядок выполнения разных заданий в одной учетной записи (не путайте с [запланированным заданием](#scheduled-jobs)). Приоритет может иметь значение в диапазоне от -1000 до 1000, где -1000 означает наименьший приоритет, а 1000 — наивысший. Вы можете изменить приоритет задания с помощью операции [обновления свойств задания][rest_update_job] в REST для пакетной службы или изменив свойство [CloudJob.Priority][net_cloudjob_priority] в .NET для пакетной службы.
+### <a name="job-priority"></a>Job priority
 
-В рамках одной учетной записи задания с высоким приоритетом имеют преимущество при планировании относительно заданий с низким приоритетом. Задания с более высоким приоритетом, относящиеся к одной учетной записи, не имеют преимущества при планировании относительно других заданий с более низким приоритетом, относящихся к другой учетной записи.
+You can assign a priority to jobs that you create in Batch. The Batch service uses the priority value of the job to determine the order of job scheduling within an account (this is not to be confused with a [scheduled job](#scheduled-jobs)). The priority values range from -1000 to 1000, with -1000 being the lowest priority and 1000 being the highest. You can update the priority of a job by using the [Update the properties of a job][rest_update_job] operation (Batch REST) or by modifying the [CloudJob.Priority][net_cloudjob_priority] property (Batch .NET).
 
-Задания распределяются по пулам независимо друг от друга. Если используется несколько пулов, задание с более высоким приоритетом не обязательно будет выполняться первым. Задание задерживается, если в связанном с ним пуле недостаточно свободных узлов. Если задания выполняются в одном пуле и имеют одинаковый приоритет, они имеют равные шансы на распределение.
+Within the same account, higher-priority jobs have scheduling precedence over lower-priority jobs. A job with a higher-priority value in one account does not have scheduling precedence over another job with a lower-priority value in a different account.
 
-### Запланированные задания
+Job scheduling across pools is independent. Between different pools, it is not guaranteed that a higher-priority job is scheduled first if its associated pool is short of idle nodes. In the same pool, jobs with the same priority level have an equal chance of being scheduled.
 
-[Расписания заданий][rest_job_schedules] позволяют создавать в пакетной службе повторяющиеся задания. Расписание заданий определяет время запуска заданий и параметры для запуска этих заданий. Вы можете указать период действия задания, то есть с какого момента и в течение какого времени служба будет применять это расписание, а также частоту выполнения периодических заданий в этот период.
+### <a name="scheduled-jobs"></a>Scheduled jobs
 
-## Задача
+[Job schedules][rest_job_schedules] enable you to create recurring jobs within the Batch service. A job schedule specifies when to run jobs and includes the specifications for the jobs to be run. You can specify the duration of the schedule--how long and when the schedule is in effect--and how often during that time period that jobs should be created.
 
-Задача представляет собой единицу вычисления, которая связана с заданием и выполняется на узле. Задачи назначаются узлу для выполнения или ставятся в очередь, пока не освободится какой-либо узел. Говоря простыми словами, задача запускает одну или несколько программ или сценариев на вычислительном узле, чтобы выполнить необходимую работу.
+## <a name="task"></a>Task
 
-При создании задачи можно указать следующее:
+A task is a unit of computation that is associated with a job. It runs on a node. Tasks are assigned to a node for execution, or are queued until a node becomes free. Put simply, a task runs one or more programs or scripts on a compute node to perform the work you need done.
 
-- **Командную строку** задачи. Это командная строка, которая запускает приложение или сценарий на вычислительном узле.
+When you create a task, you can specify:
 
-	Следует отметить, что командная строка не выполняется на базе оболочки и поэтому не может автоматически использовать функции оболочки, например расширение [переменных среды](#environment-settings-for-tasks) (в том числе `PATH`). Чтобы воспользоваться этими функциями, необходимо вызвать оболочку в командной строке. Это можно сделать путем запуска `cmd.exe` на узлах Windows или `/bin/sh` на узлах Linux:
+- The **command line** of the task. This is the command line that runs your application or script on the compute node.
 
-	.`cmd /c MyTaskApplication.exe %MY_ENV_VAR%`
+    It is important to note that the command line does not actually run under a shell. Therefore, it cannot natively take advantage of shell features like [environment variable](#environment-settings-for-tasks) expansion (this includes the `PATH`). To take advantage of such features, you must invoke the shell in the command line--for example, by launching `cmd.exe` on Windows nodes or `/bin/sh` on Linux:
 
-	`/bin/sh -c MyTaskApplication $MY_ENV_VAR`
+    `cmd /c MyTaskApplication.exe %MY_ENV_VAR%`
 
-	Если требуется, чтобы задачи выполняли приложение или скрипт без использования переменной `PATH` или переменных среды узла, на которые содержится ссылка, необходимо явным образом вызвать оболочку в командной строке задачи.
+    `/bin/sh -c MyTaskApplication $MY_ENV_VAR`
 
-- **Файлы ресурсов**, которые содержат данные для обработки. Эти файлы автоматически копируются на узел из хранилища BLOB-объектов в учетной записи службы хранилища Azure **общего назначения** перед выполнением командной строки задачи. Дополнительные сведения см. в разделах [Задача запуска](#start-task) и [Файлы и каталоги](#files-and-directories).
+    If your tasks need to run an application or script that is not in the node's `PATH` or reference environment variables, invoke the shell explicitly in the task command line.
 
-- **Переменные среды**, необходимые для приложения. Дополнительные сведения см. в разделе [Параметры среды для задач](#environment-settings-for-tasks).
+- **Resource files** that contain the data to be processed. These files are automatically copied to the node from Blob storage in a **General purpose** Azure Storage account before the task's command line is executed. For more information, see the sections [Start task](#start-task) and [Files and directories](#files-and-directories).
 
-- **Ограничения**, в рамках которых должна выполняться задача. Например, может быть задано максимальное время на выполнение задачи, максимальное количество повторных попыток выполнить задачу, завершенную сбоем, и максимальное время хранения файлов в рабочем каталоге задачи.
+- The **environment variables** that are required by your application. For more information, see the [Environment settings for tasks](#environment-settings-for-tasks) section.
 
-- **Пакеты приложений** для развертывания на вычислительном узле, на котором запланировано выполнение задачи. [Пакеты приложений](#application-packages) обеспечивают упрощенное развертывание и управление версиями для приложений, запускаемых с помощью задач. Пакеты приложений уровня задач особенно полезны в средах с общим пулом, где различные задания выполняются в одном пуле, который не удаляется по завершении задания. Если задание содержит меньше задач, чем число узлов в пуле, пакеты приложений задач помогут минимизировать объем передаваемых данных, так как приложение развертывается только на узлах, на которых выполняются задачи.
+- The **constraints** under which the task should execute. For example, the maximum time that the task is allowed to run, the maximum number of times a failed task should be retried, and the maximum time that files in the task's working directory are retained.
 
-Помимо задач, которые можно определить для вычислений на узле, пакетная служба выполняет следующие специальные задачи.
+- **Application packages** to deploy to the compute node on which the task is scheduled to run. [Application packages](#application-packages) provide simplified deployment and versioning of the applications that your tasks run. Task-level application packages are especially useful in shared-pool environments, where different jobs are run on one pool, and the pool is not deleted when a job is completed. If your job has fewer tasks than nodes in the pool, task application packages can minimize data transfer since your application is deployed only to the nodes that run tasks.
 
-- [Задача запуска](#start-task)
-- [Задача диспетчера заданий](#job-manager-task)
-- [Задачи подготовки и завершения заданий.](#job-preparation-and-release-tasks)
-- [Задачи с несколькими экземплярами](#multi-instance-tasks)
-- [Зависимости задачи](#task-dependencies)
+In addition to tasks you define to perform computation on a node, the following special tasks are also provided by the Batch service:
 
-### Задача запуска.
+- [Start task](#start-task)
+- [Job manager task](#job-manager-task)
+- [Job preparation and release tasks](#job-preparation-and-release-tasks)
+- [Multi-instance tasks (MPI)](#multi-instance-tasks)
+- [Task dependencies](#task-dependencies)
 
-Связав **задачу запуска** с пулом, можно подготовить среду выполнения на его узлах. Например, эта задача может выполнять установку приложений, которые будут использовать задачи, или запуск фоновых процессов. Задача запуска выполняется при каждом запуске узла, пока узел остается в пуле, в том числе при первом добавлении узла к пулу и при перезапуске или пересоздании образа узла.
+### <a name="start-task"></a>Start task
 
-Задача запуска особенно полезна тем, что она может содержать все сведения для настройки вычислительных узлов и установки приложений, которые нужны для выполнения задач. Таким образом, для увеличения числа узлов в пуле достаточно указать новое количество узлов. Пакетная служба уже имеет необходимую информацию для настройки новых узлов и подготовки их к выполнению задач.
+By associating a **start task** with a pool, you can prepare the operating environment of its nodes. For example, you can perform actions like installing the applications that your tasks run, and starting background processes. The start task runs every time a node starts, for as long as it remains in the pool--including when the node is first added to the pool and when it is restarted or reimaged.
 
-Для этой задачи, как для любой задачи пакетной службы Azure, кроме исполняемой **командной строки** можно указать список **файлов ресурсов**, которые хранятся в [службе хранилища Azure][azure_storage]. Пакетная служба сначала скопирует эти файлы на узел из службы хранилища Azure, а затем запустит командную строку. Список файлов для задачи запуска пула обычно содержит приложение задач или его зависимости.
+A primary benefit of the start task is that it can contain all of the information that is necessary to configure a compute node and install the applications that are required for task execution. Therefore, increasing the number of nodes in a pool is as simple as specifying the new target node count--Batch already has the information that is needed to configure the new nodes and get them ready for accepting tasks.
 
-В нем также могут содержаться справочные данные, которые будут использоваться всеми задачами, выполняемыми на вычислительном узле. Например, командная строка задачи запуска может выполнять операцию `robocopy`, чтобы скопировать файлы приложения (указанные в качестве файлов ресурсов и скачанные на узел) из [рабочего каталога](#files-and-directories) задачи запуска в [общую папку](#files-and-directories), а затем запустить MSI-файл или `setup.exe`.
+As with any Azure Batch task, you can specify a list of **resource files** in [Azure Storage][azure_storage], in addition to a **command line** to be executed. Batch first copies the resource files to the node from Azure Storage, and then runs the command line. For a pool start task, the file list typically contains the task application and its dependencies.
 
-> [AZURE.IMPORTANT] В настоящее время пакетная служба поддерживает *только* учетные записи хранения **общего назначения**, как описано в шаге 5 раздела о [создании учетной записи хранения](../storage/storage-create-storage-account.md#create-a-storage-account) в статье [Об учетных записях хранения Azure](../storage/storage-create-storage-account.md). В задачах пакетной службы (включая стандартные задачи, задачи запуска, задачи подготовки и завершения заданий) необходимо указывать файлы ресурсов, которые находятся *только* в учетных записях хранения **общего назначения**.
+However, it could also include reference data to be used by all tasks that are running on the compute node. For example, a start task's command line could perform a `robocopy` operation to copy application files (which were specified as resource files and downloaded to the node) from the start task's [working directory](#files-and-directories) to the [shared folder](#files-and-directories), and then run an MSI or `setup.exe`.
 
-Обычно желательно, чтобы пакетная служба дождалась завершения задачи запуска, прежде чем считать узел готовым к назначению задач, но это поведение можно изменить.
+> [AZURE.IMPORTANT] Batch currently supports *only* the **General purpose** storage account type, as described in step 5 of [Create a storage account](../storage/storage-create-storage-account.md#create-a-storage-account) in [About Azure storage accounts](../storage/storage-create-storage-account.md). Your Batch tasks (including standard tasks, start tasks, job preparation tasks, and job release tasks) must specify resource files that reside *only* in **General purpose** storage accounts.
 
-Если задача запуска на узле пула завершится сбоем, этот сбой отобразится в параметре состояния узла. При этом узлу не будут назначаться задачи. Задача запуска может завершиться сбоем, если не удастся скопировать файлы ресурсов из хранилища или если процесс, запущенный командной строкой задачи запуска, вернет ненулевой код завершения.
+It is typically desirable for the Batch service to wait for the start task to complete before considering the node ready to be assigned tasks, but you can configure this.
 
-При добавлении или обновлении задачи запуска для *существующего* пула необходимо перезагрузить его вычислительные узлы, чтобы применить к ним задачу запуска.
+If a start task fails on a compute node, then the state of the node is updated to reflect the failure, and the node is not assigned any tasks. A start task can fail if there is an issue copying its resource files from storage, or if the process executed by its command line returns a nonzero exit code.
 
-### Задача диспетчера заданий
+If you add or update the start task for an *existing* pool, you must reboot its compute nodes for the start task to be applied to the nodes.
 
-**Задача диспетчера заданий** обычно используется для управления заданием и/или отслеживания его выполнения. Например, она создает и отправляет задачи для задания, определяет дополнительные задачи, которые нужно выполнить, и фиксирует завершение задания. Но задача диспетчера заданий не ограничивается такими действиями. Это полнофункциональная задача, которая может выполнять любые действия, требуемые в рамках задания. Например, задача диспетчера заданий может скачать файл, указанный в качестве параметра, проанализировать содержимое этого файла и в зависимости от содержимого отправить на выполнение дополнительные задачи.
+### <a name="job-manager-task"></a>Job manager task
 
-Задача диспетчера заданий запускается перед выполнением всех других задач. Она предоставляет следующие возможности.
+You typically use a **job manager task** to control and/or monitor job execution--for example, to create and submit the tasks for a job, determine additional tasks to run, and determine when work is complete. However, a job manager task is not restricted to these activities. It is a fully fledged task that can perform any actions that are required for the job. For example, a job manager task might download a file that is specified as a parameter, analyze the contents of that file, and submit additional tasks based on those contents.
 
-- Пакетная служба автоматически создает эту задачу при создании задания.
+A job manager task is started before all other tasks. It provides the following features:
 
-- Эта задача выполняется раньше любых других задач в задании.
+- It is automatically submitted as a task by the Batch service when the job is created.
 
-- Узел, на котором выполняется задача, удаляется из пула последним при уменьшении размера пула.
+- It is scheduled to execute before the other tasks in a job.
 
-- Такое завершение задачи может привести к завершению всех задач данного задания.
+- Its associated node is the last to be removed from a pool when the pool is being downsized.
 
-- При перезапуске задача диспетчера заданий получает наивысший приоритет. При этом, если нет свободных узлов, пакетная служба может освободить ресурсы для этой задачи, прервав выполнение одной из других задач, запущенных в пуле.
+- Its termination can be tied to the termination of all tasks in the job.
 
-- Задача диспетчера заданий не имеет приоритета над задачами других заданий. Приоритеты между заданиями определяются только на уровне заданий.
+- A job manager task is given the highest priority when it needs to be restarted. If an idle node is not available, the Batch service might terminate one of the other running tasks in the pool to make room for the job manager task to run.
 
-### Задачи подготовки и завершения заданий.
+- A job manager task in one job does not have priority over the tasks of other jobs. Across jobs, only job-level priorities are observed.
 
-Для настройки среды выполнения задания в пакетной службе предусмотрена задача подготовки задания, а для очистки или обслуживания по окончании задания — задача завершения задания.
+### <a name="job-preparation-and-release-tasks"></a>Job preparation and release tasks
 
-- **Задача подготовки задания**. Эта задача выполняется на всех вычислительных узлах, на которых запланировано выполнение задач, до выполнения какой-либо другой задачи задания. Например, вы можете применить задачу подготовки задания для копирования данных, которые используются всеми задачами, но только в рамках одного задания.
-- **Задача завершения задания**. Когда задание завершается, эта задача выполняется на каждом узле в пуле, на котором была выполнена хотя бы одна задача. Задачу завершения задания можно использовать для удаления данных, скопированных задачей подготовки задания, или для сжатия и передачи диагностических данных журналов.
+Batch provides job preparation tasks for pre-job execution setup. Job release tasks are for post-job maintenance or cleanup.
 
-Задачи подготовки и завершения задания позволяют указать командную строку, которая будет выполняться при вызове задачи. Они предоставляют такие возможности, как загрузка файлов, выполнение с повышенными правами, пользовательские переменные среды, максимальная продолжительность выполнения, число повторных попыток и время хранения файла.
+- **Job preparation task**: A job preparation task runs on all compute nodes that are scheduled to run tasks, before any of the other job tasks are executed. You can use a job preparation task to copy data that is shared by all tasks, but is unique to the job, for example.
+- **Job release task**: When a job has completed, a job release task runs on each node in the pool that executed at least one task. You can use a job release task to delete data that is copied by the job preparation task, or to compress and upload diagnostic log data, for example.
 
-Дополнительные сведения о задачах подготовки и завершения заданий см. в статье [Выполнение задач подготовки и завершения заданий на вычислительных узлах пакетной службы Azure](batch-job-prep-release.md).
+Both job preparation and release tasks allow you to specify a command line to run when the task is invoked. They offer features like file download, elevated execution, custom environment variables, maximum execution duration, retry count, and file retention time.
 
-### Задачи с несколькими экземплярами
+For more information on job preparation and release tasks, see [Run job preparation and completion tasks on Azure Batch compute nodes](batch-job-prep-release.md).
 
-[Задача с несколькими экземплярами](batch-mpi.md) — это задача, которая может выполняться на нескольких вычислительных узлах одновременно. С помощью задач с несколькими экземплярами можно включать высокопроизводительные вычислительные сценарии (такие как интерфейс передачи сообщений (MPI)), которым необходимо несколько совместно выделенных вычислительных узлов для обработки одной рабочей нагрузки.
+### <a name="multi-instance-task"></a>Multi-instance task
 
-Дополнительные сведения о выполнении заданий задач с несколькими экземплярами в пакетной службе с использованием библиотеки .NET для пакетной службы см. в статье [Использование задач с несколькими экземплярами для запуска приложений с интерфейсом передачи сообщений в пакетной службе Azure](batch-mpi.md).
+A [multi-instance task](batch-mpi.md) is a task that is configured to run on more than one compute node simultaneously. With multi-instance tasks, you can enable high-performance computing scenarios that require a group of compute nodes that are allocated together to process a single workload (like Message Passing Interface (MPI)).
 
-### Зависимости задачи
+For a detailed discussion on running MPI jobs in Batch by using the Batch .NET library, check out [Use multi-instance tasks to run Message Passing Interface (MPI) applications in Azure Batch](batch-mpi.md).
 
-[Зависимости задач](batch-task-dependencies.md), как можно понять из названия, позволяют настроить выполнение задачи в зависимости от предварительного завершения других задач. Эта функция обеспечивает поддержку в ситуациях, когда "подчиненная" задача использует выходные данные "вышестоящей" задачи или когда вышестоящая задача выполняет инициализацию, необходимую для подчиненных задач. Чтобы использовать эту функцию, необходимо сначала включить зависимости задач для задания пакетной службы. Затем для каждой задачи, зависящей от другой (или нескольких других), укажите задачи, от которых она зависит.
+### <a name="task-dependencies"></a>Task dependencies
 
-С помощью зависимостей задач можно настраивать различные сценарии, например:
+[Task dependencies](batch-task-dependencies.md), as the name implies, allow you to specify that a task depends on the completion of other tasks before its execution. This feature provides support for situations in which a "downstream" task consumes the output of an "upstream" task--or when an upstream task performs some initialization that is required by a downstream task. To use this feature, you must first enable task dependencies on your Batch job. Then, for each task that depends on another (or many others), you specify the tasks which that task depends on.
 
-* *Задача Б* зависит от *задачи А* (выполнение *задачи Б* не начнется, пока не завершится выполнение *задачи А*).
-* *Задача В* зависит от *задачи А* и *задачи Б*.
-* *Задача Г* зависит от ряда задач — от *задачи 1* до *задачи 10*.
+With task dependencies, you can configure scenarios like the following:
 
-Дополнительные сведения об этой возможности см. в статье [Task dependencies in Azure Batch](batch-task-dependencies.md) (Зависимости задач в пакетной службе Azure) и в примере кода [TaskDependencies][github_sample_taskdeps] в репозитории [azure-batch-samples][github_samples] на сайте GitHub.
+* *taskB* depends on *taskA* (*taskB* will not begin execution until *taskA* has completed).
+* *taskC* depends on both *taskA* and *taskB*.
+* *taskD* depends on a range of tasks, such as tasks *1* through *10*, before it executes.
 
-## Параметры среды для задач
+Check out [Task dependencies in Azure Batch](batch-task-dependencies.md) and the [TaskDependencies][github_sample_taskdeps] code sample in the [azure-batch-samples][github_samples] GitHub repository for more in-depth details on this feature.
 
-Каждая задача, выполняемая пакетной службой, имеет доступ к переменным среды, заданным на вычислительных узлах. Сюда входят переменные среды, определенные пакетной службой ([служебные][msdn_env_vars]), и пользовательские переменные среды, которые вы можете определить для задач. Приложения и скрипты, выполняемые с помощью задач, получают доступ к переменным среды во время выполнения.
+## <a name="environment-settings-for-tasks"></a>Environment settings for tasks
 
-Пользовательские переменные среды можно задать на уровне задачи или задания, задав свойство *параметров среды* для этих объектов. Для примера см. раздел об операции [добавления задачи к заданию][rest_add_task] \(в REST API пакетной службы) или о свойствах [CloudTask.EnvironmentSettings][net_cloudtask_env] и [CloudJob.CommonEnvironmentSettings][net_job_env] в .NET для пакетной службы.
+Each task executed by the Batch service has access to environment variables that it sets on compute nodes. This includes environment variables defined by the Batch service ([service-defined][msdn_env_vars]) and custom environment variables that you can define for your tasks. The applications and scripts your tasks execute have access to these environment variables during execution.
 
-Чтобы получить значения служебных и пользовательских переменных среды задачи для клиентского приложения или службы, можно использовать операцию [получения сведений о задаче][rest_get_task_info] в REST для пакетной службы или свойство [CloudTask.EnvironmentSettings][net_cloudtask_env] в .NET для пакетной службы. Процессы, которые выполняются на вычислительном узле, могут обращаться к этим и другим переменным среды узла, например с помощью привычного синтаксиса `%VARIABLE_NAME%` в Windows или `$VARIABLE_NAME` в Linux.
+You can set custom environment variables at the task or job level by populating the *environment settings* property for these entities. For example, see the [Add a task to a job][rest_add_task] operation (Batch REST API), or the [CloudTask.EnvironmentSettings][net_cloudtask_env] and [CloudJob.CommonEnvironmentSettings][net_job_env] properties in Batch .NET.
 
-Полный список всех служебных переменных среды см. в статье [Compute node environment variables][msdn_env_vars] \(Переменные среды вычислительного узла).
+Your client application or service can obtain a task's environment variables, both service-defined and custom, by using the [Get information about a task][rest_get_task_info] operation (Batch REST) or by accessing the [CloudTask.EnvironmentSettings][net_cloudtask_env] property (Batch .NET). Processes executing on a compute node can access these and other environment variables on the node, for example, by using the familiar `%VARIABLE_NAME%` (Windows) or `$VARIABLE_NAME` (Linux) syntax.
 
-## Файлы и каталоги
+You can find a full list of all service-defined environment variables in [Compute node environment variables][msdn_env_vars].
 
-У каждой задачи есть *рабочий каталог*, в котором она может создавать дополнительные файлы и каталоги. Он может использоваться для хранения выполняемой программы, обрабатываемых данных и результатов обработки. Все файлы и каталоги задачи принадлежат пользователю задачи.
+## <a name="files-and-directories"></a>Files and directories
 
-Пакетная служба предоставляет часть файловой системы на узле в качестве *корневого каталога*. Задачи могут обратиться к корневому каталогу с помощью ссылки на переменную среды `AZ_BATCH_NODE_ROOT_DIR`. Дополнительную информацию об использовании переменных среды см. в разделе [Параметры среды для задач](#environment-settings-for-tasks).
+Each task has a *working directory* under which it creates zero or more files and directories. This working directory can be used for storing the program that is run by the task, the data that it processes, and the output of the processing it performs. All files and directories of a task are owned by the task user.
 
-Корневой каталог имеет следующую структуру каталогов.
+The Batch service exposes a portion of the file system on a node as the *root directory*. Tasks can access the root directory by referencing the `AZ_BATCH_NODE_ROOT_DIR` environment variable. For more information about using environment variables, see [Environment settings for tasks](#environment-settings-for-tasks).
 
-![Структура каталогов вычислительного узла][1]
+The root directory contains the following directory structure:
 
-- **shared** — в этом каталоге *все* задачи, выполняемые на узле, имеют права чтения и записи. Любая задача, выполняемая на узле, может создавать, читать, обновлять и удалять файлы в этом каталоге. Задачи могут получить доступ к этому каталогу с помощью ссылки на переменную среды `AZ_BATCH_NODE_SHARED_DIR`.
+![Compute node directory structure][1]
 
-- **startup** — этот каталог используется задачей запуска в качестве рабочего каталога. Здесь хранятся все файлы, скачанные на узел с помощью задачи запуска. Задача запуска может создавать, читать, обновлять и удалять файлы в данном каталоге. Задачи могут получить доступ к этому каталогу с помощью ссылки на переменную среды `AZ_BATCH_NODE_STARTUP_DIR`.
+- **shared**: This directory provides read/write access to *all* tasks that run on a node. Any task that runs on the node can create, read, update, and delete files in this directory. Tasks can access this directory by referencing the `AZ_BATCH_NODE_SHARED_DIR` environment variable.
 
-- **Tasks** — такой каталог создается отдельно для каждой задачи, которая выполняется на узле. К нему можно получить доступ с помощью ссылки на переменную среды `AZ_BATCH_TASK_DIR`.
+- **startup**: This directory is used by a start task as its working directory. All of the files that are downloaded to the node by the start task are stored here. The start task can create, read, update, and delete files under this directory. Tasks can access this directory by referencing the `AZ_BATCH_NODE_STARTUP_DIR` environment variable.
 
-	В каждом каталоге задачи пакетная служба создает рабочий каталог (`wd`), который имеет уникальный путь, указанный в переменной среды `AZ_BATCH_TASK_WORKING_DIR`. Этот каталог предоставляет задаче доступ на чтение и запись. Задача может создавать, читать, обновлять и удалять файлы в данном каталоге. Время существования каталога определяется указанным для задачи ограничением *RetentionTime*.
+- **Tasks**: A directory is created for each task that runs on the node. It is accessed by referencing the `AZ_BATCH_TASK_DIR` environment variable.
 
-	`stdout.txt` и `stderr.txt` — эти файлы сохраняются в папку задачи во время ее выполнения.
+    Within each task directory, the Batch service creates a working directory (`wd`) whose unique path is specified by the `AZ_BATCH_TASK_WORKING_DIR` environment variable. This directory provides read/write access to the task. The task can create, read, update, and delete files under this directory. This directory is retained based on the *RetentionTime* constraint that is specified for the task.
 
->[AZURE.IMPORTANT] При удалении узла из пула *все* файлы, хранящиеся на этом узле, удаляются.
+    `stdout.txt` and `stderr.txt`: These files are written to the task folder during the execution of the task.
 
-## Пакеты приложений
+>[AZURE.IMPORTANT] When a node is removed from the pool, *all* of the files that are stored on the node are removed.
 
-Использование [пакетов приложений](batch-application-packages.md) обеспечивает простое управление приложениями и их развертывание на вычислительных узлах в пулах. Вы можете отправлять несколько версий приложений, выполняемых задачами, включая двоичные файлы и файлы поддержки (а также управлять этими версиями), а затем автоматически развертывать одно или несколько таких приложений на вычислительных узлах в пуле.
+## <a name="application-packages"></a>Application packages
 
-Пакеты приложений можно указывать на уровне пула и задачи. Если пакеты приложений определены на уровне пула, приложение развертывается на всех узлах в пуле. Если пакеты приложений определены на уровне задачи, приложение развертывается только на узлах, на которых запланировано выполнение хотя бы одной задачи задания, перед запуском командной строки задачи.
+The [application packages](batch-application-packages.md) feature provides easy management and deployment of applications to the compute nodes in your pools. You can upload and manage multiple versions of the applications run by your tasks, including their binaries and support files. Then you can automatically deploy one or more of these applications to the compute nodes in your pool.
 
-Пакетная служба обрабатывает сведения о работе со службой хранилища Azure, обеспечивая хранение пакетов приложений и их развертывание на вычислительных узлах. При этом упрощается код и сокращаются издержки, связанные с управлением.
+You can specify application packages at the pool and task level. When you specify pool application packages, the application is deployed to every node in the pool. When you specify task application packages, the application is deployed only to nodes that are scheduled to run at least one of the job's tasks, just before the task's command line is run.
 
-Дополнительные сведения об использовании пакетов приложений см. в статье [Развертывание приложения с помощью пакетов приложений пакетной службы Azure](batch-application-packages.md).
+Batch handles the details of working with Azure Storage to store your application packages and deploy them to compute nodes, so both your code and management overhead can be simplified.
 
->[AZURE.NOTE] При добавлении пакетов приложений пула в *существующий* пул необходимо перезагрузить его вычислительные узлы, чтобы обеспечить развертывание пакетов приложений на узлах.
+To find out more about the application package feature, check out [Application deployment with Azure Batch application packages](batch-application-packages.md).
 
-## Время существования пула и вычислительного узла
+>[AZURE.NOTE] If you add pool application packages to an *existing* pool, you must reboot its compute nodes for the application packages to be deployed to the nodes.
 
-При проектировании решения на базе пакетной службы Azure следует принять решение о том, когда и как будут создаваться пулы и как долго будут доступны вычислительные узлы в этих пулах.
+## <a name="pool-and-compute-node-lifetime"></a>Pool and compute node lifetime
 
-Одной из крайностей является создание отдельного пула для каждого отправляемого задания и его удаление сразу по завершении выполнения задач. Такой вариант позволит максимально эффективно использовать ресурсы, так как узлы выделяются в необходимом количестве и завершают работу, как только переходят в состояние простоя. Но при этом задание должно ожидать выделения узлов. Важно отметить, что планирование задач для выполнения происходит по мере доступности и выделения каждого отдельного узла сразу после выполнения на нем задачи запуска. Иными словами, пакетная служба *не* дожидается, пока все узлы в пуле станут доступными, чтобы назначить задачи узлам. Это позволяет обеспечить максимально эффективное использование ресурсов.
+When you design your Azure Batch solution, you have to make a design decision about how and when pools are created, and how long compute nodes within those pools are kept available.
 
-Другим крайним вариантом является заблаговременное создание пула и подготовка его узлов до запуска заданий. Этот вариант применим для тех ситуаций, когда немедленный запуск задания имеет наивысший приоритет. В этом случае задачи будут запускаться немедленно, но при этом узлы могут некоторое время простаивать в ожидании назначения задач.
+On one end of the spectrum, you can create a pool for each job that you submit, and delete the pool as soon as its tasks finish execution. This maximizes utilization because the nodes are only allocated when needed, and shut down as soon as they're idle. While this means that the job must wait for the nodes to be allocated, it's important to note that tasks are scheduled for execution as soon as nodes are individually available, allocated, and the start task has completed. Batch does *not* wait until all nodes within a pool are available before assigning tasks to the nodes. This ensures maximum utilization of all available nodes.
 
-Смешанный подход обычно используется для обработки постоянной нагрузки, интенсивность которой изменяется. В этом случае создается пул для нескольких заданий, количество узлов в котором изменяется в зависимости от текущей нагрузки (см. раздел [Масштабирование вычислительных ресурсов](#scaling-compute-resources) ниже). Масштабирование можно выполнять по мере изменения интенсивности нагрузки или с упреждением, если нагрузка является прогнозируемой.
+At the other end of the spectrum, if having jobs start immediately is the highest priority, you can create a pool ahead of time and make its nodes available before jobs are submitted. In this scenario, tasks can start immediately, but nodes might sit idle while waiting for them to be assigned.
 
-## Масштабирование вычислительных ресурсов
+A combined approach is typically used for handling a variable, but ongoing, load. You can have a pool that multiple jobs are submitted to, but can scale the number of nodes up or down according to the job load (see [Scaling compute resources](#scaling-compute-resources) in the following section). You can do this reactively, based on current load, or proactively, if load can be predicted.
 
-[Автоматическое масштабирование](batch-automatic-scaling.md) позволяет использовать пакетную службу для динамической настройки количества вычислительных узлов в пуле в соответствии с текущей рабочей нагрузкой и использованием ресурсов в рамках вашего сценария вычислений. Это позволит снизить общую стоимость работы приложения за счет использования только необходимых ресурсов и освобождения остальных.
+## <a name="scaling-compute-resources"></a>Scaling compute resources
 
-Чтобы включить автоматическое масштабирование, необходимо написать [соответствующую формулу](batch-automatic-scaling.md#automatic-scaling-formulas) и связать ее с пулом. Пакетная служба использует эту формулу для определения целевого количества узлов в пуле для следующего интервала масштабирования (интервал, который можно настроить). Вы можете указать параметры автоматического масштабирования для пула при его создании или включить масштабирование позже. Вы также можете обновить параметры масштабирования в пуле с включенным масштабированием.
+With [automatic scaling](batch-automatic-scaling.md), you can have the Batch service dynamically adjust the number of compute nodes in a pool according to the current workload and resource usage of your compute scenario. This allows you to lower the overall cost of running your application by using only the resources you need, and releasing those you don't need.
 
-Рассмотрим для примера задание, которое требует отправки большого количества задач для выполнения. Вы можете назначить для пула формулу масштабирования, которая изменяет количество узлов пула в зависимости от текущего числа задач в очереди и скорости выполнения этих задач, входящих в задание. По этой формуле пакетная служба периодически вычисляет и изменяет размер пула в зависимости от рабочей нагрузки (операция добавления узлов при наличии большого количества задач в очереди и операция удаления узлов при отсутствии выполняемых задач или задач в очереди) и других параметров формулы.
+You enable automatic scaling by writing an [automatic scaling formula](batch-automatic-scaling.md#automatic-scaling-formulas) and associating that formula with a pool. The Batch service uses the formula to determine the target number of nodes in the pool for the next scaling interval (an interval that you can configure). You can specify the automatic scaling settings for a pool when you create it, or enable scaling on a pool later. You can also update the scaling settings on a scaling-enabled pool.
 
-Формула масштабирования может использовать следующие метрики.
+As an example, perhaps a job requires that you submit a very large number of tasks to be executed. You can assign a scaling formula to the pool that adjusts the number of nodes in the pool based on the current number of queued tasks and the completion rate of the tasks in the job. The Batch service periodically evaluates the formula and resizes the pool, based on workload (add nodes for many queued tasks, and remove nodes for no queued or running tasks) and your other formula settings.
 
-- **Метрики времени** — основываются на статистических данных, которые собираются каждые 5 минут за указанное число часов.
+A scaling formula can be based on the following metrics:
 
-- **Метрики ресурсов** — зависят от показателей загрузки ЦП, использования пропускной способности и памяти, а также количества узлов.
+- **Time metrics** are based on statistics collected every five minutes in the specified number of hours.
 
-- **Метрики задач** — зависят от состояния задачи: *Активная* (в очереди), *Выполняется* или *Завершена*.
+- **Resource metrics** are based on CPU usage, bandwidth usage, memory usage, and number of nodes.
 
-Если при автоматическом масштабировании уменьшается количество вычислительных узлов в пуле, необходимо учитывать способ обработки текущих выполняемых задач. Чтобы решить эту проблему, пакетная служба предоставляет *параметр отмены выделения узла*, который можно добавить в формулу. Например, можно указать, чтобы выполняемые задачи сразу останавливались, останавливались, а затем помещались в очередь на выполнение на другом узле или завершались до удаления узла из пула.
+- **Task metrics** are based on task state, such as *Active* (queued), *Running*, or *Completed*.
 
-Подробные сведения об автоматическом масштабировании приложения см. в статье [Автоматическое масштабирование вычислительных узлов в пуле пакетной службы Azure](batch-automatic-scaling.md).
+When automatic scaling decreases the number of compute nodes in a pool, you must consider how to handle tasks that are running at the time of the decrease operation. To accommodate this, Batch provides a *node deallocation option* that you can include in your formulas. For example, you can specify that running tasks are stopped immediately, stopped immediately and then requeued for execution on another node, or allowed to finish before the node is removed from the pool.
 
-> [AZURE.TIP] Для максимально эффективного использования ресурсов укажите значение "ноль" для целевого количества узлов на момент завершения задания, но позвольте текущим задачам завершиться нормально.
+For more information about automatically scaling an application, see [Automatically scale compute nodes in an Azure Batch pool](batch-automatic-scaling.md).
 
-## Безопасность с использованием сертификатов
+> [AZURE.TIP] To maximize compute resource utilization, set the target number of nodes to zero at the end of a job, but allow running tasks to finish.
 
-Обычно сертификаты нужны для шифрования и расшифровки конфиденциальных сведений, используемых задачами, например ключей [учетной записи службы хранилища Azure][azure_storage]. Такие сертификаты можно установить на узлах. Зашифрованные данные передаются задачам через параметры командной строки или через ресурсы задачи, а установленные сертификаты позволяют расшифровать их.
+## <a name="security-with-certificates"></a>Security with certificates
 
-Для добавления сертификата к учетной записи пакетной службы используйте операцию [добавления сертификата][rest_add_cert] в REST API пакетной службы или метод [CertificateOperations.CreateCertificate][net_create_cert] в .NET для пакетной службы. Затем можно будет связать сертификат с новым или существующим пулом. Если к пулу привязан сертификат, пакетная служба устанавливает этот сертификат на каждом узле пула. Пакетная служба устанавливает нужные сертификаты при запуске узла до начала выполнения каких-либо задач (в том числе задач запуска и задач диспетчера заданий).
+You typically need to use certificates when you encrypt or decrypt sensitive information for tasks, like the key for an [Azure Storage account][azure_storage]. To support this, you can install certificates on nodes. Encrypted secrets are passed to tasks via command-line parameters or embedded in one of the task resources, and the installed certificates can be used to decrypt them.
 
-При добавлении сертификатов в *существующий* пул необходимо перезагрузить его вычислительные узлы, чтобы применить к ним сертификаты.
+You use the [Add certificate][rest_add_cert] operation (Batch REST) or [CertificateOperations.CreateCertificate][net_create_cert] method (Batch .NET) to add a certificate to a Batch account. You can then associate the certificate to a new or existing pool. When a certificate is associated with a pool, the Batch service installs the certificate on each node in the pool. The Batch service installs the appropriate certificates when the node starts up, before launching any tasks (including the start task and job manager task).
 
-## Обработка ошибок
+If you add certificates to an *existing* pool, you must reboot its compute nodes for the certificates to be applied to the nodes.
 
-Возможно, вы захотите обрабатывать ошибки задач и приложений в своем решении пакетной службы.
+## <a name="error-handling"></a>Error handling
 
-### Обработка сбоев задач
-Сбои задач делятся на следующие категории.
+You might find it necessary to handle both task and application failures within your Batch solution.
 
-- **Ошибки планирования**
+### <a name="task-failure-handling"></a>Task failure handling
+Task failures fall into these categories:
 
-	Если по какой-либо причине происходит сбой передачи файлов, указанных для задачи, для нее устанавливается состояние "ошибка планирования".
+- **Scheduling failures**
 
-	Ошибки планирования могут возникать, если файлы ресурсов задачи были перемещены, если прекращено действие учетной записи службы хранилища или копирование файлов на узел не удалось выполнить из-за другой проблемы.
+    If the transfer of files that are specified for a task fails for any reason, a "scheduling error" is set for the task.
 
-- **Ошибки приложений**
+    Scheduling errors can occur if the task's resource files have moved, the Storage account is no longer available, or another issue was encountered that prevented the successful copying of files to the node.
 
-	Процесс, указанный в командной строке задачи, также может завершиться ошибкой. Если процесс, выполняемый задачей, возвращает ненулевой код завершения, считается, что такой процесс завершился ошибкой (см. подраздел *Код завершения задач* в следующем разделе).
+- **Application failures**
 
-	Вы можете настроить пакетную службу так, чтобы в случае ошибки приложения она автоматически повторяла задачу, а также указать максимальное количество таких попыток.
+    The process that is specified by the task's command line can also fail. The process is deemed to have failed when a nonzero exit code is returned by the process that is executed by the task (see *Task exit codes* in the next section).
 
-- **Ошибки ограничения**
+    For application failures, you can configure Batch to automatically retry the task up to a specified number of times.
 
-	Вы можете установить ограничение на максимальное время выполнения задания или задачи с помощью параметра *maxWallClockTime*. Это полезно для завершения задач, переставших отвечать на запросы.
+- **Constraint failures**
 
-	В случае превышения максимального времени выполнения задача отмечается как *завершенная*, но с кодом выхода `0xC000013A`. При этом поле *schedulingError* будет иметь значение `{ category:"ServerError", code="TaskEnded"}`.
+    You can set a constraint that specifies the maximum execution duration for a job or task, the *maxWallClockTime*. This can be useful for terminating "hung" tasks.
 
-### Отладка ошибок приложений
+    When the maximum amount of time has been exceeded, the task is marked as *completed*, but the exit code is set to `0xC000013A` and the *schedulingError* field is marked as `{ category:"ServerError", code="TaskEnded"}`.
 
-- `stderr` и `stdout`
+### <a name="debugging-application-failures"></a>Debugging application failures
 
-	Во время выполнения приложение может создавать диагностические данные, которые помогут устранить неполадки. Как упоминалось выше в разделе [Файлы и каталоги](#files-and-directories), пакетная служба записывает стандартные потоки вывода и ошибок в файлы `stdout.txt` и `stderr.txt`, расположенные в каталоге задачи на вычислительном узле. Чтобы получить эти файлы, можно использовать портал Azure или один из пакетов SDK пакетной службы. Например, вы можете получить эти и другие файлы для устранения неполадок, используя методы [ComputeNode.GetNodeFile][net_getfile_node] и [CloudTask.GetNodeFile][net_getfile_task] библиотеки .NET для пакетной службы.
+- `stderr` and `stdout`
 
-- **Код завершения задач**
+    During execution, an application might produce diagnostic output that you can use to troubleshoot issues. As mentioned in the earlier section [Files and directories](#files-and-directories), the Batch service writes standard output and standard error output to `stdout.txt` and `stderr.txt` files in the task directory on the compute node. You can use the Azure portal or one of the Batch SDKs to download these files. For example, you can retrieve these and other files for troubleshooting purposes by using [ComputeNode.GetNodeFile][net_getfile_node] and [CloudTask.GetNodeFile][net_getfile_task] in the Batch .NET library.
 
-	Как упоминалось выше, пакетная служба помечает задачу как завершившуюся сбоем, если процесс, выполняемый задачей, возвращает ненулевой код завершения. Когда задача выполняет процесс, пакетная служба заполняет свойство кода завершения задачи *кодом возврата процесса*. Следует отметить, что код завершения задачи определяется **не** пакетной службой, а самим процессом или операционной системой, в которой выполняется процесс.
+- **Task exit codes**
 
-### Работа со сбоями и прерываниями задач
+    As mentioned earlier, a task is marked as failed by the Batch service if the process that is executed by the task returns a nonzero exit code. When a task executes a process, Batch populates the task's exit code property with the *return code of the process*. It is important to note that a task's exit code is **not** determined by the Batch service--it is determined by the process itself or the operating system on which the process executed.
 
-Задачи могут иногда завершаться ошибками или прерываться. Например, может завершиться ошибкой приложение задачи или узел, на котором выполняется задача, может быть перезапущен. Кроме того, узел может быть удален из пула при изменении размера, если установленная политика отмены выделения предусматривает немедленное удаление узла без ожидания завершения задачи. Во всех случаях пакетная служба может автоматически поставить задачу в очередь на повторное выполнение на другом узле.
+### <a name="accounting-for-task-failures-or-interruptions"></a>Accounting for task failures or interruptions
 
-Задача может также зависнуть или выполняться слишком долго из-за кратковременного сбоя. Для задачи можно установить максимальное время выполнения. При его превышении пакетная служба прервет выполнение приложения задачи.
+Tasks might occasionally fail or be interrupted. The task application itself might fail, the node on which the task is running might be rebooted, or the node might be removed from the pool during a resize operation if the pool's deallocation policy is set to remove nodes immediately without waiting for tasks to finish. In all cases, the task can be automatically requeued by Batch for execution on another node.
 
-### Подключение к вычислительным узлам
+It is also possible for an intermittent issue to cause a task to hang or take too long to execute. You can set the maximum execution time for a task. If it's exceeded, Batch interrupts the task application.
 
-Дополнительные возможности для отладки и устранения неполадок можно получить, выполнив вход на вычислительный узел удаленно. Вы можете использовать портал Azure, чтобы скачать RDP-файл для узлов Windows и получить сведения о подключении SSH для узлов Linux. Это также можно сделать с помощью API пакетной службы (например, в экземплярах [.NET][net_rdpfile] или [Python](batch-linux-nodes.md#connect-to-linux-nodes)).
+### <a name="connecting-to-compute-nodes"></a>Connecting to compute nodes
 
->[AZURE.IMPORTANT] Чтобы подключиться к узлу по протоколу RDP или SSH, на узле нужно создать пользователя. Для этого можно использовать портал Azure, [добавить учетную запись пользователя на узел][rest_create_user] с помощью REST API пакетной службы, вызвать метод [ComputeNode.CreateComputeNodeUser][net_create_user] в .NET API пакетной службы или метод [add\_user][py_add_user] в модуле Python пакетной службы.
+You can perform additional debugging and troubleshooting by signing in to a compute node remotely. You can use the Azure portal to download a Remote Desktop Protocol (RDP) file for Windows nodes and obtain Secure Shell (SSH) connection information for Linux nodes. You can also do this by using the Batch APIs--for example, with [Batch .NET][net_rdpfile] or [Batch Python](batch-linux-nodes.md#connect-to-linux-nodes).
 
-### Устранение неполадок на "плохих" вычислительных узлах
+>[AZURE.IMPORTANT] To connect to a node via RDP or SSH, you must first create a user on the node. To do this, you can use the Azure portal, [add a user account to a node][rest_create_user] by using the Batch REST API, call the [ComputeNode.CreateComputeNodeUser][net_create_user] method in Batch .NET, or call the [add_user][py_add_user] method in the Batch Python module.
 
-В ситуациях, когда при выполнении некоторых задач происходит сбой, пакетное клиентское приложение или служба может проверить метаданные неудачных задач для определения узла, который плохо работает. Каждому узлу в пуле присваивается уникальный идентификатор, а сведения об узле, на котором выполняется задача, включены в метаданные задачи. Определив проблемный узел, вы можете предпринять некоторые действия:
+### <a name="troubleshooting-"bad"-compute-nodes"></a>Troubleshooting "bad" compute nodes
 
-- **Перезапустить узел** ([REST][rest_reboot] | [.NET][net_reboot]).
+In situations where some of your tasks are failing, your Batch client application or service can examine the metadata of the failed tasks to identify a misbehaving node. Each node in a pool is given a unique ID, and the node on which a task runs is included in the task metadata. After you've identified a problem node, you can take several actions with it:
 
-	В некоторых случаях перезапуск узла может устранить некоторые скрытые проблемы, например задержки и сбои при выполнении процессов. Обратите внимание, что если пул использует начальную задачу или задание использует задачу подготовки задания, они будут выполнены при перезапуске узла.
+- **Reboot the node** ([REST][rest_reboot] | [.NET][net_reboot])
 
-- **Пересоздать образ узла** ([REST][rest_reimage] | [.NET][net_reimage]).
+    Restarting the node can sometimes clear up latent issues like stuck or crashed processes. Note that if your pool uses a start task or your job uses a job preparation task, they are executed when the node restarts.
 
-	Это обеспечит переустановку операционной системы на узле. Как и в случае перезагрузки узла, задачи запуска и задачи подготовки заданий будут повторно выполнены после повторного создания образа узла.
+- **Reimage the node** ([REST][rest_reimage] | [.NET][net_reimage])
 
-- **Удалить узел из пула** ([REST][rest_remove] | [.NET][net_remove]).
+    This reinstalls the operating system on the node. As with rebooting a node, start tasks and job preparation tasks are rerun after the node has been reimaged.
 
-	Иногда бывает необходимо полностью удалить узел из пула.
+- **Remove the node from the pool** ([REST][rest_remove] | [.NET][net_remove])
 
-- **Отключить планирование задач на узле** ([REST][rest_offline] | [.NET][net_offline]).
+    Sometimes it is necessary to completely remove the node from the pool.
 
-	Это эффективно переключит узел в "автономный режим", чтобы ему не назначались дальнейшие задачи, но сохранялась возможность продолжать выполнять текущие задачи, оставаясь в пуле. Благодаря этому вы сможете продолжить поиск причины сбоев без потери данных невыполненной задачи и без сбоев при выполнении дополнительных задач на узле. Например, можно отключить планирование задач на узле, а затем выполнить [удаленный вход](#connecting-to-compute-nodes) на узел для анализа журналов событий или устранения других неполадок. Проанализировав проблемы, вы сможете снова подключить узел к сети, включив планирование задач ([REST][rest_online] | [.NET][net_online]) или выполнив одно из перечисленных выше действий.
+- **Disable task scheduling on the node** ([REST][rest_offline] | [.NET][net_offline])
 
-> [AZURE.IMPORTANT] С помощью каждого действия, перечисленного в этом разделе, (перезагрузки, пересоздания образа, удаления, отключения планирования задач) вы можете указать вариант обработки текущих задач на узле при выполнении действия. Например, при отключении планирования задач на узле с помощью клиентской библиотеки .NET для пакетной службы вы можете указать значение перечисления [DisableComputeNodeSchedulingOption][net_offline_option], чтобы определить, что нужно сделать до выполнения действия (**TaskCompletion**): **прекратить** выполнение текущих задач, **повторно поставить их в очередь** для планирования выполнения на других узлах или разрешить завершение текущих задач.
+    This effectively takes the node "offline" so that no further tasks are assigned to it, but allows the node to remain running and in the pool. This enables you to perform further investigation into the cause of the failures without losing the failed task's data--and without the node causing additional task failures. For example, you can disable task scheduling on the node, then [sign in remotely](#connecting-to-compute-nodes) to examine the node's event logs or perform other troubleshooting. After you've finished your investigation, you can then bring the node back online by enabling task scheduling ([REST][rest_online] | [.NET][net_online]), or perform one of the other actions discussed earlier.
 
-## Дальнейшие действия
+> [AZURE.IMPORTANT] With each action that is described in this section--reboot, reimage, remove, and disable task scheduling--you are able to specify how tasks currently running on the node are handled when you perform the action. For example, when you disable task scheduling on a node by using the Batch .NET client library, you can specify a [DisableComputeNodeSchedulingOption][net_offline_option] enum value to specify whether to **Terminate** running tasks, **Requeue** them for scheduling on other nodes, or allow running tasks to complete before performing the action (**TaskCompletion**).
 
-- Ознакомьтесь с пошаговой инструкцией по созданию примера приложения пакетной службы в статье [Начало работы с библиотекой пакетной службы Azure для .NET](batch-dotnet-get-started.md). Существует также [версия Python](batch-python-tutorial.md) этого руководства. В ней рассматривается выполнение рабочих нагрузок на вычислительных узлах Linux.
+## <a name="next-steps"></a>Next steps
 
-- Загрузите и соберите пример проекта [обозревателя пакетной службы][github_batchexplorer], который вы сможете использовать при разработке собственных решений пакетной службы. С помощью обозревателя пакетной службы вы можете выполнять множество операций, в частности:
-  - отслеживать и изменять работу пулов, заданий и задач в своей учетной записи пакетной службы;
-  - загружать с узлов файлы `stdout.txt`, `stderr.txt` или любые другие;
-  - создавать на узлах пользователей и загружать RDP-файлы для удаленного входа.
+- Walk through a sample Batch application step-by-step in [Get started with the Azure Batch Library for .NET](batch-dotnet-get-started.md). There is also a [Python version](batch-python-tutorial.md) of the tutorial that runs a workload on Linux compute nodes.
 
-- Узнайте, как [создавать пулы вычислительных узлов Linux](batch-linux-nodes.md).
+- Download and build the [Batch Explorer][github_batchexplorer] sample project for use while you develop your Batch solutions. Using the Batch Explorer, you can perform the following and more:
+  - Monitor and manipulate pools, jobs, and tasks within your Batch account
+  - Download `stdout.txt`, `stderr.txt`, and other files from nodes
+  - Create users on nodes and download RDP files for remote login
 
-- Посетите [форум по пакетной службе Azure][batch_forum] на сайте MSDN. Здесь могут задавать вопросы как начинающие, так и опытные пользователи пакетной службы.
+- Learn how to [create pools of Linux compute nodes](batch-linux-nodes.md).
+
+- Visit the [Azure Batch forum][batch_forum] on MSDN. The forum is a good place to ask questions, whether you are just learning or are an expert in using Batch.
 
 [1]: ./media/batch-api-basics/node-folder-structure.png
 
 [azure_storage]: https://azure.microsoft.com/services/storage/
-[batch_forum]: https://social.msdn.microsoft.com/Forums/ru-RU/home?forum=azurebatch
+[batch_forum]: https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurebatch
 [cloud_service_sizes]: ../cloud-services/cloud-services-sizes-specs.md
 [msmpi]: https://msdn.microsoft.com/library/bb524831.aspx
 [github_samples]: https://github.com/Azure/azure-batch-samples
-[github_sample_taskdeps]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/TaskDependencies
+[github_sample_taskdeps]:  https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/TaskDependencies
 [github_batchexplorer]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
 [batch_net_api]: https://msdn.microsoft.com/library/azure/mt348682.aspx
 [msdn_env_vars]: https://msdn.microsoft.com/library/azure/mt743623.aspx
@@ -500,4 +502,8 @@
 
 [vm_marketplace]: https://azure.microsoft.com/marketplace/virtual-machines/
 
-<!---HONumber=AcomDC_1005_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

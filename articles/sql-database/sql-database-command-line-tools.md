@@ -1,35 +1,36 @@
 <properties
-	pageTitle="Управление базой данных SQL Azure с помощью PowerShell | Microsoft Azure"
-	description="Управление базой данных SQL Azure с помощью PowerShell."
-	services="sql-database"
-	documentationCenter=""
-	authors="stevestein"
-	manager="jhubbard"
-	editor="monicar"/>
+    pageTitle="Manage Azure SQL Database with PowerShell | Microsoft Azure"
+    description="Azure SQL Database management with PowerShell."
+    services="sql-database"
+    documentationCenter=""
+    authors="stevestein"
+    manager="jhubbard"
+    editor="monicar"/>
 
 <tags
-	ms.service="sql-database"
-	ms.workload="data-management"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/13/2016"
-	ms.author="sstein"/>
+    ms.service="sql-database"
+    ms.workload="data-management"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/13/2016"
+    ms.author="sstein"/>
 
-# Управление базой данных SQL Azure с помощью PowerShell
+
+# <a name="manage-azure-sql-database-with-powershell"></a>Manage Azure SQL Database with PowerShell
 
 
 > [AZURE.SELECTOR]
-- [Портал Azure](sql-database-manage-portal.md)
+- [Azure portal](sql-database-manage-portal.md)
 - [Transact-SQL (SSMS)](sql-database-manage-azure-ssms.md)
-- [PowerShell](sql-database-command-line-tools.md)
+- [PowerShell](sql-database-manage-powershell.md)
 
-В этой статье представлены командлеты PowerShell, которые используются для выполнения различных задач Базы данных SQL Azure. Полный список см. в статье [Azure SQL Database Cmdlets](https://msdn.microsoft.com/library/mt574084.aspx) (Командлеты Базы данных SQL Azure).
+This topic shows the PowerShell cmdlets that are used to perform many Azure SQL Database tasks. For a complete list, see [Azure SQL Database Cmdlets](https://msdn.microsoft.com/library/mt574084.aspx).
 
 
-## Создание группы ресурсов
+## <a name="create-a-resource-group"></a>Create a resource group
 
-Создайте группу ресурсов для Базы данных SQL и связанных ресурсов Azure с помощью командлета [New-AzureRmResourceGroup](https://msdn.microsoft.com/library/azure/mt759837.aspx).
+Create a resource group for our SQL Database and related Azure resources with the [New-AzureRmResourceGroup](https://msdn.microsoft.com/library/azure/mt759837.aspx) cmdlet.
 
 ```
 $resourceGroupName = "resourcegroup1"
@@ -37,11 +38,12 @@ $resourceGroupLocation = "northcentralus"
 New-AzureRmResourceGroup -Name $resourceGroupName -Location $resourceGroupLocation
 ```
 
-Дополнительные сведения см. в статье [Использование Azure PowerShell с диспетчером ресурсов Azure](../powershell-azure-resource-manager.md). Пример сценария см. в разделе [Создание базы данных SQL с помощью сценария PowerShell](sql-database-get-started-powershell.md#create-a-sql-database-powershell-script).
+For more information, see [Using Azure PowerShell with Azure Resource Manager](../powershell-azure-resource-manager.md).
+For a sample script, see [Create a SQL database PowerShell script](sql-database-get-started-powershell.md#create-a-sql-database-powershell-script).
 
-## Создание сервера Базы данных SQL
+## <a name="create-a-sql-database-server"></a>Create a SQL Database server
 
-Создайте сервер Базы данных SQL с помощью командлета [New-AzureRmSqlServer](https://msdn.microsoft.com/library/azure/mt603715.aspx). Замените *server1* именем своего сервера. Имена серверов должны быть уникальными по всем серверам Базы данных SQL Azure. Если имя сервера уже используется, отобразится сообщение об ошибке. Выполнение этой команды может занять несколько минут. В подписке уже должна существовать группа ресурсов.
+Create a SQL Database server with the [New-AzureRmSqlServer](https://msdn.microsoft.com/library/azure/mt603715.aspx) cmdlet. Replace *server1* with the name for your server. Server names must be unique across all Azure SQL Database servers. If the server name is already taken, you get an error. This command may take several minutes to complete. The resource group must already exist in your subscription.
 
 ```
 $resourceGroupName = "resourcegroup1"
@@ -60,12 +62,12 @@ $sqlServer = New-AzureRmSqlServer -ServerName $sqlServerName `
  -ResourceGroupName $resourceGroupName -ServerVersion $sqlServerVersion
 ```
 
-Дополнительные сведения см. в статье [Что такое база данных SQL? Введение в базы данных SQL](sql-database-technical-overview.md). Пример сценария см. в разделе [Создание базы данных SQL с помощью сценария PowerShell](sql-database-get-started-powershell.md#create-a-sql-database-powershell-script).
+For more information, see [What is SQL Database](sql-database-technical-overview.md). For a sample script, see [Create a SQL database PowerShell script](sql-database-get-started-powershell.md#create-a-sql-database-powershell-script).
 
 
-## Создание правила брандмауэра для сервера Базы данных SQL
+## <a name="create-a-sql-database-server-firewall-rule"></a>Create a SQL Database server firewall rule
 
-Создайте правило брандмауэра для доступа к серверу, используя командлет [New-AzureRmSqlServerFirewallRule](https://msdn.microsoft.com/library/azure/mt603860.aspx). Выполните следующую команду, заменив начальный и конечный IP-адреса значениями для своего клиента. В подписке уже должны существовать группа ресурсов и сервер.
+Create a firewall rule to access the server with the [New-AzureRmSqlServerFirewallRule](https://msdn.microsoft.com/library/azure/mt603860.aspx) cmdlet. Run the following command, replacing the start and end IP addresses with valid values for your client. The resource group, and server must already exist in your subscription.
 
 ```
 $resourceGroupName = "resourcegroup1"
@@ -80,14 +82,14 @@ New-AzureRmSqlServerFirewallRule -ResourceGroupName $resourceGroupName `
  -StartIpAddress $firewallStartIp -EndIpAddress $firewallEndIp
 ```
 
-Чтобы другие службы Azure могли иметь доступ к серверу, создайте правило брандмауэра и задайте адресам `-StartIpAddress` и `-EndIpAddress` значение **0.0.0.0**. Это специальное правило брандмауэра разрешит всему трафику Azure доступ к серверу.
+To allow other Azure services access to your server, create a firewall rule and set both the `-StartIpAddress` and `-EndIpAddress` to **0.0.0.0**. This special firewall rule allows all Azure traffic to access the server.
 
-Дополнительные сведения см. в статье [Брандмауэр Базы данных SQL Azure](https://msdn.microsoft.com/library/azure/ee621782.aspx). Пример сценария см. в разделе [Создание базы данных SQL с помощью сценария PowerShell](sql-database-get-started-powershell.md#create-a-sql-database-powershell-script).
+For more information, see [Azure SQL Database Firewall](https://msdn.microsoft.com/library/azure/ee621782.aspx). For a sample script, see [Create a SQL database PowerShell script](sql-database-get-started-powershell.md#create-a-sql-database-powershell-script).
 
 
-## Создание базы данных SQL (пустой)
+## <a name="create-a-sql-database-(blank)"></a>Create a SQL database (blank)
 
-Создайте базу данных с помощью командлета [New-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt619339.aspx). В подписке уже должны существовать группа ресурсов и сервер.
+Create a database with the [New-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt619339.aspx) cmdlet. The resource group, and server must already exist in your subscription. 
 
 ```
 $resourceGroupName = "resourcegroup1"
@@ -102,12 +104,12 @@ $currentDatabase = New-AzureRmSqlDatabase -ResourceGroupName $resourceGroupName 
  -Edition $databaseEdition -RequestedServiceObjectiveName $databaseServiceLevel
 ```
 
-Дополнительные сведения см. в статье [Что такое база данных SQL? Введение в базы данных SQL](sql-database-technical-overview.md). Пример сценария см. в разделе [Создание базы данных SQL с помощью сценария PowerShell](sql-database-get-started-powershell.md#create-a-sql-database-powershell-script).
+For more information, see [What is SQL Database](sql-database-technical-overview.md). For a sample script, see [Create a SQL database PowerShell script](sql-database-get-started-powershell.md#create-a-sql-database-powershell-script).
 
 
-## Изменение уровня производительности базы данных SQL
+## <a name="change-the-performance-level-of-a-sql-database"></a>Change the performance level of a SQL database
 
-Выполните масштабирование базы данных с помощью командлета [Set-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt619433.aspx). В подписке уже должны существовать группа ресурсов, сервер и база данных. Задайте параметру `-RequestedServiceObjectiveName` единое пространство (как показано в следующем фрагменте кода) для категории "Базовый". Задайте ему значения *S0*, *S1*, *P1*, *P6* и т. д., как в предыдущем примере для других категорий.
+Scale your database up or down with the [Set-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt619433.aspx) cmdlet. The resource group, server, and database must already exist in your subscription. Set the `-RequestedServiceObjectiveName` to a single space (like the following snippet) for Basic tier. Set it to *S0*, *S1*, *P1*, *P6*, etc., like the preceding example for other tiers.
 
 ```
 $resourceGroupName = "resourcegroup1"
@@ -122,11 +124,11 @@ Set-AzureRmSqlDatabase -ResourceGroupName $resourceGroupName `
  -Edition $databaseEdition -RequestedServiceObjectiveName $databaseServiceLevel
 ```
 
-Дополнительные сведения см. в статье [Параметры базы данных SQL и производительность: возможности разных уровней служб](sql-database-service-tiers.md). Пример сценария см. в разделе [Пример скрипта PowerShell для изменения уровня обслуживания и уровня производительности базы данных SQL](sql-database-scale-up-powershell.md#sample-powershell-script-to-change-the-service-tier-and-performance-level-of-your-sql-database).
+For more information, see [SQL Database options and performance: Understand what's available in each service tier](sql-database-service-tiers.md). For a sample script, see [Sample PowerShell script to change the service tier and performance level of your SQL database](sql-database-scale-up-powershell.md#sample-powershell-script-to-change-the-service-tier-and-performance-level-of-your-sql-database).
 
-## Копирование Базы данных SQL на тот же сервер
+## <a name="copy-a-sql-database-to-the-same-server"></a>Copy a SQL database to the same server
 
-Скопируйте базу данных SQL на тот же сервер с помощью командлета [New-AzureRmSqlDatabaseCopy](https://msdn.microsoft.com/library/azure/mt603644.aspx). Параметрам `-CopyServerName` и `-CopyResourceGroupName` задайте значения, соответствующие вашему серверу базы данных-источника и исходной группе ресурсов.
+Copy a SQL database to the same server with the [New-AzureRmSqlDatabaseCopy](https://msdn.microsoft.com/library/azure/mt603644.aspx) cmdlet. Set the `-CopyServerName` and `-CopyResourceGroupName` to the same values as your source database server and resource group.
 
 ```
 $resourceGroupName = "resourcegroup1"
@@ -143,12 +145,12 @@ New-AzureRmSqlDatabaseCopy -DatabaseName $databaseName `
  -CopyResourceGroupName $copyResourceGroupName
 ```
 
-Дополнительные сведения см. в статье [Копирование базы данных SQL Azure](sql-database-copy.md). Пример сценария см. в разделе [Пример сценария PowerShell](sql-database-copy-powershell.md#example-powershell-script).
+For more information, see [Copy an Azure SQL Database](sql-database-copy.md). For a sample script, see [Copy a SQL database PowerShell script](sql-database-copy-powershell.md#example-powershell-script).
 
 
-## Удаление базы данных SQL
+## <a name="delete-a-sql-database"></a>Delete a SQL database
 
-Для удаления базы данных SQL воспользуйтесь командлетом [Remove-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt619368.aspx). В подписке уже должны существовать группа ресурсов, сервер и база данных.
+Delete a SQL database with the [Remove-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt619368.aspx) cmdlet. The resource group, server, and database must already exist in your subscription.
 
 ```
 $resourceGroupName = "resourcegroup1"
@@ -159,9 +161,9 @@ Remove-AzureRmSqlDatabase -DatabaseName $databaseName `
  -ServerName $sqlServerName -ResourceGroupName $resourceGroupName
 ```
 
-## Удаление сервера Базы данных SQL
+## <a name="delete-a-sql-database-server"></a>Delete a SQL Database server
 
-Для удаления сервера воспользуйтесь командлетом [Remove-AzureRmSqlServer](https://msdn.microsoft.com/library/azure/mt603488.aspx).
+Delete a server with the [Remove-AzureRmSqlServer](https://msdn.microsoft.com/library/azure/mt603488.aspx) cmdlet.
 
 ```
 $resourceGroupName = "resourcegroup1"
@@ -170,17 +172,21 @@ $sqlServerName = "server1"
 Remove-AzureRmSqlServer -ServerName $sqlServerName -ResourceGroupName $resourceGroupName
 ```
 
-## Создание пулов эластичных баз данных и управление ими с помощью PowerShell
+## <a name="create-and-manage-elastic-database-pools-using-powershell"></a>Create and manage elastic database pools using PowerShell
 
-Сведения о создании пулов эластичных баз данных с помощью PowerShell см. в статье [Создание пула эластичных баз данных с помощью PowerShell](sql-database-elastic-pool-create-powershell.md).
+For details about creating elastic database pools using PowerShell, see [Create a new elastic database pool with PowerShell](sql-database-elastic-pool-create-powershell.md).
 
-Сведения об управлении пулами эластичных баз данных с помощью PowerShell см. в статье [Мониторинг пула эластичных баз данных и управление им с помощью PowerShell](sql-database-elastic-pool-manage-powershell.md).
+For details about managing elastic database pools using PowerShell, see [Monitor and manage an elastic database pool with PowerShell](sql-database-elastic-pool-manage-powershell.md).
 
 
 
-## Связанные сведения
+## <a name="related-information"></a>Related information
 
-- [Командлеты Базы данных SQL Azure](https://msdn.microsoft.com/library/azure/mt574084.aspx)
-- [Справка по командлетам Azure](https://msdn.microsoft.com/library/azure/dn708514.aspx)
+- [Azure SQL Database Cmdlets](https://msdn.microsoft.com/library/azure/mt574084.aspx)
+- [Azure Cmdlet Reference](https://msdn.microsoft.com/library/azure/dn708514.aspx)
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

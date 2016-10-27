@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Обращение в службу поддержки Майкрософт | Microsoft Azure"
-   description="Узнайте, как создать запрос на обслуживание и запустить сеанс поддержки на устройстве StorSimple."
+   pageTitle="Contact Microsoft Support | Microsoft Azure"
+   description="Learn how to create a support request and start a support session on your StorSimple device."
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
@@ -15,91 +15,96 @@
    ms.date="09/21/2016"
    ms.author="alkohli" />
 
-# Обращение в службу поддержки Майкрософт
 
-Если у вас возникли проблемы с решением Microsoft Azure StorSimple, можно обратиться за помощью в службу технической поддержки. В ходе общения со специалистом технической поддержки также может потребоваться запустить сеанс поддержки на устройстве StorSimple. В этой статье описаны следующие операции.
+# <a name="contact-microsoft-support"></a>Contact Microsoft Support
 
-- Создание запроса на техническую поддержку.
-- Запуск сеанса технической поддержки из интерфейса Windows PowerShell устройства StorSimple.
+If you encounter any issues with your Microsoft Azure StorSimple solution, you can create a service request for technical support. In an online session with your support engineer, you may also need to start a support session on your StorSimple device. This article walks you through:
 
-Перед созданием запроса на техническую поддержку ознакомьтесь с [соглашениями об уровне обслуживания и сведениями о StorSimple серии 8000 ](https://msdn.microsoft.com/library/mt433077.aspx).
+- How to create a support request.
+- How to start a support session in the Windows PowerShell interface of your StorSimple device.
 
-## Создание запроса на обслуживание
+Review the [StorSimple 8000 Series Support SLAs and information](https://msdn.microsoft.com/library/mt433077.aspx) before you create a Support request.
 
-Для создания запроса на обслуживание выполните следующие действия.
+## <a name="create-a-support-request"></a>Create a support request
 
-#### Для создания запроса на обслуживание выполните следующие действия.
+Perform the following steps to create a support request:
 
-1. На [классическом портале Azure](https://manage.windowsazure.com/) в правом верхнем углу страницы щелкните имя своей учетной записи, а затем — элемент **Обратитесь в службу технической поддержки Майкрософт**.
+#### <a name="to-create-a-support-request"></a>To create a support request
 
-	![Свяжитесь со службой технической поддержки Microsoft через портал управления](./media/storsimple-contact-microsoft-support/Ibiza1.png)
+1. In the [Azure classic portal](https://manage.windowsazure.com/), in the upper right corner, click your account name and then click **Contact Microsoft Support**.
 
-2. Откроется новый портал Azure (portal.azure.com). Щелкните элемент **Новый запрос в службу поддержки**.
+    ![Contact MS Support via ManagementPortal](./media/storsimple-contact-microsoft-support/Ibiza1.png)
 
-	![Обращение в службу поддержки Майкрософт через новый портал](./media/storsimple-contact-microsoft-support/Ibiza2.png)
+2. You will be redirected to the new Azure portal (portal.azure.com). Click the **New support request** tile.
 
-    В правой части экрана появится область **Новый запрос в службу поддержки**.
+    ![Contact MS Support via new portal](./media/storsimple-contact-microsoft-support/Ibiza2.png)
 
-	![Область "Новый запрос в службу поддержки"](./media/storsimple-contact-microsoft-support/Ibiza3a.png)
+    On the right side of the screen, the **New support request** pane appears. 
 
-3. В диалоговом окне **Базовые** выполните следующее:
-	1. Из раскрывающегося списка **Тип вопроса** выберите **Технический**.
-	2. Из раскрывающегося списка **Подписка** выберите подписку.
-	3. Из раскрывающегося списка **Службы** выберите **StorSimple**.
-	4. Из раскрывающегося списка **План поддержки** выберите план поддержки. Чтобы получить техническую поддержку, у вас должен быть платный план поддержки.
+    ![New support request pane](./media/storsimple-contact-microsoft-support/Ibiza3a.png)
 
-4. Нажмите кнопку **Далее**. Откроется диалоговое окно **Проблема**.
+3. In the **Basics** dialog box, complete the following:                                
+    1. From the **Issue type** drop-down list , select **Technical**.
+    2. Select a **Subscription** from the drop-down list.
+    3. From the **Service** drop-down list, select **StorSimple**. 
+    4. Select a **Support plan** from the drop-down list. You need a paid support plan to enable Technical Support.
 
-	![Область "Новый запрос в службу поддержки"](./media/storsimple-contact-microsoft-support/Ibiza5a.png)
+4. Click **Next**. The **Problem** dialog box appears.
 
-5. В диалоговом окне **Проблема** выполните следующее:
+    ![New support request pane](./media/storsimple-contact-microsoft-support/Ibiza5a.png) 
 
-    1.  Выберите уровень **серьезности** из раскрывающегося списка.
-    2.  Выберите **тип проблемы** из раскрывающегося списка.
-    3.  Выберите **категорию** из раскрывающегося списка.
-    4.  Кратко опишите свою проблему в поле **Сведения**.
-    5.  В поле **Интервал времени** укажите дату, время и часовой пояс последнего появления ошибки.
-    6.  В разделе **Отправка файла** щелкните значок папки, чтобы выбрать пакет поддержки.
-    7.  Установите флажок **Share diagnostic information** (Отправлять диагностические сведения).
+5. In the **Problem** dialog box, complete the following:
 
-6. Нажмите кнопку **Далее**. Откроется диалоговое окно **Контактные данные**.
+    1.  Select a **Severity** level from the drop-down list.
+    2.  Select a **Problem type** from the drop-down list.
+    3.  Select a **Category** from the drop-down list. 
+    4.  In the **Details** box, briefly describe your issue.
+    5.  In the **Time frame** box, indicate the date, time, and time zone that corresponds to the most recent occurrence of your issue.
+    6.  Under **File upload**, click the folder icon to browse to your support package.
+    7.  Select the **Share diagnostic information** check box.
 
-	![Область "Новый запрос в службу поддержки"](./media/storsimple-contact-microsoft-support/Ibiza6a.png)
+6. Click **Next**. The **Contact information** dialog box appears.
 
-7. Введите контактные данные и выберите способ связи (по телефону или электронной почте).
+    ![New support request pane](./media/storsimple-contact-microsoft-support/Ibiza6a.png) 
 
-8. Установите флажок **Save contact changes for future support requests** (Сохранить изменения контактных данных для будущих обращений в службу поддержки).
+7. Enter your contact information and select a contact method (phone or email). 
 
-9. Щелкните **Создать**.
+8. Select the **Save contact changes for future support requests** check box.
 
-После отправки запроса с вами максимально оперативно свяжется специалист службы технической поддержки для обработки вашего запроса.
+9. Click **Create**.
 
-## Запуск сеанса поддержки в Windows PowerShell для StorSimple
+After you have submitted your request, a Support engineer will contact you as soon as possible to proceed with your request.
 
-Чтобы устранить все проблемы, которые могут возникнуть на устройстве StorSimple, необходимо связаться со службой поддержки Майкрософт. Для подключения к устройству специалистам службы поддержки Майкрософт может потребоваться запуск сеанса поддержки на устройстве.
+## <a name="start-a-support-session-in-windows-powershell-for-storsimple"></a>Start a support session in Windows PowerShell for StorSimple
 
-Для создания сеанса поддержки выполните следующие действия.
+To troubleshoot any issues that you might experience with the StorSimple device, you will need to engage with the Microsoft Support team. Microsoft Support may need to use a support session to log on to your device. 
 
-#### Запуск сеанса поддержки
+Perform the following steps to start a support session:
 
-1. Подключитесь к устройству с помощью последовательной консоли или сеанса telnet с удаленного компьютера. Подробные инструкции см. в разделе [Использование PuTTY для подключения к последовательной консоли устройства](storsimple-deployment-walkthrough.md#use-putty-to-connect-to-the-device-serial-console).
+#### <a name="to-start-a-support-session"></a>To start a support session
 
-2. В открывшемся окне сеанса нажмите клавишу **ВВОД**, чтобы открыть командную строку.
+1. Access the device directly by using the serial console or through a telnet session from a remote computer. To do this, follow the steps in [Use PuTTY to connect to the device serial console](storsimple-deployment-walkthrough.md#use-putty-to-connect-to-the-device-serial-console).
 
-3. В меню последовательной консоли выберите вариант 1 **Войти с полным доступом**.
+2. In the session that opens, press the **Enter** key to get a command prompt.
 
-4. При появлении запроса введите следующий пароль:
+3. In the serial console menu, select option 1, **Log in with full access**.
 
-	`Password1`
+4. At the prompt, type the following password: 
 
-5. При появлении запроса введите следующую команду:
+    `Password1`
 
-	`Enable-HcsSupportAccess`
+5. At the prompt, type the following command:
 
-6. На экране появится зашифрованная строка. Скопируйте эту строку в текстовый редактор, например в Блокнот.
+    `Enable-HcsSupportAccess`
 
-7. Сохраните эту строку и отправьте ее по электронной почте в службу поддержки Майкрософт.
+6. An encrypted string will be presented to you. Copy this string into a text editor such as Notepad.
 
-> [AZURE.IMPORTANT] Сеанс поддержки можно отключить, выполнив команду `Disable-HcsSupportAccess`. Устройство StorSimple также попытается отключить сеанс поддержки на 8 часов после запуска сеанса. Лучше всего изменить учетные данные устройства StorSimple после установления сеанса поддержки.
+7. Save this string and send it in an email message to Microsoft Support. 
 
-<!---HONumber=AcomDC_0921_2016-->
+> [AZURE.IMPORTANT] You can disable support access by running `Disable-HcsSupportAccess`. The StorSimple device will also attempt to disable support access 8 hours after the session was initiated. It is a best practice to change your StorSimple device credentials after initiating a support session.
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

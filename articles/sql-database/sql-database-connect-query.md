@@ -1,105 +1,113 @@
 <properties
-	pageTitle="Подключение к базе данных SQL с помощью запроса C# | Microsoft Azure"
-	description="Написание программы на C# для отправки запроса к базе данных SQL и подключения к ней. Сведения об IP адресах, строках подключения, безопасном входе и бесплатной версии Visual Studio."
-	services="sql-database"
-	keywords="запрос c# к базе данных, запрос c#, подключение к базе данных, SQL C#"
-	documentationCenter=""
-	authors="stevestein"
-	manager="jhubbard"
-	editor=""/>
+    pageTitle="Connect to SQL Database with a C# query | Microsoft Azure"
+    description="Write a program in C# to query and connect to SQL database. Info about IP addresses, connection strings, secure login, and free Visual Studio."
+    services="sql-database"
+    keywords="c# database query, c# query, connect to database, SQL C#"
+    documentationCenter=""
+    authors="stevestein"
+    manager="jhubbard"
+    editor=""/>
 
 <tags
-	ms.service="sql-database"
-	ms.workload="data-management"
-	ms.tgt_pltfrm="na"
-	ms.devlang="dotnet"
-	ms.topic="get-started-article"
-	ms.date="08/17/2016"
-	ms.author="stevestein"/>
+    ms.service="sql-database"
+    ms.workload="data-management"
+    ms.tgt_pltfrm="na"
+    ms.devlang="dotnet"
+    ms.topic="get-started-article"
+    ms.date="08/17/2016"
+    ms.author="stevestein"/>
 
 
 
-# Подключение к базе данных SQL с помощью Visual Studio
+
+# <a name="connect-to-a-sql-database-with-visual-studio"></a>Connect to a SQL Database with Visual Studio
 
 > [AZURE.SELECTOR]
 - [Visual Studio](sql-database-connect-query.md)
 - [SSMS](sql-database-connect-query-ssms.md)
 - [Excel](sql-database-connect-excel.md)
 
-Узнайте, как подключиться к базе данных SQL Azure в Visual Studio.
+Learn how to connect to an Azure SQL database in Visual Studio. 
 
-## Предварительные требования
-
-
-Обязательные требования для подключения к базе данных SQL с помощью Visual Studio:
+## <a name="prerequisites"></a>Prerequisites
 
 
-- База данных SQL для подключения. В нашем примере используется пример базы данных **AdventureWorks**. Получить пример базы данных AdventureWorks можно [здесь](sql-database-get-started.md).
+To connect to a SQL database using Visual Studio, you need the following: 
 
 
-- Visual Studio 2013 с обновлением 4 или более поздняя версия. Майкрософт предлагает *бесплатную* версию Visual Studio Community.
- - [Загрузка Visual Studio Community](http://www.visualstudio.com/products/visual-studio-community-vs)
- - [Дополнительные варианты бесплатного использования Visual Studio](http://www.visualstudio.com/products/free-developer-offers-vs.aspx)
+- A SQL database to connect to. This article uses the **AdventureWorks** sample database. To get the AdventureWorks sample database, see [Create the demo database](sql-database-get-started.md).
+
+
+- Visual Studio 2013 update 4 (or later). Microsoft now provides Visual Studio Community for *free*.
+ - [Visual Studio Community, download](http://www.visualstudio.com/products/visual-studio-community-vs)
+ - [More options for free Visual Studio](http://www.visualstudio.com/products/free-developer-offers-vs.aspx)
 
 
 
 
-## Открытие Visual Studio с портала Azure
+## <a name="open-visual-studio-from-the-azure-portal"></a>Open Visual Studio from the Azure portal
 
 
-1. Войдите на [портал Azure](https://portal.azure.com/).
+1. Log in to the [Azure portal](https://portal.azure.com/).
 
-2. Щелкните **Другие службы** > **Базы данных SQL**.
-3. Откройте колонку базы данных **AdventureWorks** и щелкните базу данных *AdventureWorks*.
+2. Click **More Services** > **SQL databases**
+3. Open the **AdventureWorks** database blade by locating and clicking the *AdventureWorks* database.
 
-6. В верхней части колонки базы данных щелкните **Инструменты**.
+6. Click the **Tools** button at the top of the database blade:
 
-	![Новый запрос Подключение к базе данных SQL с помощью SQL Server Management Studio](./media/sql-database-connect-query/tools.png)
+    ![New query. Connect to SQL Database server: SQL Server Management Studio](./media/sql-database-connect-query/tools.png)
 
-7. Щелкните **Открыть в Visual Studio** (если вам нужно установить Visual Studio, щелкните ссылку для скачивания):
+7. Click **Open in Visual Studio** (if you need Visual Studio, click the download link):
 
-	![Новый запрос Подключение к базе данных SQL с помощью SQL Server Management Studio](./media/sql-database-connect-query/open-in-vs.png)
-
-
-8. Откроется Visual Studio с окном **подключения к серверу** с предустановленными параметрами для подключения к серверу и базе данных, выбранным на портале. (Щелкните **Параметры**, чтобы проверить, что вы подключаетесь к нужной базе данных.) Введите пароль администратора сервера и нажмите кнопку **Подключиться**.
+    ![New query. Connect to SQL Database server: SQL Server Management Studio](./media/sql-database-connect-query/open-in-vs.png)
 
 
-	![Новый запрос Подключение к базе данных SQL с помощью SQL Server Management Studio](./media/sql-database-connect-query/connect.png)
+8. Visual Studio opens with the **Connect to Server** window already set to connect to the server and database you selected in the portal.  (Click **Options** to verify that the connection is set to the correct database.) Type your server admin password and click **Connect**.
 
 
-8. Если правило брандмауэра не настроено для IP-адреса компьютера, вы получите сообщение *Не удается подключиться*. См. статью [Настройка правила брандмауэра уровня сервера базы данных SQL Azure с помощью портала Azure](sql-database-configure-firewall-settings.md).
+    ![New query. Connect to SQL Database server: SQL Server Management Studio](./media/sql-database-connect-query/connect.png)
 
 
-9. После успешного подключения к базе данных откроется окно **обозревателя объектов SQL Server**.
-
-	![Новый запрос Подключение к базе данных SQL с помощью SQL Server Management Studio](./media/sql-database-connect-query/sql-server-object-explorer.png)
+8. If you do not have a firewall rule set up for your computer's IP address, you get a *Cannot connect* message here. To create a firewall rule, see [Configure an Azure SQL Database server-level firewall rule](sql-database-configure-firewall-settings.md).
 
 
-## Запуск пробного запроса
+9. After successfully connecting, the **SQL Server Object Explorer** window opens with a connection to your database.
 
-Подключившись к базе данных, можно приступать к выполнению простого запроса.
+    ![New query. Connect to SQL Database server: SQL Server Management Studio](./media/sql-database-connect-query/sql-server-object-explorer.png)
 
-2. Щелкните правой кнопкой мыши базу данных и выберите **Создать запрос**.
 
-	![Новый запрос Подключение к базе данных SQL с помощью SQL Server Management Studio](./media/sql-database-connect-query/new-query.png)
+## <a name="run-a-sample-query"></a>Run a sample query
 
-3. В окне запроса скопируйте и вставьте следующий код.
+Now that we're connected to the database, the following steps show how to run a simple query:
 
-		SELECT
-		CustomerId
-		,Title
-		,FirstName
-		,LastName
-		,CompanyName
-		FROM SalesLT.Customer;
+2. Right-click the database and then select **New Query**.
 
-4. Чтобы запустить запрос, нажмите кнопку **Выполнить**.
+    ![New query. Connect to SQL Database server: SQL Server Management Studio](./media/sql-database-connect-query/new-query.png)
 
-	![Успешно. Подключение к серверу базы данных SQL с помощью Visual Studio](./media/sql-database-connect-query/run-query.png)
+3. In the query window, copy and paste the following code.
 
-## Дальнейшие действия
+        SELECT
+        CustomerId
+        ,Title
+        ,FirstName
+        ,LastName
+        ,CompanyName
+        FROM SalesLT.Customer;
 
-- Открытие баз данных SQL в Visual Studio осуществляется с помощью SQL Server Data Tools. Дополнительные сведения см. в статье [SQL Server Data Tools](https://msdn.microsoft.com/library/hh272686.aspx).
-- Чтобы подключиться к базе данных SQL программно, см. статью [Подключение к базе данных SQL с помощью .NET (C#)](sql-database-develop-dotnet-simple.md).
+4. Click the **Execute** button to run the query:
 
-<!---HONumber=AcomDC_0824_2016--->
+    ![Success. Connect to SQL Database server: SVisual Studio](./media/sql-database-connect-query/run-query.png)
+
+## <a name="next-steps"></a>Next steps
+
+- Opening SQL databases in Visual Studio uses SQL Server Data Tools. For more details, see [SQL Server Data Tools](https://msdn.microsoft.com/library/hh272686.aspx).
+- To connect to a SQL database using code, see [Connect to SQL Database by using .NET (C#)](sql-database-develop-dotnet-simple.md).
+
+
+
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

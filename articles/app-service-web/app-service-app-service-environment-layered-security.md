@@ -1,64 +1,65 @@
 <properties 
-	pageTitle="Многоуровневая архитектура безопасности в средах службы приложений" 
-	description="Реализация многоуровневой архитектуры безопасности в средах службы приложений." 
-	services="app-service" 
-	documentationCenter="" 
-	authors="stefsch" 
-	manager="wpickett" 
-	editor=""/>
+    pageTitle="Layered Security Architecture with App Service Environments" 
+    description="Implementing a layered security architecture with App Service Environments." 
+    services="app-service" 
+    documentationCenter="" 
+    authors="stefsch" 
+    manager="wpickett" 
+    editor=""/>
 
 <tags 
-	ms.service="app-service" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/30/2016" 
-	ms.author="stefsch"/>
+    ms.service="app-service" 
+    ms.workload="na" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="08/30/2016" 
+    ms.author="stefsch"/>   
 
-# Реализация многоуровневой архитектуры безопасности со средами службы приложений
 
-## Обзор ##
+# <a name="implementing-a-layered-security-architecture-with-app-service-environments"></a>Implementing a Layered Security Architecture with App Service Environments
+
+## <a name="overview"></a>Overview ##
  
-Среды службы приложений предоставляют изолированную среду выполнения, развернутую в виртуальной сети. Поэтому разработчики могут создавать многоуровневую архитектуру безопасности, предусматривающую разные уровни доступа к сети для каждого физического уровня приложений.
+Since App Service Environments provide an isolated runtime environment deployed into a virtual network, developers can create a layered security architecture providing differing levels of network access for each physical application tier.
 
-Основная цель заключается в том, чтобы сделать невозможным общий доступ к внутреннему приложению API из Интернета, разрешив вызывать API только вышестоящими веб-приложениями. [Группы безопасности сети (NSG)][NetworkSecurityGroups] могут использоваться в подсетях, содержащих среды службы приложений, для ограничения общего доступа к приложениям API.
+A common desire is to hide API back-ends from general Internet access, and only allow APIs to be called by upstream web apps.  [Network security groups (NSGs)][NetworkSecurityGroups] can be used on subnets containing App Service Environments to restrict public access to API applications.
 
-На приведенной ниже схеме показан пример архитектуры с приложением на основе веб-API, развернутым в среде службы приложений. Три отдельных экземпляра веб-приложения, развернутые в трех отдельных средах службы приложений, выполняют внутренний вызов одного приложения веб-API.
+The diagram below shows an example architecture with a WebAPI based app deployed on an App Service Environment.  Three separate web app instances, deployed on three separate App Service Environments, make back-end calls to the same WebAPI app.
 
-![Концепция архитектуры][ConceptualArchitecture]
+![Conceptual Architecture][ConceptualArchitecture] 
 
-Знак зеленого плюса указывает на то, что группа безопасности сети разрешает выполнять в подсети, содержащей apiase, входящие вызовы от вышестоящих веб-приложений, а также вызовы от самого приложения. При этом та же группа безопасности сети явным образом запрещает доступ к общему входящему трафику из Интернета.
+The green plus signs indicate that the network security group on the subnet containing "apiase" allows inbound calls from the upstream web apps, as well calls from itself.  However the same network security group explicitly denies access to general inbound traffic from the Internet. 
 
-В остальной части этого раздела описаны шаги по настройке группы безопасности сети в подсети, содержащей apiase.
+The remainder of this topic walks through the steps needed to configure the network security group on the subnet containing "apiase".
 
-## Определение поведения сети ##
-Чтобы узнать требуемые правила сетевой безопасности, вам необходимо определить, какие клиенты сети смогут обращаться к среде службы приложений, содержащей приложение API, а какие — будут заблокированы.
+## <a name="determining-the-network-behavior"></a>Determining the Network Behavior ##
+In order to know what network security rules are needed, you need to determine which network clients will be allowed to reach the App Service Environment containing the API app, and which clients will be blocked.
 
-[Группы безопасности сети (NSG)][NetworkSecurityGroups] применяются к подсетям, в которых также развертываются среды службы приложений. Поэтому содержащиеся в NSG правила применяются ко **всем** приложениям, выполняющимся в среде службы приложений. Использование приведенного в этой статье примера архитектуры предполагает следующее. После того как группа безопасности сети будет применена к подсети, содержащей apiase, все приложения, выполняющиеся в среде службы приложений apiase, будут защищены этим же набором правил безопасности.
+Since [network security groups (NSGs)][NetworkSecurityGroups] are applied to subnets, and App Service Environments are deployed into subnets, the rules contained in an NSG apply to **all** apps running on an App Service Environment.  Using the sample architecture for this article, once a network security group is applied to the subnet containing "apiase", all apps running on the "apiase" App Service Environment will be protected by the same set of security rules. 
 
-- **Определение исходящего IP-адреса вышестоящих вызывающих объектов.** Какой IP-адрес или адреса у вышестоящих вызывающих объектов? Эти адреса нужны для явного разрешения доступа в NSG. Вызовы между средами службы приложений считаются интернет-вызовами. Это означает, что исходящему IP-адресу, назначенному каждому из трех вышестоящих приложений среды службы приложений, в NSG должен быть разрешен доступ для подсети apiase. Дополнительные сведения об определении исходящего IP-адреса для приложений, выполняемых в среде службы приложений, см. в обзорной статье [Сетевая архитектура][NetworkArchitecture].
-- **Необходимо ли внутреннему приложению API вызывать самого себя?** Есть один интересный сценарий, который часто упускают из виду: внутреннему приложению необходимо вызвать самого себя. Если внутреннему приложению API в среде службы приложений необходимо обратиться к себе же, такой вызов также будет расценен как интернет-вызов. В нашем примере архитектуры для этого также необходимо разрешить доступ от исходящего IP-адреса apiase среды службы приложений.
+- **Determine the outbound IP address of upstream callers:**  What is the IP address or addresses of the upstream callers?  These addresses will need to be explicitly allowed access in the NSG.  Since calls between App Service Environments are considered "Internet" calls, this means the outbound IP address assigned to each of the three upstream App Service Environments needs to be allowed access in the NSG for the "apiase" subnet.   For more details on determining the outbound IP address for apps running in an App Service Environment see the [Network Architecture][NetworkArchitecture] Overview article.
+- **Will the back-end API app need to call itself?**  A sometimes overlooked and subtle point is the scenario where the back-end application needs to call itself.  If a back-end API application on an App Service Environment needs to call itself, this is also treated as an "Internet" call.  In the sample architecture this requires allowing access from the outbound IP address of the "apiase" App Service Environment as well.
 
-## Настройка группы безопасности сети ##
-Когда набор исходящих IP-адресов станет известен, можно переходить к созданию группы безопасности сети. Группы безопасности сети можно создавать и для виртуальных сетей с Resource Manager, и для классических виртуальных сетей. В приведенных ниже примерах показано создание и настройка группы безопасности сети в классической виртуальной сети с помощью Powershell.
+## <a name="setting-up-the-network-security-group"></a>Setting up the Network Security Group ##
+Once the set of outbound IP addresses are known, the next step is to construct a network security group.  Network security groups can be created for both Resource Manager based virtual networks, as well as classic virtual networks.  The examples below show creating and configuring an NSG on a classic virtual network using Powershell.
 
-Так как в этом примере архитектуры среды расположены в Южно-Центральном регионе США, пустая группа NSG создается в этом регионе:
+For the sample architecture, the environments are located in South Central US, so an empty NSG is created in that region:
 
     New-AzureNetworkSecurityGroup -Name "RestrictBackendApi" -Location "South Central US" -Label "Only allow web frontend and loopback traffic"
 
-Сначала для инфраструктуры управления Azure добавляется одно явно разрешающее правило, как описано в статье, посвященной [управлению входящим трафиком][InboundTraffic] в среде службы приложений.
+First an explicit allow rule is added for the Azure management infrastructure as noted in the article on [inbound traffic][InboundTraffic] for App Service Environments.
 
     #Open ports for access by Azure management infrastructure
     Get-AzureNetworkSecurityGroup -Name "RestrictBackendApi" | Set-AzureNetworkSecurityRule -Name "ALLOW AzureMngmt" -Type Inbound -Priority 100 -Action Allow -SourceAddressPrefix 'INTERNET' -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '454-455' -Protocol TCP
     
-Затем добавляются два правила, разрешающие вызовы HTTP и HTTPS из первой вышестоящей среды службы приложений (fe1ase).
+Next, two rules are added to allow HTTP and HTTPS calls from the first upstream App Service Environment ("fe1ase").
 
     #Grant access to requests from the first upstream web front-end
     Get-AzureNetworkSecurityGroup -Name "RestrictBackendApi" | Set-AzureNetworkSecurityRule -Name "ALLOW HTTP fe1ase" -Type Inbound -Priority 200 -Action Allow -SourceAddressPrefix '65.52.xx.xyz'  -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '80' -Protocol TCP
     Get-AzureNetworkSecurityGroup -Name "RestrictBackendApi" | Set-AzureNetworkSecurityRule -Name "ALLOW HTTPS fe1ase" -Type Inbound -Priority 300 -Action Allow -SourceAddressPrefix '65.52.xx.xyz'  -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '443' -Protocol TCP
 
-То же самое выполняется для второй и третьей вышестоящих сред службы приложений (fe2ase и fe3ase).
+Rinse and repeat for the second and third upstream App Service Environments ("fe2ase"and "fe3ase").
 
     #Grant access to requests from the second upstream web front-end
     Get-AzureNetworkSecurityGroup -Name "RestrictBackendApi" | Set-AzureNetworkSecurityRule -Name "ALLOW HTTP fe2ase" -Type Inbound -Priority 400 -Action Allow -SourceAddressPrefix '191.238.xyz.abc'  -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '80' -Protocol TCP
@@ -68,34 +69,34 @@
     Get-AzureNetworkSecurityGroup -Name "RestrictBackendApi" | Set-AzureNetworkSecurityRule -Name "ALLOW HTTP fe3ase" -Type Inbound -Priority 600 -Action Allow -SourceAddressPrefix '23.98.abc.xyz'  -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '80' -Protocol TCP
     Get-AzureNetworkSecurityGroup -Name "RestrictBackendApi" | Set-AzureNetworkSecurityRule -Name "ALLOW HTTPS fe3ase" -Type Inbound -Priority 700 -Action Allow -SourceAddressPrefix '23.98.abc.xyz'  -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '443' -Protocol TCP
 
-Наконец, нужно предоставить доступ для исходящего IP-адреса среды службы приложений, в которую входит внутреннее приложение API, чтобы оно смогло вызывать само себя.
+Lastly, grant access to the outbound IP address of the back-end API's App Service Environment so that it can call back into itself.
 
     #Allow apps on the apiase environment to call back into itself
     Get-AzureNetworkSecurityGroup -Name "RestrictBackendApi" | Set-AzureNetworkSecurityRule -Name "ALLOW HTTP apiase" -Type Inbound -Priority 800 -Action Allow -SourceAddressPrefix '70.37.xyz.abc'  -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '80' -Protocol TCP
     Get-AzureNetworkSecurityGroup -Name "RestrictBackendApi" | Set-AzureNetworkSecurityRule -Name "ALLOW HTTPS apiase" -Type Inbound -Priority 900 -Action Allow -SourceAddressPrefix '70.37.xyz.abc'  -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '443' -Protocol TCP
 
-Другие правила безопасности сети настраивать не нужно, так как у каждой группы NSG есть набор правил по умолчанию, блокирующий входящий доступ из Интернета по умолчанию.
+No other network security rules need to be configured because every NSG has a set of default rules that block inbound access from the Internet by default.
 
-Полный список правил группы безопасности сети приведен ниже. Обратите внимание, как последнее правило (выделено) блокирует входящий доступ ото всех вызывающих объектов, отличных от тех, которым явно предоставлен доступ.
+The full list of rules in the network security group are shown below.  Note how the last rule, which is highlighted, blocks inbound access from all callers other than those which have been explicitly granted access.
 
-![Конфигурация NSG][NSGConfiguration]
+![NSG Configuration][NSGConfiguration] 
 
-Последним шагом является применение группы NSG к подсети, которая содержит среду службы приложений apiase.
+The final step is to apply the NSG to the subnet that contains the "apiase" App Service Environment.  
 
      #Apply the NSG to the backend API subnet
     Get-AzureNetworkSecurityGroup -Name "RestrictBackendApi" | Set-AzureNetworkSecurityGroupToSubnet -VirtualNetworkName 'yourvnetnamehere' -SubnetName 'API-ASE-Subnet'
 
-После применения группы NSG к подсети вызывать среду apiase смогут только три вышестоящие среды службы приложений, а также среда службы приложений, содержащая серверную часть API.
+With the NSG applied to the subnet, only the three upstream App Service Environments, and the App Service Environment containing the API back-end, are allowed to call into the "apiase" environment.
 
 
-## Дополнительные ссылки и сведения ##
-Все статьи и практические руководства, посвященные средам службы приложений, доступны в [файле сведений для сред службы приложений](../app-service/app-service-app-service-environments-readme.md).
+## <a name="additional-links-and-information"></a>Additional Links and Information ##
+All articles and How-To's for App Service Environments are available in the [README for Application Service Environments](../app-service/app-service-app-service-environments-readme.md).
 
-Информация о [группах безопасности сети](../virtual-network/virtual-networks-nsg.md).
+Information about [network security groups](../virtual-network/virtual-networks-nsg.md). 
 
-Основные сведения об [исходящих IP-адресах][NetworkArchitecture] и средах службы приложений.
+Understanding [outbound IP addresses][NetworkArchitecture] and App Service Environments.
 
-[Сетевые порты][InboundTraffic], используемые в средах службы приложений.
+[Network ports][InboundTraffic] used by App Service Environments.
 
 [AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 
@@ -103,11 +104,15 @@
 
 <!-- LINKS -->
 [NetworkSecurityGroups]: https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/
-[NetworkArchitecture]: https://azure.microsoft.com/documentation/articles/app-service-app-service-environment-network-architecture-overview/
-[InboundTraffic]: https://azure.microsoft.com/documentation/articles/app-service-app-service-environment-control-inbound-traffic/
+[NetworkArchitecture]:  https://azure.microsoft.com/documentation/articles/app-service-app-service-environment-network-architecture-overview/
+[InboundTraffic]:  https://azure.microsoft.com/en-us/documentation/articles/app-service-app-service-environment-control-inbound-traffic/
 
 <!-- IMAGES -->
 [ConceptualArchitecture]: ./media/app-service-app-service-environment-layered-security/ConceptualArchitecture-1.png
-[NSGConfiguration]: ./media/app-service-app-service-environment-layered-security/NSGConfiguration-1.png
+[NSGConfiguration]:  ./media/app-service-app-service-environment-layered-security/NSGConfiguration-1.png
 
-<!---HONumber=AcomDC_0831_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

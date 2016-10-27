@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Диспетчер моментальных снимков StorSimple и томы | Microsoft Azure"
-   description="В этой статье рассказывается, как использовать оснастку консоли MMC «Диспетчер моментальных снимков StorSimple» для просмотра томов и управления ими, а также для настройки резервного копирования."
+   pageTitle="StorSimple Snapshot Manager and volumes | Microsoft Azure"
+   description="Describes how to use the StorSimple Snapshot Manager MMC snap-in to view and manage volumes and to configure backups."
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
@@ -15,260 +15,265 @@
    ms.date="04/18/2016"
    ms.author="v-sharos" />
 
-# Просмотр томов и управление ими с помощью диспетчера моментальных снимков StorSimple
 
-## Обзор
+# <a name="use-storsimple-snapshot-manager-to-view-and-manage-volumes"></a>Use StorSimple Snapshot Manager to view and manage volumes
 
-Узел **Тома** диспетчера моментальных снимков StorSimple, расположенный на панели **Область**, можно использовать для выбора томов и просмотра сведений о них. Тома представляются в виде дисков, которые соответствуют томам, подключенным с помощью узла. В узле **Тома** отображаются локальные тома и типы томов, поддерживаемые устройством StorSimple, включая тома, обнаруженные путем использования iSCSI и устройства.
+## <a name="overview"></a>Overview
 
-Дополнительные сведения о поддерживаемых томах см. в разделе [Поддержка нескольких типов томов](storsimple-what-is-snapshot-manager.md#support-for-multiple-volume-types).
+You can use the StorSimple Snapshot Manager **Volumes** node (on the **Scope** pane) to select volumes and view information about them. The volumes are presented as drives that correspond to the volumes mounted by the host. The **Volumes** node shows local volumes and volume types that are supported by StorSimple, including volumes discovered through the use of iSCSI and a device. 
 
-![Список томов на панели «Результаты»](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_Volume_node.png)
+For more information about supported volumes, go to [Support for multiple volume types](storsimple-what-is-snapshot-manager.md#support-for-multiple-volume-types).
 
-Узел **Тома** также позволяет повторно сканировать или удалять тома после того, как их обнаружит диспетчер моментальных снимков StorSimple.
+![Volume list in Results pane](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_Volume_node.png)
 
-В этом учебнике объясняется, как подключить, инициализировать и отформатировать тома, а затем с помощью диспетчера моментальных снимков StorSimple выполнить такие задачи:
+The **Volumes** node also lets you rescan or delete volumes after StorSimple Snapshot Manager discovers them. 
 
-- просмотр сведений о томах; 
-- удаление томов;
-- повторное сканирование томов; 
-- настройка основного тома и его архивация;
-- настройка динамического зеркального тома и его архивация.
+This tutorial explains how you can mount, initialize, and format volumes and then use StorSimple Snapshot Manager to:
 
->[AZURE.NOTE] Все действия, указанные в узле **Тома**, также доступны на панели **Действия**.
+- View information about volumes 
+- Delete volumes
+- Rescan volumes 
+- Configure a basic volume and back it up
+- Configure a dynamic mirrored volume and back it up
+
+>[AZURE.NOTE] All of the **Volume** node actions are also available in the **Actions** pane.
  
-## Подключение томов
+## <a name="mount-volumes"></a>Mount volumes
 
-Выполните указанные ниже действия, чтобы подключить, инициализировать и отформатировать тома StorSimple. Эти действия предполагают использование системной служебной программы "Управление дисками". Она предназначена для управления жесткими дисками и их томами или разделами. Дополнительные сведения о служебной программе «Управление дисками» см. в статье [Управление дисками](https://technet.microsoft.com/library/cc770943.aspx) на веб-сайте Microsoft TechNet.
+Use the following procedure to mount, initialize, and format StorSimple volumes. This procedure uses Disk Management, a system utility for managing hard disks and the corresponding volumes or partitions. For more information about Disk Management, go to [Disk Management](https://technet.microsoft.com/library/cc770943.aspx) on the Microsoft TechNet website.
 
-#### Подключение томов
+#### <a name="to-mount-volumes"></a>To mount volumes
 
-1. На главном компьютере запустите инициатор Microsoft iSCSI.
+1. On your host computer, start the Microsoft iSCSI initiator.
 
-2. Укажите один из IP-адресов интерфейса в качестве целевого портала или IP-адреса обнаружения и подключитесь к устройству. После подключения устройства система Windows сможет получить доступ к томам. Дополнительные сведения об использовании инициатора Microsoft iSCSI см. в разделе "Подключение к целевому iSCSI-оборудованию" статьи [Установка и настройка инициатора iSCSI][1].
+2. Supply one of the interface IP addresses as the target portal or discovery IP address, and connect to the device. After the device is connected, the volumes will be accessible to your Windows system. For more information about using the Microsoft iSCSI initiator, go to the section “Connecting to an iSCSI target device” in [Installing and Configuring Microsoft iSCSI Initiator][1].
 
-3. Чтобы запустить служебную программу «Управление дисками», выполните одно из таких действий:
+3. Use any of the following options to start Disk Management:
 
-    - Введите Diskmgmt.msc в поле **Выполнить**.
+    - Type Diskmgmt.msc in the **Run** box.
 
-    - Запустите диспетчер серверов, разверните узел **Хранение**, а затем выберите пункт **Управление дисками**.
+    - Start Server Manager, expand the **Storage** node, and then select **Disk Management**.
 
-    - Щелкните **Администрирование**, разверните узел **Управление компьютером**, а затем выберите пункт **Управление дисками**.
+    - Start **Administrative Tools**, expand the **Computer Management** node, and then select **Disk Management**. 
 
-    >[AZURE.NOTE] Запустить служебную программу «Управление дисками» можно только с правами администратора.
+    >[AZURE.NOTE] You must use administrator privileges to run Disk Management.
  
-4. Активируйте тома, выполнив следующее:
+4. Take the volume(s) online:
 
-   1. В окне "Управление дисками" щелкните правой кнопкой мыши любой том с меткой **Автономный**.
+   1. In Disk Management, right-click any volume marked **Offline**.
 
-   2. Щелкните **Реактивировать диск**. После повторной активации диск должен иметь метку **Подключен**.
+   2. Click **Reactivate Disk**. The disk should be marked **Online** after the disk is reactivated.
 
-5. Инициализируйте тома, выполнив следующие действия:
+5. Initialize the volume(s):
 
-   1. Щелкните правой кнопкой мыши обнаруженные тома.
+   1. Right-click the discovered volumes.
 
-   2. В меню выберите пункт **Инициализировать диск**.
+   2. On the menu, select **Initialize Disk**.
 
-   3. В диалоговом окне **Инициализация дисков** выберите диски, которые необходимо инициализировать, а затем нажмите кнопку **ОК**.
+   3. In the **Initialize Disk** dialog box, select the disks that you want to initialize, and then click **OK**.
 
-6. Отформатируйте простые тома, выполнив следующее:
+6. Format simple volumes:
 
-   1. Щелкните правой кнопкой мыши том, который нужно отформатировать.
+   1. Right-click a volume that you want to format.
 
-   2. В меню выберите пункт **Создать простой том**.
+   2. On the menu, select **New Simple Volume**.
 
-   3. Отформатируйте том с помощью мастера создания простых томов.
+   3. Use the New Simple Volume wizard to format the volume:
 
-      - Укажите размер тома.
-      - Укажите букву диска.
-      - Выберите файловую систему NTFS.
-      - Выберите размер кластера 64 КБ.
-      - Выполните быстрое форматирование.
+      - Specify the volume size.
+      - Supply a drive letter.
+      - Select the NTFS file system.
+      - Specify a 64 KB allocation unit size.
+      - Perform a quick format.
 
-7. Отформатируйте тома с несколькими разделами. Инструкции см. в разделе "Разделы и тома" статьи [Реализация управления дисками](https://msdn.microsoft.com/library/dd163556.aspx).
+7. Format multi-partition volumes. For instructions, go to the section, "Partitions and Volumes" in [Implementing Disk Management](https://msdn.microsoft.com/library/dd163556.aspx).
 
-## Просмотр сведений о томах
+## <a name="view-information-about-your-volumes"></a>View information about your volumes
 
-Выполните указанные ниже действия, чтобы просмотреть сведения о локальных томах и томах Azure StorSimple.
+Use the following procedure to view information about local and Azure StorSimple volumes.
 
-#### Просмотр сведений о томе
+#### <a name="to-view-volume-information"></a>To view volume information
 
-1. Щелкните соответствующий значок на рабочем столе, чтобы запустить диспетчер моментальных снимков StorSimple. 
+1. Click the desktop icon to start StorSimple Snapshot Manager. 
 
-2. На панели **Область** перейдите на узел **Тома**. На панели **Результаты** появится список локальных и подключенных томов, включая все тома Azure StorSimple. Столбцы на панели **Результаты** можно настраивать. (Щелкните правой кнопкой мыши узел **Тома**, а затем последовательно выберите пункты **Вид** и **Добавить или удалить столбцы**.)
+2. In the **Scope** pane, click the **Volumes** node. A list of local and mounted volumes, including all Azure StorSimple volumes, appears in the **Results** pane. The columns in the **Results** pane are configurable. (Right-click the **Volumes** node, select **View**, and then select **Add/Remove Columns**.)
 
-    ![Настройка столбцов](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_View_volumes.png)
+    ![Configure the columns](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_View_volumes.png)
 
-    Столбец на панели «Результаты» | Описание 
+    Results column | Description 
     :--------------|:-------------
-    Имя | В столбце **Имя** указывается буква диска, назначаемая каждому обнаруженному тому.
-    Устройство | Столбец **Устройство** содержит IP-адрес устройства, подключенного к главному компьютеру.
-    Имя тома устройства | В столбце **Имя тома устройства** указывается имя тома устройства, которому принадлежит выбранный том. Это имя тома, определенное на классическом портале Azure для конкретного тома.
-    Пути доступа | В столбце **Пути доступа** отображается путь доступа к тому. Это буква диска или точка подключения, через которую можно получить доступ к тому на главном компьютере.
+    Name           | The **Name** column contains the drive letter assigned to each discovered volume.
+    Device         | The **Device** column contains the IP address of the device connected to the host computer.
+    Device Volume Name | The **Device Volume Name** column contains the name of the device volume to which the selected volume belongs. This is the volume name defined in the Azure classic portal for that specific volume.
+    Access Paths   | The **Access Paths** column displays the access path to the volume. This is the drive letter or mount point at which the volume is accessible on the host computer.
  
-## Удаление тома
+## <a name="delete-a-volume"></a>Delete a volume
 
-Выполните указанные ниже действия, чтобы удалить том из диспетчера моментальных снимков StorSimple.
+Use the following procedure to delete a volume from StorSimple Snapshot Manager.
 
->[AZURE.NOTE] Невозможно удалить том, который входит в какую-либо группу томов. (Параметр удаления недоступен для таких томов.) Чтобы удалить том, потребуется удалить всю группу томов.
+>[AZURE.NOTE] You cannot delete a volume if it is part of any volume group. (The delete option is not available for volumes that are members of a volume group.) You must delete the entire volume group to delete the volume.
 
 
-#### Удаление тома
+#### <a name="to-delete-a-volume"></a>To delete a volume
 
-1. Щелкните соответствующий значок на рабочем столе, чтобы запустить диспетчер моментальных снимков StorSimple.
+1. Click the desktop icon to start StorSimple Snapshot Manager.
 
-2. На панели **Область** щелкните узел **Тома**.
+2. In the **Scope** pane, click the **Volumes** node. 
 
-3. На панели **Результаты** щелкните правой кнопкой мыши том, который нужно удалить.
+3. In the **Results** pane, right-click the volume that you want to delete.
 
-4. В меню выберите команду **Удалить**.
+4. On the menu, click **Delete**. 
 
-    ![Удаление тома](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_Delete_volume.png)
+    ![Delete a volume](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_Delete_volume.png) 
 
-5. Откроется диалоговое окно **Удаление тома**. Введите **Confirm** (Подтверждаю) в текстовом поле и нажмите кнопку **ОК**.
+5. The **Delete Volume** dialog box appears. Type **Confirm** in the text box, and then click **OK**.
 
-6. По умолчанию диспетчер моментальных снимков StorSimple создает резервную копию тома перед его удалением. Это обеспечивает защиту от потери данных в случае непреднамеренного удаления. Во время создания резервной копии тома в диспетчере моментальных снимков StorSimple отображается сообщение о ходе выполнения операции с заголовком **Автоматический моментальный снимок**.
+6. By default, StorSimple Snapshot Manager backs up a volume before deleting it. This precaution can protect you from data loss if the deletion was unintentional. StorSimple Snapshot Manager displays an **Automatic Snapshot** progress message while it backs up the volume. 
 
-    ![Сообщение об автоматическом моментальном снимке](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_Automatic_snap.png)
+    ![Automatic snapshot message](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_Automatic_snap.png) 
 
-## Повторное сканирование томов
+## <a name="rescan-volumes"></a>Rescan volumes
 
-Выполните указанные ниже действия, чтобы повторно сканировать тома, подключенные к диспетчеру моментальных снимков StorSimple.
+Use the following procedure to rescan the volumes connected to StorSimple Snapshot Manager.
 
-#### Повторное сканирование томов
+#### <a name="to-rescan-the-volumes"></a>To rescan the volumes
 
-1. Щелкните соответствующий значок на рабочем столе, чтобы запустить диспетчер моментальных снимков StorSimple.
+1. Click the desktop icon to start StorSimple Snapshot Manager.
 
-2. На панели **Область** щелкните правой кнопкой мыши узел **Тома** и выберите пункт **Повторно сканировать тома**.
+2. In the **Scope** pane, right-click **Volumes**, and then click **Rescan volumes**.
 
-    ![Повторное сканирование томов](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_Rescan_volumes.png)
+    ![Rescan volumes](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_Rescan_volumes.png)
  
-    Эта позволит синхронизировать список томов с диспетчером моментальных снимков StorSimple. В результатах будут отражены все изменения, например новые или удаленные тома.
+    This procedure synchronizes the volume list with StorSimple Snapshot Manager. Any changes, such as new volumes or deleted volumes, will be reflected in the results.
 
-## Настройка и архивация основного тома
+## <a name="configure-and-back-up-a-basic-volume"></a>Configure and back up a basic volume
 
-Выполните указанные ниже действия, чтобы настроить архивацию основного тома, а затем либо немедленно запустите ее, либо создайте политику для архивации по расписанию.
+Use the following procedure to configure a backup of a basic volume, and then either start a backup immediately or create a policy for scheduled backups.
 
-### Предварительные требования
+### <a name="prerequisites"></a>Prerequisites
 
-Перед началом работы
+Before you begin:
 
-- Убедитесь, что устройство и главный компьютер StorSimple правильно настроены. Дополнительные сведения см. в статье [Развертывание локального устройства StorSimple](storsimple-deployment-walkthrough-u2.md).
+- Make sure that the StorSimple device and host computer are configured correctly. For more information, go to [Deploy your on-premises StorSimple device](storsimple-deployment-walkthrough-u2.md).
 
-- Установите и настройте диспетчер моментальных снимков StorSimple. Дополнительные сведения см. в статье [Развертывание диспетчера моментальных снимков StorSimple](storsimple-snapshot-manager-deployment.md).
+- Install and configure StorSimple Snapshot Manager. For more information, go to [Deploy StorSimple Snapshot Manager](storsimple-snapshot-manager-deployment.md).
 
-#### Настройка архивации основного тома
+#### <a name="to-configure-backup-of-a-basic-volume"></a>To configure backup of a basic volume
 
-1. Создайте основной том на устройстве StorSimple.
+1. Create a basic volume on the StorSimple device.
 
-2. Подключите, инициализируйте и отформатируйте том согласно инструкциям в разделе [Подключение томов](#mount-volumes).
+2. Mount, initialize, and format the volume as described in [Mount volumes](#mount-volumes). 
 
-3. Щелкните значок диспетчера моментальных снимков StorSimple на рабочем столе. Откроется окно диспетчера моментальных снимков StorSimple.
+3. Click the StorSimple Snapshot Manager icon on your desktop. The StorSimple Snapshot Manager window appears. 
 
-4. На панели **Область** щелкните правой кнопкой мыши узел **Тома**, а затем выберите пункт **Повторно сканировать тома**. По завершении сканирования на панели **Результаты** должен появиться список томов.
+4. In the **Scope** pane, right-click the **Volumes** node, and then select **Rescan volumes**. When the scan is finished, a list of volumes should appear in the **Results** pane. 
 
-5. На панели **Результаты** щелкните том правой кнопкой мыши, а затем выберите пункт **Создать группу томов**.
+5. In the **Results** pane, right-click the volume, and then select **Create Volume Group**. 
 
-    ![Создание группы томов](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_Create_volume_group.png)
+    ![Create volume group](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_Create_volume_group.png) 
 
-6. В диалоговом окне **Создание группы томов** введите имя группы, добавьте в нее тома и нажмите кнопку **ОК**.
+6. In the **Create Volume Group** dialog box, type a name for the volume group, assign volumes to it, and then click **OK**.
 
-7. На панели **Область** разверните узел **Группы томов**. В узле **Группы томов** должна появиться новая группа.
+7. In the **Scope** pane, expand the **Volume Groups** node. The new volume group should appear under the **Volume Groups** node. 
 
-8. Щелкните правой кнопкой мыши имя группы томов.
+8. Right-click the volume group name.
 
-    - Чтобы запустить интерактивное задание архивации (по запросу), щелкните **Создать резервную копию**. 
+    - To start an interactive (on-demand) backup job, click **Take Backup**. 
 
-    - Чтобы запланировать автоматическое резервное копирование, щелкните **Создать политику архивации**. На странице **Общие** выберите в списке группу томов. На странице **Расписание** введите данные расписания. Закончив, нажмите кнопку **ОК**.
+    - To schedule an automatic backup, click **Create Backup Policy**. On the **General** page, select a volume group from the list. On the **Schedule** page, enter the schedule details. When you are finished, click **OK**. 
 
-9. Чтобы убедиться, что задание резервного копирования запущено, на панели **Область** разверните узел **Задания** и щелкните узел **Выполняются**. На панели **Результаты** отобразится список заданий, которые выполняются в настоящий момент.
+9. To confirm that the backup job has started, expand the **Jobs** node in the **Scope** pane, and then click the **Running** node. The list of currently running jobs appears in the **Results** pane. 
 
-## Настройка и архивация динамического зеркального тома
+## <a name="configure-and-back-up-a-dynamic-mirrored-volume"></a>Configure and back up a dynamic mirrored volume
 
-Чтобы настроить резервное копирование динамического зеркального тома, выполните указанные ниже действия.
+Complete the following steps to configure backup of a dynamic mirrored volume:
 
-- Шаг 1. Создание динамического зеркального тома с помощью служебной программы «Управление дисками». 
+- Step 1: Use Disk Management to create a dynamic mirrored volume. 
 
-- Шаг 2. Настройка резервного копирования с помощью диспетчера моментальных снимков StorSimple.
+- Step 2: Use StorSimple Snapshot Manager to configure backup.
 
-### Предварительные требования
+### <a name="prerequisites"></a>Prerequisites
 
-Перед началом работы
+Before you begin:
 
-- Убедитесь, что устройство и главный компьютер StorSimple правильно настроены. Дополнительные сведения см. в статье [Развертывание локального устройства StorSimple](storsimple-deployment-walkthrough-u2.md).
+- Make sure that the StorSimple device and host computer are configured correctly. For more information, go to [Deploy your on-premises StorSimple device](storsimple-deployment-walkthrough-u2.md).
 
-- Установите и настройте диспетчер моментальных снимков StorSimple. Дополнительные сведения см. в статье [Развертывание диспетчера моментальных снимков StorSimple](storsimple-snapshot-manager-deployment.md).
+- Install and configure StorSimple Snapshot Manager. For more information, go to [Deploy StorSimple Snapshot Manager](storsimple-snapshot-manager-deployment.md).
 
-- Настройте два тома на устройстве StorSimple. (В примерах доступны тома **Disk 1** и **Disk 2**.)
+- Configure two volumes on the StorSimple device. (In the examples, the available volumes are **Disk 1** and **Disk 2**.) 
 
-### Шаг 1. Создание динамического зеркального тома с помощью служебной программы «Управление дисками»
+### <a name="step-1:-use-disk-management-to-create-a-dynamic-mirrored-volume"></a>Step 1: Use Disk Management to create a dynamic mirrored volume
 
-«Управление дисками» — это системная служебная программа для управления жесткими дисками и их томами или разделами. Дополнительные сведения о служебной программе «Управление дисками» см. в статье [Управление дисками](https://technet.microsoft.com/library/cc770943.aspx) на веб-сайте Microsoft TechNet.
+Disk Management is a system utility for managing hard disks and the volumes or partitions that they contain. For more information about Disk Management, go to [Disk Management](https://technet.microsoft.com/library/cc770943.aspx) on the Microsoft TechNet website.
 
-#### Создание динамического зеркального тома
+#### <a name="to-create-a-dynamic-mirrored-volume"></a>To create a dynamic mirrored volume
 
-1. Чтобы запустить служебную программу «Управление дисками», выполните одно из таких действий: 
+1. Use any of the following options to start Disk Management: 
 
-   - Откройте поле **Выполнить**, введите **Diskmgmt.msc** и нажмите клавишу ВВОД.
+   - Open the **Run** box, type **Diskmgmt.msc**, and press Enter.
 
-   - Запустите диспетчер серверов, разверните узел **Хранилище**, а затем выберите пункт **Управление дисками**.
+   - Start Server Manager, expand the **Storage** node, and then select **Disk Management**. 
 
-   - Щелкните **Администрирование**, разверните узел **Управление компьютером**, а затем выберите пункт **Управление дисками**.
+   - Start **Administrative Tools**, expand the **Computer Management** node, and then select **Disk Management**. 
 
-2. Убедитесь, что на устройстве StorSimple доступны два тома. (В примере доступны тома **Disk 1** и **Disk 2**.) 
+2. Make sure that you have two volumes available on the StorSimple device. (In the example, the available volumes are **Disk 1** and **Disk 2**.) 
 
-3. В окне «Управление дисками» в правом столбце нижней области щелкните правой кнопкой мыши **Disk 1** и выберите пункт **Создать зеркальный том**.
+3. In the Disk Management window, in the right column of the lower pane, right-click **Disk 1** and select **New Mirrored Volume**. 
 
-    ![Создание зеркального тома](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_New_mirrored_volume.png)
+    ![New Mirrored Volume](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_New_mirrored_volume.png) 
 
-4. На странице мастера **Создание зеркального тома** нажмите кнопку **Далее**.
+4. On the **New Mirrored Volume** wizard page, click **Next**.
 
-5. На странице **Выбор дисков** в области **Выбрано** выберите пункт **Disk 2**, а затем последовательно нажмите кнопки **Добавить** и **Далее**.
+5. On the **Select Disks** page, select **Disk 2** in the **Selected** pane, click **Add**, and then click **Next**. 
 
-6. На странице **Назначение буквы диска или пути** примите значения по умолчанию и нажмите кнопку **Далее**.
+6. On the **Assign Drive Letter or Path** page, accept the defaults, and then click **Next**. 
 
-7. На странице **Форматирование тома** в поле **Размер кластера** выберите **64 КБ**. Установите флажок **Быстрое форматирование** и нажмите кнопку **Далее**.
+7. On the **Format Volume** page, in the **Allocation Unit Size** box, select **64K**. Select the **Perform a quick format** check box, and then click **Next**. 
 
-8. На странице **Завершение мастера создания зеркального тома** проверьте параметры и нажмите кнопку **Готово**.
+8. On the **Completing the New Mirrored Volume** page, review your settings, and then click **Finish**. 
 
-9. Появится сообщение о том, что основной диск будет преобразован в динамический. Щелкните **Да**.
+9. A message appears to indicate that the basic disk will be converted to a dynamic disk. Click **Yes**.
 
-    ![Сообщение о преобразовании динамического диска](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_Disk_management_msg.png)
+    ![Dynamic disk conversion message](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_Disk_management_msg.png) 
 
-10. В разделе «Управление дисками» проверьте, отображаются ли диски Disk 1 и Disk 2 как динамические зеркальные тома. (В столбце состояния должно отображаться состояние **Динамический**, а цвет строки данных о емкости должен измениться на красный, указывая, что это зеркальный том.)
+10. In Disk Management, verify that Disk 1 and Disk 2 are shown as dynamic mirrored volumes. (**Dynamic** should appear in the status column, and the capacity bar color should change to red, indicating a mirrored volume.) 
 
-    ![Зеркальные динамические диски в служебной программе «Управление дисками»](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_Verify_dynamic_disks_2.png)
+    ![Disk Management mirrored dynamic disks](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_Verify_dynamic_disks_2.png) 
  
-### Шаг 2. Настройка архивации с помощью диспетчера моментальных снимков StorSimple
+### <a name="step-2:-use-storsimple-snapshot-manager-to-configure-backup"></a>Step 2: Use StorSimple Snapshot Manager to configure backup
 
-Выполните указанные ниже действия, чтобы настроить динамический зеркальный том, а затем немедленно запустить архивацию или создать политику для архивации по расписанию.
+Use the following procedure to configure a dynamic mirrored volume, and then either start a backup immediately or create a policy for scheduled backups.
 
-#### Настройка архивации динамического зеркального тома
+#### <a name="to-configure-backup-of-a-dynamic-mirrored-volume"></a>To configure backup of a dynamic mirrored volume
 
-1. Щелкните значок диспетчера моментальных снимков StorSimple на рабочем столе. Откроется окно диспетчера моментальных снимков StorSimple. 
+1. Click the StorSimple Snapshot Manager icon on your desktop. The StorSimple Snapshot Manager window appears. 
 
-2. На панели **Область** щелкните правой кнопкой мыши узел **Тома** и выберите пункт **Повторно сканировать тома**. По завершении сканирования на панели **Результаты** должен появиться список томов. Динамический зеркальный том будет указан как один том.
+2. In the **Scope** pane, right-click the **Volumes** node and select **Rescan volumes**. When the scan is finished, a list of volumes should appear in the **Results** pane. The dynamic mirrored volume is listed as a single volume. 
 
-3. На панели **Результаты** щелкните правой кнопкой мыши динамический зеркальный том, а затем выберите **Создать группу томов**.
+3. In the **Results** pane, right-click the dynamic mirrored volume, and then click **Create Volume Group**. 
 
-4. В диалоговом окне **Создание группы томов** введите имя группы томов, назначьте ей динамический зеркальный том и нажмите кнопку **ОК**.
+4. In the **Create Volume Group** dialog box, type a name for the volume group, assign the dynamic mirrored volume to this group, and then click **OK**. 
 
-5. На панели **Область** разверните узел **Группы томов**. В узле **Группы томов** должна появиться новая группа.
+5. In the **Scope** pane, expand the **Volume Groups** node. The new volume group should appear under the  **Volume Groups** node. 
 
-6. Щелкните правой кнопкой мыши имя группы томов.
+6. Right-click the volume group name. 
 
-    - Чтобы запустить интерактивное задание архивации (по запросу), щелкните **Создать резервную копию**. 
+    - To start an interactive (on-demand) backup job, click **Take Backup**. 
 
-    - Чтобы запланировать автоматическую архивацию, щелкните **Создать политику архивации**. На странице **Общие** выберите в списке группу томов. На странице **Расписание** введите подробные сведения о расписании. Закончив, нажмите кнопку **ОК**.
+    - To schedule an automatic backup, click **Create Backup Policy**. On the **General** page, select the volume group from the list. On the **Schedule** page, enter the schedule details. When you are finished, click **OK**. 
 
-7. Вы можете отслеживать ход выполнения задания архивации. На панели **Область** разверните узел **Задания**, а затем щелкните **Выполняются**. Сведения о задании отобразятся на панели **Результаты**. После завершения задания архивации сведения о нем вносятся в список **За последние 24 часа**.
+7. You can monitor the backup job as it runs. In the **Scope** pane, expand the **Jobs** node, and then click **Running**, The job details appear in the **Results** pane. When the backup job is finished, the details are transferred to the **Last 24** hours job list. 
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Next steps
 
-- Узнайте об [использовании диспетчера моментальных снимков StorSimple для администрирования решения StorSimple](storsimple-snapshot-manager-admin.md).
-- Узнайте, как [создавать группы томов и управлять ими с помощью диспетчера моментальных снимков StorSimple](storsimple-snapshot-manager-manage-volume-groups.md).
+- Learn how to [use StorSimple Snapshot Manager to administer your StorSimple solution](storsimple-snapshot-manager-admin.md).
+- Learn how to [use StorSimple Snapshot Manager to create and manage volume groups](storsimple-snapshot-manager-manage-volume-groups.md).
 
 <!--Reference links-->
 [1]: https://msdn.microsoft.com/library/ee338480(v=ws.10).aspx
 
-<!---HONumber=AcomDC_0511_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

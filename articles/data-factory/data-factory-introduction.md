@@ -1,82 +1,89 @@
 <properties 
-	pageTitle="Общие сведения о фабрике данных — службе интеграции данных | Microsoft Azure" 
-	description="Узнайте о фабрике данных Azure, облачной службе интеграции данных, которая организует и автоматизирует перемещение и преобразование данных." 
-	keywords="интеграция данных, интеграция данных в облаке, что такое фабрика данных Azure"
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
-	editor="monicar"/>
+    pageTitle="Introduction to Data Factory, a data integration service | Microsoft Azure" 
+    description="Learn what Azure Data Factory is: A cloud data integration service that orchestrates and automates movement and transformation of data." 
+    keywords="data integration, cloud data integration, what is azure data factory"
+    services="data-factory" 
+    documentationCenter="" 
+    authors="sharonlo101" 
+    manager="jhubbard" 
+    editor="monicar"/>
 
 <tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="09/22/2016" 
-	ms.author="spelluru"/>
+    ms.service="data-factory" 
+    ms.workload="data-services" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="get-started-article" 
+    ms.date="09/22/2016" 
+    ms.author="shlo"/>
 
-# Общие сведения о службе фабрики данных Azure, службе интеграции данных в облаке
 
-## Что такое фабрика данных Azure? 
-Фабрика данных представляет собой облачную службу интеграции данных, которая организует и автоматизирует **перемещение** и **преобразование** данных. Вы можете создать решения по интеграции данных с помощью службы фабрики данных, которая получает, преобразует и обрабатывает данные из различных хранилищ, а также публикует обработанные данные в хранилищах данных.
+# <a name="introduction-to-azure-data-factory-service,-a-data-integration-service-in-the-cloud"></a>Introduction to Azure Data Factory Service, a data integration service in the cloud
 
-Служба фабрики данных позволяет создавать конвейеры данных для перемещения и преобразования данных, а затем запускать конвейеры по указанному расписанию (ежечасно, ежедневно, еженедельно и т. д.). Служба также предоставляет широкие возможности визуализации для отображения журнала преобразований данных и зависимостей между конвейерами данных, а также для мониторинга всех конвейеров данных в едином представлении с целью оперативного выявления проблем и настройки оповещений.
+## <a name="what-is-azure-data-factory?"></a>What is Azure Data Factory? 
+Data Factory is a cloud-based data integration service that orchestrates and automates the **movement** and **transformation** of data. You can create data integration solutions using the Data Factory service that can ingest data from various data stores, transform/process the data, and publish the result data to the data stores. 
 
-![Схема. Обзор фабрики данных, службы интеграции данных](./media/data-factory-introduction/what-is-azure-data-factory.png)**Рис. 1.** Получение, подготовка, преобразование и анализ данных из разных источников, а также публикация обработанных данных.
+Data Factory service allows you to create data pipelines that move and transform data, and then run the pipelines on a specified schedule (hourly, daily, weekly, etc.). It also provides rich visualizations to display the lineage and dependencies between your data pipelines, and monitor all your data pipelines from a single unified view to easily pinpoint issues and setup monitoring alerts.
 
-## Конвейеры и действия
-С помощью фабрики данных можно создать один или несколько **конвейеров** данных. Конвейеры — это логические группы действий. Они используются для объединения действий в блоки для выполнения определенных задач.
+![Diagram: Data Factory Overview, a data integration service](./media/data-factory-introduction/what-is-azure-data-factory.png)
+**Figure1.** Ingest data from various data sources, prepare, transform, and analyze the data, and then publish ready-to-use data for consumption.
 
-**Действия** определяют операции с данными. Например, действие копирования может использоваться для копирования данных из одного хранилища данных в другое. Точно так же можно использовать действие Hive, которое выполняет запрос Hive к кластеру Azure HDInsight для преобразования или анализа данных. Фабрика данных поддерживает два типа действий: действия перемещения данных и действия преобразования данных.
+## <a name="pipelines-and-activities"></a>Pipelines and activities
+In a Data Factory solution, you create one or more data **pipelines**. A pipeline is a logical grouping of activities. They are used to group activities into a unit that together perform a task. 
+
+**Activities** define the actions to perform on your data. For example, you may use a Copy activity to copy data from one data store to another data store. Similarly, you may use a Hive activity, which runs a Hive query on an Azure HDInsight cluster to transform or analyze your data. Data Factory supports two types of activities: data movement activities and data transformation activities. 
   
-## Действия перемещения данных 
+## <a name="data-movement-activities"></a>Data movement activities 
 [AZURE.INCLUDE [data-factory-supported-data-stores](../../includes/data-factory-supported-data-stores.md)]
 
-Дополнительные сведения см. в статье [Перемещение данных с помощью действия копирования](data-factory-data-movement-activities.md).
+See [Data Movement Activities](data-factory-data-movement-activities.md) article for more details. 
 
-## Действия преобразования данных
+## <a name="data-transformation-activities"></a>Data transformation activities
 [AZURE.INCLUDE [data-factory-transformation-activities](../../includes/data-factory-transformation-activities.md)]
 
-Дополнительные сведения см. в статье [Сведения о преобразовании и анализе данных в фабрике данных Azure](data-factory-data-transformation-activities.md).
+See [Data Transformation Activities](data-factory-data-transformation-activities.md) article for more details.
 
-Если необходимо переместить данные в хранилище данных, которое не поддерживается действием копирования, или из такого хранилища, либо преобразовать данные с использованием собственной логики, вы можете создать **настраиваемое действие .NET**. Сведения о создании и использовании настраиваемого действия см. в статье [Использование настраиваемых действий в конвейере фабрики данных Azure](data-factory-use-custom-activities.md).
+If you need to move data to/from a data store that Copy Activity doesn't support, or transform data using your own logic, create a **custom .NET activity**. For details on creating and using a custom activity, see [Use custom activities in an Azure Data Factory pipeline](data-factory-use-custom-activities.md).
 
-## Связанные службы
-Связанные службы определяют сведения, необходимые фабрике данных для подключения к внешним ресурсам (например, к хранилищу Azure, локальному серверу SQL Server, службе Azure HDInsight). Связанные службы используются в фабрике данных для двух целей:
+## <a name="linked-services"></a>Linked services
+Linked services define the information needed for Data Factory to connect to external resources (Examples: Azure Storage, on-premises SQL Server, Azure HDInsight). Linked services are used for two purposes in Data Factory:
 
-- Для представления **хранилища данных**, включая, помимо прочего, локальный сервер SQL Server, базу данных Oracle, файловый ресурс и учетную запись хранилища BLOB-объектов Azure. Список поддерживаемых хранилищ данных см. в статье [Перемещение данных с помощью действия копирования](data-factory-data-movement-activities.md).
-- Для представления **вычислительного ресурса**, в котором можно выполнить действие. Например, действие HDInsightHive выполняется в кластере Hadoop в HDInsight. Список поддерживаемых вычислительных сред см. в разделе [Действия преобразования данных](data-factory-data-transformation-activities.md).
+- To represent a **data store** including, but not limited to, an on-premises SQL Server, Oracle database, file share, or an Azure Blob Storage account. See the [Data movement activities](data-factory-data-movement-activities.md) section for a list of supported data stores. 
+- To represent a **compute resource** that can host the execution of an activity. For example, the HDInsightHive activity runs on an HDInsight Hadoop cluster. See [Data transformation activities](data-factory-data-transformation-activities.md) section for a list of supported compute environments. 
 
-## Наборы данных 
-Связанные службы связывают хранилища данных с фабрикой данных Azure. Наборы данных представляют структуры данных в хранилищах данных. Например, связанная служба хранилища Azure предоставляет фабрике данных сведения для подключения к учетной записи хранения Azure. Набор данных BLOB-объектов Azure указывает контейнер больших двоичных объектов и папку в хранилище BLOB-объектов, из которой конвейер должен считывать данные. Точно так же связанная служба Azure SQL предоставляет сведения о подключении для базы данных SQL Azure, а набор данных Azure SQL указывает таблицу, содержащую данные.
+## <a name="datasets"></a>Datasets 
+Linked services link data stores to an Azure data factory. Datasets represent data structures with in the data stores. For example, an Azure Storage linked service provides connection information for Data Factory to connect to an Azure Storage account. An Azure Blob dataset specifies the blob container and folder in the Azure Blob Storage from which the pipeline should read the data. Similarly, an Azure SQL linked service provides connection information for an Azure SQL database and an Azure SQL dataset specifies the table that contains the data.   
 
-## Связь между сущностями фабрики данных
-В фабрике данных используется несколько ключевых сущностей, которые вместе определяют входные и выходные данные, события обработки, расписания и ресурсы, используемые потоком данных.
+## <a name="relationship-between-data-factory-entities"></a>Relationship between Data Factory entities
+Data Factory has a few key entities that work together to define input and output data, processing events, and the schedule and resources required to execute the desired data flow.
 
-![Схема. Фабрика данных, облачная служба интеграции данных: основные понятия](./media/data-factory-introduction/data-integration-service-key-concepts.png) **Рис. 2** Связи между набором данных, действием, конвейером и связанной службой
+![Diagram: Data Factory, a cloud data integration service - Key Concepts](./media/data-factory-introduction/data-integration-service-key-concepts.png)
+**Figure 2.** Relationships between Dataset, Activity, Pipeline, and Linked service
 
-Уяснив смысл четырех простых понятий (связанные службы, наборы данных, действия и конвейеры), можно приступать к работе с фабрикой данных. Вы можете [создать свой первый конвейер](data-factory-build-your-first-pipeline.md).
+With the four simple concepts of linked services, datasets, activities, and pipelines, you are ready to get started! You can [build your first pipeline](data-factory-build-your-first-pipeline.md). 
 
-## Поддерживаемые регионы
-Сейчас фабрики данных можно создавать в таких регионах: **западная часть США**, **восточная часть США** и **Северная Европа**. Однако для перемещения данных между хранилищами данных или для обработки данных с помощью служб вычислений фабрики данных могут обращаться к хранилищам данных и службам вычислений в других регионах Azure.
+## <a name="supported-regions"></a>Supported regions
+Currently, you can create data factories in the **West US**, **East US**, and **North Europe** regions. However, a data factory can access data stores and compute services in other Azure regions to move data between data stores or process data using compute services. 
 
-В самой фабрике данных Azure данные не хранятся. Она предоставляет возможность создавать управляемые данными потоки для обработки данных с помощью [служб вычислений](data-factory-compute-linked-services.md) в других регионах или локальной среде и оркестрации перемещения данных между [поддерживаемыми хранилищами](data-factory-data-movement-activities.md#supported-data-stores). Кроме того, с помощью фабрики данных можно [отслеживать рабочие процессы и управлять ими](data-factory-monitor-manage-pipelines.md), используя программные методы и пользовательский интерфейс.
+Azure Data Factory itself does not store any data. It lets you create data-driven flows to orchestrate movement of data between [supported data stores](data-factory-data-movement-activities.md#supported-data-stores) and processing of data using [compute services](data-factory-compute-linked-services.md) in other regions or in an on-premises environment. It also allows you to [monitor and manage workflows](data-factory-monitor-manage-pipelines.md) using both programmatic and UI mechanisms. 
 
-Хотя фабрика данных Azure доступна только в **западной части США**, **восточной части США** и **Северной Европе**, служба, которая обеспечивает перемещение данных в фабрике данных, доступна [глобально](data-factory-data-movement-activities.md#global) в нескольких регионах. Если хранилище данных находится за брандмауэром, данные перемещает [шлюз управления данными](data-factory-move-data-between-onprem-and-cloud.md), установленный в локальной среде.
+Even though Azure Data Factory is available in only **West US**, **East US**, and **North Europe** regions, the service powering the data movement in Data Factory is available [globally](data-factory-data-movement-activities.md#global) in several regions. In case a data store sits behind a firewall then a [Data Management Gateway](data-factory-move-data-between-onprem-and-cloud.md) installed in your on-premises environment moves the data instead. 
 
-Предположим, ваши вычислительные среды, например кластер Azure HDInsight и служба машинного обучения Azure, расположены в Западной Европе. Вы можете создать экземпляр фабрики данных Azure в Северной Европе и с его помощью планировать задания в вычислительных средах в Западной Европе. Фабрике данных требуется лишь несколько миллисекунд, чтобы запустить задание в вычислительной среде, но время выполнения задания в вашей вычислительной среде остается неизменным.
+For an example, let us assume that your compute environments such as Azure HDInsight cluster and Azure Machine Learning are running out of West Europe region. You can create and use an Azure Data Factory instance in North Europe and use it to schedule jobs on your compute environments in West Europe. It takes a few milliseconds for Data Factory to trigger the job on your compute environment but the time for running the job on your computing environment does not change.
 
-В будущем мы планируем обеспечить возможность развертывать фабрику данных Azure во всех географических регионах, поддерживаемых Azure.
+We intend to have Azure Data Factory in every geography supported by Azure in the future.
   
-## Дальнейшие действия
-Чтобы научиться создавать фабрики данных с конвейерами данных, выполните пошаговые инструкции из следующих руководств.
+## <a name="next-steps"></a>Next steps
+To learn how to build data factories with data pipelines, follow step-by-step instructions in the following tutorials. 
 
-Учебник | Описание
+Tutorial | Description
 -------- | -----------
-[Начало работы с фабрикой данных Azure](data-factory-build-your-first-pipeline.md) | С помощью этого руководства вы создадите свою первую фабрику данных Azure с конвейером данных, который **обрабатывает данные** путем запуска сценария Hive в кластере Azure HDInsight (Hadoop). |
-[Copy data from Blob Storage to SQL Database using Data Factory (Копирование данных из хранилища BLOB-объектов Azure в базу данных SQL с помощью фабрики данных)](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) | В этом руководстве вы создадите фабрику данных с конвейером, который **перемещает данные** из хранилища BLOB-объектов в базу данных SQL.
-[Перемещение данных между локальными источниками и облаком при помощи шлюза управления данными](data-factory-move-data-between-onprem-and-cloud.md) | В этом руководстве вы создадите фабрику данных с конвейером, который **перемещает данные** из **локальной** базы данных SQL Server в большой двоичный объект Azure. В рамках этого пошагового руководства вы установите и настроите шлюз управления данными на своем компьютере. 
+[Build a data pipeline that processes data using Hadoop cluster](data-factory-build-your-first-pipeline.md) | In this tutorial, you build your first Azure data factory with a data pipeline that **processes data** by running Hive script on an Azure HDInsight (Hadoop) cluster. |
+[Build a data pipeline to move data between two cloud data stores](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) | In this tutorial, you create a data factory with a pipeline that **moves data** from Blob storage to SQL database.
+[Build a data pipeline to move data between an on-premises data store and a cloud data store using Data Management Gateway](data-factory-move-data-between-onprem-and-cloud.md) | In this tutorial, you build a data factory with a pipeline that **moves data** from an **on-premises** SQL Server database to an Azure blob. As part of the walkthrough, you install and configure the Data Management Gateway on your machine. 
 
-<!---HONumber=AcomDC_1005_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

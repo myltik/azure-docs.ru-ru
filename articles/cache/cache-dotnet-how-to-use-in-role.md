@@ -1,147 +1,148 @@
 <properties 
-	pageTitle="Использование кэша роли (.NET) | Microsoft Azure" 
-	description="Сведения об использовании кэша роли Azure. Примеры написаны на языке C# и используют интерфейс .NET API." 
-	services="cache" 
-	documentationCenter=".net" 
-	authors="steved0x" 
-	manager="douge" 
-	editor=""/>
+    pageTitle="How to use In-Role Cache (.NET) | Microsoft Azure" 
+    description="Learn how to use Azure In-Role Cache. The samples are written in C# code and use the .NET API." 
+    services="cache" 
+    documentationCenter=".net" 
+    authors="steved0x" 
+    manager="douge" 
+    editor=""/>
 
 <tags 
-	ms.service="cache" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="09/15/2016" 
-	ms.author="sdanie"/>
+    ms.service="cache" 
+    ms.workload="web" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="dotnet" 
+    ms.topic="article" 
+    ms.date="09/15/2016" 
+    ms.author="sdanie"/>
 
 
 
 
 
 
-# Как использовать кэш роли для кэша Azure
 
-В этом руководстве объясняется, как приступить к работе с **кешом роли для кеша Azure**. Примеры написаны на языке C# и используют интерфейс .NET API. Рассматриваются разнообразные сценарии, в том числе **настройка кластера кэша**, **настройка клиентов кэша**, **добавление и удаление объектов из кэша, хранение состояния сеанса ASP.NET в кэше** и **включение кэширования вывода страниц ASP.NET с помощью кэша**. Дополнительную информацию об использовании кэша роли см. в разделе [Дальнейшие действия][].
+# <a name="how-to-use-in-role-cache-for-azure-cache"></a>How to Use In-Role Cache for Azure Cache
 
->[AZURE.IMPORTANT]Согласно прошлогоднему [объявлению](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/), использование управляемой службы кэша Azure и службы кэша роли Azure будет прекращено 30 ноября 2016 года. Рекомендуется использовать [кэш Redis для Azure](https://azure.microsoft.com/services/cache/). Дополнительные сведения о переходе на новую службу см. в разделе [Перенос из управляемой службы кэша в кэш Redis для Azure](../redis-cache/cache-migrate-to-redis.md).
+This guide shows you how to get started using **In-Role Cache for Azure Cache**. The samples are written in C\# code and use the .NET API. The scenarios covered include **configuring a cache cluster**, **configuring cache clients**, **adding and removing objects from the cache, storing ASP.NET session state in the cache**, and **enabling ASP.NET page output caching using the cache**. For more information on using In-Role Cache, refer to the [Next Steps][] section.
+
+>[AZURE.IMPORTANT]As per last year's [announcement](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/), Azure Managed Cache Service and Azure In-Role Cache service will be retired on November 30, 2016. Our recommendation is to use [Azure Redis Cache](https://azure.microsoft.com/services/cache/). For information on migrating, please see [Migrate from Managed Cache Service to Azure Redis Cache](../redis-cache/cache-migrate-to-redis.md).
 
 <a name="what-is"></a>
-## Что такое кэш роли?
+## <a name="what-is-in-role-cache?"></a>What is In-Role Cache?
 
-Кэш роли обеспечивает уровень кэширования в приложениях Azure. Кэширование повышает производительность путем временного хранения информации в памяти из других источников и может снизить расходы, связанные с транзакциями баз данных в облаке. Кэш роли включает следующие компоненты:
+In-Role Cache provides a caching layer to your Azure applications. Caching increases performance by temporarily storing information in-memory from other backend sources, and can reduce the costs associated with database transactions in the cloud. In-Role Cache includes the following features:
 
--   Готовые поставщики ASP.NET для кэширования состояний сеанса и выводимых данных страниц, ускоряющие работу веб-приложений без изменения их кода.
--   Кэширование любого сериализуемого управляемого объекта, например объектов среды CLR, строк, XML, двоичных данных.
--   Согласованная модель разработки для Azure и Windows Server AppFabric.
+-   Pre-built ASP.NET providers for session state and page output caching, enabling acceleration of web applications without having to modify application code.
+-   Caches any serializable managed object - for example: CLR objects, rows, XML, binary data.
+-   Consistent development model across both Azure and Windows Server AppFabric.
 
-Кэш роли предоставляет новый способ кэширования с использованием части памяти виртуальных машин, которые размещают экземпляры роли в ваших облачных службах Azure (также известных как размещенные службы). Пользователи получили большую гибкость с точки зрения параметров развертывания. Кэш может иметь очень большие размеры, квоты для конкретного кэша отсутствуют.
+In-Role Cache provides a way to perform caching by using a portion of the memory of the virtual machines that host the role instances in your Azure cloud services (also known as hosted services). You have greater flexibility in terms of deployment options, the caches can be very large in size and have no cache specific quota restrictions.
 
->[AZURE.IMPORTANT] Начиная с пакета SDK для Azure версии 2.6, кэш роли использует пакет SDK для службы хранилища Microsoft Azure версии 4.3. В предыдущих версиях пакета SDK для Azure для кэша роли использовался пакет SDK для службы хранилища Azure версии 1.7. Приложения, использующие кэш роли с пакетами SDK для Azure до версии 2.6, следует перенести в пакет SDK для Azure версии 2.6 до того, как служба хранилища Azure версии 2011-08-18 будет выведена из эксплуатации (1 августа 2016 года). Дополнительную информацию см. в статье [Заметки о выпуске пакета SDK 2.6 для Azure. Кэш роли](../azure-sdk-dotnet-release-notes-2-6.md#in-role-cache-updates) и статье [Обновление по прекращению использования версий службы хранилища Microsoft Azure: продление срока до 2016 года](http://blogs.msdn.com/b/windowsazurestorage/archive/2015/10/19/microsoft-azure-storage-service-version-removal-update-extension-to-2016.aspx).
+>[AZURE.IMPORTANT] Starting with Azure SDK 2.6, In-Role Cache is using Microsoft Azure Storage SDK version 4.3. In previous versions of the Azure SDK, In-Role Cache used Azure Storage SDK 1.7. Applications using In-Role Cache with versions of the Azure SDK before 2.6 should migrate to Azure SDK 2.6 before Azure Storage version 2011-08-18 is decommissioned on August 1, 2016. For more information, see [Azure SDK 2.6 Release Notes - In-Role Cache](../azure-sdk-dotnet-release-notes-2-6.md#in-role-cache-updates) and [Microsoft Azure Storage Service Version Removal Update: Extension to 2016](http://blogs.msdn.com/b/windowsazurestorage/archive/2015/10/19/microsoft-azure-storage-service-version-removal-update-extension-to-2016.aspx).
 
-Кэширование в экземплярах роли имеет следующие преимущества:
+Caching on role instances has the following advantages:
 
--	Отсутствие дополнительных затрат на кэширование. Вы оплачиваете только вычислительные ресурсы, на которых размещается кэш.
--	Исключение квот и регулирования для кэша.
--	Расширенный контроль и улучшенная изоляция.
--	Повышение производительности.
--	Автоматическое определение размера кэша при масштабировании ролей. эффективное масштабирование памяти, доступной для кэширования, с увеличением или уменьшением объема при добавлении и удалении экземпляров ролей;
--	Полнофункциональная отладка во время разработки.
--	Поддержка протокола memcache.
+-   Pay no premium for caching. You pay only for the compute resources that host the cache.
+-   Eliminates cache quotas and throttling.
+-   Offers greater control and isolation. 
+-   Improved performance.
+-   Automatically sizes caches when roles are scaled in or out. Effectively scales the memory that is available for caching up or down when role instances are added or removed.
+-   Provides full-fidelity development time debugging. 
+-   Supports the memcache protocol.
 
-Кроме того, кэширование в экземплярах роли предлагает следующие настраиваемые параметры:
+In addition, caching on role instances offers these configurable options:
 
--	Настройка выделенной роли для кэширования или совмещение кэша для существующих ролей.
--	Доступ к кэшу для нескольких клиентов в одном развертывании облачной службы.
--	Создание нескольких именованных кэшей с различными свойствами.
--	Дополнительная настройка высокого уровня доступности для отдельных кэшей.
--	Использование расширенных возможностей кэширования, таких как регионы, теги и уведомления.
+-   Configure a dedicated role for caching, or co-locate caching on existing roles. 
+-   Make your cache available to multiple clients in the same cloud service deployment.
+-   Create multiple named caches with different properties.
+-   Optionally configure high availability on individual caches.
+-   Use expanded caching capabilities such as regions, tagging, and notifications.
 
-Это руководство содержит обзор, посвященный началу работы с кэшем роли. Дополнительные сведения о возможностях, выходящих за рамки данного руководства по началу работы, см. в разделе [Обзор кэша роли][].
+This guide provides an overview of getting started with In-Role Cache. For more detailed information on these features that are beyond the scope of this getting started guide, see [Overview of In-Role Cache][].
 
 <a name="getting-started-cache-role-instance"></a>
-## Приступая к работе с кэшем роли
+## <a name="getting-started-with-in-role-cache"></a>Getting Started with In-Role Cache
 
-Кэш роли позволяет включить кэширование с использованием памяти, которая находится на виртуальных машинах, в которых размещаются ваши экземпляры роли. Экземпляры роли, в которых размещается кэш, называются **кластер кэша**. Существует две топологии развертывания для кэширования в экземплярах роли.
+In-Role Cache provides a way to enable caching using the memory that is on the virtual machines that host your role instances. The role instances that host your caches are known as a **cache cluster**. There are two deployment topologies for caching on role instances:
 
--	**Выделенные роли** для кэширования — такие экземпляры роли используются исключительно для кэширования.
--	**Совмещенная роль** для кэширования — кэш использует ресурсы виртуальной машины (полоса пропускания, ЦП и память) совместно с приложением.
+-   **Dedicated Role** caching - The role instances are used exclusively for caching.
+-   **Co-located Role** caching - The cache shares the VM resources (bandwidth, CPU, and memory) with the application.
 
-Чтобы использовать кэширование в экземплярах роли, необходимо настроить кластер кэша, а затем настроить клиенты кэша таким образом, чтобы они имели доступ к кластеру кэша.
+To use caching on role instances, you need to configure a cache cluster, and then configure the cache clients so they can access the cache cluster.
 
--	[Настройка кластера кэша][]
--	[Настройка клиентов кэша][]
+-   [Configure the cache cluster][]
+-   [Configure the cache clients][]
 
 <a name="enable-caching"></a>
-## Настройка кластера кэша
+## <a name="configure-the-cache-cluster"></a>Configure the cache cluster
 
-Чтобы настроить кластер кэша **Совмещенная роль**, выберите роль, в которой вы хотите разместить кластер кэша. Щелкните правой кнопкой мыши свойства в **Проводнике решений** и выберите команду **Свойства**.
+To configure a **Co-located Role** cache cluster, select the role in which you wish to host the cache cluster. Right-click the role properties in **Solution Explorer** and choose **Properties**.
 
 ![RoleCache1][RoleCache1]
 
-Перейдите на вкладку **Кэширование**, установите флажок **Включить кэширование**, а затем задайте нужные параметры кэширования. Если включено кэширование в роли **Роль работника** или **Веб-роль ASP.NET**, конфигурация по умолчанию — **Совмещенная роль** для кэширования, при этом для кэширования выделено 30 % памяти экземпляров роли. Кэш по умолчанию настраивается автоматически, при необходимости можно создать дополнительный именованный кэш, который будет совместно использовать выделенную память.
+Switch to the **Caching** tab, check the **Enable Caching** checkbox, and specify the desired caching options. When caching is enabled in a **Worker Role** or **ASP.NET Web Role**, the default configuration is **Co-located Role** caching with 30% of the memory of the role instances allocated for caching. A default cache is automatically configured, and additional named caches can be created if desired, and these caches will share the allocated memory.
 
 ![RoleCache2][RoleCache2]
 
-Чтобы настроить кластер кэша **Выделенная роль**, добавьте в проект **Кэш роли рабочего процесса**.
+To configure a **Dedicated Role** cache cluster, add a **Cache Worker Role** to your project.
 
 ![RoleCache7][RoleCache7]
 
-При добавлении в проект узла **Кэш роли рабочего процесса** по умолчанию используется конфигурация **Выделенная роль** для кэширования.
+When a **Cache Worker Role** is added to a project, the default configuration is **Dedicated Role** caching.
 
 ![RoleCache8][RoleCache8]
 
-После включения кэширования можно настроить учетную запись хранения для кластера кэша. Для кэша роли требуется учетная запись хранения Azure. Эта учетная запись хранения используется для хранения данных конфигурации для кластера кэша, к которым обращаются все виртуальные машины, входящие в состав кластера кэша. Эта учетная запись хранения указывается на вкладке **Кэширование** страницы свойств роли кластера кэша сразу над разделом **Параметры именованного кэша**
+Once caching is enabled, the cache cluster storage account can be configured. In-Role Cache requires an Azure storage account. This storage account is used to hold configuration data about the cache cluster that is accessed from all virtual machines that make up the cache cluster. This storage account is specified on the **Caching** tab of the cache cluster role property page, just above the **Named Cache Settings**.
 
 ![RoleCache10][RoleCache10]
 
->Если эта учетная запись хранения не настроена, роли не смогут запуститься.
+>If this storage account is not configured the roles will fail to start. 
 
-Размер кэша определяется сочетанием размера ВМ роли, числом экземпляров роли, а также настройкой кластера кэша как выделенной роли или совмещенной роли.
+The size of the cache is determined by a combination of the VM size of the role, the instance count of the role, and whether the cache cluster is configured as a dedicated role or co-located role cache cluster.
 
->Этот раздел содержит упрощенный обзор настройки размера кэша. Дополнительные сведения о размере кэша и других вопросах планирования мощностей см. в разделе [Вопросы планирования мощностей для кэша роли][]
+>This section provides a simplified overview on configuring the cache size. For more information on cache size and other capacity planning considerations, see [In-Role Cache Capacity Planning Considerations][].
 
-Чтобы настроить размер виртуальной машины и число экземпляров роли, щелкните правой кнопкой мыши свойства роли в **Обозревателе решений** и выберите команду **Свойства**.
+To configure the virtual machine size and the number of role instances, right-click the role properties in **Solution Explorer** and choose **Properties**.
 
 ![RoleCache1][RoleCache1]
 
-Переключитесь на вкладку **Конфигурация**. Значение по умолчанию **Число экземпляров** — 1, а значение по умолчанию параметра **Размер ВМ** — **Малый**
+Switch to the **Configuration** tab. The default **Instance count** is 1, and the default **VM size** is **Small**.
 
 ![RoleCache3][RoleCache3]
 
-Общий объем памяти для размеров виртуальной машины выглядит следующим образом:
+The total memory for the VM sizes is as follows: 
 
--	**Малый**: 1,75 ГБ;
--	**Средний**: 3,5 ГБ;
--	**Большой**: 7 ГБ;
--	**Сверхбольшой**: 14 ГБ.
+-   **Small**: 1.75 GB
+-   **Medium**: 3.5 GB
+-   **Large**: 7 GB
+-   **ExtraLarge**: 14 GB
 
 
-> Эти размеры памяти отражают общий объем памяти, доступный для виртуальной машины, который совместно используется для ОС, процесса кэша, кэширования данных и приложения. Дополнительные сведения о настройке размеров виртуальных машин см. в материале [Практическое руководство по настройке размеров виртуальных машин][]. Обратите внимание, что кэш не поддерживается в виртуальных машинах размера **Сверхмалый**.
+> These memory sizes represent the total amount of memory available to the VM which is shared across the OS, cache process, cache data, and application. For more information on configuring Virtual Machine Sizes, see [How to Configure Virtual Machine Sizes][]. Note that cache is unsupported on **ExtraSmall** VM sizes.
 
-Если указано кэширование **Совмещенная роль**, размер кэша определяется как указанный процент от памяти виртуальной машины. Если указано кэширование **Выделенная роль**, для кэширования используется вся доступная память виртуальной машины. Если заданы два экземпляра роли, используется общая память виртуальных машин. Это формирует кластер кэша, в котором доступная память кэширования распределена между несколькими экземплярами роли, но для клиентов кэша представлена как единый ресурс. Настройка дополнительных экземпляров роли увеличивает размер кэша таким же образом. Чтобы определить параметры, необходимые для подготовки кэша требуемого размера, можно использовать таблицы планирования мощности, которые рассматриваются в разделе [Вопросы планирования мощностей для кэша роли][]
+When **Co-located Role** caching is specified, the cache size is determined by taking the specified percentage of the virtual machine memory. When **Dedicated Role** caching is specified, all of the available memory of the virtual machine is used for caching. If two role instances are configured, the combined memory of the virtual machines is used. This forms a cache cluster where the available caching memory is distributed across multiple role instances but presented to the clients of the cache as a single resource. Configuring additional role instances increases the cache size in the same manner. To determine the settings needed to provision a cache of the desired size, you can use the Capacity Planning Spreadsheet which is covered in [In-Role Cache Capacity Planning Considerations][].
 
-После настройки кластера кэша можно настроить клиентов кэша таким образом, чтобы обеспечить им доступ к кэшу.
+Once the cache cluster is configured, you can configure the cache clients to allow access to the cache.
 
 <a name="NuGet"></a>
-## Настройка клиентов кэша
+## <a name="configure-the-cache-clients"></a>Configure the cache clients
 
-Для доступа к кэшу роли клиенты должны находиться в одном развертывании. Если кластер кэша является кластером кэша выделенной роли, клиенты являются другими ролями в развертывании. Если кластер кэша является кластером кэша совмещенной роли, клиенты должны быть другими ролями в развертывании или самими ролями, в которых размещается кластер роли. Доступен пакет NuGet, который может быть использован для настройки каждой из ролей клиента, обращающихся к кэшу. Чтобы настроить роль для доступа к кластеру кэша с использованием пакета NuGet для Caching, щелкните правой кнопкой мыши проект роли в **Обозревателе решений** и выберите команду **Управление пакетами NuGet**.
+To access a In-Role Cache cache, the clients must be within the same deployment. If the cache cluster is a dedicated role cache cluster, then the clients are other roles in the deployment. If the cache cluster is a co-located role cache cluster, then the clients could be either  the other roles in the deployment, or the roles themselves that host the cache cluster. A NuGet package is provided that can be used to configure each client role that accesses the cache. To configure a role to access a cache cluster using the Caching NuGet package, right-click the role project in **Solution Explorer** and choose **Manage NuGet Packages**. 
 
 ![RoleCache4][RoleCache4]
 
-Выберите **Кэш роли**, щелкните **Установить**, а затем — **Принимаю**.
+Select **In-Role Cache**, click **Install**, and then click **I Accept**.
 
->Если элемент **Кэш роли** не отображается в списке, введите **WindowsAzure.Caching** в текстовом поле **Поиск в Интернете** и выберите его в результатах.
+>If **In-Role Cache** does not appear in the list type **WindowsAzure.Caching** into the **Search Online** text box and select it from the results.
 
 ![RoleCache5][RoleCache5]
 
-Пакет NuGet выполняет несколько задач: добавляет требуемую конфигурацию в файл конфигурации роли кэша, добавляет параметр уровня диагностики клиента в файл ServiceConfiguration.cscfg приложения Azure и добавляет необходимые ссылки на сборки.
+The NuGet package does several things: it adds the required configuration to the config file of the role, it adds a cache client diagnostic level setting to the ServiceConfiguration.cscfg file of the Azure application, and it adds the required assembly references.
 
->Для веб-ролей ASP.NET пакет NuGet для Caching также добавляет два закомментированных раздела в файл web.config. Первый раздел позволяет сохранить состояние сеанса в кэше, а второй раздел включает кэширование вывода страниц ASP.NET. Дополнительную информацию см. в разделах [Практическое руководство. Хранение состояния сеанса ASP.NET в кэше] и [Практическое руководство. Хранение кэширования выводимых данных страниц ASP.NET в кэше][].
+>For ASP.NET web roles, the Caching NuGet package also adds two commented out sections to web.config. The first section enables session state to be stored in the cache, and the second section enables ASP.NET page output caching. For more information, see [How To: Store ASP.NET Session State in the Cache] and [How To: Store ASP.NET Page Output Caching in the Cache][].
 
-Пакет NuGet добавляет перечисленные ниже элементы конфигурации в файл web.config или app.config вашей роли. Раздел **dataCacheClients** и **cacheDiagnostics** добавляются в элемент **configSections**. При отсутствии элемента **configSections** он создается как дочерний объект элемента **configuration**.
+The NuGet package adds the following configuration elements into your role's web.config or app.config. A **dataCacheClients** section and a **cacheDiagnostics** section are added under the **configSections** element. If there is no **configSections** element present, one is created as a child of the **configuration** element.
 
     <configSections>
       <!-- Existing sections omitted for clarity. -->
@@ -157,7 +158,7 @@
                allowDefinition="Everywhere" />
     </configSections>
 
-Эти новые разделы содержат ссылки на элементы **dataCacheClients** и **cacheDiagnostics**. Эти элементы также добавляются к элементу **configuration**.
+These new sections include references to a **dataCacheClients** element and a **cacheDiagnostics** element. These elements are also added to the **configuration** element.
 
     <dataCacheClients>
       <dataCacheClient name="default">
@@ -169,11 +170,11 @@
       <crashDump dumpLevel="Off" dumpStorageQuotaInMB="100" />
     </cacheDiagnostics>
 
-После добавления конфигурации замените **[имя роли кластера кэша]** именем роли, в которой размещен кластер кэша.
+After the configuration is added, replace **[cache cluster role name]** with the name of the role that hosts the cache cluster.
 
->Если **[имя роли кластера кэша]** не заменяется именем роли, в которой размещен кластер кэша, то при обращении к кэшу порождается исключение **TargetInvocationException** с внутренним **DatacacheException** с сообщением «No such role exists» (Такой роли не существует).
+>If **[cache cluster role name]** is not replaced with the name of the role that hosts the cache cluster, then a **TargetInvocationException** will be thrown when the cache is accessed with an inner **DatacacheException** with the message "No such role exists".
 
-Пакет NuGet также добавляет параметр **ClientDiagnosticLevel** в **ConfigurationSettings** роли клиента кэша в ServiceConfiguration.cscfg. Ниже приведен пример раздела **WebRole1** из файла ServiceConfiguration.cscfg с **ClientDiagnosticLevel**, равным 1, что соответствует значению **ClientDiagnosticLevel** по умолчанию.
+The NuGet package also adds a **ClientDiagnosticLevel** setting to the **ConfigurationSettings** of the cache client role in ServiceConfiguration.cscfg. The following example is the **WebRole1** section from a ServiceConfiguration.cscfg file with a **ClientDiagnosticLevel** of 1, which is the default **ClientDiagnosticLevel**.
 
     <Role name="WebRole1">
       <Instances count="1" />
@@ -184,9 +185,9 @@
       </ConfigurationSettings>
     </Role>
 
->Кэш роли предоставляет уровень диагностики как сервера, так и клиента кэша. Уровень диагностики — отдельный параметр, который определяет уровень диагностических сведений, собираемых для кэширования. Дополнительные сведения см. в разделе [Устранение неполадок и диагностика для кэша роли][]
+>In-Role Cache provides both a cache server and a cache client diagnostic level. The diagnostic level is a single setting that configures the level of diagnostic information collected for caching. For more information, see [Troubleshooting and Diagnostics for In-Role Cache][]
 
-Пакет NuGet также добавляет ссылки на следующие сборки:
+The NuGet package also adds references to the following assemblies:
 
 -   Microsoft.ApplicationServer.Caching.Client.dll
 -   Microsoft.ApplicationServer.Caching.Core.dll
@@ -195,59 +196,59 @@
 -   Microsoft.ApplicationServer.Caching.AzureCommon.dll
 -   Microsoft.ApplicationServer.Caching.AzureClientHelper.dll
 
-Если проект является веб-ролью ASP.NET, также добавляется следующая ссылка сборки:
+If your role is an ASP.NET Web Role, the following assembly reference is also added:
 
--	Microsoft.Web.DistributedCache.dll.
+-   Microsoft.Web.DistributedCache.dll.
 
-После настройки проекта клиента для кэширования можно использовать методы, описанные в следующих разделах, для работы с кэшем.
+Once your client project is configured for caching, you can use the techniques described in the following sections for working with your cache.
 
 <a name="working-with-caches"></a>
-## Работа с кэшами
+## <a name="working-with-caches"></a>Working with Caches
 
-Действия, приведенные в этом разделе, описывают способы выполнения типовых задач при работе с кэшированием.
+The steps in this section describe how to perform common tasks with caching.
 
--	[Практическое руководство. Создание объекта DataCache][]
--   [Практическое руководство. Добавление и извлечение объекта из кэша][]
--   [Практическое руководство. Указание срока действия объекта в кэше][]
--   [Практическое руководство. Хранение состояния сеанса ASP.NET в кэше][]
--   [Практическое руководство. Хранение кэширования выводимых данных страниц ASP.NET в кэше][]
+-   [How To: Create a DataCache Object][]
+-   [How To: Add and Retrieve an Object from the Cache][]
+-   [How To: Specify the Expiration of an Object in the Cache][]
+-   [How To: Store ASP.NET Session State in the Cache][]
+-   [How To: Store ASP.NET Page Output Caching in the Cache][]
 
 <a name="create-cache-object"></a>
-## Практическое руководство. Создание объекта DataCache
+## <a name="how-to:-create-a-datacache-object"></a>How To: Create a DataCache Object
 
-Чтобы работать с кэшем программными средствами, требуется ссылка на кэш. Добавьте следующий код в верхнюю часть любого файла, из которого вы хотите использовать кэш роли:
+In order to programatically work with a cache, you need a reference to the cache. Add the following to the top of any file from which you want to use In-Role Cache:
 
     using Microsoft.ApplicationServer.Caching;
 
->Если Visual Studio не распознает типы в операторе using даже после установки пакета NuGet для кэширования, который добавляет необходимые ссылки, убедитесь, что целевым профилем для проекта является платформа .NET Framework 4.0 или более поздней версии, и не забудьте выбрать один из профилей, в котором не указан **клиентский профиль**. Инструкции по настройке клиентов кэша см. в разделе [Настройка клиентов кэша][].
+>If Visual Studio doesn't recognize the types in the using statement even after installing the Caching NuGet package, which adds the necessary references, ensure that the target profile for the project is .NET Framework 4.0 or higher, and be sure to select one of the profiles that does not specify **Client Profile**. For instructions on configuring cache clients, see [Configure the cache clients][].
 
-Существует два способа создать объект **DataCache**. Первый способ — просто создайте **DataCache**, передав имя нужного кэша.
+There are two ways to create a **DataCache** object. The first way is to simply create a **DataCache**, passing in the name of the desired cache.
 
     DataCache cache = new DataCache("default");
 
-После создания экземпляра **DataCache** его можно использовать для взаимодействия с кэшем, как описано в следующих разделах.
+Once the **DataCache** is instantiated, you can use it to interact with the cache, as described in the following sections.
 
-Чтобы использовать второй способ, создайте в своем приложении новый объект **DataCacheFactory** с помощью конструктора по умолчанию. В этом случае клиент кэша будет использовать параметры в файле конфигурации. Вызовите метод **GetDefaultCache** нового экземпляра **DataCacheFactory**, который возвращает объект **DataCache**, или вызовите метод **GetCache** и передайте имя своего кэша. Эти методы возвращают объект **DataCache**, который затем можно использовать для программного доступа к кэшу.
+To use the second way, create a new **DataCacheFactory** object in your application using the default constructor. This causes the cache client to use the settings in the configuration file. Call either the **GetDefaultCache** method of the new **DataCacheFactory** instance which returns a **DataCache** object, or the **GetCache** method and pass in the name of your cache. These methods return a **DataCache** object that can then be used to programmatically access the cache.
 
     // Cache client configured by settings in application configuration file.
     DataCacheFactory cacheFactory = new DataCacheFactory();
     DataCache cache = cacheFactory.GetDefaultCache();
     // Or DataCache cache = cacheFactory.GetCache("MyCache");
-    // cache can now be used to add and retrieve items.	
+    // cache can now be used to add and retrieve items. 
 
 <a name="add-object"></a>
-## Практическое руководство. Добавление и извлечение объекта из кэша
+## <a name="how-to:-add-and-retrieve-an-object-from-the-cache"></a>How To: Add and Retrieve an Object from the Cache
 
-Чтобы добавить элемент в кэш, можно использовать метод **Add** или **Put**. Метод **Add** добавляет указанный объект в кэш, ключом которого является значение параметра ключа.
+To add an item to the cache, the **Add** method or the **Put** method can be used. The **Add** method adds the specified object to the cache, keyed by the value of the key parameter.
 
     // Add the string "value" to the cache, keyed by "item"
     cache.Add("item", "value");
 
-Если объект с тем же ключом уже находится в кэше, порождается исключение **DataCacheException** со следующим сообщением:
+If an object with the same key is already in the cache, a **DataCacheException** will be thrown with the following message:
 
-> ErrorCode:SubStatus. Предпринята попытка создать объект с ключом, который уже существует в кэше. Кэш принимает только уникальные значения ключа для объектов.
+> ErrorCode:SubStatus: An attempt is being made to create an object with a Key that already exists in the cache. Caching will only accept unique Key values for objects.
 
-Чтобы извлечь объект с указанным ключом, можно воспользоваться методом **Get**. Если объект существует, он возвращается, а если нет, возвращается значение null.
+To retrieve an object with a specific key, the **Get** method can be used. If the object exists, it is returned, and if it does not, null is returned.
 
     // Add the string "value" to the cache, keyed by "key"
     object result = cache.Get("Item");
@@ -263,27 +264,27 @@
         // "Item" is in cache, cast result to correct type.
     }
 
-Метод **Put** добавляет объект с указанным ключом в кэш, если он не существует, или заменяет существующий объект.
+The **Put** method adds the object with the specified key to the cache if it does not exist, or replaces the object if it does exist.
 
     // Add the string "value" to the cache, keyed by "item". If it exists,
     // replace it.
     cache.Put("item", "value");
 
 <a name="specify-expiration"></a>
-## Практическое руководство. Указание срока действия объекта в кэше
+## <a name="how-to:-specify-the-expiration-of-an-object-in-the-cache"></a>How To: Specify the Expiration of an Object in the Cache
 
-По умолчанию срок действия элементов в кэше истекает через 10 минут после их помещения в кэш. Это значение может быть настроено в параметре **Время жизни (мин)** в свойствах роли, где размещен кластер кэша.
+By default items in the cache expire 10 minutes after they are placed in the cache. This can be configured in the **Time to Live (min)** setting in the role properties of the role that hosts the cache cluster.
 
 ![RoleCache6][RoleCache6]
 
-Существует три типа значений для параметра **Тип срока действия**: **Никогда**, **Абсолютный** и **Скользящий**. Эти значения определяют применение параметра **Время жизни (мин)** для задания срока действия. По умолчанию для параметра **Тип срока действия** задано значение **Абсолютный**, что означает, что таймер обратного отсчета срока действия элемента запускается в момент помещения элемента в кэш. После истечения указанного периода времени срок действия элемента заканчивается. Если указано значение **Скользящее окно**, отсчет срока действия элемента сбрасывается при каждом обращении к элементу в кэше и срок действия элемента истекает только по прошествии указанного периода с момента последнего обращения к элементу. Если указано значение **Никогда**, то для параметра **Время жизни (мин)** следует задать значение **0**, в результате чего элементы будут оставаться действительными все время, пока они находятся в кэше.
+There are three types of **Expiration Type**: **None**, **Absolute**, and **Sliding Window**. These configure how **Time to Live (min)** is used to determine expiration. The default **Expiration Type** is **Absolute**, which means that the countdown timer for an item's expiration begins when the item is placed into the cache. Once the specified amount of time has elapsed for an item, the item expires. If **Sliding Window** is specified, then the expiration countdown for an item is reset each time the item is accessed in the cache, and the item will not expire until the specified amount of time has elapsed since its last access. If **None** is specified, then **Time to Live (min)** must be set to **0**, and items will not expire, and will remain valid as long as they are in the cache.
 
-Если требуется использовать более короткий или длинный интервал ожидания по сравнению с настроенным в свойствах роли, можно задать конкретную длительность при добавлении или обновлении элемента в кэше с помощью перегрузки методов **Add** и **Put**, принимающей параметр **TimeSpan**. В следующем примере строка **value** добавляется в кэш с ключом **item** и временем ожидания 30 минут.
+If a longer or shorter timeout interval than what is configured in the role properties is desired, a specific duration can be specified when an item is added or updated in the cache by using the overload of **Add** and **Put** that take a **TimeSpan** parameter. In the following example, the string **value** is added to cache, keyed by **item**, with a timeout of 30 minutes.
 
     // Add the string "value" to the cache, keyed by "item"
     cache.Add("item", "value", TimeSpan.FromMinutes(30));
 
-Чтобы просмотреть оставшееся время ожидания для элемента в кэше, можно использовать метод **GetCacheItem** для получения объекта **DataCacheItem**, содержащего данные об элементе в кэше, в том числе об оставшемся времени ожидания.
+To view the remaining timeout interval of an item in the cache, the **GetCacheItem** method can be used to retrieve a **DataCacheItem** object that contains information about the item in the cache, including the remaining timeout interval.
 
     // Get a DataCacheItem object that contains information about
     // "item" in the cache. If there is no object keyed by "item" null
@@ -292,9 +293,9 @@
     TimeSpan timeRemaining = item.Timeout;
 
 <a name="store-session"></a>
-## Практическое руководство. Хранение состояния сеанса ASP.NET в кэше
+## <a name="how-to:-store-asp.net-session-state-in-the-cache"></a>How To: Store ASP.NET Session State in the Cache
 
-Поставщик состояний сеансов для кэша роли представляет собой механизм внепроцессного хранения для приложений ASP.NET. Этот поставщик позволяет хранить состояние сеанса в кэше Azure, а не в памяти или в базе данных SQL Server. Чтобы использовать поставщик состояний сеансов кэширования, сначала настройте кластер кэша, а затем настройте приложение ASP.NET для кэширования с помощью пакета NuGet для Caching, как описано в разделе [Приступая к работе с кэшем роли][]. При установке пакета кэша NuGet для Caching он добавляет в файл web.config закомментированный раздел с требуемой конфигурацией, позволяющей приложению ASP.NET использовать поставщик состояний сеансов для кэша роли.
+The Session State Provider for In-Role Cache is an out-of-process storage mechanism for ASP.NET applications. This provider enables you to store your session state in an Azure cache rather than in-memory or in a SQL Server database. To use the caching session state provider, first configure your cache cluster, and then configure your ASP.NET application for caching using the Caching NuGet package as described in [Getting Started with In-Role Cache][]. When the Caching NuGet package is installed, it adds a commented out section in web.config that contains the required configuration for your ASP.NET application to use the Session State Provider for In-Role Cache.
 
     <!--Uncomment this section to use In-Role Cache for session state caching
     <system.web>
@@ -309,16 +310,16 @@
       </sessionState>
     </system.web>-->
 
->Если ваш файл web.config не содержит этот закомментированный раздел после установки пакета кэша NuGet, убедитесь, что установлена самая новая версия диспетчера пакета (см. раздел [Установка диспетчера пакета NuGet][]), после чего удалите и переустановите этот пакет.
+>If your web.config does not contain this commented out section after installing the Caching NuGet package, ensure that the latest NuGet Package Manager is installed from [NuGet Package Manager Installation][], and then uninstall and reinstall the package.
 
-Чтобы включить поставщик состояний сеансов для кэша роли, раскомментируйте указанный раздел. Кэш по умолчанию указан в представленном фрагменте кода. Чтобы использовать другой кэш, укажите его в атрибуте **cacheName**.
+To enable the Session State Provider for In-Role Cache, uncomment the specified section. The default cache is specified in the provided snippet. To use a different cache, specify the desired cache in the **cacheName** attribute.
 
-Дополнительную информацию об использовании поставщика состояний сеансов для службы кэширования см. в разделе [Поставщик состояний сеансов для кэша роли][].
+For more information about using the Caching service session state provider, see [Session State Provider for In-Role Cache][].
 
 <a name="store-page"></a>
-## Практическое руководство. Хранение кэширования выводимых данных страниц ASP.NET в кэше
+## <a name="how-to:-store-asp.net-page-output-caching-in-the-cache"></a>How To: Store ASP.NET Page Output Caching in the Cache
 
-Поставщик кэша вывода для кэша роли представляет собой механизм внепроцессного хранения для выходных данных кэширования. Эти данные предназначены специально для полных HTTP-ответов (кэширование вывода страниц). Поставщик подключается к новой точке расширения поставщика вывода кэша, которая появилась в ASP.NET 4. Чтобы воспользоваться поставщиком выходного кэша, сначала настройте свой кластер кэша, а затем настройте приложение ASP.NET для кэширования с помощью пакета NuGet для кэширования, как описано в разделе [Приступая к работе с кэшем роли][]. При установке пакета кэша NuGet для Caching он добавляет в файл web.config следующий закомментированный раздел с требуемой конфигурацией, позволяющей приложению ASP.NET использовать поставщик кэша вывода для кэша роли.
+The Output Cache Provider for In-Role Cache is an out-of-process storage mechanism for output cache data. This data is specifically for full HTTP responses (page output caching). The provider plugs into the new output cache provider extensibility point that was introduced in ASP.NET 4. To use the output cache provider, first configure your cache cluster, and then configure your ASP.NET application for caching using the Caching NuGet package, as described in [Getting Started with In-Role Cache][]. When the Caching NuGet package is installed, it adds the following commented out section in web.config that contains the required configuration for your ASP.NET application to use the Output Cache Provider for In-Role Cache.
 
     <!--Uncomment this section to use In-Role Cache for output caching
     <caching>
@@ -333,46 +334,46 @@
       </outputCache>
     </caching>-->
 
->Если ваш файл web.config не содержит этот закомментированный раздел после установки пакета кэша NuGet, убедитесь, что установлена самая новая версия диспетчера пакета (см. раздел [Установка диспетчера пакета NuGet][]), после чего удалите и переустановите этот пакет.
+>If your web.config does not contain this commented out section after installing the Caching NuGet package, ensure that the latest NuGet Package Manager is installed from [NuGet Package Manager Installation][], and then uninstall and reinstall the package.
 
-Чтобы включить поставщик кэша вывода для кэша роли, раскомментируйте указанный раздел. Кэш по умолчанию указан в представленном фрагменте кода. Чтобы использовать другой кэш, укажите его в атрибуте **cacheName**.
+To enable the Output Cache Provider for In-Role Cache, uncomment the specified section. The default cache is specified in the provided snippet. To use a different cache, specify the desired cache in the **cacheName** attribute.
 
-Добавьте директиву **OutputCache** для каждой страницы, для которой требуется кэшировать выходные данные.
+Add an **OutputCache** directive to each page for which you wish to cache the output.
 
     <%@ OutputCache Duration="60" VaryByParam="*" %>
 
-В этом примере кэшированные данные страницы будут оставаться в кэше в течение 60 секунд, а для каждой комбинации параметров будет кэшироваться другая версия страницы. Дополнительные сведения о доступных параметрах см. в разделе [Директива OutputCache][].
+In this example the cached page data will remain in the cache for 60 seconds, and a different version of the page will be cached for each parameter combination. For more information on the available options, see [OutputCache Directive][].
 
-Дополнительные сведения об использовании поставщика кэша вывода для кэша роли см. в разделе [Поставщик кэша вывода для кэша роли][].
+For more information about using the Output Cache Provider for In-Role Cache, see [Output Cache Provider for In-Role Cache][].
 
 <a name="next-steps"></a>
-## Дальнейшие действия
+## <a name="next-steps"></a>Next Steps
 
-После изучения основ кэша роли просмотрите следующие ссылки, чтобы ознакомиться с тем, как выполнять более сложные задачи по кэшированию.
+Now that you've learned the basics of In-Role Cache, follow these links to learn how to do more complex caching tasks.
 
--   См. справочник MSDN: [Кэш роли][]
--   Узнайте о том, как выполнить миграцию данных в кэш роли: [Миграция в кэш роли][]
--   Ознакомьтесь с примерами: [Примеры кэша роли][]
--	Посмотрите видео [Максимальная производительность. Ускорение работы приложений облачных служб с помощью кэширования Azure][] от 2013 TechEd по кэшу роли
+-   See the MSDN Reference: [In-Role Cache][]
+-   Learn how to migrate to In-Role Cache: [Migrate to In-Role Cache][]
+-   Check out the samples: [In-Role Cache Samples][]
+-   Watch the [Maximum Performance: Accelerate Your Cloud Services Applications with Azure Caching][] session from TechEd 2013 on In-Role Cache
 
 <!-- INTRA-TOPIC LINKS -->
-[Дальнейшие действия]: #next-steps
+[Next Steps]: #next-steps
 [What is In-Role Cache?]: #what-is
 [Create an Azure Cache]: #create-cache
 [Which type of caching is right for me?]: #choosing-cache
 [Getting Started with the In-Role Cache Service]: #getting-started-cache-service
 [Prepare Your Visual Studio Project to Use In-Role Cache]: #prepare-vs
 [Configure Your Application to Use Caching]: #configure-app
-[Приступая к работе с кэшем роли]: #getting-started-cache-role-instance
-[Настройка кластера кэша]: #enable-caching
+[Getting Started with In-Role Cache]: #getting-started-cache-role-instance
+[Configure the cache cluster]: #enable-caching
 [Configure the desired cache size]: #cache-size
-[Настройка клиентов кэша]: #NuGet
+[Configure the cache clients]: #NuGet
 [Working with Caches]: #working-with-caches
-[Практическое руководство. Создание объекта DataCache]: #create-cache-object
-[Практическое руководство. Добавление и извлечение объекта из кэша]: #add-object
-[Практическое руководство. Указание срока действия объекта в кэше]: #specify-expiration
-[Практическое руководство. Хранение состояния сеанса ASP.NET в кэше]: #store-session
-[Практическое руководство. Хранение кэширования выводимых данных страниц ASP.NET в кэше]: #store-page
+[How To: Create a DataCache Object]: #create-cache-object
+[How To: Add and Retrieve an Object from the Cache]: #add-object
+[How To: Specify the Expiration of an Object in the Cache]: #specify-expiration
+[How To: Store ASP.NET Session State in the Cache]: #store-session
+[How To: Store ASP.NET Page Output Caching in the Cache]: #store-page
 [Target a Supported .NET Framework Profile]: #prepare-vs-target-net
  
 <!-- IMAGES --> 
@@ -387,27 +388,31 @@
 [RoleCache10]: ./media/cache-dotnet-how-to-use-in-role/cache17.png
   
 <!-- LINKS -->
-[Практическое руководство по настройке размеров виртуальных машин]: http://go.microsoft.com/fwlink/?LinkId=164387
+[How to Configure Virtual Machine Sizes]: http://go.microsoft.com/fwlink/?LinkId=164387
 [How to: Configure a Cache Client Programmatically]: http://msdn.microsoft.com/library/windowsazure/gg618003.aspx
 [How to: Set a Page's Cacheability Programmatically]: http://msdn.microsoft.com/library/z852zf6b.aspx
 [How to: Set the Cacheability of an ASP.NET Page Declaratively]: http://msdn.microsoft.com/library/zd1ysf1y.aspx
-[Вопросы планирования мощностей для кэша роли]: http://go.microsoft.com/fwlink/?LinkId=252651
-[Примеры кэша роли]: http://msdn.microsoft.com/library/jj189876.aspx
+[In-Role Cache Capacity Planning Considerations]: http://go.microsoft.com/fwlink/?LinkId=252651
+[In-Role Cache Samples]: http://msdn.microsoft.com/library/jj189876.aspx
 [In-Role Cache]: http://go.microsoft.com/fwlink/?LinkId=252658
-[Кэш роли]: http://www.microsoft.com/showcase/Search.aspx?phrase=azure+caching
-[Максимальная производительность. Ускорение работы приложений облачных служб с помощью кэширования Azure]: http://channel9.msdn.com/Events/TechEd/NorthAmerica/2013/WAD-B326#fbid=kmrzkRxQ6gU
-[Миграция в кэш роли]: http://msdn.microsoft.com/library/hh914163.aspx
-[Установка диспетчера пакета NuGet]: http://go.microsoft.com/fwlink/?LinkId=240311
-[Поставщик кэша вывода для кэша роли]: http://msdn.microsoft.com/library/windowsazure/gg185662.aspx
-[Директива OutputCache]: http://go.microsoft.com/fwlink/?LinkId=251979
-[Обзор кэша роли]: http://go.microsoft.com/fwlink/?LinkId=254172
-[Поставщик состояний сеансов для кэша роли]: http://msdn.microsoft.com/library/windowsazure/gg185668.aspx
+[In-Role Cache]: http://www.microsoft.com/showcase/Search.aspx?phrase=azure+caching
+[Maximum Performance: Accelerate Your Cloud Services Applications with Azure Caching]: http://channel9.msdn.com/Events/TechEd/NorthAmerica/2013/WAD-B326#fbid=kmrzkRxQ6gU
+[Migrate to In-Role Cache]: http://msdn.microsoft.com/library/hh914163.aspx
+[NuGet Package Manager Installation]: http://go.microsoft.com/fwlink/?LinkId=240311
+[Output Cache Provider for In-Role Cache]: http://msdn.microsoft.com/library/windowsazure/gg185662.aspx
+[OutputCache Directive]: http://go.microsoft.com/fwlink/?LinkId=251979
+[Overview of In-Role Cache]: http://go.microsoft.com/fwlink/?LinkId=254172
+[Session State Provider for In-Role Cache]: http://msdn.microsoft.com/library/windowsazure/gg185668.aspx
 [Team Blog]: http://blogs.msdn.com/b/windowsazure/
-[Устранение неполадок и диагностика для кэша роли]: http://msdn.microsoft.com/library/windowsazure/hh914135.aspx
+[Troubleshooting and Diagnostics for In-Role Cache]: http://msdn.microsoft.com/library/windowsazure/hh914135.aspx
 [Azure AppFabric Cache: Caching Session State]: http://www.microsoft.com/showcase/details.aspx?uuid=87c833e9-97a9-42b2-8bb1-7601f9b5ca20
 [Azure Shared Caching]: http://msdn.microsoft.com/library/windowsazure/gg278356.aspx
 
 [Which Azure Cache offering is right for me?]: cache-faq.md#which-azure-cache-offering-is-right-for-me
  
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

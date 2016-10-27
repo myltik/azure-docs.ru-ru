@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Шаблон диспетчера ресурсов для хранилища ключей | Microsoft Azure"
-   description="В этой статье демонстрируется схема диспетчера ресурсов для развертывания хранилища ключей с помощью шаблона."
+   pageTitle="Resource Manager template for key vault | Microsoft Azure"
+   description="Shows the Resource Manager schema for deploying key vaults through a template."
    services="azure-resource-manager,key-vault"
    documentationCenter="na"
    authors="tfitzmac"
@@ -16,13 +16,14 @@
    ms.date="06/23/2016"
    ms.author="tomfitz"/>
 
-# Схема шаблона хранилища ключей
 
-Создает хранилище ключей.
+# <a name="key-vault-template-schema"></a>Key vault template schema
 
-## Формат схемы
+Creates a key vault.
 
-Чтобы создать хранилище ключей, добавьте следующую схему в раздел ресурсов шаблона.
+## <a name="schema-format"></a>Schema format
+
+To create a key vault, add the following schema to the resources section of your template.
 
     {
         "type": "Microsoft.KeyVault/vaults",
@@ -54,60 +55,60 @@
         ]
     }
 
-## Значения
+## <a name="values"></a>Values
 
-В следующих таблицах описаны значения, которые следует указать в этой схеме.
+The following tables describe the values you need to set in the schema.
 
-| Имя | Значение |
+| Name | Value |
 | ---- | ---- | 
-| type | Перечисление.<br />Обязательное значение.<br />**Microsoft.KeyVault/vaults**<br /><br />Тип создаваемого ресурса. |
-| версия\_API | Перечисление.<br />Обязательное значение.<br />**2015-06-01** или **2014-12-19-preview**<br /><br />Версия API, которая будет использоваться для создания ресурса. | 
-| name | Строка.<br />Обязательное значение.<br />Имя должно быть уникальным в Azure.<br /><br />Имя создаваемого хранилища ключей. Для создания уникального имени в рамках соглашения об именовании рекомендуется использовать функцию [uniqueString](resource-group-template-functions.md#uniquestring), как показано в примере ниже. |
-| location | Строка.<br />Обязательное значение.<br />Допустимый регион для хранилищ ключей. Сведения об определении допустимых регионов см. в списке [поддерживаемых регионов](resource-manager-supported-services.md#supported-regions).<br /><br />Регион для размещения хранилища ключей. |
-| properties | Объект.<br />Обязательное значение.<br />[Объект properties](#properties)<br /><br />Объект, который определяет тип создаваемого хранилища ключей. |
-| ресурсов | Массив.<br />Необязательное значение.<br />Допустимые значения: [Ресурсы секретного кода хранилища ключей.](resource-manager-template-keyvault-secret.md)<br /><br />Дочерние ресурсы для хранилища ключей. |
+| type | Enum<br />Required<br />**Microsoft.KeyVault/vaults**<br /><br />The resource type to create. |
+| apiVersion | Enum<br />Required<br />**2015-06-01** or **2014-12-19-preview**<br /><br />The API version to use for creating the resource. | 
+| name | String<br />Required<br />A name that is unique across Azure.<br /><br />The name of the key vault to create. Consider using the [uniqueString](resource-group-template-functions.md#uniquestring) function with your naming convention to create a unique name, as shown in the example below. |
+| location | String<br />Required<br />A valid region for key vaults. To determine valid regions, see [supported regions](resource-manager-supported-services.md#supported-regions).<br /><br />The region to host the key vault. |
+| properties | Object<br />Required<br />[properties object](#properties)<br /><br />An object that specifies the type of key vault to create. |
+| resources | Array<br />Optional<br />Permitted values: [Key vault secret resources](resource-manager-template-keyvault-secret.md)<br /><br />Child resources for the key vault. |
 
 <a id="properties" />
-### объект properties
+### <a name="properties-object"></a>properties object
 
-| Имя | Значение |
+| Name | Value |
 | ---- | ---- | 
-| enabledForDeployment | Логическое значение.<br />Необязательное значение.<br />**true** или **false**<br /><br />Указывает, позволяет ли хранилище развертывать виртуальную машину или Service Fabric. |
-| enabledForTemplateDeployment | Логическое значение.<br />Необязательное значение.<br />**true** или **false**<br /><br />Указывает, доступно ли хранилище для использования в развертываниях шаблона Resource Manager. Дополнительные сведения см. в статье [Передача безопасных значений в процессе развертывания](resource-manager-keyvault-parameter.md). |
-| enabledForVolumeEncryption | Логическое значение.<br />Необязательное значение.<br />**true** или **false**<br /><br />Указывает, позволяет ли хранилище шифровать тома. |
-| tenantId | Строка.<br />Обязательное значение.<br />**Глобальный уникальный идентификатор.**<br /><br />Идентификатор клиента для подписки. Его можно извлечь с помощью командлета PowerShell [Get-AzureRmSubscription](https://msdn.microsoft.com/library/azure/mt619284.aspx) или команды Azure CLI **azure account show**. |
-| accessPolicies | Массив.<br />Обязательное значение.<br />[объект accessPolicies](#accesspolicies)<br /><br />Массив, содержащий до 16 объектов и определяющий разрешения для пользователя или субъекта-службы. |
-| sku | Объект.<br />Обязательное значение.<br />[Объект SKU](#sku)<br /><br />SKU для хранилища ключей. |
+| enabledForDeployment | Boolean<br />Optional<br />**true** or **false**<br /><br />Specifies if the vault is enabled for Virtual Machine or Service Fabric deployment. |
+| enabledForTemplateDeployment | Boolean<br />Optional<br />**true** or **false**<br /><br />Specifies if the vault is enabled for use in Resource Manager template deployments. For more information, see [Pass secure values during deployment](resource-manager-keyvault-parameter.md) |
+| enabledForVolumeEncryption | Boolean<br />Optional<br />**true** or **false**<br /><br />Specifies if the vault is enabled for volume encryption. |
+| tenantId | String<br />Required<br />**Globally-unique identifier**<br /><br />The tenant identifier for the subscription. You can retrieve it with the [Get-AzureRmSubscription](https://msdn.microsoft.com/library/azure/mt619284.aspx) PowerShell cmdlet or the **azure account show** Azure CLI command. |
+| accessPolicies | Array<br />Required<br />[accessPolicies object](#accesspolicies)<br /><br />An array of up to 16 objects that specify the permissions for the user or service principal. |
+| sku | Object<br />Required<br />[sku object](#sku)<br /><br />The SKU for the key vault. |
 
 <a id="accesspolicies" />
-### Объект properties.accessPolicies
+### <a name="properties.accesspolicies-object"></a>properties.accessPolicies object
 
-| Имя | Значение |
+| Name | Value |
 | ---- | ---- | 
-| tenantId | Строка.<br />Обязательное значение.<br />**Глобальный уникальный идентификатор**<br /><br />Идентификатор клиента Azure Active Directory, который содержит свойство **objectId** в этой политике доступа. |
-| objectId | Строка.<br />Обязательное значение.<br />**Глобальный уникальный идентификатор**<br /><br />Идентификатор объекта пользователя Azure Active Directory или субъекта-службы, который будет иметь доступ в хранилище. Значение можно получить из командлетов PowerShell [Get-AzureRmADUser](https://msdn.microsoft.com/library/azure/mt679001.aspx) или [Get-AzureRmADServicePrincipal](https://msdn.microsoft.com/library/azure/mt678992.aspx), а также команд Azure CLI **azure ad user** или **azure ad sp**. |
-| permissions | Объект.<br />Обязательное значение.<br />[Объект permissions](#permissions)<br /><br />Разрешения, предоставленные этому хранилищу в отношении объекта Active Directory. |
+| tenantId | String<br />Required<br />**Globally-unique identifier**<br /><br />The tenant identifier of the Azure Active Directory tenant containing the **objectId** in this access policy |
+| objectId | String<br />Required<br />**Globally-unique identifier**<br /><br />The object identifier of the Azure Active Directory user or service principal that will have access to the vault. You can retrieve the value from either the [Get-AzureRmADUser](https://msdn.microsoft.com/library/azure/mt679001.aspx) or the [Get-AzureRmADServicePrincipal](https://msdn.microsoft.com/library/azure/mt678992.aspx) PowerShell cmdlets, or the **azure ad user** or **azure ad sp** Azure CLI commands. |
+| permissions | Object<br />Required<br />[permissions object](#permissions)<br /><br />The permissions granted on this vault to the Active Directory object. |
 
 <a id="permissions" />
-### Объект properties.accessPolicies.permissions
+### <a name="properties.accesspolicies.permissions-object"></a>properties.accessPolicies.permissions object
 
-| Имя | Значение |
+| Name | Value |
 | ---- | ---- | 
-| ключи | Массив.<br />Обязательное значение.<br />**all**, **backup**, **create**, **decrypt**, **delete**, **encrypt**, **get**, **import**, **list**, **restore**, **sign**, **unwrapkey**, **update**, **verify**, **wrapkey**<br /><br />Разрешения, предоставленные ключам хранилища в отношении объекта Active Directory. Это значение необходимо указать как массив одного или нескольких допустимых значений. |
-| секретные коды | Массив.<br />Обязательное значение.<br />**all**, **delete**, **get**, **list**, **set**<br /><br />Разрешения, предоставленные секретным кодам хранилища в отношении объекта Active Directory. Это значение необходимо указать как массив одного или нескольких допустимых значений. |
+| keys | Array<br />Required<br />**all**, **backup**, **create**, **decrypt**, **delete**, **encrypt**, **get**, **import**, **list**, **restore**, **sign**, **unwrapkey**, **update**, **verify**, **wrapkey**<br /><br />The permissions granted on keys in this vault to this Active Directory object. This value must be specified as an array of one or more permitted values. |
+| secrets | Array<br />Required<br />**all**, **delete**, **get**, **list**, **set**<br /><br />The permissions granted on secrets in this vault to this Active Directory object. This value must be specified as an array of one or more permitted values. |
 
 <a id="sku" />
-### Объект properties.sku
+### <a name="properties.sku-object"></a>properties.sku object
 
-| Имя | Значение |
+| Name | Value |
 | ---- | ---- | 
-| name | Перечисление.<br />Обязательное значение.<br />**standard** или **premium** <br /><br />Используемый уровень обслуживания хранилища ключей. Хранилище уровня Standard поддерживает секретные коды и ключи, защищенные с помощью ПО. Хранилище уровня Premium поддерживает ключи, защищенные аппаратным модулем безопасности. |
-| family | Перечисление.<br />Обязательное значение.<br />**A** <br /><br />Используемое семейство SKU. |
+| name | Enum<br />Required<br />**standard**, or **premium** <br /><br />The service tier of KeyVault to use.  Standard supports secrets and software-protected keys.  Premium adds support for HSM-protected keys. |
+| family | Enum<br />Required<br />**A** <br /><br />The sku family to use. |
  
-	
-## Примеры
+    
+## <a name="examples"></a>Examples
 
-Код в приведенном ниже примере разворачивает хранилище ключей и секретный код.
+The following example deploys a key vault and secret.
 
     {
         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -233,16 +234,21 @@
         }]
     }
 
-## Шаблоны быстрого запуска
+## <a name="quickstart-templates"></a>Quickstart templates
 
-Следующий шаблон быстрого запуска разворачивает хранилище ключей.
+The following quickstart template deploys a key vault.
 
-- [Создание хранилища ключей](https://azure.microsoft.com/documentation/templates/101-key-vault-create/)
+- [Create Key Vault](https://azure.microsoft.com/documentation/templates/101-key-vault-create/)
 
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Next steps
 
-- Общие сведения о хранилищах ключей см. в разделе [Приступая к работе с хранилищем ключей Azure](./key-vault/key-vault-get-started.md).
-- Пример ссылки на секретный код хранилища ключей при развертывании шаблонов см. в статье [ Передача безопасных значений в процессе развертывания](resource-manager-keyvault-parameter.md).
+- For general information about key vaults, see [Get started with Azure Key Vault](./key-vault/key-vault-get-started.md).
+- For an example of referencing a key vault secret when deploying templates, see [Pass secure values during deployment](resource-manager-keyvault-parameter.md).
 
-<!---HONumber=AcomDC_0629_2016-->
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,105 +1,110 @@
 <properties
-	pageTitle="Использование хранилища файлов Azure из Python | Microsoft Azure"
-	description="Узнайте, как отправлять, перечислять, скачивать и удалять файлы с помощью хранилища файлов Azure из Python."
-	services="storage"
-	documentationCenter="python"
-	authors="robinsh"
-	manager="carmonm"
-	editor="tysonn"/>
+    pageTitle="How to use Azure File storage from Python | Microsoft Azure"
+    description="Learn how to use the Azure File storage from Python to upload, list, download, and delete files."
+    services="storage"
+    documentationCenter="python"
+    authors="robinsh"
+    manager="carmonm"
+    editor="tysonn"/>
 
 <tags
-	ms.service="storage"
-	ms.workload="storage"
-	ms.tgt_pltfrm="na"
-	ms.devlang="python"
-	ms.topic="article"
-	ms.date="09/20/2016"
-	ms.author="minet;robinsh"/>
+    ms.service="storage"
+    ms.workload="storage"
+    ms.tgt_pltfrm="na"
+    ms.devlang="python"
+    ms.topic="article"
+    ms.date="09/20/2016"
+    ms.author="robinsh"/>
 
-# Использование хранилища файлов Azure из Python
+
+# <a name="how-to-use-azure-file-storage-from-python"></a>How to use Azure File storage from Python
 
 [AZURE.INCLUDE [storage-selector-file-include](../../includes/storage-selector-file-include.md)]
 <br/>
 [AZURE.INCLUDE [storage-try-azure-tools-files](../../includes/storage-try-azure-tools-files.md)]
 
-## Обзор
+## <a name="overview"></a>Overview
 
-В этой статье описано, как реализовать типичные сценарии использования хранилища файлов. Примеры написаны на Python, и в них используется [пакет SDK для службы хранилища Microsoft Azure для Python]. Здесь описаны такие сценарии, как отправка, перечисление, скачивание и удаление файлов.
+This article will show you how to perform common scenarios using File storage. The samples are written in Python and use the [Microsoft Azure Storage SDK for Python]. The scenarios covered include uploading, listing, downloading, and deleting files.
 
 [AZURE.INCLUDE [storage-file-concepts-include](../../includes/storage-file-concepts-include.md)]
 
 [AZURE.INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
 
-## Создание общей папки
+## <a name="create-a-share"></a>Create a share
 
-Объект **FileService** позволяет работать с общими ресурсами, каталогами и файлами. Приведенный ниже код создает объект **TableService**. Добавьте следующий код в начало любого файла Python, из которого планируется получать доступ к службе хранилища Azure программным способом.
+The **FileService** object lets you work with shares, directories and files. The following code creates a **FileService** object. Add the following near the top of any Python file in which you wish to programmatically access Azure Storage.
 
-	from azure.storage.file import FileService
+    from azure.storage.file import FileService
 
-Следующий код создает объект **TableService**, используя имя учетной записи хранения и ключ учетной записи. Замените myaccount и mykey фактическими значениями имени и ключа учетной записи.
+The following code creates a **FileService** object using the storage account name and account key.  Replace 'myaccount' and 'mykey' with your account name and key.
 
-	file_service = **FileService** (account_name='myaccount', account_key='mykey')
+    file_service = **FileService** (account_name='myaccount', account_key='mykey')
 
-В следующем примере кода для создания общего ресурса (если он не существует) можно использовать объект **FileService**.
+In the following code example, you can use a **FileService** object to create the share if it doesn't exist.
 
-	file_service.create_share('myshare')
+    file_service.create_share('myshare')
 
-## Отправка файла в общую папку
+## <a name="upload-a-file-into-a-share"></a>Upload a file into a share
 
-Общая папка хранилища файлов Azure содержит по крайней мере, корневой каталог, где могут размещаться файлы. В этом разделе вы узнаете, как отправить файл из локального хранилища в корневой каталог общего ресурса.
+An Azure File Storage Share contains at the very least, a root directory where files can reside. In this section, you'll learn how to upload a file from local storage onto the root directory of a share.
 
-Для создания файла и передачи данных используйте методы **create\_file\_from\_path**, **create\_file\_from\_stream**, **create\_file\_from\_bytes** или **create\_file\_from\_text**. Это высокоуровневые методы, которые выполняют необходимое фрагментирование данных, если их размер превышает 64 МБ.
+To create a file and upload data, use the **create\_file\_from\_path**, **create\_file\_from\_stream**, **create\_file\_from\_bytes** or **create\_file\_from\_text** methods. They are high-level methods that perform the necessary chunking when the size of the data exceeds 64 MB.
 
-**create\_file\_from\_path** передает содержимое файла из заданного пути, **create\_file\_from\_stream** отправляет содержимое уже открытого файла или потока. **create\_file\_from\_bytes** отправляет массив байтов, **create\_file\_from\_text** отправляет заданное значение текста с использованием определенного кодирования (по умолчанию UTF-8).
+**create\_file\_from\_path** uploads the contents of a file from the specified path, and **create\_file\_from\_stream** uploads the contents from an already opened file/stream. **create\_file\_from\_bytes** uploads an array of bytes, and **create\_file\_from\_text** uploads the specified text value using the specified encoding (defaults to UTF-8).
 
-В примере далее содержимое файла **sunset.png** передается в файл **myfile**.
+The following example uploads the contents of the **sunset.png** file into the **myfile** file.
 
-	from azure.storage.file import ContentSettings
-	file_service.create_file_from_path(
+    from azure.storage.file import ContentSettings
+    file_service.create_file_from_path(
         'myshare',
         None, # We want to create this blob in the root directory, so we specify None for the directory_name
         'myfile',
         'sunset.png',
         content_settings=ContentSettings(content_type='image/png'))
 
-## Как создать каталог
+## <a name="how-to:-create-a-directory"></a>How to: Create a Directory
 
-Вы также можете организовать хранилище, помещая файлы в подкаталоги вместо их размещения в корневом каталоге. Служба хранилища файлов Azure позволяет создавать столько каталогов, сколько может позволить ваша учетная запись. В следующем примере кода в корневом каталоге создается вложенный каталог с именем **sampledir**.
+You can also organize storage by putting files inside sub-directories instead of having all of them in the root directory. The Azure file storage service allows you to create as many directories as your account will allow. The code below will create a sub-directory named **sampledir** under the root directory.
 
-	file_service.create_directory('myshare', 'sampledir')
+    file_service.create_directory('myshare', 'sampledir')
 
-## Как получить список файлов и каталогов в общей папке
+## <a name="how-to:-list-files-and-directories-in-a-share"></a>How to: List files and directories in a share
 
-Чтобы получить список файлов и каталогов в общем ресурсе, используйте метод **list\_directories\_and\_files**. Этот метод возвращает генератор. Приведенный далее код выводит в консоль **имя** каждого файла и каталога в общем ресурсе.
+To list the files and directories in a share, use the **list\_directories\_and\_files** method. This method returns a generator. The following code outputs the **name** of each file and directory in a share to the console.
 
-	generator = file_service.list_directories_and_files('myshare')
-	for file_or_dir in generator:
-		print(file_or_dir.name)
+    generator = file_service.list_directories_and_files('myshare')
+    for file_or_dir in generator:
+        print(file_or_dir.name)
 
-## Скачивание файлов
+## <a name="download-files"></a>Download files
 
-Чтобы скачать данные из файла, используйте методы **get\_file\_to\_path**, **get\_file\_to\_stream**, **get\_file\_to\_bytes** или **get\_file\_to\_text**. Это высокоуровневые методы, которые выполняют необходимое фрагментирование данных, если их размер превышает 64 МБ.
+To download data from a file, use **get\_file\_to\_path**, **get\_file\_to\_stream**, **get\_file\_to\_bytes**, or **get\_file\_to\_text**. They are high-level methods that perform the necessary chunking when the size of the data exceeds 64 MB.
 
-В примере ниже показано использование метода **get\_file\_to\_path** для скачивания содержимого файла **myfile** и его сохранения в файл **out-sunset.png**.
+The following example demonstrates using **get\_file\_to\_path** to download the contents of the **myfile** file and store it to the **out-sunset.png** file.
 
-	file_service.get_file_to_path('myshare', None, 'myfile', 'out-sunset.png')
+    file_service.get_file_to_path('myshare', None, 'myfile', 'out-sunset.png')
 
-## Удаление файла
+## <a name="delete-a-file"></a>Delete a file
 
-Наконец, чтобы удалить файл, вызовите метод **delete\_file**.
+Finally, to delete a file, call **delete_file**.
 
-	file_service.delete_file('myshare', None, 'myfile')
+    file_service.delete_file('myshare', None, 'myfile')
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Next steps
 
-Вы ознакомились с базовыми понятиями о хранилище файлов. Дополнительные сведения см. по следующим ссылкам.
+Now that you've learned the basics of File storage, follow these links to learn more.
 
-- [Центр по разработке для Python](/develop/python/)
-- [API-интерфейс REST служб хранилища Azure](http://msdn.microsoft.com/library/azure/dd179355)
-- [Блог рабочей группы службы хранилища Azure]
-- [пакет SDK для службы хранилища Microsoft Azure для Python]
+- [Python Developer Center](/develop/python/)
+- [Azure Storage Services REST API](http://msdn.microsoft.com/library/azure/dd179355)
+- [Azure Storage Team Blog]
+- [Microsoft Azure Storage SDK for Python]
 
-[Блог рабочей группы службы хранилища Azure]: http://blogs.msdn.com/b/windowsazurestorage/
-[пакет SDK для службы хранилища Microsoft Azure для Python]: https://github.com/Azure/azure-storage-python
+[Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
+[Microsoft Azure Storage SDK for Python]: https://github.com/Azure/azure-storage-python
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

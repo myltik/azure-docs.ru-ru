@@ -1,10 +1,12 @@
 
-Чтобы настроить локальное VPN-устройство, вам понадобится общедоступный IP-адрес виртуального сетевого шлюза. Обратитесь к производителю устройства, чтобы получить конкретные сведения о конфигурации и настроить свое устройство. Дополнительные сведения о VPN-устройствах, которые работают с Azure, см. в статье [О VPN-устройствах для подключений VPN-шлюзов типа "сеть — сеть"](../articles/vpn-gateway/vpn-gateway-about-vpn-devices.md).
+To configure your VPN device, you'll need the public IP address of the virtual network gateway for configuring your on-premises VPN device. Work with your device manufacturer for specific configuration information and configure your device. Refer to the [VPN Devices](../articles/vpn-gateway/vpn-gateway-about-vpn-devices.md) for more information about VPN devices that work well with Azure.
 
-Чтобы найти общедоступный IP-адрес виртуального сетевого шлюза с помощью PowerShell, используйте следующий пример:
+To find the public IP address of your virtual network gateway using PowerShell, use the following sample:
 
-	Get-AzureRmPublicIpAddress -Name GW1PublicIP -ResourceGroupName TestRG
+    Get-AzureRmPublicIpAddress -Name GW1PublicIP -ResourceGroupName TestRG
 
-Общедоступный IP-адрес виртуального сетевого шлюза также можно просмотреть с помощью портала Azure. Перейдите к разделу **Шлюзы виртуальной сети**, затем щелкните имя шлюза.
+You can also view the public IP address for your virtual network gateway by using the Azure portal. Navigate to **Virtual network gateways**, then click the name of your gateway.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!--HONumber=Oct16_HO2-->
+
+

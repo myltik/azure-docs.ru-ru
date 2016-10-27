@@ -1,17 +1,19 @@
-Чтобы подключаться к кэшу Redis для Azure, клиентам кэша нужны имя узла, порты и ключи кэша. Некоторые клиенты могут ссылаться на эти элементы с помощью незначительно различающихся имен. Для получения этих элементов [откройте](../articles/redis-cache/cache-configure.md#configure-redis-cache-settings) кэш на [портале Azure](https://portal.azure.com) и выберите пункт **Параметры** или **Все параметры**.
+To connect to an Azure Redis Cache instance, cache clients need the host name, ports, and keys of the cache. Some clients may refer to these items by slightly different names. To retrieve these items, [browse](../articles/redis-cache/cache-configure.md#configure-redis-cache-settings) to your cache in the [Azure portal](https://portal.azure.com) and click **Settings** or **All settings**. 
 
-![Параметры кэша Redis](media/redis-cache-access-keys/redis-cache-settings.png)
+![Redis cache settings](media/redis-cache-access-keys/redis-cache-settings.png)
 
-### Имя узла и порты
+### <a name="host-name-and-ports"></a>Host name and ports
 
-Для доступа к имени узла и портам щелкните элемент **Свойства**.
+To access the host name and ports click **Properties**.
 
-![Свойства кэша Redis](media/redis-cache-access-keys/redis-cache-properties.png)
+![Redis cache properties](media/redis-cache-access-keys/redis-cache-properties.png)
 
-### Ключи доступа
+### <a name="access-keys"></a>Access keys
 
-Чтобы получить ключи доступа, щелкните **Ключи доступа**.
+To retrieve the access keys, click **Access keys**.
 
-![Ключи доступа кэша Redis](media/redis-cache-access-keys/redis-cache-access-keys.png)
+![Redis cache access keys](media/redis-cache-access-keys/redis-cache-access-keys.png)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!--HONumber=Oct16_HO2-->
+
+

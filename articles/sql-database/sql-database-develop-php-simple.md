@@ -1,60 +1,65 @@
 <properties
-	pageTitle="Подключение к базе данных SQL с помощью приложения PHP в операционной системе Windows | Microsoft Azure"
-	description="В этой статье представлен пример программы PHP, которая подключается к базе данных SQL Azure из клиентской ОС Windows, и показаны ссылки на программные компоненты, необходимые для клиента."
-	services="sql-database"
-	documentationCenter=""
-	authors="meet-bhagdev"
-	manager="jhubbard"
-	editor=""/>
+    pageTitle="Connect to SQL Database by using PHP on Windows | Microsoft Azure"
+    description="Presents a sample PHP program that connects to Azure SQL Database from a Windows client, and provides links to the necessary software components needed by the client."
+    services="sql-database"
+    documentationCenter=""
+    authors="meet-bhagdev"
+    manager="jhubbard"
+    editor=""/>
 
 
 <tags
-	ms.service="sql-database"
-	ms.workload="drivers"
-	ms.tgt_pltfrm="na"
-	ms.devlang="php"
-	ms.topic="article"
-	ms.date="06/16/2016"
-	ms.author="meetb"/>
+    ms.service="sql-database"
+    ms.workload="drivers"
+    ms.tgt_pltfrm="na"
+    ms.devlang="php"
+    ms.topic="article"
+    ms.date="10/03/2016"
+    ms.author="meetb"/>
 
 
-# Подключение к базе данных SQL с помощью приложения PHP в операционной системе Windows
+
+# <a name="connect-to-sql-database-by-using-php-on-windows"></a>Connect to SQL Database by using PHP on Windows
 
 
-[AZURE.INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)]
+[AZURE.INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)] 
 
 
-В этом разделе объясняется, как подключиться к базе данных SQL Azure из клиентского приложения PHP, которое запущено в ОС Windows.
+This topic illustrates how you can connect to Azure SQL Database from a client application written in PHP that runs on Windows.
 
-## Шаг 1. Настройка среды разработки
+## <a name="step-1:-configure-development-environment"></a>Step 1:  Configure Development Environment
 
-[Настройка среды разработки PHP](https://msdn.microsoft.com/library/mt720663.aspx)
+[Configure development environment for PHP development](https://msdn.microsoft.com/library/mt720663.aspx)
 
-## Шаг 2. Создание базы данных SQL
+## <a name="step-2:-create-a-sql-database"></a>Step 2: Create a SQL database
 
-Чтобы узнать, как создать образец базы данных, перейдите на страницу [Начало работы](sql-database-get-started.md). Очень важно соблюдать инструкции руководства во время создания **шаблона базы данных AdventureWorks**. Приведенные ниже примеры работают только со **схемой AdventureWorks**.
+See the [getting started page](sql-database-get-started.md) to learn how to create a sample database.  It is important you follow the guide to create an **AdventureWorks database template**. The samples shown below only work with the **AdventureWorks schema**.
 
 
-## Шаг 3. Получение сведений о подключении
+## <a name="step-3:-get-connection-details"></a>Step 3: Get Connection Details
 
 [AZURE.INCLUDE [sql-database-include-connection-string-details-20-portalshots](../../includes/sql-database-include-connection-string-details-20-portalshots.md)]
 
 
-## Шаг 4. Выполнение примера кода
+## <a name="step-4:-run-sample-code"></a>Step 4: Run sample code
 
-* [Эксперимент по подключению к SQL с помощью PHP](https://msdn.microsoft.com/library/mt720665.aspx)
-* [Отказоустойчивое подключение к SQL с помощью PHP](https://msdn.microsoft.com/library/mt720667.aspx)
+* [Proof of concept connecting to SQL using PHP](https://msdn.microsoft.com/library/mt720665.aspx)
+* [Connect resiliently to SQL with PHP](https://msdn.microsoft.com/library/mt720667.aspx)
 
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Next steps
 
-* Ознакомьтесь с разделом [Общие сведения о разработке базы данных SQL](sql-database-develop-overview.md).
-* Получите дополнительные сведения о [драйвере Microsoft PHP для SQL Server](https://msdn.microsoft.com/library/dn865013.aspx).
-* Дополнительные сведения об установке и использовании PHP см. в статье [Доступ к базам данных SQL Server с помощью PHP](http://social.technet.microsoft.com/wiki/contents/articles/1258.accessing-sql-server-databases-from-php.aspx).
+* Review the [SQL Database Development Overview](sql-database-develop-overview.md)
+* More information on the [Microsoft PHP Driver for SQL Server](https://msdn.microsoft.com/library/dn865013.aspx)
+* For more information regarding PHP installation and usage, see [Accessing SQL Server Databases with PHP](http://social.technet.microsoft.com/wiki/contents/articles/1258.accessing-sql-server-databases-from-php.aspx).
 
-## Дополнительные ресурсы 
+## <a name="additional-resources"></a>Additional resources 
 
-* [Шаблоны разработки для мультитенантных приложений SaaS с использованием базы данных Azure SQL](sql-database-design-patterns-multi-tenancy-saas-applications.md)
-* Вы можете изучить все [возможности Базы данных SQL](https://azure.microsoft.com/services/sql-database/).
+* [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md)
+* Explore all the [capabilities of SQL Database](https://azure.microsoft.com/services/sql-database/)
 
-<!---HONumber=AcomDC_0622_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

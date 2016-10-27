@@ -1,252 +1,257 @@
 <properties
-	pageTitle="Руководство. Интеграция Azure Active Directory с Certify | Microsoft Azure"
-	description="Узнайте, как настроить единый вход Azure Active Directory в Certify."
-	services="active-directory"
-	documentationCenter=""
-	authors="jeevansd"
-	manager="femila"
-	editor=""/>
+    pageTitle="Tutorial: Azure Active Directory integration with Certify | Microsoft Azure"
+    description="Learn how to configure single sign-on between Azure Active Directory and Certify."
+    services="active-directory"
+    documentationCenter=""
+    authors="jeevansd"
+    manager="femila"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/05/2016"
-	ms.author="jeedes"/>
-
-
-# Руководство. Интеграция Azure Active Directory с Certify
-
-Цель этого учебника — показать, как интегрировать Azure Active Directory (Azure AD) с приложением Certify. Интеграция Azure AD с приложением Certify обеспечивает следующие преимущества.
-
-- С помощью Azure AD вы можете контролировать доступ к Certify.
-- Вы можете включить автоматический вход пользователей в Certify (единый вход) с использованием их учетных записей Azure AD.
-- Вы можете управлять учетными записями централизованно — через классический портал Azure Active Directory.
-
-Подробнее узнать об интеграции приложений SaaS с Azure AD можно в статье [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md).
-
-## Предварительные требования
-
-Чтобы настроить интеграцию Azure AD с Certify, вам потребуется:
-
-- подписка Azure AD;
-- подписка Certify с поддержкой единого входа.
-
-
-> [AZURE.NOTE] Мы не рекомендуем использовать рабочую среду для проверки действий в этом учебнике.
-
-
-При проверке действий в этом учебнике соблюдайте следующие рекомендации:
-
-- Не следует использовать рабочую среду при отсутствии необходимости.
-- Если у вас нет пробной среды Azure AD, вы можете получить пробную версию на один месяц по [этой ссылке](https://azure.microsoft.com/pricing/free-trial/).
-
-
-## Описание сценария
-Цель этого учебника — научить вас проверять единый вход в Azure AD в пробной среде. Сценарий, описанный в этом учебнике, состоит из двух основных блоков:
-
-1. Добавление Certify из коллекции
-2. Настройка и проверка единого входа в Azure AD
-
-
-## Добавление Certify из коллекции
-Чтобы настроить интеграцию Certify с Azure AD, необходимо добавить Certify из коллекции в список управляемых приложений SaaS.
-
-**Чтобы добавить Certify из коллекции, сделайте следующее:**
-
-1. На **классическом портале Azure** в области навигации слева щелкните **Active Directory**.
-
-	![Active Directory][1]
-
-2. Из списка **Каталог** выберите каталог, для которого нужно включить интеграцию каталогов.
-
-3. Чтобы открыть представление приложений, в представлении каталога нажмите **Приложения** в верхнем меню.
-
-	.![Приложения][2]
-
-4. В нижней части страницы нажмите кнопку **Добавить**.
-
-	.![Приложения][3]
-
-5. В диалоговом окне **Что необходимо сделать?** нажмите **Добавить приложение из коллекции**.
-
-	.![Приложения][4]
-
-6. В поле поиска введите **Certify**.
-
-	![Создание тестового пользователя Azure AD](./media/active-directory-saas-certify-tutorial/tutorial_certify_01.png)
-
-7. В области результатов выберите **Certify** и нажмите кнопку **Завершить**, чтобы добавить приложение.
-
-	.![Создание тестового пользователя Azure AD](./media/active-directory-saas-certify-tutorial/tutorial_certify_02.png)
-
-##  Настройка и проверка единого входа в Azure AD
-Цель этого раздела — показать, как настроить и проверить единый вход Azure AD в Certify с использованием тестового пользователя Britta Simon.
-
-Для работы единого входа в Azure AD необходимо знать, какой пользователь в Certify соответствует пользователю в Azure AD. Иными словами, необходимо установить связь между пользователем Azure AD и соответствующим пользователем в Certify. Чтобы установить эту связь, следует назначить **имя пользователя** в Azure AD в качестве значения **имени пользователя** в Certify.
-
-Чтобы настроить и проверить единый вход Azure AD в Certify, вам потребуется выполнить действия в следующих стандартных блоках:
-
-1. **[Настройка единого входа Azure AD](#configuring-azure-ad-single-single-sign-on)** необходима, чтобы пользователи могли использовать эту функцию.
-2. **[Создание тестового пользователя Azure AD](#creating-an-azure-ad-test-user)**. Требуется для проверки работы единого входа Azure AD от имени пользователя Britta Simon.
-4. **[Создание тестового пользователя Certify](#creating-a-certify-test-user)** требуется для создания пользователя Britta Simon в Certify, связанного с соответствующим представлением в Azure AD.
-5. **[Назначение тестового пользователя Azure AD](#assigning-the-azure-ad-test-user)** необходимо, чтобы позволить Britta Simon использовать единый вход в Azure AD.
-5. **[Проверка единого входа](#testing-single-sign-on)** необходима, чтобы убедиться в корректной работе конфигурации.
-
-### Настройка единого входа в Azure AD
-
-В этом разделе описано, как включить единый вход Azure AD на классическом портале Azure AD и настроить единый вход в приложение Certify.
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/24/2016"
+    ms.author="jeedes"/>
 
 
 
-**Чтобы настроить единый вход Azure AD в Certify, сделайте следующее:**
+# <a name="tutorial:-azure-active-directory-integration-with-certify"></a>Tutorial: Azure Active Directory integration with Certify
 
-1. На классическом портале Azure AD на странице интеграции с приложением **Certify** щелкните **Настройка единого входа**, чтобы открыть диалоговое окно **Настройка единого входа**.
+The objective of this tutorial is to show you how to integrate Certify with Azure Active Directory (Azure AD).  
+Integrating Certify with Azure AD provides you with the following benefits:
 
-	.![Настройка единого входа][6]
+- You can control in Azure AD who has access to Certify
+- You can enable your users to automatically get signed-on to Certify (Single Sign-On) with their Azure AD accounts
+- You can manage your accounts in one central location - the Azure Active Directory classic portal
 
-2. На странице **Как пользователи должны входить в Certify?** выберите **Единый вход Azure AD** и нажмите кнопку **Далее**.
+If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-	.![Настройка единого входа](./media/active-directory-saas-certify-tutorial/tutorial_certify_03.png)
+## <a name="prerequisites"></a>Prerequisites
 
-3. На странице диалогового окна **Настройка параметров приложения** выполните следующие действия.
+To configure Azure AD integration with Certify, you need the following items:
 
-	![Настройка единого входа](./media/active-directory-saas-certify-tutorial/tutorial_certify_04.png)
-
-
-    а. В текстовом поле "URL-адрес ответа" введите URL-адрес службы Assertion Consumer Service в следующем формате: **https://www.certify.com/SAML2.aspx**.
-
-
-4. На странице **Настройка единого входа в Certify** выполните следующие действия.
-
-	![Настройка единого входа](./media/active-directory-saas-certify-tutorial/tutorial_certify_05.png)
-
-    а. Нажмите **Загрузить сертификат** и сохраните файл сертификата на свой компьютер.
-
-    b. Нажмите кнопку **Далее**.
+- An Azure AD subscription
+- A Certify single-sign on enabled subscription
 
 
-5. Чтобы настроить единый вход для своего приложения, обратитесь в службу поддержки Certify по адресу support@certify.com. Вложите в сообщение скачанный сертификат и укажите URL-адреса метаданных (идентификатор сущности, URL-адрес единого входа и URL-адрес выхода), чтобы специалисты Certify смогли настроить единый вход со своей стороны.
+> [AZURE.NOTE] To test the steps in this tutorial, we do not recommend using a production environment.
 
 
-6. На классическом портале Azure AD выберите подтверждение конфигурации единого входа и нажмите кнопку **Далее**.
+To test the steps in this tutorial, you should follow these recommendations:
 
-	![Единый вход в Azure AD][10]
+- You should not use your production environment, unless this is necessary.
+- If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).
 
-7. На странице **Подтверждение единого входа** нажмите кнопку **Завершить**.
+
+## <a name="scenario-description"></a>Scenario Description
+The objective of this tutorial is to enable you to test Azure AD single sign-on in a test environment.  
+The scenario outlined in this tutorial consists of two main building blocks:
+
+1. Adding Certify from the gallery
+2. Configuring and testing Azure AD single sign-on
+
+
+## <a name="adding-certify-from-the-gallery"></a>Adding Certify from the gallery
+To configure the integration of Certify into Azure AD, you need to add Certify from the gallery to your list of managed SaaS apps.
+
+**To add Certify from the gallery, perform the following steps:**
+
+1. In the **Azure classic portal**, on the left navigation pane, click **Active Directory**. 
+
+    ![Active Directory][1]
+
+2. From the **Directory** list, select the directory for which you want to enable directory integration.
+
+3. To open the applications view, in the directory view, click **Applications** in the top menu.
+
+    ![Applications][2]
+
+4. Click **Add** at the bottom of the page.
+
+    ![Applications][3]
+
+5. On the **What do you want to do** dialog, click **Add an application from the gallery**.
+
+    ![Applications][4]
+
+6. In the search box, type **Certify**.
+
+    ![Creating an Azure AD test user](./media/active-directory-saas-certify-tutorial/tutorial_certify_01.png)
+
+7. In the results pane, select **Certify**, and then click **Complete** to add the application.
+
+    ![Creating an Azure AD test user](./media/active-directory-saas-certify-tutorial/tutorial_certify_02.png)
+
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuring and testing Azure AD single sign-on
+The objective of this section is to show you how to configure and test Azure AD single sign-on with Certify based on a test user called "Britta Simon".
+
+For single sign-on to work, Azure AD needs to know what the counterpart user in Certify to an user in Azure AD is. In other words, a link relationship between an Azure AD user and the related user in Certify needs to be established.  
+This link relationship is established by assigning the value of the **user name** in Azure AD as the value of the **Username** in Certify.
+
+To configure and test Azure AD single sign-on with Certify, you need to complete the following building blocks:
+
+1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-single-sign-on)** - to enable your users to use this feature.
+2. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
+4. **[Creating a Certify test user](#creating-a-certify-test-user)** - to have a counterpart of Britta Simon in Certify that is linked to the Azure AD representation of her.
+5. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
+5. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
+
+### <a name="configuring-azure-ad-single-sign-on"></a>Configuring Azure AD Single Sign-On
+
+The objective of this section is to enable Azure AD single sign-on in the Azure AD classic portal and to configure single sign-on in your Certify application.
+
+
+
+**To configure Azure AD single sign-on with Certify, perform the following steps:**
+
+1. In the Azure AD classic portal, on the **Certify** application integration page, click **Configure single sign-on** to open the **Configure Single Sign-On**  dialog.
+
+    ![Configure Single Sign-On][6] 
+
+2. On the **How would you like users to sign on to Certify** page, select **Azure AD Single Sign-On**, and then click **Next**.
+
+    ![Configure Single Sign-On](./media/active-directory-saas-certify-tutorial/tutorial_certify_03.png) 
+
+3. On the **Configure App Settings** dialog page, perform the following steps:.
+
+    ![Configure Single Sign-On](./media/active-directory-saas-certify-tutorial/tutorial_certify_04.png) 
+
+
+    a. In the Reply URL textbox, type the Assertion Consumer Service URL using the following pattern: **“https://www.certify.com/SAML2.aspx”**.
+
+
+4. On the **Configure single sign-on at Certify** page, perform the following steps:
+
+    ![Configure Single Sign-On](./media/active-directory-saas-certify-tutorial/tutorial_certify_05.png) 
+
+    a. Click **Download certificate**, and then save the file on your computer.
+
+    b. Click **Next**.
+
+
+5. To get SSO configured for your application, contact your Certify support team via support@certify.com. Attach the downloaded certificate file to your mail and share the metadata urls (Entity ID, SSO Sign in URL and Sign Out URL) with Certify team to set up SSO on their side.
+
+
+6. In the Azure AD classic portal, select the single sign-on configuration confirmation, and then click **Next**.
+
+    ![Azure AD Single Sign-On][10]
+
+7. On the **Single sign-on confirmation** page, click **Complete**.  
   
-	![Единый вход в Azure AD][11]
+    ![Azure AD Single Sign-On][11]
 
 
 
 
-### Создание тестового пользователя Azure AD
-Цель этого раздела — создать на классическом портале Azure тестового пользователя с именем Britta Simon.
+### <a name="creating-an-azure-ad-test-user"></a>Creating an Azure AD test user
+The objective of this section is to create a test user in the Azure classic portal called Britta Simon.
 
-.![Создание пользователя Azure AD][20]
+![Create Azure AD User][20]
 
-**Чтобы создать тестового пользователя в Azure AD, выполните следующие действия:**
+**To create a test user in Azure AD, perform the following steps:**
 
-1. На **классическом портале Azure** в области навигации слева щелкните **Active Directory**.
+1. In the **Azure classic portal**, on the left navigation pane, click **Active Directory**.
 
-	.![Создание тестового пользователя Azure AD](./media/active-directory-saas-certify-tutorial/create_aaduser_09.png)
+    ![Creating an Azure AD test user](./media/active-directory-saas-certify-tutorial/create_aaduser_09.png) 
 
-2. Из списка **Каталог** выберите каталог, для которого нужно включить интеграцию каталогов.
+2. From the **Directory** list, select the directory for which you want to enable directory integration.
 
-3. Чтобы отобразить список пользователей, в меню вверху выберите **Пользователи**.
+3. To display the list of users, in the menu on the top, click **Users**.
 
-	.![Создание тестового пользователя Azure AD](./media/active-directory-saas-certify-tutorial/create_aaduser_03.png)
+    ![Creating an Azure AD test user](./media/active-directory-saas-certify-tutorial/create_aaduser_03.png) 
 
-4. Чтобы открыть диалоговое окно **Добавление пользователя**, на панели инструментов внизу нажмите кнопку **Добавить пользователя**.
+4. To open the **Add User** dialog, in the toolbar on the bottom, click **Add User**.
 
-	.![Создание тестового пользователя Azure AD](./media/active-directory-saas-certify-tutorial/create_aaduser_04.png)
+    ![Creating an Azure AD test user](./media/active-directory-saas-certify-tutorial/create_aaduser_04.png) 
 
-5. На странице диалогового окна **Тип учетной записи пользователя** выполните следующие действия.
+5. On the **Tell us about this user** dialog page, perform the following steps:
 
-	.![Создание тестового пользователя Azure AD](./media/active-directory-saas-certify-tutorial/create_aaduser_05.png)
+    ![Creating an Azure AD test user](./media/active-directory-saas-certify-tutorial/create_aaduser_05.png) 
 
-    а. В поле «Тип пользователя» выберите значение «Новый пользователь в вашей организации».
+    a. As Type Of User, select New user in your organization.
 
-    b. В текстовом поле **Имя пользователя**, введите **BrittaSimon**.
+    b. In the User Name **textbox**, type **BrittaSimon**.
 
-    c. Нажмите кнопку **Далее**.
+    c. Click **Next**.
 
-6.  На странице диалогового окна **Профиль пользователя** выполните следующие действия.
+6.  On the **User Profile** dialog page, perform the following steps:
 
-	.![Создание тестового пользователя Azure AD](./media/active-directory-saas-certify-tutorial/create_aaduser_06.png)
+    ![Creating an Azure AD test user](./media/active-directory-saas-certify-tutorial/create_aaduser_06.png) 
 
-    а. В текстовом поле **Имя** введите **Britta**.
+    a. In the **First Name** textbox, type **Britta**.  
 
-    b. В текстовое поле **Фамилия** введите **Simon**.
+    b. In the **Last Name** textbox, type, **Simon**.
 
-    c. В текстовое поле **Отображаемое имя** введите **Britta Simon**.
+    c. In the **Display Name** textbox, type **Britta Simon**.
 
-    г) В списке **Роль** выберите **Пользователь**.
+    d. In the **Role** list, select **User**.
 
-    д. Нажмите кнопку **Далее**.
+    e. Click **Next**.
 
-7. На странице диалогового окна **Получить временный пароль** нажмите кнопку **Создать**.
+7. On the **Get temporary password** dialog page, click **create**.
 
-	.![Создание тестового пользователя Azure AD](./media/active-directory-saas-certify-tutorial/create_aaduser_07.png)
+    ![Creating an Azure AD test user](./media/active-directory-saas-certify-tutorial/create_aaduser_07.png) 
 
-8. На странице диалогового окна **Получить временный пароль** выполните следующие действия.
+8. On the **Get temporary password** dialog page, perform the following steps:
 
-	.![Создание тестового пользователя Azure AD](./media/active-directory-saas-certify-tutorial/create_aaduser_08.png)
+    ![Creating an Azure AD test user](./media/active-directory-saas-certify-tutorial/create_aaduser_08.png) 
 
-    а. Запишите значение поля **Новый пароль**.
+    a. Write down the value of the **New Password**.
 
-    b. Нажмите **Завершено**.
-
-
-
-### Создание тестового пользователя Certify
-
-Цель этого раздела — создать пользователя с именем Britta Simon в Certify. Приложение Certify поддерживает JIT-подготовку. Эта функция включена по умолчанию.
-
-В этом разделе никакие действия с вашей стороны не требуются. Пользователь будет создан при попытке получить доступ к Certify (если он еще не создан). [Настройка единого входа в Azure AD](#configuring-azure-ad-single-single-sign-on).
-
-> [AZURE.NOTE] Если вам нужно вручную создать пользователя, необходимо обратиться в службу поддержки Certify.
-
-
-### Назначение тестового пользователя Azure AD
-
-Цель этого раздела — разрешить пользователю Britta Simon использовать единый вход Azure, предоставив ей доступ к Certify.
-
-.![Назначение пользователя][200]
-
-**Чтобы назначить пользователя Britta Simon в Certify, сделайте следующее:**
-
-1. Чтобы открыть представление приложений, на классическом портале Azure в представлении каталога щелкните **Приложения** в меню вверху.
-
-	.![Назначение пользователя][201]
-
-2. В списке приложений выберите **Certify**.
-
-	.![Настройка единого входа](./media/active-directory-saas-certify-tutorial/tutorial_certify_50.png)
-
-1. В меню в верхней части страницы щелкните **Пользователи**.
-
-	![Назначение пользователя][203]
-
-1. В списке пользователей выберите **Britta Simon**.
-
-2. На панели инструментов внизу щелкните **Назначить**.
-
-	![Назначение пользователя][205]
+    b. Click **Complete**.   
 
 
 
-### Проверка единого входа
+### <a name="creating-a-certify-test-user"></a>Creating a Certify test user
 
-Цель этого раздела — проверить конфигурацию единого входа Azure AD с помощью панели доступа. Щелкнув элемент Certify на панели доступа, вы автоматически войдете в приложение Certify.
+The objective of this section is to create a user called Britta Simon in Certify. Certify supports just-in-time provisioning, which is by default enabled.
+
+There is no action item for you in this section. A new user will be created during an attempt to access Certify if it doesn't exist yet. [Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-single-sign-on).
+
+> [AZURE.NOTE] If you need to create an user manually, you need to contact the Certify support team.
 
 
-## дополнительные ресурсы.
+### <a name="assigning-the-azure-ad-test-user"></a>Assigning the Azure AD test user
 
-* [Список учебников по интеграции приложений SaaS с Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+The objective of this section is to enabling Britta Simon to use Azure single sign-on by granting her access to Certify.
+
+![Assign User][200] 
+
+**To assign Britta Simon to Certify, perform the following steps:**
+
+1. On the Azure classic portal, to open the applications view, in the directory view, click **Applications** in the top menu.
+
+    ![Assign User][201] 
+
+2. In the applications list, select **Certify**.
+
+    ![Configure Single Sign-On](./media/active-directory-saas-certify-tutorial/tutorial_certify_50.png) 
+
+1. In the menu on the top, click **Users**.
+
+    ![Assign User][203] 
+
+1. In the Users list, select **Britta Simon**.
+
+2. In the toolbar on the bottom, click **Assign**.
+
+    ![Assign User][205]
+
+
+
+### <a name="testing-single-sign-on"></a>Testing Single Sign-On
+
+The objective of this section is to test your Azure AD single sign-on configuration using the Access Panel.  
+When you click the Certify tile in the Access Panel, you should get automatically signed-on to your Certify application.
+
+
+## <a name="additional-resources"></a>Additional Resources
+
+* [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 
 <!--Image references-->
@@ -267,4 +272,8 @@
 [204]: ./media/active-directory-saas-certify-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-certify-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

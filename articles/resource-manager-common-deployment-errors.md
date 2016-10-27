@@ -1,13 +1,13 @@
 <properties
-   pageTitle="Устранение распространенных ошибок развертывания в Azure | Microsoft Azure"
-   description="Описывается устранение распространенных ошибок при развертывании ресурсов в Azure с помощью Azure Resource Manager."
+   pageTitle="Troubleshoot common Azure deployment errors | Microsoft Azure"
+   description="Describes how to resolve common errors when you deploy resources to Azure using Azure Resource Manager."
    services="azure-resource-manager"
    documentationCenter=""
    tags="top-support-issue"
    authors="tfitzmac"
    manager="timlt"
    editor="tysonn"
-   keywords="ошибка развертывания, развертывание Azure, развернуть в Azure"/>
+   keywords="deployment error, azure deployment, deploy to azure"/>
 
 <tags
    ms.service="azure-resource-manager"
@@ -18,46 +18,47 @@
    ms.date="07/14/2016"
    ms.author="tomfitz"/>
 
-# Устранение распространенных ошибок развертывания в Azure с помощью Azure Resource Manager | Microsoft Azure
 
-В этой статье объясняется, как устранить некоторые распространенные ошибки при развертывании в Azure. Если вам необходима дополнительная информация о причинах сбоя развертывания, сначала ознакомьтесь со статьей [Просмотр операций развертывания с помощью портала Azure](resource-manager-troubleshoot-deployments-portal.md), а затем вернитесь к этой статье, чтобы узнать, как устранить ошибку.
+# <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Troubleshoot common Azure deployment errors with Azure Resource Manager
 
-## Недопустимый шаблон или ресурс
+This topic describes how you can resolve some common Azure deployment errors you may encounter. If you need more information about what went wrong with your deployment, first see [View deployment operations](resource-manager-troubleshoot-deployments-portal.md) and then come back to this article for help with resolving the error.
 
-При развертывании шаблона может возникнуть такая ошибка:
+## <a name="invalid-template-or-resource"></a>Invalid template or resource
+
+When deploying a template, you may receive:
 
     Code=InvalidTemplate 
     Message=Deployment template validation failed
 
-Если появится сообщение о том, что шаблон или свойство ресурса является недопустимым, возможно, в шаблоне есть синтаксическая ошибка. Такую ошибку легко допустить, так как выражения шаблонов могут быть сложными. Например, представленное ниже присвоение имени для учетной записи хранения содержит один набор квадратных скобок, три функции, три набора круглых скобок, один набор одинарных кавычек и одно свойство:
+If you receive an error stating that either the template or a property on a resource is invalid, you may have a syntax error in your template. This error is easy to make because template expressions can be intricate. For example, the following name assignment for a storage account contains one set of brackets, three functions, three sets of parentheses, one set of single quotes, and one property:
 
     "name": "[concat('storage', uniqueString(resourceGroup().id))]",
 
-Если вы не укажете весь соответствующий синтаксис, шаблон создаст значение, которое будет в значительной степени расходиться с вашими ожиданиями.
+If you do not provide all of the matching syntax, the template will produce a value that is very different than your intention.
 
-При получении сообщения об ошибке такого типа тщательно проверьте синтаксис выражения. Рекомендуется использовать редактор JSON, например [Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md) или [Visual Studio Code](resource-manager-vs-code.md), в котором отображаются предупреждения о синтаксических ошибках.
+When you receive this type of error, carefully review the expression syntax. Consider using a JSON editor like [Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md) or [Visual Studio Code](resource-manager-vs-code.md) which can warn you about syntax errors. 
 
-## Неправильная длина сегментов
+## <a name="incorrect-segment-lengths"></a>Incorrect segment lengths
 
-Шаблон также считается недопустимым, если имя ресурса указано в неправильном формате.
+Another invalid template error occurs when the resource name is not in the correct format.
 
     Code=InvalidTemplate
     Message=Deployment template validation failed: 'The template resource {resource-name}' 
     for type {resource-type} has incorrect segment lengths.
 
-Имя ресурса на корневом уровне должно содержать на один сегмент меньше, чем тип ресурса. Каждый сегмент разделяется косой чертой. В следующем примере тип содержит 2 сегмента, а имя — 1 сегмент. Так что это **допустимое имя**.
+A root level resource must one less segment in the name than in the resource type. Each segment is differentiated by a slash. In the following example, the type has 2 segments and the name has 1 segment, so it is a **valid name**.
 
     {
       "type": "Microsoft.Web/serverfarms",
       "name": "myHostingPlanName",
 
-В приведенном ниже примере указано **недопустимое имя**, так как оно содержит такое же количество сегментов, что и тип.
+But the next example is **not a valid name** because it has the same number of segments as the type.
 
     {
       "type": "Microsoft.Web/serverfarms",
       "name": "appPlan/myHostingPlanName",
 
-В случае дочерних ресурсов тип и имя должны содержать одинаковое количество сегментов. Это связано с тем, что полное имя и тип дочернего ресурса включают в себя имя и тип родительского ресурса, поэтому полное имя по-прежнему содержит на один сегмент меньше, чем полный тип.
+For child resources, the type and name must have the same number of segments. This makes sense because the full name and type for the child includes the parent name and type, so the full name still has one less segment than the full type. 
 
     "resources": [
         {
@@ -69,27 +70,27 @@
                     "type": "secrets",
                     "name": "appPassword",
 
-Разобраться с правильной длиной сегментов особенно сложно при использовании типов Resource Manager, которые применяются для поставщиков ресурсов. Например, для применения блокировки ресурсов на веб-сайте требуется тип с 4 сегментами. Поэтому имя содержит 3 сегмента:
+Getting the segments right can be particularly tricky with Resource Manager types that are applied across resource providers. For example, applying a resource lock to a web site requires a type with 4 segments. Therefore, the name is 3 segments:
 
     {
         "type": "Microsoft.Web/sites/providers/locks",
         "name": "[concat(variables('siteName'),'/Microsoft.Authorization/MySiteLock')]",
 
-## Имя ресурса уже существует или используется другим ресурсом
+## <a name="resource-name-already-taken-or-is-already-used-by-another-resource"></a>Resource name already taken or is already used by another resource
 
-Для некоторых ресурсов, особенно для учетных записей хранения, серверов баз данных и веб-сайтов, необходимо указывать имя ресурса, которое будет уникальным в Azure. Если не указать уникальное имя, может возникнуть такая ошибка:
+For some resources, most notably storage accounts, database servers, and web sites, you must provide a name for the resource that is unique across all of Azure. If you do not provide a unique name, you may receive an error like:
 
     Code=StorageAccountAlreadyTaken 
     Message=The storage account named mystorage is already taken.
 
-Уникальное имя можно создать, используя соглашение об именовании и результат функции [uniqueString](resource-group-template-functions.md#uniquestring).
+You can create a unique name by concatenating your naming convention with the result of the [uniqueString](resource-group-template-functions.md#uniquestring) function.
 
     "name": "[concat('contosostorage', uniqueString(resourceGroup().id))]",
     "type": "Microsoft.Storage/storageAccounts",
 
-## Не удается найти ресурс во время развертывания
+## <a name="cannot-find-resource-during-deployment"></a>Cannot find resource during deployment
 
-Resource Manager оптимизирует развертывание, создавая ресурсы параллельно, когда это возможно. Если один ресурс необходимо развернуть после другого, создайте зависимость от другого ресурса, используя в шаблоне элемент **dependsOn**. Например, при развертывании веб-приложения вам нужно создать план службы приложений. Если вы не указали, что веб-приложение зависит от плана службы приложений, Resource Manager создаст оба ресурса одновременно. При попытке указать свойство веб-приложения вы получите сообщение о том, что невозможно найти ресурс плана службы приложений, так как он еще не существует. Чтобы предотвратить эту ошибку, в веб-приложении следует настроить зависимость.
+Resource Manager optimizes deployment by creating resources in parallel, when possible. If one resource must be deployed after another resource, you need to use the **dependsOn** element in your template to create a dependency on the other resource. For example, when deploying a web app, the App Service plan must exist. If you have not specified that the web app is dependent on the App Service plan, Resource Manager will create both resources at the same time. You will receive an error stating that the App Service plan resource cannot be found, because it does not exist yet when attempting to set a property on the web app. You can prevent this error by setting the dependency in the web app.
 
     {
       "apiVersion": "2015-08-01",
@@ -101,82 +102,83 @@ Resource Manager оптимизирует развертывание, созда
       ...
     }
 
-## Не удалось найти элемент copy в объекте
+## <a name="could-not-find-member-'copy'-on-object"></a>Could not find member 'copy' on object
 
-Эта ошибка возникает в случае применения элемента **copy** к части шаблона, которая не поддерживает этот элемент. Элемент copy можно применять только к типу ресурса. Нельзя применять элемент copy к свойству в типе ресурса. Например, его можно применить к виртуальной машине, но не к дискам операционной системы виртуальной машины. В некоторых случаях можно преобразовывать дочерние ресурсы в родительские для создания цикла копирования. Дополнительные сведения об использовании элемента copy см. в статье [Создание нескольких экземпляров ресурсов в Azure Resource Manager](resource-group-create-multiple.md).
+You encounter this error when you have applied the **copy** element to a part of the template that does not support this element. You can only apply the copy element to a resource type. You cannot apply copy to a property within a resource type. For example, you apply copy to a virtual machine, but you cannot apply it to the OS disks for a virtual machine. In some cases, you can convert a child resource to a parent resource to create a copy loop. For more information about using copy, see [Create multiple instances of resources in Azure Resource Manager](resource-group-create-multiple.md).
 
-## Номер SKU недоступен
+## <a name="sku-not-available"></a>SKU not available
 
-При развертывании ресурса (как правило, виртуальной машины) могут появиться код ошибки и сообщение об ошибке:
+When deploying a resource (typically a virtual machine), you may receive the following error code and error message:
 
     Code: SkuNotAvailable
     Message: The requested tier for resource '<resource>' is currently not available in location '<location>' for subscription '<subscriptionID>'. Please try another tier or deploy to a different location.
 
-Эта ошибка возникает, когда выбранный номер SKU ресурса (например, размер виртуальной машины) недоступен для указанного расположения. Существует два способа решения этой проблемы.
+You receive this error when the resource SKU you have selected (such as VM size) is not available for the location you have selected. You have two options to resolve this issue:
 
-1.	Войдите на портал и добавьте новый ресурс с помощью пользовательского интерфейса. Когда значения будут заданы, вы увидите доступные номера SKU для этого ресурса.
+1.  Log into portal and begin adding a new resource through the UI. As you set the values, you will see the available SKUs for that resource.
 
-    ![доступные номера sku](./media/resource-manager-common-deployment-errors/view-sku.png)
+    ![available skus](./media/resource-manager-common-deployment-errors/view-sku.png)
 
-2.	Если вам не удастся найти подходящий номер SKU в этом или альтернативном регионе, который соответствует потребностям вашей компании, обратитесь в [службу поддержки Azure](https://portal.azure.com/#create/Microsoft.Support).
+2.  If you are unable to find a suitable SKU in that region or an alternative region that meets your business needs, please reach out to [Azure Support](https://portal.azure.com/#create/Microsoft.Support).
 
 
-## Зарегистрированные поставщики не найдены
+## <a name="no-registered-provider-found"></a>No registered provider found
 
-При развертывании ресурсов вы можете получить следующий код ошибки и сообщение об ошибке:
+When deploying resource, you may receive the following error code and message:
 
     Code: NoRegisteredProviderFound
     Message: No registered resource provider found for location '<location>' and API version '<api-version>' for type '<resource-type>'.
 
-Эта ошибка возникает по одной из следующих причин.
+You receive this error for one of three reasons:
 
-1. Расположение не поддерживается для выбранного типа ресурса.
-2. Версия API не поддерживается для выбранного типа ресурса.
-3. Для подписки не зарегистрирован поставщик ресурсов.
+1. Location not supported for the resource type
+2. API version not supported for the resource type
+3. The resource provider has not been registered for your subscription
 
-В сообщении об ошибке должны быть указаны поддерживаемые расположения и версии API. Вы можете изменить шаблон, используя одно из предложенных значений. Большинство поставщиков, но не все, регистрируются автоматически порталом Azure или интерфейсом командной строки, который вы используете. Если ранее вы не использовали конкретный поставщик ресурсов, возможно, потребуется зарегистрировать такой поставщик. C помощью приведенных ниже команд вы можете получить дополнительную информацию о поставщиках ресурсов.
+The error message should give you suggestions for the supported locations and API versions. You can change your template to one of the suggested values. Most providers are registered automatically by the Azure portal or the command-line interface you are using, but not all. If you have not used a particular resource provider before, you may need to register that provider. You can discover more about resource providers with the following commands.
 
-### PowerShell
+### <a name="powershell"></a>PowerShell
 
-Чтобы просмотреть состояние регистрации, используйте командлет **Get-AzureRmResourceProvider**.
+To see your registration status, use **Get-AzureRmResourceProvider**.
 
     Get-AzureRmResourceProvider -ListAvailable
 
-Чтобы зарегистрировать поставщик, используйте командлет **Register-AzureRmResourceProvider** и укажите имя поставщика ресурсов, который необходимо зарегистрировать.
+To register a provider, use **Register-AzureRmResourceProvider** and provide the name of the resource provider you wish to register.
 
     Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Cdn
 
-Чтобы получить поддерживаемые расположения для определенного типа ресурсов, используйте следующую команду:
+To get the supported locations for a particular type of resource, use:
 
     ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).Locations
 
-Чтобы получить поддерживаемые версии API для определенного типа ресурсов, используйте следующую команду:
+To get the supported API versions for a particular type of resource, use:
 
     ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).ApiVersions
 
-### Инфраструктура CLI Azure
+### <a name="azure-cli"></a>Azure CLI
 
-Чтобы узнать, зарегистрирован ли поставщик, используйте команду `azure provider list`.
+To see whether the provider is registered, use the `azure provider list` command.
 
     azure provider list
 
-Чтобы зарегистрировать поставщик ресурсов, используйте команду `azure provider register` и укажите *пространство имен*, которое следует зарегистрировать.
+To register a resource provider, use the `azure provider register` command, and specify the *namespace* to register.
 
     azure provider register Microsoft.Cdn
 
-Чтобы просмотреть поддерживаемые расположения и версии API для поставщика ресурсов, используйте следующую команду:
+To see the supported locations and API versions for a resource provider, use:
 
     azure provider show -n Microsoft.Compute --json > compute.json
 
-## Превышена квота
+## <a name="quota-exceeded"></a>Quota exceeded
 
-Кроме того, при развертывании могут возникнуть проблемы при достижении квоты, которая может задаваться для группы ресурсов, подписок, учетных записей и других областей. Например, в подписке может быть настроено ограничение количества ядер для определенного региона. При попытке развертывания виртуальной машины с большим количеством ядер, чем разрешено, вы получите сообщение о том, что квота превышена. Полные сведения о квотах см. в статье [Подписка Azure, границы, квоты и ограничения службы](azure-subscription-service-limits.md).
+You might have issues when deployment exceeds a quota, which could be per resource group, subscriptions, accounts, and other scopes. For example, your subscription may be configured to limit the number of cores for a region. If you attempt to deploy a virtual machine with more cores than the permitted amount, you will receive an error stating the quota has been exceeded.
+For complete quota information, see [Azure subscription and service limits, quotas, and constraints](azure-subscription-service-limits.md).
 
-Проверить квоты ядер в своей подписке можно с помощью команды `azure vm list-usage` в интерфейсе командной строки Azure. В примере ниже показано, что квота ядер для бесплатной пробной учетной записи равна 4:
+To examine your subscription's quotas for cores, you can use the `azure vm list-usage` command in the Azure CLI. The following example illustrates that the core quota for a free trial account is 4:
 
     azure vm list-usage
 
-Возвращаемые данные:
+Which returns:
 
     info:    Executing command vm list-usage
     Location: westus
@@ -185,17 +187,17 @@ Resource Manager оптимизирует развертывание, созда
     data:    Cores  Count  0             4
     info:    vm list-usage command OK
 
-Если попытаться развернуть шаблон, который создает более 4 ядер в регионе "Западная часть США" для указанной выше подписки, произойдет ошибка развертывания, которая может выглядеть следующим образом (на портале или при проверке журналов развертывания):
+If you were to try to deploy a template that creates more than 4 cores into the West US region on the above subscription, you would get a deployment error that might look something like this (either in the portal or by investigating the deployment logs):
 
     statusCode:Conflict
     serviceRequestId:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
     statusMessage:{"error":{"code":"OperationNotAllowed","message":"Operation results in exceeding quota limits of Core. Maximum allowed: 4, Current in use: 4, Additional requested: 2."}}
 
-Можно также использовать командлет PowerShell **Get-AzureRmVMUsage**.
+Or in PowerShell, you can use the **Get-AzureRmVMUsage** cmdlet.
 
     Get-AzureRmVMUsage
 
-Возвращаемые данные:
+Which returns:
 
     ...
     CurrentValue : 0
@@ -207,58 +209,62 @@ Resource Manager оптимизирует развертывание, созда
     Unit         : null
     ...
 
-В таких случаях следует перейти на портал и зарегистрировать проблему в службе поддержки, чтобы поднять свою квоту для региона, в котором требуется осуществить развертывание.
+In these cases, you should go to the portal and file a support issue to raise your quota for the region into which you want to deploy.
 
-> [AZURE.NOTE] Следует помнить, что для групп ресурсов квоты устанавливаются для каждого отдельного региона, а не для всей подписки. Если необходимо развернуть 30 ядер в западной части США, необходимо запросить 30 ядер управления ресурсами в этом регионе. Если необходимо развернуть 30 ядер в любом из регионов, к которым у вас есть доступ, следует запросить 30 ядер управления ресурсами во всех регионах.
+> [AZURE.NOTE] Remember that for resource groups, the quota is for each individual region, not for the entire subscription. If you need to deploy 30 cores in West US, you have to ask for 30 Resource Manager cores in West US. If you need to deploy 30 cores in any of the regions to which you have access, you should ask for 30 resource Manager cores in all regions.
 
 
-## Ошибка авторизации
+## <a name="authorization-failed"></a>Authorization failed
 
-Эта ошибка может возникнуть во время развертывания, если учетная запись или субъект-служба, пытающиеся развернуть ресурсы, не имеют доступа на выполнение этих действий. Azure Active Directory позволяет вам или вашему администратору управлять удостоверениями, которые могут получать доступ к тем или иным ресурсам. Например, если учетной записи назначена роль "Читатель", такая учетная запись не сможет создавать ресурсы. В таком случае появится сообщение об ошибке авторизации.
+You may receive an error during deployment because the account or service principal attempting to deploy the resources does not have access to perform those actions. Azure Active Directory enables you or your administrator to control which identities can access what resources with a great degree of precision. For example, if your account is assigned to the Reader role, it will not be able to create new resources. In that case, you should see an error message indicating that authorization failed.
 
-Дополнительные сведения об управлении доступом на основе ролей см. в [этой статье](./active-directory/role-based-access-control-configure.md).
+For more information about role-based access control, see [Azure Role-Based Access Control](./active-directory/role-based-access-control-configure.md).
 
-Помимо управления доступом на основе ролей, действия по развертыванию можно ограничить, применив к подписке политики. С помощью политик администратор может обеспечить выполнение соглашений на всех ресурсах, развернутых в подписке. Например, администратор может указать, что для того или иного типа ресурса следует указывать определенное значение тега. Если требования политики не будут выполнены, во время развертывания возникнет ошибка. Дополнительные сведения о политиках см. в статье [Применение политик для управления ресурсами и контроля доступа](resource-manager-policy.md).
+In addition to role-based access control, your deployment actions may be limited by policies on the subscription. Through policies, the administrator can enforce conventions on all resources deployed in the subscription. For example, an administrator can require that a particular tag value be provided for a resource type. If you have not fulfilled the policy requirements, you will receive an error during deployment. For more information about policies, see [Use Policy to manage resources and control access](resource-manager-policy.md).
 
-## Устранение неполадок на виртуальных машинах
+## <a name="troubleshooting-virtual-machines"></a>Troubleshooting virtual machines
 
-| Ошибка | Статьи |
+| Error | Articles |
 | -------- | ----------- |
-| Ошибки расширений пользовательских скриптов | [Устранение неполадок расширений для виртуальных машин Windows](./virtual-machines/virtual-machines-windows-extensions-troubleshoot.md)<br /> или <br />[Устранение неполадок расширения виртуальной машины Linux](./virtual-machines/virtual-machines-linux-extensions-troubleshoot.md) |
-| Ошибки при подготовке образа операционной системы | [Устранение неполадок в развертывании Resource Manager при создании виртуальной машины Windows в Azure](./virtual-machines/virtual-machines-windows-troubleshoot-deployment-new-vm.md)<br /> или <br />[Устранение неполадок в развертывании Resource Manager при создании виртуальной машины Linux в Azure](./virtual-machines/virtual-machines-linux-troubleshoot-deployment-new-vm.md) |
-| Ошибки выделения ресурсов | [Устранение ошибок выделения ресурсов при создании, перезагрузке или изменении размера виртуальных машин Windows в Azure](./virtual-machines/virtual-machines-windows-allocation-failure.md)<br /> или <br />[Устранение ошибок выделения ресурсов при создании, перезагрузке или изменении размера виртуальных машин Linux в Azure](./virtual-machines/virtual-machines-linux-allocation-failure.md) |
-| Ошибки Secure Shell (SSH) при попытке подключения | [Устранение неполадок с подключением Secure Shell к виртуальной машине Azure под управлением Linux](./virtual-machines/virtual-machines-linux-troubleshoot-ssh-connection.md) |
-| Ошибки при подключении к приложению, выполняющемуся на виртуальной машине | [Устранение неполадок доступа к приложению, выполняющемуся в виртуальной машине Azure](./virtual-machines/virtual-machines-windows-troubleshoot-app-connection.md)<br /> (Windows) или <br />[Устранение неполадок доступа к приложению, выполняющемуся в виртуальной машине Azure](./virtual-machines/virtual-machines-linux-troubleshoot-app-connection.md) (Linux) |
-| Ошибки при подключении к удаленному рабочему столу | [Устранение неполадок с подключением к удаленному рабочему столу на виртуальной машине Azure под управлением Windows](./virtual-machines/virtual-machines-windows-troubleshoot-rdp-connection.md) |
-| Ошибки подключения, устраняемые путем повторного развертывания | [Повторное развертывание виртуальной машины на новом узле Azure](./virtual-machines/virtual-machines-windows-redeploy-to-new-node.md) |
-| Ошибки облачной службы | [Устранение неполадок, которые могут возникнуть при развертывании облачной службы](./cloud-services/cloud-services-troubleshoot-deployment-problems.md) |
+| Custom script extension errors | [Windows VM extension failures](./virtual-machines/virtual-machines-windows-extensions-troubleshoot.md)<br />or<br />[Linux VM extension failures](./virtual-machines/virtual-machines-linux-extensions-troubleshoot.md) |
+| OS image provisioning errors | [New Windows VM errors](./virtual-machines/virtual-machines-windows-troubleshoot-deployment-new-vm.md)<br />or<br />[New Linux VM errors](./virtual-machines/virtual-machines-linux-troubleshoot-deployment-new-vm.md ) |
+| Allocation failures | [Windows VM allocation failures](./virtual-machines/virtual-machines-windows-allocation-failure.md)<br />or<br />[Linux VM allocation failures](./virtual-machines/virtual-machines-linux-allocation-failure.md) |
+| Secure Shell (SSH) errors when attempting to connect | [Secure Shell connections to Linux VM](./virtual-machines/virtual-machines-linux-troubleshoot-ssh-connection.md) |
+| Errors connecting to application running on VM | [Application running on Windows VM](./virtual-machines/virtual-machines-windows-troubleshoot-app-connection.md)<br />or<br />[Application running on a Linux VM](./virtual-machines/virtual-machines-linux-troubleshoot-app-connection.md) |
+| Remote Desktop connection errors | [Remote Desktop connections to Windows VM](./virtual-machines/virtual-machines-windows-troubleshoot-rdp-connection.md) |
+| Connection errors resolved by re-deploying | [Redeploy Virtual Machine to new Azure node](./virtual-machines/virtual-machines-windows-redeploy-to-new-node.md) |
+| Cloud service errors | [Cloud service deployment problems](./cloud-services/cloud-services-troubleshoot-deployment-problems.md) |
 
-## Устранение неполадок в других службах
+## <a name="troubleshooting-other-services"></a>Troubleshooting other services
 
-Следующая таблица не является полным списком статей по устранению неполадок в Azure. Она посвящена проблемам, связанным с развертыванием или настройкой ресурсов. Если вам нужна помощь в устранении неполадок во время выполнения, см. документацию для соответствующей службы Azure.
+The following table is not a complete list of troubleshooting topics for Azure. Instead, it focuses on issues related to deploying or configuring resources. If you need help troubleshooting run-time issues with a resource, see the documentation for that Azure service.
 
-| служба | Статья |
+| Service | Article |
 | -------- | -------- |
-| Автоматизация | [Советы по устранению неполадок при возникновении типичных ошибок в службе автоматизации Azure](./automation/automation-troubleshooting-automation-errors.md) |
-| Azure Stack | [Microsoft Azure Stack troubleshooting (Устранение неполадок, связанных с Microsoft Azure Stack)](./azure-stack/azure-stack-troubleshooting.md) |
-| Azure Stack | [Web Apps Resource Provider - Known Issues and Troubleshooting (Поставщик ресурсов веб-приложений. Известные проблемы и их решение)](./azure-stack/azure-stack-webapps-troubleshoot-known-issues.md) |
-| Фабрика данных | [Устранение неполадок фабрики данных](./data-factory/data-factory-troubleshoot.md) |
-| Service Fabric | [Устранение распространенных проблем при развертывании служб в Azure Service Fabric](./service-fabric/service-fabric-diagnostics-troubleshoot-common-scenarios.md) |
-| Site Recovery | [Мониторинг и устранение неполадок защиты виртуальных машин и физических серверов](./site-recovery/site-recovery-monitoring-and-troubleshooting.md) |
-| Хранилище | [Наблюдение, диагностика и устранение неисправностей хранилища Microsoft Azure](./storage/storage-monitoring-diagnosing-troubleshooting.md) |
-| StorSimple | [Устранение неполадок в развертывании устройства StorSimple](./storsimple/storsimple-troubleshoot-deployment.md) |
-| База данных SQL | [Устранение неполадок подключения к базе данных SQL Azure](./sql-database/sql-database-troubleshoot-common-connection-issues.md) |
-| Хранилище данных SQL | [Устранение неполадок хранилища данных SQL Azure](./sql-data-warehouse/sql-data-warehouse-troubleshoot.md) |
+| Automation | [Troubleshooting tips for common errors in Azure Automation](./automation/automation-troubleshooting-automation-errors.md) |
+| Azure Stack | [Microsoft Azure Stack troubleshooting](./azure-stack/azure-stack-troubleshooting.md) |
+| Azure Stack | [Web Apps and Azure Stack](./azure-stack/azure-stack-webapps-troubleshoot-known-issues.md ) |
+| Data Factory | [Troubleshoot Data Factory issues](./data-factory/data-factory-troubleshoot.md) |
+| Service Fabric | [Troubleshoot common issues when you deploy services on Azure Service Fabric](./service-fabric/service-fabric-diagnostics-troubleshoot-common-scenarios.md) |
+| Site Recovery | [Monitor and troubleshoot protection for virtual machines and physical servers](./site-recovery/site-recovery-monitoring-and-troubleshooting.md) |
+| Storage | [Monitor, diagnose, and troubleshoot Microsoft Azure Storage](./storage/storage-monitoring-diagnosing-troubleshooting.md) |
+| StorSimple | [Troubleshoot StorSimple device deployment issues](./storsimple/storsimple-troubleshoot-deployment.md) |
+| SQL Database | [Troubleshoot connection issues to Azure SQL Database](./sql-database/sql-database-troubleshoot-common-connection-issues.md) |
+| SQL Data Warehouse | [Troubleshooting Azure SQL Data Warehouse](./sql-data-warehouse/sql-data-warehouse-troubleshoot.md) |
 
-## Как понять, что развертывание готово
+## <a name="understand-when-a-deployment-is-ready"></a>Understand when a deployment is ready
 
-Azure Resource Manager сообщает об успешном выполнении развертывания при успешном возврате всех поставщиков из развертывания. Однако это не обязательно означает, что ваша группа ресурсов "активна и готова для пользователей". Например, для развертывания может потребоваться скачать обновления, дождаться возможности использования других ресурсов, не являющихся шаблонами, или установить сложные скрипты либо другое исполняемое действие, о котором среде Azure не известно, так как оно не отслеживается поставщиком. В таких случаях ресурсы могут быть готовы к практическому использованию только спустя некоторое время. В результате этого следует ожидать, что состояние развертывания меняется на "успешно" за некоторое время до того, прежде чем развертывание можно будет использовать.
+Azure Resource Manager reports success on a deployment when all providers return from deployment successfully. However, that this does not necessarily mean that your resource group is "active and ready for your users". For example, a deployment may need to download upgrades, wait on non-template resources, or install complex scripts or some other executable activity that Azure does not know about because it is not an activity that a provider is tracking. In these cases, it can be some time before your resources are ready for real-world use. As a result, you should expect that the deployment status succeeds some time before your deployment can be used.
 
-Тем не менее вы можете сделать так, чтобы Azure не сообщал об успешном развертывании, создав настраиваемый сценарий для пользовательского шаблона (например, с помощью [CustomScriptExtension](https://azure.microsoft.com/blog/2014/08/20/automate-linux-vm-customization-tasks-using-customscript-extension/)), который умеет отслеживать все развертывание на предмет готовности в рамках всей системы и возвращает успешный результат только в том случае, если пользователи могут работать со всем развертыванием. Если вы хотите сделать так, чтобы ваше расширение выполнялось последним, используйте свойство **dependsOn** в шаблоне.
+You can prevent Azure from reporting deployment success, however, by creating a custom script for your custom template -- using the [CustomScriptExtension](https://azure.microsoft.com/blog/2014/08/20/automate-linux-vm-customization-tasks-using-customscript-extension/) for example -- that knows how to monitor the entire deployment for system-wide readiness and returns successfully only when users can interact with the entire deployment. If you want to ensure that your extension is the last to run, use the **dependsOn** property in your template.
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Next steps
 
-- Сведения о действиях аудита см. в статье [Операции аудита с помощью Resource Manager](resource-group-audit.md).
-- Дополнительные сведения об определении ошибок во время развертывания см. в статье [Просмотр операций развертывания с помощью портала Azure](resource-manager-troubleshoot-deployments-portal.md).
+- To learn about auditing actions, see [Audit operations with Resource Manager](resource-group-audit.md).
+- To learn about actions to determine the errors during deployment, see [View deployment operations](resource-manager-troubleshoot-deployments-portal.md).
 
-<!---HONumber=AcomDC_0720_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

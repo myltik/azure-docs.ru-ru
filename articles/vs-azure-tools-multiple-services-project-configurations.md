@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Настройка проекта Azure с помощью нескольких конфигураций службы | Microsoft Azure"
-   description="Узнайте, как настроить проект облачной службы Azure, изменяя файлы ServiceDefinition.csdef и ServiceConfiguration.cscfg."
+   pageTitle="Configuring your Azure project using multiple service configurations | Microsoft Azure"
+   description="Learn how to configure an Azure cloud service project by changing the ServiceDefinition.csdef and ServiceConfiguration.cscfg files."
    services="visual-studio-online"
    documentationCenter="na"
    authors="TomArcher"
@@ -15,99 +15,104 @@
    ms.date="08/15/2016"
    ms.author="tarcher" />
 
-# Настройка проекта Azure с помощью нескольких конфигураций службы
 
-Проект облачной службы Azure включает два файла конфигурации: ServiceDefinition.csdef и ServiceConfiguration.cscfg. Эти файлы упаковываются вместе с приложением облачной службы Azure и развертываются в Azure.
+# <a name="configuring-your-azure-project-using-multiple-service-configurations"></a>Configuring Your Azure Project Using Multiple Service Configurations
 
-- Файл **ServiceDefinition.csdef** содержит метаданные и роли, которые требуются для среды Azure и используются в приложении облачной службы. Этот файл также содержит параметры конфигурации, которые применяются ко всем экземплярам. Эти параметры конфигурации могут считываться в среде выполнения с помощью API среды выполнения размещения службы Azure. Этот файл нельзя обновить, пока служба работает в Azure.
+An Azure cloud service project includes two configuration files: ServiceDefinition.csdef and ServiceConfiguration.cscfg. These files are packaged with your Azure cloud service application and deployed to Azure.
 
-- Файл **ServiceConfiguration.cscfg** задает значения для параметров конфигурации, указанных в файле определения службы, а также количество экземпляров для запуска для каждой роли. Этот файл нельзя обновить, пока облачная служба работает в Azure.
+- The **ServiceDefinition.csdef** file contains the metadata that is required by the Azure environment for the requirements of your cloud service application, including what roles it contains. This file also contains configuration settings that apply to all instances. These configuration settings can be read at runtime using the Azure Service Hosting Runtime API. This file cannot be updated while your service is running in Azure.
 
-Инструменты Azure для Microsoft Visual Studio включают страницы свойств, на которых можно задавать параметры конфигурации, хранимые в этих файлах. Чтобы открыть страницы свойств, дважды щелкните ссылку на роль под проектом облачной службы Azure в обозревателе решений или щелкните ссылку на роль правой кнопкой мыши и выберите **Свойства**, как показано на следующем рисунке.
+- The **ServiceConfiguration.cscfg** file sets values for the configuration settings defined in the service definition file and specifies the number of instances to run for each role. This file can be updated while your cloud service is running in Azure.
 
-![VS\_Solution\_Explorer\_Roles\_Properties](./media/vs-azure-tools-multiple-services-project-configurations/IC784076.png)
+The Azure Tools for Microsoft Visual Studio provide property pages that you can use to set configuration settings stored in these files. To access the property pages, double-click the role reference underneath the Azure cloud service project in Solution Explorer, or right-click the role reference and choose **Properties**, as shown in the following figure.
 
-Сведения о базовых схемах для файлов определения службы и конфигурации службы см. в статье [Справка по схемам](https://msdn.microsoft.com/library/azure/dd179398.aspx). Дополнительные сведения о конфигурации службы см. в статье [Настройка облачных служб](./cloud-services/cloud-services-how-to-configure.md).
+![VS_Solution_Explorer_Roles_Properties](./media/vs-azure-tools-multiple-services-project-configurations/IC784076.png)
 
-## Настройка свойств роли
+For information about the underlying schemas for the service definition and service configuration files, see the [Schema Reference](https://msdn.microsoft.com/library/azure/dd179398.aspx). For more information about service configuration, see [How to Configure Cloud Services](./cloud-services/cloud-services-how-to-configure.md).
 
-Страницы свойств веб-роли и рабочей роли похожи, хотя между ними существует несколько отличий, которые описаны в следующих разделах.
+## <a name="configuring-role-properties"></a>Configuring role properties
 
-На странице **Кэширование** можно настроить службы кэша Azure.
+The property pages for a web role and a worker role are similar, although there are a few differences, pointed out in the following sections.
 
-### Страница «Конфигурация»
+From the **Caching** page, you can configure the Azure caching services.
 
-На странице **Конфигурация** можно задать следующие свойства.
+### <a name="configuration-page"></a>Configuration page
 
-**Экземпляры**
+On the **Configuration** page, you can set these properties:
 
-Укажите для свойства **Число экземпляров** количество экземпляров, которые служба должна запустить для этой роли.
+**Instances**
 
-Укажите для свойства **Размер виртуальной машины** значение **Очень мелкий**, **Мелкий**, **Средний**, **Большой** или **Очень крупный**. Дополнительные сведения см. в статье [Размеры для облачных служб](./cloud-services/cloud-services-sizes-specs.md).
+Set the **Instance** count property to the number of instances the service should run for this role.
 
-**Действие при запуске** (только веб-роли)
+Set the **VM size** property to **Extra Small**, **Small**, **Medium**, **Large**, or **Extra Large**.  For more information, see [Sizes for Cloud Services](./cloud-services/cloud-services-sizes-specs.md).
 
-Задайте это свойство, чтобы указать, что при запуске отладки программа Visual Studio должна запускать веб-браузер для конечных точек HTTP, HTTPS или конечных точек обоих типов.
+**Startup Action** (Web Role Only)
 
-Параметр конечной точки HTTPS доступен, только если конечная точка HTTPS уже определена для вашей роли. Вы можете определить конечную точку HTTPS на странице свойств **Конечные точки**.
+Set this property to specify that Visual Studio should launch a web browser for either the HTTP endpoints or the HTTPS endpoints, or both when you start debugging.
 
-Если вы уже добавили конечную точку HTTPS, параметр конечной точки HTTPS включен по умолчанию. Теперь после того, как вы начнете отладку, Visual Studio запустит браузер для этой конечной точки, как и браузер для конечной точки HTTP. При этом предполагается, что включены оба параметра запуска.
+The HTTPS endpoint option is available only if you have already defined an HTTPS endpoint for your role. You can define an HTTPS endpoint on the **Endpoints** property page.
 
-**Диагностика**
+If you have already added an HTTPS endpoint, the HTTPS endpoint option is enabled by default, and Visual Studio will launch a browser for this endpoint when you start debugging, in addition to a browser for your HTTP endpoint. This assumes that both startup options are enabled.
 
-По умолчанию для веб-роли включена диагностика. Облачная служба проекта Azure и учетная запись хранения настраиваются для использования локального эмулятора хранения. Когда все будет готово для развертывания в Azure, нажмите кнопку построителя (**...**), чтобы обновить учетную запись хранения для использования хранилища Azure в облаке. Данные диагностики можно перенести в учетную запись хранения по требованию или по автоматически заданному расписанию. Дополнительные сведения о диагностике Azure см. в статье [Включение диагностики в облачных службах и виртуальных машинах Azure](./cloud-services/cloud-services-dotnet-diagnostics.md).
+**Diagnostics**
 
-## Страница «Параметры»
+By default, diagnostics is enabled for the Web role. The Azure cloud service project and storage account are set to use the local storage emulator. When you are ready to deploy to Azure, you can select the builder button (**…**) to update the storage account to use Azure storage in the cloud. You can transfer the diagnostics data to the storage account on demand or at automatically scheduled intervals. For more information about Azure diagnostics, see [Enabling Diagnostics in Azure Cloud Services and Virtual Machines](./cloud-services/cloud-services-dotnet-diagnostics.md).
 
-На странице **Параметры** можно добавить параметры конфигурации для службы. Параметры конфигурации — это пары «имя —значение». Код, выполняемый в роли, может считывать значения параметров конфигурации в среде выполнения с помощью классов из [управляемой библиотеки Azure](http://go.microsoft.com/fwlink?LinkID=171026). В частности, метод [GetConfigurationSettingValue](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.getconfigurationsettingvalue.aspx) возвращает значение именованного параметра конфигурации в среде выполнения.
+## <a name="settings-page"></a>Settings page
 
-### Настройка строки подключения к учетной записи хранения
+On the **Settings** page, you can add configuration settings for your service. Configuration settings are name-value pairs. Code running in the role can read the values of your configuration settings at runtime using classes provided by the [Azure Managed Library](http://go.microsoft.com/fwlink?LinkID=171026). Specifically, the [GetConfigurationSettingValue](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.getconfigurationsettingvalue.aspx) method returns the value of a named configuration setting at runtime.
 
-Строка подключения — параметр конфигурации, который предоставляет сведения о подключении и проверке подлинности для эмулятора хранения или учетной записи хранения Azure. Чтобы ваш код мог получать доступ к данным служб хранилища Azure (т. е. BLOB-объектам, очередям или данным таблицы) из кода, выполняемого в роли, вам необходимо определить строку подключения к этой учетной записи хранения.
+### <a name="configuring-a-connection-string-to-a-storage-account"></a>Configuring a connection string to a storage account
 
-Строка подключения, которая указывает на учетную запись хранения Azure, должна быть представлена в определенном формате. Сведения о создании строк подключения см. в статье [Настройка строк подключения службы хранилища Azure](./storage/storage-configure-connection-string.md).
+A connection string is a configuration setting that provides connection and authentication information for the storage emulator or for an Azure storage account. Whenever your code must access Azure storage services data – that is, blob, queue, or table data – from code running in a role, you will have to define a connection string for that storage account.
 
-Когда вы будете готовы протестировать работу службы со службами хранилища Azure или развернуть облачную службу в Azure, вы можете изменить значение любой строки подключения таким образом, чтобы она указывала на учетную запись хранения Azure. Нажмите кнопку (**…**), затем выберите **Ввод учетных данных хранилища**. Введите данные учетной записи, в том числе имя и ключ учетной записи. В диалоговом окне **Строка подключения к учетной записи хранилища** вы можете указать, следует ли использовать стандартные конечные точки HTTPS (параметр по умолчанию), стандартные конечные точки HTTP или пользовательские конечные точки. Вы можете использовать пользовательские конечные точки, если вы зарегистрировали личное доменное имя для службы, как описано в статье [Настройка имени домена для BLOB-данных в учетной записи хранения Azure](./storage/storage-custom-domain-name.md).
+A connection string that points to an Azure storage account must use a defined format. For information about how to create connection strings, see [Configure Azure Storage Connection Strings](./storage/storage-configure-connection-string.md).
 
->[AZURE.IMPORTANT] Прежде чем развертывать службу, необходимо изменить строки подключения, которые должны указывать на учетную запись хранения Azure. Если этого не сделать, ваша роль может не запуститься или зациклиться на состояниях инициализации, занятости и остановки.
+When you are ready to test your service against the Azure storage services, or when you are ready to deploy your cloud service to Azure, you can change the value of any connection strings to point to your Azure storage account. Select (**…**), select **Enter storage account credentials**. Enter your account information that includes your account name and account key. In the **Storage Account Connection String** dialog box, you can also indicate whether you want to use the default HTTPS endpoints (the default option), the default HTTP endpoints, or custom endpoints. You might decide to use custom endpoints if you have registered a custom domain name for your service, as described in [Configure a custom domain name for blob data in an Azure storage account](./storage/storage-custom-domain-name.md).
 
-## Страница «Конечные точки»
+>[AZURE.IMPORTANT] You must modify your connection strings to point to an Azure storage account before you deploy your service. Failing to do this may cause your role not to start, or to cycle through the initializing, busy, and stopping states.
 
-Рабочая роль может иметь любое количество конечных точек HTTP, HTTPS или TCP. Конечные точки могут быть входными конечными точками, доступными для внешних клиентов, или внутренними конечными точками, доступными для других ролей, которые выполняются в службе.
+## <a name="endpoints-page"></a>Endpoints page
 
-- Чтобы предоставить доступ к конечной точке HTTP внешним клиентам и веб-браузерам, измените тип конечной точки на «входная» и укажите имя и номер общего порта.
+A worker role can have any number of HTTP, HTTPS, or TCP endpoints. Endpoints can be input endpoints, which are available to external clients, or internal endpoints, which are available to other roles that are running in the service.
 
-- Чтобы предоставить доступ к конечной точке HTTPS внешним клиентам и веб-браузерам, измените тип конечной точки на **входная** и укажите имя, номер общего порта, а также имя сертификата управления.
+- To make an HTTP endpoint available to external clients and Web browsers, change the endpoint type to input, and specify a name and a public port number.
 
-    Обратите внимание: прежде чем указывать сертификат управления, необходимо определить сертификат на странице свойств **Сертификаты**.
+- To make an HTTPS endpoint available to external clients and Web browsers, change the endpoint type to **input**, and specify a name, a public port number, and a management certificate name.
 
-- Чтобы предоставить другим ролям в облачной службе внутренний доступ к конечной точке, измените тип конечной точки на «внутренняя» и укажите имя и возможные частные порты для этой конечной точки.
+    Note that before you can specify a management certificate, you must define the certificate on the **Certificates** property page.
 
-## Страница «Локальное хранилище»
+- To make an endpoint available for internal access by other roles in the cloud service, change the endpoint type to internal, and specify a name and possible private ports for this endpoint.
 
-На странице свойств **Локальное хранилище** вы можете зарезервировать для роли один или несколько локальных ресурсов хранилища. Локальный ресурс хранилища — это зарезервированный каталог в файловой системе виртуальной машины Azure, на которой выполняется экземпляр роли.
+## <a name="local-storage-page"></a>Local storage page
 
-## Страница «Сертификаты»
+You can use the **Local Storage** property page to reserve one or more local storage resources for a role. A local storage resource is a reserved directory in the file system of the Azure virtual machine in which an instance of a role is running.
 
-На странице **Сертификаты** можно связать сертификаты с ролью. Сертификаты, которые вы добавите, можно использовать для настройки конечных точек HTTPS на странице свойств **Конечные точки**.
+## <a name="certificates-page"></a>Certificates page
 
-Страница свойств **Сертификаты** добавляет сведения о сертификатах в конфигурацию службы. Обратите внимание, что сертификаты не добавляются в пакет вместе со службой. Их необходимо отдельно передавать в Azure с помощью [классического портала Azure](http://go.microsoft.com/fwlink/?LinkID=213885).
+On the **Certificates** page, you can associate certificates with your role. The certificates that you add can be used to configure your HTTPS endpoints on the **Endpoints** property page.
 
-Чтобы связать сертификат с ролью, укажите имя сертификата. Это имя используется для ссылки на сертификат при настройке конечной точки HTTPS на странице свойств **Конечные точки**. Затем выберите тип хранилища сертификатов (**Хранилище на локальном компьютере** или **Хранилище текущего пользователя**) и укажите имя хранилища. Наконец, введите отпечаток сертификата. Если сертификат находится в хранилище текущего пользователя или в личном хранилище, вы можете ввести отпечаток сертификата, выбрав сертификат из заполненного списка. Если он находится в другом месте, введите значение отпечатка вручную.
+The **Certificates** property page adds information about your certificates to your service configuration. Note that your certificates are not packaged with your service; you must upload your certificates separately to Azure through the [Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=213885).
 
-Когда вы добавляете сертификат из хранилища сертификатов, любые промежуточные сертификаты автоматически добавляются в параметры конфигурации. Эти промежуточные сертификаты также следует передать в Azure, чтобы правильно настроить службу для использования протокола SSL.
+To associate a certificate with your role, provide a name for the certificate. You use this name to refer to the certificate when you configure an HTTPS endpoint on the **Endpoints** property page. Next, specify whether the certificate store is **Local Machine** or **Current User** and the name of the store. Finally, enter the certificate's thumbprint. If the certificate is in the Current User\Personal (My) store, you can enter the certificate's thumbprint by selecting the certificate from a populated list. If it resides in any other location, enter the thumbprint value by hand.
 
-Все сертификаты управления, связанные со службой, применяются к службе только в том случае, если она работает в облаке. Если служба работает в локальной среде разработки, используется стандартный сертификат, управляемый с помощью эмулятора вычислений.
+When you add a certificate from the certificate store, any intermediate certificates are automatically added to the configuration settings for you. These intermediate certificates must also be uploaded to Azure in order to correctly configure your service for SSL.
 
-## Настройка проекта облачной службы Azure
+Any management certificates that you associate with your service apply to your service only when it is running in the cloud. When your service is running in the local development environment, it uses a standard certificate that is managed by the compute emulator.
 
-Чтобы настроить параметры, которые будут применяться ко всему проекту облачной службы Azure, сначала откройте контекстное меню для узла проекта и выберите «Свойства», чтобы открыть страницы его свойств. В следующей таблице показаны эти страницы свойств.
+## <a name="configuring-the-azure-cloud-service-project"></a>Configuring the Azure cloud service project
 
-|Страница свойств|Описание|
+To configure settings that apply to an entire Azure cloud service project, you first open the shortcut menu for that project node, and then you choose Properties to open its property pages. The following table shows those property pages.
+
+|Property Page|Description|
 |---|---|
-|Приложение|На этой странице можно отобразить сведения о версии инструментов Azure, которые использует проект облачной службы, и обновить ее до текущей версии.|
-|События построения|На этой странице можно задать события перед сборкой и после сборки.|
-|Разработка|На этой странице можно указать инструкции конфигурации сборки и условия, при которых будут выполняться любые события после сборки.|
-|Web|На этой странице можно настроить параметры, связанные с веб-сервером.|
+|Application|From this page, you can display information about the version of Azure Tools that this cloud service project uses, and you can upgrade to the current version of the tools.|
+|Build Events|From this page, you can set pre-build and post-build events.|
+|Development|From this page, you can specify build configuration instructions and the conditions under which any post-build events are run.|
+|Web|From this page, you can configure settings that relate to the web server.|
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Начало работы с хранилищем озера данных с помощью кроссплатформенного интерфейса командной строки | Microsoft Azure"
-   description="Использование кроссплатформенного интерфейса командной строки Azure для создания учетной записи хранилища озера данных и выполнения базовых операций."
+   pageTitle="Get started with Data Lake Store using cross-platform command line interface | Microsoft Azure"
+   description="Use Azure cross-platform command line to create a Data Lake Store account and perform basic operations"
    services="data-lake-store"
    documentationCenter=""
    authors="nitinme"
@@ -16,180 +16,185 @@
    ms.date="09/27/2016"
    ms.author="nitinme"/>
 
-# Приступая к работе с хранилищем озера данных Azure с помощью командной строки Azure
+
+# <a name="get-started-with-azure-data-lake-store-using-azure-command-line"></a>Get started with Azure Data Lake Store using Azure Command Line
 
 > [AZURE.SELECTOR]
-- [Портал](data-lake-store-get-started-portal.md)
+- [Portal](data-lake-store-get-started-portal.md)
 - [PowerShell](data-lake-store-get-started-powershell.md)
-- [Пакет SDK для .NET](data-lake-store-get-started-net-sdk.md)
-- [Пакет SDK для Java](data-lake-store-get-started-java-sdk.md)
-- [ИНТЕРФЕЙС REST API](data-lake-store-get-started-rest-api.md)
-- [Интерфейс командной строки Azure](data-lake-store-get-started-cli.md)
+- [.NET SDK](data-lake-store-get-started-net-sdk.md)
+- [Java SDK](data-lake-store-get-started-java-sdk.md)
+- [REST API](data-lake-store-get-started-rest-api.md)
+- [Azure CLI](data-lake-store-get-started-cli.md)
 - [Node.js](data-lake-store-manage-use-nodejs.md)
 
-Узнайте, как с помощью интерфейса командной строки Azure создать учетную запись хранилища озера данных Azure и выполнять базовые операции, такие как создание папок, передача и скачивание файлов данных, удаление учетной записи и т. д. Дополнительные сведения о хранилище озера данных см. в статье [Обзор хранилища озера данных](data-lake-store-overview.md).
+Learn how to use Azure command line interface to create an Azure Data Lake Store account and perform basic operations such as create folders, upload and download data files, delete your account, etc. For more information about Data Lake Store, see [Overview of Data Lake Store](data-lake-store-overview.md).
 
-Интерфейс командной строки (CLI) Azure реализован в Node.js. Его можно использовать на любой платформе, которая поддерживает Node.js, включая Windows, Mac и Linux. Azure CLI имеет открытый исходный код. Исходный код управляется с помощью GitHub по адресу <a href= "https://github.com/azure/azure-xplat-cli">https://github.com/azure/azure-xplat-cli</a>. В этой статье описывается только использование Azure CLI с хранилищем озера данных. Общее руководство по использованию CLI Azure см. в статье [Использование CLI Azure][azure-command-line-tools].
+The Azure CLI is implemented in Node.js. It can be used on any platform that supports Node.js, including Windows, Mac, and Linux. The Azure CLI is open source. The source code is managed in GitHub at <a href= "https://github.com/azure/azure-xplat-cli">https://github.com/azure/azure-xplat-cli</a>. This article covers only using the Azure CLI with Data Lake Store. For a general guide on how to use Azure CLI, see [How to use the Azure CLI] [azure-command-line-tools].
 
 
-##Предварительные требования
+##<a name="prerequisites"></a>Prerequisites
 
-Перед началом работы с этой статьей необходимо иметь следующее:
+Before you begin this article, you must have the following:
 
-- **Подписка Azure.**. См. [Бесплатная пробная версия Azure](https://azure.microsoft.com/pricing/free-trial/).
+- **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 
-- **CLI Azure** — Сведения об установке и настройке CLI Azure см. в разделе [Установка и настройка CLI Azure](../xplat-cli-install.md) . Обязательно перезагрузите компьютер после установки интерфейса командной строки.
+- **Azure CLI** - See [Install and configure the Azure CLI](../xplat-cli-install.md) for installation and configuration information. Make sure you reboot your computer after you install the CLI.
 
-## Аутентификация
+## <a name="authentication"></a>Authentication
 
-В этой статье используется более простой подход к проверке подлинности в службе Data Lake Store, в которую выполняется вход от имени пользователя. Уровень доступа к учетной записи Data Lake Store и файловой системе зависит от уровня доступа пользователя, который вошел в систему. Существуют разные способы проверки подлинности в Data Lake Store, в частности **проверка подлинности пользователя** и **проверка подлинности с взаимодействием между службами**. Инструкции и дополнительные сведения о проверке подлинности см. в статье [Authenticate with Data Lake Store using Azure Active Directory](data-lake-store-authenticate-using-active-directory.md) (Проверка подлинности приложений Data Lake Store с помощью Azure Active Directory).
+This article uses a simpler authentication approach with Data Lake Store where you log in as an end-user user. The access level to Data Lake Store account and file system is then governed by the access level of the logged in user. However, there are other approaches as well to authenticate with Data Lake Store, which are **end-user authentication** or **service-to-service authentication**. For instructions and more information on how to authenticate, see [Authenticate with Data Lake Store using Azure Active Directory](data-lake-store-authenticate-using-active-directory.md).
 
-##Вход в подписку Azure
+##<a name="login-to-your-azure-subscription"></a>Login to your Azure subscription
 
-1. Выполните действия, описанные в статье [Подключение к среде Azure с использованием интерфейса командной строки Azure (Azure CLI)](../xplat-cli-connect.md), и подключитесь к подписке с помощью метода `azure login`.
+1. Follow the steps documented in [Connect to an Azure subscription from the Azure Command-Line Interface (Azure CLI)](../xplat-cli-connect.md) and connect to your subscription using the `azure login` method.
 
-2. Перечислите подписки, связанные с учетной записью, используя команду `azure account list`.
+2. List the subscriptions that are associated with your account using the `azure account list` command.
 
-		info:    Executing command account list
-		data:    Name              Id                                    Current
-		data:    ----------------  ------------------------------------  -------
-		data:    Azure-sub-1       ####################################  true
-		data:    Azure-sub-2       ####################################  false
+        info:    Executing command account list
+        data:    Name              Id                                    Current
+        data:    ----------------  ------------------------------------  -------
+        data:    Azure-sub-1       ####################################  true
+        data:    Azure-sub-2       ####################################  false
 
-	В выходных данных выше видно, что доступны подписка **Azure-sub-1**, которая сейчас включена, и подписка **Azure-sub-2**.
+    From the output above, **Azure-sub-1** is currently enabled, and the other subscription is **Azure-sub-2**. 
 
-3. Выберите подписку, которую вы хотите использовать. Если вы хотите использовать подписку Azure-sub-2, выполните команду `azure account set`.
+3. Select the subscription you want to work under. If you want to work under the Azure-sub-2 subscription, use the `azure account set` command.
 
-		azure account set Azure-sub-2
+        azure account set Azure-sub-2
 
 
-## Создание учетной записи хранения озера данных Azure
+## <a name="create-an-azure-data-lake-store-account"></a>Create an Azure Data Lake Store account
 
-Откройте командную строку, оболочку или сеанс терминала и выполните следующие команды.
+Open a command prompt, shell, or a terminal session and run the following commands.
 
-2. Переключитесь в режим диспетчера ресурсов Azure с помощью следующей команды:
+2. Switch to Azure Resource Manager mode using the following command:
 
-		azure config mode arm
+        azure config mode arm
 
 
-5. Создайте новую группу ресурсов. В следующей команде укажите значения параметров, которые требуется использовать.
+5. Create a new resource group. In the following command, provide the parameter values you want to use.
 
-		azure group create <resourceGroup> <location>
+        azure group create <resourceGroup> <location>
 
-	Если имя расположения содержит пробелы, заключите его в кавычки. Например, "East US 2".
+    If the location name contains spaces, put it in quotes. For example "East US 2".
 
-5. Создайте учетную запись хранилища озера данных.
+5. Create the Data Lake Store account.
 
-		azure datalake store account create <dataLakeStoreAccountName> <location> <resourceGroup>
+        azure datalake store account create <dataLakeStoreAccountName> <location> <resourceGroup>
 
-## Создание папок в хранилище озера данных
+## <a name="create-folders-in-your-data-lake-store"></a>Create folders in your Data Lake Store
 
-Чтобы хранить данные и управлять ими, вы можете создать папки в своей учетной записи хранилища озера данных Azure. Используйте следующую команду, чтобы создать папку с именем "mynewfolder" в корневом каталоге хранилища озера данных.
+You can create folders under your Azure Data Lake Store account to manage and store data. Use the following command to create a folder called "mynewfolder" at the root of the Data Lake Store.
 
-	azure datalake store filesystem create <dataLakeStoreAccountName> <path> --folder
+    azure datalake store filesystem create <dataLakeStoreAccountName> <path> --folder
 
-Например:
+For example:
 
-	azure datalake store filesystem create mynewdatalakestore /mynewfolder --folder
+    azure datalake store filesystem create mynewdatalakestore /mynewfolder --folder
 
-## Передача данных в хранилище озера данных
+## <a name="upload-data-to-your-data-lake-store"></a>Upload data to your Data Lake Store
 
-Данные можно передавать в хранилище озера данных Azure непосредственно на корневой уровень или в папку, созданную в учетной записи. Фрагменты кода ниже показывают, как передать некоторые примеры данных в папку (**mynewfolder**), которая была создана в предыдущем шаге.
+You can upload your data to Data Lake Store directly at the root level or to a folder that you created within the account. The snippets below demonstrate how to upload some sample data to the folder (**mynewfolder**) you created in the previous section.
 
-Если у вас нет под рукой подходящих для этих целей данных, скачайте папку **Ambulance Data** из [репозитория Git для озера данных Azure](https://github.com/MicrosoftBigData/usql/tree/master/Examples/Samples/Data/AmbulanceData). Загрузите файл и сохраните его в локальном каталоге на компьютере, например C:\\sampledata.
+If you are looking for some sample data to upload, you can get the **Ambulance Data** folder from the [Azure Data Lake Git Repository](https://github.com/MicrosoftBigData/usql/tree/master/Examples/Samples/Data/AmbulanceData). Download the file and store it in a local directory on your computer, such as  C:\sampledata\.
 
-	azure datalake store filesystem import <dataLakeStoreAccountName> "<source path>" "<destination path>"
+    azure datalake store filesystem import <dataLakeStoreAccountName> "<source path>" "<destination path>"
 
-Например:
+For example:
 
-	azure datalake store filesystem import mynewdatalakestore "C:\SampleData\AmbulanceData\vehicle1_09142014.csv" "/mynewfolder/vehicle1_09142014.csv"
+    azure datalake store filesystem import mynewdatalakestore "C:\SampleData\AmbulanceData\vehicle1_09142014.csv" "/mynewfolder/vehicle1_09142014.csv"
 
 
-## Вывод списка файлов в хранилище озера данных
+## <a name="list-files-in-data-lake-store"></a>List files in Data Lake Store
 
-Чтобы вывести список файлов в учетной записи хранилища озера данных, используйте следующую команду.
+Use the following command to list the files in a Data Lake Store account.
 
-	azure datalake store filesystem list <dataLakeStoreAccountName> <path>
+    azure datalake store filesystem list <dataLakeStoreAccountName> <path>
 
-Например:
+For example:
 
-	azure datalake store filesystem list mynewdatalakestore /mynewfolder
+    azure datalake store filesystem list mynewdatalakestore /mynewfolder
 
-Результат этой команды должен выглядеть примерно так:
+The output of this should be similar to the following:
 
-	info:    Executing command datalake store filesystem list
-	data:    accessTime: 1446245025257
-	data:    blockSize: 268435456
-	data:    group: NotSupportYet
-	data:    length: 1589881
-	data:    modificationTime: 1446245105763
-	data:    owner: NotSupportYet
-	data:    pathSuffix: vehicle1_09142014.csv
-	data:    permission: 777
-	data:    replication: 0
-	data:    type: FILE
-	data:    ------------------------------------------------------------------------------------
-	info:    datalake store filesystem list command OK
+    info:    Executing command datalake store filesystem list
+    data:    accessTime: 1446245025257
+    data:    blockSize: 268435456
+    data:    group: NotSupportYet
+    data:    length: 1589881
+    data:    modificationTime: 1446245105763
+    data:    owner: NotSupportYet
+    data:    pathSuffix: vehicle1_09142014.csv
+    data:    permission: 777
+    data:    replication: 0
+    data:    type: FILE
+    data:    ------------------------------------------------------------------------------------
+    info:    datalake store filesystem list command OK
 
-## Переименование, загрузка и удаление данных из хранилища озера данных
+## <a name="rename,-download,-and-delete-data-from-your-data-lake-store"></a>Rename, download, and delete data from your Data Lake Store
 
-* **Чтобы переименовать файл**, используйте следующую команду:
+* **To rename a file**, use the following command:
 
-    	azure datalake store filesystem move <dataLakeStoreAccountName> <path/old_file_name> <path/new_file_name>
+        azure datalake store filesystem move <dataLakeStoreAccountName> <path/old_file_name> <path/new_file_name>
 
-	Например:
+    For example:
 
-		azure datalake store filesystem move mynewdatalakestore /mynewfolder/vehicle1_09142014.csv /mynewfolder/vehicle1_09142014_copy.csv
+        azure datalake store filesystem move mynewdatalakestore /mynewfolder/vehicle1_09142014.csv /mynewfolder/vehicle1_09142014_copy.csv
 
-* **Чтобы скачать файл**, используйте следующую команду: Убедитесь, что указанный конечный путь уже существует.
+* **To download a file**, use the following command. Make sure the destination path you specify already exists.
 
-		azure datalake store filesystem export <dataLakeStoreAccountName> <source_path> <destination_path>
+        azure datalake store filesystem export <dataLakeStoreAccountName> <source_path> <destination_path>
 
-	Например:
+    For example:
 
-		azure datalake store filesystem export mynewdatalakestore /mynewfolder/vehicle1_09142014_copy.csv "C:\mysampledata\vehicle1_09142014_copy.csv"
+        azure datalake store filesystem export mynewdatalakestore /mynewfolder/vehicle1_09142014_copy.csv "C:\mysampledata\vehicle1_09142014_copy.csv"
 
-* **Чтобы удалить файл**, используйте следующую команду:
+* **To delete a file**, use the following command:
 
-		azure datalake store filesystem delete <dataLakeStoreAccountName> <path>
+        azure datalake store filesystem delete <dataLakeStoreAccountName> <path>
 
-	Например:
+    For example:
 
-		azure datalake store filesystem delete mynewdatalakestore /mynewfolder/vehicle1_09142014_copy.csv
+        azure datalake store filesystem delete mynewdatalakestore /mynewfolder/vehicle1_09142014_copy.csv
 
-	При появлении запроса введите **Y**, чтобы удалить элемент.
+    When prompted, enter **Y** to delete the item.
 
-## Просмотр списка управления доступом для папки в хранилище озера данных
+## <a name="view-the-access-control-list-for-a-folder-in-data-lake-store"></a>View the access control list for a folder in Data Lake Store
 
-Используйте следующую команду для просмотра списков ACL для папки хранилища озера данных. В текущем выпуске списки ACL можно задать только в корневом каталоге хранилища озера данных. Таким образом, приведенный ниже параметр пути всегда будет указывать на корень (/).
+Use the following command to view the ACLs on a Data Lake Store folder. In the current release, ACLs can be set only on the root of the Data Lake Store. So, the path parameter below will always be root (/).
 
-	azure datalake store permissions show <dataLakeStoreName> <path>
+    azure datalake store permissions show <dataLakeStoreName> <path>
 
-Например:
+For example:
 
-	azure datalake store permissions show mynewdatalakestore /
+    azure datalake store permissions show mynewdatalakestore /
 
 
-## Удаление учетной записи хранилища озера данных
+## <a name="delete-your-data-lake-store-account"></a>Delete your Data Lake Store account
 
-Чтобы удалить учетную запись хранилища озера данных, используйте следующую команду.
+Use the following command to delete a Data Lake Store account.
 
-	azure datalake store account delete <dataLakeStoreAccountName>
+    azure datalake store account delete <dataLakeStoreAccountName>
 
-Например:
+For example:
 
-	azure datalake store account delete mynewdatalakestore
+    azure datalake store account delete mynewdatalakestore
 
-При появлении запроса введите **Y**, чтобы удалить учетную запись.
+When prompted, enter **Y** to delete the account.
 
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Next steps
 
-- [Защита данных в хранилище озера данных](data-lake-store-secure-data.md)
-- [Использование аналитики озера данных Azure с хранилищем озера данных](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
-- [Использование Azure HDInsight с хранилищем озера данных](data-lake-store-hdinsight-hadoop-use-portal.md)
+- [Secure data in Data Lake Store](data-lake-store-secure-data.md)
+- [Use Azure Data Lake Analytics with Data Lake Store](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
+- [Use Azure HDInsight with Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)
 
 
 [azure-command-line-tools]: ../xplat-cli-install.md
 
-<!---HONumber=AcomDC_1005_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

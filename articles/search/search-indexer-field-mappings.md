@@ -1,6 +1,6 @@
 <properties
-pageTitle="Сопоставления полей индексатора в поиске Azure устраняют расхождения между источниками данных и индексами поиска"
-description="Настройка сопоставлений полей индексатора в поиске Azure для выявления различий в названиях полей и представлениях данных"
+pageTitle="Azure Search indexer field mappings bridge the differences between data sources and search indexes"
+description="Configure Azure Search indexer field mappings to account for differences in field names and data representations"
 services="search"
 documentationCenter=""
 authors="chaosrealm"
@@ -16,34 +16,35 @@ ms.tgt_pltfrm="na"
 ms.date="04/30/2016"
 ms.author="eugenesh" />
 
-# Сопоставления полей индексатора в поиске Azure устраняют расхождения между источниками данных и индексами поиска
 
-При использовании индексаторов поиска Azure может возникнуть ситуация, когда входные данные не вписываются в схему целевого индекса. В таком случае можно преобразовать данные в желаемый формат, используя **сопоставления полей**.
+# <a name="azure-search-indexer-field-mappings-bridge-the-differences-between-data-sources-and-search-indexes"></a>Azure Search indexer field mappings bridge the differences between data sources and search indexes
 
-Примеры ситуаций, в которых могут пригодиться сопоставления полей:
+When using Azure Search indexers, you can occasionally find yourself in situations where your input data doesn't quite match the schema of your target index. In those cases, you can use **field mappings** to transform your data into the desired shape. 
+
+Some situations where field mappings are useful:
  
-- Источник данных содержит поле `_id`, но поиск Azure не допускает, чтобы имена полей начинались с символа подчеркивания. Сопоставление полей позволяет "переименовать" поле. 
-- Вам нужно заполнить несколько полей в индексе, указав одни и те же данные источников данных, например, если к этим полям нужно применить разные анализаторы. Сопоставления полей позволяют разветвить поле источника данных.
-- Данные необходимо шифровать или расшифровывать в кодировке Base64. Сопоставления полей поддерживают несколько **функций сопоставления**, включая шифрование и расшифровку в кодировке Base64.   
+- Your data source has a field `_id`, but Azure Search doesn't allow field names starting with an underscore. A field mapping allows you to "rename" a field. 
+- You want to populate several fields in the index with the same data source data, for example because you want to apply different analyzers to those fields. Field mappings let you "fork" a data source field.
+- You need to Base64 encode or decode your data. Field mappings support several **mapping functions**, including functions for Base64 encoding and decoding.   
 
 
-> [AZURE.IMPORTANT] Сейчас функция сопоставления полей доступна в режиме предварительной версии. Она доступна при использовании REST API версии **2015-02-28-Preview**. Помните, что предварительные версии API предназначены для тестирования и ознакомления. Они не должны использоваться в рабочей среде.
+> [AZURE.IMPORTANT] Currently, field mappings functionality is in preview. It is available only in the REST API using version **2015-02-28-Preview**. Please remember, preview APIs are intended for testing and evaluation, and should not be used in production environments.
 
-## Настройка сопоставлений полей
+## <a name="setting-up-field-mappings"></a>Setting up field mappings
 
-Сопоставления полей можно добавить при создании нового индексатора с использованием API для [создание индексатора](search-api-indexers-2015-02-28-preview.md#create-indexer). Сопоставлениями полей в индексаторе индексирования можно управлять с помощью API для [обновления индексатора](search-api-indexers-2015-02-28-preview.md#update-indexer).
+You can add field mappings when creating a new indexer using the [Create Indexer](search-api-indexers-2015-02-28-preview.md#create-indexer) API. You can manage field mappings on an indexing indexer using the [Update Indexer](search-api-indexers-2015-02-28-preview.md#update-indexer) API. 
 
-Сопоставление полей состоит из трех частей:
+A field mapping consists of 3 parts: 
 
-1. Параметр `sourceFieldName` — представляет поле в источнике данных. Это — обязательное свойство. 
+1. A `sourceFieldName`, which represents a field in your data source. This property is required. 
 
-2. Необязательный параметр `targetFieldName` — представляет поле в индексе поиска. Если этот параметр опущен, используется такое же имя, как в источнике данных.
+2. An optional `targetFieldName`, which represents a field in your search index. If omitted, the same name as in the data source is used. 
 
-3. Необязательный параметр `mappingFunction` — позволяет преобразовывать данные, используя одну из нескольких предопределенных функций. Полный список функций представлен [ниже](#mappingFunctions).
+3. An optional `mappingFunction`, which can transform your data using one of several predefined functions. The full list of functions is [below](#mappingFunctions).
 
-Сопоставления полей добавляются в массив `fieldMappings` в определении индексатора.
+Fields mappings are added to the `fieldMappings` array on the indexer definition. 
 
-Например, так можно устранить расхождения в именах полей:
+For example, here's how you can accommodate differences in field names: 
 
 ```JSON
 
@@ -57,22 +58,22 @@ api-key: [admin key]
 } 
 ```
 
-Индексатор может содержать несколько сопоставлений полей. Например, так можно разветвить поле:
+An indexer can have multiple field mappings. For example, here's how you can "fork" a field:
 
 ```JSON
 
 "fieldMappings" : [ 
-	{ "sourceFieldName" : "text", "targetFieldName" : "textStandardEnglishAnalyzer" },
-	{ "sourceFieldName" : "text", "targetFieldName" : "textSoundexAnalyzer" }, 
+    { "sourceFieldName" : "text", "targetFieldName" : "textStandardEnglishAnalyzer" },
+    { "sourceFieldName" : "text", "targetFieldName" : "textSoundexAnalyzer" }, 
 ] 
 ```
 
-> [AZURE.NOTE] В поиске Azure для устранения расхождений между именами полей и функций в сопоставлениях полей используется сравнение без учета регистра. Это удобно (допускаются ошибки в выборе регистра), но означает, что источник данных или индекс не может содержать поля, которые различаются только регистром.
+> [AZURE.NOTE] Azure Search uses case-insensitive comparison to resolve the field and function names in field mappings. This is convenient (you don't have to get all the casing right), but it means that your data source or index cannot have fields that differ only by case.  
 
 <a name="mappingFunctions"></a>
-## Функции сопоставления полей
+## <a name="field-mapping-functions"></a>Field mapping functions
 
-В настоящее время поддерживаются следующие функции:
+These functions are currently supported: 
 
 - [base64Encode](#base64EncodeFunction)
 - [base64Decode](#base64DecodeFunction)
@@ -80,15 +81,15 @@ api-key: [admin key]
 - [jsonArrayToStringCollection](#jsonArrayToStringCollectionFunction)
 
 <a name="base64EncodeFunction"></a>
-### base64Encode 
+### <a name="base64encode"></a>base64Encode 
 
-Выполняет *безопасное* кодирование строки входных данных в Base64. Входные данные должны быть в кодировке UTF-8.
+Performs *URL-safe* Base64 encoding of the input string. Assumes that the input is UTF-8 encoded. 
 
-#### Примеры вариантов использования 
+#### <a name="sample-use-case"></a>Sample use case 
 
-Ключ документа в поиске Azure может содержать только безопасные символы URL (поскольку клиенты должны иметь возможность обращаться к документу, например, через API поиска). Если ваши данные содержат небезопасные символы URL и вы хотите применить их для того, чтобы заполнить поле ключа в индексе поиска, воспользуйтесь этой функцией.
+Only URL-safe characters can appear in an Azure Search document key (because customers must be able to address the document using the Lookup API, for example). If your data contains URL-unsafe characters and you want to use it to populate a key field in your search index, use this function.   
 
-#### Пример 
+#### <a name="example"></a>Example 
 
 ```JSON
 
@@ -101,15 +102,15 @@ api-key: [admin key]
 ```
 
 <a name="base64DecodeFunction"></a>
-### base64Decode
+### <a name="base64decode"></a>base64Decode
 
-Выполняет декодирование входной строки в Base64. Входные данные поступают в строку в кодировке Base64, *безопасную для URL*.
+Performs Base64 decoding of the input string. The input is assumed to a *URL-safe* Base64-encoded string. 
 
-#### Примеры вариантов использования 
+#### <a name="sample-use-case"></a>Sample use case 
 
-Значения настраиваемых метаданных BLOB-объекта должны быть в кодировке ASCII. Для представления произвольных юникод-строк в настраиваемые метаданные BLOB-объекта можно использовать кодировку Base64. Тем не менее, чтобы поиск был значимым, можно использовать эту функцию для того, чтобы при заполнении индекса поиска снова превратить зашифрованные данные в "обычные" строки.
+Blob custom metadata values must be ASCII-encoded. You can use Base64 encoding to represent arbitrary Unicode strings in blob custom metadata. However, to make search meaningful, you can use this function to turn the encoded data back into "regular" strings when populating your search index.  
 
-#### Пример 
+#### <a name="example"></a>Example 
 
 ```JSON
 
@@ -122,22 +123,22 @@ api-key: [admin key]
 ```
 
 <a name="extractTokenAtPositionFunction"></a>
-### extractTokenAtPosition
+### <a name="extracttokenatposition"></a>extractTokenAtPosition
 
-Разбивает поле строки, используя заданный разделитель, и выбирает маркер из указанной позиции в результате разбиения.
+Splits a string field using the specified delimiter, and picks the token at the specified position in the resulting split.
 
-Например, если входные данные `Jane Doe`, параметр `delimiter` имеет значение `" "` (пробел), а параметр `position` — значение 0, результатом будет `Jane`; если параметр `position` имеет значение 1, результатом будет `Doe`. Если позиция ссылается на несуществующий маркер, выдается ошибка.
+For example, if the input is `Jane Doe`, the `delimiter` is `" "`(space) and the `position` is 0, the result is `Jane`; if the `position` is 1, the result is `Doe`. If the position refers to a token that doesn't exist, an error will be returned.
 
-#### Примеры вариантов использования 
+#### <a name="sample-use-case"></a>Sample use case 
 
-Источник данных содержит поле `PersonName`, и вам нужно индексировать его как два отдельных поля — `FirstName` и `LastName`. Эта функция позволяет разбить входные данные, используя пробел как разделитель.
+Your data source contains a `PersonName` field, and you want to index it as two separate `FirstName` and `LastName` fields. You can use this function to split the input using the space character as the delimiter.
 
-#### Параметры
+#### <a name="parameters"></a>Parameters
 
-- `delimiter`: строка, которая используемая как разделитель при разбиении входной строки.
-- `position`: целочисленная нулевая позиция маркера, которую нужно выбрать после разбиения входной строки.    
+- `delimiter`: a string to use as the separator when splitting the input string.
+- `position`: an integer zero-based position of the token to pick after the input string is split.    
 
-#### Пример
+#### <a name="example"></a>Example
 
 ```JSON 
 
@@ -155,17 +156,17 @@ api-key: [admin key]
 ```
 
 <a name="jsonArrayToStringCollectionFunction"></a>
-### jsonArrayToStringCollection
+### <a name="jsonarraytostringcollection"></a>jsonArrayToStringCollection
 
-Преобразует строку, отформатированную как массив строк JSON, в массив строк, который можно использовать для заполнения поля `Collection(Edm.String)` в индексе.
+Transforms a string formatted as a JSON array of strings into a string array that can be used to populate a `Collection(Edm.String)` field in the index. 
 
-Например, если исходной строкой является `["red", "white", "blue"]`, то целевое поле типа `Collection(Edm.String)` будет заполнено следующими тремя значениями: `red`, `white` и `blue`. Если входные значения нельзя проанализировать как массивы строк JSON, выдается ошибка.
+For example, if the input string is `["red", "white", "blue"]`, then the target field of type `Collection(Edm.String)` will be populated with the three values `red`, `white` and `blue`. For input values that cannot be parsed as JSON string arrays, an error will be returned. 
 
-#### Примеры вариантов использования
+#### <a name="sample-use-case"></a>Sample use case
 
-База данных SQL Azure не имеет встроенного типа данных, сопоставленного с полями `Collection(Edm.String)` в поиске Azure естественным образом. Чтобы заполнить поля в коллекции строк, отформатируйте исходные данные как строку JSON и воспользуйтесь этой функцией.
+Azure SQL database doesn't have a built-in data type that naturally maps to `Collection(Edm.String)` fields in Azure Search. To populate string collection fields, format your source data as a JSON string array and use this function. 
 
-#### Пример 
+#### <a name="example"></a>Example 
 
 ```JSON
 
@@ -174,8 +175,11 @@ api-key: [admin key]
 ] 
 ```
 
-## Помогите нам усовершенствовать службу поиска Azure
+## <a name="help-us-make-azure-search-better"></a>Help us make Azure Search better
 
-Если вам нужна какая-либо функция или у вас есть идеи, которые можно было бы реализовать, сообщите об этом на [сайте UserVoice](https://feedback.azure.com/forums/263029-azure-search/).
+If you have feature requests or ideas for improvements, please reach out to us on our [UserVoice site](https://feedback.azure.com/forums/263029-azure-search/).
 
-<!---HONumber=AcomDC_0504_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

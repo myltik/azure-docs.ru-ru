@@ -1,264 +1,265 @@
 <properties
-	pageTitle="Руководство. Интеграция Azure Active Directory с FieldGlass | Microsoft Azure"
-	description="Узнайте, как настроить единый вход Azure Active Directory в FieldGlass."
-	services="active-directory"
-	documentationCenter=""
-	authors="jeevansd"
-	manager="femila"
-	editor=""/>
+    pageTitle="Tutorial: Azure Active Directory integration with FieldGlass | Microsoft Azure"
+    description="Learn how to configure single sign-on between Azure Active Directory and FieldGlass."
+    services="active-directory"
+    documentationCenter=""
+    authors="jeevansd"
+    manager="femila"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/01/2016"
-	ms.author="jeedes"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/18/2016"
+    ms.author="jeedes"/>
 
 
-# Руководство. Интеграция Azure Active Directory с FieldGlass
 
-Цель этого руководства — показать, как интегрировать Azure Active Directory (Azure AD) с FieldGlass.
+# <a name="tutorial:-azure-active-directory-integration-with-fieldglass"></a>Tutorial: Azure Active Directory integration with FieldGlass
 
-Интеграция Azure AD с приложением FieldGlass обеспечивает следующие преимущества:
+The objective of this tutorial is to show you how to integrate FieldGlass with Azure Active Directory (Azure AD).
 
-- С помощью Azure AD вы можете контролировать доступ к FieldGlass.
-- Вы можете включить автоматический вход пользователей в FieldGlass (единый вход) с применением учетной записи Azure AD.
-- Вы можете управлять учетными записями централизованно – через классический портал Azure.
+Integrating FieldGlass with Azure AD provides you with the following benefits:
 
-Подробнее узнать об интеграции приложений SaaS с Azure AD можно в статье [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md).
+- You can control in Azure AD who has access to FieldGlass
+- You can enable your users to automatically get signed-on to FieldGlass (Single Sign-On) with their Azure AD accounts
+- You can manage your accounts in one central location - the Azure classic portal
 
-## Предварительные требования
+If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-Чтобы настроить интеграцию Azure AD с FieldGlass, вам потребуется:
+## <a name="prerequisites"></a>Prerequisites
 
-- подписка Azure AD;
-- подписка на FieldGlass с поддержкой единого входа.
+To configure Azure AD integration with FieldGlass, you need the following items:
 
+- An Azure AD subscription
+- A FieldGlass single-sign on enabled subscription
 
-> [AZURE.NOTE] Мы не рекомендуем использовать рабочую среду для проверки действий в этом учебнике.
 
+> [AZURE.NOTE] To test the steps in this tutorial, we do not recommend using a production environment.
 
-При проверке действий в этом учебнике соблюдайте следующие рекомендации:
 
-- Не следует использовать рабочую среду при отсутствии необходимости.
-- Если у вас нет пробной среды Azure AD, вы можете получить пробную версию на один месяц по [этой ссылке](https://azure.microsoft.com/pricing/free-trial/).
+To test the steps in this tutorial, you should follow these recommendations:
 
+- You should not use your production environment, unless this is necessary.
+- If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).
 
-## Описание сценария
-Цель этого учебника – научить вас проверять единый вход в Azure AD в пробной среде.
 
-Сценарий, описанный в этом учебнике, состоит из двух основных блоков:
+## <a name="scenario-description"></a>Scenario description
+The objective of this tutorial is to enable you to test Azure AD single sign-on in a test environment.
 
-1. Добавление FieldGlass из коллекции.
-2. Настройка и проверка единого входа в Azure AD
+The scenario outlined in this tutorial consists of two main building blocks:
 
+1. Adding FieldGlass from the gallery
+2. Configuring and testing Azure AD single sign-on
 
-## Добавление FieldGlass из коллекции
-Чтобы настроить интеграцию FieldGlass с Azure AD, необходимо добавить FieldGlass из коллекции в список управляемых приложений SaaS.
 
-**Чтобы добавить FieldGlass из коллекции, сделайте следующее:**
+## <a name="adding-fieldglass-from-the-gallery"></a>Adding FieldGlass from the gallery
+To configure the integration of FieldGlass into Azure AD, you need to add FieldGlass from the gallery to your list of managed SaaS apps.
 
-1. На **классическом портале Azure** в области навигации слева щелкните **Active Directory**.
+**To add FieldGlass from the gallery, perform the following steps:**
 
-	![Active Directory][1]
+1. In the **Azure classic Portal**, on the left navigation pane, click **Active Directory**.
 
-2. Из списка **Каталог** выберите каталог, для которого нужно включить интеграцию каталогов.
+    ![Active Directory][1]
 
-3. Чтобы открыть представление приложений, в представлении каталога нажмите **Приложения** в верхнем меню.
-	
-	![Приложения][2]
+2. From the **Directory** list, select the directory for which you want to enable directory integration.
 
-4. В нижней части страницы нажмите кнопку **Добавить**.
+3. To open the applications view, in the directory view, click **Applications** in the top menu.
+    
+    ![Applications][2]
 
-	![Приложения][3]
+4. Click **Add** at the bottom of the page.
 
-5. В диалоговом окне **Что необходимо сделать?** нажмите **Добавить приложение из коллекции**.
+    ![Applications][3]
 
-	![Приложения][4]
+5. On the **What do you want to do** dialog, click **Add an application from the gallery**.
 
-6. В поле поиска введите **FieldGlass**.
+    ![Applications][4]
 
-	![Создание тестового пользователя Azure AD](./media/active-directory-saas-fieldglass-tutorial/tutorial_fieldglass_01.png)
-7. В области результатов выберите **FieldGlass** и нажмите кнопку **Завершить**, чтобы добавить приложение.
+6. In the search box, type **FieldGlass**.
 
-	![Выбор приложения в коллекции](./media/active-directory-saas-fieldglass-tutorial/tutorial_fieldglass_0001.png)
+    ![Creating an Azure AD test user](./media/active-directory-saas-fieldglass-tutorial/tutorial_fieldglass_01.png)
+7. In the results pane, select **FieldGlass**, and then click **Complete** to add the application.
 
+    ![Selecting the app in the gallery](./media/active-directory-saas-fieldglass-tutorial/tutorial_fieldglass_0001.png)
 
-##  Настройка и проверка единого входа в Azure AD
-Цель этого раздела — показать, как настроить и проверить единый вход Azure AD в FieldGlass с использованием тестового пользователя Britta Simon.
 
-Для настройки единого входа в Azure AD необходимо знать, какой пользователь в FieldGlass соответствует пользователю в Azure AD. Иными словами, необходимо установить связь между пользователем Azure AD и соответствующим пользователем в FieldGlass.
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuring and testing Azure AD single sign-on
+The objective of this section is to show you how to configure and test Azure AD single sign-on with FieldGlass based on a test user called "Britta Simon".
 
-Чтобы установить эту связь, следует назначить **имя пользователя** в Azure AD в качестве значения **имени пользователя** в FieldGlass.
+For single sign-on to work, Azure AD needs to know what the counterpart user in FieldGlass to an user in Azure AD is. In other words, a link relationship between an Azure AD user and the related user in FieldGlass needs to be established.
 
-Чтобы настроить и проверить единый вход Azure AD в FieldGlass, вам потребуется выполнить действия в следующих стандартных блоках:
+This link relationship is established by assigning the value of the **user name** in Azure AD as the value of the **Username** in FieldGlass.
 
-1. **[Настройка единого входа Azure AD](#configuring-azure-ad-single-single-sign-on)** необходима, чтобы пользователи могли использовать эту функцию.
-2. **[Создание тестового пользователя Azure AD](#creating-an-azure-ad-test-user)** требуется для проверки работы единого входа Azure AD от имени пользователя Britta Simon.
-3. **[Создание тестового пользователя FieldGlass](#creating-a-fieldglass-test-user)** требуется для создания в FieldGlass пользователя Britta Simon, связанного с соответствующим представлением в Azure AD.
-4. **[Назначение тестового пользователя Azure AD](#assigning-the-azure-ad-test-user)** необходимо, чтобы позволить Britta Simon использовать единый вход в Azure AD.
-5. **[Проверка единого входа](#testing-single-sign-on)** необходима, чтобы убедиться в корректной работе конфигурации.
+To configure and test Azure AD single sign-on with FieldGlass, you need to complete the following building blocks:
 
-### Настройка единого входа в Azure AD
+1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-single-sign-on)** - to enable your users to use this feature.
+2. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
+3. **[Creating a FieldGlass test user](#creating-a-fieldglass-test-user)** - to have a counterpart of Britta Simon in FieldGlass that is linked to the Azure AD representation of her.
+4. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
+5. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
 
-В этом разделе описано, как включить единый вход Azure AD на классическом портале и настроить его в приложении FieldGlass.
+### <a name="configuring-azure-ad-single-sign-on"></a>Configuring Azure AD single sign-on
 
-**Чтобы настроить единый вход Azure AD в FieldGlass, сделайте следующее:**
+In this section, you enable Azure AD single sign-on in the classic portal and configure single sign-on in your FieldGlass application.
 
-1. На классическом портале на странице интеграции с приложением **FieldGlass** щелкните **Настроить единый вход**, чтобы открыть диалоговое окно **Настройка единого входа**.
-	 
-	![Настройка единого входа][6]
+**To configure Azure AD single sign-on with FieldGlass, perform the following steps:**
 
-2. На странице **How would you like users to sign on to FieldGlass** (Как пользователи должны входить в FieldGlass) выберите **Единый вход Azure AD** и нажмите кнопку **Далее**.
+1. In the classic portal, on the **FieldGlass** application integration page, click **Configure single sign-on** to open the **Configure Single Sign-On**  dialog.
+     
+    ![Configure Single Sign-On][6] 
 
-	![Настройка единого входа](./media/active-directory-saas-fieldglass-tutorial/tutorial_fieldglass_03.png)
+2. On the **How would you like users to sign on to FieldGlass** page, select **Azure AD Single Sign-On**, and then click **Next**.
 
-3. На диалоговой странице **Configure App Settings** (Настройка параметров приложения) выполните следующие действия, а затем нажмите кнопку **Далее**.
+    ![Configure Single Sign-On](./media/active-directory-saas-fieldglass-tutorial/tutorial_fieldglass_03.png) 
 
-	![Настройка единого входа](./media/active-directory-saas-fieldglass-tutorial/tutorial_fieldglass_04.png)
+3. On the **Configure App Settings** dialog page, perform the following steps and click **Next**:
 
-    а. В текстовом поле **Идентификатор** введите URL-адрес `https://www.fieldglass.com` или URL-адрес в следующем формате: `https://<company name>.fgvms.com`.
+    ![Configure Single Sign-On](./media/active-directory-saas-fieldglass-tutorial/tutorial_fieldglass_04.png)
 
-    b. В текстовом поле **URL-адрес ответа** введите URL-адрес в следующем формате:
-	- `https://<company name>.fgvms.com/<company name>`
-	
-	- `https://www.fieldglass.net/<company name>`
+    a. In the **Identifier** textbox, type URL `https://www.fieldglass.com` or follow the pattern: `https://<company name>.fgvms.com`
 
-	c. Нажмите кнопку **Далее**.
+    b. In the **Reply URL** textbox, type a URL using the following patterns: 
+    - `https://<company name>.fgvms.com/<company name>`
+    
+    - `https://www.fieldglass.net/<company name>`
 
-	> [AZURE.NOTE] Обратите внимание, что значения, указанные выше, используются в качестве примера. Необходимо обновить фактические значения идентификатора и URL-адреса ответа. Чтобы получить эти значения, обратитесь в службу поддержки [FieldGlass](http://www.fieldglass.com/solutions/support).
+    c. Click **Next**
 
-4. На странице **Configure single sign-on at FieldGlass** (Настройка единого входа в FieldGlass) выполните указанные ниже действия и нажмите кнопку **Далее**.
+    > [AZURE.NOTE] Please note that these are not the real values. You have to update the values with the actual Identifier and Reply URL. To get these values, contact [FieldGlass](http://www.fieldglass.com/solutions/support).
 
-	![Настройка единого входа](./media/active-directory-saas-fieldglass-tutorial/tutorial_fieldglass_05.png)
+4. On the **Configure single sign-on at FieldGlass** page, perform the following steps and click **Next**:
 
-    а. Нажмите **Загрузить сертификат** и сохраните файл сертификата на свой компьютер.
+    ![Configure Single Sign-On](./media/active-directory-saas-fieldglass-tutorial/tutorial_fieldglass_05.png)
 
-    b. Нажмите кнопку **Далее**.
+    a. Click **Download certificate**, and then save the file on your computer.
 
-5. Чтобы настроить единый вход для своего приложения, обратитесь к группе поддержки FieldGlass и предоставьте следующие сведения:
+    b. Click **Next**.
 
-	— файл **скачанного сертификата**;
+5. To get SSO configured for your application, contact your FieldGlass support team and provide them with the following: 
 
-	— **идентификатор сущности**;
+    - The **Downloaded certificate** file
 
-	— **URL-адрес службы единого выхода**.
+    - The **Entity ID**
 
-6. На классическом портале подтвердите конфигурацию единого входа и нажмите кнопку **Далее**.
+    - The **Single Sign-Out Service URL**
 
-	![Единый вход в Azure AD][10]
+6. In the classic portal, select the single sign-on configuration confirmation, and then click **Next**.
 
-7. На странице **Подтверждение единого входа** нажмите кнопку **Завершить**.
+    ![Azure AD Single Sign-On][10]
 
-	![Единый вход в Azure AD][11]
+7. On the **Single sign-on confirmation** page, click **Complete**.  
 
+    ![Azure AD Single Sign-On][11]
 
 
-### Создание тестового пользователя Azure AD
-Цель этого раздела — создать на классическом портале тестового пользователя с именем Britta Simon.
-	
-![Создание пользователя Azure AD][20]
 
-**Чтобы создать тестового пользователя в Azure AD, выполните следующие действия:**
+### <a name="creating-an-azure-ad-test-user"></a>Creating an Azure AD test user
+The objective of this section is to create a test user in the classic portal called Britta Simon.
+    
+![Create Azure AD User][20]
 
-1. На **классическом портале Azure** в области навигации слева щелкните **Active Directory**.
+**To create a test user in Azure AD, perform the following steps:**
 
-	![Создание тестового пользователя Azure AD](./media/active-directory-saas-fieldglass-tutorial/create_aaduser_09.png)
+1. In the **Azure classic Portal**, on the left navigation pane, click **Active Directory**.
 
-2. Из списка **Каталог** выберите каталог, для которого нужно включить интеграцию каталогов.
+    ![Creating an Azure AD test user](./media/active-directory-saas-fieldglass-tutorial/create_aaduser_09.png)
 
-3. Чтобы вывести на экран список пользователей, щелкните **Пользователи** в меню вверху.
-	
-	![Создание тестового пользователя Azure AD](./media/active-directory-saas-fieldglass-tutorial/create_aaduser_03.png)
+2. From the **Directory** list, select the directory for which you want to enable directory integration.
 
-4. Чтобы открыть диалоговое окно **Добавление пользователя**, на панели инструментов внизу нажмите кнопку **Добавить пользователя**.
-	
-	![Создание тестового пользователя Azure AD](./media/active-directory-saas-fieldglass-tutorial/create_aaduser_04.png)
+3. To display the list of users, in the menu on the top, click **Users**.
+    
+    ![Creating an Azure AD test user](./media/active-directory-saas-fieldglass-tutorial/create_aaduser_03.png)
 
-5. На странице диалогового окна **Тип учетной записи пользователя** выполните следующие действия.
+4. To open the **Add User** dialog, in the toolbar on the bottom, click **Add User**.
+    
+    ![Creating an Azure AD test user](./media/active-directory-saas-fieldglass-tutorial/create_aaduser_04.png)
 
-	![Создание тестового пользователя Azure AD](./media/active-directory-saas-fieldglass-tutorial/create_aaduser_05.png)
+5. On the **Tell us about this user** dialog page, perform the following steps:
 
-    а. В поле «Тип пользователя» выберите значение «Новый пользователь в вашей организации».
+    ![Creating an Azure AD test user](./media/active-directory-saas-fieldglass-tutorial/create_aaduser_05.png)
 
-    b. В текстовое поле **Имя пользователя** введите **BrittaSimon**.
+    a. As Type Of User, select New user in your organization.
 
-    c. Нажмите кнопку **Далее**.
+    b. In the User Name **textbox**, type **BrittaSimon**.
 
-6.  На странице диалогового окна **Профиль пользователя** выполните следующие действия.
-	
-	![Создание тестового пользователя Azure AD](./media/active-directory-saas-fieldglass-tutorial/create_aaduser_06.png)
+    c. Click **Next**.
 
-    а. В текстовом поле **Имя** введите **Britta**.
+6.  On the **User Profile** dialog page, perform the following steps:
+    
+    ![Creating an Azure AD test user](./media/active-directory-saas-fieldglass-tutorial/create_aaduser_06.png)
 
-    b. В текстовое поле **Фамилия** введите **Simon**.
+    a. In the **First Name** textbox, type **Britta**.  
 
-    c. В текстовое поле **Отображаемое имя** введите **Britta Simon**.
+    b. In the **Last Name** textbox, type, **Simon**.
 
-    г) В списке **Роль** выберите **Пользователь**.
+    c. In the **Display Name** textbox, type **Britta Simon**.
 
-    д. Нажмите кнопку **Далее**.
+    d. In the **Role** list, select **User**.
 
-7. На странице диалогового окна **Получить временный пароль** нажмите кнопку **Создать**.
-	
-	![Создание тестового пользователя Azure AD](./media/active-directory-saas-fieldglass-tutorial/create_aaduser_07.png)
+    e. Click **Next**.
 
-8. На странице диалогового окна **Получить временный пароль** выполните следующие действия.
-	
-	![Создание тестового пользователя Azure AD](./media/active-directory-saas-fieldglass-tutorial/create_aaduser_08.png)
+7. On the **Get temporary password** dialog page, click **create**.
+    
+    ![Creating an Azure AD test user](./media/active-directory-saas-fieldglass-tutorial/create_aaduser_07.png)
 
-    а. Запишите значение поля **Новый пароль**.
+8. On the **Get temporary password** dialog page, perform the following steps:
+    
+    ![Creating an Azure AD test user](./media/active-directory-saas-fieldglass-tutorial/create_aaduser_08.png)
 
-    b. Нажмите **Завершено**.
+    a. Write down the value of the **New Password**.
 
+    b. Click **Complete**.   
 
 
-### Создание тестового пользователя FieldGlass
 
-Цель этого раздела — создать пользователя с именем Britta Simon в FieldGlass. Обратитесь в службу поддержки FieldGlass, чтобы добавить пользователей в учетную запись FieldGlass.
+### <a name="creating-a-fieldglass-test-user"></a>Creating a FieldGlass test user
 
+The objective of this section is to create a user called Britta Simon in FieldGlass.Please work with your FieldGlass support team to add the users in the FieldGlass account.
 
-### Назначение тестового пользователя Azure AD
 
-Цель этого раздела — позволить пользователю Britta Simon использовать единый вход Azure, предоставив ему доступ к FieldGlass.
-	
-![Назначение пользователя][200]
+### <a name="assigning-the-azure-ad-test-user"></a>Assigning the Azure AD test user
 
-**Чтобы назначить пользователя Britta Simon в FieldGlass, сделайте следующее:**
+The objective of this section is to enabling Britta Simon to use Azure single sign-on by granting her access to FieldGlass.
+    
+![Assign User][200]
 
-1. Чтобы открыть представление приложений, в представлении каталога на классическом портале щелкните **Приложения** в верхнем меню.
+**To assign Britta Simon to FieldGlass, perform the following steps:**
 
-	![Назначение пользователя][201]
+1. On the classic portal, to open the applications view, in the directory view, click **Applications** in the top menu.
 
-2. В списке приложений выберите **FieldGlass**.
+    ![Assign User][201]
 
-	![Настройка единого входа](./media/active-directory-saas-fieldglass-tutorial/tutorial_fieldglass_50.png)
+2. In the applications list, select **FieldGlass**.
 
-3. В меню в верхней части страницы щелкните **Пользователи**.
-	
-	![Назначение пользователя][203]
+    ![Configure Single Sign-On](./media/active-directory-saas-fieldglass-tutorial/tutorial_fieldglass_50.png)
 
-4. В списке пользователей выберите **Britta Simon**.
+3. In the menu on the top, click **Users**.
+    
+    ![Assign User][203]
 
-5. На панели инструментов внизу щелкните **Назначить**.
+4. In the Users list, select **Britta Simon**.
 
-	![Назначение пользователя][205]
+5. In the toolbar on the bottom, click **Assign**.
 
+    ![Assign User][205]
 
 
-### Проверка единого входа
 
-Цель этого раздела — проверить конфигурацию единого входа Azure AD с помощью панели доступа.
+### <a name="testing-single-sign-on"></a>Testing single sign-on
 
-Щелкнув элемент FieldGlass на панели доступа, вы автоматически войдете в приложение FieldGlass.
+The objective of this section is to test your Azure AD single sign-on configuration using the Access Panel.
 
+When you click the FieldGlass tile in the Access Panel, you should get automatically signed-on to your FieldGlass application.
 
-## Дополнительные ресурсы
 
-* [Список учебников по интеграции приложений SaaS с Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+## <a name="additional-resources"></a>Additional resources
+
+* [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 
 
@@ -280,4 +281,8 @@
 [204]: ./media/active-directory-saas-fieldglass-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-fieldglass-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0803_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

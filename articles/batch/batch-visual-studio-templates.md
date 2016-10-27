@@ -1,148 +1,149 @@
 <properties
-	pageTitle="Шаблоны Visual Studio для пакетной службы Azure | Microsoft Azure"
-	description="Узнайте, как эти шаблоны проектов Visual Studio помогут реализовать и выполнить ресурсоемкие рабочие нагрузки в пакетной службе Azure"
-	services="batch"
-	documentationCenter=".net"
-	authors="fayora"
-	manager="timlt"
-	editor="" />
+    pageTitle="Visual Studio templates for Azure Batch | Microsoft Azure"
+    description="Learn how these Visual Studio project templates can help you implement and run your compute-intensive workloads on Azure Batch"
+    services="batch"
+    documentationCenter=".net"
+    authors="fayora"
+    manager="timlt"
+    editor="" />
 
 <tags
-	ms.service="batch"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.tgt_pltfrm="vm-windows"
-	ms.workload="big-compute"
-	ms.date="09/07/2016"
-	ms.author="marsma" />
+    ms.service="batch"
+    ms.devlang="multiple"
+    ms.topic="article"
+    ms.tgt_pltfrm="vm-windows"
+    ms.workload="big-compute"
+    ms.date="09/07/2016"
+    ms.author="marsma" />
 
-# Шаблоны проектов Visual Studio для пакетной службы Azure
 
-Шаблоны Visual Studio **Диспетчер заданий** и **Обработчик задач** для пакетной службы содержат код, позволяющий максимально упростить внедрение и выполнение ресурсоемких рабочих нагрузок в пакетной службе. Здесь представлено описание этих шаблонов, а также рекомендации по их использованию.
+# <a name="visual-studio-project-templates-for-azure-batch"></a>Visual Studio project templates for Azure Batch
 
->[AZURE.IMPORTANT] В этой статье приведены сведения, применимые только к этим двум шаблонам. Здесь предполагается, что вы уже знакомы с пакетной службой и основными связанными с ней понятиями: пулы, вычислительные узлы, задания и задачи, задачи диспетчера заданий, переменные среды и другая важная информация. Дополнительные сведения см. в статье [Основные сведения о пакетной службе Azure](batch-technical-overview.md), [Обзор функций пакетной службы для разработчиков](batch-api-basics.md) и [Начало работы с библиотекой пакетной службы Azure для .NET](batch-dotnet-get-started.md).
+The **Job Manager** and **Task Processor Visual Studio templates** for Batch provide code to help you to implement and run your compute-intensive workloads on Batch with the least amount of effort. This document describes these templates and provides guidance for how to use them.
 
-## Общий обзор
+>[AZURE.IMPORTANT] This article discusses only information applicable to these two templates, and assumes that you are familiar with the Batch service and key concepts related to it: pools, compute nodes, jobs and tasks, job manager tasks, environment variables, and other relevant information. You can find more information in [Basics of Azure Batch](batch-technical-overview.md), [Batch feature overview for developers](batch-api-basics.md), and [Get started with the Azure Batch library for .NET](batch-dotnet-get-started.md).
 
-С помощью шаблонов "Диспетчер заданий" и "Обработчик задач" можно создать два полезных компонента:
+## <a name="high-level-overview"></a>High-level overview
 
-* Задачу диспетчера заданий, позволяющую внедрить разделитель заданий. Благодаря ему можно разбить задание на несколько задач, которые могут выполняться независимо в параллельном режиме.
+The Job Manager and Task Processor templates can be used to create two useful components:
 
-* Обработчик задач, использующийся для предварительной обработки и постобработки приложения в командной строке.
+* A job manager task that implements a job splitter that can break a job down into multiple tasks that can run independently, in parallel.
 
-Например, при отрисовке фильма разделитель заданий разделяет одно задание на сотни и тысячи отдельных задач, каждая из которых будет обрабатывать отдельные кадры. Соответственно, обработчик задач вызывает приложение для отрисовки и все зависимые процессы, необходимые для отрисовки каждого кадра и выполнения дополнительных действий (например, копирование отрисованного кадра в хранилище).
+* A task processor that can be used to perform pre-processing and post-processing around an application command line.
 
->[AZURE.NOTE] Шаблоны "Диспетчер заданий" и "Обработчик задач" независимы друг от друга, поэтому в зависимости от требований вычислительного задания и предпочтений можно использовать оба шаблона или только один из них.
+For example, in a movie rendering scenario, the job splitter would turn a single movie job into hundreds or thousands of separate tasks that would process individual frames separately. Correspondingly, the task processor would invoke the rendering application and all dependent processes that are needed to render each frame, as well as perform any additional actions (for example, copying the rendered frame to a storage location).
 
-Как показано на схеме ниже, вычислительное задание, в котором используются эти шаблоны, проходит через три этапа:
+>[AZURE.NOTE] The Job Manager and Task Processor templates are independent of each other, so you can choose to use both, or only one of them, depending on the requirements of your compute job and on your preferences.
 
-1. Код клиента (например, приложения, веб-службы и т. д.) отправляет задание в пакетную службу в Azure, указывая в качестве задачи диспетчера заданий программу диспетчера заданий.
+As shown in the diagram below, a compute job that uses these templates will go through three stages:
 
-2. Пакетная служба выполняет задание диспетчера заданий на вычислительном узле, а разделитель заданий запускает указанное количество задач обработчика задач на необходимом количестве вычислительных узлов с учетом параметров и спецификаций в коде разделителя заданий.
+1. The client code (e.g., application, web service, etc.) submits a job to the Batch service on Azure, specifying as its job manager task the job manager program.
 
-3. Задачи обработчика задач выполняются независимо в параллельном режиме. При этом обрабатываются входные данные и создаются выходные данные.
+2. The Batch service runs the job manager task on a compute node and the job splitter launches the specified number of task processor tasks, on as many compute nodes as required, based on the parameters and specifications in the job splitter code.
 
-![Схема взаимодействия клиентского кода с пакетной службой][diagram01]
+3. The task processor tasks run independently, in parallel, to process the input data and generate the output data.
 
-## Предварительные требования
+![Diagram showing how client code interacts with the Batch service][diagram01]
 
-Для использования шаблонов пакетной службы вам потребуется:
+## <a name="prerequisites"></a>Prerequisites
 
-* Компьютер с установленной средой Visual Studio 2015 или более поздней версии.
+To use the Batch templates, you will need the following:
 
-* Шаблоны пакетной службы, доступные в [коллекции Visual Studio][vs_gallery] в качестве расширений Visual Studio. Получить шаблоны можно двумя способами:
+* A computer with Visual Studio 2015, or newer, already installed on it.
 
-  * Установите шаблоны, используя диалоговое окно **Расширения и обновления** в Visual Studio (дополнительные сведения см. в статье [Поиск и использование расширений Visual Studio][vs_find_use_ext]). С помощью диалогового окна **Расширения и обновления** найдите и скачайте следующие два модуля:
+* The Batch templates, which are available from the [Visual Studio Gallery][vs_gallery] as Visual Studio extensions. There are two ways to get the templates:
 
-    * диспетчер заданий пакетной службы Azure с разделителем заданий;
-    * обработчик задач пакетной службы Azure.
+  * Install the templates using the **Extensions and Updates** dialog box in Visual Studio (for more information, see [Finding and Using Visual Studio Extensions][vs_find_use_ext]). In the **Extensions and Updates** dialog box, search and download the following two extensions:
 
-  * Скачайте шаблоны из интерактивной коллекции для Visual Studio: [Microsoft Azure Batch Project Templates][vs_gallery_templates] \(Шаблоны проектов пакетной службы Microsoft Azure).
+    * Azure Batch Job Manager with Job Splitter
+    * Azure Batch Task Processor
 
-* Если планируется развернуть диспетчер заданий и обработчик задач на вычислительных узлах пакетной службы с помощью [пакетов приложений](batch-application-packages.md), необходимо связать учетную запись хранения с учетной записью пакетной службы.
+  * Download the templates from the online gallery for Visual Studio: [Microsoft Azure Batch Project Templates][vs_gallery_templates]
 
-## Подготовка
+* If you plan to use the [Application Packages](batch-application-packages.md) feature to deploy the job manager and task processor to the Batch compute nodes, you need to link a storage account to your Batch account.
 
-Мы советуем создать решение, содержащее диспетчер заданий и обработчик задач, так как таким образом можно упростить совместное использование кода в диспетчере заданий и обработчике задач. Чтобы создать это решение, сделайте следующее:
+## <a name="preparation"></a>Preparation
 
-1. Откройте Visual Studio 2015 и последовательно выберите **Файл** > **Создать** > **Проект**.
+We recommend creating a solution that can contain your job manager as well as your task processor, because this can make it easier to share code between your job manager and task processor programs. To create this solution, follow these steps:
 
-2. В разделе **Шаблоны** разверните список **Другие типы проектов**, щелкните **Решения Visual Studio** и выберите **Новое решение**.
+1. Open Visual Studio 2015 and select **File** > **New** > **Project**.
 
-3. Введите имя, описывающее приложение, и назначение этого решения (например, LitwareBatchTaskPrograms).
+2. Under **Templates**, expand **Other Project Types**, click **Visual Studio Solutions**, and then select **Blank Solution**.
 
-4. Чтобы создать решение, нажмите кнопку **ОК**.
+3. Type a name that describes your application and the purpose of this solution (e.g., "LitwareBatchTaskPrograms").
 
-## Шаблон "Диспетчер заданий"
+4. To create the new solution, click **OK**.
 
-Шаблон "Диспетчер заданий" позволяет внедрить задачу диспетчера заданий, выполняющую следующие действия:
+## <a name="job-manager-template"></a>Job Manager template
 
-* разделение задания на несколько задач;
-* отправка этих задач для выполнения в пакетной службе.
+The Job Manager template helps you to implement a job manager task that can perform the following actions:
 
->[AZURE.NOTE] Дополнительные сведения о задачах диспетчера заданий см. в статье [Обзор функций пакетной службы для разработчиков](batch-api-basics.md#job-manager-task).
+* Split a job into multiple tasks.
+* Submit those tasks to run on Batch.
 
-### Создание диспетчера заданий с помощью шаблона
+>[AZURE.NOTE] For more information about job manager tasks, see [Batch feature overview for developers](batch-api-basics.md#job-manager-task).
 
-Чтобы добавить в созданное ранее решение диспетчер заданий, сделайте следующее:
+### <a name="create-a-job-manager-using-the-template"></a>Create a Job Manager using the template
 
-1. Откройте имеющееся решение в Visual Studio 2015.
+To add a job manager to the solution that you created earlier, follow these steps:
 
-2. В обозревателе решений щелкните решение правой кнопкой мыши и щелкните **Добавить** > **Создать проект**.
+1. Open your existing solution in Visual Studio 2015.
 
-3. В разделе **Visual C#** щелкните **Облако**, а затем — **Azure Batch Job Manager with Job Splitter** (Диспетчер заданий пакетной службы Azure с разделителем заданий).
+2. In Solution Explorer, right-click the solution, click **Add** > **New Project**.
 
-4. Введите имя, описывающее приложение и определяющее этот проект в качестве диспетчера заданий (например, LitwareJobManager).
+3. Under **Visual C#**, click **Cloud**, and then click **Azure Batch Job Manager with Job Splitter**.
 
-5. Чтобы создать проект, нажмите кнопку **ОК**.
+4. Type a name that describes your application and identifies this project as the job manager (e.g. "LitwareJobManager").
 
-6. Наконец, создайте проект, чтобы принудительно загрузить в среде Visual Studio все указанные пакеты NuGet, а также чтобы убедиться, что проект допустимый, прежде чем начать изменять его.
+5. To create the project, click **OK**.
 
-### Файлы шаблона "Диспетчер заданий" и их назначение
+6. Finally, build the project to force Visual Studio to load all referenced NuGet packages and to verify that the project is valid before you start modifying it.
 
-При создании проекта с помощью шаблона "Диспетчер заданий" создается три группы файлов кода:
+### <a name="job-manager-template-files-and-their-purpose"></a>Job Manager template files and their purpose
 
-* Файл основной программы (Program.cs). Он содержит точку входа программы и расширенные средства обработки исключений. Обычно не требуется изменять этот файл.
+When you create a project using the Job Manager template, it generates three groups of code files:
 
-* Каталог платформы. Здесь содержатся файлы, отвечающие за стандартные операции программы диспетчера заданий: распаковка параметров, добавление задач в задание пакетной службы и т. д. Обычно не требуется изменять эти файлы.
+* The main program file (Program.cs). This contains the program entry point and top-level exception handling. You shouldn't normally need to modify this.
 
-* Файл разделителя заданий (JobSplitter.cs). Именно в него помещается логика приложения для разделения задания на задачи.
+* The Framework directory. This contains the files responsible for the 'boilerplate' work done by the job manager program – unpacking parameters, adding tasks to the Batch job, etc. You shouldn't normally need to modify these files.
 
-Конечно, при необходимости для поддержки кода разделителя заданий можно добавить дополнительные файлы в зависимости от сложности логики разделителя заданий.
+* The job splitter file (JobSplitter.cs). This is where you will put your application-specific logic for splitting a job into tasks.
 
-Шаблон также создает стандартные проектные файлы .NET, например CSPROJ-файл, app.config, packages.config и т. д.
+Of course you can add additional files as required to support your job splitter code, depending on the complexity of the job splitting logic.
 
-В остальной части этого раздела представлено описание различных файлов и структуры кода в них, а также объяснение назначения каждого класса.
+The template also generates standard .NET project files such as a .csproj file, app.config, packages.config, etc.
 
-![Обозреватель решений Visual Studio, в котором отображается решение шаблона "Диспетчер заданий"][solution_explorer01]
+The rest of this section describes the different files and their code structure, and explains what each class does.
 
-**Файлы платформы**
+![Visual Studio Solution Explorer showing the Job Manager template solution][solution_explorer01]
 
-* `Configuration.cs` инкапсулирует загрузку данных конфигурации задания, например сведения об учетной записи пакетной службы, учетные данные связанной учетной записи хранения, сведения о задании и задаче, а также параметры задания. Он также предоставляет доступ к переменным среды, определяемым пакетной службой (см. параметры среды для задач в документации пакетной службы), в классе Configuration.EnvironmentVariable.
+**Framework files**
 
-* `IConfiguration.cs` абстрагирует реализацию класса конфигурации, чтобы пользователь мог выполнить модульный тест с разделителем заданий, используя фиктивный или ложный объект конфигурации.
+* `Configuration.cs`: Encapsulates the loading of job configuration data such as Batch account details, linked storage account credentials, job and task information, and job parameters. It also provides access to Batch-defined environment variables (see Environment settings for tasks, in the Batch documentation) via the Configuration.EnvironmentVariable class.
 
-* `JobManager.cs` управляет компонентами программы диспетчера заданий. Он отвечает за инициализацию разделителя заданий, вызов разделителя заданий и подготовку задач, возвращаемых разделителем заданий, к пересылке отравителю задач.
+* `IConfiguration.cs`: Abstracts the implementation of the Configuration class, so that you can unit test your job splitter using a fake or mock configuration object.
 
-* `JobManagerException.cs` представляет ошибку, требующую завершения работы диспетчера заданий. JobManagerException используется для помещения ожидаемых ошибок в оболочку. При завершении работы могут указываться конкретные диагностические сведения.
+* `JobManager.cs`: Orchestrates the components of the job manager program. It is responsible for the initializing the job splitter, invoking the job splitter, and dispatching the tasks returned by the job splitter to the task submitter.
 
-* `TaskSubmitter.cs`. Этот класс отвечает за добавление задач, возвращаемых разделителем заданий, в пакетную службу. Класс JobManager объединяет последовательность задач в пакеты для эффективного и своевременного добавления в задание, а затем вызывает TaskSubmitter.SubmitTasks в фоновом потоке для каждого пакета.
+* `JobManagerException.cs`: Represents an error that requires the job manager to terminate. JobManagerException is used to wrap 'expected' errors where specific diagnostic information can be provided as part of termination.
 
-**Разделитель заданий**
+* `TaskSubmitter.cs`: This class is responsible to adding tasks returned by the job splitter to the Batch job. The JobManager class aggregates the sequence of tasks into batches for efficient but timely addition to the job, then calls TaskSubmitter.SubmitTasks on a background thread for each batch.
 
-`JobSplitter.cs`. Этот класс содержит логику приложения для разделения задания на задачи. Платформа вызывает метод JobSplitter.Split для получения последовательности задач, которые она добавляет в задание, когда метод возвращает их. В этот класс встраивается логика задания. Реализуйте метод Split, чтобы вернуть последовательность экземпляров CloudTask, представляющих задачи, на которые требуется разбить задание.
+**Job Splitter**
 
-**Стандартные файлы проекта .NET командной строки**
+`JobSplitter.cs`: This class contains application-specific logic for splitting the job into tasks. The framework invokes the JobSplitter.Split method to obtain a sequence of tasks, which it adds to the job as the method returns them. This is the class where you will inject the logic of your job. Implement the Split method to return a sequence of CloudTask instances representing the tasks into which you want to partition the job.
 
-* `App.config` — стандартный файл конфигурации приложения .NET.
+**Standard .NET command line project files**
 
-* `Packages.config` — стандартный файл зависимостей пакета NuGet.
+* `App.config`: Standard .NET application configuration file.
 
-* `Program.cs` содержит точку входа программы и расширенные средства обработки исключений.
+* `Packages.config`: Standard NuGet package dependency file.
 
-### Внедрение разделителя заданий
+* `Program.cs`: Contains the program entry point and top-level exception handling.
 
-При открытии проекта шаблона "Диспетчер заданий" файл JobSplitter.cs откроется по умолчанию. Вы можете внедрить логику разделения для выполнения задач в рабочей нагрузке, используя метод Split() из следующего примера:
+### <a name="implementing-the-job-splitter"></a>Implementing the job splitter
+
+When you open the Job Manager template project, the project will have the JobSplitter.cs file open by default. You can implement the split logic for the tasks in your workload by using the Split() method show below:
 
 ```csharp
 /// <summary>
@@ -170,59 +171,59 @@ public IEnumerable<CloudTask> Split()
 }
 ```
 
->[AZURE.NOTE] Раздел с заметками в методе `Split()` — единственная часть кода шаблона "Диспетчер заданий", которую нужно изменить, добавив логику для разделения заданий на различные задачи. Чтобы изменить другой раздел шаблона, нужно ознакомиться с принципами работы пакетной службы и опробовать некоторые из [примеров кода этой службы][github_samples].
+>[AZURE.NOTE] The annotated section in the `Split()` method is the only section of the Job Manager template code that is intended for you to modify by adding the logic to split your jobs into different tasks. If you want to modify a different section of the template, please ensure you are familiarized with how Batch works, and try out a few of the [Batch code samples][github_samples].
 
-Для реализации метода Split() доступны такие компоненты:
+Your Split() implementation has access to:
 
-* параметры задания (в поле `_parameters`);
-* объект CloudJob, представляющий задание (в поле `_job`);
-* объект CloudTask, представляющий задание диспетчера заданий (в поле `_jobManagerTask`).
+* The job parameters, via the `_parameters` field.
+* The CloudJob object representing the job, via the `_job` field.
+* The CloudTask object representing the job manager task, via the `_jobManagerTask` field.
 
-При реализации `Split()` не нужно добавлять задачи в задание напрямую. Код должен возвращать последовательность объектов CloudTask, а классы платформы, вызывающие разделитель заданий, добавят задачи в задание автоматически. Как правило, для внедрения разделителей заданий используется итератор для C# (`yield return`), так как таким образом можно начать выполнение задач как можно быстрее, а не дожидаться обработки всех задач.
+Your `Split()` implementation does not need to add tasks to the job directly. Instead, your code should return a sequence of CloudTask objects, and these will be added to the job automatically by the framework classes that invoke the job splitter. It's common to use C#'s iterator (`yield return`) feature to implement job splitters as this allows the tasks to start running as soon as possible rather than waiting for all tasks to be calculated.
 
-**Сбой разделителя заданий**
+**Job splitter failure**
 
-При сбое разделитель заданий делает следующее:
+If your job splitter encounters an error, it should either:
 
-* Завершает последовательность с помощью утверждения C# `yield break`. В этом случае диспетчер заданий будет считаться таким, который совершил выполнение успешно.
+* Terminate the sequence using the C# `yield break` statement, in which case the job manager will be treated as successful; or
 
-* Выдает исключение. В этом случае диспетчер заданий рассматривается как такой, в котором произошел сбой. Он может запускаться повторно в зависимости от конфигурации клиента.
+* Throw an exception, in which case the job manager will be treated as failed and may be retried depending on how the client has configured it).
 
-В обоих случаях любые задачи, возвращенные разделителем заданий и добавленные в пакетную службу, можно запускать. Чтобы этого не произошло, можно сделать следующее:
+In both cases, any tasks already returned by the job splitter and added to the Batch job will be eligible to run. If you don't want this to happen, then you could:
 
-* Завершить выполнение задания перед возвратом из разделителя заданий.
+* Terminate the job before returning from the job splitter
 
-* Создать коллекцию задач перед возвратом (то есть необходимо вернуть `ICollection<CloudTask>` или `IList<CloudTask>`, а не внедрять разделитель заданий с помощью итераторов для C#).
+* Formulate the entire task collection before returning it (that is, return an `ICollection<CloudTask>` or `IList<CloudTask>` instead of implementing your job splitter using a C# iterator)
 
-* Создать зависимость заданий от успешного завершения работы диспетчера заданий.
+* Use task dependencies to make all tasks depend on the successful completion of the job manager
 
-**Повторная попытка запуска диспетчера заданий**
+**Job manager retries**
 
-При сбое пакетная служба может предпринять попытку повторного запуска диспетчера заданий в зависимости от параметров повторных попыток клиента. Как правило, это безопасно, так как при добавлении задачи в задание платформа игнорирует любые имеющиеся задачи. Тем не менее если вычисление задач требует значительных затрат, вам не захочется тратить дополнительные средства на выполнение повторного вычисления задач, добавленных в задание. Напротив, если при повторном вычислении не будут получены те же идентификаторы задач, игнорирование повторяющихся элементов не принесет пользу. В таких случаях следует настроить разделитель заданий таким образом, чтобы он определял выполненные задания и не выполнял их снова, например, выполняя CloudJob.ListTasks перед выдачей задач.
+If the job manager fails, it may be retried by the Batch service depending on the client retry settings. In general, this is safe, because when the framework adds tasks to the job, it ignores any tasks that already exist. However, if calculating tasks is expensive, you may not wish to incur the cost of recalculating tasks that have already been added to the job; conversely, if the re-run is not guaranteed to generate the same task IDs then the 'ignore duplicates' behavior will not kick in. In these cases you should design your job splitter to detect the work that has already been done and not repeat it, for example by performing a CloudJob.ListTasks before starting to yield tasks.
 
-### Коды выхода и исключения в шаблоне "Диспетчер заданий"
+### <a name="exit-codes-and-exceptions-in-the-job-manager-template"></a>Exit codes and exceptions in the Job Manager template
 
-Коды выхода и исключения позволяют определить результат выполнения программы, а также выявить проблемы при ее выполнении. Шаблон "Диспетчер заданий" реализует коды выхода и исключения, описанные в этом разделе.
+Exit codes and exceptions provide a mechanism to determine the outcome of running a program, and they can help to identify any problems with the execution of the program. The Job Manager template implements the exit codes and exceptions described in this section.
 
-Задача диспетчера заданий, реализующаяся с помощью шаблона "Диспетчер заданий", может вернуть три возможных кода выхода:
+A job manager task that is implemented with the Job Manager template can return three possible exit codes:
 
-| Код | Описание |
+| Code | Description |
 |------|-------------|
-| 0 | Задание диспетчера заданий выполнено успешно. Код разделителя заданий выполнен. Все задачи добавлены в задание. |
-| 1 | Произошел сбой задания диспетчера заданий с исключением в ожидаемых результатах программы. Исключение преобразовано в JobManagerException с диагностическими сведениями и рекомендациями по устранению ошибки, где это возможно. |
-| 2 | Произошел сбой задания диспетчера заданий с непредвиденным исключением. Исключение зарегистрировано в стандартный вывод, но диспетчеру заданий не удалось добавить дополнительные диагностические сведения или рекомендации по исправлению. |
+| 0    | The job manager completed successfully. Your job splitter code ran to completion, and all tasks were added to the job. |
+| 1    | The job manager task failed with an exception in an 'expected' part of the program. The exception was translated to a JobManagerException with diagnostic information and, where possible, suggestions for resolving the failure. |
+| 2    | The job manager task failed with an 'unexpected' exception. The exception was logged to standard output, but the job manager was unable to add any additional diagnostic or remediation information. |
 
-При сбое задачи диспетчера заданий некоторые задачи могут быть добавлены в службу до возникновения ошибки. Эти задачи будут выполняться в обычном режиме. Обсуждение этого пути кода см. в разделе "Сбой разделителя заданий" выше.
+In the case of job manager task failure, some tasks may still have been added to the service before the error occurred. These tasks will run as normal. See "Job Splitter Failure" above for discussion of this code path.
 
-Все сведения, возвращаемые исключением, записываются в файлы stdout.txt и stderr.txt. Дополнительные сведения см. в разделе [Обработка ошибок](batch-api-basics.md#error-handling).
+All the information returned by exceptions is written into stdout.txt and stderr.txt files. For more information, see [Error Handling](batch-api-basics.md#error-handling).
 
-### Рекомендации для клиента
+### <a name="client-considerations"></a>Client considerations
 
-В этом разделе описываются некоторые требования к реализации в клиенте при вызове диспетчера заданий с использованием этого шаблона. Дополнительные сведения о передаче параметров и настроек среды см. в разделе о [передаче параметров и переменных среды из клиентского кода](#pass-environment-settings).
+This section describes some client implementation requirements when invoking a job manager based on this template. See [How to pass parameters and environment variables from the client code](#pass-environment-settings) for details on passing parameters and environment settings.
 
-**Обязательные учетные данные**
+**Mandatory credentials**
 
-Чтобы добавить задачи в задание пакетной службы Azure, задаче диспетчера заданий требуется URL-адрес и ключ учетной записи пакетной службы Azure. Их необходимо передать в переменные среды YOUR\_BATCH\_URL и YOUR\_BATCH\_KEY. Их можно задать в параметрах среды задач диспетчера заданий. Например, в клиенте C#:
+In order to add tasks to the Azure Batch job, the job manager task requires your Azure Batch account URL and key. You must pass these in environment variables named YOUR_BATCH_URL and YOUR_BATCH_KEY. You can set these in the Job Manager task environment settings. For example, in a C# client:
 
 ```csharp
 job.JobManagerTask.EnvironmentSettings = new [] {
@@ -230,9 +231,9 @@ job.JobManagerTask.EnvironmentSettings = new [] {
     new EnvironmentSetting("YOUR_BATCH_KEY", "{your_base64_encoded_account_key}"),
 };
 ```
-**Учетные данные хранилища**
+**Storage credentials**
 
-Как правило, клиенту не требуется предоставлять учетные данные связанной учетной записи хранения для задачи диспетчера заданий, так как большинству диспетчеров заданий не требуется непосредственный доступ к связанной учетной записи хранения. Кроме того, связанная учетная запись хранения часто указывается для всех задач в качестве общего параметра среды для задания. Если связанная учетная запись хранения не указывается в общих параметрах среды, а диспетчеру заданий требуется доступ к связанному хранилищу, следует указать учетные данные связанного хранилища следующим образом:
+Typically, the client does not need to provide the linked storage account credentials to the job manager task because (a) most job managers do not need to explicitly access the linked storage account and (b) the linked storage account is often provided to all tasks as a common environment setting for the job. If you are not providing the linked storage account via the common environment settings, and the job manager requires access to linked storage, then you should supply the linked storage credentials as follows:
 
 ```csharp
 job.JobManagerTask.EnvironmentSettings = new [] {
@@ -242,96 +243,96 @@ job.JobManagerTask.EnvironmentSettings = new [] {
 };
 ```
 
-**Параметры задачи диспетчера заданий**
+**Job manager task settings**
 
-Клиент должен задать для флага диспетчера заданий *killJobOnCompletion* значение **false**.
+The client should set the job manager *killJobOnCompletion* flag to **false**.
 
-Обычно клиенту можно задать для параметра *runExclusive* значение **false**.
+It is usually safe for the client to set *runExclusive* to **false**.
 
-Клиент должен использовать коллекцию *resourceFiles* или *applicationPackageReferences*, чтобы развернуть исполняемый файл диспетчера заданий (и необходимые библиотеки DLL) на вычислительном узле.
+The client should use the *resourceFiles* or *applicationPackageReferences* collection to have the job manager executable (and its required DLLs) deployed to the compute node.
 
-По умолчанию при сбое не будет выполняться повторный запуск диспетчера заданий. В зависимости от логики диспетчера заданий клиенту может потребоваться выполнить повторную попытку через *constraints* или *maxTaskRetryCount*.
+By default, the job manager will not be retried if it fails. Depending on your job manager logic, the client may want to enable retries via *constraints*/*maxTaskRetryCount*.
 
-**Параметры задания**
+**Job settings**
 
-Если разделитель заданий выдает задачи с зависимостями, клиенту требуется задать для параметра задания usesTaskDependencies значение true.
+If the job splitter emits tasks with dependencies, the client must set the job's usesTaskDependencies to true.
 
-В модели разделителя заданий, как правило, клиенты не добавляют в задания больше задач, чем создает разделитель заданий. Поэтому обычно клиенту нужно задать для параметра задания *onAllTasksComplete* значение **terminatejob**.
+In the job splitter model, it is unusual for clients to wish to add tasks to jobs over and above what the job splitter creates. The client should therefore normally set the job's *onAllTasksComplete* to **terminatejob**.
 
-## Шаблон "Обработчик задач"
+## <a name="task-processor-template"></a>Task Processor template
 
-Шаблон "Обработчик задач" позволяет внедрить обработчик задач, выполняющий следующие действия:
+A Task Processor template helps you to implement a task processor that can perform the following actions:
 
-* настройка сведений, необходимых для выполнения каждой задачи пакетной службы;
-* выполнение всех действий, необходимых для каждой задачи пакетной службы;
-* сохранение результатов задачи в постоянное хранилище.
+* Set up the information required by each Batch task to run.
+* Run all actions required by each Batch task.
+* Save task outputs to persistent storage.
 
-Хотя обработчик задач не является обязательным для выполнения задач в пакетной службе, он предоставляет оболочку для реализации всех действий по выполнению задач в одном месте. В этом заключается ключевое преимущество его использования. Например, если в контексте каждой задачи необходимо выполнить несколько приложений или если после завершения каждой задачи необходимо скопировать данные в постоянное хранилище.
+Although a task processor is not required to run tasks on Batch, the key advantage of using a task processor is that it provides a wrapper to implement all task execution actions in one location. For example, if you need to run several applications in the context of each task, or if you need to copy data to persistent storage after completing each task.
 
-Сложность и количество действий, выполняемых обработчиком задач, зависит от требований рабочей нагрузки. Кроме того, внедрив все действия задач в один обработчик задач, можно легко обновить или добавить действия с учетом изменений требований к приложениям или рабочей нагрузке. Однако в некоторых случаях обработчик задач может оказаться не самым оптимальным решением для внедрения, так как он может создать излишние сложности, например, при выполнении заданий, которые можно быстро запустить из простой командной строки.
+The actions performed by the task processor can be as simple or complex, and as many or as few, as required by your workload. Additionally, by implementing all task actions into one task processor, you can readily update or add actions based on changes to applications or workload requirements. However, in some cases a task processor might not be the optimal solution for your implementation as it can add unnecessary complexity, for example when running jobs that can be quickly started from a simple command line.
 
-### Создание обработчика задач с помощью шаблона
+### <a name="create-a-task-processor-using-the-template"></a>Create a Task Processor using the template
 
-Чтобы добавить в созданное ранее решение обработчик задач, сделайте следующее:
+To add a task processor to the solution that you created earlier, follow these steps:
 
-1. Откройте имеющееся решение в Visual Studio 2015.
+1. Open your existing solution in Visual Studio 2015.
 
-2. В обозревателе решений щелкните правой кнопкой мыши проект, выберите пункт **Добавить**, а затем щелкните **Создать проект**.
+2. In Solution Explorer, right-click the solution, click **Add**, and then click **New Project**.
 
-3. В разделе **Visual C#** щелкните **Облако**, а затем — **Azure Batch Task Processor** (Обработчик задач пакетной службы Azure).
+3. Under **Visual C#**, click **Cloud**, and then click **Azure Batch Task Processor**.
 
-4. Введите имя, описывающее приложение и определяющее этот проект в качестве обработчика задач (например, LitwareTaskProcessor).
+4. Type a name that describes your application and identifies this project as the task processor (e.g. "LitwareTaskProcessor").
 
-5. Чтобы создать проект, нажмите кнопку **ОК**.
+5. To create the project, click **OK**.
 
-6. Наконец, создайте проект, чтобы принудительно загрузить в среде Visual Studio все указанные пакеты NuGet, а также чтобы убедиться, что проект допустимый, прежде чем начать изменять его.
+6. Finally, build the project to force Visual Studio to load all referenced NuGet packages and to verify that the project is valid before you start modifying it.
 
-### Файлы шаблона "Обработчик задач" и их назначение
+### <a name="task-processor-template-files-and-their-purpose"></a>Task Processor template files and their purpose
 
-При создании проекта с помощью шаблона "Обработчик задач" создается три группы файлов кода:
+When you create a project using the task processor template, it generates three groups of code files:
 
-* Файл основной программы (Program.cs). Он содержит точку входа программы и расширенные средства обработки исключений. Обычно не требуется изменять этот файл.
+* The main program file (Program.cs). This contains the program entry point and top-level exception handling. You shouldn't normally need to modify this.
 
-* Каталог платформы. Здесь содержатся файлы, отвечающие за стандартные операции программы диспетчера заданий: распаковка параметров, добавление задач в задание пакетной службы и т. д. Обычно не требуется изменять эти файлы.
+* The Framework directory. This contains the files responsible for the 'boilerplate' work done by the job manager program – unpacking parameters, adding tasks to the Batch job, etc. You shouldn't normally need to modify these files.
 
-* Файл обработчика задач (TaskProcessor.cs). Сюда помещается логика приложения для выполнения задачи (как правило, путем вызова имеющегося исполняемого файла). Сюда также помещается код предварительной обработки и постобработки, например для скачивания дополнительных данных или отправки файлов результатов.
+* The task processor file (TaskProcessor.cs). This is where you will put your application-specific logic for executing a task (typically by calling out to an existing executable). Pre- and post-processing code, such as downloading additional data or uploading result files, also goes here.
 
-Конечно, при необходимости для поддержки кода обработчика задач можно добавить дополнительные файлы в зависимости от сложности логики разделителя заданий.
+Of course you can add additional files as required to support your task processor code, depending on the complexity of the job splitting logic.
 
-Шаблон также создает стандартные проектные файлы .NET, например CSPROJ-файл, app.config, packages.config и т. д.
+The template also generates standard .NET project files such as a .csproj file, app.config, packages.config, etc.
 
-В остальной части этого раздела представлено описание различных файлов и структуры кода в них, а также объяснение назначения каждого класса.
+The rest of this section describes the different files and their code structure, and explains what each class does.
 
-![Обозреватель решений Visual Studio, в котором отображается решение шаблона "Обработчик задач"][solution_explorer02]
+![Visual Studio Solution Explorer showing the Task Processor template solution][solution_explorer02]
 
-**Файлы платформы**
+**Framework files**
 
-* `Configuration.cs` инкапсулирует загрузку данных конфигурации задания, например сведения об учетной записи пакетной службы, учетные данные связанной учетной записи хранения, сведения о задании и задаче, а также параметры задания. Он также предоставляет доступ к переменным среды, определяемым пакетной службой (см. параметры среды для задач в документации пакетной службы), в классе Configuration.EnvironmentVariable.
+* `Configuration.cs`: Encapsulates the loading of job configuration data such as Batch account details, linked storage account credentials, job and task information, and job parameters. It also provides access to Batch-defined environment variables (see Environment settings for tasks, in the Batch documentation) via the Configuration.EnvironmentVariable class.
 
-* `IConfiguration.cs` абстрагирует реализацию класса конфигурации, чтобы пользователь мог выполнить модульный тест с разделителем заданий, используя фиктивный или ложный объект конфигурации.
+* `IConfiguration.cs`: Abstracts the implementation of the Configuration class, so that you can unit test your job splitter using a fake or mock configuration object.
 
-* `TaskProcessorException.cs` представляет ошибку, требующую завершения работы диспетчера заданий. TaskProcessorException используется для помещения ожидаемых ошибок в оболочку. При завершении работы могут указываться конкретные диагностические сведения.
+* `TaskProcessorException.cs`: Represents an error that requires the job manager to terminate. TaskProcessorException is used to wrap 'expected' errors where specific diagnostic information can be provided as part of termination.
 
-**Обработчик задач**
+**Task Processor**
 
-* `TaskProcessor.cs` выполняет задачу. Платформа вызывает метод TaskProcessor.Run. В этот класс вставляется логика задачи для приложения. Реализуйте метод Run, чтобы выполнить следующее:
-  * проанализировать и проверить все параметры задачи;
-  * создать командную строку для любой внешней программы, которую нужно вызвать;
-  * зарегистрировать любые диагностические сведения, которые могут потребоваться для отладки;
-  * запустить процесс с помощью созданной командной строки;
-  * дождаться завершения процесса;
-  * записать код выхода процесса, чтобы определить, насколько успешно он выполнен;
-  * сохранить выходные файлы, которые нужно сохранить в постоянном хранилище.
+* `TaskProcessor.cs`: Runs the task. The framework invokes the TaskProcessor.Run method. This is the class where you will inject the application-specific logic of your task. Implement the Run method to:
+  * Parse and validate any task parameters
+  * Compose the command line for any external program you want to invoke
+  * Log any diagnostic information you may require for debugging purposes
+  * Start a process using that command line
+  * Wait for the process to exit
+  * Capture the exit code of the process to determine if it succeeded or failed
+  * Save any output files you want to keep to persistent storage
 
-**Стандартные файлы проекта .NET командной строки**
+**Standard .NET command line project files**
 
-* `App.config` — стандартный файл конфигурации приложения .NET.
-* `Packages.config` — стандартный файл зависимостей пакета NuGet.
-* `Program.cs` содержит точку входа программы и расширенные средства обработки исключений.
+* `App.config`: Standard .NET application configuration file.
+* `Packages.config`: Standard NuGet package dependency file.
+* `Program.cs`: Contains the program entry point and top-level exception handling.
 
-## Реализация обработчика задач
+## <a name="implementing-the-task-processor"></a>Implementing the task processor
 
-При открытии проекта шаблона "Обработчик задач" файл TaskProcessor.cs откроется по умолчанию. Логику выполнения для задач в рабочей нагрузке можно внедрить, используя метод Run() из следующего примера:
+When you open the Task Processor template project, the project will have the TaskProcessor.cs file open by default. You can implement the run logic for the tasks in your workload by using the Run() method shown below:
 
 ```csharp
 /// <summary>
@@ -376,41 +377,41 @@ public async Task<int> Run()
     }
 }
 ```
->[AZURE.NOTE] Раздел с заметками в методе Run() — единственная часть кода шаблона "Обработчик задач", которую нужно изменить, добавив логику выполнения для задач в рабочей нагрузке. Если требуется изменить другой раздел шаблона, ознакомьтесь с принципами работы пакетной службы, просмотрев соответствующую документацию и опробовав некоторые из примеров кода пакетной службы.
+>[AZURE.NOTE] The annotated section in the Run() method is the only section of the Task Processor template code that is intended for you to modify by adding the run logic for the tasks in your workload. If you want to modify a different section of the template, please first familiarize yourself with how Batch works by reviewing the Batch documentation and trying out a few of the Batch code samples.
 
-Метод Run() отвечает за запуск командной строки, запуск одного или нескольких процессов, ожидание завершения всех процессов, сохранение результатов и возврат с кодом выхода. В методе Run() выполняется реализация логики обработки для задач. Платформа обработчика задач вызывает метод Run() автоматически. Поэтому не нужно делать это вручную.
+The Run() method is responsible for launching the command line, starting one or more processes, waiting for all process to complete, saving the results, and finally returning with an exit code. The Run() method is where you implement the processing logic for your tasks. The task processor framework invokes the Run() method for you; you do not need to call it yourself.
 
-Для реализации метода Run() доступны такие компоненты:
+Your Run() implementation has access to:
 
-* параметры задачи (в поле `_parameters`);
-* идентификаторы задания и задачи (в полях `_jobId` и `_taskId`);
-* конфигурация задачи (в поле `_configuration`).
+* The task parameters, via the `_parameters` field.
+* The job and task ids, via the `_jobId` and `_taskId` fields.
+* The task configuration, via the `_configuration` field.
 
-**Сбой выполнения задачи**
+**Task failure**
 
-При сбое можно выйти из метода Run() путем создания исключения. Однако в таком случае кодом выхода управляет главный обработчик исключений. Если необходимо управлять кодом выхода, чтобы отличать различные типы сбоев (например, в целях диагностики или потому что в некоторых режимах сбоя нужно завершать выполнение задание, а в других — нет), нужно выйти из метода Run() путем возврата ненулевого кода выхода. Он становится кодом выхода задачи.
+In case of failure, you can exit the Run() method by throwing an exception, but this leaves the top level exception handler in control of the task exit code. If you need to control the exit code so that you can distinguish different types of failure, for example for diagnostic purposes or because some failure modes should terminate the job and others should not, then you should exit the Run() method by returning a non-zero exit code. This becomes the task exit code.
 
-### Коды выхода и исключения в шаблоне "Обработчик задач"
+### <a name="exit-codes-and-exceptions-in-the-task-processor-template"></a>Exit codes and exceptions in the Task Processor template
 
-Коды выхода и исключения позволяют определить результат выполнения программы, а также выявить проблемы при ее выполнении. Шаблон "Обработчик задач" реализует коды выхода и исключения, описанные в этом разделе.
+Exit codes and exceptions provide a mechanism to determine the outcome of running a program, and they can help identify any problems with the execution of the program. The Task Processor template implements the exit codes and exceptions described in this section.
 
-Задача обработчика задач, реализующаяся с помощью шаблона "Обработчик задач", может вернуть три возможных кода выхода:
+A task processor task that is implemented with the Task Processor template can return three possible exit codes:
 
-| Код | Описание |
+| Code | Description |
 |------|-------------|
-| [Process.ExitCode][process_exitcode] | Обработчик задач выполнен. Обратите внимание, что это не означает, что при вызове программы ее выполнение успешно завершилось. Это означает, что обработчик задач успешно вызвал ее и выполнил любые операции постобработки без исключений. Значение кода выхода зависит от вызванной программы. Обычно код выхода 0 означает, что программа выполнена успешно, а любой другой код выхода означает, что произошел сбой. |
-| 1 | Произошел сбой обработчика задач с исключением в ожидаемых результатах программы. Исключение преобразовано в `TaskProcessorException` с диагностическими сведениями и рекомендациями по устранению ошибки, где это возможно. |
-| 2 | Произошел сбой обработчика задач с непредвиденным исключением. Исключение зарегистрировано в стандартный вывод, но обработчику задач не удалось добавить дополнительные диагностические сведения или рекомендации по исправлению. |
+|  [Process.ExitCode][process_exitcode] | The task processor ran to completion. Note that this does not imply that the program you invoked was successful – only that the task processor invoked it successfully and performed any post-processing without exceptions. The meaning of the exit code depends on the invoked program – typically exit code 0 means the program succeeded and any other exit code means the program failed. |
+| 1    | The task processor failed with an exception in an 'expected' part of the program. The exception was translated to a `TaskProcessorException` with diagnostic information and, where possible, suggestions for resolving the failure. |
+| 2    | The task processor failed with an 'unexpected' exception. The exception was logged to standard output, but the task processor was unable to add any additional diagnostic or remediation information. |
 
->[AZURE.NOTE] Если вызываемая программа использует коды выхода 1 и 2 для указания конкретных режимов сбоя, использование кодов выхода 1 и 2 для ошибок обработчика задач приведет к неоднозначности. Эти коды ошибок обработчика задач можно изменить на отличающиеся коды выхода, изменив исключения в файле Program.cs.
+>[AZURE.NOTE] If the program you invoke uses exit codes 1 and 2 to indicate specific failure modes, then using exit codes 1 and 2 for task processor errors is ambiguous. You can change these task processor error codes to distinctive exit codes by editing the exception cases in the Program.cs file.
 
-Все сведения, возвращаемые исключением, записываются в файлы stdout.txt и stderr.txt. Дополнительные сведения см. в разделе об обработке ошибок в документации по пакетной службе.
+All the information returned by exceptions is written into stdout.txt and stderr.txt files. For more information, see Error Handling, in the Batch documentation.
 
-### Рекомендации для клиента
+### <a name="client-considerations"></a>Client considerations
 
-**Учетные данные хранилища**
+**Storage credentials**
 
-Если обработчик задач сохраняет результаты в хранилище BLOB-объектов Azure, например с использованием вспомогательной библиотеки соглашений по именованию файлов, то ему требуется доступ *к* учетным данным облачной учетной записи хранения *или* URL-адресу контейнера больших двоичных объектов, включающего подписанный URL-адрес (SAS). Шаблон поддерживает предоставление учетных данных через общие переменные среды. Клиент может передать учетные данные хранилища следующим образом:
+If your task processor uses Azure blob storage to persist outputs, for example using the file conventions helper library, then it needs access to *either* the cloud storage account credentials *or* a blob container URL that includes a shared access signature (SAS). The template includes support for providing credentials via common environment variables. Your client can pass the storage credentials as follows:
 
 ```csharp
 job.CommonEnvironmentSettings = new [] {
@@ -419,57 +420,57 @@ job.CommonEnvironmentSettings = new [] {
 };
 ```
 
-Затем учетная запись хранения становится доступной в свойстве `_configuration.StorageAccount` класса TaskProcessor.
+The storage account is then available in the TaskProcessor class via the `_configuration.StorageAccount` property.
 
-Если вы предпочитаете использовать URL-адрес контейнера с SAS, их также можно передать в общих параметрах среды задания. Однако в настоящее время в шаблон "Обработчик задач" не встроена поддержка этой возможности.
+If you prefer to use a container URL with SAS, you can also pass this via an job common environment setting, but the task processor template does not currently include built-in support for this.
 
-**Настройка хранилища**
+**Storage setup**
 
-Рекомендуется, чтобы клиент или задание обработчика заданий создавали контейнеры, необходимые задачам, прежде чем добавлять задачи в задание. Это обязательно, если URL-адрес контейнера используется с SAS, так как такой URL-адрес не включает разрешение на создание контейнера. Это рекомендуется сделать даже при передаче учетных данных учетной записи хранения, так как при вызове CloudBlobContainer.CreateIfNotExistsAsync для контейнера сохраняются все задачи.
+It is recommended that the client or job manager task create any containers required by tasks before adding the tasks to the job. This is mandatory if you use a container URL with SAS, as such a URL does not include permission to create the container. It is recommended even if you pass storage account credentials, as it saves every task having to call CloudBlobContainer.CreateIfNotExistsAsync on the container.
 
-## Передача параметров и переменных среды
+## <a name="pass-parameters-and-environment-variables"></a>Pass parameters and environment variables
 
-### Передача параметров среды
+### <a name="pass-environment-settings"></a>Pass environment settings
 
-Клиент может передать сведения задаче диспетчера заданий в виде параметров среды. Затем эти сведения может использовать задача диспетчера заданий при создании задач соответствующего обработчика, которые будут выполняться как часть вычислительного задания. Ниже приведены примеры сведений, которые можно передать в качестве параметров среды:
+A client can pass information to the job manager task in the form of environment settings. This information can then be used by the job manager task when generating the task processor tasks that will run as part of the compute job. Examples of the information that you can pass as environment settings are:
 
-* имя учетной записи хранения и ключ учетной записи;
-* URL-адрес учетной записи пакетной службы;
-* ключ учетной записи пакетной службы.
+* Storage account name and account keys
+* Batch account URL
+* Batch account key
 
-В пакетной службе предусмотрен простой механизм для передачи параметров среды в задаче диспетчера заданий. Для этого нужно использовать свойство `EnvironmentSettings` в [Microsoft.Azure.Batch.JobManagerTask][net_jobmanagertask].
+The Batch service has a simple mechanism to pass environment settings to a job manager task by using the `EnvironmentSettings` property in [Microsoft.Azure.Batch.JobManagerTask][net_jobmanagertask].
 
-Например, чтобы получить экземпляр `BatchClient` для учетной записи пакетной службы, в качестве переменных среды из клиентского кода можно передать URL-адрес и учетные данные общего ключа для учетной записи пакетной службы. Аналогично для получения доступа к учетной записи хранения, связанной с учетной записью пакетной службы, в качестве переменных среды можно передать имя и ключ учетной записи хранения.
+For example, to get the `BatchClient` instance for a Batch account, you can pass as environment variables from the client code the URL and shared key credentials for the Batch account. Likewise, to access the storage account that is linked to the Batch account, you can pass the storage account name and the storage account key as environment variables.
 
-### Передача параметров в шаблон "Диспетчер заданий"
+### <a name="pass-parameters-to-the-job-manager-template"></a>Pass parameters to the Job Manager template
 
-Во многих случаях полезно передать параметры конкретного задания в задачу диспетчера заданий, чтобы управлять процессом разделения заданий или настроить задачи для задания. Это можно сделать, загрузив JSON-файл с именем parameters.json в качестве файла ресурсов для задачи диспетчера заданий. После этого параметры станут доступными в поле `JobSplitter._parameters` шаблона "Диспетчер заданий".
+In many cases, it's useful to pass per-job parameters to the job manager task, either to control the job splitting process or to configure the tasks for the job. You can do this by uploading a JSON file named parameters.json as a resource file for the job manager task. The parameters can then become available in the `JobSplitter._parameters` field in the Job Manager template.
 
->[AZURE.NOTE] Встроенный обработчик параметров поддерживает только строчные словари. Если требуется передать сложные значения JSON в качестве значений параметров, их необходимо передать в качестве строки и проанализировать в разделителе заданий или изменить метод платформы `Configuration.GetJobParameters`.
+>[AZURE.NOTE] The built-in parameter handler supports only string-to-string dictionaries. If you want to pass complex JSON values as parameter values, you will need to pass these as strings and parse them in the job splitter, or modify the framework's `Configuration.GetJobParameters` method.
 
-### Передача параметров в шаблон "Обработчик задач"
+### <a name="pass-parameters-to-the-task-processor-template"></a>Pass parameters to the Task Processor template
 
-Параметры можно также передавать в отдельные задачи, реализованные с помощью шаблона "Обработчик задач". Так же как и в случае с шаблоном "Диспетчер заданий", шаблон "Обработчик задач" выполняет поиск файла ресурсов с именем
+You can also pass parameters to individual tasks implemented using the Task Processor template. Just as with the job manager template, the task processor template looks for a resource file named
 
-parameters.json. Если он найден, он загружается в качестве словаря параметров. Существует несколько способов передачи параметров задачам обработчика задач:
+parameters.json, and if found it loads it as the parameters dictionary. There are a couple of options for how to pass parameters to the task processor tasks:
 
-* Повторное использование параметров задания JSON. Это подходит, если представлены только параметры уровня задания (например, высота и ширина отрисовки). Для этого при создании CloudTask в разделителе заданий нужно добавить ссылку на объект файла ресурсов parameters.json из коллекции ResourceFiles задачи диспетчера заданий (`JobSplitter._jobManagerTask.ResourceFiles`) в коллекцию ResourceFiles объекта CloudTask.
+* Reuse the job parameters JSON. This works well if the only parameters are job-wide ones (for example, a render height and width). To do this, when creating a CloudTask in the job splitter, add a reference to the parameters.json resource file object from the job manager task's ResourceFiles (`JobSplitter._jobManagerTask.ResourceFiles`) to the CloudTask's ResourceFiles collection.
 
-* Создание и отправка документа parameters.json конкретной задачи при выполнении разделителя заданий и создание ссылки на большой двоичный объект в коллекции файлов ресурсов задачи. Это необходимо, если в разных задачах используются разные параметры. Примером может служить сценарий отрисовки 3D-данных, где индекс кадра передается задаче в качестве параметра.
+* Generate and upload a task-specific parameters.json document as part of job splitter execution, and reference that blob in the task's resource files collection. This is necessary if different tasks have different parameters. An example might be a 3D rendering scenario where the frame index is passed to the task as a parameter.
 
->[AZURE.NOTE] Встроенный обработчик параметров поддерживает только строчные словари. Если требуется передать сложные значения JSON в качестве значений параметров, их необходимо передать в качестве строки и проанализировать в обработчике задач или изменить метод платформы `Configuration.GetTaskParameters`.
+>[AZURE.NOTE] The built-in parameter handler supports only string-to-string dictionaries. If you want to pass complex JSON values as parameter values, you will need to pass these as strings and parse them in the task processor, or modify the framework's `Configuration.GetTaskParameters` method.
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Next steps
 
-### Сохранение выходных данных заданий и задач в службе хранилища Azure
+### <a name="persist-job-and-task-output-to-azure-storage"></a>Persist job and task output to Azure Storage
 
-Еще одно полезное средство в разработке решений пакетной службы — [Azure Batch File Conventions][nuget_package]. Эта библиотека классов .NET (сейчас доступна предварительная версия) позволяет приложениям .NET пакетной службы легко сохранять выходные данные задач в службе хранилища Azure и извлекать их из нее. В статье [Сохранение выходных данных заданий и задач пакетной службы Azure](batch-task-output.md) содержится полное описание библиотеки и сведения о ее использовании.
+Another helpful tool in Batch solution development is [Azure Batch File Conventions][nuget_package]. Use this .NET class library (currently in preview) in your Batch .NET applications to easily store and retrieve task outputs to and from Azure Storage. [Persist Azure Batch job and task output](batch-task-output.md) contains a full discussion of the library and its usage.
 
-### Форум по Пакетной службе
+### <a name="batch-forum"></a>Batch Forum
 
-На [форуме по пакетной службе Azure][forum] на сайте MSDN можно обсудить пакетную службу и задать вопросы о ней. Изучайте полезные «прикрепленные» сообщения и задавайте вопросы, возникающие во время сборки пакетных решений.
+The [Azure Batch Forum][forum] on MSDN is a great place to discuss Batch and ask questions about the service. Head on over for helpful "sticky" posts, and post your questions as they arise while you build your Batch solutions.
 
-[forum]: https://social.msdn.microsoft.com/forums/azure/ru-RU/home?forum=azurebatch
+[forum]: https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=azurebatch
 [net_jobmanagertask]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.jobmanagertask.aspx
 [github_samples]: https://github.com/Azure/azure-batch-samples
 [nuget_package]: https://www.nuget.org/packages/Microsoft.Azure.Batch.Conventions.Files
@@ -482,4 +483,8 @@ parameters.json. Если он найден, он загружается в ка
 [solution_explorer01]: ./media/batch-visual-studio-templates/solution_explorer01.png
 [solution_explorer02]: ./media/batch-visual-studio-templates/solution_explorer02.png
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

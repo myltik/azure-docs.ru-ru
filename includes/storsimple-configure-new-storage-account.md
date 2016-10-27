@@ -1,21 +1,24 @@
 <!--author=SharS last changed: 9/17/15-->
 
-#### Добавление новой учетной записи хранения в рабочей версии StorSimple (GA)
+#### <a name="to-add-a-new-storage-account-in-storsimple-release-version-(ga)"></a>To add a new storage account in StorSimple Release version (GA)
 
-1. На стартовой странице службы Диспетчера StorSimple выберите службу и дважды щелкните ее. После этого вы перейдете на страницу **Быстрый запуск**. Выберите страницу **Настройка**.
+1. On the StorSimple Manager service landing page, select your service and double-click it. This will take you to the **Quick Start** page. Select the **Configure** page.
 
-2. Щелкните элемент **Добавить/изменить учетную запись хранения**.
+2. Click **Add/edit storage account**.
 
-3. В диалоговом окне **Добавление или изменение учетной записи хранения** выполните следующие действия.
+3. In the **Add/Edit Storage Account** dialog box, do the following:
 
-  1. Щелкните **Добавить новую**.
-  2. Задайте имя вашей учетной записи хранения.
-  3. Предоставьте главный **ключ доступа** для вашей учетной записи хранения Microsoft Azure.
-  4. Выберите **Включить режим SSL**, чтобы создать безопасный канал для обмена данными между вашим устройством и облаком. Снимайте флажок **Включить режим SSL** только в том случае, если вы работаете в частном облаке.
-  5. Щелкните значок галочки ![значок галочки](./media/storsimple-configure-new-storage-account/HCS_CheckIcon-include.png). После успешного создания учетной записи хранения вы получите уведомление.
+  1. Click **Add new**.
+  2. Provide a name for your storage account.
+  3. Supply the primary **Access Key** for your Microsoft Azure storage account.
+  4. Select **Enable SSL Mode** to create a secure channel for network communication between your device and the cloud. Clear the **Enable SSL Mode** check box only if you are operating within a private cloud.
+  5. Click the check icon ![check icon](./media/storsimple-configure-new-storage-account/HCS_CheckIcon-include.png). You will be notified after the storage account is successfully created.
 
-    ![Добавить учетную запись хранения](./media/storsimple-configure-new-storage-account/HCS_AddStorageAccount-include.png)
+    ![Add storage account](./media/storsimple-configure-new-storage-account/HCS_AddStorageAccount-include.png)
 
-4. Только что созданная учетная запись хранения будет отображаться на странице **Настройка** в разделе **Учетные записи хранения**. Щелкните **Сохранить**, чтобы сохранить только что созданную учетную запись хранения. При выводе запроса подтверждения щелкните **ОК**.
+4. The newly created storage account will be displayed on the **Configure** page under **Storage accounts**. Click **Save** to save the newly created storage account. Click **OK** when prompted for confirmation.
 
-<!---HONumber=Oct15_HO3-->
+
+<!--HONumber=Oct16_HO2-->
+
+

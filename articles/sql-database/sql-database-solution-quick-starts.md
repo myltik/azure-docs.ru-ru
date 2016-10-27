@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Изучение кратких руководств по решениям базы данных SQL Azure | Microsoft Azure"
-   description="Узнайте о решениях на основе базы данных SQL Azure."
+   pageTitle="Azure SQL Database Solution Quick Starts | Microsoft Azure"
+   description="Learn about Azure SQL Database Solutions"
    services="sql-database"
    documentationCenter=""
    authors="CarlRabeler"
@@ -16,59 +16,65 @@
    ms.date="09/06/2016"
    ms.author="carlrab"/>
 
-# Изучение кратких руководств по решениям базы данных SQL Azure
 
-Эта статья содержит обзор кратких руководств по решениям базы данных SQL Azure. Эти краткие руководства находятся в репозитории примеров SQL Server на сайте GitHub. В них демонстрируется использование базы данных SQL в полном решении на основе реальных сценариев. Простые пошаговые учебники, демонстрирующие применение конкретной функции базы данных SQL, доступны в разделе [Изучение учебников по базе данных SQL Azure](sql-database-explore-tutorials.md).
+# <a name="explore-azure-sql-database-solution-quick-starts"></a>Explore Azure SQL Database Solution Quick Starts
 
-## Ознакомление с демонстрационной версией WingTipTickets и практической работой
+This article contains an overview of the Azure SQL Database Solution Quick Starts. These Quick Starts are located in the GitHub SQL Server samples repository and demonstrate the use of SQL Database in a complete solution based on real-world scenarios. For simple step-by-step tutorials that demonstrate the use of a particular SQL Database feature, see [Explore Azure SQL Database tutorials](sql-database-explore-tutorials.md).
 
-Демонстрационная версия [WingTipTickets базы данных SQL Azure](https://github.com/microsoft/wingtiptickets) и практическая работа. В них показан пример приложения, которое работает на основе базы данных SQL Azure и Поиска Azure и служит для продажи билетов на концерты.
+## <a name="try-the-wingtiptickets-demo-and-hands-on-lab"></a>Try the WingTipTickets demo and hands-on lab
+
+The [Azure SQL Database WingTipTickets](https://github.com/microsoft/wingtiptickets) demo and hands-on lab demonstrate an Azure SQL Database and Azure Search-based sample application that's used to sell concert tickets.
 
 
-## Сбор и отслеживание данных об использовании ресурсов в нескольких пулах
+## <a name="collect-and-monitor-resource-usage-data-across-multiple-pools"></a>Collect and monitor resource usage data across multiple pools
 
-В разделе [Solution Quick Start: Elastic Pool telemetry using PowerShell](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-sql-db-elastic-pools) (Краткое руководство по решению. Получение данных телеметрии пула эластичных БД с помощью PowerShell) представлено решение для сбора и отслеживания данных об использовании ресурсов базы данных SQL в нескольких пулах в подписке. Если в вашей подписке много баз данных, отдельно отслеживать каждый пул эластичных баз данных становится затруднительно.
+[Solution Quick Start: Elastic Pool telemetry using PowerShell](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-sql-db-elastic-pools) provides a solution for collecting and monitoring SQL Database resource usage across multiple pools in a subscription. When you have a large number of databases in a subscription, it's cumbersome to monitor each elastic pool separately.
 
-Чтобы решить эту задачу, можно с помощью командлетов PowerShell базы данных SQL и запросов T-SQL собирать данные об использовании ресурсов в нескольких пулах и их базах данных. Это упрощает мониторинг и анализ использования ресурсов.
+To resolve this issue, you can combine SQL Database PowerShell cmdlets and T-SQL queries to collect resource usage data from multiple pools and their databases. This helps you monitor and analyze resource usage more efficiently.
 
-Это краткое руководство содержит набор сценариев PowerShell и запросов T-SQL, а также документацию по назначению решения и способам его реализации.
+This Quick Start provides a set of PowerShell scripts and T-SQL queries along with documentation on what the solution does and how to implement it.
 
-## Приступая к работе с эластичной базой данных при использовании SaaS
+## <a name="get-started-with-elastic-database-in-an-saas-scenario"></a>Get started with Elastic Database in an SaaS scenario
 
- Раздел [Solution Quick Start: Elastic Pool custom dashboard for SaaS](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-sql-db-elastic-pools-custom-dashboard) (Краткое руководство по решению. Пользовательская панель мониторинга пула эластичных БД для SaaS) содержит решение для сценария SaaS, в котором функции эластичных баз данных используются для предоставления экономичной и масштабируемой серверной части базы данных приложения SaaS.
+ [Solution Quick Start: Elastic Pool custom dashboard for SaaS](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-sql-db-elastic-pools-custom-dashboard) provides a solution for a Software-as-a-Solution (SaaS) scenario that leverages the Elastic Database feature of SQL Database to provide a cost-effective and scalable database backend for an SaaS application.
 
-В этом решении мы поэтапно рассмотрим реализацию веб-приложения. Это веб-приложение позволяет визуализировать нагрузку эластичной базы данных, создаваемую генератором нагрузки, который использует пользовательскую панель мониторинга, дополняющую возможности портала Azure.
+In this solution, you will walk through the implementation of a web app. This web app lets you visualize the load that's created on an elastic database by a load generator that uses a custom dashboard that supplements the Azure portal.
 
-Это краткое руководство предоставляет генератор нагрузки и веб-приложение мониторинга, а также документацию по назначению приложения и его использованию.
+This Quick Start provides a load generator and monitoring web app along with the documentation about what the app does and how to use it.
 
-## Создание базы данных SQL Azure при разработке с помощью Code First и Entity Framework
+## <a name="create-an-azure-sql-database-by-using-code-first-development-and-the-entity-framework"></a>Create an Azure SQL database by using Code First development and the Entity Framework
 
-Видео и пример в разделе [Использование Code First для создания базы данных](https://msdn.microsoft.com/data/jj193542.aspx) содержат вводные сведения о разработке баз данных с помощью Code First. Этот сценарий для базы данных, которая еще не существует, но будет создана с помощью Code First. Кроме того, сценарий может создать пустую базу данных, в которую Code First добавит новые таблицы.
+The video and sample in [Code First to a New Database](https://msdn.microsoft.com/data/jj193542.aspx) provides an introduction to Code First development that targets a new database. This scenario targets a database that doesn’t exist, but which will be created by Code First. Alternatively, the scenario creates an empty database to which Code First adds new tables.
 
-Code First позволяет определить модель с помощью классов C# или Visual Basic .NET. При необходимости можно выполнить дополнительную настройку с помощью атрибутов для классов и свойств либо с помощью текучего API.
+Code First enables you to define your model by using by C# or Visual Basic .NET classes. You can perform optional additional configuration by using attributes on your classes and properties or by using a fluent API.
 
-## Интеграция инструментов эластичной базы данных в приложение Entity Framework
+## <a name="integrate-elastic-database-tools-into-an-entity-framework-application"></a>Integrate Elastic Database tools into an Entity Framework application
 
-В примере [Использование клиентской библиотеки эластичных баз данных с Entity Framework](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md) показаны изменения, которые необходимо внести в приложение Entity Framework, чтобы интегрировать его с [инструментами эластичной базы данных](sql-database-elastic-scale-get-started.md). Основное внимание уделяется совмещению методов [управления картой сегментов](sql-database-elastic-scale-shard-map-management.md) и [маршрутизации на основе данных](sql-database-elastic-scale-data-dependent-routing.md) с помощью Entity Framework и Code First.
+The [Elastic Database client library with Entity Framework](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md) sample shows the changes that you need to make to an Entity Framework application to integrate it with [Elastic Database tools](sql-database-elastic-scale-get-started.md). The focus is on composing [shard map management](sql-database-elastic-scale-shard-map-management.md) and [data-dependent routing](sql-database-elastic-scale-data-dependent-routing.md) with the Entity Framework Code First approach.
 
-В нашем примере используется пример из раздела [Использование Code First для создания базы данных](http://msdn.microsoft.com/data/jj193542.aspx). В качестве примеров кода, сопровождающих этот документ, используется часть набора примеров для инструментов эластичной базы данных в Visual Studio.
+The [Code First to a new database sample for EF](http://msdn.microsoft.com/data/jj193542.aspx) serves as our running example throughout this sample. The sample code that accompanies this document is part of the Elastic Database tools set of samples in the Visual Studio code samples.
 
-## Интеграция инструментов эластичной базы данных с безопасностью на уровне строк
+## <a name="integrate-elastic-database-tools-with-row-level-security"></a>Integrate Elastic Database tools with row-level security
 
-В разделе [Мультитенантные приложения со средствами эластичных баз данных и безопасностью на уровне строк](sql-database-elastic-tools-multi-tenant-row-level-security.md) показаны изменения, которые необходимо внести в приложение Entity Framework для интеграции [инструментов эластичной базы данных](sql-database-elastic-scale-get-started.md) с [безопасностью на уровне строк](https://msdn.microsoft.com/library/dn765131). В примере показано, как использовать эти технологии совместно, чтобы создать приложение с высокомасштабируемым уровнем данных, который поддерживает мультитенантные сегменты.
+[Multitenant applications with Elastic Database tools and row-level security](sql-database-elastic-tools-multi-tenant-row-level-security.md) shows the changes that you need to make to an Entity Framework application to integrate [Elastic Database tools](sql-database-elastic-scale-get-started.md) with [row-level security](https://msdn.microsoft.com/library/dn765131). This sample illustrates how to use these technologies together to build an application with a highly scalable data tier that supports multitenant shards.
 
-Для этого используется ADO.NET SqlClient или Entity Framework. Этот пример расширяет [клиентскую библиотеку эластичной базы данных с Entity Framework](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md), добавляя поддержку баз данных с мультитенантными сегментами. Он создает простое консольное приложение для разработки блогов и записей с помощью четырех клиентов и двух баз данных с мультитенантными сегментами.
+You do this by using ADO.NET SqlClient or Entity Framework. This sample extends the [Elastic Database client library with Entity Framework](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md) by adding support for multitenant shard databases.
+It builds a simple console application for creating blogs and posts, with four tenants and two multitenant shard databases.
 
-## Создание интернет-опросов с помощью приложения Tailspin Surveys
+## <a name="create-online-surveys-with-the-tailspin-surveys-application"></a>Create online surveys with the Tailspin Surveys application
 
-Этот [пример приложения Tailspin Surveys](https://github.com/Azure-Samples/guidance-identity-management-for-multitenant-apps/blob/master/docs/running-the-app.md) является мультитенантным веб-приложением Surveys, которое позволяет пользователям создавать интернет-опросы. В примере рассмотрены некоторые основные проблемы управления удостоверениями пользователей в мультитенантном приложении, включая регистрацию, аутентификацию, авторизациею и роли приложения.
+This [Tailspin Surveys sample application](https://github.com/Azure-Samples/guidance-identity-management-for-multitenant-apps/blob/master/docs/running-the-app.md) is a multitenant web application, called Surveys, that enables users to create online surveys. The sample addresses some key concerns about how to manage user identities in a multitenant application, including sign-up, authentication, authorization, and app roles.
 
-## Ознакомьтесь с новейшими функциями безопасности базы данных SQL с помощью демонстрационного приложения Contoso Clinic.
+## <a name="learn-about-the-latest-security-features-of-sql-database-with-the-contoso-clinic-demo-application"></a>Learn about the latest security features of SQL Database with the Contoso Clinic Demo Application
 
-В [демонстрационном приложении Contoso Clinic](https://github.com/Microsoft/azure-sql-security-sample) показаны новые возможности безопасности базы данных SQL.
+This [Contoso Clinic Demo application](https://github.com/Microsoft/azure-sql-security-sample) showcases the latest security features of SQL Database.
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Next steps
 
-[Изучение учебников по базе данных SQL Azure](sql-database-explore-tutorials.md)
+[Explore Azure SQL Database tutorials](sql-database-explore-tutorials.md)
 
-<!---HONumber=AcomDC_0907_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

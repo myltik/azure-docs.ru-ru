@@ -1,178 +1,183 @@
 <properties 
-	pageTitle="Заметки о выпуске шлюза управления данными | Фабрика данных Azure" 
-	description="Заметки о выпуске шлюза управления данными" 
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
-	editor="monicar"/>
+    pageTitle="Release notes for Data Management Gateway | Azure Data Factory" 
+    description="Data Management Gateway tory release notes" 
+    services="data-factory" 
+    documentationCenter="" 
+    authors="spelluru" 
+    manager="jhubbard" 
+    editor="monicar"/>
 
 <tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/26/2016" 
-	ms.author="spelluru"/>
-
-# Заметки о выпуске шлюза управления данными
-Одной из проблем интеграции данных является незаметное для пользователя перемещение данных между локальной средой и облаком. Для решения этой проблемы в фабрике данных используется шлюз управления данными. Это агент, который можно установить локально для переноса гибридных данных.
-
-Следующие статьи содержат подробные сведения о шлюзе управления данными и о его применении.
-
-- [Шлюз управления данными](data-factory-data-management-gateway.md)
-- [Перемещение данных между локальным и облачным хранилищами с помощью фабрики данных Azure](data-factory-move-data-between-onprem-and-cloud.md)
-
-## Текущая версия (2.2.6072.1)
-
-- Поддерживает настройку HTTP-прокси для шлюза с помощью диспетчера конфигурации шлюза. При наличии данной настройки доступ к большим двоичным объектам Azure, таблицам Azure, Azure Data Lake и Document DB осуществляется через HTTP-прокси.
-- Поддерживает обработку заголовков для TextFormat при копировании данных из больших двоичных объектов Azure, Azure Data Lake Store, локальной файловой системы и локальной системы HDFS, а также обратно.
-- Поддерживает копирование данных из добавочных и страничных BLOB-объектов в дополнение к уже поддерживаемым блочным BLOB-объектам.
-- Вводит новое состояние шлюза **Online (Limited)** (В сети (ограничено)), указывающее, что поддерживаются основные функциональные возможности шлюза за исключением интерактивной работы мастера копирования.
-- Повышает надежность регистрации шлюза с помощью ключа регистрации.
-
-## Более ранние версии
-
-## 2\.1.6040.1
-
-- Драйвер DB2 теперь включен в пакет установки шлюза. Вам не нужно устанавливать его отдельно.
-- Наряду с уже поддерживаемыми платформами (Linux, Unix и Windows) драйвер DB2 теперь поддерживает z/OS и DB2 для i (AS/400).
-- Поддержка использования DocumentDB в качестве источника или назначения для локальных хранилищ данных.
-- Поддержка копирования данных в горячее и холодное хранилище BLOB-объектов наряду с уже поддерживаемой учетной записью общего назначения.
-- Возможность подключения к локальному серверу SQL Server через шлюз с правами для удаленного входа.
-
-## 2\.0.6013.1
-
-- Можно выбрать язык и региональные параметры, используемые при ручной установке шлюза.
-- Если шлюз не работает, как ожидалось, то можно отправить в корпорацию Майкрософт журналы шлюза за последние семь дней, чтобы упростить устранение проблемы. Если шлюз не подключен к облачной службе, то можно выбрать сохранение и архивирование журналов шлюза.
-- Улучшения пользовательского интерфейса диспетчера конфигурации шлюза:
-	- Улучшено отображение состояния шлюза на вкладке "Главная".
-	- Элементы управления реорганизованы и упрощены.
-- Вы можете скопировать данные из хранилища, используя [инструмент копирования с предварительным просмотром, не требующий программирования](data-factory-copy-data-wizard-tutorial.md). В разделе [Промежуточное копирование](data-factory-copy-activity-performance.md#staged-copy) приведены общие сведения об этой функции.
-- Шлюз управления данными можно использовать для передачи данных непосредственно из локальной базы данных SQL Server в Машинное обучение Azure.
-- Повышение производительности.
-	- Повысьте производительность при просмотре схемы или предварительном просмотре данных SQL Server с помощью инструмента копирования с предварительным просмотром, не требующего программирования.
+    ms.service="data-factory" 
+    ms.workload="data-services" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="08/26/2016" 
+    ms.author="spelluru"/>
 
 
+# <a name="release-notes-for-data-management-gateway"></a>Release notes for Data Management Gateway
+One of the challenges for modern data integration is to seamlessly move data to and from on-premises to cloud. Data Factory makes this integration seamless with Data Management Gateway, which is an agent that you can install on-premises to enable hybrid data movement.
 
-## 1\.12.5953.1
-- Исправления ошибок
+See the following articles for detailed information about Data Management Gateway and how to use it: 
 
-## 1\.11.5918.1
+- [Data Management Gateway](data-factory-data-management-gateway.md)
+- [Move data between on-premises and cloud using Azure Data Factory](data-factory-move-data-between-onprem-and-cloud.md) 
 
-- Максимальный размер журнала событий шлюза был увеличен с 1 МБ до 40 МБ.
-- Если во время автоматического обновления шлюза требуется перезагрузка, отображается диалоговое окно с предупреждением. Перезагрузку можно запустить сразу или отложить.
-- При сбое автоматического обновления установщик шлюза пытается выполнить автоматическое обновление не больше трех раз.
-- Повышение производительности.
-	- Повышена эффективность загрузки больших таблиц из локального сервера в сценарий копирования без кода.
-- Исправления ошибок
+## <a name="current-version-(2.2.6072.1)"></a>Current version (2.2.6072.1)
 
-## 1\.10.5892.1
+- Supports setting HTTP proxy for the gateway using the Gateway Configuration Manager. If configured, Azure Blob, Azure Table, Azure Data Lake, and Document DB are accessed through HTTP proxy.
+- Supports header handling for TextFormat when copying data from/to Azure Blob, Azure Data Lake Store, on-premises File System, and on-premises HDFS.
+- Supports copying data from Append Blob and Page Blob along with the already supported Block Blob.
+- Introduces a new gateway status **Online (Limited)**, which indicates that the main functionality of the gateway works except the interactive operation support for Copy Wizard.
+- Enhances the robustness of gateway registration using registration key.
 
-- Повышение производительности.
-- Исправления ошибок
+## <a name="earlier-versions"></a>Earlier versions
 
-## 1\.9.5865.2
+## <a name="2.1.6040.1"></a>2.1.6040.1
 
-- Полностью автоматическое обновление.
-- Новый значок на панели задач, позволяющий просматривать индикаторы состояния шлюза.
-- Возможность немедленного выполнения обновления из клиента.
-- Настройка времени обновления.
-- Включение и выключение автоматического обновления с использованием сценария PowerShell.
-- Поддержка формата JSON
-- Повышение производительности.
-- Исправления ошибок
+- DB2 driver is included in the gateway installation package now. You do not need to install it separately. 
+- DB2 driver now supports z/OS and DB2 for i (AS/400) along with the platforms already supported (Linux, Unix, and Windows). 
+- Supports using DocumentDB as a source or destination for on-premises data stores
+- Supports copying data from/to cold/hot blob storage along with the already supported general-purpose storage account. 
+- Allows you to connect to on-premises SQL Server via gateway with remote login privileges.  
 
-## 1\.8.5822.1
+## <a name="2.0.6013.1"></a>2.0.6013.1
 
-- Улучшение возможностей устранения неполадок.
-- Повышение производительности.
-- Исправления ошибок
-
-### 1\.7.5795.1
-
-- Повышение производительности.
-- Исправления ошибок
-
-### 1\.7.5764.1
-
-- Повышение производительности.
-- Исправления ошибок
-
-### 1\.6.5735.1
-
-- Поддержка локальной системы HDFS для источника и приемника.
-- Повышение производительности.
-- Исправления ошибок
-
-### 1\.6.5696.1
-
-- Повышение производительности.
-- Исправления ошибок
-
-### 1\.6.5676.1
-
-- Поддержка средств диагностики в диспетчере конфигурации.
-- Поддержка столбцов источников табличных данных для фабрики данных Azure.
-- Поддержка хранилища данных SQL для фабрики данных Azure.
-- Поддержка свойства reclusive в BlobSource и FileSource для фабрики данных Azure.
-- Поддержка значений MergeFiles, PreserveHierarchy и FlattenHierarchy свойства copyBehavior в BlobSink и FileSink для двоичного копирования в фабрике данных Azure.
-- Поддержка сообщения о ходе выполнения действия копирования в фабрике данных Azure.
-- Поддержка проверки подключения к источнику данных в фабрике данных Azure.
-- Исправления ошибок
+- You can select the language/culture to be used by a gateway during manual installation.
+- When gateway does not work as expected, you can choose to send gateway logs of last seven days to Microsoft to facilitate troubleshooting of the issue. If gateway is not connected to the cloud service, you can choose to save and archive gateway logs.  
+- User interface improvements for gateway configuration manager:
+    - Make gateway status more visible on the Home tab.
+    - Reorganized and simplified controls.
+- You can copy data from a storage using the [code-free copy preview tool](data-factory-copy-data-wizard-tutorial.md). See [Staged Copy](data-factory-copy-activity-performance.md#staged-copy) for details about this feature in general. 
+- You can use Data Management Gateway to ingress data directly from an on-premises SQL Server database into Azure Machine Learning.
+- Performance improvements
+    - Improve performance on viewing Schema/Preview against SQL Server in code-free copy preview tool.
 
 
-### 1\.6.5672.1
 
-- Поддержка задания имени таблицы для источника данных ODBC в фабрике данных Azure
-- Повышение производительности.
-- Исправления ошибок
+## <a name="1.12.5953.1"></a>1.12.5953.1
+- Bug fixes
 
-### 1\.6.5658.1
+## <a name="1.11.5918.1"></a>1.11.5918.1
 
-- Поддержка FileSink для фабрики данных Azure.
-- Поддержка сохранения иерархии при двоичном копировании в фабрике данных Azure.
-- Поддержка идемпотентности действия копирования в фабрике данных Azure.
-- Исправления ошибок
+- Maximum size of the gateway event log has been increased from 1 MB to 40 MB.
+- A warning dialog is displayed in case a restart is needed during gateway auto-update. You can choose to restart right then or later. 
+- In case auto-update fails, gateway installer retries auto-updating three times at maximum.
+- Performance improvements
+    - Improve performance for loading large tables from on-premises server in code-free copy scenario.
+- Bug fixes
 
-### 1\.6.5640.1
+## <a name="1.10.5892.1"></a>1.10.5892.1
 
-- Поддержка 3 дополнительных источников данных (ODBC, OData, HDFS) для фабрики данных Azure.
-- Поддержка символа кавычек в средстве синтаксического анализа CSV-файлов для фабрики данных Azure.
-- Поддержка сжатия (в формат BZIP2).
-- Исправления ошибок
+- Performance improvements
+- Bug fixes
 
-### 1\.5.5612.1
+## <a name="1.9.5865.2"></a>1.9.5865.2
 
-- Поддержка пяти реляционных баз данных (MySQL, PostgreSQL, DB2, Teradata и Sybase) для фабрики данных Azure.
-- Поддержка сжатия (в форматы GZIP и DEFLATE).
-- Повышение производительности.
-- Исправления ошибок
+- Zero touch auto update capability
+- New tray icon with gateway status indicators
+- Ability to “Update now” from the client
+- Ability to set update schedule time
+- PowerShell script for toggling auto-update on/off
+- Support for JSON format  
+- Performance improvements
+- Bug fixes
+
+## <a name="1.8.5822.1"></a>1.8.5822.1
+
+- Improve troubleshooting experience
+- Performance improvements
+- Bug fixes
+
+### <a name="1.7.5795.1"></a>1.7.5795.1
+
+- Performance improvements
+- Bug fixes
+
+### <a name="1.7.5764.1"></a>1.7.5764.1
+
+- Performance improvements
+- Bug fixes
+
+### <a name="1.6.5735.1"></a>1.6.5735.1
+
+- Support on-premises HDFS Source/Sink
+- Performance improvements
+- Bug fixes
+
+### <a name="1.6.5696.1"></a>1.6.5696.1
+
+- Performance improvements
+- Bug fixes
+
+### <a name="1.6.5676.1"></a>1.6.5676.1
+
+- Support diagnostic tools on Configuration Manager
+- Support table columns for tabular data sources for Azure Data Factory
+- Support SQL DW for Azure Data Factory
+- Support Reclusive in BlobSource and FileSource for Azure Data Factory
+- Support CopyBehavior – MergeFiles, PreserveHierarchy, and FlattenHierarchy in BlobSink and FileSink with Binary Copy for Azure Data Factory
+- Support Copy Activity reporting progress for Azure Data Factory
+- Support Data Source Connectivity Validation for Azure Data Factory
+- Bug fixes
 
 
-### 1\.4.5549.1
+### <a name="1.6.5672.1"></a>1.6.5672.1
 
-- Поддержка источника данных Oracle для фабрики данных Azure.
-- Повышение производительности.
-- Исправления ошибок
+- Support table name for ODBC data source for Azure Data Factory
+- Performance improvements
+- Bug fixes
 
-### 1\.4.5492.1
+### <a name="1.6.5658.1"></a>1.6.5658.1
 
-- Внедрение единого двоичного файла, который поддерживает фабрику данных Microsoft Azure и службы Power BI для Office 365.
-- Детализация пользовательского интерфейса настройки и процесса регистрации.
-- Поддержка входящих и исходящих данных Azure для источника данных SQL Server в фабрике данных Azure.
+- Support File Sink for Azure Data Factory
+- Support preserving hierarchy in binary copy for Azure Data Factory
+- Support Copy Activity Idempotency for Azure Data Factory
+- Bug fixes
 
-### 1\.2.5303.1
+### <a name="1.6.5640.1"></a>1.6.5640.1
 
-- 	Устранение проблемы времени ожидания для поддержки подключений к источникам данных, требующих еще больших затрат времени.
- 	
-### 1\.1.5526.8
+- Support 3 more data sources for Azure Data Factory (ODBC, OData, HDFS)
+- Support quote character in csv parser for Azure Data Factory
+- Compression support (BZip2)
+- Bug fixes
 
-- Добавление необходимого компонента при установке — платформы .NET Framework 4.5.1.
+### <a name="1.5.5612.1"></a>1.5.5612.1
 
-### 1\.0.5144.2
+- Support five relational databases for Azure Data Factory (MySQL, PostgreSQL, DB2, Teradata, and Sybase)
+- Compression support (Gzip and Deflate)
+- Performance improvements
+- Bug fixes
 
-- Нет изменений, которые влияют на сценарии фабрики данных Azure.
 
-<!---HONumber=AcomDC_0831_2016-->
+### <a name="1.4.5549.1"></a>1.4.5549.1
+
+- Add Oracle data source support for Azure Data Factory
+- Performance improvements
+- Bug fixes
+
+### <a name="1.4.5492.1"></a>1.4.5492.1
+
+- Unified binary that supports both Microsoft Azure Data Factory and Office 365 Power BI services
+- Refine the Configuration UI and registration process
+- Azure Data Factory – Azure Ingress and Egress support for SQL Server data source
+
+### <a name="1.2.5303.1"></a>1.2.5303.1
+
+-   Fix timeout issue to support more time-consuming data source connections. 
+    
+### <a name="1.1.5526.8"></a>1.1.5526.8
+
+- Requires .NET Framework 4.5.1 as a prerequisite during setup.
+
+### <a name="1.0.5144.2"></a>1.0.5144.2
+
+- No changes that affect Azure Data Factory scenarios. 
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

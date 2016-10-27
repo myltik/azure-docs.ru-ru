@@ -1,153 +1,154 @@
 <properties 
-	pageTitle="Устранение проблем сопоставления сегментов с помощью диспетчера восстановления | Microsoft Azure" 
-	description="Устранение проблем сопоставления сегментов с помощью класса RecoveryManager" 
-	services="sql-database" 
-	documentationCenter=""  
-	manager="jhubbard"
-	authors="ddove"/>
+    pageTitle="Using Recovery Manager to fix shard map problems | Microsoft Azure" 
+    description="Use the RecoveryManager class to solve problems with shard maps" 
+    services="sql-database" 
+    documentationCenter=""  
+    manager="jhubbard"
+    authors="ddove"/>
 
 <tags 
-	ms.service="sql-database" 
-	ms.workload="sql-database" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/05/2016" 
-	ms.author="ddove"/>
-
-# Устранение проблем сопоставления сегментов с помощью класса RecoveryManager
-
-Класс [RecoveryManager](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager.aspx) предоставляет приложениям ADO.Net возможность легко обнаружить и исправить все несоответствия между глобальным сопоставлением сегментов (GSM) и локальным сопоставлением сегментов (LSM) в сегментированной среде базы данных.
-
-GSM и LSM отслеживают сопоставление каждой базы данных в сегментированной среде. Иногда между GSM и LSM происходит разрыв. Для его обнаружения и устранения используйте класс RecoveryManager.
-
-Класс RecoveryManager является частью [клиентской библиотеки эластичной базы данных](sql-database-elastic-database-client-library.md).
+    ms.service="sql-database" 
+    ms.workload="sql-database" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="05/05/2016" 
+    ms.author="ddove"/>
 
 
-![Карта сегментов][1]
+# <a name="using-the-recoverymanager-class-to-fix-shard-map-problems"></a>Using the RecoveryManager class to fix shard map problems
+
+The [RecoveryManager](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager.aspx) class provides ADO.Net applications the ability to easily  detect and correct any inconsistencies between the global shard map (GSM) and the local shard map (LSM) in a sharded database enviroment. 
+
+The GSM and LSM track the mapping of each database in a sharded environment. Occasionally, a break occurs between the GSM and the LSM. In that case, use the RecoveryManager class to detect and repair the break.
+
+The RecoveryManager class is part of the [Elastic Database client library](sql-database-elastic-database-client-library.md). 
 
 
-Определения терминов см. в статье [Глоссарий инструментов эластичных баз данных](sql-database-elastic-scale-glossary.md). Чтобы узнать, как с помощью объекта **ShardMapManager** управлять данными в сегментированном решении, см. статью [Управление размещением сегментов](sql-database-elastic-scale-shard-map-management.md).
+![Shard map][1]
 
 
-## Зачем использовать диспетчер восстановления
+For term definitions, see [Elastic Database tools glossary](sql-database-elastic-scale-glossary.md). To understand how the **ShardMapManager** is used to manage data in a sharded solution, see [Shard map management](sql-database-elastic-scale-shard-map-management.md).
 
-В среде сегментированной базы данных на каждую базу данных приходится по одному клиенту и на каждый сервер — по несколько баз данных. В среде также может быть несколько серверов. Каждая база данных сопоставляется с чем-то в карте сегментов, чтобы вызовы можно было направить к правильному серверу и базе данных. Базы данных отслеживаются по **ключу сегментирования**, а каждому серверу назначается **диапазон значений ключа**. Например, ключ сегментирования может представлять имена клиентов от «В» до «Е». Сопоставление всех сегментов (т. е. баз данных) и их диапазонов сопоставления содержится в **глобальной карте сегментирования**. Каждая база данных также содержит карту содержащихся в сегментах диапазонов. Она называется **локальной картой сегментирования**. Когда приложение подключается к сегменту, сопоставление кэшируется с приложением для быстрого извлечения данных. LSM используется для проверки кэшированных данных.
 
-GSM и LSM могут рассинхронизироваться по следующим причинам:
+## <a name="why-use-the-recovery-manager?"></a>Why use the recovery manager?
 
-1. Удаление сегмента, диапазон которого считается неиспользуемым, или переименование сегмента. Удаление сегмента приводит к **потере сопоставления сегментов**. Переименование базы данных точно так же может привести к потере сопоставления сегментов. В зависимости от цели изменения может потребоваться удалить сегмент или просто изменить его расположение. Для восстановления удаленной базы данных обратитесь к статье [Восстановление базы данных на более ранний момент времени, восстановление удаленной базы данных или восстановление после сбоя центра обработки данных](sql-database-troubleshoot-backup-and-restore.md).
-2. Происходит событие географической отработки отказа. Чтобы продолжить, необходимо обновить имя сервера и имя базы данных диспетчера сопоставления сегментов в приложении и затем обновить сведения о сопоставлении сегментов для всех сегментов в сопоставлении. В случае географической отработки отказа такую логику восстановления следует автоматизировать в рабочем процессе отработки отказа. Автоматизация действий по восстановлению гарантирует удобную управляемость для баз данных с поддержкой определения географического расположения и позволяет избежать выполнение действий пользователем вручную.
-3. Сегмент или база данных ShardMapManager восстанавливается до более ранней версии.
+In a sharded database environment, there is one tenant per database, and many databases per server. There can also be many servers in the environment. Each database is mapped in the shard map, so calls can be routed to the correct server and database. Databases are tracked according to a **sharding key**, and each shard is assigned a **range of key values**. For example, a sharding key may represent the customer names from "D" to "F." The mapping of all shards (aka databases) and their mapping ranges are contained in the **global shard map (GSM)**. Each database also contains a map of the ranges contained on the shard—this is known as the **local shard map (LSM)**. When an app connects to a shard, the mapping is cached with the app for quick retrieval. The LSM is used to validate cached data. 
 
-Дополнительные сведения об инструментах эластичной базы данных, входящей в базу данных SQL Azure, и о георепликации и восстановлении см. в следующих разделах:
+The GSM and LSM may become out of sync for the following reasons:
 
-* [Обзор. Непрерывность облачных бизнес-процессов и аварийное восстановление баз данных с базой данных SQL](sql-database-business-continuity.md)
-* [Приступая к работе с инструментами эластичной базы данных](sql-database-elastic-scale-get-started.md)
-* [Управление ShardMap](sql-database-elastic-scale-shard-map-management.md)
+1. The deletion of a shard whose range is believed to no longer be in use, or renaming of a shard. Deleting a shard results in an **orphaned shard mapping**. Similary, a renamed database can cause an orphaned shard mapping. Depending on the intent of the change, the shard may need to be removed or the shard location needs to be updated. To recover a deleted database, see [Restore a database to a previous point in time, restore a deleted database, or recover from a data center outage](sql-database-troubleshoot-backup-and-restore.md).
+2. A geo-failover event occurs. To continue, one must update the server name, and database name of shard map manager in the application and then update the shard mapping details for any and all shards in a shard map. In case of a geo-failover, such recovery logic should be automated within the failover workflow. Automating recovery actions enables a frictionless manageability for geo-enabled databases and avoids manual human actions.
+3. Either a shard or the ShardMapManager database is restored to an earlier point-in time.
 
-## Извлечение RecoveryManager из ShardMapManager 
+For more information about Azure SQL Database Elastic Database tools, Geo-Replication and Restore, please see the following: 
 
-Сначала нужно создать экземпляр RecoveryManager. [Метод GetRecoveryManager](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.getrecoverymanager.aspx) возвращает диспетчер восстановления для текущего экземпляра [ShardMapManager](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.aspx). Чтобы устранить несоответствия в сопоставлении сегментов, необходимо сначала получить RecoveryManager для конкретного сопоставления сегментов.
+* [Overview: Cloud business continuity and database disaster recovery with SQL Database](sql-database-business-continuity.md) 
+* [Get started with elastic database tools](sql-database-elastic-scale-get-started.md)  
+* [ShardMap Management](sql-database-elastic-scale-shard-map-management.md)
 
-	ShardMapManager smm = ShardMapManagerFactory.GetSqlShardMapManager(smmConnnectionString,  
+## <a name="retrieving-recoverymanager-from-a-shardmapmanager"></a>Retrieving RecoveryManager from a ShardMapManager 
+
+The first step is to create a RecoveryManager instance. The [GetRecoveryManager method](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.getrecoverymanager.aspx) returns the recovery manager for the current [ShardMapManager](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.aspx) instance. In order to address any inconsistencies in the shard map, you must first retrieve the RecoveryManager for the particular shard map. 
+
+    ShardMapManager smm = ShardMapManagerFactory.GetSqlShardMapManager(smmConnnectionString,  
              ShardMapManagerLoadPolicy.Lazy);
              RecoveryManager rm = smm.GetRecoveryManager(); 
 
-В этом примере RecoveryManager инициализируется из ShardMapManager. ShardMapManager, содержащий ShardMap, также уже инициализирован.
+In this example, the RecoveryManager is initialized from the ShardMapManager. The ShardMapManager containing a ShardMap is also already initialized. 
 
-Так как этот код приложения сам использует сопоставление сегментов, учетные данные, применяемые фабричным методом (в примере выше это smmConnectionString), должны иметь разрешения для чтения и записи в базе данных GSM, ссылка на которую содержится в строке подключения. Обычно эти учетные данные отличаются от учетных данных, используемых при открытии подключений для зависящей от данных маршрутизации. Дополнительные сведения см. в разделе [Использование учетных данных в клиенте эластичных баз данных](sql-database-elastic-scale-manage-credentials.md).
+Since this application code manipulates the shard map itself, the credentials used in the factory method (in the above example, smmConnectionString) should be credentials that have read-write permissions on the GSM database referenced by the connection string. These credentials are typically different from credentials used to open connections for data-dependent routing. For more information, see [Using credentials in the elastic database client](sql-database-elastic-scale-manage-credentials.md).
 
-## Удаление сегмента из ShardMap после удаления сегмента
+## <a name="removing-a-shard-from-the-shardmap-after-a-shard-is-deleted"></a>Removing a shard from the ShardMap after a shard is deleted
 
-[Метод DetachShard](https://msdn.microsoft.com/library/azure/dn842083.aspx) отсоединяет данный сегмент от сопоставления сегментов и удаляет сопоставления, связанные с ним.
+The [DetachShard method](https://msdn.microsoft.com/library/azure/dn842083.aspx) detaches the given shard from the shard map and deletes mappings associated with the shard.  
 
-* В параметре расположения указано расположение, а точнее, имя сервера и имя базы данных отключаемых сегментов.
-* В параметре shardMapName указано имя сопоставления сегментов. Он необходим, только если один и тот же диспетчер сопоставления сегментов управляет несколькими сопоставлениями сегментов. необязательный параметр.
+* The location parameter is the shard location, specifically server name and database name, of the shard being detached. 
+* The shardMapName parameter is the shard map name. This is only required when multiple shard maps are managed by the same shard map manager. Optional. 
 
-**Важно**. Используйте этот метод, только если вы уверены, что диапазон для обновленного сопоставления пуст. Методы выше не позволяют проверить данные для перемещаемого диапазона, так что лучше включить проверки в код.
+**Important**:  Use this technique only if you are certain that the range for the updated mapping is empty. The methods above do not check data for the range being moved, so it is best to include checks in your code.
 
-Этот пример удаляет сегменты из сопоставления сегментов.
+This example removes shards from the shard map. 
 
-	rm.DetachShard(s.Location, customerMap); 
+    rm.DetachShard(s.Location, customerMap); 
 
-Сопоставление расположения сегмента в глобальной карте сегментов до удаления сегмента. Поскольку сегмент удален, предполагается, что это было намеренное действие, и диапазон ключа сегментирования больше не используется. Если это не так, можно выполнить восстановление до точки во времени, чтобы восстановить более ранний сегмент. (В этом случае просмотрите раздел ниже, чтобы обнаружить несоответствия сегментов.) Для восстановления базы данных обратитесь к статье [Восстановление базы данных на более ранний момент времени, восстановление удаленной базы данных или восстановление после сбоя центра обработки данных](sql-database-troubleshoot-backup-and-restore.md).
+The map the shard location in the GSM  prior to the deletion of the shard. Because the shard was deleted, it is assumed this was intentional, and the sharding key range is no longer in use. If this is not the case, you can execute point-in time restore. to recover the shard from an earlier point-in-time. (In that case, review the section below to detect shard inconsistencies.) To recover, see [Restore a database to a previous point in time, restore a deleted database, or recover from a data center outage](sql-database-troubleshoot-backup-and-restore.md).
 
-Поскольку предполагается, что удаление базы данных было намеренным действием, завершающим административным действием является удаление записи сегмента в диспетчере сопоставления сегментов. Это не дает приложению случайно записать данные в не тот диапазон.
+Since it is assumed the database deletion was intentional, the final administrative cleanup action is to delete the entry to the shard in the shard map manager. This prevents the application from inadvertently writing information to a range which is not expected.
 
-## Определение различий сопоставления 
+## <a name="to-detect-mapping-differences"></a>To detect mapping differences 
 
-[Метод DetectMappingDifferences](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager.detectmappingdifferences.aspx) выбирает и возвращает одно из сопоставлений сегментов (локальное или глобальное) как источник истины и согласовывает сопоставления на обоих сопоставлениях сегментов (GSM и LSM).
+The [DetectMappingDifferences method](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager.detectmappingdifferences.aspx) selects and returns one of the shard maps (either local or global) as the source of truth and reconciles mappings on both shard maps (GSM and LSM).
 
-	rm.DetectMappingDifferences(location, shardMapName);
+    rm.DetectMappingDifferences(location, shardMapName);
 
-* *Расположение* указывает имя сервера и имя базы данных.
-* В параметре *shardMapName* указано имя сопоставления сегментов. Он необходим, только если один и тот же диспетчер сопоставления сегментов управляет несколькими сопоставлениями сегментов. необязательный параметр.
+* The *location* specifies the server name and database name. 
+* The *shardMapName* parameter is the shard map name. This is only required if multiple shard maps are managed by the same shard map manager. Optional. 
 
-## Устранение различий сопоставления
+## <a name="to-resolve-mapping-differences"></a>To resolve mapping differences
 
-[Метод ResolveMappingDifferences](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager.resolvemappingdifferences.aspx) выбирает одно из сопоставлений сегментов (локальное или глобальное) как источник истины и согласовывает сопоставления на обоих сопоставлениях сегментов (GSM и LSM).
+The [ResolveMappingDifferences method](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager.resolvemappingdifferences.aspx) selects one of the shard maps (either local or global) as the source of truth and reconciles mappings on both shard maps (GSM and LSM).
 
-	ResolveMappingDifferences (RecoveryToken, MappingDifferenceResolution.KeepShardMapping);
+    ResolveMappingDifferences (RecoveryToken, MappingDifferenceResolution.KeepShardMapping);
    
-* Параметр *RecoveryToken* перечисляет отличия в сопоставлениях GSM и LSM для конкретного сегмента.
+* The *RecoveryToken* parameter enumerates the differences in the mappings between the GSM and the LSM for the specific shard. 
 
-* [Перечисление MappingDifferenceResolution](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.mappingdifferenceresolution.aspx) используется для указания метода для устранения разницы между сопоставлениями сегментов.
-* **MappingDifferenceResolution.KeepShardMapping** рекомендуется в случае, если LSM содержит точное сопоставление и поэтому должно использоваться сопоставление в сегменте. Обычно это происходит при отработке отказа: сегмент теперь находится на новом сервере. Поскольку сегмент сначала должен быть удален из GSM (с помощью метода RecoveryManager.DetachShard), сопоставление больше не существует в GSM. Таким образом, для повторного установления сопоставления сегментов должно использоваться сопоставление LSM.
+* The [MappingDifferenceResolution enumeration](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.mappingdifferenceresolution.aspx) is used to indicate the method for resolving the difference between the shard mappings. 
+* **MappingDifferenceResolution.KeepShardMapping** is recommended in the event that the LSM contains the accurate mapping and therefore the mapping in the shard should be used. This is typically the case in the event of a failover: the shard now resides on a new server. Since the shard must first be removed from the GSM (using the RecoveryManager.DetachShard method), a mapping no longer exists on the GSM. Therefore, the the LSM must be used to re-establish the shard mapping.
 
-## Присоединение сегмента к ShardMap после восстановления сегмента 
+## <a name="attach-a-shard-to-the-shardmap-after-a-shard-is-restored"></a>Attach a shard to the ShardMap after a shard is restored 
 
-[Метод AttachShard](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager.attachshard.aspx) присоединяет сегмент к сопоставлению сегментов. Затем он обнаруживает несогласованности сопоставления сегментов и обновляет сопоставления для соответствия сегмента в точке восстановления сегментов. Предполагается, что база данных также переименовывается для отображения исходного имени базы данных (до момента восстановления сегмента), поскольку восстановление до точки во времени восстанавливает значения по умолчанию в новой базе данных, к которой была добавлена отметка времени.
+The [AttachShard method](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager.attachshard.aspx) attaches the given shard to the shard map. It then detects any shard map inconsistencies and updates the mappings to match the shard at the point of the shard restoration. It is assumed that the database is also renamed to reflect the original database name (prior to when the shard was restored), since the point-in time restoration defaults to a new database appended with the timestamp. 
 
-	rm.AttachShard(location, shardMapName) 
+    rm.AttachShard(location, shardMapName) 
 
-* В параметре *расположение* указано имя сервера и имя базы данных присоединяемого сегмента.
+* The *location* parameter is the server name and database name, of the shard being attached. 
 
-* В параметре *shardMapName* указано имя сопоставления сегментов. Он необходим, только если один и тот же диспетчер сопоставления сегментов управляет несколькими сопоставлениями сегментов. необязательный параметр.
+* The *shardMapName* parameter is the shard map name. This is only required when multiple shard maps are managed by the same shard map manager. Optional. 
 
-В этом примере добавляется сегмент к сопоставлению сегментов, которое было восстановлено из более ранней точки во времени. Так как сегмент (а именно сопоставление для сегмента в LSM) был восстановлен, он является потенциально несовместимым с записью сегментов в GSM. Вне этого примера кода сегмент был восстановлен и переименован в исходное имя базы данных. Так как он был восстановлен, предполагается, что сопоставление в LSM является доверенным сопоставлением.
+This example adds a shard to the shard map which has been recently restored from an earlier point-in time. Since the shard (namely the mapping for the shard in the LSM) has been restored, it is potentially inconsistent with the shard entry in the GSM. Outside of this example code, the shard was restored and renamed to the original name of the database. Since it was restored, it is assumed the mapping in the LSM is the trusted mapping. 
 
-	rm.AttachShard(s.Location, customerMap); 
-	var gs = rm.DetectMappingDifferences(s.Location); 
-	  foreach (RecoveryToken g in gs) 
-	   { 
-	   rm.ResolveMappingDifferences(g, MappingDifferenceResolution.KeepShardMapping); 
-	   } 
+    rm.AttachShard(s.Location, customerMap); 
+    var gs = rm.DetectMappingDifferences(s.Location); 
+      foreach (RecoveryToken g in gs) 
+       { 
+       rm.ResolveMappingDifferences(g, MappingDifferenceResolution.KeepShardMapping); 
+       } 
 
-## Обновление расположений сегментов после географической отработки отказа (восстановления) сегментов
+## <a name="updating-shard-locations-after-a-geo-failover-(restore)-of-the-shards"></a>Updating shard locations after a geo-failover (restore) of the shards
 
-В случае географической отработки отказа база данных-получатель становится доступной для записи и становится новой базой данных-источником. Имя сервера и, возможно, базы данных (в зависимости от конфигурации) может отличаться от исходных основных значений. Поэтому необходимо исправить сопоставляемые записи для сегмента в GSM и LSM. Аналогичным образом, если база данных восстанавливается до другого имени или расположения или до более ранней точки во времени, это может вызвать несогласованности в сопоставлениях сегментов. Диспетчер сопоставления сегментов обрабатывает распределение открытых подключений к нужной базе данных. Распределение основывается на данных в сопоставлении сегментов и значении ключа сегментирования, который является целевым объектом запроса приложения. После географической отработки отказа необходимо обновить эти сведения, добавив точное имя сервера, имя базы данных и сопоставление сегментов восстановленной базы данных.
+In the event of a geo-failover, the secondary database is made write accessible and becomes the new primary database. The name of the server, and potentially the database (depending on your configuration), may be different from the original primary. Therefore the mapping entries for the shard in the GSM and LSM must be fixed. Similarly, if the database is restored to a different name or location, or to an earlier point in time, this might cause inconsistencies in the shard maps. The Shard Map Manager handles the distribution of open connections to the correct database. Distribution is based on the data in the shard map and the value of the sharding key that is the target of the application’s request. After a geo-failover, this information must be updated with the accurate server name, database name and shard mapping of the recovered database. 
 
-## Рекомендации
+## <a name="best-practices"></a>Best practices
 
-Географической отработкой отказа и восстановлением обычно управляет облачный администратор приложения, который намеренно использует одну из возможностей непрерывности бизнес-процессов базы данных SQL Azure. Для планирования непрерывности бизнес-процессов требуются процессы, процедуры и меры, обеспечивающие непрерывность выполнения бизнес-операций. Методы, доступные как часть класса RecoveryManager, должны использоваться в этом рабочем процессе, чтобы гарантировать актуальность сопоставлений GSM и LSM в соответствии с действиями, предпринятыми для восстановления. Чтобы GSM и LSM отражали точную информацию после отработки отказа, выполните 5 приведенных ниже основных действий. Код приложения для выполнения этих действий можно интегрировать в существующие средства и рабочий процесс.
+Geo-failover and recovery are operations typically managed by a cloud administrator of the application intentionally utilizing one of Azure SQL Databases business continuity features. Business continuity planning requires processes, procedures, and measures to ensure that business operations can continue without interruption. The methods available as part of the RecoveryManager class should be used within this work flow to ensure the GSM and LSM are kept up-to-date based on the recovery action taken. There are 5 basic steps to properly ensuring the GSM and LSM reflect the accurate information after a failover event. The application code to execute these steps can be integrated into existing tools and workflow. 
 
-1. Получите диспетчер восстановления из диспетчера сопоставления сегментов.
-2. Отсоедините старый сегмент от сопоставления сегментов.
-3. Присоедините новый сегмент к сопоставлению сегментов, включая новое расположение сегмента.
-4. Выявите несоответствия в сопоставлении между GSM и LSM.
-5. Устраните различия между GSM и LSM, ориентируясь на LSM.
+1. Retrieve the RecoveryManager from the ShardMapManager. 
+2. Detach the old shard from the shard map.
+3. Attach the new shard to the shard map, including the new shard location.
+4. Detect inconsistencies in the mapping between the GSM and LSM. 
+5. Resolve differences between the GSM and the LSM, trusting the LSM. 
 
-В этом примере выполняются следующие действия.
-1. Удаление сегментов из сопоставления сегментов, которое отражает расположения сегментов до отработки отказа.
-2. Присоединение сегментов к сопоставлению сегментов, которое отражает новые местоположения сегментов (параметр Configuration.SecondaryServer — это новое имя сервера, но то же имя базы данных).
-3. Получение маркеров восстановления путем обнаружения различий сопоставления между GSM и LSM для каждого сегмента.
-4. Разрешение несоответствий путем ориентации на сопоставление каждого сегмента в LSM.
+This example performs the following steps:
+1. Removes shards from the Shard Map which reflect shard locations prior to the failover event.
+2. Attaches shards to the Shard Map reflecting the new shard locations (the parameter "Configuration.SecondaryServer" is the new server name but the same database name).
+3. Retrieves the recovery tokens by detecting mapping differences between the GSM and the LSM for each shard. 
+4. Resolves the inconsistencies by trusting the mapping from the LSM of each shard. 
 
-	var shards = smm.GetShards(); foreach (shard s in shards) { if (s.Location.Server == Configuration.PrimaryServer) { ShardLocation slNew = new ShardLocation(Configuration.SecondaryServer, s.Location.Database);
-		
-		  rm.DetachShard(s.Location); 
-		
-		  rm.AttachShard(slNew); 
-		
-		  var gs = rm.DetectMappingDifferences(slNew); 
-	
-		  foreach (RecoveryToken g in gs) 
-			{ 
-			   rm.ResolveMappingDifferences(g, MappingDifferenceResolution.KeepShardMapping); 
-			} 
-		} 
-	}
+    var shards = smm.GetShards();  foreach (shard s in shards)  {   if (s.Location.Server == Configuration.PrimaryServer)       {        ShardLocation slNew = new ShardLocation(Configuration.SecondaryServer, s.Location.Database); 
+        
+          rm.DetachShard(s.Location); 
+        
+          rm.AttachShard(slNew); 
+        
+          var gs = rm.DetectMappingDifferences(slNew); 
+    
+          foreach (RecoveryToken g in gs) 
+            { 
+               rm.ResolveMappingDifferences(g, MappingDifferenceResolution.KeepShardMapping); 
+            } 
+        } 
+    } 
 
 
 
@@ -158,4 +159,8 @@ GSM и LSM могут рассинхронизироваться по следу
 [1]: ./media/sql-database-elastic-database-recovery-manager/recovery-manager.png
  
 
-<!---HONumber=AcomDC_0629_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

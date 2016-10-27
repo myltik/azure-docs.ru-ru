@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Рекомендации по обновлению программного обеспечения в Microsoft Azure IaaS | Microsoft Azure"
-   description="Эта статья содержит рекомендации по обновлениям программного обеспечения в среде Microsoft Azure IaaS. Она предназначена для ИТ-специалистов и аналитиков по вопросам безопасности, ежедневно сталкивающихся с управлением изменениями, обновлением ПО и управлением ресурсами, в том числе для сотрудников, отвечающих за меры безопасности и соответствие требованиям в организации."
+   pageTitle="Best Practices for Software Updates on Microsoft Azure IaaS | Microsoft Azure"
+   description="Article provides a collection of best practices for software updates in an Microsoft Azure IaaS environment.  It is intended for IT professionals and security analysts who deal with change control, software update and asset management on a daily basis, including those responsible for their organization's security and compliance efforts."
    services="security"
    documentationCenter="na"
    authors="YuriDio"
@@ -13,113 +13,118 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/02/2016"
+   ms.date="10/18/2016"
    ms.author="yurid"/>
 
-# Рекомендации по обновлению программного обеспечения в Microsoft Azure IaaS
 
-Прежде чем углубиться в обсуждение рекомендаций для среды [IaaS](https://azure.microsoft.com/overview/what-is-iaas/) Azure, важно рассмотреть сценарии, в которых вы можете управлять обновлениями программного обеспечения, и связанные с ними обязанности. Схема, приведенная ниже, поможет понять эти границы.
+# <a name="best-practices-for-software-updates-on-microsoft-azure-iaas"></a>Best practices for software updates on Microsoft Azure IaaS
 
-![Облачные модели и сферы ответственности](./media/azure-security-best-practices-software-updates-iaas/sec-cloudstack-new.png)
+Before diving into any kind of discussion on best practices for an Azure [IaaS](https://azure.microsoft.com/overview/what-is-iaas/) environment, it is important to understand what the scenarios are that will have you managing software updates and the responsibilities. The diagram below should help you understand these boundaries:
 
-В крайним левом столбце приведены семь обязанностей (определенных в последующих разделах) в отношении безопасности и конфиденциальности вычислительной среды, которые следует учитывать организациям.
+![Cloud models and responsabilities](./media/azure-security-best-practices-software-updates-iaas/sec-cloudstack-new.png)
+
+The left-most column shows seven responsibilities (defined in the sections that follow) that organizations should consider, all of which contribute to the security and privacy of a computing environment.
  
-В моделях PaaS и SaaS классификация данных, возможность учета, защита клиентов и конечных точек относятся к обязанностям исключительно клиентов, а обязанности в отношении физического оборудования, узлов и сети ложатся на поставщиков облачных служб.
+Data classification & accountability and Client & end-point protection are the responsibilities that are solely in the domain of customers, and Physical, Host, and Network responsibilities are in the domain of cloud service providers in the PaaS and SaaS models. 
 
-Остальные обязанности разделяются между клиентами и поставщиками облачных служб. Для выполнения некоторых обязанностей поставщику облачных служб и клиенту требуется вместе осуществлять управление и администрирование ответственности, включая аудит своих областей деятельности. Например, рассмотрим управление удостоверениями и доступом при использовании служб Azure Active Directory. Настройка таких служб, как многофакторная проверка подлинности, входит в обязанности клиента, но обеспечение эффективной работы является обязанностью Microsoft Azure.
+The remaining responsibilities are shared between customers and cloud service providers. Some responsibilities require the CSP and customer to manage and administer the responsibility together, including auditing of their domains. For example, consider Identity & access management when using Azure Active Directory Services; the configuration of services such as multi-factor authentication is up to the customer, but ensuring effective functionality is the responsibility of Microsoft Azure.
 
-> [AZURE.NOTE] Дополнительные сведения о разделяемых обязанностях в облаке см. в разделе [Shared Responsibilities for Cloud Computing](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91/file/153019/1/Shared%20responsibilities%20for%20cloud%20computing.pdf) (Разделяемые обязанности в облачных вычислениях).
+> [AZURE.NOTE] For more information about shared responsibilities in the cloud, read [Shared Responsibilities for Cloud Computing](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91/file/153019/1/Shared%20responsibilities%20for%20cloud%20computing.pdf) 
 
-Эти же принципы сохраняются и в гибридных средах, когда компания использует виртуальные машины Azure IaaS, взаимодействующие с локальными ресурсами (см. рисунок ниже).
+These same principles apply in a hybrid scenario where your company is using Azure IaaS VMs that communicate with on-premises resources as shown in the diagram below.
 
-![Типичная гибридная среда, в которой используется Microsoft Azure](./media/azure-security-best-practices-software-updates-iaas/sec-azconnectonpre.png)
+![Typical hybrid scenario with Microsoft Azure](./media/azure-security-best-practices-software-updates-iaas/sec-azconnectonpre.png)
 
-## Начальная оценка
+## <a name="initial-assessment"></a>Initial assessment
 
-Даже если в вашей компании уже используется система управления обновлениями и есть политика обновления программного обеспечения, вам необходимо регулярно пересматривать предыдущие оценки политик и обновлять их в соответствии со своими текущими требованиями. Это означает, что вам необходимо быть в курсе текущего состояния ресурсов в вашей компании. Для этого вам необходимо знать:
+Even if your company is already using an update management system and you already have software update policies in place, it is important to frequently revisit previous policy assessments and update them based on your current requirements. This means that you need to be familiar with the current state of the resources in your company. To reach this state, you have to know:
 
--   какие физические и виртуальные компьютеры есть на вашем предприятии;
+-   The physical and virtual computers in your enterprise.
 
--   какая операционная система (включая ее версию) установлена на каждом из этих физических и виртуальных компьютеров;
+-   Operating systems and versions running on each of these physical and virtual computers.
 
--   какие обновления программного обеспечения установлены на каждом компьютере (версии пакетов обновлений, обновления программного обеспечения и другие модификации);
+-   Software updates currently installed on each computer (service pack versions, software updates, and other modifications).
 
--   какие функции выполняет каждый компьютер в вашей организации;
+-   The function each computer performs in your enterprise.
 
--   какие приложения и программы установлены на каждом компьютере;
+-   The applications and programs running on each computer.
 
--   кто владелец каждого компьютера и его контактные данные;
+-   Ownership and contact information for each computer.
 
--   какие ресурсы есть в вашей среде и какова их относительная ценность (это помогает определить, какие области требуют максимального внимания и защиты);
+-   The assets present in your environment and their relative value to determine which areas need the most attention and protection.
 
--   какие известные проблемы безопасности существуют в вашей организации, а также какие процессы используются на вашем предприятии для определения новых проблем безопасности и необходимых изменений в защите;
+-   Known security problems and the processes your enterprise has in place for identifying new security issues or changes in security level.
 
--   какие меры противодействия приняты для защиты вашей среды.
+-   Countermeasures that have been deployed to secure your environment.
 
-Эти сведения должны регулярно обновляться и быть доступными для всех, кто участвует в управлении обновлениями программного обеспечения.
+You should update this information regularly, and it should be readily available to those involved in your software update management process.
 
-## Определение исходной конфигурации
+## <a name="establish-a-baseline"></a>Establish a Baseline
 
-Важной частью управления обновлениями программного обеспечения является создание первоначальных стандартных установочных пакетов для всех версий операционных систем, приложений и компьютерного оборудования на предприятии. Это называется определением исходной конфигурации. Исходная конфигурация – это конфигурация продукта или системы, установленная в определенный момент времени. К примеру, исходная конфигурация приложения или операционной системы предусматривает возможность восстановления компьютера или службы в определенном состоянии.
+An important part of the software update management process is creating initial standard installations of operating system versions, applications, and hardware for computers in your enterprise; these are called baselines. A baseline is the configuration of a product or system established at a specific point in time. An application or operating system baseline, for example, provides the ability to rebuild a computer or service to a specific state.
 
-Исходные конфигурации служат основой для поиска и устранения потенциальных проблем и упрощают процесс управления обновлениями программного обеспечения. Исходные конфигурации уменьшают количество обновлений, которые необходимо развернуть на предприятии, и предоставляют вам больше возможностей для контроля соответствия требованиям.
+Baselines provide the basis for finding and fixing potential problems and simplify the software update management process, both by reducing the number of software updates you must deploy in your enterprise and by increasing your ability to monitor compliance.
 
-Выполнив начальный аудит предприятия, используйте полученные сведения для определения исходных рабочих конфигураций ИТ-компонентов в рабочей среде. В зависимости от того, какие типы оборудования и программного обеспечения развернуты в рабочей среде, вам может потребоваться несколько исходных конфигураций.
+After performing the initial audit of your enterprise, you should use the information that is obtained from the audit to define an operational baseline for the IT components within your production environment. A number of baselines might be required, depending on the different types of hardware and software deployed into production.
 
-Например, для некоторых серверов под управлением Windows Server 2012 требуется обновление программного обеспечения, которое предотвращает ситуации, когда компьютер при завершении работы перестает отвечать на запросы. Это обновление программного обеспечения должно входить в исходную конфигурацию таких серверов.
+For example, some servers require a software update to prevent them from hanging when they enter the shutdown process when running Windows Server 2012. A baseline for these servers should include this software update.
 
-В больших организациях часто бывает полезно разделить компьютеры на категории ресурсов и поддерживать для каждой категории стандартную исходную конфигурацию, используя одни и те же версии программ и обновлений ПО. Затем эти категории можно использовать для определения очередности обновления программного обеспечения.
+In large organizations, it is often helpful to divide the computers in your enterprise into asset categories and keep each category at a standard baseline by using the same versions of software and software updates. You can then use these asset categories in prioritizing a software update distribution.
 
-## Подписка на соответствующие службы уведомлений об обновлениях ПО
+## <a name="subscribe-to-the-appropriate-software-update-notification-services"></a>Subscribe to the appropriate software update notification services
 
-После проведения начального аудита программного обеспечения, используемого в вашей организации, вам нужно определить оптимальный метод получения уведомлений о новых обновлениях для каждого программного продукта и версии ПО. В зависимости от программного продукта это могут быть уведомления по электронной почте, веб-сайты или публикации на компьютерную тематику.
+After you perform an initial audit of the software in use in your enterprise, you should determine the best method for receiving notifications of new software updates for each software product and version. Depending on the software product, the best notification method might be e-mail notifications, Web sites, or computer publications.
 
-Например, центр Microsoft Security Response Center (MSRC) содержит ответы на все вопросы, связанные с безопасностью продуктов Майкрософт, и предоставляет бюллетень безопасности Microsoft – бесплатную электронную рассылку о недавно обнаруженных уязвимостях и обновлениях программного обеспечения, выпущенных для устранения этих уязвимостей. Вы можете подписаться на эту рассылку на странице http://www.microsoft.com/technet/security/bulletin/notify.mspx.
+For example, the Microsoft Security Response Center (MSRC) responds to all security-related concerns about Microsoft products and provides the Microsoft Security Bulletin Service, a free e-mail notification of newly identified vulnerabilities and software updates that are released to address these vulnerabilities. You can subscribe to this service at http://www.microsoft.com/technet/security/bulletin/notify.mspx.
 
-## Рекомендации по обновлению программного обеспечения
+## <a name="software-update-considerations"></a>Software update considerations
 
-После проведения начального аудита программного обеспечения, используемого в вашей организации, вам нужно определить требования для настройки системы управления обновлениями ПО. Эти требования зависят от используемой системы управления обновлениями программного обеспечения. Если это службы WSUS, см. статью [Best Practices with Windows Server Update Services](https://technet.microsoft.com/library/Cc708536). Если это System Center, см. статью [Планирование обновления программного обеспечения в Configuration Manager](https://technet.microsoft.com/library/gg712696).
+After you perform an initial audit of the software in use in your enterprise, you should determine the requirements to setup you software update management system, which depends on the software update management system that you are using. For WSUS read [Best Practices with Windows Server Update Services](https://technet.microsoft.com/library/Cc708536), for System Center read [Planning for Software Updates in Configuration Manager](https://technet.microsoft.com/library/gg712696).
 
-Однако существуют некоторые общие соображения и рекомендации, которые можно применять независимо от используемого решения. Речь об этом пойдет в следующих разделах.
+However, there are some general considerations and best practices that you can apply regardless of the solution that you are using as shown in the sections that follows.
 
-### Настройка среды
+### <a name="setting-up-the-environment"></a>Setting up the environment
 
-Вот некоторые рекомендации, с помощью которых можно настроить среду для управления обновлениями программного обеспечения.
+Consider the following practices when planning to setup the software update management environment:
 
--   **Создайте коллекции обновлений рабочего программного обеспечения на основе постоянных критериев**. В целом создание коллекций для инвентаризации и распространения обновлений программного обеспечения с помощью постоянных критериев поможет упростить все этапы процесса управления обновлениями ПО. К постоянным критериям может относиться версия операционной системы и уровень пакета обновления, установленных на клиентском компьютере, а также системная роль или целевая организация.
+-   **Create production software update collections based on stable criteria**: In general, using stable criteria to create collections for your software update inventory and distribution will help to simplify all stages of the software update management process. The stable criteria can include the installed client operating system version and service pack level, system role, or target organization.
 
--   **Создайте предварительные коллекции, в которые войдут компьютеры-образцы**. Предварительная коллекция должна включать репрезентативные конфигурации версий операционных систем, бизнес-приложений и другого программного обеспечения, работающего в вашей организации.
+-   **Create pre-production collections that include reference computers**: The pre-production collection should include representative configurations of the operating system versions, line of business software, and other software running in your enterprise.
 
-Следует также продумать, где будет размещаться сервер обновлений ПО – в облачной инфраструктуре Azure IaaS или в локальной среде. Это важное решение, так как вам нужно оценить объем трафика между локальными ресурсами и инфраструктурой Azure. Дополнительные сведения о подключении локальной инфраструктуры к Azure см. в статье [Подключение локальной сети к виртуальной сети Microsoft Azure](https://technet.microsoft.com/library/Dn786406.aspx).
+You should also consider where the software update server will be located, if it will be in the Azure IaaS infrastructure in the cloud or if it will be on-premises. This is an important decision because you need to evaluate the amount of traffic between on-premises resources and Azure infrastructure. Read [Connect an on-premises network to a Microsoft Azure virtual network](https://technet.microsoft.com/library/Dn786406.aspx) for more information on how to connect your on-premises infrastructure to Azure.
 
-Архитектура, определяющая расположение сервера обновлений, также будет зависеть от вашей текущей инфраструктуры и используемой системы обновления программного обеспечения. Если это службы WSUS, см. статью [Развертывание в организации служб Windows Server Update Services](https://technet.microsoft.com/library/hh852340.aspx). Если это System Center Configuration Manager, см. статью [Планирование сайтов и иерархий в Configuration Manager](https://technet.microsoft.com/library/Gg712681.aspx).
+The design options that will determine where the update server will be located will also vary according to your current infrastructure and the software update system that you are currently using. For WSUS read [Deploy Windows Server Update Services in Your Organization](https://technet.microsoft.com/library/hh852340.aspx) and for System Center Configuration Manager read [Planning for Sites and Hierarchies in Configuration Manager](https://technet.microsoft.com/library/Gg712681.aspx).
 
-### Резервное копирование
+### <a name="backup"></a>Backup
 
-Регулярное резервное копирование важно не только для самой платформы управления обновлениями, но и для серверов, которые будут обновляться. В организациях, где используется [процесс управления изменениями](https://technet.microsoft.com/library/cc543216.aspx), сотрудники ИТ-отдела должны указывать причины обновления сервера, примерное время простоя и возможные последствия. Обязательно имейте в наличии конфигурацию, к которой можно откатиться в случае сбоя обновления. Для этого регулярно создавайте резервные копии системы.
+Regular backups are important not only for the software update management platform itself but also for the servers that will be updated. Organizations that have a [change management process](https://technet.microsoft.com/library/cc543216.aspx) in place will require IT to justify the reasons for why the server needs to be updated, the estimated downtime and possible impact. To ensure that you have a rollback configuration in place in case an update fails, make sure to back up the system regularly.
 
-Вот некоторые варианты резервного копирования для Azure IaaS:
+Some backup options for Azure IaaS include:
 
--   [Защита операций в Azure IaaS с помощью Data Protection Manager.](https://azure.microsoft.com/blog/2014/09/08/azure-iaas-workload-protection-using-data-protection-manager/)
+-   [Azure IaaS workload protection using Data Protection Manager](https://azure.microsoft.com/blog/2014/09/08/azure-iaas-workload-protection-using-data-protection-manager/)
 
--   [Резервное копирование виртуальных машин Azure](../backup/backup-azure-vms.md)
+-   [Back up Azure virtual machines](../backup/backup-azure-vms.md)
 
-### Мониторинг
+### <a name="monitoring"></a>Monitoring
 
-Вам следует создавать регулярные отчеты для отслеживания количества отсутствующих, установленных или незавершенных обновлений для каждого авторизованного обновления ПО. Аналогичным образом отчеты по еще не авторизованным обновлениям программного обеспечения могут упростить принятие решений о развертывании.
+You should run regular reports to monitor the number of missing or installed updates, or updates with incomplete status, for each software update that is authorized. Similarly, reporting for software updates that are not yet authorized can facilitate easier deployment decisions.
 
-Также рекомендуем выполнять следующие задачи:
+You should also consider the following tasks:
 
--   Проводите аудит применимых и установленных обновлений для системы безопасности на всех компьютерах в организации.
+-   Conduct an audit of applicable and installed security updates for all the computers in your company.
 
--   Авторизуйте и развертывайте обновления на соответствующих компьютерах.
+-   Authorize and deploy the updates to the appropriate computers.
 
--   Отслеживайте оборудование и обновляйте состояние и ход выполнения установки для всех компьютеров в организации.
+-   Track the inventory and update installation status and progress for all the computers in your company.
 
-В дополнение к общим рекомендациям, изложенным в этой статье, необходимо также учитывать рекомендации для каждого конкретного продукта. Например, при наличии виртуальной машины Azure с SQL Server, следуйте рекомендациям по обновлению программного обеспечения именно для этого продукта.
+In addition to general considerations that were explained in this article, you should also consider each product’s best practice, for example: if you have a VM in Azure with SQL Server, make sure that you are following the software updates recommendation for that product.
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Next steps
 
-Рекомендации, приведенные в этой статье, помогут вам определить оптимальные параметры обновлений программного обеспечения для виртуальных машин в Azure IaaS. Рекомендации по обновлениям программного обеспечения в традиционных центрах обработки данных и Azure IaaS во многом сходны, поэтому советуем оценить текущие политики обновлений программного обеспечения и добавить в них виртуальные машины Azure, а также включить применимые рекомендации из этой статьи в общий процесс обновления программного обеспечения.
+Use the guidelines described in this article to assist you in determining the best options for software updates for virtual machines within Azure IaaS. There are many similarities between software update best practices in a traditional datacenter versus Azure IaaS, therefore it is recommended that you evaluate your current software update policies to include Azure VMs and include the relevant best practices from this article in your overall software update process.
 
-<!---HONumber=AcomDC_0803_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

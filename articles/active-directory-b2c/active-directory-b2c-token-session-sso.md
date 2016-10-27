@@ -1,86 +1,91 @@
 <properties
-	pageTitle="Azure Active Directory B2C: конфигурация маркера, сеанса и единого входа | Microsoft Azure"
-	description="Конфигурация маркера, сеанса и единого входа в Azure Active Directory B2C"
-	services="active-directory-b2c"
-	documentationCenter=""
-	authors="swkrish"
-	manager="msmbaldwin"
-	editor="bryanla"/>
+    pageTitle="Azure Active Directory B2C: Token, session and single sign-on configuration | Microsoft Azure"
+    description="Token, session and single sign-on configuration in Azure Active Directory B2C"
+    services="active-directory-b2c"
+    documentationCenter=""
+    authors="swkrish"
+    manager="mbaldwin"
+    editor="bryanla"/>
 
 <tags
-	ms.service="active-directory-b2c"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/24/2016"
-	ms.author="swkrish"/>
+    ms.service="active-directory-b2c"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="07/24/2016"
+    ms.author="swkrish"/>
 
-# Azure Active Directory B2C: конфигурация маркера, сеанса и единого входа
 
-Эта возможность обеспечивает более точный контроль указанных далее параметров, осуществляемый [для каждой политики](active-directory-b2c-reference-policies.md).
+# <a name="azure-active-directory-b2c:-token,-session-and-single-sign-on-configuration"></a>Azure Active Directory B2C: Token, session and single sign-on configuration
+
+This feature gives you fine-grained control, on a [per-policy basis](active-directory-b2c-reference-policies.md), of:
  
-1. Время существования маркеров безопасности, выдаваемых Azure Active Directory (Azure AD) B2C.
-2. Время существования сеансов веб-приложения, управляемых Azure AD B2C.
-3. Поведение единого входа (SSO) в нескольких приложениях и политиках в клиенте B2C.
+1. Lifetimes of security tokens emitted by Azure Active Directory (Azure AD) B2C.
+2. Lifetimes of web application sessions managed by Azure AD B2C.
+3. Single sign-on (SSO) behavior across multiple apps and policies in your B2C tenant.
 
-Далее приводятся указания по использованию этой функции в клиенте B2C.
+You can use this feature in your B2C tenant as follows:
 
-1. Выполните эти действия, чтобы [перейти к колонке функций B2C](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade) на портале Azure.
-2. Щелкните **Политики входа**. *Примечание. Эту функцию можно использовать с любым типом политики, а не только с **политиками входа***.
-3. Откройте политику, щелкнув ее. Например, щелкните **B2C\_1\_SiIn**.
-4. Щелкните **Изменить** в верхней части колонки.
-5. Щелкните **Конфигурация маркера, сеанса и единого входа**.
-6. Внесите нужные изменения. Сведения о доступных свойствах см. в последующих разделах.
-7. Нажмите кнопку **ОК**.
-8. Нажмите кнопку **Сохранить** в верхней части колонки.
+1. Follow these steps to [navigate to the B2C features blade](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade) on the Azure portal.
+2. Click **Sign-in policies**. *Note: You can use this feature on any policy type, not just on **Sign-in policies***.
+3. Open a policy by clicking it. For example, click on **B2C_1_SiIn**.
+4. Click **Edit** at the top of the blade.
+5. Click **Token, session & single sign-on config**.
+6. Make your desired changes. Learn about available properties in subsequent sections.
+7. Click **OK**.
+8. Click **Save** on the top of the blade.
 
-![Снимок экрана конфигурации маркера, сеанса и единого входа](./media/active-directory-b2c-token-session-sso/token-session-sso.png)
+![Screenshot of token, session and single sign-on config](./media/active-directory-b2c-token-session-sso/token-session-sso.png)
 
-## Конфигурация времени существования маркеров
+## <a name="token-lifetimes-configuration"></a>Token lifetimes configuration
 
-Azure AD B2C поддерживает [протокол авторизации OAuth 2.0](active-directory-b2c-reference-protocols.md) для включения безопасного доступа к защищенным ресурсам. Для реализации этой поддержки Azure AD B2C выдает различные [маркеры безопасности](active-directory-b2c-reference-tokens.md). Ниже приведены свойства, которые можно использовать для управления временем существования маркеров безопасности, выдаваемых Azure AD B2C.
+Azure AD B2C supports the [OAuth 2.0 authorization protocol](active-directory-b2c-reference-protocols.md) for enabling secure access to protected resources. To implement this support, Azure AD B2C emits various [security tokens](active-directory-b2c-reference-tokens.md). These are the properties you can use to manage lifetimes of security tokens emitted by Azure AD B2C:
 
-- **Время существования маркера доступа и маркера идентификатора (в минутах)**: время существования маркера носителя OAuth 2.0, используемого для получения доступа к защищенному ресурсу. На данный момент Azure AD B2C выдает только маркеры идентификаторов. Это значение также будет применяться к маркерам доступа после того, как будет добавлена их поддержка.
-   - Значение по умолчанию — 60 минут.
-   - Минимум (включительно) — 5 минут.
-   - Максимум (включительно) — 1440 минут.
-- **Время существования маркера обновления (в днях)**. Максимальный период времени, до наступления которого маркер обновления может использоваться для получения нового маркера доступа или маркера идентификатора (и при необходимости для получения нового маркера обновления, если приложению была предоставлена область `offline_access`).
-   - Значение по умолчанию — 14 дней.
-   - Минимум (включительно) — 1 день.
-   - Максимум (включительно) — 90 дней.
-- **Скользящее время существования маркера обновления (в днях)**. По истечении этого периода времени пользователь должен будет повторно пройти проверку подлинности независимо от срока действия самого последнего маркера обновления, полученного приложением. Он предоставляется, только если установлен переключатель **Ограничено**. Значение должно быть больше или равно значению **времени существования маркера обновления (в днях)**. Если установлен переключатель **Не ограничено**, указать конкретное значение нельзя.
-   - Значение по умолчанию — 90 дней.
-   - Минимум (включительно) — 1 день.
-   - Максимум (включительно) — 365 дней.
+- **Access & ID token lifetimes (minutes)**: The lifetime of the OAuth 2.0 bearer token used to gain access to a protected resource. Azure AD B2C issues only ID tokens at this time. This value would apply to access tokens as well, when we add support for them.
+   - Default = 60 minutes.
+   - Minimum (inclusive) = 5 minutes.
+   - Maximum (inclusive) = 1440 minutes.
+- **Refresh token lifetime (days)**: The maximum time period before which a refresh token can be used to acquire a new access or ID token (and optionally, a new refresh token, if your application had been granted the `offline_access` scope).
+   - Default = 14 days.
+   - Minimum (inclusive) = 1 day.
+   - Maximum (inclusive) = 90 days.
+- **Refresh token sliding window lifetime (days)**: After this time period elapses the user is forced to re-authenticate, irrespective of the validity period of the most recent refresh token acquired by the application. It can only be provided if the switch is set to **Bounded**. It needs to be greater than or equal to the **Refresh token lifetime (days)** value. If the switch is set to **Unbounded**, you cannot provide a specific value.
+   - Default = 90 days.
+   - Minimum (inclusive) = 1 day.
+   - Maximum (inclusive) = 365 days.
 
-Ниже приведено несколько вариантов использования, которые можно реализовать с помощью этих свойств.
+These are a couple of use cases that you can enable using these properties:
 
-- Предоставление пользователю возможности находиться в мобильном приложении сколь угодно долго до тех пор, пока он активно его использует. Для этого в политике входа нужно установить переключатель **Скользящее время существования маркера обновления (в днях)** в положение **Не ограничено**.
-- Обеспечение соответствия нормам и требованиям безопасности путем задания соответствующих значений времени существования маркера доступа.
+- Allow a user to stay signed into a mobile application indefinitely, as long as he or she is continually active on the application. You can do this by setting the **Refresh token sliding window lifetime (days)** switch to **Unbounded** in your sign-in policy.
+- Meet your industry's security and compliance requirements by setting the appropriate access token lifetimes.
 
-## Конфигурация сеанса
+## <a name="session-configuration"></a>Session configuration
 
-Azure AD B2C поддерживает [протокол проверки подлинности OpenID Connect](active-directory-b2c-reference-oidc.md) для включения безопасного входа в веб-приложения. Ниже приведены свойства, которые можно использовать для управления сеансами веб-приложения.
+Azure AD B2C supports the [OpenID Connect authentication protocol](active-directory-b2c-reference-oidc.md) for enabling secure sign-in to web applications. These are the properties you can use to manage web application sessions:
 
-- **Время существования сеанса веб-приложения (в минутах)**. Время существования файла cookie сеанса Azure AD B2C, сохраненного в браузере пользователя после успешной проверки подлинности.
-   - Значение по умолчанию — 1440 минут.
-   - Минимум (включительно) — 15 минут.
-   - Максимум (включительно) — 1440 минут.
-- **Время ожидания сеанса веб-приложения**. Если этот переключатель установлен в положение **Абсолютное**, пользователь вынужден повторно пройти проверку подлинности по истечении периода времени, заданного параметром **Время существования сеанса веб-приложения (в минутах)**. Если этот переключатель установлен в положение **Скользящее** (по умолчанию), пользователь может находиться в веб-приложении сколь угодно долго до тех пор, пока он активно его использует.
+- **Web app session lifetime (minutes)**: The lifetime of Azure AD B2C's session cookie stored on the user's browser upon successful authentication.
+   - Default = 1440 minutes.
+   - Minimum (inclusive) = 15 minutes.
+   - Maximum (inclusive) = 1440 minutes.
+- **Web app session timeout**: If this switch is set to **Absolute**, the user is forced to re-authenticate after the time period specified by **Web app session lifetime (minutes)** elapses. If this switch is set to **Rolling** (the default setting), the user remains signed in as long as the user is continually active in your web application.
 
-Ниже приведено несколько вариантов использования, которые можно реализовать с помощью этих свойств.
+These are a couple of use cases that you can enable using these properties:
 
-- Обеспечение соответствия нормам и требованиям безопасности путем задания соответствующих значений времени существования сеанса веб-приложения.
-- Применение принудительной повторной проверки подлинности по истечении заданного периода во время взаимодействия пользователя с высокозащищенной частью веб-приложения.
+- Meet your industry's security and compliance requirements by setting the appropriate web application session lifetimes.
+- Force re-authentication after a set time period during a user's interaction with a high-security part of your web application. 
 
-## Конфигурация единого входа (SSO)
+## <a name="single-sign-on-(sso)-configuration"></a>Single sign-on (SSO) configuration
 
-Если в клиенте B2C существует несколько приложений и политик, для управления взаимодействиями пользователей с ними можно использовать свойство **Конфигурация единого входа**. Этому свойству можно задать одно из указанных далее значений.
+If you have multiple applications and policies in your B2C tenant, you can manage user interactions across them using the **Single sign-on configuration** property. You can set the property to one of the following settings:
 
-- **Клиент**. Это значение по умолчанию. Если выбрано это значение, несколько приложений и политик в клиенте B2C могут совместно использовать один и тот же сеанс пользователя. Например, когда пользователь входит в приложение Contoso Shopping, он (или она) также может легко войти в другое приложение — Contoso Pharmacy — непосредственно во время доступа к нему.
-- **Приложение**. Это значение позволяет поддерживать сеанс пользователя исключительно для одного приложения и независимо от других приложений. Например, если требуется, чтобы пользователь выполнял вход в приложение Contoso Pharmacy (с теми же учетными данными), даже если он (или она) уже выполнил вход в Contoso Shopping, другое приложение на том же клиенте B2C.
-- **Политика**. Это значение позволяет поддерживать сеанс пользователя исключительно для политики и независимо от приложений, ее использующих. Например, если пользователь уже выполнил вход и прошел этап многофакторной проверки подлинности (MFA), он может получить доступ к более защищенным частям нескольких приложений, который будет действовать, пока не истечет срок действия сеанса, связанного с политикой.
-- **Отключено**. Если задано это значение, пользователь должен осуществлять все действия по входу при каждом выполнении политики. Например, несколько пользователей могут зарегистрироваться в приложении (в сценарии с использованием общего рабочего стола), даже если в течение всего времени в приложении остается один пользователь.
+- **Tenant**: This is the default setting. Using this setting allows multiple applications and policies in your B2C tenant to share the same user session. For example, once a user signs into an application, Contoso Shopping, he or she can also seamlessly sign into another one, Contoso Pharmacy, upon accessing it.
+- **Application**: This allows you to maintain a user session exclusively for an application, independent of other applications. For example, if you want the user to sign in to Contoso Pharmacy (with the same credentials), even if he or she is already signed into Contoso Shopping, another application on the same B2C tenant. 
+- **Policy**: This allows you to maintain a user session exclusively for a policy, independent of the applications using it. For example, if the user has already signed in and completed a multi factor authentication (MFA) step, he or she can be given access to higher-security parts of multiple applications as long as the session tied to the policy doesn't expire.
+- **Disabled**: This forces the user to run through the entire user journey on every execution of the policy. For example, this will allow multiple users to sign up to your application (in a shared desktop scenario), even while a single user remains signed in during the whole time.
 
-<!---HONumber=AcomDC_0727_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

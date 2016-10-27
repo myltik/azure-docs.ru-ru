@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Дочерние модули Runbook в службе автоматизации Azure | Microsoft Azure"
-   description="Описывает различные методы запуска Runbook в службе автоматизации Azure из другого Runbook и обмена информацией между ними."
+   pageTitle="Child runbooks in Azure Automation | Microsoft Azure"
+   description="Describes the different methods for starting a runbook in Azure Automation from another runbook and sharing information between them."
    services="automation"
    documentationCenter=""
    authors="mgoedtel"
@@ -15,82 +15,87 @@
    ms.date="08/17/2016"
    ms.author="magoedte;bwren" />
 
-# Дочерние модули Runbook в службе автоматизации Azure
 
-Рекомендуется создавать в службе автоматизации Azure повторно используемые модульные Runbook с отдельной функцией, которую могут использовать другие Runbook. Родительский Runbook часто будет вызывать один или несколько дочерних Runbook для выполнения требуемых функций. Существует два способа вызвать дочерний Runbook, и у каждого из них есть определенные отличия, которые следует понимать, чтобы определить, какой способ наилучшим образом подходит для тех или иных сценариев.
+# <a name="child-runbooks-in-azure-automation"></a>Child runbooks in Azure Automation
 
-##  Вызов дочернего Runbook с использованием встроенного выполнения
+It is a best practice in Azure Automation to write reusable, modular runbooks with a discrete function that can be used by other runbooks. A parent runbook will often call one or more child runbooks to perform required functionality. There are two ways to call a child runbook, and each has distinct differences that you should understand so that you can determine which will be best for your different scenarios.
 
-Чтобы вызвать Runbook изнутри другого Runbook, используйте имя Runbook и укажите значения его параметров точно так же, как при использовании действия или командлета. Так все Runbook в одной учетной записи службы автоматизации доступны для использования всем остальным. Родительский Runbook ожидает завершения работы дочернего Runbook, прежде чем перейти к следующей строке, и любые выходные данные возвращаются непосредственно в родительский Runbook.
+##  <a name="invoking-a-child-runbook-using-inline-execution"></a>Invoking a child runbook using inline execution
 
-При встроенном вызове дочерний Runbook выполняется в той же задаче, что и родительский Runbook. В журнале заданий дочернего Runbook не будет записей о его выполнении. Любые исключения и любой потоковый вывод дочернего Runbook будут связаны с родительским Runbook. Это уменьшает число заданий и упрощает отслеживание и устранение неполадок, так как все исключения, порождаемые дочерним Runbook, и любой его потоковый вывод связан с родительским заданием.
+To invoke a runbook inline from another runbook, you use the name of the runbook and provide values for its parameters exactly like you would use an activity or cmdlet.  All runbooks in the same Automation account are available to all others to be used in this manner. The parent runbook will wait for the child runbook to complete before moving to the next line, and any output is returned directly to the parent.
 
-При публикации Runbook все дочерние Runbook, которые он вызывает, уже должны быть опубликованы. Это связано с тем, что служба автоматизации Azure создает связь с любыми дочерними Runbook при компиляции Runbook. В противном случае родительский компонент Runbook будет отображаться как доступный для публикации, но будет выдавать исключение при запуске. В этом случае можно повторно опубликовать родительский Runbook, чтобы исправить ссылки на дочерние Runbook. Не надо повторно публиковать родительский Runbook, если были изменены все дочерние Runbook, так как связь уже будет создана.
+When you invoke a runbook inline, it runs in the same job as the parent runbook. There will be no indication in the job history of the child runbook that it ran. Any exceptions and any stream output from the child runbook will be associated with the parent. This results in fewer jobs and makes them easier to track and to troubleshoot since any exceptions thrown by the child runbook and any of its stream output are associated with the parent job.
 
-Параметры дочернего модуля Runbook со встроенным вызовом могут иметь любой тип данных, включая сложные объекты. Кроме того, отсутствует [сериализация JSON](automation-starting-a-runbook.md#runbook-parameters), как при запуске Runbook с помощью портала управления Azure или командлета Start-AzureRmAutomationRunbook.
+When a runbook is published, any child runbooks that it calls must already be published. This is because Azure Automation builds an association with any child runbooks when a runbook is compiled. If they aren’t, the parent runbook will appear to publish properly, but will generate an exception when it’s started. If this happens, you can republish the parent runbook in order to properly reference the child runbooks. You do not need to republish the parent runbook if any of the child runbooks are changed because the association will have already been created.
 
-
-### Типы Runbook
-
-Какие типы могут вызывать друг друга?
-
-- [Runbook PowerShell](automation-runbook-types.md#powershell-runbooks)и [графические модули Runbook](automation-runbook-types.md#graphical-runbooks) могут вызывать друг друга с помощью встроенного вызова (на основе PowerShell).
-- [Runbook рабочего процесса PowerShell](automation-runbook-types.md#powershell-workflow-runbooks) и графические модули Runbook рабочего процесса PowerShell могут вызывать друг друга с помощью встроенного вызова (на основе рабочих процессов PowerShell).
-- Типы PowerShell и типы рабочего процесса PowerShell не могут вызывать друг друга с помощью встроенного вызова и должны использовать командлет Start-AzureRmAutomationRunbook.
-	
-Когда имеет значение порядок публикации?
-
-- Порядок публикации модулей Runbook имеет значение только для модулей Runbook рабочего процесса PowerShell и графических модулей Runbook рабочего процесса PowerShell.
+The parameters of a child runbook called inline can be any data type including complex objects, and there is no [JSON serialization](automation-starting-a-runbook.md#runbook-parameters) as there is when you start the runbook using the Azure Management Portal or with the Start-AzureRmAutomationRunbook cmdlet.
 
 
-При вызове графического Runbook и Runbook рабочего процесса PowerShell с помощью встроенного выполнения просто используйте имя необходимого Runbook. При вызове дочернего Runbook PowerShell необходимо перед его именем использовать сочетание символов *.\*, чтобы указать, что сценарий находится в локальном каталоге.
+### <a name="runbook-types"></a>Runbook types
 
-### Пример
+Which types can call each other:
 
-В следующем примере вызывается тестовый дочерний Runbook, который принимает три параметра: сложный объект, целое число и логическое значение. Выходные данные дочернего Runbook присваиваются переменной. В этом случае дочерний Runbook представляет собой Runbook рабочего процесса PowerShell.
+- A [PowerShell runbook](automation-runbook-types.md#powershell-runbooks) and [Graphical runbooks](automation-runbook-types.md#graphical-runbooks) can call each other inline (both are PowerShell based).
+- A [PowerShell Workflow runbook](automation-runbook-types.md#powershell-workflow-runbooks) and Graphical PowerShell Workflow runbooks can call each other inline (both are PowerShell Workflow based)
+- The PowerShell types and the PowerShell Workflow types can’t call each other inline, and must use Start-AzureRmAutomationRunbook.
+    
+When does publish order matter:
 
-	$vm = Get-AzureRmVM –ResourceGroupName "LabRG" –Name "MyVM"
+- The publish order of runbooks only matters for PowerShell Workflow and Graphical PowerShell Workflow runbooks.
+
+
+When you call a Graphical or PowerShell Workflow child runbook using inline execution, you just use the name of the runbook.  When you call a PowerShell child runbook, you must preceded its name with *.\\* to specify that the script is located in the local directory. 
+
+### <a name="example"></a>Example
+
+The following example invokes a test child runbook that accepts three parameters, a complex object, an integer, and a boolean. The output of the child runbook is assigned to a variable.  In this case, the child runbook is a PowerShell Workflow runbook
+
+    $vm = Get-AzureRmVM –ResourceGroupName "LabRG" –Name "MyVM"
     $output = PSWF-ChildRunbook –VM $vm –RepeatCount 2 –Restart $true
 
-Ниже приведен тот же пример с использованием Runbook PowerShell в качестве дочернего элемента.
+Following is the same example using a PowerShell runbook as the child.
 
-	$vm = Get-AzureRmVM –ResourceGroupName "LabRG" –Name "MyVM"
+    $vm = Get-AzureRmVM –ResourceGroupName "LabRG" –Name "MyVM"
     $output = .\PS-ChildRunbook –VM $vm –RepeatCount 2 –Restart $true
 
 
 
-##  Запуск дочернего Runbook с помощью командлета
+##  <a name="starting-a-child-runbook-using-cmdlet"></a>Starting a child runbook using cmdlet
 
-Чтобы запустить модуль Runbook, можно воспользоваться командлетом [Start-AzureRmAutomationRunbook](https://msdn.microsoft.com/library/mt603661.aspx), как описано в разделе [Запуск модуля Runbook с помощью Windows PowerShell](../automation-starting-a-runbook.md#starting-a-runbook-with-windows-powershell). Этот командлет можно использовать в двух режимах. В одном режиме командлет возвращает идентификатор задания при создании дочернего задания для дочернего модуля Runbook. В другом режиме, который можно включить, указав параметр **-wait**, командлет ожидает завершения дочернего задания и возвращает выходные данные из дочернего модуля Runbook.
+You can use the [Start-AzureRmAutomationRunbook](https://msdn.microsoft.com/library/mt603661.aspx) cmdlet to start a runbook as described in [To start a runbook with Windows PowerShell](../automation-starting-a-runbook.md#starting-a-runbook-with-windows-powershell). There are two modes of use for this cmdlet.  In one mode, the cmdlet returns the job id as soon as the child job is created for the child runbook.  In the other mode, which you enable by specifying the **-wait** parameter, the cmdlet will wait until the child job finishes and will return the output from the child runbook.
 
-Задание дочернего Runbook, запущенного с помощью командлета, будет выполняться отдельно от задания родительского Runbook. Это порождает больше заданий, чем при встроенном вызове компонента runbook, и усложняет их отслеживание. Родительский модуль Runbook может запустить несколько дочерних модулей Runbook асинхронно, не ожидая завершения каждого из них. Для такого параллельного выполнения дочерних Runbook с помощью встроенного вызова в родительском Runbook потребуется использовать [ключевое слово parallel](automation-powershell-workflow.md#parallel-processing).
+The job from a child runbook started with a cmdlet will run in a separate job from the parent runbook. This results in more jobs than invoking the runbook inline and makes them more difficult to track. The parent can start multiple child runbooks asynchronously without waiting for each to complete. For that same kind of parallel execution calling the child runbooks inline, the parent runbook would need to use the [parallel keyword](automation-powershell-workflow.md#parallel-processing).
 
-Параметры дочернего Runbook, запускаемого с помощью командлета, предоставляются в виде хэш-таблицы, как описано в статье [Параметры Runbook](automation-starting-a-runbook.md#runbook-parameters). Можно использовать только простые типы данных. Если у Runbook есть параметр со сложным типом данных, то для него необходимо использовать встроенный вызов.
+Parameters for a child runbook started with a cmdlet are provided as a hashtable as described in [Runbook Parameters](automation-starting-a-runbook.md#runbook-parameters). Only simple data types can be used. If the runbook has a parameter with a complex data type, then it must be called inline.
 
-### Пример
+### <a name="example"></a>Example
 
-В следующем примере с помощью командлета Start-AzureRmAutomationRunbook с параметром -wait запускается дочерний модуль Runbook с параметрами и ожидается его завершение. После завершения его выходные данные собираются из дочернего модуля Runbook.
+The following example starts a child runbook with parameters and then waits for it to complete using the Start-AzureRmAutomationRunbook -wait parameter. Once completed, its output is collected from the child runbook.
 
-	$params = @{"VMName"="MyVM";"RepeatCount"=2;"Restart"=$true} 
+    $params = @{"VMName"="MyVM";"RepeatCount"=2;"Restart"=$true} 
     $joboutput = Start-AzureRmAutomationRunbook –AutomationAccountName "MyAutomationAccount" –Name "Test-ChildRunbook" -ResouceGroupName "LabRG" –Parameters $params –wait
 
 
-## Сравнение методов вызова дочернего Runbook
+## <a name="comparison-of-methods-for-calling-a-child-runbook"></a>Comparison of methods for calling a child runbook
 
-В следующей таблице перечислены различия между двумя методами вызова Runbook из другого Runbook.
+The following table summarizes the differences between the two methods for calling a runbook from another runbook.
 
-| | Встроенный| Командлет|
+| | Inline| Cmdlet|
 |:---|:---|:---|
-|Задание|Дочерние Runbook выполняются в том же задании, что и родительский.|Для дочернего Runbook создается отдельное задание.|
-|Выполнение|Родительский Runbook ожидает завершения дочернего Runbook, прежде чем продолжить выполнение.|Родительский модуль Runbook продолжает работу сразу после запуска дочернего модуля Runbook *или* ожидает завершения дочернего задания.|
-|Выходные данные|Родительский Runbook может получить выходные данные непосредственно из дочернего Runbook.|Родительский модуль Runbook должен получить выходные данные из задания дочернего модуля Runbook *или* может получить выходные данные непосредственно из дочернего модуля Runbook.|
-|Параметры|Значения параметров дочернего Runbook указываются отдельно и могут иметь любой тип данных.|Значения параметров дочернего Runbook должны быть объединены в одну хэш-таблицу и могут содержать только простые, регулярные и объектные типы данных, использующие сериализацию JSON.|
-|Учетная запись службы автоматизации|Родительский Runbook может использовать только дочерний Runbook, находящийся в той же учетной записи автоматизации.|Родительский модуль Runbook может использовать дочерний Runbook из любой учетной записи автоматизации в той же подписке Azure и даже в другой подписке, если к ней есть подключение.|
-|Публикация|Перед публикацией родительского Runbook должен быть опубликован дочерний Runbook.|Дочерний Runbook должен быть опубликован в любое время до запуска родительского Runbook.|
+|Job|Child runbooks run in the same job as the parent.|A separate job is created for the child runbook.|
+|Execution|Parent runbook waits for the child runbook to complete before continuing.|Parent runbook continues immediately after child runbook is started *or* parent runbook waits for the child job to finish.|
+|Output|Parent runbook can directly get output from child runbook.|Parent runbook must retrieve output from child runbook job *or* parent runbook can directly get output from child runbook.|
+|Parameters|Values for the child runbook parameters are specified separately and can use any data type.|Values for the child runbook parameters must be combined into a single hashtable and can only include simple, array, and object data types that leverage JSON serialization.|
+|Automation Account|Parent runbook can only use child runbook in the same automation account.|Parent runbook can use child runbook from any automation account from the same Azure subscription and even a different subscription if you have a connection to it.|
+|Publishing|Child runbook must be published before parent runbook is published.|Child runbook must be published any time before parent runbook is started.|
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Next steps
 
-- [Запуск модуля Runbook в службе автоматизации Azure](automation-starting-a-runbook.md)
-- [Выходные данные и сообщения Runbook в службе автоматизации Azure](automation-runbook-output-and-messages.md)
+- [Starting a runbook in Azure Automation](automation-starting-a-runbook.md)
+- [Runbook output and messages in Azure Automation](automation-runbook-output-and-messages.md)
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

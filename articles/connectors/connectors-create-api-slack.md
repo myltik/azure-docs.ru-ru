@@ -1,6 +1,6 @@
 <properties
-pageTitle="Использование соединителя Slack в приложениях логики | Microsoft Azure"
-description="Начало использования соединителя Slack в приложениях логики службы приложений Microsoft Azure"
+pageTitle=" Use the Slack Connector in your Logic apps| Microsoft Azure"
+description="Get started using the Slack Connector in your Microsoft Azure App Service Logic apps"
 services=""    
 documentationCenter=""     
 authors="msftman"    
@@ -17,409 +17,415 @@ ms.workload="na"
 ms.date="05/18/2016"
 ms.author="deonhe"/>
 
-# Начало работы с соединителем Slack
 
-Slack — это средство для организации взаимодействия между группами пользователей, которое объединяет все сообщения в одном месте, поддерживает возможности мгновенного поиска и доступно в любом месте.
+# <a name="get-started-with-the-slack-connector"></a>Get started with the Slack connector
 
->[AZURE.NOTE] Эта версия статьи предназначена для приложений логики со схемой версии 2015-08-01-preview.
+Slack is a team communication tool, that brings together all of your team communications in one place, instantly searchable and available wherever you go.
 
-С помощью соединителя Slack вы можете:
+>[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version.
 
-* создавать приложения логики.
+With the Slack connector, you can:
 
-Сведения о добавлении операции в приложения логики см. в статье [Создание приложения логики](../app-service-logic/app-service-logic-create-a-logic-app.md).
+* Use it to build logic apps
 
-## Поговорим о триггерах и действиях
+To add an operation in logic apps, see [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-Соединитель Slack можно использовать в качестве действия. Триггеры отсутствуют. Все соединители поддерживают данные в форматах JSON и XML.
+## <a name="let's-talk-about-triggers-and-actions"></a>Let's talk about triggers and actions
 
- Соединитель Slack предоставляет следующие триггеры и действия:
+The Slack connector can be used as an action; there are no triggers. All connectors support data in JSON and XML formats. 
 
-### Действия Slack
-Вы можете выполнять перечисленные ниже действия:
+ The Slack connector has the following action(s) and/or trigger(s) available:
 
-|Действие|Описание|
+### <a name="slack-actions"></a>Slack actions
+You can take these action(s):
+
+|Action|Description|
 |--- | ---|
-|PostMessage|Публикация сообщения в указанном канале.|
-## Создание подключения к Slack
-Чтобы использовать соединитель Slack, сначала нужно создать **подключение**, а затем указать данные для приведенных ниже свойств.
+|PostMessage|Post a Message to a specified channel.|
+## <a name="create-a-connection-to-slack"></a>Create a connection to Slack
+To use the Slack connector, you first create a **connection** then provide the details for these properties: 
 
-|Свойство| Обязательно|Описание|
+|Property| Required|Description|
 | ---|---|---|
-|токен|Да|Указание учетных данных Slack|
+|Token|Yes|Provide Slack Credentials|
 
-Выполните следующие действия, чтобы войти в Slack и настроить **подключение** Slack в приложении логики.
+Follow these steps to sign into Slack and complete the configuration of the Slack **connection** in your logic app:
 
-1. Выберите **Повторение**.
-2. Выберите **частоту** и введите **интервал**.
-3. Выберите **Добавить действие**. ![Настройка Slack][1]  
-4. В поле поиска введите "Slack" и дождитесь возвращения всех записей с "Slack" в имени.
-5. Выберите **Slack — публикация сообщения**.
-6. Выберите **Вход в Slack**. ![Настройка Slack][2]
-7. Укажите учетные данные Slack, чтобы войти и авторизовать приложение. ![Настройка Slack][3]  
-8. Вы будете перенаправлены на страницу входа своей организации. **Разрешите** Slack взаимодействие с вашим приложением логики. ![Настройка Slack][5] 
-9. После успешной аутентификации вы перейдете к своему приложению логики, чтобы завершить его, настроив параметры в разделе **Slack —получить все сообщения**. Добавьте другие необходимые вам триггеры и действия. ![Настройка Slack][6]
-10. Сохраните результаты работы, выбрав **Сохранить** в строке меню вверху.
-
-
->[AZURE.TIP] Это подключение можно использовать в других приложениях логики.
-
-## Справочник по API REST Slack
-#### Эта документация предназначена для версии 1.0
-
-
-### Публикация сообщения в указанном канале.
-**```POST: /chat.postMessage```**
+1. Select **Recurrence**
+2. Select a **Frequency** and enter an **Interval**
+3. Select **Add an action**  
+![Configure Slack][1]  
+4. Enter Slack in the search box and wait for the search to return all entries with Slack in the name
+5. Select **Slack - Post message**
+6. Select **Sign in to Slack**:  
+![Configure Slack][2]
+7. Provide your Slack credentials to sign in to authorize the  application    
+![Configure Slack][3]  
+8. You'll be redirected to your organization's Log in page. **Authorize** Slack to interact with your logic app:      
+![Configure Slack][5] 
+9. After the authorization completes you'll be redirected to your logic app to complete it by configuring the **Slack - Get all messages** section. Add other triggers and actions that you need.  
+![Configure Slack][6]
+10. Save your work by selecting **Save** on the menu bar above.
 
 
+>[AZURE.TIP] You can use this connection in other logic apps.
 
-| Имя| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
+## <a name="slack-rest-api-reference"></a>Slack REST API reference
+#### <a name="this-documentation-is-for-version:-1.0"></a>This documentation is for version: 1.0
+
+
+### <a name="post-a-message-to-a-specified-channel."></a>Post a Message to a specified channel.
+**```POST: /chat.postMessage```** 
+
+
+
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|channel|string|Да|запрос|Нет|Канал, частная группа или канал обмена мгновенными сообщениями, в которые отправляются сообщения. Этом может быть имя (например #general) или закодированный идентификатор.|
-|text|строка|Да|запрос|Нет|Текст отправляемого сообщения. Сведения о вариантах форматирования см. по адресу: https://api.slack.com/docs/formatting.|.
-|Имя пользователя|строка|Нет|запрос|Нет|Имя программы-робота|
-|as\_user|Логическое|Нет|запрос|Нет|Передача значения "true", если публикация сообщения осуществляется прошедшим проверку пользователем, а не программой-роботом|
-|parse|строка|Нет|запрос|Нет|Изменение порядка обработки сообщений. Дополнительные сведения см. по адресу: https://api.slack.com/docs/formatting.|.
-|link\_names|целое число|Нет|запрос|Нет|Поиск и связывание имен каналов и имен пользователей.|
-|unfurl\_links|Логическое|Нет|запрос|Нет|Передача значения "true" для включения развертывания главным образом текстового содержимого.|
-|unfurl\_media|Логическое|Нет|запрос|Нет|Передача значения "false" для отключения развертывания мультимедийного содержимого.|
-|icon\_url|строка|Нет|запрос|Нет|URL-адрес изображения, которое будет использоваться в качестве значка для данного сообщения|
-|icon\_emoji|строка|Нет|запрос|Нет|Символ эмодзи, который будет использоваться в качестве значка для данного сообщения|
+|channel|string|yes|query|none|Channel, private group, or IM channel to send message to. Can be a name(ex: #general) or an encoded ID.|
+|text|string|yes|query|none|Text of the message to send. For formatting options, see https://api.slack.com/docs/formatting.|
+|username|string|no|query|none|Name of the bot|
+|as_user|boolean|no|query|none|Pass true to post the message as the authenticated user, instead of as a bot|
+|parse|string|no|query|none|Change how messages are treated. For details, see https://api.slack.com/docs/formatting.|
+|link_names|integer|no|query|none|Find and link channel names and usernames.|
+|unfurl_links|boolean|no|query|none|Pass true to enable unfurling of primarily text-based content.|
+|unfurl_media|boolean|no|query|none|Pass false to disable unfurling of media content.|
+|icon_url|string|no|query|none|URL to an image to use as an icon for this message|
+|icon_emoji|string|no|query|none|Emoji to use as an icon for this message|
 
 
-### Ниже перечислены возможные ответы:
+### <a name="here-are-the-possible-responses:"></a>Here are the possible responses:
 
-|Имя|Описание|
+|Name|Description|
 |---|---|
-|200|ОК|
-|400|Ошибка запроса|
-|408|Истекло время ожидания запроса|
-|429|Слишком много запросов|
-|500|Внутренняя ошибка сервера. Произошла неизвестная ошибка|
-|503|Служба Slack недоступна|
-|504|Истекло время ожидания шлюза|
-|по умолчанию|Операция завершилась ошибкой.|
+|200|OK|
+|400|Bad Request|
+|408|Request Timeout|
+|429|Too Many Requests|
+|500|Internal Server Error. Unknown error occured|
+|503|Slack Service Unavailable|
+|504|Gateway Timeout|
+|default|Operation Failed.|
 ------
 
 
 
-## Определения объектов: 
+## <a name="object-definition(s):"></a>Object definition(s): 
 
- **Message**: сообщение Yammer.
+ **Message**:Yammer Message
 
-Обязательные свойства для Message:
-
-
-обязательные свойства отсутствуют.
+Required properties for Message:
 
 
-**Все свойства**:
+None of the properties are required. 
 
 
-| Имя | Тип данных |
+**All properties**: 
+
+
+| Name | Data Type |
 |---|---|
-|id|целое число|
-|content\_excerpt|строка|
-|sender\_id|целое число|
-|replied\_to\_id|целое число|
-|created\_at|строка|
-|network\_id|целое число|
-|message\_type|строка|
-|sender\_type|строка|
+|id|integer|
+|content_excerpt|string|
+|sender_id|integer|
+|replied_to_id|integer|
+|created_at|string|
+|network_id|integer|
+|message_type|string|
+|sender_type|string|
 |url|string|
-|web\_url|string|
-|group\_id|целое число|
-|текст|не определено|
-|thread\_id|целое число|
-|direct\_message|Логическое|
-|client\_type|string|
-|client\_url|строка|
-|язык|строка|
-|notified\_user\_ids|array|
-|privacy|строка|
-|liked\_by|не определено|
-|system\_message|Логическое|
+|web_url|string|
+|group_id|integer|
+|body|not defined|
+|thread_id|integer|
+|direct_message|boolean|
+|client_type|string|
+|client_url|string|
+|language|string|
+|notified_user_ids|array|
+|privacy|string|
+|liked_by|not defined|
+|system_message|boolean|
 
 
 
- **PostOperationRequest**: представляет запрос к соединителю Yammer на публикацию в Yammer.
+ **PostOperationRequest**:Represents a post request for Yammer Connector to post to yammer
 
-Обязательные свойства для PostOperationRequest:
+Required properties for PostOperationRequest:
 
-текст
+body
 
-**Все свойства**:
+**All properties**: 
 
 
-| Имя | Тип данных |
+| Name | Data Type |
 |---|---|
-|текст|строка|
-|group\_id|целое число|
-|replied\_to\_id|целое число|
-|direct\_to\_id|целое число|
-|broadcast|Логическое|
-|topic1|строка|
-|topic2|строка|
-|topic3|строка|
+|body|string|
+|group_id|integer|
+|replied_to_id|integer|
+|direct_to_id|integer|
+|broadcast|boolean|
+|topic1|string|
+|topic2|string|
+|topic3|string|
 |topic4|string|
-|topic5|строка|
-|topic6|строка|
-|topic7|строка|
+|topic5|string|
+|topic6|string|
+|topic7|string|
 |topic8|string|
-|topic9|строка|
-|topic10|строка|
+|topic9|string|
+|topic10|string|
 |topic11|string|
-|topic12|строка|
+|topic12|string|
 |topic13|string|
-|topic14|строка|
-|topic15|строка|
-|topic16|строка|
+|topic14|string|
+|topic15|string|
+|topic16|string|
 |topic17|string|
-|topic18|строка|
+|topic18|string|
 |topic19|string|
 |topic20|string|
 
 
 
- **MessageList**: список сообщений.
+ **MessageList**:List of messages
 
-Обязательные свойства для MessageList:
-
-
-обязательные свойства отсутствуют.
+Required properties for MessageList:
 
 
-**Все свойства**:
+None of the properties are required. 
 
 
-| Имя | Тип данных |
+**All properties**: 
+
+
+| Name | Data Type |
 |---|---|
 |messages|array|
 
 
 
- **MessageBod**: текст сообщения.
+ **MessageBody**:Message Body
 
-Обязательные свойства для MessageBody:
-
-
-обязательные свойства отсутствуют.
+Required properties for MessageBody:
 
 
-**Все свойства**:
+None of the properties are required. 
 
 
-| Имя | Тип данных |
+**All properties**: 
+
+
+| Name | Data Type |
 |---|---|
 |parsed|string|
 |plain|string|
-|rich|строка|
+|rich|string|
 
 
 
- **LikedBy**: понравилось пользователям.
+ **LikedBy**:Liked By
 
-Обязательные свойства для LikedBy:
-
-
-обязательные свойства отсутствуют.
+Required properties for LikedBy:
 
 
-**Все свойства**:
+None of the properties are required. 
 
 
-| Имя | Тип данных |
+**All properties**: 
+
+
+| Name | Data Type |
 |---|---|
-|count|целое число|
+|count|integer|
 |names|array|
 
 
 
- **YammmerEntity**: понравилось пользователям.
+ **YammmerEntity**:Liked By
 
-Обязательные свойства для YammmerEntity:
-
-
-обязательные свойства отсутствуют.
+Required properties for YammmerEntity:
 
 
-**Все свойства**:
+None of the properties are required. 
 
 
-| Имя | Тип данных |
+**All properties**: 
+
+
+| Name | Data Type |
 |---|---|
-|type|строка|
-|id|целое число|
-|full\_name|string|
+|type|string|
+|id|integer|
+|full_name|string|
 
 
-## Дальнейшие действия
-[Создайте приложение логики](../app-service-logic/app-service-logic-create-a-logic-app.md)
-## Определения объектов: 
+## <a name="next-steps"></a>Next Steps
+[Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md)
+## <a name="object-definition(s):"></a>Object definition(s): 
 
- **WebResultModel**: результаты веб-поиска Bing.
+ **WebResultModel**:Bing web search results
 
-Обязательные свойства для WebResultModel:
-
-
-обязательные свойства отсутствуют.
+Required properties for WebResultModel:
 
 
-**Все свойства**:
+None of the properties are required. 
 
 
-| Имя | Тип данных |
+**All properties**: 
+
+
+| Name | Data Type |
 |---|---|
-|Название|string|
-|Описание|string|
-|DisplayUrl|строка|
-|Идентификатор|string|
+|Title|string|
+|Description|string|
+|DisplayUrl|string|
+|Id|string|
 |FullUrl|string|
 
 
 
- **VideoResultModel**: результаты поиска видео в Bing.
+ **VideoResultModel**:Bing video search results
 
-Обязательные свойства для VideoResultModel:
-
-
-обязательные свойства отсутствуют.
+Required properties for VideoResultModel:
 
 
-**Все свойства**:
+None of the properties are required. 
 
 
-| Имя | Тип данных |
+**All properties**: 
+
+
+| Name | Data Type |
 |---|---|
-|Название|string|
-|DisplayUrl|строка|
-|Идентификатор|строка|
-|MediaUrl|строка|
-|Среда выполнения|целое число|
-|Эскиз|не определено|
+|Title|string|
+|DisplayUrl|string|
+|Id|string|
+|MediaUrl|string|
+|Runtime|integer|
+|Thumbnail|not defined|
 
 
 
- **ThumbnailModel**: свойства эскиза элемента мультимедиа.
+ **ThumbnailModel**:Thumbnail properties of the multimedia element
 
-Обязательные свойства для ThumbnailModel:
-
-
-обязательные свойства отсутствуют.
+Required properties for ThumbnailModel:
 
 
-**Все свойства**:
+None of the properties are required. 
 
 
-| Имя | Тип данных |
+**All properties**: 
+
+
+| Name | Data Type |
 |---|---|
 |MediaUrl|string|
 |ContentType|string|
-|Ширина|целое число|
-|Высота|целое число|
-|FileSize|целое число|
+|Width|integer|
+|Height|integer|
+|FileSize|integer|
 
 
 
- **ImageResultModel**: результаты поиска изображения в Bing.
+ **ImageResultModel**:Bing image search results
 
-Обязательные свойства для ImageResultModel:
-
-
-обязательные свойства отсутствуют.
+Required properties for ImageResultModel:
 
 
-**Все свойства**:
+None of the properties are required. 
 
 
-| Имя | Тип данных |
+**All properties**: 
+
+
+| Name | Data Type |
 |---|---|
-|Название|string|
-|DisplayUrl|строка|
-|Идентификатор|строка|
-|MediaUrl|строка|
+|Title|string|
+|DisplayUrl|string|
+|Id|string|
+|MediaUrl|string|
 |SourceUrl|string|
-|Эскиз|не определено|
+|Thumbnail|not defined|
 
 
 
- **NewsResultModel**: результаты поиска новостей в Bing.
+ **NewsResultModel**:Bing news search results
 
-Обязательные свойства для NewsResultModel:
-
-
-обязательные свойства отсутствуют.
+Required properties for NewsResultModel:
 
 
-**Все свойства**:
+None of the properties are required. 
 
 
-| Имя | Тип данных |
+**All properties**: 
+
+
+| Name | Data Type |
 |---|---|
-|Название|string|
-|Описание|string|
-|DisplayUrl|строка|
-|Идентификатор|string|
-|Источник|строка|
-|Дата|string|
+|Title|string|
+|Description|string|
+|DisplayUrl|string|
+|Id|string|
+|Source|string|
+|Date|string|
 
 
 
- **SpellResultModel**: результаты вариантов написания при проверке орфографии в Bing.
+ **SpellResultModel**:Bing spelling suggestions results
 
-Обязательные свойства для SpellResultModel:
-
-
-обязательные свойства отсутствуют.
+Required properties for SpellResultModel:
 
 
-**Все свойства**:
+None of the properties are required. 
 
 
-| Имя | Тип данных |
+**All properties**: 
+
+
+| Name | Data Type |
 |---|---|
-|Идентификатор|строка|
-|Значение|строка|
+|Id|string|
+|Value|string|
 
 
 
- **RelatedSearchResultModel**: связанные результаты поиска Bing.
+ **RelatedSearchResultModel**:Bing related search results
 
-Обязательные свойства для RelatedSearchResultModel:
-
-
-обязательные свойства отсутствуют.
+Required properties for RelatedSearchResultModel:
 
 
-**Все свойства**:
+None of the properties are required. 
 
 
-| Имя | Тип данных |
+**All properties**: 
+
+
+| Name | Data Type |
 |---|---|
-|Название|строка|
-|Идентификатор|string|
+|Title|string|
+|Id|string|
 |BingUrl|string|
 
 
 
- **CompositeSearchResultModel**: результаты составного поиска Bing.
+ **CompositeSearchResultModel**:Bing composite search results
 
-Обязательные свойства для CompositeSearchResultModel:
-
-
-обязательные свойства отсутствуют.
+Required properties for CompositeSearchResultModel:
 
 
-**Все свойства**:
+None of the properties are required. 
 
 
-| Имя | Тип данных |
+**All properties**: 
+
+
+| Name | Data Type |
 |---|---|
-|WebResultsTotal|целое число|
-|ImageResultsTotal|целое число|
-|VideoResultsTotal|целое число|
-|NewsResultsTotal|целое число|
-|SpellSuggestionsTotal|целое число|
+|WebResultsTotal|integer|
+|ImageResultsTotal|integer|
+|VideoResultsTotal|integer|
+|NewsResultsTotal|integer|
+|SpellSuggestionsTotal|integer|
 |WebResults|array|
 |ImageResults|array|
 |VideoResults|array|
@@ -428,57 +434,61 @@ Slack — это средство для организации взаимод�
 |RelatedSearchResults|array|
 
 
-## Определения объектов: 
+## <a name="object-definition(s):"></a>Object definition(s): 
 
- **PostOperationResponse**: представляет ответ операции публикации соединителя Slack для публикации в Slack.
+ **PostOperationResponse**:Represents response of post operation of Slack Connector for posting to Slack
 
-Обязательные свойства для PostOperationResponse:
-
-
-обязательные свойства отсутствуют.
+Required properties for PostOperationResponse:
 
 
-**Все свойства**:
+None of the properties are required. 
 
 
-| Имя | Тип данных |
+**All properties**: 
+
+
+| Name | Data Type |
 |---|---|
-|ОК|Логическое|
-|channel|строка|
+|ok|boolean|
+|channel|string|
 |ts|string|
-|message|не определено|
+|message|not defined|
 |error|string|
 
 
 
- **MessageItem**: сообщение канала.
+ **MessageItem**:A channel message.
 
-Обязательные свойства для MessageItem:
-
-
-обязательные свойства отсутствуют.
+Required properties for MessageItem:
 
 
-**Все свойства**:
+None of the properties are required. 
 
 
-| Имя | Тип данных |
+**All properties**: 
+
+
+| Name | Data Type |
 |---|---|
 |text|string|
-|id|строка|
+|id|string|
 |user|string|
-|created|целое число|
-|is\_user-deleted|Логическое|
+|created|integer|
+|is_user-deleted|boolean|
 
 
-## Дальнейшие действия
-[Создайте приложение логики](../app-service-logic/app-service-logic-create-a-logic-app.md)
+## <a name="next-steps"></a>Next Steps
+[Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
 [1]: ./media/connectors-create-api-slack/connectionconfig1.png
-[2]: ./media/connectors-create-api-slack/connectionconfig2.png
+[2]: ./media/connectors-create-api-slack/connectionconfig2.png 
 [3]: ./media/connectors-create-api-slack/connectionconfig3.png
 [4]: ./media/connectors-create-api-slack/connectionconfig4.png
 [5]: ./media/connectors-create-api-slack/connectionconfig5.png
 [6]: ./media/connectors-create-api-slack/connectionconfig6.png
 
-<!---HONumber=AcomDC_0525_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,6 +1,6 @@
 <properties 
-    pageTitle="Руководство. Интеграция Azure Active Directory с LogicMonitor | Microsoft Azure" 
-    description="Узнайте, как использовать LogicMonitor вместе с Azure Active Directory для реализации единого входа, автоматической подготовки пользователей и выполнения других задач." 
+    pageTitle="Tutorial: Azure Active Directory integration with LogicMonitor | Microsoft Azure" 
+    description="Learn how to use LogicMonitor with Azure Active Directory to enable single sign-on, automated provisioning, and more!" 
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
@@ -11,139 +11,149 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="07/08/2016" 
+    ms.date="09/29/2016" 
     ms.author="jeedes" />
 
-#Руководство. Интеграция Azure Active Directory с LogicMonitor
+
+#<a name="tutorial:-azure-active-directory-integration-with-logicmonitor"></a>Tutorial: Azure Active Directory integration with LogicMonitor
   
-Цель данного учебника — показать интеграцию Azure и LogicMonitor. Сценарий, описанный в этом учебнике, предполагает, что у вас уже имеется:
+The objective of this tutorial is to show the integration of Azure and LogicMonitor.  
+The scenario outlined in this tutorial assumes that you already have the following items:
 
--   Действующая подписка на Azure
--   Клиент LogicMonitor
+-   A valid Azure subscription
+-   A LogicMonitor tenant
   
-Сценарий, описанный в этом учебнике, состоит из следующих блоков:
+The scenario outlined in this tutorial consists of the following building blocks:
 
-1.  Включение интеграции приложений для LogicMonitor
-2.  Настройка единого входа
-3.  Настройка подготовки учетных записей пользователей
-4.  Назначение пользователей
+1.  Enabling the application integration for LogicMonitor
+2.  Configuring single sign-on
+3.  Configuring user provisioning
+4.  Assigning users
 
-![Сценарий](./media/active-directory-saas-logicmonitor-tutorial/IC790045.png "Сценарий")
-##Включение интеграции приложений для LogicMonitor
+![Scenario](./media/active-directory-saas-logicmonitor-tutorial/IC790045.png "Scenario")
+##<a name="enabling-the-application-integration-for-logicmonitor"></a>Enabling the application integration for LogicMonitor
   
-В этом разделе показано, как включить интеграцию приложений для LogicMonitor.
+The objective of this section is to outline how to enable the application integration for LogicMonitor.
 
-###Чтобы включить интеграцию приложений для LogicMonitor, выполните следующие действия.
+###<a name="to-enable-the-application-integration-for-logicmonitor,-perform-the-following-steps:"></a>To enable the application integration for LogicMonitor, perform the following steps:
 
-1.  На классическом портале Azure в области навигации слева щелкните **Active Directory**.
+1.  In the Azure classic portal, on the left navigation pane, click **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-logicmonitor-tutorial/IC700993.png "Active Directory")
 
-2.  Из списка **Каталог** выберите каталог, для которого нужно включить интеграцию каталогов.
+2.  From the **Directory** list, select the directory for which you want to enable directory integration.
 
-3.  Чтобы открыть представление приложений, в представлении каталога нажмите **Приложения** в верхнем меню.
+3.  To open the applications view, in the directory view, click **Applications** in the top menu.
 
-    ![Приложения](./media/active-directory-saas-logicmonitor-tutorial/IC700994.png "Приложения")
+    ![Applications](./media/active-directory-saas-logicmonitor-tutorial/IC700994.png "Applications")
 
-4.  В нижней части страницы нажмите кнопку **Добавить**.
+4.  Click **Add** at the bottom of the page.
 
-    ![Добавление приложения](./media/active-directory-saas-logicmonitor-tutorial/IC749321.png "Добавление приложения")
+    ![Add application](./media/active-directory-saas-logicmonitor-tutorial/IC749321.png "Add application")
 
-5.  В диалоговом окне **Что необходимо сделать?** нажмите **Добавить приложение из коллекции**.
+5.  On the **What do you want to do** dialog, click **Add an application from the gallery**.
 
-    ![Добавить приложение из коллекции](./media/active-directory-saas-logicmonitor-tutorial/IC749322.png "Добавить приложение из коллекции")
+    ![Add an application from gallerry](./media/active-directory-saas-logicmonitor-tutorial/IC749322.png "Add an application from gallerry")
 
-6.  В **поле поиска** введите **logicmonitor**.
+6.  In the **search box**, type **logicmonitor**.
 
-    ![Коллекция приложений](./media/active-directory-saas-logicmonitor-tutorial/IC790046.png "Коллекция приложений")
+    ![Application Gallery](./media/active-directory-saas-logicmonitor-tutorial/IC790046.png "Application Gallery")
 
-7.  В области результатов выберите **LogicMonitor** и нажмите кнопку **Завершить**, чтобы добавить приложение.
+7.  In the results pane, select **LogicMonitor**, and then click **Complete** to add the application.
 
     ![LogicMonitor](./media/active-directory-saas-logicmonitor-tutorial/IC790047.png "LogicMonitor")
-##Настройка единого входа
+##<a name="configuring-single-sign-on"></a>Configuring single sign-on
   
-В этом разделе показано, как разрешить пользователям проходить проверку подлинности в LogicMonitor со своей учетной записью Azure AD, используя федерацию на основе протокола SAML.
+The objective of this section is to outline how to enable users to authenticate to LogicMonitor with their account in Azure AD using federation based on the SAML protocol.
 
-###Чтобы настроить единый вход, выполните следующие действия.
+###<a name="to-configure-single-sign-on,-perform-the-following-steps:"></a>To configure single sign-on, perform the following steps:
 
-1.  На странице интеграции с приложением **LogicMonitor** классического портала Azure щелкните **Настройка единого входа**, чтобы открыть диалоговое окно **Настройка единого входа**.
+1.  In the Azure classic portal, on the **LogicMonitor **application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
 
-    ![Настройка единого входа](./media/active-directory-saas-logicmonitor-tutorial/IC790048.png "Настройка единого входа")
+    ![Configure Single Sign-On](./media/active-directory-saas-logicmonitor-tutorial/IC790048.png "Configure Single Sign-On")
 
-2.  На странице **Как пользователи должны входить в LogicMonitor?** выберите **Единый вход Microsoft Azure AD** и нажмите кнопку **Далее**.
+2.  On the **How would you like users to sign on to LogicMonitor** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
-    ![Настройка единого входа](./media/active-directory-saas-logicmonitor-tutorial/IC790049.png "Настройка единого входа")
+    ![Configure Single Sign-On](./media/active-directory-saas-logicmonitor-tutorial/IC790049.png "Configure Single Sign-On")
 
-3.  На странице **Настроить URL-адрес приложения** в текстовом поле **URL-адрес входа** введите URL-адрес, используемый вашими пользователями для входа в LogicMonitor (например, "*http://company.logicmonitor.com*"\), и нажмите кнопку **Далее**.
+3.  On the **Configure App URL** page, in the **Sign On URL** textbox, type your URL used by your users to sign on to LogicMonitor \(e,g,: "*http://company.logicmonitor.com*"\), and then click **Next**.
 
-    ![Настройка URL-адреса приложения](./media/active-directory-saas-logicmonitor-tutorial/IC790050.png "Настройка URL-адреса приложения")
+    ![Configure App URL](./media/active-directory-saas-logicmonitor-tutorial/IC790050.png "Configure App URL")
 
-4.  На странице **Настройка единого входа в LogicMonitor** нажмите кнопку **Загрузить метаданные**, а затем сохраните эти данные локально на компьютере.
+4.  On the **Configure single sign-on at LogicMonitor** page, click **Download metadata**, and then save it on your computer.
 
-    ![Настройка единого входа](./media/active-directory-saas-logicmonitor-tutorial/IC790051.png "Настройка единого входа")
+    ![Configure Single Sign-On](./media/active-directory-saas-logicmonitor-tutorial/IC790051.png "Configure Single Sign-On")
 
-5.  Выполните вход на веб-сайт компании **LogicMonitor** в качестве администратора.
+5.  Log in to your **LogicMonitor** company site as an administrator.
 
-6.  В верхнем меню щелкните пункт **Параметры**.
+6.  In the menu on the top, click **Settings**.
 
-    ![данных](./media/active-directory-saas-logicmonitor-tutorial/IC790052.png "данных")
+    ![Settings](./media/active-directory-saas-logicmonitor-tutorial/IC790052.png "Settings")
 
-7.  В расположенной слева области навигации нажмите **Единый вход**.
+7.  In the navigation bat on the left side, click **Single Sign On**
 
-    ![Единый вход](./media/active-directory-saas-logicmonitor-tutorial/IC790053.png "Единый вход")
+    ![Single Sign-On](./media/active-directory-saas-logicmonitor-tutorial/IC790053.png "Single Sign-On")
 
-8.  В разделе **Параметры единого входа** выполните следующие действия.
+8.  In the **Single Sign-on (SSO) settings** section, perform the following steps:
 
-    ![Параметры единого входа](./media/active-directory-saas-logicmonitor-tutorial/IC790054.png "Параметры единого входа")
+    ![Single Sign-On Settings](./media/active-directory-saas-logicmonitor-tutorial/IC790054.png "Single Sign-On Settings")
 
-    1.  Выберите пункт **Включить единый вход**.
-    2.  Как **Назначение ролей по умолчанию** выберите **Только для чтения**.
-    3.  Откройте скачанный файл метаданных в Блокноте и вставьте содержимое этого файла в текстовое поле **Метаданные поставщика удостоверений**.
-    4.  Нажмите кнопку **Сохранить изменения**.
+    1.  Select **Enable Single Sign-on**.
+    2.  As **Default Role Assignment**, select **readonly**.
+    3.  Open the downloaded metadata file in notepad, and then paste content of the file into the **Identity Provider Metadata** textbox.
+    4.  Click **Save Changes**.
 
-9.  На классическом портале Azure выберите подтверждение конфигурации единого входа, а затем нажмите кнопку **Завершить**, чтобы закрыть диалоговое окно **Настройка единого входа**.
+9.  On the Azure classic portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
 
-    ![Настройка единого входа](./media/active-directory-saas-logicmonitor-tutorial/IC790055.png "Настройка единого входа")
-##Настройка подготовки учетных записей пользователей
+    ![Configure Single Sign-On](./media/active-directory-saas-logicmonitor-tutorial/IC790055.png "Configure Single Sign-On")
+##<a name="configuring-user-provisioning"></a>Configuring user provisioning
   
-Чтобы пользователи AAD могли войти систему, они должны быть подготовлены для приложения LogicMonitor с использованием их имен пользователей Azure Active Directory.
+For AAD users to be able to sign in, they must be provisioned to the LogicMonitor application using their Azure Active Directory user names.
 
-###Чтобы настроить подготовку учетных записей пользователей, выполните следующие действия.
+###<a name="to-configure-user-provisioning,-perform-the-following-steps:"></a>To configure user provisioning, perform the following steps:
 
-1.  Выполните вход на веб-сайт компании LogicMonitor в качестве администратора.
+1.  Log in to your LogicMonitor company site as an administrator.
 
-2.  В верхнем меню нажмите пункт **Параметры**, а затем выберите **Роли и пользователи**.
+2.  In the menu on the top, click **Settings**, and then click **Roles and Users**.
 
-    ![Роли и пользователи](./media/active-directory-saas-logicmonitor-tutorial/IC790056.png "Роли и пользователи")
+    ![Roles and Users](./media/active-directory-saas-logicmonitor-tutorial/IC790056.png "Roles and Users")
 
-3.  Щелкните **Добавить**.
+3.  Click **Add**.
 
-4.  В разделе **Добавить учетную запись** выполните следующие действия.
+4.  In the **Add an account** section, perform the following steps:
 
-    ![Добавить учетную запись](./media/active-directory-saas-logicmonitor-tutorial/IC790057.png "Добавить учетную запись")
+    ![Add an account](./media/active-directory-saas-logicmonitor-tutorial/IC790057.png "Add an account")
 
-    1.  Введите в текстовых полях **Имя пользователя**, **Адрес электронной почты**, **Пароль** и **Проверка пароля** значения для того пользователя Azure Active Directory, которого необходимо подготовить.
-    2.  Выберите **Роли**, **Просмотр разрешений** и **Состояние**.
-    3.  Нажмите кнопку **Submit** (Отправить).
+    1.  Type the **Username**, **Email**, **Password** and **Retype password** values of the Azure Active Directory user you want to provision into the related textboxes.
+    2.  Select **Roles**, **View Permissions** and the **Status**.
+    3.  Click **Submit**.
 
->[AZURE.NOTE]Вы можете использовать любые другие средства создания учетной записи пользователя LogicMonitor или API, предоставляемые LogicMonitor для подготовки учетных записей пользователя Azure Active Directory.
+>[AZURE.NOTE]You can use any other LogicMonitor user account creation tools or APIs provided by LogicMonitor to provision Azure Active Directory user accounts.
 
-##Назначение пользователей
+##<a name="assigning-users"></a>Assigning users
   
-Чтобы проверить свою конфигурацию, предоставьте пользователям Azure AD, которые должны использовать приложение, доступ путем их назначения.
+To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.
 
-###Чтобы назначить пользователей LogicMonitor, выполните следующие действия.
+###<a name="to-assign-users-to-logicmonitor,-perform-the-following-steps:"></a>To assign users to LogicMonitor, perform the following steps:
 
-1.  На классическом портале Azure создайте тестовую учетную запись.
+1.  In the Azure classic portal, create a test account.
 
-2.  На странице интеграции приложений **LogicMonitor** нажмите **Назначить пользователей**.
+2.  On the **LogicMonitor** application integration page, click **Assign users**.
 
-    ![Назначить пользователей](./media/active-directory-saas-logicmonitor-tutorial/IC790058.png "Назначить пользователей")
+    ![Assign Users](./media/active-directory-saas-logicmonitor-tutorial/IC790058.png "Assign Users")
 
-3.  Выберите тестового пользователя, нажмите кнопку **Назначить**, а затем — **Да**, чтобы подтвердить назначение.
+3.  Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.
 
-    ![Да](./media/active-directory-saas-logicmonitor-tutorial/IC767830.png "Да")
+    ![Yes](./media/active-directory-saas-logicmonitor-tutorial/IC767830.png "Yes")
   
-Если вы хотите проверить параметры единого входа, откройте панель доступа. Дополнительные сведения о панели доступа см. в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
+If you want to test your single sign-on settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0713_2016-->
+
+
+
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

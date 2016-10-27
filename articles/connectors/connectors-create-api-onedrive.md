@@ -1,12 +1,12 @@
 <properties
-	pageTitle="Добавление соединителя OneDrive в приложения логики | Microsoft Azure"
-	description="Обзор соединителя OneDrive с параметрами интерфейса API REST"
-	services="logic-apps"    
-	documentationCenter=""     
-	authors="MandiOhlinger"    
-	manager="erikre"    
-	editor=""
-	tags="connectors"/>
+    pageTitle="Add the OneDrive connector in your Logic Apps | Microsoft Azure"
+    description="Overview of the OneDrive connector with REST API parameters"
+    services="logic-apps"    
+    documentationCenter=""     
+    authors="MandiOhlinger"    
+    manager="anneta"    
+    editor=""
+    tags="connectors"/>
 
 <tags
    ms.service="logic-apps"
@@ -14,404 +14,409 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="07/26/2016"
+   ms.date="10/18/2016"
    ms.author="mandia"/>
 
-# Начало работы с соединителем OneDrive
 
-Подключитесь к OneDrive для управления файлами, включая передачу, получение, удаление файлов и многое другое.
+# <a name="get-started-with-the-onedrive-connector"></a>Get started with the OneDrive connector
 
-С помощью OneDrive вы можете:
+Connect to OneDrive to manage your files, including upload, get, delete files, and more. 
 
-- создавать рабочие процессы, сохраняя файлы в OneDrive, или обновлять имеющиеся файлы;
-- использовать триггеры для запуска рабочего процесса при создании или обновлении файлов в OneDrive;
-- использовать действия по созданию, удалению файлов и т. д. Например, после получения нового сообщения электронной почты Office 365 с вложением (триггер) может создаваться файл в OneDrive (действие).
+With OneDrive, you: 
 
-В этой статье содержатся сведения об использовании соединителя OneDrive в приложении логики, а также перечислены предоставляемые им триггеры и действия.
+- Build your workflow by storing files in OneDrive, or update existing files in OneDrive. 
+- Use triggers to start your workflow when a file is created or updated within your OneDrive.
+- Use actions to create a file, delete a file, and more. For example, when a new Office 365 email is received with an attachment (a trigger), create a new file in OneDrive (an action).
 
->[AZURE.NOTE] Эта версия статьи предназначена для общедоступного выпуска приложений логики.
+This topic shows you how to use the OneDrive connector in a logic app, and also lists the triggers and actions.
 
-Дополнительные сведения о приложениях логики см. в статье, посвященной [приложениям логики](../app-service-logic/app-service-logic-what-are-logic-apps.md), и [руководстве по созданию приложения логики](../app-service-logic/app-service-logic-create-a-logic-app.md).
+>[AZURE.NOTE] This version of the article applies to Logic Apps general availability (GA). 
 
-## Создание подключения к OneDrive
+To learn more about Logic Apps, see [What are logic apps](../app-service-logic/app-service-logic-what-are-logic-apps.md) and [create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-Чтобы обеспечить доступ приложения логики к какой-либо службе, сначала необходимо создать *подключение* к этой службе. Таким образом вы установите соединение между приложением логики и другой службой. Например, чтобы подключиться к OneDrive, сначала необходимо создать соответствующее *подключение*. Чтобы создать подключение, введите учетные данные, которые используются для доступа к определенной службе. Для создания подключения к OneDrive необходимо использовать учетные данные учетной записи OneDrive.
+## <a name="connect-to-onedrive"></a>Connect to OneDrive
 
-### Создание подключения
+Before your logic app can access any service, you first create a *connection* to the service. A connection provides connectivity between a logic app and another service. For example, to connect to OneDrive, you first need a OneDrive *connection*. To create a connection, enter the credentials you normally use to access the service you wish to connect to. So, with OneDrive, enter the credentials to your OneDrive account  to create the connection.
 
->[AZURE.INCLUDE [Шаги по созданию подключения к OneDrive](../../includes/connectors-create-api-onedrive.md)]
+### <a name="create-the-connection"></a>Create the connection
 
-## Использование триггера
+>[AZURE.INCLUDE [Steps to create a connection to OneDrive](../../includes/connectors-create-api-onedrive.md)]
 
-Триггер — это событие, которое можно использовать для запуска рабочего процесса, определенного в приложении логики. Триггеры опрашивают службу с определенным интервалом и частотой. Дополнительные сведения о триггерах см. [здесь](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
+## <a name="use-a-trigger"></a>Use a trigger
 
-1. Чтобы открыть список триггеров, в текстовом поле приложения логики введите onedrive.
+A trigger is an event that can be used to start the workflow defined in a logic app. Triggers "poll" the service at an interval and frequency that you want. [Learn more about triggers](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
 
-	![](./media/connectors-create-api-onedrive/onedrive-1.png)
+1. In the logic app, type "onedrive" to get a list of the triggers:  
 
-2. Выберите триггер **When a file is modified** (При изменении файла). Если подключение уже существует, нажмите кнопку "Выбрать", чтобы указать папку.
+    ![](./media/connectors-create-api-onedrive/onedrive-1.png)
 
-	![](./media/connectors-create-api-onedrive/sample-folder.png)
+2. Select **When a file is modified**. If a connection already exists, then select the Show Picker button to select a folder.
 
-	Если появится запрос на вход, введите учетные данные для входа, чтобы создать подключение. Дополнительные сведения о создании подключения см. в [разделе выше](connectors-create-api-onedrive.md#create-the-connection).
+    ![](./media/connectors-create-api-onedrive/sample-folder.png)
 
-	> [AZURE.NOTE] В этом примере приложение логики запускается при обновлении файла в выбранной папке. Чтобы увидеть результаты триггера, добавьте другое действие, которое отправляет сообщение электронной почты. Например, добавьте действие Office 365 Outlook *Отправить сообщение электронной почты* для отправки вам сообщения электронной почты после обновления файла.
+    If you are prompted to sign in, then enter the sign in details to create the connection. [Create the connection](connectors-create-api-onedrive.md#create-the-connection) in this topic lists the steps. 
 
-3. Нажмите кнопку **Изменить** и задайте **частоту** и **интервал**. Например, если требуется, чтобы триггер выполнял опрос каждые 15 минут, задайте для параметра **Частота** значение **Минута**, а для параметра **Интервал** — **15**.
+    > [AZURE.NOTE] In this example, the logic app runs when a file in the folder you choose is updated. To see the results of this trigger, add another action that sends you an email. For example, add the Office 365 Outlook *Send an email* action that emails you when a file is updated. 
 
-	![](./media/connectors-create-api-onedrive/trigger-properties.png)
+3. Select the **Edit** button and set the **Frequency** and **Interval** values. For example, if you want the trigger to poll every 15 minutes, then set the **Frequency** to **Minute**, and set the **Interval** to **15**. 
 
-4. **Сохраните** изменения, нажав соответствующую кнопку в левом верхнем углу панели инструментов. Приложение логики сохранено и теперь может быть включено автоматически.
+    ![](./media/connectors-create-api-onedrive/trigger-properties.png)
 
-
-## Использование действий
-
-Действие — это операция, выполняемая рабочим процессом, определенным в приложении логики. Дополнительные сведения о действиях см. [здесь](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
-
-1. Щелкните знак "плюс". Отобразятся следующие параметры: **Добавить действие**, **Добавить условие** или **Еще**.
-
-	![](./media/connectors-create-api-onedrive/add-action.png)
-
-2. Выберите **Добавить действие**.
-
-3. Чтобы открыть список всех доступных действий, в текстовом поле введите onedrive.
-
-	![](./media/connectors-create-api-onedrive/onedrive-actions.png)
-
-4. В этом примере для OneDrive мы выберем действие **Создать файл**. Если подключение уже существует, укажите **путь к папке**, в которую необходимо поместить файл, введите **имя файла** и выберите тип **содержимого файла**.
-
-	![](./media/connectors-create-api-onedrive/sample-action.png)
-
-	Если появится запрос на предоставление сведений о подключении, введите их, чтобы создать подключение. Эти свойства описаны в разделе [Создание подключения](connectors-create-api-onedrive.md#create-the-connection) этой статьи.
-
-	> [AZURE.NOTE] В этом примере мы создадим файл в папке OneDrive. Чтобы создать файл OneDrive, можно использовать выходные данные другого триггера. Например, добавьте триггер Office 365 Outlook *When a new email arrives* (При получении новой почты). Затем, чтобы создать файл в OneDrive, добавьте действие OneDrive *Создать файл*, для которого заданы поля "Вложения" и "Тип содержимого" в ForEach.
-	> 
-	> ![](./media/connectors-create-api-onedrive/foreach-action.png)
-
-5. **Сохраните** изменения, нажав соответствующую кнопку в левом верхнем углу панели инструментов. Приложение логики сохранено и теперь может быть включено автоматически.
+4. **Save** your changes (top left corner of the toolbar). Your logic app is saved and may be automatically enabled.
 
 
-## Технические сведения
+## <a name="use-an-action"></a>Use an action
 
-## триггеры;
+An action is an operation carried out by the workflow defined in a logic app. [Learn more about actions](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
 
-|Триггер | Описание|
+1. Select the plus sign. You see several choices: **Add an action**, **Add a condition**, or one of the **More** options.
+
+    ![](./media/connectors-create-api-onedrive/add-action.png)
+
+2. Choose **Add an action**.
+
+3. In the text box, type “onedrive” to get a list of all the available actions.
+
+    ![](./media/connectors-create-api-onedrive/onedrive-actions.png) 
+
+4. In our example, choose **OneDrive - Create file**. If a connection already exists, then select the **Folder Path** to put the file, enter the **File Name**, and choose the **File Content** you want:  
+
+    ![](./media/connectors-create-api-onedrive/sample-action.png)
+
+    If you are prompted for the connection information, then enter the details to create the connection. [Create the connection](connectors-create-api-onedrive.md#create-the-connection) in this topic describes these properties. 
+
+    > [AZURE.NOTE] In this example, we create a new file in a OneDrive folder. You can use output from another trigger to create the OneDrive file. For example, add the Office 365 Outlook *When a new email arrives* trigger. Then add the OneDrive *Create file* action that uses the Attachments and Content-Type fields within a ForEach to create the new file in OneDrive. 
+    > 
+    > ![](./media/connectors-create-api-onedrive/foreach-action.png)
+
+5. **Save** your changes (top left corner of the toolbar). Your logic app is saved and may be automatically enabled.
+
+
+## <a name="technical-details"></a>Technical Details
+
+## <a name="triggers"></a>Triggers
+
+|Trigger | Description|
 |--- | ---|
-|[При создании файла](connectors-create-api-onedrive.md#when-a-file-is-created)|Запускает поток при создании файла в папке.|
-|[При изменении файла](connectors-create-api-onedrive.md#when-a-file-is-modified)|Запускает поток при изменении файла в папке.|
+|[When a file is created](connectors-create-api-onedrive.md#when-a-file-is-created)|This operation triggers a flow when a new file is created in a folder.|
+|[When a file is modified](connectors-create-api-onedrive.md#when-a-file-is-modified)|This operation triggers a flow when a file is modified in a folder.|
 
 
-## Действия
+## <a name="actions"></a>Actions
 
-|Действие|Описание|
+|Action|Description|
 |--- | ---|
-|[Get file metadata (Получение метаданных файла)](connectors-create-api-onedrive.md#get-file-metadata)|Извлекает метаданные файла.|
-|[Обновление файла](connectors-create-api-onedrive.md#update-file)|Обновляет файл.|
-|[Удаление файла](connectors-create-api-onedrive.md#delete-file)|Удаляет файл.|
-|[Получение метаданных файла с помощью пути](connectors-create-api-onedrive.md#get-file-metadata-using-path)|Извлекает метаданные файла с помощью пути.|
-|[Получение содержимого файла с помощью пути](connectors-create-api-onedrive.md#get-file-content-using-path)|Извлекает содержимое файла с помощью пути.|
-|[Получение содержимого файла](connectors-create-api-onedrive.md#get-file-content)|Извлекает содержимое файла.|
-|[Создание файла](connectors-create-api-onedrive.md#create-file)|Создает файл.|
-|[Копирование файла](connectors-create-api-onedrive.md#copy-file)|Копирует файл в OneDrive.|
-|[List files in folder (Вывод списка файлов в папке)](connectors-create-api-onedrive.md#list-files-in-folder)|Извлекает список файлов и вложенных папок в папке.|
-|[List files in root folder (Вывод списка файлов в корневой папке)](connectors-create-api-onedrive.md#list-files-in-root-folder)|Извлекает список файлов и вложенных папок в корневой папке.|
-|[Извлечение архива в папку](connectors-create-api-onedrive.md#extract-archive-to-folder)|Извлекает файл архива в папку (например, ZIP-файл).|
+|[Get file metadata](connectors-create-api-onedrive.md#get-file-metadata)|This operation gets the metadata for a file.|
+|[Update file](connectors-create-api-onedrive.md#update-file)|This operation updates a file.|
+|[Delete file](connectors-create-api-onedrive.md#delete-file)|This operation deletes a file.|
+|[Get file metadata using path](connectors-create-api-onedrive.md#get-file-metadata-using-path)|This operation gets the metadata of a file using the path.|
+|[Get file content using path](connectors-create-api-onedrive.md#get-file-content-using-path)|This operation gets the content of a file using the path.|
+|[Get file content](connectors-create-api-onedrive.md#get-file-content)|This operation gets the content of a file.|
+|[Create file](connectors-create-api-onedrive.md#create-file)|This operation creates a file.|
+|[Copy file](connectors-create-api-onedrive.md#copy-file)|This operation copies a file to OneDrive.|
+|[List files in folder](connectors-create-api-onedrive.md#list-files-in-folder)|This operation gets the list of files and subfolders in a folder.|
+|[List files in root folder](connectors-create-api-onedrive.md#list-files-in-root-folder)|This operation gets the list of files and subfolders in the root folder.|
+|[Extract archive to folder](connectors-create-api-onedrive.md#extract-archive-to-folder)|This operation extracts an archive file into a folder (example: .zip).|
 
-### Сведения о действиях
+### <a name="action-details"></a>Action details
 
-В этом разделе приведены сведения о каждом действии, включая обязательные и необязательные входные свойства, а также соответствующие выходные данные, связанные с соединителем.
+In this section, see the specific details about each action, including any required or optional input properties, and any corresponding output associated with the connector.
 
 
-#### Get file metadata (Получение метаданных файла)
-Извлекает метаданные файла.
+#### <a name="get-file-metadata"></a>Get file metadata
+This operation gets the metadata for a file. 
 
-|Имя свойства| Отображаемое имя|Описание|
+|Property Name| Display Name|Description|
 | ---|---|---|
-|id*|Файл|Выбор файла|
+|id*|File|Select a file|
 
-Звездочка (*) означает, что свойство является обязательным.
+An asterisk (*) means the property is required.
 
-##### Сведения о выходных данных
+##### <a name="output-details"></a>Output Details
 BlobMetadata
 
-| Имя свойства | Тип данных |
+| Property Name | Data Type |
 |---|---|
-|Идентификатор|строка|
-|Имя|строка|
-|DisplayName|строка|
-|Путь|строка|
-|LastModified|строка|
-|Размер|целое число|
-|MediaType|строка|
-|IsFolder|Логическое|
+|Id|string|
+|Name|string|
+|DisplayName|string|
+|Path|string|
+|LastModified|string|
+|Size|integer|
+|MediaType|string|
+|IsFolder|boolean|
 |ETag|string|
 |FileLocator|string|
 
 
-#### Обновление файла
-Обновляет файл.
+#### <a name="update-file"></a>Update file
+This operation updates a file. 
 
-|Имя свойства| Отображаемое имя|Описание|
+|Property Name| Display Name|Description|
 | ---|---|---|
-|id*|Файл|Выбор файла|
-|body*|содержимое файла;|Содержимое файла|
+|id*|File|Select a file|
+|body*|File content|Content of the file|
 
-Звездочка (*) означает, что свойство является обязательным.
+An asterisk (*) means the property is required.
 
-##### Сведения о выходных данных
+##### <a name="output-details"></a>Output Details
 BlobMetadata
 
-| Имя свойства | Тип данных |
+| Property Name | Data Type |
 |---|---|
-|Идентификатор|строка|
-|Имя|строка|
-|DisplayName|строка|
-|Путь|строка|
-|LastModified|строка|
-|Размер|целое число|
-|MediaType|строка|
-|IsFolder|Логическое|
+|Id|string|
+|Name|string|
+|DisplayName|string|
+|Path|string|
+|LastModified|string|
+|Size|integer|
+|MediaType|string|
+|IsFolder|boolean|
 |ETag|string|
 |FileLocator|string|
 
 
-#### Удаление файла
-Удаляет файл.
+#### <a name="delete-file"></a>Delete file
+This operation deletes a file. 
 
-|Имя свойства| Отображаемое имя|Описание|
+|Property Name| Display Name|Description|
 | ---|---|---|
-|id*|Файл|Выбор файла|
+|id*|File|Select a file|
 
-Звездочка (*) означает, что свойство является обязательным.
+An asterisk (*) means the property is required.
 
-##### Сведения о выходных данных
-Нет.
+##### <a name="output-details"></a>Output Details
+None.
 
-#### Получение метаданных файла с помощью пути
-Извлекает метаданные файла с помощью пути.
+#### <a name="get-file-metadata-using-path"></a>Get file metadata using path
+This operation gets the metadata of a file using the path. 
 
-|Имя свойства| Отображаемое имя|Описание|
+|Property Name| Display Name|Description|
 | ---|---|---|
-|path*|Путь к файлу|Выбор файла|
+|path*|File path|Select a file|
 
-Звездочка (*) означает, что свойство является обязательным.
+An asterisk (*) means the property is required.
 
-##### Сведения о выходных данных
+##### <a name="output-details"></a>Output Details
 BlobMetadata
 
-| Имя свойства | Тип данных |
+| Property Name | Data Type |
 |---|---|
-|Идентификатор|строка|
-|Имя|строка|
-|DisplayName|строка|
-|Путь|строка|
-|LastModified|строка|
-|Размер|целое число|
-|MediaType|строка|
-|IsFolder|Логическое|
+|Id|string|
+|Name|string|
+|DisplayName|string|
+|Path|string|
+|LastModified|string|
+|Size|integer|
+|MediaType|string|
+|IsFolder|boolean|
 |ETag|string|
 |FileLocator|string|
 
 
-#### Получение содержимого файла с помощью пути
-Извлекает содержимое файла с помощью пути.
+#### <a name="get-file-content-using-path"></a>Get file content using path
+This operation gets the content of a file using the path. 
 
-|Имя свойства| Отображаемое имя|Описание|
+|Property Name| Display Name|Description|
 | ---|---|---|
-|path*|Путь к файлу|Выбор файла|
+|path*|File path|Select a file|
 
-Звездочка (*) означает, что свойство является обязательным.
+An asterisk (*) means the property is required.
 
-##### Сведения о выходных данных
-Нет.
+##### <a name="output-details"></a>Output Details
+None.
 
 
-#### Получение содержимого файла
-Извлекает содержимое файла.
+#### <a name="get-file-content"></a>Get file content
+This operation gets the content of a file. 
 
-|Имя свойства| Отображаемое имя|Описание|
+|Property Name| Display Name|Description|
 | ---|---|---|
-|id*|Файл|Выбор файла|
+|id*|File|Select a file|
 
-Звездочка (*) означает, что свойство является обязательным.
+An asterisk (*) means the property is required.
 
-##### Сведения о выходных данных
-Нет.
+##### <a name="output-details"></a>Output Details
+None.
 
-#### Создание файла
-Создает файл.
+#### <a name="create-file"></a>Create file
+This operation creates a file. 
 
-|Имя свойства| Отображаемое имя|Описание|
+|Property Name| Display Name|Description|
 | ---|---|---|
-|folderPath*|Путь к папке|Выбор папки|
-|name*|Имя файла|Имя файла|
-|body*|содержимое файла;|Содержимое файла|
+|folderPath*|Folder path|Select a folder|
+|name*|File name|Name of the file|
+|body*|File content|Content of the file|
 
-Звездочка (*) означает, что свойство является обязательным.
+An asterisk (*) means the property is required.
 
-##### Сведения о выходных данных
+##### <a name="output-details"></a>Output Details
 BlobMetadata
 
-| Имя свойства | Тип данных |
+| Property Name | Data Type |
 |---|---|
-|Идентификатор|строка|
-|Имя|строка|
-|DisplayName|строка|
-|Путь|строка|
-|LastModified|строка|
-|Размер|целое число|
-|MediaType|строка|
-|IsFolder|Логическое|
+|Id|string|
+|Name|string|
+|DisplayName|string|
+|Path|string|
+|LastModified|string|
+|Size|integer|
+|MediaType|string|
+|IsFolder|boolean|
 |ETag|string|
 |FileLocator|string|
 
 
-#### Копирование файла
-Копирует файл в OneDrive.
+#### <a name="copy-file"></a>Copy file
+This operation copies a file to OneDrive. 
 
-|Имя свойства| Отображаемое имя|Описание|
+|Property Name| Display Name|Description|
 | ---|---|---|
-|source*|URL-адрес исходного файла|URL-адрес исходного файла|
-|destination*|Путь к конечному файлу|Путь к конечному файлу, включая имя конечного файла|
-|перезаписать|Перезаписать?|Перезаписывает конечный файл, если задано значение "true"|
+|source*|Source url|Url to source file|
+|destination*|Destination file path|Destination file path, including target filename|
+|overwrite|Overwrite?|Overwrites the destination file if set to 'true'|
 
-Звездочка (*) означает, что свойство является обязательным.
+An asterisk (*) means the property is required.
 
-##### Сведения о выходных данных
+##### <a name="output-details"></a>Output Details
 BlobMetadata
 
-| Имя свойства | Тип данных |
+| Property Name | Data Type |
 |---|---|
-|Идентификатор|строка|
-|Имя|строка|
-|DisplayName|строка|
-|Путь|строка|
-|LastModified|строка|
-|Размер|целое число|
-|MediaType|строка|
-|IsFolder|Логическое|
+|Id|string|
+|Name|string|
+|DisplayName|string|
+|Path|string|
+|LastModified|string|
+|Size|integer|
+|MediaType|string|
+|IsFolder|boolean|
 |ETag|string|
 |FileLocator|string|
 
 
-#### При создании файла
-Запускает поток при создании файла в папке.
+#### <a name="when-a-file-is-created"></a>When a file is created
+This operation triggers a flow when a new file is created in a folder. 
 
-|Имя свойства| Отображаемое имя|Описание|
+|Property Name| Display Name|Description|
 | ---|---|---|
-|folderId*|Папка|Выбор папки|
+|folderId*|Folder|Select a folder|
 
-Звездочка (*) означает, что свойство является обязательным.
+An asterisk (*) means the property is required.
 
-##### Сведения о выходных данных
-Нет.
+##### <a name="output-details"></a>Output Details
+None.
 
-#### При изменении файла
-Запускает поток при изменении файла в папке.
+#### <a name="when-a-file-is-modified"></a>When a file is modified
+This operation triggers a flow when a file is modified in a folder. 
 
-|Имя свойства| Отображаемое имя|Описание|
+|Property Name| Display Name|Description|
 | ---|---|---|
-|folderId*|Папка|Выбор папки|
+|folderId*|Folder|Select a folder|
 
-Звездочка (*) означает, что свойство является обязательным.
+An asterisk (*) means the property is required.
 
-##### Сведения о выходных данных
-Нет.
+##### <a name="output-details"></a>Output Details
+None.
 
-#### List files in folder (Вывод списка файлов в папке)
-Извлекает список файлов и вложенных папок в папке.
+#### <a name="list-files-in-folder"></a>List files in folder
+This operation gets the list of files and subfolders in a folder.
 
-|Имя свойства| Отображаемое имя|Описание|
+|Property Name| Display Name|Description|
 | ---|---|---|
-|id*|Папка|Выбор папки|
+|id*|Folder|Select a folder|
 
-Звездочка (*) означает, что свойство является обязательным.
+An asterisk (*) means the property is required.
 
-##### Сведения о выходных данных
+##### <a name="output-details"></a>Output Details
 BlobMetadata
 
-| Имя свойства | Тип данных |
+| Property Name | Data Type |
 |---|---|
-|Идентификатор|строка|
-|Имя|строка|
-|DisplayName|строка|
-|Путь|строка|
-|LastModified|строка|
-|Размер|целое число|
-|MediaType|строка||
-|IsFolder|Логическое|
+|Id|string|
+|Name|string|
+|DisplayName|string|
+|Path|string|
+|LastModified|string|
+|Size|integer|
+|MediaType|string||
+|IsFolder|boolean|
 |ETag|string|
 |FileLocator|string|
 
 
-#### List files in root folder (Вывод списка файлов в корневой папке)
-Извлекает список файлов и вложенных папок в корневой папке.
+#### <a name="list-files-in-root-folder"></a>List files in root folder
+This operation gets the list of files and subfolders in the root folder. 
 
-Для этого вызова параметры отсутствуют.
+There are no parameters for this call.
 
 
-##### Сведения о выходных данных
+##### <a name="output-details"></a>Output Details
 BlobMetadata
 
-| Имя свойства | Тип данных |
+| Property Name | Data Type |
 |---|---|
-|Идентификатор|строка|
-|Имя|строка|
-|DisplayName|строка|
-|Путь|строка|
-|LastModified|строка|
-|Размер|целое число|
-|MediaType|строка|
-|IsFolder|Логическое|
+|Id|string|
+|Name|string|
+|DisplayName|string|
+|Path|string|
+|LastModified|string|
+|Size|integer|
+|MediaType|string|
+|IsFolder|boolean|
 |ETag|string|
 |FileLocator|string|
 
-#### Извлечение архива в папку
-Извлекает файл архива в папку (например, ZIP-файл).
+#### <a name="extract-archive-to-folder"></a>Extract archive to folder
+This operation extracts an archive file into a folder (example: .zip). 
 
-|Имя свойства| Отображаемое имя|Описание|
+|Property Name| Display Name|Description|
 | ---|---|---|
-|source*|Путь к исходному файлу архива|Путь к файлу архива|
-|destination*|Путь к конечной папке|Путь для извлечения содержимого архива|
-|перезаписать|Перезаписать?|Перезаписывает конечные файлы, если задано значение "true"|
+|source*|Source archive file path|Path to the archive file|
+|destination*|Destination folder path|Path to extract the archive contents|
+|overwrite|Overwrite?|Overwrites the destination files if set to 'true'|
 
-Звездочка (*) означает, что свойство является обязательным.
+An asterisk (*) means the property is required.
 
-##### Сведения о выходных данных
+##### <a name="output-details"></a>Output Details
 BlobMetadata
 
-| Имя свойства | Тип данных |
+| Property Name | Data Type |
 |---|---|
-|Идентификатор|строка|
-|Имя|строка|
-|DisplayName|строка|
-|Путь|строка|
-|LastModified|строка|
-|Размер|целое число|
-|MediaType|строка|
-|IsFolder|Логическое|
+|Id|string|
+|Name|string|
+|DisplayName|string|
+|Path|string|
+|LastModified|string|
+|Size|integer|
+|MediaType|string|
+|IsFolder|boolean|
 |ETag|string|
 |FileLocator|string|
 
 
-## Ответы HTTP
+## <a name="http-responses"></a>HTTP responses
 
-В следующей таблице приведены ответы на действия и триггеры, а также их описания.
+The following table outlines the responses to the actions and triggers, and the response descriptions:  
 
-|Имя|Описание|
+|Name|Description|
 |---|---|
-|200|ОК|
-|202|Принято|
-|400|Ошибка запроса|
-|401|Не авторизовано|
-|403|Запрещено|
-|404|Не найдено|
-|500|Внутренняя ошибка сервера. Произошла неизвестная ошибка|
-|по умолчанию|Операция завершилась ошибкой.|
+|200|OK|
+|202|Accepted|
+|400|Bad Request|
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
+|500|Internal Server Error. Unknown error occurred|
+|default|Operation Failed.|
 
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Next Steps
 
-См. статью о [создании приложения логики](../app-service-logic/app-service-logic-create-a-logic-app.md). Чтобы узнать, какие еще соединители доступны в Logic Apps, см. [список API-интерфейсов](apis-list.md).
+[Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md). Explore the other available connectors in Logic Apps at our [APIs list](apis-list.md).
 
-<!---HONumber=AcomDC_0803_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

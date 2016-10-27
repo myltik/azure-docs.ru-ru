@@ -1,315 +1,318 @@
 <properties
-	pageTitle="Разработка действий сценариев с помощью HDInsight | Microsoft Azure"
-	description="Дополнительные сведения о настройке кластеров Hadoop с помощью действия скрипта."
-	services="hdinsight"
-	documentationCenter=""
-	tags="azure-portal"
-	authors="mumian"
-	manager="jhubbard"
-	editor="cgronlun"/>
+    pageTitle="Script Action development with HDInsight | Microsoft Azure"
+    description="Learn how to customize Hadoop clusters with Script Action."
+    services="hdinsight"
+    documentationCenter=""
+    tags="azure-portal"
+    authors="mumian"
+    manager="jhubbard"
+    editor="cgronlun"/>
 
 <tags
-	ms.service="hdinsight"
-	ms.workload="big-data"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/25/2016"
-	ms.author="jgao"/>
+    ms.service="hdinsight"
+    ms.workload="big-data"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="07/25/2016"
+    ms.author="jgao"/>
 
-# Разработка скриптов действия сценария для HDInsight
 
-Узнайте, как разрабатывать скрипты действия сценария для HDInsight. Дополнительную информацию о скриптах действия сценария см. в статье [Настройка кластеров HDInsight с помощью действия сценария](hdinsight-hadoop-customize-cluster.md). В качестве аналогичной статьи для кластера HDInsight под управлением Linux см. [Разработка скриптов действия сценария для HDInsight](hdinsight-hadoop-script-actions-linux.md).
+# <a name="develop-script-action-scripts-for-hdinsight"></a>Develop Script Action scripts for HDInsight
 
-Действие сценария можно использовать для установки дополнительного программного обеспечения, работающего в кластере Hadoop, или для изменения конфигурации приложений, установленных в кластере. Действия сценариев — это сценарии, выполняемые на узлах кластера во время развертывания кластеров HDInsight. Они будут выполнены, как только узлы в кластере завершат конфигурацию HDInsight. Действие сценария выполняется из учетной записи с правами системного администратора и предоставляет права полного доступа к узлам кластера. Для каждого кластера можно задать ряд действий сценария, которые будут выполнены в указанном порядке.
+Learn how to write Script Action scripts for HDInsight. For information on using Script Action scripts, see [Customize HDInsight clusters using Script Action](hdinsight-hadoop-customize-cluster.md). For the same article written for Linux-based HDInsight clusters, see [Develop Script Action scripts for HDInsight](hdinsight-hadoop-script-actions-linux.md).
 
-> [AZURE.NOTE] Если появляется следующее сообщение об ошибке:
+Script Action can be used to install additional software running on a Hadoop cluster or to change the configuration of applications installed on a cluster. Script actions are scripts that run on the cluster nodes when HDInsight clusters are deployed, and they are executed once nodes in the cluster complete HDInsight configuration. A script action is executed under system admin account privileges and provides full access rights to the cluster nodes. Each cluster can be provided with a list of script actions to be executed in the order in which they are specified. 
+
+> [AZURE.NOTE] If you experience the following error message: 
 > 
 >     System.Management.Automation.CommandNotFoundException; ExceptionMessage : The term 'Save-HDIFile' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
-> Это означает, что вы не включили вспомогательные методы. См. [Вспомогательные методы для пользовательских скриптов](hdinsight-hadoop-script-actions.md#helper-methods-for-custom-scripts).
+> It is because you didn't include the helper methods.  See [Helper methods for custom scripts](hdinsight-hadoop-script-actions.md#helper-methods-for-custom-scripts).
 
-## Примеры сценариев
+## <a name="sample-scripts"></a>Sample scripts
 
-Для создания кластеров HDInsight в операционной системе Windows действием сценария является сценарий Azure PowerShell. Ниже приведен пример сценария для настройки файлов конфигурации сайта:
+For creating HDInsight clusters on Windows operating system, the Script Action is Azure PowerShell script.The following is a sample script for configure the site configuration files:
 
 [AZURE.INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
-	param (
-	    [parameter(Mandatory)][string] $ConfigFileName,
-	    [parameter(Mandatory)][string] $Name,
-	    [parameter(Mandatory)][string] $Value,
-	    [parameter()][string] $Description
-	)
+    param (
+        [parameter(Mandatory)][string] $ConfigFileName,
+        [parameter(Mandatory)][string] $Name,
+        [parameter(Mandatory)][string] $Value,
+        [parameter()][string] $Description
+    )
 
-	if (!$Description) {
-	    $Description = ""
-	}
+    if (!$Description) {
+        $Description = ""
+    }
 
-	$hdiConfigFiles = @{
-	    "hive-site.xml" = "$env:HIVE_HOME\conf\hive-site.xml";
-	    "core-site.xml" = "$env:HADOOP_HOME\etc\hadoop\core-site.xml";
-	    "hdfs-site.xml" = "$env:HADOOP_HOME\etc\hadoop\hdfs-site.xml";
-	    "mapred-site.xml" = "$env:HADOOP_HOME\etc\hadoop\mapred-site.xml";
-	    "yarn-site.xml" = "$env:HADOOP_HOME\etc\hadoop\yarn-site.xml"
-	}
+    $hdiConfigFiles = @{
+        "hive-site.xml" = "$env:HIVE_HOME\conf\hive-site.xml";
+        "core-site.xml" = "$env:HADOOP_HOME\etc\hadoop\core-site.xml";
+        "hdfs-site.xml" = "$env:HADOOP_HOME\etc\hadoop\hdfs-site.xml";
+        "mapred-site.xml" = "$env:HADOOP_HOME\etc\hadoop\mapred-site.xml";
+        "yarn-site.xml" = "$env:HADOOP_HOME\etc\hadoop\yarn-site.xml"
+    }
 
-	if (!($hdiConfigFiles[$ConfigFileName])) {
-	    Write-HDILog "Unable to configure $ConfigFileName because it is not part of the HDI configuration files."
-	    return
-	}
+    if (!($hdiConfigFiles[$ConfigFileName])) {
+        Write-HDILog "Unable to configure $ConfigFileName because it is not part of the HDI configuration files."
+        return
+    }
 
-	[xml]$configFile = Get-Content $hdiConfigFiles[$ConfigFileName]
+    [xml]$configFile = Get-Content $hdiConfigFiles[$ConfigFileName]
 
-	$existingproperty = $configFile.configuration.property | where {$_.Name -eq $Name}
+    $existingproperty = $configFile.configuration.property | where {$_.Name -eq $Name}
 
-	if ($existingproperty) {
-	    $existingproperty.Value = $Value
-	    $existingproperty.Description = $Description
-	} else {
-	    $newproperty = @($configFile.configuration.property)[0].Clone()
-	    $newproperty.Name = $Name
-	    $newproperty.Value = $Value
-	    $newproperty.Description = $Description
-	    $configFile.configuration.AppendChild($newproperty)
-	}
+    if ($existingproperty) {
+        $existingproperty.Value = $Value
+        $existingproperty.Description = $Description
+    } else {
+        $newproperty = @($configFile.configuration.property)[0].Clone()
+        $newproperty.Name = $Name
+        $newproperty.Value = $Value
+        $newproperty.Description = $Description
+        $configFile.configuration.AppendChild($newproperty)
+    }
 
-	$configFile.Save($hdiConfigFiles[$ConfigFileName])
+    $configFile.Save($hdiConfigFiles[$ConfigFileName])
 
-	Write-HDILog "$configFileName has been configured."
+    Write-HDILog "$configFileName has been configured."
 
-Сценарий принимает четыре параметра: имя файла конфигурации, свойство, которое вы хотите изменить, значение, которое вы хотите установить, и описание. Например:
+The script takes four parameters, the configuration file name, the property you want to modify, the value you want to set, and a description. For example:
 
-	hive-site.xml hive.metastore.client.socket.timeout 90 
+    hive-site.xml hive.metastore.client.socket.timeout 90 
 
-Эти параметры установят для значения hive.metastore.client.socket.timeout величину 90 в файле hive-site.xml. Значение по умолчанию составляет 60 секунд.
+These parameters will set the hive.metastore.client.socket.timeout value to 90 in the hive-site.xml file.  The default value is 60 seconds.
 
-Этот пример сценария также доступен по ссылке [https://hditutorialdata.blob.core.windows.net/customizecluster/editSiteConfig.ps1](https://hditutorialdata.blob.core.windows.net/customizecluster/editSiteConfig.ps1).
+This sample script can also be found at [https://hditutorialdata.blob.core.windows.net/customizecluster/editSiteConfig.ps1](https://hditutorialdata.blob.core.windows.net/customizecluster/editSiteConfig.ps1). 
 
-HDInsight предоставляет несколько скриптов для установки дополнительных компонентов в кластерах HDInsight:
+HDInsight provides several scripts to install additional components on HDInsight clusters:
 
-Имя | Скрипт
+Name | Script
 ----- | -----
-**Установка Spark** | https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1. См. статью [Установка и использование Spark в кластерах HDInsight][hdinsight-install-spark].
-**Установка R** | https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1. См. статью [Установка и использование R в кластерах HDInsight][hdinsight-r-scripts].
-**Установка Solr** | https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1. См. статью [Установка и использование Solr в кластерах HDInsight](hdinsight-hadoop-solr-install.md).
-— **Установка Giraph** | https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1. См. статью [Установка и использование Giraph в кластерах HDInsight](hdinsight-hadoop-giraph-install.md).
+**Install Spark** | https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1. See [Install and use Spark on HDInsight clusters][hdinsight-install-spark].
+**Install R** | https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1. See [Install and use R on HDInsight clusters][hdinsight-r-scripts].
+**Install Solr** | https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1. See [Install and use Solr on HDInsight clusters](hdinsight-hadoop-solr-install.md).
+- **Install Giraph** | https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1. See [Install and use Giraph on HDInsight clusters](hdinsight-hadoop-giraph-install.md).
 
-Действие сценария можно развернуть из портала Azure, из пакета SDK для HDInsight .NET или Azure PowerShell. Дополнительную информацию см. в разделе [Настройка кластеров HDInsight с помощью действия сценария][hdinsight-cluster-customize].
+Script Action can be deployed from the Azure Portal, Azure PowerShell or by using the HDInsight .NET SDK.  For more information, see [Customize HDInsight clusters using Script Action][hdinsight-cluster-customize].
 
-> [AZURE.NOTE] Примеры сценариев работают только с кластером HDInsight версии 3.1 или более поздней. Дополнительную информацию о версиях кластера HDInsight см. в статье [Новые возможности версий кластеров Hadoop, предоставляемых HDInsight](hdinsight-component-versioning.md).
-
-
+> [AZURE.NOTE] The sample scripts work only with HDInsight cluster version 3.1 or above. For more information on HDInsight cluster versions, see [HDInsight cluster versions](hdinsight-component-versioning.md).
 
 
 
-## Вспомогательные методы для пользовательских скриптов
 
-Вспомогательные методы действий скриптов представляют собой служебные программы, которые можно использовать при создании пользовательских скриптов. Они определяются на странице [https://hdiconfigactions.blob.core.windows.net/configactionmodulev05/HDInsightUtilities-v05.psm1](https://hdiconfigactions.blob.core.windows.net/configactionmodulev05/HDInsightUtilities-v05.psm1) и могут быть включены в скрипты с помощью следующей команды.
+
+## <a name="helper-methods-for-custom-scripts"></a>Helper methods for custom scripts
+
+Script Action helper methods are utilities that you can use while writing custom scripts. These are defined in [https://hdiconfigactions.blob.core.windows.net/configactionmodulev05/HDInsightUtilities-v05.psm1](https://hdiconfigactions.blob.core.windows.net/configactionmodulev05/HDInsightUtilities-v05.psm1), and can be included in your scripts using the following:
 
     # Download config action module from a well-known directory.
-	$CONFIGACTIONURI = "https://hdiconfigactions.blob.core.windows.net/configactionmodulev05/HDInsightUtilities-v05.psm1";
-	$CONFIGACTIONMODULE = "C:\apps\dist\HDInsightUtilities.psm1";
-	$webclient = New-Object System.Net.WebClient;
-	$webclient.DownloadFile($CONFIGACTIONURI, $CONFIGACTIONMODULE);
-	
-	# (TIP) Import config action helper method module to make writing config action easy.
-	if (Test-Path ($CONFIGACTIONMODULE))
-	{ 
-		Import-Module $CONFIGACTIONMODULE;
-	} 
-	else
-	{
-		Write-Output "Failed to load HDInsightUtilities module, exiting ...";
-		exit;
-	}
+    $CONFIGACTIONURI = "https://hdiconfigactions.blob.core.windows.net/configactionmodulev05/HDInsightUtilities-v05.psm1";
+    $CONFIGACTIONMODULE = "C:\apps\dist\HDInsightUtilities.psm1";
+    $webclient = New-Object System.Net.WebClient;
+    $webclient.DownloadFile($CONFIGACTIONURI, $CONFIGACTIONMODULE);
+    
+    # (TIP) Import config action helper method module to make writing config action easy.
+    if (Test-Path ($CONFIGACTIONMODULE))
+    { 
+        Import-Module $CONFIGACTIONMODULE;
+    } 
+    else
+    {
+        Write-Output "Failed to load HDInsightUtilities module, exiting ...";
+        exit;
+    }
 
-Ниже приведены вспомогательные методы, предоставляемые этим скриптом.
+Here are the helper methods that are provided by this script:
 
-Вспомогательный метод | Описание
+Helper method | Description
 -------------- | -----------
-**Save-HDIFile** | Скачивает файл с указанным универсальным идентификатором ресурса в расположение на локальном диске, который сопоставлен с узлом виртуальной машины Azure, назначенным данному кластеру.
-**Expand-HDIZippedFile** | Распаковывает ZIP-файл.
-**Invoke-HDICmdScript** | Запускает сценарий из cmd.exe.
-**Write-HDILog** | Записывает выходные данные пользовательского сценария, используемого для действия сценария.
-**Get-Services** | Получает список служб, запущенных на том компьютере, где выполняется сценарий.
-**Get-Service** | Используя имя определенной службы в качестве входных данных, получает подробную информацию об этой службе (имя службы, идентификатор процесса, состояние и т. п.) на том компьютере, где выполняется сценарий.
-**Get-HDIServices** | Получает список служб HDInsight, запущенных на том компьютере, где выполняется сценарий.
-**Get-HDIService** | Используя имя определенной службы HDInsight в качестве входных данных, получает подробную информацию об этой службе (имя службы, идентификатор процесса, состояние и т. п.) на том компьютере, где выполняется сценарий.
-**Get-ServicesRunning** | Получает список служб, запущенных на том компьютере, где выполняется сценарий.
-**Get-ServiceRunning** | Проверяет, запущена ли служба с определенным именем на том компьютере, где выполняется сценарий.
-**Get-HDIServicesRunning** | Получает список служб HDInsight, запущенных на том компьютере, где выполняется сценарий.
-**Get-HDIServiceRunning** | Проверяет, запущена ли служба HDInsight с определенным именем на том компьютере, где выполняется сценарий.
-**Get-HDIHadoopVersion** | Получает версию Hadoop, установленную на том компьютере, где выполняется сценарий.
-**Test-IsHDIHeadNode** | Проверяет, является ли тот компьютер, где выполняется сценарий, головным узлом.
-**Test-IsActiveHDIHeadNode** | Проверяет, является ли тот компьютер, где выполняется сценарий, активным головным узлом.
-**Test-IsHDIDataNode** | Проверяет, является ли тот компьютер, где выполняется сценарий, узлом данных.
-**Edit-HDIConfigFile** | Изменяет файлы конфигурации hive-site.xml, core-site.xml, hdfs-site.xml, mapred-site.xml и yarn-site.xml.
+**Save-HDIFile** | Download a file from the specified Uniform Resource Identifier (URI) to a location on the local disk that is associated with the Azure VM node assigned to the cluster.
+**Expand-HDIZippedFile** | Unzip a zipped file.
+**Invoke-HDICmdScript** | Run a script from cmd.exe.
+**Write-HDILog** | Write output from the custom script used for a script action.
+**Get-Services** | Get a list of services running on the machine where the script executes.
+**Get-Service** | With the specific service name as input, get detailed information for a specific service (service name, process ID, state, etc.) on the machine where the script executes.
+**Get-HDIServices** | Get a list of HDInsight services running on the computer where the script executes.
+**Get-HDIService** | With the specific HDInsight service name as input, get detailed information for a specific service (service name, process ID, state, etc.) on the machine where the script executes.
+**Get-ServicesRunning** | Get a list of services that are running on the computer where the script executes.
+**Get-ServiceRunning** | Check if a specific service (by name) is running on the computer where the script executes.
+**Get-HDIServicesRunning** | Get a list of HDInsight services running on the computer where the script executes.
+**Get-HDIServiceRunning** | Check if a specific HDInsight service (by name) is running on the computer where the script executes.
+**Get-HDIHadoopVersion** | Get the version of Hadoop installed on the computer where the script executes.
+**Test-IsHDIHeadNode** | Check if the computer where the script executes is a head node.
+**Test-IsActiveHDIHeadNode** | Check if the computer where the script executes is an active head node.
+**Test-IsHDIDataNode** | Check if the computer where the script executes is a data node.
+**Edit-HDIConfigFile** | Edit the config files hive-site.xml, core-site.xml, hdfs-site.xml, mapred-site.xml, or yarn-site.xml.
 
 
-## Рекомендации по разработке скриптов
+## <a name="best-practices-for-script-development"></a>Best practices for script development
 
-При разработке пользовательского скрипта для кластера HDInsight следует иметь в виду некоторые рекомендации.
+When you develop a custom script for an HDInsight cluster, there are several best practices to keep in mind:
 
-- Проверка версии Hadoop
+- Check for the Hadoop version
 
-	Только HDInsight версии 3.1 (Hadoop 2.4) и выше поддерживает использование действия скрипта для установки пользовательских компонентов в кластере. В пользовательском сценарии необходимо использовать вспомогательный метод **Get-HDIHadoopVersion** для проверки версии Hadoop, и только затем продолжить выполнение других задач в сценарии.
-
-
-- Стабильные ссылки на ресурсы скрипта
-
-	Пользователям следует убедиться, что все скрипты и другие артефакты, используемые при настройке кластера, доступны в период существования кластера и версии этих файлов не изменялись на протяжении данного периода. Эти ресурсы необходимы, если требуется восстановить узлы в кластере из образа. Мы советуем скачивать и архивировать все материалы в учетную запись хранения, управляемую пользователем. Это может быть учетная запись хранения по умолчанию или любые дополнительные учетные записи хранения, указанные во время развертывания настроенного кластера. К примеру, в приведенных в документации примерах настроенного кластера Spark и R мы создали локальную копию ресурсов в этой учетной записи хранения: https://hdiconfigactions.blob.core.windows.net/.
+    Only HDInsight version 3.1 (Hadoop 2.4) and above support using Script Action to install custom components on a cluster. In your custom script, you must use the **Get-HDIHadoopVersion** helper method to check the Hadoop version before proceeding with performing other tasks in the script.
 
 
-- Обеспечение идемпотентности сценария настройки кластера
+- Provide stable links to script resources
 
-	Нужно допускать, что потребуется восстановить из образа узлы кластера HDInsight в период существования этого кластера. Скрипт настройки кластера выполняется при каждом восстановлении кластера из образа. Этот сценарий должен быть рассчитан на идемпотентность. Имеется в виду, что при восстановлении из образа сценарий должен обеспечивать возврат кластера к тем настройкам, которые были заданы для него во время первого запуска сценария после изначального создания этого кластера. Например, если пользовательский сценарий во время своего первого запуска установил приложение в папку D:\\AppLocation, то при каждом последующем запуске и восстановлении из образа сценарий должен проверить, существует ли приложение в папке D:\\AppLocation, и только после этого переходить к следующим шагам.
-
-
-- Установка пользовательских компонентов в оптимальное расположение
-
-	Если узлы кластера восстанавливаются из образа, диск ресурсов C:\\ и системный диск D:\\ могут быть переформатированы, что приведет к потере находящихся на них данных и приложений. Это также может произойти, если узел виртуальной машины Azure, являющийся частью кластера, выходит из строя и заменяется новым узлом. Компоненты можно установить на диске D:\\ или в папке C:\\apps на кластере. Все расположения на диске C:\\ зарезервированы. Укажите расположение, где должны устанавливаться приложения или библиотеки в рамках скрипта настройки кластера.
+    Users should make sure that all of the scripts and other artifacts used in the customization of a cluster remain available throughout the lifetime of the cluster and that the versions of these files do not change for the duration. These resources are required if the re-imaging of nodes in the cluster is required. The best practice is to download and archive everything in a Storage account that the user controls. This can be the default Storage account or any of the additional Storage accounts specified at the time of deployment for a customized cluster.
+    In the Spark and R customized cluster samples provided in the documentation, for example, we have made a local copy of the resources in this Storage account: https://hdiconfigactions.blob.core.windows.net/.
 
 
-- Обеспечение высокого уровня доступности кластера
+- Ensure that the cluster customization script is idempotent
 
-	В целях обеспечения высокой доступности HDInsight имеет активно-пассивную архитектуру, в которой один головной узел находится в активном режиме (где выполняются службы HDInsight), а другой головной узел находится в режиме ожидания (на нем службы HDInsight не запущены). Узлы переключаются между активным и пассивным режимами в случае сбоев в службах службы HDInsight. Если с помощью действия сценария на обоих головных узлах устанавливаются службы для обеспечения высокой доступности, следует помнить о том, что механизм отработки отказа HDInsight не сможет автоматически выполнить отработку отказа для этих установленных пользователем служб. Поэтому службы HDInsight, установленные пользователем на головных узлах, к которым предъявляется требование высокой доступности, должны иметь собственный механизм отработки отказа в режиме "активный — пассивный" или работать в режиме "активный — активный".
-
-	Команда действия сценария HDInsight выполняется на обоих головных узлах, после того как в качестве значения параметра *ClusterRoleCollection* будет указана роль головного узла. Поэтому при разработке пользовательского скрипта убедитесь, что в скрипте учтены эти особенности установки. Не следует создавать проблемы, устанавливая и запуская на обоих головных узлах одинаковые службы, которые в итоге будут конкурировать друг с другом. Обратите внимание, что при восстановлении из образа данные будут утеряны, поэтому необходимо, чтобы программное обеспечение, установленное через действие сценария, было устойчивым к таким сбоям. Приложения должны быть рассчитаны на работу с высокодоступными данными, распределенными на множестве узлов. Обратите внимание, что как минимум пятая часть узлов в кластере может быть восстановлена из образа одновременно.
+    You must expect that the nodes of an HDInsight cluster will be re-imaged during the cluster lifetime. The cluster customization script is run whenever a cluster is re-imaged. This script must be designed to be idempotent in the sense that upon re-imaging, the script should ensure that the cluster is returned to the same customized state that it was in just after the script ran for the first time when the cluster was initially created. For example, if a custom script installed an application at D:\AppLocation on its first run, then on each subsequent run, upon re-imaging, the script should check whether the application exists at the D:\AppLocation location before proceeding with other steps in the script.
 
 
-- Настройка пользовательских компонентов для использования хранилища больших двоичных объектов Azure
+- Install custom components in the optimal location
 
-	Конфигурация по умолчанию для пользовательских компонентов, устанавливаемых на узлах кластера, может предполагать использование хранилища распределенной файловой системы Hadoop (HDFS). Следует изменить конфигурацию, чтобы в ней использовалось хранилище больших двоичных объектов Azure. При восстановлении кластера из образа файловая система HDFS форматируется, в результате чего будут потеряны все хранящиеся в ней данные. В случае использования хранилища больших двоичных объектов Azure эти данные будут сохранены.
+    When cluster nodes are re-imaged, the C:\ resource drive and D:\ system drive can be re-formatted, resulting in the loss of data and applications that had been installed on those drives. This could also happen if an Azure virtual machine (VM) node that is part of the cluster goes down and is replaced by a new node. You can install components on the D:\ drive or in the C:\apps location on the cluster. All other locations on the C:\ drive are reserved. Specify the location where applications or libraries are to be installed in the cluster customization script.
 
-## Общие варианты использования
 
-В этом разделе содержится руководство по реализации некоторых общих вариантов использования, которые могут понадобиться при написании пользовательского сценария.
+- Ensure high availability of the cluster architecture
 
-### Настройка переменных среды
+    HDInsight has an active-passive architecture for high availability, in which one head node is in active mode (where the HDInsight services are running) and the other head node is in standby mode (in which HDInsight services are not running). The nodes switch active and passive modes if HDInsight services are interrupted. If a script action is used to install services on both head nodes for high availability, note that the HDInsight failover mechanism will not be able to automatically fail over these user-installed services. So user-installed services on HDInsight head nodes that are expected to be highly available must either have their own failover mechanism if in active-passive mode or be in active-active mode.
 
-Часто при разработке действий сценария необходимо задавать переменные среды. Например, наиболее вероятный сценарий — скачивание двоичного файла с внешнего сайта, установка этого файла в кластер и добавление его расположения в переменную среду PATH. В следующем фрагменте кода показано, как задавать переменные среды в пользовательском сценарии.
+    An HDInsight Script Action command runs on both head nodes when the head-node role is specified as a value in the *ClusterRoleCollection* parameter. So when you design a custom script, make sure that your script is aware of this setup. You should not run into problems where the same services are installed and started on both of the head nodes and they end up competing with each other. Also, be aware that data will be lost during re-imaging, so software installed via Script Action has to be resilient to such events. Applications should be designed to work with highly available data that is distributed across many nodes. Note that as many as 1/5 of the nodes in a cluster can be re-imaged at the same time.
 
-	Write-HDILog "Starting environment variable setting at: $(Get-Date)";
-	[Environment]::SetEnvironmentVariable('MDS_RUNNER_CUSTOM_CLUSTER', 'true', 'Machine');
 
-Этот оператор задает для переменной среды **MDS\_RUNNER\_CUSTOM\_CLUSTER** значение true, а также задает область действия этой переменной в рамках компьютера. В некоторых случаях крайне важно, чтобы переменные среды были заданы в соответствующей области — в рамках компьютера или пользовательской области. Дополнительную информацию о настройке переменных среды см. [здесь][1].
+- Configure the custom components to use Azure Blob storage
 
-### Доступ к расположениям, в которых хранятся пользовательские сценарии
+    The custom components that you install on the cluster nodes might have a default configuration to use Hadoop Distributed File System (HDFS) storage. You should change the configuration to use Azure Blob storage instead. On a cluster re-image, the HDFS file system gets formatted and you would lose any data that is stored there. Using Azure Blob storage instead ensures that your data will be retained.
 
-Сценарии для настройки кластера должны находиться в учетной записи хранения по умолчанию для кластера или в доступном только для чтения контейнере другой учетной записи хранения. Если сценарий получает доступ к ресурсам в другом расположении, это расположение должно быть общедоступным (или по крайней мере открытым только для чтения). Например, вам может потребоваться получить доступ к файлу и сохранить его с помощью команды SaveFile HDI.
+## <a name="common-usage-patterns"></a>Common usage patterns
 
-	Save-HDIFile -SrcUri 'https://somestorageaccount.blob.core.windows.net/somecontainer/some-file.jar' -DestFile 'C:\apps\dist\hadoop-2.4.0.2.1.9.0-2196\share\hadoop\mapreduce\some-file.jar'
+This section provides guidance on implementing some of the common usage patterns that you might run into while writing your own custom script.
 
-В этом примере необходимо убедиться, что контейнер somecontainer в учетной записи хранения somestorageaccount является общедоступным. В противном случае сценарий выдаст исключение "Не найдено" и прекратит работу.
+### <a name="configure-environment-variables"></a>Configure environment variables
 
-### Передача параметров командлету Add-AzureRmHDInsightScriptAction
+Often in script action development, you will feel the need to set environment variables. For instance, a most likely scenario is when you download a binary from an external site, install it on the cluster, and add the location of where it is installed to your ‘PATH’ environment variable. The following snippet shows you how to set environment variables in the custom script.
 
-Чтобы передать несколько параметров командлету Add-AzureRmHDInsightScriptAction, необходимо отформатировать строковое значение, которое содержит все параметры для данного сценария. Например:
+    Write-HDILog "Starting environment variable setting at: $(Get-Date)";
+    [Environment]::SetEnvironmentVariable('MDS_RUNNER_CUSTOM_CLUSTER', 'true', 'Machine');
 
-	"-CertifcateUri wasbs:///abc.pfx -CertificatePassword 123456 -InstallFolderName MyFolder"
+This statement sets the environment variable **MDS_RUNNER_CUSTOM_CLUSTER** to the value 'true' and also sets the scope of this variable to be machine-wide. At times it is important that environment variables are set at the appropriate scope – machine or user. Refer [here][1] for more information on setting environment variables.
+
+### <a name="access-to-locations-where-the-custom-scripts-are-stored"></a>Access to locations where the custom scripts are stored
+
+Scripts used to customize a cluster needs to either be in the default storage account for the cluster or in a public read-only container on any other storage account. If your script accesses resources located elsewhere these need to be in a publicly accessible (at least public read-only). For instance you might want to access a file and save it using the SaveFile-HDI command.
+
+    Save-HDIFile -SrcUri 'https://somestorageaccount.blob.core.windows.net/somecontainer/some-file.jar' -DestFile 'C:\apps\dist\hadoop-2.4.0.2.1.9.0-2196\share\hadoop\mapreduce\some-file.jar'
+
+In this example, you must ensure that the container 'somecontainer' in storage account 'somestorageaccount' is publicly accessible. Otherwise, the script will throw a ‘Not Found’ exception and fail.
+
+### <a name="pass-parameters-to-the-add-azurermhdinsightscriptaction-cmdlet"></a>Pass parameters to the Add-AzureRmHDInsightScriptAction cmdlet
+
+To pass multiple parameters to the Add-AzureRmHDInsightScriptAction cmdlet, you need to format the string value to contain all parameters for the script. For example:
+
+    "-CertifcateUri wasbs:///abc.pfx -CertificatePassword 123456 -InstallFolderName MyFolder"
  
-или
+or
 
-	$parameters = '-Parameters "{0};{1};{2}"' -f $CertificateName,$certUriWithSasToken,$CertificatePassword
-
-
-### Вызов исключения при сбое развертывания кластера
-
-Если вы хотите получать точные уведомления о том, что настройки кластера не сработали надлежащим образом, необходимо вызвать исключение и отменить создание кластера. Например, может потребоваться обработка файла, если он существует, или обработка ошибки, если файл не существует. Это обеспечит корректное завершение сценария и точное оповещение о состоянии кластера. В следующем фрагменте кода показано, как этого достичь:
-
-	If(Test-Path($SomePath)) {
-		#Process file in some way
-	} else {
-		# File does not exist; handle error case
-		# Print error message
-	exit
-	}
-
-В этом фрагменте кода, если файл не существовал, это приведет к состоянию, когда скрипт фактически завершает свою работу после выдачи сообщения об ошибке, а кластер переходит в рабочее состояние при условии, что процесс настройки кластера был завершен "успешно". Если вы хотите получать уведомления о том, что настройка кластера завершилась неудачно из-за отсутствия файла, то более правильным действием будет выдача исключения и остановка этапа настройки кластера. Для этого необходимо использовать следующий образец фрагмента кода.
-
-	If(Test-Path($SomePath)) {
-		#Process file in some way
-	} else {
-		# File does not exist; handle error case
-		# Print error message
-	throw
-	}
+    $parameters = '-Parameters "{0};{1};{2}"' -f $CertificateName,$certUriWithSasToken,$CertificatePassword
 
 
-## Контрольный список для развертывания действия сценария
-Ниже приведены шаги, которые использовались при подготовке к развертыванию этих скриптов.
+### <a name="throw-exception-for-failed-cluster-deployment"></a>Throw exception for failed cluster deployment
 
-1. Поместите файлы, содержащие пользовательские скрипты, в месте, доступном из узлов кластера во время развертывания. Это может быть любая из используемых по умолчанию или дополнительных учетных записей хранения, указанных во время развертывания кластера, или другой общедоступный контейнер хранилища.
-2. Добавьте проверки в скрипты, чтобы гарантировать, что они выполняются идемпотентно, а значит, скрипт сможет многократно выполняться на одном и том же узле.
-3. Используйте командлет Azure PowerShell **Write-Output** для вывода в STDOUT и STDERR. Не используйте **Write-Host**.
-4. Используйте папку для временных файлов, например $env: TEMP, чтобы сохранить скачанный файл, используемый сценариями. После выполнения сценариев очистите эту папку.
-5. Устанавливайте пользовательское программное обеспечения только на диске D:\\ или в папке C:\\apps. Не следует производить установку в другие расположения на диске C:, так как они зарезервированы. Обратите внимание, что установка файлов на диске C: вне папки C:\\apps может привести к сбою установки во время восстановления узла из образа.
-6. В случае изменений параметров на уровне операционной системы или файлов конфигурации службы Hadoop может потребоваться перезапуск служб HDInsight. За счет этого службы HDInsight смогут автоматически установить любые параметры уровня операционной системы, например заданные в сценариях переменные среды.
+If you want to get accurately notified of the fact that cluster customization did not succeed as expected, it is important to throw an exception and fail the cluster creation. For instance, you might want to process a file if it exists and handle the error case where the file does not exist. This would ensure that the script exits gracefully and the state of the cluster is correctly known. The following snippet gives an example of how to achieve this:
 
-## Отладка пользовательских сценариев
+    If(Test-Path($SomePath)) {
+        #Process file in some way
+    } else {
+        # File does not exist; handle error case
+        # Print error message
+    exit
+    }
 
-Журналы ошибок сценария хранятся вместе с другими выходными данными в учетной записи хранения по умолчанию, заданной для кластера при его создании. Журналы хранятся в таблице с именем *u<\\cluster-name-fragment><\\time-stamp>setuplog*. Это сводные журналы, содержащие записи из всех узлов (рабочих и главного), на которых выполняется сценарий в кластере. Для проверки журналов удобно воспользоваться инструментами HDInsight для Visual Studio. Для установки инструментов см. статью [Приступая к работе с инструментами Hadoop в Visual Studio для HDInsight](hdinsight-hadoop-visual-studio-tools-get-started.md#install-hdinsight-tools-for-visual-studio).
+In this snippet, if the file did not exist, it would lead to a state where the script actually exits gracefully after printing the error message, and the cluster reaches running state assuming it "successfully" completed cluster customization process. If you want to be accurately notified of the fact that cluster customization essentially did not succeed as expected because of a missing file, it is more appropriate to throw an exception and fail the cluster customization step. To achieve this you must use the following sample code snippet instead.
 
-**Для проверки журнала с помощью Visual Studio**
-
-1. Откройте Visual Studio.
-2. Щелкните **Представление**, а затем щелкните **Обозреватель сервера**.
-3. Щелкните правой кнопкой мыши "Azure", выберите "Подключение к **подписке Microsoft Azure**", а затем введите учетные данные.
-4. Разверните **Хранилище**, затем разверните узлы учетной записи хранения Azure, используемой в качестве файловой системы по умолчанию, разверните **Таблицы**, а затем дважды щелкните имя таблицы.
-
-
-Вы также можете осуществить удаленный доступ к узлам кластера для просмотра STDOUT и STDERR для пользовательских сценариев. Журналы на каждом узле относятся только к данному конкретному узлу и хранятся в **C:\\HDInsightLogs\\DeploymentAgent.log**. В эти файлы журналов записываются все выходные данные пользовательского скрипта. Фрагмент журнала для действия сценария Spark выглядит следующим образом:
-
-	Microsoft.Hadoop.Deployment.Engine.CustomPowershellScriptCommand; Details : BEGIN: Invoking powershell script https://configactions.blob.core.windows.net/sparkconfigactions/spark-installer.ps1.;
-	Version : 2.1.0.0;
-	ActivityId : 739e61f5-aa22-4254-aafc-9faf56fc2692;
-	AzureVMName : HEADNODE0;
-	IsException : False;
-	ExceptionType : ;
-	ExceptionMessage : ;
-	InnerExceptionType : ;
-	InnerExceptionMessage : ;
-	Exception : ;
-	...
-
-	Starting Spark installation at: 09/04/2014 21:46:02 Done with Spark installation at: 09/04/2014 21:46:38;
-
-	Version : 2.1.0.0;
-	ActivityId : 739e61f5-aa22-4254-aafc-9faf56fc2692;
-	AzureVMName : HEADNODE0;
-	IsException : False;
-	ExceptionType : ;
-	ExceptionMessage : ;
-	InnerExceptionType : ;
-	InnerExceptionMessage : ;
-	Exception : ;
-	...
-
-	Microsoft.Hadoop.Deployment.Engine.CustomPowershellScriptCommand;
-	Details : END: Invoking powershell script https://configactions.blob.core.windows.net/sparkconfigactions/spark-installer.ps1.;
-	Version : 2.1.0.0;
-	ActivityId : 739e61f5-aa22-4254-aafc-9faf56fc2692;
-	AzureVMName : HEADNODE0;
-	IsException : False;
-	ExceptionType : ;
-	ExceptionMessage : ;
-	InnerExceptionType : ;
-	InnerExceptionMessage : ;
-	Exception : ;
+    If(Test-Path($SomePath)) {
+        #Process file in some way
+    } else {
+        # File does not exist; handle error case
+        # Print error message
+    throw
+    }
 
 
-Из данных журнала следует, что действие скрипта Spark было выполнено на виртуальной машине с именем HEADNODE0 и во время выполнения исключения не возникали.
+## <a name="checklist-for-deploying-a-script-action"></a>Checklist for deploying a script action
+Here are the steps we took when preparing to deploy these scripts:
 
-В случае сбоя при выполнении, в файле журнала будут содержаться выходные данные со сведениями о нем. Информация в этих журналах может быть полезной при отладке сценария.
+1. Put the files that contain the custom scripts in a place that is accessible by the cluster nodes during deployment. This can be any of the default or additional Storage accounts specified at the time of cluster deployment, or any other publicly accessible storage container.
+2. Add checks into scripts to make sure that they execute idempotently, so that the script can be executed multiple times on the same node.
+3. Use the **Write-Output** Azure PowerShell cmdlet to print to STDOUT as well as STDERR. Do not use **Write-Host**.
+4. Use a temporary file folder, such as $env:TEMP, to keep the downloaded file used by the scripts and then clean them up after scripts have executed.
+5. Install custom software only at D:\ or C:\apps. Other locations on the C: drive should not be used as they are reserved. Note that installing files on the C: drive outside of the C:\apps folder may result in setup failures during re-images of the node.
+6. In the event that OS-level settings or Hadoop service configuration files were changed, you may want to restart HDInsight services so that they can pick up any OS-level settings, such as the environment variables set in the scripts.
+
+## <a name="debug-custom-scripts"></a>Debug custom scripts
+
+The script error logs are stored, along with other output, in the default Storage account that you specified for the cluster at its creation. The logs are stored in a table with the name *u<\cluster-name-fragment><\time-stamp>setuplog*. These are aggregated logs that have records from all of the nodes (head node and worker nodes) on which the script runs in the cluster.
+An easy way to check the logs is to use HDInsight Tools for Visual Studio. For installing the tools, see [Get started using Visual Studio Hadoop tools for HDInsight](hdinsight-hadoop-visual-studio-tools-get-started.md#install-hdinsight-tools-for-visual-studio)
+
+**To check the log using Visual Studio**
+
+1. Open Visual Studio.
+2. Click **View**, and then click **Server Explorer**.
+3. Right-click "Azure", click Connect to **Microsoft Azure Subscriptions**, and then enter your credentials.
+4. Expand **Storage**, expand the Azure storage account used as the default file system, expand **Tables**, and then double-click the table name.
 
 
-## Дополнительные материалы
+You can also remote into the cluster nodes to see the both STDOUT and STDERR for custom scripts. The logs on each node are specific only to that node and are logged into **C:\HDInsightLogs\DeploymentAgent.log**. These log files record all outputs from the custom script. An example log snippet for a Spark script action looks like this:
 
-- [Настройка кластеров HDInsight с помощью действия сценария][hdinsight-cluster-customize]
-- [Установка и использование Spark в кластерах HDInsight][hdinsight-install-spark]
-- [Установка и использование R в кластерах HDInsight][hdinsight-r-scripts]
-- [Установка и использование Solr в кластерах HDInsight](hdinsight-hadoop-solr-install.md).
-- [Установка и использование Giraph в кластерах HDInsight](hdinsight-hadoop-giraph-install.md).
+    Microsoft.Hadoop.Deployment.Engine.CustomPowershellScriptCommand; Details : BEGIN: Invoking powershell script https://configactions.blob.core.windows.net/sparkconfigactions/spark-installer.ps1.;
+    Version : 2.1.0.0;
+    ActivityId : 739e61f5-aa22-4254-aafc-9faf56fc2692;
+    AzureVMName : HEADNODE0;
+    IsException : False;
+    ExceptionType : ;
+    ExceptionMessage : ;
+    InnerExceptionType : ;
+    InnerExceptionMessage : ;
+    Exception : ;
+    ...
+
+    Starting Spark installation at: 09/04/2014 21:46:02 Done with Spark installation at: 09/04/2014 21:46:38;
+
+    Version : 2.1.0.0;
+    ActivityId : 739e61f5-aa22-4254-aafc-9faf56fc2692;
+    AzureVMName : HEADNODE0;
+    IsException : False;
+    ExceptionType : ;
+    ExceptionMessage : ;
+    InnerExceptionType : ;
+    InnerExceptionMessage : ;
+    Exception : ;
+    ...
+
+    Microsoft.Hadoop.Deployment.Engine.CustomPowershellScriptCommand;
+    Details : END: Invoking powershell script https://configactions.blob.core.windows.net/sparkconfigactions/spark-installer.ps1.;
+    Version : 2.1.0.0;
+    ActivityId : 739e61f5-aa22-4254-aafc-9faf56fc2692;
+    AzureVMName : HEADNODE0;
+    IsException : False;
+    ExceptionType : ;
+    ExceptionMessage : ;
+    InnerExceptionType : ;
+    InnerExceptionMessage : ;
+    Exception : ;
+
+
+In this log, it is clear that the Spark script action has been executed on the VM named HEADNODE0 and that no exceptions were thrown during the execution.
+
+In the event that an execution failure occurs, the output describing it will also be contained in this log file. The information provided in these logs should be helpful in debugging script problems that may arise.
+
+
+## <a name="see-also"></a>See also
+
+- [Customize HDInsight clusters using Script Action][hdinsight-cluster-customize]
+- [Install and use Spark on HDInsight clusters][hdinsight-install-spark]
+- [Install and use R on HDInsight clusters][hdinsight-r-scripts]
+- [Install and use Solr on HDInsight clusters](hdinsight-hadoop-solr-install.md).
+- [Install and use Giraph on HDInsight clusters](hdinsight-hadoop-giraph-install.md).
 
 [hdinsight-provision]: hdinsight-provision-clusters.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster.md
@@ -320,4 +323,8 @@ HDInsight предоставляет несколько скриптов для 
 <!--Reference links in article-->
 [1]: https://msdn.microsoft.com/library/96xafkes(v=vs.110).aspx
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

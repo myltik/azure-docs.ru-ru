@@ -1,116 +1,117 @@
 <properties 
-	pageTitle="Использование профилей повышения в поиске Azure | Microsoft Azure | Размещенная облачная служба поиска" 
-	description="Настройте ранжирование поиска с помощью профилей повышения в Поиске Azure, размещенной облачной службе поиска в Microsoft Azure." 
-	services="search" 
-	documentationCenter="" 
-	authors="HeidiSteen" 
-	manager="mblythe" 
-	editor=""/>
+    pageTitle="How to use scoring profiles in Azure Search | Microsoft Azure | Hosted cloud search service" 
+    description="Tune search ranking through scoring profiles in Azure Search, a hosted cloud search service on Microsoft Azure." 
+    services="search" 
+    documentationCenter="" 
+    authors="HeidiSteen" 
+    manager="mblythe" 
+    editor=""/>
 
 <tags 
-	ms.service="search" 
-	ms.devlang="rest-api" 
-	ms.workload="search" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="na" 
-	ms.date="08/04/2016" 
-	ms.author="heidist"/>
+    ms.service="search" 
+    ms.devlang="rest-api" 
+    ms.workload="search" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.date="10/17/2016" 
+    ms.author="heidist"/>
 
-# Использование профилей оценки в службе поиска Azure
 
-Профили оценки — компонент службы поиска Microsoft Azure, который позволяет настроить вычисление всех оценок поиска, влияющих на ранжирование элементов в списке результатов. Оценки профили можно представить как способ моделирования релевантности, с помощью которого оценка элементов, соответствующих стандартным критериям, увеличивается. Предположим, что приложение представляет собой сайт для бронирования отеля. Если повысить оценку поля `location`, операции поиска, содержащие такое ключевое слово, как "Сиэтл", получат более высокие оценки для элементов, содержащих слово "Сиэтл" в поле `location`. Обратите внимание, что можно использовать несколько профилей оценки или ни одного, если оценки по умолчанию достаточно для вашего приложения.
+# <a name="how-to-use-scoring-profiles-in-azure-search"></a>How to use scoring profiles in Azure Search
 
-Чтобы вам проще экспериментировать с профилями оценки, можно загрузить пример приложения, использующего профили оценки для изменения порядка ранжирования результатов поиска. Пример представляет собой консольное приложение, возможно, не очень реалистичное, но полезное для обучения.
+Scoring profiles are a feature of Microsoft Azure Search that customize the calculation of search scores, influencing how items are ranked in a search results list. You can think of scoring profiles as a way to model relevance, by boosting items that meet predefined criteria. For example, suppose your application is an online hotel reservation site. By boosting the `location` field, searches that include a term like Seattle will result in higher scores for items that have Seattle in the `location` field. Note that you can have more than one scoring profile, or none at all, if the default scoring is sufficient for your application.
 
-Пример приложения демонстрирует поведение оценок с использованием вымышленных данных, которые называются `musicstoreindex`. Простота примера приложения позволяет легко изменять профили оценки и запросы, а затем смотреть их влияние на порядок ранжирования при выполнении программы.
+To help you experiment with scoring profiles, you can download a sample application that uses scoring profiles to change the rank order of search results. The sample is a console application – perhaps not very realistic for real-world application development – but useful nonetheless as  a learning tool. 
+
+The sample application demonstrates scoring behaviors using fictional data, called the `musicstoreindex`. The simplicity of the sample app makes it easy to modify scoring profiles and queries, and then see the immediate effects on rank order when the program is executed.
 
 <a id="sub-1"></a>
-## Предварительные требования
+## <a name="prerequisites"></a>Prerequisites
 
-Образец приложения создан на языке C# с помощью Visual Studio 2013. Если приложение Visual Studio у вас не установлено, воспользуйтесь бесплатной версией [Visual Studio 2013 Express](http://www.visualstudio.com/products/visual-studio-express-vs.aspx).
+The sample application is written in C# using Visual Studio 2013. Try the free [Visual Studio 2013 Express edition](http://www.visualstudio.com/products/visual-studio-express-vs.aspx) if you don't already have a copy of Visual Studio.
 
-Для работы с учебником вам потребуется подписка Azure и служба поиска Azure. Справку по настройке службы см. в разделе [Создание службы поиска на портале](search-create-service-portal.md).
+You will need an Azure subscription and an Azure Search service to complete the tutorial. See [Create a Search service in the portal](search-create-service-portal.md) for help with setting up the service.
 
-[AZURE.INCLUDE [Для работы с данным руководством требуется учетная запись Azure.](../../includes/free-trial-note.md)]
+[AZURE.INCLUDE [You need an Azure account to complete this tutorial:](../../includes/free-trial-note.md)]
 
 <a id="sub-2"></a>
-## Загрузка примера приложения
+## <a name="download-the-sample-application"></a>Download the sample application
 
-Для загрузки образца приложения, описанного в данном руководстве, откройте [демонстрацию профилей оценки для службы поиска Azure](https://azuresearchscoringprofiles.codeplex.com/) на сайте Codeplex.
+Go to [Azure Search Scoring Profiles Demo](https://azuresearchscoringprofiles.codeplex.com/) on codeplex to download the sample application described in this tutorial.
 
-На вкладке "Исходный код" нажмите **Загрузить**, чтобы получить ZIP-архив с решением.
+On the Source Code tab, click **Download** to get a zip file of the solution. 
 
  ![][12]
 
 <a id="sub-3"></a>
-## Редактирование app.config
+## <a name="edit-app.config"></a>Edit app.config
 
-1. После извлечения файлов откройте решение в среде Visual Studio, чтобы изменить файл конфигурации.
-1. В обозревателе решений дважды щелкните файл **app.config**. Этот файл указывает конечную точку службы и `api-key`, используемый для проверки подлинности запроса. Эти значения можно получить на классическом портале.
-1. Войдите на [портал Azure](https://portal.azure.com).
-1. Перейдите к панели мониторинга службы поиска Azure.
-1. Щелкните плитку **Свойства**, чтобы скопировать URL-адрес службы.
-1. Щелкните плитку **Ключи**, чтобы скопировать `api-key`.
+1. After you extract the files, open the solution in Visual Studio to edit the configuration file.
+1. In Solution Explorer, double-click **app.config**. This file specifies the service endpoint and an `api-key` used to authenticate the request. You can obtain these values from the Classic Portal.
+1. Sign in to the [Azure Portal](https://portal.azure.com).
+1. Go to the service dashboard for Azure Search.
+1. Click the **Properties** tile to copy the service URL
+1. Click the **Keys** tile to copy the `api-key`.
 
-После добавления URL-адреса и `api-key` в файл app.config параметры приложения должны выглядеть следующим образом:
+When you are finished adding the URL and `api-key` to app.config, application settings should look like this:
 
    ![][11]
 
 
 <a id="sub-4"></a>
-## Обзор приложения
+## <a name="explore-the-application"></a>Explore the application
 
-Вы почти готовы к построению и запуску приложения, но сначала рассмотрим файлы JSON, используемые для создания и заполнения индекса.
+You're almost ready to build and run the app, but before you do, take a look at the JSON files used to create and populate the index.
 
-Файл **Schema.json** определяет индекс, включая профили оценки, выделенные в данной демонстрации. Обратите внимание, что схема определяет все используемые в индексе поля, включая недоступные для поиска поля, такие как `margin`, которые можно использовать в профиле оценки. Синтаксис профиля оценки описан в разделе [Добавление профиля оценки в индекс службы поиска Azure](http://msdn.microsoft.com/library/azure/dn798928.aspx).
+**Schema.json** defines the index, including the scoring profiles that are emphasized in this demo. Notice that the schema defines all of the fields used in the index, including non-searchable fields, such as `margin`, that you can use in a scoring profile. Scoring profile syntax is documented in [Add a scoring profile to an Azure Search index](http://msdn.microsoft.com/library/azure/dn798928.aspx).
 
-В файле **Data1-3.json** содержатся данные: 246 альбомов в разных жанрах. Они представляют собой сочетание фактических сведений об альбомах и исполнителях с вымышленными полями, такими как `price` и `margin`, используемыми для иллюстрации операций поиска. Файлы данных соответствуют индексу и передаются в службу поиска Azure. После передачи и индексирования данных можно выполнять запросы к ним.
+**Data1-3.json** provides the data, 246 albums across a handful of genres. The data is a combination of actual album and artist information, with fictional fields like `price` and `margin` used to illustrate search operations. The data files conform to the index and are uploaded to your Azure Search service. After the data is uploaded and indexed, you can issue queries against it.
 
-Функция **Program.cs** выполняет следующие операции:
+**Program.cs** performs the following operations:
 
-- Открывает окно консоли.
+- Opens a console window.
 
-- Подключается к службе поиска Azure, используя URL-адрес службы и `api-key`.
+- Connects to Azure Search using the service URL and `api-key`.
 
-- Удаляет `musicstoreindex`, если он существует.
+- Deletes the `musicstoreindex` if it exists.
 
-- Создает новый `musicstoreindex` с помощью файла schema.json.
+- Creates a new `musicstoreindex` using the schema.json file.
 
-- Заполняет индекс с помощью файлов данных.
+- Populates the index using the data files.
 
-- Запрашивает индекс с помощью четырех запросов. Обратите внимание, что профили оценки задаются в виде параметра запроса. Все запросы ищут один и тот же термин "best". Первый запрос демонстрирует оценку по умолчанию. Остальные три запроса используют профиль оценки.
+- Queries the index using four queries. Notice that the scoring profiles are specified as a query parameter. All of the queries search for the same term, 'best'. The first query demonstrates default scoring. The remaining three queries use a scoring profile.
 
 <a id="sub-5"></a>
-## Создание и запуск приложения
+## <a name="build-and-run-the-application"></a>Build and run the application
 
-Чтобы исключить проблемы с подключением или ссылками на сборки, постройте и запустите приложение и проверьте, что оно работает нормально. Вы должны увидеть консольное приложение, открывшееся в фоновом режиме. Все четыре запросы выполняются последовательно без приостановки. Во многих системах вся программа выполняется в течение 15 секунд. Если консольное приложение отображает сообщение "Завершено. Нажмите клавишу ВВОД для продолжения", то программа выполнена успешно.
+To rule out connectivity or assembly reference problems, build and run the application to ensure there are no issues to work out first. You should see a console application open in the background. All four queries execute in sequence without pausing. On many systems, the entire program executes in under 15 seconds. If the console application includes a message stating “Complete. Press enter to continue”, the program completed successfully. 
 
-Для сравнения запросов можно выделить и скопировать и вставить результаты запросов из консоли и вставить их в файл Excel.
+To compare query runs, you can mark-copy-paste the query results from the console and paste them into an Excel file. 
 
-На следующем рисунке результаты первых трех запросов показаны бок о бок. Все запросы используют один термин, "best", который входит в названия многих альбомов.
+The following illustration shows results from the first three queries side-by-side. All of the queries use the same search term, 'best', which appears in numerous album titles.
 
    ![][10]
 
-Первый запрос использует оценку по умолчанию. Поскольку термин есть только в названиях альбомов, а другие критерии не указаны, элементы с термином "best" возвращаются в том порядке, в котором их находит служба поиска.
+The first query uses default scoring. Since the search term appears only in album titles, and no other criteria is specified, items having 'best' in the album title are returned in the order in which the search service finds them. 
 
-Второй запрос использует оценку профиля, но обратите внимание, что он не оказывает никакого влияния. Результаты идентичны результатам первого запроса. Это вызвано тем, что профиль оценки продвигает поле "genre", не относящееся к запросу. Термин "best" не существует в полях "genre" какого-либо документа. Так как профиль оценки не оказывает влияния, результаты будут такими же, как у оценки по умолчанию.
+The second query uses a scoring profile, but notice that the profile had no effect. The results are identical to those of the first query. This is because the scoring profile boosts a field ('genre') that is not germane to the query. The search term 'best' does not exist in any 'genre' field of any document. When a scoring profile has no effect, the results are the same as default scoring.  
 
-Третий запрос — первое свидетельство влияния профиля оценки. Термин поиска — по-прежнему "best", поэтому мы работаем с тем же набором альбомов, но поскольку профиль оценки предоставляет дополнительные критерии, которые продвигают поля "rating" и "last-updated", некоторые элементы указаны в списке выше.
+The third query is the first evidence of scoring profile impact. The search term is still 'best' so we are working with the same set of albums, but because the scoring profile provides additional criteria that boosts 'rating' and 'last-updated', some items are propelled higher in the list.
 
-На следующем рисунке показан запрос четвертый, заключительный запрос, с продвинутым полем "margin". Поле "margin" недоступно для поиска и не может быть возвращено в результатах. Значение margin было вручную добавлено в электронную таблицу, чтобы проиллюстрировать тот факт, что элементы с большей маржей отображаются выше в списке результатов.
+The next illustration shows the fourth and final query, boosted by 'margin'. The 'margin' field is non-searchable and cannot be returned in search results. The 'margin' value was manually added to the spreadsheet to help illustrate the point that items with higher margins show up higher in the search results list. 
 
    ![][9]
 
-Вы уже поэкспериментировали с профилями оценки, теперь попробуйте изменить программу для использования другого синтаксиса запроса, профиля оценки или более разнообразных данных. По ссылкам в следующем разделе представлена дополнительная информация.
+Now that you have experimented with scoring profiles, try changing the program to use different query syntax, scoring profiles, or richer data. Links in the next section provide more information.
 
 <a id="next-steps"></a>
-## Дальнейшие действия
+## <a name="next-steps"></a>Next steps
 
-Дополнительные сведения о профилях оценки. Дополнительные сведения см. в разделе [Добавление профиля оценки в индекс службы поиска Azure](http://msdn.microsoft.com/library/azure/dn798928.aspx).
+Learn more about scoring profiles. See [Add a scoring profile to an Azure Search index](http://msdn.microsoft.com/library/azure/dn798928.aspx) for details.
 
-Дополнительные сведения о синтаксисе и параметрах поисковых запросов. Дополнительные сведения см. в разделе [Поиск документов (API REST службы поиска Azure)](http://msdn.microsoft.com/library/azure/dn798927.aspx).
+Learn more about search syntax and query parameters. See [Search Documents (Azure Search REST API)](http://msdn.microsoft.com/library/azure/dn798927.aspx) for details.
 
-Хотите сделать шаг назад и узнать больше о создании индексов? [Посмотрите это видео](http://channel9.msdn.com/Shows/Cloud+Cover/Cloud-Cover-152-Azure-Search-with-Liam-Cavanagh), чтобы разобраться в основах.
+Need to step back and learn more about index creation? [Watch this video](http://channel9.msdn.com/Shows/Cloud+Cover/Cloud-Cover-152-Azure-Search-with-Liam-Cavanagh) to understand the basics.
 
 <!--Anchors-->
 [Prerequisites]: #sub-1
@@ -124,6 +125,9 @@
 [12]: ./media/search-get-started-scoring-profiles/AzureSearch_CodeplexDownload.PNG
 [11]: ./media/search-get-started-scoring-profiles/AzureSearch_Scoring_AppConfig.PNG
 [10]: ./media/search-get-started-scoring-profiles/AzureSearch_XLSX1.PNG
-[9]: ./media/search-get-started-scoring-profiles/AzureSearch_XLSX2.PNG
+[9]: ./media/search-get-started-scoring-profiles/AzureSearch_XLSX2.PNG 
 
-<!---HONumber=AcomDC_0907_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

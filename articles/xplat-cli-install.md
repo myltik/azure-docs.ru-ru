@@ -1,74 +1,79 @@
 <properties
-	pageTitle="Установка интерфейса командной строки Azure | Microsoft Azure"
-	description="Установка интерфейса командной строки (CLI) Azure на компьютерах c Mac OS, Linux и Windows и работа со службами Azure"
-	editor=""
-	manager="timlt"
-	documentationCenter=""
-	authors="dlepow"
-	services="virtual-machines-linux,virtual-network,storage,azure-resource-manager"
-	tags="azure-resource-manager,azure-service-management"/>
+    pageTitle="Установка интерфейса командной строки Azure | Microsoft Azure"
+    description="Установка интерфейса командной строки (CLI) Azure на компьютерах c Mac OS, Linux и Windows и работа со службами Azure"
+    editor=""
+    manager="timlt"
+    documentationCenter=""
+    authors="squillace"
+    services="virtual-machines-linux,virtual-network,storage,azure-resource-manager"
+    tags="azure-resource-manager,azure-service-management"/>
 
 <tags
-	ms.service="multiple"
-	ms.workload="multiple"
-	ms.tgt_pltfrm="command-line-interface"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/22/2016"
-	ms.author="danlep"/>
+    ms.service="multiple"
+    ms.workload="multiple"
+    ms.tgt_pltfrm="command-line-interface"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/04/2016"
+    ms.author="rasquill"/>
     
-# Установка Azure CLI
+
+# <a name="install-the-azure-cli"></a>Установка Azure CLI
 
 > [AZURE.SELECTOR]
 - [PowerShell](powershell-install-configure.md)
 - [Интерфейс командной строки Azure](xplat-cli-install.md)
 
-Вы можете выполнить быструю установку интерфейса командной строки Azure (Azure CLI), чтобы использовать набор консольных команд с открытым кодом для управления ресурсами в среде Microsoft Azure. Существует несколько вариантов установки этих кроссплатформенных инструментов на компьютер.
+Вы можете выполнить быструю установку интерфейса командной строки Azure (Azure CLI), чтобы использовать набор консольных команд с открытым кодом для управления ресурсами в среде Microsoft Azure. Существует несколько вариантов установки этих кроссплатформенных инструментов на компьютер. 
 
-* **Пакет npm**. Запустите npm (диспетчер пакетов для JavaScript), чтобы установить последнюю версию пакета Azure CLI на дистрибутив или операционную систему Linux. На компьютере должны быть установлены node.js и npm.
+* **Пакет npm**. Запустите npm (диспетчер пакетов для JavaScript), чтобы установить последнюю версию пакета для интерфейса командной строки Azure в дистрибутиве или ОС Linux. На компьютере должны быть установлены node.js и npm.
 * **Установщик**. Скачайте установщик, чтобы легко установить эти инструменты на компьютеры Mac или Windows.
-* **Контейнер Docker**. Приступите к использованию последней версии интерфейса командной из готового контейнера Docker. На компьютере требуется наличие узла Docker.
+* **Контейнер Docker**. Приступите к использованию последней версии интерфейса командной строки из готового контейнера Docker. На компьютере требуется наличие узла Docker.
     
-Дополнительные сведения и варианты установки см. в репозитории проектов на сайте [GitHub](https://github.com/azure/azure-xplat-cli).
+Дополнительные сведения и варианты установки см. в репозитории проектов на сайте [GitHub](https://github.com/azure/azure-xplat-cli). 
 
 После установки интерфейса командной строки Azure вы сможете [подключить его к своей подписке Azure](xplat-cli-connect.md) и работать с ресурсами Azure c помощью команд **azure** из интерфейса командной строки (Bash, терминала, командной строки и т. д.).
 
 
 
-## Вариант 1. Установка пакета npm
+## <a name="option-1:-install-an-npm-package"></a>Вариант 1. Установка пакета npm
 
-Для установки интерфейса командной строки из пакета NPM в системе должна быть установлена последняя версия Node.js и NPM. Затем установите пакет Azure CLI, опубликованный на сайте [npmjs.com](https://www.npmjs.com), выполнив следующую команду. (В системах Linux для выполнения команды __npm__ может потребоваться **sudo**.)
+Для установки интерфейса командной строки из пакета NPM в системе должна быть установлена [последняя версия Node.js и npm](https://nodejs.org/en/download/package-manager/). Затем запустите **npm install** для установки пакета azure-cli: 
 
-	npm install -g azure-cli
+    npm install -g azure-cli
 
-> [AZURE.NOTE]Если необходимо установить или обновить Node.js и npm в дистрибутиве или операционной системе Linux, обратитесь к документации на сайте [Nodejs.org](https://nodejs.org/en/download/package-manager/). Рекомендуется установить последнюю версию Node.js LTS (4.x). Если вы используете более раннюю версию, возможны ошибки при установке.
+В системах Linux для выполнения команды __npm__ может потребоваться команда **sudo**:
 
-Если хотите, скачайте последнюю версию [TAR-файла][linux-installer] пакета npm для Linux на локальный компьютер. Затем установите скачанный пакет npm, как описано ниже (для дистрибутивов Linux может потребоваться использовать **sudo**).
+    sudo npm install -g azure-cli
+
+> [AZURE.NOTE]Если необходимо установить или обновить Node.js и npm в дистрибутиве или ОС Linux, рекомендуется установить последнюю версию Node.js LTS (4.x). Если вы используете более раннюю версию, возможны ошибки при установке. 
+
+При желании скачайте последнюю версию [TAR-файла][linux-installer] пакета npm для Linux на локальный компьютер. Затем установите скачанный пакет npm, как описано ниже (для дистрибутивов Linux может потребоваться использовать **sudo**).
 
     npm install -g <path to downloaded tar file>
 
-## Вариант 2. Использование установщика
+## <a name="option-2:-use-an-installer"></a>Вариант 2. Использование установщика
 
 При использовании компьютера Windows или Mac можно скачать следующие установщики интерфейса командной строки:
 
 * [Установщик Mac OS X][mac-installer]
 
-* [MSI-файл Windows][windows-installer].
+* [Файл MSI Windows][windows-installer] 
 
->[AZURE.TIP]В Windows для установки интерфейса командной строки можно также скачать [установщик веб-платформы](https://go.microsoft.com/?linkid=9828653). Этот установщик дает возможность установить дополнительный пакет SDK для Azure и программы командной строки после установки интерфейса командной строки.
+>[AZURE.TIP]В Windows для установки интерфейса командной строки можно также скачать [установщик веб-платформы](https://go.microsoft.com/?linkid=9828653) . Этот установщик дает возможность установить дополнительный пакет SDK для Azure и программы командной строки после установки интерфейса командной строки. 
 
 
-## Вариант 3. Использование контейнера Docker
+## <a name="option-3:-use-a-docker-container"></a>Вариант 3. Использование контейнера Docker
 
-Если вы настроили компьютер в качестве узла [Docker](https://docs.docker.com/engine/understanding-docker/), то можете запустить последнюю версию Azure CLI в контейнере Docker. Выполните команду:
+Если вы настроили компьютер в качестве узла [Docker](https://docs.docker.com/engine/understanding-docker/) , то можете запустить последнюю версию Azure CLI в контейнере Docker. Выполните следующую команду (в системах Linux для выполнения команды npm может потребоваться команда **sudo**):
 
 ```
 docker run -it microsoft/azure-cli
 ```
 
 
-## Выполнение команд Azure CLI
-После установки интерфейса командной строки Azure можно использовать команду **azure** в любом пользовательском интерфейсе командной строки (Bash, терминале, командной строке и т. д.). Например, чтобы выполнить команду справки, введите следующее:
+## <a name="run-azure-cli-commands"></a>Выполнение команд Azure CLI
+После установки интерфейса командной строки Azure команду **azure** можно запустить в любом пользовательском интерфейсе командной строки (Bash, терминале, командной строке и т. д.). Например, чтобы выполнить команду справки, введите следующее:
 
 ```
 azure help
@@ -90,7 +95,7 @@ azure --version
 >[AZURE.NOTE] При первом использовании Azure CLI появится сообщение с вопросом, следует ли разрешить корпорации Майкрософт собирать сведения об использовании. Участие является добровольным. Если вы согласились участвовать в этой программе, сбор сведений можно остановить в любой момент, выполнив команду `azure telemetry --disable`. Чтобы включить участие в любой момент, выполните команду `azure telemetry --enable`.
 
 
-## Обновление интерфейса командной строки
+## <a name="update-the-cli"></a>Обновление интерфейса командной строки
 
 Корпорация Майкрософт часто выпускает обновленные версии Azure CLI. Переустановите интерфейс командной строки с помощью установщика для соответствующей операционной системы или запустите актуальную версию контейнера Docker. Если вы установили последние версии Node.js и NPM, введите следующую команду (в системах Linux может потребоваться использовать режим **sudo**).
 
@@ -98,7 +103,7 @@ azure --version
 npm update -g azure-cli
 ```
 
-## Включение выполнения нажатием клавиши TAB
+## <a name="enable-tab-completion"></a>Включение выполнения нажатием клавиши TAB
 
 Выполнение команд интерфейса командной строки нажатием клавиши TAB поддерживается на компьютерах MAC и Linux.
 
@@ -116,15 +121,15 @@ echo 'source ~/azure.completion.sh' >> ~/.bash_profile
 ```
 
 
-## Дальнейшие действия 
+## <a name="next-steps"></a>Дальнейшие действия 
 
 * [Подключитесь к подписке Azure из интерфейса командной строки](xplat-cli-connect.md) для создания ресурсов Azure и управления ими.
 
-* Дополнительные сведения об Azure CLI, а также о том, как загрузить исходный код, сообщить о проблемах или принять участие в проекте, см. в [репозитории GitHub для Azure CLI](https://github.com/azure/azure-xplat-cli).
+* Для того чтобы получить дополнительные сведения об интерфейсе командной строки Azure, скачать исходный код, сообщить о проблемах или принять участие в проекте, зайдите в [репозиторий GitHub для интерфейса командной строки Azure](https://github.com/azure/azure-xplat-cli).
 
-* Если у вас возникли вопросы об использовании интерфейса командной строки Azure или платформы Azure, посетите [форумы Azure](https://social.msdn.microsoft.com/Forums/ru-RU/home?forum=azurescripting).
+* Если у вас возникли вопросы об использовании интерфейса командной строки Azure или платформы Azure, посетите [форумы Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurescripting).
 
-* В системах Linux установить Azure CLI также можно путем компиляции [исходного кода](http://aka.ms/linux-azure-cli). Дополнительные сведения о компиляции исходного кода см. в файле INSTALL, который включен в исходный архив.
+* При желании также можно попробовать [предварительную версию интерфейса командной строки Azure 2.0](https://github.com/azure/azure-cli) на основе Python.
 
 [mac-installer]: http://aka.ms/mac-azure-cli
 [windows-installer]: http://aka.ms/webpi-azure-cli
@@ -132,4 +137,8 @@ echo 'source ~/azure.completion.sh' >> ~/.bash_profile
 [cliasm]: virtual-machines-command-line-tools.md
 [cliarm]: ./virtual-machines/azure-cli-arm-commands.md
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

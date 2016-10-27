@@ -1,235 +1,240 @@
 <properties
-	pageTitle="Что такое самостоятельная регистрация для Azure? | Microsoft Azure"
-	description="Общие сведения о самостоятельной регистрации для Azure, а также описание управления процессом регистрации и смены доменного имени DNS."
-	services="active-directory"
-	documentationCenter=""
-	authors="curtand"
-	manager="femila"
-	editor=""/>
+    pageTitle="What is Self-Service Signup for Azure? | Microsoft Azure"
+    description="An overview self-service signup for Azure, how to manage the signup process, and how to take over a DNS domain name."
+    services="active-directory"
+    documentationCenter=""
+    authors="curtand"
+    manager="femila"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="identity"
-	ms.date="08/23/2016"
-	ms.author="curtand"/>
+    ms.service="active-directory"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="identity"
+    ms.date="08/23/2016"
+    ms.author="curtand"/>
 
 
-# Что такое самостоятельная регистрация для Azure?
 
-В этой статье объясняется процесс самостоятельной регистрации и перенаправление DNS-имени домена.
+# <a name="what-is-self-service-signup-for-azure?"></a>What is Self-Service Signup for Azure?
 
-## Зачем нужна самостоятельная регистрация?
+This topic explains the self-service signup process and how to take over a DNS domain name.  
 
-- Предоставить клиентам нужные службы как можно быстрее.
-- Создавать предложения на основе электронной почты для службы.
-- Создавать потоки регистрации на основе электронной почты, которые позволяют пользователям быстро создавать удостоверения с помощью легко запоминаемых псевдонимов рабочих электронных адресов.
-- Неуправляемые каталоги Azure впоследствии можно преобразовать в управляемые и повторно использовать для других служб.
+## <a name="why-use-self-service-signup?"></a>Why use self-service signup?
 
-## Термины и определения
+- Get customers to services they want faster.
+- Create email-based offers for a service.
+- Create email-based signup flows which quickly allow users to create identities using their easy-to-remember work email aliases.
+- Unmanaged Azure directories can be made into managed directories later and be reused for other services.
 
-+ **Самостоятельная регистрация** — метод, с помощью которого пользователь регистрируется в облачной службе, после чего для него в Azure Active Directory (Azure AD) на основании домена электронной почты автоматически создается удостоверение.
-+ **Неуправляемый каталог Azure** — каталог, где создается это удостоверение. Неуправляемый каталог — это каталог, в котором нет глобального администратора.
-+ **Проверяемый с помощью электронной почты пользователь**: тип учетной записи пользователя в Azure AD. Пользователь, который получает автоматически созданное после регистрации для предложения самообслуживания удостоверение, называется проверяемым с помощью электронной почты пользователем. Проверяемый с помощью электронной почты пользователь является регулярным участником каталога с тегом creationmethod=EmailVerified.
+## <a name="terms-and-definitions"></a>Terms and Definitions
 
-## Возможности для пользователя
++ **Self-service sign up**: This is the method by which a user signs up for a cloud service and has an identity automatically created for them in Azure Active Directory (Azure AD) based on their email domain.
++ **Unmanaged Azure directory**: This is the directory where that identity is created. An unmanaged directory is a directory that has no global administrator.
++ **Email-verified user**: This is a type of user account in Azure AD. A user who has an identity created automatically after signing up for a self-service offer is known as an email-verified user. An email-verified user is a regular member of a directory tagged with creationmethod=EmailVerified.
 
-Допустим, что пользователь, чей электронной адрес Dan@BellowsCollege.com, получает конфиденциальные файлы по электронной почте. Файлы защищены с помощью Azure Rights Management (Azure RMS). Но организация Дениса, Академия "Гермес", не регистрировалась в Azure RMS и не развертывала службы Active Directory RMS. В этом случае Денис может воспользоваться бесплатной регистрацией в RMS для частных лиц для чтения защищенных файлов.
+## <a name="user-experience"></a>User experience
 
-Если Дэн является первым пользователем с адресом электронной почты из домена BellowsCollege.com, который выполняет самостоятельную регистрацию для этого предложения, то в Azure AD для BellowsCollege.com будет создан неуправляемый каталог. Если другие пользователи из домена BellowsCollege.com зарегистрируются для этого предложения или аналогичного предложения с самообслуживанием, они также получат проверяемые с помощью электронной почты учетные записи в том же неуправляемом каталоге в Azure.
+For example, let's say a user whose email is Dan@BellowsCollege.com receives sensitive files via email. The files have been protected by Azure Rights Management (Azure RMS). But Dan's organization, Bellows College, has not signed up for Azure RMS, nor has it deployed Active Directory RMS. In this case, Dan can sign up for a free subscription to RMS for individuals in order to read the protected files.
 
-## Возможности для администраторов
+If Dan is the first user with an email address from BellowsCollege.com to sign up for this self-service offering, then an unmanaged directory will be created for BellowsCollege.com in Azure AD. If other users from the BellowsCollege.com domain sign up for this offering or a similar self-service offering, they will also have email-verified user accounts created in the same unmanaged directory in Azure.
 
-Администраторы, которым принадлежит DNS-имя домена неуправляемого каталога Azure, могут перенаправлять каталог или выполнять его слияние после подтверждения владения. В следующем разделе возможности администрирования описываются более подробно, но если вкратце, то:
+## <a name="admin-experience"></a>Admin experience
 
-- При перенаправлении неуправляемого каталога Azure вы просто становитесь глобальным администратором неуправляемого каталога. Это иногда называется внутренним перенаправлением.
-- После слияния неуправляемого каталога Azure добавьте DNS-имя домена неуправляемого каталога в управляемый каталог Azure и создайте сопоставление пользователей и ресурсов, чтобы пользователи могли продолжать обращаться к службам без прерываний. Это иногда называется внешним перенаправлением.
+An admin who owns the DNS domain name of an unmanaged Azure directory can take over or merge the directory after proving ownership. The next sections explain the admin experience in more detail, but here's a summary:
 
-## Что создается в Azure Active Directory?
+- When you take over an unmanaged Azure directory, you simply become the global administrator of the unmanaged directory. This is sometimes called an internal takeover.
+- When you merge an unmanaged Azure directory, you add the DNS domain name of the unmanaged directory to your managed Azure directory and a mapping of users-to-resources is created so users can continue to access services without interruption. This is sometimes called an external takeover.
 
-#### Каталог
+## <a name="what-gets-created-in-azure-active-directory?"></a>What gets created in Azure Active Directory?
 
-- Создается каталог Azure Active Directory для домена (один каталог на один домен).
-- В каталоге Azure AD нет глобального администратора.
+#### <a name="directory"></a>directory
 
-#### Пользователи
+- An Azure Active Directory directory for the domain is created, one directory per domain.
+- The Azure AD directory has no global admin.
 
-- Для каждого регистрирующегося пользователя в каталоге Azure AD создается объект-пользователь.
-- Каждый объект-пользователь помечается как внешний.
-- Каждый пользователь получает доступ к той службе, для которой пользователь зарегистрировался.
+#### <a name="users"></a>Users
 
-### Как можно отправить заявку на доступ к каталогу самообслуживания Azure AD для домена, которым я владею?
+- For each user who signs up, a user object is created in the Azure AD directory.
+- Each user object is marked as external.
+- Each user is given access to the service that they signed up for.
 
-Заявку на доступ к каталогу самообслуживания Azure AD можно отправить, выполнив проверку домена. Проверка домена путем создания записей DNS подтверждает, что вы являетесь владельцем домена.
+### <a name="how-do-i-claim-a-self-service-azure-ad-directory-for-a-domain-i-own?"></a>How do I claim a self-service Azure AD directory for a domain I own?
 
-Существует два способа реализовать перенаправление DNS каталога Azure AD:
+You can claim a self-service Azure AD directory by performing domain validation. Domain validation proves you own the domain by creating DNS records.
 
-- внутреннее перенаправление (администратор обнаруживает неуправляемый каталог Azure и преобразует его в управляемый каталог);
-- внешнее перенаправление (администратор пытается добавить новый домен к управляемому каталогу Azure).
+There are two ways to do a DNS takeover of an Azure AD directory:
 
-Возможно, вам понадобится подтверждение того, что вы являетесь владельцем домена, так как вы сами перенаправляете неуправляемый каталог после того, как пользователь выполнил самостоятельную регистрацию, или можете добавить новый домен к существующему управляемому каталогу. Например, имеется домен с именем contoso.com и вы хотите добавить новый домен с именем contoso.co.uk или contoso.uk.
+- internal takeover (Admin discovers an unmanaged Azure directory, and wants to turn into a managed directory)
+- external takeover (Admin tries to add a new domain to their managed Azure directory)
 
-## Что такое перенаправление домена?  
+You might be interested in validating that you own a domain because you are taking over an unmanaged directory after a user performed self-service signup, or you might be adding a new domain to an existing managed directory. For example, you have a domain named contoso.com and you want to add a new domain named contoso.co.uk or contoso.uk.
 
-В этом разделе описывается, как проверить, что вы являетесь владельцем домена
+## <a name="what-is-domain-takeover?"></a>What is domain takeover?  
 
-### Что такое проверка домена и зачем она нужна?
+This section covers how to validate that you own a domain
 
-Для выполнения операций с каталогом Azure AD требует проверки принадлежности домена DNS. Проверка домена позволяет отправить заявку на доступ к каталогу и либо повысить уровень самообслуживаемого каталога до управляемого каталога, либо выполнить слияние самообслуживаемого каталога с существующим управляемым каталогом.
+### <a name="what-is-domain-validation-and-why-is-it-used?"></a>What is domain validation and why is it used?
 
-## Примеры проверки домена
+In order to perform operations on a directory, Azure AD requires that you validate ownership of the DNS domain.  Validation of the domain allows you to claim the directory and either promote the self-service directory to a managed directory, or merge the self-service directory into an existing managed directory.
 
-Существует два способа реализовать перенаправление DNS каталога:
+## <a name="examples-of-domain-validation"></a>Examples of domain validation
 
-+ внутреннее перенаправление (например, администратор обнаруживает самообслуживаемый неуправляемый каталог и планирует преобразовать его в управляемый каталог);
-+ внешнее перенаправление (например, администратор пытается добавить новый домен в управляемый каталог).
+There are two ways to do a DNS takeover of a directory:
 
-### Внутреннее перенаправление — повышение уровня самообслуживаемого неуправляемого каталога до управляемого каталога
++ internal takeover  (For example, an admin discovers a self-service, unmanaged directory, and wants to turn into managed directory)
++ external takeover (For example, a admin tries to add a new domain to a managed directory)
 
-При выполнении внутреннего перенаправления каталог преобразуется из неуправляемого в управляемый. Вам необходимо выполнить проверку DNS-имени домена, где создана запись MX или TXT в DNS-зоне. Таким образом выполняется:
+### <a name="internal-takeover---promote-a-self-service,-unmanaged-directory-to-be-a-managed-directory"></a>Internal Takeover - promote a self-service, unmanaged directory to be a managed directory
 
-+ проверка, что вы являетесь владельцем домена;
-+ преобразование каталога в управляемый;
-+ назначение вас глобальным администратором каталога.
+When you do internal takeover, the directory gets converted from an unmanaged directory to a managed directory. You need to complete DNS domain name validation, where you create an MX record or a TXT record in the DNS zone. That action:
 
-Предположим, что ИТ-администратор Академии «Гермес» обнаруживает, что пользователи из учебного заведения уже зарегистрировались для получения самообслуживаемых предложений. Как зарегистрированный владелец DNS-имени BellowsCollege.com ИТ-администратор может подтвердить принадлежность DNS-имени в Azure и перенаправить неуправляемый каталог. После этого каталог становится управляемым, и ИТ-администратору назначается роль глобального администратора для каталога BellowsCollege.com.
++ Validates that you own the domain
++ Makes the directory managed
++ Makes you the global admin of the directory
 
-### Внешнее перенаправление — слияние самообслуживаемого каталога с существующим управляемым каталогом
+Let's say an IT administrator from Bellows College discovers that users from the school have signed up for self-service offerings. As the registered owner of the DNS name BellowsCollege.com, the IT administrator can validate ownership of the DNS name in Azure and then take over the unmanaged directory. The directory then becomes a managed directory, and the IT administrator is assigned the global administrator role for the BellowsCollege.com directory.
 
-В случае внешнего перенаправления у вас уже есть управляемый каталог, и требуется перевести всех пользователей и группы из неуправляемого каталога в управляемый, вместо того чтобы поддерживать два отдельных каталога.
+### <a name="external-takeover---merge-a-self-service-directory-into-an-existing-managed-directory"></a>External Takeover - merge a self-service directory into an existing managed directory
 
-Как администратор управляемого каталога вы добавляете домен, и у этого домена есть неуправляемый каталог, связанный с ним.
+In an external takeover, you already have a managed directory and you want all users and groups from an unmanaged directory to join that managed directory, rather than own two separate directories.
 
-Предположим, что вы являетесь ИТ-администратором и у вас уже имеется управляемый каталог для доменного имени Contoso.com, которое зарегистрировано для вашей организации. Вы обнаруживаете, что пользователи из вашей организации самостоятельно зарегистрировались для предложения с помощью доменного имени электронной почты user@contoso.co.uk, которое является дополнительным доменным именем, принадлежащим вашей организации. В настоящее время у этих пользователей есть учетные записи в неуправляемом каталоге для домена contoso.co.uk.
+As an admin of a managed directory, you add a domain, and that domain happens to have an unmanaged directory associated with it.
 
-Если вы не хотите управлять двумя отдельными каталогами, объедините неуправляемый каталог для contoso.co.uk с каталогом для contoso.com, управляемым ИТ-службой.
+For example, let's say you are an IT administrator and you already have a managed directory for Contoso.com, a domain name that is registered to your organization. You discover that users from your organization have performed self-service sign up for an offering by using email domain name user@contoso.co.uk, which is another domain name that your organization owns. Those users currently have accounts in an unmanaged directory for contoso.co.uk.
 
-Внешнее перенаправление проходит такую же процедуру проверки DNS, как и внутреннее перенаправление. Разница только в одном: пользователи и службы сопоставляются с каталогом, управляемым ИТ-службой.
+You don't want to manage two separate directories, so you merge the unmanaged directory for contoso.co.uk into your existing IT managed directory for contoso.com.
 
-#### Как внешнее перенаправление повлияет на процессы?
+External takeover follows the same DNS validation process as internal takeover.  Difference being: users and services are remapped to the IT managed directory.
 
-При внешнем перенаправлении создается сопоставление пользователей и ресурсов, поэтому пользователи могут продолжать без прерывания обращаться к службам. Многие приложения, включая RMS для частных лиц, также используют сопоставление пользователей с ресурсами, и пользователи продолжают получать доступ к этим службам без изменений. Если приложение неэффективно использует сопоставление пользователей и ресурсов, внешнее перенаправление можно явно заблокировать, чтобы не слишком ограничивать возможности пользователей.
+#### <a name="what's-the-impact-of-performing-an-external-takeover?"></a>What's the impact of performing an external takeover?
 
-#### Поддержка службой перенаправления каталога
+With an external takeover, a mapping of users-to-resources is created so users can continue to access services without interruption. Many applications, including RMS for individuals, handle the mapping of users-to-resources well, and users can continue to access those services without change. If an application does not handle the mapping of users-to-resources effectively, external takeover may be explicitly blocked to prevent users from a poor experience.
 
-В настоящее время перенаправление поддерживают такие службы:
+#### <a name="directory-takeover-support-by-service"></a>directory takeover support by service
+
+Currently the following services support takeover:
 
 - RMS
 
 
-Такие службы будут вскоре поддерживать перенаправление:
+The following services will soon be supporting takeover:
 
 - PowerBI
 
-Нижеперечисленные службы не требуют дополнительных административных действий для переноса данных пользователя после внешнего перенаправления.
+The following do not and require additional admin action to migrate user data after an external takeover.
 
 - SharePoint/OneDrive
 
 
-## Как выполнить перенаправление DNS-имени домена
+## <a name="how-to-perform-a-dns-domain-name-takeover"></a>How to perform a DNS domain name takeover
 
-Проверку домена можно выполнить несколькими способами (а затем, при необходимости, выполнить перенаправление):
+You have a few options for how to perform a domain validation (and do a takeover if you wish):
 
-1.  Портал управления Azure
+1.  Azure Management Portal
 
-	Перенаправление включается добавлением домена. Если каталог для домена уже существует, можно выполнить внешнее перенаправление.
+    A takeover is triggered by doing a domain addition.  If a directory already exists for the domain, you'll have the option to perform an external takeover.
 
-	Войдите на портал Azure, используя свои учетные данные. Перейдите в существующий каталог и затем выберите **Добавить домен**.
+    Sign in to the Azure portal using your credentials.  Navigate to your existing directory and then to **Add domain**.
 
 2.  Office 365
 
-	Для работы с доменами и записями DNS можно использовать параметры на странице [Управление доменами](https://support.office.com/article/Navigate-to-the-Office-365-Manage-domains-page-026af1f2-0e6d-4f2d-9b33-fd147420fac2/) в Office 365. См. раздел [Проверка домена в Office 365](https://support.office.com/article/Verify-your-domain-in-Office-365-6383f56d-3d09-4dcb-9b41-b5f5a5efd611/).
+    You can use the options on the [Manage domains](https://support.office.com/article/Navigate-to-the-Office-365-Manage-domains-page-026af1f2-0e6d-4f2d-9b33-fd147420fac2/) page in Office 365 to work with your domains and DNS records. See [Verify your domain in Office 365](https://support.office.com/article/Verify-your-domain-in-Office-365-6383f56d-3d09-4dcb-9b41-b5f5a5efd611/).
 
 3.  Windows PowerShell
 
-	Для выполнения проверки с помощью Windows PowerShell необходимо выполнить нижеперечисленные действия.
+    The following steps are required to perform a validation using Windows PowerShell.
 
-	Шаг |	Используемый командлет
-	-------	| -------------
-	Создание объекта учетных данных | Get-Credential
-	Подключение к Azure AD | Connect-MsolService
-	Получение списка доменов | Get-MsolDomain
-	Создание запроса защиты | Get-MsolDomainVerificationDns
-	Создание записи DNS | Сделайте это на своем сервере DNS
-	Проверка запроса защиты | Confirm-MsolEmailVerifiedDomain
+    Step    |   Cmdlet to use
+    ------- | -------------
+    Create a credential object | Get-Credential
+    Connect to Azure AD | Connect-MsolService
+    get a list of domains   | Get-MsolDomain
+    Create a challenge  | Get-MsolDomainVerificationDns
+    Create DNS record   | Do this on your DNS server
+    Verify the challenge    | Confirm-MsolEmailVerifiedDomain
 
-Например:
+For example:
 
-1. Подключение к Azure AD, используя учетные данные, которые были использованы в ответ на предложение самообслуживания: import-module MSOnline $msolcred = get-credential connect-msolservice -credential $msolcred
+1. Connect to Azure AD using the credentials that were used to respond to the self-service offering:      import-module MSOnline      $msolcred = get-credential      connect-msolservice -credential $msolcred
 
-2. Получение списка доменов:
+2. Get a list of domains:
 
-	Get-MsolDomain
+    Get-MsolDomain
 
-3. Затем выполните командлет Get-MsolDomainVerificationDns для создания запроса защиты:
+3. Then run the Get-MsolDomainVerificationDns cmdlet to create a challenge:
 
-	Get-MsolDomainVerificationDns –DomainName *имя\_вашего\_домена* –Mode DnsTxtRecord
+    Get-MsolDomainVerificationDns –DomainName *your_domain_name* –Mode DnsTxtRecord
 
-	Например:
+    For example:
 
-	Get-MsolDomainVerificationDns –DomainName contoso.com –Mode DnsTxtRecord
+    Get-MsolDomainVerificationDns –DomainName contoso.com –Mode DnsTxtRecord
 
-4. Скопируйте значение (запрос защиты), которое возвращает эта команда.
+4. Copy the value (the challenge) that is returned from this command.
 
-	Например:
+    For example:
 
-	MS=32DD01B82C05D27151EA9AE93C5890787F0E65D9
+    MS=32DD01B82C05D27151EA9AE93C5890787F0E65D9
 
-5. В пространстве общедоступных имен DNS создайте DNS-запись TXT, содержащую значение, скопированное на предыдущем шаге.
+5. In your public DNS namespace, create a DNS txt record that contains the value that you copied in the previous step.
 
-	Имя для данной записи — это имя родительского домена, поэтому при создании этой записи ресурса с помощью роли DNS из Windows Server оставьте поле «Имя записи» пустым и просто вставьте это значение в текстовое поле
+    The name for this record is the name of the parent domain, so if you create this resource record by using the DNS role from Windows Server, leave the Record name blank and just paste the value into the Text box
 
-6. Выполните командлет Confirm-MsolDomain, чтобы подтвердить запрос защиты:
+6. Run the Confirm-MsolDomain cmdlet to verify the challenge:
 
-	Confirm-MsolEmailVerifiedDomain -DomainName *имя\_вашего\_домена*
+    Confirm-MsolEmailVerifiedDomain -DomainName *your_domain_name*
 
-	например:
+    for example:
 
-	Confirm-MsolEmailVerifiedDomain -DomainName contoso.com
+    Confirm-MsolEmailVerifiedDomain -DomainName contoso.com
 
-Успешный запрос защиты возвращает строки без ошибок.
+A successful challenge returns you to the prompt without an error.
 
-## Как контролировать параметры самообслуживания?
+## <a name="how-do-i-control-self-service-settings?"></a>How do I control self-service settings?
 
-На сегодняшний день у администраторов есть два способа самообслуживаемого управления. Они могут управлять:
+Admins have two self-service controls today. They can control:
 
-- возможностью присоединения пользователей к каталогу с помощью электронной почты;
-- лицензированием пользователями самих себя для приложений и служб.
-
-
-### Как контролировать эти возможности?
-
-Администратор может настраивать эти возможности с помощью параметров командлета Azure AD Set-MsolCompanySettings:
-
-+ **AllowEmailVerifiedUsers** отвечает за то, может ли пользователь создать или присоединить неуправляемый каталог. Если задать для этого параметра значение $false, учетные записи пользователей, проверяемые с помощью электронной почты, не смогут присоединиться к каталогу.
-+ **AllowAdHocSubscriptions** управляет самостоятельной регистрацией. Если задать для этого параметра значение $false, пользователи не смогут выполнять самостоятельную регистрацию.
+- Whether or not users can join the directory via email.
+- Whether or not users can license themselves for applications and services.
 
 
-### Как совместно использовать эти элементы управления?
+### <a name="how-can-i-control-these-capabilities?"></a>How can I control these capabilities?
 
-Эти два параметра можно использовать совместно для определения более точного управления самостоятельной регистрацией. Например, следующая команда позволит пользователям выполнять самостоятельную регистрацию, но только если у этих пользователей уже есть учетная запись в Azure AD (другими словами, пользователям нужно будет иметь проверенную с помощью электронной почты учетную запись, чтобы получить возможность выполнить самостоятельную регистрацию):
+An admin can configure these capabilities using these Azure AD cmdlet Set-MsolCompanySettings parameters:
 
-	Set-MsolCompanySettings -AllowEmailVerifiedUsers $false -AllowAdHocSubscriptions $true
++ **AllowEmailVerifiedUsers** controls whether a user can create or join an unmanaged directory. If you set that parameter to $false, no email-verified users can join the directory.
++ **AllowAdHocSubscriptions** controls the ability for users to perform self-service sign up. If you set that parameter to $false, no users can perform self-service signup.
 
-На блок-схеме ниже объясняются различные сочетания этих параметров и результирующие условия для каталога и самостоятельной регистрации.
+
+### <a name="how-do-the-controls-work-together?"></a>How do the controls work together?
+
+These two parameters can be used in conjunction to define more precise control over self-service sign up. For example, the following command will allow users to perform self-service sign up, but only if those users already have an account in Azure AD (in other words, users who would need an email-verified account to be created cannot perform self-service sign up):
+
+    Set-MsolCompanySettings -AllowEmailVerifiedUsers $false -AllowAdHocSubscriptions $true
+
+The following flowchart explains all the different combinations for these parameters and the resulting conditions for the directory and self-service sign up.
 
 ![][1]
 
-Дополнительную информацию об этих параметрах и примеры их использования см. в разделе [Set-MsolCompanySettings](https://msdn.microsoft.com/library/azure/dn194127.aspx).
+For more information and examples of how to use these parameters, see [Set-MsolCompanySettings](https://msdn.microsoft.com/library/azure/dn194127.aspx).
 
-## См. также
+## <a name="see-also"></a>See Also
 
--  [Установка и настройка Azure PowerShell](../powershell-install-configure.md)
+-  [How to install and configure Azure PowerShell](../powershell-install-configure.md)
 
 -  [Azure PowerShell](https://msdn.microsoft.com/library/azure/jj156055.aspx)
 
--  [Справка по командлетам Azure](https://msdn.microsoft.com/library/azure/jj554330.aspx)
+-  [Azure Cmdlet Reference](https://msdn.microsoft.com/library/azure/jj554330.aspx)
 
 -  [Set-MsolCompanySettings](https://msdn.microsoft.com/library/azure/dn194127.aspx)
 
 <!--Image references-->
 [1]: ./media/active-directory-self-service-signup/SelfServiceSignUpControls.png
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

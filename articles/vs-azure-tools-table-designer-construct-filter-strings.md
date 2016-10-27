@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Построение строк фильтра для конструктора таблиц | Microsoft Azure"
-   description="Построение строк фильтра для конструктора таблиц"
+   pageTitle="Constructing filter strings for the table designer | Microsoft Azure"
+   description="Constructing filter strings for the table designer"
    services="visual-studio-online"
    documentationCenter="na"
    authors="TomArcher"
@@ -15,88 +15,93 @@
    ms.date="08/15/2016"
    ms.author="tarcher" />
 
-# Построение строк фильтра для конструктора таблиц
 
-## Обзор
+# <a name="constructing-filter-strings-for-the-table-designer"></a>Constructing Filter Strings for the Table Designer
 
-Для фильтрации данных в таблице Azure, отображаемой в **конструкторе таблиц** Visual Studio, нужно создать строку фильтра и ввести ее в поле фильтра. Синтаксис строки фильтра определяется службами данных WCF и напоминает предложение SQL WHERE, но отправляется в службу таблиц через HTTP-запрос. **Конструктор таблиц** обрабатывает соответствующую кодировку, поэтому для фильтрации по определенному значению свойства в поле фильтра необходимо ввести только имя свойства, оператор сравнения, значение критерия и, при необходимости, логический оператор. Не нужно включать параметр запроса $filter, как при построении URL-адреса для запроса к таблице через [Справочник по API REST служб хранилища](http://go.microsoft.com/fwlink/p/?LinkId=400447).
+## <a name="overview"></a>Overview
 
-Службы данных WCF основаны на протоколе [Open Data Protocol](http://go.microsoft.com/fwlink/p/?LinkId=214805) (OData). Сведения о параметре системного запроса фильтрации (**$filter**) см. в статье [Характеристики соглашений URI OData](http://go.microsoft.com/fwlink/p/?LinkId=214806).
+To filter data in an Azure table that is displayed in the Visual Studio **Table Designer**, you construct a filter string and enter it into the filter field. The filter string syntax is defined by the WCF Data Services and is similar to a SQL WHERE clause, but is sent to the Table service via an HTTP request. The **Table Designer** handles the proper encoding for you, so to filter on a desired property value, you need only enter the property name, comparison operator, criteria value, and optionally, Boolean operator in the filter field. You do not need to include the $filter query option as you would if you were constructing a URL to query the table via the [Storage Services REST API Reference](http://go.microsoft.com/fwlink/p/?LinkId=400447).
 
-## Операторы сравнения
+The WCF Data Services are based on the [Open Data Protocol](http://go.microsoft.com/fwlink/p/?LinkId=214805) (OData). For details on the filter system query option (**$filter**), see the [OData URI Conventions specification](http://go.microsoft.com/fwlink/p/?LinkId=214806).
 
-Для всех типов свойств поддерживаются следующие логические операторы:
+## <a name="comparison-operators"></a>Comparison Operators
 
-|Логический оператор|Описание|Пример строки фильтра|
+The following logical operators are supported for all property types:
+
+|Logical operator|Description|Example filter string|
 |---|---|---|
-|eq|Равно|City eq 'Redmond'|
-|gt|Больше|Price gt 20|
-|ge|Больше или равно|Price ge 10|
-|lt|Меньше|Price lt 20|
-|le|Меньше или равно|Price le 100|
-|ne|Не равно|City ne 'London'|
-|и|И|Price le 200 and Price gt 3.5|
-|или|Или|Price le 3.5 or Price gt 200|
+|eq|Equal|City eq 'Redmond'|
+|gt|Greater than|Price gt 20|
+|ge|Greater than or equal to|Price ge 10|
+|lt|Less than|Price lt 20|
+|le|Less than or equal|Price le 100|
+|ne|Not equal|City ne 'London'|
+|and|And|Price le 200 and Price gt 3.5|
+|or|Or|Price le 3.5 or Price gt 200|
 |not|Not|not isAvailable|
 
-При создании строки фильтра соблюдайте следующие правила.
+When constructing a filter string, the following rules are important:
 
-- Для сравнения свойства со значением используйте логические операторы. Обратите внимание, что нельзя сравнивать свойство и динамическое значение. Одна из частей выражения должна быть константой.
+- Use the logical operators to compare a property to a value. Note that it is not possible to compare a property to a dynamic value; one side of the expression must be a constant.
 
-- Во всех частях строки фильтра учитывается регистр.
+- All parts of the filter string are case-sensitive.
 
-- Для получения допустимых результатов фильтра значения константы и свойства должны иметь одинаковый тип данных. Дополнительные сведения о поддерживаемых типах свойств см. в статье [Общие сведения о модели данных службы таблиц](http://go.microsoft.com/fwlink/p/?LinkId=400448).
+- The constant value must be of the same data type as the property in order for the filter to return valid results. For more information about supported property types, see [Understanding the Table Service Data Model](http://go.microsoft.com/fwlink/p/?LinkId=400448).
 
-## Фильтрация по строковым свойствам
+## <a name="filtering-on-string-properties"></a>Filtering on String Properties
 
-Во время фильтрации по строковым свойствам заключайте строковую константу в одинарные кавычки.
+When you filter on string properties, enclose the string constant in single quotation marks.
 
-В следующем примере выполняется фильтрация по свойствам **PartitionKey** и **RowKey**. Дополнительные неключевые свойства также можно добавить в строку фильтра:
+The following example filters on the **PartitionKey** and **RowKey** properties; additional non-key properties could also be added to the filter string:
 
     PartitionKey eq 'Partition1' and RowKey eq '00001'
 
-Каждое выражение фильтра можно заключить в круглые скобки, хотя это не обязательно:
+You can enclose each filter expression in parentheses, although it is not required:
 
     (PartitionKey eq 'Partition1') and (RowKey eq '00001')
 
-Обратите внимание, что служба таблиц не поддерживает запросы с подстановочными знаками, они также не поддерживаются в конструкторе таблиц. Тем не менее можно выполнять фильтрацию по префиксу, используя операторы сравнения и нужный префикс. Следующий пример возвращает сущности, в которых свойство LastName начинается с буквы "A":
+Note that the Table service does not support wildcard queries, and they are not supported in the Table Designer either. However, you can perform prefix matching by using comparison operators on the desired prefix. The following example returns entities with a LastName property beginning with the letter 'A':
 
     LastName ge 'A' and LastName lt 'B'
 
-## Фильтрация по числовым свойствам
+## <a name="filtering-on-numeric-properties"></a>Filtering on Numeric Properties
 
-Чтобы отфильтровать целое число или число с плавающей запятой, указывайте число без кавычек.
+To filter on an integer or floating-point number, specify the number without quotation marks.
 
-Следующий пример возвращает все сущности свойства Age, значения которых больше 30.
+This example returns all entities with an Age property whose value is greater than 30:
 
     Age gt 30
 
-Следующий пример возвращает все сущности свойства AmountDue, значения которых меньше или равны 100,25.
+This example returns all entities with an AmountDue property whose value is less than or equal to 100.25:
 
     AmountDue le 100.25
 
-## Фильтрация по логическим свойствам
+## <a name="filtering-on-boolean-properties"></a>Filtering on Boolean Properties
 
-Для фильтрации по логическим значениям указывайте **true** или **false** без кавычек.
+To filter on a Boolean value, specify **true** or **false** without quotation marks.
 
-В следующем примере возвращаются все сущности, в которых свойство IsActive имеет значение **true**:
+The following example returns all entities where the IsActive property is set to **true**:
 
     IsActive eq true
 
-Это выражение фильтрации также можно записать без логического оператора. В следующем примере служба таблиц также вернет все сущности, в которых свойство IsActive имеет значение **true**.
+You can also write this filter expression without the logical operator. In the following example, the Table service will also return all entities where IsActive is **true**:
 
     IsActive
 
-Вернуть все сущности, в которых свойство IsActive имеет значение false, можно с помощью оператора not.
+To return all entities where IsActive is false, you can use the not operator:
 
     not IsActive
 
-## Фильтрация по свойствам DateTime
+## <a name="filtering-on-datetime-properties"></a>Filtering on DateTime Properties
 
-Для фильтрации по значению DateTime укажите ключевое слово **datetime**, за которым введите константу даты и времени в одинарных кавычках. Константа даты и времени должна быть указана в комбинированном формате UTC, как описано в статье [Форматирование значений свойства DateTime](http://go.microsoft.com/fwlink/p/?LinkId=400449).
+To filter on a DateTime value, specify the **datetime** keyword, followed by the date/time constant in single quotation marks. The date/time constant must be in combined UTC format, as described in [Formatting DateTime Property Values](http://go.microsoft.com/fwlink/p/?LinkId=400449).
 
-Следующий пример возвращает сущности, в которых свойство CustomerSince имеет значение 10 июля 2008 г.
+The following example returns entities where the CustomerSince property is equal to July 10, 2008:
 
     CustomerSince eq datetime'2008-07-10T00:00:00Z'
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

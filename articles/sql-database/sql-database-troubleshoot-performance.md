@@ -1,38 +1,43 @@
 <properties
-	pageTitle="Советы по настройке производительности базы данных SQL | Microsoft Azure"
-	description="Советы по настройке базы данных SQL Azure — оценка и улучшение производительности."
-	services="sql-database"
-	documentationCenter=""
-	authors="v-shysun"
-	manager="felixwu"
-	editor=""
-	keywords="настройка производительности sql, настройка производительности базы данных, советы по настройке производительности sql, настройка производительности базы данных sql"/>
+    pageTitle="SQL Database performance tuning tips | Microsoft Azure"
+    description="Tips for performance tuning in Azure SQL Database through evaluation and improvement."
+    services="sql-database"
+    documentationCenter=""
+    authors="v-shysun"
+    manager="felixwu"
+    editor=""
+    keywords="sql performance tuning, database performance tuning, sql performance tuning tips, sql database performance tuning"/>
 
 <tags
-	ms.service="sql-database"
-	ms.workload="data-management"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/13/2016"
-	ms.author="v-shysun"/>
+    ms.service="sql-database"
+    ms.workload="data-management"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/13/2016"
+    ms.author="v-shysun"/>
 
-# Советы по настройке производительности базы данных SQL
-Для повышения производительности вы можете в любое время изменить [уровень обслуживания](sql-database-service-tiers.md) одиночной базы данных или увеличить число eDTU пула эластичных баз данных, однако прежде необходимо определить, какие возможности можно улучшить, и оптимизировать выполнение запросов. Отсутствующие индексы и плохо оптимизированные запросы — распространенные причины низкой производительности баз данных. В этой статье описано, как настроить производительность для базы данных SQL.
+
+# <a name="sql-database-performance-tuning-tips"></a>SQL Database performance tuning tips
+You can change the [service tier](sql-database-service-tiers.md) of a single database or increase the eDTUs of an elastic database pool at any time to improve performance, but you may want to identify opportunities to improve and optimize query performance first. Missing indexes and poorly optimized queries are common reasons for poor database performance. This article provides guidance for performance tuning in SQL Database.
 
 [AZURE.INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
-## Порядок оценки и настройки производительности базы данных
-1.	На [портале Azure](https://portal.azure.com) щелкните **Базы данных SQL**, выберите базу данных и найдите ресурсы, приближающиеся к максимальной отметке, на диаграмме мониторинга. По умолчанию отображается процент использования DTU. Щелкните **Изменить**, чтобы изменить диапазон времени и отображаемые значения.
-2.	Используйте [анализ производительности запросов](sql-database-query-performance.md) для оценки запросов с помощью DTU, а затем используйте [помощник по базам данных SQL](sql-database-advisor.md), чтобы просмотреть рекомендации по созданию и удалению индексов, параметризации запросов и устранению ошибок схемы.
-3.	Для получения параметров производительности в режиме реального времени используйте динамические административные представления (DMV), расширенные события (Xevent) и хранилище запросов в SSMS. Дополнительную информацию о мониторинге и рекомендации по настройке см. в [руководстве по производительности](sql-database-performance-guidance.md).
+## <a name="steps-to-evaluate-and-tune-database-performance"></a>Steps to evaluate and tune database performance
+1.  In the [Azure Portal](https://portal.azure.com), click **SQL databases**, select the database, and then use the Monitoring chart to look for resources approaching their maximum. DTU consumption is shown by default. Click **Edit** to change the time range and values shown.
+2.  Use [Query Performance Insight](sql-database-query-performance.md) to evaluate the queries using DTUs, and then use [SQL Database Advisor](sql-database-advisor.md) to view recommendations for creating and dropping indexes, parameterizing queries, and fixing schema issues.
+3.  You can use dynamic management views (DMVs), Extended Events (Xevents), and the Query Store in SSMS to get performance parameters in real time. See the [performance guidance topic](sql-database-performance-guidance.md) for detailed monitoring and tuning tips.
 
 
-    > [AZURE.IMPORTANT] Чтобы обеспечить синхронизацию с обновлениями Microsoft Azure и Базой данных SQL, рекомендуется всегда использовать последнюю версию Management Studio. [Обновите среду SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
+    > [AZURE.IMPORTANT] It is recommended that you always use the latest version of Management Studio to remain synchronized with updates to Microsoft Azure and SQL Database. [Update SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
 
 
-## Повышение производительности базы данных с использованием дополнительных ресурсов
-1.	Для повышения производительности одиночных баз данных можно [изменять уровни служб](sql-database-scale-up.md) по мере необходимости.
-2.	Если баз данных несколько, можно включить автоматическое масштабирование ресурсов, используя [пулы эластичных баз данных](sql-database-elastic-pool-guidance.md).
+## <a name="steps-to-improve-database-performance-with-more-resources"></a>Steps to improve database performance with more resources
+1.  For single databases, you can [change service tiers](sql-database-scale-up.md) on-demand to improve database performance.
+2.  For multiple databases, consider using [elastic database pools](sql-database-elastic-pool-guidance.md) to scale resources automatically.
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

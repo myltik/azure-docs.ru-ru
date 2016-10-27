@@ -1,340 +1,341 @@
 <properties
-	pageTitle="Учебник. Интеграция Azure Active Directory с Hightail | Microsoft Azure"
-	description="Узнайте, как настроить единый вход Azure Active Directory в Hightail."
-	services="active-directory"
-	documentationCenter=""
-	authors="jeevansd"
-	manager="femila"
-	editor=""/>
+    pageTitle="Tutorial: Azure Active Directory integration with Hightail | Microsoft Azure"
+    description="Learn how to configure single sign-on between Azure Active Directory and Hightail."
+    services="active-directory"
+    documentationCenter=""
+    authors="jeevansd"
+    manager="femila"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/11/2016"
-	ms.author="jeedes"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/29/2016"
+    ms.author="jeedes"/>
 
 
-# Учебник. Интеграция Azure Active Directory с Hightail
 
-Цель этого учебника — показать, как интегрировать Hightail с Azure Active Directory (Azure AD).
+# <a name="tutorial:-azure-active-directory-integration-with-hightail"></a>Tutorial: Azure Active Directory integration with Hightail
 
-Интеграция Hightail с Azure AD дает приведенные далее преимущества:
+The objective of this tutorial is to show you how to integrate Hightail with Azure Active Directory (Azure AD).
 
-- С помощью Azure AD вы можете контролировать доступ к Hightail.
-- Вы можете включить автоматический вход пользователей в Hightail (единый вход) с использованием учетной записи Azure AD.
-- Вы можете управлять учетными записями централизованно — через классический портал Azure.
+Integrating Hightail with Azure AD provides you with the following benefits:
 
-Подробнее узнать об интеграции приложений SaaS с Azure AD можно в статье [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md).
+- You can control in Azure AD who has access to Hightail
+- You can enable your users to automatically get signed-on to Hightail (Single Sign-On) with their Azure AD accounts
+- You can manage your accounts in one central location - the Azure classic portal
 
-## Предварительные требования
+If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-Чтобы настроить интеграцию Azure AD с Hightail, вам потребуется:
+## <a name="prerequisites"></a>Prerequisites
 
-- подписка Azure AD;
-- подписка Hightail с поддержкой единого входа.
+To configure Azure AD integration with Hightail, you need the following items:
 
-
-> [AZURE.NOTE] Мы не рекомендуем использовать рабочую среду для проверки действий в этом учебнике.
+- An Azure AD subscription
+- A Hightail single-sign on enabled subscription
 
 
-При проверке действий в этом учебнике соблюдайте следующие рекомендации:
-
-- Не следует использовать рабочую среду при отсутствии необходимости.
-- Если у вас нет пробной среды Azure AD, вы можете получить пробную версию на один месяц по [этой ссылке](https://azure.microsoft.com/pricing/free-trial/).
+> [AZURE.NOTE] To test the steps in this tutorial, we do not recommend using a production environment.
 
 
-## Описание сценария
-Цель этого учебника — научить вас проверять единый вход в Azure AD в пробной среде.
+To test the steps in this tutorial, you should follow these recommendations:
 
-Сценарий, описанный в этом учебнике, состоит из двух основных блоков:
-
-1. Добавление Hightail из коллекции
-2. Настройка и проверка единого входа в Azure AD
+- You should not use your production environment, unless this is necessary.
+- If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).
 
 
-## Добавление Hightail из коллекции
-Чтобы настроить интеграцию Hightail с Azure AD, необходимо добавить Hightail из коллекции в список управляемых приложений SaaS.
+## <a name="scenario-description"></a>Scenario Description
+The objective of this tutorial is to enable you to test Azure AD single sign-on in a test environment. 
 
-**Чтобы добавить Hightail из коллекции, выполните следующие действия:**
+The scenario outlined in this tutorial consists of two main building blocks:
 
-1. На **классическом портале Azure** в области навигации слева щелкните **Active Directory**.
+1. Adding Hightail from the gallery
+2. Configuring and testing Azure AD single sign-on
+
+
+## <a name="adding-hightail-from-the-gallery"></a>Adding Hightail from the gallery
+To configure the integration of Hightail into Azure AD, you need to add Hightail from the gallery to your list of managed SaaS apps.
+
+**To add Hightail from the gallery, perform the following steps:**
+
+1. In the **Azure classic portal**, on the left navigation pane, click **Active Directory**. 
  
-	![Active Directory][1]
+    ![Active Directory][1]
 
-2. Из списка **Каталог** выберите каталог, для которого нужно включить интеграцию каталогов.
+2. From the **Directory** list, select the directory for which you want to enable directory integration.
 
-3. Чтобы открыть представление приложений, в представлении каталога нажмите **Приложения** в верхнем меню.
+3. To open the applications view, in the directory view, click **Applications** in the top menu.
 
-	![Приложения][2]
+    ![Applications][2]
 
-4. В нижней части страницы нажмите кнопку **Добавить**.
+4. Click **Add** at the bottom of the page.
 
-	![Приложения][3]
+    ![Applications][3]
 
-5. В диалоговом окне **Что необходимо сделать?** нажмите **Добавить приложение из коллекции**.
+5. On the **What do you want to do** dialog, click **Add an application from the gallery**.
 
-	![Приложения][4]
+    ![Applications][4]
 
-6. В поле поиска введите **Hightail**.
+6. In the search box, type **Hightail**.
 
-	![Создание тестового пользователя Azure AD](./media/active-directory-saas-hightail-tutorial/tutorial_hightail_01.png)
+    ![Creating an Azure AD test user](./media/active-directory-saas-hightail-tutorial/tutorial_hightail_01.png)
 
-7. В области результатов выберите **Hightail** и нажмите кнопку **Завершить**, чтобы добавить приложение.
+7. In the results pane, select **Hightail**, and then click **Complete** to add the application.
 
-	![Выбор приложения в коллекции](./media/active-directory-saas-hightail-tutorial/tutorial_hightail_02.png)
+    ![Selecting the app in the gallery](./media/active-directory-saas-hightail-tutorial/tutorial_hightail_02.png)
 
-##  Настройка и проверка единого входа в Azure AD
-Цель этого раздела — показать, как настроить и проверить единый вход Azure AD в Hightail с использованием тестового пользователя Britta Simon.
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuring and testing Azure AD single sign-on
+The objective of this section is to show you how to configure and test Azure AD single sign-on with Hightail based on a test user called "Britta Simon".
 
-Для работы единого входа в Azure AD необходимо знать, какой пользователь в Hightail соответствует пользователю в Azure AD. Иными словами, необходимо установить связь между пользователем Azure AD и соответствующим пользователем в Hightail.
+For single sign-on to work, Azure AD needs to know what the counterpart user in Hightail to an user in Azure AD is. In other words, a link relationship between an Azure AD user and the related user in Hightail needs to be established.
 
-Чтобы установить эту связь, следует указать **имя пользователя** в Azure AD в качестве значения **имени пользователя** в Hightail.
+This link relationship is established by assigning the value of the **user name** in Azure AD as the value of the **Username** in Hightail.
 
-Чтобы настроить и проверить единый вход Azure AD в Hightail, вам потребуется выполнить действия в следующих стандартных блоках:
+To configure and test Azure AD single sign-on with Hightail, you need to complete the following building blocks:
 
-1. **[Настройка единого входа Azure AD](#configuring-azure-ad-single-sign-on)** необходима, чтобы пользователи могли использовать эту функцию.
-2. **[Создание тестового пользователя Azure AD](#creating-an-azure-ad-test-user)** требуется для проверки работы единого входа Azure AD от имени пользователя Britta Simon.
-4. **[Создание тестового пользователя Hightail](#creating-a-hightail-test-user)** требуется для создания в Hightail пользователя Britta Simon, связанного с представлением этого же пользователя в Azure AD.
-5. **[Назначение тестового пользователя Azure AD](#assigning-the-azure-ad-test-user)** необходимо, чтобы позволить Britta Simon использовать единый вход в Azure AD.
-5. **[Проверка единого входа](#testing-single-sign-on)** необходима, чтобы убедиться в корректной работе конфигурации.
+1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - to enable your users to use this feature.
+2. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
+4. **[Creating a Hightail test user](#creating-a-hightail-test-user)** - to have a counterpart of Britta Simon in Hightail that is linked to the Azure AD representation of her.
+5. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
+5. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
 
-### Настройка единого входа в Azure AD
+### <a name="configuring-azure-ad-single-sign-on"></a>Configuring Azure AD Single Sign-On
 
-В этом разделе описано, как включить единый вход Azure AD на классическом портале Azure AD и настроить единый вход в приложении Hightail.
+The objective of this section is to enable Azure AD single sign-on in the Azure classic portal and to configure single sign-on in your Hightail application.
 
-Приложение Hightail ожидает утверждения SAML в определенном формате. Настройте следующие утверждения для этого приложения. Управлять значениями этих атрибутов можно на вкладке**"Атрибут"** приложения. На следующем снимке экрана приведен пример.
+Hightail application expects the SAML assertions in a specific format. Please configure the following claims for this application. You can manage the values of these attributes from the **"Atrribute"** tab of the application. The following screenshot shows an example for this. 
 
-![Настройка единого входа](./media/active-directory-saas-hightail-tutorial/tutorial_hightail_51.png)
+![Configure Single Sign-On](./media/active-directory-saas-hightail-tutorial/tutorial_hightail_51.png) 
 
-**Чтобы настроить единый вход Azure AD в Hightail, выполните следующие действия:**
+**To configure Azure AD single sign-on with Hightail, perform the following steps:**
 
 
-1. На странице интеграции с приложением **Hightail** классического портала Azure в меню в верхней части страницы щелкните **Атрибуты**.
+1. In the Azure classic portal, on the **Hightail** application integration page, in the menu on the top, click **Attributes**.
 
-	![Настройка единого входа](./media/active-directory-saas-hightail-tutorial/tutorial_general_81.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-hightail-tutorial/tutorial_general_81.png) 
 
 
-1. В диалоговом окне **Атрибуты токена SAML** для каждой строки в таблице ниже выполните следующие действия:
+1. On the **SAML token attributes** dialog, for each row shown in the table below, perform the following steps:
 
-	| Имя атрибута | Значение атрибута |
-	| --- | --- |    
-	| FirstName | user.givenname |
-    | LastName | user.surname |
-	| Email | user.mail |
-	| UserIdentity | user.mail |
+  	| Attribute Name | Attribute Value |
+  	| --- | --- |    
+  	| FirstName | user.givenname |
+  	| LastName  | user.surname |
+  	| Email | user.mail |
+  	| UserIdentity | user.mail |
 
-	а. Щелкните **Добавить атрибут пользователя**, чтобы открыть диалоговое окно **Добавление атрибута пользователя**.
+    a. Click **add user attribute** to open the **Add User Attribure** dialog.
 
-	![Настройка единого входа](./media/active-directory-saas-hightail-tutorial/tutorial_general_82.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-hightail-tutorial/tutorial_general_82.png) 
 
 
-	b. В текстовом поле **Имя атрибута** введите имя атрибута, отображаемое для этой строки.
+    b. In the **Attrubute Name** textbox, type the attribute name shown for that row.
 
-    c. В списке **Значение атрибута** выберите значение атрибута, отображаемое для этой строки.
+    c. From the **Attribute Value** list, selsect the attribute value shown for that row.
 
-    г) Нажмите **Завершено**.
-	
+    d. Click **Complete**.  
+    
 
 
 
-1. В верхнем меню щелкните **Быстрый запуск**.
+1. In the menu on the top, click **Quick Start**.
 
-	![Настройка единого входа](./media/active-directory-saas-hightail-tutorial/tutorial_general_83.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-hightail-tutorial/tutorial_general_83.png)  
 
 
 
-2. На странице **Как пользователи должны входить в Hightail** выберите **Единый вход Azure AD** и нажмите кнопку **Далее**.
+2. On the **How would you like users to sign on to Hightail** page, select **Azure AD Single Sign-On**, and then click **Next**.
 
-	![Настройка единого входа](./media/active-directory-saas-hightail-tutorial/tutorial_hightail_03.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-hightail-tutorial/tutorial_hightail_03.png) 
 
 
-3. Если вы хотите настроить приложение в **режиме, инициированном IDP**, на диалоговой странице **Настройка параметров приложения** выполните следующие действия и нажмите кнопку **Далее**.
+3. On the **Configure App Settings** dialog page, If you wish to configure the application in **IDP initiated mode**, perform the following steps and click **Next**:
 
-	![Настройка единого входа](./media/active-directory-saas-hightail-tutorial/tutorial_hightail_04.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-hightail-tutorial/tutorial_hightail_04.png) 
 
 
 
-    а. В текстовом поле**URL-адрес ответа** введите URL-адрес по следующей схеме: **"https://www.hightail.com/samlLogin?phi\_action=app/samlLogin&subAction=handleSamlResponse"**.
+    a. In the **Reply URL** textbox, type the URL in the following pattern: **"https://www.hightail.com/samlLogin?phi_action=app/samlLogin&subAction=handleSamlResponse"**
 
-	b. Нажмите кнопку **Далее**.
+    b. Click **Next**
 
-4. Если вы хотите настроить приложение в **режиме, инициированном SP**, на диалоговой странице **Настройка параметров приложения** щелкните **Показать дополнительные параметры (необязательно)**, а затем введите **URL-адрес входа** и нажмите кнопку **Далее**.
+4. If you wish to configure the application in **SP initiated mode** on the **Configure App Settings** dialog page, then click on the **“Show advanced settings (optional)”** and then enter the **Sign On URL** and click **Next**.
 
-	![Настройка единого входа](./media/active-directory-saas-hightail-tutorial/tutorial_hightail_06.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-hightail-tutorial/tutorial_hightail_06.png) 
 
-	а. В текстовом поле "URL-адрес входа" введите URL-адрес, используемый пользователями для входа в приложение Hightail, по следующей схеме: **https://www.hightail.com/loginSSO**. Это общая страница входа для всех клиентов, которые хотят использовать единый вход.
+    a. In the Sign On URL textbox, type the URL used by your users to sign-on to your Hightail application using the following pattern: **https://www.hightail.com/loginSSO**. This is the common Login page for all the customers who wish to use SSO.
 
-	b. Нажмите кнопку **Далее**.
+    b. Click **Next**
 
-5. На странице **Настройка единого входа в Hightail** выполните следующие действия и нажмите кнопку **Далее**:
+5. On the **Configure single sign-on at Hightail** page, perform the following steps and click **Next**:
 
-	![Настройка единого входа](./media/active-directory-saas-hightail-tutorial/tutorial_hightail_05.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-hightail-tutorial/tutorial_hightail_05.png) 
 
 
-    а. Нажмите **Скачать сертификат** и сохраните файл сертификата в кодировке Base 64 на свой компьютер.
+    a. Click **Download certificate**, and then save the base-64 encoded certificate file on your computer.
 
-    b. Нажмите кнопку **Далее**.
+    b. Click **Next**.
 
-	> [AZURE.NOTE] Перед настройкой единого входа в приложение Hightail внесите почтовый домен Hightail в список разрешенных, чтобы все пользователи этого домена могли использовать функции единого входа.
+    > [AZURE.NOTE] Before configuring the Single Sign On at Hightail app, please white list your email domain with Hightail team so that all the users who are using this domain can leverage Single Sign On functionality.
 
-6. Чтобы единый вход был настроен для вашего приложения, войдите в клиент Hightail с правами администратора.
+6. To get SSO configured for your application, you need to sign-on to your Hightail tenant as an administrator.
 
-	а. В меню в верхней части откройте вкладку **Учетная запись** и выберите **Настройка SAML**.
+    a. In the menu on the top, click the **Account** tab and select **Configure SAML**.
 
-	![Настройка единого входа](./media/active-directory-saas-hightail-tutorial/tutorial_hightail_001.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-hightail-tutorial/tutorial_hightail_001.png) 
 
 
-	b. Установите флажок **Включить проверку подлинности SAML**.
+    b. Select the checkbox of **Enable SAML Authentication**.
 
-	![Настройка единого входа](./media/active-directory-saas-hightail-tutorial/tutorial_hightail_002.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-hightail-tutorial/tutorial_hightail_002.png) 
 
-	c. Откройте сертификат в кодировке Base 64 в блокноте, скопируйте его содержимое в буфер обмена, а затем вставьте его в текстовое поле **Сертификат подписи токена SAML**.
+    c. Open your base-64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste it to the **SAML Token Signing Certificate** textbox.
 
-	![Настройка единого входа](./media/active-directory-saas-hightail-tutorial/tutorial_hightail_003.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-hightail-tutorial/tutorial_hightail_003.png) 
 
 
-	г) Скопируйте URL-адрес удаленного входа из Azure AD в поле **Центр SAML (поставщик удостоверений)** в Hightail.
+    d. Copy Remote Login URL from Azure AD to **SAML Authority (Identity Provider)** in Hightail.
 
-	![Настройка единого входа](./media/active-directory-saas-hightail-tutorial/tutorial_hightail_005.png)
-	
-	![Настройка единого входа](./media/active-directory-saas-hightail-tutorial/tutorial_hightail_004.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-hightail-tutorial/tutorial_hightail_005.png)
+    
+    ![Configure Single Sign-On](./media/active-directory-saas-hightail-tutorial/tutorial_hightail_004.png)
 
-	д. Если вы хотите настроить приложение в **режиме, инициированном IDP**, выберите **Вход, инициированный поставщиком удостоверений (IdP)**. Если вы хотите настроить приложение в **режиме, инициированном SP**, выберите **Вход, инициированный поставщиком услуг (SP)**.
-	
-	![Настройка единого входа](./media/active-directory-saas-hightail-tutorial/tutorial_hightail_006.png)
+    e. If you wish to configure the application in **IDP initiated mode** select **"Identity Provider (IdP) initiated log in"**. If **SP initiated mode** select **"Service Provider (SP) initiated log in"**.
+    
+    ![Configure Single Sign-On](./media/active-directory-saas-hightail-tutorial/tutorial_hightail_006.png)
 
-	Е. Скопируйте URL-адрес получателя SAML для своего экземпляра и вставьте его в текстовое поле **URL-адрес ответа**, как показано в шаге 4.
+    f. Copy the SAML consumer URL for your instance and paste it in **Reply URL** textbox as shown in step 4. 
 
-	ж. Щелкните **Сохранить**.
+    g. Click **Save**.
 
 
 
-6. На классическом портале Azure выберите подтверждение конфигурации единого входа и нажмите кнопку **Далее**.
+6. In the Azure classic portal, select the single sign-on configuration confirmation, and then click **Next**.
 
-	![Единый вход в Azure AD][10]
+    ![Azure AD Single Sign-On][10]
 
-7. На странице **Подтверждение единого входа** нажмите кнопку **Завершить**.
+7. On the **Single sign-on confirmation** page, click **Complete**. 
  
-	![Единый вход в Azure AD][11]
+    ![Azure AD Single Sign-On][11]
 
 
 
 
-### Создание тестового пользователя Azure AD
-Цель этого раздела — создать на классическом портале Azure тестового пользователя с именем Britta Simon.
+### <a name="creating-an-azure-ad-test-user"></a>Creating an Azure AD test user
+The objective of this section is to create a test user in the Azure classic portal called Britta Simon.
 
-В списке пользователей выберите **Britta Simon**.
+In the Users list, select **Britta Simon**.
 
-![Создание пользователя Azure AD][20]
+![Create Azure AD User][20]
 
-**Чтобы создать тестового пользователя в Azure AD, выполните следующие действия:**
+**To create a test user in Azure AD, perform the following steps:**
 
-1. На **классическом портале Azure** в области навигации слева щелкните **Active Directory**.
+1. In the **Azure classic portal**, on the left navigation pane, click **Active Directory**.
 
-	![Создание тестового пользователя Azure AD](./media/active-directory-saas-hightail-tutorial/create_aaduser_09.png)
+    ![Creating an Azure AD test user](./media/active-directory-saas-hightail-tutorial/create_aaduser_09.png) 
 
-2. Из списка **Каталог** выберите каталог, для которого нужно включить интеграцию каталогов.
+2. From the **Directory** list, select the directory for which you want to enable directory integration.
 
-3. Чтобы отобразить список пользователей, щелкните **Пользователи** в меню вверху.
+3. To display the list of users, in the menu on the top, click **Users**.
  
-	![Создание тестового пользователя Azure AD](./media/active-directory-saas-hightail-tutorial/create_aaduser_03.png)
+    ![Creating an Azure AD test user](./media/active-directory-saas-hightail-tutorial/create_aaduser_03.png) 
 
 
-4. Чтобы открыть диалоговое окно **Добавление пользователя**, на панели инструментов внизу нажмите кнопку **Добавить пользователя**.
+4. To open the **Add User** dialog, in the toolbar on the bottom, click **Add User**.
 
-	![Создание тестового пользователя Azure AD](./media/active-directory-saas-hightail-tutorial/create_aaduser_04.png)
+    ![Creating an Azure AD test user](./media/active-directory-saas-hightail-tutorial/create_aaduser_04.png)
 
-5. На диалоговой странице **Расскажите об этом пользователе** выполните следующие действия:
+5. On the **Tell us about this user** dialog page, perform the following steps:
 
-	![Создание тестового пользователя Azure AD](./media/active-directory-saas-hightail-tutorial/create_aaduser_05.png)
+    ![Creating an Azure AD test user](./media/active-directory-saas-hightail-tutorial/create_aaduser_05.png) 
 
-    а. В поле **Тип пользователя** выберите значение **Новый пользователь в вашей организации**.
+    a. As **Type Of User**, select **New user in your organization**.
 
-    b. В текстовом поле **Имя пользователя** введите **BrittaSimon**.
+    b. In the **User Name** textbox, type **BrittaSimon**.
 
-    c. Нажмите кнопку **Далее**.
+    c. Click **Next**.
 
-6.  На диалоговой странице **Профиль пользователя** выполните следующие действия:
+6.  On the **User Profile** dialog page, perform the following steps:
 
-	![Создание тестового пользователя Azure AD](./media/active-directory-saas-hightail-tutorial/create_aaduser_06.png)
+    ![Creating an Azure AD test user](./media/active-directory-saas-hightail-tutorial/create_aaduser_06.png) 
 
-    а. В текстовом поле **Имя** введите **Britta**.
+    a. In the **First Name** textbox, type **Britta**.  
 
-    b. В текстовое поле **Фамилия** введите **Simon**.
+    b. In the **Last Name** textbox, type, **Simon**.
 
-    c. В текстовое поле **Отображаемое имя** введите **Britta Simon**.
+    c. In the **Display Name** textbox, type **Britta Simon**.
 
-    г) В списке **Роль** выберите **Пользователь**.
+    d. In the **Role** list, select **User**.
 
-    д. Нажмите кнопку **Далее**.
+    e. Click **Next**.
 
-7. На диалоговой странице **Получение временного пароля** нажмите кнопку **Создать**.
+7. On the **Get temporary password** dialog page, click **create**.
 
-	![Создание тестового пользователя Azure AD](./media/active-directory-saas-hightail-tutorial/create_aaduser_07.png)
+    ![Creating an Azure AD test user](./media/active-directory-saas-hightail-tutorial/create_aaduser_07.png) 
 
 
-8. На диалоговой странице **Получение временного пароля** выполните следующие действия:
+8. On the **Get temporary password** dialog page, perform the following steps:
  
-	![Создание тестового пользователя Azure AD](./media/active-directory-saas-hightail-tutorial/create_aaduser_08.png)
+    ![Creating an Azure AD test user](./media/active-directory-saas-hightail-tutorial/create_aaduser_08.png) 
 
-    а. Запишите значение поля **Новый пароль**.
+    a. Write down the value of the **New Password**.
 
-    b. Нажмите **Завершено**.
-
-
-
-### Создание тестового пользователя Hightail
-
-Цель этого раздела — создать пользователя с именем Britta Simon в Hightail.
-
-В этом разделе никакие действия с вашей стороны не требуются. Приложение Hightail поддерживает JIT-подготовку пользователей на основе настраиваемых утверждений. Если вы настроили пользовательские утверждения, как показано в разделе **[Настройка Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** выше, пользователь будет автоматически создан в приложении (если он еще не существует).
-
-> [AZURE.NOTE] Если вам нужно вручную создать пользователя, необходимо обратиться в службу поддержки Hightail по адресу [support@hightail.com](mailto:support@hightail.com).
+    b. Click **Complete**.   
 
 
-### Назначение тестового пользователя Azure AD
 
-Цель этого раздела — разрешить пользователю Britta Simon использовать единый вход Azure, предоставив ей доступ к Hightail.
+### <a name="creating-a-hightail-test-user"></a>Creating a Hightail test user
 
-![Назначение пользователя][200]
+The objective of this section is to create a user called Britta Simon in Hightail. 
 
-**Чтобы назначить пользователя Britta Simon в Hightail, выполните следующие действия:**
+There is no action item for you in this section. Hightail supports just-in-time user provisioning based on the custom claims. If you have configured the custom claims as shown in the section **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** above, a user is automatically created in the application it doesn't exist yet. 
 
-1. Чтобы открыть представление приложений, в представлении каталога на классическом портале Azure щелкните **Приложения** в верхнем меню.
+> [AZURE.NOTE] If you need to create an user manually, you need to contact the Hightail support team via [support@hightail.com](mailto:support@hightail.com).
+
+
+### <a name="assigning-the-azure-ad-test-user"></a>Assigning the Azure AD test user
+
+The objective of this section is to enabling Britta Simon to use Azure single sign-on by granting her access to Hightail.
+
+![Assign User][200] 
+
+**To assign Britta Simon to Hightail, perform the following steps:**
+
+1. On the Azure classic portal, to open the applications view, in the directory view, click **Applications** in the top menu.
  
-	![Назначение пользователя][201]
+    ![Assign User][201] 
 
-2. В списке приложений выберите **Hightail**.
+2. In the applications list, select **Hightail**.
 
-	![Настройка единого входа](./media/active-directory-saas-hightail-tutorial/tutorial_hightail_50.png)
-
-
-1. В меню в верхней части страницы щелкните **Пользователи**.
-
-	![Назначение пользователя][203]
-
-1. В списке пользователей выберите **Britta Simon**.
-
-2. На панели инструментов внизу щелкните **Назначить**.
-
-![Назначение пользователя][205]
+    ![Configure Single Sign-On](./media/active-directory-saas-hightail-tutorial/tutorial_hightail_50.png) 
 
 
+1. In the menu on the top, click **Users**.
 
-### Проверка единого входа
+    ![Assign User][203]
 
-Цель этого раздела — проверить конфигурацию единого входа Azure AD с помощью панели доступа.
+1. In the Users list, select **Britta Simon**.
 
-Щелкнув элемент Hightail на панели доступа, вы автоматически войдете в приложение Hightail.
+2. In the toolbar on the bottom, click **Assign**.
+
+![Assign User][205]
 
 
-## Дополнительные ресурсы
 
-* [Список учебников по интеграции приложений SaaS с Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+### <a name="testing-single-sign-on"></a>Testing Single Sign-On
+
+The objective of this section is to test your Azure AD single sign-on configuration using the Access Panel.
+
+When you click the Hightail tile in the Access Panel, you should get automatically signed-on to your Hightail application.
+
+
+## <a name="additional-resources"></a>Additional Resources
+
+* [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 
 
@@ -356,4 +357,8 @@
 [204]: ./media/active-directory-saas-hightail-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-hightail-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0713_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

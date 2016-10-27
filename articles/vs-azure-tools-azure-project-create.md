@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Создание проекта Azure в Visual Studio | Microsoft Azure"
-   description="Создание проекта Azure в Visual Studio"
+   pageTitle="Creating an Azure project with Visual Studio | Microsoft Azure"
+   description="Creating an Azure project with Visual Studio"
    services="visual-studio-online"
    documentationCenter="na"
    authors="TomArcher"
@@ -15,51 +15,56 @@
    ms.date="08/15/2016"
    ms.author="tarcher" />
 
-# Создание проекта Azure в Visual Studio
 
-Средства Azure для Visual Studio предоставляют шаблон, который позволяет создавать облачные службы для Azure. Средства также помогают настраивать облачные службы, выполнять их отладку и развертывать их в Azure.
+# <a name="creating-an-azure-project-with-visual-studio"></a>Creating an Azure Project with Visual Studio
 
-Решение Azure для облачных служб содержит следующие типы проектов:
+The Azure Tools for Visual Studio provide a template that lets you create a cloud service for Azure. The tools also help you configure, debug, and deploy the cloud service to Azure.
 
-- **Проект Azure**
+An Azure cloud service solution contains the following types of projects:
 
-    Проект Azure связан с проектами ролей в решении. Он включает определение службы и файлы конфигурации службы. Файл определения службы определяет параметры среды выполнения для приложения, в том числе требуемые роли, конечные точки и размер виртуальной машины. Файл конфигурации службы задает количество выполняемых экземпляров роли, а также значения параметров, определенных для роли. Дополнительные сведения об этих параметрах см. в разделе [Практическое руководство. Настройка ролей для облачной службы Azure с помощью Visual Studio](vs-azure-tools-configure-roles-for-cloud-service.md).
+- **Azure project**
 
-- **Проект веб-роли**
+    The Azure project has associations to the role projects in the solution. It also includes the service definition and service configuration files. The service definition file defines the runtime settings for your application including what roles are required, endpoints, and virtual machine size. The service configuration file configures how many instances of a role are run and the values of the settings defined for a role. For more information about these settings, see [How to: Configure the Roles for an Azure Cloud Service with Visual Studio](vs-azure-tools-configure-roles-for-cloud-service.md).
 
-    Рабочая роль выполняет фоновую обработку. Рабочая роль может взаимодействовать со службами хранилища и другими веб-службами. Рабочая роль может иметь любое количество конечных точек HTTP, HTTPS или TCP.
+- **Web role project**
 
-    - **Веб-роль ASP.NET** — для построения приложений ASP.NET с помощью веб-интерфейса
-    - **Веб-роль ASP.NET MVC5**
-    - **Веб-роль ASP.NET MVC4**
-    - **Веб-роль ASP.NET MVC3**
-    - **Веб-роль службы WCF** (для построения службы WCF)
-    - **Веб-роль бизнес-приложений Silverlight** (требуется Visual Studio 2012)
+    A worker role performs background processing. A worker role can communicate with storage services and with other Internet-based services. A worker role can have any number of HTTP, HTTPS, or TCP endpoints.
 
-- **Рабочая роль кэша**
+    - **ASP.NET Web Role**, for building an ASP.NET application with a web front end
+    - **ASP.NET MVC5 Web Role**
+    - **ASP.NET MVC4 Web Role**
+    - **ASP.NET MVC3 Web Role**
+    - **WCF Service Web Role**, for building a WCF service
+    - **Silverlight Business Application Web Role** (requires Visual Studio 2012)
 
-    Роль, предоставляющая приложению выделенный кэш.
+- **Cache Worker Role**
 
-- **Рабочая роль с очередью служебной шины**
+    A role that provides a dedicated cache to your application.
 
-    Очередь служебной шины, предоставляющая функциональность очередей сообщений для взаимодействия с рабочим процессом. Дополнительные сведения см. в разделе [Использование очередей Service Bus](http://go.microsoft.com/fwlink/?LinkId=260560).
+- **Worker Role with Service Bus Queue**
 
-## Чтобы создать проект облачной службы в Visual Studio:
+    A service bus queue that provides message queuing functionality to communicate with the worker process. For more information, see [How to Use Service Bus Queues](http://go.microsoft.com/fwlink/?LinkId=260560).
 
-1. Запустите Microsoft Visual Studio от имени администратора.
+## <a name="to-create-an-azure-cloud-service-project-in-visual-studio"></a>To create an Azure cloud service project in Visual Studio
 
-1. В главном меню выберите **Файл**, **Создать**, **Проект**.
+1. Start Microsoft Visual Studio as an administrator.
 
-1. В области **Типы проектов** выберите **Облако** в узлах шаблонов проектов Visual C# или Visual Basic.
+1. On the menu bar, choose **File**, **New**, **Project**.
 
-1. В области **Шаблоны** выберите **Облачная служба Azure**.
+1. In the **Project Types** pane, choose **Cloud** from the Visual C# or Visual Basic project template nodes.
 
-1. Укажите, какую версию платформы .NET Framework вы хотите использовать для разработки проекта.
+1. In the **Templates** pane, choose  **Azure Cloud Service**.
 
-1. Введите имя проекта, его расположение и имя решения. Нажмите кнопку **ОК**.
+1. Specify which version of the .NET Framework you want to use to develop your project.
 
-1. В диалоговом окне **Новый проект Azure** выберите роли, которые хотите добавить, и нажмите стрелку вправо, чтобы добавить их в решение. Вы можете добавить любое количество ролей.
+1. Enter a name and location for your project and a name for the solution. Choose the **OK** button.
 
-1. Чтобы переименовать роль, добавленную в проект, выберите роль в диалоговом окне **Новый проект Azure** и щелкните значок **Переименовать** справа от нее. Вы также можете переименовать роль в решении после ее добавления.
+1. In the **New Azure Project** dialog box, choose the roles that you want to add, and choose the right arrow button to add them to your solution. You can add as many roles as you need.
 
-<!---HONumber=AcomDC_0817_2016-->
+1. To rename a role that you've added to your project, hover on the role in the **New Azure Project** dialog box, and choose the **Rename** icon to the right of the role. You can also rename a role within your solution after it has been added.
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

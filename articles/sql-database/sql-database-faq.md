@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Часто задаваемые вопросы о базе данных SQL Azure" 
-   description="Ответы на распространенные вопросы, задаваемые клиентами об облачных базах данных и базе данных SQL Azure, системе управления реляционной базой данных (реляционной СУБД) Майкрософт и базе данных как услуге в облаке." 
+   pageTitle="Azure SQL Database FAQ" 
+   description="Answers to common questions customers ask about cloud databases and Azure SQL Database, Microsoft's relational database management system (RDBMS) and database as a service in the cloud." 
    services="sql-database" 
    documentationCenter="" 
    authors="CarlRabeler" 
@@ -16,77 +16,82 @@
    ms.date="08/16/2016"
    ms.author="sashan;carlrab"/>
 
-# Часто задаваемые вопросы о базе данных SQL
 
-## Как плата за использование базы данных SQL отражается в счете? 
-Счета за использование базы данных SQL выставляются с учетом часовой ставки в зависимости от уровня службы и уровня производительности для отдельных баз данных или количества единиц eDTU для одного пула эластичных баз данных. Фактическое использование вычисляется и распределяется пропорционально по часам, поэтому в счете могут отображаться части часа. Например, если база данных просуществует в течение 12 часов за месяц, то в счете будет показано использование базы данных в течение половины дня. Кроме того, уровни служб, уровень производительности и единицы eDTU для пула разбиваются в счете на отдельные позиции. Это упрощает вычисление количества дней использования базы данных в месяц.
+# <a name="sql-database-faq"></a>SQL Database FAQ
 
-## Что делать, если отдельная база данных активна менее часа или использует более высокий уровень службы менее часа?
-Плата взимается за каждый час существования базы данных с учетом самого высокого уровня служб и уровня производительности, которые использовались в течение этого часа, даже если база данных использовалась или была активна менее часа. Например, если вы создадите отдельную базу данных и через 5 минут удалите ее, вам будет выставлен счет за 1 час использования базы данных.
+## <a name="how-does-the-usage-of-sql-database-show-up-on-my-bill?"></a>How does the usage of SQL Database show up on my bill? 
+SQL Database bills on a predictable hourly rate based on both the service tier + performance level for single databases or eDTUs per elastic database pool. Actual usage is computed and pro-rated hourly, so your bill might show fractions of an hour. For example, if a database exists for 12 hours in a month, your bill shows usage of 0.5 days. Additionally, service tiers + performance level and eDTUs per pool are broken out in the bill to make it easier to see the number of database days you used for each in a single month.
 
-Примеры
-	
-- Если вы создадите базу данных категории «Базовый», а затем сразу обновите ее до категории «Стандартный» S1, то плата за первый час будет взиматься по ставке «Стандартный» S1.
+## <a name="what-if-a-single-database-is-active-for-less-than-an-hour-or-uses-a-higher-service-tier-for-less-than-an-hour?"></a>What if a single database is active for less than an hour or uses a higher service tier for less than an hour?
+You are billed for each hour a database exists using the highest service tier + performance level that applied during that hour, regardless of usage or whether the database was active for less than an hour. For example, if you create a single database and delete it five minutes later your bill reflects a charge for one database hour. 
 
-- Если вы начинаете обновлять базу данных категории «Базовый» до категории «Премиум» в 22:00 и обновление завершается в 01:35 следующего дня, плата взимается по ставке «Премиум» начиная с 01:00.
+Examples
+    
+- If you create a Basic database and then immediately upgrade it to Standard S1, you are charged at the Standard S1 rate for the first hour.
 
-- Если понижение уровня базы данных с "Премиум" до "Базовый" начинается в 11:00 и завершается в 14:15, то плата за базу данных будет взиматься по ставке "Премиум" до 15:00, а после этого — по ставке "Базовый".
+- If you upgrade a database from Basic to Premium at 10:00 p.m. and upgrade completes at 1:35 a.m. on the following day, you are charged at the Premium rate starting at 1:00 a.m. 
 
-## Как в счете отображается использование пула эластичных баз данных и что произойдет, если изменить количество единиц eDTU для пула?
-Плата за пул эластичных баз данных отображается в счете как единицы eDTU, увеличиваясь пошагово, как показано в столбце eDTUs per Pool на [странице цен](https://azure.microsoft.com/pricing/details/sql-database/). Плата за пул эластичных баз данных не зависит от количества баз данных. Вы платите за каждый час существования пула с максимальным количеством единиц eDTU. Использование или активность пула менее одного часа оплачивается как один час.
+- If you downgrade a database from Premium to Basic at 11:00 a.m. and it completes at 2:15 p.m., then the database is charged at the Premium rate until 3:00 p.m., after which it is charged at the Basic rates.
 
-Примеры
+## <a name="how-does-elastic-database-pool-usage-show-up-on-my-bill-and-what-happens-when-i-change-edtus-per-pool?"></a>How does elastic database pool usage show up on my bill and what happens when I change eDTUs per pool?
+Elastic database pool charges show up on your bill as Elastic DTUs (eDTUs) in the increments shown under eDTUs per pool on [the pricing page](https://azure.microsoft.com/pricing/details/sql-database/). There is no per-database charge for elastic database pools. You are billed for each hour a pool exists at the highest eDTU, regardless of usage or whether the pool was active for less than an hour. 
 
-- Если вы создадите пул эластичных баз данных уровня "Стандартный" с 200 единицами eDTU в 11:18 и добавите в пул пять баз данных, то плата будет взиматься за 200 единиц eDTU почасово, начиная с 11:00 и до конца дня.
-- На второй день в 05:05 база данных 1 начинает потреблять 50 единиц eDTU, и такой уровень потребления сохраняется весь день. Потребление ресурсов базами данных 2–5 колеблется от 0 до 80 единиц eDTU. В течение дня вы добавляете еще пять баз данных, которые используют изменяющееся количество единиц eDTU. Счет выставляется за полный второй день за 200 единиц eDTU.
-- На третий день в 05:00 вы добавляете еще 15 баз данных. Использование баз данных увеличивается в течение дня, и вы принимаете решение увеличить количество единиц eDTU пула с 200 до 400 в 20:05. Оплата на уровне 200 единиц eDTU действует до 20:00, а за оставшиеся 4 часа взимается плата за 400 единиц eDTU.
+Examples
 
-## Как использование активной георепликации в пуле эластичных баз данных отражается на счете?
-В отличие от отдельных баз данных, использование [активной георепликации](sql-database-geo-replication-overview.md) с эластичными базами данных не оказывает прямого влияния на выставление счетов. Плата взимается только за единицы eDTU, выделенные для каждого пула (основного и вторичного).
+- If you create a Standard elastic database pool with 200 eDTUs at 11:18 a.m., adding five databases to the pool, you are charged for 200 eDTUs for the whole hour, beginning at 11 a.m. through the remainder of the day.
+- On Day 2, at 5:05 a.m., Database 1 begins consuming 50 eDTUs and holds steady through the day. Databases 2-5 fluctuate between 0 and 80 eDTUs. During the day, you add five other databases that consume varying eDTUs throughout the day. Day 2 is a full day billed at 200 eDTU. 
+- On Day 3, at 5 a.m. you add another 15 databases. Database usage increases throughout the day to the point where you decide to increase eDTUs for the pool from 200 to 400 at 8:05 p.m. Charges at the 200 eDTU level were in effect until 8 pm and increases to 400 eDTUs for the remaining four hours. 
 
-## Как использование функции аудита влияет на мой счет? 
-Функция аудита встроена в службу базы данных SQL и доступна для баз данных категорий «Базовый», «Стандартный» и «Премиум». Дополнительная плата за эту функцию не взимается. Однако для хранения журналов аудита эта функция использует учетную запись хранения Azure, поэтому с вас взимается плата с учетом ставок для таблиц и очередей в хранилище Azure в зависимости от размера журнала аудита.
+## <a name="how-does-the-use-of-active-geo-replication-in-an-elastic-database-pool-show-up-on-my-bill?"></a>How does the use of Active Geo-Replication in an elastic database pool show up on my bill?
+Unlike single databases, using [Active Geo-Replication](sql-database-geo-replication-overview.md) with elastic databases doesn't have a direct billing impact.  You are only charged for the eDTUs provisioned for each of the pools (primary pool and secondary pool)
 
-## Как определить правильный уровень службы и уровень производительности для отдельной базы данных и пула эластичных баз данных? 
-Доступно несколько средств.
+## <a name="how-does-the-use-of-the-auditing-feature-impact-my-bill?"></a>How does the use of the auditing feature impact my bill? 
+Auditing is built into the SQL Database service at no extra cost and is available to Basic, Standard, and Premium databases. However, to store the audit logs, the auditing feature uses an Azure Storage account, and rates for tables and queues in Azure Storage apply based on the size of your audit log.
 
-- Для локальных баз данных используйте [помощник по определению размера DTU](http://dtucalculator.azurewebsites.net/), который предложит необходимое количество баз данных и DTU, а также оценит количество баз данных для пулов эластичных баз данных.
-- Если отдельную базу данных имеет смысл разместить в пуле, интеллектуальный модуль Azure порекомендует использование пула эластичных баз данных при обнаружении существующей схемы использования, подтверждающей это. Ознакомьтесь с разделом [Мониторинг пула эластичных баз данных и управление им на портале Azure](sql-database-elastic-pool-manage-portal.md). Сведения о том, как самостоятельно выполнить расчеты, см. в статье [Вопросы цены и производительности для пула эластичных баз данных](sql-database-elastic-pool-guidance.md).
-- Чтобы узнать, нужно ли вам увеличить или уменьшить уровень отдельной базы данных, см. [руководство по производительности для отдельных баз данных](sql-database-performance-guidance.md).
+## <a name="how-do-i-find-the-right-service-tier-and-performance-level-for-single-databases-and-elastic-database-pools?"></a>How do I find the right service tier and performance level for single databases and elastic database pools? 
+There are a few tools available to you. 
 
-## Как часто можно менять уровень служб или уровень производительности для отдельной базы данных? 
-Для баз данных версии 12 уровень служб ("Базовый", "Стандартный" или "Премиум") или уровень производительности в пределах уровня служб (например, S1 на S2) можно изменять так часто, как требуется. Для более ранних версий баз данных уровень служб или уровень производительности можно изменить всего четыре раза в течение 24 часов.
+- For on-premises databases, use the [DTU sizing advisor](http://dtucalculator.azurewebsites.net/) to recommend the databases and DTUs required, and evaluate multiple databases for elastic database pools.
+- If a single database would benefit from being in a pool, Azure's intelligent engine recommends an elastic database pool if it sees a historical usage pattern that warrants it. See [Monitor and manage an elastic database pool with the Azure portal](sql-database-elastic-pool-manage-portal.md). For details about how to do the math yourself, see [Price and performance considerations for an elastic database pool](sql-database-elastic-pool-guidance.md)
+- To see whether you need to dial a single database up or down, see [performance guidance for single databases](sql-database-performance-guidance.md).
 
-##Как часто можно изменять количество eDTU для пула? 
-Так часто, как требуется.
+## <a name="how-often-can-i-change-the-service-tier-or-performance-level-of-a-single-database?"></a>How often can I change the service tier or performance level of a single database? 
+With V12 databases, you can change the service tier (between Basic, Standard, and Premium) or the performance level within a service tier (for example, S1 to S2) as often as you want. For earlier version databases, you can change the service tier or performance level a total of four times in a 24-hour period.
 
-## Сколько времени необходимо для изменения уровня службы или уровня производительности отдельной базы данных или для перемещения базы данных в пул эластичных баз данных или из него? 
-Для изменения уровня службы базы данных и перемещения ее в пул (или из него) необходимо выполнить копирование базы данных на платформе в фоновом режиме. Смена уровня служб может занять от нескольких минут до нескольких часов в зависимости от размера баз данных. В обоих случаях при перемещении базы данных доступны и остаются в сети. Дополнительные сведения об изменении отдельных баз данных см. в разделе [Изменение уровня обслуживания и уровня производительности (ценовой категории) базы данных SQL](sql-database-scale-up.md).
+##<a name="how-often-can-i-adjust-the-edtus-per-pool?"></a>How often can I adjust the eDTUs per pool? 
+As often as you want.
 
-## Когда нужно использовать отдельную базу данных вместо эластичных баз данных? 
-Пулы эластичных баз данных предназначены для типичных [схем приложений SaaS (программное обеспечение как услуга)](sql-database-design-patterns-multi-tenancy-saas-applications.md), в которых предусмотрена одна база данных на заказчика или клиент. Приобретение отдельных баз данных и избыточное выделение ресурсов, необходимых для переменных и пиковых нагрузок для каждой базы данных, часто неэффективно с экономической точки зрения. При использовании пулов вы управляете общей производительностью пула, а масштаб базы данных увеличивается или уменьшается автоматически.
+## <a name="how-long-does-it-take-to-change-the-service-tier-or-performance-level-of-a-single-database-or-move-a-database-in-and-out-of-an-elastic-database-pool?"></a>How long does it take to change the service tier or performance level of a single database or move a database in and out of an elastic database pool? 
+Changing the service tier of a database and moving in and out of a pool requires the database to be copied on the platform as a background operation. Changing the service tier can take from a few minutes to several hours depending on the size of the databases. In both cases, the databases remain online and available during the move. For details on changing single databases, see [Change the service tier of a database](sql-database-scale-up.md). 
 
-Интеллектуальный модуль Azure рекомендует использовать пул для баз данных при обнаружении соответствующей схемы использования. Дополнительные сведения см. в статье [Рекомендации по выбору ценовой категории для базы данных SQL](sql-database-service-tier-advisor.md). Подробные инструкции о выборе отдельной или эластичной базы данных см. в статье [Вопросы цены и производительности для пула эластичных баз данных](sql-database-elastic-pool-guidance.md).
+## <a name="when-should-i-use-a-single-database-vs.-elastic-databases?"></a>When should I use a single database vs. elastic databases? 
+In general, elastic database pools are designed for a typical [software-as-a-service (SaaS) application pattern](sql-database-design-patterns-multi-tenancy-saas-applications.md), where there is one database per customer or tenant. Purchasing individual databases and overprovisioning to meet the variable and peak demand for each database is often not cost efficient. With pools, you manage the collective performance of the pool, and the databases scale up and down automatically. 
 
-## Что означает получить 200 % максимального подготовленного хранилища базы данных для хранилища службы архивации? 
-Хранилище службы архивации связано с автоматически созданными резервными копиями баз данных, которые используются для [восстановления до точки во времени](sql-database-recovery-using-backups.md#-point-in-time-restore) и [геовосстановления](sql-database-recovery-using-backups.md#geo-restore). База данных SQL Microsoft Azure предоставляет до 200 % бесплатного максимального подготовленного хранилища базы данных для хранилища службы архивации. Например, если у вас есть экземпляр базы данных уровня "Стандартный" с подготовленным размером базы данных 250 ГБ, то вам будет предоставлено бесплатное хранилище службы архивации объемом 500 ГБ. Если размер базы данных превышает предоставленный объем хранилища службы архивации, можно уменьшить период хранения. Для этого вам необходимо обратиться в службу поддержки Azure или оплатить дополнительный объем хранилища службы архивации по стандартному тарифу для геоизбыточного хранилища с доступом на чтение (RA-GRS). Дополнительную информацию о выставлении счетов за RA-GRS см. в сведениях о ценах на хранилище.
+Azure's intelligent engine recommends a pool for databases when a usage pattern warrants it. For details, see [SQL Database pricing tier recommendations](sql-database-service-tier-advisor.md). For detailed guidance about choosing between single and elastic databases, see [Price and performance considerations for elastic database pools](sql-database-elastic-pool-guidance.md).
 
-## Я планирую перейти с уровня Web (Business) на новый уровень службы. На что мне нужно обратить внимание?
-Использование баз данных SQL Azure Web и Business Edition прекращено. Эта выпуски заменяются уровнями Базовый, Стандартный, Премиум и Эластичный. У нас есть дополнительный раздел с часто задаваемыми вопросами, который поможет вам в течение переходного периода. [Часто задаваемые вопросы по прекращению использования Web и Business Edition](sql-database-web-business-sunset-faq.md)
+## <a name="what-does-it-mean-to-have-up-to-200%-of-your-maximum-provisioned-database-storage-for-backup-storage?"></a>What does it mean to have up to 200% of your maximum provisioned database storage for backup storage? 
+Backup storage is the storage associated with your automated database backups that are used for [Point-In-Time-Restore](sql-database-recovery-using-backups.md#-point-in-time-restore) and [Geo-Restore](sql-database-recovery-using-backups.md#geo-restore). Microsoft Azure SQL Database provides up to 200% of your maximum provisioned database storage of backup storage at no additional cost. For example, if you have a Standard DB instance with a provisioned DB size of 250 GB, you are provided with 500 GB of backup storage at no additional charge. If your database exceeds the provided backup storage, you can choose to reduce the retention period by contacting Azure Support or pay for the extra backup storage billed at standard Read-Access Geographically Redundant Storage (RA-GRS) rate. For more information on RA-GRS billing, see Storage Pricing Details.
 
-## Что такое ожидаемая задержка репликации при георепликации базы данных между двумя регионами в пределах одного географического региона Azure?  
-В настоящее время поддерживается целевая точка восстановления в 5 секунд, и задержка репликации еще меньше этого значения, так как получатель геореплицируемых данных размещается в рекомендованном сопряженном регионе Azure и имеет тот же уровень служб.
+## <a name="i'm-moving-from-web/business-to-the-new-service-tiers,-what-do-i-need-to-know?"></a>I'm moving from Web/Business to the new service tiers, what do I need to know?
+Azure SQL Web and Business databases are now retired. The Basic, Standard, Premium, and Elastic tiers replace the retiring Web and Business databases. We've additional FAQ that should help you in this transition period. [Web and Business Edition sunset FAQ](sql-database-web-business-sunset-faq.md)
 
-## Что такое ожидаемая задержка репликации при создании получателя геореплицируемых данных в том же регионе, что и база данных-источник?  
-Согласно эмпирическим данным задержки при репликации внутри регионов и между ними отличаются не слишком сильно, если используется рекомендованный парный регион Azure.
+## <a name="what-is-an-expected-replication-lag-when-geo-replicating-a-database-between-two-regions-within-the-same-azure-geography?"></a>What is an expected replication lag when geo-replicating a database between two regions within the same Azure geography?  
+We are currently supporting an RPO of five seconds and the replication lag has been less than that when the geo-secondary is hosted in the Azure recommended paired region and at the same service tier.
 
-## Как работает логика повтора в случае сбоя сети между двумя регионами, если настроена георепликация?  
-В случае отключения сети каждые 10 секунд выполняется попытка установить подключение.
+## <a name="what-is-an-expected-replication-lag-when-geo-secondary-is-created-in-the-same-region-as-the-primary-database?"></a>What is an expected replication lag when geo-secondary is created in the same region as the primary database?  
+Based on empirical data, there is not too much difference between intra-region and inter-region replication lag when the Azure recommended paired region is used. 
 
-## Что можно сделать, чтобы обеспечить репликацию критически важных изменений в базе данных-источнике?
-Получатель геореплицируемых данных — асинхронная реплика, и мы не пытаемся обеспечить ее полную синхронизацию с источником. Но мы предоставляем метод для принудительной синхронизации, чтобы обеспечить репликацию критически важных изменений (например, обновленных паролей). Принудительная синхронизация снизит производительность, так как будет блокировать вызывающий поток, пока все зафиксированные транзакции не будут реплицированы. Дополнительные сведения см. в разделе [sp\_wait\_for\_database\_copy\_sync](https://msdn.microsoft.com/library/dn467644.aspx).
+## <a name="if-there-is-a-network-failure-between-two-regions,-how-does-the-retry-logic-work-when-geo-replication-is-set-up?"></a>If there is a network failure between two regions, how does the retry logic work when Geo-Replication is set up?  
+If there is a disconnect, we retry every 10 seconds to re-establish connections.
 
-## Какие инструменты доступны для отслеживания задержки репликации между базой данных-источником и получателем геореплицируемых данных?
-Задержка репликации между базой данных-источником и получателем геореплицируемых данных в реальном времени отображается в динамическом административном представлении. Дополнительные сведения см. в разделе [sys.dm\_geo\_replication\_link\_status](https://msdn.microsoft.com/library/mt575504.aspx).
+## <a name="what-can-i-do-to-guarantee-that-a-critical-change-on-the-primary-database-is-replicated?"></a>What can I do to guarantee that a critical change on the primary database is replicated?
+The geo-secondary is an async replica and we do not try to keep it in full sync with the primary. But we provide a method to force synchronization to ensure the replication of critical changes (for example, password updates). Forced synchronization impacts performance because it blocks the calling thread until all committed transactions are replicated. For details, see [sp_wait_for_database_copy_sync](https://msdn.microsoft.com/library/dn467644.aspx). 
 
-<!---HONumber=AcomDC_0817_2016-->
+## <a name="what-tools-are-available-to-monitor-the-replication-lag-between-the-primary-database-and-geo-secondary?"></a>What tools are available to monitor the replication lag between the primary database and geo-secondary?
+We expose the real-time replication lag between the primary database and geo-secondary through a DMV. For details, see [sys.dm_geo_replication_link_status](https://msdn.microsoft.com/library/mt575504.aspx).
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

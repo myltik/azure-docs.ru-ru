@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Панель мониторинга в службе диспетчера StorSimple — виртуальный массив | Microsoft Azure"
-   description="В статье описывается панель мониторинга в службе диспетчера StorSimple и способы ее использования для наблюдения за работоспособностью виртуального массива StorSimple."
+   pageTitle="StorSimple Manager service dashboard - Virtual Array | Microsoft Azure"
+   description="Describes the StorSimple Manager service dashboard and explains how to use it to monitor the health of your StorSimple Virtual Array."
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
@@ -15,51 +15,55 @@
    ms.date="04/07/2016"
    ms.author="alkohli" />
 
-# Использование панели мониторинга в службе диспетчера StorSimple при работе с виртуальным массивом StorSimple
 
-## Обзор
+# <a name="use-the-storsimple-manager-service-dashboard-for-the-storsimple-virtual-array"></a>Use the StorSimple Manager service dashboard for the StorSimple Virtual Array
 
-На странице "Панель мониторинга" в службе диспетчера StorSimple отображается сводная информация о виртуальных массивах StorSimple \(также известных как локальные виртуальные устройства StorSimple или просто виртуальные устройства StorSimple\), подключенных к службе диспетчера StorSimple. Здесь также приводится информация о виртуальных массивах, которые требуют вмешательства системного администратора. Этот учебник рассказывает о странице панели мониторинга, объясняет содержимое и функции панели мониторинга и описывает задачи, которые можно выполнить с этой страницы.
+## <a name="overview"></a>Overview
 
-![Панель мониторинга службы](./media/storsimple-ova-service-dashboard/dashboard1.png)
+The StorSimple Manager service dashboard page provides a summary view of the StorSimple Virtual Arrays (also known as StorSimple on-premises virtual devices or virtual devices) that are connected to the StorSimple Manager service, highlighting those that need a system administrator's attention. This tutorial introduces the dashboard page, explains the dashboard content and function, and describes the tasks that you can perform from this page.
 
-На панели мониторинга службы диспетчера StorSimple отображается следующая информация.
+![Service dashboard](./media/storsimple-ova-service-dashboard/dashboard1.png)
 
-- В верхней части страницы в области **диаграммы** можно увидеть соответствующие метрики для виртуальных устройств. Здесь можно просмотреть объем основного и облачного хранилищ, использованный всеми устройствами за определенное время. С помощью элементов управления в правом верхнем углу диаграммы можно выбрать относительный или абсолютный показатель использования, а также период времени — 1 неделя, 1 месяц, 3 месяца или 1 год. Кнопка ![кнопка обновления](./media/storsimple-ova-service-dashboard/refresh-control.png) обновляет представление диаграммы.
+The StorSimple Manager service dashboard displays the following information:
 
-- В разделе **Обзор использования** показан объем подготовленного основного хранилища и объем, используемый всеми виртуальными устройствами, в контексте максимально доступного объема. **Подготовлено** относится к объему хранилища, которое подготовлено и выделено для использования. **Использовано** относится к использованию общих папок или томов инициаторами, подключенными к виртуальным устройствам. **Макс. емкость** показывает максимальный объем всех виртуальных устройств.
+- In the **chart** area at the top of the page, you can see the relevant metrics for your virtual devices. You can view the primary storage used across all virtual devices, as well as the cloud storage consumed by virtual devices over a period of time. Use the controls in the top-right corner of the chart to specify relative or absolute usage and to see a 1-week, 1-month, 3-month, or 1-year time scale. Use the refresh control ![refresh-control](./media/storsimple-ova-service-dashboard/refresh-control.png) to refresh the chart.
 
-- В области **Оповещения** приводятся все активные оповещения для всех виртуальных устройств, сгруппированные по уровню серьезности предупреждения. При щелчке на уровень серьезности открывается страница **Предупреждения**, где отображаются эти предупреждения. На странице **Предупреждения** можно щелкнуть отдельное предупреждение, чтобы просмотреть дополнительные сведения об этом предупреждении, включая рекомендуемые действия. Также можно удалить предупреждение, если проблема решена.
+- The **usage overview** shows the primary storage that is provisioned and consumed by all virtual devices relative to the total storage available across all virtual devices. **Provisioned** refers to the amount of storage that is prepared and allocated for use, **Used** refers to usage of shares or volumes as viewed by the initiators that are connected to the virtual devices, and **Max. capacity** shows the maximum capacity of all virtual devices.
 
-- В области **Задания** отображаются последние задания на всех подключенных к службе виртуальных устройствах. Здесь приводятся ссылки, по которым можно просмотреть задания, которые выполняются сейчас, а также задания за последние 24 часа, которые были выполнены или завершились ошибкой.
+- The **alerts** area provides a snapshot of all the active alerts across all virtual devices, grouped by alert severity. Clicking the severity level opens the **Alerts** page, scoped to show those alerts. On the **Alerts** page, you can click an individual alert to view additional details about that alert, including any recommended actions. You can also clear the alert if the issue has been resolved.
 
-- В области **Сводка** справа приводятся полезные сведения, в частности состояние службы, количество подключенных к ней виртуальных устройств, расположение службы и информация о подписке, которая связана со службой. Также есть ссылка на журнал операций. Щелкните ссылку, чтобы просмотреть список всех завершенных операций службы диспетчера StorSimple.
+- The **jobs** area provides a snapshot of recent jobs across all virtual devices that are connected to your service. There are links that you can use to look at jobs that are currently in progress and those that succeeded or failed in the last 24 hours. 
 
-Вы можете использовать страницу панели мониторинга службы диспетчера StorSimple для выполнения следующих задач.
+- The **quick glance** area on the right of the page provides useful information such as service status, total number of virtual devices connected to the service, location of the service, and details of the subscription that is associated with the service. There is also a link to the operations log. Click the link to see a list of all completed StorSimple Manager service operations. 
 
-- Получение ключа регистрации службы.
-- Просмотр журналов операций.
+You can use the StorSimple Manager service dashboard page to initiate the following tasks:
 
-## Получение регистрационного ключа службы
+- Get the service registration key.
+- View the operation logs.
 
-Регистрационный ключ службы используется для регистрации виртуального устройства StorSimple в службе диспетчера StorSimple, после чего устройство появляется на классическом портале Azure, где с ним можно работать. Ключ создается на первом виртуальном устройстве и передается всем остальным устройствам.
+## <a name="get-the-service-registration-key"></a>Get the service registration key
 
-При щелчке на ссылку **Ключ регистрации** \(в нижней части страницы\) открывается диалоговое окно **Ключ регистрации службы**, где можно либо скопировать существующий ключ регистрации службы в буфер обмена, либо повторно создать ключ регистрации службы.
+The service registration key is used to register a StorSimple virtual device with the StorSimple Manager service, so that the device appears in the Azure classic portal for further management actions. The key is created on the first virtual device and shared with the remaining virtual devices. 
 
-![регистрационный ключ](./media/storsimple-ova-service-dashboard/service-dashboard3.png)
+Clicking **Registration Key** (at the bottom of the page) opens the **Service Registration Key** dialog box, where you can either copy the current service registration key to the clipboard or regenerate the service registration key.
 
-Повторное создание ключа не влияет на ранее зарегистрированные устройства. Оно влияет только на устройства, зарегистрированные в службе после создания нового ключа.
+![registration key](./media/storsimple-ova-service-dashboard/service-dashboard3.png)
 
-Дополнительные сведения о получении регистрационного ключа службы см. в статье [Развертывание службы диспетчера StorSimple для виртуального массива StorSimple](storsimple-ova-manage-service.md#get-the-service-registration-key) в разделе "Получение регистрационного ключа службы".
+Regenerating the key does not affect previously registered virtual devices: it affects only the virtual devices that are registered with the service after the key is regenerated.
 
-## Просмотр журналов операций
+For more information about getting the service registration key, go to [Get the service registration key](storsimple-ova-manage-service.md#get-the-service-registration-key).
 
-Журналы операций можно просмотреть, щелкнув ссылку на журналы операций, доступную в области **Сводка** на панели мониторинга. При этом вы перейдете на страницу служб управления, где можно фильтровать и просмотреть журналы определенной службы диспетчера StorSimple.
+## <a name="view-the-operations-logs"></a>View the operations logs
 
-![Журнал операций](./media/storsimple-ova-service-dashboard/ops-log.png)
+You can view the operation logs by clicking the operation logs link available in the **quick glance** pane of the dashboard. This will take you to the management services page, where you can filter and see the logs specific to your StorSimple Manager service.
 
-## Дальнейшие действия
+![Operations log](./media/storsimple-ova-service-dashboard/ops-log.png)
 
-Узнайте, как с помощью локального веб-интерфейса [администрировать виртуальный массив StorSimple](storsimple-ova-web-ui-admin.md).
+## <a name="next-steps"></a>Next steps
 
-<!---HONumber=AcomDC_0413_2016-->
+Learn how to [use the local web UI to administer your StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
+
+
+<!--HONumber=Oct16_HO2-->
+
+

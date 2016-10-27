@@ -1,82 +1,82 @@
-## Подсистема балансировки нагрузки
-Подсистема балансировки нагрузки используется, когда необходимо масштабировать приложения. Типичные сценарии развертывания включают приложения, работающие на нескольких экземплярах виртуальной машины. Перед экземплярами виртуальной машины расположена подсистема балансировки нагрузки, которая помогает распределять сетевой трафик между различными экземплярами.
+## <a name="load-balancer"></a>Load Balancer
+A load balancer is used when you want to scale your applications. Typical deployment scenarios involve applications running on multiple VM instances. The VM instances are fronted by a load balancer that helps to distribute network traffic to the various instances. 
 
-![Сетевая карта на одной виртуальной машине](./media/resource-groups-networking/figure8.png)
+![NIC's on a single VM](./media/resource-groups-networking/figure8.png)
 
-| Свойство | Описание |
+| Property | Description |
 |---|---|
-| *frontendIPConfigurations* | Балансировщик нагрузки может включать в себя один или несколько внешних IP-адресов, которые также называются виртуальными IP-адресами. Эти IP-адреса служат для приема входящего трафика и могут быть общедоступными или частными. |
-|*backendAddressPools* | Это IP-адреса, связанные с сетевыми картами виртуальных машин, между которыми распределяется нагрузка. |
-|*loadBalancingRules* | Свойство правила сопоставляет указанное сочетание внешнего IP-адреса и порта с набором серверных IP-адресов и портов. С помощью одного определения ресурса балансировщика нагрузки можно задать несколько правил балансировки нагрузки, каждое из которых отражает сочетание внешнего IP-адреса и порта с серверным IP-адресом и портом, связанными с виртуальными машинами. Правило сопоставляет один порт в интерфейсном пуле с несколькими виртуальными машинами во внутреннем пуле. |  
-| *Пробы* | Позволяют отслеживать работоспособность экземпляров виртуальных машин. В случае сбоя пробы работоспособности экземпляр виртуальной машины автоматически перестает использоваться. |
-| *inboundNatRules* | Правила NAT, определяющие входящий трафик, который проходит через внешний IP-адрес и передается на внутренний IP-адрес определенному экземпляру виртуальной машины. Правило NAT сопоставляет один порт в интерфейсном пуле с одной виртуальной машиной во внутреннем пуле. | 
+| *frontendIPConfigurations* | a Load balancer can include one or more front end IP addresses, otherwise known as a virtual IPs (VIPs). These IP addresses serve as ingress for the traffic and can be public IP or private IP |
+|*backendAddressPools* | these are IP addresses associated with the VM NICs to which load will be distributed |
+|*loadBalancingRules* | a rule property maps a given front end IP and port combination to a set of back end IP addresses and port combination. With a single definition of a load balancer resource, you can define multiple load balancing rules, each rule reflecting a combination of a front end IP and port and back end IP and port associated with virtual machines. The rule is one port in the front end pool to many virtual machines in the back end pool |  
+| *Probes* | probes enable you to keep track of the health of VM instances. If a health probe fails, the virtual machine instance will be taken out of rotation automatically |
+| *inboundNatRules* | NAT rules defining the inbound traffic flowing through the front end IP and distributed to the back end IP to a specific virtual machine instance. NAT rule is one port in the front end pool to one virtual machine in the back end pool | 
 
-Пример шаблона балансировщика нагрузки в формате Json:
+Example of load balancer template in Json format:
 
-	{
-	  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-	  "contentVersion": "1.0.0.0",
-	  "parameters": {
-	    "dnsNameforLBIP": {
-	      "type": "string",
-	      "metadata": {
-	        "description": "Unique DNS name"
-	      }
-	    },
-	    "location": {
-	      "type": "string",
-	      "allowedValues": [
-	        "East US",
-	        "West US",
-	        "West Europe",
-	        "East Asia",
-	        "Southeast Asia"
-	      ],
-	      "metadata": {
-	        "description": "Location to deploy"
-	      }
-	    },
-	    "addressPrefix": {
-	      "type": "string",
-	      "defaultValue": "10.0.0.0/16",
-	      "metadata": {
-	        "description": "Address Prefix"
-	      }
-	    },
-	    "subnetPrefix": {
-	      "type": "string",
-	      "defaultValue": "10.0.0.0/24",
-	      "metadata": {
-	        "description": "Subnet Prefix"
-	      }
-	    },
-	    "publicIPAddressType": {
-	      "type": "string",
-	      "defaultValue": "Dynamic",
-	      "allowedValues": [
-	        "Dynamic",
-	        "Static"
-	      ],
-	      "metadata": {
-	        "description": "Public IP type"
-	      }
-	    }
-	  },
-	  "variables": {
-	    "virtualNetworkName": "virtualNetwork1",
-	    "publicIPAddressName": "publicIp1",
-	    "subnetName": "subnet1",
-	    "loadBalancerName": "loadBalancer1",
-	    "nicName": "networkInterface1",
-	    "vnetID": "[resourceId('Microsoft.Network/virtualNetworks',variables('virtualNetworkName'))]",
-	    "subnetRef": "[concat(variables('vnetID'),'/subnets/',variables('subnetName'))]",
-	    "publicIPAddressID": "[resourceId('Microsoft.Network/publicIPAddresses',variables('publicIPAddressName'))]",
-	    "lbID": "[resourceId('Microsoft.Network/loadBalancers',variables('loadBalancerName'))]",
-	    "nicId": "[resourceId('Microsoft.Network/networkInterfaces',variables('nicName'))]",
-	    "frontEndIPConfigID": "[concat(variables('lbID'),'/frontendIPConfigurations/loadBalancerFrontEnd')]",
-	    "backEndIPConfigID": "[concat(variables('nicId'),'/ipConfigurations/ipconfig1')]"
-	  },
-	  "resources": [
+    {
+      "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "dnsNameforLBIP": {
+          "type": "string",
+          "metadata": {
+            "description": "Unique DNS name"
+          }
+        },
+        "location": {
+          "type": "string",
+          "allowedValues": [
+            "East US",
+            "West US",
+            "West Europe",
+            "East Asia",
+            "Southeast Asia"
+          ],
+          "metadata": {
+            "description": "Location to deploy"
+          }
+        },
+        "addressPrefix": {
+          "type": "string",
+          "defaultValue": "10.0.0.0/16",
+          "metadata": {
+            "description": "Address Prefix"
+          }
+        },
+        "subnetPrefix": {
+          "type": "string",
+          "defaultValue": "10.0.0.0/24",
+          "metadata": {
+            "description": "Subnet Prefix"
+          }
+        },
+        "publicIPAddressType": {
+          "type": "string",
+          "defaultValue": "Dynamic",
+          "allowedValues": [
+            "Dynamic",
+            "Static"
+          ],
+          "metadata": {
+            "description": "Public IP type"
+          }
+        }
+      },
+      "variables": {
+        "virtualNetworkName": "virtualNetwork1",
+        "publicIPAddressName": "publicIp1",
+        "subnetName": "subnet1",
+        "loadBalancerName": "loadBalancer1",
+        "nicName": "networkInterface1",
+        "vnetID": "[resourceId('Microsoft.Network/virtualNetworks',variables('virtualNetworkName'))]",
+        "subnetRef": "[concat(variables('vnetID'),'/subnets/',variables('subnetName'))]",
+        "publicIPAddressID": "[resourceId('Microsoft.Network/publicIPAddresses',variables('publicIPAddressName'))]",
+        "lbID": "[resourceId('Microsoft.Network/loadBalancers',variables('loadBalancerName'))]",
+        "nicId": "[resourceId('Microsoft.Network/networkInterfaces',variables('nicName'))]",
+        "frontEndIPConfigID": "[concat(variables('lbID'),'/frontendIPConfigurations/loadBalancerFrontEnd')]",
+        "backEndIPConfigID": "[concat(variables('nicId'),'/ipConfigurations/ipconfig1')]"
+      },
+      "resources": [
     {
       "apiVersion": "2015-05-01-preview",
       "type": "Microsoft.Network/publicIPAddresses",
@@ -183,11 +183,14 @@
         ]
       }
     }
-	  ]
-	}
+      ]
+    }
 
-### Дополнительные ресурсы
+### <a name="additional-resources"></a>Additional resources
 
-Дополнительную информацию см. в описании [REST API балансировщика нагрузки](https://msdn.microsoft.com/library/azure/mt163651.aspx).
+Read [load balancer REST API](https://msdn.microsoft.com/library/azure/mt163651.aspx) for more information.
 
-<!---HONumber=AcomDC_1223_2015-->
+
+<!--HONumber=Oct16_HO2-->
+
+

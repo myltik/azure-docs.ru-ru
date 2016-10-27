@@ -1,36 +1,36 @@
 <!--author=SharS last changed: 9/17/15-->
 
-В этой процедуре будут выполнены следующие действия.
+In this procedure, you will:
 
-1. [Подготовка к запуску исполняемого файла программы обслуживания](#to-prepare-to-run-the-maintainer).
+1. [Prepare to run the Maintainer executable](#to-prepare-to-run-the-maintainer) .
 
-2. [Подготовка базы данных содержимого и корзины к немедленному удалению потерянных больших двоичных объектов](#to-prepare-the-content-database-and-recycle-bin-to-immediately-delete-orphaned-blobs).
+2. [Prepare the content database and Recycle Bin for immediate deletion of orphaned BLOBs](#to-prepare-the-content-database-and-recycle-bin-to-immediately-delete-orphaned-blobs).
 
-3. [Запуск Maintainer.exe](#to-run-the-maintainer).
+3. [Run Maintainer.exe](#to-run-the-maintainer).
 
-4. [Восстановление базы данных содержимого и параметров корзины](#to-revert-the-content-database-and-recycle-bin-settings).
+4. [Revert the content database and Recycle Bin settings](#to-revert-the-content-database-and-recycle-bin-settings).
 
-#### Подготовка к запуску программы обслуживания
+#### <a name="to-prepare-to-run-the-maintainer"></a>To prepare to run the Maintainer
 
-1. На интерфейсном веб-сервере откройте консоль управления SharePoint 2013 от имени администратора.
+1. On the Web front-end server, open the SharePoint 2013 Management Shell as an administrator.
 
-2. Перейдите в папку *загрузочный диск*:\\Program Files\\Microsoft SQL Remote Blob Storage 10.50\\Maintainer.
+2. Navigate to the folder *boot drive*:\Program Files\Microsoft SQL Remote Blob Storage 10.50\Maintainer\.
 
-3. Переименуйте **Microsoft.Data.SqlRemoteBlobs.Maintainer.exe.config** в **web.config**.
+3. Rename **Microsoft.Data.SqlRemoteBlobs.Maintainer.exe.config** to **web.config**.
 
-4. Используйте `aspnet_regiis -pdf connectionStrings` для расшифровки файла web.config.
+4. Use `aspnet_regiis -pdf connectionStrings` to decrypt the web.config file.
 
-5. В расшифрованном файле web.config в узле `connectionStrings` добавьте строку подключения для вашего экземпляра SQL Server и имя базы данных содержимого. См. указанный ниже пример.
+5. In the decrypted web.config file, under the `connectionStrings` node, add the connection string for your SQL server instance and the content database name. See the following example.
 
-    `<add name=”RBSMaintainerConnectionWSSContent” connectionString="Data Source=SHRPT13-SQL12\SHRPT13;Initial Catalog=WSS_Content;Integrated Security=True;Application Name=";Remote Blob Storage Maintainer for WSS_Content";" providerName="System.Data.SqlClient" />`
+    `<add name=”RBSMaintainerConnectionWSSContent” connectionString="Data Source=SHRPT13-SQL12\SHRPT13;Initial Catalog=WSS_Content;Integrated Security=True;Application Name=&quot;Remote Blob Storage Maintainer for WSS_Content&quot;" providerName="System.Data.SqlClient" />`
 
-6. Используйте `aspnet_regiis –pef connectionStrings` для повторного шифрования файла web.config.
+6. Use `aspnet_regiis –pef connectionStrings` to re-encrypt the web.config file. 
 
-7. Переименуйте web.config в Microsoft.Data.SqlRemoteBlobs.Maintainer.exe.config.
+7. Rename web.config to Microsoft.Data.SqlRemoteBlobs.Maintainer.exe.config. 
 
-#### Подготовка базы данных содержимого и корзины для немедленного удаления потерянных больших двоичных объектов
+#### <a name="to-prepare-the-content-database-and-recycle-bin-to-immediately-delete-orphaned-blobs"></a>To prepare the content database and Recycle Bin to immediately delete orphaned BLOBs
 
-1. На SQL Server в SQL Management Studio выполните следующие запросы на обновление для целевой базы данных содержимого: 
+1. On the SQL Server, in SQL Management Studio, run the following update queries for the target content database: 
 
        `use WSS_Content`
 
@@ -38,21 +38,21 @@
 
        `exec mssqlrbs.rbs_sp_set_config_value ‘delete_scan_period’ , ’time 00:00:00’`
 
-2. На интерфейсном веб-сервере в разделе **Центр администрирования** измените **Общие параметры веб-приложения** для необходимой базы данных содержимого, чтобы временно отключить корзину. Это действие также очистит корзину для всех связанных коллекций веб-сайтов. Чтобы сделать это, щелкните **Центр администрирования** > **Управление приложением** > **Веб-приложения (управление веб-приложениями)** > **SharePoint - 80** > **Общие параметры приложения**. Для параметра **Состояние корзины** задайте значение **ВЫКЛ.**.
+2. On the web front-end server, under **Central Administration**, edit the **Web Application General Settings** for the desired content database to temporarily disable the Recycle Bin. This action will also empty the Recycle Bin for any related site collections. To do this, click **Central Administration** -> **Application Management** -> **Web Applications (Manage web applications)** -> **SharePoint - 80** -> **General Application Settings**. Set the **Recycle Bin Status** to **OFF**.
 
-    ![Общие параметры веб-приложения](./media/storsimple-sharepoint-adapter-garbage-collection/HCS_WebApplicationGeneralSettings-include.png)
+    ![Web Application General Settings](./media/storsimple-sharepoint-adapter-garbage-collection/HCS_WebApplicationGeneralSettings-include.png)
 
-#### Запуск программы обслуживания
+#### <a name="to-run-the-maintainer"></a>To run the Maintainer
 
-- На интерфейсном веб-сервере в консоли управления SharePoint 2013 запустите программу обслуживания следующим образом:
+- On the web front-end server, in the SharePoint 2013 Management Shell, run the Maintainer as follows:
 
       `Microsoft.Data.SqlRemoteBlobs.Maintainer.exe -ConnectionStringName RBSMaintainerConnectionWSSContent -Operation GarbageCollection -GarbageCollectionPhases rdo`
 
-    >[AZURE.NOTE]В данный момент для StorSimple поддерживается только операция `GarbageCollection`. Также обратите внимание, что параметры для Microsoft.Data.SqlRemoteBlobs.Maintainer.exe чувствительны к регистру.
+    >[AZURE.NOTE] Only the `GarbageCollection` operation is supported for StorSimple at this time. Also note that the parameters issued for Microsoft.Data.SqlRemoteBlobs.Maintainer.exe are case sensitive. 
  
-#### Восстановление базы данных содержимого и параметров корзины
+#### <a name="to-revert-the-content-database-and-recycle-bin-settings"></a>To revert the content database and Recycle Bin settings
 
-1. На SQL Server в SQL Management Studio выполните следующие запросы на обновление для целевой базы данных содержимого:
+1. On the SQL Server, in SQL Management Studio, run the following update queries for the target content database:
 
       `use WSS_Content`
 
@@ -62,6 +62,9 @@
 
       `exec mssqlrbs.rbs_sp_set_config_value ‘orphan_scan_period’ , ’days 30’`
 
-2. На интерфейсном веб-сервере в разделе **Центр администрирования** измените **Общие параметры веб-приложения** для необходимой базы данных содержимого, чтобы снова включить корзину. Чтобы сделать это, щелкните **Центр администрирования** > **Управление приложением** > **Веб-приложения (управление веб-приложениями)** > **SharePoint - 80** > **Общие параметры приложения**. Для параметра «Состояние корзины» задайте значение **ВКЛ.**.
+2. On the web front-end server, in **Central Administration**, edit the **Web Application General Settings** for the desired content database to re-enable the Recycle Bin. To do this, click **Central Administration** -> **Application Management** -> **Web Applications (Manage web applications)** -> **SharePoint - 80** -> **General Application Settings**. Set the Recycle Bin Status to **ON**.
 
-<!---HONumber=AcomDC_0107_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

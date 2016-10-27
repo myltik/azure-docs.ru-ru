@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Отчеты по масштабируемым облачным базам данных | Microsoft Azure"
-    description="настройка эластичных запросов при горизонтальном секционировании"    
+    pageTitle="Reporting across scaled-out cloud databases | Microsoft Azure"
+    description="how to set up elastic queries over horizontal partitions"    
     services="sql-database"
     documentationCenter=""  
     manager="jhubbard"
@@ -15,28 +15,28 @@
     ms.date="05/27/2016"
     ms.author="torsteng" />
 
-# Отчеты по масштабируемым облачным базам данных (предварительная версия)
 
-![Запрос по сегментам][1]
+# <a name="reporting-across-scaled-out-cloud-databases-(preview)"></a>Reporting across scaled-out cloud databases (preview)
 
-Сегментированные базы данных распределяют строки по масштабируемому уровню данных. Во всех базах данных секционирования используется одна и та же схема — это называется горизонтальным секционированием. Используя эластичный запрос, можно создавать отчеты, охватывающие все базы данных в сегментированной базе данных.  
+![Query across shards][1]
 
+Sharded databases distribute rows across a scaled out data tier. The schema is identical on all participating databases, also known as horizontal partitioning. Using an elastic query, you can create reports that span all databases in a sharded database.
 
-Для быстрого старта см. статью [Отчеты по масштабируемым облачным базам данных](sql-database-elastic-query-getting-started.md).
+For a quick start, see [Reporting across scaled-out cloud databases](sql-database-elastic-query-getting-started.md).
 
-Сведения для несегментированных баз данных см. в статье [Запрос к нескольким облачным базам данных с разными схемами](sql-database-elastic-query-vertical-partitioning.md).
+For non-sharded databases, see [Query across cloud databases with different schemas](sql-database-elastic-query-vertical-partitioning.md). 
 
  
-## Предварительные требования
+## <a name="prerequisites"></a>Prerequisites
 
-* Создание карты сегментов с помощью клиентской библиотеки эластичной базы данных рассматривается в статье [Управление картой сегментов](sql-database-elastic-scale-shard-map-management.md). Также можно использовать пример приложения в статье [Приступая к работе с инструментами эластичных баз данных](sql-database-elastic-scale-get-started.md).
-* Также см. статью [Перенос существующих баз данных в масштабируемую базу данных](sql-database-elastic-convert-to-use-elastic-tools.md).
-* Пользователь должен иметь разрешение ALTER ANY EXTERNAL DATA SOURCE. Это разрешение включено в разрешение ALTER DATABASE.
-* Для обращения к базовому источнику данных необходимы разрешения ALTER ANY EXTERNAL DATA SOURCE.
+* Create a shard map using the elastic database client library. see [Shard map management](sql-database-elastic-scale-shard-map-management.md). Or use the sample app in [Get started with elastic database tools](sql-database-elastic-scale-get-started.md).
+* Alternatively, see [Migrate existing databases to scaled-out databases](sql-database-elastic-convert-to-use-elastic-tools.md).
+* The user must possess ALTER ANY EXTERNAL DATA SOURCE permission. This permission is included with the ALTER DATABASE permission.
+* ALTER ANY EXTERNAL DATA SOURCE permissions are needed to refer to the underlying data source.
 
-## Обзор
+## <a name="overview"></a>Overview
 
-Эти инструкции позволяют представлять метаданные уровня сегментированных данных через запрос к эластичной базе данных.
+These statements create the metadata representation of your sharded data tier in the elastic query database. 
 
 
 1. [CREATE MASTER KEY](https://msdn.microsoft.com/library/ms174382.aspx)
@@ -44,164 +44,164 @@
 3. [CREATE EXTERNAL DATA SOURCE](https://msdn.microsoft.com/library/dn935022.aspx)
 4. [CREATE EXTERNAL TABLE](https://msdn.microsoft.com/library/dn935021.aspx) 
 
-## 1\.1. Создание главного ключа и учетных данных для конкретной базы данных 
+## <a name="1.1-create-database-scoped-master-key-and-credentials"></a>1.1 Create database scoped master key and credentials 
 
-Учетные данные используются эластичным запросом для подключения к удаленным базам данных.
+The credential is used by the elastic query to connect to your remote databases.  
 
     CREATE MASTER KEY ENCRYPTION BY PASSWORD = 'password';
     CREATE DATABASE SCOPED CREDENTIAL <credential_name>  WITH IDENTITY = '<username>',  
     SECRET = '<password>'
     [;]
  
-**Примечание.** Убедитесь, что значение *<username>* не содержит суффикс *@servername*.
+**Note**    Ensure that the *<username>* does not include any *"@servername"* suffix. 
 
-## 1\.2. Создание внешних источников данных
+## <a name="1.2-create-external-data-sources"></a>1.2 Create external data sources
 
-Синтаксис:
+Syntax:
 
-	<External_Data_Source> ::=    
-	CREATE EXTERNAL DATA SOURCE <data_source_name> WITH                               	           
-			(TYPE = SHARD_MAP_MANAGER,
-                   	LOCATION = '<fully_qualified_server_name>',
-			DATABASE_NAME = ‘<shardmap_database_name>',
-			CREDENTIAL = <credential_name>, 
-			SHARD_MAP_NAME = ‘<shardmapname>’ 
+    <External_Data_Source> ::=    
+    CREATE EXTERNAL DATA SOURCE <data_source_name> WITH                                            
+            (TYPE = SHARD_MAP_MANAGER,
+                    LOCATION = '<fully_qualified_server_name>',
+            DATABASE_NAME = ‘<shardmap_database_name>',
+            CREDENTIAL = <credential_name>, 
+            SHARD_MAP_NAME = ‘<shardmapname>’ 
                    ) [;] 
 
-### Пример 
+### <a name="example"></a>Example 
 
-	CREATE EXTERNAL DATA SOURCE MyExtSrc 
-	WITH 
-	( 
-		TYPE=SHARD_MAP_MANAGER,
-		LOCATION='myserver.database.windows.net', 
-		DATABASE_NAME='ShardMapDatabase', 
-		CREDENTIAL= SMMUser, 
-		SHARD_MAP_NAME='ShardMap' 
-	);
+    CREATE EXTERNAL DATA SOURCE MyExtSrc 
+    WITH 
+    ( 
+        TYPE=SHARD_MAP_MANAGER,
+        LOCATION='myserver.database.windows.net', 
+        DATABASE_NAME='ShardMapDatabase', 
+        CREDENTIAL= SMMUser, 
+        SHARD_MAP_NAME='ShardMap' 
+    );
  
-Получение списка актуальных внешних источников данных:
+Retrieve the list of current external data sources: 
 
-	select * from sys.external_data_sources; 
+    select * from sys.external_data_sources; 
 
-Внешний источник данных ссылается на вашу карту сегментов. Затем эластичный запрос использует внешний источник данных и соответствующую карту сегментов для перебора баз данных, входящих в уровень данных. Когда обрабатывается эластичный запрос, для чтения карты сегментов и доступа к данным в сегментах используются одни и те же учетные данные.
+The external data source references your shard map. An elastic query then uses the external data source and the underlying shard map to enumerate the databases that participate in the data tier. The same credentials are used to read the shard map and to access the data on the shards during the processing of an elastic query. 
 
-## 1\.3. Создание внешних таблиц 
+## <a name="1.3-create-external-tables"></a>1.3 Create external tables 
  
-Синтаксис:
+Syntax:  
 
-	CREATE EXTERNAL TABLE [ database_name . [ schema_name ] . | schema_name. ] table_name  
+    CREATE EXTERNAL TABLE [ database_name . [ schema_name ] . | schema_name. ] table_name  
         ( { <column_definition> } [ ,...n ])     
-	    { WITH ( <sharded_external_table_options> ) }
-	) [;]  
-	
-	<sharded_external_table_options> ::= 
+        { WITH ( <sharded_external_table_options> ) }
+    ) [;]  
+    
+    <sharded_external_table_options> ::= 
       DATA_SOURCE = <External_Data_Source>,       
-	  [ SCHEMA_NAME = N'nonescaped_schema_name',] 
+      [ SCHEMA_NAME = N'nonescaped_schema_name',] 
       [ OBJECT_NAME = N'nonescaped_object_name',] 
       DISTRIBUTION = SHARDED(<sharding_column_name>) | REPLICATED |ROUND_ROBIN
 
-**Пример**
+**Example**
 
-	CREATE EXTERNAL TABLE [dbo].[order_line]( 
-		 [ol_o_id] int NOT NULL, 
-		 [ol_d_id] tinyint NOT NULL,
-		 [ol_w_id] int NOT NULL, 
-		 [ol_number] tinyint NOT NULL, 
-		 [ol_i_id] int NOT NULL, 
-		 [ol_delivery_d] datetime NOT NULL, 
-		 [ol_amount] smallmoney NOT NULL, 
-		 [ol_supply_w_id] int NOT NULL, 
-		 [ol_quantity] smallint NOT NULL, 
-		 [ol_dist_info] char(24) NOT NULL 
-	) 
-	
-	WITH 
-	( 
-		DATA_SOURCE = MyExtSrc, 
-	 	SCHEMA_NAME = 'orders', 
-	 	OBJECT_NAME = 'order_details', 
-		DISTRIBUTION=SHARDED(ol_w_id)
-	); 
+    CREATE EXTERNAL TABLE [dbo].[order_line]( 
+         [ol_o_id] int NOT NULL, 
+         [ol_d_id] tinyint NOT NULL,
+         [ol_w_id] int NOT NULL, 
+         [ol_number] tinyint NOT NULL, 
+         [ol_i_id] int NOT NULL, 
+         [ol_delivery_d] datetime NOT NULL, 
+         [ol_amount] smallmoney NOT NULL, 
+         [ol_supply_w_id] int NOT NULL, 
+         [ol_quantity] smallint NOT NULL, 
+         [ol_dist_info] char(24) NOT NULL 
+    ) 
+    
+    WITH 
+    ( 
+        DATA_SOURCE = MyExtSrc, 
+        SCHEMA_NAME = 'orders', 
+        OBJECT_NAME = 'order_details', 
+        DISTRIBUTION=SHARDED(ol_w_id)
+    ); 
 
-Получение списка внешних таблиц из текущей базы данных:
+Retrieve the list of external tables from the current database: 
 
-	SELECT * from sys.external_tables; 
+    SELECT * from sys.external_tables; 
 
-Удаление внешних таблиц:
+To drop external tables:
 
-	DROP EXTERNAL TABLE [ database_name . [ schema_name ] . | schema_name. ] table_name[;]
+    DROP EXTERNAL TABLE [ database_name . [ schema_name ] . | schema_name. ] table_name[;]
 
-### Примечания
+### <a name="remarks"></a>Remarks
 
-Предложение DATA\_SOURCE определяет внешний источник данных (карту сегментов) для внешней таблицы.
+The DATA\_SOURCE clause defines the external data source (a shard map) that is used for the external table.  
 
-Предложения SCHEMA\_NAME и OBJECT\_NAME сопоставляют определение внешней таблицы с таблицей в другой схеме. Если эти предложения отсутствуют, то предполагается, что удаленный объект является таблицей «dbo», имя которой совпадает с именем внешней таблицы. Это особенно необходимо, если имя удаленной таблицы уже занято в базе данных, где создается внешняя таблица. Например, вы хотите определить внешнюю таблицу для получения общего представления из представлений каталогов или динамических административных представлений, которые находятся на вашем развернутом уровне данных. Так как представления каталогов и динамические административные представления уже существуют локально, их имена нельзя использовать для определения внешней таблицы. Вместо этого вы можете задать другое имя и в предложениях SCHEMA\_NAME и OBJECT\_NAME использовать имя представления каталога или динамического административного представления. (См. пример ниже.)
+The SCHEMA\_NAME and OBJECT\_NAME clauses map the external table definition to a table in a different schema. If omitted, the schema of the remote object is assumed to be “dbo” and its name is assumed to be identical to the external table name being defined. This is useful if the name of your remote table is already taken in the database where you want to create the external table. For  example, you want to define an external table to get an aggregate view of catalog views or DMVs on your scaled out data tier. Since catalog views and DMVs already exist locally, you cannot use their names for the external table definition. Instead, use a different name and use the catalog view’s or the DMV’s name in the SCHEMA\_NAME and/or OBJECT\_NAME clauses. (See the example below.) 
 
-Предложение DISTRIBUTION определяет распределение данных, используемое для этой таблицы: Обработчик запросов использует сведения, указанные в предложении DISTRIBUTION, для создания наиболее эффективных планов запросов.
+The DISTRIBUTION clause specifies the data distribution used for this table. The query processor utilizes the information provided in the DISTRIBUTION clause to build the most efficient query plans.  
 
-1. **SHARDED** означает, что данные секционируются по базе данных горизонтально. Ключ секционирования для распределения данных указывается в параметре **<sharding_column_name>**.
-2. Слово **REPLICATED** означает, что в каждой базе данных имеются идентичные копии таблицы. Вы должны самостоятельно позаботиться о соответствии реплик во всех базах данных.
-3. **ROUND\_ROBIN** означает, что таблица секционируется горизонтально с применением метода распределения в зависимости от приложений. 
+1. **SHARDED** means data is horizontally partitioned across the databases. The partitioning key for the data distribution is the **<sharding_column_name>** parameter.
+2. **REPLICATED** means that identical copies of the table are present on each database. It is your responsibility to ensure that the replicas are identical across the databases.
+3. **ROUND\_ROBIN** means that the table is horizontally partitioned using an application-dependent distribution method. 
 
-**Ссылка на уровень данных**: язык DDL внешней таблицы ссылается на внешний источник данных. Во внешнем источнике данных указывается карта сегментов, в которой есть внешняя таблица, содержащая сведения, необходимые для поиска всех баз данных на вашем уровне данных.
+**Data tier reference**: The external table DDL refers to an external data source. The external data source specifies a shard map which provides the external table with the information necessary to locate all the databases in your data tier. 
 
 
-### Вопросы безопасности 
+### <a name="security-considerations"></a>Security considerations 
 
-Пользователи, имеющие доступ к внешней таблице, автоматически получают доступ к базовой удаленной таблице с учетными данными, указанными в определении внешнего источника данных. Старайтесь избегать нежелательного повышения прав с использованием учетных данных для внешнего источника данных. Методы GRANT или REVOKE применяются к внешней таблице так же, как и к обычной.
+Users with access to the external table automatically gain access to the underlying remote tables under the credential given in the external data source definition. Avoid undesired elevation of privileges through the credential of the external data source. Use GRANT or REVOKE for an external table just as though it were a regular table.  
 
-Определив внешний источник данных и внешние таблицы, вы можете использовать все возможности T-SQL для создания запросов к внешним таблицам.
+Once you have defined your external data source and your external tables, you can now use full T-SQL over your external tables.
 
-## Пример: запрос баз данных с горизонтальным секционированием 
+## <a name="example:-querying-horizontal-partitioned-databases"></a>Example: querying horizontal partitioned databases 
 
-С помощью следующего запроса устанавливается трехстороннее соединение между хранилищами, заказами и строками заказов, при этом используется несколько статистических выражений и выборочный фильтр. Здесь предполагается, что используется (1) горизонтальное секционирование (сегментирование) и (2) что сегментирование хранилищ, заказов и строк заказов выполняется по столбцу с идентификатором хранилища. В этом случае эластичный запрос может выровнять соединения в сегментах и параллельно обработать ресурсоемкую часть запроса в сегментах.
+The following query performs a three-way join between warehouses, orders and order lines and uses several aggregates and a selective filter. It assumes (1) horizontal partitioning (sharding) and (2) that warehouses, orders and order lines are sharded by the warehouse id column, and that the elastic query can co-locate the joins on the shards and process the expensive part of the query on the shards in parallel. 
 
-	select  
-		 w_id as warehouse,
-		 o_c_id as customer,
-		 count(*) as cnt_orderline,
-		 max(ol_quantity) as max_quantity,
-		 avg(ol_amount) as avg_amount, 
-		 min(ol_delivery_d) as min_deliv_date
-	from warehouse 
-	join orders 
-	on w_id = o_w_id
-	join order_line 
-	on o_id = ol_o_id and o_w_id = ol_w_id 
-	where w_id > 100 and w_id < 200 
-	group by w_id, o_c_id 
+    select  
+         w_id as warehouse,
+         o_c_id as customer,
+         count(*) as cnt_orderline,
+         max(ol_quantity) as max_quantity,
+         avg(ol_amount) as avg_amount, 
+         min(ol_delivery_d) as min_deliv_date
+    from warehouse 
+    join orders 
+    on w_id = o_w_id
+    join order_line 
+    on o_id = ol_o_id and o_w_id = ol_w_id 
+    where w_id > 100 and w_id < 200 
+    group by w_id, o_c_id 
  
-## Хранимая процедура для удаленного выполнения T-SQL: sp\_execute\_remote
+## <a name="stored-procedure-for-remote-t-sql-execution:-sp\_execute_remote"></a>Stored procedure for remote T-SQL execution: sp\_execute_remote
 
-С функцией эластичных запросов вам становится доступна хранимая процедура, которая обеспечивает прямой доступ к сегментам. Хранимая процедура называется [sp\_execute\_remote](https://msdn.microsoft.com/library/mt703714), она может использоваться для выполнения удаленных хранимых процедур или кода T-SQL в удаленных базах данных. Она принимает следующие параметры.
+Elastic query also introduces a stored procedure that provides direct access to the shards. The stored procedure is called [sp\_execute \_remote](https://msdn.microsoft.com/library/mt703714) and can be used to execute remote stored procedures or T-SQL code on the remote databases. It takes the following parameters: 
 
-* Имя источника данных (nvarchar): имя внешнего источника данных типа "реляционная СУБД". 
-* Запрос (nvarchar): запрос T-SQL, выполняемый для каждого сегмента. 
-* Объявление параметра (nvarchar, необязательно): строка с определениями типов данных, используемых в параметрах запроса (например, для процедуры sp\_executesql). 
-* Список значений параметров (необязательно): разделенный запятыми список значений параметров (например, sp\_executesql).
+* Data source name (nvarchar): The name of the external data source of type RDBMS. 
+* Query (nvarchar): The T-SQL query to be executed on each shard. 
+* Parameter declaration (nvarchar) - optional: String with data type definitions for the parameters used in the Query parameter (like sp_executesql). 
+* Parameter value list - optional: Comma-separated list of parameter values (like sp_executesql).
 
-Процедура sp\_execute\_remote использует внешний источник данных, указанный в параметрах вызова, для выполнения заданной инструкции T-SQL в удаленных базах данных. Она использует учетные данные внешнего источника данных для подключения к базе данных диспетчера ShardMap и удаленным базам данных.
+The sp\_execute\_remote uses the external data source provided in the invocation parameters to execute the given T-SQL statement on the remote databases. It uses the credential of the external data source to connect to the shardmap manager database and the remote databases.  
 
-Пример:
+Example: 
 
-	EXEC sp_execute_remote
-		N'MyExtSrc',
-		N'select count(w_id) as foo from warehouse' 
+    EXEC sp_execute_remote
+        N'MyExtSrc',
+        N'select count(w_id) as foo from warehouse' 
 
-## Подключение для инструментов  
+## <a name="connectivity-for-tools"></a>Connectivity for tools  
 
-Используйте обычные строки подключения SQL Server для подключения вашего приложения, инструментов бизнес-аналитики и интеграции данных к базе данных с определениями внешних таблиц. Убедитесь, что в качестве источника данных для вашего инструмента поддерживается SQL Server. Затем добавьте ссылку на запрос к эластичной базе данных, как к любой другой базе данных SQL Server, подключенной к приложению. После этого из своего инструмента или приложения вы сможете использовать внешние таблицы так, как если бы они были локальными таблицами.
+Use regular SQL Server connection strings to connect your application, your BI and data integration tools to the database with your external table definitions. Make sure that SQL Server is supported as a data source for your tool. Then reference the elastic query database like any other SQL Server database connected to the tool, and use external tables from your tool or application as if they were local tables. 
 
-## Рекомендации 
+## <a name="best-practices"></a>Best practices 
 
-* Убедитесь, что брандмауэры баз данных SQL обеспечивают конечной базе данных с эластичными запросами доступ к базе данных карты сегментов и всем сегментам.  
+* Ensure that the elastic query endpoint database has been given access to the shardmap database and all shards through the SQL DB firewalls.  
 
-* Эластичный запрос не предполагает проверку или распределение данных в соответствии с внешней таблицей. Если фактическое распространение данных отличается от определения таблицы, то результаты запросов могут быть непредсказуемыми.
+* Validate or enforce the data distribution defined by the external table. If your actual data distribution is different from the distribution specified in your table definition, your queries may yield unexpected results. 
 
-* Функция эластичных запросов в настоящее время не позволяет исключать сегменты, когда предикаты для ключа сегментирования безопасно исключают определенные сегменты из процесса обработки.
+* Elastic query currently does not perform shard elimination when predicates over the sharding key would allow it to safely exclude certain shards from processing.
 
-* Эластичные запросы оптимальны, когда основная часть вычислений может быть выполнена в сегментах. Обычно наиболее эффективны запросы с предикатами выборочных фильтров, дающие возможность вычисления в сегментах или соединениях путем секционирования ключей с выравниванием по секциям для всех сегментов. Для других шаблонов запросов может потребоваться загрузка больших объемов данных из сегментов в головной узел, что может стать причиной снижения производительности.
+* Elastic query works best for queries where most of the computation can be done on the shards. You typically get the best query performance with selective filter predicates that can be evaluated on the shards or joins over the partitioning keys that can be performed in a partition-aligned way on all shards. Other query patterns may need to load large amounts of data from the shards to the head node and may perform poorly
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
@@ -209,4 +209,8 @@
 [1]: ./media/sql-database-elastic-query-horizontal-partitioning/horizontalpartitioning.png
 <!--anchors-->
 
-<!---HONumber=AcomDC_0601_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

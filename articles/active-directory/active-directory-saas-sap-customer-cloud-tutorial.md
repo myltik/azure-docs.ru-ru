@@ -1,312 +1,315 @@
 <properties
-	pageTitle="Руководство по интеграции Azure Active Directory с SAP Cloud for Customer | Microsoft Azure"
-	description="Узнайте, как настроить единый вход Azure Active Directory в SAP Cloud for Customer."
-	services="active-directory"
-	documentationCenter=""
-	authors="jeevansd"
-	manager="femila"
-	editor=""/>
+    pageTitle="Tutorial: Azure Active Directory integration with SAP Cloud for Customer | Microsoft Azure"
+    description="Learn how to configure single sign-on between Azure Active Directory and SAP Cloud for Customer."
+    services="active-directory"
+    documentationCenter=""
+    authors="jeevansd"
+    manager="femila"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/09/2016"
-	ms.author="jeedes"/>
-
-
-# Руководство по интеграции Azure Active Directory с SAP Cloud for Customer
-
-В этом руководстве описано, как интегрировать SAP Cloud for Customer с Azure Active Directory (Azure AD).
-
-Интеграция SAP Cloud for Customer с Azure AD обеспечивает следующие преимущества:
-
-- с помощью Azure AD вы можете контролировать доступ к приложению SAP Cloud for Customer;
-- вы можете включить автоматический вход пользователей в SAP Cloud for Customer (единый вход) под учетной записью Azure AD;
-- вы можете управлять учетными записями централизованно — через классический портал Azure.
-
-Подробнее узнать об интеграции приложений SaaS с Azure AD можно в статье [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md).
-
-## Предварительные требования
-
-Чтобы настроить интеграцию Azure AD с SAP Cloud for Customer, вам потребуется:
-
-- подписка Azure AD;
-- подписка SAP Cloud for Customer с поддержкой единого входа.
-
-
-> [AZURE.NOTE] Мы не рекомендуем использовать рабочую среду для проверки действий в этом учебнике.
-
-
-При проверке действий в этом учебнике соблюдайте следующие рекомендации:
-
-- Не следует использовать рабочую среду при отсутствии необходимости.
-- Если у вас нет пробной среды Azure AD, вы можете получить пробную версию на один месяц по [этой ссылке](https://azure.microsoft.com/pricing/free-trial/).
-
-
-## Описание сценария
-В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде.
-
-Сценарий, описанный в этом учебнике, состоит из двух основных блоков:
-
-1. Добавление SAP Cloud for Customer из коллекции
-2. Настройка и проверка единого входа в Azure AD
-
-
-## Добавление SAP Cloud for Customer из коллекции
-Чтобы настроить интеграцию SAP Cloud for Customer с Azure AD, необходимо добавить SAP Cloud for Customer из коллекции в список управляемых приложений SaaS.
-
-**Чтобы добавить SAP Cloud for Customer из коллекции, выполните следующие действия:**
-
-1. На **классическом портале Azure** в области навигации слева щелкните **Active Directory**.
-
-	![Active Directory][1]
-
-2. Из списка **Каталог** выберите каталог, для которого нужно включить интеграцию каталогов.
-
-3. Чтобы открыть представление приложений, в представлении каталога нажмите **Приложения** в верхнем меню.
-
-	![Приложения][2]
-
-4. В нижней части страницы нажмите кнопку **Добавить**.
-
-	![Приложения][3]
-
-5. В диалоговом окне **Что необходимо сделать?** нажмите **Добавить приложение из коллекции**.
-
-	![Приложения][4]
-
-6. В поле поиска введите **SAP Cloud for Customer**.
-
-	![Создание тестового пользователя Azure AD](./media/active-directory-saas-sapcloudforcustomer-tutorial/tutorial_sapcloudforcustomer_01.png)
-
-7. В области результатов выберите **SAP Cloud for Customer** и нажмите кнопку **Завершить**, чтобы добавить приложение.
-
-	![Active Directory](./media/active-directory-saas-sapcloudforcustomer-tutorial/tutorial_sapcloudforcustomer_02.png)
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/09/2016"
+    ms.author="jeedes"/>
 
 
 
-##  Настройка и проверка единого входа в Azure AD
+# <a name="tutorial:-azure-active-directory-integration-with-sap-cloud-for-customer"></a>Tutorial: Azure Active Directory integration with SAP Cloud for Customer
 
-В этом разделе описана настройка и проверка единого входа Azure AD в SAP Cloud for Customer с использованием тестового пользователя Britta Simon.
+In this tutorial, you learn how to integrate SAP Cloud for Customer with Azure Active Directory (Azure AD).
 
-Для работы единого входа в Azure AD необходимо знать, какой пользователь в SAP Cloud for Customer соответствует пользователю в Azure AD. Иными словами, необходимо установить связь между пользователем Azure AD и соответствующим пользователем в SAP Cloud for Customer.
+Integrating SAP Cloud for Customer with Azure AD provides you with the following benefits:
 
-Чтобы настроить и проверить единый вход Azure AD в SAP Cloud for Customer, вам потребуется выполнить действия в следующих стандартных блоках:
+- You can control in Azure AD who has access to SAP Cloud for Customer
+- You can enable your users to automatically get signed-on to SAP Cloud for Customer (Single Sign-On) with their Azure AD accounts
+- You can manage your accounts in one central location - the Azure classic portal
 
-1. **[Настройка единого входа Azure AD](#configuring-azure-ad-single-sign-on)** необходима, чтобы пользователи могли использовать эту функцию.
-2. **[Создание тестового пользователя Azure AD](#creating-an-azure-ad-test-user)**. Требуется для проверки работы единого входа Azure AD от имени пользователя Britta Simon.
-3. **[Создание тестового пользователя SAP Cloud for Customer](#creating-an-sap-business-bydesign-test-user)** требуется для создания пользователя Britta Simon в SAP Cloud for Customer, связанного с соответствующим пользователем в Azure AD.
-4. **[Назначение тестового пользователя Azure AD](#assigning-the-azure-ad-test-user)** необходимо, чтобы позволить Britta Simon использовать единый вход в Azure AD.
-5. **[Проверка единого входа](#testing-single-sign-on)** необходима, чтобы убедиться в корректной работе конфигурации.
+If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-### Настройка единого входа в Azure AD
+## <a name="prerequisites"></a>Prerequisites
 
-В этом разделе описано, как включить единый вход Azure AD на классическом портале и настроить его в приложении SAP Cloud for Customer.
+To configure Azure AD integration with SAP Cloud for Customer, you need the following items:
 
-
-**Чтобы настроить единый вход Azure AD в SAP Cloud for Customer, выполните следующие действия:**
+- An Azure AD subscription
+- A SAP Cloud for Customer single-sign on enabled subscription
 
 
-1. На классическом портале Azure на странице интеграции с приложением **SAP Cloud for Customer** в меню в верхней части страницы щелкните **Атрибуты**.
-
-	![Настройка единого входа](./media/active-directory-saas-sapcloudforcustomer-tutorial/tutorial_general_80.png)
+> [AZURE.NOTE] To test the steps in this tutorial, we do not recommend using a production environment.
 
 
-2. В списке атрибутов токена SAML выберите имя атрибута и нажмите кнопку **Изменить**.
+To test the steps in this tutorial, you should follow these recommendations:
 
-	![Настройка единого входа](./media/active-directory-saas-sapcloudforcustomer-tutorial/tutorial_general_84.png)
-
-3. В диалоговом окне **Изменение атрибута пользователя** выполните следующие действия:
-
-	![Настройка единого входа](./media/active-directory-saas-sapcloudforcustomer-tutorial/tutorial_general_85.png)
+- You should not use your production environment, unless this is necessary.
+- If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).
 
 
-	а. В списке **Значение атрибута** выберите функцию **ExtractMailPrefix()**.
-	
-	b. В списке **Почта** выберите атрибут пользователя, который вы хотите использовать в своей реализации. Например, если в качестве уникального идентификатора пользователя вы хотите использовать EmployeeID и сохранили значение атрибута в ExtensionAttribute2, выберите user.extensionattribute2.
+## <a name="scenario-description"></a>Scenario description
+In this tutorial, you test Azure AD single sign-on in a test environment.
 
-	c. Нажмите **Завершено**.
-	
+The scenario outlined in this tutorial consists of two main building blocks:
 
-4. На классическом портале Azure на странице интеграции с приложением **SAP Cloud for Customer** щелкните **Настроить единый вход**.
-	 
-	![Настройка единого входа][6]
+1. Adding SAP Cloud for Customer from the gallery
+2. Configuring and testing Azure AD single sign-on
 
-5. На странице **Как пользователи должны входить в SAP Cloud for Customer?** выберите **Единый вход Azure AD** и нажмите кнопку **Далее**.
 
-	![Настройка единого входа](./media/active-directory-saas-sapcloudforcustomer-tutorial/tutorial_sapcloudforcustomer_03.png)
+## <a name="adding-sap-cloud-for-customer-from-the-gallery"></a>Adding SAP Cloud for Customer from the gallery
+To configure the integration of SAP Cloud for Customer into Azure AD, you need to add SAP Cloud for Customer from the gallery to your list of managed SaaS apps.
 
-6. В диалоговом окне на странице **Настройка параметров приложения** выполните следующие действия.
+**To add SAP Cloud for Customer from the gallery, perform the following steps:**
 
-	![Настройка единого входа](./media/active-directory-saas-sapcloudforcustomer-tutorial/tutorial_sapcloudforcustomer_04.png)
+1. In the **Azure classic portal**, on the left navigation pane, click **Active Directory**.
 
-    а. В текстовое поле **URL-адрес входа** введите URL-адрес, используемый пользователями для входа в приложение SAP Cloud for Customer в формате `https://<server name>.crm.ondemand.com`.
-	
-	b. Нажмите кнопку **Далее**.
+    ![Active Directory][1]
+
+2. From the **Directory** list, select the directory for which you want to enable directory integration.
+
+3. To open the applications view, in the directory view, click **Applications** in the top menu.
+
+    ![Applications][2]
+
+4. Click **Add** at the bottom of the page.
+
+    ![Applications][3]
+
+5. On the **What do you want to do** dialog, click **Add an application from the gallery**.
+
+    ![Applications][4]
+
+6. In the search box, type **SAP Cloud for Customer**.
+
+    ![Creating an Azure AD test user](./media/active-directory-saas-sapcloudforcustomer-tutorial/tutorial_sapcloudforcustomer_01.png)
+
+7. In the results pane, select **SAP Cloud for Customer**, and then click **Complete** to add the application.
+
+    ![Active Directory](./media/active-directory-saas-sapcloudforcustomer-tutorial/tutorial_sapcloudforcustomer_02.png)
+
+
+
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuring and testing Azure AD single sign-on
+
+In this section, you configure and test Azure AD single sign-on with SAP Cloud for Customer based on a test user called "Britta Simon".
+
+For single sign-on to work, Azure AD needs to know what the counterpart user in SAP Cloud for Customer is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in SAP Cloud for Customer needs to be established.
+
+To configure and test Azure AD single sign-on with SAP Cloud for Customer, you need to complete the following building blocks:
+
+1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - to enable your users to use this feature.
+2. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
+3. **[Creating a SAP Cloud for Customer test user](#creating-an-sap-business-bydesign-test-user)** - to have a counterpart of Britta Simon in SAP Cloud for Customer that is linked to the Azure AD representation of her.
+4. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
+5. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
+
+### <a name="configuring-azure-ad-single-sign-on"></a>Configuring Azure AD single sign-on
+
+In this section, you enable Azure AD single sign-on in the classic portal and configure single sign-on in your SAP Cloud for Customer application. 
+
+
+**To configure Azure AD single sign-on with SAP Cloud for Customer, perform the following steps:**
+
+
+1. In the Azure classic portal, on the **SAP Cloud for Customer** application integration page, in the menu on the top, click **Attributes**.
+
+    ![Configure Single Sign-On](./media/active-directory-saas-sapcloudforcustomer-tutorial/tutorial_general_80.png) 
+
+
+2. In the attributes SAML token attributes list, select the nameidentifier attribute, and then click **Edit**.
+
+    ![Configure Single Sign-On](./media/active-directory-saas-sapcloudforcustomer-tutorial/tutorial_general_84.png) 
+
+3. On the **Edit User Attribute** dialog, perform the following steps:
+
+    ![Configure Single Sign-On](./media/active-directory-saas-sapcloudforcustomer-tutorial/tutorial_general_85.png) 
+
+
+    a. From the **Attribute Value** list, select the **ExtractMailPrefix()** fuction.
+    
+    b. From the **Mail** list, select the user attribute you want to use for your implementation. 
+    For example, if you want to use the EmployeeID as unique user identifier and you have stored the attribute value in the ExtensionAttribute2, then select user.extensionattribute2. 
+
+    c. Click **Complete**. 
+    
+
+4. In the classic portal, on the **SAP Cloud for Customer** application integration page, click **Configure single sign-on**.
+     
+    ![Configure Single Sign-On][6] 
+
+5. On the **How would you like users to sign on to SAP Cloud for Customer** page, select **Azure AD Single Sign-On**, and then click **Next**.
+
+    ![Configure Single Sign-On](./media/active-directory-saas-sapcloudforcustomer-tutorial/tutorial_sapcloudforcustomer_03.png) 
+
+6. On the **Configure App Settings** dialog page, perform the following steps:
+
+    ![Configure Single Sign-On](./media/active-directory-saas-sapcloudforcustomer-tutorial/tutorial_sapcloudforcustomer_04.png) 
+
+    a. In the **Sign On URL** textbox, type the URL used by your users to sign-on to your SAP Cloud for Customer application using the following pattern: `https://<server name>.crm.ondemand.com`
+    
+    b. click **Next**
  
-7. На странице **Настройка единого входа в SAP Cloud for Customer** выполните следующие действия:
+7. On the **Configure single sign-on at SAP Cloud for Customer** page, perform the following steps:
 
-	![Настройка единого входа](./media/active-directory-saas-sapcloudforcustomer-tutorial/tutorial_sapcloudforcustomer_05.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-sapcloudforcustomer-tutorial/tutorial_sapcloudforcustomer_05.png)
 
-    а. Нажмите **Загрузить метаданные** и сохраните файл на свой компьютер.
+    a. Click **Download metadata**, and then save the file on your computer.
 
-    b. Нажмите кнопку **Далее**.
+    b. Click **Next**.
 
 
-8. В разделе "Конфигурация единого входа" выполните следующие действия:
+8. To get SSO configured, perform the following steps:
 
-	а. Войдите на портал SAP Cloud for Customer с правами администратора.
+    a. Login into SAP Cloud for Customer portal with administrator rights.
 
-	b. Перейдите к элементу **Application and User Management Common Task** (Общие задачи управления приложением и пользователем) и откройте вкладку **Поставщик удостоверений**.
+    b. Navigate to the **Application and User Management Common Task** and click the **Identity Provider** tab.
 
-	c. Щелкните **New Identity Provider** (Новый поставщик удостоверений) и выберите XML-файл метаданных, скачанный на классическом портале Azure. Импортируя метаданные, система автоматически отправляет требуемые сертификаты подписи и шифрования.
+    c. Click **New Identity Provider** and select the metadata XML file you have downloaded from the Azure classic portal. By importing the metadata, the system automatically uploads the required signature certificate and encryption certificate.
 
-	![Настройка единого входа](./media/active-directory-saas-sapcloudforcustomer-tutorial/tutorial_sapcloudforcustomer_54.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-sapcloudforcustomer-tutorial/tutorial_sapcloudforcustomer_54.png)
 
-	г) В запросе SAML для Azure AD требуется **URL-адрес службы обработчика утверждений**, поэтому установите соответствующий флажок.
+    d. Azure AD requires the element Assertion Consumer Service URL in the SAML request, so select the **Include Assertion Consumer Service URL** checkbox.
 
-	д. Щелкните **Activate Single Sign-On** (Активировать единый вход).
+    e. Click **Activate Single Sign-On**.
 
-	Е. Сохраните изменения.
+    f. Save your changes.
 
-	g. Перейдите на вкладку **My System** (Моя система).
+    g. Click the **My System** tab.
 
-	![Настройка единого входа](./media/active-directory-saas-sapcloudforcustomer-tutorial/tutorial_sapcloudforcustomer_52.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-sapcloudforcustomer-tutorial/tutorial_sapcloudforcustomer_52.png)
 
-	h. Скопируйте значение поля **SSO URL** (URL-адрес единого входа) и вставьте его в поле **Azure AD Sign On URL** (URL-адрес входа Azure AD).
+    h. Copy the **SSO URL** and paste it into the **Azure AD Sign On URL** textbox.
 
-	![Настройка единого входа](./media/active-directory-saas-sapcloudforcustomer-tutorial/tutorial_sapcloudforcustomer_53.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-sapcloudforcustomer-tutorial/tutorial_sapcloudforcustomer_53.png)
 
-	i. Укажите, может ли сотрудник вручную выбрать вход с помощью учетных данных (идентификатора пользователя и пароля) или единый вход, щелкнув **Manual Identity Provider Selection** (Выбор поставщика удостоверений вручную).
+    i. Specify whether the employee can manually choose between logging on with user ID and password or SSO by selecting the **Manual Identity Provider Selection**.
 
-	j. В разделе **SSO URL** (URL-адрес единого входа) укажите URL-адрес, который будет использоваться вашими сотрудниками для входа в систему. В списке **URL Sent to Employee** (URL-адрес для отправки сотруднику) можно выбрать следующие параметры:
-	
-	**Non-SSO URL** (URL-адрес без единого входа)
+    j. In the **SSO URL** section, specify the URL that should be used by your employees to sign on to the system. 
+    In the **URL Sent to Employee** list, you can choose between the following options:
+    
+    **Non-SSO URL**
  
-	Система отправит сотруднику обычный URL-адрес системы. Сотрудник не сможет входить в систему с помощью единого входа. Вместо этого ему необходимо использовать пароль или сертификат.
+    The system sends only the normal system URL to the employee. The employee cannot log on using SSO, and must use password or certificate instead.
 
-	**SSO URL** (URL-адрес единого входа)
+    **SSO URL** 
 
-	Система отправит сотруднику URL-адрес единого входа. Сотрудник сможет входить в систему с помощью единого входа. Запрос на проверку подлинности перенаправляется через поставщик удостоверений.
+    The system sends only the SSO URL to the employee. The employee can log on using SSO. Authentication request is redirected through the IdP.
 
-	**Automatic Selection** (Автоматический выбор)
+    **Automatic Selection**
  
-	Если функция единого входа неактивна, система отправит сотруднику обычный URL-адрес системы. Если функция единого входа активна, система проверит, есть ли у сотрудника пароль. При наличии пароля сотруднику будет отправлен URL-адрес единого входа и URL-адрес другого метода входа. Если пароля нет, сотруднику будет отправлен только URL-адрес единого входа.
+    If SSO is not active, the system sends the normal system URL to the employee. If SSO is active, the system checks whether the employee has a password. If a password is available, both SSO URL and Non-SSO URL are sent to the employee. However, if the employee has no password, only the SSO URL is sent to the employee.
 
-	k. Сохраните изменения.
+    k. Save your changes.
 
-9. На классическом портале подтвердите конфигурацию единого входа и нажмите кнопку **Далее**.
-	
-	![Единый вход в Azure AD][10]
+9. In the classic portal, select the single sign-on configuration confirmation, and then click **Next**.
+    
+    ![Azure AD Single Sign-On][10]
 
-10. На странице **Подтверждение единого входа** нажмите кнопку **Завершить**.
+10. On the **Single sign-on confirmation** page, click **Complete**.  
  
-	![Единый вход в Azure AD][11]
+    ![Azure AD Single Sign-On][11]
 
 
-### Создание тестового пользователя Azure AD
-В этом разделе описано, как создать на классическом портале Azure тестового пользователя с именем Britta Simon.
+### <a name="creating-an-azure-ad-test-user"></a>Creating an Azure AD test user
+In this section, you create a test user in the Azure classic portal called Britta Simon.
 
 
-![Создание пользователя Azure AD][20]
+![Create Azure AD User][20]
 
-**Чтобы создать тестового пользователя в Azure AD, выполните следующие действия:**
+**To create a test user in Azure AD, perform the following steps:**
 
-1. На **классическом портале Azure** в области навигации слева щелкните **Active Directory**.
+1. In the **Azure classic portal**, on the left navigation pane, click **Active Directory**.
 
-	![Создание тестового пользователя Azure AD](./media/active-directory-saas-sapcloudforcustomer-tutorial/create_aaduser_09.png)
+    ![Creating an Azure AD test user](./media/active-directory-saas-sapcloudforcustomer-tutorial/create_aaduser_09.png) 
 
-2. Из списка **Каталог** выберите каталог, для которого нужно включить интеграцию каталогов.
+2. From the **Directory** list, select the directory for which you want to enable directory integration.
 
-3. Чтобы отобразить список пользователей, в меню вверху выберите **Пользователи**.
+3. To display the list of users, in the menu on the top, click **Users**.
 
-	![Создание тестового пользователя Azure AD](./media/active-directory-saas-sapcloudforcustomer-tutorial/create_aaduser_03.png)
+    ![Creating an Azure AD test user](./media/active-directory-saas-sapcloudforcustomer-tutorial/create_aaduser_03.png) 
 
-4. Чтобы открыть диалоговое окно **Добавление пользователя**, на панели инструментов внизу нажмите кнопку **Добавить пользователя**.
+4. To open the **Add User** dialog, in the toolbar on the bottom, click **Add User**.
 
-	![Создание тестового пользователя Azure AD](./media/active-directory-saas-sapcloudforcustomer-tutorial/create_aaduser_04.png)
+    ![Creating an Azure AD test user](./media/active-directory-saas-sapcloudforcustomer-tutorial/create_aaduser_04.png) 
 
-5. На странице диалогового окна **Тип учетной записи пользователя** выполните следующие действия. ![Создание тестового пользователя Azure AD](./media/active-directory-saas-sapcloudforcustomer-tutorial/create_aaduser_05.png)
+5. On the **Tell us about this user** dialog page, perform the following steps:  ![Creating an Azure AD test user](./media/active-directory-saas-sapcloudforcustomer-tutorial/create_aaduser_05.png) 
 
-    а. В поле «Тип пользователя» выберите значение «Новый пользователь в вашей организации».
+    a. As Type Of User, select New user in your organization.
 
-    b. В текстовое поле **Имя пользователя** введите **BrittaSimon**.
+    b. In the User Name **textbox**, type **BrittaSimon**.
 
-    c. Нажмите кнопку **Далее**.
+    c. Click **Next**.
 
-6.  На странице диалогового окна **Профиль пользователя** выполните следующие действия. ![Создание тестового пользователя Azure AD](./media/active-directory-saas-sapcloudforcustomer-tutorial/create_aaduser_06.png)
+6.  On the **User Profile** dialog page, perform the following steps: ![Creating an Azure AD test user](./media/active-directory-saas-sapcloudforcustomer-tutorial/create_aaduser_06.png) 
 
-    а. В текстовом поле **Имя** введите **Britta**.
+    a. In the **First Name** textbox, type **Britta**.  
 
-    b. В текстовое поле **Фамилия** введите **Simon**.
+    b. In the **Last Name** textbox, type, **Simon**.
 
-    c. В текстовое поле **Отображаемое имя** введите **Britta Simon**.
+    c. In the **Display Name** textbox, type **Britta Simon**.
 
-    г) В списке **Роль** выберите **Пользователь**.
+    d. In the **Role** list, select **User**.
 
-    д. Нажмите кнопку **Далее**.
+    e. Click **Next**.
 
-7. На странице диалогового окна **Получить временный пароль** нажмите кнопку **Создать**.
+7. On the **Get temporary password** dialog page, click **create**.
 
-	![Создание тестового пользователя Azure AD](./media/active-directory-saas-sapcloudforcustomer-tutorial/create_aaduser_07.png)
+    ![Creating an Azure AD test user](./media/active-directory-saas-sapcloudforcustomer-tutorial/create_aaduser_07.png) 
 
-8. На странице диалогового окна **Получить временный пароль** выполните следующие действия.
+8. On the **Get temporary password** dialog page, perform the following steps:
 
-	![Создание тестового пользователя Azure AD](./media/active-directory-saas-sapcloudforcustomer-tutorial/create_aaduser_08.png)
+    ![Creating an Azure AD test user](./media/active-directory-saas-sapcloudforcustomer-tutorial/create_aaduser_08.png) 
 
-    а. Запишите значение поля **Новый пароль**.
+    a. Write down the value of the **New Password**.
 
-    b. Нажмите **Завершено**.
-
-
-
-### Создание тестового пользователя в SAP Cloud for Customer
-
-В этом разделе описано, как создать пользователя Britta Simon в приложении SAP Cloud for Customer. Чтобы добавить пользователей платформы SAP Cloud for Customer, обратитесь в службу поддержки этого продукта.
-
-> [AZURE.NOTE] Значение идентификатора имени должно совпадать с полем имени пользователя на платформе SAP Cloud for Customer.
-
-### Назначение тестового пользователя Azure AD
-
-В этом разделе описано, как разрешить пользователю Britta Simon использовать единый вход Azure, предоставив ему доступ к SAP Cloud for Customer.
-
-![Назначение пользователя][200]
-
-**Чтобы назначить пользователя Britta Simon в приложении SAP Cloud for Customer, выполните следующие действия:**
-
-1. Чтобы открыть представление приложений, в представлении каталога на классическом портале щелкните **Приложения** в меню вверху.
-
-	![Назначение пользователя][201]
-
-2. В списке приложений выберите **SAP Cloud for Customer**.
-
-	![Настройка единого входа](./media/active-directory-saas-sapcloudforcustomer-tutorial/tutorial_sapcloudforcustomer_50.png)
-
-3. В меню в верхней части страницы щелкните **Пользователи**.
-
-	![Назначение пользователя][203]
-
-4. В списке пользователей выберите **Britta Simon**.
-
-5. На панели инструментов внизу щелкните **Назначить**.
-
-	![Назначение пользователя][205]
+    b. Click **Complete**.   
 
 
-### Проверка единого входа
 
-В этом разделе описано, как проверить конфигурацию единого входа Azure AD с помощью панели доступа.
+### <a name="creating-an-sap-cloud-for-customer-test-user"></a>Creating an SAP Cloud for Customer test user
 
-Щелкнув элемент SAP Cloud for Customer на панели доступа, вы автоматически войдете в приложение SAP Cloud for Customer.
+In this section, you create a user called Britta Simon in SAP Cloud for Customer. Please work with SAP Cloud for Customer support team to add the users in the SAP Cloud for Customer platform. 
+
+> [AZURE.NOTE] Please make sure that NameID value should match with the username field in the SAP Cloud for Customer platform.
+
+### <a name="assigning-the-azure-ad-test-user"></a>Assigning the Azure AD test user
+
+In this section, you enable Britta Simon to use Azure single sign-on by granting her access to SAP Cloud for Customer.
+
+![Assign User][200] 
+
+**To assign Britta Simon to SAP Cloud for Customer, perform the following steps:**
+
+1. On the classic portal, to open the applications view, in the directory view, click **Applications** in the top menu.
+
+    ![Assign User][201] 
+
+2. In the applications list, select **SAP Cloud for Customer**.
+
+    ![Configure Single Sign-On](./media/active-directory-saas-sapcloudforcustomer-tutorial/tutorial_sapcloudforcustomer_50.png) 
+
+3. In the menu on the top, click **Users**.
+
+    ![Assign User][203]
+
+4. In the Users list, select **Britta Simon**.
+
+5. In the toolbar on the bottom, click **Assign**.
+
+    ![Assign User][205]
 
 
-## Дополнительные ресурсы
+### <a name="testing-single-sign-on"></a>Testing single sign-on
 
-* [Список учебников по интеграции приложений SaaS с Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+In this section, you test your Azure AD single sign-on configuration using the Access Panel.
+
+When you click the SAP Cloud for Customer tile in the Access Panel, you should get automatically signed-on to your SAP Cloud for Customer application.
+
+
+## <a name="additional-resources"></a>Additional resources
+
+* [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 
 <!--Image references-->
@@ -327,4 +330,8 @@
 [204]: ./media/active-directory-saas-sapcloudforcustomer-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-sapcloudforcustomer-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

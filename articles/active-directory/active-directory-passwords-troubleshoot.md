@@ -1,689 +1,690 @@
 <properties
-	pageTitle="Устранение неполадок: управление паролями Azure AD| Microsoft Azure"
-	description="Общие рекомендации по устранению неполадок компонентов управления паролями Azure AD, включая сброс, изменение, обратную запись, регистрацию и сведения, включаемые при поиске справки."
-	services="active-directory"
-	documentationCenter=""
-	authors="asteen"
-	manager="femila"
-	editor="curtand"/>
+    pageTitle="Troubleshooting: Azure AD Password Management | Microsoft Azure"
+    description="Common troubleshooting steps for Azure AD Password Management, including reset, change, writeback, registration, and what information to include when looking for help."
+    services="active-directory"
+    documentationCenter=""
+    authors="asteen"
+    manager="femila"
+    editor="curtand"/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/12/2016"
-	ms.author="asteen"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="08/12/2016"
+    ms.author="asteen"/>
 
-# Устранение неполадок, связанных с управлением паролями
 
-> [AZURE.IMPORTANT] **Вы здесь потому, что возникают проблемы при входе?** Если это так, [с помощью этих инструкций можно изменить и сбросить пароль](active-directory-passwords-update-your-own-password.md).
+# <a name="how-to-troubleshoot-password-management"></a>How to troubleshoot Password Management
 
-Если возникают проблемы с управлением паролями, мы готовы помочь. Большинство возникающих проблем можно решить несколькими простыми шагами по устранению неполадок развернутой системы, которые описаны ниже.
+> [AZURE.IMPORTANT] **Are you here because you're having problems signing in?** If so, [here's how you can change and reset your own password](active-directory-passwords-update-your-own-password.md).
 
-* [**Сведения, которые необходимо указать, если требуется помощь**](#information-to-include-when-you-need-help)
-* [**Проблемы с конфигурацией управления паролями на портале управления Azure**](#troubleshoot-password-reset-configuration-in-the-azure-management-portal)
-* [**Проблемы с отчетами об управлении паролями на портале управления Azure**](#troubleshoot-password-management-reports-in-the-azure-management-portal)
-* [**Проблемы с порталом регистрации сброса паролей**](#troubleshoot-the-password-reset-registration-portal)
-* [**Проблемы с порталом сброса паролей**](#troubleshoot-the-password-reset-portal)
-* [**Проблемы с обратной записью паролей**](#troubleshoot-password-writeback)
-  - [Коды ошибок журнала событий обратной записи паролей](#password-writeback-event-log-error-codes)
-  - [Проблемы с подключением обратной записи паролей](#troubleshoot-password-writeback-connectivity)
+If you are having issues with Password Management, we're here to help. Most problems you may run into can be solved with a few simple troubleshooting steps which you can read about below to troubleshoot your deployment:
 
-Если вы уже пробовали выполнить действия по устранению неполадок и они по-прежнему сохраняются, вы можете разместить вопрос на [форумах Azure AD](https://social.msdn.microsoft.com/forums/azure/home?forum=WindowsAzureAD) или обратиться в службу поддержки. Мы рассмотрим вашу проблему как можно быстрее.
+* [**Information to include when you need help**](#information-to-include-when-you-need-help)
+* [**Problems with Password Management configuration in the Azure Management Portal**](#troubleshoot-password-reset-configuration-in-the-azure-management-portal)
+* [**Problems with Password Managment reports in the Azure Management Portal**](#troubleshoot-password-management-reports-in-the-azure-management-portal)
+* [**Problems with the Password Reset Registration Portal**](#troubleshoot-the-password-reset-registration-portal)
+* [**Problems with the Password Reset Portal**](#troubleshoot-the-password-reset-portal)
+* [**Problems with Password Writeback**](#troubleshoot-password-writeback)
+  - [Password Writeback event log error codes](#password-writeback-event-log-error-codes)
+  - [Problems with Password Writeback connectivity](#troubleshoot-password-writeback-connectivity)
 
-## Сведения, которые необходимо указать, если требуется помощь
+If you've tried the troubleshooting steps below and are still running into problems, you can post a question on the [Azure AD Forums](https://social.msdn.microsoft.com/forums/azure/home?forum=WindowsAzureAD) or contact support and we'll take a look at your problem as soon as we can.
 
-Если не удается решить проблему с помощью приведенных ниже инструкций, можно обратиться к инженерам нашей службы поддержки. При обращении к ним рекомендуется указать следующие сведения.
+## <a name="information-to-include-when-you-need-help"></a>Information to include when you need help
 
- - **Общее описание ошибки** — какое в точности сообщение об ошибке увидел пользователь? Если сообщения об ошибке не было, подробно опишите непредвиденное поведение, которое вы заметили.
- - **Страница** — на какой странице вы находились, когда увидели ошибку (включая URL-адрес)?
- - **Дата/время/часовой пояс** — точные дата и время, когда вы заметили ошибку (включая часовой пояс)?
- - **Код поддержки** — какой код поддержки был сформирован, когда пользователь увидел ошибку (чтобы найти его, воспроизведите ошибку, затем щелкните ссылку «Код поддержки» внизу экрана и отправьте специалисту службы поддержки идентификатор GUID, который отобразится в результате).
-   - Если вы находитесь на странице, внизу которой отсутствует код поддержки, нажмите клавишу F12 и поищите SID и CID, после чего отправьте два найденных результата специалисту службы поддержки.
+If you cannot solve your issue with the guidance below, you can contact our support engineers. When you contact them, it is recommended to include the following information:
+
+ - **General description of the error** – what exact error message did the user see?  If there was no error message, describe the unexpected behavior you noticed, in detail.
+ - **Page** – what page were you on when you saw the error (include the URL)?
+ - **Date / Time / Timezone** – what was the precise date and time you saw the error (include the timezone)?
+ - **Support Code** – what was the support code generated when the user saw the error (to find this, reproduce the error, then click the Support Code link at the bottom of the screen and send the support engineer the GUID that results).
+   - If you are on a page without a support code at the bottom, press F12 and search for SID and CID and send those two results to the support engineer.
 
     ![][001]
 
- - **Идентификатор пользователя** — идентификатор пользователя, который увидел ошибку (например, user@contoso.com)?
- - **Сведения о пользователе** — был ли пользователь федеративным, с включенной синхронизацией хэшей паролей, или только облачным? Была ли назначена пользователю лицензия AAD Premium или AAD Basic?
- - **Журнал событий приложений** — если используется обратная запись паролей и код ошибки находится в вашей локальной инфраструктуре, отправьте нам архив с копией журнала событий приложений с сервера Azure AD Connect и отправьте его вместе с вашим запросом.
+ - **User ID** – what was the ID of the user who saw the error (e.g. user@contoso.com)?
+ - **Information about the user** – was the user federated, password hash synced, cloud only?  Did the user have an AAD Premium or AAD Basic license assigned?
+ - **Application Event Log** – if you are using Password Writeback and the error is in your on-premises infrastructure, please zip up a copy of your application event log from your Azure AD Connect server and send along with your request.
 
-Добавление этих сведений поможет нам устранить неполадку как можно быстрее.
+Including this information will help us to solve your problem as quickly as possible.
 
 
-## Устранение неполадок в конфигурации сброса пароля на портале управления Azure
-Если возникает ошибка при настройке сброса пароля, вы можете устранить ее следующим образом.
+## <a name="troubleshoot-password-reset-configuration-in-the-azure-management-portal"></a>Troubleshoot password reset configuration in the Azure Management Portal
+If you encounter an error when configuring password reset, you might be able to resolve it by following the troubleshooting steps below:
 
 <table>
           <tbody><tr>
             <td>
               <p>
-                <strong>Ситуация ошибки</strong>
+                <strong>Error Case</strong>
               </p>
             </td>
             <td>
               <p>
-                <strong>Какую ошибку видит пользователь?</strong>
+                <strong>What error does a user see?</strong>
               </p>
             </td>
             <td>
               <p>
-                <strong>Решение</strong>
+                <strong>Solution</strong>
               </p>
             </td>
           </tr>
           <tr>
             <td>
-              <p>Я не вижу раздела <strong>Политика сброса пароля пользователя</strong> на вкладке <strong>Настройка</strong> на портале управления Azure</p>
+              <p>I don’t see the <strong>User Password Reset Policy </strong>section under the <strong>Configure</strong> tab in the Azure management portal</p>
             </td>
             <td>
-              <p>Раздел <strong>Политика сброса пароля пользователя</strong> не виден на вкладке <strong>Настройка</strong> на портале управления Azure</p>
+              <p>The <strong>User Password Reset Policy </strong>section is not visible on the <strong>Configure</strong> tab in the Azure Management Portal.</p>
             </td>
             <td>
-              <p>Это может произойти, если администратору, выполняющему данную операцию, не назначена лицензия AAD Premium или AAD Basic. </p>
-              <p>Чтобы исправить это, назначьте лицензию AAD Premium или AAD Basic соответствующей учетной записи администратора, перейдя на вкладку <strong>Лицензии</strong> и повторив попытку.</p>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <p>В разделе <strong>Политика сброса пароля пользователя</strong> я не вижу никаких параметров конфигурации, которые описаны в документации.</p>
-            </td>
-            <td>
-              <p>Раздел <strong>Политика сброса пароля пользователя</strong> отображается, но в нем есть только флаг <strong>Пользователям разрешен сброс пароля</strong>.</p>
-            </td>
-            <td>
-              <p>Остальная часть пользовательского интерфейса будет отображаться при установке для флага <strong>Пользователям разрешен сброс пароля</strong> значения <strong>Да</strong>.</p>
+              <p>This can occur if you do not have an AAD Premium or AAD Basic license assigned to the admin performing this operation. </p>
+              <p>To rectify this, assign an AAD Premium or AAD Basic license to the admin account in question by navigating to the <strong>Licenses</strong> tab and try again.</p>
             </td>
           </tr>
           <tr>
             <td>
-              <p>Я не конкретного параметра конфигурации.</p>
+              <p>I don’t see any of the configuration options under the <strong>User Password Reset Policy</strong> section that are described in the documentation.</p>
             </td>
             <td>
-              <p>Например, я не вижу параметра <strong>Число дней до того, как пользователь должен подтвердить свои контактные данные</strong> при прокрутке через раздел <strong>Политика сброса пароля пользователя</strong> (или другие примеры той же проблемы).</p>
+              <p>The <strong>User Password Reset Policy </strong>section is visible, but the only flag that appears under it is the <strong>Users Enabled for Password Reset</strong> flag.</p>
             </td>
             <td>
-              <p>Многие элементы пользовательского интерфейса скрыты до тех пор, пока они не понадобятся. Попробуйте включить все параметры на странице, если требуется просмотреть их все.</p>
-              <p>Дополнительные сведения обо всех элементах управления, которые для вас доступны, см. в разделе <a href="active-directory-passwords-customize.md#password-management-behavior">Поведение службы управления паролями</a>.</p>
+              <p>The rest of the UI will appear when you switch the <strong>Users Enabled for Password Reset</strong> flag to <strong>Yes.</strong></p>
             </td>
           </tr>
           <tr>
             <td>
-              <p>Я не вижу параметра конфигурации <strong>Обратная запись паролей в локальный каталог</strong></p>
+              <p>I don’t see a particular configuration option.</p>
             </td>
             <td>
-              <p>Параметр <strong>Обратная запись паролей в локальный каталог</strong> не виден на вкладке <strong>Настройка</strong> на портале управления Azure</p>
+              <p>For example, I do not see the <strong>Number of days before a user must confirm their contact data</strong> option when I scroll through the <strong>User Password Reset Policy</strong> section (or other examples of the same issue).</p>
             </td>
             <td>
-              <p>Этот параметр отображается, только если загружено средство Azure AD Connect и настроена обратная запись паролей. После того как это будет сделано, данный параметр появится и позволит включить или отключить обратную запись из облака.</p>
-              <p>Дополнительные сведения о том, как это сделать, см. в разделе <a href="active-directory-passwords-getting-started.md#step-2-enable-password-writeback-in-azure-ad-connect">Включение обратной записи паролей в Azure AD Connect</a>.</p>
+              <p>Many elements of UI are hidden until they are needed. Try enabling all the options on the page if you want to see.</p>
+              <p>See <a href="active-directory-passwords-customize.md#password-management-behavior">Password Management behavior</a> for more info about all of the controls that are available to you.</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>I don’t see the <strong>Write Back Passwords to On-Premises</strong> configuration option</p>
+            </td>
+            <td>
+              <p>The <strong>Write Back Passwords to On-Premises</strong> option is not visible under the <strong>Configure</strong> tab in the Azure Management Portal</p>
+            </td>
+            <td>
+              <p>This option is only visible if you have downloaded Azure AD Connect and configured Password Writeback. When you have done this, that option appears and allows you to enable or disable writeback from the cloud.</p>
+              <p>See <a href="active-directory-passwords-getting-started.md#step-2-enable-password-writeback-in-azure-ad-connect">Enable Password Writeback in Azure AD Connect</a> for more information on how to do this.</p>
             </td>
           </tr>
         </tbody></table>
 
-## Устранение неполадок с отчетами об управлении паролями на портале управления Azure
-Если возникает ошибка при использовании отчетов об управлении паролями, возможно, устранить ее помогут следующие действия:
+## <a name="troubleshoot-password-management-reports-in-the-azure-management-portal"></a>Troubleshoot password management reports in the Azure Management Portal
+If you encounter an error when using the password management reports, you might be able to resolve it by following the troubleshooting steps below:
 
 <table>
           <tbody><tr>
             <td>
               <p>
-                <strong>Ситуация ошибки</strong>
+                <strong>Error Case</strong>
               </p>
             </td>
             <td>
               <p>
-                <strong>Какую ошибку видит пользователь?</strong>
+                <strong>What error does a user see?</strong>
               </p>
             </td>
             <td>
               <p>
-                <strong>Решение</strong>
+                <strong>Solution</strong>
               </p>
             </td>
           </tr>
           <tr>
             <td>
-              <p>Я не вижу никаких отчетов об управлении паролями</p>
+              <p>I don’t see any password management reports</p>
             </td>
             <td>
-              <p>Отчеты <strong>Действие сброса пароля</strong> и <strong>Действие регистрации сброса пароля</strong> не отображаются в списке <strong>Журнал действий</strong> на вкладке <strong>Отчеты</strong>.</p>
+              <p>The <strong>Password reset activity</strong> and <strong>Password reset registration activity</strong> reports are not visible under the <strong>Activity Log</strong> reports in the <strong>Reports</strong> tab.</p>
             </td>
             <td>
-              <p>Это может произойти, если администратору, выполняющему данную операцию, не назначена лицензия AAD Premium или AAD Basic. </p>
-              <p>Чтобы исправить это, назначьте лицензию AAD Premium или AAD Basic соответствующей учетной записи администратора, перейдя на вкладку <strong>Лицензии</strong> и повторив попытку.</p>
+              <p>This can occur if you do not have an AAD Premium or AAD Basic license assigned to the admin performing this operation. </p>
+              <p>To rectify this, assign an AAD Premium or AAD Basic license to the admin account in question by navigating to the <strong>Licenses</strong> tab and try again.</p>
             </td>
           </tr>
           <tr>
             <td>
-              <p>Регистрации пользователя отображаются несколько раз</p>
+              <p>User registrations show multiple times</p>
             </td>
             <td>
-              <p>Когда пользователь регистрирует запасной адрес электронной почты, мобильный телефон и секретные вопросы, все эти параметры отображаются в отдельных строках вместо одной строки.</p>
+              <p>When a user registers alternate email, mobile phone, and security questions, they each show up as separate lines instead of a single line.</p>
             </td>
             <td>
-              <p>В настоящее время при регистрации пользователя мы не можем предполагать, что он зарегистрирует все элементы на странице регистрации. В результате мы записываем каждый зарегистрированный фрагмент данных в журнал как отдельное событие.</p>
-              <p>Если необходимо агрегировать эти данные, можно загрузить отчет и открыть данные в виде сводной таблицы в Excel для обеспечения большей гибкости.</p>
+              <p>Currently, when a user registers, we cannot assume that they will register everything present on the registration page. As a result, we currently log each individual piece of data that is registered as a separate event.</p>
+              <p>If you want to aggregate this data, you can download the report and open the data as a pivot table in excel to have more flexibility.</p>
             </td>
           </tr>
         </tbody></table>
 
-## Устранение неполадок с порталом регистрации сброса паролей
-Если возникает ошибка при регистрации пользователя для сброса пароля, вы можете устранить ее следующим образом.
+## <a name="troubleshoot-the-password-reset-registration-portal"></a>Troubleshoot the password reset registration portal
+If you encounter an error when registering a user for password reset, you might be able to resolve it by following the troubleshooting steps below:
 
 <table>
           <tbody><tr>
             <td>
               <p>
-                <strong>Ситуация ошибки</strong>
+                <strong>Error Case</strong>
               </p>
             </td>
             <td>
               <p>
-                <strong>Какую ошибку видит пользователь?</strong>
+                <strong>What error does a user see?</strong>
               </p>
             </td>
             <td>
               <p>
-                <strong>Решение</strong>
+                <strong>Solution</strong>
               </p>
             </td>
           </tr>
           <tr>
             <td>
-              <p>Для каталога запрещен сброс пароля</p>
+              <p>Directory is not enabled for password reset</p>
             </td>
             <td>
-              <p>Администратор не включил для вас возможность использовать эту функцию.</p>
+              <p>Your administrator has not enabled you to use this feature.</p>
             </td>
             <td>
-              <p>Переключите флаг <strong>Пользователям разрешен сброс пароля</strong> на значение <strong>Да</strong> и нажмите кнопку <strong>Сохранить</strong> на вкладке настройки каталога портала управления Azure. Администратору, выполняющему данную операцию, должна быть назначена лицензия Azure AD Premium или Basic.</p>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <p>Пользователю не назначена лицензия AAD Premium или AAD Basic</p>
-            </td>
-            <td>
-              <p>Администратор не включил для вас возможность использовать эту функцию.</p>
-            </td>
-            <td>
-              <p>Назначьте пользователю лицензию Azure AD Premium или Azure AD Basic на вкладке <strong>Лицензии</strong> на портале управления Azure. Администратору, выполняющему данную операцию, должна быть назначена лицензия Azure AD Premium или Basic.</p>
+              <p>Switch the <strong>Users Enabled for Password Reset</strong> flag to <strong>Yes</strong> and hit <strong>Save</strong> in the Azure Management Portal directory configuration tab. You must have an Azure AD Premium or Basic License assigned to the admin performing this operation.</p>
             </td>
           </tr>
           <tr>
             <td>
-              <p>Ошибка при обработке запроса</p>
+              <p>User does not have an AAD Premium or AAD Basic license assigned</p>
             </td>
             <td>
-              <p>Пользователь видит сообщение об ошибке:</p>
+              <p>Your administrator has not enabled you to use this feature.</p>
+            </td>
+            <td>
+              <p>Assign an Azure AD Premium or Azure AD Basic license to the user under the <strong>Licenses</strong> tab in the Azure Management Portal. You must have an Azure AD Premium or Basic License assigned to the admin performing this operation.</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>Error processing request</p>
+            </td>
+            <td>
+              <p>User sees an error that states:</p>
               <p>
 
               </p>
-              <p>Ошибка при обработке запроса </p>
-              <p>При попытке выполнить сброс пароля.</p>
+              <p>Error processing request </p>
+              <p>When attempting to reset a password.</p>
             </td>
             <td>
-              <p>Это может быть вызвано многими проблемами, но обычно такая ошибка вызывается либо отказом службы, либо проблемой конфигурации, которую невозможно разрешить. </p>
-              <p>Если эта ошибка влияет на деятельность организации, обратитесь в службу поддержки, и мы поможем в кратчайшие сроки. См. раздел <a href="#information-to-include-when-you-need-help">Сведения, которые необходимо указать, если требуется помощь</a> для просмотра информации, которую вам следует предоставить специалисту службы поддержки для помощи в быстром разрешении проблемы.</p>
+              <p>This can be caused by many issues, but generally this error is caused by either a service outage or configuration issue that cannot be resolved. </p>
+              <p>If you see this error and it is impacting your business, please contact support and we will assist you ASAP. See <a href="#information-to-include-when-you-need-help">Information to include when you need help</a> to see what you should provide to the support engineer to aid in a speedy resolution.</p>
             </td>
           </tr>
         </tbody></table>
 
-## Устранение неполадок с порталом сброса паролей
-Если возникает ошибка при сбросе пароля пользователя, возможно, устранить ее помогут следующие действия.
+## <a name="troubleshoot-the-password-reset-portal"></a>Troubleshoot the password reset portal
+If you encounter an error when resetting a password for a user, you might be able to resolve it by following the troubleshooting steps below:
 
 <table>
           <tbody><tr>
             <td>
               <p>
-                <strong>Ситуация ошибки</strong>
+                <strong>Error Case</strong>
               </p>
             </td>
             <td>
               <p>
-                <strong>Какую ошибку видит пользователь?</strong>
+                <strong>What error does a user see?</strong>
               </p>
             </td>
             <td>
               <p>
-                <strong>Решение</strong>
+                <strong>Solution</strong>
               </p>
             </td>
           </tr>
           <tr>
             <td>
-              <p>Для каталога запрещен сброс пароля</p>
+              <p>Directory is not enabled for password reset</p>
             </td>
             <td>
-              <p>Для вашей учетной записи запрещен сброс пароля</p>
-              <p>К сожалению, администратор не установил для вашей учетной записи возможность использовать эту службу. </p>
-              <p>
-
-              </p>
-              <p>Если хотите, мы можем обратиться к администратору вашей организации для сброса вашего пароля.</p>
-            </td>
-            <td>
-              <p>Переключите флаг <strong>Пользователям разрешен сброс пароля</strong> на значение <strong>Да</strong> и нажмите кнопку <strong>Сохранить</strong> на вкладке настройки каталога портала управления Azure. Администратору, выполняющему данную операцию, должна быть назначена лицензия Azure AD Premium или Basic.</p>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <p>Пользователю не назначена лицензия AAD Premium или AAD Basic</p>
-            </td>
-            <td>
-              <p>Хотя автоматически мы не можем сбрасывать пароли учетных записей без прав администратора, мы можем обратиться к администратору вашей организации, чтобы он сделал это для вас.</p>
-            </td>
-            <td>
-              <p>Назначьте пользователю лицензию Azure AD Premium или Azure AD Basic на вкладке <strong>Лицензии</strong> на портале управления Azure. Администратору, выполняющему данную операцию, должна быть назначена лицензия Azure AD Premium или Basic.</p>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <p>Для каталога включен сброс паролей, но у пользователя отсутствуют или неправильно указаны сведения для проверки подлинности</p>
-            </td>
-            <td>
-              <p>Для вашей учетной записи запрещен сброс пароля</p>
-              <p>К сожалению, администратор не установил для вашей учетной записи возможность использовать эту службу. </p>
+              <p>Your account is not enabled for password reset</p>
+              <p>We're sorry, but your administrator has not set up your account for use with this service. </p>
               <p>
 
               </p>
-              <p>Если хотите, мы можем обратиться к администратору вашей организации для сброса вашего пароля.</p>
+              <p>If you'd like, we can contact an administrator in your organization to reset your password for you.</p>
             </td>
             <td>
-              <p>Убедитесь, что пользователь должным образом заполнил контактные данные при регистрации в каталоге, прежде чем продолжить. См. раздел <a href="active-directory-passwords-learn-more.md#what-data-is-used-by-password-reset">Какие данные используются при сбросе пароля</a>. Из него вы узнаете, как настроить информацию для проверки подлинности в каталоге таким образом, чтобы пользователям не отображалась эта ошибка.</p>
+              <p>Switch the <strong>Users Enabled for Password Reset</strong> flag to <strong>Yes</strong> and hit <strong>Save</strong> in the Azure Management Portal directory configuration tab. You must have an Azure AD Premium or Basic License assigned to the admin performing this operation.</p>
             </td>
           </tr>
           <tr>
             <td>
-              <p>Для каталога включен сброс паролей, но пользователь указал при регистрации только один элемент контактных данных, в то время как настройка политики требует два этапа проверки</p>
+              <p>User does not have an AAD Premium or AAD Basic license assigned</p>
             </td>
             <td>
-              <p>Для вашей учетной записи запрещен сброс пароля</p>
-              <p>К сожалению, администратор не установил для вашей учетной записи возможность использовать эту службу. </p>
+              <p>While we cannot reset non-admin account passwords automatically, we can contact your organization's admin to do it for you.</p>
+            </td>
+            <td>
+              <p>Assign an Azure AD Premium or Azure AD Basic license to the user under the <strong>Licenses</strong> tab in the Azure Management Portal. You must have an Azure AD Premium or Basic License assigned to the admin performing this operation.</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>Directory is enabled for password reset, but user has missing or mal-formed authentication information</p>
+            </td>
+            <td>
+              <p>Your account is not enabled for password reset</p>
+              <p>We're sorry, but your administrator has not set up your account for use with this service. </p>
               <p>
 
               </p>
-              <p>Если хотите, мы можем обратиться к администратору вашей организации для сброса вашего пароля.</p>
+              <p>If you'd like, we can contact an administrator in your organization to reset your password for you.</p>
             </td>
             <td>
-              <p>Перед продолжением убедитесь, что у этого пользователя правильно настроены по крайней мере два способа связи (например, мобильный телефон и рабочий телефон). См. раздел <a href="active-directory-passwords-learn-more.md#what-data-is-used-by-password-reset">Какие данные используются при сбросе пароля</a>. Из него вы узнаете, как настроить информацию для проверки подлинности в каталоге таким образом, чтобы пользователям не отображалась эта ошибка.</p>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <p>Для каталога включен сброс паролей и пользователь настроен правильно, но с пользователем не удается связаться </p>
-            </td>
-            <td>
-              <p>Проблема! При попытке связаться с вами обнаружена непредвиденная ошибка.</p>
-            </td>
-            <td>
-              <p>Она может быть результатом временной ошибки службы или неверно настроенных контактных данных, которые нам не удалось выявить. Если пользователь подождет 10 секунд и повторит попытку, появится ссылка «обратитесь к администратору». Если выбрать повтор попытки, выполняется повторная отправка вызова. При этом после выбора ссылки «обратитесь к администратору» пользователю будет отправлено электронное письмо с формой и пароль или будет отправлен запрос глобальным администраторам (в порядке очередности) сбросить пароль для соответствующей учетной записи пользователя.</p>
+              <p>Ensure that user has properly formed contact data on file in the directory before proceeding. See <a href="active-directory-passwords-learn-more.md#what-data-is-used-by-password-reset">What data is used by password reset</a> for information on how to configure authentication information in the directory so that users do not see this error.</p>
             </td>
           </tr>
           <tr>
             <td>
-              <p>Пользователь не получает SMS или телефонного вызова для сброса пароля</p>
+              <p>Directory is enabled for password reset, but a user only has one piece of contact data on file when policy is set to require two verification steps</p>
             </td>
             <td>
-              <p>Пользователь нажимает кнопку отправки самому себе текстового сообщения или телефонного вызова и после этого ничего не получает</p>
-            </td>
-            <td>
-              <p>Это может быть результатом неправильно указанного в каталоге телефонного номера. Убедитесь, что номер телефона указан в формате “+ccc xxxyyyzzzzXeeee”. Дополнительные сведения о форматировании телефонных номеров для использования при сбросе пароля см. в разделе <a href="active-directory-passwords-learn-more.md#what-data-is-used-by-password-reset">Какие данные используются при сбросе пароля</a>.</p>
-              <p>Если данному пользователю требуется направить расширение номера, обратите внимание, что функция сброса пароля не поддерживает расширения, даже если указать его в каталоге (они удаляются перед отправкой вызова). Попробуйте использовать номер без расширения, или интегрировать расширение в номер телефона на вашей УАТС.</p>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <p>Пользователь не получает сообщения электронной почты для сброса пароля</p>
-            </td>
-            <td>
-              <p>Пользователь нажимает кнопку отправки самому себе электронного письма и после этого ничего не получает.</p>
-            </td>
-            <td>
-              <p>Наиболее распространенной причиной этой проблемы является отклонение сообщения фильтром нежелательной почты. Проверьте папку спама, нежелательной почты или удаленных писем в своем почтовом ящике.</p>
-              <p>Также убедитесь, что вы проверяете правильный почтовый ящик. У многих людей адреса электронной почты очень похожи, и может оказаться, что они проверяют неверный почтовый ящик. Если ни одно из этих решений не сработало, возможно, адрес электронной почты в каталоге имеет неправильный формат. Убедитесь, что адрес указан правильно, и повторите попытку. Дополнительные сведения о форматировании адресов электронной почты для использования при сбросе пароля см. в разделе <a href="active-directory-passwords-learn-more.md#what-data-is-used-by-password-reset">Какие данные используются при сбросе пароля</a>.</p>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <p>Мною установлена политика сброса паролей, но когда учетная запись администратора использует сброс пароля, эта политика не применяется</p>
-            </td>
-            <td>
-              <p>Для учетных записей администраторов, сбрасывающих пароли, отображаются те же включенные параметры сброса пароля, электронной почты и мобильного телефона, независимо от того, какая политика задана в разделе <strong>Политика сброса пароля пользователя</strong> на вкладке <strong>Настройка</strong>.</p>
-            </td>
-            <td>
-              <p>Параметры, настроенные в разделе <strong>Политика сброса пароля пользователя</strong> на вкладке <strong>Настройка</strong>, применяются только к конечным пользователям в вашей организации.</p>
-              <p>Корпорация Майкрософт осуществляет управление и контроль политики сброса паролей администраторов для обеспечения максимально высокого уровня безопасности.</p>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <p>Пользователь предпринял слишком много попыток сброса пароля в день, и для него эта возможность была заблокирована</p>
-            </td>
-            <td>
-              <p>Пользователь видит сообщение об ошибке:</p>
+              <p>Your account is not enabled for password reset</p>
+              <p>We're sorry, but your administrator has not set up your account for use with this service. </p>
               <p>
 
               </p>
-              <p>Используйте другой вариант.</p>
-              <p>Вы попытались пройти проверку учетной записи слишком много раз за последний час. По соображениям безопасности необходимо подождать 24 часа, прежде чем вы сможете повторить попытку. </p>
-              <p>Если хотите, мы можем обратиться к администратору вашей организации для сброса вашего пароля.</p>
+              <p>If you'd like, we can contact an administrator in your organization to reset your password for you.</p>
             </td>
             <td>
-              <p>Мы реализуем механизм автоматического регулирования для блокировки слишком большого числа попыток сброса пароля пользователями за короткий период времени. Это происходит в следующих случаях.</p>
+              <p>Ensure that user has at least two properly configured contact methods (e.g., both Mobile Phone and Office Phone) before proceeding. See <a href="active-directory-passwords-learn-more.md#what-data-is-used-by-password-reset">What data is used by password reset</a> for information on how to configure authentication information in the directory so that users do not see this error.</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>Directory is enabled for password reset, and user is properly configured, but user is unable to be contacted </p>
+            </td>
+            <td>
+              <p>Oops!  We encountered an unexpected error while contacting you.</p>
+            </td>
+            <td>
+              <p>This could be the result of a temporary service error or misconfigured contact data that we could not properly detect. If the user waits 10 seconds, a try again and “contact your administrator” link appears. Clicking try again will re-dispatch the call, whereas clicking “contact your administrator” will send a form email to user, password, or global admins (in that precedence order) requesting a password reset to be performed for that user account.</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>User never receives the password reset SMS or phone call</p>
+            </td>
+            <td>
+              <p>User clicks “text me” or “call me” and then never receives anything.</p>
+            </td>
+            <td>
+              <p>This could be the result of a mal-formed phone number in the directory. Make sure the phone number is in the format “+ccc xxxyyyzzzzXeeee”. To learn more about formatting phone numbers for use with password reset see <a href="active-directory-passwords-learn-more.md#what-data-is-used-by-password-reset">What data is used by password reset</a>.</p>
+              <p>If you require an extension to be routed to the user in question, note that password reset does not support extensions, even if you specify one in the directory (they are stripped before the call is dispatched). Try using a number without an extension, or integrating the extension into the phone number in your PBX.</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>User never receives password reset email</p>
+            </td>
+            <td>
+              <p>User clicks “email me” and then never receives anything.</p>
+            </td>
+            <td>
+              <p>The most common cause for this issue is that the message is rejected by a spam filter. Check your spam, junk, or deleted items folder for the email.</p>
+              <p>Also ensure that you are checking the right email for the message…lots of people have very similar email addresses and end up checking the wrong inbox for the message. If neither of these options work, it’s also possible that the email address in the directory is malformed, check to make sure the email address is the right one and try again. To learn more about formatting email addresses for use with password reset see <a href="active-directory-passwords-learn-more.md#what-data-is-used-by-password-reset">What data is used by password reset</a>.</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>I have set a password reset policy, but when an admin account uses password reset, that policy is not applied</p>
+            </td>
+            <td>
+              <p>Admin accounts resetting their passwords see the same options enabled for password reset, email and mobile phone, no matter what policy is set under the <strong>User Password Reset Policy</strong> section of the <strong>Configure</strong> tab.</p>
+            </td>
+            <td>
+              <p>The options configured under the <strong>User Password Reset Policy</strong> section of the <strong>Configure</strong> tab only apply to end users in your organization.</p>
+              <p>Microsoft manages and controls the Admin password reset policy in order to ensure the highest level of security</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>User prevented from attempting password reset too many times in a day</p>
+            </td>
+            <td>
+              <p>User sees an error stating:</p>
+              <p>
+
+              </p>
+              <p>Please use another option.</p>
+              <p>You've tried to verify your account too many times in the last 1 hour(s). For security reasons, you'll have to wait 24 hour(s) before you can try again. </p>
+              <p>If you'd like, we can contact an administrator in your organization to reset your password for you.</p>
+            </td>
+            <td>
+              <p>We implement an automatic throttling mechanism to block users from attempting to reset their passwords too many times in a short period of time. This occurs when:</p>
               <ol class="ordered">
                 <li>
-										Пользователь пытается проверить номер телефона 5 раз за один час.<br\><br\></li>
+User attempts to validate a phone number 5 times in one hour.<br\><br\></li>
                 <li>
-										Пользователь пытается использовать шлюз вопросов безопасности 5 раз за один час.<br\><br\></li>
+User attempts to use the security questions gate 5 times in one hour.<br\><br\></li>
                 <li>
-										Пользователь пытается сбросить пароль для одной и той же учетной записи 5 раз за один час.<br\><br\></li>
+User attempts to reset a password for the same user account 5 times in one hour.<br\><br\></li>
               </ol>
-              <p>Чтобы устранить эту проблему, попросите пользователя подождать 24 часа с момента последней попытки, после чего он сможет сбросить свой пароль.</p>
+              <p>To fix this, instruct the user to wait 24 hours after the last attempt, and the user will then be able to reset his or her password.</p>
             </td>
           </tr>
           <tr>
             <td>
-              <p>Пользователь видит ошибку при проверке своего номера телефона</p>
+              <p>User sees an error when validating his or her phone number</p>
             </td>
             <td>
-              <p>При попытке проверить телефон для использования в качестве метода проверки подлинности пользователь видит ошибку с сообщением:</p>
+              <p>When attempting to verify a phone to use as an authentication method, the user sees an error stating:</p>
               <p>
 
               </p>
-              <p>Указан неправильный номер телефона.</p>
+              <p>Incorrect phone number specified.</p>
             </td>
             <td>
-              <p>Эта ошибка возникает, если введенный номер телефона не совпадает с номером, который был зарегистрирован.</p>
-              <p>Убедитесь, что при попытке сбросить пароль с помощью телефона пользователь вводит номер телефона полностью, включая код региона и страны.</p>
+              <p>This error occurs when the phone number entered does not match the phone number on file.</p>
+              <p>Make sure the user is entering the complete phone number, including area and country code, when attempting to use a phone-based method for password reset.</p>
             </td>
           </tr>
           <tr>
             <td>
-              <p>Ошибка при обработке запроса</p>
+              <p>Error processing request</p>
             </td>
             <td>
-              <p>Пользователь видит сообщение об ошибке:</p>
+              <p>User sees an error that states:</p>
               <p>
 
               </p>
-              <p>Ошибка при обработке запроса </p>
-              <p>При попытке выполнить сброс пароля.</p>
+              <p>Error processing request </p>
+              <p>When attempting to reset a password.</p>
             </td>
             <td>
-              <p>Это может быть вызвано многими проблемами, но обычно такая ошибка вызывается либо отказом службы, либо проблемой конфигурации, которую невозможно разрешить. </p>
-              <p>Если эта ошибка влияет на деятельность организации, обратитесь в службу поддержки, и мы поможем в кратчайшие сроки. См. раздел <a href="#information-to-include-when-you-need-help">Сведения, которые необходимо указать, если требуется помощь</a> для просмотра информации, которую вам следует предоставить специалисту службы поддержки для помощи в быстром разрешении проблемы.</p>
+              <p>This can be caused by many issues, but generally this error is caused by either a service outage or configuration issue that cannot be resolved. </p>
+              <p>If you see this error and it is impacting your business, please contact support and we will assist you ASAP. See <a href="#information-to-include-when-you-need-help">Information to include when you need help</a> to see what you should provide to the support engineer to aid in a speedy resolution.</p>
             </td>
           </tr>
         </tbody></table>
 
-## Устранение неполадок с обратной записью паролей
-Если возникает ошибка при включении, отключении или использовании обратной записи паролей, вы можете устранить ее следующим образом.
+## <a name="troubleshoot-password-writeback"></a>Troubleshoot Password Writeback
+If you encounter an error when enabling, disabling, or using Password Writeback, you might be able to resolve it by following the troubleshooting steps below:
 
 <table>
           <tbody><tr>
             <td>
               <p>
-                <strong>Ситуация ошибки</strong>
+                <strong>Error Case</strong>
               </p>
             </td>
             <td>
               <p>
-                <strong>Какую ошибку видит пользователь?</strong>
+                <strong>What error does a user see?</strong>
               </p>
             </td>
             <td>
               <p>
-                <strong>Решение</strong>
+                <strong>Solution</strong>
               </p>
             </td>
           </tr>
           <tr>
             <td>
-              <p>Общие сбои адаптации и запуска</p>
+              <p>General onboarding and startup failures</p>
             </td>
             <td>
-              <p>Служба сброса пароля не запускается на локальном компьютере с записью ошибки 6800 в журнале событий приложений на компьютере Azure AD Connect.</p>
+              <p>Password reset service does not start on premises with error 6800 in the Azure AD Connect machine’s application event log.</p>
               <p>
 
               </p>
-              <p>После адаптации федеративные пользователи или пользователи с синхронизацией хэшей паролей не могут сбрасывать пароли.</p>
+              <p>After onboarding, federated or password hash synced users cannot reset their passwords.</p>
             </td>
             <td>
-              <p>Если включена обратная запись паролей, обработчик синхронизации вызовет библиотеку обратной записи для выполнения настройки (адаптации) путем обращения к облачной службе адаптации. Все ошибки, обнаруженные во время адаптации или при запуске конечной точки WCF для обратной записи паролей, приведут к ошибкам в журнале событий компьютера Azure AD Connect.</p>
-              <p>При перезапуске службы ADSync, если была настроена обратная запись, будет запущена конечная точка WCF. Однако если при запуске конечной точки произойдет сбой, мы просто запишем в журнал событие 6800 и разрешим запуск службы синхронизации. Наличие этого события означает, что конечная точка обратной записи паролей не была запущена. Подробные сведения в журнале об этом событии (6800) наряду с записями журнала событий, созданными компонентом PasswordResetService компонентов, покажут, почему конечную точку не удалось запустить. Просмотрите эти ошибки в журнале событий и попробуйте заново запустить Azure AD Connect, если обратная запись паролей все еще не работает. Если проблема сохранится, попробуйте отключить и повторно включить обратную запись паролей.</p>
-            </td>
-          </tr>
-					<tr>
-            <td>
-              <p>Когда пользователь пытается сбросить пароль или разблокировать учетную запись с включенным компонентом обратной записи паролей, операция завершается ошибкой. Кроме того, после операции блокировки в журнале событий Azure AD Connect отображается событие со следующим сообщением: "Обработчик синхронизации вернул ошибку hr=800700CE, сообщение=Слишком длинное имя файла или расширение".
-							</p>
-            </td>
-            <td>
-              <p>Это может произойти, если вы обновили предыдущие версии Azure AD Connect или DirSync. В случае установки более старых версий Azure AD Connect для учетной записи агента управления Azure AD задается пароль длиной 254 символа. В случае установки более новых версий задается пароль длиной 127 символов. Такие длинные пароли используются в операциях экспорта и импорта соединителя AD, но не поддерживаются операцией разблокировки.
-							</p>
-            </td>
-            <td>
-              <p>[Найдите учетную запись Active Directory](active-directory-aadconnect-accounts-permissions.md#active-directory-account) для Azure AD Connect и сбросьте пароль, чтобы он содержал не более 127 символов. Затем запустите **службу синхронизации** из меню "Пуск". Перейдите в раздел **Соединители** и найдите **соединитель Active Directory**. Выберите его и щелкните **Свойства**. Перейдите на страницу **учетных данных** и введите новый пароль. Нажмите кнопку **ОК**, чтобы закрыть страницу.
-							</p>
+              <p>When Password Writeback is enabled, the sync engine will call the writeback library to perform the configuration (onboarding) by talking to the cloud onboarding service. Any errors encountered during onboarding or while starting the WCF endpoint for Password Writeback will result in errors in the Event log in your Azure AD Connect machine’s event log.</p>
+              <p>During restart of ADSync service, if writeback was configured, the WCF endpoint will be started up. However, if the startup of the endpoint fails, we will simply log event 6800 and let the sync service startup. Presence of this event means that the Password Writeback endpoint was not started up. Event log details for this event (6800) along with event log entries generate by PasswordResetService component will indicate why the endpoint could not be started up. Review these event log errors and try to re-start the Azure AD Connect if Password Writeback still isn’t working. If the problem persists, try to disable and re-enable Password Writeback.</p>
             </td>
           </tr>
-					<tr>
+                    <tr>
             <td>
-              <p>Ошибка при настройке обратной записи во время установки Azure AD Connect.</p>
+              <p>When a user attempts to reset a password or unlock an account with password writeback enabled, the operation fails. In addition, you see an event in the Azure AD Connect event log containing: “Synchronization Engine returned an error hr=800700CE, message=The filename or extension is too long” after the unlock operation occurs.
+                            </p>
             </td>
             <td>
-              <p>На последнем шаге процесса установки Azure AD Connect появляется ошибка с сообщением о том, что обратную запись паролей не удалось настроить.</p>
+              <p>This can occur if you had upgraded from older versions of Azure AD Connect or DirSync. Upgrading to older versions of Azure AD Connect set a 254 character password for the Azure AD Management Agent account (newer versions will set a 127 character length password). Such long passwords work for AD Connector Import and Export operations but they are not supported by the Unlock operation.
+                            </p>
+            </td>
+            <td>
+              <p>[Find the Active Directory account](active-directory-aadconnect-accounts-permissions.md#active-directory-account) for Azure AD Connect and reset the password to contain no more than 127 characters. Then open **Synchronization Service** from the Start menu. Navigate to **Connectors** and find the **Active Directory Connector**. Select it and click **Properties**. Navigate to the page **Credentials** and enter the new password. Select **OK** to close the page.
+                            </p>
+            </td>
+          </tr>
+                    <tr>
+            <td>
+              <p>Error configuring writeback during Azure AD Connect installation.</p>
+            </td>
+            <td>
+              <p>At the last step of the Azure AD Connect installation process, you see an error indicating that Password Writeback could not be configured.</p>
               <p>
 
               </p>
-              <p>Журнал событий приложения Azure AD Connect содержит ошибку 32009 с текстом «Ошибка при получении токена авторизации».</p>
+              <p>The Azure AD Connect Application event log contains error 32009 with text “Error getting auth token”.</p>
             </td>
             <td>
-              <p>Эта ошибка возникает в следующих двух случаях:</p>
+              <p>This error occurs in the following two cases:</p>
               <ul>
                 <li class="unordered">
-										Указан неправильный пароль для учетной записи глобального администратора, указанной в начале процесса установки Azure AD Connect.<br\><br\></li>
+You have specified an incorrect password for the global administrator account specified at the beginning of the Azure AD Connect installation process.<br\><br\></li>
               </ul>
               <ul>
                 <li class="unordered">
-										Предпринята попытка использовать федеративного пользователя для учетной записи глобального администратора, указанной в начале процесса установки Azure AD Connect.<br\><br\></li>
+You have attempted to use a federated user for the global administrator account specified at the beginning of the Azure AD Connect installation process.<br\><br\></li>
               </ul>
-              <p>Чтобы устранить эту ошибку, убедитесь в том, что вы не используете федеративную учетную запись для глобального администратора, указанного в начале процесса установки Azure AD Connect, и что пароль указан правильно.</p>
+              <p>To fix this error, please ensure that you are not using a federated account for the global administrator you specified at the beginning of the Azure AD Connect installation process, and that the password specified is correct.</p>
             </td>
           </tr>
           <tr>
             <td>
-              <p>Ошибка при настройке обратной записи во время установки Azure AD Connect.</p>
+              <p>Error configuring writeback during Azure AD Connect installation.</p>
             </td>
             <td>
-              <p>Журнал событий компьютера Azure AD Connect содержит ошибку 32002, выданную службой PasswordResetService.</p>
+              <p>The Azure AD Connect machine event log contains error 32002 thrown by the PasswordResetService.</p>
               <p>
 
               </p>
-              <p>Текст сообщения об ошибке: «Ошибка подключения к служебной шине. Поставщику токенов не удалось предоставить токен безопасности...»</p>
+              <p>The error reads: “Error Connecting to ServiceBus, The token provider was unable to provide a security token…”</p>
               <p>
 
               </p>
             </td>
             <td>
-              <p>Основной причиной этой ошибки является то, что служба сброса паролей, работающая в вашей локальной среде, не может подключиться к конечной точке шины обслуживания в облаке. Эта ошибка обычно вызывается правилом брандмауэра, блокирующим исходящее подключение к конкретному порту или веб-адресу.</p>
+              <p>The root cause of this error is that the password reset service running in your on-premises environment is not able to connect to the service bus endpoint in the cloud. This error is normally normally caused by a firewall rule blocking an outbound connection to a particular port or web address.</p>
               <p>
 
               </p>
-              <p>Убедитесь, что брандмауэр разрешает исходящие соединения для следующих настроек:</p>
+              <p>Make sure your firewall allows outbound connections for the following:</p>
               <ul>
                 <li class="unordered">
-										Весь трафик через TCP 443 (HTTPS)<br\><br\></li>
+All traffic over TCP 443 (HTTPS)<br\><br\></li>
               </ul>
               <ul>
                 <li class="unordered">
-										Исходящие подключения к <br\><br\></li>
+Outbound connections to <br\><br\></li>
               </ul>
               <p>
 
               </p>
-              <p>После обновления этих правил перезагрузите компьютер Azure AD Connect, и обратная запись паролей должна снова начать работать.</p>
+              <p>Once you have updated these rules, reboot the Azure AD Connect machine and Password Writeback should start working again.</p>
             </td>
           </tr>
           <tr>
             <td>
-              <p>Конечная точка обратной записи паролей локально недоступна</p>
+              <p>Password Writeback endpoint on-prem not reachable</p>
             </td>
             <td>
-              <p>После работы в течение некоторого времени федеративные пользователи или пользователи с синхронизацией хэшей паролей не могут сбрасывать пароли.</p>
+              <p>After working for some time, federated or password hash synced users cannot reset their passwords.</p>
             </td>
             <td>
-              <p>В некоторых редких случаях службе обратной записи паролей не удается перезапуститься после перезапуска Azure AD Connect. В этих случаях сначала проверьте, включена ли обратная запись паролей локально. Это можно сделать с помощью мастера Azure AD Connect или Powershell (см. раздел практических руководств выше). Если данная функция выглядит включенной, попробуйте еще раз включить или отключить эту функцию либо через пользовательский интерфейс, либо через PowerShell. См. «Шаг 2. Включение обратной записи паролей на компьютере синхронизации каталогов и настройка правил брандмауэра» в разделе <a href="active-directory-passwords-getting-started.md#enable-users-to-reset-or-change-their-ad-passwords">Включение или отключение обратной записи паролей</a> для получения дополнительных сведений о том, как это сделать.</p>
+              <p>In some rare cases, the Password Writeback service may fail to re-start when Azure AD Connect has re-started. In these cases, first, check whether Password Writeback appears to be enabled on-prem. This can be done using the Azure AD Connect wizard or powershell (See HowTos section above).If the feature appears to be enabled, try enabling or disabling the feature again either through the UI or PowerShell. See “Step 2: Enable Password Writeback on your Directory Sync computer &amp; configure firewall rules” in <a href="active-directory-passwords-getting-started.md#enable-users-to-reset-or-change-their-ad-passwords">How to enable/disable Password Writeback</a> for more information on how to do this.</p>
               <p>
 
               </p>
-              <p>Если это не поможет, попробуйте полностью удалить и заново установить Azure AD Connect.</p>
+              <p>If this doesn’t work, try completely uninstalling and re-installing Azure AD Connect.</p>
             </td>
           </tr>
           <tr>
             <td>
-              <p>Ошибки разрешений</p>
+              <p>Permissions errors</p>
             </td>
             <td>
-              <p>Федеративные пользователи или пользователи с синхронизацией хэшей паролей, которые пытаются сбросить свои пароли, после отправки пароля видят ошибку, указывающую на проблему со службой.</p>
+              <p>Federated or password hash sync’d users who attempt to reset their passwords see an error after submitting the password indicating there was a service problem.</p>
               <p>
 
               </p>
-              <p>Кроме того, во время операций сброса пароля вы можете увидеть ошибку, связанную с тем, что агенту управления было отказано в доступе к журналам событий в локальной системе.</p>
+              <p>In addition to this, during password reset operations, you may see an error regarding management agent was denied access in your on premises event logs.</p>
             </td>
             <td>
-              <p>Если эти ошибки отображаются в вашем журнале событий, убедитесь, что учетная запись AD MA (которая была указано в мастере во время настройки) обладает необходимыми разрешениями для обратной записи паролей.</p>
+              <p>If you see these errors in your event log, confirm that the AD MA account (that was specified in the wizard at the time of configuration) has the necessary permissions for Password Writeback.</p>
               <p>
 
               </p>
-              <p>Обратите внимание, что после предоставления этого разрешения может потребоваться до 1 часа для распространения разрешений посредством фоновой задачи sdprop на контроллере домена. </p>
-              <p>Для работы сброса пароля разрешение необходимо установить на дескрипторе безопасности объекта пользователя, пароль которого сбрасывается. До тех пор пока это разрешение не отобразится на объекте пользователя, сброс пароля будет завершаться отказом в доступе.</p>
+              <p>NOTE that once this permission is given it can take up to 1 hour for the permissions to trickle down via sdprop background task on the DC. </p>
+              <p>For password reset to work, the permission needs to be stamped on the security descriptor of the user object whose password is being reset. Until this permission shows up on the user object, password reset will continue to fail with access denied.</p>
             </td>
           </tr>
           <tr>
             <td>
-              <p>Ошибка при настройке обратной записи паролей из мастера настройки Azure AD Connect </p>
+              <p>Error when configuring Password Writeback from the Azure AD Connect configuration wizard </p>
             </td>
             <td>
-              <p>Ошибка «Не удается найти MA» в мастере при включении или отключении обратной записи паролей</p>
+              <p>“Unable to Locate MA” error in Wizard while enabling/disabling Password Writeback</p>
             </td>
             <td>
-              <p>Существует известная программная ошибка в окончательной версии Azure AD Connect, которая проявляется в следующей ситуации.</p>
+              <p>There is a known bug in the released version of Azure AD Connect which manifests in the following situation:</p>
               <ol class="ordered">
                 <li>
-										Вы выполняете настройку Azure Connect AD для клиента abc.com (проверенный домен) с использованием учетных данных. Это приводит к созданию соединителя AAD с именем «abc.com – AAD».<br\><br\></li>
+You configure Azure AD Connect for tenant abc.com (Verified domain) using creds . This results in AAD connector with name “abc.com – AAD” being created.<br\><br\></li>
                 <li>
-										Затем вы изменяете учетные данные AAD для соединителя (с использованием старого пользовательского интерфейса синхронизации) на (обратите внимание, что это тот же клиент, но с другим именем домена). <br\><br\></li>
+You then then change the AAD creds for the connector (using old sync UI) to  (note it’s the same tenant but different domain name). <br\><br\></li>
                 <li>
-										Теперь вы пытаетесь включить или отключить обратную запись паролей. Мастер сформирует имя соединителя, используя учетные данные, как «abc.onmicrosoft.com – AAD» и передаст его командлету обратной записи паролей. Это вызовет сбой, поскольку соединитель с таким именем не создан.<br\><br\></li>
+Now you try to enable/disable Password Writeback. The wizard will construct the name of the connector using the creds, as “abc.onmicrosoft.com – AAD” and pass to the Password Writeback cmdlet. This will fail because there is no connector created with this name.<br\><br\></li>
               </ol>
-              <p>Это было исправлено в наших новейших сборках. Если у вас более старая сборка, одно возможное решение&#160;— использовать командлет powershell для включения или отключения этой функции. См. «Шаг 2. Включение обратной записи паролей на компьютере синхронизации каталогов и настройка правил брандмауэра» в разделе <a href="active-directory-passwords-getting-started.md#enable-users-to-reset-or-change-their-ad-passwords">Включение или отключение обратной записи паролей</a> для получения дополнительных сведений о том, как это сделать.</p>
+              <p>This has been fixed in our latest builds. If you have an older build, the one workaround is to use the powershell cmdlet to enable/disable the feature. See “Step 2: Enable Password Writeback on your Directory Sync computer &amp; configure firewall rules” in <a href="active-directory-passwords-getting-started.md#enable-users-to-reset-or-change-their-ad-passwords">How to enable/disable Password Writeback</a> for more information on how to do this.</p>
             </td>
           </tr>
           <tr>
             <td>
-              <p>Не удается сбросить пароль для пользователей в специальных группах, таких как «Администраторы домена», «Администраторы предприятия» и т. д.</p>
+              <p>Unable to reset password for users in special groups such as Domain Admins / Enterprise Admins etc.</p>
             </td>
             <td>
-              <p>Федеративные пользователи или пользователи с синхронизацией хэшей паролей, которые являются частью защищенных групп и пытаются сбросить свои пароли, после отправки пароля видят ошибку, указывающую на проблему со службой.</p>
+              <p>Federated or password hash sync’d users who are part of protected groups and attempt to reset their passwords see an error after submitting the password indicating there was a service problem.</p>
             </td>
             <td>
-              <p>Привилегированные пользователи в Active Directory защищены с помощью AdminSDHolder. См. статью <a href="https://technet.microsoft.com/magazine/2009.09.sdadminholder.aspx">http://technet.microsoft.com/magazine/2009.09.sdadminholder.aspx</a> для получения дополнительных сведений. </p>
+              <p>Privileged users in Active Directory are protected using AdminSDHolder. See <a href="https://technet.microsoft.com/magazine/2009.09.sdadminholder.aspx">http://technet.microsoft.com/magazine/2009.09.sdadminholder.aspx</a> for more details. </p>
               <p>
 
               </p>
-              <p>Это означает, что дескрипторы безопасности в таких объектах периодически проверяются для соответствия указанному в AdminSDHolder и сбрасываются, если они различаются. Поэтому дополнительные разрешения, которые необходимы для обратной записи паролей, не распространяются на таких пользователей. В результате обратная запись паролей для таких пользователей может не работать. Вследствие этого мы не поддерживаем управление паролями для пользователей в этих группах, так как это нарушает модель безопасности AD.</p>
+              <p>This means the security descriptors on these objects are periodically checked to match the one specified in AdminSDHolder and are reset if they are different. The additional permissions that are needed for Password Writeback therefore do not trickle to such users. This can result in Password Writeback not working for such users.As a result, we do not support managing passwords for users within these groups because it breaks the AD security model.</p>
             </td>
           </tr>
           <tr>
             <td>
-              <p>Происходит сбой операций сброса с сообщением «Объект не найден»</p>
+              <p>Reset operations fails with Object could not be found</p>
             </td>
             <td>
-              <p>Федеративные пользователи или пользователи с синхронизацией хэшей паролей, которые пытаются сбросить свои пароли, после отправки пароля видят ошибку, указывающую на проблему со службой.</p>
+              <p>Federated or password hash sync’d users who attempt to reset their passwords see an error after submitting the password indicating there was a service problem.</p>
               <p>
 
               </p>
-              <p>Кроме того, во время операций сброса пароля в журналах событий может появиться ошибка службы Azure AD Connect с сообщением «Объект не найден».</p>
+              <p>In addition to this, during password reset operations, you may see an error in your event logs from the Azure AD Connect service indicating an “Object could not be found” error.</p>
             </td>
             <td>
-              <p>Эта ошибка обычно указывает, что обработчику синхронизации не удалось найти либо объект пользователя в пространстве соединителя AAD, либо связанный объект пространства соединителя MV или AD. </p>
+              <p>This error usually indicates that the sync engine is unable to find either the user object in the AAD connector space or the linked MV or AD connector space object. </p>
               <p>
 
               </p>
-              <p>Для решения этой проблемы убедитесь, что пользователь действительно синхронизирован из локальной среды в AAD через текущий экземпляр Azure AD Connect, и проверьте состояние объектов в пространствах соединителей и MV. Убедитесь, что объект AD CS является соединителем для объекта MV через правило «Microsoft.InfromADUserAccountEnabled.xxx».</p>
+              <p>To troubleshoot this, make sure that the user is indeed synced from on-prem to AAD via the current instance of Azure AD Connect and inspect the state of the objects in the connector spaces and MV. Confirm that the AD CS object is connector to the MV object via the “Microsoft.InfromADUserAccountEnabled.xxx” rule.</p>
             </td>
           </tr>
           <tr>
             <td>
-              <p>Операции сброса завершаются ошибкой «Найдено несколько соответствий»</p>
+              <p>Reset operations fails with Multiple matches found eror</p>
             </td>
             <td>
-              <p>Федеративные пользователи или пользователи с синхронизацией хэшей паролей, которые пытаются сбросить свои пароли, после отправки пароля видят ошибку, указывающую на проблему со службой.</p>
+              <p>Federated or password hash sync’d users who attempt to reset their passwords see an error after submitting the password indicating there was a service problem.</p>
               <p>
 
               </p>
-              <p>Кроме того, во время операций сброса пароля в журналах событий может появиться ошибка службы Azure AD Connect с сообщением «Найдено несколько соответствий».</p>
+              <p>In addition to this, during password reset operations, you may see an error in your event logs from the Azure AD Connect service indicating a “Multiple maches found” error.</p>
             </td>
             <td>
-              <p>Это означает, что обработчик синхронизации обнаружил, что объект MV подключен к нескольким объектам AD CS через «Microsoft.InfromADUserAccountEnabled.xxx». Это означает, что у пользователя включена учетная запись в нескольких лесах. </p>
+              <p>This indicates that the sync engine detected that the MV object is connected to more than one AD CS objects via the “Microsoft.InfromADUserAccountEnabled.xxx”. This means that the user has an enabled account in more than one forest. </p>
               <p>
 
               </p>
-              <p>В настоящее время такой сценарий не поддерживается для обратной записи паролей.</p>
+              <p>Currently this scenario is not supported for Password Writeback.</p>
             </td>
           </tr>
           <tr>
             <td>
-              <p>Операции с паролем вызывают ошибку конфигурации.</p>
+              <p>Password operations fail with a configuration error.</p>
             </td>
             <td>
-              <p>Операции с паролем вызывают ошибку конфигурации. Журнал событий приложений содержит ошибку Azure AD Connect 6329 с текстом: 0x8023061f (Операция не удалась, поскольку для данного агента управления не включена синхронизация паролей).</p>
+              <p>Password operations fail with a configuration error. The application event log contains Azure AD Connect error 6329 with text: 0x8023061f (The operation failed because password synchronization is not enabled on this Management Agent.)</p>
             </td>
             <td>
-              <p>Это происходит при изменении конфигурации Azure AD Connect для добавления нового леса AD (или для удаления и повторного добавления существующего леса) <strong>после</strong> того, как функция обратной записи паролей уже была включена. Операции с паролями для пользователей в таких новых добавленных лесах завершатся ошибкой. Чтобы исправить эту проблему, отключите и повторно включите обратную запись паролей после изменения конфигурации леса.</p>
+              <p>This occurs if the Azure AD Connect configuration is changed to add&nbsp;a new AD forest (or to remove and re-add an existing forest) <strong>after</strong> the Password Writeback feature has already been enabled. Password operations for users in such newly added forests will fail. To fix the problem, disable and re-enable the Password Writeback feature after the forest configuration changes have been completed.</p>
             </td>
           </tr>
           <tr>
             <td>
-              <p>Обратная запись паролей, которые были сброшены пользователями, работает правильно, но обратная запись паролей, измененных пользователем или сброшенных для него администратором, приводит к ошибке.</p>
+              <p>Writing back passwords that have been reset by users works properly, but writing back passwords changed by a user or reset for a user by an administrator fails.</p>
             </td>
             <td>
-              <p>При попытке выполнить сброс пароля от имени пользователя на портале управления Azure появится сообщение: «Служба сброса паролей, запущенная в вашей локальной среде, не поддерживает сброс паролей пользователей администраторами. Выполните обновление до новейшей версии Azure AD Connect для решения этой проблемы.»</p>
+              <p>When attempting to reset a password on behalf of a user from the Azure Management Portal, you see a message stating: “The password reset service running in your on-premises environment does not support administrators resetting user passwords. Please upgrade to the latest version of Azure AD Connect to resolve this.”</p>
             </td>
             <td>
-              <p>Это происходит, когда версия обработчика синхронизации не поддерживает определенную операцию обратной записи паролей, которая была использована. Версии Azure AD Connect после 1.0.0419.0911 поддерживают все операции управления паролями, включая обратную запись сброса пароля, обратную запись изменения пароля и обратную запись инициированного администратором сброса пароля, на портале управления Azure.&#160; Версии DirSync после 1.0.6862 поддерживают только обратную запись сброса пароля. Чтобы устранить эту проблему, настоятельно рекомендуется установить новейшую версию Azure AD Connect или Azure Active Directory Connect (дополнительные сведения см. в разделе <a href="active-directory-aadconnect">Средства интеграции каталогов</a>), которая устранит неполадку и позволит использовать преимущества обратной записи паролей в вашей организации.</p>
+              <p>This occurs when the version of the synchronization engine does not support the particular Password Writeback operation that was used. Versions of Azure AD Connect later than 1.0.0419.0911 support all password management operations, including password reset writeback, password change writeback, and administrator-initiated password reset writeback from the Azure Management Portal.&nbsp; DirSync versions later than 1.0.6862 support password reset writeback only. To resolve this issue, we highly recommend that you install the latest version of Azure AD Connect or Azure Active Directory Connect (for more information, see <a href="active-directory-aadconnect">Directory Integration Tools</a>) to resolve this issue and to get the most out of Password Writeback in your organization.</p>
             </td>
           </tr>
         </tbody></table>
 
 
-## Коды ошибок журнала событий обратной записи паролей
-Рекомендуемой практикой при устранении неполадок с обратной записи паролей является проверка соответствующего журнала событий приложений на компьютере Azure AD Connect. Этот журнал событий будет содержать события из двух источников, представляющих интерес в плане обратной записи паролей. В источнике PasswordResetService будут описаны операции и вопросы, относящиеся к работе обратной записи паролей. В источнике ADSync будут описаны операции и проблемы, связанные с установкой паролей в среде AD.
+## <a name="password-writeback-event-log-error-codes"></a>Password Writeback event log error codes
+A best practice when troubleshooting issues with Password Writeback is to inspect that Application Event Log on your Azure AD Connect machine. This event log will contain events from two sources of interest for Password Writeback. The PasswordResetService source will describe operations and issues related to the operation of Password Writeback. The ADSync source will describe operations and issues related to setting passwords in your AD environment.
 
 <table>
           <tbody><tr>
             <td>
               <p>
-                <strong>Код</strong>
+                <strong>Code</strong>
               </p>
             </td>
             <td>
               <p>
-                <strong>Имя/сообщение</strong>
+                <strong>Name / Message</strong>
               </p>
             </td>
             <td>
               <p>
-                <strong>Источник</strong>
+                <strong>Source</strong>
               </p>
             </td>
             <td>
               <p>
-                <strong>Описание</strong>
+                <strong>Description</strong>
               </p>
             </td>
           </tr>
@@ -692,28 +693,28 @@
               <p>6329</p>
             </td>
             <td>
-              <p>BAIL: MMS(4924) 0x80230619&#160;– «Ограничение препятствует изменению пароля на текущий указанный.»</p>
+              <p>BAIL: MMS(4924) 0x80230619 – “A restriction prevents the password from being changed to the current one specified.”</p>
             </td>
             <td>
               <p>ADSync</p>
             </td>
             <td>
-              <p>Это событие возникает при попытке службы обратной записи паролей установить на ваш локальный каталог пароль, который не соответствует требованиям домена к сроку действия пароля, истории, сложности или фильтрации.</p>
+              <p>This event occurs when the Password Writeback service attempts to set a password on your local directory which does not meet the password age, history, complexity, or filtering requirements of the domain.</p>
               <ul>
                 <li class="unordered">
-										Если установлен минимальный срок действия пароля и пароль был недавно изменен в пределах заданного окна времени, вы не сможете изменить пароль снова, пока не истечет определенный период времени в вашем домене. В целях тестирования минимальный срок действия должен быть установлен равным 0.<br\><br\></li>
+If you have a minimum password age, and have recently changed the password within that window of time, you will not be able to change the password again until it reaches the specified age in your domain. For testing purposes, minimum age should be set to 0.<br\><br\></li>
               </ul>
               <ul>
                 <li class="unordered">
-										Если включены требования к истории паролей, то необходимо выбрать пароль, который не использовался последние N раз, где N&#160;— настройка истории паролей. При выборе пароля, который использовался в последние N раз, в данном случае возникнет ошибка. В целях тестирования значение истории паролей должно быть установлено равным 0.<br\><br\></li>
+If you have password history requirements enabled, then you must select a password that has not been used in the last N times, where N is the password history setting. If you do select a password that has been used in the last N times, then you will see a failure in this case. For testing purposes, history should be set to 0.<br\><br\></li>
               </ul>
               <ul>
                 <li class="unordered">
-										При наличии требований к сложности пароля все они будут применяться при попытке пользователя изменить или сбросить пароль.<br\><br\></li>
+If you have password complexity requirements, all of them will be enforced when the user attempts to change or reset a password.<br\><br\></li>
               </ul>
               <ul>
                 <li class="unordered">
-										Если включены фильтры паролей, а пользователь выбирает пароль, которые не соответствуют критериям фильтрации, то операция сброса или изменения завершится ошибкой.<br\><br\></li>
+If you have password filters enabled, and a user selects a password which does not meet the filtering criteria, then the reset or change operation will fail.<br\><br\></li>
               </ul>
             </td>
           </tr>
@@ -722,15 +723,15 @@
               <p>HR 8023042</p>
             </td>
             <td>
-              <p>Обработчик синхронизации вернул ошибку hr=80230402 с сообщением: «Попытка получить объект завершилась ошибкой, так как существуют повторяющиеся записи с одной привязкой».</p>
+              <p>Synchronization Engine returned an error hr=80230402, message=An attempt to get an object failed because there are duplicated entries with the same anchor</p>
             </td>
             <td>
               <p>ADSync</p>
             </td>
             <td>
-              <p>Это событие возникает, когда один идентификатор пользователя включен в нескольких доменах. Например, если идет синхронизация лесов учетных записей и ресурсов, и в каждом из них включен один и тот же идентификатор пользователя, может произойти эта ошибка.  </p>
-              <p>Также эта ошибка может возникнуть, если вы используете атрибут неуникальной привязки (например, псевдоним или имя участника-пользователя) и два пользователя используют одинаковый атрибут привязки.</p>
-              <p>Чтобы устранить эту проблему, убедитесь, что в пределах доменов нет повторяющихся пользователей и для каждого пользователя используется атрибут уникальной привязки.</p>
+              <p>This event occurs when the same user id is enabled in multiple domains.  For example, if you are syncing Account/Resource forests, and have the same user id present and enabled in each, this error may occur.  </p>
+              <p>This error can also occur if you are using a non-unique anchor attribute (like alias or UPN) and two users share that same anchor attribute.</p>
+              <p>To resolve this issue, ensure that you do not have any duplicated users within your domains and that you are using a unique anchor attribute for each user.</p>
             </td>
           </tr>
           <tr>
@@ -744,7 +745,7 @@
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>Это событие указывает, что локальная служба обнаружила запрос на сброс пароля для федеративного пользователя или пользователя с синхронизацией хэшей паролей, исходящий из облака. Это событие является первым событием в каждой операции обратной записи сброса пароля.</p>
+              <p>This event indicates that the on-premises service detected a password reset request for a federated or password hash sync’d user originating from the cloud. This event is the first event in every password reset writeback operation.</p>
             </td>
           </tr>
           <tr>
@@ -758,7 +759,7 @@
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>Это событие указывает, что пользователь выбрал новый пароль во время операции сброса пароля, мы определили, что этот пароль соответствует требованиям организации к паролю, и он успешно был записан обратно в локальную среду AD.</p>
+              <p>This event indicates that a user selected a new password during a password reset operation, we determined that this password meets corporate password requirements, and that password has been successfully written back to the local AD environment.</p>
             </td>
           </tr>
           <tr>
@@ -772,20 +773,20 @@
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>Это событие указывает, что пользователь выбрал пароль, этот пароль успешно поступил в локальную среду, но при попытке установить его в локальной среде AD произошел сбой. Это может произойти по нескольким причинам.</p>
+              <p>This event indicates that a user selected a password, and that password arrived successfully to the on-premises environment, but when we attempted to set the password in the local AD environment, a failure occurred. This can happen for several reasons:</p>
               <ul>
                 <li class="unordered">
-										Пароль пользователя не соответствует требованиям домена к сроку действия, истории, сложности или фильтрации. Попробуйте для решения задать совершенно новый пароль.<br\><br\></li>
+The user’s password does not meet the age, history, complexity, or filter requirements for the domain. Try a completely new password to resolve this.<br\><br\></li>
               </ul>
               <ul>
                 <li class="unordered">
-										Учетная запись службы MA не имеет соответствующих разрешений на установку нового пароля для нужной учетной записи пользователя.<br\><br\></li>
+The MA service account does not have the appropriate permissions to set the new password on the user account in question.<br\><br\></li>
               </ul>
               <ul>
                 <li class="unordered">
-										Учетная запись пользователя находится в защищенной группе, например администраторов домена или предприятия, которая запрещает операции установки пароля.<br\><br\></li>
+The user’s account is in a protected group, such as domain or enterprise admins, which disallows password set operations.<br\><br\></li>
               </ul>
-              <p>См. раздел <a href="#troubleshoot-password-writeback">Устранение неполадок обратной записи паролей</a> для получения дополнительных сведений о том, какие еще ситуации могут вызывать эту ошибку.</p>
+              <p>See <a href="#troubleshoot-password-writeback">Troubleshoot Password Writeback</a> to learn more about what other situtions can cause this error.</p>
             </td>
           </tr>
           <tr>
@@ -799,7 +800,7 @@
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>Это событие возникает, если включена обратная запись паролей с помощью Azure AD Connect, и указывает, что начата адаптация вашей организации к веб-службе обратной записи паролей.</p>
+              <p>This event occurs if you enable Password Writeback with Azure AD Connect and indicates that we started onboarding your organization to the Password Writeback web service.</p>
             </td>
           </tr>
           <tr>
@@ -813,7 +814,7 @@
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>Это событие указывает, что процесс адаптации прошел успешно и возможности обратной записи паролей готовы к использованию.</p>
+              <p>This event indicates the onboarding process was successful and that Password Writeback capability is ready to use.</p>
             </td>
           </tr>
           <tr>
@@ -827,7 +828,7 @@
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>Это событие указывает, что локальная служба обнаружила запрос на изменение пароля для федеративного пользователя или пользователя с синхронизацией хэшей паролей, исходящий из облака. Это событие является первым событием в каждой операции обратной записи изменения пароля.</p>
+              <p>This event indicates that the on-premises service detected a password change request for a federated or password hash sync’d user originating from the cloud. This event is the first event in every password change writeback operation.</p>
             </td>
           </tr>
           <tr>
@@ -841,7 +842,7 @@
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>Это событие указывает, что пользователь выбрал новый пароль во время операции изменения пароля, мы определили, что этот пароль соответствует требованиям организации к паролю, и он успешно был записан обратно в локальную среду AD.</p>
+              <p>This event indicates that a user selected a new password during a password change operation, we determined that this password meets corporate password requirements, and that password has been successfully written back to the local AD environment.</p>
             </td>
           </tr>
           <tr>
@@ -855,20 +856,20 @@
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>Это событие указывает, что пользователь выбрал пароль, этот пароль успешно поступил в локальную среду, но при попытке установить его в локальной среде AD произошел сбой. Это может произойти по нескольким причинам.</p>
+              <p>This event indicates that a user selected a password, and that password arrived successfully to the on-premises environment, but when we attempted to set the password in the local AD environment, a failure occurred. This can happen for several reasons:</p>
               <ul>
                 <li class="unordered">
-										Пароль пользователя не соответствует требованиям домена к сроку действия, истории, сложности или фильтрации. Попробуйте для решения задать совершенно новый пароль.<br\><br\></li>
+The user’s password does not meet the age, history, complexity, or filter requirements for the domain. Try a completely new password to resolve this.<br\><br\></li>
               </ul>
               <ul>
                 <li class="unordered">
-										Учетная запись службы MA не имеет соответствующих разрешений на установку нового пароля для нужной учетной записи пользователя.<br\><br\></li>
+The MA service account does not have the appropriate permissions to set the new password on the user account in question.<br\><br\></li>
               </ul>
               <ul>
                 <li class="unordered">
-										Учетная запись пользователя находится в защищенной группе, например администраторов домена или предприятия, которая запрещает операции установки пароля.<br\><br\></li>
+The user’s account is in a protected group, such as domain or enterprise admins, which disallows password set operations.<br\><br\></li>
               </ul>
-              <p>См. раздел <a href="#troubleshoot-password-writeback">Устранение неполадок обратной записи паролей</a> для получения дополнительных сведений о том, какие другие ситуации могут вызывать эту ошибку.</p>
+              <p>See <a href="#troubleshoot-password-writeback">Troubleshoot Password Writeback</a> to learn more about what other situations can cause this error.</p>
             </td>
           </tr>
           <tr>
@@ -882,7 +883,7 @@
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>Локальная служба обнаружила запрос на сброс пароля для федеративного пользователя или пользователя с синхронизацией хэшей паролей, исходящий от администратора от имени пользователя. Это событие является первым событием в каждой операции обратной записи инициированного администратором сброса пароля.</p>
+              <p>The on-premises service detected a password reset request for a federated or password hash sync’d user originating from the administrator on behalf of a user. This event is the first event in every admin-initiated password reset writeback operation.</p>
             </td>
           </tr>
           <tr>
@@ -896,7 +897,7 @@
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>Администратор выбрал новый пароль во время операции инициированного администратором сброса пароля. Мы определили, что этот пароль соответствует требованиям организации к паролю, и он успешно был записан обратно в локальную среду AD.</p>
+              <p>The admin selected a new password during an admin-initiated password reset operation, we determined that this password meets corporate password requirements, and that password has been successfully written back to the local AD environment.</p>
             </td>
           </tr>
           <tr>
@@ -910,20 +911,20 @@
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>Администратор выбрал пароль от имени пользователя, этот пароль успешно поступил в локальную среду, но при попытке установить его в локальной среде AD произошел сбой. Это может произойти по нескольким причинам.</p>
+              <p>The admin selected a password on behalf of a user, and that password arrived successfully to the on-premises environment, but when we attempted to set the password in the local AD environment, a failure occurred. This can happen for several reasons:</p>
               <ul>
                 <li class="unordered">
-										Пароль пользователя не соответствует требованиям домена к сроку действия, истории, сложности или фильтрации. Попробуйте для решения задать совершенно новый пароль.<br\><br\></li>
+The user’s password does not meet the age, history, complexity, or filter requirements for the domain. Try a completely new password to resolve this.<br\><br\></li>
               </ul>
               <ul>
                 <li class="unordered">
-										Учетная запись службы MA не имеет соответствующих разрешений на установку нового пароля для нужной учетной записи пользователя.<br\><br\></li>
+The MA service account does not have the appropriate permissions to set the new password on the user account in question.<br\><br\></li>
               </ul>
               <ul>
                 <li class="unordered">
-										Учетная запись пользователя находится в защищенной группе, например администраторов домена или предприятия, которая запрещает операции установки пароля.<br\><br\></li>
+The user’s account is in a protected group, such as domain or enterprise admins, which disallows password set operations.<br\><br\></li>
               </ul>
-              <p>См. раздел <a href="#troubleshoot-password-writeback">Устранение неполадок обратной записи паролей</a> для получения дополнительных сведений о том, какие еще ситуации могут вызывать эту ошибку.</p>
+              <p>See <a href="#troubleshoot-password-writeback">Troubleshoot Password Writeback</a> to learn more about what other situtions can cause this error.</p>
             </td>
           </tr>
           <tr>
@@ -937,7 +938,7 @@
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>Это событие возникает, если отключить обратную запись паролей с помощью Azure AD Connect, и указывает, что начата отмена адаптации вашей организации к веб-службе обратной записи паролей.</p>
+              <p>This event occurs if you disable Password Writeback with Azure AD Connect and indicates that we started offboarding your organization to the Password Writeback web service.</p>
             </td>
           </tr>
           <tr>
@@ -951,7 +952,7 @@
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>Это событие указывает, что процесс отмены адаптации прошел успешно и возможности обратной записи паролей успешно отключены.</p>
+              <p>This event indicates the offboarding process was successful and that Password Writeback capability has been successfully disabled.</p>
             </td>
           </tr>
           <tr>
@@ -965,7 +966,7 @@
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>Это событие указывает, что процесс отмены адаптации не был успешным. Это могло произойти из-за ошибка разрешений в облаке или локальной учетной записи администратора, указанной во время настройки, или потому, что вы пытаетесь использовать федеративного облачного глобального администратора при отключении обратной записи паролей. Чтобы устранить эту проблему, проверьте свои разрешения на администрирование и убедитесь, что вы не используете никакую федеративную учетную запись при настройке функции обратной записи паролей.</p>
+              <p>This event indicates the offboarding process was not successful. This could be due to a permissions error on the cloud or on-premises administrator account specified during configuration, or because you are attempting to use a federated cloud global administrator when disabling Password Writeback. To fix this, check your administrative permissions and that you are not using any federated account while configuring the Password Writeback capability.</p>
             </td>
           </tr>
           <tr>
@@ -979,7 +980,7 @@
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>Это событие указывает, что служба обратной записи паролей успешно запущена и готова к приему запросов на управление паролями из облака.</p>
+              <p>This event indicates that the Password Writeback service has started successfully and is ready to accept password management requests from the cloud.</p>
             </td>
           </tr>
           <tr>
@@ -993,7 +994,7 @@
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>Это событие указывает, что служба обратной записи паролей была остановлена, и любые запросы управления паролями из облака не будут успешно выполнены.</p>
+              <p>This event indicates that the Password Writeback service has stopped and that any password management requests from the cloud will not be successful.</p>
             </td>
           </tr>
           <tr>
@@ -1007,7 +1008,7 @@
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>Это событие указывает, что мы успешно получили токен авторизации для глобального администратора, указанного во время установки Azure AD Connect, для запуска процесса адаптации или отмены адаптации.</p>
+              <p>This event indicates that we successfully retrieved an authorization token for the global admin specified during Azure AD Connect setup in order to start the offboarding or onboarding process.</p>
             </td>
           </tr>
           <tr>
@@ -1021,7 +1022,7 @@
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>Это событие указывает, что мы успешно создали ключ шифрования паролей, который будет использоваться для шифрования паролей из облака для отправки в вашу локальную среду.</p>
+              <p>This event indicates that we successfully created the password encryption key that will be used to encrypt passwords from the cloud to be sent to your on-premises environment.</p>
             </td>
           </tr>
           <tr>
@@ -1035,7 +1036,7 @@
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>Это событие указывает на неизвестную ошибку во время операции управления паролями. Просмотрите текст исключения в событии для получения дополнительных сведений. Если возникают проблемы, попробуйте отключить и повторно включить обратную запись паролей. Если это не помогло, включите копию журнала событий вместе с указанным внутри идентификатор отслеживания и отправьте сотруднику службы поддержки.</p>
+              <p>This event indicates an unknown error during a password management operation. Look at the exception text in the event for more details. If you are having problems, try disabling and re-enabling Password Writeback. If this does not help, include a copy of your event log along with the tracking id specified insider to your support engineer.</p>
             </td>
           </tr>
           <tr>
@@ -1049,7 +1050,7 @@
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>Это событие указывает, что произошла ошибка при подключении к облачной службе сброса паролей, и обычно происходит в случае, когда локальной службе не удалось подключиться к веб-службе сброса пароля. </p>
+              <p>This event indicates there was an error connecting to the cloud password reset service, and generally occurs when the on-premises service was unable to connect to the password reset web service. </p>
             </td>
           </tr>
           <tr>
@@ -1063,7 +1064,7 @@
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>Это событие указывает, что произошла ошибка при подключении к экземпляру шины обслуживания вашего клиента. Это может произойти из-за того, что в вашей локальной среде блокируются исходящие подключения. Проверьте брандмауэр, убедившись, что разрешены подключения через TCP-порт 443 к <a href="https://ssprsbprodncu-sb.accesscontrol.windows.net/">https://ssprsbprodncu-sb.accesscontrol.windows.net/</a>, и повторите попытку. Если проблемы продолжаются, попробуйте отключить и повторно включить обратную запись паролей.</p>
+              <p>This event indicates there was an error connecting to your tenant’s service bus instance. This could happen because you are blocking outbound connections in your on-premises environment. Check your firewall to ensure you allow connections over TCP 443 and to <a href="https://ssprsbprodncu-sb.accesscontrol.windows.net/">https://ssprsbprodncu-sb.accesscontrol.windows.net/</a>, and try again. If you are still having problems, try disabling and re-enabling Password Writeback.</p>
             </td>
           </tr>
           <tr>
@@ -1077,7 +1078,7 @@
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>Это событие указывает, что входные данные, переданные в API нашей веб-службы, были недопустимыми. Попробуйте выполнить операцию заново.</p>
+              <p>This event indicates that the input passed to our web service API was invalid. Try the operation again.</p>
             </td>
           </tr>
           <tr>
@@ -1091,7 +1092,7 @@
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>Это событие указывает, что произошла ошибка при расшифровке пароля, который поступил из облака. Это может быть из-за несовпадения ключей расшифровки между облачной службой и локальной средой. Чтобы решить эту проблему, отключите и снова включите обратную запись паролей в локальной среде.</p>
+              <p>This event indicates that there was an error decrypting the password that arrived from the cloud. This could be because of a decryption key mismatch between the cloud service and your on-premises environment. In order to resolve this, disable and re-enable Password Writeback in your on-premises environment.</p>
             </td>
           </tr>
           <tr>
@@ -1105,7 +1106,7 @@
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>Во время адаптации мы сохраняем сведения для конкретного клиента в файле конфигурации в локальной среде. Это событие указывает, что произошла ошибка при сохранении этого файла или при запуске службы произошла ошибка чтения файла. Чтобы устранить эту проблему, попробуйте отключить и повторно включить обратную запись паролей для принудительной перезаписи данного файла конфигурации. </p>
+              <p>During onboarding, we save tenant-specific information in a configuration file in your on-premises environment. This event indicates there was an error saving this file or that when the service was started there was an error reading the file. To fix this issue, try disabling and re-enabling Password Writeback to force a re-write of this configuration file. </p>
             </td>
           </tr>
           <tr>
@@ -1119,7 +1120,7 @@
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>НЕ РЕКОМЕНДУЕТСЯ&#160;— Это событие отсутствует в Azure AD Connect и присутствует только в очень ранних сборках DirSync, которые поддерживали обратную запись.</p>
+              <p>DEPRECATED – This event is not present in Azure AD Connect, only very early builds of DirSync which supported writeback.</p>
             </td>
           </tr>
           <tr>
@@ -1133,7 +1134,7 @@
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>Во время адаптации мы отправляем данные из облака в локальную службу сброса паролей. Эти данные затем записываются в файл, размещенный в памяти, перед отправкой в службу синхронизации для безопасного хранения этих сведений на диске. Это событие указывает на проблему при записи или обновлении таких данных в памяти. Чтобы устранить эту проблему, попробуйте отключить и повторно включить обратную запись паролей для принудительной перезаписи данной конфигурации.</p>
+              <p>During onboarding, we send data from the cloud to the on-premises password reset service. That data is then written to an in-memory file before being sent to the sync service to store this information securely on disk. This event indicates a problem with writing or updating that data in memory. To fix this issue, try disabling and re-enabling Password Writeback to force a re-write of this configuration.</p>
             </td>
           </tr>
           <tr>
@@ -1147,7 +1148,7 @@
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>Это событие указывает, что был получен недопустимый ответ от веб-службы сброса паролей. Чтобы устранить проблему, попробуйте отключить и повторно включить обратную запись паролей.</p>
+              <p>This event indicates we received an invalid response from the password reset web service. To fix this issue, try disabling and re-enabling Password Writeback.</p>
             </td>
           </tr>
           <tr>
@@ -1161,7 +1162,7 @@
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>Это событие указывает, что нам не удалось получить токен авторизации для учетной записи глобального администратора, указанной во время установки Azure AD Connect. Эта ошибка может быть вызвана неверным именем пользователя или паролем, указанным для учетной записи глобального администратора, или же тем, что указанная учетная запись глобального администратора является федеративной. Чтобы устранить эту проблему, повторно запустите конфигурацию с правильными именем пользователя и паролем и убедитесь, что учетная запись администратора является управляемой (только облачной или с синхронизацией паролей).</p>
+              <p>This event indicates that we could not get an authorization token for the global administrator account specified during Azure AD Connect setup. This error can be caused by a bad username or password specified for the global admin account or because the global admin account specified is federated. To fix this issue, re-run configuration with the correct username and password and ensure the administrator is a managed (cloud-only or password-sync’d) account.</p>
             </td>
           </tr>
           <tr>
@@ -1175,7 +1176,7 @@
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>Это событие указывает, что произошла ошибка при создании ключа шифрования пароля или при расшифровке пароля, поступившего из облачной службы. Скорее всего, эта ошибка указывает на возможную неполадку среды. Просмотрите подробности в журнале событий для получения дополнительных сведений и устранения этой проблемы. Также можно попробовать отключить и повторно включить службу обратной записи паролей для решения этой проблемы.</p>
+              <p>This event indicates there was an error when generating the password encryption key or decrypting a password that arrives from the cloud service. This error likely indicates an issue with your environment. Look at the details of your event log to learn more and resolve this issue. You may also try disabling and re-enabling the Password Writeback service to resolve this.</p>
             </td>
           </tr>
           <tr>
@@ -1189,7 +1190,7 @@
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>Это событие указывает, что локальной службе не удалось правильно связаться с веб-службой сброса паролей для запуска процесса адаптации. Это может быть из-за правил брандмауэра или проблемы при получении токена авторизации для вашего клиента. Чтобы устранить эту проблему, убедитесь, что не блокируются исходящие подключения через TCP-порты 443 и 9350-9354 или к <a href="https://ssprsbprodncu-sb.accesscontrol.windows.net/">https://ssprsbprodncu-sb.accesscontrol.windows.net/</a>, а также что учетная запись администратора AAD, используемая для адаптации, не является федеративной. </p>
+              <p>This event indicates that the on-premises service could not properly communicate with the password reset web service to initiate the onboarding process. This may be because of a firewall rule or problem getting an auth token for your tenant. To fix this, ensure that you are not blocking outbound connections over TCP 443 and TCP 9350-9354 or to <a href="https://ssprsbprodncu-sb.accesscontrol.windows.net/">https://ssprsbprodncu-sb.accesscontrol.windows.net/</a>, and that the AAD admin account you are using to onboard is not federated. </p>
             </td>
           </tr>
           <tr>
@@ -1203,7 +1204,7 @@
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>НЕ РЕКОМЕНДУЕТСЯ&#160;— Это событие отсутствует в Azure AD Connect и присутствует только в очень ранних сборках DirSync, которые поддерживали обратную запись.</p>
+              <p>DEPRECATED – This event is not present in Azure AD Connect, only very early builds of DirSync which supported writeback.</p>
             </td>
           </tr>
           <tr>
@@ -1217,7 +1218,7 @@
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>Это событие указывает, что локальной службе не удалось правильно связаться с веб-службой сброса паролей для запуска процесса отмены адаптации. Это может быть из-за правил брандмауэра или проблемы при получении токена авторизации для вашего клиента. Чтобы устранить эту проблему, убедитесь, что не блокируются исходящие подключения через порт 443 или к <a href="https://ssprsbprodncu-sb.accesscontrol.windows.net/">https://ssprsbprodncu-sb.accesscontrol.windows.net/</a>, а также что учетная запись администратора AAD, используемая для отмены адаптации, не является федеративной. </p>
+              <p>This event indicates that the on-premises service could not properly communicate with the password reset web service to initiate the offboarding process. This may be because of a firewall rule or problem getting an authorization token for your tenant. To fix this, ensure that you are not blocking outbound connections over 443 or to <a href="https://ssprsbprodncu-sb.accesscontrol.windows.net/">https://ssprsbprodncu-sb.accesscontrol.windows.net/</a>, and that the AAD admin account you are using to offboard is not federated. </p>
             </td>
           </tr>
           <tr>
@@ -1231,7 +1232,7 @@
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>Это событие указывает, что нам необходимо было повторить попытку подключения к экземпляру шины обслуживания вашего клиента. В обычных условиях это не должно быть проблемой, однако если событие повторяется множество раз, рекомендуется проверить сетевое подключение к шине обслуживания, особенно в случае подключения с высокой задержкой или низкой пропускной способностью.</p>
+              <p>This event indicates that we had to retry to connect to your tenant’s service bus instance. Under normal conditions, this should not be a concern, but if you see this event many times, consider checking your network connection to service bus, especially if it’s a high latency or low-bandwidth connection.</p>
             </td>
           </tr>
           <tr>
@@ -1245,7 +1246,7 @@
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>Для мониторинга работоспособности службы обратной записи паролей мы отправляем данные пульса в веб-службу сброса паролей каждые 5 минут. Это событие указывает, что произошла ошибка при отправке такой информации о работоспособности обратно в облачную веб-службу. Такая информация о работоспособности не включает в себя данные OII или PII и представляет собой исключительно сигнал пульса и базовую статистику службы для того, чтобы можно было предоставлять сведения о состоянии службы в облаке.</p>
+              <p>In order to monitor the health of your Password Writeback service, we send heartbeat data to our password reset web service every 5 minutes. This event indicates that there was an error when sending this health information back to the cloud web service. This health information does not include an OII or PII data, and is purely a heartbeat and basic service statistics so that we can provide service status information in the cloud.</p>
             </td>
           </tr>
           <tr>
@@ -1259,7 +1260,7 @@
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>Это событие указывает, что возникла неизвестная ошибка, возвращенная AD. Проверьте журнал событий сервера Azure AD Connect на наличие событий из источника ADSync для получения дополнительных сведений об этой ошибке.</p>
+              <p>This event indicates that there was an unknown error returned by AD, check the Azure AD Connect server event log for events from the ADSync source for more information about this error.</p>
             </td>
           </tr>
           <tr>
@@ -1273,7 +1274,7 @@
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>Это событие указывает, что пользователь, который пытается сбросить или изменить пароль, не найден в локальном каталоге. Это может произойти, если пользователь был удален локально, но не в облаке, или при наличии проблемы с синхронизацией. Проверьте журналы синхронизации, а также подробности о последних нескольких запусках синхронизации для получения дополнительных сведений.</p>
+              <p>This event indicates that the user who is trying to reset or change a password was not found in the on-premises directory. This could occur when the user has been deleted on-premises but not in the cloud, or if there is an issue with sync. Check your sync logs, as well as the last few sync run details for more information.</p>
             </td>
           </tr>
           <tr>
@@ -1287,7 +1288,7 @@
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>Если запрос на сброс или изменение пароля исходит из облака, мы используем облачную привязку, указанную в процессе установки Azure AD Connect, для определения способа связи этого запроса обратно с пользователем в локальной среде. Это событие указывает, что в локальном каталоге найдены два пользователя с одним и тем же атрибутом облачной привязки. Проверьте журналы синхронизации, а также подробности о последних нескольких запусках синхронизации для получения дополнительных сведений.</p>
+              <p>When a password reset or change request originates from the cloud, we use the cloud anchor specified during the setup process of Azure AD Connect to determine how to link that request back to a user in your on-premises environment. This event indicates that we found two users in your on-premises directory with the same cloud anchor attribute. Check your sync logs, as well as the last few sync run details for more information.</p>
             </td>
           </tr>
           <tr>
@@ -1301,7 +1302,7 @@
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>Это событие указывает, что учетная запись службы агента управления не имеет соответствующих разрешений на запрашиваемую учетную запись, чтобы задать новый пароль. Убедитесь, что учетная запись MA в лесу пользователя имеет разрешения на сброс и изменение пароля для всех объектов в лесу. Дополнительные сведения о том, как это сделать, см. в разделе <a href="active-directory-passwords-getting-started.md#step-4-set-up-the-appropriate-active-directory-permissions">Шаг 4. Настройка соответствующих разрешений Active Directory</a>.</p>
+              <p>This event indicates that the Management Agent service account does not have the appropriate permissions on the account in question to set a new password. Ensure that the MA account in the user’s forest has Reset and Change password permissions on all objects in the forest.  For more information on how do to this, see <a href="active-directory-passwords-getting-started.md#step-4-set-up-the-appropriate-active-directory-permissions">Step 4: Set up the appropriate Active Directory permissions</a>.</p>
             </td>
           </tr>
           <tr>
@@ -1315,7 +1316,7 @@
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>Это событие указывает, что мы пытались сбросить или изменить пароль для учетной записи, которая была отключена на локальном компьютере. Включите учетную запись и повторите попытку.</p>
+              <p>This event indicates that we attempted to reset or change a password for an account that was disabled on premises. Enable the account and try the operation again.</p>
             </td>
           </tr>
           <tr>
@@ -1329,7 +1330,7 @@
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>Событие указывает, что мы пытались сбросить или изменить пароль для учетной записи, которая была заблокирована на локальном компьютере. Блокировки могут происходить при слишком большом количестве попыток пользователя изменить или сбросить пароль за короткий период. Разблокируйте учетную запись и повторите попытку.</p>
+              <p>Event indicates that we attempted to reset or change a password for an account that was locked out on premises. Lockouts can occur when a user has tried a change or reset password operation too many times in a short period. Unlock the account and try the operation again.</p>
             </td>
           </tr>
           <tr>
@@ -1343,7 +1344,7 @@
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>Это событие указывает, что пользователь задал неверный текущий пароль при выполнении операции смены пароля. Укажите правильный текущий пароль и повторите попытку.</p>
+              <p>This event indicates that the user specified an incorrect current password when performing a password change operation. Specify the correct current password and try again.</p>
             </td>
           </tr>
           <tr>
@@ -1357,22 +1358,22 @@
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>Это событие возникает при попытке службы обратной записи паролей установить на ваш локальный каталог пароль, который не соответствует требованиям домена к сроку действия пароля, истории, сложности или фильтрации.</p>
+              <p>This event occurs when the Password Writeback service attempts to set a password on your local directory which does not meet the password age, history, complexity, or filtering requirements of the domain.</p>
               <ul>
                 <li class="unordered">
-										Если установлен минимальный срок действия пароля и пароль был недавно изменен в пределах заданного окна времени, вы не сможете изменить пароль снова, пока не истечет определенный период времени в вашем домене. В целях тестирования минимальный срок действия должен быть установлен равным 0.<br\><br\></li>
+If you have a minimum password age, and have recently changed the password within that window of time, you will not be able to change the password again until it reaches the specified age in your domain. For testing purposes, minimum age should be set to 0.<br\><br\></li>
               </ul>
               <ul>
                 <li class="unordered">
-										Если включены требования к истории паролей, то необходимо выбрать пароль, который не использовался последние N раз, где N&#160;— настройка истории паролей. При выборе пароля, который использовался в последние N раз, в данном случае возникнет ошибка. В целях тестирования значение истории паролей должно быть установлено равным 0.<br\><br\></li>
+If you have password history requirements enabled, then you must select a password that has not been used in the last N times, where N is the password history setting. If you do select a password that has been used in the last N times, then you will see a failure in this case. For testing purposes, history should be set to 0.<br\><br\></li>
               </ul>
               <ul>
                 <li class="unordered">
-										При наличии требований к сложности пароля все они будут применяться при попытке пользователя изменить или сбросить пароль.<br\><br\></li>
+If you have password complexity requirements, all of them will be enforced when the user attempts to change or reset a password.<br\><br\></li>
               </ul>
               <ul>
                 <li class="unordered">
-										Если включены фильтры паролей, а пользователь выбирает пароль, которые не соответствуют критериям фильтрации, то операция сброса или изменения завершится ошибкой.<br\><br\></li>
+If you have password filters enabled, and a user selects a password which does not meet the filtering criteria, then the reset or change operation will fail.<br\><br\></li>
               </ul>
             </td>
           </tr>
@@ -1387,7 +1388,7 @@
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>Это событие указывает, что возникла проблема при записи пароля обратно в локальный каталог из-за неполадки с конфигурацией в Active Directory. Проверьте журнал событий приложений компьютера Azure AD Connect на наличие сообщений от службы ADSync для получения дополнительных сведений о том, какая ошибка произошла. </p>
+              <p>This event indicates there was an issue writing a password back to your on-premises directory due to a configuration issue with Active Directory. Check the Azure AD Connect machine’s Application event log for messages from the ADSync service for more information on what error occurred. </p>
             </td>
           </tr>
           <tr>
@@ -1401,7 +1402,7 @@
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>НЕ РЕКОМЕНДУЕТСЯ&#160;— Это событие отсутствует в Azure AD Connect и присутствует только в очень ранних сборках DirSync, которые поддерживали обратную запись.</p>
+              <p>DEPRECATED – This event is not present in Azure AD Connect, only very early builds of DirSync which supported writeback.</p>
             </td>
           </tr>
           <tr>
@@ -1415,7 +1416,7 @@
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>НЕ РЕКОМЕНДУЕТСЯ&#160;— Это событие отсутствует в Azure AD Connect и присутствует только в очень ранних сборках DirSync, которые поддерживали обратную запись.</p>
+              <p>DEPRECATED – This event is not present in Azure AD Connect, only very early builds of DirSync which supported writeback.</p>
             </td>
           </tr>
           <tr>
@@ -1429,84 +1430,87 @@
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>НЕ РЕКОМЕНДУЕТСЯ&#160;— Это событие отсутствует в Azure AD Connect и присутствует только в очень ранних сборках DirSync, которые поддерживали обратную запись.</p>
+              <p>DEPRECATED – This event is not present in Azure AD Connect, only very early builds of DirSync which supported writeback.</p>
             </td>
           </tr>
         </tbody></table>
 
-## Устранение неполадок подключения обратной записи паролей
+## <a name="troubleshoot-password-writeback-connectivity"></a>Troubleshoot Password Writeback connectivity
 
-Если при работе с компонентом обратной записи паролей Azure AD Connect наблюдаются нарушения работы службы, ниже приведен ряд быстрых действий, которые можно предпринять для решения этой проблемы.
+If you are experiencing service interruptions with the Password Writeback component of Azure AD Connect, here are some quick steps you can take to resolve this:
 
- - [Перезапуск службы синхронизации Azure AD Connect](#restart-the-azure-AD-Connect-sync-service)
- - [Отключение и повторное включение функции обратной записи паролей](#disable-and-re-enable-the-password-writeback-feature)
- - [Установка новейшей версии Azure AD Connect](#install-the-latest-azure-ad-connect-release)
- - [Устранение неполадок с обратной записью паролей](#troubleshoot-password-writeback)
+ - [Restart the Azure AD Connect Sync Service](#restart-the-azure-AD-Connect-sync-service)
+ - [Disable and re-enable the Password Writeback feature](#disable-and-re-enable-the-password-writeback-feature)
+ - [Install the latest Azure AD Connect release](#install-the-latest-azure-ad-connect-release)
+ - [Troubleshoot Password Writeback](#troubleshoot-password-writeback)
 
-В общем случае рекомендуется выполнить следующие действия в указанном выше порядке для максимально быстрого восстановления работы службы.
+In general, we recommend that you execute these steps in the order above in order to recover your service in the most rapid manner.
 
-### Перезапуск службы синхронизации Azure AD Connect
-Перезапуск службы синхронизации Azure AD Connect может помочь в решении проблем с подключением или других временных проблем со службой.
+### <a name="restart-the-azure-ad-connect-sync-service"></a>Restart the Azure AD Connect Sync Service
+Restarting the Azure AD Connect Sync Service can help to resolve connectivity issues or other transient issues with the service.
 
- 1.	От имени администратора нажмите кнопку **Пуск** на сервере, на котором работает программное обеспечение **Azure AD Connect**.
- 2.	Введите **services.msc** в поле поиска и нажмите клавишу **Enter**.
- 3.	Найдите запись **Microsoft Azure AD Connect**.
- 4.	Щелкните правой кнопкой мыши запись службы, выберите команду **Перезапустить** и дождитесь завершения операции.
+ 1. As an administrator, click **Start** on the server running **Azure AD Connect**.
+ 2. Type **“services.msc”** in the search box and press **Enter**.
+ 3. Look for the **Microsoft Azure AD Connect** entry.
+ 4. Right-click on the service entry, click **Restart**, and wait for the operation to complete.
 
     ![][002]
 
-Эти шаги позволяют восстановить подключение к облачной службе и устранить возможные перебои в работе. Если перезапуск службы синхронизации не решил проблему, рекомендуется попробовать отключить и повторно включить функцию обратной записи паролей в качестве следующего шага.
+These steps will re-establish your connection with the cloud service and resolve any interruptions you may be experiencing.  If restarting the Sync Service does not resolve your issue, we recommend that you try to disable and re-enable the Password Writeback feature as a next step.
 
-### Отключение и повторное включение функции обратной записи паролей
-Отключение и повторное включение функции обратной записи паролей может помочь устранить проблемы с подключением.
+### <a name="disable-and-re-enable-the-password-writeback-feature"></a>Disable and re-enable the Password Writeback feature
+Disabling and re-enabling the Password Writeback feature can help to resolve connectivity issues.
 
- 1.	От имени администратора откройте **Мастер настройки Azure AD Connect**.
- 2.	В диалоговом окне **Подключение к Azure AD** введите ваши **учетные данные глобального администратора Azure AD**
- 3.	В диалоговом окне **Подключение к AD DS** введите ваши **учетные данные администратора доменных служб AD**.
- 4.	В диалоговом окне **Уникальная идентификация пользователей** нажмите кнопку **Далее**.
- 5.	В диалоговом окне **Дополнительные возможности** снимите флажок **Обратная запись пароля**.
+ 1. As an administrator, open the **Azure AD Connect configuration wizard**.
+ 2. On the **Connect to Azure AD** dialog, enter your **Azure AD global admin credentials**
+ 3. On the **Connect to AD DS** dialog, enter your **AD Domain Services admin credentials**.
+ 4. On the **Uniquely identifying your users** dialog, click the **Next** button.
+ 5. On the **Optional features** dialog, uncheck the **Password write-back** checkbox.
 
     ![][003]
 
- 6.	Нажимайте кнопку **Далее** на оставшихся страницах диалогового окна, ничего не изменяя, пока не дойдете до страницы **Готово к настройке**.
- 7.	Убедитесь, что на странице настройки отображается **параметр «Обратная запись пароля» как отключенный**, и нажмите зеленую кнопку **Настройка**, чтобы сохранить изменения.
- 8.	В диалоговом окне **Завершено** отмените выбор параметра **Синхронизировать сейчас**, а затем нажмите кнопку **Готово** для завершения работы мастера.
- 9.	Повторно откройте **Мастер настройки Azure AD Connect**.
- 10.	**Повторите шаги 2–8**, за исключением того, что **флажок «Обратная запись пароля» должен быть установлен** на экране **Дополнительные возможности**, чтобы включить службу.
+ 6. Click **Next** through the remaining dialog pages without changing anything until you get to the **Ready to configure** page.
+ 7. Ensure that the configure page shows the **Password write-back option as disabled** and then click the green **Configure** button to commit your changes.
+ 8. On the **Finished** dialog, deselect the **Synchronize now** option, and then click **Finish** to close the wizard.
+ 9. Re-open the **Azure AD Connect configuration wizard**.
+ 10.    **Repeat steps 2-8**, except ensure you **check the Password write-back option** on the **Optional features** screen to re-enable the service.
 
     ![][004]
 
-Эти шаги позволяют восстановить подключение к нашей облачной службе и устранить возможные перебои в работе.
+These steps will re-establish your connection with our cloud service and resolve any interruptions you may be experiencing.
 
-Если отключение и повторное включение функции обратной записи паролей не решило проблему, рекомендуется попробовать переустановить Azure AD Connect в качестве следующего шага.
+If disabling and re-enabling the Password Writeback feature does not resolve your issue, we recommend that you try to re-install Azure AD Connect as a next step.
 
-### Установка новейшей версии Azure AD Connect
-Переустановка пакета Azure AD Connect устранит возможные проблемы конфигурации, которые могут влиять на возможность либо подключения к нашим облачным службам, либо управления паролями в локальной среде AD. Этот шаг рекомендуется выполнять только после попытки первые двух действий, описанных выше.
+### <a name="install-the-latest-azure-ad-connect-release"></a>Install the latest Azure AD Connect release
+Re-installing the Azure AD Connect package will resolve any configuration issues which may be affecting your ability to either connect to our cloud services or to manage passwords in your local AD environment.
+We recommend, you perform this step only after attempting the first two steps described above.
 
- 1.	Загрузите новейшую версию Azure AD Connect [здесь](active-directory-aadconnect.md#install-azure-ad-connect).
- 2.	Поскольку вы уже установили Azure AD Connect, будет достаточно выполнить обновление на месте, чтобы обновить установленный пакет Azure AD Connect до новейшей версии.
- 3.	Запустите загруженный пакет и следуйте инструкциям на экране для обновления компьютера Azure AD Connect. Никакие дополнительные действия вручную выполнять не требуется, если только вы не настроили правила синхронизации «из коробки». В этом случае следует **создать их резервную копию перед продолжением обновления и вручную повторно развернуть их после завершения**.
+ 1. Download the latest version of Azure AD Connect [here](active-directory-aadconnect.md#install-azure-ad-connect).
+ 2. Since you have already installed Azure AD Connect, you will only need to perform an in-place upgrade to update your Azure AD Connect installation to the latest version.
+ 3. Execute the downloaded package and follow the on-screen instructions to update your Azure AD Connect machine.  No additional manual steps are required unless you have customized the out of box sync rules, in which case you should **back these up before proceeding with upgrade and manually re-deploy them after you are finished**.
 
-Эти шаги позволяют восстановить подключение к нашей облачной службе и устранить возможные перебои в работе.
+These steps will re-establish your connection with our cloud service and resolve any interruptions you may be experiencing.
 
-Если установка новейшей версии сервера Azure AD Connect не решила проблему, попробуйте отключить и повторно включить обратную запись паролей в качестве последнего шага после установки новейшей версии QFE синхронизации.
+If installing the latest version of the Azure AD Connect server does not resolve your issue, we recommend that you try disabling and re-enabling Password Writeback as a final step after installing the latest sync QFE.
 
-Если это не решило проблему, рекомендуется рассмотреть разделы [Устранение неполадок обратной записи паролей](#troubleshoot-password-writeback) и [Вопросы и ответы по управлению паролями Azure AD](active-directory-passwords-faq.md), чтобы узнать, обсуждается ли в них ваша проблема.
+If that does not resolve your issue, then we recommend that you take a look at [Troubleshoot Password Writeback](#troubleshoot-password-writeback) and the [Azure AD password Management FAQ](active-directory-passwords-faq.md) to see if your issue may be discussed there.
 
 
-<br/> <br/> <br/>
+<br/>
+<br/>
+<br/>
 
-## Ссылки на документацию по сбросу паролей
-Ниже приведены ссылки на все страницы документации по службе сброса паролей Azure AD.
+## <a name="links-to-password-reset-documentation"></a>Links to password reset documentation
+Below are links to all of the Azure AD Password Reset documentation pages:
 
-* **Вы здесь потому, что возникают проблемы при входе?** Если это так, [с помощью этих инструкций можно изменить и сбросить пароль](active-directory-passwords-update-your-own-password.md).
-* [**Как работает служба**](active-directory-passwords-how-it-works.md) — узнайте, из каких шести компонентов состоит служба и за что отвечает каждый из них.
-* [**Приступая к работе**](active-directory-passwords-getting-started.md) — узнайте, как предоставить пользователям возможность сбрасывать и менять свои облачные и локальные пароли.
-* [**Настройка**](active-directory-passwords-customize.md) — узнайте, как настроить оформление и функциональность службы в соответствии с потребностями организации.
-* [**Рекомендации**](active-directory-passwords-best-practices.md) — узнайте, как быстро развернуть службу и эффективно управлять паролями в организации.
-* [**Аналитика**](active-directory-passwords-get-insights.md) — узнайте об интегрированных функциях отчетности.
-* [**Часто задаваемые вопросы**](active-directory-passwords-faq.md) — ознакомьтесь с ответами на часто задаваемые вопросы.
-* [**Дополнительные сведения**](active-directory-passwords-learn-more.md) — ознакомьтесь с технической стороной работы службы.
+* **Are you here because you're having problems signing in?** If so, [here's how you can change and reset your own password](active-directory-passwords-update-your-own-password.md).
+* [**How it works**](active-directory-passwords-how-it-works.md) - learn about the six different components of the service and what each does
+* [**Getting started**](active-directory-passwords-getting-started.md) - learn how to allow you users to reset and change their cloud or on-premises passwords
+* [**Customize**](active-directory-passwords-customize.md) - learn how to customize the look & feel and behavior of the service to your organization's needs
+* [**Best practices**](active-directory-passwords-best-practices.md) - learn how to quickly deploy and effectively manage passwords in your organization
+* [**Get insights**](active-directory-passwords-get-insights.md) - learn about our integrated reporting capabilities
+* [**FAQ**](active-directory-passwords-faq.md) - get answers to frequently asked questions
+* [**Learn more**](active-directory-passwords-learn-more.md) - go deep into the technical details of how the service works
 
 
 
@@ -1515,4 +1519,8 @@
 [003]: ./media/active-directory-passwords-troubleshoot/003.jpg "Image_003.jpg"
 [004]: ./media/active-directory-passwords-troubleshoot/004.jpg "Image_004.jpg"
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

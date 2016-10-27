@@ -1,186 +1,194 @@
 <properties
-	pageTitle="Резервное копирование виртуальных машин Azure | Microsoft Azure"
-	description="В этой статье приведены процедуры обнаружения, регистрации и резервного копирования виртуальных машин Azure."
-	services="backup"
-	documentationCenter=""
-	authors="markgalioto"
-	manager="jwhit"
-	editor=""
-	keywords="резервное копирование виртуальных машин; резервное копирование виртуальной машины; резервное копирование и аварийное восстановление; резервное копирование VM"/>
+    pageTitle="Back up Azure virtual machines | Microsoft Azure"
+    description="Discover, register, and back up your virtual machines with these procedures for Azure virtual machine backup."
+    services="backup"
+    documentationCenter=""
+    authors="markgalioto"
+    manager="jwhit"
+    editor=""
+    keywords="virtual machine backup; back up virtual machine; backup and disaster recovery; vm backup"/>
 
 <tags
-	ms.service="backup"
-	ms.workload="storage-backup-recovery"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/01/2016"
-	ms.author="trinadhk; jimpark; markgal;"/>
+    ms.service="backup"
+    ms.workload="storage-backup-recovery"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/28/2016"
+    ms.author="trinadhk; jimpark; markgal;"/>
 
 
-# Резервное копирование виртуальных машин Azure
+
+# <a name="back-up-azure-virtual-machines"></a>Back up Azure virtual machines
 
 > [AZURE.SELECTOR]
-- [Резервное копирование виртуальных машин в хранилище служб восстановления](backup-azure-arm-vms.md)
-- [Резервное копирование виртуальных машин в хранилище архивации](backup-azure-vms.md)
+- [Back up VMs to Recovery Services vault](backup-azure-arm-vms.md)
+- [Back up VMs to Backup vault](backup-azure-vms.md)
 
-В этой статье описываются процедуры резервного копирования виртуальной машины (VM) Azure, развернутой с использованием классической модели развертывания, в хранилище архивации. Есть несколько задач, которые необходимо выполнить до резервного копирования виртуальной машины Azure. Выполните [предварительные требования](backup-azure-vms-prepare.md) (если вы еще этого не сделали), чтобы подготовить среду к резервному копированию виртуальных машин.
+This article provides the procedures for backing up a Classic-deployed Azure virtual machine (VM) to a Backup vault. There are a few tasks you need to take care of before you can back up an Azure virtual machine. If you haven't already done so, complete the [prerequisites](backup-azure-vms-prepare.md) to prepare your environment for backing up your VMs.
 
-Дополнительные сведения см. в статьях [Планирование инфраструктуры резервного копирования виртуальных машин в Azure](backup-azure-vms-introduction.md) и [Виртуальные машины Azure – документация](https://azure.microsoft.com/documentation/services/virtual-machines/).
+For additional information, see the articles on [planning your VM backup infrastructure in Azure](backup-azure-vms-introduction.md) and [Azure virtual machines](https://azure.microsoft.com/documentation/services/virtual-machines/).
 
->[AZURE.NOTE] В Azure предусмотрены две модели развертывания, позволяющие создавать ресурсы и работать с ними: [модель Resource Manager и классическая модель](../resource-manager-deployment-model.md). Хранилище архивации может защитить только виртуальные машины, которые были развернуты с использованием классической модели развертывания. С помощью хранилища архивации невозможно защитить виртуальные машины, развернутые с использованием модели Resource Manager. Дополнительные сведения о работе с хранилищем служб восстановления см. в статье [Архивация виртуальных машин Azure Resource Manager (ARM)](backup-azure-arm-vms.md).
+>[AZURE.NOTE] Azure has two deployment models for creating and working with resources: [Resource Manager and Classic](../resource-manager-deployment-model.md). A Backup vault can only protect Classic-deployed VMs. You cannot protect Resource Manager-deployed VMs with a Backup vault. See [Back up VMs to Recovery Services vault](backup-azure-arm-vms.md) for details on working with Recovery Services vaults.
 
-Резервное копирование виртуальных машин Azure состоит из трех основных шагов.
+Backing up Azure virtual machines involves three key steps:
 
-![Три этапа резервного копирования виртуальной машины Azure IaaS](./media/backup-azure-vms/3-steps-for-backup.png)
+![Three steps to back up an Azure IaaS VM](./media/backup-azure-vms/3-steps-for-backup.png)
 
->[AZURE.NOTE] Резервное копирование виртуальных машин – локальный процесс. Выполнить архивацию виртуальных машин из одного региона в хранилище архивации в другом регионе нельзя. Поэтому необходимо создать хранилище архивации в каждом регионе Azure, в котором есть виртуальные машины, которые будут архивироваться.
+>[AZURE.NOTE] Backing up virtual machines is a local process. You cannot back up virtual machines in one region to a backup vault in another region. So, you must create a backup vault in each Azure region, where there are VMs that will be backed up.
 
-## Шаг 1. Обнаружение виртуальных машин Azure
-Чтобы идентифицировать все виртуальные машины, недавно добавленные в подписку, перед регистрацией, запустите процесс обнаружения. В ходе этого процесса в Azure отправляется запрос о предоставлении списка виртуальных машин в подписке и дополнительных сведений, в том числе имени и региона облачной службы.
+## <a name="step-1---discover-azure-virtual-machines"></a>Step 1 - Discover Azure virtual machines
+To ensure any new virtual machines (VMs) added to the subscription are identified before registering, run the discovery process. The process queries Azure for the list of virtual machines in the subscription, along with additional information like the cloud service name and the region.
 
-1. Войдите на [классический портал](http://manage.windowsazure.com/).
+1. Sign in to the [Classic portal](http://manage.windowsazure.com/)
 
-2. В списке служб Azure щелкните **Службы восстановления**, чтобы открыть список хранилищ архивации и хранилищ Site Recovery. ![Открытие списка хранилищ](./media/backup-azure-vms/choose-vault-list.png)
+2. In the list of Azure services, click **Recovery Services** to open the list of Backup and Site Recovery vaults.
+    ![Open vault list](./media/backup-azure-vms/choose-vault-list.png)
 
-3. Из списка хранилищ архивации выберите хранилище для архивации виртуальной машины.
+3. In the list of Backup vaults, select the vault to back up a VM.
 
-    Если это новое хранилище, на портале откроется страница **быстрого запуска**.
+    If this is a new vault the portal opens to the **Quick Start** page.
 
-    ![Открытие меню "Зарегистрированные элементы"](./media/backup-azure-vms/vault-quick-start.png)
+    ![Open Registered items menu](./media/backup-azure-vms/vault-quick-start.png)
 
-    Если это уже настроенное хранилище, портал откроет меню последних использованных элементов.
+    If the vault has previously been configured, the portal opens to the most recently used menu.
 
-4. В меню хранилища (в верхней части страницы) щелкните **Зарегистрированные элементы**.
+4. From the vault menu (at the top of the page), click **Registered Items**.
 
-    ![Открытие меню "Зарегистрированные элементы"](./media/backup-azure-vms/vault-menu.png)
+    ![Open Registered items menu](./media/backup-azure-vms/vault-menu.png)
 
-5. В меню **Тип** выберите пункт **Виртуальная машина Azure**.
+5. From the **Type** menu, select **Azure Virtual Machine**.
 
-    ![Выбор рабочей нагрузки](./media/backup-azure-vms/discovery-select-workload.png)
+    ![Select workload](./media/backup-azure-vms/discovery-select-workload.png)
 
-6. В нижней части страницы щелкните **Обнаружить**. ![Кнопка обнаружения](./media/backup-azure-vms/discover-button-only.png)
+6. Click **DISCOVER** at the bottom of the page.
+    ![Discover button](./media/backup-azure-vms/discover-button-only.png)
 
-    Процесс обнаружения может длиться несколько минут, в течение которых будет создаваться таблица со списком виртуальных машин. В нижней части экрана отобразится уведомление о ходе выполнения процесса.
+    The discovery process may take a few minutes while the virtual machines are being tabulated. There is a notification at the bottom of the screen that lets you know that the process is running.
 
-    ![Обнаружение виртуальных машин](./media/backup-azure-vms/discovering-vms.png)
+    ![Discover VMs](./media/backup-azure-vms/discovering-vms.png)
 
-    Уведомление изменится, когда процесс завершится. Если процессу обнаружения не удалось найти виртуальные машины, сначала убедитесь, что они существуют. Если виртуальные машины существует, убедитесь, что они находятся в одном регионе с хранилищем архивации. Если виртуальные машины существуют и находятся в том же регионе, убедитесь, что они еще не зарегистрированы в хранилище архивации. Если виртуальные машины назначены хранилищу архивации, их нельзя будет назначить другим хранилищам архивации.
+    The notification changes when the process is complete. If the discovery process did not find the virtual machines, first ensure the VMs exist. If the VMs exist, ensure the VMs are in the same region as the backup vault. If the VMs exist and are in the same region, ensure the VMs are not already registered to a backup vault. If a VM is assigned to a backup vault it is not available to be assigned to other backup vaults.
 
-    ![Обнаружение завершено](./media/backup-azure-vms/discovery-complete.png)
+    ![Discovery done](./media/backup-azure-vms/discovery-complete.png)
 
-    После обнаружения новых элементов перейдите к шагу 2 и зарегистрируйте виртуальные машины.
+    Once you have discovered the new items, go to Step 2 and register your VMs.
 
-##  Шаг 2. Регистрация виртуальных машин Azure
-Чтобы связать виртуальную машину со службой архивации Azure, выполняется ее регистрация. Как правило, это разовая операция.
+##  <a name="step-2---register-azure-virtual-machines"></a>Step 2 - Register Azure virtual machines
+You register an Azure virtual machine to associate it with the Azure Backup service. This is typically a one-time activity.
 
-1. На портале Azure перейдите в хранилище службы архивации в разделе **Службы восстановления**, а затем откройте вкладку **Зарегистрированные элементы**.
+1. Navigate to the backup vault under **Recovery Services** in the Azure portal, and then click **Registered Items**.
 
-2. В раскрывающемся меню выберите пункт **Виртуальная машина Azure**.
+2. Select **Azure Virtual Machine** from the drop-down menu.
 
-    ![Выбор рабочей нагрузки](./media/backup-azure-vms/discovery-select-workload.png)
+    ![Select workload](./media/backup-azure-vms/discovery-select-workload.png)
 
-3. В нижней части страницы щелкните **Зарегистрировать**. ![Кнопка регистрации](./media/backup-azure-vms/register-button-only.png)
+3. Click **REGISTER** at the bottom of the page.
+    ![Register button](./media/backup-azure-vms/register-button-only.png)
 
-4. В контекстном меню **Регистрация элементов** выберите виртуальные машины, которые нужно зарегистрировать. Если в меню отображаются виртуальные машины с одинаковыми именами, используйте облачную службу, чтобы идентифицировать их.
+4. In the **Register Items** shortcut menu, select the virtual machines that you want to register. If there are two or more virtual machines with the same name, use the cloud service to distinguish between them.
 
-    >[AZURE.TIP] В ходе одной процедуры можно зарегистрировать несколько виртуальных машин.
+    >[AZURE.TIP] Multiple virtual machines can be registered at one time.
 
-    Для каждой выбранной виртуальной машины будет создано задание.
+    A job is created for each virtual machine that you've selected.
 
-5. В уведомлении щелкните ссылку **Просмотр задания**, чтобы перейти на страницу **Задания**.
+5. Click **View Job** in the notification to go to the **Jobs** page.
 
-    ![Задание регистрации](./media/backup-azure-vms/register-create-job.png)
+    ![Register job](./media/backup-azure-vms/register-create-job.png)
 
-    Виртуальная машина также отображается в списке зарегистрированных элементов с указанием состояния операции регистрации.
+    The virtual machine also appears in the list of registered items, along with the status of the registration operation.
 
-    ![Состояние регистрации 1](./media/backup-azure-vms/register-status01.png)
+    ![Registering status 1](./media/backup-azure-vms/register-status01.png)
 
-    По завершении операции состояние изменится на *registered* (зарегистрировано).
+    When the operation completes, the status changes to reflect the *registered* state.
 
-    ![Состояние регистрации 2](./media/backup-azure-vms/register-status02.png)
+    ![Registration status 2](./media/backup-azure-vms/register-status02.png)
 
-## Шаг 3. Защита виртуальных машин Azure
-Теперь вы можете настроить для виртуальной машины политику резервного копирования и хранения. Одним действием можно защитить несколько виртуальных машин.
+## <a name="step-3---protect-azure-virtual-machines"></a>Step 3 - Protect Azure virtual machines
+Now you can set up a backup and retention policy for the virtual machine. Multiple virtual machines can be protected by using a single protect action.
 
-Хранилища службы архивации Azure, созданные после мая 2015 г., доступны со встроенной политикой по умолчанию. Эта политика определяет не только стандартный срок хранения (30 дней), но и расписание ежедневного резервного копирования.
+Azure Backup vaults created after May 2015 come with a default policy built into the vault. This default policy comes with a default retention of 30 days and a once-daily backup schedule.
 
-1. На портале Azure перейдите в хранилище службы архивации в разделе **Службы восстановления**, а затем откройте вкладку **Зарегистрированные элементы**.
-2. В раскрывающемся меню выберите пункт **Виртуальная машина Azure**.
+1. Navigate to the backup vault under **Recovery Services** in the Azure portal, and then click **Registered Items**.
+2. Select **Azure Virtual Machine** from the drop-down menu.
 
-    ![Выберите рабочую нагрузку на портале](./media/backup-azure-vms/select-workload.png)
+    ![Select workload in portal](./media/backup-azure-vms/select-workload.png)
 
-3. В нижней части страницы щелкните **ЗАЩИТИТЬ**.
+3. Click **PROTECT** at the bottom of the page.
 
-    Откроется **мастер защиты элементов**. В этом мастере перечислены только незарегистрированные и незащищенные виртуальные машины. Выберите виртуальные машины, которые необходимо защитить.
+    The **Protect Items wizard** appears. The wizard only lists virtual machines that are registered and not protected. Select the virtual machines that you want to protect.
 
-    При наличии двух или нескольких виртуальных машин с одинаковым именем используйте облачную службу, чтобы их различить.
+    If there are two or more virtual machines with the same name, use the cloud service to distinguish between the virtual machines.
 
-    >[AZURE.TIP] Можно защитить несколько виртуальных машин одновременно.
+    >[AZURE.TIP] You can protect multiple virtual machines at one time.
 
-    ![Настройка защиты нужного уровня](./media/backup-azure-vms/protect-at-scale.png)
+    ![Configure protection at scale](./media/backup-azure-vms/protect-at-scale.png)
 
-4. Выберите **расписание резервного копирования**, чтобы создать резервную копию выбранных виртуальных машин. Выберите политику из существующего набора или создайте новую.
+4. Choose a **backup schedule** to back up the virtual machines that you've selected. You can pick from an existing set of policies or define a new one.
 
-    У каждой политики резервного копирования может быть несколько связанных виртуальных машин. Но в определенный момент времени виртуальная машина может быть связана только с одной политикой.
+    Each backup policy can have multiple virtual machines associated with it. However, the virtual machine can only be associated with one policy at any given point in time.
 
-    ![Защита с помощью новой политики](./media/backup-azure-vms/policy-schedule.png)
+    ![Protect with new policy](./media/backup-azure-vms/policy-schedule.png)
 
-    >[AZURE.NOTE] Политика резервного копирования включает схему хранения плановых резервных копий. Выбрав существующую политику архивации, вы не сможете изменить параметры хранения впоследствии.
+    >[AZURE.NOTE] A backup policy includes a retention scheme for the scheduled backups. If you select an existing backup policy, you cannot modify the retention options in the next step.
 
-5. Выберите **диапазон хранения**, который нужно связать с резервными копиями.
+5. Choose a **retention range** to associate with the backups.
 
-    ![Защита с помощью гибких возможностей хранения](./media/backup-azure-vms/policy-retention.png)
+    ![Protect with flexible retention](./media/backup-azure-vms/policy-retention.png)
 
-    Политика хранения определяет длительность хранения резервной копии. Можно указать разные политики хранения на основе времени создания резервной копии. Например, точка ежедневной архивации (которая служит точкой оперативного восстановления) может храниться в течение 90 дней. В то же время точка архивации, которая обновляется в конце каждого квартала (и служит для целей аудита) может храниться в течение нескольких месяцев или лет.
+    Retention policy specifies the length of time for storing a backup. You can specify different retention policies based on when the backup is taken. For example, a backup point taken daily (which serves as an operational recovery point) might be preserved for 90 days. In comparison, a backup point taken at the end of each quarter (for audit purposes) may need to be preserved for many months or years.
 
-    ![Резервное копирование виртуальной машины с точкой восстановления](./media/backup-azure-vms/long-term-retention.png)
+    ![Virtual machine is backed up with recovery point](./media/backup-azure-vms/long-term-retention.png)
 
-    Описание политик, приведенных на изображении выше:
+    In this example image:
 
-    - **Политика хранения ежедневных резервных копий**. Резервные копии, создаваемые ежедневно, хранятся в течение 30 дней.
-    - **Политика хранения еженедельных резервных копий**. Резервные копии, создаваемые каждое воскресенье, хранятся 104 недели.
-    - **Политика хранения ежемесячных резервных копий**. Резервные копии, создаваемые в последнее воскресенье каждого месяца, хранятся 120 месяцев.
-    - **Политика хранения ежегодных резервных копий**. Резервные копии, создаваемые в первое воскресенье января, хранятся 99 лет.
+    - **Daily retention policy**: Backups taken daily are stored for 30 days.
+    - **Weekly retention policy**: Backups taken every week on Sunday are preserved for 104 weeks.
+    - **Monthly retention policy**: Backups taken on the last Sunday of each month are preserved for 120 months.
+    - **Yearly retention policy**: Backups taken on the first Sunday of every January are preserved for 99 years.
 
-    Чтобы настроить политику защиты и связать ее с виртуальными машинами, для каждой выбранной виртуальной машины создается задание.
+    A job is created to configure the protection policy and associate the virtual machines to that policy for each virtual machine that you've selected.
 
-6. Для просмотра списка заданий **Настройка защиты** в меню "Хранилища" щелкните **Задания** и выберите **Настроить защиту** для фильтра **Операция**.
+6. To view the list of **Configure Protection** jobs, from the vaults menu, click **Jobs** and select **Configure Protection** from the **Operation** filter.
 
-    ![Настройка задания защиты](./media/backup-azure-vms/protect-configureprotection.png)
+    ![Configure protection job](./media/backup-azure-vms/protect-configureprotection.png)
 
-## Начальное резервное копирование
-Виртуальная машина, защищенная политикой, появится на вкладке **Защищенные элементы** с состоянием *Защищено (в ожидании начального резервного копирования)*. По умолчанию *начальным резервным копированием* является первое запланированное резервное копирование.
+## <a name="initial-backup"></a>Initial backup
+Once the virtual machine is protected with a policy, it shows up under the **Protected Items** tab with the status of *Protected - (pending initial backup)*. By default, the first scheduled backup is the *initial backup*.
 
-Чтобы активировать начальное резервное копирование сразу же после настройки, выполните следующие действия.
+To trigger the initial backup immediately after configuring protection:
 
-1. В нижней части страницы **Защищенные элементы** щелкните **Выполнить архивацию**.
+1. At the bottom of the **Protected Items** page, click **Backup Now**.
 
-    Служба архивации Azure создаст задание резервного копирования для операции начального резервного копирования.
+    The Azure Backup service creates a backup job for the initial backup operation.
 
-2. Чтобы просмотреть список заданий, щелкните вкладку **Задания**.
+2. Click the **Jobs** tab to view the list of jobs.
 
-    ![Выполняется резервное копирование](./media/backup-azure-vms/protect-inprogress.png)
+    ![Backup in progress](./media/backup-azure-vms/protect-inprogress.png)
 
->[AZURE.NOTE] В ходе архивации служба архивации Azure отправляет расширению архивации на каждой виртуальной машине команду освободить все задания записи и сделать согласованный моментальный снимок.
+>[AZURE.NOTE] During the backup operation, the Azure Backup service issues a command to the backup extension in each virtual machine to flush all write jobs and take a consistent snapshot.
 
-После завершения начальной архивации состояние виртуальной машины на вкладке **Защищенные элементы** изменится на *Защищено*.
+When the initial backup finishes, the status of the virtual machine in the **Protected Items** tab is *Protected*.
 
-![Резервное копирование виртуальной машины с точкой восстановления](./media/backup-azure-vms/protect-backedupvm.png)
+![Virtual machine is backed up with recovery point](./media/backup-azure-vms/protect-backedupvm.png)
 
-## Просмотр состояния резервного копирования и подробностей
-После обеспечения защиты число виртуальных машин также увеличивается на странице сводки **Панели мониторинга**. На странице **Dashboard** (Панель мониторинга) также отображается количество *успешных*, *завершившихся сбоем* и *выполняющихся* заданий за последние 24 часа. На странице **Jobs** (Задания) используйте меню **Status** (Состояние), **Operation** (Операция), **From** (Из) и **To** (В), чтобы отфильтровать задания.
+## <a name="viewing-backup-status-and-details"></a>Viewing backup status and details
+Once protected, the virtual machine count also increases in the **Dashboard** page summary. The **Dashboard** page also shows the number of jobs from the last 24 hours that were *successful*, have *failed*, and are *in progress*. On the **Jobs** page, use the **Status**, **Operation**, or **From** and **To** menus to filter the jobs.
 
-![Состояние резервного копирования на странице панели мониторинга](./media/backup-azure-vms/dashboard-protectedvms.png)
+![Status of backup in Dashboard page](./media/backup-azure-vms/dashboard-protectedvms.png)
 
-Значения на панели мониторинга обновляются каждые 24 часа.
+Values in the dashboard are refreshed once every 24 hours.
 
-## Устранение ошибок
-Если во время архивации виртуальной машины возникнут проблемы, см. [статью об устранении неполадок виртуальной машины](backup-azure-vms-troubleshoot.md).
+## <a name="troubleshooting-errors"></a>Troubleshooting errors
+If you run into issues while backing up your virtual machine, look at the [VM   troubleshooting article](backup-azure-vms-troubleshoot.md) for help.
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Next steps
 
-- [Мониторинг виртуальных машин и управление ими](backup-azure-manage-vms.md)
-- [Восстановление виртуальных машин](backup-azure-restore-vms.md)
+- [Manage and monitor your virtual machines](backup-azure-manage-vms.md)
+- [Restore virtual machines](backup-azure-restore-vms.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

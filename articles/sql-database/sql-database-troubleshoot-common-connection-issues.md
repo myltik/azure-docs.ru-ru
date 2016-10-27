@@ -1,104 +1,109 @@
 <properties
-	pageTitle="Устранение распространенных неполадок подключения к базе данных SQL Azure"
-	description="Порядок обнаружения и устранения распространенных ошибок подключения в базе данных SQL Azure."
-	services="sql-database"
-	documentationCenter=""
-	authors="dalechen"
-	manager="felixwu"
-	editor=""/>
+    pageTitle="Troubleshoot common connection issues to Azure SQL Database"
+    description="Steps to identify and resolve common connection errors for Azure SQL Database."
+    services="sql-database"
+    documentationCenter=""
+    authors="dalechen"
+    manager="felixwu"
+    editor=""/>
 
 <tags
-	ms.service="sql-database"
-	ms.workload="data-management"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/31/2016"
-	ms.author="daleche"/>
+    ms.service="sql-database"
+    ms.workload="data-management"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="08/31/2016"
+    ms.author="daleche"/>
 
-# Устранение неполадок подключения к базе данных SQL Azure
 
-При сбоях подключения к базе данных SQL Azure отображаются [сообщения об ошибке](sql-database-develop-error-messages.md). Эта статья представляет собой объединенный раздел, который поможет в устранении неполадок подключения к базе данных SQL Azure. В ней описываются [распространенные причины](#cause) проблем подключения, рекомендуется [инструмент устранения неполадок](#try-the-troubleshooter-for-azure-sql-database-connectivity-issues), который поможет выявить проблему, и приводятся пошаговые инструкции по устранению [временных ошибок](#troubleshoot-transient-errors) и [постоянных или повторяющихся ошибок](#troubleshoot-the-persistent-errors). Наконец, в ней перечислены [все соответствующие статьи о проблемах подключения к базе данных SQL Azure](#all-topics-for-azure-sql-database-connection-problems).
+# <a name="troubleshoot-connection-issues-to-azure-sql-database"></a>Troubleshoot connection issues to Azure SQL Database
 
-Если у вас возникли проблемы с подключением, попробуйте устранить неполадки с помощью описанных в этой статье методов. 
+When the connection to Azure SQL Database fails, you receive [error messages](sql-database-develop-error-messages.md). This article is a centralized topic that helps you troubleshoot Azure SQL Database connectivity issues. It introduces [the common causes](#cause) of connection issues, recommends [a troubleshooting tool](#try-the-troubleshooter-for-azure-sql-database-connectivity-issues) that helps you identity the problem, and provides troubleshooting steps to solve [transient errors](#troubleshoot-transient-errors) and [persistent or non-transient errors](#troubleshoot-the-persistent-errors). Finally, it lists [all the relevant articles for Azure SQL Database connectivity issues](#all-topics-for-azure-sql-database-connection-problems).
+
+If you encounter the connection issues, try the troubleshoot steps that are described in this article.
 [AZURE.INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
-## Причина:
+## <a name="cause"></a>Cause
 
-Проблемы подключения могут быть вызваны любой из следующих причин.
+Connection problems may be caused by any of the following:
 
-- В процессе разработки приложения не были соблюдены рекомендации и указания по разработке. Чтобы начать, см. статью [Общие сведения о разработке базы данных SQL](sql-database-develop-overview.md).
-- Перенастройка базы данных SQL Azure.
-- Параметры брандмауэра
-- Время ожидания подключения.
-- Неправильные сведения для входа.
-- Достигнуто максимальное ограничение для некоторых ресурсов базы данных SQL Azure.
+- Failure to apply best practices and design guidelines during the application design process.  See [SQL Database Development Overview](sql-database-develop-overview.md) to get started.
+- Azure SQL Database reconfiguration
+- Firewall settings
+- Connection time-out
+- Incorrect login information
+- Maximum limit reached on some Azure SQL Database resources
 
-В общих чертах проблемы подключения к базе данных SQL Azure можно классифицировать следующим образом:
+Generally, connection issues to Azure SQL Database can be classified as follows:
 
-- [временные ошибки (кратковременные или возникающие периодически);](#troubleshoot-transient-errors)
-- [постоянные или регулярно возникающие ошибки.](#troubleshoot-the-persistent-errors)
+- [Transient errors (short-lived or intermittent)](#troubleshoot-transient-errors)
+- [Persistent or non-transient errors (errors that regularly recur)](#troubleshoot-the-persistent-errors)
 
-## Применение средства устранения неполадок для диагностики проблем подключения к базе данных SQL Azure
+## <a name="try-the-troubleshooter-for-azure-sql-database-connectivity-issues"></a>Try the troubleshooter for Azure SQL Database connectivity issues
 
-При возникновении определенной ошибки подключения попробуйте [этот инструмент](https://support.microsoft.com/help/10085/troubleshooting-connectivity-issues-with-microsoft-azure-sql-database), который поможет быстро выявить и устранить проблему.
+If you encounter a specific connection error, try [this tool](https://support.microsoft.com/help/10085/troubleshooting-connectivity-issues-with-microsoft-azure-sql-database), which will help you quickly identity and resolve your problem.
 
-## Устранение временных ошибок
-Если в приложении возникают временные ошибки, обратитесь к следующим разделам, чтобы получить советы по их устранению или сокращению частоты их возникновения:
+## <a name="troubleshoot-transient-errors"></a>Troubleshoot transient errors
+If your application is experiencing transient errors, review the following topics for tips about how to troubleshoot and reduce the frequency of these errors:
 
-- [Устранение неполадок базы данных &lt;x&gt; на сервере &lt;y&gt; невозможно (ошибка 40613)](sql-database-troubleshoot-connection.md)
-- [Устранение, диагностика и предотвращение ошибок подключения SQL и временных ошибок для базы данных SQL](sql-database-connectivity-issues.md)
+- [Troubleshooting Database &lt;x&gt; on Server &lt;y&gt; is unavailable (Error: 40613)](sql-database-troubleshoot-connection.md)
+- [Troubleshoot, diagnose, and prevent SQL connection errors and transient errors for SQL Database](sql-database-connectivity-issues.md)
 
 <a id="troubleshoot-the-persistent-errors" name="troubleshoot-the-persistent-errors"></a>
 
-## Устранение постоянных (повторяющихся) ошибок
+## <a name="troubleshoot-persistent-errors-(non-transient-errors)"></a>Troubleshoot persistent errors (non-transient errors)
 
-Если при подключении к базе данных SQL Azure в приложении постоянно возникают сбои, обычно причины бывают следующими:
+If the application persistently fails to connect to Azure SQL Database, it usually indicates an issue with one of the following:
 
-- Конфигурация брандмауэра. База данных SQL Azure или брандмауэр на стороне клиента блокирует подключения к базе данных SQL Azure.
-- Перенастройка сети на стороне клиента, например новый IP-адрес или прокси-сервер.
-- Ошибка пользователя, например неправильно введенные параметры подключения, такие как имя сервера в строке подключения.
+- Firewall configuration. The Azure SQL database or client-side firewall is blocking connections to Azure SQL Database.
+- Network reconfiguration on the client side: for example, a new IP address or a proxy server.
+- User error: for example, mistyped connection parameters, such as the server name in the connection string.
 
-### Порядок устранения постоянных проблем подключения
+### <a name="steps-to-resolve-persistent-connectivity-issues"></a>Steps to resolve persistent connectivity issues
 
-1.	Настройте [правила брандмауэра](sql-database-configure-firewall-settings.md), разрешив предоставление IP-адреса клиенту.
-2.	На всех брандмауэрах между клиентом и Интернетом откройте порт 1433 для входящих соединений. Дополнительные указания см. в статье [Настройка брандмауэра Windows для разрешения доступа к SQL Server](https://msdn.microsoft.com/library/cc646023.aspx).
-3.	Проверьте строку подключения и другие параметры подключения. Ознакомьтесь с разделом "Строка подключения" в [статье о проблемах подключения](sql-database-connectivity-issues.md#connections-to-azure-sql-database).
-4.	Проверьте работоспособность службы на панели мониторинга. Если вы считаете, что имеет место региональный сбой, выполните инструкции по восстановлению в новый регион из раздела [Восстановление после сбоя](sql-database-disaster-recovery.md).
+1.  Set up [firewall rules](sql-database-configure-firewall-settings.md) to allow the client IP address.
+2.  On all firewalls between the client and the Internet, make sure that port 1433 is open for outbound connections. Review [Configure the Windows Firewall to Allow SQL Server Access](https://msdn.microsoft.com/library/cc646023.aspx) for additional pointers.
+3.  Verify your connection string and other connection settings. See the Connection String section in the [connectivity issues topic](sql-database-connectivity-issues.md#connections-to-azure-sql-database).
+4.  Check service health in the dashboard. If you think there’s a regional outage, see [Recover from an outage](sql-database-disaster-recovery.md) for steps to recover to a new region.
 
-## Все разделы о проблемах подключения к Базе данных SQL Azure
+## <a name="all-topics-for-azure-sql-database-connection-problems"></a>All topics for Azure SQL Database connection problems
 
-В следующей таблице перечислены разделы о проблемах подключения, относящихся непосредственно к службе Базы данных SQL Azure.
+The following table lists every connection problem topic that applies directly to the Azure SQL Database service.
 
 
-| &nbsp; | Название | Описание |
+| &nbsp; | Title | Description |
 | --: | :-- | :-- |
-| 1 | [Устранение неполадок подключения к базе данных SQL Azure](sql-database-troubleshoot-common-connection-issues.md) | Это целевая страница для устранения проблем подключения в базе данных SQL Azure. На ней описывается, как выявлять и устранять временные и постоянные или повторяющиеся ошибки в базе данных SQL Azure. |
-| 2 | [Устранение, диагностика и предотвращение ошибок подключения SQL и временных ошибок для базы данных SQL](sql-database-connectivity-issues.md) | Узнайте, как устранять, диагностировать и предотвращать ошибки подключения SQL или временные ошибки в базе данных SQL Azure. |
-| 3 | [Общие рекомендации по повторным попыткам](best-practices-retry-general.md) | Содержит общие рекомендации по обработке временных сбоев при подключении к базе данных SQL Azure. |
-| 4\. | [Устранение неполадок подключения к Базе данных SQL Microsoft Azure](https://support.microsoft.com/help/10085/troubleshooting-connectivity-issues-with-microsoft-azure-sql-database) | Этот инструмент помогает выявить проблему и устранить ошибки подключения. |
-| 5 | [Устранение ошибки "База данных <x> на сервере <y> сейчас недоступна. Повторите попытку подключения позже"](sql-database-troubleshoot-connection.md) | Описывает, как определить и устранить ошибку 40613: "База данных <x> на сервере <y> сейчас недоступна. Повторите попытку подключения позже". |
-| 6 | [Коды ошибок SQL для клиентских приложений базы данных SQL: ошибки подключения к базе данных и другие проблемы](sql-database-develop-error-messages.md) | Содержит сведения о кодах ошибок SQL для клиентских приложений базы данных SQL, например общих ошибок подключения к базе данных, проблем при копировании базы данных и общих ошибок. |
-| 7 | [Руководство по производительности базы данных SQL Azure](sql-database-performance-guidance.md) | Содержит указания по выбору уровня служб, который подходит для вашего приложения. Кроме того, содержит рекомендации по настройке приложения для наиболее эффективного использования базы данных SQL Azure. |
-| 8 | [Общие сведения о разработке базы данных SQL](sql-database-develop-overview.md) | Содержит ссылки на примеры кода для различных технологий, которые можно использовать для подключения к базе данных SQL Azure и взаимодействия с ней. |
-| 9 | Страница об обновлении до базы данных SQL Azure версии 12 ([портал Azure](sql-database-upgrade-server-portal.md), [PowerShell](sql-database-upgrade-server-powershell.md)) | Содержит указания по обновлению имеющихся баз данных и серверов базы данных SQL Azure версии 11 до версии 12 с помощью портала Azure или PowerShell. |
+| 1 | [Troubleshoot connection issues to Azure SQL Database](sql-database-troubleshoot-common-connection-issues.md) | This is the landing page for troubleshooting connectivity issues in Azure SQL Database. It describes how to identify and resolve transient errors and persistent or non-transient errors in Azure SQL Database. |
+| 2 | [Troubleshoot, diagnose, and prevent SQL connection errors and transient errors for SQL Database](sql-database-connectivity-issues.md) | Learn how to troubleshoot, diagnose, and prevent a SQL connection error or transient error in Azure SQL Database. |
+| 3 | [General transient fault-handling guidance](best-practices-retry-general.md) | Provides general guidance for transient fault handling when connecting to Azure SQL Database. |
+| 4 | [Troubleshoot connectivity issues with Microsoft Azure SQL Database](https://support.microsoft.com/help/10085/troubleshooting-connectivity-issues-with-microsoft-azure-sql-database) | This tool helps identity your problem solve connection errors. |
+| 5 | [Troubleshoot "Database &lt;x&gt; on server &lt;y&gt; is not currently available. Please retry the connection later" error](sql-database-troubleshoot-connection.md) | Describes how to identify and resolve a 40613 error: "Database &lt;x&gt; on server &lt;y&gt; is not currently available. Please retry the connection later." |
+| 6 | [SQL error codes for SQL Database client applications: Database connection error and other issues](sql-database-develop-error-messages.md) | Provides info about SQL error codes for SQL Database client applications, such as common database connection errors, database copy issues, and general errors. |
+| 7 | [Azure SQL Database performance guidance for single databases](sql-database-performance-guidance.md) | Provides guidance to help you determine which service tier is right for your application. Also provides recommendations for tuning your application to get the most out of your Azure SQL Database. |
+| 8 | [SQL Database Development Overview](sql-database-develop-overview.md) | Provides links to code samples for various technologies that you can use to connect to and interact with Azure SQL Database. |
+| 9 | Upgrade to Azure SQL Database v12 page ([Azure portal](sql-database-upgrade-server-portal.md), [PowerShell](sql-database-upgrade-server-powershell.md)) | Provides directions for upgrading existing Azure SQL Database V11 servers and databases to Azure SQL Database V12 by using Azure portal or PowerShell. |
 
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Next steps
 
-- [Устранение проблем производительности базы данных SQL Azure](sql-database-troubleshoot-performance.md).
-- [Устранение проблем с разрешениями в базе данных SQL Azure](sql-database-troubleshoot-permissions.md).
-- [Все разделы о службе Базы данных SQL Azure](sql-database-index-all-articles.md).
-- [Поиск документации по Microsoft Azure](http://azure.microsoft.com/search/documentation/).
-- [Просмотр последних обновлений для службы базы данных SQL Azure](http://azure.microsoft.com/updates/?service=sql-database).
+- [Troubleshoot Azure SQL Database performance issues](sql-database-troubleshoot-performance.md)
+- [Troubleshoot Azure SQL Database permissions issues](sql-database-troubleshoot-permissions.md)
+- [See all topics for the Azure SQL Database service](sql-database-index-all-articles.md)
+- [Search the documentation on Microsoft Azure](http://azure.microsoft.com/search/documentation/)
+- [View the latest updates to the Azure SQL Database service](http://azure.microsoft.com/updates/?service=sql-database)
 
 
-## Дополнительные ресурсы
+## <a name="additional-resources"></a>Additional resources
 
-- [Общие сведения о разработке базы данных SQL](sql-database-develop-overview.md)
-- [Общие рекомендации по повторным попыткам](../best-practices-retry-general.md).
-- [Библиотеки подключений для Базы данных SQL и SQL Server](sql-database-libraries.md)
-- [Схема обучения использованию базы данных SQL Azure](https://azure.microsoft.com/documentation/learning-paths/sql-database-training-learn-sql-database).
-- [Схема обучения использованию функций и инструментов эластичной базы данных](https://azure.microsoft.com/documentation/learning-paths/sql-database-elastic-scale).
+- [SQL Database Development Overview](sql-database-develop-overview.md)
+- [General transient fault-handling guidance](../best-practices-retry-general.md)
+- [Connection libraries for SQL Database and SQL Server](sql-database-libraries.md)
+- [The learning path for using Azure SQL Database](https://azure.microsoft.com/documentation/learning-paths/sql-database-training-learn-sql-database)
+- [The learning path for using elastic database features and tools](https://azure.microsoft.com/documentation/learning-paths/sql-database-elastic-scale) 
 
-<!---HONumber=AcomDC_0831_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

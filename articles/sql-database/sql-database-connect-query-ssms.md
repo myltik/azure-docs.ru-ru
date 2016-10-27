@@ -1,68 +1,73 @@
 <properties
-	pageTitle="Подключение к базе данных SQL с помощью SQL Server Management Studio | Microsoft Azurе"
-	description="Узнайте, как подключиться к базе данных SQL в Azure с помощью SQL Server Management Studio (SSMS). Затем выполните пробный запрос с помощью Transact-SQL (T-SQL)."
-	metaCanonical=""
-	keywords="подключение к базе данных sql, sql server management studio"
-	services="sql-database"
-	documentationCenter=""
-	authors="stevestein"
-	manager="jhubbard"
-	editor="" />
+    pageTitle="Connect to SQL Database - SQL Server Management Studio | Microsoft Azure"
+    description="Learn how to connect to SQL Database on Azure by using SQL Server Management Studio (SSMS). Then, run a sample query using Transact-SQL (T-SQL)."
+    metaCanonical=""
+    keywords="connect to sql database,sql server management studio"
+    services="sql-database"
+    documentationCenter=""
+    authors="stevestein"
+    manager="jhubbard"
+    editor="" />
 
 <tags
-	ms.service="sql-database"
-	ms.workload="data-management"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="08/17/2016"
-	ms.author="sstein;carlrab" />
+    ms.service="sql-database"
+    ms.workload="data-management"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="08/17/2016"
+    ms.author="sstein;carlrab" />
 
-# Подключение к базе данных SQL с помощью SQL Server Management Studio и выполнение пробного запроса T-SQL
+
+# <a name="connect-to-sql-database-with-sql-server-management-studio-and-execute-a-sample-t-sql-query"></a>Connect to SQL Database with SQL Server Management Studio and execute a sample T-SQL query
 
 > [AZURE.SELECTOR]
 - [Visual Studio](sql-database-connect-query.md)
 - [SSMS](sql-database-connect-query-ssms.md)
 - [Excel](sql-database-connect-excel.md)
 
-Из этой статьи вы узнаете, как подключиться к базе данных SQL Azure с помощью SQL Server Management Studio (SSMS). После успешного подключения нужно запустить простой запрос Transact-SQL (T-SQL), чтобы проверить соединение с базой данных.
+This article shows how to connect to an Azure SQL database using SQL Server Management Studio (SSMS). After successfully connecting, we run a simple Transact-SQL (T-SQL) query to verify communication with the database.
 
-[AZURE.INCLUDE [Установка SSMS](../../includes/sql-server-management-studio-install.md)]
+[AZURE.INCLUDE [SSMS Install](../../includes/sql-server-management-studio-install.md)]
 
-[AZURE.INCLUDE [Подключение SSMS](../../includes/sql-database-sql-server-management-studio-connect-server-principal.md)]
+[AZURE.INCLUDE [SSMS Connect](../../includes/sql-database-sql-server-management-studio-connect-server-principal.md)]
 
 
-## Запуск образцов запросов
+## <a name="run-sample-queries"></a>Run sample queries
 
-Установив подключение к серверу, можно подключиться к базе данных и выполнить образец запроса. Если вы новичок и еще не знаете, как писать запросы, см. статью [Tutorial: Writing Transact-SQL Statements](https://msdn.microsoft.com/library/ms365303.aspx) (Учебник. Создание инструкций Transact-SQL).
+After you connect to your server, you can connect to a database and run a sample query. If you are new to writing queries, see [Writing Transact-SQL Statements](https://msdn.microsoft.com/library/ms365303.aspx).
 
-1. В **обозревателе объектов** перейдите к базе данных на сервере, например к базе данных **AdventureWorks**.
-2. Щелкните правой кнопкой мыши базу данных и выберите **Создать запрос**.
+1. In **Object Explorer**, navigate to a database on the server, such as the **AdventureWorks** sample database.
+2. Right-click the database and then select **New Query**:
 
-	![Новый запрос Подключение к базе данных SQL с помощью SQL Server Management Studio](./media/sql-database-connect-query-ssms/4-run-query.png)
+    ![New query. Connect to SQL Database server: SQL Server Management Studio](./media/sql-database-connect-query-ssms/4-run-query.png)
 
-3. В окне запроса скопируйте и вставьте следующий код.
+3. In the query window, copy and paste the following:
 
-		SELECT
-		CustomerId
-		,Title
-		,FirstName
-		,LastName
-		,CompanyName
-		FROM SalesLT.Customer;
+        SELECT
+        CustomerId
+        ,Title
+        ,FirstName
+        ,LastName
+        ,CompanyName
+        FROM SalesLT.Customer;
 
-4. Нажмите кнопку **Выполнить**.
+4. Click the **Execute** button:
 
-	![Успешно. Подключение к базе данных SQL с помощью SQL Server Management Studio](./media/sql-database-connect-query-ssms/5-success.png)
+    ![Success. Connect to SQL Database server: SQL Server Management Studio](./media/sql-database-connect-query-ssms/5-success.png)
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Next steps
 
-Инструкции T-SQL можно использовать для создания баз данных в Azure и управления ими таким же образом, как и в SQL Server. Если вы знаете, как использовать T-SQL в SQL Server, ознакомьтесь с отличиями, приведенными в статье [Сведения об инструкциях Transact-SQL базы данных SQL Azure](sql-database-transact-sql-information.md).
+You can use T-SQL statements to create and manage databases in Azure in much the same way you can with SQL Server. If you're familiar with using T-SQL with SQL Server, see [Azure SQL Database Transact-SQL information)](sql-database-transact-sql-information.md) for a summary of differences.
 
-Если вы не знакомы с T-SQL, см. [Руководство по написанию инструкций Transact-SQL](https://msdn.microsoft.com/library/ms365303.aspx) и [Справочник по Transact-SQL (ядро СУБД)](https://msdn.microsoft.com/library/bb510741.aspx).
+If you're new to T-SQL, see [Tutorial: Writing Transact-SQL Statements](https://msdn.microsoft.com/library/ms365303.aspx) and the [Transact-SQL Reference (Database Engine)](https://msdn.microsoft.com/library/bb510741.aspx).
 
-Сведения о том, как создавать пользователей и администраторов базы данных, см. в статье [Руководство по базам данных SQL: создание учетных записей пользователей базы данных SQL для доступа к базе данных и управления ею с помощью портала Azure](sql-database-get-started-security.md).
+To get started with creating database users and database user administrators, see [Get Started with Azure SQL Database security](sql-database-get-started-security.md)
 
-Дополнительные сведения о решении SSMS см. в статье [Use SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (Использование SQL Server Management Studio).
+For more information about SSMS, see [Use SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx).
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

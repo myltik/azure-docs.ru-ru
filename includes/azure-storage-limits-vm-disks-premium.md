@@ -1,29 +1,32 @@
-**Диски виртуальной машины: ограничения для учетных записей**
+**Virtual machine disks: per account limits**
 
-Ресурс|Ограничение по умолчанию
+Resource|Default Limit
 ---|---
-Общая емкость диска на одну учетную запись|35 ТБ
-Общая емкость моментального снимка на одну учетную запись|10 ТБ
-Макс. пропускная способность на одну учетную запись (входящие и исходящие данные<sup>1</sup>)|<=50 Гбит/с
+Total disk capacity per account|35 TB
+Total snapshot capacity per account|10 TB
+Max bandwidth per account (ingress + egress<sup>1</sup>)|<=50 Gbps
 
-<sup>1</sup>Под термином *входящие данные* подразумеваются все данные (запросы), отправляемые в учетную запись хранения. Под *исходящими данными* понимаются все данные (отклики), получаемые из учетной записи хранения.
+<sup>1</sup>*Ingress* refers to all data (requests) being sent to a storage account. *Egress* refers to all data (responses) being received from a storage account.
 
-**Диски виртуальной машины: ограничения для дисков**
+**Virtual machine disks: per disk limits**
 
-Тип диска хранилища Premium | P10 | P20 | P30
+Premium Storage Disk Type | P10 | P20 | P30
 ---|---|---|---
-Размер диска | 128 ГБ | 512 ГБ | 1024 ГБ (1 ТБ)
-Макс. количество операций ввода-вывода в секунду на диск | 500 | 2300 | 5000
-Макс. пропускная способность на диск | 100 МБ в секунду | 150 МБ в секунду | 200 МБ в секунду
-Максимальное количество дисков на учетную запись хранения | 280 | 70 | 35
+Disk size | 128 GiB | 512 GiB | 1024 GiB (1 TB)
+Max IOPS per disk | 500 | 2300 | 5000
+Max throughput per disk | 100 MB per second | 150 MB per second | 200 MB per second
+Max number of disks per storage account | 280 | 70 | 35
 
-**Диски виртуальной машины: ограничения для виртуальной машины**
+**Virtual machine disks: per VM limits**
 
-Ресурс|Ограничение по умолчанию
+Resource|Default Limit
 ---|---
-Максимальное количество операций ввода-вывода в секунду на виртуальную машину|80 000 операций ввода-вывода в секунду для виртуальной машины GS5<sup>1</sup>
-Максимальная пропускная способность на виртуальную машину|2000 МБ/с для виртуальной машины GS5<sup>1</sup>
+Max IOPS Per VM|80,000 IOPS with GS5 VM<sup>1</sup>
+Max throughput per VM|2,000 MB/s with GS5 VM<sup>1</sup>
 
-<sup>1</sup>Ограничения для других размеров виртуальных машин доступны в разделе [Размеры виртуальных машин в Azure](../articles/virtual-machines/virtual-machines-linux-sizes.md).
+<sup>1</sup>Refer to [VM Size](../articles/virtual-machines/virtual-machines-linux-sizes.md) for limits on other VM sizes. 
 
-<!---HONumber=AcomDC_0615_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

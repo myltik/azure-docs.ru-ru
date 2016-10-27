@@ -1,25 +1,28 @@
-После завершения распространения записей для имени вашего домена необходимо связать их с вашим веб-приложением. Чтобы включить имена домена с помощью веб-браузера, выполните следующие действия.
+After the records for your domain name have propagated, you must associate them with your Web App. Use the following steps to enable the domain names using your web browser.
 
-> [AZURE.NOTE] Распространение через систему DNS записей типа TXT, созданных на предыдущих шагах, может занять некоторое время. Невозможно добавить доменное имя веб-приложения, пока не завершено распространение записи типа TXT. Если вы используете запись A, то будет невозможно добавить доменное имя записи A в веб-приложение, пока запись типа TXT, созданная на предыдущем шаге, не будет распространена.
+> [AZURE.NOTE] It can take some time for TXT records created in the previous steps to propagate through the DNS system. You cannot add the domain name of to your web app until the TXT record has propagated. If you are using an A record, you cannot add the A record domain name to your web app until the TXT record created in the previous step has propagated.
 >
-> Чтобы проверить доступность записи типа TXT, можно воспользоваться такой службой, как <a href="http://www.digwebinterface.com/">http://www.digwebinterface.com/</a>.
+> You can use a service such as <a href="http://www.digwebinterface.com/">http://www.digwebinterface.com/</a> to verify that the TXT record is available.
 
-1. В браузере откройте [портал Azure](https://portal.azure.com).
+1. In your browser, open the [Azure Portal](https://portal.azure.com).
 
-2. На вкладке **Веб-приложения** щелкните имя своего веб-приложения и выберите **Личные домены**.
+2. In the **Web Apps** tab, click the name of your web app, and then select **Custom domains**
 
-	![](./media/custom-dns-web-site/dncmntask-cname-6.png)
+    ![](./media/custom-dns-web-site/dncmntask-cname-6.png)
 
-3. В колонке **Личные домены** щелкните **Добавить имя узла**.
-	
-4. В текстовых полях **Имя узла** введите доменные имена, которые нужно связать с этим веб-приложением.
+3. In the **Custom domains** blade, click **Add hostname**.
+    
+4. Use the **Hostname** text boxes to enter the domain names to associate with this web app.
 
-	![](./media/custom-dns-web-site/add-custom-domain.png)
+    ![](./media/custom-dns-web-site/add-custom-domain.png)
 
-6.  Щелкните **Проверить**.
+6.  Click **Validate**.
 
-7.  После нажатия кнопки **Проверить** Azure запускает рабочий процесс проверки домена. Он проверяет владельца домена и доступность имени узла, после чего возвращается отчет об успешности проверки или об обнаруженных ошибках с рекомендациями по их устранению.
+7.  Upon clicking **Validate** Azure will kick off Domain Verification workflow. This will check for Domain ownership as well as Hostname availability and report success or detailed error with prescriptive guidence on how to fix the error.    
 
-На этом этапе можно ввести личное доменное имя в браузере и удостовериться, что оно успешно принято вашим веб-приложением.
+At this point, you should be able to enter the custom domain name in your browser and see that it successfully takes you to your web app.
 
-<!---HONumber=AcomDC_0824_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

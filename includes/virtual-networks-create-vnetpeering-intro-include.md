@@ -1,3 +1,6 @@
-Пиринг виртуальных сетей — это механизм подключения между двумя виртуальными сетями, находящимися в одном регионе, через магистральную сеть Azure. После создания пиринга две виртуальные сети будут выглядеть как одна виртуальная сеть при любом подключении. Если вы не знакомы с пирингом виртуальных сетей, см. [общие сведения об этой функции](../articles/virtual-network/virtual-network-peering-overview.md).
+VNet Peering is a mechanism to connect two Virtual Networks in the same region through the Azure backbone network. Once peered, the two Virtual Networks will appear like a single Virtual Network for all connectivity purposes. Read the [VNet Peering overview](../articles/virtual-network/virtual-network-peering-overview.md) if you are not familiar with VNet Peering.
 
-<!---HONumber=AcomDC_0928_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

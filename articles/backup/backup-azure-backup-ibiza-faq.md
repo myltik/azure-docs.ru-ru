@@ -1,46 +1,51 @@
 <properties
-   pageTitle="Хранилище служб восстановления — вопросы и ответы | Microsoft Azure"
-   description="Этот раздел часто задаваемых вопросов посвящен общедоступному предварительному выпуску службы архивации Azure. Ответы на часто задаваемые вопросы об агенте службы архивации Azure, резервном копировании и периоде удержания, восстановлении, безопасности и на другие распространенные вопросы о службе архивации Azure."
+   pageTitle="Recovery Services vault FAQ | Microsoft Azure"
+   description="This version of the FAQ supports the Public Preview release of the Azure Backup service. Answers to frequently asked questions about the backup agent, backup and retention, recovery, security and other common questions about the Azure Backup solution."
    services="backup"
    documentationCenter=""
    authors="markgalioto"
    manager="jwhit"
    editor=""
-   keywords="решение для архивации; служба архивации"/>
+   keywords="backup solution; backup service"/>
 
 <tags
    ms.service="backup"
    ms.workload="storage-backup-recovery"
-	 ms.tgt_pltfrm="na"
-	 ms.devlang="na"
-	 ms.topic="get-started-article"
-	 ms.date="08/21/2016"
-	 ms.author="trinadhk; markgal; jimpark;"/>
+     ms.tgt_pltfrm="na"
+     ms.devlang="na"
+     ms.topic="get-started-article"
+     ms.date="08/21/2016"
+     ms.author="trinadhk; markgal; jimpark;"/>
 
-# Хранилище служб восстановления — вопросы и ответы
+
+# <a name="recovery-services-vault---faq"></a>Recovery Services vault - FAQ
 
 > [AZURE.SELECTOR]
-- [Вопросы и ответы: резервное копирование в классической модели](backup-azure-backup-faq.md)
-- [Вопросы и ответы: резервное копирование в модели Resource Manager](backup-azure-backup-ibiza-faq.md)
+- [Backup FAQ for classic mode](backup-azure-backup-faq.md)
+- [Backup FAQ for Resource Manager mode](backup-azure-backup-ibiza-faq.md)
 
-В этой статье описывается хранилище служб восстановления. Она дополняет статью [Служба архивации Azure: часто задаваемые вопросы](backup-azure-backup-faq.md), содержащую полный набор вопросов и ответов о службе архивации Azure.
+This article provides information specific to Recovery Services vault and it supplements the [Azure Backup FAQ](backup-azure-backup-faq.md). The Azure Backup FAQ provides the full set of questions and answers about the Azure Backup service.  
 
-Вопросы о службе архивации Azure можно задать в разделе обсуждений этой статьи или другой связанной статьи. Кроме того, их также можно задать на [форуме для обсуждений](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
+You can ask questions about Azure Backup in the Disqus section of this article or a related article. You can also post questions about the Azure Backup service in the [discussion forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
 
-## Хранилища служб восстановления развернуты с помощью Resource Manager. Поддерживаются ли еще хранилища службы архивации, развернутые с помощью классической модели? <br/>
-Да, хранилища службы архивации по-прежнему поддерживаются. Хранилища службы архивации можно создать на [классическом портале](https://manage.windowsazure.com). Хранилища служб восстановления можно создать на [портале Azure](https://portal.azure.com). Но мы настоятельно рекомендуем создать хранилище службы восстановления, так как все будущие улучшения будут доступны только в этом решении.
+## <a name="recovery-services-vaults-are-resource-manager-based.-are-backup-vaults-(classic-mode)-still-supported?-<br/>"></a>Recovery Services vaults are Resource Manager based. Are Backup vaults (classic mode) still supported? <br/>
+Yes, Backup vaults are still supported. Create Backup vaults in the [Classic portal](https://manage.windowsazure.com). Create Recovery Services vaults in the [Azure portal](https://portal.azure.com). However we strongly recommend you to create recovery services vault as all future enhancements will be available only in Recovery Services vault. 
 
-## Можно ли перенести хранилище службы архивации в хранилище служб восстановления? <br/>
-К сожалению, нет. В настоящее время содержимое хранилища службы архивации нельзя перенести в хранилище служб восстановления. Мы работаем над добавлением этих функциональных возможностей, но они не входят в этот общедоступный предварительный выпуск.
+## <a name="can-i-migrate-a-backup-vault-to-a-recovery-services-vault?-<br/>"></a>Can I migrate a Backup vault to a Recovery Services vault? <br/>
+Unfortunately no, at this time you can't migrate the contents of a Backup vault to a Recovery Services vault. We are working on adding this functionality, but it is not available as part of Public Preview.
 
-## Какие виртуальные машины поддерживают хранилища служб восстановления: классические ВМ или ВМ на основе Resource Manager? <br/>
-Хранилища служб восстановления поддерживают обе модели. В хранилище служб восстановления можно создать резервную копию виртуальной машины, созданной как на классическом портале (классическая ВМ), так и на портале Azure (ВМ на основе Resource Manager).
+## <a name="do-recovery-services-vaults-support-classic-vms-or-resource-manager-based-vms?-<br/>"></a>Do Recovery Services vaults support classic VMs or Resource Manager based VMs? <br/>
+Recovery Services vaults support both models.  You can back up a VM created in the Classic portal (which are classic mode VMs), or a VM created in the Azure portal (which are Resource Manager based) to a Recovery Services vault.
 
-## Резервные копии классических виртуальных машин созданы в хранилище службы архивации. Теперь эти виртуальные машины нужно перевести из классического режима в режим Resource Manager. Как выполнить их резервное копирование в хранилище служб восстановления?
-Резервные копии классических виртуальных машин в хранилище службы архивации автоматически не перемещаются в хранилище служб восстановления при переводе виртуальных машин из классического режима в режим Resource Manager. Выполнить перенос резервных копий виртуальных машин можно так.
+## <a name="i-have-backed-up-my-classic-vms-in-backup-vault.-now-i-want-to-migrate-my-vms-from-classic-mode-to-resource-manager-mode.-how-can-i-backup-them-in-recovery-services-vault?"></a>I have backed up my classic VMs in backup vault. Now I want to migrate my VMs from classic mode to Resource Manager mode.  How Can I backup them in recovery services vault?
+Backups of classic VMs in backup vault won't migrate automatically to recovery services vault when you migrate the VMs from classic to Resource Manager mode. Please follow these steps for migration of VM backups:
 
-1. В хранилище службы архивации на вкладке **Защищенные элементы** выберите виртуальную машину. Щелкните [Остановить защиту](backup-azure-manage-vms-classic.md#stop-protecting-virtual-machines). **Снимите** флажок *Удаление связанных архивируемых данных*.
-2. Теперь эту виртуальную машину можно перевести из классического режима в режим Resource Manager. Хранилище и сеть, связанные с виртуальной машиной, также следует перевести в режим Resource Manager.
-3. Создайте хранилище служб восстановления и настройте резервное копирование для перенесенной виртуальной машины. Это можно сделать с помощью действия **резервного копирования** в верхней части панели мониторинга хранилища. См. дополнительные сведения о [включении резервного копирования в хранилище служб восстановления](backup-azure-vms-first-look-arm.md).
+1. In backup vault, go to **Protected Items** tab and select the VM. Click on [Stop Protection](backup-azure-manage-vms-classic.md#stop-protecting-virtual-machines). Leave *Delete associated backup data* option **unchecked**. 
+2. Migrate the virtual machine from classic mode to Resource Manager mode. Make sure that storage and network corresponding to virtual machine are also migrated to Resource Manager mode. 
+3. Create a recovery services vault and configure backup on the migrated virtual machine using **Backup** action on top of vault dashboard. Learn More on how to [enable backup in recovery services vault](backup-azure-vms-first-look-arm.md)
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

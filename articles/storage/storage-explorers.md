@@ -1,22 +1,23 @@
 <properties
-	pageTitle="Клиентские инструменты службы хранилища Azure | Microsoft Azure"
-	description="Список инструментов, позволяющих просматривать данные в службе хранилища Azure и взаимодействовать с ними."
-	services="storage"
-	documentationCenter=""
-	authors="micurd"
-	manager="jahogg"
-	editor="tysonn"/>
+    pageTitle="Клиентские инструменты службы хранилища Azure | Microsoft Azure"
+    description="Список инструментов, позволяющих просматривать данные в службе хранилища Azure и взаимодействовать с ними."
+    services="storage"
+    documentationCenter=""
+    authors="micurd"
+    manager="jahogg"
+    editor="tysonn"/>
 
 <tags
-	ms.service="storage"
-	ms.workload="storage"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/21/2016"
-	ms.author="micurd;tamram"/>
+    ms.service="storage"
+    ms.workload="storage"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/18/2016"
+    ms.author="micurd"/>
 
-# Клиентские инструменты службы хранилища Azure
+
+# <a name="azure-storage-client-tools"></a>Клиентские инструменты службы хранилища Azure
 
 Пользователям службы хранилища Azure часто требуется просматривать свои данные или взаимодействовать с ними с помощью клиентского инструмента службы хранилища Azure. В приведенных ниже таблицах перечислен ряд инструментов, которые позволяют это сделать. Соответствующее поле содержит "X", если инструмент позволяет перечислить абстракцию данных и (или) предоставить к ней доступ. В таблице также показано, являются ли инструменты бесплатными. "Пробная версия" означает, что доступна бесплатная пробная версия, но полная версия продукта платная. "Да/нет" указывает, что есть как платная, так и бесплатная версия.
 
@@ -40,7 +41,7 @@
     <td>Web</td>
     <td>Windows</td>
     <td>OSX</td>
-    <td>Linux</td>
+    <td> Linux</td>
   </tr>
   <tr>
     <td><a href="https://azure.microsoft.com/features/azure-portal/">Портал Microsoft Azure</a></td>
@@ -106,7 +107,7 @@
     <td>Web</td>
     <td>Windows</td>
     <td>OSX</td>
-    <td>Linux</td>
+    <td> Linux</td>
   </tr>
   <tr>
     <td><a href="http://www.cloudportam.com/">Cloud Portam</a></td>
@@ -151,7 +152,7 @@
     <td></td>
   </tr>
   <tr>
-    <td><a href="http://azurestorageexplorer.codeplex.com/">Azure Storage Explorer;</a></td>
+    <td><a href="http://azurestorageexplorer.codeplex.com/">Обозреватель хранилищ Azure</a></td>
     <td>X</td>
     <td>X</td>
     <td></td>
@@ -250,4 +251,8 @@
   </tr>
 </table>
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

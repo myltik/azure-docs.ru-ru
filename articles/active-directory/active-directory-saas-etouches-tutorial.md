@@ -1,294 +1,295 @@
 <properties
-	pageTitle="Руководство. Интеграция Azure Active Directory с eTouches | Microsoft Azure"
-	description="Узнайте, как настроить единый вход Azure Active Directory в eTouches."
-	services="active-directory"
-	documentationCenter=""
-	authors="jeevansd"
-	manager="femila"
-	editor=""/>
+    pageTitle="Tutorial: Azure Active Directory integration with eTouches | Microsoft Azure"
+    description="Learn how to configure single sign-on between Azure Active Directory and eTouches."
+    services="active-directory"
+    documentationCenter=""
+    authors="jeevansd"
+    manager="femila"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/03/2016"
-	ms.author="jeedes"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/18/2016"
+    ms.author="jeedes"/>
 
 
-# Руководство. Интеграция Azure Active Directory с eTouches
 
-В этом руководстве описано, как интегрировать приложение eTouches с Azure Active Directory (Azure AD).
+# <a name="tutorial:-azure-active-directory-integration-with-etouches"></a>Tutorial: Azure Active Directory integration with eTouches
 
-Интеграция Azure AD с eTouches обеспечивает следующие преимущества:
+In this tutorial, you learn how to integrate eTouches with Azure Active Directory (Azure AD).
 
-- С помощью Azure AD вы можете контролировать доступ к eTouches.
-- Вы можете включить автоматический вход пользователей в eTouches (единый вход) с применением учетной записи Azure AD.
-- Вы можете управлять учетными записями централизованно – через классический портал Azure.
+Integrating eTouches with Azure AD provides you with the following benefits:
 
-Подробнее узнать об интеграции приложений SaaS с Azure AD можно в статье [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md).
+- You can control in Azure AD who has access to eTouches
+- You can enable your users to automatically get signed-on to eTouches (Single Sign-On) with their Azure AD accounts
+- You can manage your accounts in one central location - the Azure classic portal
 
-## Предварительные требования
+If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-Чтобы настроить интеграцию Azure AD с eTouches, вам потребуется:
+## <a name="prerequisites"></a>Prerequisites
 
-- подписка Azure AD;
-- подписка на eTouches с поддержкой единого входа.
+To configure Azure AD integration with eTouches, you need the following items:
 
-
-> [AZURE.NOTE] Мы не рекомендуем использовать рабочую среду для проверки действий в этом учебнике.
+- An Azure AD subscription
+- A eTouches single-sign on enabled subscription
 
 
-При проверке действий в этом учебнике соблюдайте следующие рекомендации:
-
-- Не следует использовать рабочую среду при отсутствии необходимости.
-- Если у вас нет пробной среды Azure AD, вы можете получить пробную версию на один месяц по [этой ссылке](https://azure.microsoft.com/pricing/free-trial/).
+> [AZURE.NOTE] To test the steps in this tutorial, we do not recommend using a production environment.
 
 
-## Описание сценария
-В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде.
+To test the steps in this tutorial, you should follow these recommendations:
 
-Сценарий, описанный в этом учебнике, состоит из двух основных блоков:
-
-1. Добавление eTouches из коллекции.
-2. Настройка и проверка единого входа в Azure AD
+- You should not use your production environment, unless this is necessary.
+- If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).
 
 
-## Добавление eTouches из коллекции
-Чтобы настроить интеграцию eTouches с Azure AD, необходимо добавить eTouches из коллекции в список управляемых приложений SaaS.
+## <a name="scenario-description"></a>Scenario description
+In this tutorial, you test Azure AD single sign-on in a test environment.
 
-**Чтобы добавить eTouches из коллекции, сделайте следующее:**
+The scenario outlined in this tutorial consists of two main building blocks:
 
-1. На **классическом портале Azure** в области навигации слева щелкните **Active Directory**.
-
-	![Active Directory][1]
-2. Из списка **Каталог** выберите каталог, для которого нужно включить интеграцию каталогов.
-
-3. Чтобы открыть представление приложений, в представлении каталога нажмите **Приложения** в верхнем меню.
-
-	![Приложения][2]
-
-4. В нижней части страницы нажмите кнопку **Добавить**.
-
-	![Приложения][3]
-
-5. В диалоговом окне **Что необходимо сделать?** нажмите **Добавить приложение из коллекции**.
-
-	![Приложения][4]
-
-6. В поле поиска введите **eTouches**.
-
-	![Создание тестового пользователя Azure AD](./media/active-directory-saas-etouches-tutorial/tutorial_etouches_01.png)
-
-7. В области результатов выберите **eTouches** и нажмите кнопку **Завершить**, чтобы добавить приложение.
-
-	![Создание тестового пользователя Azure AD](./media/active-directory-saas-etouches-tutorial/tutorial_etouches_02.png)
-
-##  Настройка и проверка единого входа в Azure AD
-
-В этом разделе описана настройка и проверка единого входа Azure AD в eTouches с использованием тестового пользователя Britta Simon.
-
-Для работы единого входа в Azure AD необходимо знать, какой пользователь в eTouches соответствует пользователю в Azure AD. Иными словами, необходимо установить связь между пользователем Azure AD и соответствующим пользователем в eTouches.
-
-Чтобы установить эту связь, следует указать **имя пользователя** в Azure AD в качестве значения **имени пользователя** в eTouches.
-
-Чтобы настроить и проверить единый вход Azure AD в eTouches, вам потребуется выполнить действия в следующих стандартных блоках:
-
-1. **[Настройка единого входа Azure AD](#configuring-azure-ad-single-sign-on)** необходима, чтобы пользователи могли использовать эту функцию.
-2. **[Создание тестового пользователя Azure AD](#creating-an-azure-ad-test-user)** требуется для проверки работы единого входа Azure AD от имени пользователя Britta Simon.
-3. **[Создание тестового пользователя eTouches](#creating-a-predictix-price-reporting-test-user)** требуется для создания в eTouches пользователя Britta Simon, связанного с соответствующим представлением в Azure AD.
-4. **[Назначение тестового пользователя Azure AD](#assigning-the-azure-ad-test-user)** необходимо, чтобы позволить Britta Simon использовать единый вход в Azure AD.
-5. **[Проверка единого входа](#testing-single-sign-on)** необходима, чтобы убедиться в корректной работе конфигурации.
-
-### Настройка единого входа в Azure AD
-
-В данном разделе описано, как включить единый вход Azure AD на классическом портале и настроить его в приложении eTouches.
-
-Приложение eTouches ожидает утверждения SAML в определенном формате. Настройте следующие утверждения для этого приложения. Управлять значениями этих атрибутов можно на вкладке **"Атрибут"** приложения. На следующем снимке экрана приведен пример.
-
-![Настройка единого входа](./media/active-directory-saas-etouches-tutorial/tutorial_etouches_07.png)
-
-**Чтобы настроить единый вход Azure AD в eTouches, сделайте следующее:**
+1. Adding eTouches from the gallery
+2. Configuring and testing Azure AD single sign-on
 
 
-1. На классическом портале Azure на странице интеграции с приложением **eTouches** в меню в верхней части страницы щелкните **Атрибуты**.
+## <a name="adding-etouches-from-the-gallery"></a>Adding eTouches from the gallery
+To configure the integration of eTouches into Azure AD, you need to add eTouches from the gallery to your list of managed SaaS apps.
 
-	![Настройка единого входа](./media/active-directory-saas-etouches-tutorial/tutorial_general_80.png)
+**To add eTouches from the gallery, perform the following steps:**
+
+1. In the **Azure classic portal**, on the left navigation pane, click **Active Directory**.
+
+    ![Active Directory][1]
+2. From the **Directory** list, select the directory for which you want to enable directory integration.
+
+3. To open the applications view, in the directory view, click **Applications** in the top menu.
+
+    ![Applications][2]
+
+4. Click **Add** at the bottom of the page.
+
+    ![Applications][3]
+
+5. On the **What do you want to do** dialog, click **Add an application from the gallery**.
+
+    ![Applications][4]
+
+6. In the search box, type **eTouches**.
+
+    ![Creating an Azure AD test user](./media/active-directory-saas-etouches-tutorial/tutorial_etouches_01.png)
+
+7. In the results pane, select **eTouches**, and then click **Complete** to add the application.
+
+    ![Creating an Azure AD test user](./media/active-directory-saas-etouches-tutorial/tutorial_etouches_02.png)
+
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuring and testing Azure AD single sign-on
+
+In this section, you configure and test Azure AD single sign-on with eTouches based on a test user called "Britta Simon".
+
+For single sign-on to work, Azure AD needs to know what the counterpart user in eTouches is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in eTouches needs to be established.
+
+This link relationship is established by assigning the value of the **user name** in Azure AD as the value of the **Username** in eTouches.
+
+To configure and test Azure AD single sign-on with eTouches, you need to complete the following building blocks:
+
+1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - to enable your users to use this feature.
+2. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
+3. **[Creating a eTouches test user](#creating-a-predictix-price-reporting-test-user)** - to have a counterpart of Britta Simon in eTouches that is linked to the Azure AD representation of her.
+4. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
+5. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
+
+### <a name="configuring-azure-ad-single-sign-on"></a>Configuring Azure AD single sign-on
+
+In this section, you enable Azure AD single sign-on in the classic portal and configure single sign-on in your eTouches application.
+
+eTouches application expects the SAML assertions in a specific format. Please configure the following claims for this application. You can manage the values of these attributes from the **"Atrribute"** tab of the application. The following screenshot shows an example for this. 
+
+![Configure Single Sign-On](./media/active-directory-saas-etouches-tutorial/tutorial_etouches_07.png) 
+
+**To configure Azure AD single sign-on with eTocuhes, perform the following steps:**
 
 
-2. В диалоговом окне **Атрибуты токена SAML** для каждой строки в таблице ниже выполните следующие действия:
+1. In the Azure classic portal, on the **eTouches** application integration page, in the menu on the top, click **Attributes**.
 
-	| Имя атрибута | Значение атрибута |
-	| --- | --- |    
-	| Email | user.mail |
-
-	а. Щелкните **Добавить атрибут пользователя**, чтобы открыть диалоговое окно **Добавить атрибут пользователя**.
-
-	![Настройка единого входа](./media/active-directory-saas-etouches-tutorial/tutorial_general_81.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-etouches-tutorial/tutorial_general_80.png) 
 
 
-	b. В текстовом поле **Имя атрибута** введите имя атрибута, отображаемое для этой строки.
+2. On the **SAML token attributes** dialog, for each row shown in the table below, perform the following steps:
 
-    c. В списке **Значение атрибута** выберите значение атрибута, отображаемое для этой строки.
+  	| Attribute Name | Attribute Value |
+  	| --- | --- |    
+  	| Email | user.mail |
 
-    г) Нажмите **Завершено**.
-	
+    a. Click **add user attribute** to open the **Add User Attribure** dialog.
 
-3. На классическом портале Azure на странице интеграции с приложением **eTouches** щелкните **Настроить единый вход**, чтобы открыть диалоговое окно **Настройка единого входа**.
-	 
-	![Настройка единого входа][6]
+    ![Configure Single Sign-On](./media/active-directory-saas-etouches-tutorial/tutorial_general_81.png) 
 
-4. На странице **How would you like users to sign on to eTouches** (Как пользователи должны входить в eTouches) выберите **Единый вход Azure AD** и нажмите кнопку **Далее**.
 
-	![Настройка единого входа](./media/active-directory-saas-etouches-tutorial/tutorial_etouches_03.png)
+    b. In the **Attrubute Name** textbox, type the attribute name shown for that row.
 
-5. В диалоговом окне на странице **Настройка параметров приложения** выполните следующие действия.
+    c. From the **Attribute Value** list, selsect the attribute value shown for that row.
 
-	![Настройка единого входа](./media/active-directory-saas-etouches-tutorial/tutorial_etouches_04.png)
+    d. Click **Complete**.  
+    
 
-    а. В текстовом поле **URL-адрес для входа** введите URL-адрес, используемый пользователями для входа в приложение eTouches, в следующем формате: **https://www.eiseverywhere.com/saml/accounts/?sso&accountid=\<ИД\_учетной\_записи>**.
-	
-	b. Нажмите кнопку **Далее**.
+3. In the classic portal, on the **eTouches** application integration page, click **Configure single sign-on** to open the **Configure Single Sign-On**  dialog.
+     
+    ![Configure Single Sign-On][6] 
+
+4. On the **How would you like users to sign on to eTouches** page, select **Azure AD Single Sign-On**, and then click **Next**.
+
+    ![Configure Single Sign-On](./media/active-directory-saas-etouches-tutorial/tutorial_etouches_03.png) 
+
+5. On the **Configure App Settings** dialog page, perform the following steps:
+
+    ![Configure Single Sign-On](./media/active-directory-saas-etouches-tutorial/tutorial_etouches_04.png) 
+
+    a. In the **Sign On URL** textbox, type the URL used by your users to sign-on to your eTouches application using the following pattern: **https://www.eiseverywhere.com/saml/accounts/?sso&accountid=\<accountid\>**.
+    
+    b. click **Next**
  
-6. На странице **Configure single sign-on at eTouches** (Настройка единого входа в eTouches) выполните следующие действия:
+6. On the **Configure single sign-on at eTouches** page, perform the following steps:
 
-	![Настройка единого входа](./media/active-directory-saas-etouches-tutorial/tutorial_etouches_05.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-etouches-tutorial/tutorial_etouches_05.png)
 
-    а. Нажмите **Загрузить метаданные** и сохраните файл на свой компьютер.
+    a. Click **Download metadata**, and then save the file on your computer.
 
-    b. Нажмите кнопку **Далее**.
+    b. Click **Next**.
 
 
-7. Чтобы настроить единый вход для приложения eTouches, выполните следующие действия:
+7. To get SSO configured for your application, perform the following steps in the eTouches application:
 
-	а. Войдите в приложение **eTouches** с правами администратора.
-	
-	b. Перейдите к настройке **SAML**.
+    a. Login to **eTouches** application using the Admin rights.
+    
+    b. Go to the **SAML** Configuration
 
-	c. В разделе **Общие настройки** вставьте содержимое метаданных федерации Azure AD в текстовое поле.
+    c. In the **General Settings** section paste the Azure AD Federation Metadata content into the textbox.
 
-	г) Нажмите кнопку **Save & Stay** (Сохранить и остаться).
+    d. Click on the **Save & Stay** button
 
-	д. В разделе метаданных SAML нажмите кнопку **Update Metadata** (Обновить метаданные).
+    e. Click on the **Update Metadata** button in the SAML Metadata section. 
 
-	Е. Откроется страница и будет выполнен единый вход. Если единый вход работает, можно настроить имя пользователя.
+    f. This will open the page and will perform SSO. Once the SSO is working then you can setup the username
 
-	g. В поле **Имя пользователя** выберите **emailaddress**, как показано на изображении ниже.
+    g. In the **Username** field select the **emailaddress** as shown in the image below. 
 
-	h. Скопируйте значение **SSO URL / ACS** (URL-адрес единого входа и ACS) и вставьте его в текстовое поле "URL-адрес для входа" мастера настройки приложения Azure AD.
+    h. Copy the **SSO URL / ACS** value and put it into the Azure AD application configuration wizard Sign On URL textbox.
 
-	![Настройка единого входа](./media/active-directory-saas-etouches-tutorial/tutorial_etouches_06.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-etouches-tutorial/tutorial_etouches_06.png)
 
-8. На классическом портале подтвердите конфигурацию единого входа и нажмите кнопку **Далее**.
-	
-	![Единый вход в Azure AD][10]
+8. In the classic portal, select the single sign-on configuration confirmation, and then click **Next**.
+    
+    ![Azure AD Single Sign-On][10]
 
-9. На странице **Подтверждение единого входа** нажмите кнопку **Завершить**.
-	
+9. On the **Single sign-on confirmation** page, click **Complete**.  
+    
  
-	![Единый вход в Azure AD][11]
+    ![Azure AD Single Sign-On][11]
 
 
-### Создание тестового пользователя Azure AD
-В этом разделе описано, как создать на классическом портале тестового пользователя с именем Britta Simon.
+### <a name="creating-an-azure-ad-test-user"></a>Creating an Azure AD test user
+In this section, you create a test user in the classic portal called Britta Simon.
 
 
-![Создание пользователя Azure AD][20]
+![Create Azure AD User][20]
 
-**Чтобы создать тестового пользователя в Azure AD, выполните следующие действия:**
+**To create a test user in Azure AD, perform the following steps:**
 
-1. На **классическом портале Azure** в области навигации слева щелкните **Active Directory**.
+1. In the **Azure classic portal**, on the left navigation pane, click **Active Directory**.
 
-	![Создание тестового пользователя Azure AD](./media/active-directory-saas-etouches-tutorial/create_aaduser_09.png)
+    ![Creating an Azure AD test user](./media/active-directory-saas-etouches-tutorial/create_aaduser_09.png) 
 
-2. Из списка **Каталог** выберите каталог, для которого нужно включить интеграцию каталогов.
+2. From the **Directory** list, select the directory for which you want to enable directory integration.
 
-3. Чтобы отобразить список пользователей, щелкните **Пользователи** в меню вверху.
+3. To display the list of users, in the menu on the top, click **Users**.
 
-	![Создание тестового пользователя Azure AD](./media/active-directory-saas-etouches-tutorial/create_aaduser_03.png)
+    ![Creating an Azure AD test user](./media/active-directory-saas-etouches-tutorial/create_aaduser_03.png) 
 
-4. Чтобы открыть диалоговое окно **Добавление пользователя**, на панели инструментов внизу щелкните **Добавить пользователя**.
+4. To open the **Add User** dialog, in the toolbar on the bottom, click **Add User**.
 
-	![Создание тестового пользователя Azure AD](./media/active-directory-saas-etouches-tutorial/create_aaduser_04.png)
+    ![Creating an Azure AD test user](./media/active-directory-saas-etouches-tutorial/create_aaduser_04.png) 
 
-5. На диалоговой странице **Тип учетной записи пользователя** выполните следующие действия: ![Создание тестового пользователя Azure AD](./media/active-directory-saas-etouches-tutorial/create_aaduser_05.png)
+5. On the **Tell us about this user** dialog page, perform the following steps:  ![Creating an Azure AD test user](./media/active-directory-saas-etouches-tutorial/create_aaduser_05.png) 
 
-    а. В поле «Тип пользователя» выберите значение «Новый пользователь в вашей организации».
+    a. As Type Of User, select New user in your organization.
 
-    b. В текстовое поле **Имя пользователя** введите **BrittaSimon**.
+    b. In the User Name **textbox**, type **BrittaSimon**.
 
-    c. Нажмите кнопку **Далее**.
+    c. Click **Next**.
 
-6.  На диалоговой странице **Профиль пользователя** выполните следующие действия: ![Создание тестового пользователя Azure AD](./media/active-directory-saas-etouches-tutorial/create_aaduser_06.png)
+6.  On the **User Profile** dialog page, perform the following steps: ![Creating an Azure AD test user](./media/active-directory-saas-etouches-tutorial/create_aaduser_06.png) 
 
-    а. В текстовом поле **Имя** введите **Britta**.
+    a. In the **First Name** textbox, type **Britta**.  
 
-    b. В текстовое поле **Фамилия** введите **Simon**.
+    b. In the **Last Name** textbox, type, **Simon**.
 
-    c. В текстовое поле **Отображаемое имя** введите **Britta Simon**.
+    c. In the **Display Name** textbox, type **Britta Simon**.
 
-    г) В списке **Роль** выберите **Пользователь**.
+    d. In the **Role** list, select **User**.
 
-    д. Нажмите кнопку **Далее**.
+    e. Click **Next**.
 
-7. На диалоговой странице **Получить временный пароль** щелкните **Создать**.
+7. On the **Get temporary password** dialog page, click **create**.
 
-	![Создание тестового пользователя Azure AD](./media/active-directory-saas-etouches-tutorial/create_aaduser_07.png)
+    ![Creating an Azure AD test user](./media/active-directory-saas-etouches-tutorial/create_aaduser_07.png) 
 
-8. На диалоговой странице **Получить временный пароль** выполните следующие действия.
+8. On the **Get temporary password** dialog page, perform the following steps:
 
-	![Создание тестового пользователя Azure AD](./media/active-directory-saas-etouches-tutorial/create_aaduser_08.png)
+    ![Creating an Azure AD test user](./media/active-directory-saas-etouches-tutorial/create_aaduser_08.png) 
 
-    а. Запишите значение поля **Новый пароль**.
+    a. Write down the value of the **New Password**.
 
-    b. Нажмите **Завершено**.
-
-
-
-### Создание тестового пользователя eTouches
-
-В этом разделе описано, как создать пользователя Britta Simon в приложении eTouches. Обратитесь в службу поддержки eTouches, чтобы добавить пользователей на платформу eTouches.
+    b. Click **Complete**.   
 
 
-### Назначение тестового пользователя Azure AD
 
-В этом разделе описано, как разрешить пользователю Britta Simon использовать единый вход Azure путем предоставления доступа к eTouches.
+### <a name="creating-an-etouches-test-user"></a>Creating an eTouches test user
 
-![Назначение пользователя][200]
-
-**Чтобы назначить пользователя Britta Simon в eTouches, выполните следующие действия:**
-
-1. Чтобы открыть представление приложений, в представлении каталога на классическом портале щелкните **Приложения** в верхнем меню.
-
-	![Назначение пользователя][201]
-
-2. В списке приложений выберите **eTouches**.
-
-	![Настройка единого входа](./media/active-directory-saas-etouches-tutorial/tutorial_etouches_50.png)
-
-3. В меню в верхней части страницы щелкните **Пользователи**.
-
-	![Назначение пользователя][203]
-
-4. В списке пользователей выберите **Britta Simon**.
-
-5. На панели инструментов внизу щелкните **Назначить**.
-
-	![Назначение пользователя][205]
+In this section, you create a user called Britta Simon in eTouches. Please work with eTouches support team to add the users in the eTouches platform.
 
 
-### Проверка единого входа
+### <a name="assigning-the-azure-ad-test-user"></a>Assigning the Azure AD test user
 
-В этом разделе описано, как проверить конфигурацию единого входа Azure AD с помощью панели доступа.
+In this section, you enable Britta Simon to use Azure single sign-on by granting her access to eTouches.
 
-Щелкнув элемент eTouches на панели доступа, вы автоматически войдете в приложение eTouches.
+![Assign User][200] 
+
+**To assign Britta Simon to eTouches, perform the following steps:**
+
+1. On the classic portal, to open the applications view, in the directory view, click **Applications** in the top menu.
+
+    ![Assign User][201] 
+
+2. In the applications list, select **eTouches**.
+
+    ![Configure Single Sign-On](./media/active-directory-saas-etouches-tutorial/tutorial_etouches_50.png) 
+
+3. In the menu on the top, click **Users**.
+
+    ![Assign User][203]
+
+4. In the Users list, select **Britta Simon**.
+
+5. In the toolbar on the bottom, click **Assign**.
+
+    ![Assign User][205]
 
 
-## Дополнительные ресурсы
+### <a name="testing-single-sign-on"></a>Testing single sign-on
 
-* [Список учебников по интеграции приложений SaaS с Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+In this section, you test your Azure AD single sign-on configuration using the Access Panel.
+
+When you click the eTouches tile in the Access Panel, you should get automatically signed-on to your eTouches application.
+
+
+## <a name="additional-resources"></a>Additional resources
+
+* [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 
 <!--Image references-->
@@ -309,4 +310,8 @@
 [204]: ./media/active-directory-saas-etouches-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-etouches-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0803_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

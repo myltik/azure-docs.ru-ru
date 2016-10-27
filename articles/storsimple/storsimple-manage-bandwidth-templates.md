@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Управление шаблонами пропускной способности StorSimple | Microsoft Azure"
-   description="Управление шаблонами пропускной способности StorSimple, предоставляющее возможность использования пропускной способности элементов управления."
+   pageTitle="Manage your StorSimple bandwidth templates | Microsoft Azure"
+   description="Describes how to manage StorSimple bandwidth templates, which allow you to control bandwidth consumption."
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
@@ -15,161 +15,166 @@
    ms.date="08/16/2016"
    ms.author="alkohli" />
 
-# Использование службы диспетчера StorSimple для управления шаблонами пропускной способности StorSimple
 
-## Обзор
+# <a name="use-the-storsimple-manager-service-to-manage-storsimple-bandwidth-templates"></a>Use the StorSimple Manager service to manage StorSimple bandwidth templates
 
-Шаблоны пропускной способности позволяют настраивать использование пропускной способности согласно нескольким расписаниям для отделения данных из устройства StorSimple в облако.
+## <a name="overview"></a>Overview
 
-С помощью регулируемых расписаний пропускной способности вы можете сделать следующее.
+Bandwidth templates allow you to configure network bandwidth usage across multiple time-of-day schedules to tier the data from the StorSimple device to the cloud.
 
-- Создавать настраиваемые расписания пропускной способности в зависимости от использования сетевых рабочих нагрузок.
+With bandwidth throttling schedules you can:
 
-- Просто и эффективно централизовать управление и повторное использование расписаний на нескольких устройствах.
+- Specify customized bandwidth schedules depending on the workload network usages.
 
-> [AZURE.NOTE] Эта функция доступна только для физических устройств StorSimple, она недоступна для виртуальных устройств.
+- Centralize management and reuse the schedules across multiple devices in an easy and seamless manner.
 
-Все шаблоны пропускной способности для вашей службы отображаются в табличном формате и содержат следующие сведения:
+> [AZURE.NOTE] This feature is available only for StorSimple physical devices and not for virtual devices.
 
-- **Имя** — уникальное имя, назначенное шаблону пропускной способности при его создании;
+All the bandwidth templates for your service are displayed in a tabular format, and contain the following information:
 
-- **Расписание** — количество расписаний, содержащихся в указанном шаблоне пропускной способности;
+- **Name** – A unique name assigned to the bandwidth template when it was created.
 
-- **Кем используется** — количество томов, использующих шаблоны пропускной способности.
+- **Schedule** – The number of schedules contained in a given bandwidth template.
 
-Для управления шаблонами пропускной способности можно использовать страницу **Настройка** службы диспетчера StorSimple на классическом портале Azure.
+- **Used by** – The number of volumes using the bandwidth templates.
 
-Дополнительные сведения о настройке шаблонов пропускной способности:
+You use the StorSimple Manager service **Configure** page in the Azure classic portal to manage bandwidth templates.
 
-- вопросы и ответы о шаблонах пропускной способности;
-- рекомендации по шаблонам пропускной способности.
+You can also find additional information to help configure bandwidth templates in:
 
-## Добавление шаблона пропускной способности
+- Questions and answers about bandwidth templates
+- Best practices for bandwidth templates
 
-Выполните следующие действия, чтобы создать новый шаблон пропускной способности.
+## <a name="add-a-bandwidth-template"></a>Add a bandwidth template
 
-#### Добавление шаблона пропускной способности
+Perform the following steps to create a new bandwidth template.
 
-1. Откройте службу диспетчера StorSimple и на странице **Настройка** щелкните **Добавить или изменить шаблон пропускной способности**.
+#### <a name="to-add-a-bandwidth-template"></a>To add a bandwidth template
 
-2. В диалоговом окне **Добавление или изменение шаблона пропускной способности** выполните следующие действия.
+1. On the StorSimple Manager service **Configure** page, click **add/edit bandwidth template**.
 
-   1. В раскрывающемся списке **Шаблон** щелкните **Создать**, чтобы добавить новый шаблон пропускной способности.
-   2. Укажите уникальное имя для шаблона пропускной способности.
+2. In the **Add/Edit Bandwidth Template** dialog box:
 
-3. Задайте **расписание пропускной способности**. Чтобы создать расписание, выполните следующие действия.
+   1. From the **Template** drop-down list, select **Create new** to add a new bandwidth template.
+   2. Specify a unique name for your bandwidth template.
 
-   1. В раскрывающемся списке выберите дни недели, заданные в расписании. Вы можете указать несколько дней, установив флажки, расположенные перед соответствующими днями недели в списке.
-   2. Выберите параметр **Весь день**, если расписание применимо ко всему дню. Если он задан, вам больше не нужно указывать **Время начала** и **Время окончания**. Расписание будет выполняться с 00:00 до 23:59.
-   3. В раскрывающемся списке выберите **Время начала**. Это время, с которого начнется выполнение расписания.
-   4. В раскрывающемся списке выберите **Время окончания**. Это время завершения расписания.
+3. Define a **Bandwidth Schedule**. To create a schedule:
 
-         > [AZURE.NOTE] Пересечения временных интервалов не допускаются. Если начальное и конечное время таковы, что в расписании появляются пересекающиеся временные интервалы, будет выдано соответствующее сообщение об ошибке.
+   1. From the drop-down list, choose the days of the week the schedule is configured for. You can select multiple days by selecting the check boxes located before the respective days in the list.
+   2. Select the **All Day** option if the schedule is enforced for the entire day. When this option is checked, you can no longer specify a **Start Time** or an **End Time**. The schedule runs from 12:00 AM to 11:59 PM.
+   3. From the drop-down list, select a **Start Time**. This is when the schedule will begin.
+   4. From the drop-down list, select an **End Time**. This is when the schedule will stop.
 
-   5. Задайте **Скорость пропускной способности**. Это значение пропускной способности в Мбит/с, которое используется устройством StorSimple в операциях с облаком (скачивание и передача). Укажите в этом поле число от 1 до 1000.
+         > [AZURE.NOTE] Overlapping schedules are not allowed. If the start and end times will result in an overlapping schedule, you will see an error message to that effect.
 
-   6. Щелкните значок галочки ![значок с изображением флажка](./media/storsimple-manage-bandwidth-templates/HCS_CheckIcon.png). Созданный шаблон будет добавлен в список шаблонов пропускной способности на странице **Настройка** службы.
+   5. Specify the **Bandwidth Rate**. This is the bandwidth in Megabits per second (Mbps) used by your StorSimple device in operations involving the cloud (both uploads and downloads). Supply a number between 1 and 1,000 for this field.
 
-    ![Создание шаблона пропускной способности](./media/storsimple-manage-bandwidth-templates/HCS_CreateNewBT1.png)
+   6. Click the check icon ![Check icon](./media/storsimple-manage-bandwidth-templates/HCS_CheckIcon.png). The template that you have created will be added to the list of bandwidth templates on the service **Configure** page.
 
-4. Щелкните **Сохранить** в нижней части страницы, а затем нажмите кнопку **Да** при запросе на подтверждение. Внесенные в конфигурацию изменения будут сохранены.
+    ![Create new bandwidth template](./media/storsimple-manage-bandwidth-templates/HCS_CreateNewBT1.png)
 
-## Изменение шаблона пропускной способности
+4. Click **Save** at the bottom of the page and then click **Yes** when prompted for confirmation. This will save the configuration changes that you have made.
 
-Выполните следующие действия, чтобы изменить шаблон пропускной способности.
+## <a name="edit-a-bandwidth-template"></a>Edit a bandwidth template
 
-### Изменение шаблона пропускной способности
+Perform the following steps to edit a bandwidth template.
 
-1. Щелкните **Добавить/изменить шаблон пропускной способности**.
+### <a name="to-edit-a-bandwidth-template"></a>To edit a bandwidth template
 
-2. В диалоговом окне **Добавление или изменение шаблона пропускной способности** выполните следующие действия.
+1. Click **add/edit bandwidth template**.
 
-   1. В раскрывающемся списке **Шаблон** выберите существующий шаблон пропускной способности, который вы хотите изменить.
-   2. Внесите изменения. (Вы можете изменять любые существующие параметры.)
-   3. Щелкните значок галочки ![значок с изображением флажка](./media/storsimple-manage-bandwidth-templates/HCS_CheckIcon.png). Измененный шаблон появится в списке шаблонов пропускной способности на странице "Настройка" службы.
+2. In the **Add/Edit Bandwidth Template** dialog box:
 
-3. Чтобы сохранить изменения, в нижней части страницы щелкните **Сохранить**. При появлении запроса на подтверждение нажмите кнопку **Да**.
+   1. From the **Template** drop-down list, choose an existing bandwidth template that you want to modify.
+   2. Complete your changes. (You can modify any of the existing settings.)
+   3. Click the check icon ![Check icon](./media/storsimple-manage-bandwidth-templates/HCS_CheckIcon.png). You will see the modified template in the list of bandwidth templates on the service Configure page.
 
-> [AZURE.NOTE] Вы не сможете сохранить свои изменения, если отредактированное расписание перекрывает существующее в изменяемом шаблоне пропускной способности.
+3. To save your changes, click **Save** at the bottom of the page. Click **Yes** when prompted for confirmation.
 
-## Удаление шаблона пропускной способности
+> [AZURE.NOTE] You will not be allowed to save your changes if the edited schedule overlaps with an existing schedule in the bandwidth template that you are modifying.
 
-Выполните следующие действия, чтобы удалить шаблон пропускной способности.
+## <a name="delete-a-bandwidth-template"></a>Delete a bandwidth template
 
-#### Удаление шаблона пропускной способности
+Perform the following steps to delete a bandwidth template.
 
-1. В табличном списке шаблонов пропускной способности для службы выберите шаблон, который вы хотите удалить. Справа от выбранного шаблона появится значок удаления (**x**). Щелкните значок **x**, чтобы удалить шаблон.
+#### <a name="to-delete-a-bandwidth-template"></a>To delete a bandwidth template
 
-2. После этого введите подтверждение для применения этих исправлений. Нажмите кнопку **ОК**, чтобы продолжить.
+1. In the tabular list of the bandwidth templates for your service, select the template that you wish to delete. A delete icon (**x**) will appear to the extreme right of the selected template. Click the **x** icon to delete the template.
 
-Если шаблон используется другими томами, вы не сможете удалить его. Появится сообщение об ошибке, указывающее на то, что шаблон используется. Откроется диалоговое окно с сообщением об ошибке, в котором рекомендуется удалить все ссылки на шаблоны.
+2. You will be prompted for confirmation. Click **OK** to proceed.
 
-Вы можете удалить все ссылки на шаблон, изменив на странице **Контейнеры томов** те контейнеры, которые используют этот шаблон, чтобы они использовали другой шаблон или вариант настраиваемой или неограниченной пропускной способности. После удаления всех ссылок вы можете удалить шаблон.
+If the template is in use by any volume(s), you will not be allowed to delete it. You will see an error message indicating that the template is in use. An error message dialog box will appear advising you that all the references to the template should be removed.
 
-## Использование шаблона пропускной способности по умолчанию
+You can delete all the references to the template by accessing the **Volume Containers** page and modifying the volume containers that use this template so that they use another template or use a custom or unlimited bandwidth setting. When all the references have been removed, you can delete the template.
 
-Шаблон пропускной способности по умолчанию предоставляется и используется контейнерами томов по умолчанию для принудительного применения элементов управления пропускной способностью при доступе к облаку. Шаблон по умолчанию также служит готовой ссылкой для пользователей, которые создают собственные шаблоны. Дополнительные сведения о шаблоне по умолчанию:
+## <a name="use-a-default-bandwidth-template"></a>Use a default bandwidth template
 
-- **Имя** — неограниченное количество ночей и выходных дней;
+A default bandwidth template is provided and is used by volume containers by default to enforce bandwidth controls when accessing the cloud. The default template also serves as a ready reference for users who create their own templates. The details of this default template are:
 
-- **Расписание** — одно расписание с понедельника по пятницу, которое применяет скорость пропускной способности 1 Мбит/с в период с 8:00 до 17:00 по времени устройства. До конца недели задается неограниченная пропускная способность.
+- **Name** – Unlimited nights and weekends
 
-Шаблон по умолчанию можно изменить. Использование этого шаблона (в том числе измененных версий) отслеживается.
+- **Schedule** – A single schedule from Monday to Friday that applies a bandwidth rate of 1 Mbps between 8 AM and 5 PM device time. The bandwidth is set to Unlimited for the remainder of the week.
 
-## Создание шаблона пропускной способности, рассчитанного на день, который начинается в указанное время
+The default template can be edited. The usage of this template (including edited versions) is tracked.
 
-Выполните эту процедуру, чтобы создать расписание, которое начинается в указанное время и выполняется весь день. В этом примере расписание начинается в 9:00 и выполняется до 9:00 следующего дня. Следует учитывать, что время начала и окончания для заданного расписания должно находиться в одном 24-часовом расписании и не может охватывать несколько дней. Если вам нужно настроить шаблоны пропускной способности, которые охватывают несколько дней, потребуется создать несколько расписаний (как показано в примере).
+## <a name="create-an-all-day-bandwidth-template-that-starts-at-a-specified-time"></a>Create an all-day bandwidth template that starts at a specified time
 
-#### Создание шаблона пропускной способности, рассчитанного на весь день
+Follow this procedure to create a schedule that starts at a specified time and runs all day. In the example, the schedule starts at 9 AM in the morning and runs until 9 AM the next morning. It's important to note that the start and end times for a given schedule must both be contained on the same 24 hour schedule and cannot span multiple days. If you need to set up bandwidth templates that span multiple days, you will need to use multiple schedules (as shown in the example).
 
-1. Создайте расписание, которое начинается в 9:00 и выполняется до полуночи.
+#### <a name="to-create-an-all-day-bandwidth-template"></a>To create an all-day bandwidth template
 
-2. Добавьте другое расписание. Задайте второе расписание, которое будет выполняться с полуночи до 9:00.
+1. Create a schedule that starts at 9 AM in the morning and runs until midnight.
 
-3. Сохраните шаблон пропускной способности.
+2. Add another schedule. Configure the second schedule to run from midnight until 9 AM in the morning.
 
-Созданное расписание начнется в указанное время и будет выполняться весь день.
+3. Save the bandwidth template.
 
-## Вопросы и ответы о шаблонах пропускной способности
+The composite schedule will then start at a time of your choosing and run all-day.
 
-**Вопрос**. Что происходит с элементами управления в период между выполнением расписаний? (Одно расписание завершено, а другое не начато.)
+## <a name="questions-and-answers-about-bandwidth-templates"></a>Questions and answers about bandwidth templates
 
-**Ответ**. В таких случаях элементы управления пропускной способностью не будут использоваться. Это означает, что устройство может использовать неограниченную пропускную способность при размещении данных по уровням в облаке.
+**Q**. What happens to bandwidth controls when you are in between the schedules? (A schedule has ended and another one has not started yet.)
 
-**Вопрос**. Можно ли изменить шаблоны пропускной способности на автономном устройстве?
+**A**. In such cases, no bandwidth controls will be employed. This means that the device can use unlimited bandwidth when tiering data to the cloud.
 
-**Ответ**. Вы не сможете изменить шаблоны пропускной способности в контейнерах томов, если соответствующее устройство находится вне сети.
+**Q**. Can you modify bandwidth templates on an offline device?
 
-**Вопрос**. Можно ли изменить шаблон пропускной способности, связанный с контейнером томов, если связанные тома находятся вне сети?
+**A**. You will not be able to modify bandwidth templates on volumes containers if the corresponding device is offline.
 
-**Ответ**. Вы можете изменить шаблон пропускной способности, связанный с контейнером томов, если его тома находятся вне сети. Обратите внимание, что если тома находятся вне сети, данные устройства не будут размещены по уровням в облаке.
+**Q**. Can you edit a bandwidth template associated with a volume container when the associated volumes are offline?
 
-**Вопрос**. Можно ли удалить шаблон по умолчанию?
+**A**. You can modify a bandwidth template associated with a volume container whose volumes are offline. Note that when volumes are offline, no data will be tiered from the device to the cloud.
 
-**Ответ**. Хотя вы можете удалить шаблон по умолчанию, это не рекомендуется. Использование шаблона по умолчанию, в том числе измененных версий, отслеживается. Данные отслеживания анализируются и со временем используются для усовершенствования шаблона по умолчанию.
+**Q**. Can you delete a default template?
 
-**Вопрос**. Как определить, нужно ли изменить шаблоны пропускной способности?
+**A**. Although you can delete a default template, it is not a good idea to do so. The usage of a default template, including edited versions, is tracked. The tracking data is analyzed and over the course of time, is used to improve the default template.
 
-**Ответ**. Один из признаков того, что нужно изменить шаблоны пропускной способности, — замедление или неоднократное прерывание работы сети. В этом случае просмотрите данные использования хранилища и сети в диаграммах производительности операций ввода-вывода и пропускной способности сети.
+**Q**. How do you determine that your bandwidth templates need to be modified?
 
-В данных пропускной способности сети найдите время дня и контейнеры томов, когда и где возникает проблема. Если это происходит при размещении данных по уровням в облаке (эту информацию можно получить из сведений о производительности операций ввода-вывода для всех контейнеров томов для устройства в облаке), то вам потребуется изменить шаблоны пропускной способности, связанные с контейнерами томов.
+**A**. One of the signs that you need to modify the bandwidth templates is when you start seeing the network slow down or choke multiple times in a day. If this happens, monitor the storage and usage network by looking at the I/O Performance and Network Throughput charts.
 
-После использования измененных шаблонов вам потребуется снова начать мониторинг сети на предмет значительных задержек. Если они все еще есть, потребуется повторно просмотреть шаблоны пропускной способности.
+From the network throughput data, identify the time of day and the volume containers in which the network bottleneck occurs. If this happens when data is being tiered to the cloud (get this information from I/O performance for all volume containers for device to cloud), then you will need to modify the bandwidth templates associated with your volume containers.
 
-**Вопрос**. Что если контейнеры томов на моем устройстве содержат перекрывающиеся расписания, к которым применяются разные ограничения?
+After the modified templates are in use, you will need to monitor the network again for significant latencies. If these still exist, then you will need to revisit your bandwidth templates.
 
-**Ответ**. Предположим, что у вас есть устройство с тремя контейнерами томов. Расписания, связанные с этими контейнерами, полностью перекрываются. Для каждого из этих контейнеров используются ограничения пропускной способности в 5, 10 и 15 Мбит/с соответственно. Если операции ввода-вывода выполняются во всех этих контейнерах одновременно, может применяться ограничение пропускной способности не меньше 3 Мбит/с — в данном случае 5 Мбит/с, так как исходящие запросы на операции ввода-вывода находятся в одной очереди.
+**Q**. What happens if multiple volume containers on my device have schedules that overlap but different limits apply to each?
 
-## Рекомендации по шаблонам пропускной способности
+**A**. Let's assume that you have a device with 3 volume containers. The schedules associated with these containers completely overlap. For each of these containers, the bandwidth limits used are 5, 10, and 15 Mbps respectively. When I/Os are occurring on all of these containers at the same time, the minimum of the 3 bandwidth limits may be applied: in this case, 5 Mbps as these outgoing I/O requests share the same queue.
 
-Следуйте следующим рекомендациям для устройства StorSimple.
+## <a name="best-practices-for-bandwidth-templates"></a>Best practices for bandwidth templates
 
-- Настройте шаблоны пропускной способности на устройстве, чтобы включить регулирование переменных для пропускной способности сети на устройстве в разное время дня. При использовании этих шаблонов пропускной способности с резервными расписаниями можно эффективно использовать дополнительную пропускную способность сети для облачных операций в часы наименьшей нагрузки.
+Follow these best practices for your StorSimple device:
 
-- Вычислите фактическую пропускную способность, необходимую для конкретной развернутой службы, на основе размера развернутой службы и целевого времени восстановления (RTO).
+- Configure bandwidth templates on your device to enable variable throttling of the network throughput by the device at different times of the day. These bandwidth templates when used with backup schedules can effectively leverage additional network bandwidth for cloud operations during off-peak hours.
 
-## Дальнейшие действия
+- Calculate the actual bandwidth required for a particular deployment based on the size of the deployment and the required recovery time objective (RTO).
 
-Узнайте больше об [использовании службы диспетчера StorSimple для администрирования устройства StorSimple](storsimple-manager-service-administration.md).
+## <a name="next-steps"></a>Next steps
 
-<!---HONumber=AcomDC_0824_2016-->
+Learn more about [using the StorSimple Manager service to administer your StorSimple device](storsimple-manager-service-administration.md).
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

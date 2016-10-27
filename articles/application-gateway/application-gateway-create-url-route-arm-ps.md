@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Создание шлюза приложений с помощью правил маршрутизации URL-адресов | Microsoft Azure"
-   description="На этой странице приводятся инструкции по созданию и настройке шлюза приложений Azure с помощью правил маршрутизации URL-адресов."
+   pageTitle="Create an application gateway using URL routing rules | Microsoft Azure"
+   description="This page provides instructions to create, configure an Azure application gateway using URL routing rules"
    documentationCenter="na"
    services="application-gateway"
    authors="georgewallace"
@@ -16,215 +16,219 @@
    ms.author="gwallace"/>
 
 
-# Создание шлюза приложений с помощью маршрутизации на основе пути 
+
+# <a name="create-an-application-gateway-using-path-based-routing"></a>Create an application gateway using Path-based routing 
 
 > [AZURE.SELECTOR]
-- [Портал Azure](application-gateway-create-url-route-portal.md)
-- [PowerShell и диспетчер ресурсов Azure](application-gateway-create-url-route-arm-ps.md)
+- [Azure portal](application-gateway-create-url-route-portal.md)
+- [Azure Resource Manager PowerShell](application-gateway-create-url-route-arm-ps.md)
 
-Маршрутизация на основе URL-адресов позволяет связывать маршруты на основе URL-пути HTTP-запроса. Она проверяет, настроен ли для спиcка URL-адресов в шлюзе приложений маршрут к пулу тыловых серверов, и отправляет сетевой трафик в указанный пул. Как правило, маршрутизация на основе URL-адресов используется для распределения запросов содержимого разных типов между разными пулами тыловых серверов.
+URL Path-based routing enables you to associate routes based on the URL path of Http request. It checks if there is a route to a back-end pool configured for the URL lists in Application Gateway and send the network traffic to the defined back-end pool. A common use for URL-based routing is to load balance requests for different content types to different back-end server pools.
 
-При маршрутизации на основе URL-адресов к шлюзу приложений добавляется новый тип правил. Шлюз приложений имеет два типа правил: базовые правила и правила на основе пути. Основной тип правил обеспечивает циклическое обслуживание пулов тыловых серверов, а PathBasedRouting наряду с циклическим распространением при выборе пула тыловых серверов учитывает также шаблон URL-адреса запроса.
+URL-based routing introduces a new rule type to application gateway. Application gateway has two rule types: basic and PathBasedRouting. Basic rule type provides round-robin service for the back-end pools while PathBasedRouting in addition to round robin distribution, also takes path pattern of the request URL into account while choosing the backend pool.
 
->[AZURE.IMPORTANT] PathPattern: список шаблонов пути для сопоставления. Каждый шаблон должен начинаться с косой черты (/). Знак "\*" может располагаться только в конце. Примеры допустимых значений: /xyz, /xyz* или /xyz/*. Строка, передаваемая для сопоставления пути, не должна содержать никакого текста после первого символа "?" или "#", и сами эти символы не допускаются.
+>[AZURE.IMPORTANT] PathPattern: The list of path patterns to match. Each must start with / and the only place a "\*" is allowed is at the end. Valid examples are /xyz, /xyz* or /xyz/*. The string fed to the path matcher does not include any text after the first "?" or "#", and those characters are not allowed. 
 
-## Сценарий
-В следующем примере шлюз приложений обслуживает трафик веб-сайта contoso.com с помощью двух пулов тыловых серверов: пула серверов для видео и пула серверов для изображений.
+## <a name="scenario"></a>Scenario
+In the following example, Application Gateway is serving traffic for contoso.com with two back-end server pools: video server pool and image server pool.
 
-Запросы к http://contoso.com/image* направляются в пул серверов для изображений (pool1), а запросы http://contoso.com/video* — в пул серверов для видео (pool2). Если ни один из шаблонов пути не подходит, выбирается пул серверов по умолчанию (pool1).
+Requests for http://contoso.com/image* are routed to image server pool (pool1), and http://contoso.com/video* are routed to video server pool (pool2). A default server pool (pool1) is selected if none of the path patterns match.
 
-![Маршрут URL-адреса](./media/application-gateway-create-url-route-arm-ps/figure1.png)
+![url route](./media/application-gateway-create-url-route-arm-ps/figure1.png)
 
-## Перед началом работы
+## <a name="before-you-begin"></a>Before you begin
 
-1. Установите последнюю версию командлетов Azure PowerShell, используя установщик веб-платформы. Скачать и установить последнюю версию вы можете в разделе **Windows PowerShell** на [странице загрузок](https://azure.microsoft.com/downloads/).
-2. Создайте виртуальную сеть и подсеть для шлюза приложений. Убедитесь, что подсеть не используется виртуальной машиной или облачным развертыванием. Сам шлюз приложений должен находиться в подсети виртуальной сети.
-3. Для использования шлюза приложений существующие серверы или серверы, для которых в виртуальной сети созданы конечные точки либо же назначен общедоступный или виртуальный IP-адрес, добавляются в пул тыловых серверов.
-
-
-
-## Что необходимо для создания шлюза приложений?
+1. Install the latest version of the Azure PowerShell cmdlets by using the Web Platform Installer. You can download and install the latest version from the **Windows PowerShell** section of the [Downloads page](https://azure.microsoft.com/downloads/).
+2. You create a virtual network and subnet for Application Gateway. Make sure that no virtual machines or cloud deployments are using the subnet. The application gateway must be by itself in a virtual network subnet.
+3. The servers added to the back-end pool to use the application gateway must exist or have their endpoints created either in the virtual network or with a public IP/VIP assigned.
 
 
-- **Пул тыловых серверов**. Список IP-адресов тыловых серверов. Указанные IP-адреса должны относиться к подсети виртуальной сети либо представлять собой общедоступные или виртуальные IP-адреса.
-- **Back-end server pool settings** (Параметры внутреннего пула серверов). Каждый пул имеет такие параметры, как порт, протокол и сходство на основе файлов cookie. Эти параметры привязываются к пулу и применяются ко всем серверам в этом пуле.
-- **Внешний порт**. Общедоступный порт, открытый в шлюзе приложений. Трафик поступает на этот порт, а затем перенаправляется на один из тыловых серверов.
-- **Прослушиватель**. У прослушивателя есть интерфейсный порт, протокол (Http или Https — с учетом регистра) и имя SSL-сертификата (в случае настройке разгрузки SSL).
-- **Правило**. Правило связывает прослушиватель и пул тыловых серверов, а также определяет, в какой пул тыловых серверов следует направлять трафик, поступающий на определенный прослушиватель.
 
-## Создание шлюза приложений
-
-Разница между использованием классической модели развертывания Azure и модели Azure Resource Manager заключается в порядке создания шлюза приложения и элементов, которые нужно настроить.
-
-При использовании Resource Manager все элементы, которые будут включены в единый ресурс шлюза приложений, сначала настраиваются по отдельности.
+## <a name="what-is-required-to-create-an-application-gateway?"></a>What is required to create an application gateway?
 
 
-Ниже приведены пошаговые инструкции по созданию шлюза приложений.
+- **Back-end server pool:** The list of IP addresses of the back-end servers. The IP addresses listed should either belong to the virtual network subnet or should be a public IP/VIP.
+- **Back-end server pool settings:** Every pool has settings like port, protocol, and cookie-based affinity. These settings are tied to a pool and are applied to all servers within the pool.
+- **Front-end port:** This port is the public port that is opened on the application gateway. Traffic hits this port, and then gets redirected to one of the back-end servers.
+- **Listener:** The listener has a front-end port, a protocol (Http or Https, these are case-sensitive), and the SSL certificate name (if configuring SSL offload).
+- **Rule:** The rule binds the listener, the back-end server pool and defines which back-end server pool the traffic should be directed to when it hits a particular listener.
 
-1. Создание группы ресурсов для диспетчера ресурсов.
-2. Создание виртуальной сети, подсети и общедоступного IP-адреса для шлюза приложений.
-3. Создание объекта конфигурации шлюза приложений.
-4. Создание ресурса шлюза приложений.
+## <a name="create-an-application-gateway"></a>Create an application gateway
 
-## Создание группы ресурсов для диспетчера ресурсов
+The difference between using Azure Classic and Azure Resource Manager is the order in which you create the application gateway and the items that need to be configured.
 
-Убедитесь, что у вас установлена последняя версия Azure PowerShell. Дополнительные сведения см. в статье [Использование Windows PowerShell с диспетчером ресурсов](../powershell-azure-resource-manager.md).
-
-### Шаг 1
-
-Вход в Azure
-
-	Login-AzureRmAccount
-
-Вам будет предложено указать свои учетные данные для аутентификации.<BR>
-
-### Шаг 2
-
-Просмотрите подписки учетной записи.
-
-	Get-AzureRmSubscription
-
-### Шаг 3.
-
-Выберите, какие подписки Azure будут использоваться. <BR>
+With Resource Manager, all items that make an application gateway are configured individually and then put together to create the application gateway resource.
 
 
-	Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
+Here are the steps that are needed to create an application gateway:
 
-### Шаг 4.
+1. Create a resource group for Resource Manager.
+2. Create a virtual network, subnet, and public IP for the application gateway.
+3. Create an application gateway configuration object.
+4. Create an application gateway resource.
 
-Создайте группу ресурсов. Если вы используете существующую группу, пропустите этот шаг.
+## <a name="create-a-resource-group-for-resource-manager"></a>Create a resource group for Resource Manager
+
+Make sure that you are using the latest version of Azure PowerShell. More info is available at [Using Windows PowerShell with Resource Manager](../powershell-azure-resource-manager.md).
+
+### <a name="step-1"></a>Step 1
+
+Log in to Azure
+
+    Login-AzureRmAccount
+
+You are prompted to authenticate with your credentials.<BR>
+
+### <a name="step-2"></a>Step 2
+
+Check the subscriptions for the account.
+
+    Get-AzureRmSubscription
+
+### <a name="step-3"></a>Step 3
+
+Choose which of your Azure subscriptions to use. <BR>
+
+
+    Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
+
+### <a name="step-4"></a>Step 4
+
+Create a resource group (skip this step if you're using an existing resource group).
 
     New-AzureRmResourceGroup -Name appgw-RG -location "West US"
 
-В качестве альтернативы можно также создать теги группы ресурсов для шлюза приложений:
-	
-	$resourceGroup = New-AzureRmResourceGroup -Name appgw-RG -Location "West US" -Tags @{Name = "testtag"; Value = "Application Gateway URL routing"} 
-
-В диспетчере ресурсов Azure для всех групп ресурсов должно быть указано расположение. Оно используется в качестве расположения по умолчанию для всех ресурсов данной группы. Убедитесь, что во всех командах для создания шлюза приложений используется одна группа ресурсов.
-
-В приведенном выше примере мы создали группу ресурсов с именем appgw-RG и расположением West US (западная часть США).
-
->[AZURE.NOTE] Если вам нужно настроить пользовательскую пробу для шлюза приложений, ознакомьтесь со статьей [Создание пользовательской проверки для шлюза приложений с помощью PowerShell для диспетчера ресурсов Azure](application-gateway-create-probe-ps.md). Дополнительные сведения см. в статье [Обзор мониторинга работоспособности шлюза приложений](application-gateway-probe-overview.md).
-
-## Создание виртуальной сети и подсети для шлюза приложений
-
-В следующем примере показано создание виртуальной сети с помощью диспетчера ресурсов.
-
-### Шаг 1
-
-Назначьте диапазон адресов 10.0.0.0/24 переменной подсети, которая будет использоваться для создания виртуальной сети.
-
-	$subnet = New-AzureRmVirtualNetworkSubnetConfig -Name subnet01 -AddressPrefix 10.0.0.0/24
-
-
-### Шаг 2
-
-Создайте виртуальную сеть с именем "appgwvnet" в группе ресурсов "appgw-rg" для региона запада США при помощи префикса 10.0.0.0/16 с подсетью 10.0.0.0/24.
-
-	$vnet = New-AzureRmVirtualNetwork -Name appgwvnet -ResourceGroupName appgw-RG -Location "West US" -AddressPrefix 10.0.0.0/16 -Subnet $subnet
-
-
-### Шаг 3.
-
-Назначьте переменную подсети для дальнейших этапов создания шлюза приложений.
-
-	$subnet=$vnet.Subnets[0]
-
-## Создание общедоступного IP-адреса для конфигурации интерфейсной части
-
-Создайте ресурс общедоступного IP-адреса "publicIP01" в группе ресурсов "appgw-rg" для западного региона США.
-
-	$publicip = New-AzureRmPublicIpAddress -ResourceGroupName appgw-RG -name publicIP01 -location "West US" -AllocationMethod Dynamic
-
-IP-адрес назначается шлюзу приложений при запуске службы.
-
-## Создание конфигурации шлюза приложений
-
-Перед созданием шлюза приложений необходимо настроить все элементы конфигурации. В ходе следующих шагов создаются необходимые элементы конфигурации для ресурса шлюза приложений.
-
-### Шаг 1
-
-Создайте конфигурацию IP шлюза приложений с именем "gatewayIP01". При запуске шлюз приложений получает IP-адрес из настроенной подсети. Затем шлюз маршрутизирует сетевой трафик на IP-адреса из внутреннего пула IP-адресов. Помните, что для каждого экземпляра требуется отдельный IP-адрес.
-
-
-	$gipconfig = New-AzureRmApplicationGatewayIPConfiguration -Name gatewayIP01 -Subnet $subnet
-
-
-### Шаг 2
-
-Настройте серверную часть пула IP-адресов pool01 и pool2 с IP-адресами 134.170.185.46, 134.170.188.221,134.170.185.50 для pool1 и 134.170.186.46, 134.170.189.221,134.170.186.50 для pool2.
-
-
-	$pool1 = New-AzureRmApplicationGatewayBackendAddressPool -Name pool01 -BackendIPAddresses 134.170.185.46, 134.170.188.221,134.170.185.50
-
-	$pool2 = New-AzureRmApplicationGatewayBackendAddressPool -Name pool02 -BackendIPAddresses 134.170.186.46, 134.170.189.221,134.170.186.50
-
-В этом примере используются два пула тыловых серверов для маршрутизации сетевого трафика на основе URL-пути. Один пул принимает трафик для URL-пути /video, а другой — для пути /image. Замените приведенные выше IP-адреса и добавьте IP-адреса конечных точек своего приложения.
-
-### Шаг 3.
-
-Настройте параметры шлюзов приложений с именами poolsetting01 и poolsetting02 для балансировки нагрузки сетевого трафика в пуле серверной части. В этом примере вы настроите различные параметры пулов тыловых серверов. Для каждого пула тыловых серверов параметры можно настроить отдельно.
-
-	$poolSetting01 = New-AzureRmApplicationGatewayBackendHttpSettings -Name "besetting01" -Port 80 -Protocol Http -CookieBasedAffinity Disabled -RequestTimeout 120
-
-	$poolSetting02 = New-AzureRmApplicationGatewayBackendHttpSettings -Name "besetting02" -Port 80 -Protocol Http -CookieBasedAffinity Enabled -RequestTimeout 240
-
-### Шаг 4.
-
-Настройте внешний IP-адрес, используя конечную точку с общедоступным IP-адресом.
-
-	$fipconfig01 = New-AzureRmApplicationGatewayFrontendIPConfig -Name "frontend1" -PublicIPAddress $publicip
-
-### Шаг 5 
-
-Настройте внешний порт для шлюза приложений.
-
-	$fp01 = New-AzureRmApplicationGatewayFrontendPort -Name "fep01" -Port 80
-### Шаг 6
-
-Создайте прослушиватель. Этот шаг позволяет настроить прослушиватель для общедоступного IP-адреса и порта, используемых для получения входящего сетевого трафика.
- 
-	$listener = New-AzureRmApplicationGatewayHttpListener -Name "listener01" -Protocol Http -FrontendIPConfiguration $fipconfig01 -FrontendPort $fp01
-
-### Шаг 7 
-
-Настройте пути URL-правил для пулов тыловых серверов. На этом этапе настраивается относительный путь, который шлюз приложений использует для сопоставления URL-пути с пулом тыловых серверов, который назначается для обработки входящего трафика.
-
-В приведенном ниже примере создаются два правила: одно для пути маршрутизации трафика /image в пул тыловых серверов pool1, а другое для пути маршрутизации трафика /video в пул тыловых серверов pool2.
+Alternatively you can also create tags for a resource group for application gateway:
     
-	$imagePathRule = New-AzureRmApplicationGatewayPathRuleConfig -Name "pathrule1" -Paths "/image/*" -BackendAddressPool $pool1 -BackendHttpSettings $poolSetting01
+    $resourceGroup = New-AzureRmResourceGroup -Name appgw-RG -Location "West US" -Tags @{Name = "testtag"; Value = "Application Gateway URL routing"} 
 
-	$videoPathRule = New-AzureRmApplicationGatewayPathRuleConfig -Name "pathrule2" -Paths "/video/*" -BackendAddressPool $pool2 -BackendHttpSettings $poolSetting02
+Azure Resource Manager requires that all resource groups specify a location. This is used as the default location for resources in that resource group. Make sure that all commands to create an application gateway use the same resource group.
 
-При настройке сопоставления для пути правил также настраивается пул тыловых серверов по умолчанию, который будет использоваться, если путь на соответствует ни одному из предустановленных правил.
+In the example above, we created a resource group called "appgw-RG" and location "West US".
 
-	$urlPathMap = New-AzureRmApplicationGatewayUrlPathMapConfig -Name "urlpathmap" -PathRules $videoPathRule, $imagePathRule -DefaultBackendAddressPool $pool1 -DefaultBackendHttpSettings $poolSetting02
+>[AZURE.NOTE] If you need to configure a custom probe for your application gateway, see [Create an application gateway with custom probes by using PowerShell](application-gateway-create-probe-ps.md). Check out [custom probes and health monitoring](application-gateway-probe-overview.md) for more information.
 
-### Шаг 8
+## <a name="create-a-virtual-network-and-a-subnet-for-the-application-gateway"></a>Create a virtual network and a subnet for the application gateway
 
-Создайте параметр правила. Этот шаг позволяет настроить шлюз приложений для маршрутизации на основе URL-путей.
+The following example shows how to create a virtual network by using Resource Manager.
 
-	$rule01 = New-AzureRmApplicationGatewayRequestRoutingRule -Name "rule1" -RuleType PathBasedRouting -HttpListener $listener -UrlPathMap $urlPathMap
+### <a name="step-1"></a>Step 1
 
-### Шаг 9.
+Assign the address range 10.0.0.0/24 to the subnet variable to be used to create a virtual network.
 
-Настройте количество экземпляров и размер шлюза приложений.
+    $subnet = New-AzureRmVirtualNetworkSubnetConfig -Name subnet01 -AddressPrefix 10.0.0.0/24
 
-	$sku = New-AzureRmApplicationGatewaySku -Name "Standard_Small" -Tier Standard -Capacity 2
 
-## Создание шлюза приложений
+### <a name="step-2"></a>Step 2
 
-Создайте шлюз приложений со всеми объектами конфигурации, описанными выше.
+Create a virtual network named "appgwvnet" in resource group "appgw-rg" for the West US region using the prefix 10.0.0.0/16 with subnet 10.0.0.0/24.
 
-	$appgw = New-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-RG -Location "West US" -BackendAddressPools $pool1,$pool2 -BackendHttpSettingsCollection $poolSetting01, $poolSetting02 -FrontendIpConfigurations $fipconfig01 -GatewayIpConfigurations $gipconfig -FrontendPorts $fp01 -HttpListeners $listener -UrlPathMaps $urlPathMap -RequestRoutingRules $rule01 -Sku $sku
+    $vnet = New-AzureRmVirtualNetwork -Name appgwvnet -ResourceGroupName appgw-RG -Location "West US" -AddressPrefix 10.0.0.0/16 -Subnet $subnet
 
-## Получение шлюза приложений
 
-	$getgw =  Get-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-RG
+### <a name="step-3"></a>Step 3
 
-## Дальнейшие действия
+Assign a subnet variable for the next steps, which creates an application gateway.
 
-Указания по настройке разгрузки SSL см. в статье [Настройка шлюза приложений для разгрузки SSL с помощью Azure Resource Manager](application-gateway-ssl-arm.md).
+    $subnet=$vnet.Subnets[0]
 
-<!---HONumber=AcomDC_0824_2016-->
+## <a name="create-a-public-ip-address-for-the-front-end-configuration"></a>Create a public IP address for the front-end configuration
+
+Create a public IP resource "publicIP01" in resource group "appgw-rg" for the West US region.
+
+    $publicip = New-AzureRmPublicIpAddress -ResourceGroupName appgw-RG -name publicIP01 -location "West US" -AllocationMethod Dynamic
+
+An IP address is assigned to the application gateway when the service starts.
+
+## <a name="create-application-gateway-configuration"></a>Create application gateway configuration
+
+All configuration items must be set up before creating the application gateway. The following steps create the configuration items that are needed for an application gateway resource.
+
+### <a name="step-1"></a>Step 1
+
+Create an application gateway IP configuration named "gatewayIP01". When Application Gateway starts, it picks up an IP address from the subnet configured and route network traffic to the IP addresses in the back-end IP pool. Keep in mind that each instance takes one IP address.
+
+
+    $gipconfig = New-AzureRmApplicationGatewayIPConfiguration -Name gatewayIP01 -Subnet $subnet
+
+
+### <a name="step-2"></a>Step 2
+
+Configure the back-end IP address pool named "pool01"and "pool2" with IP addresses "134.170.185.46, 134.170.188.221,134.170.185.50" for "pool1" and "134.170.186.46, 134.170.189.221,134.170.186.50" for "pool2".
+
+
+    $pool1 = New-AzureRmApplicationGatewayBackendAddressPool -Name pool01 -BackendIPAddresses 134.170.185.46, 134.170.188.221,134.170.185.50
+
+    $pool2 = New-AzureRmApplicationGatewayBackendAddressPool -Name pool02 -BackendIPAddresses 134.170.186.46, 134.170.189.221,134.170.186.50
+
+In this example, there are two back-end pools to route network traffic based on the URL path. One pool receives traffic from URL path "/video" and other pool receive traffic from path "/image". Replace the preceding IP addresses to add your own application IP address endpoints. 
+
+### <a name="step-3"></a>Step 3
+
+Configure application gateway setting "poolsetting01" and "poolsetting02" for the load-balanced network traffic in the back-end pool. In this example, you configure different back-end pool settings for the back-end pools. Each back-end pool can have its own back-end pool setting.
+
+    $poolSetting01 = New-AzureRmApplicationGatewayBackendHttpSettings -Name "besetting01" -Port 80 -Protocol Http -CookieBasedAffinity Disabled -RequestTimeout 120
+
+    $poolSetting02 = New-AzureRmApplicationGatewayBackendHttpSettings -Name "besetting02" -Port 80 -Protocol Http -CookieBasedAffinity Enabled -RequestTimeout 240
+
+### <a name="step-4"></a>Step 4
+
+Configure the front-end IP with public IP endpoint.
+
+    $fipconfig01 = New-AzureRmApplicationGatewayFrontendIPConfig -Name "frontend1" -PublicIPAddress $publicip
+
+### <a name="step-5"></a>Step 5 
+
+Configure the front-end port for an application gateway.
+
+    $fp01 = New-AzureRmApplicationGatewayFrontendPort -Name "fep01" -Port 80
+### <a name="step-6"></a>Step 6
+
+Configure the listener. This step configures the listener for the public IP address and port used to receive incoming network traffic. 
+ 
+    $listener = New-AzureRmApplicationGatewayHttpListener -Name "listener01" -Protocol Http -FrontendIPConfiguration $fipconfig01 -FrontendPort $fp01
+
+### <a name="step-7"></a>Step 7 
+
+Configure URL rule paths for the back-end pools. This step configures the relative path used by application gateway to define the mapping between URL path and which back-end pool is assigned to handle the incoming traffic.
+
+The example below creates two rules: one for "/image/" path routing traffic to back-end "pool1" and another one for "/video/" path routing traffic to back-end "pool2".
+    
+    $imagePathRule = New-AzureRmApplicationGatewayPathRuleConfig -Name "pathrule1" -Paths "/image/*" -BackendAddressPool $pool1 -BackendHttpSettings $poolSetting01
+
+    $videoPathRule = New-AzureRmApplicationGatewayPathRuleConfig -Name "pathrule2" -Paths "/video/*" -BackendAddressPool $pool2 -BackendHttpSettings $poolSetting02
+
+The rule path map configuration also configures a default back-end address pool if the path doesn't match any of the pre-defined path rules. 
+
+    $urlPathMap = New-AzureRmApplicationGatewayUrlPathMapConfig -Name "urlpathmap" -PathRules $videoPathRule, $imagePathRule -DefaultBackendAddressPool $pool1 -DefaultBackendHttpSettings $poolSetting02
+
+### <a name="step-8"></a>Step 8
+
+Create a rule setting. This step configures the application gateway to use URL path-based routing.
+
+    $rule01 = New-AzureRmApplicationGatewayRequestRoutingRule -Name "rule1" -RuleType PathBasedRouting -HttpListener $listener -UrlPathMap $urlPathMap
+
+### <a name="step-9"></a>Step 9
+
+Configure the number of instances and size for the application gateway.
+
+    $sku = New-AzureRmApplicationGatewaySku -Name "Standard_Small" -Tier Standard -Capacity 2
+
+## <a name="create-application-gateway"></a>Create Application Gateway
+
+Create an application gateway with all configuration objects from the preceding steps.
+
+    $appgw = New-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-RG -Location "West US" -BackendAddressPools $pool1,$pool2 -BackendHttpSettingsCollection $poolSetting01, $poolSetting02 -FrontendIpConfigurations $fipconfig01 -GatewayIpConfigurations $gipconfig -FrontendPorts $fp01 -HttpListeners $listener -UrlPathMaps $urlPathMap -RequestRoutingRules $rule01 -Sku $sku
+
+## <a name="get-application-gateway"></a>Get Application Gateway
+
+    $getgw =  Get-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-RG
+
+## <a name="next-steps"></a>Next steps
+
+If you want to learn Secure Sockets Layer (SSL) offload, see [Configure an application gateway for SSL offload](application-gateway-ssl-arm.md).
+
+
+<!--HONumber=Oct16_HO2-->
+
+

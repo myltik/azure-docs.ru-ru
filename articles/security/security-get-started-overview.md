@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Общие сведения о безопасности в Azure | Microsoft Azure"
-   description="Сайт со сведениями о безопасности Microsoft Azure по адресу Azure.com содержит ответы на вопросы технического характера о безопасности Azure."
+   pageTitle="Azure security overview | Microsoft Azure"
+   description="The Microsoft Azure Security Information site on Azure.com is your place for technical answers to your Azure security questions."
    services="security"
    documentationCenter="na"
    authors="TomShinder"
@@ -16,34 +16,39 @@
    ms.date="08/09/2016"
    ms.author="terrylan"/>
 
-# Общие сведения о безопасности в Azure
 
-Сайт со сведениями о безопасности Microsoft Azure по адресу Azure.com содержит ответы на вопросы технического характера о безопасности Azure. Если вас интересует, как Azure обеспечивает соответствие требованиям и защищает собственную инфраструктуру, посетите [центр управления безопасностью Майкрософт](https://www.microsoft.com/TrustCenter/default.aspx).
+# <a name="azure-security-overview"></a>Azure security overview
 
-Мы понимаем, что в облаке безопасность имеет наивысший приоритет и вам крайне важно получать точные и своевременные сведения о безопасности Azure. Одним из наиболее весомых доводов в пользу использования Azure для приложений и служб является доступ к обширному ассортименту различных средств и возможностей обеспечения безопасности. Эти средства и возможности мы предлагаем вам для создания безопасных решений на безопасной платформе Azure.
+The Microsoft Azure Security Information site on Azure.com is your place for technical answers to your Azure security questions. If you are interested in Azure compliance and how Azure secures its own infrastructure, visit the [Microsoft Trust Center](https://www.microsoft.com/TrustCenter/default.aspx).
 
-По мере появления в Интернете новых и обновления существующих служб Azure сведения на этой странице и этом сайте будут обновляться. Наши предложения в области безопасности постоянно совершенствуются, и здесь мы хотим поделиться техническими деталями таких усовершенствований. Рекомендуем время от времени возвращаться на этот сайт, чтобы оставаться в курсе всех нововведений.
+We know that security is job one in the cloud and how important it is that you find accurate and timely information about Azure security. One of the best reasons to use Azure for your applications and services is to take advantage of the wide array of security tools and capabilities available. These tools and capabilities help make it possible to create secure solutions on the secure Azure platform.
 
-## Использование сайта со сведениями о безопасности Azure
-В левой части страницы перечислены категории статей о безопасности. Выберите пункт, чтобы отобразить все статьи из соответствующей категории.
+This page, and this site, will evolve as new Azure services come online and existing services are updated. Our security offerings constantly improve and we’ll share the technical details of those improvements here. We recommend that you return to this site regularly and see what’s new!
 
-Каждая категория имеет обзорную статью. В каждой такой статье вкратце описываются решения, используемые в Azure для обеспечения безопасности в рамках этой категории. Обзорные статьи помогут вам узнать о доступных в Azure продуктах, службах и функциях, которые можно использовать для повышения уровня безопасности развертываний. Эти обзорные статьи содержат многочисленные ссылки на технические материалы, описывающие различные аспекты и способы их реализации.
+## <a name="using-the-azure-security-information-site"></a>Using the Azure Security Information Site
+When you look on the left side of the page, you see a collection of categories of security topics. Click or tap the topic to see the articles we have for that category.
 
-Сейчас сайт со сведениями о безопасности Azure содержит сведения по следующим категориям.
+Each category has an Overview article. The goal of the Overview article is to provide you a summary of what Azure has to offer in terms of security for that category. The Overview articles help you understand the products, services, and features available in Azure that you can use to enhance the security of your deployments. These Overview articles contain numerous links to technical content so that you can learn more about the topics and how to implement them.
 
-- Ресурсы
-- Безопасность сети
-- Безопасность хранилищ
-- Безопасность виртуальных машин
-- Защита конечных точек
-- Управление безопасностью и мониторинг
-- Управление удостоверениями
-- Службы PaaS
-- Отраслевые особенности
-- Архитектура
+The Azure Security Information site currently addresses the following categories:
 
-> [AZURE.NOTE] Все статьи на сайте со сведениями о безопасности Azure отображаются в области навигации в левой части страницы. Если вы хотите просмотреть все статьи, просто нажмите элемент **Подробнее** в нижней части списка категорий.
+- Resources
+- Network security
+- Storage security
+- Virtual machine security
+- Endpoint protection
+- Security management and monitoring
+- Identity management
+- PaaS services
+- Industry specific
+- Architecture
 
-Нам важно знать ваше мнение. Если вы можете предложить категории для добавления, сообщите нам! Если имеются статьи, которые можно добавить в существующую категорию, сообщите и о них тоже. Вы можете воспользоваться разделом комментариев ниже или отправить письмо по адресу [azsecinfosite@microsoft.com](mailto:azsecinfosite@microsoft.com), и мы включим ваши рекомендации в свои планы.
+> [AZURE.NOTE] All the articles we have in the Azure Security Information site appear in the navigation on the left side of the page. If you want to see all the articles, click or tap **See More** at the bottom of the categories list.
 
-<!---HONumber=AcomDC_0810_2016-->
+We want your input! If there are categories you want added, let us know! If there are articles you want added to an existing category, let us know that too! You can use the Comments section below, or write to us at [azsecinfosite@microsoft.com](mailto:azsecinfosite@microsoft.com) and we’ll incorporate your recommendations into our plans.
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

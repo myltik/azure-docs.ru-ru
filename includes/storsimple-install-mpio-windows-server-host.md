@@ -1,29 +1,31 @@
-#### Установка MPIO на узле
+#### <a name="to-install-mpio-on-the-host"></a>To install MPIO on the host
 
-1. Откройте диспетчер сервера на узле Windows Server. По умолчанию диспетчер сервера запускается, когда член группы администраторов выполняет вход на компьютер под управлением Windows Server 2012 R2 или Windows Server 2012. Если диспетчер сервера не открыт, щелкните **Пуск > Диспетчер сервера**.
+1. Open Server Manager on your Windows Server host. By default, Server Manager starts when a member of the Administrators group logs on to a computer that is running Windows Server 2012 R2 or Windows Server 2012. If the Server Manager is not already open, click **Start > Server Manager**.
 
-	![Диспетчер сервера](./media/storsimple-install-mpio-windows-server/IC740997.png)
+    ![Server Manager](./media/storsimple-install-mpio-windows-server/IC740997.png)
 
-2. Выберите **Диспетчер сервера > Панель мониторинга > Добавление ролей и компонентов**. Запустится мастер **Добавление ролей и компонентов**.
+2. Click **Server Manager > Dashboard > Add roles and features**. This starts the **Add Roles and Features** wizard.
 
-	![Мастер добавления ролей и компонентов 1](./media/storsimple-install-mpio-windows-server/IC740998.png)
+    ![Add Roles And Features Wizard 1](./media/storsimple-install-mpio-windows-server/IC740998.png)
 
-3. В мастере **Добавление ролей и компонентов** выполните следующие действия.
+3. In the **Add Roles and Features** wizard, do the following:
 
-	- На странице **Перед началом работы** щелкните **Далее**.
-	- На странице **Выбор типа установки** выберите вариант по умолчанию **На основе роли или на основе компонента**. Нажмите кнопку **Далее**.
-	
-		![Мастер добавления ролей и компонентов 2](./media/storsimple-install-mpio-windows-server/IC740999.png)
-	- На странице **Выбор целевого сервера** выберите **Выбор сервера из пула серверов**. Сервер должен быть найден автоматически. Нажмите кнопку **Далее**.
-	- На странице **Выбор ролей сервера** нажмите кнопку **Далее**.
-	- На странице **Выбор компонентов** выберите **Multipath I/O** и нажмите кнопку **Далее**.
-	
-		![Мастер добавления ролей и компонентов 5](./media/storsimple-install-mpio-windows-server/IC741000.png)
-	- На странице **Подтверждение установки выбранных компонентов** подтвердите выбранные компоненты и установите флажок **Автоматический перезапуск конечного сервера, если требуется**, как показано ниже. Щелкните **Install** (Установить).
-	
-		![Мастер добавления ролей и компонентов 8](./media/storsimple-install-mpio-windows-server/IC741001.png)
-	- После завершения установки появится уведомление. Нажмите кнопку **Закрыть**, чтобы закрыть мастер.
-	
-		![Мастер добавления ролей и компонентов 9](./media/storsimple-install-mpio-windows-server/IC741002.png)
+    - On the **Before you begin** page, click **Next**.
+    - On the **Select installation type** page, accept the default setting of **Role-based or feature-based** installation. Click **Next**.
+    
+        ![Add Roles And Features Wizard 2](./media/storsimple-install-mpio-windows-server/IC740999.png)
+    - On the **Select destination server** page, choose **Select a server from the server pool**. Your host server should be discovered automatically. Click **Next**.
+    - On the **Select server roles** page, click **Next**.
+    - On the **Select features** page, select **Multipath I/O**, and click **Next**.
+    
+        ![Add Roles And Features Wizard 5](./media/storsimple-install-mpio-windows-server/IC741000.png)
+    - On the **Confirm installation selections** page, confirm the selection and then select **Restart the destination server automatically if required**, as shown below. Click **Install**.
+    
+        ![Add Roles And Features Wizard 8](./media/storsimple-install-mpio-windows-server/IC741001.png)
+    - You will be notified when the installation is complete. Click **Close** to close the wizard.
+    
+        ![Add Roles And Features Wizard 9](./media/storsimple-install-mpio-windows-server/IC741002.png)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!--HONumber=Oct16_HO2-->
+
+

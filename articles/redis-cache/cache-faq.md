@@ -1,398 +1,400 @@
 <properties 
-	pageTitle="Кэш Redis для Azure. Вопросы и ответы | Microsoft Azure" 
-	description="Ответы на часто задаваемые вопросы, шаблоны и рекомендации для кэша Redis для Azure." 
-	services="redis-cache" 
-	documentationCenter="" 
-	authors="steved0x" 
-	manager="douge" 
-	editor=""/>
+    pageTitle="Azure Redis Cache FAQ | Microsoft Azure" 
+    description="Learn the answers to common questions, patterns and best practices for Azure Redis Cache" 
+    services="redis-cache" 
+    documentationCenter="" 
+    authors="steved0x" 
+    manager="douge" 
+    editor=""/>
 
 <tags 
-	ms.service="cache" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="cache-redis" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/21/2016" 
-	ms.author="sdanie"/>
-
-# Кэш Redis для Azure. Вопросы и ответы
-
-Ответы на часто задаваемые вопросы, шаблоны и рекомендации для кэша Redis для Azure.
+    ms.service="cache" 
+    ms.workload="tbd" 
+    ms.tgt_pltfrm="cache-redis" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="09/21/2016" 
+    ms.author="sdanie"/>
 
 
-## Мне не удалось найти ответ на свой вопрос. Что делать?
+# <a name="azure-redis-cache-faq"></a>Azure Redis Cache FAQ
 
-Если вашего вопроса нет в списке, сообщите нам об этом, и мы поможем найти ответ.
-
--	Можно опубликовать вопрос в [дискуссии Disqus](#comments), указанной в конце раздела часто задаваемых вопросов, и обсудить данную статью с командой разработчиков кэша Azure и другими участниками сообщества.
--	Чтобы охватить большую аудиторию, можно опубликовать вопрос на [форуме MSDN по кэшу Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=azurecache) и обсудить его с командой разработчиков кэша Azure и другими участниками сообщества.
--	Если вы хотите сделать запрос на функцию, то можете отправить свои запросы и предложения на [форуме пользователей кэша Redis для Azure](https://feedback.azure.com/forums/169382-cache).
--	Можно также [отправить нам внешний отзыв о кэше Azure](mailto:azurecache@microsoft.com) по электронной почте.
-
-## Основные сведения о кэше Redis для Azure
-
-Часто задаваемые вопросы в этом разделе охватывают некоторые основные сведения о кэше Redis для Azure.
-
--    [Описание кэша Redis для Azure](#what-is-azure-redis-cache)
--    [Как приступить к работе с кэшем Redis для Azure?](#how-can-i-get-started-with-azure-redis-cache)
-
-Ниже приведены часто задаваемые вопросы об основных понятиях и использовании кэша Redis для Azure, ответы на которые даны в других разделах часто задаваемых вопросов.
-
--	[Какое предложение и размер кэша Redis мне следует использовать?](#what-redis-cache-offering-and-size-should-i-use)
--	[Какие клиенты кэша Redis можно использовать?](#what-redis-cache-clients-can-i-use)
--	[Существует локальный эмулятор кэша Redis для Azure?](#is-there-a-local-emulator-for-azure-redis-cache)
--	[Как отслеживать работоспособность и производительность моего кэша?](#how-do-i-monitor-the-health-and-performance-of-my-cache)
+Learn the answers to common questions, patterns, and best practices for Azure Redis Cache. 
 
 
+## <a name="what-if-my-question-isn't-answered-here?"></a>What if my question isn't answered here?
 
-## Часто задаваемые вопросы о планировании
+If your question isn't listed here, please let us know and we'll help you find an answer.
 
--	[Какое предложение и размер кэша Redis мне следует использовать?](#what-redis-cache-offering-and-size-should-i-use)
--	[Производительность кэша Redis для Azure](#azure-redis-cache-performance)
--	[В каком регионе следует размещать мой кэш?](#in-what-region-should-i-locate-my-cache)
--	[Как выставляются счета за использование кэша Redis для Azure?](#how-am-i-billed-for-azure-redis-cache)
+-   You can post a question in the [Disqus thread](#comments) at the end of this FAQ and engage with the Azure Cache team and other community members about this article.
+-   To reach a wider audience, you can post a question on the [Azure Cache MSDN Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=azurecache) and engage with the Azure Cache team and other members of the community.
+-   If you want to make a feature request, you can submit your requests and ideas to [Azure Redis Cache User Voice](https://feedback.azure.com/forums/169382-cache).
+-   You can also send an email to us at [Azure Cache External Feedback](mailto:azurecache@microsoft.com).
+
+## <a name="azure-redis-cache-basics"></a>Azure Redis Cache basics
+
+The FAQs in this section cover some of the basics of Azure Redis Cache.
+
+-    [What is Azure Redis Cache?](#what-is-azure-redis-cache)
+-    [How can I get started with Azure Redis Cache?](#how-can-i-get-started-with-azure-redis-cache)
+
+The following FAQs cover basic concepts and questions about Azure Redis Cache and are answered in one of the other FAQ sections.
+
+-   [What Redis Cache offering and size should I use?](#what-redis-cache-offering-and-size-should-i-use)
+-   [What Redis cache clients can I use?](#what-redis-cache-clients-can-i-use)
+-   [Is there a local emulator for Azure Redis Cache?](#is-there-a-local-emulator-for-azure-redis-cache)
+-   [How do I monitor the health and performance of my cache?](#how-do-i-monitor-the-health-and-performance-of-my-cache)
 
 
 
-## Часто задаваемые вопросы о разработке
+## <a name="planning-faqs"></a>Planning FAQs
 
--	[Что делают параметры конфигурации StackExchange.Redis?](#what-do-the-stackexchangeredis-configuration-options-do)
--	[Какие клиенты кэша Redis можно использовать?](#what-redis-cache-clients-can-i-use)
--	[Существует локальный эмулятор кэша Redis для Azure?](#is-there-a-local-emulator-for-azure-redis-cache)
--	[Как выполнять команды Redis?](#how-can-i-run-redis-commands)
--	[Почему в кэше Redis для Azure отсутствует ссылка на библиотеку классов MSDN, как в некоторых других службах Azure?](#why-doesnt-azure-redis-cache-have-an-msdn-class-library-reference-like-some-of-the-other-azure-services)
--	[Можно ли использовать кэш Redis для Azure как кэш сеанса PHP?](#can-i-use-azure-redis-cache-as-a-php-session-cache)
+-   [What Redis Cache offering and size should I use?](#what-redis-cache-offering-and-size-should-i-use)
+-   [Azure Redis Cache performance](#azure-redis-cache-performance)
+-   [In what region should I locate my cache?](#in-what-region-should-i-locate-my-cache)
+-   [How am I billed for Azure Redis Cache?](#how-am-i-billed-for-azure-redis-cache)
 
 
-## Часто задаваемые вопросы о безопасности
 
--	[Когда следует включать порт, не являющийся портом SSL, для подключения к Redis?](#when-should-i-enable-the-non-ssl-port-for-connecting-to-redis)
+## <a name="development-faqs"></a>Development FAQs
 
-
-## Часто задаваемые вопросы о рабочей среде
-
--	[Какие рекомендации следует учитывать для рабочей среды?](#what-are-some-production-best-practices)
--	[Какие факторы следует учитывать при использовании общих команд Redis?](#what-are-some-of-the-considerations-whru-RUing-common-redis-commands)
--	[Как измерить и протестировать производительность моего кэша?](#how-can-i-benchmark-and-test-the-performance-of-my-cache)
--	[Важные сведения о росте пула потоков ThreadPool](#important-details-about-threadpool-growth)
--	[Включение сборки мусора сервера для получения более высокой пропускной способности на стороне клиента при использовании StackExchange.Redis](#enable-server-gc-to-get-more-throughput-on-the-client-whru-RUing-stackexchangeredis)
+-   [What do the StackExchange.Redis configuration options do?](#what-do-the-stackexchangeredis-configuration-options-do)
+-   [What Redis cache clients can I use?](#what-redis-cache-clients-can-i-use)
+-   [Is there a local emulator for Azure Redis Cache?](#is-there-a-local-emulator-for-azure-redis-cache)
+-   [How can I run Redis commands?](#how-can-i-run-redis-commands)
+-   [Why doesn't Azure Redis Cache have an MSDN class library reference like some of the other Azure services?](#why-doesnt-azure-redis-cache-have-an-msdn-class-library-reference-like-some-of-the-other-azure-services)
+-   [Can I use Azure Redis Cache as a PHP session cache?](#can-i-use-azure-redis-cache-as-a-php-session-cache)
 
 
-## Часто задаваемые вопросы о мониторинге и устранении неполадок
+## <a name="security-faqs"></a>Security FAQs
 
-Вопросы, обсуждаемые в этом разделе, посвящены общим проблемам мониторинга и устранения неполадок. Дополнительные сведения о мониторинге и устранении неполадок, связанных с экземплярами кэша Redis для Azure, см. в статьях [Как отслеживать кэш Redis для Azure](cache-how-to-monitor.md) и [Способы устранения проблем с кэшем Redis для Azure](cache-how-to-troubleshoot.md).
-
--	[Как отслеживать работоспособность и производительность моего кэша?](#how-do-i-monitor-the-health-and-performance-of-my-cache)
--	[Почему изменились настройки учетной записи хранения диагностики кэша?](#my-cache-diagnostics-storage-account-settings-changed-what-happened)
--	[Почему диагностика включена для некоторых новых кэшей, но не включена для других?](#why-is-diagnostics-enabled-for-some-new-caches-but-not-others)
--	[Почему я наблюдаю простои?](#why-am-i-seeing-timeouts)
--	[Почему мой клиент был отключен от кэша?](#why-was-my-client-disconnected-from-the-cache)
+-   [When should I enable the non-SSL port for connecting to Redis?](#when-should-i-enable-the-non-ssl-port-for-connecting-to-redis)
 
 
-## Часто задаваемые вопросы о предыдущих предложениях кэша
+## <a name="production-faqs"></a>Production FAQs
 
--	[Какой кэш Azure подходит мне?](#which-azure-cache-offering-is-right-for-me)
-
-
-### Описание кэша Redis для Azure
-
-Кэш Redis для Azure основан на популярном [кэше с открытым кодом Redis](http://redis.io). Он предоставляет вам доступ к безопасному выделенному кэшу Redis, управляемому корпорацией Майкрософт и доступному из любых приложений в Azure. Более подробный обзор представлен на странице [кэша Redis для Azure](https://azure.microsoft.com/services/cache/) на сайте Azure.com.
-
-
-### Как приступить к работе с кэшем Redis для Azure?
-
-Существует несколько способов приступить к работе с кэшем Redis для Azure.
-
--    Вы можете ознакомиться с одним из наших учебников, доступных для [.NET](cache-dotnet-how-to-use-azure-redis-cache.md), [ASP.NET](cache-web-app-howto.md), [Java](cache-java-get-started.md), [Node.js](cache-nodejs-get-started.md), и [Python](cache-python-get-started.md).
--    Вы можете посмотреть, [как создавать высокопроизводительные приложения с помощью кэша Redis для Microsoft Azure](https://azure.microsoft.com/documentation/videos/how-to-build-high-performance-apps-using-microsoft-azure-cache/).
--    Можно ознакомиться с документацией по клиентам, которые поддерживают язык, используемый при разработке проекта, чтобы узнать, как использовать Redis. Существует множество клиентов Redis, которые можно использовать с кэшем Redis для Azure. Список клиентов Redis доступен на странице [http://redis.io/clients](http://redis.io/clients).
+-   [What are some production best practices?](#what-are-some-production-best-practices)
+-   [What are some of the considerations when using common Redis commands?](#what-are-some-of-the-considerations-when-using-common-redis-commands)
+-   [How can I benchmark and test the performance of my cache?](#how-can-i-benchmark-and-test-the-performance-of-my-cache)
+-   [Important details about ThreadPool growth](#important-details-about-threadpool-growth)
+-   [Enable server GC to get more throughput on the client when using StackExchange.Redis](#enable-server-gc-to-get-more-throughput-on-the-client-when-using-stackexchangeredis)
 
 
-Если у вас нет учетной записи Azure, то вы можете сделать следующее.
+## <a name="monitoring-and-troubleshooting-faqs"></a>Monitoring and troubleshooting FAQs
 
--    [Открыть бесплатную учетную запись Azure](/pricing/free-trial/?WT.mc_id=redis_cache_hero). Вы получаете кредиты, которые можно использовать, чтобы попробовать платные службы Azure. После израсходования кредитов ваша учетная запись не исчезнет. Вы сможете использовать ее для работы с бесплатными службами и функциями Azure.
--    [Активировать преимущества подписчика Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=redis_cache_hero). Ваша подписка MSDN каждый месяц приносит вам кредиты, которые можно использовать для оплаты использования служб Azure.
+The FAQs in this section cover common monitoring and troubleshooting questions. For more information about monitoring and troubleshooting your Azure Redis Cache instances, see [How to monitor Azure Redis Cache](cache-how-to-monitor.md) and [How to troubleshoot Azure Redis Cache](cache-how-to-troubleshoot.md).
+
+-   [How do I monitor the health and performance of my cache?](#how-do-i-monitor-the-health-and-performance-of-my-cache)
+-   [My cache diagnostics storage account settings changed, what happened?](#my-cache-diagnostics-storage-account-settings-changed-what-happened)
+-   [Why is diagnostics enabled for some new caches but not others?](#why-is-diagnostics-enabled-for-some-new-caches-but-not-others)
+-   [Why am I seeing timeouts?](#why-am-i-seeing-timeouts)
+-   [Why was my client disconnected from the cache?](#why-was-my-client-disconnected-from-the-cache)
+
+
+## <a name="prior-cache-offering-faqs"></a>Prior Cache offering FAQs
+
+-   [Which Azure Cache offering is right for me?](#which-azure-cache-offering-is-right-for-me)
+
+
+### <a name="what-is-azure-redis-cache?"></a>What is Azure Redis Cache?
+
+Azure Redis Cache is based on the popular open-source [Redis cache](http://redis.io). It gives you access to a secure, dedicated Redis cache, managed by Microsoft and accessible from any application within Azure. For a more detailed overview, see the [Azure Redis Cache](https://azure.microsoft.com/services/cache/) product page on Azure.com.
+
+
+### <a name="how-can-i-get-started-with-azure-redis-cache?"></a>How can I get started with Azure Redis Cache?
+
+There are several ways you can get started with Azure Redis Cache.
+
+-    You can check out one of our tutorials available for [.NET](cache-dotnet-how-to-use-azure-redis-cache.md), [ASP.NET](cache-web-app-howto.md), [Java](cache-java-get-started.md), [Node.js](cache-nodejs-get-started.md), and [Python](cache-python-get-started.md). 
+-    You can watch [How to Build High Performance Apps Using Microsoft Azure Redis Cache](https://azure.microsoft.com/documentation/videos/how-to-build-high-performance-apps-using-microsoft-azure-cache/).
+-    You can check out the client documentation for the clients that match the development language of your project to see how to use Redis. There are many Redis clients that can be used with Azure Redis Cache. For a list of Redis clients, see [http://redis.io/clients](http://redis.io/clients).
+
+
+If you don't already have an Azure account, you can:
+
+-    [Open an Azure account for free](/pricing/free-trial/?WT.mc_id=redis_cache_hero). You get credits that can be used to try out paid Azure services. Even after the credits are used up, you can keep the account and use free Azure services and features.
+-    [Activate Visual Studio subscriber benefits](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=redis_cache_hero). Your MSDN subscription gives you credits every month that you can use for paid Azure services.
 
 
 <a name="cache-size"></a>
-### Какое предложение и размер кэша Redis мне следует использовать?
-Все предложения кэша Redis для Azure обеспечивают разные уровни параметров **размера**, **пропускной способности**, **высокой доступности** и **соглашения об уровне обслуживания**.
+### <a name="what-redis-cache-offering-and-size-should-i-use?"></a>What Redis Cache offering and size should I use?
+Each Azure Redis Cache offering provides different levels of **size**, **bandwidth**, **high availability**, and **SLA** options.
 
-Ниже приведены рекомендации по выбору предложения кэша.
+The following are considerations for choosing a Cache offering.
 
--	**Память**: уровни Базовый и Стандартный предлагают от 250 МБ до 53 ГБ. Уровень Премиум предлагает 530 ГБ с возможностью увеличения объема [по запросу](mailto:wapteams@microsoft.com?subject=Redis%20Cache%20quota%20increase). Подробнее см. в разделе [Цены на кэш Redis для Azure](https://azure.microsoft.com/pricing/details/cache/).
--	**Производительность сети**: если у вас есть рабочая нагрузка, которая требует высокой пропускной способности, то уровень Премиум предоставит большую пропускную способность по сравнению с уровнями Стандартный или Базовый. Также в рамках каждого уровня пропускная способность для кэшей большего размера выше из-за виртуальной машины, на которой размещен кэш. Дополнительные сведения приведены в [следующей таблице](#cache-performance).
--	**Пропускная способность**: уровень Премиум предлагает максимальную доступную пропускную способность. При достижении кэшем сервера или клиента пределов пропускной способности на стороне клиента возникнут простои. Дополнительные сведения приведены в таблице ниже.
--	**Высокая доступность/SLA**: кэш Redis для Azure гарантирует, что кэш "Стандартный" и "Премиум" будет доступен не меньше 99,9 % времени. Дополнительные сведения о соглашении об уровне обслуживания см. в разделе [Цены на кэш Redis для Azure](https://azure.microsoft.com/support/legal/sla/cache/v1_0/). Соглашение об уровне обслуживания распространяется только на подключения к конечным точкам кэша. Соглашение об уровне обслуживания не включает защиту от потери данных. Для повышения устойчивости к потере данных рекомендуется использовать функцию постоянного хранения данных Redis уровня Премиум.
--	**Постоянное хранение данных Redis**: уровень Премиум позволяет постоянно хранить данные кэша в учетной записи хранения Azure. В кэше Базовый и Стандартный все данные хранятся только в памяти. При возникновении проблем с базовой инфраструктурой это может привести к потере данных. Для повышения устойчивости к потере данных рекомендуется использовать функцию постоянного хранения данных Redis уровня Премиум. Кэш Redis для Azure предлагает варианты постоянного хранения данных RDB и AOF (ожидается в ближайшее время). Дополнительные сведения см. в разделе [Настройка постоянного хранения для кэша Redis для Azure уровня Премиум](cache-how-to-premium-persistence.md).
--	**Кластер Redis**: для создания кэша размером более 53 ГБ или сегментации данных по нескольким узлам Redis можно воспользоваться кластеризацией Redis, которая доступна на уровне "Премиум". Каждый узел состоит из пары кэшей (основной кэш и реплика) для обеспечения высокой доступности. Дополнительные сведения см. в разделе [Настройка кластеризации для кэша Redis для Azure уровня Премиум](cache-how-to-premium-clustering.md).
--	**Улучшенная безопасность и сетевая изоляция**: развертывание виртуальной сети Azure обеспечивает улучшенную безопасность и изоляцию для кэша Redis для Azure, а также подсети, политики контроля доступа и другие функции для дальнейшего ограничения доступа. Дополнительные сведения см. в разделе [Настройка поддержки виртуальной сети для кэша Redis для Azure уровня Премиум](cache-how-to-premium-vnet.md).
--	**Настройка Redis**: на уровнях "Стандартный" и "Премиум" вы можете настроить уведомления пространства ключей в Redis.
--	**Максимальное число подключений клиентов**: уровень Премиум обеспечивает максимальное число клиентов, которые могут подключаться к Redis, причем чем больше размер кэша, тем больше число подключений. [Подробные сведения приведены на странице с ценами](https://azure.microsoft.com/pricing/details/cache/).
--	**Выделенное ядро для сервера Redis**: на уровне Премиум для всех размеров кэша для Redis выделяется отдельное ядро. На уровнях Базовый и Стандартный отдельное ядро выделяется для размера C1 и выше.
--	**Redis является однопоточным**, поэтому наличие более двух ядер не предоставляет дополнительных преимуществ по сравнению с двумя ядрами, но виртуальные машины большего размера обычно имеют большую пропускную способность, чем виртуальные машины меньшего размера. Если кэш сервера или клиента достигает пределов пропускной способности, вы получите простои на стороне клиента.
--	**Повышение производительности**: кэши на уровне "Премиум" разворачиваются на оборудовании с более быстрыми процессорами и обеспечивают повышенную производительность по сравнению с уровнями "Базовый" и "Стандартный". Кэши уровня Премиум обладают более высокой пропускной способностью и меньшей задержкой.
+-   **Memory**: The Basic and Standard tiers offer 250 MB – 53 GB. The Premium tier offers up to 530 GB with more available [on request](mailto:wapteams@microsoft.com?subject=Redis%20Cache%20quota%20increase). For more information, see [Azure Redis Cache Pricing](https://azure.microsoft.com/pricing/details/cache/).
+-   **Network Performance**: If you have a workload that requires high throughput the Premium tier offers more bandwidth compared to Standard or Basic. Also within each tier larger sizes caches have more bandwidth because of the underlying VM that hosts the cache. Please see the [following table](#cache-performance) for more information.
+-   **Throughput**: The Premium tier offers the maximum available throughput. If the cache server or client reaches the bandwidth limits, you will receive timeouts on the client side. For more information, see the following table.
+-   **High Availability/SLA**: Azure Redis Cache guarantees that a Standard/Premium cache will be available at least 99.9% of the time. To learn more about our SLA, see [Azure Redis Cache Pricing](https://azure.microsoft.com/support/legal/sla/cache/v1_0/). The SLA only covers connectivity to the Cache endpoints. The SLA does not cover protection from data loss. We recommend using the Redis data persistence feature in the Premium tier to increase resiliency against data loss.
+-   **Redis Data Persistence**: The Premium tier allows you to persist the cache data in an Azure Storage account. In a Basic/Standard cache all the data is stored only in memory. In case of underlying infrastructure issues there can be potential data loss. We recommend using the Redis data persistence feature in the Premium tier to increase resiliency against data loss. Azure Redis Cache offers RDB and AOF (coming soon) options in Redis persistence. For more information, see [How to configure persistence for a Premium Azure Redis Cache](cache-how-to-premium-persistence.md).
+-   **Redis Cluster**: To create caches larger than 53 GB, or to shard data across multiple Redis nodes, you can use Redis clustering, which is available in the Premium tier. Each node consists of a primary/replica cache pair for high availability. For more information, see [How to configure clustering for a Premium Azure Redis Cache](cache-how-to-premium-clustering.md).
+-   **Enhanced security and network isolation**: Azure Virtual Network (VNET) deployment provides enhanced security and isolation for your Azure Redis Cache, as well as subnets, access control policies, and other features to further restrict access. For more information, see [How to configure Virtual Network support for a Premium Azure Redis Cache](cache-how-to-premium-vnet.md).
+-   **Configure Redis**: In both the Standard and Premium tiers, you can configure Redis for Keyspace notifications.
+-   **Maximum number of client connections**: The Premium tier offers the maximum number of clients that can connect to Redis, with a higher number of connections for larger sized caches. [Please refer to the pricing page for details](https://azure.microsoft.com/pricing/details/cache/).
+-   **Dedicated Core for Redis Server**: In the Premium tier all cache sizes have a dedicated core for Redis. In the Basic/Standard tiers the C1 size and above have a dedicated core for Redis server.
+-   **Redis is single-threaded** so having more than two cores does not provide additional benefit over having just two cores, but larger VM sizes typically have more bandwidth than smaller sizes. If the cache server or client reaches the bandwidth limits, then you will receive timeouts on the client side.
+-   **Performance improvements**: Caches in the Premium tier are deployed on hardware which has faster processors and gives better performance compared to the Basic or Standard tier. Premium tier Caches have higher throughput and lower latencies.
 
 <a name="cache-performance"></a>
-### Производительность кэша Redis для Azure
+### <a name="azure-redis-cache-performance"></a>Azure Redis Cache performance
 
-В следующей таблице показаны максимальные значения пропускной способности, наблюдаемые при тестировании разных размеров кэша уровней Стандартный или Премиум с помощью `redis-benchmark.exe` из виртуальной машины Iaas для конечной точки кэша Redis для Azure. Обратите внимание, что эти значения не гарантируются и для них не предусмотрено соглашение об уровне обслуживания, однако они должны быть типичными. Чтобы определить подходящий объем кэша для вашего приложения, вам следует загрузить его тестирование.
+The following table shows the maximum bandwidth values observed while testing various sizes of Standard and Premium caches using `redis-benchmark.exe` from an Iaas VM against the Azure Redis Cache endpoint. Note that these values are not guaranteed and there is no SLA for these numbers, but should be typical. You should load test your own application to determine the right cache size for your application.
 
-Из этой таблицы можно сделать следующие выводы.
+From this table we can draw the following conclusions.
 
--	Пропускная способность кэшей равного размера для уровня "Премиум" выше, чем для уровня "Стандартный". Например, для кэша размером в 6 ГБ пропускная способность P1 составляет 140 тыс. запросов в секунду, в то время как пропускная способность C3 — 49 тыс..
--	С кластеризацией Redis пропускная способность линейно увеличивается по мере увеличения числа сегментов (узлов) в кластере. Например, если создать кластер P4 из 10 сегментов, то доступная пропускная способность будет составлять 250 тыс. * 10 = 2,5 млн запросов в секунду.
--	Пропускная способность для ключей большего размера для уровня "Премиум" выше, чем для уровня "Стандартный".
+-   Throughput for the caches that are the same size is higher in the Premium tier as compared to the Standard tier. For example, with a 6 GB Cache, throughput of P1 is 140K RPS as compared to 49K for C3.
+-   With Redis clustering, throughput increases linearly as you increase the number of shards (nodes) in the cluster. For example, if you create a P4 cluster of 10 shards, then the available throughput is 250K *10 = 2.5 Million RPS.
+-   Throughput for bigger key sizes is higher in the Premium tier as compared to the Standard Tier.
 
-| Ценовой уровень | Размер | Ядра ЦП | Доступная пропускная способность | Размер ключа 1 КБ |
+| Pricing tier             | Size   | CPU cores | Available bandwidth                                    | 1 KB Key size                            |
 |--------------------------|--------|-----------|--------------------------------------------------------|------------------------------------------|
-| **Размеры кэша уровня Стандартный** | | | **Мегабит в секунду (Мбит/с) или Мегабайт в секунду (МБ/с)** | **Запросов в секунду** |
-| C0 | 250 МБ | Совмещаемая блокировка | 5 / 0,625 | 600 |
-| C1 | 1 GB | 1 | 100 / 12,5 | 12 200 |
-| C2 | 2,5 ГБ | 2 | 200 / 25 | 24 000 |
-| C3 | 6 ГБ | 4\. | 400 / 50 | 49 000 |
-| C4 | 13 ГБ | 2 | 500 / 62,5 | 61 000 |
-| C5 | 26 ГБ | 4\. | 1000 / 125 | 115 000 |
-| C6 | 53 ГБ | 8 | 2000 / 250 | 150 000 |
-| **Размеры кэша уровня Премиум** | | **Число ядер ЦП на сегмент** | | **Запросов в секунду для каждого сегмента** |
-| P1 | 6 ГБ | 2 | 1000 / 125 | 140 000 |
-| P2 | 13 ГБ | 4\. | 2000 / 250 | 220 000 |
-| P3 | 26 ГБ | 4\. | 2000 / 250 | 220 000 |
-| P4 | 53 ГБ | 8 | 4000 / 500 | 250 000 |
+| **Standard cache sizes** |        |           | **Megabits per sec (Mb/s) / Megabytes per sec (MB/s)** | **Requests per second (RPS)**            |
+| C0                       | 250 MB | Shared    | 5 / 0.625                                              | 600                                      |
+| C1                       | 1 GB   | 1         | 100 / 12.5                                             | 12200                                    |
+| C2                       | 2.5 GB | 2         | 200 / 25                                               | 24000                                    |
+| C3                       | 6 GB   | 4         | 400 / 50                                               | 49000                                    |
+| C4                       | 13 GB  | 2         | 500 / 62.5                                             | 61000                                    |
+| C5                       | 26 GB  | 4         | 1000 / 125                                             | 115000                                   |
+| C6                       | 53 GB  | 8         | 2000 / 250                                             | 150000                                   |
+| **Premium cache sizes**  |        | **CPU cores per shard**  |                                         | **Requests per second (RPS), per shard** |
+| P1                       | 6 GB   | 2         | 1000 / 125                                             | 140000                                   |
+| P2                       | 13 GB  | 4         | 2000 / 250                                             | 220000                                   |
+| P3                       | 26 GB  | 4         | 2000 / 250                                             | 220000                                   |
+| P4                       | 53 GB  | 8         | 4000 / 500                                             | 250000                                   |
 
 
-Инструкции по загрузке инструментов Redis, таких как `redis-benchmark.exe`, см. в разделе [Как выполнять команды Redis?](#cache-commands).
+For instructions on downloading the Redis tools such as `redis-benchmark.exe`, see the [How can I run Redis commands?](#cache-commands) section.
 
 <a name="cache-region"></a>
-### В каком регионе следует размещать мой кэш?
+### <a name="in-what-region-should-i-locate-my-cache?"></a>In what region should I locate my cache?
 
-Для лучшей производительности и минимальной задержки размещайте свой кэш Redis для Azure в одном регионе с вашим кэшируемым клиентским приложением.
+For best performance and lowest latency, locate your Azure Redis Cache in the same region as your cache client application.
 
 <a name="cache-billing"></a>
-### Как выставляются счета за использование кэша Redis для Azure?
+### <a name="how-am-i-billed-for-azure-redis-cache?"></a>How am I billed for Azure Redis Cache?
 
-Цены на кэш Redis для Azure можно посмотреть [здесь](https://azure.microsoft.com/pricing/details/cache/). На странице указаны расценки в виде почасового тарифа. Выставляемые счета за использование кэшей рассчитываются на поминутной основе. Они охватывают интервал времени между созданием кэшей и их удалением. Остановить или приостановить выставление счета за использование кэша нельзя.
+Azure Redis Cache pricing is [here](https://azure.microsoft.com/pricing/details/cache/). The pricing page lists pricing as an hourly rate. Caches are billed on a per-minute basis from the time that the cache is created until the time that a cache is deleted. There is no option for stopping or pausing the billing of a cache.
 
 
 <a name="cache-configuration"></a>
-### Что делают параметры конфигурации StackExchange.Redis?
+### <a name="what-do-the-stackexchange.redis-configuration-options-do?"></a>What do the StackExchange.Redis configuration options do?
 
-StackExchange.Redis имеет много параметров. В этом разделе рассказывается о некоторых распространенных параметрах. Более подробные сведения о параметрах StackExchange.Redis см. в статье [Конфигурация StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/Configuration.md).
+StackExchange.Redis has many options. This section talks about some of the common settings. For more detailed information about StackExchange.Redis options, see [StackExchange.Redis configuration](https://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/Configuration.md).
 
-Параметры конфигурации|Описание|Рекомендации
+ConfigurationOptions|Description|Recommendation
 ---|---|---
-AbortOnConnectFail|Если задано значение true, соединение не будет восстанавливаться после сбоя сети.|Установите значение false и позвольте StackExchange.Redis автоматически восстанавливать соединение.
-ConnectRetry|Количество повторных попыток подключения во время первоначального подключения.| Руководствуйтесь следующими примечаниями. |
-ConnectTimeout|Время ожидания в миллисекундах для операций подключения.| Руководствуйтесь следующими примечаниями. |
+AbortOnConnectFail|When set to true, the connection will not reconnect after a network failure.|Set to false and let StackExchange.Redis reconnect automatically.
+ConnectRetry|The number of times to repeat connection attempts during initial connect.| See the following notes for guidance. |
+ConnectTimeout|Timeout in ms for connect operations.| See the following notes for guidance. |
 
-В большинстве случаев подходят значения по умолчанию для клиента. Вы можете точнее настроить параметры в зависимости от своей рабочей нагрузки.
+In most cases the default values of the client are sufficient. You can fine-tune the options based on your workload.
 
--	**Повторы**
-	-	Общая рекомендация для ConnectRetry и ConnectTimeout — быстрое прекращение и повторение попытки. Это зависит от вашей рабочей нагрузки и от того, сколько времени в среднем занимает в вашем клиенте выдача команды Redis и получение ответа.
-	-	Вам не нужно проверять состояние и подключаться самостоятельно — StackExchange.Redis переподключается автоматически. **Избегайте использования свойства ConnectionMultiplexer.IsConnected**.
-	-	Снежный ком — иногда возникает проблема, когда вы повторяете снова и снова, это нарастает и никогда не исправляется. В этом случае следует использовать алгоритм экспоненциальной отсрочки повтора, как описано в [общем руководстве по повторам](best-practices-retry-general.md), опубликованном группой Microsoft Patterns & Practices.
--	**Значения времени ожидания**
-	-	Исследуйте вашу рабочую нагрузку и установите соответствующие значения. Если вы храните большие значения, установите более высокое значение времени ожидания.
-	-	Установите для `AbortOnConnectFail` значение false и позвольте StackExchange.Redis восстанавливать подключение.
-	-	Используйте один экземпляр ConnectionMultiplexer для приложения. Вы можете применять LazyConnection, чтобы создать один экземпляр, который возвращается свойством Connection, как показано в разделе [Подключение к кэшу с использованием класса ConnectionMultiplexer](cache-dotnet-how-to-use-azure-redis-cache.md#connect-to-the-cache).
-	-	Задайте в свойстве `ConnectionMultiplexer.ClientName` уникальное имя экземпляра приложения в целях диагностики.
-	-	Используйте несколько экземпляров `ConnectionMultiplexer` для пользовательских рабочих нагрузок.
-	-	Вы можете следовать этой модели, если в приложении имеется меняющаяся нагрузка. Например:
-	-	можно иметь один мультиплексор для работы с большими ключами;
-	-	можно иметь один мультиплексор для работы с небольшими ключами;
-	-	можно задать разные значения времени ожидания подключения и логики повторов для каждого используемого ConnectionMultiplexer.
-	-	Установите свойство `ClientName` в каждом мультиплексоре для облегчения диагностики.
-	-	Это обеспечит более оптимизированную задержку на каждый класс `ConnectionMultiplexer`.
+-   **Retries**
+    -   For ConnectRetry and ConnectTimeout the general guidance is to fail fast and retry again. This is based on your workload and how much time on average it takes for your client to issue a Redis command and receive a response.
+    -   Let StackExchange.Redis automatically reconnect instead of checking connection status and reconnecting yourself. **Avoid using the ConnectionMultiplexer.IsConnected property**.
+    -   Snowballing - sometimes you may run into an issue where you are retrying and this snowballs and never recovers. In this case you should consider using an exponential backoff retry algorithm as described in [Retry general guidance](best-practices-retry-general.md) published by the Microsoft Patterns & Practices group.
+-   **Timeout values**
+    -   Consider your workload and set the values accordingly. If you are storing large values, set the timeout to a higher value.
+    -   Set `AbortOnConnectFail` to false and let StackExchange.Redis reconnect for you.
+    -   Use a single ConnectionMultiplexer instance for the application. You can use a LazyConnection to create a single instance that is returned by a Connection property, as shown in [Connect to the cache using the ConnectionMultiplexer class](cache-dotnet-how-to-use-azure-redis-cache.md#connect-to-the-cache).
+    -   Set the `ConnectionMultiplexer.ClientName` property to an app instance unique name for diagnostic purposes.
+    -   Use multiple `ConnectionMultiplexer` instances for custom workloads.
+    -   You can follow this model if you have varying load in your application. For example:
+    -   You can have one multiplexer for dealing with large keys.
+    -   You can have one multiplexer for dealing with small keys.
+    -   You can set different values for connection timeouts and retry logic for each ConnectionMultiplexer that you use.
+    -   Set the `ClientName` property on each multiplexer to help with diagnostics.
+    -   This will lead to more streamlined latency per `ConnectionMultiplexer`.
 
-### Какие клиенты кэша Redis можно использовать?
+### <a name="what-redis-cache-clients-can-i-use?"></a>What Redis cache clients can I use?
 
-Одним из основных преимуществ Redis является то, что существует множество клиентов, поддерживающих множество языков разработки. Текущий список клиентов Redis см. [здесь](http://redis.io/clients). Учебники для нескольких различных языков и клиентов см. в статье [Как использовать кэш Redis для Azure](cache-dotnet-how-to-use-azure-redis-cache.md). Выберите нужный язык, используя переключатель языков в верхней части статьи.
+One of the great things about Redis is that there are many clients supporting many different development languages. For a current list of clients, see [Redis clients](http://redis.io/clients). For tutorials that cover several different languages and clients, see [How to use Azure Redis Cache](cache-dotnet-how-to-use-azure-redis-cache.md) and click the desired language from the language switcher at the top of the article.
 
 [AZURE.INCLUDE [redis-cache-create](../../includes/redis-cache-access-keys.md)]
 
 <a name="cache-emulator"></a>
-### Существует локальный эмулятор кэша Redis для Azure?
+### <a name="is-there-a-local-emulator-for-azure-redis-cache?"></a>Is there a local emulator for Azure Redis Cache?
 
-Локального эмулятора кэша Redis для Azure нет, но можно запустить версию MSOpenTech redis-server.exe из [программ командной строки Redis](https://github.com/MSOpenTech/redis/releases/) на локальном компьютере и подключиться к нему, чтобы получить возможности, аналогичные локальному эмулятору кэша, как показано в следующем примере.
-
-
-	private static Lazy<ConnectionMultiplexer>
-  		lazyConnection = new Lazy<ConnectionMultiplexer>
-	    (() =>
-	    {
-		    // Connect to a locally running instance of Redis to simulate a local cache emulator experience.
-		    return ConnectionMultiplexer.Connect("127.0.0.1:6379");
-	    });
-	
-	    public static ConnectionMultiplexer Connection
-	    {
-		    get
-		    {
-			    return lazyConnection.Value;
-		    }
-	    }
+There is no local emulator for Azure Redis Cache, but you can run the MSOpenTech version of redis-server.exe from the [Redis command line tools](https://github.com/MSOpenTech/redis/releases/) on your local machine and connect to it to get a similar experience to a local cache emulator, as shown in the following example.
 
 
-При необходимости можно настроить файл [redis.conf](http://redis.io/topics/config) для более точного соответствия [параметрам кэша по умолчанию](cache-configure.md#default-redis-server-configuration) для подключенного к сети кэша Redis для Azure.
+    private static Lazy<ConnectionMultiplexer>
+        lazyConnection = new Lazy<ConnectionMultiplexer>
+        (() =>
+        {
+            // Connect to a locally running instance of Redis to simulate a local cache emulator experience.
+            return ConnectionMultiplexer.Connect("127.0.0.1:6379");
+        });
+    
+        public static ConnectionMultiplexer Connection
+        {
+            get
+            {
+                return lazyConnection.Value;
+            }
+        }
+
+
+You can optionally configure a [redis.conf](http://redis.io/topics/config) file to more closely match the [default cache settings](cache-configure.md#default-redis-server-configuration) for your online Azure Redis Cache if desired.
 
 <a name="cache-commands"></a>
-### Как выполнять команды Redis?
+### <a name="how-can-i-run-redis-commands?"></a>How can I run Redis commands?
 
-Можно использовать любую из команд, перечисленных в [командах Redis](http://redis.io/commands#), за исключением команд, указанных в перечне [команд, не поддерживаемых в кэше Redis для Azure](cache-configure.md#redis-commands-not-supported-in-azure-redis-cache). Выполнять команды Redis можно несколькими способами.
+You can use any of the commands listed at [Redis commands](http://redis.io/commands#) except for the commands listed at [Redis commands not supported in Azure Redis Cache](cache-configure.md#redis-commands-not-supported-in-azure-redis-cache). To run Redis commands you have several options.
 
--	При наличии кэша уровня "Стандартный" или "Премиум" вы можете запускать команды Redis с помощью [консоли Redis](cache-configure.md#redis-console). Это — защищенный способ выполнения команд Redis на портале Azure.
--	Также можно использовать средства командной строки Redis. Чтобы воспользоваться ими, выполните следующие действия.
--	Загрузите [программы командной строки Redis](https://github.com/MSOpenTech/redis/releases/).
--	Подключитесь к кэшу с помощью `redis-cli.exe`. Передайте конечную точку кэша, используя параметр -h и ключ с параметром -a, как показано в следующем примере.
--	`redis-cli -h <your cache="" name="">
+-   If you have a Standard or Premium cache, you can run Redis commands using the [Redis Console](cache-configure.md#redis-console). This provides a secure way to run Redis commands in the Azure portal.
+-   You can also use the Redis command line tools. To use them, perform the following steps.
+-   Download the [Redis command line tools](https://github.com/MSOpenTech/redis/releases/).
+-   Connect to the cache using `redis-cli.exe`. Pass in the cache endpoint using the -h switch and the key using -a as shown in the following example.
+-   `redis-cli -h <your cache="" name="">
 .redis.cache.windows.net -a <key>
   `
-  -	Обратите внимание, что программы командной строки Redis не работают с портом SSL, но можно использовать программу, такую как `stunnel`, для безопасного подключения этих программ к порту SSL в соответствии с указаниями в записи блога [Объявление о поставщике состояний сеансов ASP.NET для предварительной версии Redis](http://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx).
+  - Note that the Redis command line tools do not work with the SSL port, but you can use a utility such as `stunnel` to securely connect the tools to the SSL port by following the directions in the [Announcing ASP.NET Session State Provider for Redis Preview Release](http://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx) blog post.
 
 <a name="cache-reference"></a>
-### Почему в кэше Redis для Azure отсутствует ссылка на библиотеку классов MSDN, как в некоторых других службах Azure?
+### <a name="why-doesn't-azure-redis-cache-have-an-msdn-class-library-reference-like-some-of-the-other-azure-services?"></a>Why doesn't Azure Redis Cache have an MSDN class library reference like some of the other Azure services?
 
-Кэш Redis для Microsoft Azure основывается на популярном продукте с открытым кодом — кэше Redis. Воспользоваться им можно из самых разнообразных [клиентов Redis](http://redis.io/clients), доступных для многих языков программирования. Каждый клиент имеет собственный API, который вызывает экземпляр кэша Redis с помощью [команд Redis](http://redis.io/commands).
+Microsoft Azure Redis Cache is based on the popular open source Redis Cache and can be accessed by a wide variety of [Redis clients](http://redis.io/clients) which are available for many programming languages. Each client has its own API that makes calls to the Redis cache instance using [Redis commands](http://redis.io/commands).
 
-Поскольку все клиенты разные, отсутствует одна централизованная ссылка на классы в MSDN; вместо этого каждый клиент поддерживает свою собственную справочную документацию. Помимо справочной документации имеется несколько учебников, показывающих, как приступить к работе с кэшем Redis для Azure, используя разные языки и клиенты кэша. Для доступа к этим учебникам перейдите к статье [Как использовать кэш Redis для Azure](cache-dotnet-how-to-use-azure-redis-cache.md) и выберите нужный язык, используя переключатель языков в верхней части статьи.
+Because each client is different, there is not one centralized class reference on MSDN; instead each client maintains its own reference documentation. In addition to the reference documentation, there are several tutorials showing how to get started with Azure Redis Cache using different languages and cache clients. To access these tutorials, see [How to use Azure Redis Cache](cache-dotnet-how-to-use-azure-redis-cache.md) and click the desired language from the language switcher at the top of the article.
 
 
-### Можно ли использовать кэш Redis для Azure как кэш сеанса PHP?
+### <a name="can-i-use-azure-redis-cache-as-a-php-session-cache?"></a>Can I use Azure Redis Cache as a PHP session cache?
 
-Да. Для использования кэша Redis для Azure в качестве кэша сеанса PHP укажите строку подключения к экземпляру кэша Redis для Azure в пути `session.save_path`.
+Yes, to use Azure Redis Cache as a PHP session cache, specify the connection string to your Azure Redis Cache instance in `session.save_path`.
 
->[AZURE.IMPORTANT] При использовании кэша Redis для Azure в качестве кэша сеанса PHP необходимо кодировать в URL-адресе ключ безопасности, используемый для подключения к кэшу, как показано в следующем примере.
+>[AZURE.IMPORTANT] When using Azure Redis Cache as a PHP session cache, you must URL encode the security key used to connect to the cache, as shown in the following example.
 >
 >`session.save_path = "tcp://mycache.redis.cache.windows.net:6379?auth=<url encoded primary or secondary key here>";`
 >
->Если ключ не кодирован в URL-адресе, то может появляться сообщение об исключении, подобное этому: `Failed to parse session.save_path`.
+>If the key is not URL encoded, you may receive an exception similar to the following: `Failed to parse session.save_path`
 
-Дополнительные сведения об использовании кэша Redis в качестве кэша сеанса PHP с клиентом PhpRedis см. в разделе [PHP Session handler](https://github.com/phpredis/phpredis#php-session-handler) (Обработчик сеанса PHP).
+For more information about using Redis Cache as a PHP session cache with the PhpRedis client, see [PHP Session handler](https://github.com/phpredis/phpredis#php-session-handler).
 
 
 
 <a name="cache-ssl"></a>
-### Когда следует включать порт, не являющийся портом SSL, для подключения к Redis?
+### <a name="when-should-i-enable-the-non-ssl-port-for-connecting-to-redis?"></a>When should I enable the non-SSL port for connecting to Redis?
 
-Сервер Redis не имеет встроенной поддержки SSL, но кэш Redis для Azure имеет. Если вы подключаетесь к кэшу Redis для Azure и ваш клиент поддерживает протокол SSL, например StackExchange.Redis, то следует использовать SSL.
+Redis server does not support SSL out of the box, but Azure Redis Cache does. If you are connecting to Azure Redis Cache and your client supports SSL, like StackExchange.Redis, then you should use SSL.
 
-Обратите внимание, что для новых экземпляров кэша Redis для Azure все порты, кроме SSL, отключены по умолчанию. Если ваш клиент не поддерживает SSL, то необходимо включить порт, не являющийся портом SSL, следуя указаниям, приведенным в разделе [Порты доступа](cache-configure.md#access-ports) статьи [Настройка кэша в кэше Redis для Azure](cache-configure.md).
+Note that the non-SSL port is disabled by default for new Azure Redis Cache instances. If your client does not support SSL, then you must enable the non-SSL port by following the directions in the [Access ports](cache-configure.md#access-ports) section of the [Configure a cache in Azure Redis Cache](cache-configure.md) article.
 
-Инструменты Redis, такие как `redis-cli`, не работают с портом SSL, но можно использовать программу, например `stunnel`, для безопасного подключения инструментов к порту SSL в соответствии с указаниями в записи блога [Объявление о поставщике состояний сеансов ASP.NET для предварительной версии Redis](http://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx).
+Redis tools such as `redis-cli` do not work with the SSL port, but you can use a utility such as `stunnel` to securely connect the tools to the SSL port by following the directions in the [Announcing ASP.NET Session State Provider for Redis Preview Release](http://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx) blog post.
 
-Инструкции по загрузке инструментов Redis см. в разделе [Как выполнять команды Redis?](#cache-commands).
+For instructions on downloading the Redis tools, see the [How can I run Redis commands?](#cache-commands) section.
 
 
 
-### Какие рекомендации следует учитывать для рабочей среды?
+### <a name="what-are-some-production-best-practices?"></a>What are some production best practices?
 
--	[Рекомендации для StackExchange.Redis](#stackexchangeredis-best-practices)
--	[Конфигурация и основные понятия](#configuration-and-concepts)
--	[Тестирование производительности](#performance-testing)
+-   [StackExchange.Redis best practices](#stackexchangeredis-best-practices)
+-   [Configuration and concepts](#configuration-and-concepts)
+-   [Performance testing](#performance-testing)
 
-#### Рекомендации для StackExchange.Redis
+#### <a name="stackexchange.redis-best-practices"></a>StackExchange.Redis best practices
 
--	Задайте для `AbortConnect` значение false, подождите, пока ConnectionMultiplexer автоматически восстановит подключение. [Щелкните здесь, чтобы узнать больше](https://gist.github.com/JonCole/36ba6f60c274e89014dd#file-se-redis-setabortconnecttofalse-md).
--	Повторно используйте ConnectionMultiplexer — не создавайте новый экземпляр для каждого запроса. Настоятельно рекомендуется использовать шаблон `Lazy<ConnectionMultiplexer>`, [показанный здесь](cache-dotnet-how-to-use-azure-redis-cache.md#connect-to-the-cache).
--	Лучше всего Redis работает с меньшими значениями, поэтому рассмотрите возможность разделения больших данных на несколько ключей. В [этом обсуждении Redis](https://groups.google.com/forum/#!searchin/redis-db/size/redis-db/n7aa2A4DZDs/3OeEPHSQBAAJ) размер в 100 КБ признан "большим". Прочитайте [эту статью](https://gist.github.com/JonCole/db0e90bedeb3fc4823c2#large-requestresponse-size), чтобы ознакомиться с примером проблемы, вызванной большими значениями.
--	Настройте [параметры ThreadPool](#important-details-about-threadpool-growth), чтобы избежать тайм-аутов.
--	Используйте по крайней мере значение connectTimeout по умолчанию, равное 5 секундам. Это даст StackExchange.Redis достаточно времени, чтобы повторно установить подключение в случае кратковременного сбоя сети.
--	Учтите расходы на производительность, связанные с другими операциями, которые вы выполняете. Например, команда `KEYS` является операцией O(n), т. е. операцией, длительность которой линейно зависит от размера входных данных. Таких операций следует избегать. [Сайт redis.io](http://redis.io/commands/) содержит сведения о временной сложности каждой поддерживаемой операции. Щелкните каждую команду, чтобы просмотреть сведения о сложности операции.
+-   Set `AbortConnect` to false, then let the ConnectionMultiplexer reconnect automatically. [See here for details](https://gist.github.com/JonCole/36ba6f60c274e89014dd#file-se-redis-setabortconnecttofalse-md).
+-   Reuse the ConnectionMultiplexer - do not create a new one for each request. The `Lazy<ConnectionMultiplexer>` pattern [shown here](cache-dotnet-how-to-use-azure-redis-cache.md#connect-to-the-cache) is strongly recommended.
+-   Redis works best with smaller values, so consider chopping up bigger data into multiple keys. In [this Redis discussion](https://groups.google.com/forum/#!searchin/redis-db/size/redis-db/n7aa2A4DZDs/3OeEPHSQBAAJ), 100kb is considered "large". Read [this article](https://gist.github.com/JonCole/db0e90bedeb3fc4823c2#large-requestresponse-size) for an example problem that can be caused by large values.
+-   Configure your [ThreadPool settings](#important-details-about-threadpool-growth) to avoid timeouts.
+-   Use at least the default connectTimeout of 5 seconds. This would give StackExchange.Redis sufficient time to re-establish the connection, in case of a network blip.
+-   Be aware of the performance costs associated with different operations you are running. For instance, the `KEYS` command is an O(n) operation and should be avoided. The [redis.io site](http://redis.io/commands/) has details around the time complexity for each operation that it supports. Click each command to see the complexity for each operation.
 
-#### Конфигурация и основные понятия
+#### <a name="configuration-and-concepts"></a>Configuration and concepts
 
--	Для систем в рабочей среде используйте уровень "Стандартный" или "Премиум". Уровень "Базовый" — это система с одним узлом без репликации данных, которая не регулируется соглашением об уровне обслуживания. Кроме того, используйте по крайней мере кэш C1. Кэши C0 действительно предназначены для простых сценариев разработки и тестирования .
--	Помните, что Redis — это хранилище данных **в памяти**. Прочитайте [эту статью](https://gist.github.com/JonCole/b6354d92a2d51c141490f10142884ea4#file-whathappenedtomydatainredis-md), чтобы ознакомиться со случаями, в которых может произойти потеря данных.
--	Создайте свою систему таким образом, чтобы она могла справляться с кратковременными сбоями подключения, [связанными с установкой исправлений и отработкой отказа](https://gist.github.com/JonCole/317fe03805d5802e31cfa37e646e419d#file-azureredis-patchingexplained-md).
+-   Use Standard or Premium Tier for Production systems. The Basic Tier is a single node system with no data replication and no SLA. Also, use at least a C1 cache. C0 caches are really meant for simple dev/test scenarios.
+-   Remember that Redis is an **In-Memory** data store. Read [this article](https://gist.github.com/JonCole/b6354d92a2d51c141490f10142884ea4#file-whathappenedtomydatainredis-md) so that you are aware of scenarios where data loss can occur.
+-   Develop your system such that it can handle connection blips [due to patching and failover](https://gist.github.com/JonCole/317fe03805d5802e31cfa37e646e419d#file-azureredis-patchingexplained-md).
 
-#### Тестирование производительности
+#### <a name="performance-testing"></a>Performance testing
 
--	Начните с запуска `redis-benchmark.exe`, чтобы определить возможную пропускную способность перед созданием собственных тестов производительности. Обратите внимание, что redis-benchmark не поддерживает протокол SSL, поэтому перед запуском теста необходимо [включить порт без SSL посредством портала Azure](cache-configure.md#access-ports). Примеры приведены в разделе [Как измерить и протестировать производительность моего кэша?](#how-can-i-benchmark-and-test-the-performance-of-my-cache).
--	Клиентская виртуальная машина, используемая для тестирования, должна находиться в том же регионе, что и экземпляр кэша Redis.
--	В качестве клиента рекомендуется использовать виртуальные машины серии Dv2, так как в них используется более производительное оборудование и они выдают лучшие результаты.
--	Убедитесь, что у выбранной клиентской виртуальной машины как минимум такая же емкость вычислительных ресурсов и пропускной способности, что и у тестируемого кэша.
--	Включите VRSS на клиентском компьютере, если используется среда Windows. [Щелкните здесь, чтобы узнать больше](https://technet.microsoft.com/library/dn383582.aspx).
--	Экземпляры Redis уровня "Премиум" обеспечат меньшие сетевые задержки и большую пропускную способность, так как используют более производительные ЦП и сетевое оборудование.
+-   Start by using `redis-benchmark.exe` to get a feel for possible throughput before writing your own perf tests. Note that redis-benchmark does not support SSL, so you will have to [enable the Non-SSL port through the Azure portal](cache-configure.md#access-ports) before you run the test. For examples, see [How can I benchmark and test the performance of my cache?](#how-can-i-benchmark-and-test-the-performance-of-my-cache)
+-   The client VM used for testing should be in the same region as your Redis cache instance.
+-   We recommend using Dv2 VM Series for your client as they have better hardware and will give the best results.
+-   Make sure your client VM you choose has at least as much computing and bandwidth capability as the cache you are testing. 
+-   Enable VRSS on the client machine if you are on Windows. [See here for details](https://technet.microsoft.com/library/dn383582.aspx).
+-   Premium tier Redis instances will have better network latency and throughput because they are running on better hardware for both CPU and Network.
 
 <a name="cache-redis-commands"></a>
-### Какие факторы следует учитывать при использовании общих команд Redis?
+### <a name="what-are-some-of-the-considerations-when-using-common-redis-commands?"></a>What are some of the considerations when using common Redis commands?
 
--	Прежде чем запускать определенные команды Redis, которые выполняются слишком долго, необходимо понять влияние этих команд.
-	-	Например, не выполняйте команду [KEYS](http://redis.io/commands/keys) в рабочей среде, поскольку ее выполнение может занять очень много времени, в зависимости от количества ключей. Redis является однопотоковым сервером и обрабатывает команды по одной. Если вы выдадите после KEYS другие команды, они не будут обрабатываться, пока Redis обрабатывает команду KEYS. [Сайт redis.io](http://redis.io/commands/) содержит сведения о временной сложности каждой поддерживаемой операции. Щелкните каждую команду, чтобы просмотреть сведения о сложности операции.
--	Размеры ключей — следует использовать пары "ключ-значение" небольшого или большого размера? В целом это зависит от сценария. Если в сценарии требуются большие ключи, то можно настроить значения повторов и ConnectionTimeout, а также настроить логику повторов. С точки зрения сервера Redis чем меньше значения, тем лучше производительность.
--	Это не означает, что в Redis нельзя хранить большие значения; вы должны учитывать следующие факторы. Задержки будут выше. Если имеется один большой и один небольшой набор данных, можно использовать несколько экземпляров ConnectionMultiplexer, настроенных с разным набором значений времени ожидания и повторов, как описано в предыдущем разделе [Что делают параметры конфигурации StackExchange.Redis](#cache-configuration).
+-   You should not run certain Redis commands which take a long time to complete without understanding the impact of these commands.
+    -   For example, do not run the [KEYS](http://redis.io/commands/keys) command in production as it could take a long time to return depending on the number of keys. Redis is a single-threaded server and it processes commands one at a time. If you have other commands issued after KEYS, they will not be processed until Redis processes the KEYS command. The [redis.io site](http://redis.io/commands/) has details around the time complexity for each operation that it supports. Click each command to see the complexity for each operation.
+-   Key sizes - should I use small key/values or large key/values? In general it depends on the scenario. If your scenario requires larger keys then you can adjust the ConnectionTimeout and retry values and adjust your retry logic. From a Redis server perspective, smaller values are observed to have better performance.
+-   This does not mean that you can't store larger values in Redis; you must be aware of the following considerations. Latencies will be higher. If you have one set of data that is larger and one that is smaller, you can use multiple ConnectionMultiplexer instances, each configured with a different set of timeout and retry values, as described in the previous [What do the StackExchange.Redis configuration options do](#cache-configuration) section.
 
 
 
 <a name="cache-benchmarking"></a>
-### Как измерить и протестировать производительность моего кэша?
+### <a name="how-can-i-benchmark-and-test-the-performance-of-my-cache?"></a>How can I benchmark and test the performance of my cache?
 
--	[Включите диагностику кэша](cache-how-to-monitor.md#enable-cache-diagnostics), чтобы можно было [наблюдать](cache-how-to-monitor.md) за работоспособностью кэша. Вы можете просмотреть метрики на портале Azure. Кроме того, их можно [скачать и просмотреть](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring) с помощью привычных вам инструментов.
--	Для нагрузочного теста сервера Redis можно использовать benchmark.exe.
--	Убедитесь, что клиент нагрузочного тестирования и кэш Redis находятся в одном регионе.
--	Используйте redis-cli.exe и наблюдайте за кэшем с помощью команды INFO.
--	Если ваша нагрузка приводит к высокой степени фрагментации памяти, то необходимо масштабирование до большего размера кэша.
--	Инструкции по загрузке инструментов Redis см. в разделе [Как выполнять команды Redis?](#cache-commands).
+-   [Enable cache diagnostics](cache-how-to-monitor.md#enable-cache-diagnostics) so you can [monitor](cache-how-to-monitor.md) the health of your cache. You can view the metrics in the Azure portal and you can also [download and review](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring) them using the tools of your choice.
+-   You can use redis-benchmark.exe to load test your Redis server.
+-   Ensure that the load testing client and the Redis cache are in the same region.
+-   Use redis-cli.exe and monitor the cache using the INFO command.
+-   If your load is causing high memory fragmentation then you should scale up to a larger cache size.
+-   For instructions on downloading the Redis tools, see the [How can I run Redis commands?](#cache-commands) section.
 
-Далее приведен пример использования redis-benchmark.exe. Чтобы получить точные результаты, выполните приведенную ниже команду на виртуальной машине, размещенной в том же регионе, что и кэш.
+The following is an example of using redis-benchmark.exe. For accurate results, run this command from a VM in the same region as your cache.
 
--	Тестирование конвейерных запросов SET с полезными данными размером в 1 КБ.
+-   Test Pipelined SET requests using a 1k payload
 
     redis-benchmark.exe -h **yourcache**.redis.cache.windows.net -a **yourAccesskey** -t SET -n 1000000 -d 1024 -P 50
-	
--	Тестирование конвейерных запросов GET с полезными данными размером в 1 КБ. Примечание. Сначала выполните приведенный выше тест SET, чтобы заполнить кэш.
-	
+    
+-   Test Pipelined GET requests using a 1k payload. 
+    NOTE: Run the SET test shown above first to populate cache
+    
     redis-benchmark.exe -h **yourcache**.redis.cache.windows.net -a **yourAccesskey** -t GET -n 1000000 -d 1024 -P 50
 
 <a name="threadpool"></a>
-### Важные сведения о росте пула потоков ThreadPool
+### <a name="important-details-about-threadpool-growth"></a>Important details about ThreadPool growth
 
-В CLR ThreadPool существует два типа потоков — "Рабочий поток" и "Порт завершения ввода-вывода" (также называемый IOCP).
+The CLR ThreadPool has two types of threads - "Worker" and "I/O Completion Port" (aka IOCP) threads. 
 
--	Рабочие потоки используются, например, для обработки методов `Task.Run(…)` или `ThreadPool.QueueUserWorkItem(…)`. Эти потоки также используются различными компонентами в среде CLR, когда работа должна быть выполнена в фоновом потоке.
--	Потоки IOCP используются в случае асинхронного ввода-вывода (например чтение из сети).
+-   Worker threads are used when for things like processing `Task.Run(…)` or `ThreadPool.QueueUserWorkItem(…)` methods. These threads are also used by various components in the CLR when work needs to happen on a background thread.
+-   IOCP threads are used when asynchronous IO happens (e.g. reading from the network). 
 
-Пул потоков предоставляет новые рабочие потоки или потоки завершения ввода-вывода по запросу (без регулирования), пока не будет достигнут параметр "Минимум" для каждого типа потока. По умолчанию минимальное количество потоков равно количеству процессоров в системе.
+The thread pool provides new worker threads or I/O completion threads on demand (without any throttling) until it reaches the "Minimum" setting for each type of thread. By default, the minimum number of threads is set to the number of processors on a system. 
 
-Когда количество существующих (занятых) потоков достигает "минимального" количества потоков, ThreadPool изменяет частоту внедрения новых потоков до величины в один поток за 500 миллисекунд. Это означает, что если нагрузка системы достигает величины, для которой необходим поток IOCP, эта работа будет сделана очень быстро. Однако если величина нагрузки больше настроенного параметра "Минимум", при обработке некоторых операций возникнет некоторая задержка, так как ThreadPool будет ожидать возникновения одного из двух событий.
+Once the number of existing (busy) threads hits the "minimum" number of threads, the ThreadPool will throttle the rate at which is injects new threads to one thread per 500 milliseconds. This means that if your system gets a burst of work needing an IOCP thread, it will process that work very quickly. However, if the burst of work is more than the configured "Minimum" setting, there will be some delay in processing some of the work as the ThreadPool waits for one of two things to happen.
 
-1. Освобождение существующего потока для выполнения работы.
-1. Создание нового потока из-за того, что ни один из существующих потоков не стал доступным в течение 500 мс.
+1. An existing thread becomes free to process the work.
+1. No existing thread becomes free for 500ms, so a new thread is created.
 
-По сути, это означает, что если количество занятых потоков превышает минимальное количество потоков, вы скорее всего столкнетесь с задержкой в 500 мс перед обработкой сетевого трафика приложением. Кроме того, важно обратить внимание, что если существующий поток простаивает более 15 секунд (на основе моих наблюдений), он будет удален, и этот цикл наращивания и уменьшения количества потоков может повториться.
+Basically, it means that when the number of Busy threads is greater than Min threads, you are likely paying a 500ms delay before network traffic is processed by the application. Also, it is important to note that when an existing thread stays idle for longer than 15 seconds (based on what I remember), it will be cleaned up and this cycle of growth and shrinkage can repeat.
 
-Если взглянуть на пример сообщения об ошибке от StackExchange.Redis (сборка 1.0.450 или более поздней версии), вы увидите, что теперь оно содержит статистику ThreadPool (подробности о рабочих потоках и потоках IOCP см. ниже).
+If we look at an example error message from StackExchange.Redis (build 1.0.450 or later), you will see that it now prints ThreadPool statistics (see IOCP and WORKER details below).
 
-	System.TimeoutException: Timeout performing GET MyKey, inst: 2, mgr: Inactive, 
-	queue: 6, qu: 0, qs: 6, qc: 0, wr: 0, wq: 0, in: 0, ar: 0, 
-	IOCP: (Busy=6,Free=994,Min=4,Max=1000), 
-	WORKER: (Busy=3,Free=997,Min=4,Max=1000)
+    System.TimeoutException: Timeout performing GET MyKey, inst: 2, mgr: Inactive, 
+    queue: 6, qu: 0, qs: 6, qc: 0, wr: 0, wq: 0, in: 0, ar: 0, 
+    IOCP: (Busy=6,Free=994,Min=4,Max=1000), 
+    WORKER: (Busy=3,Free=997,Min=4,Max=1000)
 
-В приведенном выше примере можно увидеть, что для потока IOCP существует 6 занятых потоков, а минимальное количество потоков — 4. В этом случае клиент скорее всего столкнется с двумя задержками по 500 мс, так как 6 больше 4.
+In the above example, you can see that for IOCP thread there are 6 busy threads and the system is configured to allow 4 minimum threads. In this case, the client would have likely seen two 500 ms delays because 6 > 4.
 
-Обратите внимание, что StackExchange.Redis может достигнуть времени ожидания, если происходит регулирование количества рабочих потоков или потоков IOCP.
+Note that StackExchange.Redis can hit timeouts if growth of either IOCP or WORKER threads gets throttled.
 
-### Рекомендации
+### <a name="recommendation"></a>Recommendation
 
-С учетом этой информации мы настоятельно рекомендуем клиентам устанавливать значение параметра "Минимум" для рабочих потоков и потоков IOCP так, чтобы оно превышало значение по умолчанию. Мы не можем дать универсальных рекомендаций для этого значения, так как подходящее значение для одного приложения будет слишком высоким или низким для другого приложения. Этот параметр также может повлиять на производительность других компонентов сложных приложений, поэтому каждый клиент должен точно настроить этот параметр в соответствии со своими потребностями. Хорошей отправной точкой является 200 или 300, после чего нужно проверить и изменить этот параметр в соответствии с результатом.
+Given this information, we strongly recommend that customers set the minimum configuration value for IOCP and WORKER threads to something larger than the default value. We can't give one-size-fits-all guidance on what this value should be because the right value for one application will be too high/low for another application. This setting can also impact the performance of other parts of complicated applications, so each customer needs to fine-tune this setting to their specific needs. A good starting place is 200 or 300, then test and tweak as needed.
 
-Как настроить этот параметр:
+How to configure this setting:
 
--	В ASP.NET используйте [параметр конфигурации minIoThreads][] в разделе элемента конфигурации `<processModel>` в файле web.config. Внутри веб-сайтов Azure этот параметр недоступен для настройки. Тем не менее, его можно установить программно (см. ниже) из метода Application\_Start в файле global.asax.cs.
+-   In ASP.NET, use the ["minIoThreads" configuration setting][] under the `<processModel>` configuration element in web.config. If you are running inside of Azure WebSites, this setting is not exposed through the configuration options. However, you should still be able to set this programmatically (see below) from your Application_Start method in global.asax.cs.
 
-> **Важное замечание**. В этом элементе конфигурации задается параметр *per-core*. Например, если у вас 4-ядерный компьютер и вы хотите установить для параметра minIOThreads значение 200 во время выполнения, то можно использовать `<processModel minIoThreads="50"/>`.
+> **Important Note:** the value specified in this configuration element is a *per-core* setting. For example, if you have a 4 core machine and want your minIOThreads setting to be 200 at runtime, you would use `<processModel minIoThreads="50"/>`.
 
--	За пределами ASP.NET используйте API [ThreadPool.SetMinThreads(…)](https://msdn.microsoft.com/library/system.threading.threadpool.setminthreads.aspx).
+-   Outside of ASP.NET, use the [ThreadPool.SetMinThreads(…)](https://msdn.microsoft.com/library/system.threading.threadpool.setminthreads.aspx) API.
 
 <a name="server-gc"></a>
-### Включение сборки мусора сервера для получения более высокой пропускной способности на стороне клиента при использовании StackExchange.Redis
+### <a name="enable-server-gc-to-get-more-throughput-on-the-client-when-using-stackexchange.redis"></a>Enable server GC to get more throughput on the client when using StackExchange.Redis
 
-Включение сборки мусора сервера может оптимизировать работу клиента и улучшить производительность и пропускную способность при использовании StackExchange.Redis. Дополнительные сведения о сборке мусора сервера и о том, как ее включить, можно найти в приведенных ниже статьях.
+Enabling server GC can optimize the client and provide better performance and throughput when using StackExchange.Redis. For more information on server GC and how to enable it, see the following articles.
 
--	[Включение сборки мусора сервера](https://msdn.microsoft.com/library/ms229357.aspx)
--	[Основные сведения о сборке мусора](https://msdn.microsoft.com/library/ee787088.aspx)
--	[Сборка мусора и производительность](https://msdn.microsoft.com/library/ee851764.aspx)
+-   [To enable server GC](https://msdn.microsoft.com/library/ms229357.aspx)
+-   [Fundamentals of Garbage Collection](https://msdn.microsoft.com/library/ee787088.aspx)
+-   [Garbage Collection and Performance](https://msdn.microsoft.com/library/ee851764.aspx)
 
 
 
@@ -401,83 +403,87 @@ ConnectTimeout|Время ожидания в миллисекундах для 
 
 
 <a name="cache-monitor"></a>
-### Как отслеживать работоспособность и производительность моего кэша?
+### <a name="how-do-i-monitor-the-health-and-performance-of-my-cache?"></a>How do I monitor the health and performance of my cache?
 
-За экземплярами кэша Redis для Microsoft Azure можно наблюдать на [портале Azure](https://portal.azure.com). Вы можете просматривать метрики, закреплять диаграммы метрик на начальной панели, настраивать диапазоны дат и времени для диаграмм мониторинга, добавлять и удалять метрики в диаграммах, а также настраивать отправку оповещений при выполнении определенных условий. Дополнительные сведения см. в статье [Как отслеживать кэш Redis для Azure](cache-how-to-monitor.md).
+Microsoft Azure Redis Cache instances can be monitored in the [Azure portal](https://portal.azure.com). You can view metrics, pin metrics charts to the Startboard, customize the date and time range of monitoring charts, add and remove metrics from the charts, and set alerts when certain conditions are met. For more information, see [Monitor Azure Redis Cache](cache-how-to-monitor.md).
 
-В разделе **Поддержка и устранение неполадок** колонки **Параметры** кэша Redis также содержится несколько инструментов для мониторинга и устранения неполадок кэшей.
+The **Support + troubleshooting** section of the Redis Cache **Settings** blade also contains several tools for monitoring and troubleshooting your caches. 
 
--	Щелкните **Устранение неполадок**, чтобы узнать об основных проблемах и способах их устранения.
--	Щелкните **Журналы аудита**, чтобы узнать о действиях с кэшем. Также можно использовать фильтрацию, чтобы развернуть это представление, включив в него другие ресурсы.
--	Служба **работоспособности ресурсов** отслеживает ресурс и сообщает, работает ли он как ожидалось. Дополнительные сведения о службе работоспособности ресурсов Azure см. в разделе [Обзор службы работоспособности ресурсов Azure](../resource-health/resource-health-overview.md).
--	Щелкнув **Новый запрос на поддержку**, можно создать запрос по своему кэшу.
+-   **Troubleshoot** provides information about common issues and strategies for resolving them.
+-   **Audit logs** provides information on actions performed on your cache. You can also use filtering to expand this view to include other resources.
+-   **Resource health** watches your resource and tells you if it's running as expected. For more information about the Azure Resource health service, see [Azure Resource health overview](../resource-health/resource-health-overview.md).
+-   **New support request** provides options to open a support request for your cache.
 
-Эти инструменты позволяют наблюдать за работоспособностью экземпляров кэша Redis для Azure и помогают управлять кэшируемыми приложениями. Дополнительные сведения см. в разделе [Настройки поддержки и устранения неполадок](cache-configure.md#support-amp-troubleshooting-settings).
+These tools enable you to monitor the health of your Azure Redis Cache instances and help you manage your caching applications. For more information, see [Support & troubleshooting settings](cache-configure.md#support-amp-troubleshooting-settings).
 
-### Почему изменились настройки учетной записи хранения диагностики кэша?
+### <a name="my-cache-diagnostics-storage-account-settings-changed,-what-happened?"></a>My cache diagnostics storage account settings changed, what happened?
 
-Для экземпляров кэша в одном регионе и в рамках одной подписки используются одни и те же параметры хранилища диагностики. Если изменяется конфигурация (включается или отключается диагностика либо изменяется учетная запись хранения), то новые настройки применяются ко всем кэшам в подписке, входящим в данный регион. Если параметры диагностики для кэша изменились, проверьте, не изменились ли параметры диагностики для другого кэша в той же подписке и в том же регионе. Один из способов сделать это — проверить журналы аудита для кэша на наличие в них события `Write DiagnosticSettings`. Дополнительные сведения о работе с журналами аудита см. в статьях [Просмотр журналов событий и аудита](../azure-portal/insights-debugging-with-events.md) и [Операции аудита с помощью диспетчера ресурсов](../resource-group-audit.md). Дополнительные сведения о мониторинге событий кэша Redis для Azure см. в разделе [Операции и оповещения](cache-how-to-monitor.md#operations-and-alerts).
+Caches in the same region and subscription share the same diagnostics storage settings, and if the configuration is changed (diagnostics enabled/disabled or changing the storage account) it applies to all caches in the subscription that are in that region. If the diagnostics settings for your cache have changed, check to see if the diagnostic settings for another cache in the same subscription and region have changed. One way to check is to view the audit logs for your cache for a `Write DiagnosticSettings` event. For more information on working with audit logs, see [View events and audit logs](../azure-portal/insights-debugging-with-events.md) and [Audit operations with Resource Manager](../resource-group-audit.md). For more information on monitoring Azure Redis Cache events, see [Operations and alerts](cache-how-to-monitor.md#operations-and-alerts).
 
-### Почему диагностика включена для некоторых новых кэшей, но не включена для других?
+### <a name="why-is-diagnostics-enabled-for-some-new-caches-but-not-others?"></a>Why is diagnostics enabled for some new caches but not others?
 
-Для экземпляров кэша в одном регионе и в рамках одной подписки используются одни и те же параметры хранилища диагностики. Если новый кэш создается в том же регионе и в рамках той же подписки, где уже есть кэш с включенной диагностикой, то в новом кэше диагностика включается с такими же параметрами.
+Caches in the same region and subscription share the same diagnostics storage settings. If you create a new cache in the same region and subscription as another cache that has diagnostics enabled, diagnostics is enabled on the new cache using the same settings.
 
 
 <a name="cache-timeouts"></a>
-### Почему я наблюдаю простои?
+### <a name="why-am-i-seeing-timeouts?"></a>Why am I seeing timeouts?
 
-Простои происходят на клиенте, который вы используете для обращения к Redis. В основном сервер Redis не простаивает. Когда команда отправляется на сервер Redis, она помещается в очередь, и со временем сервер Redis выбирает команду и выполняет его. Однако во время этого процесса клиент может простаивать, и в этом случае на вызывающей стороне возникает исключение. Дополнительные сведения об устранении проблем с тайм-аутами см. в разделах [Устранение проблем на стороне клиента](cache-how-to-troubleshoot.md#client-side-troubleshooting) и [Исключения времени ожидания StackExchange.Redis](cache-how-to-troubleshoot.md#stackexchangeredis-timeout-exceptions).
+Timeouts happen in the client that you use to talk to Redis. For the most part Redis server does not time out. When a command is sent to the Redis server, the command is queued up and Redis server eventually picks up the command and executes it. However the client can time out during this process and if it does an exception is raised on the calling side. For more information on troubleshooting timeout issues, see [Client side troubleshooting](cache-how-to-troubleshoot.md#client-side-troubleshooting) and [StackExchange.Redis timeout exceptions](cache-how-to-troubleshoot.md#stackexchangeredis-timeout-exceptions).
 
 
 <a name="cache-disconnect"></a>
-### Почему мой клиент был отключен от кэша?
+### <a name="why-was-my-client-disconnected-from-the-cache?"></a>Why was my client disconnected from the cache?
 
-Ниже приведены некоторые распространенные причины отключения кэша.
+The following are some common reason for a cache disconnect.
 
--	Причины на стороне клиента
-	-	Клиентское приложение было развернуто повторно.
-	-	Клиентское приложение выполняло операцию масштабирования.
-		-	В случае облачных служб или веб-приложений это может быть следствием автоматического масштабирования.
-	-	Изменен сетевой уровень на стороне клиента.
-	-	Возникла временная ошибка на клиенте или в узлах сети между клиентом и сервером.
-	-	Было достигнуто предельное пороговое значение пропускной способности.
-	-	Выполнение операций, связанных с ЦП, заняло слишком много времени.
--	Причины на стороне сервера
-	-	В предложении кэша Standard служба кэша Redis для Azure инициировала отработку отказа с переходом с основного узла на вторичный узел.
-	-	В Azure было выполнено исправление экземпляра, в котором был развернут кэш.
-		-	Это могли быть обновления сервера Redis или обычное обслуживание ВМ.
-
-
+-   Client-side causes
+    -   The client application was redeployed.
+    -   The client application performed a scaling operation.
+        -   In the case of Cloud Services or Web Apps, this may be due to auto-scaling.
+    -   The networking layer on the client side changed.
+    -   Transient errors occurred in the client or in the network nodes between the client and the server.
+    -   The bandwidth threshold limits were reached.
+    -   CPU bound operations took too long to complete.
+-   Server-side causes
+    -   On the standard cache offering, the Azure Redis Cache service initiated a fail-over from the primary node to the secondary node.
+    -   Azure was patching the instance where the cache was deployed
+        -   This can be for Redis server updates or general VM maintenance.
 
 
 
 
 
-### Какой кэш Azure подходит мне?
-
->[AZURE.IMPORTANT]Согласно прошлогоднему [объявлению](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/), использование управляемой службы кэша Azure и службы кэша роли Azure будет прекращено 30 ноября 2016 года. Рекомендуется использовать [кэш Redis для Azure](https://azure.microsoft.com/services/cache/). Дополнительные сведения о переходе на новую службу см. в разделе [Перенос из управляемой службы кэша в кэш Redis для Azure](cache-migrate-to-redis.md).
-
-### кэш Azure Redis
-Кэш Redis для Azure, как правило, доступен в размере до 53 ГБ, а доступность по соглашению об уровне обслуживания составляет 99,9 %. Новый [уровень "Премиум"](cache-premium-tier-intro.md) доступен в предварительной версии: предлагается до 530 ГБ и поддержка кластеризации, виртуальной сети и сохраняемости в соответствии с соглашением об уровне обслуживания 99,9 %.
-
-Кэш Redis для Azure позволяет клиентам использовать безопасный выделенный кэш Redis, управляемый Майкрософт. В рамках этого предложения вам доступны широкий набор функций и экосистема от Redis, а также надежное размещение и мониторинг от Майкрософт.
-
-В отличие от обычных кэшей, работающих только с парами «ключ — значение», Redis популярен благодаря его высокоэффективным типам данных. Redis также поддерживает выполнение атомарных операций с этими типами, включая добавление в строку, инкрементное увеличение значения в хэше, публикация в список, вычисление пересечения, объединения и разницы в наборе; получение элемента с наивысшим рейтингом в сохраненном наборе. К другим функциям относится поддержка транзакций, публикации и подписок, скрипты Lua, ключи с ограниченным сроком жизни и параметры конфигурации, настройка которых обеспечивает схожее с традиционным кэшем поведение Redis.
-
-Другой важный фактор успеха Redis — это жизнеспособная, активно развивающаяся экосистема с открытым исходным кодом, построенная вокруг него. Это отражено в различных наборах клиентов Redis, доступных на разных языках. Поэтому его можно использовать почти для любой рабочей нагрузки, создаваемой в Azure.
-
-Дополнительные сведения о начале работы с кэшем Redis для Azure см. в разделе [Как использовать кэш Redis для Azure](cache-dotnet-how-to-use-azure-redis-cache.md) и [документации по кэшу Redis для Azure](https://azure.microsoft.com/documentation/services/redis-cache/).
-
-### Управляемая служба кэша
-[Управляемая служба кэша прекращает свою работу 30 ноября 2016 года.](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/)
-
-### Кэш в роли
-[Кэш роли прекращает свою работу 30 ноября 2016 года.](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/)
 
 
+### <a name="which-azure-cache-offering-is-right-for-me?"></a>Which Azure Cache offering is right for me?
+
+>[AZURE.IMPORTANT]As per last year's [announcement](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/), Azure Managed Cache Service and Azure In-Role Cache service will be retired on November 30, 2016. Our recommendation is to use [Azure Redis Cache](https://azure.microsoft.com/services/cache/). For information on migrating, see [Migrate from Managed Cache Service to Azure Redis Cache](cache-migrate-to-redis.md).
+
+### <a name="azure-redis-cache"></a>Azure Redis Cache
+Azure Redis Cache is Generally Available in sizes up to 53 GB and has an availability SLA of 99.9%. The new [premium tier](cache-premium-tier-intro.md) offers sizes up to 530 GB and support for clustering, VNET, and persistence, with a 99.9% SLA.
+
+Azure Redis Cache gives customers the ability to use a secure, dedicated Redis cache, managed by Microsoft. With this offer, you get to leverage the rich feature set and ecosystem provided by Redis, and reliable hosting and monitoring from Microsoft.
+
+Unlike traditional caches which deal only with key-value pairs, Redis is popular for its highly performant data types. Redis also supports running atomic operations on these types, like appending to a string; incrementing the value in a hash; pushing to a list; computing set intersection, union and difference; or getting the member with highest ranking in a sorted set. Other features include support for transactions, pub/sub, Lua scripting, keys with a limited time-to-live, and configuration settings to make Redis behave more like a traditional cache.
+
+Another key aspect to Redis success is the healthy, vibrant open source ecosystem built around it. This is reflected in the diverse set of Redis clients available across multiple languages. This allows it to be used by nearly any workload you would build inside of Azure. 
+
+For more information about getting started with Azure Redis Cache, see [How to Use Azure Redis Cache](cache-dotnet-how-to-use-azure-redis-cache.md) and [Azure Redis Cache documentation](https://azure.microsoft.com/documentation/services/redis-cache/).
+
+### <a name="managed-cache-service"></a>Managed Cache service
+[Managed Cache service is set to be retired November 30, 2016.](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/)
+
+### <a name="in-role-cache"></a>In-Role Cache
+[In-Role Cache is set to be retired November 30, 2016.](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/)
 
 
 
-[параметр конфигурации minIoThreads]: https://msdn.microsoft.com/library/vstudio/7w2sway1(v=vs.100).aspx
 
-<!---HONumber=AcomDC_0921_2016-->
+
+["minIoThreads" configuration setting]: https://msdn.microsoft.com/library/vstudio/7w2sway1(v=vs.100).aspx
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

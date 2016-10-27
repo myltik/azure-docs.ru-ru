@@ -1,30 +1,33 @@
 <!--author=alkohli last changed: 12/15/15-->
 
-| Идентификатор ограничения | Ограничение | Комментарии |
+| Limit identifier | Limit | Comments |
 |----------------- | ------|--------- |
-| Максимальное количество учетных данных учетной записи хранения | 64 | |
-| Максимальное количество контейнеров томов | 64 | |
-| Максимальное количество томов | 255 | |
-| Максимальное число расписаний на шаблон пропускной способности | 168 | Расписание на каждый час, каждый день недели (24 * 7). |
-| Максимальный размер многоуровневого тома на физических устройствах | 64 ТБ для 8100 и 8600 | 8100 и 8600 являются физическими устройствами. |
-| Максимальный размер многоуровневого тома на виртуальных устройствах в Azure | 30 ТБ для 8010 <br></br> 64 ТБ для 8020 | 8010 и 8020 – это виртуальные устройства в Azure, использующие хранилища категории «Стандартный» и «Премиум», соответственно. |
-| Максимальный размер локально закрепленного тома на физических устройствах | 9 ТБ для 8100 <br></br> 24 ТБ для 8600 | 8100 и 8600 являются физическими устройствами. |
-| Максимальное число подключений iSCSI | 512 | |
-| Максимальное число подключений iSCSI от инициаторов | 512 | |
-| Максимальное число записей системы контроля доступом для каждого устройства | 64 | |
-| Максимальное число томов на политику резервного копирования | 24 | |
-| Максимальное число хранимых резервных копий на политику резервного копирования | 64 | |
-| Максимальное число расписаний на политику резервного копирования | 10 | |
-| Максимальное число моментальных снимков любого типа, которые могут храниться для одного тома | 256 | Сюда входят локальные моментальные снимки и облачные моментальные снимки. |
-| Максимальное число моментальных снимков, которые могут присутствовать в любом устройстве | 10 000 | |
-| Максимальное число томов, которые могут обрабатываться параллельно для резервного копирования, восстановления или клонирования | 16 |<ul><li>При наличии более 16 томов они будут обрабатываться последовательно, по мере появления свободных слотов обработки.</li><li>Новые резервные копии клонированных или восстановленных многоуровневых томов не могут быть созданы до завершения операции. Тем не менее, после подключения тома к сети можно выполнять его архивацию.</li></ul>|
-| Время восстановления после восстановления или клонирования для многоуровневых томов | < 2 минут | <ul><li>Том становится доступен в течение двух минут после операции восстановления или клонирования, независимо от его размера.</li><li>Производительность тома может быть ниже, чем обычно, так как большинство данных и метаданных по-прежнему находится в облаке. Производительность может расти по мере поступления потоков данных из облака на устройство StorSimple.</li><li>Общее время загрузки метаданных зависит от размера выделенного тома. Метаданные автоматически переносятся на устройство в фоновом режиме со скоростью один ТБ данных тома за 5 минут. Эта скорость может зависеть от пропускной способности Интернета в облаке.</li><li>Операция восстановления или клонирования завершается, когда все метаданные оказываются на устройстве.</li><li>Операции резервного копирования не могут быть выполнены до полного завершения операции восстановления или клонирования.|
-| Время восстановления после восстановления для локально закрепленных томов | < 2 минут | <ul><li>Том становится доступен в течение двух минут после операции восстановления, независимо от его размера.</li><li>Производительность тома может быть ниже, чем обычно, так как большинство данных и метаданных по-прежнему находится в облаке. Производительность может расти по мере поступления потоков данных из облака на устройство StorSimple.</li><li>Общее время загрузки метаданных зависит от размера выделенного тома. Метаданные автоматически переносятся на устройство в фоновом режиме со скоростью один ТБ данных тома за 5 минут. Эта скорость может зависеть от пропускной способности Интернета для облака.</li><li>В отличие от многоуровневых томов, в случае локально закрепленных томов данные тома также скачиваются локально на устройство. Операция восстановления завершается, когда все данные тома помещены в устройство.</li><li>Операции восстановления могут быть длительными, и общее время восстановления будет зависеть от размера подготовленного локального тома, пропускной способности Интернета и существующих данных на устройстве. Во время операции восстановления разрешены операции архивации с локально закрепленным томом.|
-| Возможность тонкого восстановления данных | Отработка последнего отказа | |
-| Максимальная клиентская скорость чтения/записи (при использовании SSD) * | 920 или 720 МБ/с для одного сетевого интерфейса Ethernet 10 Гбит/с | Повышается до 2 раз при использовании MPIO и двух сетевых интерфейсов. |
-| Максимальная клиентская пропускная способность чтения/записи (при использовании HDD)* | 120/250 МБ/с |
-| Максимальная клиентская скорость чтения/записи (при выполнении операции из облака)* | 11/41 МБ/с | Скорость чтения зависит от создания и поддержания клиентами достаточной глубины очереди ввода-вывода. |
+| Maximum number of storage account credentials | 64 | |
+| Maximum number of volume containers | 64 | |
+| Maximum number of volumes | 255 | |
+| Maximum number of schedules per bandwidth template | 168 | A schedule for every hour, every day of the week (24*7). |
+| Maximum size of a tiered volume on physical devices | 64 TB for 8100 and 8600 | 8100 and 8600 are physical devices. |
+| Maximum size of a tiered volume on virtual devices in Azure | 30 TB for 8010 <br></br> 64 TB for 8020 | 8010 and 8020 are virtual devices in Azure that use Standard Storage and Premium Storage respectively. |
+| Maximum size of a locally pinned volume on physical devices | 9 TB for 8100 <br></br> 24 TB for 8600 | 8100 and 8600 are physical devices. |
+| Maximum number of iSCSI connections | 512 | |
+| Maximum number of iSCSI connections from initiators | 512 | |
+| Maximum number of access control records per device | 64 | |
+| Maximum number of volumes per backup policy | 24 | |
+| Maximum number of backups retained per backup policy | 64 | |
+| Maximum number of schedules per backup policy | 10 | |
+| Maximum number of snapshots of any type that can be retained per volume | 256 | This includes local snapshots and cloud snapshots. |
+| Maximum number of snapshots that can be present in any device | 10,000 | |
+| Maximum number of volumes that can be processed in parallel for backup, restore, or clone | 16 |<ul><li>If there are more than 16 volumes, they will be processed sequentially as processing slots become available.</li><li>New backups of a cloned or a restored tiered volume cannot occur until the operation is finished. However, for a local volume, backups are allowed after the volume is online.</li></ul>|
+| Restore and clone recover time for tiered volumes | < 2 minutes | <ul><li>The volume is made available within 2 minutes of restore or clone operation, regardless of the volume size.</li><li>The volume performance may initially be slower than normal as most of the data and metadata still resides in the cloud. Performance may increase as data flows from the cloud to the StorSimple device.</li><li>The total time to download metadata depends on the allocated volume size. Metadata is automatically brought into the device in the background at the rate of 5 minutes per TB of allocated volume data. This rate may be affected by Internet bandwidth to the cloud.</li><li>The restore or clone operation is complete when all the metadata is on the device.</li><li>Backup operations cannot be performed until the restore or clone operation is fully complete.|
+| Restore recover time for locally pinned volumes | < 2 minutes | <ul><li>The volume is made available within 2 minutes of the restore operation, regardless of the volume size.</li><li>The volume performance may initially be slower than normal as most of the data and metadata still resides in the cloud. Performance may increase as data flows from the cloud to the StorSimple device.</li><li>The total time to download metadata depends on the allocated volume size. Metadata is automatically brought into the device in the background at the rate of 5 minutes per TB of allocated volume data. This rate may be affected by Internet bandwidth to the cloud.</li><li>Unlike tiered volumes, in the case of locally pinned volumes, the volume data is also downloaded locally on the device. The restore operation is complete when all the volume data has been brought to the device.</li><li>The restore operations may be long and the total time to complete the restore will depend on the size of the provisioned local volume, your Internet bandwidth and the existing data on the device. Backup operations on the locally pinned volume are allowed while the restore operation is in progress.|
+| Thin-restore availability | Last failover | |
+| Maximum client read/write throughput (when served from the SSD tier)* | 920/720 MB/s with a single 10GbE network interface | Up to 2x with MPIO and two network interfaces. |
+| Maximum client read/write throughput (when served from the HDD tier)* | 120/250 MB/s |
+| Maximum client read/write throughput (when served from the cloud tier)* | 11/41 MB/s | Read throughput depends on clients generating and maintaining sufficient I/O queue depth. |
 
-&#42; Максимальная пропускная способность для каждого типа операции ввода-вывода была измерена для сценариев со 100 % операций чтения и 100 % операций записи. Фактическая пропускная способность может быть ниже и зависит от состояния сети и сочетания операций ввода-вывода.
+&#42; Maximum throughput per I/O type was measured with 100 percent read and 100 percent write scenarios. Actual throughput may be lower and depends on I/O mix and network conditions.
 
-<!---HONumber=AcomDC_0114_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

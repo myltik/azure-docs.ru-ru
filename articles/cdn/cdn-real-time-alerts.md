@@ -1,118 +1,124 @@
 <properties
-	pageTitle="Оповещения в режиме реального времени в сети CDN Azure | Microsoft Azure"
-	description="Оповещения в режиме реального времени в сети CDN Microsoft Azure. Оповещения в режиме реального времени позволяют получать уведомления о производительности конечных точек в профиле CDN."
-	services="cdn"
-	documentationCenter=""
-	authors="camsoper"
-	manager="erikre"
-	editor=""/>
+    pageTitle="Azure CDN Real-Time Alerts | Microsoft Azure"
+    description="Real-time alerts in Microsoft Azure CDN. Real-time alerts provide notifications about the performance of the endpoints in your CDN profile."
+    services="cdn"
+    documentationCenter=""
+    authors="camsoper"
+    manager="erikre"
+    editor=""/>
 
 <tags
-	ms.service="cdn"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/12/2016"
-	ms.author="casoper"/>
+    ms.service="cdn"
+    ms.workload="tbd"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="07/12/2016"
+    ms.author="casoper"/>
 
-# Оповещения в режиме реального времени в сети CDN Microsoft Azure
+
+# <a name="real-time-alerts-in-microsoft-azure-cdn"></a>Real-time alerts in Microsoft Azure CDN
 
 [AZURE.INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
 
 
-## Обзор
+## <a name="overview"></a>Overview
 
-В этом документе содержатся сведения об оповещениях в режиме реального времени в сети CDN Microsoft Azure. Эта функция предоставляет актуальные уведомления о производительности конечных точек в профиле CDN. Вы можете настроить сообщения с оповещением или оповещения HTTP на основе:
+This document explains real-time alerts in Microsoft Azure CDN. This functionality provides real-time notifications about the performance of the endpoints in your CDN profile.  You can set up email or HTTP alerts based on:
 
-* Пропускная способность
-* Коды состояний
-* Состояния кэша
-* Подключения
+* Bandwidth
+* Status Codes
+* Cache Statuses
+* Connections
 
-## Создание оповещения в режиме реального времени
+## <a name="creating-a-real-time-alert"></a>Creating a real-time alert
 
-1. На [портале Azure](https://portal.azure.com) перейдите к профилю CDN.
+1. In the [Azure Portal](https://portal.azure.com), browse to your CDN profile.
 
-	![Колонка профиля сети CDN](./media/cdn-real-time-alerts/cdn-profile-blade.png)
+    ![CDN profile blade](./media/cdn-real-time-alerts/cdn-profile-blade.png)
 
-2. В колонке профиля CDN нажмите кнопку **Управление**.
+2. From the CDN profile blade, click the **Manage** button.
 
-	![Кнопка управления в колонке профиля CDN](./media/cdn-real-time-alerts/cdn-manage-btn.png)
+    ![CDN profile blade manage button](./media/cdn-real-time-alerts/cdn-manage-btn.png)
 
-	Откроется портал управления CDN.
+    The CDN management portal opens.
 
-3. Наведите указатель на вкладку **Аналитика**, а затем на всплывающее окно **Статистика в реальном времени**. Щелкните **Real-Time Alerts** (Оповещения в реальном времени).
+3. Hover over the **Analytics** tab, then hover over the **Real-Time Stats** flyout.  Click on **Real-Time Alerts**.
 
-	![Портал управления CDN](./media/cdn-real-time-alerts/cdn-premium-portal.png)
+    ![CDN management portal](./media/cdn-real-time-alerts/cdn-premium-portal.png)
 
-	Отобразится список имеющихся конфигураций оповещений (при их наличии).
+    The list of existing alert configurations (if any) is displayed.
 
-4. Нажмите кнопку **Добавить оповещение**.
+4. Click the **Add Alert** button.
 
-	![Кнопка "Добавить оповещение"](./media/cdn-real-time-alerts/cdn-add-alert.png)
+    ![Add Alert button](./media/cdn-real-time-alerts/cdn-add-alert.png)
 
-	Откроется форма для создания оповещения.
+    A form for creating a new alert is displayed.
 
-	![Форма нового оповещения](./media/cdn-real-time-alerts/cdn-new-alert.png)
+    ![New Alert form](./media/cdn-real-time-alerts/cdn-new-alert.png)
 
-5. Если вы хотите, чтобы оповещение становилось активным после нажатия кнопки **Сохранить**, установите флажок **Alert Enabled** (Оповещение включено).
+5. If you want this alert to be active when you click **Save**, check the **Alert Enabled** checkbox.
 
-6. В поле **Имя** введите описательное имя для оповещения.
+6. Enter a descriptive name for your alert in the **Name** field.
 
-7. В раскрывающемся списке **Media Type** (Тип носителя) выберите **HTTP Large Object** (Большой объект HTTP).
+7. In the **Media Type** dropdown, select **HTTP Large Object**.
 
-	![Параметр Media Type (Тип носителя) с выбранным значением HTTP Large Object (Большой объект HTTP)](./media/cdn-real-time-alerts/cdn-http-large.png)
+    ![Media Type with HTTP Large Object selected](./media/cdn-real-time-alerts/cdn-http-large.png)
 
-	> [AZURE.IMPORTANT] В качестве **типа носителя** нужно выбрать **HTTP Large Object** (Большой объект HTTP). **Azure CDN от Verizon** не поддерживает другие типы. Если не выбрать тип **HTTP Large Object** (Большой объект HTTP), оповещения не будут активироваться.
+    > [AZURE.IMPORTANT] You must select **HTTP Large Object** as the **Media Type**.  The other choices are not used by **Azure CDN from Verizon**.  Failure to select **HTTP Large Object** will cause your alert to never be triggered.
 
-8. Создайте **выражение** для мониторинга, выбрав значения параметров **Метрика**, **Оператор** и **Триггер**.
+8. Create an **Expression** to monitor by selecting a **Metric**, **Operator**, and **Trigger value**.
 
-	- Для параметра **Метрика** выберите тип условия, по которому следует осуществлять мониторинг. **Bandwidth Mbps** (Пропускная способность в Мбит/с) — это объем использования пропускной способности в мегабитах в секунду. **Всего подключений** — число одновременных подключений HTTP к нашим пограничным серверам. Определения различных состояний кэша и кодов состояния см. в разделах [Azure CDN Cache Status Codes](https://msdn.microsoft.com/library/mt759237.aspx) (Коды состояния кэша в сети Azure CDN) и [Azure CDN HTTP Status Codes](https://msdn.microsoft.com/library/mt759238.aspx) (Коды состояний HTTP в сети Azure CDN).
-	- **Оператор** — математический оператор, который устанавливает связь между метрикой и значением триггера.
-	- **Trigger Value** (Значение триггера) — это пороговое значение, которое должно быть достигнуто для отправления уведомления.
+    - For **Metric**, select the type of condition you want monitored.  **Bandwidth Mbps** is the amount of bandwidth usage in megabits per second.  **Total Connections** is the number of concurrent HTTP connections to our edge servers.  For definitions of the various cache statuses and status codes, see [Azure CDN Cache Status Codes](https://msdn.microsoft.com/library/mt759237.aspx) and [Azure CDN HTTP Status Codes](https://msdn.microsoft.com/library/mt759238.aspx)
+    - **Operator** is the mathematical operator that establishes the relationship between the metric and the trigger value.
+    - **Trigger Value** is the threshold value that must be met before a notification will be sent out.
 
-	В следующем примере используется выражение, которое активирует отправку уведомления, если количество кодов состояния 404 превышает 25.
+    In the below example, the expression I have created indicates that I would like to be notified when the number of 404 status codes is greater than 25.
 
-	![Пример выражения для оповещения в режиме реального времени](./media/cdn-real-time-alerts/cdn-expression.png)
+    ![Real-time alert sample expression](./media/cdn-real-time-alerts/cdn-expression.png)
 
-9. Для параметра **Интервал** укажите, как часто следует проверять выражение.
+9. For **Interval**, enter how frequently you would like the expression evaluated.
 
-10. В раскрывающемся списке **Notify on** (Когда уведомлять) выберите, когда вы хотите получать уведомления, если выражение совпадает.
-	
-	- **Condition Start** (Начало условия) означает, что уведомление будет отправлено при обнаружении указанного условия.
-	- **Condition End** (Конец условия) означает, что уведомление будет отправлено, когда указанное условие больше не выполняется. Это уведомление будет активировано, только когда система мониторинга сети обнаружит, что заданное условие выполнено.
-	- **Непрерывно** означает, что уведомление будет отправляться каждый раз, когда система мониторинга сети обнаружит указанное условие. Обратите внимание, что система мониторинга сети проверяет выполнение заданного условия только один раз в рамках интервала.
-	- **Condition Start and End** (Начало и конец условия) указывает, что уведомления будут отправляться сразу после обнаружения заданного условия и еще раз, когда условие больше не будет выполняться.
+10. In the **Notify on** dropdown, select when you would like to be notified when the expression is true.
+    
+    - **Condition Start** indicates that a notification will be sent when the specified condition is first detected.
+    - **Condition End** indicates that a notification will be sent when the specified condition is no longer detected. This notification can only be triggered after our network monitoring system detected that the specified condition occurred.
+    - **Continuous** indicates that a notification will be sent each time that the network monitoring system detects the specified condition. Keep in mind that the network monitoring system will only check once per interval for the specified condition.
+    - **Condition Start and End** indicates that a notification will be sent the first time that the specified condition is detected and once again when the condition is no longer detected.
 
-11. Если вы хотите получать уведомления по электронной почте, установите флажок **Notify by Email** (Уведомлять по электронной почте).
+11. If you want to receive notifications by email, check the **Notify by Email** checkbox.  
 
-	![Форма уведомления по электронной почте](./media/cdn-real-time-alerts/cdn-notify-email.png)
-	
-	В поле **Кому** введите адрес электронной почты для отправки уведомлений. В полях **Тема** и **Текст** можно оставить значения по умолчанию либо можно настроить сообщение с помощью списка **Available keywords** (Доступные ключевые слова), чтобы динамически вставлять данные оповещения при отправке сообщения.
+    ![Notify by Email form](./media/cdn-real-time-alerts/cdn-notify-email.png)
+    
+    In the **To** field, enter the email address you where you want notifications sent. For **Subject** and **Body**, you may leave the default, or you may customize the message using the **Available keywords** list to dynamically insert alert data when the message is sent.
 
-	> [AZURE.NOTE] Вы можете проверить уведомление по электронной почте. Для этого после сохранения конфигурации оповещений нажмите кнопку **Test Notification** (Проверить уведомление).
+    > [AZURE.NOTE] You can test the email notification by clicking the **Test Notification** button, but only after the alert configuration has been saved.
 
-12. Чтобы публиковать уведомления на веб-сервере, установите флажок **Notify by HTTP Post** (Уведомлять с помощью HTTP Post).
+12. If you want notifications to be posted to a web server, check the **Notify by HTTP Post** checkbox.
 
-	![Форма уведомления HTTP Post](./media/cdn-real-time-alerts/cdn-notify-http.png)
+    ![Notify by HTTP Post form](./media/cdn-real-time-alerts/cdn-notify-http.png)
 
-	В поле **URL-адрес** введите URL-адрес для публикации HTTP-сообщения. В текстовом поле **Заголовки** введите заголовки HTTP, отправляемые в запросе. В поле **Текст** можно настроить сообщение с помощью списка **Available keywords** (Доступные ключевые слова), чтобы динамически вставлять данные оповещения при отправке сообщения. По умолчанию в полях **Заголовки** и **Текст** содержатся полезные данные XML, как в примере ниже.
+    In the **Url** field, enter the URL you where you want the HTTP message posted. In the **Headers** textbox, enter the HTTP headers to be sent in the request.  For **Body** you may customize the message using the **Available keywords** list to dynamically insert alert data when the message is sent.  **Headers** and **Body** default to an XML payload similar to the below example.
 
-	```
-	<string xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
-		<![CDATA[Expression=Status Code : 404 per second > 25&Metric=Status Code : 404 per second&CurrentValue=[CurrentValue]&NotificationCondition=Condition Start]]>
-	</string>
-	```
+    ```
+    <string xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+        <![CDATA[Expression=Status Code : 404 per second > 25&Metric=Status Code : 404 per second&CurrentValue=[CurrentValue]&NotificationCondition=Condition Start]]>
+    </string>
+    ```
 
-	> [AZURE.NOTE] Вы можете проверить уведомление HTTP Post. Для этого после сохранения конфигурации оповещений нажмите кнопку **Test Notification** (Проверить уведомление).
+    > [AZURE.NOTE] You can test the HTTP Post notification by clicking the **Test Notification** button, but only after the alert configuration has been saved.
 
-13. Нажмите кнопку **Сохранить**, чтобы сохранить конфигурацию оповещений. Если вы установили флажок **Alert Enabled** (Оповещение включено) на шаге 5, оповещение активно.
+13. Click the **Save** button to save your alert configuration.  If you checked **Alert Enabled** in step 5, your alert is now active.
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Next Steps
 
-- См. статью [Статистика в реальном времени в сети CDN Microsoft Azure](cdn-real-time-stats.md).
-- См. сведения о [расширенных HTTP-отчетах](cdn-advanced-http-reports.md).
-- См. сведения об [анализе шаблонов использования](cdn-analyze-usage-patterns.md).
+- Analyze [Real-time stats in Azure CDN](cdn-real-time-stats.md)
+- Dig deeper with [advanced HTTP reports](cdn-advanced-http-reports.md)
+- Analyze [usage patterns](cdn-analyze-usage-patterns.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

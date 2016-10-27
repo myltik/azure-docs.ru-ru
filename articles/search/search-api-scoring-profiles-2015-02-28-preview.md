@@ -1,34 +1,35 @@
 <properties
-	pageTitle="Профили оценки (REST API службы Поиска Azure, версия 2015-02-28-Preview) | Microsoft Azure | API Поиска Azure (предварительная версия)"
-	description="Поиск Azure — это размещенная облачная служба поиска, которая поддерживает настройку ранжированных результатов на основе определяемых пользователем профилей повышения."
-	services="search"
-	documentationCenter=""
-	authors="HeidiSteen"
-	manager="jhubbard"
-	editor=""/>
+    pageTitle="Scoring profiles (Azure Search REST API Version 2015-02-28-Preview) | Microsoft Azure | Azure Search Preview API"
+    description="Azure Search is a hosted cloud search service that supports tuning of ranked results based on user-defined scoring profiles."
+    services="search"
+    documentationCenter=""
+    authors="HeidiSteen"
+    manager="jhubbard"
+    editor=""/>
 
 <tags
-	ms.service="search"
-	ms.devlang="rest-api"
-	ms.workload="search"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.author="heidist"
-	ms.date="08/29/2016" />
+    ms.service="search"
+    ms.devlang="rest-api"
+    ms.workload="search"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.author="heidist"
+    ms.date="08/29/2016" />
 
-# Профили оценки (API REST службы "Поиск Azure", версия 2015-02-28-Preview)
 
-> [AZURE.NOTE] В этой статье описываются профили оценки, доступные в версии [2015-02-28-Preview](search-api-2015-02-28-preview.md). Сейчас нет различий между версией `2015-02-28`, описанной на сайте [MSDN](http://msdn.microsoft.com/library/azure/mt183328.aspx), и версией `2015-02-28-Preview`, описанной в этой статье. Однако мы предлагаем этот документ, чтобы обеспечить полную документацию по API.
+# <a name="scoring-profiles-(azure-search-rest-api-version-2015-02-28-preview)"></a>Scoring Profiles (Azure Search REST API Version 2015-02-28-Preview)
 
-## Обзор
+> [AZURE.NOTE] This article describes scoring profiles in the [2015-02-28-Preview](search-api-2015-02-28-preview.md). Currently there is no difference between the `2015-02-28` version documented on [MSDN](http://msdn.microsoft.com/library/azure/mt183328.aspx) and the `2015-02-28-Preview` version described here, but we offer this document anyway in order to provide document coverage across the entire API.
 
-Оценка — это вычисление оценки поиска для всех элементов, возвращенных в результатах поиска. Это показатель релевантности элемента в контексте текущей операции поиска. Чем выше оценка, тем более релевантен элемент. Элементы в результатах поиска упорядочиваются по рангу (от наивысшего до наименьшего) на основе оценок поиска, вычисленных для каждого элемента.
+## <a name="overview"></a>Overview
 
-В службе "Поиск Azure" используется метод начальной оценки по умолчанию, но вы можете настроить вычисление с помощью профиля оценки. Профили оценки позволяют управлять приоритетом элементов в результатах поиска. Например, может потребоваться повысить приоритет элементов на основе потенциального дохода, повысить уровень более новых элементов или, возможно, элементов, которые слишком долго находились на складе.
+Scoring refers to the computation of a search score for every item returned in search results. The score is an indicator of an item's relevance in the context of the current search operation. The higher the score, the more relevant the item. In search results, items are rank ordered from high to low, based on the search score calculated for each item.
 
-Профиль оценки — часть определения индекса, состоящая из полей, функций и параметров.
+Azure Search uses default scoring to compute an initial score, but you can customize the calculation through a scoring profile. Scoring profiles give you greater control over the ranking of items in search results. For example, you might want to boost items based on their revenue potential, promote newer items, or perhaps boost items that have been in inventory too long.
 
-В следующем примере показан простой профиль geo, который поможет вам получить представление о профиле оценки. Он повышает приоритет элементов, содержащих условие поиска в поле `hotelName`. Он также использует функцию `distance` для выбора элементов, которые находятся в пределах десяти километров от текущего расположения. Если кто-то ищет слово inn, которое входит в название отеля, документы, содержащие слово inn, будут показаны в результатах поиска выше.
+A scoring profile is part of the index definition, composed of fields, functions, and parameters.
+
+To give you an idea of what a scoring profile looks like, the following example shows a simple profile named 'geo'. This one boosts items that have the search term in the `hotelName` field. It also uses the `distance` function to favor items that are within ten kilometers of the current location. If someone searches on the term 'inn', and 'inn' happens to be part of the hotel name, documents that include hotels with 'inn' will appear higher in the search results.
 
     "scoringProfiles": [
       {
@@ -51,59 +52,59 @@
       }
     ]
 
-Чтобы использовать этот профиль оценки, в строке запроса необходимо указать профиль. В следующем запросе обратите внимание на параметр `scoringProfile=geo`.
+To use this scoring profile, your query is formulated to specify the profile on the query string. In the query below, notice the query parameter, `scoringProfile=geo` in the request.
 
     GET /indexes/hotels/docs?search=inn&scoringProfile=geo&scoringParameter=currentLocation--122.123,44.77233&api-version=2015-02-28-Preview
 
-Этот запрос выполняет поиск слова inn и передает текущее расположение. Обратите внимание, что этот запрос содержит другие параметры, такие как `scoringParameter`. Параметры запроса описаны в [разделе, в котором рассматривается поиск документов (API службы "Поиск Azure")](search-api-2015-02-28-preview.md#SearchDocs).
+This query searches on the term 'inn' and passes in the current location. Note that this query includes other parameters, such as `scoringParameter`. Query parameters are described in [Search Documents (Azure Search API)](search-api-2015-02-28-preview.md#SearchDocs).
 
-Щелкните [Пример](#example), чтобы просмотреть более подробный пример профиля оценки.
+Click [Example](#example) to review a more detailed example of a scoring profile.
 
-## Что такое оценка по умолчанию?
+## <a name="what-is-default-scoring?"></a>What is default scoring?
 
-В процессе оценки вычисляется оценка поиска для каждого элемента в упорядоченном по рангу результирующем наборе. Каждому элементу в результирующем наборе поиска назначается оценка поиска (от наивысшей до наименьшей). Элементы с более высокой оценкой возвращаются приложению. По умолчанию возвращаются первые 50 элементов, но можно использовать параметр `$top`, чтобы вернуть меньше или больше элементов (до 1000 в одном ответе).
+Scoring computes a search score for each item in a rank ordered result set. Every item in a search result set is assigned a search score, then ranked highest to lowest. Items with the higher scores are returned to the application. By default, the top 50 are returned, but you can use the `$top` parameter to return a smaller or larger number of items (up to 1000 in a single response).
 
-По умолчанию оценка поиска вычисляется на основе статистических свойств данных и запроса. Поиск Azure находит документы, содержащие условия поиска в строке запроса (некоторые или все в зависимости от `searchMode`), отдавая предпочтение документам, которые содержат несколько экземпляров условия поиска. Оценка поиска возрастает, если условие поиска редко встречается в совокупности данных, но часто — внутри документа. Основу для такого подхода к вычислению релевантности называют TF-IDF (частота условия — инверсная частота в документе).
+By default, a search score is computed based on statistical properties of the data and the query. Azure Search finds documents that include the search terms in the query string (some or all, depending on `searchMode`), favoring documents that contain many instances of the search term. The search score goes up even higher if the term is rare across the data corpus, but common within the document. The basis for this approach to computing relevance is known as TF-IDF or (term frequency-inverse document frequency).
 
-Если предположить, что пользовательская сортировка не применяется, результаты ранжируются по оценке поиска, прежде чем они будут возвращены вызывающему приложению. Если параметр `$top` не указан, возвращаются 50 элементов с наивысшей оценкой поиска.
+Assuming there is no custom sorting, results are then ranked by search score before they are returned to the calling application. If `$top` is not specified, 50 items having the highest search score are returned.
 
-Значения оценки поиска в результирующем наборе могут повторяться. Например, может быть 10 элементов с оценкой 1,2, 20 элементов с оценкой 1,0 и 20 элементов с оценкой 0,5. Если у нескольких совпадений одинаковая оценка поиска, порядок сортировки элементов не определен и не является стабильным. Выполните запрос еще раз, и, возможно, позиции элементов изменятся. Если есть два элемента с одинаковой оценкой, невозможно определить, какой из них отобразится первым.
+Search score values can be repeated throughout a result set. For example, you might have 10 items with a score of 1.2, 20 items with a score of 1.0, and 20 items with a score of 0.5. When multiple hits have the same search score, the ordering of same scored items is not defined, and is not stable. Run the query again, and you might see items shift position. Given two items with an identical score, there is no guarantee which one appears first.
 
-## Когда следует использовать пользовательские оценки
+## <a name="when-to-use-custom-scoring"></a>When to use custom scoring
 
-Вам следует создать один или несколько профилей оценки, если ранжирование по умолчанию не соответствует вашим бизнес-целям. Например, вы можете решить, что при поиске следует предпочитать вновь добавленные элементы. Аналогично, у вас может быть поле, содержащее удельную прибыль, или другое поле, указывающее потенциальный доход. Повышение приоритета элементов, которые дают преимущества для бизнеса, может быть важным фактором при решении об использовании профилей оценки.
+You should create one or more scoring profiles when the default ranking behavior doesn’t go far enough in meeting your business objectives. For example, you might decide that search relevance should favor newly added items. Likewise, you might have a field that contains profit margin, or some other field indicating revenue potential. Boosting hits that bring benefits to your business can be an important factor in deciding to use scoring profiles.
 
-Упорядочивание на основе релевантности также реализуется с помощью профилей оценки. Рассмотрим страницы результатов поиска, которые вы использовали ранее, позволяющие сортировать данные по цене, дате, рейтингу или релевантности. В службе "Поиск Azure" профили оценки предоставляют параметр "релевантности". Определение релевантности контролируете вы в соответствии с бизнес-целями и типом результатов поиска, которые хотите предоставить.
+Relevancy-based ordering is also implemented through scoring profiles. Consider search results pages you’ve used in the past that let you sort by price, date, rating, or relevance. In Azure Search, scoring profiles drive the 'relevance' option. The definition of relevance is controlled by you, predicated on business objectives and the type of search experience you want to deliver.
 
 <a name="example"></a>
-## Пример
+## <a name="example"></a>Example
 
-Как отмечалось ранее, пользовательская оценка реализуется с профилей оценки, определенных в схеме индекса.
+As noted, customized scoring is implemented through scoring profiles defined in an index schema.
 
-В этом примере показана схема индекса с двумя профилями оценки (`boostGenre`, `newAndHighlyRated`). Любой запрос к этому индексу, включающий профиль в качестве параметра запроса, будет использовать профиль для оценки результирующего набора.
+This example shows the schema of an index with two scoring profiles (`boostGenre`, `newAndHighlyRated`). Any query against this index that includes either profile as a query parameter will use the profile to score the result set.
 
-[Ознакомьтесь с этим примером](search-get-started-scoring-profiles.md).
+[Try this example](search-get-started-scoring-profiles.md).
 
     {
       "name": "musicstoreindex",
-	  "fields": [
-	    { "name": "key", "type": "Edm.String", "key": true },
-	    { "name": "albumTitle", "type": "Edm.String" },
-	    { "name": "albumUrl", "type": "Edm.String", "filterable": false },
-	    { "name": "genre", "type": "Edm.String" },
-	    { "name": "genreDescription", "type": "Edm.String", "filterable": false },
-	    { "name": "artistName", "type": "Edm.String" },
-	    { "name": "orderableOnline", "type": "Edm.Boolean" },
-	    { "name": "rating", "type": "Edm.Int32" },
-	    { "name": "tags", "type": "Collection(Edm.String)" },
-	    { "name": "price", "type": "Edm.Double", "filterable": false },
-	    { "name": "margin", "type": "Edm.Int32", "retrievable": false },
-	    { "name": "inventory", "type": "Edm.Int32" },
-	    { "name": "lastUpdated", "type": "Edm.DateTimeOffset" }
-	  ],
+      "fields": [
+        { "name": "key", "type": "Edm.String", "key": true },
+        { "name": "albumTitle", "type": "Edm.String" },
+        { "name": "albumUrl", "type": "Edm.String", "filterable": false },
+        { "name": "genre", "type": "Edm.String" },
+        { "name": "genreDescription", "type": "Edm.String", "filterable": false },
+        { "name": "artistName", "type": "Edm.String" },
+        { "name": "orderableOnline", "type": "Edm.Boolean" },
+        { "name": "rating", "type": "Edm.Int32" },
+        { "name": "tags", "type": "Collection(Edm.String)" },
+        { "name": "price", "type": "Edm.Double", "filterable": false },
+        { "name": "margin", "type": "Edm.Int32", "retrievable": false },
+        { "name": "inventory", "type": "Edm.Int32" },
+        { "name": "lastUpdated", "type": "Edm.DateTimeOffset" }
+      ],
       "scoringProfiles": [
         {
-	      "name": "boostGenre",
+          "name": "boostGenre",
           "text": {
             "weights": {
               "albumTitle": 1.5,
@@ -111,9 +112,9 @@
               "artistName": 2
             }
           }
-	    },
+        },
         {
-	      "name": "newAndHighlyRated",
+          "name": "newAndHighlyRated",
           "functions": [
             {
               "type": "freshness",
@@ -148,41 +149,41 @@
     }
 
 
-## Рабочий процесс
+## <a name="workflow"></a>Workflow
 
-Чтобы реализовать пользовательское поведение оценки, добавьте профиль оценки в схему, которая определяет индекс. В индексе может быть несколько профилей оценки, но в одном запросе можно указать только один профиль.
+To implement custom scoring behavior, add a scoring profile to the schema that defines the index. You can have multiple scoring profiles within an index, but you can only specify one profile at time in any given query.
 
-Начните с [шаблона](#bkmk_template), приведенного в этой статье.
+Start with the [Template](#bkmk_template) provided in this topic.
 
-Введите имя. Профили оценки не являются обязательными, но если вы добавите профиль, необходимо указать имя. Следуйте соглашениям об именовании полей (начинается с буквы, не содержит специальных символов и зарезервированных слов). Правила именования приведены в статье [Правила именования](http://msdn.microsoft.com/library/azure/dn857353.aspx).
+Provide a name. Scoring profiles are optional, but if you add one, the name is required. Be sure to follow the naming conventions for fields (starts with a letter, avoids special characters and reserved words). See [Naming Rules](http://msdn.microsoft.com/library/azure/dn857353.aspx) for more information.
 
-Текст профиля оценки состоит из взвешенных полей и функций.
+The body of the scoring profile is constructed from weighted fields and functions.
 
-### Weights ###
+### <a name="weights"></a>Weights ###
 
-Свойство `weights` профиля повышения содержит пары "имя–значение", которые назначают полю относительный вес. В [примере](#example) приоритет полей albumTitle, genre и artistName повышается на 1,5, 5 и 2 позиции соответственно. Почему для поля genre приоритет повышен намного больше, чем для других полей? Если поиск выполняется в однородных данных (как в случае с genre в `musicstoreindex`), вам может потребоваться большая вариативность в относительных весах. Например, в `musicstoreindex` «рок» появляется как жанр и в идентично сформулированных описаниях жанра. Если жанр должен обладать большим весом, чем описание жанра, полю genre потребуется назначить гораздо больший относительный вес.
+The `weights` property of a scoring profile specifies name-value pairs that assign a relative weight to a field. In the [Example](#example), the albumTitle, genre, and artistName fields are boosted 1.5, 5, and 2, respectively. Why is genre boosted so much higher than the others? If search is conducted over data that is somewhat homogeneous (as is the case with 'genre' in the `musicstoreindex`), you might need a larger variance in the relative weights. For example, in the `musicstoreindex`, 'rock' appears as both a genre and in identically phrased genre descriptions. If you want genre to outweigh genre description, the genre field will need a much higher relative weight.
 
-### Functions ###
+### <a name="functions"></a>Functions ###
 
-Функции используются, когда необходимы дополнительные вычисления для определенных контекстов. Допустимые типы функций: `freshness`, `magnitude`, `distance` и `tag`. Каждая функция имеет свои уникальные параметры.
+Functions are used when additional calculations are required for specific contexts. Valid function types are `freshness`, `magnitude`, `distance` and `tag`. Each function has parameters that are unique to it.
 
-  - `freshness` следует использовать, если вам необходимо повысить приоритет нового или старого элемента в зависимости от его "возраста". Эта функция может использоваться только с полями типа "дата и время" (`Edm.DataTimeOffset`). Обратите внимание, что атрибут `boostingDuration` используется только с функцией freshness.
-  - `magnitude` следует применять, когда требуется повысить приоритет элементов на основе числового значения. К сценариям, в которых может вызваться эта функция, относится повышение приоритета на основе прибыли, наибольшей цены, наименьшей цены или числа загрузок. Можно задать обратный диапазон (от высоких оценок до низких), если результаты нужно отобразить в обратном порядке (например, повысить приоритет для элементов с более низкими ценами по сравнению с элементами с более высокими ценами). Если у вас есть диапазон цен от 100 до 1 доллара США, для параметров `boostingRangeStart` и `boostingRangeEnd` следует установить значения 100 и 1 соответственно, чтобы повысить приоритет для элементов с более низкими ценами. Эта функция может использоваться только с полями типа double и integer.
-  - `distance` следует применять, чтобы повысить приоритет по близости или географическому расположению. Эта функция может использоваться только с полями типа `Edm.GeographyPoint`.
-  - `tag` следует применять, чтобы повысить приоритет по тегам, которые одновременно используются в документах и поисковых запросах. Эта функция может использоваться только с полями `Edm.String` и `Collection(Edm.String)`.
+  - `freshness` should be used when you want to boost by how new or old an item is. This function can only be used with datetime fields (`Edm.DataTimeOffset`). Note the `boostingDuration` attribute is used only with the freshness function.
+  - `magnitude` should be used when you want to boost based on how high or low a numeric value is. Scenarios that call for this function include boosting by profit margin, highest price, lowest price, or a count of downloads. You can reverse the range, high to low, if you want the inverse pattern (for example, to boost lower-priced items more than higher-priced items). Given a range of prices from $100 to $1, you would set `boostingRangeStart` at 100 and `boostingRangeEnd` at 1 to boost the lower-priced items. This function can only be used with double and integer fields.
+  - `distance` should be used when you want to boost by proximity or geographic location. This function can only be used with `Edm.GeographyPoint` fields.
+  - `tag` should be used when you want to boost by tags in common between documents and search queries. This function can only be used with `Edm.String` and `Collection(Edm.String)` fields.
   
-#### Правила использования функции ####
+#### <a name="rules-for-using-functions"></a>Rules for using functions ####
 
-  - Тип функции (freshness, magnitude, distance, tag) необходимо указывать в нижнем регистре.
-  - Функции не могут содержать значения NULL или пустые значения. В частности, если добавить поле fieldname, для него необходимо указать значение.
-  - Функции можно применять только к фильтруемым полям. Подробнее о фильтруемых полях см. в разделе [Создание индекса](search-api-2015-02-28.md#createindex).
-  - Функции могут применяться только к полям, определенным в коллекции полей индекса.
+  - Function type (freshness, magnitude, distance, tag) must be lower case.
+  - Functions cannot include null or empty values. Specifically, if you include fieldname, you have to set it to something.
+  - Functions can only be applied to filterable fields. See [Create Index](search-api-2015-02-28.md#CreateIndex) for more information about filterable fields.
+  - Functions can only be applied to fields that are defined in the fields collection of an index.
 
-После определения индекса выполните построение индекса, загрузив схему индекса и документы. Инструкции по этим операциям приведены в разделах [Создание индекса](search-api-2015-02-28-preview.md#createindex) и [Добавление или обновление документов](search-api-2015-02-28-preview.md#AddOrUpdateDocuments). После построения индекса вы получите функциональный профиль оценки, который работает с данными поиска.
+After the index is defined, build the index by uploading the index schema, followed by documents. See [Create Index](search-api-2015-02-28-preview.md#CreateIndex) and [Add or Update Documents](search-api-2015-02-28-preview.md#AddOrUpdateDocuments) for instructions on these operations. Once the index is built, you should have a functional scoring profile that works with your search data.
 
 <a name="bkmk_template"></a>
-## Шаблон
-В этом разделе показан синтаксис и шаблон для профилей оценки. Описание атрибутов см. в подразделе [Справочник по атрибутам индекса](#bkmk_indexref) в следующем разделе.
+## <a name="template"></a>Template
+This section shows the syntax and template for scoring profiles. Refer to [Index attribute reference](#bkmk_indexref) in the next section for descriptions of the attributes.
 
     ...
     "scoringProfiles": [
@@ -235,67 +236,75 @@
     ...
 
 <a name="bkmk_indexref"></a>
-## Справочник по свойствам профиля повышения
+## <a name="scoring-profile-property-reference"></a>Scoring profile property reference
 
-**Примечание**. Функция оценки может применяться только к фильтруемым полям.
+**Note** A scoring function can only be applied to fields that are filterable.
 
-| Свойство | Описание |
+| Property | Description |
 |----------|-------------|
-| `name` | обязательный параметр. Это имя профиля оценки. К нему применяются те же соглашения об именовании, что и к полям. Оно должно начинаться с буквы, не может содержать точки, двоеточия и символы "@", а также не может начинаться с фразы azureSearch (с учетом регистра). |
-| `text` | Содержит свойство Weights (Весовые коэффициенты). |
-| `weights` | необязательный параметр. Пара "имя-значение", указывающая имя поля и относительный вес. Относительный вес должен быть положительным целым числом или числом с плавающей запятой. Можно указать имя поля без соответствующего веса. Весовые коэффициенты используются для указания важности одного поля относительно другого. |
-| `functions` | необязательный параметр. Учтите, что функция оценки может применяться только к фильтруемым полям. |
-| `type` | Требуется для функций оценки. Указывает тип используемой функции. Допустимые значения: `magnitude`, `freshness`, `distance` и `tag`. В каждый профиль оценки можно включить несколько функций. Имя функции должно состоять из строчных букв. |
-| `boost` | Требуется для функций оценки. Положительное число, используемое в качестве множителя для необработанной оценки. Не может быть равно 1. |
-| `fieldName` | Требуется для функций оценки. Функция оценки может применяться только к фильтруемым полям, входящим в коллекцию полей индекса. Кроме того, каждый тип функции накладывает дополнительные ограничения (freshness используется с полями типа datetime, magnitude — с полями типа integer или double, distance — с полями типа location, а tag — с полями типа string или string collection). В определении функции можно указать только одно поле. Например, чтобы использовать функцию magnitude дважды в одном профиле, необходимо добавить два определения magnitude (по одному для каждого поля). |
-| `interpolation` | Требуется для функций оценки. Определяет наклон для повышения приоритета оценки от начала до конца диапазона. Допустимые значения: `linear` (по умолчанию), `constant`, `quadratic` и `logarithmic`. Подробные сведения см. в разделе [Настройка интерполяций](#bkmk_interpolation). |
-| `magnitude` | Функция оценки magnitude используется для изменения рейтинга на основе диапазона значений для числового поля. Ниже приведены некоторые наиболее распространенные примеры.<ul><li>Оценка по звездам: изменение оценки на основе значения в поле "Оценка по звездам". Если релевантны два элемента, первым отобразится элемент с более высокой оценкой.</li><li>Маржа: если релевантны два документа, продавец может повышать приоритет документов с более высокой маржой.</li><li>Число нажатий: для приложений, которые отслеживают переходы к продуктам или страницам, можно использовать функцию magnitude для повышения приоритета элементов, которые могут привлекать больше всего трафика.</li><li>Число загрузок: для приложений, которые отслеживают загрузки, функция magnitude позволяет повысить приоритет элементов с наибольшим числом загрузок.</li></ul> |
-| `magnitude:boostingRangeStart` | Задает начальное значение диапазона, на основе которого вычисляется результат функции magnitude. Значение должно быть целым числом или числом с плавающей запятой. Для оценок по звездам от 1 до 4 — 1. Для маржи более 50 % — 50. |
-| `magnitude:boostingRangeEnd` | Задает конечное значение диапазона, на основе которого вычисляется результат функции magnitude. Значение должно быть целым числом или числом с плавающей запятой. Для оценок по звездам от 1 до 4 — 4. |
-| `magnitude:constantBoostBeyondRange` | Допустимые значения: true или false (по умолчанию). Если задано значение true, к документам, содержащим значение целевого поля, превышающее верхнее ограничение диапазона, будет применяться максимальное повышение приоритета. Если задано значение false, эта функция не будет применяться к документам, содержащим значение целевого поля, которое не входит в диапазон. |
-| `freshness` | Функция оценки freshness используется для оценки ранжирования элементов на основе значений в полях DateTimeOffset. Например, элемент с более близкой датой может классифицироваться выше, чем старые элементы. (Обратите внимание, что ранжировать можно и такие элементы, как события календаря с будущими датами, в случае чего события, более близкие к текущей дате, получат более высокий ранг, чем события в будущем.) В текущем выпуске службы один конец диапазона фиксируется на текущее время. Другой конец находится в прошлом и определяется параметром `boostingDuration`. Чтобы повысить приоритет диапазона будущего времени, используйте отрицательное значение параметра `boostingDuration`. Скорость повышения приоритета от максимального и минимального значений диапазона определяется интерполяцией, которая применяется к профилю оценки (см. рисунок ниже). Чтобы изменить направление коэффициента повышения приоритета, выберите коэффициент повышения приоритета меньше 1. |
-| `freshness:boostingDuration` | Задает срок действия, после которого повышение приоритета перестает применяться для определенного документа. Синтаксис и примеры приведены далее в подразделе [Настройка boostingDuration][#bkmk\_boostdur]. |
-| `distance` | Функция оценки distance используется, чтобы изменить оценку документов на основе их близости к эталонному географическому расположению. Эталонное расположение предоставляется как часть запроса в параметре (с помощью параметра запроса `scoringParameter`) в аргументе lon,lat. |
-| `distance:referencePointParameter` | Параметр, который передается в запросах и используется в качестве эталонного расположения. scoringParameter — это параметр запроса. Описание параметров запроса см. в разделе о [поиске документов](search-api-2015-02-28-preview.md#SearchDocs). |
-| `distance:boostingDistance` | Число, которое задает расстояние в километрах от эталонного расположения, где заканчивается диапазон повышения приоритета. |
-| `tag` | Функция оценки tag определяет оценку документов на основе тегов, имеющихся в документах и поисковых запросах. Документы, в которых имеются общие с поисковыми запросами теги, получают более высокий приоритет. Теги для каждого поискового запроса указываются в качестве параметра оценки (с помощью параметра запроса `scoringParameter`). |
-| `tag:tagsParameter` | Параметр, который передается в запросах для указания тегов определенного запроса. `scoringParameter` — это параметр запроса. Описание параметров запроса см. в разделе о [поиске документов](search-api-2015-02-28-preview.md#SearchDocs). |
-| `functionAggregation` | необязательный параметр. Применяется, только если указаны функции. Допустимые значения: `sum` (по умолчанию), `average`, `minimum`, `maximum` и `firstMatching`. Оценка поиска — это одиночное значение, которое вычисляется на основе нескольких переменных, включая несколько функций. Эти атрибуты показывают, как значения повышения приоритета всех функций объединяются в единое агрегированное повышение приоритета, которое затем применяется к базовой оценке документа. Базовая оценка основана на значении tf-idf, которое вычисляется на основе документа и поискового запроса. |
-| `defaultScoringProfile` | Если при выполнении поискового запроса профиль оценки не указан, используется оценка по умолчанию (только tf-idf). Здесь можно указать имя профиля оценки по умолчанию, после чего служба "Поиск Azure" будет использовать его, если в поисковом запросе на задан другой профиль. |
+| `name`   | Required. This is the name of the scoring profile. It follows the same naming conventions of a field. It must start with a letter, cannot contain dots, colons or @ symbols, and cannot start with the phrase "azureSearch" (case-sensitive). |
+| `text` | Contains the Weights property. |
+| `weights` | Optional. A name-value pair that specifies a field name and relative weight. Relative weight must be a positive integer or floating-point number. You can specify the field name without a corresponding weight. Weights are used to indicate the importance of one field relative to another. |
+| `functions` | Optional. Note that a scoring function can only be applied to fields that are filterable. |
+| `type` | Required for scoring functions. Indicates the type of function to use. Valid values include `magnitude`, `freshness`, `distance` and `tag`. You can include more than one function in each scoring profile. The function name must be lower case. |
+| `boost` | Required for scoring functions. A positive number used as multiplier for raw score. It cannot be equal to 1. |
+| `fieldName` | Required for scoring functions. A scoring function can only be applied to fields that are part of the field collection of the index, and that are filterable. In addition, each function type introduces additional restrictions (freshness is used with datetime fields, magnitude with integer or double fields, distance with location fields and tag with string or string collection fields). You can only specify a single field per function definition. For example, to use magnitude twice in the same profile, you would need to include two definitions magnitude, one for each field. |
+| `interpolation` | Required for scoring functions. Defines the slope for which the score boosting increases from the start of the range to the end of the range. Valid values include `linear` (default), `constant`, `quadratic`, and `logarithmic`. See [Set interpolations](#bkmk_interpolation) for details. |
+| `magnitude` | The magnitude scoring function is used to alter rankings based on the range of values for a numeric field. Some of the most common usage examples of this are:<ul><li>Star ratings: Alter the scoring based on the value within the "Star Rating" field. When two items are relevant, the item with the higher rating will be displayed first.</li><li>Margin: When two documents are relevant, a retailer may wish to boost documents that have higher margins first.</li><li>Click counts: For applications that track click through actions to products or pages, you could use magnitude to boost items that tend to get the most traffic.</li><li>Download counts: For applications that track downloads, the magnitude function lets you boost items that have the most downloads.</li></ul> |
+| `magnitude:boostingRangeStart` | Sets the start value of the range over which magnitude is scored. The value must be an integer or floating-point number. For star ratings of 1 through 4, this would be 1. For margins over 50%, this would be 50. |
+| `magnitude:boostingRangeEnd` | Sets the end value of the range over which magnitude is scored. The value must be an integer or floating-point number. For star ratings of 1 through 4, this would be 4. |
+| `magnitude:constantBoostBeyondRange` | Valid values are true or false (default). When set to true, the full boost will continue to apply to documents that have a value for the target field that’s higher than the upper end of the range. If false, the boost of this function won’t be applied to documents having a value for the target field that falls outside of the range. |
+| `freshness` | The freshness scoring function is used to alter ranking scores for items based on values in DateTimeOffset fields. For example, an item with a more recent date can be ranked higher than older items. (Note that it is also possible to rank items like calendar events with future dates such that items closer to the present can be ranked higher than items further in the future.) In the current service release, one end of the range will be fixed to the current time. The other end is a time in the past based on the `boostingDuration`. To boost a range of times in the future use a negative `boostingDuration`. The rate at which the boosting changes from a maximum and minimum range is determined by the Interpolation applied to the scoring profile (see the figure below). To reverse the boosting factor applied, choose a boost factor of less than 1. |
+| `freshness:boostingDuration` | Sets an expiration period after which boosting will stop for a particular document. See [Set boostingDuration][#bkmk_boostdur] in the following section for syntax and examples. |
+| `distance` | The distance scoring function is used to affect the score of documents based on how close or far they are relative to a reference geographic location. The reference location is given as part of the query in a parameter (using the `scoringParameter` query parameter) as a lon,lat argument. |
+| `distance:referencePointParameter` | A parameter to be passed in queries to use as reference location. scoringParameter is a query parameter. See [Search Documents](search-api-2015-02-28-preview.md#SearchDocs) for descriptions of query parameters. |
+| `distance:boostingDistance` | A number that indicates the distance in kilometers from the reference location where the boosting range ends. |
+| `tag` | The tag scoring function is used to affect the score of documents based on tags in documents and search queries. Documents that have tags in common with the search query will be boosted. The tags for the search query is provided as a scoring parameter in each search request(using the `scoringParameter` query parameter). |
+| `tag:tagsParameter` | A parameter to be passed in queries to specify tags for a particular request. `scoringParameter` is a query parameter. See [Search Documents](search-api-2015-02-28-preview.md#SearchDocs) for descriptions of query parameters. |
+| `functionAggregation` | Optional. Applies only when functions are specified. Valid values include: `sum` (default), `average`, `minimum`, `maximum`, and `firstMatching`. A search score is a single value that is computed from multiple variables, including multiple functions. This attributes indicates how the boosts of all the functions are combined into a single aggregate boost that is then applied to the base document score. The base score is based on the tf-idf value computed from the document and the search query. |
+| `defaultScoringProfile` | When executing a search request, if no scoring profile is specified, then default scoring is used (tf-idf only). A default scoring profile name can be set here, causing Azure Search to use that profile when no specific profile is given in the search request. |
 
 <a name="bkmk_interpolation"></a>
-## Настройка интерполяций
+## <a name="set-interpolations"></a>Set interpolations
 
-Интерполяции позволяют определить наклон для повышения приоритета оценки от начала до конца диапазона. Можно использовать следующие типы интерполяции.
+Interpolations allow you to define the slope for which the score boosting increases from the start of the range to the end of the range. The following interpolations can be used:
 
-  - `Linear`: для элементов, которые находятся в диапазоне от минимального до максимального значения, применяется постоянно убывающая величина. Линейная интерполяция — это интерполяция для оценки профиля по умолчанию.
-  - `Constant`: для элементов, которые находятся между начальным и конечным диапазонами, к результатам ранжирования применяется постоянное повышение приоритета.
-  - `Quadratic`: по сравнению с линейной интерполяцией с постоянно убывающим повышением приоритета квадратичная интерполяционная функция сначала уменьшается не так быстро, а по мере приближения к конечному диапазону уменьшается на гораздо большую величину. Этот тип интерполяции невозможно использовать в функциях оценки tag.
-  - `Logarithmic`: по сравнению с линейной интерполяцией с постоянно убывающим повышением приоритета логарифмическая интерполяционная функция сначала уменьшается быстрее, а по мере приближения к конечному диапазону уменьшается на гораздо меньшую величину. Этот тип интерполяции невозможно использовать в функциях оценки tag.
+  - `Linear`: For items that are within the max and min range, the boost applied to the item will be done in a constantly decreasing amount. Linear is the default interpolation for a scoring profile.
+  - `Constant`: For items that are within the start and ending range, a constant boost will be applied to the rank results.
+  - `Quadratic`: In comparison to a Linear interpolation that has a constantly decreasing boost, Quadratic will initially decrease at smaller pace and then as it approaches the end range, it decreases at a much higher interval. This interpolation option is not allowed in tag scoring functions.
+  - `Logarithmic`: In comparison to a Linear interpolation that has a constantly decreasing boost, Logarithmic will initially decrease at higher pace and then as it approaches the end range, it decreases at a much smaller interval. This interpolation option is not allowed in tag scoring functions.
 
-<a name="Figure1"></a> ![][1]
+<a name="Figure1"></a>
+ ![][1]
 
 <a name="bkmk_boostdur"></a>
-## Настройка boostingDuration
+## <a name="set-boostingduration"></a>Set boostingDuration
 
-`boostingDuration` — это атрибут функции freshness. Он задает срок действия, после которого повышение приоритета перестает применяться для определенного документа. Например, для повышения приоритета линейки продуктов или торговой марки в течение 10-дневного периода следует указать для соответствующих документов 10-дневный период как "P10D". А чтобы повысить приоритет событий, предстоящих на следующей неделе, укажите значение -P7D.
+`boostingDuration` is an attribute of the freshness function. You use it to set an expiration period after which boosting will stop for a particular document. For example, to boost a product line or brand for a 10-day promotional period, you would specify the 10-day period as "P10D" for those documents. Or to boost upcoming events in the next week specify "-P7D".
 
-`boostingDuration` необходимо отформатировать как XSD-значение dayTimeDuration (ограниченное подмножество значения длительности ISO 8601). Используется следующий шаблон: `[-]P[nD][T[nH][nM][nS]]`.
+`boostingDuration` must be formatted as an XSD "dayTimeDuration" value (a restricted subset of an ISO 8601 duration value). The pattern for this is: `[-]P[nD][T[nH][nM][nS]]`.
 
-Следующая таблица содержит несколько примеров.
+The following table provides several examples.
 
-| Длительность | boostingDuration |
+| Duration | boostingDuration |
 |----------|------------------|
-| 1 день | "P1D" |
-| 2 дня и 12 часов | "P2DT12H" |
-| 15 минут | "PT15M" |
-| 30 дней, 5 часов, 10 минут и 6,334 секунды | "P30DT5H10M6.334S" |
+| 1 day | "P1D" |
+| 2 days and 12 hours | "P2DT12H" |
+| 15 minutes | "PT15M" |
+| 30 days, 5 hours, 10 minutes, and 6.334 seconds | "P30DT5H10M6.334S" |
 
-Дополнительные примеры см. в [документе, в котором рассматриваются типы данных в схеме XML (веб-сайт W3.org)](http://www.w3.org/TR/xmlschema11-2/).
+For more examples, see [XML Schema: Datatypes (W3.org web site)](http://www.w3.org/TR/xmlschema11-2/).
 
-**Дополнительные материалы** [API REST службы поиска Azure](http://msdn.microsoft.com/library/azure/dn798935.aspx) на сайте MSDN <br/> [Создание индекса (API REST службы поиска Azure)](http://msdn.microsoft.com/library/azure/dn798941.aspx) на сайте MSDN<br/> [Добавление профилей оценки в индекс поиска](http://msdn.microsoft.com/library/azure/dn798928.aspx) на сайте MSDN<br/>
+**See Also**
+[Azure Search Service REST API](http://msdn.microsoft.com/library/azure/dn798935.aspx) on MSDN <br/>
+[Create Index (Azure Search API)](http://msdn.microsoft.com/library/azure/dn798941.aspx) on MSDN<br/>
+[Add a scoring profile to a search index](http://msdn.microsoft.com/library/azure/dn798928.aspx) on MSDN<br/>
 
 <!--Image references-->
 [1]: ./media/search-api-scoring-profiles-2015-02-28-Preview/scoring_interpolations.png
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

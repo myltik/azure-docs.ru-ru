@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Масштабирование базы данных SQL Azure в режиме реального времени"
-   description="Узнайте, как база данных SQL масштабируется в режиме реального времени"
+   pageTitle="Azure SQL Database Scales on the Fly"
+   description="Learn how SQL Database scales on the fly"
    keywords=""
    services="sql-database"
    documentationCenter=""
@@ -14,44 +14,50 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
-   ms.date="07/19/2016"
+   ms.date="10/13/2016"
    ms.author="carlrab"/>
 
-# Масштабирование базы данных SQL Azure в режиме реального времени
 
-## По мере того как вашим приложением начинают интересоваться все больше пользователей, база данных SQL Azure масштабируется в режиме реального времени без простоя приложения.
+# <a name="azure-sql-database-scales-on-the-fly"></a>Azure SQL Database Scales on the fly
 
-Одним из преимуществ базы данных SQL в Microsoft Azure является возможность двунаправленного масштабирования производительности в режиме реального времени. Это позволяет быстро адаптироваться к изменению рабочей нагрузки. База данных SQL предлагает разные уровни производительности для вашего приложения. Каждый уровень обеспечивает определенные показатели производительности, что позволяет уверенно прогнозировать работу приложения.
+## <a name="when-your-app-grows-from-a-small-number-of-customers-to-just-about-everyone,-azure-sql-database-can-scale-on-the-fly-with-minimal-app-downtime"></a>When your app grows from a small number of customers to just about everyone, Azure SQL Database can scale on the fly with minimal app downtime
+
+One of the advantages of running SQL Database on Microsoft Azure is being able to scale performance up or down, and on the fly to quickly adapt to changing workload demands. SQL Database offers a broad spectrum of performance levels to meet the specific needs of your application. And each level guarantees performance, so your app users have a predictable performance experience.
 
 ![scale-on-the-fly](./media/sql-database-scale-on-the-fly/sql-database-scale-on-the-fly.png)
 
-## Если приложение стало популярным за один день
-База данных SQL позволяет легко масштабировать ресурсы в кратчайшие сроки. Если популярность приложения выросла за один день, вы сможете одним щелчком мыши удовлетворить новые потребности в производительности. Кроме того, не будет никаких простоев, связанных с масштабированием.
+## <a name="when-your-app-is-an-overnight-success"></a>When your app is an overnight success
+SQL Database makes it easy to scale at a moment's notice. So if your app becomes an overnight success, it's just one click to accommodate the new performance needs. Plus, with minimal downtime, you won't have to worry about your app taking a hit when the time comes to scale up or down.
 
-[Ознакомьтесь с документацией.](http://go.microsoft.com/fwlink/?LinkID=787569)
+[Read the documentation](http://go.microsoft.com/fwlink/?LinkID=787569)
 
-## В пределах бюджета  
+## <a name="within-your-budget"></a>Within your budget  
 
-Когда вы создаете новое приложение, вам меньше всего хочется думать о том, во сколько обойдется использование базы данных. Поэтому база данных SQL предлагает план оплаты по мере использования. Уровни производительности "Базовый", "Стандартный" и "Премиум" позволяют выбрать вариант, максимально соответствующий вашему бюджету. И вы можете масштабировать производительность в любое время, если приложение окажется успешным.
+The last thing you should think about when you're trying to create an app is how much your database is going to cost you. That's why SQL Database has a pay-what-you-need plan. With Basic, Standard, and Premium performance options, you can decide which performance option will fit your budget. And, if your app takes off, you can scale up at anytime.
 
-[Ознакомьтесь с документацией](http://go.microsoft.com/fwlink/?LinkID=787570).
+[Read the documentation](http://go.microsoft.com/fwlink/?LinkID=787570)
 
-## Максимальная скорость работы
+## <a name="get-the-fastest-performance"></a>Get the fastest performance
 
-База данных SQL использует передовые технологии обработки в памяти, что позволяет невероятно быстро выполнять транзакции наряду с аналитическими запросами в режиме реального времени. Встроенные консультанты помогают разработчикам перейти к хранению в памяти таблиц, индексов или хранимых процедур. Такой переход может ускорить обработку транзакций в 30 раз, а обработку запросов — в 100 раз.
+SQL Database includes cutting edge in-memory technology to execute extremely fast transactions and perform real-time analytical queries at the same time. Built-in advisors help developers migrate to in-memory tables, indexes, or store procedures. As a result, end users can experience up to 30x faster transaction processing and 100x faster query processing.  
 
-[Ознакомьтесь с документацией](http://go.microsoft.com/fwlink/?LinkID=787580).
+[Read the documentation](http://go.microsoft.com/fwlink/?LinkID=787580)
 
-Ознакомиться с другими преимуществами базы данных SQL вы можете [здесь.](https://azure.microsoft.com/services/sql-database/)
+Go to the homepage to see what else SQL Database has to offer.
+[Check it out](https://azure.microsoft.com/services/sql-database/) 
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Next steps
 
-Вы можете получить [бесплатную подписку Azure](https://azure.microsoft.com/get-started/) и [создать первую Базу данных SQL Azure](sql-database-get-started.md).
+Get a [free Azure subscription](https://azure.microsoft.com/get-started/) and [create your first Azure SQL Database](sql-database-get-started.md).
 
-## Дополнительные ресурсы
+## <a name="additional-resources"></a>Additional resources
 
-Вы можете изучить все [возможности Базы данных SQL](https://azure.microsoft.com/services/sql-database/).
+Explore all the [capabilities of SQL Database](https://azure.microsoft.com/services/sql-database/).
  
-Вы можете ознакомиться с [техническим обзором Базы данных SQL](sql-database-technical-overview.md).
+Review the [technical overview of SQL Database](sql-database-technical-overview.md).
 
-<!---HONumber=AcomDC_0803_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

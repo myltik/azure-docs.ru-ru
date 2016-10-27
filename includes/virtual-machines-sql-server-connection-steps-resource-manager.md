@@ -1,37 +1,40 @@
-### Настройка имени DNS для общедоступного IP-адреса
+### <a name="configure-a-dns-label-for-the-public-ip-address"></a>Configure a DNS Label for the public IP address
 
-Для подключения к СУБД SQL Server через Интернет необходимо сначала настроить имя DNS для вашего общедоступного IP-адреса.
+To connect to the SQL Server Database Engine from the Internet, first configure a DNS Label for your public IP address.
 
-> [AZURE.NOTE] DNS-метки не обязательны, если вы подключаетесь к экземпляру SQL Server в той же виртуальной сети или на локальном компьютере.
+> [AZURE.NOTE] DNS Labels are not required if you plan to only connect to the SQL Server instance within the same Virtual Network or only locally.
 
-Чтобы создать DNS-метку, сначала выберите **Виртуальные машины** на портале. Выберите виртуальную машину SQL Server, чтобы открыть ее свойства.
+To create a DNS Label, first select **Virtual machines** in the portal. Select your SQL Server VM to bring up its properties.
 
-1. В колонке виртуальной машины выберите свой **общедоступный IP-адрес**.
+1. In the virtual machine blade, select your **Public IP address.**
 
-	![общедоступный IP-адрес](./media/virtual-machines-sql-server-connection-steps/rm-public-ip-address.png)
+    ![public ip address](./media/virtual-machines-sql-server-connection-steps/rm-public-ip-address.png)
 
-2. В свойствах общедоступного IP-адреса разверните раздел **Конфигурация**.
+2. In the properties for your Public IP address, expand **Configuration**.
 
-3. Введите имя DNS. Это имя, которое можно использовать для подключения к виртуальной машине SQL Server по имени, а не по IP-адресу.
+3. Enter a DNS Label name. This name is an A Record that can be used to connect to your SQL Server VM by name instead of by IP Address directly.
 
-4. Нажмите кнопку **Сохранить**.
+4. Click the **Save** button.
 
-	![имя DNS](./media/virtual-machines-sql-server-connection-steps/rm-dns-label.png)
+    ![dns label](./media/virtual-machines-sql-server-connection-steps/rm-dns-label.png)
 
-### Подключение к ядру СУБД с другого компьютера
+### <a name="connect-to-the-database-engine-from-another-computer"></a>Connect to the Database Engine from another computer
 
-1. На компьютере, подключенном к сети Интернет, откройте SQL Server Management Studio (SSMS).
+1. On a computer connected to the internet, open SQL Server Management Studio (SSMS).
 
-2. В диалоговом окне **Подключение к серверу** или **Подключение к ядру СУБД** измените значение **Имя сервера**. Введите полное DNS-имя виртуальной машины (определено в предыдущей задаче).
+2. In the **Connect to Server** or **Connect to Database Engine** dialog box, edit the **Server name** value. Enter the full DNS name of the virtual machine (determined in the previous task).
 
-3. В поле **Проверка подлинности** выберите **Проверка подлинности SQL Server**.
+3. In the **Authentication** box, select **SQL Server Authentication**.
 
-5. В поле **Имя пользователя** введите допустимое имя пользователя SQL.
+5. In the **Login** box, type the name of a valid SQL login.
 
-6. В поле **Пароль** введите пароль для этого пользователя.
+6. In the **Password** box, type the password of the login.
 
-7. Щелкните **Подключить**.
+7. Click **Connect**.
 
-	![подключение SSMS](./media/virtual-machines-sql-server-connection-steps/rm-ssms-connect.png)
+    ![ssms connect](./media/virtual-machines-sql-server-connection-steps/rm-ssms-connect.png)
 
-<!---HONumber=AcomDC_0629_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,73 +1,77 @@
 <properties
-	pageTitle="Набор средств Azure для IntelliJ | Microsoft Azure"
-	description="Узнайте о наборе средств Azure для IntelliJ."
-	services=""
-	documentationCenter="java"
-	authors="rmcmurray"
-	manager="wpickett"
-	editor=""/>
+    pageTitle="Azure Toolkit for IntelliJ | Microsoft Azure"
+    description="Learn about the Azure Toolkit for IntelliJ."
+    services=""
+    documentationCenter="java"
+    authors="rmcmurray"
+    manager="wpickett"
+    editor=""/>
 
 <tags
-	ms.service="multiple"
-	ms.workload="na"
-	ms.tgt_pltfrm="multiple"
-	ms.devlang="Java"
-	ms.topic="article"
-	ms.date="09/20/2016" 
-	ms.author="robmcm;asirveda"/>
+    ms.service="multiple"
+    ms.workload="na"
+    ms.tgt_pltfrm="multiple"
+    ms.devlang="Java"
+    ms.topic="article"
+    ms.date="09/20/2016" 
+    ms.author="robmcm;asirveda"/>
 
-# Набор средств Azure для IntelliJ
 
-В набор средств Azure для IntelliJ входят шаблоны и функциональные возможности для простого создания, разработки, тестирования и развертывания приложений Azure с помощью среды разработки IntelliJ. Это проект с открытым кодом, исходный код которого доступен по лицензии MIT на сайте проекта:
+# <a name="azure-toolkit-for-intellij"></a>Azure Toolkit for IntelliJ
+
+The Azure Toolkit for IntelliJ provides templates and functionality that allow you to easily create, develop, test, and deploy Azure applications using the IntelliJ development environment. It is an Open Source project, whose source code is available under the MIT License from the project's site at:
 
 * <https://github.com/microsoft/azure-tools-for-java>
 
-> [AZURE.NOTE] Также имеется набор средств Azure для интегрированной среды разработки Eclipse. Дополнительные сведения см. в разделе [Набор средств Azure для Eclipse].
+> [AZURE.NOTE] There is also an Azure Toolkit for the Eclipse IDE. For more information, see [Azure Toolkit for Eclipse].
 
-## Приступая к работе с набором средств Azure для IntelliJ
+## <a name="getting-started-with-the-azure-toolkit-for-intellij"></a>Getting Started with the Azure Toolkit for IntelliJ
 
-Следующие статьи помогут вам приступить к работе с набором средств Azure для IntelliJ:
+The following articles will help you get started using the Azure Toolkit for IntelliJ:
 
-* [Новые возможности набора средств Azure для IntelliJ]
-* [Установка набора средств Azure для IntelliJ]
-* [Создание веб-приложения Hello World для Azure в IntelliJ]
+* [What's New in the Azure Toolkit for IntelliJ]
+* [Installing the Azure Toolkit for IntelliJ]
+* [Create a Hello World Web App for Azure in IntelliJ]
 
-## Использование набора средств Azure для IntelliJ
+## <a name="using-the-azure-toolkit-for-intellij"></a>Using the Azure Toolkit for IntelliJ
 
-В следующих статьях демонстрируется использование набора средств Azure для IntelliJ для добавления функций Azure в проекты Java.
+The following articles demonstrate using the Azure Toolkit for IntelliJ to add Azure functionality to your Java projects:
 
-* [Отладка в IntelliJ веб-приложения Java, размещенного в Azure]
-* [Использование подключаемого модуля средств HDInsight для IntelliJ IDEA для создания приложений Spark для кластера Spark в HDInsight на платформе Linux][HDInsight Tools Plugin for IntelliJ]
+* [Debug a Java Web App on Azure in IntelliJ]
+* [Use HDInsight Tools Plugin for IntelliJ IDEA to create Spark applications for HDInsight Spark Linux cluster][HDInsight Tools Plugin for IntelliJ]
 
-## См. также
+## <a name="see-also"></a>See Also
 
-Дополнительные сведения о наборах средств Azure для Java IDE см. по следующим ссылкам:
+For more information about the Azure Toolkits for Java IDEs, see the following links:
 
-- [Набор средств Azure для Eclipse]
-  - [Установка набора средств Azure для Eclipse]
-  - [Создание веб-приложения Hello World для Azure в Eclipse]
-  - [Новые возможности набора средств Azure для Eclipse]
-- *Набор средств Azure для IntelliJ (в этой статье)*
-  - [Установка набора средств Azure для IntelliJ]
-  - [Создание веб-приложения Hello World для Azure в IntelliJ]
-  - [Новые возможности набора средств Azure для IntelliJ]
+- [Azure Toolkit for Eclipse]
+  - [Installing the Azure Toolkit for Eclipse]
+  - [Create a Hello World Web App for Azure in Eclipse]
+  - [What's New in the Azure Toolkit for Eclipse]
+- *Azure Toolkit for IntelliJ (This Article)*
+  - [Installing the Azure Toolkit for IntelliJ]
+  - [Create a Hello World Web App for Azure in IntelliJ]
+  - [What's New in the Azure Toolkit for IntelliJ]
 
-Дополнительные сведения об использовании Azure с Java см. в [центре разработчиков Java для Azure].
+For more information about using Azure with Java, see the [Azure Java Developer Center].
 
 <!-- URL List -->
 
-[Набор средств Azure для Eclipse]: ./azure-toolkit-for-eclipse.md
+[Azure Toolkit for Eclipse]: ./azure-toolkit-for-eclipse.md
 [Azure Toolkit for IntelliJ]: ./azure-toolkit-for-intellij.md
-[Создание веб-приложения Hello World для Azure в Eclipse]: ./app-service-web/app-service-web-eclipse-create-hello-world-web-app.md
-[Создание веб-приложения Hello World для Azure в IntelliJ]: ./app-service-web/app-service-web-intellij-create-hello-world-web-app.md
-[Установка набора средств Azure для Eclipse]: ./azure-toolkit-for-eclipse-installation.md
-[Установка набора средств Azure для IntelliJ]: ./azure-toolkit-for-intellij-installation.md
-[Новые возможности набора средств Azure для Eclipse]: ./azure-toolkit-for-eclipse-whats-new.md
-[Новые возможности набора средств Azure для IntelliJ]: ./azure-toolkit-for-intellij-whats-new.md
+[Create a Hello World Web App for Azure in Eclipse]: ./app-service-web/app-service-web-eclipse-create-hello-world-web-app.md
+[Create a Hello World Web App for Azure in IntelliJ]: ./app-service-web/app-service-web-intellij-create-hello-world-web-app.md
+[Installing the Azure Toolkit for Eclipse]: ./azure-toolkit-for-eclipse-installation.md
+[Installing the Azure Toolkit for IntelliJ]: ./azure-toolkit-for-intellij-installation.md
+[What's New in the Azure Toolkit for Eclipse]: ./azure-toolkit-for-eclipse-whats-new.md
+[What's New in the Azure Toolkit for IntelliJ]: ./azure-toolkit-for-intellij-whats-new.md
 
-[центре разработчиков Java для Azure]: https://azure.microsoft.com/develop/java/
+[Azure Java Developer Center]: https://azure.microsoft.com/develop/java/
 
-[Отладка в IntelliJ веб-приложения Java, размещенного в Azure]: ./app-service-web/app-service-web-debug-java-web-app-in-intellij.md
+[Debug a Java Web App on Azure in IntelliJ]: ./app-service-web/app-service-web-debug-java-web-app-in-intellij.md
 [HDInsight Tools Plugin for IntelliJ]: ./hdinsight/hdinsight-apache-spark-intellij-tool-plugin.md
 
-<!---HONumber=AcomDC_0921_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

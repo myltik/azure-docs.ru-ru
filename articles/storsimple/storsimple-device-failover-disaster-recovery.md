@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Отработка отказа и аварийное восстановление для устройства StorSimple | Microsoft Azure"
-   description="Информация о том, как выполнить отработку отказа устройства StorSimple на то же устройство либо другое физическое или виртуальное устройство."
+   pageTitle="StorSimple failover and disaster recovery | Microsoft Azure"
+   description="Learn how to fail over your StorSimple device to itself, another physical device, or a virtual device."
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
@@ -15,207 +15,213 @@
    ms.date="09/16/2016"
    ms.author="alkohli" />
 
-# Отработка отказа и аварийное восстановление для устройства StorSimple
 
-## Обзор
+# <a name="failover-and-disaster-recovery-for-your-storsimple-device"></a>Failover and disaster recovery for your StorSimple device
 
-В этом учебнике описываются шаги, необходимые для отработки отказа устройства StorSimple в случае аварии. Отработка отказа позволит перенести данные c исходного устройства в центре обработки данных на другое физическое или даже виртуальное устройство, которое находится в том же или другом географическом расположении.
+## <a name="overview"></a>Overview
 
-Управление аварийным восстановлением осуществляется с помощью функции отработки отказа устройства и инициируется на странице **Устройства**. На этой странице показаны все устройства StorSimple, подключенные к службе диспетчера StorSimple. Для каждого устройства отображается понятное имя, состояние устройства, выделенная и максимальная емкость, тип и модель устройства.
+This tutorial describes the steps required to fail over a StorSimple device in the event of a disaster. A failover will allow you to migrate your data from a source device in the datacenter to another physical or even a virtual device located in the same or a different geographical location. 
 
-![Страница "Устройства"](./media/storsimple-device-failover-disaster-recovery/IC740972.png)
+Disaster recovery (DR) is orchestrated via the device failover feature and is initiated from the **Devices** page. This page tabulates all the StorSimple devices connected to your StorSimple Manager service. For each device, the friendly name, status, provisioned and maximum capacity, type and model are displayed.
 
-Рекомендации в этом учебнике относятся к физическим и виртуальным устройствам StorSimple для всех версий программного обеспечения.
+![Devices page](./media/storsimple-device-failover-disaster-recovery/IC740972.png)
 
-
-
-## Отработка отказа и аварийное восстановление
-
-В сценарии аварийного восстановления основное устройство прекращает функционировать. В этой ситуации можно переместить облачные данные, связанные с вышедшим из строя устройством, на другое устройство, используя основное устройство в качестве *источника* и указав другое устройство в качестве *целевого объекта*. Для миграции на целевое устройство можно выбрать один или несколько контейнеров томов. Этот процесс называется *отработка отказа*.
-
-Во время отработки отказа меняется владелец контейнеров томов с исходного устройства, а сами они перемещаются на целевое устройство. Когда у контейнеров томов меняется владелец, они удаляются с исходного устройства. По завершении удаления можно выполнить восстановление размещения конечного устройства.
-
-Обычно после аварийного восстановления для восстановления данных на целевом устройстве используется последняя резервная копия. Однако если есть несколько политик резервного копирования для одного тома, выбирается политика с наибольшим числом томов и для восстановления данных на целевом устройстве используется последняя резервная копия из этой политики.
-
-Например, рассмотрим наличие двух политик резервного копирования (стандартной и настраиваемой) *defaultPol* и *customPol* со следующими параметрами.
-
-- *defaultPol*: один том *vol1*, выполняется ежедневно начиная с 22:30.
-- *customPol*: четыре тома, *vol1*, *vol2*, *vol3*, *vol4*, выполняется ежедневно начиная с 22:00.
-
-В этом случае будет использоваться политика *customPol* так как у нее больше томов, и, соответственно, выше отказоустойчивость. Для восстановления данных используется последняя резервная копия из этой политики.
+The guidance in this tutorial applies to StorSimple physical and virtual devices across all software versions.
 
 
-## Рекомендации по отработке отказа устройства
 
-В случае аварии можно выбрать отработку отказа устройства StorSimple:
+## <a name="disaster-recovery-(dr)-and-device-failover"></a>Disaster recovery (DR) and device failover
 
-- на физическое устройство;
-- на само устройство;
-- на виртуальное устройство.
+In a disaster recovery (DR) scenario, the primary device stops functioning. In this situation, you can move the cloud data associated with the failed device to another device by using the primary device as the *source* and specifying another device as the *target*. You can select one or more volume containers to migrate to the target device. This process is referred to as the *failover*. 
 
-Для отработки отказа на любое устройство необходимо помнить следующее:
+During the failover, the volume containers from the source device change ownership and are transferred to the target device. Once the volume containers change ownership, these are deleted from the source device. After the deletion is complete, the target device can then be failed back.
 
-- для аварийного восстановления необходимо, чтобы все тома в контейнерах томов находились в автономном режиме и с этими контейнерами томов был связан облачный моментальный снимок;
-- в качестве целевых устройств для аварийного восстановления можно использовать устройства, на которых достаточно пространства для размещения выбранных контейнеров томов;
-- подключенные к службе устройства, на которых недостаточно пространства, не будут доступны в качестве целевых устройств.
-- После аварийного восстановления в течение ограниченного времени скорость доступа к данным может быть существенно снижена, так как устройству потребуется получить доступ к данным в облаке и сохранить их локально.
+Typically following a DR, the most recent backup is used to restore the data to the target device. However, if there are multiple backup policies for the same volume, then the backup policy with the largest number of volumes gets picked and the most recent backup from that policy is used to restore the data on the target device.
 
-#### Отработка отказа устройством в разных версиях программного обеспечения
+As an example, if there are two backup policies (one default and one custom) *defaultPol*, *customPol* with the following details:
 
-Служба StorSimple Manager в развертывании может обслуживать несколько устройств, физических и виртуальных, на которых могут выполняться разные версии программного обеспечения. В зависимости от используемой версии программного обеспечения типы томов на устройствах также могут отличаться. Например, устройство под управлением ПО с обновлением 2 или более поздней версии использует локально закрепленные и многоуровневые тома (при этом архивные тома являются подмножеством многоуровневых). С другой стороны, устройство под управлением ПО версии, предшествующей обновлению 2, может содержать многоуровневые и архивные тома.
+- *defaultPol* : One volume, *vol1*, runs daily starting at 10:30 PM.
+- *customPol* : Four volumes, *vol1*, *vol2*, *vol3*, *vol4*, runs daily starting at 10:00 PM.
 
-Используйте следующую таблицу, чтобы определить, можно ли отработать отказ с переключением на другое устройство, которое отличается версией ПО и поведением типов томов, во время аварийного восстановления.
+In this case, *customPol* will be used as it has more volumes and we prioritize for crash-consistency. The most recent backup from this policy is used to restore data.
 
-| Отработка отказа с | Разрешено для физического устройства | Разрешено для виртуального устройства |
+
+## <a name="considerations-for-device-failover"></a>Considerations for device failover
+
+In the event of a disaster, you may choose to fail over your StorSimple device:
+
+- To a physical device 
+- To itself
+- To a virtual device
+
+For any device failover, keep in mind the following:
+
+- The prerequisites for DR are that all the volumes within the volume containers are offline and the volume containers have an associated cloud snapshot. 
+- The available target devices for DR are devices that have sufficient space to accommodate the selected volume containers. 
+- The devices that are connected to your service but do not meet the criteria of sufficient space will not be available as target devices.
+- Following a DR, for a limited duration, the data access performance can be affected significantly, as the device will need to access the data from the cloud and store it locally.
+
+#### <a name="device-failover-across-software-versions"></a>Device failover across software versions
+
+A StorSimple Manager service in a deployment may have multiple devices, both physical and virtual, all running different software versions. Depending upon the software version, the volume types on the devices may also be different. For instance, a device running Update 2 or higher would have locally pinned and tiered volumes (with archival being a subset of tiered). A pre-Update 2 device on the other hand may have tiered and archival volumes. 
+
+Use the following table to determine if you can fail over to another device running a different software version and the behavior of volume types during DR.
+
+| Fail over from                                      | Allowed for physical device                                                                                                                                                      | Allowed for virtual device                            |
 |----------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------|
-| С устройства с ПО с обновлением 2 на устройство с ПО до обновления 1 (версия 0.1, 0.2, 0.3). | Нет | Нет |
-| С устройства с ПО с обновлением 2 на устройство с ПО с обновлением 1 (1, 1.1, 1.2). | Да.<br></br>Если используются локально закрепленные или многоуровневые тома, либо их сочетания, для них отработка отказа всегда выполняется как для многоуровневых томов. | Да.<br></br>Если используются локально закрепленные тома, для них отработка отказа выполняется как для многоуровневых томов. |
-| С устройства с ПО с обновлением 2 на устройство с ПО с обновлением 2 (более поздней версии). | Да.<br></br>Если используются локально закрепленные или многоуровневые тома, либо их сочетания, для них отработка отказа выполняется в соответствии с исходным типом тома: для многоуровневых томов — как для многоуровневых, а для локально закрепленных томов — как для локально закрепленных. | Да.<br></br>Если используются локально закрепленные тома, для них отработка отказа выполняется как для многоуровневых томов. |
+| Update 2 to pre-Update 1 (Release, 0.1, 0.2, 0.3) | No                                                                                                                                                                               | No                                                    |
+| Update 2 to Update 1 (1, 1.1, 1.2)                 | Yes <br></br>If using locally pinned or tiered volumes or a mix of two, the volumes are always failed over as tiered.                  | Yes<br></br>If using locally pinned volumes, these are failed over as tiered. |
+| Update 2 to Update 2 (later version)                               | Yes<br></br>If using locally pinned or tiered volumes or a mix of two, the volumes are always failed over as the starting volume type; tiered as tiered and locally pinned as locally pinned. | Yes<br></br>If using locally pinned volumes, these are failed over as tiered. |
 
 
-#### Частичная отработка отказа в разных версиях программного обеспечения
+#### <a name="partial-failover-across-software-versions"></a>Partial failover across software versions
 
-Следуйте указаниям, если собираетесь выполнить частичную отработку отказа с исходного устройства StorSimple с ПО, выпущенным до обновления 1, на целевое устройство с обновлением 1 или более поздней версией ПО.
+Follow this guidance if you intend to perform a partial failover using a StorSimple source device running pre-Update 1 to a target running Update 1 or later. 
 
 
-| Источник при частичной отработке отказа | Разрешено для физического устройства | Разрешено для виртуального устройства |
+| Partial failover from                                      | Allowed for physical device                                                                                                                                                      | Allowed for virtual device                            |
 |----------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------|
-|Из ПО до обновления 1 (версии 0.1, 0.2, 0.3) в ПО с обновлением 1 или более поздней версии | Да, см. рекомендацию ниже. | Да, см. рекомендацию ниже. |
+|Pre-Update 1 (Release, 0.1, 0.2, 0.3) to Update 1 or later  | Yes, see below for the best practice tip.                                                                                                                                                                               | Yes, see below for the best practice tip.                                                    |
 
 
->[AZURE.TIP] В обновление 1 и более поздние версии внесено изменение облачных метаданных и формата данных. Поэтому не рекомендуется частичная отработка отказа из ПО до обновления 1 в ПО с обновлением 1 или более поздней версии. Если необходимо выполнить частичную отработку отказа, рекомендуется сначала установить обновление 1 или более позднюю версию на оба устройства (исходное и целевое), а затем выполнить отработку отказа.
+>[AZURE.TIP] There was a cloud metadata and data format change in Update 1 and later versions. Hence, we do not recommend a partial failover from pre-Update 1 to Update 1 or later versions. If you need to perform a partial failover, we recommend that you first apply Update 1 or later on both the devices (source and target) and then proceed with the failover. 
 
-## Отработка отказа на другое физическое устройство
+## <a name="fail-over-to-another-physical-device"></a>Fail over to another physical device
 
-Для восстановления своего устройства на целевое физическое устройство выполните следующие действия.
+Perform the following steps to restore your device to a target physical device.
 
-1. Убедитесь, что с контейнером томов, для которого необходимо выполнить отработку отказа, связаны облачные моментальные снимки.
+1. Verify that the volume container you want to fail over has associated cloud snapshots.
 
-1. На странице **Устройства** выберите вкладку **Контейнеры томов**.
+1. On the **Devices** page, click the **Volume Containers** tab.
 
-1. Выберите контейнер томов, для которого следует выполнить отработку отказа на другое устройство. Щелкните контейнер томов, чтобы открыть список томов в контейнере. Выберите том и щелкните **Отключить**, чтобы отключить том. Повторите эту процедуру для всех томов в контейнере томов.
+1. Select a volume container that you would like to fail over to another device. Click the volume container to display the list of volumes within this container. Select a volume and click **Take Offline** to take the volume offline. Repeat this process for all the volumes in the volume container.
 
-1. Повторите предыдущий шаг для всех контейнеров томов, для которых необходимо выполнить отработку отказа на другое устройство.
+1. Repeat the previous step for all the volume containers you would like to fail over to another device.
 
-1. На странице **Устройства** выберите **Отработка отказа**.
+1. On the **Devices** page, click **Failover**.
 
-1. В открывшемся окне мастера в разделе **Выберите контейнер томов для отработки отказа**.
+1. In the wizard that opens up, under **Choose volume container to fail over**:
 
-	1. В списке контейнеров томов выберите контейнеры томов, для которых следует выполнить отработку отказа. **Отображаться будут только контейнеры тома со связанными облачными моментальными снимками и тома в автономном режиме.**
+    1. In the list of volume containers, select the volume containers you would like to fail over.
+    **Only the volume containers with associated cloud snapshots and offline volumes are displayed.**
 
-	1. В поле **Выберите целевое устройство** для томов в выбранных контейнерах в раскрывающемся списке доступных устройств выберите целевое устройство. В раскрывающемся списке отображаются только те устройства, на которых есть доступная емкость.
+    1. Under **Choose a target device** for the volumes in the selected containers, select a target device from the drop-down list of available devices. Only the devices that have the available capacity are displayed in the drop-down list.
 
-	1. Наконец, просмотрите все настройки отработки отказа в разделе **Подтвердить отработку отказа**. Щелкните значок с изображением флажка ![значок с изображением флажка](./media/storsimple-device-failover-disaster-recovery/IC740895.png).
+    1. Finally, review all the failover settings under **Confirm failover**. Click the check icon ![Check icon](./media/storsimple-device-failover-disaster-recovery/IC740895.png).
 
-1. Будет создано задание отработки отказа, которое можно отслеживать на странице **Задания**. Если контейнер томов, для которого выполнена отработка отказа, содержит локальные тома, то в нем для каждого локального тома отобразятся задания восстановления (а для многоуровневых томов не отобразятся). На выполнение этих заданий может уйти довольно много времени. Вполне вероятно, что задание отработки отказа может завершиться раньше. Обратите внимание, что эти тома будут доступны локально только тогда, когда будут выполнены задания восстановления. После завершения отработки отказа, перейдите на страницу **Устройства**.
+1. A failover job is created that can be monitored via the **Jobs** page. If the volume container that you failed over has local volumes, then you will see individual restore jobs for each local volume (not for tiered volumes) in the container. These restore jobs may take quite some time to complete. It is likely that the failover job may complete earlier. Note that these volumes will have local guarantees only after the restore jobs are complete. After the failover is completed, go to the **Devices** page.                                            
 
-	1. Выберите устройство, которое было использовано в качестве целевого при отработке отказа.
+    1. Select the device that was used as the target device for the failover process.
 
-	1. Перейдите на страницу **Контейнеры томов**. В списке должны отобразиться все контейнеры томов, а также тома со старого устройства.
+    1. Go to the **Volume Containers** page. All the volume containers, along with the volumes from the old device, should be listed.
 
-## Отработка отказа с помощью одного устройства
+## <a name="failover-using-a-single-device"></a>Failover using a single device
 
-При наличии только одного устройства для отработки отказа можно сделать вот что.
+Perform the following steps if you only have a single device and need to perform a failover.
 
-1. Создайте облачные моментальные снимки всех томов на устройстве.
+1. Take cloud snapshots of all the volumes in your device.
 
-1. Восстановите параметры устройства по умолчанию. Выполните подробные инструкции по [восстановлению параметров по умолчанию для устройства StorSimple](storsimple-manage-device-controller.md#reset-the-device-to-factory-default-settings).
+1. Reset your device to factory defaults. Follow the detailed instructions in [how to reset a StorSimple device to factory default settings](storsimple-manage-device-controller.md#reset-the-device-to-factory-default-settings).
 
-1. Настройте устройство и снова зарегистрируйте его в службе диспетчера StorSimple.
+1. Configure your device and register it again with your StorSimple Manager service.
 
-1. На странице **Устройства** для старого устройства должно отображаться состояние **Отключено**. У только что зарегистрированного устройства отображается состояние **Включено**.
+1. On the **Devices** page, the old device should show as **Offline**. The newly registered device should show as **Online**.
 
-1. Для нового устройства сначала нужно выполнить минимальную настройку.
-												
-	>[AZURE.IMPORTANT] **Если не провести сначала минимальную настройку, в текущей реализации аварийное восстановление завершится сбоем из-за ошибки. Такое поведение будет исправлено в одном из последующих выпусков.**
+1. For the new device, complete the minimum configuration of the device first. 
+                                                
+    >[AZURE.IMPORTANT] **If the minimum configuration is not completed first, your DR will fail as a result of a bug in the current implementation. This behavior will be fixed in a later release.**
 
-1. Выберите старое устройство (отключенное) и щелкните **Отработка отказа**. В открывшемся мастере выполните отработку отказа устройства и укажите целевое устройство в качестве нового зарегистрированного устройства. Подробные инструкции см. в разделе [Отработка отказа на другое физическое устройство](#fail-over-to-another-physical-device).
+1. Select the old device (status offline) and click **Failover**. In the wizard that is presented, fail over this device and specify the target device as the newly registered device. For detailed instructions, refer to [Fail over to another physical device](#fail-over-to-another-physical-device).
 
-1. Будет создано задание восстановления на устройство, за которым можно наблюдать на странице **Задания**.
+1. A device restore job will be created that you can monitor from the **Jobs** page.
 
-1. После успешного выполнения задания перейдите на новое устройство и откройте страницу **Контейнеры томов**. Теперь все контейнеры томов из старого устройства следует перенести на новое устройство.
+1. After the job has successfully completed, access the new device and navigate to the **Volume Containers** page. All the volume containers from the old device should now be migrated to the new device.
 
-## Отработка отказа на виртуальное устройство StorSimple
+## <a name="fail-over-to-a-storsimple-virtual-device"></a>Fail over to a StorSimple virtual device
 
-Перед началом этой процедуры нужно создать и настроить виртуальное устройство StorSimple. Если выполняется ПО с обновлением 2, рассмотрите возможность использования для аварийного восстановления виртуального устройства 8020, которое обладает 64 ТБ памяти и использует хранилище класса Premium.
+You must have a StorSimple virtual device created and configured prior to running this procedure. If running Update 2, consider using an 8020 virtual device for the DR that has 64 TB and uses Premium Storage. 
  
-Вот как можно восстановить устройство на целевом виртуальном устройстве StorSimple.
+Perform the following steps to restore the device to a target StorSimple virtual device.
 
-1. Убедитесь, что с контейнером томов, для которого необходимо выполнить отработку отказа, связаны облачные моментальные снимки.
+1. Verify that the volume container you want to fail over has associated cloud snapshots.
 
-1. На странице **Устройства** выберите вкладку **Контейнеры томов**.
+1. On the **Devices** page, click the **Volume Containers** tab.
 
-1. Выберите контейнер томов, для которого следует выполнить отработку отказа на другое устройство. Щелкните контейнер томов, чтобы открыть список томов в контейнере. Выберите том и щелкните **Отключить**, чтобы отключить том. Повторите эту процедуру для всех томов в контейнере томов.
+1. Select a volume container that you would like to fail over to another device. Click the volume container to display the list of volumes within this container. Select a volume and click **Take Offline** to take the volume offline. Repeat this process for all the volumes in the volume container.
 
-1. Повторите предыдущий шаг для всех контейнеров томов, для которых необходимо выполнить отработку отказа на другое устройство.
+1. Repeat the previous step for all the volume containers you would like to fail over to another device.
 
-1. На странице **Устройства** выберите **Отработка отказа**.
+1. On the **Devices** page, click **Failover**.
 
-1. В окне мастера в разделе **Выбор контейнера томов для отработки отказа** выполните следующие действия.
-													
-	а. В списке контейнеров томов выберите контейнеры томов, для которых следует выполнить отработку отказа.
+1. In the wizard that opens up, under **Choose volume container to failover**, complete the following:
+                                                    
+    a. In the list of volume containers, select the volume containers you would like to fail over.
 
-	**Отображаться будут только контейнеры тома со связанными облачными моментальными снимками и тома в автономном режиме.**
+    **Only the volume containers with associated cloud snapshots and offline volumes are displayed.**
 
-	b. На следующей странице в поле **Выберите целевое устройство для томов в выбранных контейнерах** в раскрывающемся списке доступных устройств выберите виртуальное устройство StorSimple. **В раскрывающемся списке отображаются только устройства с достаточной емкостью.**
-	
+    b. Under **Choose a target device for the volumes in the selected containers**, select the StorSimple virtual device from the drop-down list of available devices. **Only the devices that have sufficient capacity are displayed in the drop-down list.**  
+    
 
-1. Наконец, просмотрите все настройки отработки отказа в разделе **Подтвердить отработку отказа**. Щелкните значок с изображением флажка ![значок с изображением флажка](./media/storsimple-device-failover-disaster-recovery/IC740895.png).
+1. Finally, review all the failover settings under **Confirm failover**. Click the check icon ![Check icon](./media/storsimple-device-failover-disaster-recovery/IC740895.png).
 
-1. После завершения отработки отказа, перейдите на страницу **Устройства**.
-													
-	а. Выберите виртуальное устройство StorSimple, используемое в качестве целевого устройства для отработки отказа.
-	
-	b. Перейдите на страницу **Контейнеры томов**. Теперь должны отобразиться все контейнеры томов, а также тома со старого устройства.
+1. After the failover is completed, go to the **Devices** page.
+                                                    
+    a. Select the StorSimple virtual device that was used as the target device for the failover process.
+    
+    b. Go to the **Volume Containers** page. All the volume containers, along with the volumes from the old device should now be listed.
 
-![Доступно видео](./media/storsimple-device-failover-disaster-recovery/Video_icon.png) **Доступно видео**
+![Video available](./media/storsimple-device-failover-disaster-recovery/Video_icon.png) **Video available**
 
-Чтобы посмотреть видео, показывающее процесс перемещения данных с физического устройства после сбоя на виртуальное устройство в облаке, щелкните [здесь](https://azure.microsoft.com/documentation/videos/storsimple-and-disaster-recovery/).
-
-
-## Восстановление размещения
-
-Для ПО с обновлением 3 и более поздних версий StorSimple также поддерживает восстановление размещения. После завершения тестовой отработки отказа выполняются следующие действия:
-
-- Контейнеры томов, для которых выполнена отработка отказа, удаляются с исходного устройства.
-
-- Фоновое задание для контейнера томов (для которого выполнена отработка отказа) запускается на исходном устройстве. При попытке восстановить размещение во время выполнения задания отобразится оповещение об этом. Потребуется дождаться завершения задачи, чтобы начать восстановление размещения.
-
-	Длительность удаления контейнеров томов зависит от различных факторов, таких как объем данных, возраст данных, количество резервных копий и доступная пропускная способность сети для операции. Если вы планируете выполнить тестовую отработку отказа или тестовое восстановление размещения, то рекомендуем использовать для тестирования контейнеры томов с меньшим объемом данных (ГБ). В большинстве случаев восстановление размещения можно начать через 24 часа после отработки отказа.
+To watch a video that demonstrates how you can restore a failed over physical device to a virtual device in the cloud, click [here](https://azure.microsoft.com/documentation/videos/storsimple-and-disaster-recovery/).
 
 
+## <a name="failback"></a>Failback
+
+For Update 3 and later versions, StorSimple also supports failback. After the failover is complete, the following actions occur:
+
+- The volume containers that are failed over are cleaned from the source device.
+
+- A background job per volume container (failed over) is initiated on the source device. If you attempt to failback while the job is in progress, you will recieve a notification to that effect. You will need to wait until the job is complete to start the failback. 
+
+    The time to complete the deletion of volume containers is dependent on various factors such as amount of data, age of the data, number of backups, and the network bandwidth available for the operation. If you are planning test failovers/failbacks, we recommend that you test volume containers with less data (Gbs). In most cases, you can start the failback 24 hours after the failover is complete. 
 
 
-## Часто задаваемые вопросы
-
-В. **Что происходит в случае сбоя аварийного восстановления или его частичного выполнения?**
-
-О. В случае сбоя аварийного восстановления рекомендуется повторить попытку восстановления. При повторном запуске аварийное восстановления будет знать, что уже было выполнено и когда был приостановлен процесс. Процесс будет возобновлен с момента остановки.
-
-В. **Можно ли удалить устройство во время отработки отказа устройства?**
-
-О. Во время выполнения аварийного восстановления невозможно удалить устройство. Устройство можно удалить только после завершения аварийного восстановления.
-
-В. **Когда на исходном устройстве начинается сборка мусора, чтобы удалить с него локальные данные?**
-
-О. Сборка мусора на исходном устройстве запускается только после его полной очистки. Очистка исходного устройства включает в себя удаление объектов, для которых была выполнена отработка отказа, таких как тома, объекты резервного копирования (не данные), контейнеры томов и политики.
-
-В. **Что произойдет в случае сбоя задания удаления, связанного с контейнерами томов на исходном устройстве?**
-
-О. В случае сбоя задания удаления необходимо запустить удаление контейнеров томов вручную. На странице **Устройства** выберите исходное устройство и щелкните **Контейнеры томов**. Выберите контейнеры томов, для которых была выполнена отработка отказа, и внизу страницы нажмите кнопку **Удалить**. После удаления с исходного устройства всех контейнеров томов, для которых выполнена отработка отказа, можно начать восстановление размещения.
-
-## Аварийное восстановление непрерывности бизнеса (BCDR)
-
-Сценарий аварийного восстановления непрерывности бизнеса (BCDR) реализуется, когда весь центр обработки данных Azure прекращает работу. Это может повлиять на службу диспетчера StorSimple и связанные устройства StorSimple.
-
-Если есть устройства StorSimple, зарегистрированные непосредственно перед сбоем, этим устройствам StorSimple может потребоваться восстановление заводских настроек. После аварии устройство StorSimple будет отображаться как автономное. Устройство StorSimple необходимо удалить из портала и восстановить его заводские настройки, после чего повторить регистрацию.
 
 
-## Дальнейшие действия
+## <a name="frequently-asked-questions"></a>Frequently asked questions
 
-- После отработки отказа, возможно, нужно будет [отключить или удалить устройство StorSimple](storsimple-deactivate-and-delete-device.md).
+Q. **What happens if the DR fails or has partial success?**
 
-- Сведения об управлении устройством с помощью службы диспетчера StorSimple см. в статье [Использование службы StorSimple Manager для администрирования устройства StorSimple](storsimple-manager-service-administration.md).
+A. If the DR fails, we recommend that you try agian. The second time around, DR knows what all was done and when the process stalled the first time. The DR process starts from that point onwards. 
+
+Q. **Can I delete a device while the device failover is in progress?**
+
+A. You cannot delete a device while a DR is in progress. You can only delete your device after the DR is complete.
+
+Q.  **When does the garbage collection start on the source device so that the local data on source device is deleted?**
+
+A. Garbage collection will be enabled on the source device only after the device is completely cleaned up. The cleanup includes cleaning up objects that have failed over from the source device such as volumes, backup objects (not data), volume containers, and policies.
+
+Q. **What happens if the delete job associated with the volume containers in the source device fails?**
+
+A.  If the delete job fails, then you will need to manually trigger the deletion of the volume containers. In the **Devices** page, select your source device and click **Volume containers**. Select the volume containers that you failed over and in the bottom of the page, click **Delete**. Once you have deleted all the failed over volume containers on the source device, you can start the failback.
+
+## <a name="business-continuity-disaster-recovery-(bcdr)"></a>Business continuity disaster recovery (BCDR)
+
+A business continuity disaster recovery (BCDR) scenario occurs when the entire Azure datacenter stops functioning. This can affect your StorSimple Manager service and the associated StorSimple devices.
+
+If there are StorSimple devices that were registered just before a disaster occurred, then these StorSimple devices may need to undergo a factory reset. After the disaster, the StorSimple device will be shown as offline. The StorSimple device must be deleted from the portal, and a factory reset should be done, followed by a fresh registration.
+
+
+## <a name="next-steps"></a>Next steps
+
+- After you have performed a failover, you may need to [deactivate or delete your StorSimple device](storsimple-deactivate-and-delete-device.md).
+
+- For information about how to use the StorSimple Manager service, go to [Use the StorSimple Manager service to administer your StorSimple device](storsimple-manager-service-administration.md).
  
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Перенос базы данных SQL Server в базу данных SQL с помощью мастера развертывания базы данных в базу данных Microsoft Azure | Microsoft Azure"
-   description="База данных SQL Microsoft Azure, миграция базы данных, мастер баз данных Microsoft Azure"
+   pageTitle="Migrate SQL Server database to SQL Database using Deploy Database to Microsoft Azure Database Wizard | Microsoft Azure"
+   description="Microsoft Azure SQL Database, database migration, Microsoft Azure Database Wizard"
    services="sql-database"
    documentationCenter=""
    authors="CarlRabeler"
@@ -16,62 +16,67 @@
    ms.date="08/24/2016"
    ms.author="carlrab"/>
 
-# Миграция базы данных SQL Server в Базу данных SQL с помощью мастера развертывания базы данных в Базу данных Microsoft Azure
+
+# <a name="migrate-sql-server-database-to-sql-database-using-deploy-database-to-microsoft-azure-database-wizard"></a>Migrate SQL Server database to SQL Database using Deploy Database to Microsoft Azure Database Wizard
 
 
 > [AZURE.SELECTOR]
-- [Мастер миграции SSMS](sql-database-cloud-migrate-compatible-using-ssms-migration-wizard.md)
-- [Экспорт в BACPAC-файл](sql-database-cloud-migrate-compatible-export-bacpac-ssms.md)
-- [Импорт из BACPAC-файла](sql-database-cloud-migrate-compatible-import-bacpac-ssms.md)
-- [Репликация транзакций](sql-database-cloud-migrate-compatible-using-transactional-replication.md)
+- [SSMS Migration Wizard](sql-database-cloud-migrate-compatible-using-ssms-migration-wizard.md)
+- [Export to BACPAC File](sql-database-cloud-migrate-compatible-export-bacpac-ssms.md)
+- [Import from BACPAC File](sql-database-cloud-migrate-compatible-import-bacpac-ssms.md)
+- [Transactional Replication](sql-database-cloud-migrate-compatible-using-transactional-replication.md)
 
-Мастер развертывания базы данных в базу данных Microsoft Azure в среде SQL Server Management Studio переносит [совместимую базу данных SQL Server](sql-database-cloud-migrate.md) непосредственно на сервер Базы данных SQL Azure.
+The Deploy Database to Microsoft Azure Database wizard in SQL Server Management Studio migrates a [compatible SQL Server database](sql-database-cloud-migrate.md) directly into your Azure SQL Database server.
 
-## Использование мастера развертывания базы данных в Базу данных Microsoft Azure
+## <a name="use-the-deploy-database-to-microsoft-azure-database-wizard"></a>Use the Deploy Database to Microsoft Azure Database Wizard
 
-> [AZURE.NOTE] В описанных ниже действиях предполагается, что у вас есть [подготовленный сервер Базы данных SQL](https://azure.microsoft.com/documentation/learning-paths/sql-database-training-learn-sql-database/).
+> [AZURE.NOTE] The following steps assume that you have a [provisioned SQL Database server](https://azure.microsoft.com/documentation/learning-paths/sql-database-training-learn-sql-database/).
 
-1. Убедитесь, что у вас установлена последняя версия среды SQL Server Management Studio. Новые версии среды Management Studio обновляются ежемесячно для поддержания синхронизации с обновлениями портала Azure.
+1. Verify that you have the latest version of SQL Server Management Studio. New versions of Management Studio are updated monthly to remain in sync with updates to the Azure portal.
 
-    > [AZURE.IMPORTANT] Чтобы обеспечить синхронизацию с обновлениями Microsoft Azure и Базой данных SQL, рекомендуется всегда использовать последнюю версию Management Studio. [Обновите среду SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
+    > [AZURE.IMPORTANT] It is recommended that you always use the latest version of Management Studio to remain synchronized with updates to Microsoft Azure and SQL Database. [Update SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
 
-2. Откройте среду Management Studio и подключитесь к базе данных SQL Server, которую нужно перенести, в обозревателе объектов.
-3. В обозревателе объектов щелкните базу данных правой кнопкой мыши, наведите указатель мыши на пункт **Задачи** и выберите команду **Развернуть базу данных в Базу данных SQL Microsoft Azure…**.
+2. Open Management Studio and connect to your SQL Server database to be migrated in Object Explorer.
+3. Right-click the database in the Object Explorer, point to **Tasks**, and click **Deploy Database to Microsoft Azure SQL Database…**
 
-	![Развертывание в Azure из меню "Задачи"](./media/sql-database-cloud-migrate/MigrateUsingDeploymentWizard01.png)
+    ![Deploy to Azure from Tasks menu](./media/sql-database-cloud-migrate/MigrateUsingDeploymentWizard01.png)
 
-4.	В мастере развертывания щелкните **Далее** и **Подключиться**, чтобы настроить подключение к серверу Базы данных SQL.
+4.  In the deployment wizard, click **Next**, and then click **Connect** to configure the connection to your SQL Database server.
 
-	![Развертывание в Azure из меню "Задачи"](./media/sql-database-cloud-migrate/MigrateUsingDeploymentWizard002.png)
+    ![Deploy to Azure from Tasks menu](./media/sql-database-cloud-migrate/MigrateUsingDeploymentWizard002.png)
 
-5. В диалоговом окне "Подключение к серверу" введите сведения о подключении, чтобы подключиться к серверу Базы данных SQL.
+5. In the Connect to Server dialog box, enter your connection information to connect to your SQL Database server.
 
-	![Развертывание в Azure из меню "Задачи"](./media/sql-database-cloud-migrate/MigrateUsingDeploymentWizard00.png)
+    ![Deploy to Azure from Tasks menu](./media/sql-database-cloud-migrate/MigrateUsingDeploymentWizard00.png)
 
-5.	Предоставьте следующие данные для [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4)-файла, создаваемого этим мастером при переносе:
+5.  Provide the following for the [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) file that this wizard creates during the migration process:
 
- - **имя новой базы данных**;
- - **выпуск Базы данных SQL Microsoft Azure** ([уровень служб](sql-database-service-tiers.md));
- - **максимальный размер базы данных**;
- - **цель обслуживания** (уровень производительности);
- - **имя временного файла**.
+ - The **New database name** 
+ - The **Edition of Microsoft Azure SQL Database** ([service tier](sql-database-service-tiers.md))
+ - The **Maximum database size**
+ - The **Service Objective** (performance level)
+ - The **Temporary file name**  
 
-    ![Параметры экспорта](./media/sql-database-cloud-migrate/MigrateUsingDeploymentWizard02.png)
+    ![Export settings](./media/sql-database-cloud-migrate/MigrateUsingDeploymentWizard02.png)
 
-6.	Завершите работу мастера. В зависимости от размера и сложности базы данных процесс развертывания может занять от нескольких минут до нескольких часов. Если мастер выявляет проблемы совместимости, ошибки отображаются на экране и перенос останавливается. Руководство по устранению проблем совместимости базы данных см. в разделе [Устранение проблем совместимости базы данных](sql-database-cloud-migrate-fix-compatibility-issues.md).
+6.  Complete the wizard. Depending on the size and complexity of the database, deployment may take from a few minutes to many hours. If this wizard detects compatibility issues, errors are displayed to the screen and the migration does not continue. For guidance on how to fix database compatibility issues, go to [fix database compatibility issues](sql-database-cloud-migrate-fix-compatibility-issues.md).
 
-7.	В обозревателе объектов подключитесь к перенесенной базе данных на сервере базы данных SQL Azure.
-8.	На портале Azure просмотрите базу данных и ее свойства.
+7.  Using Object Explorer, connect to your migrated database in your Azure SQL Database server.
+8.  Using the Azure portal, view your database and its properties.
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Next steps
 
-- [Последняя версия SSDT](https://msdn.microsoft.com/library/mt204009.aspx)
-- [Последняя версия SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx)
+- [Newest version of SSDT](https://msdn.microsoft.com/library/mt204009.aspx)
+- [Newest version of SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx)
 
-## Дополнительные ресурсы
+## <a name="additional-resources"></a>Additional resources
 
-- [База данных SQL версии 12.](sql-database-v12-whats-new.md)
-- [Частично или полностью неподдерживаемые функции Transact-SQL.](sql-database-transact-sql-information.md)
-- [Migrate non-SQL Server databases using SQL Server Migration Assistant (Миграция баз данных не на основе SQL Server с помощью помощника по миграции SQL Server).](http://blogs.msdn.com/b/ssma/)
+- [SQL Database V12](sql-database-v12-whats-new.md)
+- [Transact-SQL partially or unsupported functions](sql-database-transact-sql-information.md)
+- [Migrate non-SQL Server databases using SQL Server Migration Assistant](http://blogs.msdn.com/b/ssma/)
 
-<!---HONumber=AcomDC_0831_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,37 +1,42 @@
 <properties 
-	pageTitle="Связанные ресурсы в коллекции плиток" 
-	description="Дополнительные сведения о связанных ресурсах, отображаемых в коллекции плиток на портале предварительной версии Azure." 
-	services="azure-portal" 
-	documentationCenter="" 
-	authors="adamabdelhamed" 
-	manager="wpickett" 
-	editor=""/>
+    pageTitle="Related and linked resources in the tile gallery" 
+    description="Learn about related and linked resources that are displayed in the tile gallery of the Azure preview portal." 
+    services="azure-portal" 
+    documentationCenter="" 
+    authors="adamabdelhamed" 
+    manager="wpickett" 
+    editor=""/>
 
 <tags 
-	ms.service="azure-portal" 
-	ms.workload="multiple" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/16/2015" 
-	ms.author="adamab"/>
+    ms.service="azure-portal" 
+    ms.workload="multiple" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="07/16/2015" 
+    ms.author="adamab"/>
 
-# Связанные ресурсы в коллекции плиток
 
-В коллекции плиток вы можете найти плитки для конкретного ресурса, чтобы перетащить их в свою текущую колонку. Используя коллекцию плиток, вы можете создавать представления управления, связывающие ресурсы. Ресурсы, связанные с выбранным ресурсом, включают все ресурсы, которые совместно используют одну и ту же группу ресурсов в качестве ресурса, а также все ресурсы, которые ссылаются на этот ресурс или на которые ссылается ресурс.
+# <a name="related-and-linked-resources-in-the-tile-gallery"></a>Related and linked resources in the tile gallery
 
-## Связанные ресурсы в диспетчере ресурсов Azure
+The tile gallery enables you to find tiles for a particular resource and drag them onto your current blade. Using the tile gallery, you can create management views that span resources. For any specified resource, the related resources include all of the resources that share the same resource group as the resource, and any resources that link to or from the resource.
 
-Связывание — это функция диспетчера ресурсов Azure. Она позволяет объявлять отношения между ресурсами, даже если они не находятся в одной и той же группе ресурсов. Связывание не влияет на среду выполнения ресурсов, выставление счетов или доступ на основе ролей. Это просто механизм, который можно использовать для представления связей, чтобы такие средства, как коллекция плиток, могли предоставлять широкие возможности управления. Ваши средства могут проверять ссылки, используя API ссылок. Кроме того, они могут предоставлять настраиваемые возможности управления отношениями.
+## <a name="linked-resources-in-azure-resource-manager"></a>Linked resources in Azure Resource Manager
 
-## Как связать ресурсы?
+Linking is a feature of the Azure Resource Manager.  It enables you to declare relationships between resources even if they do not reside in the same resource group. Linking has no impact on the runtime of your resources, no impact on billing, and no impact on role-based access.  It's simply a mechanism you can use to represent relationships so that tools like the tile gallery can provide a rich management experience.  Your tools can inspect the links using the links API and provide custom relationship management experiences as well. 
 
-Во время создания ресурсов на портале либо путем развертывания шаблона с использованием Azure PowerShell или Azure CLI для некоторых зависимых ресурсов ссылки создаются автоматически. Вы также можете программно связать ресурсы с помощью [API REST связанных ресурсов](https://msdn.microsoft.com/library/azure/mt238499.aspx) или путем объявления отношений в шаблоне. Полную информацию о работе с ресурсами см. в статье [Связывание ресурсов в диспетчере ресурсов Azure](../resource-group-link-resources.md).
+## <a name="how-do-i-link-my-resources?"></a>How do I link my resources?
 
-## Дальнейшие действия
+When you create resources through the portal or by deploying a template through Azure PowerShell or Azure CLI, links are automatically created for some dependent resources. You can also programmatically link resources by using the [Linked Resources REST API](https://msdn.microsoft.com/library/azure/mt238499.aspx) or by declaring the relationships in the template. For a complete discussion of working with linked resources, see [Linking resources in Azure Resource Manager](../resource-group-link-resources.md).
 
-- Если вам нужна информация для написания шаблонов диспетчера ресурсов Azure, см. статью [Разработка шаблонов](../resource-group-authoring-templates.md).
-- Если вы хотите подробно изучить процесс создания связей между ресурсами, см. статью [Связывание ресурсов в диспетчере ресурсов Azure](../resource-group-link-resources.md).
-- Чтобы узнать больше о работе с группами ресурсов на портале предварительной версии, см. статью [Использование портала предварительной версии Azure для управления ресурсами Azure](resource-group-portal.md).
+## <a name="next-steps"></a>Next steps
 
-<!---HONumber=Oct15_HO3-->
+- If you need an introduction to writing Azure Resource Manager templates, see [Authoring templates](../resource-group-authoring-templates.md).
+- To dive into greater detail about creating links between resources, see [Linking resources in Azure Resource Manager](../resource-group-link-resources.md).
+- To understand more about working with resource groups through the preview portal, see [Using the Azure Preview Portal to manage your Azure resources](resource-group-portal.md).
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

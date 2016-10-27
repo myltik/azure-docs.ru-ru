@@ -1,48 +1,49 @@
 <properties
-	pageTitle="Обзор конечных точек версии 2.0 | Microsoft Azure"
-	description="Общие сведения о создании приложений с поддержкой входа как по учетной записи Майкрософт, так и через Azure Active Directory."
-	services="active-directory"
-	documentationCenter=""
-	authors="dstrockis"
-	manager="mbaldwin"
-	editor=""/>
+    pageTitle="Обзор конечных точек версии 2.0 | Microsoft Azure"
+    description="Общие сведения о создании приложений с поддержкой входа как по учетной записи Майкрософт, так и через Azure Active Directory."
+    services="active-directory"
+    documentationCenter=""
+    authors="dstrockis"
+    manager="mbaldwin"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/27/2016"
-	ms.author="dastrock"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/27/2016"
+    ms.author="dastrock"/>
 
-# Вход для пользователей учетных записей Майкрософт и Azure AD в одном приложении
 
-Раньше разработчику приложения, поддерживающего как учетные записи Майкрософт, так и Azure Active Directory, необходимо было обеспечивать интеграцию с двумя отдельными системами. Мы представляем новую версию API проверки подлинности, которая позволяет выполнять вход пользователей с помощью обоих типов учетных записей в системе Azure AD. Эта объединенная система проверки подлинности называется **конечной точкой версии 2.0**. С конечной точкой версии 2.0 одна простая интеграция позволяет охватить миллионы пользователей с личными, рабочими или учебными учетными записями.
+# <a name="sign-in-microsoft-account-&-azure-ad-users-in-a-single-app"></a>Вход для пользователей учетных записей Майкрософт и Azure AD в одном приложении
 
-Приложения, использующие конечную точку версии 2.0, также могут использовать API REST из [Microsoft Graph](https://graph.microsoft.io) и [Office 365](https://msdn.microsoft.com/office/office365/howto/authenticate-Office-365-APIs-using-v2) с помощью любого типа учетной записи.
+Раньше разработчику приложения, поддерживающего как учетные записи Майкрософт, так и Azure Active Directory, необходимо было обеспечивать интеграцию с двумя отдельными системами.  Мы представляем новую версию API проверки подлинности, которая позволяет выполнять вход пользователей с помощью обоих типов учетных записей в системе Azure AD.  Эта объединенная система проверки подлинности называется **конечной точкой версии 2.0**.  С конечной точкой версии 2.0 одна простая интеграция позволяет охватить миллионы пользователей с личными, рабочими или учебными учетными записями.
+
+Приложения, использующие конечную точку версии 2.0, также могут использовать REST API из [Microsoft Graph](https://graph.microsoft.io) и [Office 365](https://msdn.microsoft.com/office/office365/howto/authenticate-Office-365-APIs-using-v2) с помощью любого типа учетной записи.
 
 <!-- For a quick introduction to the v2.0 endpoint, please view the [Getting Started with Microsoft Identities: Enterprise Grade Sign In For Your Apps](https://azure.microsoft.com/documentation/videos/build-2016-getting-started-with-microsoft-identities-enterprise-grade-sign-in-for-your-apps/) video. -->
 
-## Приступая к работе
+## <a name="getting-started"></a>Приступая к работе
 [AZURE.VIDEO build-2016-getting-started-with-microsoft-identities-enterprise-grade-sign-in-for-your-apps]
 
-Выберите платформу в следующем списке, чтобы создать приложение с помощью наших библиотек и платформ с открытым исходным кодом. Вы также можете воспользоваться документацией по протоколу OAuth 2.0 и OpenID Connect для отправки и получения сообщений протокола напрямую, без использования библиотеки аутентификации.
+Выберите платформу в следующем списке, чтобы создать приложение с помощью наших библиотек и платформ с открытым исходным кодом.  Вы также можете воспользоваться документацией по протоколу OAuth 2.0 и OpenID Connect для отправки и получения сообщений протокола напрямую, без использования библиотеки аутентификации.
 
 <!-- TODO: Finalize this table  -->
 [AZURE.INCLUDE [active-directory-v2-quickstart-table](../../includes/active-directory-v2-quickstart-table.md)]
 
-## Новые возможности
+## <a name="what's-new"></a>Новые возможности
 Основные сведения, приведенные здесь, будут полезны в понимании того, что возможно и что нет в конечной версии 2.0.
 
 - Узнайте о [типах приложений, которые можно создавать с помощью конечной точки версии 2.0](active-directory-v2-flows.md).
 - Ознакомьтесь с [ограничениями](active-directory-v2-limitations.md) конечной точки версии 2.0.
-- Недавно мы добавили поддержку [областей только для администраторов](active-directory-v2-scopes.md) и [предоставления учетных данных клиента OAuth2](active-directory-v2-protocols-oauth-client-creds.md). Попробуйте сами!
+- Недавно мы добавили поддержку [областей только для администраторов](active-directory-v2-scopes.md) и [предоставления учетных данных клиента OAuth2](active-directory-v2-protocols-oauth-client-creds.md).  Попробуйте сами!
 
-## Справочные материалы
+## <a name="reference"></a>Справочные материалы
 Следующие ссылки позволят глубже изучить платформу:
 
-- Build 2016: [Getting Started with Microsoft Identities: Enterprise Grade Sign In For Your Apps](https://azure.microsoft.com/documentation/videos/build-2016-getting-started-with-microsoft-identities-enterprise-grade-sign-in-for-your-apps/) (Приступая к работе с удостоверениями Майкрософт: вход корпоративного класса для ваших приложений).
+- Build 2016: [Getting Started with Microsoft Identities: Enterprise Grade Sign In For Your Apps](https://azure.microsoft.com/documentation/videos/build-2016-getting-started-with-microsoft-identities-enterprise-grade-sign-in-for-your-apps/)
 - Получите справку по переполнению стека, используя теги [azure-active-directory](http://stackoverflow.com/questions/tagged/azure-active-directory) или [adal](http://stackoverflow.com/questions/tagged/adal).
 - [Справочник по протоколу версии 2.0](active-directory-v2-protocols.md)
 - [Справочник по маркерам версии 2.0](active-directory-v2-tokens.md)
@@ -52,4 +53,7 @@
 - [Справочник по API REST Office 365](https://msdn.microsoft.com/office/office365/howto/authenticate-Office-365-APIs-using-v2)
 - [Microsoft Graph](https://graph.microsoft.io)
 
-<!---HONumber=AcomDC_0928_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

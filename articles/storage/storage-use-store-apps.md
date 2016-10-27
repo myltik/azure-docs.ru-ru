@@ -1,36 +1,37 @@
 <properties
-	pageTitle="Использование службы хранилища Azure в приложениях Магазина Windows | Microsoft Azure"
-	description="Узнайте, как создать приложение магазина Windows, которое использует BLOB-объекты, очереди, таблицы или хранилище файлов Azure."
-	services="storage"
-	documentationCenter=""
-	authors="tamram"
-	manager="carmonm"
-	editor="tysonn"/>
+    pageTitle="Использование службы хранилища Azure в приложениях Магазина Windows | Microsoft Azure"
+    description="Узнайте, как создать приложение магазина Windows, которое использует BLOB-объекты, очереди, таблицы или хранилище файлов Azure."
+    services="storage"
+    documentationCenter=""
+    authors="tamram"
+    manager="carmonm"
+    editor="tysonn"/>
 
 <tags
-	ms.service="storage"
-	ms.workload="storage"
-	ms.tgt_pltfrm="mobile-windows-store"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="09/07/2016"
-	ms.author="micurd;tamram"/>
-	
-# Использование службы хранилища Azure в приложениях Магазина Windows
+    ms.service="storage"
+    ms.workload="storage"
+    ms.tgt_pltfrm="mobile-windows-store"
+    ms.devlang="dotnet"
+    ms.topic="article"
+    ms.date="10/18/2016"
+    ms.author="tamram"/>
+    
 
-## Обзор
+# <a name="how-to-use-azure-storage-in-windows-store-apps"></a>Использование службы хранилища Azure в приложениях Магазина Windows
+
+## <a name="overview"></a>Обзор
 
 В этом руководстве показано, как начать разработку приложения Магазина Windows, использующего хранилище Azure.
 
-## Скачивание необходимых средств
+## <a name="download-required-tools"></a>Скачивание необходимых средств
 
-- [Visual Studio](https://www.visualstudio.com/ru-RU/visual-studio-homepage-vs.aspx) упрощает процесс сборки, отладки, локализации, упаковки и развертывания приложений Магазина Windows. Требуется Visual Studio 2012 или более поздней версии.
+- [Visual Studio](https://www.visualstudio.com/en-us/visual-studio-homepage-vs.aspx) упрощает процесс сборки, отладки, локализации, упаковки и развертывания приложений Магазина Windows. Требуется Visual Studio 2012 или более поздней версии.
 - [Клиентская библиотека хранилища Microsoft Azure](https://www.nuget.org/packages/WindowsAzure.Storage) предоставляет библиотеку классов среды выполнения Windows для работы со службой хранилища Azure.
 - [Инструменты служб данных WCF для приложений Магазина Windows](http://www.microsoft.com/download/details.aspx?id=30714) расширяют возможности добавления ссылки на службу за счет поддержки OData на стороне клиента для приложений Магазина Windows в Visual Studio.
 
-## Разработка приложений
+## <a name="develop-apps"></a>Разработка приложений
 
-### Подготовка
+### <a name="getting-ready"></a>Подготовка
 
 Создайте новый проект приложения Магазина Windows в Visual Studio 2012 или более поздней версии:
 
@@ -40,9 +41,9 @@
 
 ![store-apps-storage-choose-library][store-apps-storage-choose-library]
 
-### Использование библиотеки со службами BLOB-объектов и очередей
+### <a name="using-the-library-with-the-blob-and-queue-services"></a>Использование библиотеки со службами BLOB-объектов и очередей
 
-На этом этапе приложение готово к вызову служб BLOB-объектов и очередей Azure. Добавьте следующие операторы **using**, чтобы можно было напрямую ссылаться на типы хранилища Azure:
+На этом этапе приложение готово к вызову служб BLOB-объектов и очередей Azure. Добавьте следующие операторы **using** , чтобы можно было напрямую ссылаться на типы хранилища Azure:
 
     using Microsoft.WindowsAzure.Storage;
     using Microsoft.WindowsAzure.Storage.Auth;
@@ -55,11 +56,11 @@
     var container = blobClient.GetContainerReference("container1");
     await container.CreateIfNotExistsAsync();
 
-В этом коде есть две строковые переменные *accountName* и *accountKey*. Они представляют собой имя вашей учетной записи хранения и связанный ней ключ.
+В этом коде предполагается, что у вас есть две строковые переменные *accountName* и *accountKey*. Они представляют собой имя вашей учетной записи хранения и связанный ней ключ.
 
 Создайте и запустите приложение. Нажав кнопку, вы сможете проверить свою учетную запись на наличие контейнера с именем *container1* и создать его в случае отсутствия.
 
-### Использование библиотеки со службой таблиц
+### <a name="using-the-library-with-the-table-service"></a>Использование библиотеки со службой таблиц
 
 Типы, используемые для связи со службой таблиц Azure, зависят от служб данных WCF для библиотеки приложений Магазина Windows. Добавьте ссылку на необходимые библиотеки WCF с помощью консоли диспетчера пакетов:
 
@@ -89,4 +90,8 @@
 [store-apps-storage-choose-library]: ./media/storage-use-store-apps/store-apps-storage-choose-library.png
 [store-apps-storage-package-manager]: ./media/storage-use-store-apps/store-apps-storage-package-manager.png
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

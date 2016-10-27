@@ -1,277 +1,278 @@
 <properties
-	pageTitle="Учебник. Интеграция Azure Active Directory с Tangoe Command Premium Mobile | Microsoft Azure"
-	description="Узнайте, как настроить единый вход Azure Active Directory в приложении Tangoe Command Premium Mobile."
-	services="active-directory"
-	documentationCenter=""
-	authors="jeevansd"
-	manager="femila"
-	editor=""/>
+    pageTitle="Tutorial: Azure Active Directory integration with Tangoe Command Premium Mobile | Microsoft Azure"
+    description="Learn how to configure single sign-on between Azure Active Directory and Tangoe Command Premium Mobile."
+    services="active-directory"
+    documentationCenter=""
+    authors="jeevansd"
+    manager="femila"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/11/2016"
-	ms.author="jeedes"/>
-
-
-# Учебник. Интеграция Azure Active Directory с Tangoe Command Premium Mobile
-
-В этом учебнике описано, как интегрировать Tangoe Command Premium Mobile с Azure Active Directory (Azure AD).
-
-Интеграция Tangoe Command Premium Mobile с Azure AD дает приведенные далее преимущества:
-
-- С помощью Azure AD вы можете контролировать доступ к Tangoe Command Premium Mobile.
-- Вы можете включить автоматический вход пользователей в Tangoe Command Premium Mobile (единый вход) с использованием учетной записи Azure AD.
-- Вы можете управлять учетными записями централизованно — через классический портал Azure.
-
-Подробнее узнать об интеграции приложений SaaS с Azure AD можно в статье [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md).
-
-## Предварительные требования
-
-Чтобы настроить интеграцию Azure AD с Tangoe Command Premium Mobile, вам потребуется следующее:
-
-- Подписка Azure
-- подписка Tangoe Command Premium Mobile с поддержкой единого входа.
-
-
-> [AZURE.NOTE] Мы не рекомендуем использовать рабочую среду для проверки действий в этом учебнике.
-
-
-При проверке действий в этом учебнике соблюдайте следующие рекомендации:
-
-- Не следует использовать рабочую среду при отсутствии необходимости.
-- Если у вас нет пробной среды Azure AD, вы можете получить пробную версию на один месяц по [этой ссылке](https://azure.microsoft.com/pricing/free-trial/).
-
-
-## Описание сценария
-В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде.
-
-Сценарий, описанный в этом учебнике, состоит из двух основных блоков:
-
-1. Добавление Tangoe Command Premium Mobile из коллекции
-2. Настройка и проверка единого входа в Azure AD
-
-
-## Добавление Tangoe Command Premium Mobile из коллекции
-Чтобы настроить интеграцию Tangoe Command Premium Mobile с Azure AD, необходимо добавить Tangoe Command Premium Mobile из коллекции в список управляемых приложений SaaS.
-
-**Чтобы добавить Tangoe Command Premium Mobile из коллекции, выполните следующие действия.**
-
-1. На **классическом портале Azure** в области навигации слева щелкните **Active Directory**.
-
-	![Active Directory][1]
-
-2. Из списка **Каталог** выберите каталог, для которого нужно включить интеграцию каталогов.
-
-3. Чтобы открыть представление приложений, в представлении каталога нажмите **Приложения** в верхнем меню.
-
-	![Приложения][2]
-
-4. В нижней части страницы нажмите кнопку **Добавить**.
-
-	![Приложения][3]
-
-5. В диалоговом окне **Что необходимо сделать?** нажмите **Добавить приложение из коллекции**.
-
-	![Приложения][4]
-
-6. В поле поиска введите **Tangoe Command Premium Mobile**.
-
-	![Создание тестового пользователя Azure AD](./media/active-directory-saas-tangoe-tutorial/tutorial_tangoe_01.png)
-
-7. В области результатов выберите **Tangoe Command Premium Mobile** и нажмите кнопку **Завершить**, чтобы добавить приложение.
-
-![Создание тестового пользователя Azure AD](./media/active-directory-saas-tangoe-tutorial/tutorial_tangoe_02.png)
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/29/2016"
+    ms.author="jeedes"/>
 
 
 
+# <a name="tutorial:-azure-active-directory-integration-with-tangoe-command-premium-mobile"></a>Tutorial: Azure Active Directory integration with Tangoe Command Premium Mobile
 
-##  Настройка и проверка единого входа в Azure AD
-В этом разделе описана настройка и проверка единого входа Azure AD в Tangoe Command Premium Mobile с использованием тестового пользователя Britta Simon.
+In this tutorial, you learn how to integrate Tangoe Command Premium Mobile with Azure Active Directory (Azure AD).
 
-Для работы единого входа в Azure AD необходимо знать, какой пользователь в Tangoe Command Premium Mobile соответствует пользователю в Azure AD. Иными словами, необходимо установить связь между пользователем Azure AD и соответствующим пользователем в Tangoe Command Premium Mobile.
+Integrating Tangoe Command Premium Mobile with Azure AD provides you with the following benefits:
 
-Чтобы установить эту связь, следует назначить **имя пользователя** в Azure AD в качестве значения **имени пользователя** в Tangoe Command Premium Mobile.
+- You can control in Azure AD who has access to Tangoe Command Premium Mobile
+- You can enable your users to automatically get signed-on to Tangoe Command Premium Mobile (Single Sign-On) with their Azure AD accounts
+- You can manage your accounts in one central location - the Azure classic portal
 
-Чтобы настроить и проверить единый вход Azure AD в Tangoe Command Premium Mobile, вам потребуется выполнить действия в следующих стандартных блоках.
+If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-1. **[Настройка единого входа Azure AD](#configuring-azure-ad-single-single-sign-on)** необходима, чтобы пользователи могли использовать эту функцию.
-2. **[Создание тестового пользователя Azure AD](#creating-an-azure-ad-test-user)** требуется для проверки работы единого входа Azure AD от имени пользователя Britta Simon.
-4. **[Создание тестового пользователя Tangoe Command Premium Mobile](#creating-an-tangoe-test-user)** требуется для формирования пользователя Britta Simon в Tangoe Command Premium Mobile, связанного с соответствующим представлением в Azure AD.
-5. **[Назначение тестового пользователя Azure AD](#assigning-the-azure-ad-test-user)** необходимо, чтобы позволить Britta Simon использовать единый вход в Azure AD.
-5. **[Проверка единого входа](#testing-single-sign-on)** необходима, чтобы убедиться в корректной работе конфигурации.
+## <a name="prerequisites"></a>Prerequisites
 
-### Настройка единого входа в Azure AD
+To configure Azure AD integration with Tangoe Command Premium Mobile, you need the following items:
 
-В данном разделе описано, как включить единый вход Azure AD на классическом портале и настроить его в приложении Tangoe Command Premium Mobile.
-
-
-**Чтобы настроить единый вход Azure AD в Tangoe Command Premium Mobile, выполните следующие действия:**
-
-1. На странице интеграции с приложением **Tangoe Command Premium Mobile** классического портала щелкните **Настроить единый вход**, чтобы открыть диалоговое окно **Настройка единого входа**.
-
-	![Настройка единого входа][6]
+- An Azure subscription
+- A Tangoe Command Premium Mobile single-sign on enabled subscription
 
 
-2. На странице **Как пользователи должны входить в Tangoe Command Premium Mobile** выберите **Единый вход Azure AD** и нажмите кнопку **Далее**.
-
-	![Настройка единого входа](./media/active-directory-saas-tangoe-tutorial/tutorial_tangoe_03.png)
+> [AZURE.NOTE] To test the steps in this tutorial, we do not recommend using a production environment.
 
 
-3. В диалоговом окне на странице **Настройка параметров приложения** выполните следующие действия.
+To test the steps in this tutorial, you should follow these recommendations:
+
+- You should not use your production environment, unless this is necessary.
+- If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).
+
+
+## <a name="scenario-description"></a>Scenario Description
+In this tutorial, you test Azure AD single sign-on in a test environment. 
+
+The scenario outlined in this tutorial consists of two main building blocks:
+
+1. Adding Tangoe Command Premium Mobile from the gallery
+2. Configuring and testing Azure AD single sign-on
+
+
+## <a name="adding-tangoe-command-premium-mobile-from-the-gallery"></a>Adding Tangoe Command Premium Mobile from the gallery
+To configure the integration of Tangoe Command Premium Mobile into Azure AD, you need to add Tangoe Command Premium Mobile from the gallery to your list of managed SaaS apps.
+
+**To add Tangoe Command Premium Mobile from the gallery, perform the following steps:**
+
+1. In the **Azure classic portal**, on the left navigation pane, click **Active Directory**. 
+
+    ![Active Directory][1]
+
+2. From the **Directory** list, select the directory for which you want to enable directory integration.
+
+3. To open the applications view, in the directory view, click **Applications** in the top menu.
+
+    ![Applications][2]
+
+4. Click **Add** at the bottom of the page.
+
+    ![Applications][3]
+
+5. On the **What do you want to do** dialog, click **Add an application from the gallery**.
+
+    ![Applications][4]
+
+6. In the search box, type **Tangoe Command Premium Mobile**.
+
+    ![Creating an Azure AD test user](./media/active-directory-saas-tangoe-tutorial/tutorial_tangoe_01.png)
+
+7. In the results pane, select **Tangoe Command Premium Mobile**, and then click **Complete** to add the application.
+
+![Creating an Azure AD test user](./media/active-directory-saas-tangoe-tutorial/tutorial_tangoe_02.png)
+
+
+
+
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuring and testing Azure AD single sign-on
+In this section, you configure and test Azure AD single sign-on with Tangoe Command Premium Mobile based on a test user called "Britta Simon".
+
+For single sign-on to work, Azure AD needs to know what the counterpart user in Tangoe Command Premium Mobile is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in Tangoe Command Premium Mobile needs to be established.
+
+This link relationship is established by assigning the value of the **user name** in Azure AD as the value of the **Username** in Tangoe Command Premium Mobile.
+
+To configure and test Azure AD single sign-on with Tangoe Command Premium Mobile, you need to complete the following building blocks:
+
+1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-single-sign-on)** - to enable your users to use this feature.
+2. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
+4. **[Creating an Tangoe Command Premium Mobile test user](#creating-an-tangoe-test-user)** - to have a counterpart of Britta Simon in Tangoe Command Premium Mobile that is linked to the Azure AD representation of her.
+5. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
+5. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
+
+### <a name="configuring-azure-ad-single-sign-on"></a>Configuring Azure AD Single Sign-On
+
+In this section, you enable Azure AD single sign-on in the classic portal and configure single sign-on in your Tangoe Command Premium Mobile application.
+
+
+**To configure Azure AD single sign-on with Tangoe Command Premium Mobile, perform the following steps:**
+
+1. In the classic portal, on the **Tangoe Command Premium Mobile** application integration page, click **Configure single sign-on** to open the **Configure Single Sign-On**  dialog.
+
+    ![Configure Single Sign-On][6]
+
+
+2. On the **How would you like users to sign on to Tangoe Command Premium Mobile** page, select **Azure AD Single Sign-On**, and then click **Next**.
+
+    ![Configure Single Sign-On](./media/active-directory-saas-tangoe-tutorial/tutorial_tangoe_03.png) 
+
+
+3. On the **Configure App Settings** dialog page, perform the following steps:
  
-	![Настройка единого входа](./media/active-directory-saas-tangoe-tutorial/tutorial_tangoe_04.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-tangoe-tutorial/tutorial_tangoe_04.png) 
 
 
-    а. В текстовое поле **URL-адрес входа** введите URL-адрес, используемый пользователями для входа в приложение Tangoe Command Premium Mobile, по следующей схеме: **"https://sso.tangoe.com/sp/startSSO.ping?PartnerIdpId=<поставщик клиента>&Target=<URL-адрес целевой страницы>"**.
+    a. In the **Sign On URL** textbox, type the URL used by your users to sign-on to your Tangoe Command Premium Mobile application using the following pattern: **“https://sso.tangoe.com/sp/startSSO.ping?PartnerIdpId=\<tenant issuer\>&Target=\<target page URL\>”**.
 
-	b. В текстовое поле **URL-адрес ответа** введите URL по следующей схеме: **"https://sso.tangoe.com/sp/ACS.saml2"**.
+    b. In the **Reply URL** textbox, type the URL in the following pattern: **"https://sso.tangoe.com/sp/ACS.saml2"**
 
-    > [AZURE.NOTE]  Если вы не знаете правильные URL-адреса, используйте указанные выше значения в качестве местозаполнителей. Чтобы получить нужные значения, обратитесь в службу поддержки клиентов Tangoe.
+    > [AZURE.NOTE]  If you don't know the correct values for the URLs, you can use the values above as placeholders and request the the correct values from your Tangoe customer support associate.
 
 
-4. На странице **Настройка единого входа в Tangoe Command Premium Mobile** выполните следующие действия:
+4. On the **Configure single sign-on at Tangoe Command Premium Mobile** page, perform the following steps:
  
-	![Настройка единого входа](./media/active-directory-saas-tangoe-tutorial/tutorial_tangoe_05.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-tangoe-tutorial/tutorial_tangoe_05.png) 
 
-    а. Нажмите **Загрузить метаданные** и сохраните файл на свой компьютер.
+    a. Click **Download metadata**, and then save the file on your computer.
 
-    b. Нажмите кнопку **Далее**.
-
-
-5.  Для настройки единого входа для своего приложения обратитесь в службу поддержки клиентов Tangoe и предоставьте следующие сведения:
+    b. Click **Next**.
 
 
-    - скачанный файл метаданных;
-    - **URL-адрес издателя**;
-    - **URL-адрес единого входа SAML**;
-    - **URL-адрес службы единого выхода**.
+5.  To get SSO configured for your application, contact your Tangoe customer support associate and provide the following:
+
+
+    - The downloaded metadata file
+    - The **Issuer URL**
+    - The **SAML SSO URL**
+    - The **Single Sign-Out Service URL**
 
 
   
-6. На классическом портале выберите подтверждение конфигурации единого входа и нажмите кнопку **Далее**.
+6. In the classic portal, select the single sign-on configuration confirmation, and then click **Next**.
 
-	![Единый вход в Azure AD][10]
+    ![Azure AD Single Sign-On][10]
 
-7. На странице **Подтверждение единого входа** нажмите кнопку **Завершить**.
+7. On the **Single sign-on confirmation** page, click **Complete**.  
   
-	![Единый вход в Azure AD][11]
+    ![Azure AD Single Sign-On][11]
 
 
 
 
-### Создание тестового пользователя Azure AD
-В этом разделе описано, как создать на классическом портале тестового пользователя с именем Britta Simon.
+### <a name="creating-an-azure-ad-test-user"></a>Creating an Azure AD test user
+In this section, you create a test user in the classic portal called Britta Simon.
 
-В списке пользователей выберите **Britta Simon**.
+In the Users list, select **Britta Simon**.
 
-![Создание пользователя Azure AD][20]
+![Create Azure AD User][20]
 
-**Чтобы создать тестового пользователя в Azure AD, выполните следующие действия:**
+**To create a test user in Azure AD, perform the following steps:**
 
-1. На **классическом портале Azure** в области навигации слева щелкните **Active Directory**.
+1. In the **Azure classic portal**, on the left navigation pane, click **Active Directory**.
 
-	![Создание тестового пользователя Azure AD](./media/active-directory-saas-tangoe-tutorial/create_aaduser_09.png)
+    ![Creating an Azure AD test user](./media/active-directory-saas-tangoe-tutorial/create_aaduser_09.png) 
 
-2. Из списка **Каталог** выберите каталог, для которого нужно включить интеграцию каталогов.
+2. From the **Directory** list, select the directory for which you want to enable directory integration.
 
-3. Чтобы отобразить список пользователей, щелкните **Пользователи** в меню вверху.
+3. To display the list of users, in the menu on the top, click **Users**.
 
-	![Создание тестового пользователя Azure AD](./media/active-directory-saas-tangoe-tutorial/create_aaduser_03.png)
+    ![Creating an Azure AD test user](./media/active-directory-saas-tangoe-tutorial/create_aaduser_03.png) 
 
-4. Чтобы открыть диалоговое окно **Добавление пользователя**, на панели инструментов внизу нажмите кнопку **Добавить пользователя**.
+4. To open the **Add User** dialog, in the toolbar on the bottom, click **Add User**.
 
-	![Создание тестового пользователя Azure AD](./media/active-directory-saas-tangoe-tutorial/create_aaduser_04.png)
+    ![Creating an Azure AD test user](./media/active-directory-saas-tangoe-tutorial/create_aaduser_04.png)
 
 
-5. На диалоговой странице **Расскажите об этом пользователе** выполните следующие действия:
+5. On the **Tell us about this user** dialog page, perform the following steps:
 
-	![Создание тестового пользователя Azure AD](./media/active-directory-saas-tangoe-tutorial/create_aaduser_05.png)
+    ![Creating an Azure AD test user](./media/active-directory-saas-tangoe-tutorial/create_aaduser_05.png) 
 
-    а. В поле «Тип пользователя» выберите значение «Новый пользователь в вашей организации».
+    a. As Type Of User, select New user in your organization.
 
-    b. В текстовое поле **Имя пользователя** введите **BrittaSimon**.
+    b. In the User Name **textbox**, type **BrittaSimon**.
 
-    c. Нажмите кнопку **Далее**.
+    c. Click **Next**.
 
-6.  На диалоговой странице **Профиль пользователя** выполните следующие действия:
+6.  On the **User Profile** dialog page, perform the following steps:
 
-	![Создание тестового пользователя Azure AD](./media/active-directory-saas-tangoe-tutorial/create_aaduser_06.png)
+    ![Creating an Azure AD test user](./media/active-directory-saas-tangoe-tutorial/create_aaduser_06.png) 
 
-    а. В текстовом поле **Имя** введите **Britta**.
+    a. In the **First Name** textbox, type **Britta**.  
 
-    b. В текстовое поле **Фамилия** введите **Simon**.
+    b. In the **Last Name** textbox, type, **Simon**.
 
-    c. В текстовое поле **Отображаемое имя** введите **Britta Simon**.
+    c. In the **Display Name** textbox, type **Britta Simon**.
 
-    г) В списке **Роль** выберите **Пользователь**.
+    d. In the **Role** list, select **User**.
 
-    д. Нажмите кнопку **Далее**.
+    e. Click **Next**.
 
-7. На диалоговой странице **Получение временного пароля** нажмите кнопку **Создать**.
+7. On the **Get temporary password** dialog page, click **create**.
 
-	![Создание тестового пользователя Azure AD](./media/active-directory-saas-tangoe-tutorial/create_aaduser_07.png)
+    ![Creating an Azure AD test user](./media/active-directory-saas-tangoe-tutorial/create_aaduser_07.png) 
 
-8. На диалоговой странице **Получение временного пароля** выполните следующие действия:
+8. On the **Get temporary password** dialog page, perform the following steps:
  
-	![Создание тестового пользователя Azure AD](./media/active-directory-saas-tangoe-tutorial/create_aaduser_08.png)
+    ![Creating an Azure AD test user](./media/active-directory-saas-tangoe-tutorial/create_aaduser_08.png) 
 
-    а. Запишите значение поля **Новый пароль**.
+    a. Write down the value of the **New Password**.
 
-    b. Нажмите **Завершено**.
-
-
-
-### Создание тестового пользователя Tangoe Command Premium Mobile
-
-В этом разделе описано, как создать пользователя Britta Simon в приложении Tangoe Command Premium Mobile. Перед выполнением единого входа все пользователи должны быть подготовлены в приложении Tangoe Command Premium Mobile. Для этого обратитесь в службу поддержки клиентов Tangoe.
-
-
-> [AZURE.NOTE] Чтобы создать пользователя или несколько пользователей вручную, также обратитесь в службу поддержки клиентов Tangoe Command Premium Mobile.
-
-
-### Назначение тестового пользователя Azure AD
-
-В этом разделе описано, как позволить пользователю Britta Simon использовать единый вход Azure, предоставив ей доступ к Tangoe Command Premium Mobile.
-
-![Назначение пользователя][200]
-
-**Чтобы назначить пользователя Britta Simon приложению Tangoe Command Premium Mobile, выполните следующие действия:**
-
-1. Чтобы открыть представление приложений, в представлении каталога на классическом портале щелкните **Приложения** в верхнем меню.
-
-![Назначение пользователя][201]
-
-2. В списке приложений выберите **Tangoe Command Premium Mobile**.
-
-![Настройка единого входа](./media/active-directory-saas-tangoe-tutorial/tutorial_tangoe_50.png)
-
-1. В меню в верхней части страницы щелкните **Пользователи**.
-
-![Назначение пользователя][203]
-
-1. В списке пользователей выберите **Britta Simon**.
-
-2. На панели инструментов внизу щелкните **Назначить**.
-
-![Назначение пользователя][205]
+    b. Click **Complete**.   
 
 
 
-### Проверка единого входа
+### <a name="creating-an-tangoe-command-premium-mobile-test-user"></a>Creating an Tangoe Command Premium Mobile test user
 
-В этом разделе описано, как проверить конфигурацию единого входа Azure AD с помощью панели доступа.
-
-Щелкнув элемент Tangoe Command Premium Mobile, вы автоматически войдете в приложение Tangoe Command Premium Mobile.
+In this section, you create a user called Britta Simon in Tangoe Command Premium Mobile. Tangoe Command Premium Mobile application need all the users to be provisioned in the application before doing Single Sign On. So please work with the Tangoe Customer support associate to provision all these users into the application. 
 
 
-## Дополнительные ресурсы
+> [AZURE.NOTE] If you need to create a user manually or batch of users, you need to contact the Tangoe Command Premium Mobile support team.
 
-* [Список учебников по интеграции приложений SaaS с Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+
+### <a name="assigning-the-azure-ad-test-user"></a>Assigning the Azure AD test user
+
+In this section, you enable Britta Simon to use Azure single sign-on by granting her access to Tangoe Command Premium Mobile.
+
+![Assign User][200] 
+
+**To assign Britta Simon to Tangoe Command Premium Mobile, perform the following steps:**
+
+1. On the classic portal, to open the applications view, in the directory view, click **Applications** in the top menu.
+
+![Assign User][201] 
+
+2. In the applications list, select **Tangoe Command Premium Mobile**.
+
+![Configure Single Sign-On](./media/active-directory-saas-tangoe-tutorial/tutorial_tangoe_50.png) 
+
+1. In the menu on the top, click **Users**.
+
+![Assign User][203] 
+
+1. In the Users list, select **Britta Simon**.
+
+2. In the toolbar on the bottom, click **Assign**.
+
+![Assign User][205]
+
+
+
+### <a name="testing-single-sign-on"></a>Testing Single Sign-On
+
+In this section, you test your Azure AD single sign-on configuration using the Access Panel.
+
+When you click the Tangoe Command Premium Mobile tile in the Access Panel, you should get automatically signed-on to your Tangoe Command Premium Mobile application.
+
+
+## <a name="additional-resources"></a>Additional Resources
+
+* [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 
 
@@ -293,4 +294,8 @@
 [204]: ./media/active-directory-saas-tangoe-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-tangoe-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0713_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

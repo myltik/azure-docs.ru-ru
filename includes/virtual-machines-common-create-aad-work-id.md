@@ -1,94 +1,94 @@
 
 <br>
 
-> [AZURE.NOTE] Если вы получили имя пользователя и пароль от администратора, велика вероятность, что у вас уже есть рабочий или учебный идентификатор (иногда его также называют *идентификатором организации*). В этом случае можно сразу начать использовать учетную запись Azure для доступа к ресурсам Azure, которым она требуется. Если вы обнаружили, что не можете воспользоваться этими ресурсами, возможно, вам понадобится вернуться к этой статье. Дополнительную информацию см. в разделах [Учетные записи, которые можно использовать для входа](https://msdn.microsoft.com/library/azure/dn629581.aspx#BKMK_SignInAccounts) и [Как подписка Azure связана с Azure AD](https://msdn.microsoft.com/library/azure/dn629581.aspx#BKMK_SubRelationToDir).
+> [AZURE.NOTE] If you were given a user name and password by an administrator, there's a good chance that you already have a work or school ID (also sometimes called an *organizational ID*). If so, you can immediately begin to use your Azure account to access Azure resources that require one. If you find that you cannot use those resources, you may need to return to this article for help. For more information, see [Accounts that you can use for sign in](https://msdn.microsoft.com/library/azure/dn629581.aspx#BKMK_SignInAccounts) and [How an Azure subscription is related to Azure AD](https://msdn.microsoft.com/library/azure/dn629581.aspx#BKMK_SubRelationToDir).
 
-Необходимые действия просты. Вам нужно найти на классическом портале Azure свое подписанное удостоверение, выяснить свой домен Azure Active Directory по умолчанию и добавить в него нового пользователя в качестве соадминистратора Azure.
+The steps are simple. You need to locate your signed on identity in the Azure classic portal, discover your default Azure Active Directory domain, and add a new user to it as an Azure co-administrator.
 
-## Найдите каталог по умолчанию на классическом портале Azure.
+## <a name="locate-your-default-directory-in-the-azure-classic-portal"></a>Locate your default directory in the Azure classic portal
 
-Перейдите на [классический портал Azure](https://manage.windowsazure.com) с помощью личного удостоверения учетной записи Майкрософт. После входа прокрутите синюю панель слева и щелкните **ACTIVE DIRECTORY**.
+Start by logging in to the [Azure classic portal](https://manage.windowsazure.com) with your personal Microsoft account identity. After you are logged in, scroll down the blue panel on the left side and click **ACTIVE DIRECTORY**.
 
 ![Azure Active Directory](./media/virtual-machines-common-create-aad-work-id/azureactivedirectorywidget.png)
 
-Давайте начнем с поиска некоторых сведений о вашем удостоверении в Azure. В главной области должны отображаться сведения, подобные указанным ниже, показывающие, что у вас есть один каталог по умолчанию.
+Let's start by finding some information about your identity in Azure. You should see something like the following in the main pane, showing that you have one default directory.
 
 ![](./media/virtual-machines-common-create-aad-work-id/defaultaadlisting.png)
 
-Давайте выясним некоторые дополнительные сведения о нем. Щелкните строку каталога по умолчанию, чтобы открыть свойства этого каталога.
+Let's find out some more information about it. Click the default directory row, which brings you into the default directory properties.  
 
 ![](./media/virtual-machines-common-create-aad-work-id/defaultdirectorypage.png)
 
-Чтобы просмотреть имя домена по умолчанию, щелкните **ДОМЕНЫ**.
+To view the default domain name, click **DOMAINS**.
 
 ![](./media/virtual-machines-common-create-aad-work-id/domainclicktoseeyourdefaultdomain.png)
 
-Здесь можно увидеть, что при создании учетной записи Azure служба Azure Active Directory создала личный домен по умолчанию, представляющий собой значение хэша (число, формируемое по текстовой строке) вашего личного идентификатора, используемого как поддомен onmicrosoft.com. Это домен, в который теперь мы добавим нового пользователя.
+Here you should be able to see that when the Azure account was created, Azure Active Directory created a personal default domain that is a hash value (a number generated from a string of text) of your personal ID used as a subdomain of onmicrosoft.com. That's the domain to which you will now add a new user.
 
-## Создание нового пользователя в домене по умолчанию
+## <a name="creating-a-new-user-in-the-default-domain"></a>Creating a new user in the default domain
 
-Щелкните **ПОЛЬЗОВАТЕЛИ** и найдите среди них личную учетную запись. В столбце **ГДЕ СОЗДАНО** можно увидеть, что это **учетная запись Майкрософт**. Мы хотим создать пользователя в используемом по умолчанию домене Azure Active Directory .onmicrosoft.com.
+Click **USERS** and look for your single personal account. You should see in the **SOURCED FROM** column that it is a **Microsoft account**. We want to create a user in your default .onmicrosoft.com Azure Active Directory domain.
 
 ![](./media/virtual-machines-common-create-aad-work-id/defaultdirectoryuserslisting.png)
 
-Дальше мы будем выполнять [эти инструкции](https://technet.microsoft.com/library/hh967632.aspx#BKMK_1), но на конкретном примере.
+We're going to follow [these instructions](https://technet.microsoft.com/library/hh967632.aspx#BKMK_1) in the next few steps, but use a specific example.
 
-Внизу страницы щелкните **+ДОБАВИТЬ ПОЛЬЗОВАТЕЛЯ**. На открывшейся странице введите имя нового пользователя, а в поле **Тип пользователя** выберите **Новый пользователь в вашей организации**. В этом примере новое имя пользователя — `ahmet`. Выберите домен по умолчанию, обнаруженный ранее, в качестве домена для адреса электронной почты пользователя Ahmet. После завершения щелкните стрелку «Далее».
+At the bottom of the page, click **+ADD USER**. In the page that appears, type the new user name, and make the **Type of User** a **New user in your organization**. In this example, the new user name is `ahmet`. Select the default domain that you discovered previously as the domain for ahmet's email address. Click the next arrow when finished.
 
 ![](./media/virtual-machines-common-create-aad-work-id/addingauserwithdirectorydropdown.png)
 
-Введите дополнительные сведения о пользователе Ahmet и обязательно выберите соответствующее значение **РОЛЬ**. Для гарантированной работы используйте роль **Глобальный администратор**, но если есть возможность использовать роль с меньшими полномочиями, это прекрасно. В этом примере используется роль **Пользователь**. (Узнайте больше о [разрешениях администратора на основе роли](https://msdn.microsoft.com/library/azure/dn468213.aspx#BKMK_1).) Не включайте многофакторную проверку подлинности, если только не хотите использовать ее для каждой операции входа. После завершения щелкните стрелку «Далее».
+Add more details for Ahmet, but make sure to select the appropriate **ROLE** value. It's easy to use **Global Admin** to make sure things are working, but if you can use a lesser role, that's a good idea. This example uses the **User** role. (Find out more at [Administrator permissions by role](https://msdn.microsoft.com/library/azure/dn468213.aspx#BKMK_1).) Do not enable multi-factor authentication unless you want to use multifactor authentication for each log in operation. Click the next arrow when you're finished.
 
 ![](./media/virtual-machines-common-create-aad-work-id/userprofileuseradmin.png)
 
-Нажмите кнопку **Создать**, чтобы создать и отобразить временный пароль для пользователя Ahmet.
+Click the **create** button to generate and display a temporary password for Ahmet.
 
 ![](./media/virtual-machines-common-create-aad-work-id/gettemporarypasswordforuser.png)
 
-Скопируйте электронный адрес пользователя или используйте функцию **ОТПРАВИТЬ ПАРОЛЬ ПО ЭЛЕКТРОННОЙ ПОЧТЕ**. Вскоре вам понадобятся данные для входа.
+Copy the user name email address, or use **SEND PASSWORD IN EMAIL**. You'll need the information to log on shortly.
 
 ![](./media/virtual-machines-common-create-aad-work-id/receivedtemporarypassworddialog.png)
 
-Теперь вы должны видеть нового пользователя, в этом случае **Ahmet the Developer**, созданного в Azure Active Directory. Вы создали новое рабочее или школьное удостоверение с помощью Azure Active Directory. Но это удостоверение еще не имеет разрешений на использование ресурсов Azure.
+Now you should see the new user, **Ahmet the Developer**, sourced from Azure Active Directory. You've created the new work or school identity with Azure Active Directory. However, this identity does not yet have permissions to use Azure resources.
 
 ![](./media/virtual-machines-common-create-aad-work-id/defaultdirectoryusersaftercreate.png)
 
-При использовании функции **ОТПРАВИТЬ ПАРОЛЬ ПО ЭЛЕКТРОННОЙ ПОЧТЕ** отправляется электронное сообщение следующего вида.
+If you use **SEND PASSWORD IN EMAIL**, the following kind of email is sent.
 
 ![](./media/virtual-machines-common-create-aad-work-id/emailreceivedfromnewusercreation.png)
 
-## Добавление прав соадминистратора Azure для подписок
+## <a name="adding-azure-co-administrator-rights-for-subscriptions"></a>Adding Azure co-administrator rights for subscriptions
 
-Теперь необходимо добавить нового пользователя в качестве соадминистратора, чтобы новый пользователь мог войти на портал управления. Чтобы сделать это, на панели внизу слева щелкните **Параметры**.
+Now you need to add the new user as a co-administrator of your subscription so the new user can sign in to the Management Portal. To do this, in the lower-left panel click **Settings**.
 
 ![](./media/virtual-machines-common-create-aad-work-id/thesettingswidget.png)
 
-В области основных параметров вверху щелкните **АДМИНИСТРАТОРЫ**, после чего должно отобразиться только ваше личное удостоверение учетной записи Майкрософт. Внизу страницы щелкните **+ДОБАВИТЬ**, чтобы указать соадминистратора. Здесь нужно ввести адрес электронной почты нового пользователя, которого вы создали, с доменом по умолчанию. Как показано на следующем снимке экрана, рядом с пользователем каталога по умолчанию отображается зеленая галочка. Не забудьте выбрать все подписки, возможность администрирования которых следует добавить этому пользователю.
+In the main settings area, click **ADMINISTRATORS** at the top and you should see only your personal Microsoft account identity. At the bottom of the page, click **+ADD** to specify a co-administrator. Here, enter the email address of the new user you had created, including your default domain. As shown in the next screenshot, a green check mark appears next to the user for the default directory. Remember to select all of the subscriptions that you would like this user to be able to administer.
 
 ![](./media/virtual-machines-common-create-aad-work-id/addingnewuserascoadmin.png)
 
-После завершения будут отображаться уже два пользователя с новым удостоверением соадминистратора. Выйдите из портала.
+When you are done, you should now see two users, including your new co-administrator identity. Log out of the portal.
 
 ![](./media/virtual-machines-common-create-aad-work-id/newuseraddedascoadministrator.png)
 
-## Вход и изменение пароля нового пользователя
+## <a name="logging-in-and-changing-the-new-user's-password"></a>Logging in and changing the new user's password
 
-Войдите в систему в качестве созданного вами нового пользователя.
+Log in as the new user you created.
 
 ![](./media/virtual-machines-common-create-aad-work-id/signinginwithnewuser.png)
 
-Вам будет немедленно предложено создать новый пароль.
+You will immediately be prompted to create a new password.
 
 ![](./media/virtual-machines-common-create-aad-work-id/mustupdateyourpassword.png)
 
-Вы получите вознаграждение за свои старания, которое выглядит следующим образом.
+You should be rewarded with success that looks like the following.
 
 ![](./media/virtual-machines-common-create-aad-work-id/successtourdialog.png)
 
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Next steps
 
-С помощью нового удостоверения Azure Active Directory можно использовать [шаблоны групп ресурсов Azure](../articles/xplat-cli-azure-resource-manager.md).
+You can now use your new Azure Active Directory identity to use [Azure resource group templates](../articles/xplat-cli-azure-resource-manager.md).
 
     azure login
     info:    Executing command login
@@ -119,4 +119,7 @@
     data:
     info:    group create command OK
 
-<!---HONumber=AcomDC_0330_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

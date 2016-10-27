@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Использование ElasticSearch в качестве хранилища данных трассировки приложения Service Fabric | Microsoft Azure"
-   description="В этой статье описывается, как приложения Service Fabric используют ElasticSearch и Kibana для хранения, индексирования и поиска данных с помощью трассировки (журналов)."
+   pageTitle="Using Elasticsearch as a Service Fabric application trace store | Microsoft Azure"
+   description="Describes how Service Fabric applications can use Elasticsearch and Kibana to store, index, and search through application traces (logs)"
    services="service-fabric"
    documentationCenter=".net"
    authors="karolz-ms"
@@ -16,165 +16,166 @@
    ms.date="08/09/2016"
    ms.author="karolz@microsoft.com"/>
 
-# Использование ElasticSearch в качестве хранилища данных трассировки приложения Service Fabric
-## Введение
-В этой статье описывается, как приложения [Azure Service Fabric](https://azure.microsoft.com/documentation/services/service-fabric/) используют **ElasticSearch** и **Kibana** для хранения данных трассировки приложений, индексирования и поиска. [ElasticSearch](https://www.elastic.co/guide/index.html) — это распределенная и масштабируемая система с открытым кодом, предназначенная для поиска и анализа данных в режиме реального времени. Она хорошо подходит для описанной здесь задачи. Ее можно установить на виртуальные машины Windows или Linux, запущенные в Microsoft Azure. ElasticSearch может эффективно обрабатывать *структурированные* трассировки, созданные с помощью таких технологий, как **трассировка событий Windows (ETW)**.
 
-Трассировка событий Windows используется средой выполнения Service Fabric в качестве источника диагностических сведений (трассировки). Этот способ сбора диагностических сведений также рекомендуется и для приложений Service Fabric. Точно такой же механизм позволяет коррелировать трассировки в среде выполнения и в приложении, а также облегчает устранение неполадок. Шаблоны проектов Service Fabric в Visual Studio включают API-интерфейс ведения журналов (в зависимости от класса **EventSource** .NET), который выдает трассировки ETW по умолчанию. Общие сведения о трассировке приложений Service Fabric с помощью ETW см. в разделе [Мониторинг и диагностика состояния служб в локальной среде разработки](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md).
+# <a name="use-elasticsearch-as-a-service-fabric-application-trace-store"></a>Use Elasticsearch as a Service Fabric application trace store
+## <a name="introduction"></a>Introduction
+This article describes how [Azure Service Fabric](https://azure.microsoft.com/documentation/services/service-fabric/) applications can use **Elasticsearch** and **Kibana** for application trace storage, indexing, and search. [Elasticsearch](https://www.elastic.co/guide/index.html) is an open-source, distributed, and scalable real-time search and analytics engine that is well-suited for this task. It can be installed on Windows and Linux virtual machines running in Microsoft Azure. Elasticsearch can efficiently process *structured* traces produced using technologies such as **Event Tracing for Windows (ETW)**.
 
-Чтобы данные трассировки отображались в ElasticSearch, их необходимо собирать на узлах кластера Service Fabric в реальном времени (во время работы приложения) и затем отправлять в конечную точку ElasticSearch. Есть два основных способа записи данных трассировки.
+ETW is used by Service Fabric runtime to source diagnostic information (traces). It is the recommended method for Service Fabric applications to source their diagnostic information, too. Using the same mechanism allows for correlation between runtime-supplied and application-supplied traces and makes troubleshooting easier. Service Fabric project templates in Visual Studio include a logging API (based on the .NET **EventSource** class) that emits ETW traces by default. For a general overview of Service Fabric application tracing using ETW, see [Monitoring and diagnosing services in a local machine development setup](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md).
 
-+ **Внутрипроцессная запись данных трассировки.**  
-Приложение или, точнее, процесс службы, отвечает за отправку диагностических данных в хранилище данных трассировки (ElasticSearch).
+For the traces to show up in Elasticsearch, they need to be captured at the Service Fabric cluster nodes in real time (while the application is running) and sent to an Elasticsearch endpoint. There are two major options for trace capturing:
 
-+ **Внепроцессная запись данных трассировки.**  
-Отдельный агент записывает данные трассировки из процессов службы и отправляет их в хранилище данных трассировки.
++ **In-process trace capturing**  
+The application, or more precisely, service process, is responsible for sending out the diagnostic data to the trace store (Elasticsearch).
 
-Ниже мы опишем способ настройки ElasticSearch в Azure, обсудим преимущества и недостатки записи данных двумя указанными выше способами, а также объясним, как настроить службу Service Fabric для отправки данных в ElasticSearch.
++ **Out-of-process trace capturing**  
+A separate agent is capturing traces from the service process or processes and sending them to the trace store.
+
+Below, we describe how to set up Elasticsearch on Azure, discuss the pros and cons for both capture options, and explain how to configure a Service Fabric service to send data to Elasticsearch.
 
 
-## Настройка ElasticSearch в Azure
-Самый простой способ настройки службы ElasticSearch в Azure — с помощью [**шаблонов диспетчера ресурсов Azure**](../resource-group-overview.md). Полнофункциональный [шаблон быстрого запуска диспетчера ресурсов Azure для ElasticSearch](https://github.com/Azure/azure-quickstart-templates/tree/master/elasticsearch) можно получить из репозитория шаблонов быстрого запуска Azure. В этом шаблоне используются отдельные учетные записи хранения для единиц масштабирования (групп узлов). Он также может подготовить отдельные узлы клиента и сервера с различными конфигурациями и различным количеством подключенных дисков данных.
+## <a name="set-up-elasticsearch-on-azure"></a>Set up Elasticsearch on Azure
+The most straightforward way to set up the Elasticsearch service on Azure is through [**Azure Resource Manager templates**](../resource-group-overview.md). A comprehensive [Quickstart Azure Resource Manager template for Elasticsearch](https://github.com/Azure/azure-quickstart-templates/tree/master/elasticsearch) is available from Azure Quickstart templates repository. This template uses separate storage accounts for scale units (groups of nodes). It can also provision separate client and server nodes with different configurations and various numbers of data disks attached.
 
-Здесь мы используем другой шаблон — **ES-MultiNode** из [хранилища средств диагностики Azure](https://github.com/Azure/azure-diagnostics-tools). Этот шаблон проще в использовании. Он создает кластер ElasticSearch, защищенный обычной проверкой подлинности HTTP. Прежде чем продолжить, скачайте репозиторий с сайта GitHub на свой компьютер (с помощью клонирования репозитория или скачав ZIP-файл). Шаблон ES-MultiNode находится в одноименной папке.
+Here, we use another template, called **ES-MultiNode** from the [Azure diagnostic tools repository](https://github.com/Azure/azure-diagnostics-tools). This template is easier to use, and it creates an Elasticsearch cluster protected by HTTP basic authentication. Before you proceed, download the repository from GitHub to your machine (by either cloning the repository or downloading a zip file). The ES-MultiNode template is located in the folder with the same name.
 
-### Подготовка компьютера к выполнению скриптов установки ElasticSearch
-Самый простой способ использования шаблона ES-MultiNode — с помощью готового скрипта Azure PowerShell с именем `CreateElasticSearchCluster`. Чтобы использовать этот скрипт, нужно установить модули PowerShell и средство **openssl**. Это средство необходимо для создания SSH-ключа, который может использоваться для удаленного администрирования кластера ElasticSearch.
+### <a name="prepare-a-machine-to-run-elasticsearch-installation-scripts"></a>Prepare a machine to run Elasticsearch installation scripts
+The easiest way to use the ES-MultiNode template is through a provided Azure PowerShell script called `CreateElasticSearchCluster`. To use this script, you need to install PowerShell modules and a tool called **openssl**. The latter is needed for creating an SSH key that can be used to administer your Elasticsearch cluster remotely.
 
-Сценарий `CreateElasticSearchCluster` предназначен для удобства использования шаблона ES-MultiNode на компьютере с Windows. Шаблон можно использовать на компьютерах под управлением других ОС (не Windows), но в этой статье подобные случаи не рассматриваются.
+`CreateElasticSearchCluster` script is designed for ease of use with the ES-MultiNode template from a Windows machine. It is possible to use the template on a non-Windows machine, but that scenario is beyond the scope of this article.
 
-1. Установите [**модули Azure PowerShell**](http://aka.ms/webpi-azps) (если они еще не установлены). При появлении запроса щелкните **Запуск**, а затем — **Установить**. Требуется Azure PowerShell 1.3 или более поздней версии.
+1. If you haven't installed them already, install [**Azure PowerShell modules**](http://aka.ms/webpi-azps). When prompted, click **Run**, then **Install**. Azure PowerShell 1.3 or newer is required.
 
-2. Средство **openssl** входит в дистрибутив [**Git для Windows**](http://www.git-scm.com/downloads). Установите [Git для Windows](http://www.git-scm.com/downloads), если вы этого еще не сделали. (Параметры установки по умолчанию изменять не нужно.)
+2. The **openssl** tool is included in the distribution of [**Git for Windows**](http://www.git-scm.com/downloads). If you have not done so already, install [Git for Windows](http://www.git-scm.com/downloads) now. (The default installation options are OK.)
 
-3. Далее предполагается, что компонент Git установлен, но не включен в системный путь. Откройте окно Microsoft Azure PowerShell и выполните следующие команды:
+3. Assuming that Git has been installed but not included in the system path, open a Microsoft Azure PowerShell window and run the following commands:
 
     ```powershell
     $ENV:PATH += ";<Git installation folder>\usr\bin"
     $ENV:OPENSSL_CONF = "<Git installation folder>\usr\ssl\openssl.cnf"
     ```
 
-    Замените `<Git installation folder>` расположением Git на компьютере (значение по умолчанию — **C:\\Program Files\\Git**). Обратите внимание на точку с запятой в начале первого пути.
+    Replace the `<Git installation folder>` with the Git location on your machine; the default is **"C:\Program Files\Git"**. Note the semicolon character at the beginning of the first path.
 
-4. Обязательно войдите в Azure (с помощью командлета [`Add-AzureRmAccount`](https://msdn.microsoft.com/library/mt619267.aspx)) и выберите подписку, которую необходимо использовать для создания кластера Elastic Search. Проверить, правильно ли выбрана подписка, можно с помощью командлетов `Get-AzureRmContext` и `Get-AzureRmSubscription`.
+4. Ensure that you are logged on to Azure (via [`Add-AzureRmAccount`](https://msdn.microsoft.com/library/mt619267.aspx) cmdlet) and that you have selected the subscription that should be used to create your Elastic Search cluster. You can verify that correct subscription is selected using `Get-AzureRmContext` and `Get-AzureRmSubscription` cmdlets.
 
-5. Измените текущий каталог на папку ES-MultiNode (если это еще не сделано).
+5. If you haven't done so already, change the current directory to the ES-MultiNode folder.
 
-### Запуск скрипта CreateElasticSearchCluster
-Прежде чем выполнять скрипт, откройте файл `azuredeploy-parameters.json` и проверьте значения параметров скрипта или введите их. Необходимо указать следующие параметры:
+### <a name="run-the-createelasticsearchcluster-script"></a>Run the CreateElasticSearchCluster script
+Before you run the script, open the `azuredeploy-parameters.json` file and verify or provide values for the script parameters. The following parameters are provided:
 
-|Имя параметра |Описание|
+|Parameter Name           |Description|
 |-----------------------  |--------------------------|
-|dnsNameForLoadBalancerIP |Это имя будет использоваться для создания общедоступного DNS-имени кластера Elastic Search (посредством добавления домена региона Azure к указанному имени). Например, если этот параметр имеет значение myBigCluster и выбран регион Azure "Запад США", то DNS-имя кластера будет выглядеть так: myBigCluster.westus.cloudapp.azure.com. <br /><br /> Это имя также будет использоваться в качестве корневого для имен многих артефактов, связанных с кластером Elastic Search, например имен узлов данных.|
-|adminUsername |Имя учетной записи администратора для управления кластером Elastic Search (соответствующие ключи SSH будут сформированы автоматически).|
-|dataNodeCount |Количество узлов в кластере Elastic Search. Текущая версия сценария не различает узлы данных и запросов. Все узлы будут выполнять обе роли. Значение по умолчанию — 3.|
-|dataDiskSize |Размер дисков данных (в ГБ), выделяемый для каждого узла данных. Каждый узел получит по 4 диска данных, предназначенных исключительно для службы Elastic Search.|
-|region |Имя региона Azure, в котором будет размещаться кластер Elastic Search.|
-|esUserName |Имя пользователя, для которого будет настроен доступ к кластеру ES (с помощью обычной проверки подлинности HTTP). Пароль не хранится в файле параметров и указывается при вызове скрипта `CreateElasticSearchCluster`.|
-|vmSizeDataNodes |Размер виртуальной машины Azure для узлов кластера Elastic Search. Значение по умолчанию — Standard\_D2.|
+|dnsNameForLoadBalancerIP |The name that is used to create the publicly visible DNS name for the Elastic Search cluster (by appending the Azure region domain to the provided name). For example, if this parameter value is "myBigCluster" and the chosen Azure region is West US, the resulting DNS name for the cluster is myBigCluster.westus.cloudapp.azure.com. <br /><br />This name also serves as a root name for many artifacts associated with the Elastic Search cluster, such as data node names.|
+|adminUsername           |The name of the administrator account for managing the Elastic Search cluster (corresponding SSH keys are generated automatically).|
+|dataNodeCount           |The number of nodes in the Elastic Search cluster. The current version of the script does not distinguish between data and query nodes; all nodes play both roles. Defaults to 3 nodes.|
+|dataDiskSize            |The size of data disks (in GB) that is allocated for each data node. Each node receives 4 data disks, exclusively dedicated to Elastic Search service.|
+|region                  |The name of Azure region where the Elastic Search cluster should be located.|
+|esUserName              |The user name of the user that is configured to have access to ES cluster (subject to HTTP basic authentication). The password is not part of parameters file and must be provided when `CreateElasticSearchCluster` script is invoked.|
+|vmSizeDataNodes         |The Azure virtual machine size for Elastic Search cluster nodes. Defaults to Standard_D2.|
 
-Теперь все готово к запуску скрипта. Введите следующую команду:
+Now you are ready to run the script. Issue the following command:
 
 ```powershell
 CreateElasticSearchCluster -ResourceGroupName <es-group-name> -Region <azure-region> -EsPassword <es-password>
 ```
 
-где:
+where 
 
-|Имя параметра скрипта |Описание|
+|Script Parameter Name    |Description|
 |-----------------------  |--------------------------|
-|.`<es-group-name>` |Имя группы ресурсов Azure, в которую будут входить все ресурсы кластера Elastic Search.|
-|.`<azure-region>` |Имя региона Azure, в котором будет размещаться кластер Elastic Search.|         
-|.`<es-password>` |Пароль для пользователя Elastic Search.|
+|`<es-group-name>`        |The name of the Azure resource group that will contain all Elastic Search cluster resources.|
+|`<azure-region>`         |The name of the Azure region where the Elastic Search cluster should be created.|         
+|`<es-password>`          |The password for the Elastic Search user.|
 
->[AZURE.NOTE] Если при запуске командлета Test-AzureResourceGroup отображается исключение NullReferenceException, значит, вы не выполнили вход в Azure (`Add-AzureRmAccount`).
+>[AZURE.NOTE] If you get a NullReferenceException from the Test-AzureResourceGroup cmdlet, you have forgotten to log on to Azure (`Add-AzureRmAccount`).
 
-Если возникла ошибка выполнения скрипта и вы определили, что она вызвана неправильным значением параметра шаблона, исправьте файл параметров и снова запустите скрипт с другим именем группы ресурсов. Также можно повторно использовать то же имя группы ресурсов и очистить старое с помощью скрипта. Для этого следует добавить параметр `-RemoveExistingResourceGroup` к вызову скрипта.
+If you get an error from running the script and you determine that the error was caused by a wrong template parameter value, correct the parameter file and run the script again with a different resource group name. You can also reuse the same resource group name and have the script clean up the old one by adding the `-RemoveExistingResourceGroup` parameter to the script invocation.
 
-### Результат выполнения скрипта CreateElasticSearchCluster
-После выполнения скрипта `CreateElasticSearchCluster` будут созданы следующие основные артефакты. В данном примере предположим, что для параметра `dnsNameForLoadBalancerIP` указано значение myBigCluster, а кластер создан в регионе "Западная часть США".
+### <a name="result-of-running-the-createelasticsearchcluster-script"></a>Result of running the CreateElasticSearchCluster script
+After you run the `CreateElasticSearchCluster` script, the following main artifacts will be created. For this example we assume that you have used "myBigCluster" as the value of the `dnsNameForLoadBalancerIP` parameter and that the region where you created the cluster is West US.
 
-|Артефакт|Имя, расположение и примечания|
+|Artifact|Name, location, and remarks|
 |----------------------------------|----------------------------------|
-|Ключ SSH для удаленного администрирования |Файл myBigCluster.key (в каталоге, из которого запущен скрипт CreateElasticSearchCluster). <br /><br />Этот ключ может использоваться для подключения к узлу администрирования и (через узел администрирования) к узлам данных в кластере.|
-|Узел администрирования |myBigCluster-admin.westus.cloudapp.azure.com <br /><br />Выделенная виртуальная машина для удаленного администрирования кластера ElasticSearch. Только для нее разрешены внешние подключения по протоколу SSH. Эта виртуальная машина работает в той же виртуальной сети, что и остальные узлы кластера ElasticSearch, но не запускает какие-либо службы ElasticSearch.|
-|Узлы данных |myBigCluster1 — myBigCluster*N* <br /><br />Узлы данных, на которых работают службы ElasticSearch и Kibana. К каждому узлу можно подключиться по протоколу SSH, но только через узел администрирования.|
-|Кластер Elasticsearch |http://myBigCluster.westus.cloudapp.azure.com/es/ <br /><br />Основная конечная точка кластера ElasticSearch (обратите внимание на суффикс /es). Кластер защищен с помощью базовой проверки подлинности HTTP (учетные данные указаны в параметрах esUserName/esPassword шаблона ES-MultiNode). Кроме того, в кластере установлен подключаемый модуль head (http://myBigCluster.westus.cloudapp.azure.com/es/_plugin/head) для выполнения базовых задач администрирования.|
-|Служба Kibana |http://myBigCluster.westus.cloudapp.azure.com <br /><br /> Служба Kibana настраивается для отображения данных из созданного кластера ElasticSearch. Она защищена теми же учетными данными проверки подлинности, что и сам кластер.|
+|SSH key for remote administration |myBigCluster.key file (in the directory from which the CreateElasticSearchCluster was run). <br /><br />This key file can be used to connect to the admin node and (through the admin node) to data nodes in the cluster.|
+|Admin node                        |myBigCluster-admin.westus.cloudapp.azure.com <br /><br />A dedicated VM for remote Elasticsearch cluster administration--the only one that allows external SSH connections. It runs on the same virtual network as all the Elasticsearch cluster nodes, but it does not run any Elasticsearch services.|
+|Data nodes                        |myBigCluster1 … myBigCluster*N* <br /><br />Data nodes that are running Elasticsearch and Kibana services. You can connect via SSH to each node, but only via the admin node.|
+|Elasticsearch cluster             |http://myBigCluster.westus.cloudapp.azure.com/es/ <br /><br />The primary endpoint for the Elasticsearch cluster (note the /es suffix). It is protected by basic HTTP authentication (the credentials were the specified esUserName/esPassword parameters of the ES-MultiNode template). The cluster has also the head plug-in installed (http://myBigCluster.westus.cloudapp.azure.com/es/_plugin/head) for basic cluster administration.|
+|Kibana service                    |http://myBigCluster.westus.cloudapp.azure.com <br /><br />The Kibana service is set up to show data from the created Elasticsearch cluster. It is protected by the same authentication credentials as the cluster itself.|
 
-## Внутрипроцессная и внепроцессная запись данных трассировки
-Во введении мы упомянули два основных способа сбора диагностических данных: внутрипроцессный и внепроцессный. Каждый имеет свои преимущества и недостатки.
+## <a name="in-process-versus-out-of-process-trace-capturing"></a>In-process versus out-of-process trace capturing
+In the introduction, we mentioned two fundamental ways of collecting diagnostic data: in-process and out-of-process. Each has strengths and weaknesses.
 
-**Внутрипроцессная запись данных трассировки** имеет следующие преимущества.
+Advantages of the **in-process trace capturing** include:
 
-1. *Простая настройка и развертывание.*
+1. *Easy configuration and deployment*
 
-    * Конфигурация сбора диагностических данных является лишь частью конфигурации приложения. Ее легко сохранять "синхронизированной" с остальной частью приложения.
+    * The configuration of diagnostic data collection is just part of the application configuration. It is easy to always keep it "in sync" with the rest of the application.
 
-    * Настройка каждого приложения или службы также является несложной задачей.
+    * Per-application or per-service configuration is easily achievable.
 
-    * Внепроцессная запись данных трассировки обычно требует отдельного развертывания и настройки агента диагностики. Как правило, это прибавляет работы администратору и может являться источником ошибок. Технология определенного агента часто позволяет использовать только один экземпляр агента на каждую виртуальную машину (узел). Это означает, что конфигурация для коллекции конфигурации диагностики является общей для всех приложений и служб, работающих на этом узле.
+    * Out-of-process trace capturing usually requires a separate deployment and configuration of the diagnostic agent, which is an extra administrative task and a potential source of errors. The particular agent technology often allows only one instance of the agent per virtual machine (node). This means that configuration for the collection of the diagnostic configuration is shared among all applications and services running on that node.
 
-2. *Гибкость*
+2. *Flexibility*
 
-    * Приложение может отправлять данные куда угодно при наличии клиентской библиотеки, поддерживающей систему хранения целевых данных. При необходимости можно добавлять новые приемники.
+    * The application can send the data wherever it needs to go, as long as there is a client library that supports the targeted data storage system. New sinks can be added as desired.
 
-    * Можно реализовать сложные правила сбора, фильтрации и статистической обработки данных.
+    * Complex capture, filtering, and data-aggregation rules can be implemented.
 
-    * Внепроцессная запись данных трассировки часто ограничивается приемниками данных, которые поддерживает агент. Некоторые агенты являются расширяемыми.
+    * An out-of-process trace capturing is often limited by the data sinks that the agent supports. Some agents are extensible.
 
-3. *Доступ к внутренним данным приложения и контексту*
+3. *Access to internal application data and context*
 
-    * В подсистему диагностики, которая работает внутри процесса приложения или службы, можно легко добавить трассировку с помощью контекстной информации.
+    * The diagnostic subsystem running inside the application/service process can easily augment the traces with contextual information.
 
-    * В случае внепроцессной записи данные должны отправляться агенту с помощью механизма межпроцессного взаимодействия, например трассировки событий Windows. Однако при таком механизме могут возникнуть дополнительные ограничения.
+    * In the out-of-process approach, the data must be sent to an agent via some inter-process communication mechanism, such as Event Tracing for Windows. This mechanism could impose additional limitations.
 
-**Внепроцессная запись данных трассировки** имеет следующие преимущества.
+Advantages of the **out-of-process trace capturing** include:
 
-1. *Возможность отслеживания приложения и сбора аварийных дампов*
+1. *The ability to monitor the application and collect crash dumps*
 
-    * Внутрипроцессная запись данных трассировки может быть неудачной, если приложение не удается запустить или оно прекращает работу из-за сбоя. Независимый агент имеет гораздо больше шансов собрать важные сведения для устранения неполадок. <br /><br />
+    * In-process trace capturing may be unsuccessful if the application fails to start or crashes. An independent agent has a much better chance of capturing crucial troubleshooting information.<br /><br />
 
-2. *Зрелость, надежность и высокая производительность*
+2. *Maturity, robustness, and proven performance*
 
-    * Агент, разработанный поставщиком платформы (например, агент системы диагностики Microsoft Azure), прошел тщательное тестирование и испытан в рабочих условиях.
+    * An agent developed by a platform vendor (such as a Microsoft Azure Diagnostics agent) has been subject to rigorous testing and battle-hardening.
 
-    * Будьте осторожны, выбирая внутрипроцессную запись данных трассировки. Следите за тем, чтобы отправка диагностических данных из процесса приложения не повлияла на его основные задачи и не привела к проблемам со своевременным выполнением задач или производительностью. Независимый агент менее подвержен подобным проблемам и специально разработан для минимального влияния на работу системы.
+    * With in-process trace capturing, care must be taken to ensure that the activity of sending diagnostic data from an application process does not interfere with the application's main tasks or introduce timing or performance problems. An independently running agent is less prone to these issues and is specifically designed to limit its impact on the system.
 
-Преимущества обоих подходов можно объединить. Это действительно может оказаться наилучшим решением для многих приложений.
+It is possible to combine and benefit from both approaches. Indeed, it might be the best solution for many applications.
 
-Здесь мы используем **библиотеку Microsoft.Diagnostic.Listeners** и внутрипроцессную запись данных трассировки для отправки данных из приложения Service Fabric в кластер ElasticSearch.
+Here, we use the **Microsoft.Diagnostic.Listeners library** and the in-process trace capturing to send data from a Service Fabric application to an Elasticsearch cluster.
 
-## Использование библиотеки прослушивателей для передачи диагностических данных в ElasticSearch
-Библиотека Microsoft.Diagnostic.Listeners входит в пример приложения Service Fabric с именем PartyCluster. Чтобы ее использовать, сделайте следующее:
+## <a name="use-the-listeners-library-to-send-diagnostic-data-to-elasticsearch"></a>Use the Listeners library to send diagnostic data to Elasticsearch
+The Microsoft.Diagnostic.Listeners library is part of PartyCluster sample Service Fabric application. To use it:
 
-1. Скачайте [пример PartyCluster](https://github.com/Azure-Samples/service-fabric-dotnet-management-party-cluster) с сайта GitHub.
+1. Download [the PartyCluster sample](https://github.com/Azure-Samples/service-fabric-dotnet-management-party-cluster) from GitHub.
 
-2. Скопируйте проекты Microsoft.Diagnostics.Listeners и Microsoft.Diagnostics.Listeners.Fabric (папки полностью) из каталога примера приложения Party Cluster в папку решения приложения, которое должно отправлять данные в ElasticSearch.
+2. Copy the Microsoft.Diagnostics.Listeners and Microsoft.Diagnostics.Listeners.Fabric projects (whole folders) from the PartyCluster sample directory to the solution folder of the application that is supposed to send the data to Elasticsearch.
 
-3. Откройте это решение, щелкните правой кнопкой мыши узел решения в обозревателе решений и выберите **Добавить существующий проект**. Добавьте в решение проект Microsoft.Diagnostics.Listeners. Повторите те же действия с проектом Microsoft.Diagnostics.Listeners.Fabric.
+3. Open the target solution, right-click the solution node in the Solution Explorer, and choose **Add Existing Project**. Add the Microsoft.Diagnostics.Listeners project to the solution. Repeat the same for the Microsoft.Diagnostics.Listeners.Fabric project.
 
-4. Добавьте ссылку на проект из ваших проектов служб в два добавленных проекта. (Каждая служба, которая будет отправлять данные в ElasticSearch, должна ссылаться на Microsoft.Diagnostics.EventListeners и Microsoft.Diagnostics.EventListeners.Fabric.)
+4. Add a project reference from your service project(s) to the two added projects. (Each service that is supposed to send data to Elasticsearch should reference Microsoft.Diagnostics.EventListeners and Microsoft.Diagnostics.EventListeners.Fabric).
 
-    ![Проект ссылается на библиотеки Microsoft.Diagnostics.EventListeners и Microsoft.Diagnostics.EventListeners.Fabric][1]
+    ![Project references to Microsoft.Diagnostics.EventListeners and Microsoft.Diagnostics.EventListeners.Fabric libraries][1]
 
-### Общедоступная версия Service Fabric и пакет Microsoft.Diagnostics.Tracing NuGet
-Приложения, основанные на общедоступной версии Service Fabric (версия 2.0.135 от 31 марта 2016 года), нацелены на **.NET Framework 4.5.2**. Это самая новая версия .NET Framework, поддерживаемая Azure на этапе общедоступной версии. К сожалению, в этой версии платформы отсутствуют некоторые API-интерфейсы EventListener, необходимые для библиотеки Microsoft.Diagnostics.Listeners. EventSource (компонент, на котором строятся API-интерфейсы ведения журналов в приложениях Fabric) и EventListener тесно связаны. Поэтому все проекты, использующие библиотеку Microsoft.Diagnostics.Listeners, должны использовать альтернативную реализацию EventSource. Эта реализация в **пакет NuGet Microsoft.Diagnostics.Tracing**, разработанный корпорацией Майкрософт. Этот пакет обратно совместим с компонентом EventSource, который входит в платформу. Следовательно, никакие правки в код вносить не нужно, разве что могут потребоваться изменения указанного пространства имен.
+### <a name="service-fabric-general-availability-release-and-microsoft.diagnostics.tracing-nuget-package"></a>Service Fabric General Availability release and Microsoft.Diagnostics.Tracing Nuget package
+Applications built with Service Fabric General Availability release (2.0.135, released March 31, 2016) target **.NET Framework 4.5.2**. This version is the highest version of the .NET Framework supported by Azure at the time of the GA release. Unfortunately, this version of the framework lacks certain EventListener APIs that the Microsoft.Diagnostics.Listeners library needs. Because EventSource (the component that forms the basis of logging APIs in Fabric applications) and EventListener are tightly coupled, every project that uses the Microsoft.Diagnostics.Listeners library must use an alternative implementation of EventSource. This implementation is provided by the **Microsoft.Diagnostics.Tracing Nuget package**, authored by Microsoft. The package is fully backward-compatible with EventSource included in the framework, so no code changes should be necessary other than referenced namespace changes.
 
-Чтобы начать работу с Microsoft.Diagnostics.Tracing, реализацией класса EventSource, выполните следующие действия для каждого проекта службы, который должен отправлять данные в ElasticSearch.
+To start using the Microsoft.Diagnostics.Tracing implementation of the EventSource class, follow these steps for each service project that needs to send data to Elasticsearch:
 
-1. Щелкните проект службы правой кнопкой мыши и выберите **Управление пакетами NuGet**.
+1. Right-click on the service project and choose **Manage Nuget Packages**.
 
-2. Перейдите к источнику пакета nuget.org (если он еще не выбран) и введите **Microsoft.Diagnostics.Tracing** в строке поиска.
+2. Switch to the nuget.org package source (if it is not already selected) and search for "**Microsoft.Diagnostics.Tracing**".
 
-3. Установите пакет `Microsoft.Diagnostics.Tracing.EventSource` (и его зависимости).
+3. Install the `Microsoft.Diagnostics.Tracing.EventSource` package (and its dependencies).
 
-4. Откройте файл **ServiceEventSource.cs** или **ActorEventSource.cs** в проекте службы и замените директиву `using System.Diagnostics.Tracing` в начале файла директивой `using Microsoft.Diagnostics.Tracing`.
+4. Open the **ServiceEventSource.cs** or **ActorEventSource.cs** file in your service project and replace the `using System.Diagnostics.Tracing` directive on top of the file with the `using Microsoft.Diagnostics.Tracing` directive.
 
-Эти действия будут не нужны, когда в Microsoft Azure появится поддержка **.NET Framework 4.6**.
+These steps will not be necessary once the **.NET Framework 4.6** is supported by Microsoft Azure.
 
-### Создание и настройка экземпляра прослушивателя ElasticSearch
-Последним шагом, необходимым для отправки диагностических данных в ElasticSearch, является создание экземпляра `ElasticSearchListener` и его настройка с помощью данных подключения ElasticSearch. Прослушиватель будет автоматически записывать все события, вызванные через классы EventSource, заданные в проекте службы. Он должен быть активным в течение всего времени существования службы, поэтому лучше всего создать его в коде инициализации службы. Вот как может выглядеть код инициализации службы без отслеживания состояния после внесения необходимых изменений (добавлений, указанных в комментариях, начиная с `****`):
+### <a name="elasticsearch-listener-instantiation-and-configuration"></a>Elasticsearch listener instantiation and configuration
+The final step for sending diagnostic data to Elasticsearch is to create an instance of `ElasticSearchListener` and configure it with Elasticsearch connection data. The listener automatically captures all events raised via EventSource classes defined in the service project. It needs to be alive during the lifetime of the service, so the best place to create it is in the service initialization code. Here is how the initialization code for a stateless service could look after the necessary changes (additions pointed out in comments starting with `****`):
 
 ```csharp
 using System;
@@ -233,7 +234,7 @@ namespace Stateless1
 }
 ```
 
-Данные подключения ElasticSearch необходимо поместить в отдельный раздел файла конфигурации службы (**PackageRoot\\Config\\Settings.xml**). Имя раздела должно соответствовать значению, которое передается конструктору `FabricConfigurationProvider`, например:
+Elasticsearch connection data should be put in a separate section in the service configuration file (**PackageRoot\Config\Settings.xml**). The name of the section must correspond to the value passed to the `FabricConfigurationProvider` constructor, for example:
 
 ```xml
 <Section Name="ElasticSearchEventListener">
@@ -243,18 +244,22 @@ namespace Stateless1
   <Parameter Name="indexNamePrefix" Value="myapp" />
 </Section>
 ```
-Значения `serviceUri`, `userName` и `password` соответствуют адресу конечной точки кластера ElasticSearch, имени пользователя и паролю ElasticSearch соответственно. `indexNamePrefix` является префиксом для индексов ElasticSearch. Библиотека Microsoft.Diagnostics.Listeners ежедневно создает новые индексы для своих данных.
+The values of `serviceUri`, `userName` and `password` parameters correspond to the Elasticsearch cluster endpoint address, Elasticsearch user name, and password, respectively. `indexNamePrefix` is the prefix for Elasticsearch indexes; the Microsoft.Diagnostics.Listeners library creates a new index for its data daily.
 
-### Проверка
-Вот и все! Теперь при запуске служба будет отправлять данные трассировки в службу ElasticSearch, указанную в конфигурации. Это можно проверить, открыв пользовательский интерфейс Kibana, связанный с целевым экземпляром ElasticSearch. В нашем примере адрес страницы следующий: http://myBigCluster.westus.cloudapp.azure.com/. Убедитесь, что индексы с префиксом имени, выбранным для экземпляра `ElasticSearchListener`, действительно были созданы и заполнены данными.
+### <a name="verification"></a>Verification
+That's it! Now, whenever the service is run, it starts sending traces to the Elasticsearch service specified in the configuration. You can verify this by opening the Kibana UI associated with the target Elasticsearch instance. In our example, the page address is http://myBigCluster.westus.cloudapp.azure.com/. Check that indexes with the name prefix chosen for the `ElasticSearchListener` instance have indeed been created and populated with data.
 
-![Отображение событий приложения PartyCluster в службе Kibana][2]
+![Kibana showing PartyCluster application events][2]
 
-## Дальнейшие действия
-- [Дополнительные сведения о диагностике и мониторинге службы Service Fabric](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
+## <a name="next-steps"></a>Next steps
+- [Learn more about diagnosing and monitoring a Service Fabric service](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 
 <!--Image references-->
 [1]: ./media/service-fabric-diagnostics-how-to-use-elasticsearch/listener-lib-references.png
 [2]: ./media/service-fabric-diagnostics-how-to-use-elasticsearch/kibana.png
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

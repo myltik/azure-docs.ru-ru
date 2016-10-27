@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Применение обновлений системы в центре безопасности Azure | Microsoft Azure"
-   description="В этом документе показано, как реализовать рекомендации центра безопасности Azure **Применить обновления системы** и **Перезагрузить после обновления системы**."
+   pageTitle="Apply system updates in Azure Security Center | Microsoft Azure"
+   description="This document shows you how to implement the Azure Security Center recommendations **Apply system updates** and **Reboot after system updates**."
    services="security-center"
    documentationCenter="na"
    authors="TerryLanfear"
@@ -16,48 +16,59 @@
    ms.date="07/29/2016"
    ms.author="terrylan"/>
 
-# Применение обновлений системы в центре безопасности Azure
 
-Центр безопасности Azure ежедневно проверяет наличие обновлений операционной системы виртуальных машин Windows и Linux. Центр безопасности получает список доступных критических обновлений и обновлений для системы безопасности из Центра обновления Windows или служб Windows Server Update Services в зависимости от того, какая служба настроена для виртуальной машины Windows. Центр безопасности также проверяет наличие последних обновлений для систем Linux. Если на виртуальной машине отсутствует обновление системы, центр безопасности порекомендует его применить.
+# <a name="apply-system-updates-in-azure-security-center"></a>Apply system updates in Azure Security Center
 
-> [AZURE.NOTE] В документе приводится обзор службы с помощью примера развертывания. Он не является пошаговым руководством.
+Azure Security Center monitors daily Windows and  Linux virtual machines (VMs) for missing operating system updates. Security Center retrieves a list of available security and critical updates from Windows Update or Windows Server Update Services (WSUS), depending on which service is configured on a Windows VM.  Security Center also checks for the latest updates in Linux systems. If your VM is missing a system update, Security Center will recommend that you apply system updates
 
-## Выполнение рекомендаций
+> [AZURE.NOTE] This document introduces the service by using an example deployment.  This is not a step-by-step guide.
 
-1. В колонке **Рекомендации** выберите пункт **Применить обновления системы**. ![Применение обновлений системы][1]
+## <a name="implement-the-recommendation"></a>Implement the recommendation
 
-2. В открывшейся колонке **Применить обновления системы** отобразится список обновлений системы, которые отсутствуют на виртуальных машинах. Выберите виртуальную машину. ![Выбор виртуальной машины][2]
+1. In the **Recommendations** blade, select **Apply system updates**.
+![Apply system updates][1]
 
-3. Откроется колонка со списком отсутствующих обновлений для этой виртуальной машины. Выберите обновление системы. В этом примере выберем обновление KB3156016. ![Отсутствующие обновления безопасности][3]
+2. The **Apply system updates** blade opens displaying a list of VMs missing system updates. Select a VM.
+![Select a VM][2]
 
-4. Следуйте указаниям в колонке **обновления для системы безопасности**, чтобы применить отсутствующее обновление. ![Обновление для системы безопасности][4]
+3. A blade opens displaying a list of missing updates for that VM. Select a system update. In this example, let’s select KB3156016.
+![Missing security updates][3]
 
-## Перезагрузка после завершения обновлений системы
+4. Follow the steps in the **Security Update** blade to apply the missing update.
+![Security update][4]
 
-5. Вернитесь в колонку **Рекомендации**. После применения обновлений системы будет создана запись с названием **Перезагрузить после завершения обновлений системы**. Эта запись свидетельствует о том, что вам нужно перезагрузить виртуальную машину, чтобы завершить применение обновлений системы. ![Перезагрузка после завершения обновлений системы][5]
+## <a name="reboot-after-system-updates"></a>Reboot after system updates
 
-6. Выберите **Перезагрузить после завершения обновлений системы**. Откроется колонка **Ожидается перезапуск для завершения обновлений системы** со списком виртуальных машин, которые необходимо перезагрузить, чтобы завершить применение обновлений системы. ![Ожидание перезагрузки][6]
+5. Return to the **Recommendations** blade. A new entry was generated after you applied system updates, called **Reboot after system updates**. This entry lets you know that you need to reboot the VM to complete the process of applying system updates.
+![Reboot after system updates][5]
 
-Перезапустите виртуальную машину из Azure, чтобы завершить процесс.
+6. Select **Reboot after system updates**. This opens **A restart is pending to complete system updates** blade displaying a list of VMs that you need to restart to complete the apply system updates process.
+![Restart pending][6]
 
-## См. также
+Restart the VM from Azure to complete the process.
 
-Дополнительные сведения о Центре безопасности см. в следующих статьях:
+## <a name="see-also"></a>See also
 
-- [Настройка политик безопасности в Центре безопасности Azure](security-center-policies.md). Узнайте, как настроить политики безопасности для подписок и групп ресурсов Azure.
-- [Управление рекомендациями по безопасности в Центре безопасности Azure](security-center-recommendations.md). Узнайте, как рекомендации могут помочь вам защитить ресурсы Azure.
-- [Наблюдение за работоспособностью системы безопасности в Центре безопасности Azure](security-center-monitoring.md). Узнайте, как наблюдать за работоспособностью ресурсов Azure.
-- [Управление оповещениями безопасности в Центре безопасности Azure и реагирование на них](security-center-managing-and-responding-alerts.md). Узнайте, как управлять оповещениями системы безопасности и реагировать на них.
-- [Мониторинг решений партнеров с помощью центра безопасности Azure](security-center-partner-solutions.md). Узнайте, как отслеживать состояние работоспособности решений партнеров.
-- [Часто задаваемые вопросы о Центре безопасности Azure](security-center-faq.md). Найдите ответы на часто задаваемые вопросы об использовании этой службы.
-- [Блог по безопасности Azure](http://blogs.msdn.com/b/azuresecurity/) — публикации блога, посвященные безопасности и соответствию требованиям в Azure.
+To learn more about Security Center, see the following:
+
+- [Setting security policies in Azure Security Center](security-center-policies.md) -- Learn how to configure security policies for your Azure subscriptions and resource groups.
+- [Managing security recommendations in Azure Security Center](security-center-recommendations.md) -- Learn how recommendations help you protect your Azure resources.
+- [Security health monitoring in Azure Security Center](security-center-monitoring.md) -- Learn how to monitor the health of your Azure resources.
+- [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md) -- Learn how to manage and respond to security alerts.
+- [Monitoring partner solutions with Azure Security Center](security-center-partner-solutions.md) -- Learn how to monitor the health status of your partner solutions.
+- [Azure Security Center FAQ](security-center-faq.md) -- Find frequently asked questions about using the service.
+- [Azure Security blog](http://blogs.msdn.com/b/azuresecurity/) -- Find blog posts about Azure security and compliance.
 
 <!--Image references-->
 [1]: ./media/security-center-apply-system-updates/recommendation.png
-[2]: ./media/security-center-apply-system-updates/select-vm.png
+[2]:./media/security-center-apply-system-updates/select-vm.png
 [3]: ./media/security-center-apply-system-updates/missing-security-updates.png
 [4]: ./media/security-center-apply-system-updates/security-update.png
 [5]: ./media/security-center-apply-system-updates/reboot-after-system-updates.png
 [6]: ./media/security-center-apply-system-updates/restart-pending.png
 
-<!---HONumber=AcomDC_0803_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

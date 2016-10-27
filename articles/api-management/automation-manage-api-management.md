@@ -1,47 +1,52 @@
 <properties
-	pageTitle="Управление управлением API с помощью службы автоматизации Azure"
-	description="Сведения об использовании службы автоматизации Azure для управления управлением API Azure."
-	services="api-management, automation"
-	documentationCenter=""
-	authors="csand-msft"
-	manager="eamono"
-	editor=""/>
+    pageTitle="Manage Azure API Management using Azure Automation"
+    description="Learn about how the Azure Automation service can be used to manage Azure API Management."
+    services="api-management, automation"
+    documentationCenter=""
+    authors="csand-msft"
+    manager="eamono"
+    editor=""/>
 
 <tags
-	ms.service="api-management"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/09/2016"
-	ms.author="csand"/>
+    ms.service="api-management"
+    ms.workload="mobile"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/25/2016"
+    ms.author="csand"/>
 
 
 
-#Управление управлением API с помощью службы автоматизации Azure
 
-В этом руководстве представлена служба автоматизации Azure и способы ее использования для упрощения управления управлением API Azure.
+#<a name="managing-azure-api-management-using-azure-automation"></a>Managing Azure API Management using Azure Automation
 
-## Что такое служба автоматизации Azure?
+This guide will introduce you to the Azure Automation service, and how it can be used to simplify management of Azure API Management.
 
-[Служба автоматизации Azure](https://azure.microsoft.com/services/automation/) — это служба Azure для упрощения управления облаком путем автоматизации процессов. С помощью службы автоматизации Azure повторяющиеся задачи, которые выполняются вручную, требуют много времени и подвержены ошибкам, можно автоматизировать для повышения надежности, эффективности и экономии времени в вашей организации.
+## <a name="what-is-azure-automation?"></a>What is Azure Automation?
 
-Служба автоматизации Azure предоставляет высоконадежную и высокодоступную подсистему выполнения рабочих процессов, которая масштабируется в соответствии с вашими задачами. В службе автоматизации Azure процессы могут быть обработаны вручную, сторонними системами или по расписанию, чтобы задачи выполнялись только при необходимости.
+[Azure Automation](https://azure.microsoft.com/services/automation/) is an Azure service for simplifying cloud management through process automation. Using Azure Automation, manual, repeated, long-running, and error-prone tasks can be automated to increase reliability, efficiency, and time to value for your organization.
 
-Уменьшите операционные затраты и освободите ИТ-сотрудников и DevOps для работы над повышением бизнес-ценности ПО и автоматизации задач управления облаком в службе автоматизации Azure.
+Azure Automation provides a highly-reliable, highly-available workflow execution engine that scales to meet your needs. In Azure Automation, processes can be kicked off manually, by 3rd-party systems, or at scheduled intervals so that tasks happen exactly when needed.
+
+Reduce operational overhead and free up IT and DevOps staff to focus on work that adds business value by moving your cloud management tasks to be run automatically by Azure Automation.
 
 
-## Как служба автоматизации Azure помогает управлять управлением API Azure?
+## <a name="how-can-azure-automation-help-manage-azure-api-management?"></a>How can Azure Automation help manage Azure API Management?
 
-Управлением API можно управлять в службе автоматизации Azure с помощью [командлетов Windows PowerShell для API управления Azure API](https://azure.microsoft.com/updates/full-set-of-windows-powershell-cmdlets-for-azure-api-management-api/). В службе автоматизации Azure можно создавать сценарии рабочих процессов PowerShell для выполнения многих задач управления API с помощью командлетов. Вы также можете связать эти командлеты в службе автоматизации Azure с командлетами для других служб Azure, чтобы автоматизировать сложные задачи в службах Azure и системах сторонних производителей.
+API Management can be managed in Azure Automation by using the [Windows PowerShell cmdlets for Azure API Management API](https://azure.microsoft.com/updates/full-set-of-windows-powershell-cmdlets-for-azure-api-management-api/). Within Azure Automation you can write PowerShell workflow scripts to perform many of your API Management tasks using the cmdlets. You can also pair these cmdlets in Azure Automation with the cmdlets for other Azure services, to automate complex tasks across Azure services and 3rd party systems.
 
-Ниже приведены некоторые примеры использования управления API с помощью средств службы автоматизации.
-* [Управление API Azure — использование PowerShell для архивации и восстановления](https://blogs.msdn.microsoft.com/katriend/2015/10/02/azure-api-management-using-powershell-for-backup-and-restore/)
+Here are some examples of using API Management with Automation:
+* [Azure API Management – Using PowerShell for backup and restore](https://blogs.msdn.microsoft.com/katriend/2015/10/02/azure-api-management-using-powershell-for-backup-and-restore/)
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Next Steps
 
-Теперь, после знакомства с основами службы автоматизации Azure и способами ее использования для управления управлением API Azure, вы можете пройти по следующим ссылкам, чтобы узнать больше.
+Now that you've learned the basics of Azure Automation and how it can be used to manage Azure API Management, follow these links to learn more.
 
-* См. [учебник по началу работы](../automation/automation-first-runbook-graphical.md) со службой автоматизации Azure.
+* See the Azure Automation [getting started tutorial](../automation/automation-first-runbook-graphical.md).
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

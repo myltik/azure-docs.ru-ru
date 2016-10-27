@@ -1,7 +1,7 @@
 
 <properties
-    pageTitle="Проверка виртуальной сети Azure для использования с Azure RemoteApp | Microsoft Azure"
-    description="Узнайте, как проверить готовность виртуальной сети Azure к использованию с Azure RemoteApp"
+    pageTitle="Validate the Azure VNET to use with Azure RemoteApp | Microsoft Azure"
+    description="Learn how to make sure your Azure VNET is ready to use with Azure RemoteApp"
     services="remoteapp"
     documentationCenter=""
     authors="lizap"
@@ -18,26 +18,31 @@
 
 
 
-# Проверка виртуальной сети Azure для использования с Azure RemoteApp
+
+# <a name="validate-the-azure-vnet-to-use-with-azure-remoteapp"></a>Validate the Azure VNET to use with Azure RemoteApp
 
 > [AZURE.IMPORTANT]
-Мы выводим удаленное приложение Azure RemoteApp из эксплуатации. Дополнительные сведения см. в [объявлении](https://go.microsoft.com/fwlink/?linkid=821148).
+> Azure RemoteApp is being discontinued. Read the [announcement](https://go.microsoft.com/fwlink/?linkid=821148) for details.
 
-Возможно, перед использованием виртуальной сети Azure с Azure RemoteApp ее нужно будет проверить. Это помогает избежать проблем с подключением.
+Before you use an Azure VNET with Azure RemoteApp, you might want to validate the VNET. This helps prevent issues with connectivity.
 
-Чтобы проверить виртуальную сеть Azure, выполните указанные ниже действия.
+To validate your Azure VNET, do the following:
 
-1. Создайте виртуальную машину в подсети виртуальной сети Azure, которую вы хотите использовать с Azure RemoteApp.
+1. Create an Azure virtual machine inside the subnet of the Azure VNET you want to use with Azure RemoteApp.
 
-2. Подключитесь к этой виртуальной машине с помощью параметра **Подключиться** в портале управления.
-3. Подключите виртуальную машину к тому же домену, который вы собираетесь использовать с Azure RemoteApp. При создании гибридной коллекции, которая подключается к локальной сети, подключите виртуальную машину к локальному домену.
+2. Connect to that VM by using the **Connect** option in the management portal.
+3. Join the virtual machine to the same domain that you want to use with Azure RemoteApp. If you are creating a hybrid collection that connects to your on-premises network, join the virtual machine to your local domain.
 
-Если это удалось, значит, виртуальная сеть Azure готова к использованию с RemoteApp.
+If this is successful, the Azure VNET is ready to use with RemoteApp.
 
-Дополнительные сведения о полном процессе работы с гибридными коллекциями см. в следующих статьях:
+For more information about the end-to-end hybrid collection workflow, see the following articles:
 
-- [Планирование виртуальной сети для Azure RemoteApp](remoteapp-planvnet.md)
-- [Создание гибридной коллекции](remoteapp-create-hybrid-deployment.md)
-- [Развертывание коллекции Azure RemoteApp для виртуальной сети Azure (с поддержкой ExpressRoute)](http://blogs.msdn.com/b/rds/archive/2015/04/23/deploy-azure-remoteapp-collection-to-your-azure-virtual-network-with-support-for-expressroute.aspx)
+- [How to plan your virtual network for Azure RemoteApp](remoteapp-planvnet.md)
+- [Create a hybrid collection](remoteapp-create-hybrid-deployment.md)
+- [Deploy Azure RemoteApp collection to your Azure Virtual Network (with support for ExpressRoute)](http://blogs.msdn.com/b/rds/archive/2015/04/23/deploy-azure-remoteapp-collection-to-your-azure-virtual-network-with-support-for-expressroute.aspx)
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

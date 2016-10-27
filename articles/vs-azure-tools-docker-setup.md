@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Настройка узла Docker с помощью VirtualBox | Microsoft Azure"
-   description="Пошаговые инструкции по настройке экземпляра Docker по умолчанию с помощью машины Docker и VirtualBox."
+   pageTitle="Configure a Docker Host with VirtualBox | Microsoft Azure"
+   description="Step-by-step instructions to configure a default Docker instance using Docker Machine and VirtualBox"
    services="azure-container-service"
    documentationCenter="na"
    authors="mlearned"
@@ -15,51 +15,57 @@
    ms.date="06/08/2016"
    ms.author="mlearned" />
 
-# Настройка узла Docker с помощью VirtualBox
 
-## Обзор
-В этой статье приводятся инструкции по настройке экземпляра Docker по умолчанию с помощью машины Docker и VirtualBox. При использовании [бета-версии Docker для Windows](http://beta.docker.com/) эта настройка не требуется.
+# <a name="configure-a-docker-host-with-virtualbox"></a>Configure a Docker Host with VirtualBox
 
-## Предварительные требования
-Должны быть установлены следующие средства.
+## <a name="overview"></a>Overview
+This article guides you through configuring a default Docker instance using Docker Machine and VirtualBox. If you’re using the [Docker for Windows beta](http://beta.docker.com/), this configuration is not necessary.
+
+## <a name="prerequisites"></a>Prerequisites
+The following tools need to be installed.
 
 - [Docker Toolbox](https://www.docker.com/products/overview#/docker_toolbox)
 
-## Настройка клиента Docker с помощью Windows PowerShell
+## <a name="configuring-the-docker-client-with-windows-powershell"></a>Configuring the Docker client with Windows PowerShell
 
-Чтобы настроить клиент Docker, просто откройте Windows PowerShell и выполните указанные ниже действия:
+To configure a Docker client, simply open Windows PowerShell, and perform the following steps:
 
-1. Создайте экземпляр узла Docker по умолчанию.
+1. Create a default docker host instance.
 
     ```PowerShell
     docker-machine create --driver virtualbox default
     ```
  
-1. Убедитесь в том, что экземпляр по умолчанию настроен и выполняется. (Должен быть запущен экземпляр с именем default.
+1. Verify the default instance is configured and running. (You should see an instance named `default' running.
 
     ```PowerShell
-	docker-machine ls 
+    docker-machine ls 
     ```
-		
-	![Вывод: docker-machine ls][0]
+        
+    ![docker-machine ls output][0]
  
-1. Задайте экземпляр по умолчанию в качестве текущего узла и настройте оболочку.
+1. Set default as the current host, and configure your shell.
 
     ```PowerShell
     docker-machine env default | Invoke-Expression
     ```
 
-1. Отобразите активные контейнеры Docker. Список должен быть пустым.
+1. Display the active Docker containers. The list should be empty.
 
     ```PowerShell
-	docker ps
+    docker ps
     ```
 
-	![Вывод: docker ps][1]
+    ![docker ps output][1]
  
-> [AZURE.NOTE] Каждый раз, когда перезагружается компьютер разработки, необходимо перезапускать локальный узел Docker. Для этого выполните в командной строке следующую команду: `docker-machine start default`.
+> [AZURE.NOTE] Each time you reboot your development machine, you’ll need to restart your local docker host.
+> To do this, issue the following command at a command prompt: `docker-machine start default`.
 
 [0]: ./media/vs-azure-tools-docker-setup/docker-machine-ls.png
 [1]: ./media/vs-azure-tools-docker-setup/docker-ps.png
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

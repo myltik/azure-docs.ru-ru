@@ -1,251 +1,251 @@
 <properties 
-	pageTitle="Создание веб-приложения Hello World для Azure в IntelliJ | Microsoft Azure" 
-	description="В этом учебнике показано, как с помощью набора средств Azure для IntelliJ создать веб-приложение Hello World для Azure." 
-	services="app-service\web" 
-	documentationCenter="java" 
-	authors="selvasingh" 
-	manager="wpickett" 
-	editor=""/>
+    pageTitle="Create a Hello World Web App for Azure in IntelliJ | Microsoft Azure" 
+    description="This tutorial shows you how to use the Azure Toolkit for IntelliJ to create a Hello World Web App for Azure." 
+    services="app-service\web" 
+    documentationCenter="java" 
+    authors="selvasingh" 
+    manager="wpickett" 
+    editor=""/>
 
 <tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="Java" 
-	ms.topic="article" 
-	ms.date="08/11/2016" 
-	ms.author="asirveda;robmcm"/>
+    ms.service="app-service-web" 
+    ms.workload="web" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="Java" 
+    ms.topic="article" 
+    ms.date="08/11/2016" 
+    ms.author="asirveda;robmcm"/>
 
-# Создание веб-приложения Hello World для Azure в IntelliJ
 
-В этом учебнике показано, как создать базовое приложение Hello World для Azure и развернуть его как веб-приложение с помощью [средств Azure для IntelliJ]. Для простоты мы приводим базовый пример на JSP, но практически те же действия подойдут и для сервлета Java, если речь идет о развертывании в Azure.
+# <a name="create-a-hello-world-web-app-for-azure-in-intellij"></a>Create a Hello World Web App for Azure in IntelliJ
 
-После завершения этого учебника приложение при просмотре в веб-браузере будет выглядеть следующим образом:
+This tutorial shows how to create and deploy a basic Hello World application to Azure as a Web App by using the [Azure Toolkit for IntelliJ]. A basic JSP example is shown for simplicity, but highly similar steps would be appropriate for a Java servlet, as far as Azure deployment is concerned.
+
+When you have completed this tutorial, your application will look similar to the following illustration when you view it in a web browser:
 
 ![][01]
  
-## Предварительные требования
+## <a name="prerequisites"></a>Prerequisites
 
-* Пакет SDK для Java (JDK) 1.8 или более поздней версии.
-* IntelliJ IDEA Ultimate Edition. Среду также можно загрузить с веб-страницы <https://www.jetbrains.com/idea/download/index.html>.
-* Дистрибутив веб-сервера или сервера приложений на основе Java, например Apache Tomcat или Jetty.
-* Подписка Azure, которую можно получить на веб-сайте <https://azure.microsoft.com/free/> или <http://azure.microsoft.com/pricing/purchase-options/>.
-* Набор средств Azure для IntelliJ. Дополнительные сведения см. в статье [Установка набора средств Azure для IntelliJ].
+* A Java Developer Kit (JDK), v 1.8 or later.
+* IntelliJ IDEA Ultimate Edition. This can be downloaded from <https://www.jetbrains.com/idea/download/index.html>.
+* A distribution of a Java-based web server or application server, such as Apache Tomcat or Jetty.
+* An Azure subscription, which can be acquired from <https://azure.microsoft.com/free/> or <http://azure.microsoft.com/pricing/purchase-options/>.
+* The Azure Toolkit for IntelliJ. For more information, see [Installing the Azure Toolkit for IntelliJ].
 
-## Создание приложения Hello World
+## <a name="to-create-a-hello-world-application"></a>To Create a Hello World Application
 
-Сначала необходимо создать проект Java.
+First, we'll start off with creating a Java project.
 
-1. Запустите IntelliJ и последовательно выберите **Файл**, **Создать** и **Проект**.
+1. Start IntelliJ, and at the menu click **File**, then **New**, and then click **Project**.
 
    ![][02]
 
-1. В диалоговом окне "Новый проект" выберите **Java**, затем **Веб-приложение** и нажмите кнопку **Далее**.
+1. In the New Project dialog box, select **Java**, then **Web Application**, and then click **Next**.
 
    ![][03a]
 
-   Если вам будет предложено продолжить создание проекта без назначенного пакета SDK, нажмите кнопку **Да**.
+   If prompted to continue with no SDK assigned, click **Yes**.
 
    ![][03b]
 
-1. Укажите имя проекта **Java-Web-App-On-Azure** и нажмите кнопку **Готово**.
+1. For purposes of this tutorial, name the project **Java-Web-App-On-Azure**, and then click **Finish**.
 
    ![][04]
 
-1. В представлении обозревателя проектов IntelliJ разверните **Java-Web-App-On-Azure**, затем разверните **web** и дважды щелкните **index.jsp**.
+1. Within IntelliJ's Project Explorer view, expand **Java-Web-App-On-Azure**, then expand **web**, and then double-click **index.jsp**.
 
    ![][05]
 
-1. После того как файл index.jsp откроется в IntelliJ, добавьте в существующий элемент `<body>` код для динамического отображения фразы **Hello World!**. Обновленное содержимое элемента `<body>` должно быть похоже на следующий пример:
+1. When your index.jsp file opens in IntelliJ, add in text to dynamically display **Hello World!** within the existing `<body>` element. Your updated `<body>` content should resemble the following example:
 
-   `<body><b><% out.println("Hello World!"); %></b></body>`
+   `<body><b><% out.println("Hello World!"); %></b></body>` 
 
-1. Сохраните index.jsp.
+1. Save index.jsp.
 
-## Развертывание приложения в контейнере веб-приложения Azure
+## <a name="to-deploy-your-application-to-an-azure-web-app-container"></a>To Deploy your Application to an Azure Web App Container
 
-Существует несколько способов, с помощью которых можно развернуть веб-приложение Java в Azure. В этом учебнике описывается один из самых простых: ваше приложение будет развернуто в контейнер веб-приложения Azure — для этого не нужно выбирать особый тип проекта и не требуются дополнительные инструменты. JDK и программное обеспечение веб-контейнера будут предоставлены Azure, поэтому нет необходимости загружать их самостоятельно. Все, что вам нужно — ваше веб-приложение Java. В результате процесс публикации приложения занимает несколько секунд, а не минут.
+There are several ways by which you can deploy a Java web application to Azure. This tutorial describes one of the simplest: your application will be deployed to an Azure Web App Container - no special project type nor additional tools are needed. The JDK and the web container software will be provided for you by Azure, so there is no need to upload your own; all you need is your Java Web App. As a result, the publishing process for your application will take seconds, not minutes.
 
-1. Щелкните правой кнопкой мыши по проекту **Java-Web-App-On-Azure** в обозревателе проектов IntelliJ. В контекстном меню выберите **Azure**, затем щелкните **Опубликовать как веб-приложение Azure**.
+1. In IntelliJ's Project Explorer, right-click the **Java-Web-App-On-Azure** project. When the context menu appears, select **Azure**, and then click **Publish as Azure Web App...**
 
    ![][06]
 
-1. Если вы еще не вошли в Azure из IntelliJ, появится запрос на вход в учетную запись Azure:
+1. If you have not already signed into Azure from IntelliJ, you will be prompted to sign into your Azure account:
 
    ![][07]
 
-   Примечание. При наличии нескольких учетных записей Azure некоторые запросы во время входа в систему могут отображаться несколько раз, даже если они выглядят одинаковыми. Если это происходит, выполните вход.
+   Note: If you have multiple Azure accounts, some of the prompts during the sign in process may be shown more than once, even if they appear to be the same. When this happens, continue following the sign in instructions.
 
-1. После успешного входа в учетную запись Azure в диалоговом окне **Управление подписками** отобразится список подписок, связанных с вашими учетными данными. Если список содержит несколько подписок и вы будете работать только с некоторыми из них, снимите флажки с подписок, которые не будете использовать. После выбора подписок щелкните **Закрыть**.
+1. After you have successfully signed into your Azure account, the **Manage Subscriptions** dialog box will display a list of subscriptions that are associated with your credentials. If there are multiple subscriptions listed and you want to work with only a specific subset of them, you may optionally uncheck the ones you do want to use. When you have selected your subscriptions, click **Close**.
 
    ![][08]
 
-1. При открытии диалогового окна **Развертывание в контейнер веб-приложения Azure** в нем будут показаны все контейнеры веб-приложений, созданные ранее. Если вы не создали ни одного контейнера, список будет пустым.
+1. When the **Deploy to Azure Web App Container** dialog box appears, it will display any Web App containers that you have previously created; if you have not created any containers, the list will be empty.   
 
    ![][09]
 
-1. Если вы не создавали контейнер веб-приложения Azure или хотите опубликовать приложение в новый контейнер, выполните следующие действия. В противном случае выберите существующий контейнер веб-приложения и перейдите к шагу 6 ниже.
+1. If you have not created an Azure Web App Container before, or if you would like to publish your application to a new container, use the following steps. Otherwise, select an existing Web App Container and skip to step 6 below.
 
-  1. Нажмите **+**.
+  1. Click **+**
 
         ![][10]
 
-  1. Откроется окно **Новый контейнер веб-приложения**, которым мы воспользуемся для нескольких следующих шагов.
+  1. The **New Web App Container** dialog box will be displayed, which will be used for the next several steps.
 
         ![][11]
 
-  1. Введите **метку DNS** для вашего контейнера веб-приложения. Она образует метку листа DNS для URL-адреса узла веб-приложения в Azure. Примечание. Имя должно быть доступным и соответствовать требованиям к именованию веб-приложений Azure.
+  1. Enter a **DNS Label** for your Web App Container; this will form the leaf DNS label of the host URL for your web application in Azure. Note: The name must be available and conform to Azure Web App naming requirements.
 
-  1. В раскрывающемся меню **Web Container** (Веб-контейнер) выберите соответствующее программное обеспечение для вашего приложения.
+  1. In the **Web Container** drop-down menu, select the appropriate software for your application.
 
-        На данный момент можно выбрать Tomcat 8, Tomcat 7 или Jetty 9. Последний дистрибутив выбранного программного обеспечения, предоставленный Azure, будет запущен в последнем дистрибутиве JDK 8, созданном Oracle и предоставленном Azure.
+        Currently, you can choose from Tomcat 8, Tomcat 7 or Jetty 9. A recent distribution of the selected software will be provided by Azure, and it will run on a recent distribution of JDK 8 created by Oracle and provided by Azure.
 
-  1. В раскрывающемся меню **Подписка** выберите подписку, которую вы хотите использовать для этого развертывания.
+  1. In the **Subscription** drop-down menu, select the subscription you want to use for this deployment.
 
-  1. В раскрывающемся меню **Resource Group** (Группа ресурсов) выберите группу ресурсов, с которой хотите связать свое веб-приложение.
+  1. In the **Resource Group** drop-down menu, select the Resource Group with which you want to associate your Web App.
 
-        Примечание: группы ресурсов Azure позволяют сгруппировать связанные ресурсы, чтобы, например, удалить их одновременно.
+        Note: Azure Resource Groups allow you to group related resources together so that, for example, they can be deleted together.
 
-        Можно выбрать существующую группу ресурсов (если она есть) и перейти к шагу g ниже, или создать новую, сделав следующее:
+        You can select an existing Resource Group (if you have any) and skip to step g below, or use the following these steps to create a new Resource Group:
 
-      * Нажмите кнопку **New...** (Создать...).
+      * Click **New...**
 
-      * Откроется диалоговое окно **New Resource Group** (Новая группа ресурсов):
+      * The **New Resource Group** dialog box will be displayed:
 
             ![][12]
 
-      * В текстовом поле **Name** (Имя) укажите имя для новой группы ресурсов.
+      * In the the **Name** textbox, specify a name for your new Resource Group.
 
-      * В раскрывающемся меню **Region** (Регион) выберите расположение центра обработки данных Azure для группы ресурсов.
+      * In the the **Region** drop-down menu, select the appropriate Azure data center location for your Resource Group.
 
-      * Нажмите кнопку **ОК**.
+      * Click **OK**.
 
-  1. В раскрывающемся меню **App Service Plan** (План службы приложений) перечислены планы службы приложений, связанные с выбранной группой ресурсов.
+  1. The **App Service Plan** drop-down menu lists the app service plans that are associated with the Resource Group that you selected.
 
-        Примечание. В плане службы приложений указываются такие сведения, как расположение веб-приложения, ценовая категория и размер вычислительной операции. Один план службы приложений можно использовать для нескольких веб-приложений, поэтому он поддерживается отдельно от развертывания конкретного веб-приложения.
+        Note: An App Service Plan specifies information such as the location of your Web App, the pricing tier and the compute instance size. A single App Service Plan can be used for multiple Web Apps, which is why it is maintained separately from a specific Web App deployment.
 
-        Можно выбрать существующий план службы приложений (если он есть) и перейти к шагу h ниже, или создать новый, сделав следующее:
+        You can select an existing App Service Plan (if you have any) and skip to step h below, or use the following these steps to create a new App Service Plan:
 
-      * Нажмите кнопку **New...** (Создать...).
+      * Click **New...**
 
-      * Откроется диалоговое окно **New App Service Plan** (Новый план службы приложений):
+      * The **New App Service Plan** dialog box will be displayed:
 
             ![][13]
 
-      * В текстовом поле **Name** (Имя) укажите имя для нового плана службы приложений.
+      * In the the **Name** textbox, specify a name for your new App Service Plan.
 
-      * В раскрывающемся меню **Location** (Расположение) выберите расположение центра обработки данных Azure для плана.
+      * In the the **Location** drop-down menu, select the appropriate Azure data center location for the plan.
 
-      * В раскрывающемся меню **Pricing Tier** (Ценовая категория) выберите соответствующую ценовую категорию для плана. Для тестирования можно выбрать **Free** (Бесплатный).
+      * In the the **Pricing Tier** drop-down menu, select the appropriate pricing for the plan. For testing purposes you can choose **Free**.
 
-      * В раскрывающемся меню **Instance Size** (Размер экземпляра) выберите соответствующий размер экземпляра для плана. Для тестирования можно выбрать **Small** (Маленький).
+      * In the the **Instance Size** drop-down menu, select the appropriate instance size for the plan. For testing purposes you can choose **Small**.
 
-  1. После завершения всех описанных выше действий диалоговое окно "Новый контейнер веб-приложения" должно выглядеть примерно так, как показано ниже:
+  1. Once you have completed all of the above steps, the New Web App Container dialog box should resemble the following illustration:
 
         ![][14]
 
-  1. Нажмите кнопку **ОК**, чтобы завершить создание нового контейнера веб-приложения.
+  1. Click **OK** to complete the creation of your new Web App container.
 
-        Подождите несколько секунд. Когда список контейнеров веб-приложений обновится, созданный контейнер веб-приложения должен быть выбран в списке.
+        Wait a few seconds for the list of the Web App containers to be refreshed, and your newly-created web app container should now be selected in the list.
 
-1. Теперь все готово для начального развертывания веб-приложения в Azure. Нажмите кнопку **ОК**, чтобы развернуть приложение Java в выбранный контейнер веб-приложения.
+1. You are now ready to complete the initial deployment of your Web App to Azure; click **OK** to deploy your Java application to the selected Web App container.
 
     ![][15]
 
-    Примечание. По умолчанию приложение будет развернуто в подкаталог сервера приложений. Чтобы развернуть приложение в качестве корневого приложения, установите флажок **Развернуть в корень** перед нажатием кнопки **ОК**.
+    Note: By default, your application will be deployed as a subdirectory of the application server. If you want it to be deployed as the root application, check the **Deploy to root** checkbox before clicking **OK**.
 
-1. После этого вы должны увидеть представление **Журнал действий Azure**, в котором будет отображаться состояние развертывания веб-приложения.
+1. Next, you should see the **Azure Activity Log** view, which will indicate the deployment status of your Web App.
 
     ![][16]
 
-    Процесс развертывания веб-приложения в Azure занимает всего несколько секунд. Когда процесс будет завершен, вы увидите ссылку **Опубликовано** в столбце **Состояние**. При щелчке по ссылке вы перейдете на домашнюю страницу развернутого веб-приложения. Вы также можете найти свое веб-приложение, выполнив действия, описанные в следующем разделе.
+    The process of deploying your Web App to Azure should take only a few seconds to complete. When your application ready, you will see a link named **Published** in the **Status** column. When you click the link, it will take you to your deployed Web App's home page, or you can use the steps in the following section to browse to your web app.
 
-## Переход к веб-приложению в Azure
+## <a name="browsing-to-your-web-app-on-azure"></a>Browsing to your Web App on Azure
 
-Чтобы перейти к веб-приложению в Azure, можно использовать представление **Обозревателя Azure**.
+To brows to your Web App on Azure, you can use the **Azure Explorer** view.
 
-Если представление **Обозреватель Azure** еще не открыто, его можно открыть, щелкнув меню **Представление** в IntelliJ и последовательно выбрав **Окна инструментов** и **Обозреватель служб**. Если ранее вы не вошли в систему, вам будет предложено это сделать.
+If the **Azure Explorer** view is not already open, you can open it by clicking then **View** menu in IntelliJ, then click **Tool Windows**, and then click **Service Explorer**. If you have not previously logged in, it will prompt you to do so.
 
-Когда представление **Обозреватель Azure** откроется, выполните следующие действия для остановки веб-приложения.
+When the **Azure Explorer** view is displayed, use follow these steps to stop your Web App: 
 
-1. Разверните узел **Azure**.
+1. Expand the **Azure** node.
 
-1. Разверните узел **Веб-приложения**.
+1. Expand the **Web Apps** node. 
 
-1. Щелкните правой кнопкой мыши необходимое веб-приложение.
+1. Right-click the desired Web App.
 
-1. В открывшемся контекстном меню выберите пункт **Открыть в браузере**.
+1. When the context menu appears, click **Open in Browser**.
 
     ![][17]
 
-## Обновление веб-приложения
+## <a name="updating-your-web-app"></a>Updating your Web App
 
-Обновить существующее и запущенное веб-приложение Azure быстро и просто. Сделать это можно двумя способами:
+Updating an existing running Azure Web App is a quick and easy process, and you have two options for updating:
 
-* Можно обновить развертывание существующего веб-приложения Java.
-* Можно опубликовать дополнительное приложение Java в тот же контейнер веб-приложения.
+* You can update the deployment of an existing Java Web App.
+* You can publish an additional Java application to the same Web App Container.
 
-Процесс в каждом случае идентичен и занимает несколько секунд.
+In either case, the process is identical and takes only a few seconds:
 
-1. В обозревателе проектов IntelliJ щелкните правой кнопкой мыши приложение Java, которое вы хотите обновить или добавить в существующий контейнер веб-приложения.
+1. In the IntelliJ project explorer, right-click the Java application you want to update or add to an existing Web App Container.
 
-1. В контекстном меню выберите **Azure**, затем щелкните **Опубликовать как веб-приложение Azure**.
+1. When the context menu appears, select **Azure** and then **Publish as Azure Web App...**
 
-1. Так как ранее вы уже вошли в систему, вы увидите список существующих контейнеров веб-приложений. Выберите контейнер, в котором хотите опубликовать или повторно опубликовать приложение Java, и нажмите кнопку **ОК**.
+1. Since you have already logged in previously, you will see a list of your existing Web App containers. Select the one you want to publish or re-publish your Java application to and click **OK**.
 
-Через несколько секунд в представлении **Журнал действий Azure** состояние обновленного развертывания изменится на **Опубликовано**, и вы сможете проверить свое обновленное приложение в веб-браузере.
+A few seconds later, the **Azure Activity Log** view will show your updated deployment as **Published** and you will be able to verify your updated application in a web browser.
 
-## Запуск или остановка существующего веб-приложения
+## <a name="starting-or-stopping-an-existing-web-app"></a>Starting or Stopping an Existing Web App
 
-Запустить или остановить существующий контейнер веб-приложения Azure (включая все развернутые в нем приложения Java) можно в представлении **Обозреватель Azure**.
+To start or stop an existing Azure Web App container, (including all the deployed Java applications in it), you can use the **Azure Explorer** view.
 
-Если представление **Обозреватель Azure** еще не открыто, его можно открыть, щелкнув меню **Представление** в IntelliJ и последовательно выбрав **Окна инструментов** и **Обозреватель служб**. Если ранее вы не вошли в систему, вам будет предложено это сделать.
+If the **Azure Explorer** view is not already open, you can open it by clicking then **View** menu in IntelliJ, then click **Tool Windows**, and then click **Service Explorer**. If you have not previously logged in, it will prompt you to do so.
 
-Когда представление **Обозреватель Azure** откроется, выполните следующие действия для запуска или остановки веб-приложения.
+When the **Azure Explorer** view is displayed, use follow these steps to start or stop your Web App: 
 
-1. Разверните узел **Azure**.
+1. Expand the **Azure** node.
 
-1. Разверните узел **Веб-приложения**.
+1. Expand the **Web Apps** node. 
 
-1. Щелкните правой кнопкой мыши необходимое веб-приложение.
+1. Right-click the desired Web App.
 
-1. В открывшемся контекстном меню щелкните **Запустить** или **Остановить**. Обратите внимание, что доступные меню контекстно зависимы, поэтому можно только остановить веб-приложение или запустить веб-приложение, которое в данный момент не запущено.
+1. When the context menu appears, click **Start** or **Stop**. Note that the menu choices are context-aware, so you can only stop a running web app or start a web app which is not currently running.
 
     ![][18]
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Next Steps
 
-Дополнительные сведения о наборах средств Azure для Java IDE см. по следующим ссылкам:
+For more information about the Azure Toolkits for Java IDEs, see the following links:
 
-- [Набор средств Azure для Eclipse]
-  - [Установка набора средств Azure для Eclipse]
-  - [Создание веб-приложения Hello World для Azure в Eclipse]
-  - [Новые возможности набора средств Azure для Eclipse]
-- [Набор средств Azure для IntelliJ]
-  - [Установка набора средств Azure для IntelliJ]
-  - *Создание веб-приложения Hello World для Azure в IntelliJ (в этой статье)*
-  - [Новые возможности набора средств Azure для IntelliJ]
+- [Azure Toolkit for Eclipse]
+  - [Installing the Azure Toolkit for Eclipse]
+  - [Create a Hello World Web App for Azure in Eclipse]
+  - [What's New in the Azure Toolkit for Eclipse]
+- [Azure Toolkit for IntelliJ]
+  - [Installing the Azure Toolkit for IntelliJ]
+  - *Create a Hello World Web App for Azure in IntelliJ (This Article)*
+  - [What's New in the Azure Toolkit for IntelliJ]
 
-Дополнительные сведения об использовании Azure с Java см. в [центре разработчиков Java для Azure].
+For more information about using Azure with Java, see the [Azure Java Developer Center].
 
-Дополнительные сведения о создании веб-приложений Azure см. в разделе [Обзор веб-приложений].
+For additional information about creating Azure Web Apps, see the [Web Apps Overview].
 
 [AZURE.INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
 
 <!-- URL List -->
 
-[Набор средств Azure для Eclipse]: ../azure-toolkit-for-eclipse.md
-[Набор средств Azure для IntelliJ]: ../azure-toolkit-for-intellij.md
-[средств Azure для IntelliJ]: ../azure-toolkit-for-intellij.md
-[Создание веб-приложения Hello World для Azure в Eclipse]: ./app-service-web-eclipse-create-hello-world-web-app.md
+[Azure Toolkit for Eclipse]: ../azure-toolkit-for-eclipse.md
+[Azure Toolkit for IntelliJ]: ../azure-toolkit-for-intellij.md
+[Create a Hello World Web App for Azure in Eclipse]: ./app-service-web-eclipse-create-hello-world-web-app.md
 [Create a Hello World Web App for Azure in IntelliJ]: ./app-service-web-intellij-create-hello-world-web-app.md
-[Установка набора средств Azure для Eclipse]: ../azure-toolkit-for-eclipse-installation.md
-[Установка набора средств Azure для IntelliJ]: ../azure-toolkit-for-intellij-installation.md
-[Новые возможности набора средств Azure для Eclipse]: ../azure-toolkit-for-eclipse-whats-new.md
-[Новые возможности набора средств Azure для IntelliJ]: ../azure-toolkit-for-intellij-whats-new.md
+[Installing the Azure Toolkit for Eclipse]: ../azure-toolkit-for-eclipse-installation.md
+[Installing the Azure Toolkit for IntelliJ]: ../azure-toolkit-for-intellij-installation.md
+[What's New in the Azure Toolkit for Eclipse]: ../azure-toolkit-for-eclipse-whats-new.md
+[What's New in the Azure Toolkit for IntelliJ]: ../azure-toolkit-for-intellij-whats-new.md
 
-[центре разработчиков Java для Azure]: https://azure.microsoft.com/develop/java/
-[Обзор веб-приложений]: ./app-service-web-overview.md
+[Azure Java Developer Center]: https://azure.microsoft.com/develop/java/
+[Web Apps Overview]: ./app-service-web-overview.md
 
 <!-- IMG List -->
 
@@ -269,4 +269,8 @@
 [17]: ./media/app-service-web-intellij-create-hello-world-web-app/17-Browse-Web-App.png
 [18]: ./media/app-service-web-intellij-create-hello-world-web-app/18-Stop-Web-App.png
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

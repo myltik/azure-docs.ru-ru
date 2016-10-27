@@ -1,6 +1,6 @@
 <properties 
-    pageTitle="Учебник. Интеграция Azure Active Directory с SugarCRM | Microsoft Azure" 
-    description="Узнайте, как использовать SugarCRM с Azure Active Directory для реализации единого входа, автоматической подготовки пользователей и выполнения других задач." 
+    pageTitle="Tutorial: Azure Active Directory integration integration with SugarCRM | Microsoft Azure" 
+    description="Learn how to use SugarCRM with Azure Active Directory to enable single sign-on, automated provisioning, and more!" 
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
@@ -14,162 +14,170 @@
     ms.date="09/11/2016" 
     ms.author="jeedes" />
 
-#Учебник. Интеграция Azure Active Directory с SugarCRM
+
+#<a name="tutorial:-azure-active-directory-integration-integration-with-sugarcrm"></a>Tutorial: Azure Active Directory integration integration with SugarCRM
   
-Цель данного руководства — показать интеграцию Azure и SugarCRM. Сценарий, описанный в этом учебнике, предполагает, что у вас уже имеется:
+The objective of this tutorial is to show the integration of Azure and Sugar CRM.  
+The scenario outlined in this tutorial assumes that you already have the following items:
 
--   Действующая подписка на Azure
--   Подписка SugarCRM с поддержкой единого входа.
+-   A valid Azure subscription
+-   A Sugar CRM single sign-on enabled subscription
   
-По завершении работы с этим руководством пользователи Azure AD, назначенные в SugarCRM, смогут выполнять единый вход в приложение на веб-сайте SugarCRM компании (вход, инициированный поставщиком услуг) или следуя указаниям в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
+After completing this tutorial, the Azure AD users you have assigned to Sugar CRM will be able to single sign into the application at your Sugar CRM company site (service provider initiated sign on), or using the [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
   
-Сценарий, описанный в этом учебнике, состоит из следующих блоков:
+The scenario outlined in this tutorial consists of the following building blocks:
 
-1.  Включение интеграции приложений для SugarCRM
-2.  Настройка единого входа
-3.  Настройка подготовки учетных записей пользователей
-4.  Назначение пользователей
+1.  Enabling the application integration for Sugar CRM
+2.  Configuring single sign-on
+3.  Configuring user provisioning
+4.  Assigning users
 
-![Сценарий](./media/active-directory-saas-sugarcrm-tutorial/IC795881.png "Сценарий")
+![Scenario](./media/active-directory-saas-sugarcrm-tutorial/IC795881.png "Scenario")
 
-##Включение интеграции приложений для SugarCRM
+##<a name="enabling-the-application-integration-for-sugar-crm"></a>Enabling the application integration for Sugar CRM
   
-В этом разделе показано, как включить интеграцию приложений для SugarCRM.
+The objective of this section is to outline how to enable the application integration for Sugar CRM.
 
-###Чтобы включить интеграцию приложений для SugarCRM, выполните следующие действия:
+###<a name="to-enable-the-application-integration-for-sugar-crm,-perform-the-following-steps:"></a>To enable the application integration for Sugar CRM, perform the following steps:
 
-1.  На классическом портале Azure в области навигации слева щелкните **Active Directory**.
+1.  In the Azure classic portal, on the left navigation pane, click **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-sugarcrm-tutorial/IC700993.png "Active Directory")
 
-2.  Из списка **Каталог** выберите каталог, для которого нужно включить интеграцию каталогов.
+2.  From the **Directory** list, select the directory for which you want to enable directory integration.
 
-3.  Чтобы открыть представление приложений, в представлении каталога нажмите **Приложения** в верхнем меню.
+3.  To open the applications view, in the directory view, click **Applications** in the top menu.
 
-    ![Приложения](./media/active-directory-saas-sugarcrm-tutorial/IC700994.png "Приложения")
+    ![Applications](./media/active-directory-saas-sugarcrm-tutorial/IC700994.png "Applications")
 
-4.  В нижней части страницы нажмите кнопку **Добавить**.
+4.  Click **Add** at the bottom of the page.
 
-    ![Добавление приложения](./media/active-directory-saas-sugarcrm-tutorial/IC749321.png "Добавление приложения")
+    ![Add application](./media/active-directory-saas-sugarcrm-tutorial/IC749321.png "Add application")
 
-5.  В диалоговом окне **Что необходимо сделать?** нажмите **Добавить приложение из коллекции**.
+5.  On the **What do you want to do** dialog, click **Add an application from the gallery**.
 
-    ![Добавить приложение из коллекции](./media/active-directory-saas-sugarcrm-tutorial/IC749322.png "Добавить приложение из коллекции")
+    ![Add an application from gallerry](./media/active-directory-saas-sugarcrm-tutorial/IC749322.png "Add an application from gallerry")
 
-6.  В **поле поиска** введите **SugarCRM**.
+6.  In the **search box**, type **Sugar CRM**.
 
-    ![Коллекция приложений](./media/active-directory-saas-sugarcrm-tutorial/IC795882.png "Коллекция приложений")
+    ![Application Gallery](./media/active-directory-saas-sugarcrm-tutorial/IC795882.png "Application Gallery")
 
-7.  В области результатов выберите **SugarCRM** и нажмите кнопку **Завершить**, чтобы добавить приложение.
+7.  In the results pane, select **Sugar CRM**, and then click **Complete** to add the application.
 
-    ![SugarCRM](./media/active-directory-saas-sugarcrm-tutorial/IC795883.png "SugarCRM")
+    ![Sugar CRM](./media/active-directory-saas-sugarcrm-tutorial/IC795883.png "Sugar CRM")
 
-##Настройка единого входа
+##<a name="configuring-single-sign-on"></a>Configuring single sign-on
   
-В этом разделе показано, как разрешить пользователям проходить аутентификацию в SugarCRM со своей учетной записью Azure AD, используя федерацию на основе протокола SAML. В рамках этой процедуры потребуется отправить сертификат в кодировке Base-64 в клиент SugarCRM. Если вы не знакомы с этой процедурой, посмотрите видео [Преобразование двоичного сертификата в текстовый файл](http://youtu.be/PlgrzUZ-Y1o).
+The objective of this section is to outline how to enable users to authenticate to Sugar CRM with their account in Azure AD using federation based on the SAML protocol.  
+As part of this procedure, you are required to upload a base-64 encoded certificate to your Sugar CRM tenant.  
+If you are not familiar with this procedure, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o)
 
-###Чтобы настроить единый вход, выполните следующие действия.
+###<a name="to-configure-single-sign-on,-perform-the-following-steps:"></a>To configure single sign-on, perform the following steps:
 
-1.  На странице интеграции с приложением **SugarCRM** классического портала Azure AD нажмите кнопку **Настроить единый вход**, чтобы открыть диалоговое окно **Настройка единого входа**.
+1.  In the Azure classic portal, on the **Sugar CRM** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
 
-    ![Настройка единого входа](./media/active-directory-saas-sugarcrm-tutorial/IC795884.png "Настройка единого входа")
+    ![Configure Single Sign-On](./media/active-directory-saas-sugarcrm-tutorial/IC795884.png "Configure Single Sign-On")
 
-2.  На странице **Как пользователи должны входить в SugarCRM** выберите **Единый вход Microsoft Azure AD** и нажмите кнопку **Далее**.
+2.  On the **How would you like users to sign on to Sugar CRM** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
-    ![Настройка единого входа](./media/active-directory-saas-sugarcrm-tutorial/IC795885.png "Настройка единого входа")
+    ![Configure Single Sign-On](./media/active-directory-saas-sugarcrm-tutorial/IC795885.png "Configure Single Sign-On")
 
-3.  На странице **Настройка URL-адреса приложения** в текстовом поле **URL-адрес для входа в SugarCRM** введите URL-адрес, используемый пользователями для входа в приложение SugarCRM (например, "*http://company.sugarondemand.com*", и нажмите кнопку **Далее**.
+3.  On the **Configure App URL** page, in the **Sugar CRM Sign On URL** textbox, type the URL used by your users to sign-on to your Sugar CRM application (e.g.: "*http://company.sugarondemand.com*", and then click **Next**.
 
-    ![Настройка URL-адреса приложения](./media/active-directory-saas-sugarcrm-tutorial/IC795886.png "Настройка URL-адреса приложения")
+    ![Configure App URL](./media/active-directory-saas-sugarcrm-tutorial/IC795886.png "Configure App URL")
 
-4.  Для скачивания сертификата на странице **Настройка единого входа в SugarCRM** нажмите кнопку **Загрузить сертификат** и сохраните файл сертификата на своем компьютере.
+4.  On the **Configure single sign-on at Sugar CRM** page, to download your certificate, click **Download certificate**, and then save the certificate file on your computer.
 
-    ![Настройка единого входа](./media/active-directory-saas-sugarcrm-tutorial/IC796918.png "Настройка единого входа")
+    ![Configure Single Sign-On](./media/active-directory-saas-sugarcrm-tutorial/IC796918.png "Configure Single Sign-On")
 
-5.  В другом окне веб-браузера войдите на сайт SugarCRM своей компании в качестве администратора.
+5.  In a different web browser window, log into your Sugar CRM company site as an administrator.
 
-6.  Перейдите в раздел **Администратор**.
+6.  Go to **Admin**.
 
-    ![Администратор](./media/active-directory-saas-sugarcrm-tutorial/IC795888.png "Администратор")
+    ![Admin](./media/active-directory-saas-sugarcrm-tutorial/IC795888.png "Admin")
 
-7.  В разделе **Администрирование** щелкните **Управление паролями**.
+7.  In the **Administration** section, click **Password Management**.
 
-    ![Администрирование](./media/active-directory-saas-sugarcrm-tutorial/IC795889.png "Администрирование")
+    ![Administration](./media/active-directory-saas-sugarcrm-tutorial/IC795889.png "Administration")
 
-8.  Установите флажок **Включить проверку подлинности SAML**.
+8.  Select **Enable SAML Authentication**.
 
-    ![Администрирование](./media/active-directory-saas-sugarcrm-tutorial/IC795890.png "Администрирование")
+    ![Administration](./media/active-directory-saas-sugarcrm-tutorial/IC795890.png "Administration")
 
-9.  В разделе **Проверка подлинности SAML** сделайте следующее:
+9.  In the **SAML Authentication** section, perform the following steps:
 
-    ![Проверка подлинности SAML](./media/active-directory-saas-sugarcrm-tutorial/IC795891.png "Проверка подлинности SAML")
+    ![SAML Authentication](./media/active-directory-saas-sugarcrm-tutorial/IC795891.png "SAML Authentication")
 
-    1.  На странице диалогового окна **Настройка единого входа в SugarCRM** классического портала Azure скопируйте значение поля **URL-адрес удаленного входа** и вставьте его в текстовое поле **URL-адрес входа**.
-    2.  На странице диалогового окна **Настройка единого входа в SugarCRM** классического портала Azure скопируйте значение поля **URL-адрес удаленного входа** и вставьте его в текстовое поле **URL-адрес единого выхода**.
-    3.  Создайте файл **в кодировке Base-64** из скачанного сертификата.
+    1.  In the Azure classic portal, on the **Configure single sign-on at Sugar CRM** dialog page, copy the **Remote Login URL** value, and then paste it into the **Login URL** textbox.
+    2.  In the Azure classic portal, on the **Configure single sign-on at Sugar CRM** dialog page, copy the **Remote Login URL** value, and then paste it into the **SLO URL** textbox.
+    3.  Create a **Base-64 encoded** file from your downloaded certificate.
 
-        >[AZURE.TIP] Дополнительные сведения можно узнать в видео [Преобразование бинарного сертификата в текстовый файл](http://youtu.be/PlgrzUZ-Y1o).
+        >[AZURE.TIP] For more details, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o)
 
-    4.  Откройте сертификат в кодировке Base-64 в Блокноте, скопируйте его содержимое в буфер обмена и вставьте весь сертификат в текстовое поле **Сертификат X.509**.
-    5.  Щелкните **Сохранить**.
+    4.  Open your base-64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste the entire Certificate into **X.509 Certificate** textbox.
+    5.  Click **Save**.
 
-10. На странице диалогового окна **Настройка единого входа в SugarCRM** классического портала Azure выберите подтверждение настройки единого входа и нажмите кнопку **Завершить**.
+10. In the Azure classic portal, on the **Configure single sign-on at Sugar CRM** dialog page, select the single sign-on configuration confirmation, and then click **Complete**.
 
-    ![Настройка единого входа](./media/active-directory-saas-sugarcrm-tutorial/IC796919.png "Настройка единого входа")
+    ![Configure Single Sign-On](./media/active-directory-saas-sugarcrm-tutorial/IC796919.png "Configure Single Sign-On")
 
-##Настройка подготовки учетных записей пользователей
+##<a name="configuring-user-provisioning"></a>Configuring user provisioning
   
-Чтобы пользователи Azure AD могли входить в SugarCRM, их необходимо подготовить для SugarCRM. В случае SugarCRM подготовка выполняется вручную.
+In order to enable Azure AD users to log into Sugar CRM, they must be provisioned to Sugar CRM.  
+In the case of Sugar CRM, provisioning is a manual task.
 
-###Чтобы подготовить учетные записи пользователей, выполните следующие действия:
+###<a name="to-provision-a-user-accounts,-perform-the-following-steps:"></a>To provision a user accounts, perform the following steps:
 
-1.  Войдите на веб-сайт **SugarCRM** компании в качестве администратора.
+1.  Log in to your **Sugar CRM** company site as administrator.
 
-2.  Перейдите в раздел **Администратор**.
+2.  Go to **Admin**.
 
-    ![Администратор](./media/active-directory-saas-sugarcrm-tutorial/IC795888.png "Администратор")
+    ![Admin](./media/active-directory-saas-sugarcrm-tutorial/IC795888.png "Admin")
 
-3.  В разделе **Администрирование** щелкните **Управление пользователями**.
+3.  In the **Administration** section, click **User Management**.
 
-    ![Администрирование](./media/active-directory-saas-sugarcrm-tutorial/IC795893.png "Администрирование")
+    ![Administration](./media/active-directory-saas-sugarcrm-tutorial/IC795893.png "Administration")
 
-4.  Выберите **Пользователи > Создать нового пользователя**.
+4.  Go to **Users \> Create New User**.
 
-    ![Создание нового пользователя](./media/active-directory-saas-sugarcrm-tutorial/IC795894.png "Создать нового пользователя")
+    ![Create New User](./media/active-directory-saas-sugarcrm-tutorial/IC795894.png "Create New User")
 
-5.  На вкладке **Профиль пользователя** сделайте следующее:
+5.  On the **User Profile** tab, perform the following steps:
 
-    ![Новый пользователь](./media/active-directory-saas-sugarcrm-tutorial/IC795895.png "Новый пользователь")
+    ![New User](./media/active-directory-saas-sugarcrm-tutorial/IC795895.png "New User")
 
-    1.  В соответствующие текстовые поля введите имя, фамилию и электронный адрес действующей учетной записи Azure Active Directory.
+    1.  Type the user name, last name and email address of a valid Azure Active Directory user into the related textboxes.
 
-6.  Для параметра **Состояние** выберите значение **Активно**.
+6.  As **Status**, select **Active**.
 
-7.  На вкладке «Пароль» выполните следующие действия:
+7.  On the Password tab, perform the following steps:
 
-    ![Новый пользователь](./media/active-directory-saas-sugarcrm-tutorial/IC795896.png "Новый пользователь")
+    ![New User](./media/active-directory-saas-sugarcrm-tutorial/IC795896.png "New User")
 
-    1.  Введите пароль в соответствующее текстовое поле.
-    2.  Щелкните **Сохранить**.
+    1.  Type the password into the related textbox.
+    2.  Click **Save**.
 
->[AZURE.NOTE] Вы можете использовать любые другие инструменты создания учетных записей пользователей SugarCRM или API, предоставляемые SugarCRM для подготовки учетных записей пользователей AAD.
+>[AZURE.NOTE] You can use any other Sugar CRM user account creation tools or APIs provided by Sugar CRM to provision AAD user accounts.
 
-##Назначение пользователей
+##<a name="assigning-users"></a>Assigning users
   
-Чтобы проверить свою конфигурацию, предоставьте пользователям Azure AD, которые должны использовать приложение, доступ путем их назначения.
+To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.
 
-###Чтобы назначить пользователей SugarCRM, выполните следующие действия:
+###<a name="to-assign-users-to-sugar-crm,-perform-the-following-steps:"></a>To assign users to Sugar CRM, perform the following steps:
 
-1.  На классическом портале Azure создайте тестовую учетную запись.
+1.  In the Azure classic portal, create a test account.
 
-2.  На странице интеграции с приложением **SugarCRM** нажмите кнопку **Назначить пользователей**.
+2.  On the **Sugar CRM** application integration page, click **Assign users**.
 
-    ![Назначить пользователей](./media/active-directory-saas-sugarcrm-tutorial/IC795897.png "Назначить пользователей")
+    ![Assign Users](./media/active-directory-saas-sugarcrm-tutorial/IC795897.png "Assign Users")
 
-3.  Выберите тестового пользователя, нажмите кнопку **Назначить**, а затем — **Да**, чтобы подтвердить назначение.
+3.  Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.
 
-    ![Да](./media/active-directory-saas-sugarcrm-tutorial/IC767830.png "Да")
+    ![Yes](./media/active-directory-saas-sugarcrm-tutorial/IC767830.png "Yes")
   
-Если вы хотите проверить параметры единого входа, откройте панель доступа. Дополнительные сведения о панели доступа см. в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
+If you want to test your single sign-on settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0914_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

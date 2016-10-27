@@ -1,82 +1,88 @@
 <properties
-	pageTitle="Использование соединителя File в приложениях логики | Служба приложений Microsoft Azure"
-	description="Как создать и настроить соединитель File или приложение API и использовать его в приложении логики в службе приложений Azure"
-	authors="rajeshramabathiran"
-	manager="erikre"
-	editor=""
-	services="logic-apps"
-	documentationCenter=""/>
+    pageTitle="Using the File connector in Logic apps | Microsoft Azure App Service"
+    description="How to create and configure the file connector or API app and use it in a Logic app in Azure App Service"
+    authors="rajeshramabathiran"
+    manager="erikre"
+    editor=""
+    services="logic-apps"
+    documentationCenter=""/>
 
 <tags
-	ms.service="logic-apps"
-	ms.workload="integration"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/01/2016"
-	ms.author="rajram"/>
+    ms.service="logic-apps"
+    ms.workload="integration"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/01/2016"
+    ms.author="rajram"/>
 
-# Приступая к работе с соединителем File: добавление в приложение логики
->[AZURE.NOTE] Эта версия статьи предназначена для приложений логики со схемой версии 2014-12-01-preview.
 
-Подключитесь к файловой системе, чтобы передавать и скачивать файлы, а также использовать другие возможности работы с файлами на хост-компьютере. Приложения логики могут запускаться на основе разных источников данных и предлагать соединители для получения и обработки данных. Соединитель File можно добавить в рабочий процесс компании и обрабатывать данные в рамках этого процесса в приложении логики.
+# <a name="get-started-with-the-file-connector-and-add-it-to-your-logic-app"></a>Get started with the file connector and add it to your Logic app
+>[AZURE.NOTE] This version of the article applies to Logic apps 2014-12-01-preview schema version.
 
-Соединитель File использует диспетчер гибридного подключения для установки гибридного подключения к файловой системе хост-компьютера.
+Connect to a file system to upload, download, and more to your files on a host machine. Logic apps can trigger based on a variety of data sources and offer connectors to get and process data. You can add the file connector to your business workflow and process data as part of this workflow within a Logic app. 
 
-## Создание соединителя File для приложения логики ##
-Чтобы использовать соединитель File, сначала нужно создать экземпляр приложения API соединителя File. Это можно сделать следующим образом.
+The file connector uses the Hybrid Connection Manager for hybrid connectivity to the host file system.
 
-1.	Откройте Azure Marketplace с помощью команды "+ СОЗДАТЬ" в левой части портала Azure.
-2.	Выполните поиск по запросу "file connector" (Соединитель File).
-3.	Выберите **File Connector (preview)** (Соединитель File (предварительная версия)) в результатах поиска.
-4.	Нажмите кнопку **Создать**.
-5.	Настройте соединитель File следующим образом: ![][1]
+## <a name="creating-a-file-connector-for-your-logic-app"></a>Creating a file connector for your Logic app ##
+To use the file connector, you need to first create an instance of the file connector API app. This can be done as follows:
 
-	- **Имя** — задайте имя для соединителя File.
-	- **Параметры пакета**
-		- **Корневая папка** — укажите путь к корневой папке на базовом компьютере, например D:\\FileConnectorTest.
-		- **Строка подключения служебной шины** — укажите строку подключения служебной шины. Убедитесь, что используется пространство имен служебной шины типа Standard, а НЕ Basic, чтобы можно было использовать ретрансляторы служебной шины. Ретранслятор служебной шины используется для подключения к диспетчеру гибридных соединений.
-	- **План службы приложений** — выберите или создайте план службы приложений.
-	- **Ценовая категория** — выберите ценовую категорию для соединителя.
-	- **Группа ресурсов** — выберите или создайте группу ресурсов, в которой следует разместить соединитель.
-	- **Подписка** — выберите подписку, в которой нужно создать соединитель.
-	- **Расположение** — выберите географическое расположение, где планируется развернуть соединитель.
+1.  Open the Azure Marketplace using the + NEW option on the left side of the Azure Portal.
+2.  Search for “file connector”.
+3.  Select **File Connector (preview)** from the search results.
+4.  Select the **Create** button
+5.  Configure the file connector as follows:  
+![][1]
 
-4. Нажмите кнопку "Создать". Будет создан новый соединитель File
+    - **Name** - give a name for your file connector
+    - **Package Settings**
+        - **Root Folder** - Specify the root folder path on your host machine. Eg. D:\FileConnectorTest
+        - **Service Bus Connection String** - Provide a Service Bus Connection String. Make sure that the service bus namespace is of type Standard and NOT Basic to allow for use of Service Bus Relays.  Service Bus Relay is used to connect to the Hybrid Connection Manager.
+    - **App Service plan** - select or create a App Service plan
+    - **Pricing tier** - choose a pricing tier for the connector
+    - **Resource group** - select or create a resource group where the connector should reside
+    - **Subscription** - choose a subscription you want this connector to be created in
+    - **Location** - choose the geographic location where you would like the connector to be deployed
 
-## Настройка диспетчера гибридных соединений ##
-После создания экземпляра приложения API перейдите к его панели мониторинга. Это можно сделать, щелкнув "Обзор" > "Приложения API" и выбрав свое приложение API соединителя File. Теперь необходимо настроить диспетчер гибридных соединений. Дополнительную информацию о настройке и устранении неполадок диспетчера гибридных соединений см. в разделе [Использование диспетчера гибридных соединений].
+4. Click on Create. A new file connector will be created
 
-## Использование соединителя File в приложении логики ##
-После создания приложения API соединитель File можно использовать как действие для приложения логики. Для этого необходимо выполнить следующие действия.
+## <a name="configure-hybrid-connection-manager"></a>Configure Hybrid Connection Manager ##
+Once the API App instance is created, browse to its dashboard.  This can be done by clicking on Browse > API Apps > select your file connector API App.  From here the Hybrid Connection Manager needs to be configured.
+For more information on configuring and trouble shooting the Hybrid Connection Manager see [Using the Hybrid Connection Manager].
 
-1.	Создайте новое приложение логики и выберите ту же группу ресурсов, в которую входит соединитель File. Следуйте инструкциям, чтобы [создать новое приложение логики].
+## <a name="using-the-file-connector-in-your-logic-app"></a>Using the file connector in your Logic app ##
+Once your API app is created, you can now use the file connector as an action for your Logic app. To do this, you need to:
 
-2.	Откройте раздел Triggers and Actions (Триггеры и действия) в созданном приложении логики, чтобы открыть конструктор приложений логики и настроить поток.
+1.  Create a new Logic app and choose the same resource group which has the file connector. Follow instructions to [Create a new Logic app].
 
-3.	Соединитель File отображается в разделе API Apps in this resource group (Приложения API в этой группе ресурсов) в коллекции с правой стороны.
+2.  Open “Triggers and Actions” within the created Logic app to open the Logic apps Designer and configure your flow.
 
-4.	Приложение API соединителя File можно перетащить в редактор, щелкнув элемент File connector (Соединитель File). Соединитель File предоставляет один триггер и четыре действия: ![][5]
+3.  The file connector would appear in the “API Apps in this resource group” section in the gallery on the right hand side.
 
-6.	Каждое из них демонстрирует определенные свойства. На следующем изображении представлен список свойств для триггера и действия для получения файла. ![][6]
+4.  You can drop the file connector API app into the editor by clicking on the “file connector”. file connector exposes one trigger and 4 Actions:  
+![][5]
 
-7. После настройки этих свойств триггер и действие можно будет использовать в потоке. Аналогичным образом можно настроить другие действия.
+6.  Each one of these exposes certain properties. The image below lists the properties for the trigger and Get file Action:  
+![][6]
 
-> [AZURE.NOTE] Триггер файла удалит файл после успешного его чтения из папки.
+7. Once these are configured, the Trigger and Action can be used in your flow. Similarly, other actions can be configured as well.
 
-## Интерфейсы REST API соединителя File ##
-Для использования соединителя вне приложения логики можно использовать интерфейсы REST API, предоставляемые соединителем. Вы можете просматривать определения API, выбрав "Обзор" > "Приложение API" > File connector (Соединитель File). Теперь нажмите на группу связанных элементов «Определение API» в разделе «Сводные данные» для просмотра всех API, предоставляемых этим соединителем. ![][7]
+> [AZURE.NOTE] The file trigger will delete the file after it is successfully read from the folder.
 
-Подробную информацию об интерфейсах API см. в статье [File Connector] \(Соединитель File).
+## <a name="file-connector-rest-apis"></a>File connector REST APIs ##
+To use the connector outside of a Logic app, the REST APIs exposed by the connector can be leveraged. You can view this API Definitions using Browse->Api App->file connector. Now click on the API Definition lens under the Summary Section to view all the APIs exposed by this connector:  
+![][7]
 
-## Дополнительные возможности соединителя
-После создания соединителя его можно добавить в рабочий бизнес-процесс с помощью приложения логики. См. статью [Что такое приложения логики?](app-service-logic-what-are-logic-apps.md)
+Details of the APIs can be found at [file connector API definition].
 
->[AZURE.NOTE] Если вы хотите начать работу с приложениями логики Azure до создания учетной записи Azure, перейдите на веб-сайт [пробного использования приложений логики](https://tryappservice.azure.com/?appservice=logic). На этом сайте вы сможете быстро создать кратковременное приложение логики начального уровня в службе приложений. Никаких кредитных карт и обязательств.
+## <a name="do-more-with-your-connector"></a>Do more with your connector
+Now that the connector is created, you can add it to a business workflow using a Logic app. See [What are Logic apps?](app-service-logic-what-are-logic-apps.md).
 
-Справку по API REST Swagger см. в статье [Справочные материалы по соединителям и приложениям API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
+>[AZURE.NOTE] If you want to get started with Azure Logic apps before signing up for an Azure account, go to [Try Logic app](https://tryappservice.azure.com/?appservice=logic), where you can immediately create a short-lived starter Logic app in App Service. No credit cards required; no commitments.
 
-Можно также просматривать статистику производительности и управлять безопасностью соединителя. См. статью [Управление встроенными приложениями API и соединителями, а также их мониторинг](app-service-logic-monitor-your-connectors.md).
+View the Swagger REST API reference at [Connectors and API Apps Reference](http://go.microsoft.com/fwlink/p/?LinkId=529766).
+
+You can also review performance statistics and control security to the connector. See [Manage and Monitor your built-in API Apps and connector](app-service-logic-monitor-your-connectors.md).
 
 <!-- Image reference -->
 [1]: ./media/app-service-logic-connector-file/img1.PNG
@@ -85,8 +91,12 @@
 [7]: ./media/app-service-logic-connector-file/img7.PNG
 
 <!-- Links -->
-[создать новое приложение логики]: app-service-logic-create-a-logic-app.md
-[File Connector]: https://msdn.microsoft.com/library/dn936296.aspx
-[Использование диспетчера гибридных соединений]: app-service-logic-hybrid-connection-manager.md
+[Create a new Logic app]: app-service-logic-create-a-logic-app.md
+[File connector API definition]: https://msdn.microsoft.com/library/dn936296.aspx
+[Using the Hybrid Connection Manager]: app-service-logic-hybrid-connection-manager.md
 
-<!---HONumber=AcomDC_0907_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

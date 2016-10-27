@@ -1,6 +1,6 @@
 <properties
- pageTitle="Основные понятия, терминология и иерархия сущностей планировщика | Microsoft Azure"
- description="Основные понятия, терминология и иерархия сущностей планировщика, включая задания и коллекции заданий. Подробный пример запланированного задания."
+ pageTitle="Scheduler concepts, terms, and entities | Microsoft Azure"
+ description="Azure Scheduler concepts, terminology, and entity hierarchy, including jobs and job collections.  Shows a comprehensive example of a scheduled job."
  services="scheduler"
  documentationCenter=".NET"
  authors="derek1ee"
@@ -15,203 +15,212 @@
  ms.date="08/18/2016"
  ms.author="deli"/>
 
-# Основные понятия, терминология и иерархия сущностей планировщика
 
-## Иерархия сущностей планировщика
+# <a name="scheduler-concepts,-terminology,-+-entity-hierarchy"></a>Scheduler concepts, terminology, + entity hierarchy
 
-В приведенной ниже таблице описаны основные ресурсы, которые предоставляет или использует API планировщика.
+## <a name="scheduler-entity-hierarchy"></a>Scheduler entity hierarchy
 
-|Ресурс | Description (Описание) |
+The following table describes the main resources exposed or used by the Scheduler API:
+
+|Resource | Description |
 |---|---|
-|**Коллекция заданий**|Коллекция заданий содержит группу заданий, а также параметры, квоты и регулирования, которые являются общими для заданий в этой коллекции. Коллекция заданий создается владельцем подписки и объединяет задания по областям использования или границам приложений. Коллекция ограничивается одним регионом. Позволяет также применять квоты (MaxJobs и MaxRecurrence) для ограничения использования всех входящих в коллекцию заданий.|
-|**Задание.**|Задание определяет одно повторяющееся действие с простой или сложной стратегией выполнения. К действиям относятся HTTP-запросы, запросы к очереди хранилища, запросы к очереди служебной шины и запросы к разделу служебной шины.|
-|**Журнал заданий**|Журнал заданий содержит подробные сведения о выполнении заданий. В нем указывается, было ли задание выполнено, а также все данные ответов.|
+|**Job collection**|A job collection contains a group of jobs and maintains settings, quotas, and throttles that are shared by jobs within the collection. A job collection is created by a subscription owner and groups jobs together based on usage or application boundaries. It’s constrained to one region. It also allows the enforcement of quotas to constrain the usage of all jobs in that collection. The quotas include MaxJobs and MaxRecurrence.|
+|**Job**|A job defines a single recurrent action, with simple or complex strategies for execution. Actions may include HTTP, storage queue, service bus queue, or service bus topic requests.|
+|**Job history**|A job history represents details for an execution of a job. It contains success vs. failure, as well as any response details.|
 
-## Управление сущностями планировщика
+## <a name="scheduler-entity-management"></a>Scheduler entity management
 
-На высоком уровне планировщик и API управления службами позволяют выполнять с ресурсами следующие операции.
+At a high level, the scheduler and the service management API expose the following operations on the resources:
 
-|Функция|Описание и URI-адрес|
+|Capability|Description and URI address|
 |---|---|
-|**Управление коллекциями заданий**|Поддержка запросов GET, PUT и DELETE для создания и изменения коллекций и содержащихся в них заданий. Коллекция заданий — это контейнер для заданий, который сопоставляется с квотами и общими настройками. В качестве примеров квот (которые подробно описаны ниже) можно привести максимальное число заданий и наименьший интервал повторения. <p>PUT и DELETE: `https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}`</p><p>GET: `https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}`</p>
-|**Управление заданиями**|Поддержка запросов GET, PUT, POST, PATCH и DELETE для создания и изменения облачных заданий. Все задания должны входить в уже существующую коллекцию, поэтому имплицитное создание коллекций не предусмотрено. <p>`https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}/jobs/{jobName}`</p>|
-|**Управление журналами заданий**|Поддержка запроса GET для извлечения журнала заданий за последние 60 дней с указанием времени и результатов выполнения. Добавляет поддержку строкового параметра запроса для фильтрации результатов по состоянию и статусу. <P>`https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}/jobs/{jobName}/history`</p>|
+|**Job collection management**|GET, PUT, and DELETE support for creating and modifying job collections and the jobs contained therein. A job collection is a container for jobs and maps to quotas and shared settings. Examples of quotas, described later, are maximum number of jobs and smallest recurrence interval. <p>PUT and DELETE: `https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}`</p><p>GET: `https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}`</p>
+|**Job management**|GET, PUT, POST, PATCH, and DELETE support for creating and modifying jobs. All jobs must belong to a job collection that already exists, so there is no implicit creation. <p>`https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}/jobs/{jobName}`</p>|
+|**Job history management**|GET support for fetching 60 days of job execution history, such as job elapsed time and job execution results. Adds query string parameter support for filtering based on state and status. <P>`https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}/jobs/{jobName}/history`</p>|
 
-## Типы заданий
+## <a name="job-types"></a>Job types
 
-Существует несколько типов заданий: задания HTTP (включая задания HTTPS, поддерживающие протокол SSL), задания очереди хранилища, задания очереди служебной шины и задания раздела служебной шины. Задания HTTP применяются, если у вас есть конечная точка существующей рабочей нагрузки или службы. С помощью заданий очереди хранилища сообщения можно помещать в очереди хранилища, а значит, подходят для рабочих нагрузок, использующих очереди хранилища. Аналогичным образом задания служебной шины идеально подходят для рабочих нагрузок, использующих очереди и разделы служебной шины.
+There are multiple types of jobs: HTTP jobs (including HTTPS jobs that support SSL), storage queue jobs, service bus queue jobs, and service bus topic jobs. HTTP jobs are ideal if you have an endpoint of an existing workload or service. You can use storage queue jobs to post messages to storage queues, so those jobs are ideal for workloads that use storage queues. Similarly, service bus jobs are ideal for workloads that use service bus queues and topics.
 
-## Сущность задания в деталях
+## <a name="the-"job"-entity-in-detail"></a>The "job" entity in detail
 
-На базовом уровне запланированное задание состоит из нескольких частей.
+At a basic level, a scheduled job has several parts:
 
-- Действие, выполняемое при срабатывании таймера задания.
+- The action to perform when the job timer fires  
 
-- (Необязательно.) Время выполнения задания.
+- (Optional) The time to run the job  
 
-- (Необязательно.) Время и периодичность повторного выполнения.
+- (Optional) When and how often to repeat the job  
 
-- (Необязательно.) Действие, выполняемое в случае невыполнения первичного действия.
+- (Optional) An action to fire if the primary action fails  
 
-На внутреннем уровне запланированное задание содержит также системные данные, такие как следующее запланированное время выполнения.
+Internally, a scheduled job also contains system-provided data such as the next scheduled execution time.
 
-В следующем коде приведен подробный пример запланированного задания. Подробности см. в следующих разделах.
+The following code provides a comprehensive example of a scheduled job. Details are provided in subsequent sections.
 
-	{
-		"startTime": "2012-08-04T00:00Z",               // optional
-		"action":
-		{
-			"type": "http",
-			"retryPolicy": { "retryType":"none" },
-			"request":
-			{
-				"uri": "http://contoso.com/foo",        // required
-				"method": "PUT",                        // required
-				"body": "Posting from a timer",         // optional
-				"headers":                              // optional
+    {
+        "startTime": "2012-08-04T00:00Z",               // optional
+        "action":
+        {
+            "type": "http",
+            "retryPolicy": { "retryType":"none" },
+            "request":
+            {
+                "uri": "http://contoso.com/foo",        // required
+                "method": "PUT",                        // required
+                "body": "Posting from a timer",         // optional
+                "headers":                              // optional
 
-				{
-					"Content-Type": "application/json"
-				},
-			},
-		   "errorAction":
-		   {
-			   "type": "http",
-			   "request":
-			   {
-				   "uri": "http://contoso.com/notifyError",
-				   "method": "POST",
-			   },
-		   },
-		},
-		"recurrence":                                   // optional
-		{
-			"frequency": "week",                        // can be "year" "month" "day" "week" "minute"
-			"interval": 1,                              // optional, how often to fire (default to 1)
-			"schedule":                                 // optional (advanced scheduling specifics)
-			{
-				"weekDays": ["monday", "wednesday", "friday"],
-				"hours": [10, 22]
-			},
-			"count": 10,                                 // optional (default to recur infinitely)
-			"endTime": "2012-11-04",                     // optional (default to recur infinitely)
-		},
-		"state": "disabled",                           // enabled or disabled
-		"status":                                       // controlled by Scheduler service
-		{
-			"lastExecutionTime": "2007-03-01T13:00:00Z",
-			"nextExecutionTime": "2007-03-01T14:00:00Z ",
-			"executionCount": 3,
-											    "failureCount": 0,
-												"faultedCount": 0
-		},
-	}
+                {
+                    "Content-Type": "application/json"
+                },
+            },
+           "errorAction":
+           {
+               "type": "http",
+               "request":
+               {
+                   "uri": "http://contoso.com/notifyError",
+                   "method": "POST",
+               },
+           },
+        },
+        "recurrence":                                   // optional
+        {
+            "frequency": "week",                        // can be "year" "month" "day" "week" "minute"
+            "interval": 1,                              // optional, how often to fire (default to 1)
+            "schedule":                                 // optional (advanced scheduling specifics)
+            {
+                "weekDays": ["monday", "wednesday", "friday"],
+                "hours": [10, 22]
+            },
+            "count": 10,                                 // optional (default to recur infinitely)
+            "endTime": "2012-11-04",                     // optional (default to recur infinitely)
+        },
+        "state": "disabled",                           // enabled or disabled
+        "status":                                       // controlled by Scheduler service
+        {
+            "lastExecutionTime": "2007-03-01T13:00:00Z",
+            "nextExecutionTime": "2007-03-01T14:00:00Z ",
+            "executionCount": 3,
+                                                "failureCount": 0,
+                                                "faultedCount": 0
+        },
+    }
 
-Как видно из приведенного выше примера запланированного задания, определение задания состоит из нескольких частей.
+As seen in the sample scheduled job above, a job definition has several parts:
 
-- Время начала (startTime).
+- Start time (“startTime”)  
 
-- Действие (action), которое включает действие ошибки (errorAction).
+- Action (“action”), which includes error action (“errorAction”)
 
-- Повторение (recurrence).
+- Recurrence (“recurrence”)  
 
-- Состояние (state).
+- State (“state”)  
 
-- Статус (status).
+- Status (“status”)  
 
-- Политика повтора (retryPolicy).
+- Retry policy (“retryPolicy”)  
 
-Рассмотрим каждую часть подробно.
+Let’s examine each of these in detail:
 
-## startTime
+## <a name="starttime"></a>startTime
 
-startTime — это время начала, которое позволяет вызывающему объекту указать смещение часового пояса в сети в [формате ISO-8601](http://en.wikipedia.org/wiki/ISO_8601).
+The "startTime” is the start time and allows the caller to specify a time zone offset on the wire in [ISO-8601 format](http://en.wikipedia.org/wiki/ISO_8601).
 
-## action и errorAction
+## <a name="action-and-erroraction"></a>action and errorAction
 
-action — это действие, вызываемое при каждом выполнении задания и описывающее тип вызова службы. action — это действие, которое будет выполняться по указанному расписанию. Планировщик поддерживает действия, связанные с HTTP, очередью хранилища, разделом служебной шины и очередью служебной шины.
+The “action” is the action invoked on each occurrence and describes a type of service invocation. The action is what will be executed on the provided schedule. Scheduler supports HTTP, storage queue, service bus topic, and service bus queue actions.
 
-В приведенном выше примере используется действие HTTP. Ниже приведен пример с действием очереди хранилища.
+The action in the example above is an HTTP action. Below is an example of a storage queue action:
 
-	{
-			"type": "storageQueue",
-			"queueMessage":
-			{
-				"storageAccount": "myStorageAccount",  // required
-				"queueName": "myqueue",                // required
-				"sasToken": "TOKEN",                   // required
-				"message":                             // required
-					"My message body",
-			},
-	}
+    {
+            "type": "storageQueue",
+            "queueMessage":
+            {
+                "storageAccount": "myStorageAccount",  // required
+                "queueName": "myqueue",                // required
+                "sasToken": "TOKEN",                   // required
+                "message":                             // required
+                    "My message body",
+            },
+    }
 
-Ниже приведен пример действия раздела служебной шины.
+Below is an example of a service bus topic action.
 
-  "action": { "type": "serviceBusTopic", "serviceBusTopicMessage": { "topicPath": "t1", "namespace": "mySBNamespace", "transportType": "netMessaging", // Может быть netMessaging или AMQP "authentication": { "sasKeyName": "QPolicy", "type": "sharedAccessKey" }, "message": "Some message", "brokeredMessageProperties": {}, "customMessageProperties": { "appname": "FromScheduler" } }, }
+  "action": { "type": "serviceBusTopic", "serviceBusTopicMessage": { "topicPath": "t1",  
+      "namespace": "mySBNamespace", "transportType": "netMessaging", // Can be either netMessaging or AMQP "authentication": { "sasKeyName": "QPolicy", "type": "sharedAccessKey" }, "message": "Some message", "brokeredMessageProperties": {}, "customMessageProperties": { "appname": "FromScheduler" } }, }
 
-Ниже приведен пример действия очереди служебной шины.
-
-
-  "action": { "serviceBusQueueMessage": { "queueName": "q1", "namespace": "mySBNamespace", "transportType": "netMessaging", // Может быть netMessaging или AMQP "authentication": { "sasKeyName": "QPolicy", "type": "sharedAccessKey" }, "message": "Some message", "brokeredMessageProperties": {}, "customMessageProperties": { "appname": "FromScheduler" } }, "type": "serviceBusQueue" }
-
-errorAction ― это обработчик ошибок, действие, которое вызывается при невыполнении основного действия. Данная переменная позволяет вызвать конечную точку обработки ошибок или отправить пользователю уведомление. Это можно использовать для того, чтобы достигнуть дополнительной конечной точки, если основная недоступна (например, при аварии на сайте конечной точки), или оповестить конечную точку обработки ошибок. Аналогично основному действию, переменная errorAction может содержать как простой, так и сложный алгоритм в зависимости от других действий. Инструкции по созданию маркера SAS см. в разделе [Создание и использование подписи общего доступа](https://msdn.microsoft.com/library/azure/jj721951.aspx).
-
-## recurrence
-
-Параметр recurrence состоит из нескольких частей.
-
-- Частота (frequency): минута, час, день, неделя, месяц или год.
-
-- Интервал (interval): количество повторений с указанной частотой.
-
-- Предписанное расписание (schedule): минуты, часы, дни недели, месяцы и числа месяца, в которые будет выполняться повторение.
-
-- Количество (count): число повторений.
-
-- Время окончания (endTime): время, после которого задания выполняться не будут.
-
-Задание повторяется, если его определение JSON включает объект повторения. Если указаны параметры count и endTime, приоритет отдается условию завершения, которое выполняется первым.
-
-## state
-
-Состояние задания может иметь одно из четырех значений: "включено", "отключено", "завершено" или "неисправно". Для перевода заданий в состояние "включено" или "отключено" можно использовать задания PUT и PATCH. Если задание завершено или неисправно, обновить его итоговое состояние нельзя (однако, задание может быть УДАЛЕНО). Пример свойства state выглядит следующим образом:
+Below is an example of a service bus queue action:
 
 
-    	"state": "disabled", // enabled, disabled, completed, or faulted
-Завершенные и неисправные задания удаляются через 60 дней.
+  "action": { "serviceBusQueueMessage": { "queueName": "q1",  
+      "namespace": "mySBNamespace", "transportType": "netMessaging", // Can be either netMessaging or AMQP "authentication": {  
+        "sasKeyName": "QPolicy", "type": "sharedAccessKey" }, "message": "Some message",  
+      "brokeredMessageProperties": {}, "customMessageProperties": { "appname": "FromScheduler" } }, "type": "serviceBusQueue" }
 
-## status
+The “errorAction” is the error handler, the action invoked when the primary action fails. You can use this variable to call an error-handling endpoint or send a user notification. This can be used for reaching a secondary endpoint in the case that the primary is not available (e.g., in the case of a disaster at the endpoint’s site) or can be used for notifying an error handling endpoint. Just like the primary action, the error action can be simple or composite logic based on other actions. To learn how to create a SAS token, refer to [Create and Use a Shared Access Signature](https://msdn.microsoft.com/library/azure/jj721951.aspx).
 
-После запуска задания планировщик возвращает информацию о текущем статусе его выполнения. Пользователь не может настраивать этот объект — его задает система. При этом он включается в объект задания (а не является отдельным связанным ресурсом), что позволяет легко узнавать статус задания.
+## <a name="recurrence"></a>recurrence
 
-Статус задания содержит время предыдущего выполнения (если задание уже выполнялось), время следующего запланированного выполнения (для незавершенных заданий) и количество выполнений.
+Recurrence has several parts:
 
-## retryPolicy
+- Frequency: One of minute, hour, day, week, month, year  
 
-Если задание планировщика выполнить не удается, можно настроить политику повтора, указав условия и порядок повторного выполнения действия. Политика повтора определяется объектом **retryType** — если она не установлена, данный объект имеет значение **none**, как показано выше. Если политика повтора имеется, установите значение **fixed**.
+- Interval: Interval at the given frequency for the recurrence  
 
-Для настройки политики повторных попыток можно указать два дополнительных параметра: интервал повтора (**retryInterval**) и число повторов (**retryCount**).
+- Prescribed schedule: Specify minutes, hours, weekdays, months, and monthdays of the recurrence  
 
-Интервал повтора, определяемый объектом **retryInterval**, представляет собой промежуток времени между повторными попытками. Значение по умолчанию составляет 30 секунд, минимальное настраиваемое значение — 15 секунд, а максимальное — 18 месяцев. Для заданий в бесплатных коллекциях минимальное настраиваемое значение составляет 1 час. Значение устанавливается в формате ISO-8601. Число повторов определяется объектом **retryCount** и представляет собой количество предпринимаемых повторных попыток. Значение по умолчанию — 4, максимальное значение — 20. Оба параметра, и **retryInterval**, и **retryCount**, являются необязательными. Они получают свои значения по умолчанию, если объекту **retryType** присваивается значение **fixed** и никакие другие значения явно не задаются.
+- Count: Count of occurrences  
 
-## Дополнительные материалы
+- End time: No jobs will execute after the specified end time  
 
- [Что такое планировщик?](scheduler-intro.md)
+A job is recurring if it has a recurring object specified in its JSON definition. If both count and endTime are specified, the completion rule that occurs first is honored.
 
- [Приступая к работе с планировщиком Azure на портале Azure](scheduler-get-started-portal.md)
+## <a name="state"></a>state
 
- [Планы и выставление счетов в планировщике Azure](scheduler-plans-billing.md)
+The state of the job is one of four values: enabled, disabled, completed, or faulted. You can PUT or PATCH jobs so as to update them to the enabled or disabled state. If a job has been completed or faulted, that is a final state that cannot be updated (though the job can still be DELETED). An example of the state property is as follows:
 
- [Как создавать сложные расписания и расширенное повторение с помощью планировщика Azure](scheduler-advanced-complexity.md)
 
- [Справочник по API REST планировщика Azure](https://msdn.microsoft.com/library/mt629143)
+        "state": "disabled", // enabled, disabled, completed, or faulted
+Completed and faulted jobs are deleted after 60 days.
 
- [Справочник по командлетам PowerShell планировщика Azure](scheduler-powershell-reference.md)
+## <a name="status"></a>status
 
- [Высокая доступность и надежность планировщика Azure](scheduler-high-availability-reliability.md)
+Once a Scheduler job has started, information will be returned about the current status of the job. This object is not settable by the user—it’s set by the system. However, it is included in the job object (rather than a separate linked resource) so that one can obtain the status of a job easily.
 
- [Ограничения, значения по умолчанию и коды ошибок планировщика Azure](scheduler-limits-defaults-errors.md)
+Job status includes the time of the previous execution (if any), the time of the next scheduled execution (for in-progress jobs), and the execution count of the job.
 
- [Исходящая аутентификация планировщика Azure](scheduler-outbound-authentication.md)
+## <a name="retrypolicy"></a>retryPolicy
 
-<!---HONumber=AcomDC_1005_2016-->
+If a Scheduler job fails, it is possible to specify a retry policy to determine whether and how the action is retried. This is determined by the **retryType** object—it is set to **none** if there is no retry policy, as shown above. Set it to **fixed** if there is a retry policy.
+
+To set a retry policy, two additional settings may be specified: a retry interval (**retryInterval**) and the number of retries (**retryCount**).
+
+The retry interval, specified with the **retryInterval** object, is the interval between retries. Its default value is 30 seconds, its minimum configurable value is 15 seconds, and its maximum value is 18 months. Jobs in Free job collections have a minimum configurable value of 1 hour.  It is defined in the ISO 8601 format. Similarly, the value of the number of retries is specified with the **retryCount** object; it is the number of times a retry is attempted. Its default value is 4, and its maximum value is 20\. Both **retryInterval** and **retryCount** are optional. They are given their default values if **retryType** is set to **fixed** and no values are specified explicitly.
+
+## <a name="see-also"></a>See also
+
+ [What is Scheduler?](scheduler-intro.md)
+
+ [Get started using Scheduler in the Azure portal](scheduler-get-started-portal.md)
+
+ [Plans and billing in Azure Scheduler](scheduler-plans-billing.md)
+
+ [How to build complex schedules and advanced recurrence with Azure Scheduler](scheduler-advanced-complexity.md)
+
+ [Azure Scheduler REST API reference](https://msdn.microsoft.com/library/mt629143)
+
+ [Azure Scheduler PowerShell cmdlets reference](scheduler-powershell-reference.md)
+
+ [Azure Scheduler high-availability and reliability](scheduler-high-availability-reliability.md)
+
+ [Azure Scheduler limits, defaults, and error codes](scheduler-limits-defaults-errors.md)
+
+ [Azure Scheduler outbound authentication](scheduler-outbound-authentication.md)
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

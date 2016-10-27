@@ -1,84 +1,95 @@
 <properties 
-	pageTitle="Приступая к работе со службой Azure Multi-Factor Authentication"
-	description="Выберите подходящее решение многофакторной проверки подлинности, выяснив, что является объектом защиты и где находятся пользователи. После этого выберите облако, сервер Multi-Factor Authentication или службы AD FS."
-	services="multi-factor-authentication"
-	documentationCenter=""
-	authors="kgremban"
-	manager="femila"
-	editor="curtland"/>
+    pageTitle="Azure Multi-Factor Authentication - Getting Started"
+    description="Choose the multi-factor authentication secutiry solution that is right for you by asking what am i trying to secure and where are my users located.  Then choose cloud, MFA Server or AD FS."
+    services="multi-factor-authentication"
+    documentationCenter=""
+    authors="kgremban"
+    manager="femila"
+    editor="curtland"/>
 
 <tags
-	ms.service="multi-factor-authentication"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="08/15/2016"
-	ms.author="kgremban"/>
-
-#Выбор решения многофакторной безопасности
-
-Так как существует несколько вариантов использования Azure Multi-Factor Authentication, наиболее подходящая версия определяется на основе нескольких факторов. Вот эти факторы:
-
--	<a href="#-1">Что я пытаюсь защитить?</a>
--	<a href="#-2">Где находятся пользователи?</a>
-
-В разделах этой статьи представлены рекомендации по определению каждого из них.
-
-<h2 id="-1">Что я пытаюсь защитить</h2>
-
-Чтобы выяснить, какое решение многофакторной проверки подлинности вам нужно, сначала определите, что вы пытаетесь защитить с помощью второго метода проверки подлинности. Это приложение в службе Azure? Или это система удаленного доступа, к примеру? Определив объект, который необходимо защитить, мы постараемся выяснить, где именно нужно активировать многофакторную проверку подлинности.
+    ms.service="multi-factor-authentication"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="08/15/2016"
+    ms.author="kgremban"/>
 
 
-Что вы пытаетесь защитить| Multi-Factor Authentication в облаке|Сервер Multi-Factor Authentication
+#<a name="choose-the-multi-factor-security-solution-for-you"></a>Choose the multi-factor security solution for you
+
+Because there are several flavors of Azure Multi-Factor Authentication we must determine a couple of things in order to figure out which version is the proper one to use.  Those things are:
+
+-   [What am I trying to secure](#what-am-i-trying-to-secure)
+-   [Where are the users located](#where-are-the-users-located)
+
+The following sections will provide guidance on determining each of these.
+
+## <a name="what-am-i-trying-to-secure?"></a>What am I trying to secure?
+
+In order to determine the correct multi-factor authentication solution, first we must answer the question of what are you trying to secure with a second method of authentication.  Is it an application that is in Azure?  Or is it a remote access system for example.  By determining what we are trying to secure, we will seek to answer the question of where multi-factor authentication needs to be enabled.  
+
+
+What are you trying to secure| Multi-Factor Authentication in the cloud|Multi-Factor Authentication Server
 ------------- | :-------------: | :-------------: |
-Собственные приложения корпорации Майкрософт|* |* |
-Приложения SaaS в коллекции приложений|* |* |
-Приложения IIS, опубликованные через прокси приложения Azure AD|* |* |
-Приложения IIS, опубликованные не через прокси приложения Azure AD | |* |
-Удаленный доступ, например VPN или RDG| |* |
+First party Microsoft apps|* |* |
+Saas apps in the app gallery|* |* |
+IIS applications published through Azure AD App Proxy|* |* |
+IIS applications not published through Azure AD App Proxy | |* |
+Remote access such as VPN, RDG| |* |
 
 
 
-<h2 id="-2">Где находятся пользователи</h2>
+## <a name="where-are-the-users-located"></a>Where are the users located
 
-На основе информации о местонахождении пользователей можно определить, какое решение нам нужно: облачная многофакторная проверка подлинности или локальная с использованием сервера Multi-Factor Authentication.
+Next, depending on where our users are located, we can determine the correct solution to use, whether it is multi-factor authentication in the cloud or on-premises using the MFA Server.
 
 
 
-Местонахождение пользователей| Решение
+User Location| Solution
 ------------- | :------------- |
-Azure Active Directory| Multi-Factor Authentication в облаке|
-Azure AD и локальная служба AD с использованием федерации в AD FS| Доступны оба варианта — Multi-Factor Authentication в облаке и сервер Multi-Factor Authentication
-Azure AD и локальная служба AD с использованием DirSync, Azure AD Sync, Azure AD Connect без синхронизации паролей|Доступны оба варианта — Multi-Factor Authentication в облаке и сервер Multi-Factor Authentication
-Azure AD и локальная служба AD с использованием DirSync, Azure AD Sync, Azure AD Connect с синхронизацией паролей|Multi-Factor Authentication в облаке
-Локальная служба Active Directory|Сервер Multi-Factor Authentication
+Azure Active Directory| Multi-Factor Authentication in the cloud|
+Azure AD and on-premises AD using federation with AD FS| Both MFA in the cloud and MFA Server are available options
+Azure AD and on-premises AD using DirSync, Azure AD Sync, Azure AD Connect - no password sync|Both MFA in the cloud and MFA Server are available options
+Azure AD and on-premises AD using DirSync, Azure AD Sync, Azure AD Connect - with password sync|Multi-Factor Authentication in the cloud
+On-premises Active Directory|Multi-Factor Authentication Server
 
-В приведенной ниже таблице сравниваются возможности службы Multi-Factor Authentication в облаке и сервера Multi-Factor Authentication.
+The following table is a comparison of the features that are a with Multi-Factor Authentication in the cloud and with the Multi-Factor Authentication Server.
 
- | Multi-Factor Authentication в облаке | Сервер Multi-Factor Authentication
+ | Multi-Factor Authentication in the cloud | Multi-Factor Authentication Server
 ------------- | :-------------: | :-------------: |
-Уведомление от мобильного приложения в качестве второго фактора | ● | ● |
-Код подтверждения мобильного приложения в качестве второго фактора | ● | ●
-Телефонный вызов в качестве второго фактора | ● | ●
-Одностороннее SMS в качестве второго фактора | ● | ●
-Двустороннее SMS в качестве второго фактора | | ●
-Маркеры оборудования в качестве второго фактора | | ●
-Пароли приложений для клиентов, не поддерживающих Multi-Factor Authentication | ● |  
-Администраторский контроль над методами проверки подлинности | ● | ●
-Режим ПИН-кода | | ●
-Предупреждение о мошенничестве | ● | ●
-Отчеты Multi-Factor Authentication | ● | ●
-Разовый обход | | ●
-Настраиваемые приветствия для телефонных вызовов | ● | ●
-Настройка идентификатора вызывающей стороны для телефонных звонков | ● | ●
-Надежные IP-адреса | ● | ●
-Запоминание данных MFA для доверенных устройств | ● |  
-Условный доступ | ● | ●
-Кэш | | ●
+Mobile app notification as a second factor | ● | ● |
+Mobile app verification code as a second factor | ● | ●
+Phone call as second factor | ● | ●
+One-way SMS as second factor | ● | ●
+Two-way SMS as second factor |  | ●
+Hardware Tokens as second factor |  | ●
+App passwords for clients that don’t support MFA | ● |  
+Admin control over authentication methods | ● | ●
+PIN mode |  | ●
+Fraud alert | ● | ●
+MFA Reports | ● | ●
+One-Time Bypass |  | ●
+Custom greetings for phone calls | ● | ●
+Customizable caller ID for phone calls | ● | ●
+Trusted IPs | ● | ●
+Remember MFA for trusted devices  | ● |  
+Conditional access | ● | ●
+Cache |  | ●
 
-Определившись с вариантом (облачная многофакторная проверка подлинности или локальный сервер Multi-Factor Authentication), можно начинать настройку и использование службы Azure Multi-Factor Authentication. **Выберите значок, соответствующий вашему сценарию.**
+Now that we have determined whether to use cloud multi-factor authentication or the MFA Server on-premises, we can get started setting up and using Azure Multi-Factor Authentication.   **Select the icon that represents your scenario!**
 
-<center> [![Cloud](./media/multi-factor-authentication-get-started/cloud2.png)](multi-factor-authentication-get-started-cloud.md) &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;[![Proofup](./media/multi-factor-authentication-get-started/server2.png)](multi-factor-authentication-get-started-server.md) &#160;&#160;&#160;&#160;&#160; </center>
+<center>
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+
+[![Cloud](./media/multi-factor-authentication-get-started/cloud2.png)](multi-factor-authentication-get-started-cloud.md)  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[![Proofup](./media/multi-factor-authentication-get-started/server2.png)](multi-factor-authentication-get-started-server.md) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</center>
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

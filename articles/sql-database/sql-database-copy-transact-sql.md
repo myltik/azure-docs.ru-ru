@@ -1,63 +1,64 @@
 <properties 
-    pageTitle="Копирование базы данных SQL Azure с помощью Transact-SQL | Microsoft Azure" 
-    description="Создание копии Базы данных SQL Azure с помощью Transact-SQL" 
-	services="sql-database"
-	documentationCenter=""
-	authors="stevestein"
-	manager="jhubbard"
-	editor=""/>
+    pageTitle="Copy an Azure SQL database using Transact-SQL | Microsoft Azure" 
+    description="Create copy of an Azure SQL database using Transact-SQL" 
+    services="sql-database"
+    documentationCenter=""
+    authors="stevestein"
+    manager="jhubbard"
+    editor=""/>
 
 <tags
-	ms.service="sql-database"
-	ms.devlang="NA"
-	ms.date="09/19/2016"
-	ms.author="sstein"
-	ms.workload="data-management"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"/>
+    ms.service="sql-database"
+    ms.devlang="NA"
+    ms.date="09/19/2016"
+    ms.author="sstein"
+    ms.workload="data-management"
+    ms.topic="article"
+    ms.tgt_pltfrm="NA"/>
 
 
-# Копирование базы данных SQL Azure с помощью Transact-SQL
+
+# <a name="copy-an-azure-sql-database-using-transact-sql"></a>Copy an Azure SQL database using Transact-SQL
 
 
 > [AZURE.SELECTOR]
-- [Обзор](sql-database-copy.md)
-- [Портал Azure](sql-database-copy-portal.md)
+- [Overview](sql-database-copy.md)
+- [Azure portal](sql-database-copy-portal.md)
 - [PowerShell](sql-database-copy-powershell.md)
 - [T-SQL](sql-database-copy-transact-sql.md)
 
 
-Ниже показано, как скопировать базу данных SQL с помощью Transact-SQL на тот же сервер или на другой сервер. Для операции копирования базы данных используется инструкция [CREATE DATABASE](https://msdn.microsoft.com/library/ms176061.aspx).
+This following steps show you how to copy a SQL database with Transact-SQL to the same server or a different server. The database copy operation uses the [CREATE DATABASE](https://msdn.microsoft.com/library/ms176061.aspx) statement.
 
-Чтобы выполнить действия, описанные в этой статье, необходимо следующее:
+To complete the steps in this article you need the following:
 
-- Подписка Azure. Если вам требуется подписка Azure, нажмите в верхней части этой страницы кнопку **БЕСПЛАТНАЯ ПРОБНАЯ ВЕРСИЯ**. Оформив подписку, вернитесь к этой статье.
-- База данных Azure SQL. Если у вас нет базы данных SQL, создайте ее в соответствии с инструкциями в следующей статье: [Создание первой базы данных SQL Azure](sql-database-get-started.md).
-- [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/ms174173.aspx) Если у вас нет SSMS или функции, описанные в этой статье, недоступны, [загрузите последнюю версию](https://msdn.microsoft.com/library/mt238290.aspx).
-
-
-## Копирование Базы данных SQL
-
-Войдите в главную базу данных под основным именем входа на уровне сервера или под именем входа, которое использовалось для создания копируемой базы данных. Для копирования баз данных имена входа, не являющиеся основными на уровне сервера, должны относиться к роли dbmanager. Дополнительные сведения об именах для входа и подключении к серверу см. в разделе [Проверка подлинности и авторизация в базе данных SQL: предоставление доступа](sql-database-manage-logins.md).
-
-Начните копирование исходной базы данных с помощью инструкции [CREATE DATABASE](https://msdn.microsoft.com/library/ms176061.aspx). Данный оператор запускает процесс копирования базы данных. Поскольку копирование базы данных — процесс асинхронный, оператор CREATE DATABASE возвращается до завершения копирования базы данных.
+- An Azure subscription. If you need an Azure subscription simply click **FREE TRIAL** at the top of this page, and then come back to finish this article.
+- An Azure SQL Database. If you do not have a SQL database, create one following the steps in this article: [Create your first Azure SQL Database](sql-database-get-started.md).
+- [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/ms174173.aspx). If you don't have SSMS, or if features described in this article are not available, [download the latest version](https://msdn.microsoft.com/library/mt238290.aspx).
 
 
-### Копирование Базы данных SQL на тот же сервер
+## <a name="copy-your-sql-database"></a>Copy your SQL database
 
-Войдите в главную базу данных под основным именем входа на уровне сервера или под именем входа, которое использовалось для создания копируемой базы данных. Для копирования баз данных имена входа, не являющиеся основными на уровне сервера, должны относиться к роли dbmanager.
+Log on to the master database using the server-level principal login or the login that created the database you want to copy. Logins that are not the server-level principal must be members of the dbmanager role in order to copy databases. For more information about logins and connecting to the server, see [Manage logins](sql-database-manage-logins.md).
 
-Эта команда копирует Database1 в новую базу данных с именем Database2 на том же сервере. Операция копирования может занять некоторое время в зависимости от размера базы данных.
+Start copying the source database with the [CREATE DATABASE](https://msdn.microsoft.com/library/ms176061.aspx) statement. Executing this statement initiates the database copying process. Because copying a database is an asynchronous process, the CREATE DATABASE statement returns before the database completes copying.
+
+
+### <a name="copy-a-sql-database-to-the-same-server"></a>Copy a SQL database to the same server
+
+Log on to the master database using the server-level principal login or the login that created the database you want to copy. Logins that are not the server-level principal must be members of the dbmanager role in order to copy databases.
+
+This command copies Database1 on to a new database named Database2 on the same server. Depending on the size of your database the copy operation may take some time to complete.
 
     -- Execute on the master database.
     -- Start copying.
     CREATE DATABASE Database1_copy AS COPY OF Database1;
 
-### Копирование Базы данных SQL на другой сервер
+### <a name="copy-a-sql-database-to-a-different-server"></a>Copy a SQL database to a different server
 
-Войдите в главную базу данных на целевом сервере, т. е. сервере Базы данных SQL Azure, на котором должна быть создана новая база данных. Для входа укажите имя пользователя и пароль владельца исходной базы данных на исходном сервере Базы данных SQL Azure. Имя входа на целевом сервере также должно относиться к роли dbmanager или являться основным именем входа на уровне сервера.
+Log on to the master database of the destination server, the Azure SQL Database server where the new database is to be created. Use a login that has the same name and password as the database owner (DBO) of the source database on the source Azure SQL Database server. The login on the destination server must also be a member of the dbmanager role or be the server-level principal login.
 
-Эта команда копирует Database1 на сервере server1 в новую базу данных с именем Database2 на сервере server2. Операция копирования может занять некоторое время в зависимости от размера базы данных.
+This command copies Database1 on server1- to a new database named Database2 on server2. Depending on the size of your database the copy operation may take some time to complete.
 
 
     -- Execute on the master database of the target server (server2)
@@ -65,39 +66,45 @@
     CREATE DATABASE Database1_copy AS COPY OF server1.Database1;
     
 
-## Отслеживание хода выполнения операции копирования
+## <a name="monitor-the-progress-of-the-copy-operation"></a>Monitor the progress of the copy operation
 
-Следить за ходом процесса копирования можно в представлениях sys.databases и sys.dm\_database\_copies. Во время копирования в столбце state\_desc представления sys.databases для новой базы данных отображается значение COPYING.
-
-
-- Если копирование завершается неудачей, в столбце state\_desc представления sys.databases для новой базы данных отображается значение COPYING. В этом случае выполните оператор DROP для новой базы данных и повторите попытку позднее.
-- Если копирование завершается успешно, в столбце state\_desc представления sys.databases для новой базы данных отображается значение ONLINE. Это означает, что копирование завершено и новая база данных является обычной базой данных, которую можно изменять независимо от исходной.
-
-> [AZURE.NOTE] Чтобы отменить копирование до его завершения, выполните в новой базе данных инструкцию [DROP DATABASE](https://msdn.microsoft.com/library/ms178613.aspx). Кроме того, процесс копирования отменяет также выполнение оператора DROP DATABASE в исходной базе данных.
+Monitor the copying process by querying the sys.databases and sys.dm_database_copies views. While the copying is in progress, the state_desc column of the sys.databases view for the new database is set to COPYING.
 
 
-## Разрешение имен для входа после завершения операции копирования
+- If the copying fails, the state_desc column of the sys.databases view for the new database is set to SUSPECT. In this case, execute the DROP statement on the new database and try again later.
+- If the copying succeeds, the state_desc column of the sys.databases view for the new database is set to ONLINE. In this case, the copying is complete and the new database is a regular database, able to be changed independent of the source database.
 
-После того как новая база данных на целевом сервере будет в сети, сопоставьте пользователей из новой базы данных с именами входа на сервере назначения с помощью оператора [ALTER USER](https://msdn.microsoft.com/library/ms176060.aspx). Сведения о разрешении потерянных пользователей см. в разделе [Диагностика пользователей, утративших связь с учетной записью (SQL Server)](https://msdn.microsoft.com/library/ms175475.aspx). Ознакомьтесь также с разделом [Как управлять безопасностью базы данных SQL после аварийного восстановления](sql-database-geo-replication-security-config.md).
-
-Все пользователи в новой базе данных получают такие же разрешения, как и в исходной базе данных. Пользователь, инициировавший копирование базы данных, становится владельцем новой базы данных и получает новый идентификатор безопасности (SID). С момента успешного завершения копирования и вплоть до сопоставления остальных пользователей войти в новую базу данных может только ее владелец, т. е. пользователь, инициировавший копирование.
-
-
-## Дальнейшие действия
-
-- В разделе [Копирование Базы данных SQL Azure](sql-database-copy.md) доступны общие сведения о копировании базы данных SQL Azure.
-- В статье [Копирование базы данных SQL Azure с помощью портала Azure](sql-database-copy-portal.md) рассматривается копирование базы данных с помощью портала Azure.
-- В разделе [Копирование базы данных SQL Azure с помощью PowerShell](sql-database-copy-powershell.md) рассматривается копирование базы данных с помощью PowerShell.
-- В разделе [Как управлять безопасностью базы данных SQL после аварийного восстановления](sql-database-geo-replication-security-config.md) описывается управление пользователями и именами для входа при копировании базы данных на другой логический сервер.
+> [AZURE.NOTE] - If you decide to cancel the copying while it is in progress, execute the [DROP DATABASE](https://msdn.microsoft.com/library/ms178613.aspx) statement on the new database. Alternatively, executing the DROP DATABASE statement on the source database also cancels the copying process.
 
 
+## <a name="resolve-logins-after-the-copy-operation-completes"></a>Resolve logins after the copy operation completes
 
-## Дополнительные ресурсы
+After the new database is online on the destination server, use the [ALTER USER](https://msdn.microsoft.com/library/ms176060.aspx) statement to remap the users from the new database to logins on the destination server. To resolve orphaned users, see [Troubleshoot Orphaned Users](https://msdn.microsoft.com/library/ms175475.aspx). See also [How to manage Azure SQL database security after disaster recovery](sql-database-geo-replication-security-config.md).
 
-- [Управление именами для входа](sql-database-manage-logins.md)
-- [Подключение к базе данных SQL с помощью SQL Server Management Studio и выполнение пробного запроса T-SQL](sql-database-connect-query-ssms.md)
-- [Экспорт базы данных в BACPAC](sql-database-export.md)
-- [Общие сведения о непрерывности бизнес-процессов](sql-database-business-continuity.md)
-- [База данных SQL — документация](https://azure.microsoft.com/documentation/services/sql-database/)
+All users in the new database maintain the permissions that they had in the source database. The user who initiated the database copy becomes the database owner of the new database and is assigned a new security identifier (SID). After the copying succeeds and before other users are remapped, only the login that initiated the copying, the database owner (DBO), can log on to the new database.
 
-<!---HONumber=AcomDC_0921_2016-->
+
+## <a name="next-steps"></a>Next steps
+
+- See [Copy an Azure SQL database](sql-database-copy.md) for an overview of copying an Azure SQL Database.
+- See [Copy an Azure SQL database using the Azure portal](sql-database-copy-portal.md) to copy a database using the Azure portal.
+- See [Copy an Azure SQL database using PowerShell](sql-database-copy-powershell.md) to copy a database using PowerShell.
+- See [How to manage Azure SQL database security after disaster recovery](sql-database-geo-replication-security-config.md) to learn about managing users and logins when copying a database to a different logical server.
+
+
+
+## <a name="additional-resources"></a>Additional resources
+
+- [Manage logins](sql-database-manage-logins.md)
+- [Connect to SQL Database with SQL Server Management Studio and perform a sample T-SQL query](sql-database-connect-query-ssms.md)
+- [Export the database to a BACPAC](sql-database-export.md)
+- [Business Continuity Overview](sql-database-business-continuity.md)
+- [SQL Database documentation](https://azure.microsoft.com/documentation/services/sql-database/)
+
+
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

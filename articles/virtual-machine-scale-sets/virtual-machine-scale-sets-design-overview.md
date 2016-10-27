@@ -1,47 +1,51 @@
 <properties
-	pageTitle="Проектирование наборов масштабирования виртуальных машин | Microsoft Azure"
-	description="Узнайте, как спроектировать наборы масштабирования виртуальных машин."
-	keywords="Виртуальная машина Linux, наборы масштабирования виртуальных машин" 
-	services="virtual-machine-scale-sets"
-	documentationCenter=""
-	authors="gatneil"
-	manager="madhana"
-	editor="tysonn"
-	tags="azure-resource-manager" />
+    pageTitle="Designing Virtual Machine Scale Sets For Scale | Microsoft Azure"
+    description="Learn about how to design your Virtual Machine Scale Sets for scale"
+    keywords="linux virtual machine,virtual machine scale sets" 
+    services="virtual-machine-scale-sets"
+    documentationCenter=""
+    authors="gatneil"
+    manager="madhana"
+    editor="tysonn"
+    tags="azure-resource-manager" />
 
 <tags
-	ms.service="virtual-machine-scale-sets"
-	ms.workload="na"
-	ms.tgt_pltfrm="vm-linux"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/28/2016"
-	ms.author="gatneil"/>
-
-# Проектирование наборов масштабирования виртуальных машин
-
-В этом разделе рассматриваются вопросы проектирования наборов масштабирования виртуальных машин. Сведения о том, что такое наборы масштабирования виртуальных машин, см. в статье [Обзор масштабируемых наборов виртуальных машин](virtual-machine-scale-sets-overview.md).
+    ms.service="virtual-machine-scale-sets"
+    ms.workload="na"
+    ms.tgt_pltfrm="vm-linux"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="07/28/2016"
+    ms.author="gatneil"/>
 
 
-## Хранилище
+# <a name="designing-vm-scale-sets-for-scale"></a>Designing VM Scale Sets For Scale
 
-Набор масштабирования использует учетные записи хранения для хранения дисков ОС виртуальных машин в наборе. Мы рекомендуем использовать не более 20 виртуальных машин на учетную запись хранения. Также рекомендуется, чтобы имена учетных записей хранения начинались с разных букв. Это поможет распределить нагрузку между разными внутренними системами. Например, в следующем примере функция uniqueString шаблона Resource Manager используется для создания хэшей префикса, которые добавляются в начало имен учетных записей хранения: [https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-linux-nat](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-linux-nat).
-
-
-## Избыточная подготовка
-
-Начиная с версии API от 30.03.2016, в наборах масштабирования виртуальных машин по умолчанию используется избыточная подготовка виртуальных машин. Если избыточная подготовка включена, то набор масштабирования фактически запускает больше виртуальных машин, чем вы указали, а затем удаляет лишние виртуальные машины, которые запускаются последними. Избыточная подготовка повышает процент успешной подготовки к работе. Счета за эти дополнительные виртуальные машины не выставляются, и они не учитываются в квоте.
-
-Хотя избыточная подготовка повышает процент успешной подготовки, он может вызывать проблемы, если в приложении не предусмотрена обработка ситуаций, когда виртуальные машины удаляются без оповещения. Чтобы отключить избыточную подготовку, включите в шаблон следующую строку: "overprovision": false. Дополнительные сведения об этом можно найти в [документации по REST API набора масштабирования виртуальных машин](https://msdn.microsoft.com/library/azure/mt589035.aspx).
-
-При отключении избыточной подготовки количество виртуальных машин на учетную запись может быть больше, но мы не рекомендуем использовать больше 40 машин.
+This topic discusses design considerations for Virtual Machine Scale Sets. For information about what Virtual Machine Scale Sets are, refer to [Virtual Machine Scale Sets Overview](virtual-machine-scale-sets-overview.md).
 
 
-## Ограничения
-Набор масштабирования на основе пользовательского образа (созданного вами) должен создавать все виртуальные жесткие диски ОС в одной учетной записи хранения. Поэтому рекомендуемое максимальное число виртуальных машин в наборе масштабирования на основе пользовательского образа равно 20. Если отключить избыточную подготовку, этот предел можно повысить до 40.
+## <a name="storage"></a>Storage
 
-Для набора масштабирования, созданного на основе образа платформы, в настоящее время действует ограничение в 100 виртуальных машин, и мы рекомендуем 5 учетных записей хранения для такого масштаба.
+A scale set uses storage accounts to store the OS disks of the VMs in the set. We recommend a ratio of 20 VMs per storage account or less. We also recommend that you spread across the alphabet the beginning characters of the storage account names. Doing so helps spread load across different internal systems. For instance, in the following template, we use the uniqueString Resource Manager Template function to generate prefix hashes that are prepended to storage account names: [https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-linux-nat](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-linux-nat).
 
-Для дополнительных виртуальных машин сверх этого значения необходимо развернуть несколько наборов масштабирования, как показано в [этом шаблоне](https://github.com/Azure/azure-quickstart-templates/tree/master/301-custom-images-at-scale).
 
-<!---HONumber=AcomDC_0817_2016-->
+## <a name="overprovisioning"></a>Overprovisioning
+
+Starting with the "2016-03-30" API version, VM Scale Sets defaults to "overprovisioning" VMs. With overprovisioning turned on, the scale set actually spins up more VMs than you asked for, then deletes the extra VMs that spun up last. Overprovisioning improves provisioning success rates. You are not billed for these extra VMs, and they do not count toward your quota limits.
+
+While overprovisioning does improve provisioning success rates, it can cause confusing behavior for an application that is not designed to handle VMs disappearing unannounced. To turn overprovisioning off, ensure you have the following string in your template: "overprovision": "false". More details can be found in the [VM Scale Set REST API documentation](https://msdn.microsoft.com/library/azure/mt589035.aspx).
+
+If you turn off overprovisioning, you can get away with a larger ratio of VMs per storage account, but we do not recommend going above 40.
+
+
+## <a name="limits"></a>Limits
+A scale set built on a custom image (one built by you) must create all OS disk VHDs within one storage account. As a result, the maximum recommended number of VMs in a scale set built on a custom image is 20. If you turn off overprovisioning, you can go up to 40.
+
+A scale set built on a platform image is currently limited to 100 VMs (we recommend 5 storage accounts for this scale).
+
+For more VMs than these limits allow, you need to deploy multiple scale sets as shown in [this template](https://github.com/Azure/azure-quickstart-templates/tree/master/301-custom-images-at-scale).
+
+
+<!--HONumber=Oct16_HO2-->
+
+

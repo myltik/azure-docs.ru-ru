@@ -1,30 +1,34 @@
-#### Ограничения ExpressRoute
+#### <a name="expressroute-limits"></a>ExpressRoute Limits
 
-Ниже приведены ограничения, которые применяются к ресурсам ExpressRoute для каждой подписки.
+The following limits apply to ExpressRoute resources per subscription.
 
-| Ресурс | Ограничение по умолчанию |
+| Resource | Default Limit |
 |---|---|
-| Каналы ExpressRoute для каждой подписки | 10 |
-| Каналы ExpressRoute на регион для каждой подписки для ARM | 10 |
-| Максимальное количество маршрутов для частного пиринга Azure со стандартом ExpressRoute | 4000 |
-| Максимальное количество маршрутов для частного пиринга Azure с надстройкой ExpressRoute Premium | 10 000 |
-| Максимальное количество маршрутов для общедоступного пиринга Azure со стандартом ExpressRoute | 200 |
-| Максимальное количество маршрутов для общедоступного пиринга Azure с надстройкой ExpressRoute Premium | 200 |
-| Максимальное количество маршрутов для общедоступного пиринга Майкрософт в Azure со стандартом ExpressRoute | 200 |
-| Максимальное количество маршрутов для общедоступного пиринга Майкрософт в Azure с надстройкой ExpressRoute Premium | 200 |
-| Количество связей виртуальных сетей на канал ExpressRoute | см. таблицу ниже |
+| ExpressRoute circuits per subscription | 10 |
+| ExpressRoute circuits per region per subscription for ARM | 10 |
+| Maximum number of routes for Azure private peering with ExpressRoute standard | 4,000 |
+| Maximum number of routes for Azure private peering with ExpressRoute premium add-on | 10,000 |
+| Maximum number of routes for Azure public peering with ExpressRoute standard | 200 |
+| Maximum number of routes for Azure public peering with ExpressRoute premium add-on | 200 |
+| Maximum number of routes for Azure Microsoft peering with ExpressRoute standard | 200 |
+| Maximum number of routes for Azure Microsoft peering with ExpressRoute premium add-on | 200 |
+| Number of virtual network links allowed per ExpressRoute circuit | see table below |
 
-#### Количество виртуальных сетей на канал ExpressRoute
+#### <a name="number-of-virtual-networks-per-expressroute-circuit"></a>Number of Virtual Networks per ExpressRoute circuit
 
-| **Размер канала** | **Число связей виртуальных сетей для стандартной установки** | **Число связей виртуальных сетей с надстройкой Premium** |
+| **Circuit Size** | **Number of VNet links for standard** | **Number of VNet Links with Premium add-on** |
 |---|---|---|
-| 50 Мбит/с | 10 | 20 |
-| 100 Мбит/с | 10 | 25 |
-| 200 Мбит/с | 10 | 25 |
-| 500 Мбит/с | 10 | 40 |
-| 1 Гбит/с | 10 | 50 |
-| 2 Гбит/с | 10 | 60 |
-| 5 Гбит/с | 10 | 75 |
-| 10 Гбит/с | 10 | 100 |
+| 50 Mbps | 10 | 20 |
+| 100 Mbps | 10 | 25 |
+| 200 Mbps | 10 | 25 |
+| 500 Mbps | 10 | 40 |
+| 1 Gbps | 10 | 50 |
+| 2 Gbps | 10 | 60 |
+| 5 Gbps | 10 | 75 |
+| 10 Gbps | 10 | 100 |
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

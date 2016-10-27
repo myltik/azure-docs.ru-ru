@@ -1,157 +1,162 @@
 <properties
-	pageTitle="Рекомендации по производительности для SQL Server | Microsoft Azure"
-	description="Содержит рекомендации по оптимизации производительности SQL Server в виртуальных машинах Microsoft Azure."
-	services="virtual-machines-windows"
-	documentationCenter="na"
-	authors="rothja"
-	manager="jhubbard"
-	editor=""
-	tags="azure-service-management" />
+    pageTitle="Performance best practices for SQL Server | Microsoft Azure"
+    description="Provides best practices for optimizing SQL Server performance in Microsoft Azure VMs."
+    services="virtual-machines-windows"
+    documentationCenter="na"
+    authors="rothja"
+    manager="jhubbard"
+    editor=""
+    tags="azure-service-management" />
 
 <tags
-	ms.service="virtual-machines-windows"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="vm-windows-sql-server"
-	ms.workload="infrastructure-services"
-	ms.date="09/07/2016"
-	ms.author="jroth" />
+    ms.service="virtual-machines-windows"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="vm-windows-sql-server"
+    ms.workload="infrastructure-services"
+    ms.date="09/07/2016"
+    ms.author="jroth" />
 
-# Рекомендации по оптимизации производительности SQL Server в виртуальных машинах Azure
 
-## Обзор
+# <a name="performance-best-practices-for-sql-server-in-azure-virtual-machines"></a>Performance best practices for SQL Server in Azure Virtual Machines
 
-В этом разделе приведены рекомендации по оптимизации производительности SQL Server в виртуальной машине Microsoft Azure. При выполнении SQL Server в виртуальных машинах Azure рекомендуется продолжать использование тех же средств настройки производительности базы данных, которые применяются для SQL Server в локальной серверной среде. Однако производительность реляционной базы данных в общедоступном облаке зависит от многих факторов, таких как размер виртуальной машины и конфигурации дисков с данными.
+## <a name="overview"></a>Overview
 
-При создании образов SQL Server [рекомендуется подготовить виртуальные машины на портале Azure](virtual-machines-windows-portal-sql-server-provision.md). В виртуальных машинах SQL Server, подготовленных на портале с помощью Resource Manager, реализованы все эти рекомендации, включая конфигурацию хранилища.
+This topic provides best practices for optimizing SQL Server performance in Microsoft Azure Virtual Machine. While running SQL Server in Azure Virtual Machines, we recommend that you continue using the same database performance tuning options that are applicable to SQL Server in on-premises server environment. However, the performance of a relational database in a public cloud depends on many factors such as the size of a virtual machine, and the configuration of the data disks.
 
-Этот документ содержит инструкции по достижению *оптимальной* производительности SQL Server на виртуальных машинах Azure. Если рабочая нагрузка не так велика, могут потребоваться не все перечисленные ниже оптимизации. При оценке этих рекомендаций учитывайте актуальные потребности в производительности и характер рабочих нагрузок.
+When creating SQL Server images, [consider provisioning your VMs in the Azure portal](virtual-machines-windows-portal-sql-server-provision.md). SQL Server VMs provisioned in the Portal with Resource Manager implement all these best practices, including the storage configuration.
+
+This article is focused on getting the *best* performance for SQL Server on Azure VMs. If your workload is less demanding, you might not require every optimization listed below. Consider your performance needs and workload patterns as you evaluate these recommendations.
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
-## Краткий контрольный список
+## <a name="quick-check-list"></a>Quick check list
 
-Ниже приведен краткий контрольный список по обеспечению оптимальной производительности SQL Server на виртуальных машинах Azure.
+The following is a quick check list for optimal performance of SQL Server on Azure Virtual Machines:
 
-|Область|Оптимизация|
+|Area|Optimizations|
 |---|---|
-|[Размер виртуальной машины](#vm-size-guidance)|[DS3](virtual-machines-windows-sizes.md#standard-tier-ds-series) или выше для выпуска SQL Enterprise.<br/><br/>[DS2](virtual-machines-windows-sizes.md#standard-tier-ds-series) или выше для выпусков SQL Standard и Web.|
-|[Хранилище](#storage-guidance)|Используйте [хранилище класса Premium](../storage/storage-premium-storage.md). Стандартное хранилище рекомендуется использовать только для разработки и тестирования.<br/><br/>Храните [учетную запись хранения](../storage/storage-create-storage-account.md) и виртуальную машину SQL Server в одном и том же регионе.<br/><br/>Отключите [геоизбыточное хранилище](../storage/storage-redundancy.md) (георепликацию) Azure в учетной записи хранения.|
-|[диски;](#disks-guidance)|Используйте как минимум 2 [диска P30](../storage/storage-premium-storage.md#scalability-and-performance-targets-whru-RUing-premium-storage) (1 для файлов журнала, 1 для файлов данных и базы данных TempDB).<br/><br/>Избегайте использования дисков операционной системы или временных дисков для хранения базы данных или журналов.<br/><br/>Включите кэширование операций чтения на дисках, где размещены файлы данных и база данных TempDB.<br/><br/>Не включайте кэширование на дисках, где находится файл журнала.<br/><br/>Важно! Остановите службу SQL Server при изменении параметров кэша для диска виртуальной машины Azure.<br/><br/>Обеспечьте чередование нескольких дисков данных Azure для увеличения пропускной способности ввода-вывода.<br/><br/>Выполняйте форматирование с использованием задокументированных размеров кластера.|
-|[ВВОД-ВЫВОД](#io-guidance)|Включите сжатие страниц базы данных.<br/><br/>Включите быструю инициализацию для файлов данных.<br/><br/>Ограничьте или отключите авторасширение базы данных.<br/><br/>Отключите автосжатие базы данных.<br/><br/>Переместите все базы данных на диски с данными, включая системные базы данных.<br/><br/>Переместите журнал ошибок SQL Server и каталоги файлов трассировки на диски с данными.<br/><br/>Настройте расположения для хранения файлов резервных копий и баз данных по умолчанию.<br/><br/>Включите заблокированные страницы.<br/><br/>Примените исправления производительности SQL Server.|
-|[Зависит от определенных функций](#feature-specific-guidance)|Осуществите архивацию напрямую в хранилище BLOB-объектов.|
+|[VM size](#vm-size-guidance)|[DS3](virtual-machines-windows-sizes.md#standard-tier-ds-series) or higher for SQL Enterprise edition.<br/><br/>[DS2](virtual-machines-windows-sizes.md#standard-tier-ds-series) or higher for SQL Standard and Web editions.|
+|[Storage](#storage-guidance)|Use [Premium Storage](../storage/storage-premium-storage.md). Standard storage is only recommended for dev/test.<br/><br/>Keep the [storage account](../storage/storage-create-storage-account.md) and SQL Server VM in the same region.<br/><br/>Disable Azure [geo-redundant storage](../storage/storage-redundancy.md) (geo-replication) on the storage account.|
+|[Disks](#disks-guidance)|Use a minimum of 2 [P30 disks](../storage/storage-premium-storage.md#scalability-and-performance-targets-when-using-premium-storage) (1 for log files; 1 for data files and TempDB).<br/><br/>Avoid using operating system or temporary disks for database storage or logging.<br/><br/>Enable read caching on the disk(s) hosting the data files and TempDB.<br/><br/>Do not enable caching on disk(s) hosting the log file.<br/><br/>Important: Stop the SQL Server service when changing the cache settings for an Azure VM disk.<br/><br/>Stripe multiple Azure data disks to get increased IO throughput.<br/><br/>Format with documented allocation sizes.|
+|[I/O](#io-guidance)|Enable database page compression.<br/><br/>Enable instant file initialization for data files.<br/><br/>Limit or disable autogrow on the database.<br/><br/>Disable autoshrink on the database.<br/><br/>Move all databases to data disks, including system databases.<br/><br/>Move SQL Server error log and trace file directories to data disks.<br/><br/>Setup default backup and database file locations.<br/><br/>Enable locked pages.<br/><br/>Apply SQL Server performance fixes.|
+|[Feature specific](#feature-specific-guidance)|Back up directly to blob storage.|
 
-Дополнительные сведения о том, *как* выполнить эти оптимизации и *для чего* они необходимы, см. в следующих разделах.
+For more information on *how* and *why* to make these optimizations, please review the details and guidance provided in following sections.
 
-## Рекомендации по выбору размеров виртуальных машин
+## <a name="vm-size-guidance"></a>VM size guidance
 
-Для приложений, чувствительных к уровню производительности, рекомендуется использовать следующие [размеры виртуальных машин](virtual-machines-windows-sizes.md).
+For performance sensitive applications, it’s recommended that you use the following [virtual machines sizes](virtual-machines-windows-sizes.md):
 
-- **Выпуск SQL Server Enterprise**: DS3 или выше
+- **SQL Server Enterprise Edition**: DS3 or higher
 
-- **Выпуски SQL Server Standard и Web**: DS2 или выше
+- **SQL Server Standard and Web Editions**: DS2 or higher
 
 
-## Рекомендации по выбору хранилища
+## <a name="storage-guidance"></a>Storage guidance
 
-Виртуальные машины серий DS, DSv2 и GS поддерживают [хранилище класса Premium](../storage/storage-premium-storage.md). Для всех производственных рабочих нагрузок рекомендуется хранилище класса Premium.
+DS-series (along with DSv2-series and GS-series) VMs support [Premium Storage](../storage/storage-premium-storage.md). Premium Storage is recommended for all production workloads.
 
-> [AZURE.WARNING] Стандартное хранилище характеризуется различными задержками и пропускной способностью и рекомендуется только для рабочих нагрузок по разработке и тестированию. Для производственных рабочих нагрузок необходимо использовать хранилище класса Premium.
+> [AZURE.WARNING] Standard Storage has varying latencies and bandwidth and is only recommended for dev/test workloads. Production workloads should use Premium Storage.
 
-Кроме того, рекомендуется создать свою учетную запись хранения Azure в одном центре обработки данных с виртуальными машинами SQL Server для уменьшения задержек при передаче данных. При создании учетной записи хранения отключите георепликацию, поскольку согласованный порядок записи на несколько дисков не гарантируется. Вместо этого рекомендуется реализовать средства аварийного восстановления SQL Server между двумя центрами обработки данных Azure. Дополнительные сведения см. в разделе [Высокий уровень доступности и аварийное восстановление для SQL Server в виртуальных машинах Azure](virtual-machines-windows-sql-high-availability-dr.md).
+In addition, we recommend that you create your Azure storage account in the same data center as your SQL Server virtual machines to reduce transfer delays. When creating a storage account, disable geo-replication as consistent write order across multiple disks is not guaranteed. Instead, consider configuring a SQL Server disaster recovery technology between two Azure data centers. For more information, see [High Availability and Disaster Recovery for SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-high-availability-dr.md).
 
-## Рекомендации по использованию дисков
+## <a name="disks-guidance"></a>Disks guidance
 
-Виртуальная машина Azure поддерживает три основных типа дисков:
+There are three main disk types on an Azure VM:
 
-- **Диск ОС**: при создании виртуальной машины Azure платформа подключает к ней по меньшей мере один диск (обозначенный буквой **C**), используемый в качестве диска операционной системы. Этот диск представляет собой VHD-файл, сохраненный как страничный BLOB-объект в хранилище.
-- **Временный диск**: виртуальные машины Azure содержат еще один диск (обозначенный буквой **D**), который называется временным диском. Это диск на узле, который может использоваться для области временных файлов.
-- **Диски данных**: к виртуальной машине можно подключить дополнительные диски данных, которые будут сохранены в хранилище как страничные BLOB-объекты.
+- **OS disk**: When you create an Azure Virtual Machine, the platform will attach at least one disk (labeled as the **C** drive) to the VM for your operating system disk. This disk is a VHD stored as a page blob in storage.
+- **Temporary disk**: Azure Virtual Machines contain another disk called the temporary disk (labeled as the **D**: drive). This is a disk on the node that can be used for scratch space.
+- **Data disks**: You can also attach additional disks to your virtual machine as data disks, and these will be stored in storage as page blobs.
 
-В следующих разделах приводятся рекомендации по использованию этих дисков.
+The following sections describe recommendations for using these different disks.
 
-### Диск операционной системы
+### <a name="operating-system-disk"></a>Operating system disk
 
-Диск операционной системы — это виртуальный жесткий диск, который можно установить и использовать как диск с установленной операционной системой, данный диск имеет метку **C:**.
+An operating system disk is a VHD that you can boot and mount as a running version of an operating system and is labeled as **C** drive.
 
-По умолчанию для диска операционной системы применяется политика кэширования **Чтение и запись**. Для приложений, чувствительных к уровню производительности, рекомендуется использовать диски данных вместо диска операционной системы. См. подраздел "Диски данных" ниже.
+Default caching policy on the operating system disk is **Read/Write**. For performance sensitive applications, we recommend that you use data disks instead of the operating system disk. See the section on Data Disks below.
 
-### Временный диск
+### <a name="temporary-disk"></a>Temporary disk
 
-Диск временного хранилища с меткой **D:** не сохраняется в хранилище больших двоичных объектов. Не храните файлы пользовательской базы данных или файлы журнала транзакций пользователя на диске **D**.
+The temporary storage drive, labeled as the **D**: drive, is not persisted to Azure blob storage. Do not store your user database files or user transaction log files on the **D**: drive.
 
-В виртуальных машинах серий D, Dv2 и G роль временного диска выполняет диск на основе SSD. Если рабочая нагрузка усложняет использование базы данных TempDB (например, для временных объектов или сложных соединений), то хранение базы данных TempDB на диске **D** может повысить пропускную способность и уменьшить задержку базы данных TempDB.
+For D-series, Dv2-series, and G-series VMs, the temporary drive on these VMs is SSD-based. If your workload makes heavy use of TempDB (e.g. for temporary objects or complex joins), storing TempDB on the **D** drive could result in higher TempDB throughput and lower TempDB latency.
 
-Для виртуальных машин (серии D, Dv2 и G), которые поддерживают хранилище класса Premium, рекомендуется хранить базу данных TempDB и (или) расширения буферного пула на диске, поддерживающем хранилище класса Premium, с включенным кэшированием чтения. Существует одно исключение: если работа базы данных TempDB предусматривает большое количество операций записи, то для достижения более высокой производительности можно сохранить базу данных TempDB на локальном диске **D**, который на виртуальных машинах этого размера также является диском на основе SSD.
+For VMs that support Premium Storage (DS-series, DSv2-series, and GS-series), we recommend storing TempDB and/or Buffer Pool Extensions on a disk that supports Premium Storage with read caching enabled. There is one exception to this recommendation; if your TempDB usage is write-intensive, you can achieve higher performance by storing TempDB on the local **D** drive, which is also SSD-based on these machine sizes.
 
-### Диски данных
+### <a name="data-disks"></a>Data disks
 
-- **Использование дисков данных для файлов данных и журналов**: используйте не менее 2 [дисков P30](../storage/storage-premium-storage.md#scalability-and-performance-targets-whru-RUing-premium-storage) хранилища класса Premium, где один диск содержит файлы журнала, а другой — файлы данных и базу данных TempDB.
+- **Use data disks for data and log files**: At a minimum, use 2 Premium Storage [P30 disks](../storage/storage-premium-storage.md#scalability-and-performance-targets-when-using-premium-storage) where one disk contains the log file(s) and the other contains the data file(s) and TempDB.
 
-- **Чередование дисков**: для повышения пропускной способности можно добавить дополнительные диски данных и использовать чередование дисков. Чтобы определить количество дисков данных, необходимые проанализировать число доступных операций ввода-вывода для ваших дисков данных и журналов. Эта информация содержится в таблицах с числом операций ввода-вывода в секунду для [размера виртуальной машины](virtual-machines-windows-sizes.md) и размера диска в следующем разделе: [Использование хранилища класса Premium для дисков](../storage/storage-premium-storage.md). Придерживайтесь приведенных далее рекомендаций.
+- **Disk Striping**: For more throughput, you can add additional data disks and use Disk Striping. To determine the number of data disks, you need to analyze the number of IOPS available for your data and log disk(s). For that information, see the tables on IOPS per [VM size](virtual-machines-windows-sizes.md) and disk size in the following article: [Using Premium Storage for Disks](../storage/storage-premium-storage.md). Use the following these guidelines:
 
-	- Для Windows 8 и Windows Server 2012 или более поздней версии используйте [дисковые пространства](https://technet.microsoft.com/library/hh831739.aspx). Задайте размер чередования в 64 КБ для рабочих нагрузок OLTP и 256 КБ для рабочих нагрузок хранилища данных, чтобы избежать снижения производительности из-за рассогласования разделов. Кроме того, задайте число столбцов равным количеству физических дисков. Чтобы настроить дисковое пространство с более чем 8 дисками, следует явно задать число столбцов равным количеству дисков с помощью PowerShell (а не пользовательского интерфейса диспетчера серверов). Дополнительные сведения о настройке [дисковых пространств](https://technet.microsoft.com/library/hh831739.aspx) см. в разделе [Командлеты дисковых пространств в Windows PowerShell](https://technet.microsoft.com/library/jj851254.aspx).
+    - For Windows 8/Windows Server 2012 or later, use [Storage Spaces](https://technet.microsoft.com/library/hh831739.aspx). Set stripe size to 64 KB for OLTP workloads and 256 KB for data warehousing workloads to avoid performance impact due to partition misalignment. In addition, set column count = number of physical disks. To configure a Storage Space with more than 8 disks you must use PowerShell (not Server Manager UI) to explicitly set the number of columns to match the number of disks. For more information on how to configure [Storage Spaces](https://technet.microsoft.com/library/hh831739.aspx), see [Storage Spaces Cmdlets in Windows PowerShell](https://technet.microsoft.com/library/jj851254.aspx)
 
-	- Для Windows 2008 R2 или более ранней версии можно воспользоваться динамическими дисками (чередующимися томами операционной системы), при этом размер чередования всегда составляет 64 КБ. Обратите внимание, что эта возможность не поддерживается в Windows 8 и Windows Server 2012. Дополнительные сведения см. в заявлении о поддержке в разделе [Служба виртуальных дисков переходит на API управления хранилищами Windows](https://msdn.microsoft.com/library/windows/desktop/hh848071.aspx).
+    - For Windows 2008 R2 or earlier, you can use dynamic disks (OS striped volumes) and the stripe size is always 64 KB. Note that this option is deprecated as of Windows 8/Windows Server 2012. For information, see the support statement at [Virtual Disk Service is transitioning to Windows Storage Management API](https://msdn.microsoft.com/library/windows/desktop/hh848071.aspx).
 
-	- Если рабочая нагрузка не слишком активно использует функции ведения журнала и не требует выделенного числа операций ввода-вывода в секунду, можно настроить только один пул носителей. В противном случае создайте два пула носителей: один для файлов журнала и другой для файлов данных и базы данных TempDB. Определите число дисков для каждого пула носителей на основании ожидаемой нагрузки. Помните, что в разных размерах виртуальной машины можно подключать различное число дисков данных. Дополнительные сведения см. в разделе [Размеры виртуальных машин](virtual-machines-windows-sizes.md).
+    - If your workload is not log intensive and does not need dedicated IOPs, you can configure just one storage pool. Otherwise, create two storage pools, one for the log file(s) and another storage pool for the data file(s) and TempDB. Determine the number of disks associated with each storage pool based on your load expectations. Keep in mind that different VM sizes allow different numbers of attached data disks. For more information, see [Sizes for Virtual Machines](virtual-machines-windows-sizes.md).
 
-	- Если хранилище класса Premium не применяется (сценарии разработки и тестирования), то рекомендуется добавить максимальное количество дисков данных, поддерживаемое для вашего [размера виртуальной машины](virtual-machines-windows-sizes.md), и использовать чередование дисков.
+    - If you are not using Premium Storage (dev/test scenarios), the recommendation is to add the maximum number of data disks supported by your [VM size](virtual-machines-windows-sizes.md) and use Disk Striping.
 
-- **Политика кэширования**: для дисков данных хранилища класса Premium включите кэширование операций чтения только на дисках данных, где размещаются файлы данных и база данных TempDB. Если хранилище класса Premium не используется, не включайте кэширование ни для каких дисков данных. Указания по настройке кэширования дисков см. в следующих разделах: [Set-AzureOSDisk](https://msdn.microsoft.com/library/azure/jj152847) и [Set-AzureDataDisk](https://msdn.microsoft.com/library/azure/jj152851.aspx).
+- **Caching policy**: For Premium Storage data disks, enable read caching on the data disks hosting your data files and TempDB only. If you are not using Premium Storage, do not enable any caching on any data disks. For instructions on configuring disk caching, see the following topics: [Set-AzureOSDisk](https://msdn.microsoft.com/library/azure/jj152847) and [Set-AzureDataDisk](https://msdn.microsoft.com/library/azure/jj152851.aspx).
 
-	>[AZURE.WARNING] Остановите службу SQL Server при настройке кэширования дисков виртуальной машины Azure, чтобы избежать возможного повреждения баз данных.
+    >[AZURE.WARNING] Stop the SQL Server service when changing the cache setting of Azure VM disks to avoid the possibility of any database corruption.
 
-- **Размер кластера NTFS**: при форматировании диска данных рекомендуется использовать размер кластера 64 КБ для файлов данных и журналов, а также базы данных TempDB.
+- **NTFS allocation unit size**: When formatting the data disk, it is recommended that you use a 64-KB allocation unit size for data and log files as well as TempDB.
 
-- **Рекомендации по управлению дисками**: при удалении диска данных или изменении его типа кэша остановите службу SQL Server. При изменении параметров кэширования диска ОС Azure останавливает виртуальную машину, изменяет тип кэша и перезапускает виртуальную машину. При изменении параметров кэша диска данных виртуальная машина не останавливается. Диск данных отключается от нее на время внесения изменений, а затем снова подключается к виртуальной машине.
+- **Disk management best practices**: When removing a data disk or changing its cache type, stop the SQL Server service during the change. When the caching settings are changed on the OS disk, Azure stops the VM, changes the cache type, and restarts the VM. When the cache settings of a data disk are changed, the VM is not stopped, but the data disk is detached from the VM during the change and then reattached.
 
-	>[AZURE.WARNING] Если не останавливать службу SQL Server на время таких операций, это может привести к повреждению базы данных.
+    >[AZURE.WARNING] Failure to stop the SQL Server service during these operations can cause database corruption.
 
-## Рекомендации по использованию операций ввода-вывода
+## <a name="i/o-guidance"></a>I/O guidance
 
-- Наилучшие результаты работы с хранилищем класса Premium достигаются при параллелизации приложений и запросов. Хранилище класса Premium предназначено для сценариев, где глубина очереди ввода-вывода больше 1, поэтому прирост производительности для однопоточных последовательных запросов почти не ощущается (даже если они направляются в хранилище в большом объеме). Например, это может негативно повлиять на результаты однопоточного тестирования в средствах анализа производительности, таких как SQLIO.
+- The best results with Premium Storage are achieved when you parallelize your application and requests. Premium Storage is designed for scenarios where the IO queue depth is greater than 1, so you will see little or no performance gains for single-threaded serial requests (even if they are storage intensive). For example, this could impact the single-threaded test results of performance analysis tools, such as SQLIO.
 
-- Рекомендуется использовать [сжатие страниц базы данных](https://msdn.microsoft.com/library/cc280449.aspx), так как это позволяет повысить производительность рабочих нагрузок с большим объемом операций ввода-вывода. Однако сжатие данных может повысить потребление ресурсов ЦП на сервере базы данных.
+- Consider using [database page compression](https://msdn.microsoft.com/library/cc280449.aspx) as it can help improve performance of I/O intensive workloads. However, the data compression might increase the CPU consumption on the database server.
 
-- Рекомендуется включить быструю инициализацию файлов для сокращения времени, необходимого для начального выделения файлов. Чтобы воспользоваться преимуществами быстрой инициализации файлов, назначьте SE\_MANAGE\_VOLUME\_NAME учетной записи службы SQL Server (MSSQLSERVER) и добавьте ее в политику безопасности **Выполнение задач по обслуживанию томов**. Если вы используете образ платформы SQL Server для Azure, учетная запись службы по умолчанию (NT Service\\MSSQLSERVER) не добавляется в политику безопасности **Выполнение задач по обслуживанию томов**. Другими словами, быстрая инициализация файлов в образе платформы SQL Server Azure не включена. После добавления учетной записи службы SQL Server в политику безопасности **Выполнение задач по обслуживанию томов** перезапустите службу SQL Server. Использование этой функции может быть показано из соображений безопасности. Дополнительные сведения см. в статье [Инициализация файлов базы данных](https://msdn.microsoft.com/library/ms175935.aspx).
+- Consider enabling instant file initialization to reduce the time that is required for initial file allocation. To take advantage of instant file initialization, you grant the SQL Server (MSSQLSERVER) service account with SE_MANAGE_VOLUME_NAME and add it to the **Perform Volume Maintenance Tasks** security policy. If you are using a SQL Server platform image for Azure, the default service account (NT Service\MSSQLSERVER) isn’t added to the **Perform Volume Maintenance Tasks** security policy. In other words, instant file initialization is not enabled in a SQL Server Azure platform image. After adding the SQL Server service account to the **Perform Volume Maintenance Tasks** security policy, restart the SQL Server service. There could be security considerations for using this feature. For more information, see [Database File Initialization](https://msdn.microsoft.com/library/ms175935.aspx).
 
-- **Авторасширение** считается лишь предупредительной мерой на случай непредвиденного роста. Не используйте авторасширение для повседневного управления ростом данных и журналов. При использовании авторасширения предварительно увеличьте размер файла с помощью параметра размера.
+- **autogrow** is considered to be merely a contingency for unexpected growth. Do not manage your data and log growth on a day-to-day basis with autogrow. If autogrow is used, pre-grow the file using the Size switch.
 
-- Убедитесь, что **автосжатие** отключено, чтобы избежать ненужных затрат ресурсов, что может отрицательно повлиять на производительность.
+- Make sure **autoshrink** is disabled to avoid unnecessary overhead that can negatively affect performance.
 
-- Переместите все базы данных на диски с данными, включая системные базы данных. Дополнительные сведения см. в статье [Перемещение системных баз данных](https://msdn.microsoft.com/library/ms345408.aspx).
+- Move all databases to data disks, including system databases. For more information, see [Move System Databases](https://msdn.microsoft.com/library/ms345408.aspx).
 
-- Переместите журнал ошибок SQL Server и каталоги файлов трассировки на диски с данными. Для этого в диспетчере конфигурации SQL Server щелкните правой кнопкой мыши свой экземпляр SQL Server и выберите пункт "Свойства". На вкладке **Параметры запуска** можно изменить параметры файлов трассировки и журнала ошибок. Каталог дампа указан на вкладке **Дополнительно**. На приведенных далее снимках экрана показано, где находится параметр запуска журнала ошибок.
+- Move SQL Server error log and trace file directories to data disks. This can be done in SQL Server Configuration Manager by right-clicking your SQL Server instance and selecting properties. The error log and trace file settings can be changed in the **Startup Parameters** tab. The Dump Directory is specified in the **Advanced** tab. The following screenshot shows where to look for the error log startup parameter.
 
-	![Снимок экрана SQL ErrorLog](./media/virtual-machines-windows-sql-performance/sql_server_error_log_location.png)
+    ![SQL ErrorLog Screenshot](./media/virtual-machines-windows-sql-performance/sql_server_error_log_location.png)
 
-- Настройка расположений по умолчанию для файлов резервных копий и базы данных. Следуйте рекомендациям в этом разделе и внесите изменения в окне свойств сервера. Инструкции см. в статье [Просмотр или изменение расположения по умолчанию для файлов данных и журналов (среда SQL Server Management Studio)](https://msdn.microsoft.com/library/dd206993.aspx). На следующем снимке экрана показано, где нужно внести необходимые изменения.
+- Setup default backup and database file locations. Use the recommendations in this topic, and make the changes in the Server properties window. For instructions, see [View or Change the Default Locations for Data and Log Files (SQL Server Management Studio)](https://msdn.microsoft.com/library/dd206993.aspx). The following screenshot demonstrates where to make these changes.
 
-	![Файлы журнала данных SQL и резервных копий](./media/virtual-machines-windows-sql-performance/sql_server_default_data_log_backup_locations.png)
+    ![SQL Data Log and Backup files](./media/virtual-machines-windows-sql-performance/sql_server_default_data_log_backup_locations.png)
 
-- Включение блокировки страниц для сокращения числа операций ввода-вывода, а также операций разбиения по страницам. Дополнительные сведения см. в статье [Включение параметра "Блокировка страниц в памяти" (Windows)](https://msdn.microsoft.com/library/ms190730.aspx).
+- Enable locked pages to reduce IO and any paging activities. For more information, see [Enable the Lock Pages in Memory Option (Windows)](https://msdn.microsoft.com/library/ms190730.aspx).
 
-- Если вы используете SQL Server 2012, установите накопительный пакет обновления 10 для пакета обновления 1. Это обновление содержит исправление для низкой производительности ввода-вывода при выполнении оператора выборки во временную таблицу в SQL Server 2012. Дополнительные сведения см. в этой [статье базы знаний](http://support.microsoft.com/kb/2958012).
+- If you are running SQL Server 2012, install Service Pack 1 Cumulative Update 10. This update contains the fix for poor performance on I/O when you execute select into temporary table statement in SQL Server 2012. For information, see this [knowledge base article](http://support.microsoft.com/kb/2958012).
 
-- Рекомендуется сжимать файлы данных при их передаче в среду Azure и из нее.
+- Consider compressing any data files when transferring in/out of Azure.
 
-## Рекомендации по использованию определенных функций
+## <a name="feature-specific-guidance"></a>Feature specific guidance
 
-Для некоторых развертываний получить дополнительные преимущества, используя более сложные методики настройки. В следующем списке перечислены некоторые функции SQL Server, которые могут помочь добиться лучшей производительности:
+Some deployments may achieve additional performance benefits using more advanced configuration techniques. The following list highlights some SQL Server features that can help you to achieve better performance:
 
-- **Архивация в службу хранилища Azure**: при выполнении архивации данных SQL Server, запущенного на виртуальных машинах Azure, можно использовать [архивацию SQL Server на URL-адрес](https://msdn.microsoft.com/library/dn435916.aspx). Эта функция доступна, начиная с накопительного пакета обновления 2 для пакета обновления 1 SQL Server 2012, и рекомендуется к применению при архивации на подключенные диски данных. При выполнении архивации или восстановления с использованием службы хранилища Azure следуйте рекомендациям из раздела [Рекомендации по архивации SQL Server на URL-адрес, устранению неполадок и восстановлению из резервных копий в службе хранилища Azure](https://msdn.microsoft.com/library/jj919149.aspx). Кроме того, можно автоматизировать эти процессы архивации с помощью [автоматической архивации для SQL Server в виртуальных машинах Azure](virtual-machines-windows-classic-sql-automated-backup.md).
+- **Backup to Azure storage**: When performing backups for SQL Server running in Azure virtual machines, you can use [SQL Server Backup to URL](https://msdn.microsoft.com/library/dn435916.aspx). This feature is available starting with SQL Server 2012 SP1 CU2 and recommended for backing up to the attached data disks. When you backup/restore to/from Azure storage, follow the recommendations provided at [SQL Server Backup to URL Best Practices and Troubleshooting and Restoring from Backups Stored in Azure Storage](https://msdn.microsoft.com/library/jj919149.aspx). You can also automate these backups using [Automated Backup for SQL Server in Azure Virtual Machines](virtual-machines-windows-classic-sql-automated-backup.md).
 
-	В выпусках, предшествующих SQL Server 2012, можно использовать [инструмент архивации SQL Server в Azure](https://www.microsoft.com/download/details.aspx?id=40740). Это средство может помочь повысить пропускную способность при архивации благодаря использованию нескольких чередующихся целей архивации.
+    Prior to SQL Server 2012, you can use [SQL Server Backup to Azure Tool](https://www.microsoft.com/download/details.aspx?id=40740). This tool can help to increase backup throughput using multiple backup stripe targets.
 
-- **Файлы данных SQL Server в Azure**: эта новая функция [Файлы данных SQL Server в Azure](https://msdn.microsoft.com/library/dn385720.aspx) доступна, начиная с SQL Server 2014. Выполнение SQL Server с файлами данных в Azure демонстрирует уровень производительности, сравнимый с использованием дисков данных Azure.
+- **SQL Server Data Files in Azure**: This new feature, [SQL Server Data Files in Azure](https://msdn.microsoft.com/library/dn385720.aspx), is available starting with SQL Server 2014. Running SQL Server with data files in Azure demonstrates comparable performance characteristics as using Azure data disks.
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Next Steps
 
-Если вы заинтересованы в более подробном изучении возможностей SQL Server и хранилища класса Premium, см. статью [Использование хранилища Azure Premium с SQL Server на виртуальных машинах](virtual-machines-windows-classic-sql-server-premium-storage.md).
+If you are interested in exploring SQL Server and Premium Storage in more depth, see the article [Use Azure Premium Storage with SQL Server on Virtual Machines](virtual-machines-windows-classic-sql-server-premium-storage.md).
 
-Рекомендации по безопасности см. в статье [Рекомендации по безопасности SQL Server на виртуальных машинах Azure](virtual-machines-windows-sql-security.md).
+For security best practices, see [Security Considerations for SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-security.md).
 
-Просмотрите другие подразделы, посвященные виртуальным машинам SQL Server, в разделе [Общие сведения об SQL Server на виртуальных машинах Azure](virtual-machines-windows-sql-server-iaas-overview.md).
+Review other SQL Server Virtual Machine topics at [SQL Server on Azure Virtual Machines Overview](virtual-machines-windows-sql-server-iaas-overview.md).
 
-<!---HONumber=AcomDC_0907_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

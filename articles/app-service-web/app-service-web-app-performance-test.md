@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Тестирование производительности веб-приложения Azure | Microsoft Azure"
-   description="Протестируйте производительность веб-приложения Azure, чтобы проверить, как оно справляется с пользовательской нагрузкой. Измерьте время отклика и найдите ошибки, которые могут свидетельствовать о проблемах."
+   pageTitle="Test your Azure web app's performance | Microsoft Azure"
+   description="Run Azure web app performance tests to check how your app handles user load. Measure response time and find failures that might indicate problems."
    services="app-service\web"
    documentationCenter=""
    authors="ecfan"
@@ -16,136 +16,147 @@
    ms.date="05/25/2016"
    ms.author="estfan; manasma; ahomer"/>
 
-# Тестирование производительности веб-приложения Azure под нагрузкой
 
-Проверьте производительность своего веб-приложения, прежде чем запустить его или развернуть обновления в рабочей среде. Так можно точнее оценить, готово ли ваше приложение к выпуску. Кроме того, вы будете уверены, что ваше приложение справится с трафиком во время максимальной нагрузки или следующей маркетинговой кампании.
+# <a name="performance-test-your-azure-web-app-under-load"></a>Performance test your Azure web app under load
 
-На стадии общедоступной предварительной версии протестировать производительность приложения можно на портале Azure бесплатно. Эти тесты имитируют пользовательскую нагрузку на приложение за определенный период времени и оценивают отклик приложения. Например, результаты теста показывают, как быстро приложение реагирует на обращение определенного количество пользователей. Они также отображают количество неудачных запросов, которые могут свидетельствовать о проблемах с приложением.
+Check your web app's performance before you launch it or deploy updates to production. That way, you can better assess whether your app is ready for release. Feel more confident that your app can handle the traffic during peak use or at your next marketing push.
 
-![Поиск проблем с производительностью веб-приложения](./media/app-service-web-app-performance-test/azure-np-perf-test-overview.png)
+During public preview, you can performance test your app for free in the Azure Portal.
+These tests simulate user load on your app over a specific time period and measure your app's response. For example, your test results show how fast your app responds to a specific number of users. They also show how many requests failed, which might indicate problems with your app.      
 
-## Перед началом работы
+![Find performance problems in your web app](./media/app-service-web-app-performance-test/azure-np-perf-test-overview.png)
 
-* Вам потребуется [подписка Azure](https://account.windowsazure.com/subscriptions), если у вас ее еще нет. Узнайте, как можно [создать учетную запись Azure бесплатно](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F).
+## <a name="before-you-start"></a>Before you start
 
-* Вам потребуется учетная запись [Visual Studio Team Services](https://www.visualstudio.com/products/what-is-visual-studio-online-vs) для хранения журнала тестирования производительности. При настройке теста производительности подходящая учетная запись будет создана автоматически. Вы также можете создать учетную запись или использовать существующую, если являетесь ее владельцем.
+* You'll need an [Azure subscription](https://account.windowsazure.com/subscriptions), if you don't have one already. Learn how you can [open an Azure account for free](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F).
 
-* Разверните тестируемое приложение в нерабочей среде. Настройте для приложения план службы приложений, отличный от используемого в производственной среде. Таким образом вы не будете ни мешать работе существующих клиентов, ни замедлять работу приложения в рабочей среде.
+* You'll need a [Visual Studio Team Services](https://www.visualstudio.com/products/what-is-visual-studio-online-vs) account to keep your performance test history. A suitable account will be created automatically when you set up your performance test. Or you can create a new account or use an existing account if you're the account owner. 
 
-## Настройка и запуск теста производительности
+* Deploy your app for testing in a non-production environment. Have your app use an App Service plan other than the plan used in production. That way, you don't affect any existing customers or slow down your app in production. 
 
-0.  Войдите на [портал Azure](https://portal.azure.com). Чтобы воспользоваться своей учетной записью Visual Studio Team Services, войдите как владелец учетной записи.
+## <a name="set-up-and-run-your-performance-test"></a>Set up and run your performance test
 
-0.  Перейдите к своему веб-приложению.
+0.  Sign in to the [Azure Portal](https://portal.azure.com). To use a Visual Studio Team Services account that you own, sign in as the account owner.
 
-    ![Щелкните «Просмотреть все», «Веб-приложения» и выберите свое веб-приложение](./media/app-service-web-app-performance-test/azure-np-web-apps.png)
+0.  Go to your web app.
 
-0.  Выберите **Тест производительности**.
+    ![Go to Browse All, Web Apps, your web app](./media/app-service-web-app-performance-test/azure-np-web-apps.png)
 
-    ![В меню «Инструменты» выберите «Тест производительности»](./media/app-service-web-app-performance-test/azure-np-web-app-details-tools-expanded.png)
+0.  Go to **Performance Test**.
+
+    ![Go to Tools, Performance Test](./media/app-service-web-app-performance-test/azure-np-web-app-details-tools-expanded.png)
  
-0. Теперь вы привяжете учетную запись [Visual Studio Team Services](https://www.visualstudio.com/products/what-is-visual-studio-online-vs) для хранения журнала тестирования производительности.
+0. Now you'll link a [Visual Studio Team Services](https://www.visualstudio.com/products/what-is-visual-studio-online-vs) account to keep your performance test history.
 
-    Если у вас уже есть учетная запись Team Services, выберите ее. Если учетной записи нет, создайте ее.
+    If you have a Team Services account to use, select that account. If you don't, create a new account.
 
-    ![Выбор существующей учетной записи Team Services или создание новой](./media/app-service-web-app-performance-test/azure-np-no-vso-account.png)
+    ![Select existing Team Services account, or create a new account](./media/app-service-web-app-performance-test/azure-np-no-vso-account.png)
 
-0.  Создайте тест производительности, укажите необходимые сведения и запустите его.
+0.  Create your performance test. Set the details and run the test. 
 
-За результатами тестирования можно следить во время выполнения теста в режиме реального времени.
+You can watch the results in real time while the test runs.
 
-Например, предположим, что у нас есть приложение, которое раздавало купоны на праздничной распродаже в прошлом году. Это событие длилось 15 минут с пиковой нагрузкой в 100 клиентов одновременно. В этом году мы хотим удвоить количество клиентов. Также мы хотим повысить удовлетворенность клиентов, сократив время загрузки страницы с 5 секунд до 2. Для этого мы протестируем производительность обновленного приложения с 250 пользователями на протяжении 15 минут.
+For example, suppose we have an app that gave out coupons at last year's holiday sale. This event lasted 15 minutes with a peak load of 100 concurrent customers. We want to double the number of customers this year. We also want to improve customer satisfaction by reducing the page load time from 5 seconds to 2 seconds. So, we'll test our updated app's performance with 250 users for 15 minutes.
 
-Мы смоделируем нагрузку на приложение, создав виртуальных пользователей (клиентов), которые посещают наш веб-сайт одновременно. При этом отобразится количество неудачных запросов или запросов, которые обрабатываются медленно.
+We'll simulate load on our app by generating virtual users (customers) who visit our web site at the same time. This will show us how many requests are failing or responding slowly.
 
-  ![Создание, настройка и запуск теста производительности](./media/app-service-web-app-performance-test/azure-np-new-performance-test.png)
+  ![Create, set up, and run your performance test](./media/app-service-web-app-performance-test/azure-np-new-performance-test.png)
 
-   *  Стандартный URL-адрес веб-приложения добавляется автоматически. Вместо него можно указывать URL-адреса других страниц (только HTTP-запросы GET), которые нужно протестировать.
+   *  Your web app's default URL is added automatically. 
+   You can change the URL to test other pages (HTTP GET requests only).
 
-   *  Чтобы смоделировать локальные условия и сократить задержку, для создания нагрузки выберите ближайшее к вашим пользователям расположение.
+   *  To simulate local conditions and reduce latency, select a location closest to your users for generating load.
 
-  Вот так выглядит окно выполняющегося тестирования. В течение первой минуты наша страница загружается медленнее, чем необходимо.
+  Here's the test in progress. During the first minute, our page loads slower than we want.
 
-  ![Тест производительности с данными в режиме реального времени](./media/app-service-web-app-performance-test/azure-np-running-perf-test.png)
+  ![Performance test in progress with real-time data](./media/app-service-web-app-performance-test/azure-np-running-perf-test.png)
 
-  Результаты теста показали, что после первой минуты страница загружается гораздо быстрее. Эта информация помогает определить проблему, которую нужно устранить.
+  After the test is done, we learn that the page loads much faster after the first minute. This helps identify where we might want to start troubleshooting the problem.
 
-  ![Результаты теста производительности, включая неудачные запросы](./media/app-service-web-app-performance-test/azure-np-perf-test-done.png)
+  ![Completed performance test shows results, including failed requests](./media/app-service-web-app-performance-test/azure-np-perf-test-done.png)
 
-## Тестирование нескольких URL-адресов
+## <a name="test-multiple-urls"></a>Test multiple URLs
 
-Вы также можете выполнить тесты производительности с использованием нескольких URL-адресов, представляющие сквозные сценарии, отправляя файлы веб-тестов Visual Studio. Создать файл веб-теста Visual Studio можно следующим образом:
+You can also run performance tests incorporating multiple URLs that represent an end-to-end user scenario by uploading a Visual Studio Web Test file. Some of the ways you can create a Visual Studio Web Test file are:
 
-* [Захватить трафик с помощью Fiddler и экспортировать его как файл веб-теста Visual Studio.](http://docs.telerik.com/fiddler/Save-And-Load-Traffic/Tasks/VSWebTest)
-* [Создать файл нагрузочного тестирования в Visual Studio.](https://www.visualstudio.com/docs/test/performance-testing/run-performance-tests-app-before-release)
+* [Capture traffic using Fiddler and export as a Visual Studio Web Test file](http://docs.telerik.com/fiddler/Save-And-Load-Traffic/Tasks/VSWebTest)
+* [Create a load test file in Visual Studio](https://www.visualstudio.com/docs/test/performance-testing/run-performance-tests-app-before-release)
 
-Чтобы отправить и запустить файл веб-теста Visual Studio:
+To upload and run a Visual Studio Web Test file:
  
-0. Выполните описанные выше действия, чтобы открыть колонку **Новый тест производительности**. В этой колонке выберите параметр "НАСТРОЙКА ТЕСТОВОГО ИСПОЛЬЗОВАНИЯ", чтобы открыть **одноименную колонку**.  
+0. Follow the steps above to open the **New performance test** blade.
+   In this blade, choose the CONFIGFURE TEST USING option to open the **Configure test using** blade.  
 
-    ![Открытие колонки "Настройка нагрузочного тестирования"](./media/app-service-web-app-performance-test/multiple-01-authoring-blade.png)
+    ![Opening the Configure load testing blade](./media/app-service-web-app-performance-test/multiple-01-authoring-blade.png)
 
-0. Убедитесь, что в поле "ТИП ТЕСТА" выбрано значение **Веб-тест Visual Studio**, и выберите файл архива HTTP. Чтобы открыть диалоговое окно выбора файла, щелкните значок папки.
+0. Check that the TEST TYPE is set to **Visual Studio Web Test** and select your HTTP Archive file.
+    Use the "folder" icon to open the file selector dialog.
 
-    ![Отправка файла веб-теста Visual Studio с несколькими URL-адресами](./media/app-service-web-app-performance-test/multiple-01-authoring-blade2.png)
+    ![Uploading a multiple URL Visual Studio Web Test file](./media/app-service-web-app-performance-test/multiple-01-authoring-blade2.png)
 
-    После отправки файла в разделе "СВЕДЕНИЯ ОБ URL-АДРЕСАХ" откроется список URL-адресов для тестирования.
+    After the file has been uploaded, you see the list of URLs to be tested in the URL DETAILS section.
  
-0. Укажите пользовательскую нагрузку и продолжительность теста, а затем нажмите кнопку **Выполнить тест**.
+0. Specify the user load and test duration, then choose **Run test**.
 
-    ![Выбор пользовательской нагрузки и длительности](./media/app-service-web-app-performance-test/multiple-01-authoring-blade3.png)
+    ![Selecting the user load and duration](./media/app-service-web-app-performance-test/multiple-01-authoring-blade3.png)
 
-    Результаты выполнения теста отобразятся на двух панелях. На панели слева в виде последовательности графиков будет представлена информация о производительности.
+    After the test has finished, you see the results in two panes. The left pane shows the performnace information as a series of charts.
 
-    ![Панель результатов производительности](./media/app-service-web-app-performance-test/multiple-01a-results.png)
+    ![The performance results pane](./media/app-service-web-app-performance-test/multiple-01a-results.png)
 
-    На панели справа появится список неудачных запросов с указанием типов ошибок и количества случаев их появления.
+    The right pane shows a list of failed requests, with the type of error and the number of times it occurred.
 
-    ![Панель ошибок запросов](./media/app-service-web-app-performance-test/multiple-01b-results.png)
+    ![The request failures pane](./media/app-service-web-app-performance-test/multiple-01b-results.png)
 
-0. Выполните тест еще раз, щелкнув значок **Повтор** в верхней части правой панели.
+0. Rerun the test by choosing the **Rerun** icon at the top of the right pane.
 
-    ![Повторное выполнение теста](./media/app-service-web-app-performance-test/multiple-rerun-test.png)
+    ![Rerunning the test](./media/app-service-web-app-performance-test/multiple-rerun-test.png)
 
-##  Вопросы и ответы
+##  <a name="q-&-a"></a>Q & A
 
-#### Вопрос. Существуют ли ограничения продолжительности теста? 
+#### <a name="q:-is-there-a-limit-on-how-long-i-can-run-a-test?"></a>Q: Is there a limit on how long I can run a test? 
 
-**Ответ**. Да, на портале Azure тест может длиться не дольше часа.
+**A**: Yes, you can run your test up to an hour in the Azure Portal.
 
-#### Вопрос. Сколько у меня есть времени на тестирование производительности? 
+#### <a name="q:-how-much-time-do-i-get-to-run-performance-tests?"></a>Q: How much time do I get to run performance tests? 
 
-**Ответ**. После выхода общедоступной предварительной версии каждая учетная запись Visual Studio Team Services ежемесячно будет получать 20 000 бесплатных минут виртуального пользователя (единиц VUM), которые можно расходовать на виртуальных пользователей. Единицы VUM — это количество виртуальных пользователей, умноженное на количество минут в тесте. Если вам нужно больше времени, вы можете купить больше минут и платить только за их фактическое использование.
+**A**: After public preview, you get 20,000 virtual user minutes (VUMs) free each month with your Visual Studio Team Services account. A VUM is the number of virtual users multipled by the number of minutes in your test. If your needs exceed the free limit, you can purchase more time and pay only for what you use.
 
-#### Вопрос. Где можно проверить количество использованных единиц VUM?
+#### <a name="q:-where-can-i-check-how-many-vums-i've-used-so-far?"></a>Q: Where can I check how many VUMs I've used so far?
 
-**Ответ**. Это можно сделать на портале Azure.
+**A**: You can check this amount in the Azure Portal.
 
-![Переход к учетной записи Team Services](./media/app-service-web-app-performance-test/azure-np-vso-accounts.png)
+![Go to your Team Services account](./media/app-service-web-app-performance-test/azure-np-vso-accounts.png)
 
-![Проверка использованных единиц VUM](./media/app-service-web-app-performance-test/azure-np-vso-accounts-vum-summary.png)
+![Check VUMs used](./media/app-service-web-app-performance-test/azure-np-vso-accounts-vum-summary.png)
 
-#### Вопрос. Что является параметром по умолчанию и повлияет ли он на уже существующие у меня тесты?
+#### <a name="q:-what-is-the-default-option-and-are-my-existing-tests-impacted?"></a>Q: What is the default option and are my existing tests impacted?
 
-**Ответ**. Для нагрузочных тестов производительности по умолчанию используется параметр ручного тестирования, как и до того, как на портал был добавлен параметр тестирования с применением нескольких URL-адресов. Существующие тесты продолжают использовать заданный URL-адрес и выполняются как и раньше.
+**A**: The default option for performance load tests is a manual test - the same as before the multiple URL test option was added to the portal.
+Your existing tests continue to use the configured URL and will work as before.
 
-#### Вопрос. Какие функции не поддерживаются файлом веб-теста Visual Studio?
+#### <a name="q:-what-features-not-supported-in-the-visual-studio-web-test-file?"></a>Q: What features not supported in the Visual Studio Web Test file?
 
-**Ответ**. В настоящее время эта функция не поддерживает подключаемые модули веб-тестов, источники данных и правила извлечения. Их необходимо удалить, изменив файл веб-теста. Мы надеемся добавить поддержку этих функций в будущих обновлениях.
+**A**: At present this feature does not support Web Test plug-ins, data sources, and extraction rules. You must edit your Web Test file to remove these. We hope to add support for these features in future updates.
 
-#### Вопрос. Поддерживаются ли другие форматы файлов веб-тестов?
+#### <a name="q:-does-it-support-any-other-web-test-file-formats?"></a>Q: Does it support any other Web Test file formats?
   
-**Ответ**. В настоящее время поддерживаются только файлы форматирования веб-тестов Visual Studio. Сообщите, если вам необходима поддержка других форматов файлов. Пишите нам по адресу [vsoloadtest@microsoft.com](mailto:vsoloadtest@microsoft.com).
+**A**: At present only Visual Studio Web Test format files are supported.
+We'd be pleased to hear from you if you need support for other file formats. Email us at [vsoloadtest@microsoft.com](mailto:vsoloadtest@microsoft.com).
 
-#### В. Какие еще возможности предоставляет учетная запись Visual Studio Team Services?
+#### <a name="q:-what-else-can-i-do-with-a-visual-studio-team-services-account?"></a>Q: What else can I do with a Visual Studio Team Services account?
 
-**Ответ**. Войти в свою учетную запись можно, перейдя по ссылке ```https://{accountname}.visualstudio.com```. С помощью своей учетной записи вы можете обмениваться кодом, компилировать сборки, тестировать ПО, отслеживать работу и распространять приложения — и все это в облаке, используя любые средства и языки. Узнайте больше о функциях и службах, которые упрощают взаимодействие внутри команды и позволяют создавать новые продукты, на веб-сайте [Visual Studio Team Services](https://www.visualstudio.com/products/what-is-visual-studio-online-vs).
+**A**: To find your new account, go to ```https://{accountname}.visualstudio.com```. Share your code, build, test, track work, and ship software – all in the cloud using any tool or language. Learn more about how [Visual Studio Team Services](https://www.visualstudio.com/products/what-is-visual-studio-online-vs) features and services help your team collaborate more easily and deploy continuously.
 
-## См. также
+## <a name="see-also"></a>See also
 
-* [Выполнение простых тестов производительности облачных решений](https://www.visualstudio.com/docs/test/performance-testing/getting-started/get-started-simple-cloud-load-test)
-* [Выполнение тестов производительности Apache Jmeter](https://www.visualstudio.com/docs/test/performance-testing/getting-started/get-started-jmeter-test)
-* [Выполнение и воспроизведение нагрузочных тестов в облаке](https://www.visualstudio.com/docs/test/performance-testing/getting-started/record-and-replay-cloud-load-tests)
-* [Тестирование производительности приложения в облаке](https://www.visualstudio.com/docs/test/performance-testing/getting-started/getting-started-with-performance-testing)
+* [Run simple cloud performance tests](https://www.visualstudio.com/docs/test/performance-testing/getting-started/get-started-simple-cloud-load-test)
+* [Run Apache Jmeter performance tests](https://www.visualstudio.com/docs/test/performance-testing/getting-started/get-started-jmeter-test)
+* [Record and replay cloud-based load tests](https://www.visualstudio.com/docs/test/performance-testing/getting-started/record-and-replay-cloud-load-tests)
+* [Performance test your app in the cloud](https://www.visualstudio.com/docs/test/performance-testing/getting-started/getting-started-with-performance-testing)
 
-<!---HONumber=AcomDC_0525_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

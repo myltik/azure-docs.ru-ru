@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Помощник по работе с базами данных SQL Azure" 
-   description="Помощник по работе с базами данных SQL Azure предоставляет рекомендации для существующих баз данных SQL, которые могут повысить производительность текущих запросов." 
+   pageTitle="Azure SQL Database Advisor" 
+   description="The Azure SQL Database Advisor provides recommendations for your existing SQL Databases that can improve current query performance." 
    services="sql-database" 
    documentationCenter="" 
    authors="stevestein" 
@@ -13,67 +13,75 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management" 
-   ms.date="06/23/2016"
+   ms.date="09/30/2016"
    ms.author="sstein"/>
 
-# Помощник по работе с базами данных SQL
+
+# <a name="sql-database-advisor"></a>SQL Database Advisor
 
 > [AZURE.SELECTOR]
-- [Обзор помощника по базам данных SQL](sql-database-advisor.md)
-- [Портал](sql-database-advisor-portal.md)
+- [SQL Database Advisor Overview](sql-database-advisor.md)
+- [Portal](sql-database-advisor-portal.md)
 
-База данных SQL Azure предоставляет рекомендации по созданию и удалению индексов, параметризации запросов и устранению ошибок схемы. Помощник по работе с базами данных SQL оценивает производительность, анализируя журнал использования базы данных SQL. После этого он предоставляет рекомендации, наиболее подходящие для типовых нагрузок в вашей базе данных.
+Azure SQL Database learns and adapts with your application and provides customized recommendations enabling you to maximize the performance of your SQL databases. The SQL Database Advisor provides recommendations for creating and dropping indexes, parameterizing queries, and fixing schema issues. The advisor assesses performance by analyzing your SQL database's usage history. The recommendations that are best suited for running your database’s typical workload are recommended. 
 
-Для серверов версии 12 (для серверов версии 11 рекомендации недоступны) доступны следующие рекомендации. В настоящее время можно настроить автоматическое применение рекомендаций по созданию и удалению индексов. Чтобы получить дополнительные сведения, ознакомьтесь с [автоматическим управлением индексами](sql-database-advisor-portal.md#enable-automatic-index-management).
+The following recommendations are available for V12 servers (recommendations are not available for V11 servers). Currently you can set the create and drop index recommendations to be applied automatically, see [Automatic index management](sql-database-advisor-portal.md#enable-automatic-index-management) for details.
 
-## Рекомендации по созданию индексов 
+## <a name="create-index-recommendations"></a>Create Index recommendations 
 
-Рекомендации по **созданию индексов** появляются, когда служба базы данных SQL обнаруживает отсутствующий индекс, создание которого приведет к повышению производительности рабочих нагрузок в ваших базах данных (только некластеризованные индексы).
+**Create Index** recommendations appear when the SQL Database service detects a missing index that if created, can benefit your databases workload (non-clustered indexes only).
 
-## Рекомендации по удалению индексов
+## <a name="drop-index-recommendations"></a>Drop Index recommendations
 
-Рекомендации по **удалению индексов** появляются, когда служба базы данных SQL обнаруживает повторяющиеся индексы (в настоящее время доступны только в предварительной версии и применяются только для повторяющихся индексов).
+**Drop Index** recommendations appear when the SQL Database service detects duplicate indexes (currently in preview and applies to duplicate indexes only).
 
-## Рекомендации по параметризации запросов
+## <a name="parameterize-queries-recommendations"></a>Parameterize queries recommendations
 
-Рекомендации по **параметризации запросов** появляются, когда служба базы данных SQL обнаруживает наличие одного или нескольких запросов, которые постоянно перекомпилируются, но в результате для них создается одинаковый план выполнения запроса. Это дает возможность применить принудительную параметризацию, которая позволит кэшировать планы запросов и повторно использовать их в будущем, повышая производительность и снижая использование ресурсов.
+**Parameterize queries** recommendations appear when you have one or more queries that are constantly being recompiled but end up with the same query execution plan. This condition opens up an opportunity to apply forced parameterization, which will allow query plans to be cached and reused in the future improving performance and reducing resource usage. 
 
-Каждый запрос, отправленный к SQL Server, сначала должен быть скомпилирован для формирования плана выполнения, который будет использоваться для выполнения этого запроса. Каждый создаваемый план добавляется в кэш планов и может быть использован повторно при последующем выполнении этого запроса, устраняя необходимость в дополнительной компиляции.
+Every query issued against SQL Server initially needs to be compiled to generate an execution plan. Each generated plan is added to the plan cache and subsequent executions of the same query can reuse this plan from the cache, eliminating the need for additional compilation. 
 
-Приложения, отправляющие запросы, которые содержат непараметризованные значения, могут привести к снижению производительности, так как для каждого такого запроса с различными значениями параметров план выполнения компилируется заново. Во многих случаях для одинаковых запросов с отличными значениями параметров создаются одинаковые планы выполнения, но эти планы по-прежнему добавляются в кэш планов по отдельности. Этих повторные операции компиляции используют ресурсы базы данных, увеличивают длительность запроса и переполняют кэш планов, что приводит к исключению планов из него. Такое поведение SQL Server можно изменить, задав параметр принудительной параметризации для базы данных.
+Applications that send queries, which include non-parameterized values, can lead to a performance overhead, where for every such query with different parameter values the execution plan is compiled again. In many cases the same queries with different parameter values generate the same execution plans, but these plans are still separately added to the plan cache. Recompiling execution plans use database resources, increase the query duration time and overflow the plan cache causing plans to be evicted from the cache. This behavior of SQL Server can be altered by setting the forced parameterization option on the database. 
 
-Чтобы было проще оценить влияние этой рекомендации, вам будет предоставлено сравнение фактического и предполагаемого потребления ресурсов ЦП (после применения рекомендации). Помимо экономии ресурсов ЦП, снизится длительность обработки запроса за счет времени, затрачиваемого на компиляцию. Кроме того, уменьшится дополнительная нагрузка на кэш планов, что позволит хранить в кэше большинство планов и повторно их использовать. Можно быстро и легко применить эту рекомендацию, щелкнув команду "Применить".
+To help you estimate the impact of this recommendation, you are provided with a comparison between the actual CPU usage and the projected CPU usage (as if the recommendation was applied). In addition to CPU savings, your query duration decreases for the time spent in compilation. There will also be much less overhead on plan cache, allowing majority of the plans to stay in cache and be reused. You can apply this recommendation quickly and easily by clicking on the **Apply** command. 
 
-Через нескольких минут после применения этой рекомендации для вашей базы будет принудительно включена параметризация и запущен мониторинга, который длится примерно 24 часов. По истечении этого периода вы сможете просмотреть отчет о проверке, содержащий информацию об использовании ресурсов ЦП для базы данных за 24 часа до и через 24 часа после применения рекомендации. Помощник по базам данных SQL имеет механизм безопасности, который автоматически отменит примененную рекомендацию в случае, если будет обнаружено снижение производительности.
+Once you apply this recommendation, it will enable forced parameterization within minutes on your database and it starts the monitoring process which approximately lasts for 24 hours. After this period, you will be able to see the validation report that shows CPU usage of your database 24 hours before and after the recommendation has been applied. SQL Database Advisor has a safety mechanism that automatically reverts the applied recommendation in case a performance regression has been detected.
 
-## Рекомендации по устранению ошибок схемы
+## <a name="fix-schema-issues-recommendations"></a>Fix schema issues recommendations
 
-Рекомендации по **устранению ошибок схемы** появляются, когда служба базы данных SQL обнаруживает аномальное количество относящихся к схеме ошибок SQL, которые возникают в вашей базе данных SQL Azure. Эта рекомендация обычно появляется, когда в базе данных возникает несколько связанных со схемой ошибок (недопустимое имя столбца, недопустимое имя объекта и т. д.) в течение часа.
+**Fix schema issues** recommendations appear when the SQL Database service notices an anomaly in the number of schema-related SQL errors happening on your Azure SQL Database. This recommendation typically appears when your database encounters multiple schema-related errors (invalid column name, invalid object name, etc.) within an hour.
 
-"Ошибки схемы" относятся к классу синтаксических ошибок в SQL Server, которые происходят, когда определение запроса SQL и определение схемы базы данных не согласованы (например, один из столбцов, ожидаемых запросом, может отсутствовать в целевой таблице, или наоборот).
+“Schema issues” are a class of syntax errors in SQL Server that happen when the definition of the SQL query and the definition of the database schema are not aligned. For example, one of the columns expected by the query may be missing in the target table, or vice versa. 
 
-Рекомендация по устранению ошибок схемы появляется, когда служба базы данных SQL обнаруживает аномальное количество относящихся к схеме ошибок SQL, которые возникают в базе данных SQL Azure. В следующей таблице показаны ошибки, которые относятся к схеме.
+“Fix schema issue” recommendation appears when Azure SQL Database service notices an anomaly in the number of schema-related SQL errors happening on your Azure SQL Database. The following table shows the errors that are related to schema issues:
 
-|Код ошибки SQL|Сообщение|
+|SQL Error Code|Message|
 |--------------|-------|
-|201|Процедура или функция "*" ожидает параметр "*", который не был указан.|
-|207|Недопустимое имя столбца "*".|
-|208|Недопустимое имя объекта "*". |
-|213|Имя столбца или число предоставленных значений не соответствует определению таблицы. |
-|2812|Не удалось найти хранимую процедуру "*". |
-|8144|Для процедуры или функции * указано слишком много аргументов. |
+|201|Procedure or function '*' expects parameter '*', which was not supplied.|
+|207|Invalid column name '*'.|
+|208|Invalid object name '*'. |
+|213|Column name or number of supplied values does not match table definition. |
+|2812|Could not find stored procedure '*'. |
+|8144|Procedure or function * has too many arguments specified. |
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Next steps
 
-Отслеживайте рекомендации и продолжайте применять их для повышения производительности. Рабочие нагрузки базы данных являются динамическими и меняются непрерывно. Помощник по работе с базами данных SQL продолжит отслеживать работу и давать рекомендации, которые могут повысить производительность базы данных.
+Monitor your recommendations and continue to apply them to refine performance. Database workloads are dynamic and change continuously. SQL Database advisor continues to monitor and provide recommendations that can potentially improve your database's performance. 
 
- - Ознакомьтесь с разделом [Помощник по работе с базами данных SQL](sql-database-advisor-portal.md), чтобы узнать, как использовать помощник по базам данных SQL на портале Azure.
- - Ознакомьтесь с разделом [Анализ производительности запросов базы данных Azure SQL](sql-database-query-performance.md), чтобы узнать о том, как просмотреть влияние на производительность основных запросов.
+ - See [SQL Database Advisor in the Azure portal](sql-database-advisor-portal.md) for steps on how to use SQL Database Advisor in the Azure portal.
+ - See [Query Performance Insights](sql-database-query-performance.md) to learn about and view the performance impact of your top queries.
 
-## Дополнительные ресурсы
+## <a name="additional-resources"></a>Additional resources
 
-- [Хранилище запросов](https://msdn.microsoft.com/library/dn817826.aspx)
+- [Query Store](https://msdn.microsoft.com/library/dn817826.aspx)
 - [CREATE INDEX](https://msdn.microsoft.com/library/ms188783.aspx)
-- [Контроль доступа на основе ролей](../active-directory/role-based-access-control-configure.md)
+- [Role-based access control](../active-directory/role-based-access-control-configure.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+
+
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

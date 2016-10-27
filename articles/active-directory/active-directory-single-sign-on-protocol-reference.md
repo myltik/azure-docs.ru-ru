@@ -1,22 +1,23 @@
 <properties
-	pageTitle="Протокол SAML единого входа в Azure | Microsoft Azure"
-	description="В этой статье описывается протокол единого входа SAML в Azure Active Directory"
-	services="active-directory"
-	documentationCenter=".net"
-	authors="priyamohanram"
-	manager="mbaldwin"
-	editor=""/>
+    pageTitle="Протокол SAML единого входа в Azure | Microsoft Azure"
+    description="В этой статье описывается протокол единого входа SAML в Azure Active Directory"
+    services="active-directory"
+    documentationCenter=".net"
+    authors="priyamohanram"
+    manager="mbaldwin"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/28/2016"
-	ms.author="priyamo"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/03/2016"
+    ms.author="priyamo"/>
 
-# Протокол единого входа SAML
+
+# <a name="single-sign-on-saml-protocol"></a>Протокол единого входа SAML
 
 В этой статье рассматриваются запросы и ответы аутентификации SAML 2.0, которые поддерживаются Azure Active Directory (Azure AD) для единого входа.
 
@@ -24,7 +25,7 @@
 
 ![Рабочий процесс единого входа](media/active-directory-single-sign-on-protocol-reference/active-directory-saml-single-sign-on-workflow.png)
 
-## AuthnRequest
+## <a name="authnrequest"></a>AuthnRequest
 
 Чтобы запросить проверку подлинности пользователя, облачные службы отправляют элемент `AuthnRequest` в Azure AD. Пример `AuthnRequest` SAML 2.0 может выглядеть так:
 
@@ -48,23 +49,23 @@ xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
 | ForceAuthn | необязательный | Если указан, то у него должно быть значение false. Любое другое значение приводит к возникновению ошибки.|
 | IsPassive | необязательный | Если указан, то у него должно быть значение false. Любое другое значение приводит к возникновению ошибки. |  
 
-Все остальные атрибуты `AuthnRequest`, включая Consent, Destination, AssertionConsumerServiceIndex, AttributeConsumerServiceIndex и ProviderName, **игнорируются**.
+Все остальные атрибуты `AuthnRequest` , включая Consent, Destination, AssertionConsumerServiceIndex, AttributeConsumerServiceIndex и ProviderName, **игнорируются**.
 
 Azure AD также игнорирует элемент `Conditions` в `AuthnRequest`.
 
-### Издатель
+### <a name="issuer"></a>Издатель
 
-Элемент `Issuer` в `AuthnRequest` должен точно соответствовать одному из имен в списке **ServicePrincipalNames** для облачной службы в Azure AD. Обычно здесь передается **URI идентификатора приложения**, указанный во время регистрации приложения.
+Элемент `Issuer` в `AuthnRequest` должен точно соответствовать одному из имен в списке **ServicePrincipalNames** для облачной службы в Azure AD. Обычно здесь передается **URI идентификатора приложения** , указанный во время регистрации приложения.
 
-Фрагмент примера SAML, в котором содержится элемент `Issuer`, выглядит так:
+Фрагмент примера SAML, в котором содержится элемент `Issuer` , выглядит так:
 
 ```
 <Issuer xmlns="urn:oasis:names:tc:SAML:2.0:assertion">https://www.contoso.com</Issuer>
 ```
 
-### NameIDPolicy
+### <a name="nameidpolicy"></a>NameIDPolicy
 
-Этот элемент запрашивает определенный формат идентификатора имени в ответе и является необязательным в элементах `AuthnRequest`, отправленных в Azure AD.
+Этот элемент запрашивает определенный формат идентификатора имени в ответе и является необязательным в элементах `AuthnRequest` , отправленных в Azure AD.
 
 Пример элемента `NameIdPolicy` выглядит так:
 
@@ -74,31 +75,31 @@ Azure AD также игнорирует элемент `Conditions` в `AuthnRe
 
 Если элемент `NameIDPolicy` указан, можно включить его необязательный атрибут `Format`. У атрибута `Format` может быть только одно из следующих значений, так как любое другое значение приводит к ошибке.
 
--  `urn:oasis:names:tc:SAML:2.0:nameid-format:persistent` — Azure Active Directory выдает утверждение NameID в качестве парного идентификатора.
-- `urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress` — Azure Active Directory выдает утверждение NameID в формате адреса электронной почты.
-- `urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified` — это значение позволяет Azure Active Directory выбирать формат утверждений. Azure Active Directory выдает NameID в качестве парного идентификатора.
+-  `urn:oasis:names:tc:SAML:2.0:nameid-format:persistent`— Azure Active Directory выдает утверждение NameID в качестве парного идентификатора.
+- `urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress`— Azure Active Directory выдает утверждение NameID в формате адреса электронной почты.
+- `urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified`— это значение позволяет Azure Active Directory выбирать формат утверждений. Azure Active Directory выдает NameID в качестве парного идентификатора.
 
-Не включайте атрибут `SPNameQualifer`. Azure AD игнорирует атрибут `AllowCreate`.
+Не включайте атрибут `SPNameQualifer` . Azure AD игнорирует атрибут `AllowCreate` .
 
-### RequestAuthnContext
+### <a name="requestauthncontext"></a>RequestAuthnContext
 
-Элемент `RequestedAuthnContext` указывает нужные методы проверки подлинности. Он необязателен в элементах `AuthnRequest`, отправленных в Azure AD. Azure AD поддерживает только одно значение `AuthnContextClassRef` — `urn:oasis:names:tc:SAML:2.0:ac:classes:Password`.
+Элемент `RequestedAuthnContext` указывает нужные методы проверки подлинности. Он необязателен в элементах `AuthnRequest` , отправленных в Azure AD. Azure AD поддерживает только одно значение `AuthnContextClassRef` — `urn:oasis:names:tc:SAML:2.0:ac:classes:Password`.
 
-### Scoping
+### <a name="scoping"></a>Scoping
 
 Элемент `Scoping`, который включает список поставщиков удостоверений, необязателен в элементах `AuthnRequest`, отправленных в Azure AD.
 
 Если он указан, не включайте атрибут `ProxyCount`, а также элемент `IDPListOption` или `RequesterID`, так как они не поддерживаются.
 
-### Подпись
+### <a name="signature"></a>Подпись
 
 Не включайте элемент `Signature` в элементы `AuthnRequest`, так как Azure AD не поддерживает подписанные запросы проверки подлинности.
 
-### Субъект
+### <a name="subject"></a>Субъект
 
 Azure AD игнорирует элемент `Subject` элементов `AuthnRequest`.
 
-## Ответ
+## <a name="response"></a>Ответ
 
 После успешного выполнения запрошенного входа Azure AD отправляет ответ в облачную службу. Пример ответа на успешную попытку входа выглядит аналогично следующему:
 
@@ -145,16 +146,16 @@ Azure AD игнорирует элемент `Subject` элементов `Authn
 </samlp:Response>
 ```
 
-### Ответ
+### <a name="response"></a>Ответ
 
 Элемент `Response` включает результат запроса на авторизацию. Azure AD устанавливает значения `ID`, `Version` и `IssueInstant` для элемента `Response`. Он также задает следующие атрибуты:
 
 - `Destination`. После успешного входа для этого атрибута задается значение `RedirectUri` поставщика услуг (облачной службы).
 - `InResponseTo`. Для этого атрибута задается значение `ID` элемента `AuthnRequest`, инициировавшего ответ.
 
-### Издатель
+### <a name="issuer"></a>Издатель
 
-Azure AD устанавливает элементу `Issuer` значение `https://login.microsoftonline.com/<TenantIDGUID>/`, где <TenantIDGUID> — это идентификатор клиента Azure AD.
+Azure AD устанавливает для элемента `Issuer` значение `https://login.microsoftonline.com/<TenantIDGUID>/`, где <TenantIDGUID> — это идентификатор клиента Azure AD.
 
 Пример ответа с элементом Issuer может выглядеть, к примеру, следующим образом:
 
@@ -162,9 +163,9 @@ Azure AD устанавливает элементу `Issuer` значение `
 <Issuer xmlns="urn:oasis:names:tc:SAML:2.0:assertion"> https://login.microsoftonline.com/82869000-6ad1-48f0-8171-272ed18796e9/</Issuer>
 ```
 
-### Состояние
+### <a name="status"></a>Состояние
 
-Элемент `Status` передает сведения об успешной или неудачной попытке входа. Он включает элемент `StatusCode`, содержащий код или набор блоков вложенного кода (представляет состояние запроса). Он также включает элемент `StatusMessage`, содержащий настраиваемые сообщения об ошибках, создаваемые во время входа.
+Элемент `Status` передает сведения об успешной или неудачной попытке входа. Он включает элемент `StatusCode` , содержащий код или набор блоков вложенного кода (представляет состояние запроса). Он также включает элемент `StatusMessage` , содержащий настраиваемые сообщения об ошибках, создаваемые во время входа.
 
 <!-- TODO: Add a authentication protocol error reference -->
 
@@ -183,19 +184,19 @@ Timestamp: 2013-03-18 08:49:24Z</samlp:StatusMessage>
   </samlp:Status>
 ```
 
-### Assertion
+### <a name="assertion"></a>Assertion
 
 В дополнение к `ID`, `IssueInstant` и `Version` Azure AD устанавливает следующие элементы в элементе `Assertion` ответа.
 
-#### Издатель
+#### <a name="issuer"></a>Издатель
 
-Ему присваивается значение `https://sts.windows.net/<TenantIDGUID>/`, где <TenantIDGUID> — это идентификатор клиента Azure AD.
+Ему задается значение `https://sts.windows.net/<TenantIDGUID>/`, где <TenantIDGUID> — это идентификатор клиента Azure AD.
 
 ```
 <Issuer>https://login.microsoftonline.com/82869000-6ad1-48f0-8171-272ed18796e9/</Issuer>
 ```
 
-#### Подпись
+#### <a name="signature"></a>Подпись
 
 Azure AD подписывает утверждение в ответ на успешный вход. В элементе `Signature` содержится цифровая подпись, которую может использовать облачная служба для проверки подлинности источника, чтобы проверять целостность утверждения.
 
@@ -207,7 +208,7 @@ Azure AD подписывает утверждение в ответ на усп
     </ds:Signature>
 ```
 
-#### Субъект
+#### <a name="subject"></a>Субъект
 
 Указывает субъект, который является субъектом операторов в утверждении. Он содержит элемент `NameID`, который представляет пользователя, прошедшего аутентификацию. Значение `NameID` — целевой идентификатор, направляемый только поставщику услуг, который является аудиторией маркера. Оно носит постоянный характер. Это значение можно отменить, но нельзя переназначить. Оно также непрозрачно, так как не раскрывает никаких сведений о пользователе и его нельзя использовать в качестве идентификатора для запросов на атрибуты.
 
@@ -222,7 +223,7 @@ Azure AD подписывает утверждение в ответ на усп
 </Subject>
 ```
 
-#### Условия
+#### <a name="conditions"></a>Условия
 
 Этот элемент указывает условия, определяющие приемлемое использование утверждений SAML.
 
@@ -239,7 +240,7 @@ Azure AD подписывает утверждение в ответ на усп
 - Значение атрибута `NotBefore` равно значению атрибута `IssueInstant` в элементе `Assertion` или немного больше (менее чем на секунду). Azure AD не учитывает разницу между своим временем и временем облачной службы (поставщика услуг), а также не добавляет ничего к этому времени.
 - Значение атрибута `NotOnOrAfter` на 70 минут больше, чем значение атрибута `NotBefore`.
 
-#### Аудитория
+#### <a name="audience"></a>Аудитория
 
 Он содержит код URI, который определяет предполагаемую аудиторию. Azure AD присваивает этому элементу значение элемента `Issuer` из `AuthnRequest`, инициировавшего вход. Чтобы оценить значение `Audience`, используйте значение `App ID URI`, указанное при регистрации приложения.
 
@@ -251,9 +252,9 @@ Azure AD подписывает утверждение в ответ на усп
 
 Как и значение `Issuer`, значение `Audience` должно точно соответствовать одному из имен субъектов-служб, представляющих облачную службу в Azure AD. Но если значения элемента `Issuer` и URI отличаются, значение `Audience` в ответе — это `Issuer` с префиксом `spn:`.
 
-#### AttributeStatement
+#### <a name="attributestatement"></a>AttributeStatement
 
-В этом элементе содержатся утверждения о субъекте или пользователе. В следующем фрагменте приведен пример элемента `AttributeStatement`. Многоточие указывает, что в элементе могут содержаться несколько атрибутов и их значений.
+В этом элементе содержатся утверждения о субъекте или пользователе. В следующем фрагменте приведен пример элемента `AttributeStatement` . Многоточие указывает, что в элементе могут содержаться несколько атрибутов и их значений.
 
 ```
 <AttributeStatement>
@@ -265,12 +266,12 @@ Azure AD подписывает утверждение в ответ на усп
       </Attribute>
       ...
 </AttributeStatement>
-```		
+```     
 
-- **Утверждение Name**. Значение атрибута `Name` (`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`) — имя субъекта-пользователя, прошедшего аутентификацию, например `testuser@managedtenant.com`.
-- **Утверждение ObjectIdentifier**. Значение атрибута `ObjectIdentifier` (`http://schemas.microsoft.com/identity/claims/objectidentifier`) — это `ObjectId` объекта каталога, который представляет пользователя, прошедшего аутентификацию в Azure AD. Значение `ObjectId` неизменяемое, глобально уникальное и повторно использует безопасный идентификатор пользователя, прошедшего аутентификацию.
+- **Утверждение Name**. Значение атрибута `Name` (`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`) — имя участника-пользователя, прошедшего аутентификацию, например `testuser@managedtenant.com`.
+- **Утверждение ObjectIdentifier**. Значение `ObjectIdentifier` атрибута (`http://schemas.microsoft.com/identity/claims/objectidentifier`) — это `ObjectId` объекта каталога, который представляет пользователя, прошедшего аутентификацию в Azure AD. Значение `ObjectId` неизменяемое, глобально уникальное и повторно использует безопасный идентификатор пользователя, прошедшего аутентификацию.
 
-#### AuthnStatement
+#### <a name="authnstatement"></a>AuthnStatement
 
 Этот элемент служит утверждением того, что проверка подлинности субъекта утверждения выполнена определенным средством в определенное время.
 
@@ -285,4 +286,8 @@ Azure AD подписывает утверждение в ответ на усп
 </AuthnStatement>
 ```
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,12 +1,12 @@
 <properties
-	pageTitle="Соединитель webhook приложения логики | Microsoft Azure"
-	description="Обзор действия и триггеров webhook для выполнения таких операций, как фильтрация массива."
-	services=""
-	documentationCenter="" 
-	authors="jeffhollan"
-	manager="erikre"
-	editor=""
-	tags="connectors"/>
+    pageTitle="Logic App webhook connector | Microsoft Azure"
+    description="Overview of webhook action and triggers for performing actions like Filter Array."
+    services=""
+    documentationCenter="" 
+    authors="jeffhollan"
+    manager="erikre"
+    editor=""
+    tags="connectors"/>
 
 <tags
    ms.service="logic-apps"
@@ -17,146 +17,153 @@
    ms.date="07/21/2016"
    ms.author="jehollan"/>
 
-# Приступая к работе с соединителем webhook
 
-С помощью действия и триггера веб-перехватчика (webhook) вы можете активировать, приостанавливать и возобновлять потоки, осуществляя следующие процессы.
+# <a name="get-started-with-the-webhook-connector"></a>Get started with the webhook connector
 
-- Триггер из [концентратора событий Azure при получении элемента](https://github.com/logicappsio/EventHubAPI).
-- Ожидание утверждения, прежде чем продолжить рабочий процесс.
+With the webhook action and trigger you can trigger, pause, and resume flows to accomplish:
 
-Сведения о создании интерфейса API с поддержкой подписки webhook можно найти [в этой статье, посвященной созданию соединителей для приложений логики](../app-service-logic/app-service-logic-create-api-app.md).
+- Trigger from an [Azure Event Hub as soon as an item](https://github.com/logicappsio/EventHubAPI) is received
+- Wait for an approval before continuing a workflow
 
----
-
-## Использование триггера webhook
-
-Триггер — это событие, которое можно использовать для запуска рабочего процесса, определенного в приложении логики. Дополнительные сведения о триггерах см. [здесь](connectors-overview.md). Триггер webhook особенно полезен, так как он не полагается на опрос новых элементов. Приложение логики срабатывает как [триггер запроса](./connectors-native-reqres.md) — в тот момент, когда происходит событие. Это достигается путем регистрации *URL-адреса обратного вызова* в службе, которая может использоваться для запуска приложения логики, когда это необходимо.
-
-Ниже приведен пример последовательности настройки триггера HTTP в конструкторе приложений логики. Предполагается, что вы уже выполнили развертывание или обращаетесь к API, который соответствует [шаблону подписки и отмены подписки webhook, используемому в приложениях логики](../app-service-logic/app-service-logic-create-api-app.md#webhook-triggers). Вызов подписки осуществляется при каждом сохранении приложения логики с новым объектом webhook или при переходе из отключенного состояния во включенное. Вызов отмены подписки осуществляется при каждом удалении и сохранении триггера webhook или при переходе из включенного состояния в отключенное.
-
-1. Сначала добавьте триггер **HTTP Webhook** в приложении логики.
-1. Заполните параметры для вызовов подписки и отмены подписки webhook.
-	- Шаблон совпадает по формату с [действием HTTP](./connectors-native-http.md).
-
-	![Триггер HTTP](./media/connectors-native-webhook/using-trigger.png)
-
-1. Добавьте хотя бы одно действие.
-1. Нажмите кнопку "Сохранить", чтобы опубликовать приложение логики. Это вызовет конечную точку подписки с URL-адресом обратного вызова, необходимым для запуска этого приложения логики.
-1. Каждый раз, когда служба выполняет запрос `HTTP POST` на URL-адрес обратного вызова, срабатывает приложение логики (и включают все данные, передаваемые в запросе).
-
-## Использование действия webhook
-	
-Действие — это операция, выполняемая рабочим процессом, определенным в приложении логики. [Дополнительные сведения о действиях см. здесь.](connectors-overview.md) Действие webhook удобно в использовании, так как оно регистрирует в службе *URL-адрес обратного вызова* и дожидается вызова URL-адреса, прежде чем возобновить операцию. ["Отправка сообщения электронной почты с утверждением"](./connectors-create-api-office365-outlook.md) — это пример соединителя, который соответствует данному шаблону. С помощью действия webhook этот шаблон можно расширить в любую службу. Предполагается, что вы уже выполнили развертывание или обращаетесь к API, который соответствует [шаблону подписки и отмены подписки webhook, используемому в приложениях логики](../app-service-logic/app-service-logic-create-api-app.md#webhook-actions). Вызов подписки осуществляется каждый раз, когда приложение логики выполняет действие webhook. Вызов отмены подписки осуществляется каждый раз, когда выполнение отменяется из-за ожидания ответа, или до истечения времени ожидания выполнения приложения логики.
-
-Чтобы добавить действие webhook, сделайте следующее.
-
-1. Нажмите кнопку **Новый шаг**.
-1. Выберите **Добавить действие**.
-1. В поле поиска действий введите "webhook", чтобы в списке отобразилось действие **HTTP Webhook**.
-
-	![Выбор действия запроса](./media/connectors-native-webhook/using-action-1.png)
-
-1. Заполните параметры для вызовов подписки и отмены подписки webhook.
-	- Шаблон совпадает по формату с [действием HTTP](./connectors-native-http.md).
-
-	![Завершение действия запроса](./media/connectors-native-webhook/using-action-2.png)
-
-	- В среде выполнения приложение логики вызовет конечную точку подписки, когда дойдет до этого шага.
-
-1. Щелкните "Сохранить" в левом верхнем углу панели инструментов. После этого приложение логики будет сохранено и опубликовано (активировано).
+Information on creating an API that supports a webhook subscribe can be found [in this article on creating Logic App connectors](../app-service-logic/app-service-logic-create-api-app.md).
 
 ---
 
-## Технические сведения
+## <a name="use-the-webhook-trigger"></a>Use the webhook trigger
 
-Ниже приведены подробные сведения о триггере и действии, которые поддерживает соединитель webhook.
+A trigger is an event that can be used to start the workflow defined in a Logic app. [Learn more about triggers](connectors-overview.md).  A webhook trigger is especially useful as it doesn't rely on polling for new items - like the [request trigger](./connectors-native-reqres.md) the logic app will fire the instant an event occurs.  It does this by registering a *callback URL* to a service which can be used to fire the logic app as needed.
 
-## Триггеры webhook
+Here’s an example sequence of how to setup a HTTP trigger in the logic app designer.  This assumes you have already deployed or are accessing an API that follows [the webhook subscribe and unsubscribe pattern used in Logic Apps](../app-service-logic/app-service-logic-create-api-app.md#webhook-triggers).  The subscribe call is made whenever a logic app is saved with a new webhook, or switched from disabled to enabled.  The unsubscribe call is made whenever a logic app webhook trigger is removed and saved, or switched from enabled to disabled.
 
-Триггер — это операция, запускающая рабочий процесс. [Дополнительные сведения о триггерах см. здесь.](connectors-overview.md) У этого соединителя 1 триггер.
+1. Add the **HTTP Webhook** trigger as the first step in a logic app
+1. Fill in the parameters for the webhook subscribe and unsubscribe calls
+    - This follow the same pattern as the [HTTP action](./connectors-native-http.md) format
 
-|Действие|Описание|
+    ![HTTP Trigger](./media/connectors-native-webhook/using-trigger.png)
+
+1. Add at least one action
+1. Click save to publish the logic app - this will call the subscribe endpoint with the callback URL needed to trigger this logic app
+1. Whenever the service makes an `HTTP POST` to the callback URL, the logic app will fire (and include any data passed in the request)
+
+## <a name="use-the-webhook-action"></a>Use the webhook action
+    
+An action is an operation carried out by the workflow defined in a logic app. [Learn more about actions.](connectors-overview.md)  A webhook action is especially useful as it will register a *callback URL* with a service and wait until the URL is called before resuming.  The ["Send Approval Email"](./connectors-create-api-office365-outlook.md) is an example of a connector that follows this pattern.  You can extend this pattern into any service through the webhook action.  This assumes you have already deployed or are accessing an API that follows [the webhook subscribe and unsubscribe pattern used in Logic Apps](../app-service-logic/app-service-logic-create-api-app.md#webhook-actions).  The subscribe call is made whenever a logic app executes the webhook action.  The unsubscribe call is made whenever a run is cancelled while awaiting a response, or before the logic app run times out.
+
+To add a webhook action:
+
+1. Select the **New Step** button
+1. Choose **Add an action**
+1. In the action search box, type "webhook" to list the **HTTP Webhook** action
+
+    ![Select query action](./media/connectors-native-webhook/using-action-1.png)
+
+1. Fill in the parameters for the webhook subscribe and unsubscribe calls
+    - This follow the same pattern as the [HTTP action](./connectors-native-http.md) format
+
+    ![Complete query action](./media/connectors-native-webhook/using-action-2.png)
+
+    - At runtime the logic app will call the subscribe endpoint once it reaches the step
+
+1. Click save at the top left corner of the toolbar, and your logic app will both save and publish (activate)
+
+---
+
+## <a name="technical-details"></a>Technical details
+
+Below are the details for the trigger and action webhook supports.
+
+## <a name="webhook-triggers"></a>Webhook triggers
+
+A trigger is an operation to start a workflow. [Learn more about triggers.](connectors-overview.md) This connector has 1 trigger.
+
+|Action|Description|
 |---|---|
-|HTTP Webhook|Регистрация URL-адреса обратного вызова в службе, которая может вызывать URL-адрес для запуска приложения логики, когда это необходимо.|
+|HTTP Webhook|Subscribe a callback URL to a service that can call the URL to fire logic app as needed.|
 
-### Сведения о триггере
+### <a name="trigger-details"></a>Trigger details
 
-Соединитель webhook включает в себя 1 возможный триггер. Ниже приведены сведения о действии, его обязательных и необязательных полях ввода, а также соответствующие выходные данные, связанные с его использованием.
+The webhook connector comes with 1 possible trigger. Below is the information on the action, its required and optional input fields, and the corresponding output details associated with its usage.
 
-#### HTTP Webhook
-Регистрация URL-адреса обратного вызова в службе, которая может вызывать URL-адрес для запуска приложения логики, когда это необходимо. Знак "*" обозначает обязательное поле.
+#### <a name="http-webhook"></a>HTTP Webhook
+Subscribe a callback URL to a service that can call the URL to fire logic app as needed.
+An * means required field.
 
-|Отображаемое имя|Имя свойства|Описание|
+|Display Name|Property Name|Description|
 |---|---|---|
-|Подписка: метод*|метод|Метод HTTP, используемый для запроса подписки.|
-|Подписка: URI*|uri|URI HTTP, используемый для запроса подписки.|
-|Отмена подписки: метод*|метод|Метод HTTP, используемый для запроса отмены подписки.|
-|Отмена подписки: URI*|uri|URI HTTP, используемый для запроса отмены подписки.|
-|Подписка: текст|текст|Основной текст HTTP-запроса подписки.|
-|Подписка: заголовки|headers|Заголовки HTTP-запроса подписки.|
-|Подписка: проверка подлинности|authencation|Аутентификация HTTP, используемая для подписки. Подробные сведения см. в [статье, посвященной соединителю HTTP](./connectors-native-http.md#authenication).|
-|Отмена подписки: текст|текст|Основной текст HTTP-запроса отмены подписки.|
-|Отмена подписки: заголовки|headers|Заголовки HTTP-запроса отмены подписки.|
-|Отмена подписки: проверка подлинности|authentication|Аутентификация HTTP, используемая для отмены подписки. Подробные сведения см. в [статье, посвященной соединителю HTTP](./connectors-native-http.md#authenication).|
+|Subscribe Method*|method|HTTP Method to use for subscribe request|
+|Subscribe URI*|uri|HTTP URI to use for subscribe request|
+|Unsubscribe Method*|method|HTTP method to use for unsubscribe request|
+|Unsubscribe URI*|uri|HTTP URI to use for unsubscribe request|
+|Subscribe Body|body|HTTP request body for subscribe|
+|Subscribe Headers|headers|HTTP request headers for subscribe|
+|Subscribe Authentication|authencation|HTTP authentication to use for subscribe. [See HTTP connector](./connectors-native-http.md#authenication) for details|
+|Unsubscribe Body|body|HTTP request body for unsubscribe|
+|Unsubscribe Headers|headers|HTTP request headers for unsubscribe|
+|Unsubscribe Authentication|authentication|HTTP authentication to use for unsubscribe. [See HTTP connector](./connectors-native-http.md#authenication) for details|
 <br>
 
-**Сведения о выходных данных**
+**Output Details**
 
-Запрос webhook
+Webhook request
 
-|Имя свойства|Тип данных|Описание|
+|Property Name|Data Type|Description|
 |---|---|---|
-|Заголовки|object|Заголовки запроса webhook.|
-|Текст|object|Объект запроса webhook.|
-|Код состояния|int|Код состояния запроса webhook.|
+|Headers|object|Webhook request headers|
+|Body|object|Webhook request object|
+|Status Code|int|Webhook request status code|
 
-## Действия webhook
+## <a name="webhook-actions"></a>Webhook actions
 
-Действие — это операция, выполняемая рабочим процессом, определенным в приложении логики. [Дополнительные сведения о действиях см. здесь.](connectors-overview.md) У соединителя 1 возможное действие.
+An action is an operation carried out by the workflow defined in a logic app. [Learn more about actions.](connectors-overview.md) The connector has 1 possible action. 
 
-|Действие|Описание|
+|Action|Description|
 |---|---|
-|HTTP Webhook|Регистрация URL-адреса обратного вызова в службе, которая может вызывать URL-адрес для возобновления шага рабочего процесса, когда это необходимо.|
+|HTTP Webhook|Subscribe a callback URL to a service that can call the URL to resume a workflow step as needed.|
 
-### Сведения о действиях
+### <a name="action-details"></a>Action details
 
-Соединитель webhook включает в себя 1 возможное действие. Ниже приведены сведения о действии, его обязательных и необязательных полях ввода, а также соответствующие выходные данные, связанные с его использованием.
+The webhook connector comes with 1 possible action. Below, there is information on the action, its required and optional input fields, and the corresponding output details associated with its usage.
 
-#### HTTP Webhook
-Регистрация URL-адреса обратного вызова в службе, которая может вызывать URL-адрес для возобновления шага рабочего процесса, когда это необходимо. Знак "*" обозначает обязательное поле.
+#### <a name="http-webhook"></a>HTTP Webhook
+Subscribe a callback URL to a service that can call the URL to resume a workflow step as needed.
+An * means required field.
 
-|Отображаемое имя|Имя свойства|Описание|
+|Display Name|Property Name|Description|
 |---|---|---|
-|Подписка: метод*|метод|Метод HTTP, используемый для запроса подписки.|
-|Подписка: URI*|uri|URI HTTP, используемый для запроса подписки.|
-|Отмена подписки: метод*|метод|Метод HTTP, используемый для запроса отмены подписки.|
-|Отмена подписки: URI*|uri|URI HTTP, используемый для запроса отмены подписки.|
-|Подписка: текст|текст|Основной текст HTTP-запроса подписки.|
-|Подписка: заголовки|headers|Заголовки HTTP-запроса подписки.|
-|Подписка: проверка подлинности|authencation|Аутентификация HTTP, используемая для подписки. Подробные сведения см. в [статье, посвященной соединителю HTTP](./connectors-native-http.md#authentication).|
-|Отмена подписки: текст|текст|Основной текст HTTP-запроса отмены подписки.|
-|Отмена подписки: заголовки|headers|Заголовки HTTP-запроса отмены подписки.|
-|Отмена подписки: проверка подлинности|authentication|Аутентификация HTTP, используемая для отмены подписки. Подробные сведения см. в [статье, посвященной соединителю HTTP](./connectors-native-http.md#authentication).|
+|Subscribe Method*|method|HTTP Method to use for subscribe request|
+|Subscribe URI*|uri|HTTP URI to use for subscribe request|
+|Unsubscribe Method*|method|HTTP method to use for unsubscribe request|
+|Unsubscribe URI*|uri|HTTP URI to use for unsubscribe request|
+|Subscribe Body|body|HTTP request body for subscribe|
+|Subscribe Headers|headers|HTTP request headers for subscribe|
+|Subscribe Authentication|authencation|HTTP authentication to use for subscribe. [See HTTP connector](./connectors-native-http.md#authentication) for details|
+|Unsubscribe Body|body|HTTP request body for unsubscribe|
+|Unsubscribe Headers|headers|HTTP request headers for unsubscribe|
+|Unsubscribe Authentication|authentication|HTTP authentication to use for unsubscribe. [See HTTP connector](./connectors-native-http.md#authentication) for details|
 <br>
 
-**Сведения о выходных данных**
+**Output Details**
 
-Запрос webhook
+Webhook request
 
-|Имя свойства|Тип данных|Описание|
+|Property Name|Data Type|Description|
 |---|---|---|
-|Заголовки|object|Заголовки запроса webhook.|
-|Текст|object|Объект запроса webhook.|
-|Код состояния|int|Код состояния запроса webhook.|
+|Headers|object|Webhook request headers|
+|Body|object|Webhook request object|
+|Status Code|int|Webhook request status code|
 
 ---
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Next steps
 
-Ниже приведены сведения о том, как начать использовать приложения логики и ресурсы нашего сообщества.
+Below are details on how to move forward with logic apps and our community.
 
-## Создайте приложение логики
+## <a name="create-a-logic-app"></a>Create a logic app
 
-Опробуйте платформу и [создайте приложение логики](../app-service-logic/app-service-logic-create-a-logic-app.md) прямо сейчас. Чтобы узнать, какие еще соединители доступны в приложениях логики, ознакомьтесь со [списком интерфейсов API](apis-list.md).
+Try out the platform and [create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md) now. You can explore the other available connectors in logic apps by looking at our [APIs list](apis-list.md).
 
-<!---HONumber=AcomDC_0727_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Просмотр оповещений виртуального массива StorSimple и управление ими | Microsoft Azure"
-   description="Здесь описываются условия и уровень серьезности оповещений виртуального массива StorSimple, а также то, как управлять оповещениями с помощью службы диспетчера StorSimple."
+   pageTitle="View and manage StorSimple Virtual Array alerts | Microsoft Azure"
+   description="Describes StorSimple Virtual Array alert conditions and severity, and how to use the StorSimple Manager service to manage alerts."
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
@@ -15,171 +15,178 @@
    ms.date="06/07/2016"
    ms.author="alkohli" />
 
-# Просмотр оповещений для виртуального массива StorSimple и управление ими с помощью службы диспетчера StorSimple
 
-## Обзор
+# <a name="use-the-storsimple-manager-service-to-view-and-manage-alerts-for-the-storsimple-virtual-array"></a>Use the StorSimple Manager service to view and manage alerts for the StorSimple Virtual Array
 
-На вкладке **Оповещения** в службе диспетчера StorSimple можно просматривать и удалять оповещения, связанные с виртуальным массивом StorSimple, в режиме реального времени. Кроме того, на этой вкладке можно централизованно отслеживать проблемы работоспособности виртуальных массивов StorSimple (также называемых локальными виртуальными устройствами) и всего решения Microsoft Azure StorSimple.
+## <a name="overview"></a>Overview
 
-В этом руководстве описывается, как настроить уведомления об оповещениях, распространенные условия оповещений и их уровни серьезности, а также, как просматривать и отслеживать оповещения. Кроме того, он включает краткую справочную таблицу оповещений, которая позволяет быстро найти нужное оповещение и реагировать соответствующим образом.
+The **Alerts** tab in the StorSimple Manager service provides a way for you to review and clear StorSimple Virtual Array–related alerts on a real-time basis. From this tab, you can centrally monitor the health issues of your StorSimple  Virtual Arrays (also known as StorSimple on-premises virtual devices) and the overall Microsoft Azure StorSimple solution.
 
-![Страница оповещений](./media/storsimple-ova-manage-alerts/alerts1.png)
+This tutorial describes how to configure alert notifications, common alert conditions, alert severity levels, and how to view and track alerts. Additionally, it includes alert quick reference tables, which enable you to quickly locate a specific alert and respond appropriately.
 
-## Настроить параметры оповещений.
+![Alerts page](./media/storsimple-ova-manage-alerts/alerts1.png)
 
-Вы можете настроить получение уведомлений по электронной почте об условиях оповещений для каждого виртуального устройства StorSimple. Кроме того, можно указать других получателей оповещений. Для этого следует ввести их адреса электронной почты в поле **Другие получатели электронной почты**, разделяя их точкой с запятой.
+## <a name="configure-alert-settings"></a>Configure alert settings
 
->[AZURE.NOTE] Можно ввести не более 20 адресов электронной почты для каждого виртуального устройства.
+You can choose whether you want to be notified by email of alert conditions for each of your StorSimple virtual devices. Additionally, you can identify other alert notification recipients by entering their email addresses in the **Other email recipients** box, separated by semicolons.
 
-После включения получения уведомлений по электронной почте для виртуального устройства члены списка уведомлений будут получать сообщение при возникновении каждого критического оповещения. Сообщения будут отправляться с адреса *storsimple-alerts-noreply@mail.windowsazure.com* и будут описывать условие оповещения. Получатели могут щелкнуть **Отмена подписки**, чтобы удалить свое имя из списка уведомлений по электронной почте.
+>[AZURE.NOTE] You can enter a maximum of 20 email addresses per virtual device.
 
-#### Настройка получения уведомления об оповещении по электронной почте для виртуального устройства
+After you enable email notification for a virtual device, members of the notification list will receive an email message each time a critical alert occurs. The messages will be sent from *storsimple-alerts-noreply@mail.windowsazure.com* and will describe the alert condition. Recipients can click **Unsubscribe** to remove themselves from the email notification list.
 
-1. Последовательно выберите **Устройства** > **Настройка** для виртуального устройства. Перейдите в раздел **Параметры оповещений**.
+#### <a name="to-enable-email-notification-of-alerts-for-a-virtual-device"></a>To enable email notification of alerts for a virtual device
 
-    ![параметры оповещений](./media/storsimple-ova-manage-alerts/alerts2.png)
+1. Go to **Devices** > **Configuration** for the virtual device. Go to the **Alert settings** section.
 
-2. В разделе **Параметры оповещений** задайте следующее:
+    ![alert settings](./media/storsimple-ova-manage-alerts/alerts2.png)
 
-    1. В поле **Отправить уведомление по электронной почте** выберите **Да**.
+2. Under **Alert settings**, set the following:
 
-    2. В поле **Администраторы службы электронной почты** выберите **Да**, если хотите, чтобы администратор службы и все дополнительные администраторы получали уведомления об оповещениях.
+    1. In the **Send email notification** field, select **YES**.
 
-    3. В поле **Другие получатели электронной почты** введите адреса электронной почты всех получателей, которые должны получать уведомления об оповещениях. Введите имена в формате *someone@somewhere.com*. Используйте точку с запятой для разделения адресов электронной почты. Можно указать не более 20 адресов электронной почты для каждого виртуального устройства.
+    2. In the **Email service administrators** field, select **YES** if you wish to have the service administrator and all co-administrators receive the alert notifications.
 
-        ![настройка уведомлений об оповещениях](./media/storsimple-ova-manage-alerts/alerts3.png)
+    3. In the **Other email recipients** field, enter the email addresses of all other recipients who should receive the alert notifications. Enter names in the format *someone@somewhere.com*. Use semicolons to separate the email addresses. You can configure a maximum of 20 email addresses per virtual device. 
 
-3. В нижней части страницы нажмите кнопку **Сохранить**, чтобы сохранить настройки.
+        ![alerts notification configuration](./media/storsimple-ova-manage-alerts/alerts3.png)
 
-4. Чтобы отправить тестовое уведомление по электронной почте, щелкните значок стрелки рядом с полем **Отправить тестовое электронное сообщение**. Служба диспетчера StorSimple отобразит сообщения о состоянии по мере отправки тестового уведомления.
+3. At the bottom of the page, click **Save** to save your configuration.
 
-5. Когда появится следующее сообщение, нажмите кнопку **ОК**.
+4. To send a test email notification, click the arrow icon next to **Send test email**. The StorSimple Manager service will display status messages as it forwards the test notification. 
 
-    ![Отправленное электронное письмо с тестовым уведомлением об оповещении](./media/storsimple-ova-manage-alerts/alerts4.png)
+5. When the following message appears, click **OK**. 
 
-    >[AZURE.NOTE] Если не удается отправить тестовое сообщение уведомления, служба диспетчера StorSimple отобразит соответствующее сообщение. Щелкните **ОК**, подождите несколько минут и повторите попытку отправки тестового сообщения уведомления.
+    ![Alerts test notification email sent](./media/storsimple-ova-manage-alerts/alerts4.png)
 
-    Тестовое уведомление будет выглядеть так:
+    >[AZURE.NOTE] If the test notification message can't be sent, the StorSimple Manager service will display an appropriate message. Click **OK**, wait a few minutes, and then try to send your test notification message again. 
 
-    ![пример тестового электронного сообщения об оповещении](./media/storsimple-ova-manage-alerts/alerts5.png)
+    The test notification message will be similar to the following.
 
-## Распространенные условия оповещений
+    ![Alerts test email example](./media/storsimple-ova-manage-alerts/alerts5.png)
 
-Виртуальный массив StorSimple создает оповещения при выполнении ряда условий. Ниже приведены наиболее распространенные типы условий оповещения.
+## <a name="common-alert-conditions"></a>Common alert conditions
 
-- **Проблемы с подключением** — эти оповещения появляются при возникновении сложностей в процессе передачи данных. Проблемы со связью могут возникнуть во время передачи данных в учетную запись хранения Azure и из нее или из-за отсутствия подключения между виртуальными устройствами и службой диспетчера StorSimple. Проблемы связи сложнее всего исправить, поскольку существует множество точек отказа. Всегда необходимо сначала проверить, есть ли сетевое подключение и доступ к Интернету, перед тем как выполнять более сложные методы устранения неполадок. Дополнительные сведения о портах и параметрах брандмауэра см. в статье [Системные требования для виртуального массива StorSimplе (предварительная версия)](storsimple-ova-system-requirements.md). Справку по устранению неполадок см. в разделе [Устранение неполадок с помощью командлета Test-Connection](storsimple-troubleshoot-deployment.md).
+Your StorSimple Virtual Array generates alerts in response to a variety of conditions. The following are the most common types of alert conditions:
 
-- **Проблемы с производительностью** — эти оповещения отображаются, когда система работает неоптимально, например в условиях большой нагрузки.
+- **Connectivity issues** – These alerts occur when there is difficulty in transferring data. Communication issues can occur during transfer of data to and from the Azure storage account or due to lack of connectivity between the virtual devices and the StorSimple Manager service. Communication issues are some of the hardest to fix because there are so many points of failure. You should always first verify that network connectivity and Internet access are available before continuing on to more advanced troubleshooting. For information about ports and firewall settings, go to [StorSimple Virtual Array system requirements](storsimple-ova-system-requirements.md). For help with troubleshooting, go to [Troubleshoot with the Test-Connection cmdlet](storsimple-troubleshoot-deployment.md).
 
-Кроме того могут появиться оповещения, относящиеся к безопасности, обновлениям или сбоям заданий.
+- **Performance issues** – These alerts are caused when your system isn’t performing optimally, such as when it is under a heavy load.
 
-## Уровни серьезности оповещений
+In addition, you might see alerts related to security, updates, or job failures.
 
-Оповещения имеют различные уровни серьезности в зависимости от того, какое влияние окажет оповещение и какая потребуется реакция. Ниже перечислены уровни серьезности.
+## <a name="alert-severity-levels"></a>Alert severity levels
 
-- **Критическое** — это оповещение является ответом на условие, которое влияет на успешную работу системы. Убедитесь, что работа службы StorSimple не прервана.
+Alerts have different severity levels, depending on the impact that the alert situation will have and the need for a response to the alert. The severity levels are:
 
-- **Предупреждение** — это условие может стать критическим, если его не разрешить. Необходимо изучить ситуацию и предпринять любые действия, необходимые для решения этой проблемы.
+- **Critical** – This alert is in response to a condition that is affecting the successful performance of your system. Action is required to ensure that the StorSimple service is not interrupted.
 
-- **Информация** — это оповещение содержит сведения, которые могут быть полезны для отслеживания системы и управления ею.
+- **Warning** – This condition could become critical if not resolved. You should investigate the situation and take any action required to clear the issue.
 
-## Просмотр и отслеживание оповещений
+- **Information** – This alert contains information that can be useful in tracking and managing your system.
 
-На панели мониторинга службы диспетчера StorSimple можно просмотреть общие сведения о количестве оповещений на виртуальных устройствах, упорядоченных по степени серьезности.
+## <a name="view-and-track-alerts"></a>View and track alerts
 
-![Панель мониторинга оповещений](./media/storsimple-ova-manage-alerts/alerts6.png)
+The StorSimple Manager service dashboard provides you with a quick glance at the number of alerts on your virtual devices, arranged by severity level.
 
-При щелчке на уровень серьезности открывается вкладка **Оповещения**. Результаты включают только оповещения соответствующего уровня серьезности.
+![Alerts dashboard](./media/storsimple-ova-manage-alerts/alerts6.png)
 
-![Отчет об оповещениях с сортировкой по типам](./media/storsimple-ova-manage-alerts/alerts7.png)
+Clicking the severity level opens the **Alerts** tab. The results include only the alerts that match that severity level.
 
-Щелкните оповещение в списке, чтобы просмотреть дополнительные сведения оповещения, включая время последней доставки оповещения, число повторений оповещения на устройстве и рекомендуемые действия для разрешения оповещения.
+![Alerts report scoped to alert type](./media/storsimple-ova-manage-alerts/alerts7.png)
 
-Можно скопировать сведения об оповещении в текстовый файл, если необходимо отправить их в службу технической поддержки Майкрософт. Как только вы выполните рекомендации и устраните условия оповещения в локальной среде, удалите оповещение с виртуального устройства. Для этого выберите оповещение на вкладке **Оповещения** и нажмите кнопку **Очистить**. Чтобы удалить несколько оповещений, выберите каждое оповещение, которое нужно удалить, щелкните любой столбец, кроме столбца **Оповещение**, а затем нажмите кнопку **Очистить**. Обратите внимание, что некоторые оповещения автоматически удаляются при устранении проблемы или когда система обновляет оповещения новыми данными.
+Clicking an alert in the list provides you with additional details for the alert, including the last time the alert was reported, the number of occurrences of the alert on the device, and the recommended action to resolve the alert.
 
-При нажатии кнопки **Очистить** у вас будет возможность предоставить комментарии об оповещении и действиях, предпринятых для решения проблемы.
+You can copy the alert details to a text file if you need to send the information to Microsoft Support. After you have followed the recommendation and resolved the alert condition on-premises, you should clear the alert from by selecting the alert in the **Alerts** tab and clicking **Clear**. To clear multiple alerts, select each alert, click any column except the **Alert** column, and then click **Clear** after you have selected all the alerts to be cleared. Note that some alerts are automatically cleared when the issue is resolved or when the system updates the alert with new information.
 
-![комментарии к оповещениям](./media/storsimple-ova-manage-alerts/clear-alert.png)
+When you click **Clear**, you will have the opportunity to provide comments about the alert and the steps that you took to resolve the issue. 
 
-Щелкните значок галочки ![значок с изображением флажка](./media/storsimple-ova-manage-alerts/check-icon.png), чтобы сохранить комментарии.
+![alert comments](./media/storsimple-ova-manage-alerts/clear-alert.png)
 
-Некоторые события будут удалены системой, если другое событие активируется новыми данными. В этом случае вы увидите следующее сообщение.
+Click the check icon ![check-icon](./media/storsimple-ova-manage-alerts/check-icon.png) to save your comments.
 
-![Удаление сообщения оповещения](./media/storsimple-ova-manage-alerts/alerts8.png)
+Some events will be cleared by the system if another event is triggered with new information. In that case, you will see the following message.
 
-## Сортировка и просмотр оповещений
+![Clear alert message](./media/storsimple-ova-manage-alerts/alerts8.png)
 
-На вкладке **Оповещения** может отображаться до 250 оповещений. В случае превышения этого числа оповещений в представлении по умолчанию отображаются не все оповещения. Вы можете сочетать следующие поля, чтобы настроить типы отображаемых оповещений.
+## <a name="sort-and-review-alerts"></a>Sort and review alerts
 
-- **Состояние** — можно отобразить **активные** или **удаленные** оповещения. Активные оповещения по-прежнему инициируются в системе, а удаленные оповещения были либо вручную удалены администратором, либо очищены программно, так как система обновила условие оповещения новыми данными.
+The **Alerts** tab can display up to 250 alerts. If you have exceeded that number of alerts, not all alerts will be displayed in the default view. You can combine the following fields to customize which alerts are displayed:
 
-- **Серьезность** — можно отобразить оповещения всех уровней серьезности (критическое, предупреждение, информация) или только определенных степеней серьезности, например только критические оповещения.
+- **Status** – You can display either **Active** or **Cleared** alerts. Active alerts are still being triggered on your system, while cleared alerts have been either manually cleared by an administrator or programmatically cleared because the system updated the alert condition with new information.
 
-- **Источник** — можно отобразить оповещения из всех источников или только оповещения, которые поступили из службы либо одного из или всех виртуальных устройств.
+- **Severity** – You can display alerts of all severity levels (critical, warning, information), or just a certain severity, such as only critical alerts.
 
-- **Диапазон времени** — указав даты **С** и **По** и отметки времени, можно просмотреть оповещения за период времени, который вас интересует.
+- **Source** – You can display alerts from all sources, or limit the alerts to those that come from either the service or one or all the virtual devices.
 
-## Краткий справочник по оповещениям
+- **Time range** – By specifying the **From** and **To** dates and time stamps, you can look at alerts during the time period that you are interested in.
 
-В следующей таблице перечислены некоторые из оповещений Microsoft Azure StorSimple, с которыми вы можете столкнуться, а также дополнительные сведения и рекомендации при наличии. Оповещения виртуальных устройств StorSimple делятся на следующие категории:
+## <a name="alerts-quick-reference"></a>Alerts quick reference
 
-- [Оповещения облачных подключений](#cloud-connectivity-alerts)
+The following tables list some of the Microsoft Azure StorSimple alerts that you might encounter, as well as additional information and recommendations where available. StorSimple virtual device alerts fall into one of the following categories:
 
-- [оповещения о настройке](#configuration-alerts);
+- [Cloud connectivity alerts](#cloud-connectivity-alerts)
 
-- [Оповещения о сбоях заданий](#job-failure-alerts)
+- [Configuration alerts](#configuration-alerts)
 
-- [Оповещения производительности](#performance-alerts)
+- [Job failure alerts](#job-failure-alerts)
 
-- [Оповещения безопасности](#security-alerts)
+- [Performance alerts](#performance-alerts)
 
-- [Оповещения об обновлениях](#update-alerts)
+- [Security alerts](#security-alerts)
 
-### Оповещения облачных подключений
+- [Update alerts](#update-alerts)
 
-|Текст оповещения|Событие|Дополнительные сведения и рекомендуемые действия|
+### <a name="cloud-connectivity-alerts"></a>Cloud connectivity alerts
+
+|Alert text|Event|More information / recommended actions|
 |:---|:---|:---|
-|Устройство *<device name>* не подключено к облаку.|Указанное устройство не может подключиться к облаку. |Не удалось подключиться к облаку. Это может быть вызвано одной из следующих причин:<ul><li>На устройстве неправильно настроены параметры сети.</li><li>Указаны недопустимые учетные данные учетной записи хранения.</li></ul>Чтобы получить дополнительные сведения об устранении неполадок с подключением, откройте [локальный пользовательский веб-интерфейс](storsimple-ova-web-ui-admin.md) устройства.|
+|Device *<device name>* is not connected to the cloud.|The named device cannot connect to the cloud. |Could not connect to the cloud. This could be due to one of the following:<ul><li>There may be a problem with the network settings on your device.</li><li>There may be a problem with the storage account credentials.</li></ul>For more information on troubleshooting connectivity issues, go to the [local web UI](storsimple-ova-web-ui-admin.md) of the device.|
 
 
-### Оповещения о настройке
+### <a name="configuration-alerts"></a>Configuration alerts
 
-|Текст оповещения|Событие|Дополнительные сведения и рекомендуемые действия|
+|Alert text|Event|More information / recommended actions|
 |:---|:---|:---|
-|Конфигурация локального виртуального устройства не поддерживается.|Низкая производительность.|Текущая конфигурация может привести к снижению производительности. Убедитесь, что конфигурация сервера соответствует минимальным требованиям. Дополнительные сведения см. в статье [Требования для виртуального массива StorSimplе](storsimple-ova-system-requirements.md). 
-|На устройстве <*имя устройства*> заканчивается выделенное свободное место на диске.|Предупреждение о недостаточном месте на диске.|Заканчивается выделенное свободное место на диске. Чтобы освободить место, можно переместить рабочие нагрузки на другой том или в другую общую папку либо удалить данные.
+|On-premises virtual device configuration unsupported.|Slow performance.|The current configuration may result in performance degradation. Ensure that your server meets the minimum configuration requirements. For more information, go to [StorSimple Virtual Array Requirements](storsimple-ova-system-requirements.md). 
+|You are running out of provisioned disk space on <*device name*>.|Disk space warning.|You are running low on provisioned disk space. To free up space, consider moving workloads to another volume or share or deleting data.
 
-### Оповещения о сбоях заданий
+### <a name="job-failure-alerts"></a>Job failure alerts
 
-|Текст оповещения|Событие|Дополнительные сведения и рекомендуемые действия|
+|Alert text|Event|More information / recommended actions|
 |:---|:---|:---|
-|Не удалось создать резервную копию <*имя устройства*>.|Не удалось выполнить задание резервного копирования.|Не удалось создать резервную копию. Рассмотрите следующие возможные причины.<ul><li>Возможно, проблемы с подключением препятствуют успешному выполнению операции резервного копирования. Убедитесь в отсутствии проблем с подключением. Чтобы получить дополнительные сведения об устранении неполадок с подключением, откройте [локальный пользовательский веб-интерфейс](storsimple-ova-web-ui-admin.md) виртуального устройства.</li><li>Достигнут максимальный размер хранилища. Чтобы освободить место, удалите все резервные копии, которые больше не нужны.</li></ul> Устраните проблемы, удалите оповещение и повторно выполните операцию.|
-|Не удалось восстановить <*имя устройства*>.|Не удалось выполнить задание восстановления.|Не удалось восстановить из резервной копии. Рассмотрите следующие возможные причины.<ul><li>Список резервных копий недействителен. Обновите список, чтобы убедиться, что он все еще действителен.</li><li>Возможно, проблемы с подключением препятствуют успешному выполнению операции восстановления. Убедитесь в отсутствии проблем с подключением.</li><li>Достигнут максимальный размер хранилища. Чтобы освободить место, удалите все резервные копии, которые больше не нужны.</li></ul>Устраните проблемы, удалите оповещение и повторно выполните операцию восстановления.|
-|Не удалось создать клон <*имя устройства*>.|Не удалось выполнить задание клонирования.|Не удалось создать клон. Рассмотрите следующие возможные причины.<ul><li>Список резервных копий недействителен. Обновите список, чтобы убедиться, что он все еще действителен.</li><li>Возможно, проблемы с подключением препятствуют успешному выполнению операции клонирования. Убедитесь в отсутствии проблем с подключением.</li><li>Достигнут максимальный размер хранилища. Чтобы освободить место, удалите все резервные копии, которые больше не нужны.</li></ul>Устраните проблемы, удалите оповещение и повторно выполните операцию.|
+|Backup of <*device name*> couldn’t be completed.|Backup job failure.|Could not create a backup. Consider one of the following:<ul><li>Connectivity issues could be preventing the backup operation from successfully completing. Ensure that there are no connectivity issues. For more information on troubleshooting connectivity issues, go to the [local web UI](storsimple-ova-web-ui-admin.md) for your virtual device.</li><li>You have reached the available storage limit. To free up space, consider deleting any backups that are no longer needed.</li></ul> Resolve the issues, clear the alert and retry the operation.|
+|Restore of <*device name*> couldn’t be completed.|Restore job failure.|Could not restore from backup. Consider one of the following:<ul><li>Your backup list may not be valid. Refresh the list to verify it is still valid.</li><li>Connectivity issues could be preventing the restore operation from successfully completing. Ensure that there are no connectivity issues.</li><li>You have reached the available storage limit. To free up space, consider deleting any backups that are no longer needed.</li></ul>Resolve the issues, clear the alert and retry the restore operation.|
+|Clone of <*device name*> couldn’t be completed.|Clone job failure.|Could not create a clone. Consider one of the following:<ul><li>Your backup list may not be valid. Refresh the list to verify it is still valid.</li><li>Connectivity issues could be preventing the clone operation from successfully completing. Ensure that there are no connectivity issues.</li><li>You have reached the available storage limit. To free up space, consider deleting any backups that are no longer needed.</li></ul>Resolve the issues, clear the alert and retry the operation.|
 
-### Оповещения производительности
+### <a name="performance-alerts"></a>Performance alerts
 
-|Текст оповещения|Событие|Дополнительные сведения и рекомендуемые действия|
+|Alert text|Event|More information / recommended actions|
 |:---|:---|:---|
-|При передаче данных возникают неожиданные задержки.|Медленная передача данных.|Ошибки регулирования происходят при превышении целевых показателей масштабируемости для службы хранилища. Это необходимо для того, чтобы ни один из клиентов не мог использовать службу хранилища в ущерб другим. Дополнительные сведения об устранении неполадок с учетной записью службы хранилища Azure см. в статье [Мониторинг, диагностика и устранение неисправностей службы хранилища Microsoft Azure](storage-monitoring-diagnosing-troubleshooting.md).
-|На локальном диске <*имя устройства*> заканчивается свободное зарезервированное пространство.|Низкое время отклика.|10 % от общего размера, выделенного на <*имя устройства*>, зарезервировано на локальном устройстве. Свободное зарезервированное пространство заканчивается. Скорость обработки увеличена из-за рабочей нагрузки <*имя устройства*>, или недавно перенесен большой объем данных. Это может привести к снижению производительности. Чтобы решить эту проблему, выполните одно из следующих действий.<ul><li>Увеличьте пропускную способность облака для этого устройства.</li><li>Уменьшите рабочие нагрузки или переместите их на другой том или в другую общую папку.</li></ul>
+|You are experiencing unexpected delays in data transfer.|Slow data transfer.|Throttling errors occur when you exceed the scalability targets of a storage service. The storage service does this to ensure that no single client or tenant can use the service at the expense of others. For more information on troubleshooting your Azure storage account, go to [Monitor, diagnose, and troubleshoot Microsoft Azure Storage](storage-monitoring-diagnosing-troubleshooting.md).
+|You are running low on local reservation disk space on <*device name*>.|Slow response time.|10% of the total provisioned size for <*device name*> is reserved on the local device and you are now running low on the reserved space. The workload on <*device name*> is generating a higher rate of churn or you might have recently migrated a large amount of data. This may result in reduced performance. Consider one of the following actions to resolve this:<ul><li>Increase the cloud bandwidth to this device.</li><li>Reduce or move workloads to another volume or share.</li></ul>
 
-### Оповещения безопасности
+### <a name="security-alerts"></a>Security alerts
 
-|Текст оповещения|Событие|Дополнительные сведения и рекомендуемые действия|
+|Alert text|Event|More information / recommended actions|
 |:---|:---|:---|
-|Срок действия пароля <*имя устройства*> истекает через <*число*> дней.|Предупреждение о пароле.| Срок действия пароля истекает через <число> дн. Рекомендуется изменить пароль. Дополнительные сведения см. в статье [Изменение пароля администратора для устройства виртуального массива StorSimple](storsimple-ova-change-device-admin-password.md).
+|Password for <*device name*> will expire in <*number*> days.|Password warning.| Your password will expire in <number< days. Consider changing your password. For more information, go to [Change the StorSimple Virtual Array device administrator password](storsimple-ova-change-device-admin-password.md).
 
-### Оповещения об обновлениях
+### <a name="update-alerts"></a>Update alerts
 
-|Текст оповещения|Событие|Дополнительные сведения и рекомендуемые действия|
+|Alert text|Event|More information / recommended actions|
 |:---|:---|:---|
-|Доступны новые обновления для вашего устройства.|Для виртуального массива StorSimple доступны обновления.|Чтобы установить новые обновления, откройте страницу **Обслуживание**.|
-|Не удается проверить наличие новых обновлений на <*имя устройства*>.|Не удалось обновить. |Произошла ошибка при установке новых обновлений. Обновления можно установить вручную. Если проблема повторится, обратитесь в [службу поддержки Майкрософт](storsimple-contact-microsoft-support.md).|
+|New updates are available for your device.|Updates to the StorSimple Virtual Array are available.|You can install new updates from the **Maintenance** page.|
+|Could not scan for new updates on <*device name*>.|Update failure. |An error occurred while installing new updates. You can manually install the updates. If the problem persists, contact [Microsoft Support](storsimple-contact-microsoft-support.md).|
 
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Next steps
 
-- [Дополнительные сведения о виртуальном массиве StorSimple](storsimple-ova-overview.md).
+- [Learn about the StorSimple Virtual Array](storsimple-ova-overview.md).
 
-<!---HONumber=AcomDC_0622_2016-->
+
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

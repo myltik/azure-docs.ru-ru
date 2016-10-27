@@ -1,99 +1,102 @@
 <properties 
-	pageTitle="Ошибка при обнаружении проверки подлинности" 
-	description="Мастер подключения к Active Directory обнаружил несовместимый тип проверки подлинности" 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="TomArcher" 
-	manager="douge" 
-	editor=""/>
+    pageTitle="Error During Authentication Detection" 
+    description="The active directory connection wizard detected an incompatible authentication type" 
+    services="active-directory" 
+    documentationCenter="" 
+    authors="TomArcher" 
+    manager="douge" 
+    editor=""/>
   
 <tags 
-	ms.service="active-directory" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="vs-getting-started" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/15/2016" 
-	ms.author="tarcher"/>
+    ms.service="active-directory" 
+    ms.workload="web" 
+    ms.tgt_pltfrm="vs-getting-started" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="08/15/2016" 
+    ms.author="tarcher"/>
 
-# Ошибка при обнаружении проверки подлинности
 
-Во время обнаружения предыдущего кода проверки подлинности мастер обнаружил несовместимый тип проверки подлинности.
+# <a name="error-during-authentication-detection"></a>Error During Authentication Detection
 
-##Что проверяется?
+While detecting previous authentication code, the wizard detected an incompatible authentication type.   
 
-**Примечание**. Чтобы правильно определить предыдущий код аутентификации в проекте, необходимо создать проект. Если возникла эта ошибка и в вашем проекте нет предыдущего кода аутентификации, еще раз выполните сборку проекта и повторите попытку.
+##<a name="what-is-being-checked?"></a>What is being checked?
 
-###Типы проектов
+**Note:** In order to correctly detect previous authentication code in a project, the project must be built.  If you encountered this error and you don't have a previous authentication code in your project, rebuild and try again.
 
-Мастер проверяет, какого типа проект вы разрабатываете, поэтому он может внедрить в проект правильную логику проверки подлинности. Если в проекте есть какой-либо контроллер, являющийся производным от `ApiController`, этот проект будет рассматриваться как проект веб-API. Если в проекте есть какие-либо контроллеры, являющиеся производными от `MVC.Controller`, этот проект будет рассматриваться как проект MVC. Все остальные варианты мастером не поддерживаются. Проекты веб-форм сейчас не поддерживаются.
+###<a name="project-types"></a>Project Types
 
-###Совместимый код проверки подлинности
+The wizard checks which type of project you’re developing so it can inject the right authentication logic into the project.  If there is any controller that derives from `ApiController` in the project, the project will be considered a WebAPI project.  If there are only controllers that derive from `MVC.Controller` in the project, the project will be considered an MVC project.  Anything else is not supported by the wizard.  WebForms projects are not currently supported.
 
-Мастер также проверяет параметры проверки подлинности, ранее настроенные с помощью мастера или совместимые с ним. Если все такие параметры присутствуют, это рассматривается как реентерабельный случай, и мастер сможет открыть и отобразить эти параметры. Если присутствуют только некоторые параметры, это рассматривается как случай ошибки.
+###<a name="compatible-authentication-code"></a>Compatible Authentication Code
 
-В проекте MVC мастер проверяет все перечисленные ниже параметры, которые были получены в результате предыдущего использования мастера.
+The wizard also checks for authentication settings that have been previously configured with the wizard or are compatible with the wizard.  If all of the settings are present, it is considered a re-entrant case and the wizard will open and display the settings.  If only some of the settings are present, it is considered an error case.
 
-	<add key="ida:ClientId" value="" />
-	<add key="ida:Tenant" value="" />
-	<add key="ida:AADInstance" value="" />
-	<add key="ida:PostLogoutRedirectUri" value="" />
+In an MVC project, the wizard checks for any of the following settings, which result from previous use of the wizard:
 
-Кроме того, мастер проверяет в проекте веб-API все перечисленные ниже параметры, которые были получены в результате предыдущего использования мастера.
+    <add key="ida:ClientId" value="" />
+    <add key="ida:Tenant" value="" />
+    <add key="ida:AADInstance" value="" />
+    <add key="ida:PostLogoutRedirectUri" value="" />
 
-	<add key="ida:ClientId" value="" />
-	<add key="ida:Tenant" value="" />
-	<add key="ida:Audience" value="" />
+In addition, the wizard checks for any of the following settings in a Web API project, which result from previous use of the wizard:
 
-###Несовместимый код проверки подлинности
+    <add key="ida:ClientId" value="" />
+    <add key="ida:Tenant" value="" />
+    <add key="ida:Audience" value="" />
 
-Наконец, мастер пытается обнаружить версии кода проверки подлинности, настроенные в предыдущих версиях Visual Studio. Эта ошибка означает, что проект содержит несовместимый тип проверки подлинности. Мастер определяет следующие типы проверок подлинности предыдущих версий Visual Studio:
+###<a name="incompatible-authentication-code"></a>Incompatible Authentication Code
 
-* Проверка подлинности Windows
-* Учетные записи индивидуальных пользователей
-* Учетные записи организации
+Finally, the wizard attempts to detect versions of authentication code that have been configured with previous versions of Visual Studio. If you received this error, it means your project contains an incompatible authentication type. The wizard detects the following types of authentication from previous versions of Visual Studio:
+
+* Windows Authentication 
+* Individual User Accounts 
+* Organizational Accounts 
  
 
-Чтобы обнаружить аутентификацию Windows в проекте MVC, мастер ищет элемент `authentication` в файле **web.config**.
+To detect Windows Authentication in an MVC project, the wizard looks for the `authentication` element from your **web.config** file.
 
 <pre>
-	&lt;configuration>
-	    &lt;system.web>
-	        <span style="background-color: yellow">&lt;authentication mode="Windows" /></span>
-	    &lt;/system.web>
-	&lt;/configuration>
+    &lt;configuration&gt;
+        &lt;system.web&gt;
+            <span style="background-color: yellow">&lt;authentication mode="Windows" /&gt;</span>
+        &lt;/system.web&gt;
+    &lt;/configuration&gt;
 </pre>
 
-Чтобы обнаружить аутентификацию Windows в проекте веб-API, мастер ищет элемент `IISExpressWindowsAuthentication` в **CSPROJ-файле** вашего проекта.
+To detect Windows Authentication in a Web API project, the wizard looks for the `IISExpressWindowsAuthentication` element from your project's **.csproj** file:
 
 <pre>
-	&lt;Project>
-	    &lt;PropertyGroup>
-	        <span style="background-color: yellow">&lt;IISExpressWindowsAuthentication>enabled&lt;/IISExpressWindowsAuthentication></span>
-	    &lt;/PropertyGroup>
-	&lt;/Project>
+    &lt;Project&gt;
+        &lt;PropertyGroup&gt;
+            <span style="background-color: yellow">&lt;IISExpressWindowsAuthentication&gt;enabled&lt;/IISExpressWindowsAuthentication&gt;</span>
+        &lt;/PropertyGroup> &lt;/Project&gt;
 </pre>
 
-Чтобы обнаружить проверку подлинности индивидуальных учетных записей, мастер ищет элемент пакета в файле **Packages.config**.
+To detect Individual User Accounts authentication, the wizard looks for the package element from your **Packages.config** file.
 
 <pre>
-	&lt;packages>
-	    <span style="background-color: yellow">&lt;package id="Microsoft.AspNet.Identity.EntityFramework" version="2.1.0" targetFramework="net45" /></span>
-	&lt;/packages>
+    &lt;packages&gt;
+        <span style="background-color: yellow">&lt;package id="Microsoft.AspNet.Identity.EntityFramework" version="2.1.0" targetFramework="net45" /&gt;</span>
+    &lt;/packages&gt;
 </pre>
 
-Чтобы определить старый тип проверки подлинности учетной записи организации, мастер ищет в файле **web.config** следующий элемент:
+To detect an old form of Organizational Account authentication, the wizard looks for the following element from **web.config**:
 
 <pre>
-	&lt;configuration>
-	    &lt;appSettings>
-	        <span style="background-color: yellow">&lt;add key="ida:Realm" value="***" /></span>
-	    &lt;/appSettings>
-	&lt;/configuration>
+    &lt;configuration&gt;
+        &lt;appSettings&gt;
+            <span style="background-color: yellow">&lt;add key="ida:Realm" value="***" /&gt;</span>
+        &lt;/appSettings&gt;
+    &lt;/configuration&gt;
 </pre>
 
-Чтобы изменить тип проверки подлинности, удалите несовместимый тип и повторно запустите мастер.
+To change the authentication type, remove the incompatible authentication type and run the wizard again.
 
-Дополнительные сведения см. в разделе [Сценарии аутентификации в Azure Active Directory](active-directory-authentication-scenarios.md).
+For more information, see [Authentication Scenarios for Azure AD](active-directory-authentication-scenarios.md).
 
-<!---HONumber=AcomDC_0817_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

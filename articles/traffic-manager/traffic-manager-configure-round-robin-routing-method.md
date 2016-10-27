@@ -1,55 +1,60 @@
 <properties
-   pageTitle="Настройка метода маршрутизации трафика с циклическим перебором для диспетчера трафика | Microsoft Azure"
-   description="Эта статья поможет вам настроить балансировку нагрузки с циклическим перебором для конечных точек диспетчера трафика."
+   pageTitle="Configure Traffic Manager round robin traffic routing method | Microsoft Azure"
+   description="This article will help you configure round robin load balancing for your Traffic Manager endpoints."
    services="traffic-manager"
    documentationCenter=""
    authors="sdwheeler"
    manager="carmonm"
    editor="tysonn" />
-<tags 
+<tags
    ms.service="traffic-manager"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/17/2016"
+   ms.date="10/18/2016"
    ms.author="sewhee" />
 
-# Настройка метода маршрутизации с применением циклического перебора
+<!-- repub for nofollow -->
 
-Общепринятый подход к методу маршрутизации трафика состоит в предоставлении набора идентичных конечных точек (облачных служб и веб-сайтов) и отправке трафика в каждую из них по принципу циклического перебора. Ниже приведены инструкции по настройке диспетчера трафика для выполнения этого метода маршрутизации трафика. Дополнительную информацию о различных методах маршрутизации трафика см. в разделе [О методах маршрутизации трафика в диспетчере трафика](traffic-manager-routing-methods.md).
+# <a name="configure-round-robin-routing-method"></a>Configure Round Robin routing method
 
->[AZURE.NOTE] Веб-сайты Azure уже обеспечивают балансировку нагрузки с циклическим перебором для веб-сайтов в центре данных (регионе). Диспетчер трафика позволяет использовать метод циклического перебора при маршрутизации трафика для веб-сайтов в разных центрах данных.
+A common traffic routing method pattern is to provide a set of identical endpoints, which include cloud services and websites, and send traffic to each in a round-robin fashion. The steps below outline how to configure Traffic Manager in order to perform this type of traffic routing method. For more information on the different traffic routing methods, see [About Traffic Manager traffic routing methods](traffic-manager-routing-methods.md).
 
-## Равномерная маршрутизация трафика (с циклическим перебором) между несколькими конечными точками.
+>[AZURE.NOTE] Azure Websites already provides round-robin load balancing functionality for websites within a datacenter (also known as a region). Traffic Manager allows you to specify round-robin traffic routing method for websites in different datacenters.
 
-1. В левой области на классическом портале Azure щелкните значок **Диспетчер трафика**, чтобы открыть панель "Диспетчер трафика". Если профиль диспетчера трафика еще не создан, изучите раздел [Управление профилями диспетчера трафика](traffic-manager-manage-profiles.md), чтобы узнать, как создать базовый профиль диспетчера трафика.
-2. На классическом портале Azure в области диспетчера трафика найдите профиль диспетчера трафика, содержащий параметры, которые нужно изменить, а затем щелкните стрелку справа от имени профиля. Откроется страница параметров профиля.
-3. В верхней части страницы профиля щелкните **Конечные точки** и убедитесь, что конечные точки службы, которые нужно включить в конфигурацию, указаны в списке. Инструкции по добавлению и удалению конечных точек см. в разделе [Управление конечными точками в диспетчере трафика](traffic-manager-endpoints.md).
-4. В верхней части страницы профиля нажмите кнопку **Настройка**, чтобы открыть страницу настройки.
-5. В области **Настройки метода маршрутизации трафика** убедитесь, что в качестве метода маршрутизации трафика выбран вариант **С циклическим перебором**. Если это не так, выберите пункт **Циклический перебор** в раскрывающемся списке.
-6. Убедитесь в том, что **параметры мониторинга** настроены правильно. Мониторинг позволяет гарантировать, что конечным точкам, находящимся в режиме «не в сети», не передается трафик. Для мониторинга конечных точек необходимо указать путь и имя файла. Обратите внимание, что косая черта («/») является допустимым относительным путем и указывает, что файл расположен в корневом каталоге (по умолчанию). Дополнительную информацию см. в разделе [О мониторинге диспетчера трафика](traffic-manager-monitoring.md).
-7. После внесения всех изменений нажмите кнопку **Сохранить** в нижней части экрана.
-8. Протестируйте изменения в конфигурации. Подробнее см. в разделе [Проверка параметров диспетчера трафика](traffic-manager-testing-settings.md).
-9. После настройки и запуска профиля диспетчера трафика измените запись DNS на полномочном DNS-сервере так, чтобы доменное имя компании указывало на доменное имя диспетчера трафика. Подробнее см. в разделе [Направление интернет-домена компании на домен диспетчера трафика](traffic-manager-point-internet-domain.md).
+## <a name="routing-traffic-equally-(round-robin)-across-a-set-of-endpoints:"></a>Routing traffic equally (round robin) across a set of endpoints:
 
-## Дальнейшие действия
+1. In the Azure classic portal, in the left pane, click the **Traffic Manager** icon to open the Traffic Manager pane. If you have not yet created your Traffic Manager profile, see [Manage Traffic Manager Profiles](traffic-manager-manage-profiles.md) for steps to create a basic Traffic Manager profile.
+2. In the Azure classic portal, on the Traffic Manager pane, locate the Traffic Manager profile that contains the settings that you want to modify, and then click the arrow to the right of the profile name. This will open the settings page for the profile.
+3. On the page for your profile, click **Endpoints** at the top of the page and verify that the service endpoints that you want to include in your configuration are present. For steps to add or remove endpoints, see [Manage Endpoints in Traffic Manager](traffic-manager-endpoints.md).
+4. On your profile page, click **Configure** at the top to open the configuration page.
+5. For **traffic routing method Settings**, verify that the traffic routing method is **Round Robin**. If it is not, click **Round Robin** in the dropdown list.
+6. Verify that the **Monitoring Settings** are configured appropriately. Monitoring ensures that endpoints that are offline are not sent traffic. In order to monitor endpoints, you must specify a path and filename. Note that a forward slash “/“ is a valid entry for the relative path and implies that the file is in the root directory (default). For more information about monitoring, see [About Traffic Manager Monitoring](traffic-manager-monitoring.md).
+7. After you complete your configuration changes, click **Save** at the bottom of the page.
+8. Test the changes in your configuration. For more information, see [Testing Traffic Manager Settings](traffic-manager-testing-settings.md).
+9. Once your Traffic Manager profile is setup and working, edit the DNS record on your authoritative DNS server to point your company domain name to the Traffic Manager domain name. For more information about how to do this, see [Point a Company Internet Domain to a Traffic Manager Domain](traffic-manager-point-internet-domain.md).
+
+## <a name="next-steps"></a>Next steps
 
 
-[Направление интернет-домена компании на домен диспетчера трафика](traffic-manager-point-internet-domain.md)
+[Point a company Internet domain to a Traffic Manager domain](traffic-manager-point-internet-domain.md)
 
-[Методы маршрутизации диспетчера трафика](traffic-manager-routing-methods.md)
+[Traffic Manager routing methods](traffic-manager-routing-methods.md)
 
-[Настройка метода маршрутизации с отработкой отказа](traffic-manager-configure-failover-routing-method.md)
+[Configure failover routing method](traffic-manager-configure-failover-routing-method.md)
 
-[Настройка метода маршрутизации трафика для повышения производительности](traffic-manager-configure-performance-routing-method.md)
+[Configure performance routing method](traffic-manager-configure-performance-routing-method.md)
 
-[Устранение неполадок, связанных со сбоем диспетчера трафика](traffic-manager-troubleshooting-degraded.md)
+[Troubleshooting Traffic Manager degraded state](traffic-manager-troubleshooting-degraded.md)
 
-[Диспетчер трафика — включение, отключение или удаление профиля диспетчера трафика](disable-enable-or-delete-a-profile.md)
+[Traffic Manager - Disable, enable or delete a profile](disable-enable-or-delete-a-profile.md)
 
-[Диспетчер трафика — отключение и включение конечной точки диспетчера трафика](disable-or-enable-an-endpoint.md)
+[Traffic Manager - Disable or enable an endpoint](disable-or-enable-an-endpoint.md)
 
- 
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

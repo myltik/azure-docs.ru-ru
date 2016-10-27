@@ -1,69 +1,75 @@
 <properties
-	pageTitle="Azure AD Connect в Microsoft Cloud для Германии"
-	description="Azure AD Connect интегрирует локальные каталоги с Azure Active Directory. Таким образом вы сможете предоставить пользователям возможность получать доступ с использованием одного удостоверения для Office 365, Azure и SaaS, интегрированных с Azure AD."
-    keywords="введение в Azure AD Connect, обзор Azure AD Connect, что такое Azure AD Connect, установка Аctive Directory, Германия, Шварцвальд"
-	services="active-directory"
-	documentationCenter=""
-	authors="billmath"
-	manager="femila"
-	editor=""/>
+    pageTitle="Azure AD Connect in Microsoft Cloud Germany"
+    description="Azure AD Connect will integrate your on-premises directories with Azure Active Directory. This allows you to provide a common identity for Office 365, Azure, and SaaS applications integrated with Azure AD."
+    keywords="introduction to Azure AD Connect, Azure AD Connect overview, what is Azure AD Connect, install active directory, Germany, Black Forest"
+    services="active-directory"
+    documentationCenter=""
+    authors="billmath"
+    manager="femila"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="09/08/2016"
-	ms.author="billmath"/>
-
-#Общедоступная предварительная версия Azure AD Connect в Microsoft Cloud для Германии
-
-## Введение
-Azure AD Connect обеспечивает синхронизацию локальных каталогов Active Directory с каталогами Azure Active Directory. В настоящее время многие сценарии в [Microsoft Cloud для Германии](https://www.microsoft.com/de-de/cloud/deutschland/default.aspx) должны выполняться оператором. При использовании Microsoft Cloud для Германии важно придерживаться следующих рекомендаций.
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="09/08/2016"
+    ms.author="billmath"/>
 
 
-- Для успешного выполнения синхронизации указанные ниже URL-адреса должны быть открыты через прокси-сервер:
-	- *.microsoftonline.de
-	- *.windows.net
-	- + списки отзыва сертификатов.
+#<a name="azure-ad-connect-in-microsoft-cloud-germany---public-preview"></a>Azure AD Connect in Microsoft Cloud Germany - Public Preview
 
-- При входе в каталог Azure AD необходимо использовать учетную запись в домене onmicrosoft.de.
-- Следующие функции сейчас не поддерживаются:
-	- Azure AD Connect Health,
-	- автоматические обновления,
-	- обратная запись паролей.
+## <a name="introduction"></a>Introduction
+Azure AD Connect provides synchronization between your on-premises Active Directory and Azure Active Directory.
+Currently, many of the scenarios in [Microsoft Cloud Germany](https://www.microsoft.com/de-de/cloud/deutschland/default.aspx) must be done by the operator. When using Microsoft Cloud Germany, you must be aware of the following:
 
-## Загрузка
-Вы можете загрузить Azure AD Connect из колонки Azure AD Connect на портале. Чтобы найти колонку Azure AD Connect, следуйте указанным ниже инструкциям.
 
-### Колонка Azure AD Connect
+- The following URLs must be opened on a proxy server for synchronization to occur successfully:
+    - *.microsoftonline.de
+    - *.windows.net
+    - + Certificate Revocation Lists
 
-Войдите на портал Azure и выполните следующие действия:
+- When you sign in to your Azure AD directory, you must use an account in the onmicrosoft.de domain.
+- The following features are not available:
+    - Azure AD Connect Health
+    - Automatic updates
+    - Password writeback
 
-1. Щелкните "Обзор".
-2.	Выберите Azure Active Directory.
-3.	Затем выберите Azure AD Connect.
+## <a name="download"></a>Download
+You can download Azure AD Connect from the Azure AD Connect blade within the portal.  Use the instructions below to locate the Azure AD Connect blade.
 
-Вы увидите следующее:
+### <a name="the-azure-ad-connect-blade"></a>The Azure AD Connect Blade
 
-![Колонка Azure AD Connect](media\active-directory-aadconnect-germany\germany1.png)
+Once you have signed in to the Azure portal, do the following:
+
+1. Go to Browse
+2.  Select Azure Active Directory
+3.  Then select Azure AD Connect
+
+You should see the following:
+
+![Azure AD Connect Blade](media\active-directory-aadconnect-germany\germany1.png)
 
  
-Следующая таблица содержит описание функций, представленных в колонке.
+The following table describes the features shown in the blade.
 
 
-Название|Описание|
+Title|Description|
 ----- | ----- |
-Состояние синхронизации|Сообщает, включена ли синхронизация.|
-Последняя синхронизация|Показывает, когда в последний раз была успешно выполнена синхронизация.|
-Федеративные домены|Показывает текущее количество настроенных федеративных доменов.|
+SYNC STATUS|Let's you know whether synchronization is enabled or disabled.|
+LAST SYNC|The last time a successful sync completed.|
+FEDERATED DOMAINS|Shows the number of federated domains currently configured.|
 
 
-## Установка
-Чтобы установить Azure AD Connect, воспользуйтесь [этой документацией](active-directory-aadconnect.md#install-azure-ad-connect).
+## <a name="installation"></a>Installation
+To install Azure AD Connect, you can use the documentation [here](active-directory-aadconnect.md#install-azure-ad-connect).
 
-## Дополнительные функции и дополнительные сведения
-Для начала ознакомьтесь со статьей [Интеграция локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md), чтобы получить подробные сведения и рекомендации по пользовательским и расширенным настройкам. На этой странице представлена необходимая информация и ссылки на дополнительные инструкции.
+## <a name="advanced-features-and-additional-information"></a>Advanced features and Additional Information
+For additional information and guidance on custom settings or advanced configurations, start with [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).  This page provides information and links to additional guidance.
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

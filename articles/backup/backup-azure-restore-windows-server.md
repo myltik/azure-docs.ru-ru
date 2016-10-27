@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Восстановление данных на сервере Windows Server или клиентском компьютере Windows из Azure с помощью модели развертывания Resource Manager | Microsoft Azure"
-   description="Узнайте, как выполнять восстановление данных с Windows Server или Windows Client."
+   pageTitle="Restore data to a Windows Server or Windows Client from Azure using the Resource Manager deployment model | Microsoft Azure"
+   description="Learn how to restore from a Windows Server or Windows Client."
    services="backup"
    documentationCenter=""
    authors="saurabhsensharma"
@@ -10,111 +10,116 @@
 <tags
    ms.service="backup"
    ms.workload="storage-backup-recovery"
-	 ms.tgt_pltfrm="na"
-	 ms.devlang="na"
-	 ms.topic="article"
-	 ms.date="08/02/2016"
-	 ms.author="trinadhk; jimpark; markgal;"/>
+     ms.tgt_pltfrm="na"
+     ms.devlang="na"
+     ms.topic="article"
+     ms.date="08/02/2016"
+     ms.author="trinadhk; jimpark; markgal;"/>
 
-# Восстановление файлов на сервере Windows Server или клиентском компьютере Windows с помощью модели развертывания Resource Manager
+
+# <a name="restore-files-to-a-windows-server-or-windows-client-machine-using-resource-manager-deployment-model"></a>Restore files to a Windows server or Windows client machine using Resource Manager deployment model
 
 > [AZURE.SELECTOR]
-- [Портал Azure](backup-azure-restore-windows-server.md)
-- [Классический портал.](backup-azure-restore-windows-server-classic.md)
+- [Azure portal](backup-azure-restore-windows-server.md)
+- [Classic portal](backup-azure-restore-windows-server-classic.md)
 
-В этой статье описываются действия, необходимые для операций восстановления двух типов:
+This article covers the steps required to perform two types of restore operations:
 
-- Восстановление данных на тот же компьютер, с которого создавались резервные копии.
-- Восстановление данных на любой другой компьютер.
+- Restore data to the same machine from which the backups were taken.
+- Restore data to any other machine.
 
-В обоих случаях данные извлекаются из хранилища служб восстановления Azure.
+In both cases, the data is retrieved from the Azure Recovery Services vault.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] Классическая модель развертывания.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] classic deployment model.
 
-## Восстановление данных на тот же компьютер
-Если вы случайно удалили файл и хотите восстановить его на том же компьютере (с которого создана резервная копия), указанные ниже действия помогут вам восстановить данные.
+## <a name="recover-data-to-the-same-machine"></a>Recover data to the same machine
+If you accidentally deleted a file and wish to restore it to the same machine (from which the backup is taken), the following steps will help you recover the data.
 
-1. Откройте оснастку **Служба архивации Microsoft Azure**.
-2. Щелкните **Восстановить данные**, чтобы запустить рабочий процесс.
+1. Open the **Microsoft Azure Backup** snap in.
+2. Click **Recover Data** to initiate the workflow.
 
-    ![Восстановление данных](./media/backup-azure-restore-windows-server/recover.png)
+    ![Recover Data](./media/backup-azure-restore-windows-server/recover.png)
 
-3. Выберите параметр **Этот сервер (*имя\_компьютера*)**, чтобы восстановить файл из резервной копии на том же компьютере.
+3. Select the **This server (*yourmachinename*)** option to restore the backed up file on the same machine.
 
-    ![Тот же компьютер](./media/backup-azure-restore-windows-server/samemachine.png)
+    ![Same machine](./media/backup-azure-restore-windows-server/samemachine.png)
 
-4. Выберите **Обзор файлов** или **Поиск файлов**.
+4. Choose to **Browse for files** or **Search for files**.
 
-    Если вы планируете восстановить один или несколько файлов с известным путем, оставьте вариант по умолчанию. Если вы не знаете структуру папок и хотите найти файл, выберите вариант **Поиск файлов**. В этом разделе мы будем использовать параметр по умолчанию.
+    Leave the default option if you plan to restore one or more files whose path is known. If you are not sure about the folder structure but would like to search for a file, pick the **Search for files** option. For the purpose of this section, we will proceed with the default option.
 
-    ![Обзор файлов](./media/backup-azure-restore-windows-server/browseandsearch.png)
+    ![Browse files](./media/backup-azure-restore-windows-server/browseandsearch.png)
 
-5. Выберите том, в котором хранится резервная копия файла.
+5. Select the volume from which you wish to restore the file.
 
-    Можно восстановить файл на любой момент времени. Даты, которые в календаре выделены **полужирным**, означают доступность точки восстановления. После выбора даты в расписании резервного копирования (которое было завершено успешно) в раскрывающемся списке **Время** можно выбрать момент времени.
+    You can restore from any point in time. Dates which appear in **bold** in the calendar control indicate the availability of a restore point. Once a date is selected, based on your backup schedule (and the success of a backup operation), you can select a point in time from the **Time** drop down.
 
-    ![Том и дата](./media/backup-azure-restore-windows-server/volanddate.png)
+    ![Volume and Date](./media/backup-azure-restore-windows-server/volanddate.png)
 
-6. Выберите элементы, которые следует восстановить. Для восстановления можно выбрать сразу несколько папок и файлов.
+6. Select the items to recover. You can multi-select folders/files you wish to restore.
 
-    ![Выбор файлов](./media/backup-azure-restore-windows-server/selectfiles.png)
+    ![Select files](./media/backup-azure-restore-windows-server/selectfiles.png)
 
-7. Укажите параметры восстановления.
+7. Specify the recovery parameters.
 
-    ![Варианты восстановления](./media/backup-azure-restore-windows-server/recoveroptions.png)
+    ![Recovery options](./media/backup-azure-restore-windows-server/recoveroptions.png)
 
-  - Данные можно восстановить в исходное расположение (в котором папка или файл будут перезаписаны) или в другое расположение на том же компьютере.
-  - Если восстанавливаемый файл (или папка) существует в целевом расположении, вы можете создать копию (будет две версии одного файла) или перезаписать файлы в целевом расположении. Также можно пропустить восстановление файлов, которые существуют в целевом расположении.
-  - Настоятельно рекомендуем оставить параметр восстановление ACL для восстанавливаемых файлов (выбран по умолчанию).
+  - You have an option of restoring to the original location (in which the file/folder would be overwritten) or to another location in the same machine.
+  - If the file/folder you wish to restore exists in the target location, you can create copies (two versions of the same file), overwrite the files in the target location, or skip the recovery of the files which exist in the target.
+  - It is highly recommended that you leave the default option of restoring the ACLs on the files which are being recovered.
 
-8. Предоставив эти входные данные, нажмите кнопку **Далее**. Начнется рабочий процесс восстановления, который восстанавливает файлы на этом компьютере.
+8. Once these inputs are provided, click **Next**. The recovery workflow, which restores the files to this machine, will begin.
 
-## Восстановление файлов на другой компьютер
-При потере всего содержимого сервера вы все равно можете восстановить данные из службы архивации Azure на другом компьютере. Соответствующий рабочий процесс описан ниже.
+## <a name="recover-to-an-alternate-machine"></a>Recover to an alternate machine
+If your entire server is lost, you can still recover data from Azure Backup to a different machine. The following steps illustrate the workflow.  
 
-Ниже приведена терминология, используемая в этих действиях:
+The terminology used in these steps includes:
 
-- *Исходный компьютер* – компьютер, для данных на котором была создана резервная копия и который в настоящий момент недоступен.
-- *Целевой компьютер* – компьютер, на который восстанавливаются данные.
-- *Пример хранилища* — хранилище служб восстановления, в котором зарегистрированы *исходный* и *целевой* компьютеры. <br/>
+- *Source machine* – The original machine from which the backup was taken and which is currently unavailable.
+- *Target machine* – The machine to which the data is being recovered.
+- *Sample vault* – The Recovery Services vault to which the *Source machine* and *Target machine* are registered. <br/>
 
-> [AZURE.NOTE] Резервные копии, созданные с компьютера с более поздней версией ОС, невозможно восстановить на компьютер с более ранней версией ОС. Например, если резервные копии созданы с компьютера под управлением Windows 7, их можно восстановить на компьютер под управлением Windows 8 или более поздних версий ОС, но не наоборот.
+> [AZURE.NOTE] Backups taken from a machine cannot be restored on a machine which is running an earlier version of the operating system. For example, if backups are taken from a Windows 7 machine, it can be restored on a Windows 8 or above machine. However the vice-versa does not hold true.
 
-1. Откройте на *целевом компьютере* оснастку **Служба архивации Microsoft Azure**.
-2. Зарегистрируйте *целевой* и *исходный* компьютеры в одном хранилище служб восстановления.
-3. Щелкните **Восстановить данные**, чтобы запустить рабочий процесс.
+1. Open the **Microsoft Azure Backup** snap in on the *Target machine*.
+2. Ensure that the *Target machine* and the *Source machine* are registered to the same Recovery Services vault.
+3. Click **Recover Data** to initiate the workflow.
 
-    ![Восстановление данных](./media/backup-azure-restore-windows-server/recover.png)
+    ![Recover Data](./media/backup-azure-restore-windows-server/recover.png)
 
-4. Выберите **Другой сервер**.
+4. Select **Another server**
 
-    ![Другой сервер](./media/backup-azure-restore-windows-server/anotherserver.png)
+    ![Another Server](./media/backup-azure-restore-windows-server/anotherserver.png)
 
-5. Укажите файл с учетными данными хранилища, который соответствует *примеру хранилища*. Если файл с учетными данными хранилища недействителен (или просрочен), скачайте новый файл из *примера хранилища* на портале Azure. После указания файла с учетными данными отобразится соответствующее хранилище служб восстановления.
+5. Provide the vault credential file that corresponds to the *Sample vault*. If the vault credential file is invalid (or expired) download a new vault credential file from the *Sample vault* in the Azure portal. Once the vault credential file is provided, the Recovery Services vault against the vault credential file is displayed.
 
-6. Выберите *исходный компьютер* из списка отображенных компьютеров.
+6. Select the *Source machine* from the list of displayed machines.
 
-    ![Список компьютеров](./media/backup-azure-restore-windows-server/machinelist.png)
+    ![List of machines](./media/backup-azure-restore-windows-server/machinelist.png)
 
-7. Выберите **Поиск файлов** или **Обзор файлов**. В этом разделе мы будем использовать **Поиск файлов**.
+7. Select either the **Search for files** or **Browse for files** option. For the purpose of this section, we will use the **Search for files** option.
 
-    ![Поиск](./media/backup-azure-restore-windows-server/search.png)
+    ![Search](./media/backup-azure-restore-windows-server/search.png)
 
-8. На следующем экране выберите том и дату. Найдите имя папки или файла, который нужно восстановить.
+8. Select the volume and date in the next screen. Search for the folder/file name you want to restore.
 
-    ![Поиск элементов](./media/backup-azure-restore-windows-server/searchitems.png)
+    ![Search items](./media/backup-azure-restore-windows-server/searchitems.png)
 
-9. Выберите расположение, в которое необходимо восстановить файлы.
+9. Select the location where the files need to be restored.
 
-    ![Расположение для восстанавливаемых данных](./media/backup-azure-restore-windows-server/restorelocation.png)
+    ![Restore location](./media/backup-azure-restore-windows-server/restorelocation.png)
 
-10. Укажите парольную фразу для шифрования, заданную во время регистрации *исходного компьютера* в *примере хранилища*.
+10. Provide the encryption passphrase that was provided during *Source machine’s* registration to *Sample vault*.
 
-    ![Шифрование](./media/backup-azure-restore-windows-server/encryption.png)
+    ![Encryption](./media/backup-azure-restore-windows-server/encryption.png)
 
-11. После ввода данных щелкните **Восстановить**, после чего начнется восстановление файлов из резервных копий в указанное расположение.
+11. Once the input is provided, click **Recover**, which triggers the restore of the backed up files to the destination provided.
 
-## Дальнейшие действия
-- Теперь после восстановления файлов и папок можно [управлять резервными копиями](backup-azure-manage-windows-server.md).
+## <a name="next-steps"></a>Next steps
+- Now that you've recovered your files and folders, you can [manage your backups](backup-azure-manage-windows-server.md).
 
-<!---HONumber=AcomDC_0803_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,108 +1,117 @@
 <properties
-	pageTitle="Автономная синхронизация данных в мобильных приложениях Azure | Microsoft Azure"
-	description="Справочник принципов и общие сведения о функции автономной синхронизации данных для мобильных приложений Azure."
-	documentationCenter="windows"
-	authors="wesmc7777"
-	manager="dwrede"
-	editor=""
-	services="app-service\mobile"/>
+    pageTitle="Offline Data Sync in Azure Mobile Apps | Microsoft Azure"
+    description="Conceptual reference and overview of the offline data sync feature for Azure Mobile Apps"
+    documentationCenter="windows"
+    authors="adrianhall"
+    manager="dwrede"
+    editor=""
+    services="app-service\mobile"/>
 
 <tags
-	ms.service="app-service-mobile"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="na"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.date="06/28/2016"
-	ms.author="wesmc"/>
+    ms.service="app-service-mobile"
+    ms.workload="mobile"
+    ms.tgt_pltfrm="na"
+    ms.devlang="multiple"
+    ms.topic="article"
+    ms.date="10/01/2016"
+    ms.author="adrianha"/>
 
-# Автономная синхронизация данных в мобильных приложениях Azure
 
-## Что такое автономная синхронизация данных?
+# <a name="offline-data-sync-in-azure-mobile-apps"></a>Offline Data Sync in Azure Mobile Apps
 
-Автономная синхронизация данных — это функция клиентского и серверного пакета SDK для мобильных приложений Azure, которая упрощает разработчикам создание приложений, предназначенных для работы без подключения к сети.
+## <a name="what-is-offline-data-sync?"></a>What is offline data sync?
 
-Когда приложение находится в автономном режиме, пользователи по-прежнему могут создавать и изменять данные, которые будут сохранены в локальном хранилище. Когда приложение вернется в сеть, оно сможет синхронизировать локальные изменения с серверной частью мобильного приложения Azure. Эта функция также поддерживает обнаружение конфликтов при изменении одной и той же записи на клиенте и сервере. Такие конфликты могут быть обработаны на сервере или клиенте.
+Offline data sync is a client and server SDK feature of Azure Mobile Apps that makes it easy for developers to create apps that are functional without a network connection.
 
-У автономной синхронизации имеется ряд преимуществ:
+When your app is in offline mode, users can still create and modify data, which will be saved to a local store. When the app is back online, it can synchronize local changes with your Azure Mobile App backend. The feature also includes support for detecting conflicts when the same record is changed on both the client and the backend. Conflicts can then be handled either on the server or the client.
 
-* Повышение скорости реагирования приложений путем локального кэширования данных сервера в устройстве
-* Создание надежных приложений, которые остаются полезными при проблемах с сетью.
-* Предоставление конечным пользователям возможности создания и изменения данных даже в том случае, когда отсутствует сетевой доступ, поддерживая сценарии с минимальной связностью или при отсутствии связности
-* Синхронизация данных между несколькими устройствами и обнаружение конфликтов, когда два устройства изменяют одну и ту же запись
-* Ограничение использования сетей с высокой задержкой или лимитным тарифным планом.
+Offline sync has a number of benefits:
 
-В следующих учебниках показано, как добавить автономную синхронизацию в мобильные клиенты с помощью мобильных приложений Azure:
+* Improve app responsiveness by caching server data locally on the device
+* Create robust apps that remain useful when there are network issues
+* Allow end-users to create and modify data even when there is no network access, supporting scenarios with little or no connectivity
+* Sync data across multiple devices and detect conflicts when the same record is modified by two devices
+* Limit network use on high-latency or metered networks
 
-* [Android: включение автономной синхронизации]
-* [iOS: включение автономной синхронизации]
-* [Xamarin iOS: включение автономной синхронизации]
-* [Xamarin Android: включение автономной синхронизации]
-* [Xamarin.Forms: включение автономной синхронизации](app-service-mobile-xamarin-forms-get-started-offline-data.md)
-* [Включение автономной синхронизации для приложения для Windows]
+The following tutorials show how to add offline sync to your mobile clients using Azure Mobile Apps:
 
-## Что такое таблица синхронизации?
+* [Android: Enable offline sync]
+* [iOS: Enable offline sync]
+* [Xamarin iOS: Enable offline sync]
+* [Xamarin Android: Enable offline sync]
+* [Xamarin.Forms: Enable offline sync](app-service-mobile-xamarin-forms-get-started-offline-data.md)
+* [Universal Windows Platform: Enable offline sync]
 
-Для доступа к конечной точке /tables клиентские пакеты SDK для мобильных приложений Azure предоставляют интерфейсы, такие как `IMobileServiceTable` (пакет SDK для клиента .NET) или `MSTable` (клиент iOS). Эти API подключаются непосредственно к серверной части мобильного приложения Azure и выдают ошибку, если у клиентского устройства нет сетевого подключения.
+## <a name="what-is-a-sync-table?"></a>What is a sync table?
 
-Для поддержки автономной работы в приложении следует использовать интерфейсы API *таблицы синхронизации*, такие как `IMobileServiceSyncTable` (пакет SDK для клиента .NET) или `MSSyncTable` (клиент iOS). Все те же операции CRUD (Create, Read, Update, Delete — создание, чтение, обновление и удаление) работают с API таблицы синхронизации, за исключением того, что теперь чтение и запись будут осуществляться в *локальном хранилище*. Прежде чем можно будет выполнить операции с таблицей синхронизации, необходимо инициализировать локальное хранилище.
+To access the "/tables" endpoint, the Azure Mobile client SDKs provide interfaces such as `IMobileServiceTable` (.NET client SDK) or `MSTable` (iOS client). These APIs connect directly to the Azure Mobile App backend and will fail if the client device does not have a network connection.
 
-## Что такое локальное хранилище?
+To support offline use, your app should instead use the *sync table* APIs, such as `IMobileServiceSyncTable` (.NET client SDK) or `MSSyncTable` (iOS client). All the same CRUD operations (Create, Read, Update, Delete) work against sync table APIs, except now they will read from or write to a *local store*. Before any sync table operations can be performed, the local store must be initialized.
 
-Локальное хранилище — это уровень сохраняемости данных на клиентском устройстве. Клиентские пакеты SDK для мобильных приложений Azure предоставляют реализацию локального хранилища по умолчанию. В Windows, Xamarin и Android она основана на SQLite. В IOS она основана на Core Data.
+## <a name="what-is-a-local-store?"></a>What is a local store?
 
-Чтобы использовать реализацию на основе SQLite для Windows Phone или Магазина Windows 8.1, необходимо установить расширение SQLite. Дополнительные сведения см. в статье [Включение автономной синхронизации для приложения для Windows]. Android и iOS поставляются с версией SQLite в операционной системе устройства, поэтому нет необходимости ссылаться на собственную версию SQLite.
+A local store is the data persistence layer on the client device. The Azure Mobile Apps client SDKs provide a default local store implementation. On Windows, Xamarin and Android, it is based on SQLite; on iOS, it is based on Core Data.
 
-Разработчики также могут реализовать собственное локальное хранилище. Например, если вы хотите хранить данные в зашифрованном виде в мобильном клиенте, можно определить локальное хранилище, которое для шифрования использует SQLCipher.
+To use the SQLite-based implementation on Windows Phone or Windows Store 8.1, you need to install a SQLite extension. For more details, see [Universal Windows Platform: Enable offline sync]. Android and iOS ship with a version of SQLite in the device operating system itself, so it is not necessary to reference your own version of SQLite.
 
-## Что такое контекст синхронизации?
+Developers can also implement their own local store. For instance, if you wish to store data in an encrypted format on the mobile client, you can define a local store that uses SQLCipher for encryption.
 
-*Контекст синхронизации* связан с объектом мобильного клиента (таким как `IMobileServiceClient` или `MSClient`) и отслеживает изменения, внесенные таблицей синхронизации. Контекст синхронизации обеспечивает *очередь операций*, содержащую упорядоченный список операций CUD (Create, Update, Delete — создание, обновление, удаление), которые позднее будут отправлены на сервер.
+## <a name="what-is-a-sync-context?"></a>What is a sync context?
 
-Локальное хранилище связано с контекстом синхронизации посредством метода инициализации, например `IMobileServicesSyncContext.InitializeAsync(localstore)`, в [клиентском пакете SDK для .NET].
+A *sync context* is associated with a mobile client object (such as `IMobileServiceClient` or `MSClient`) and tracks changes that are made with sync tables. The sync context maintains an *operation queue* which keeps an ordered list of CUD operations (Create, Update, Delete)  that will later be sent to the server.
 
-## <a name="how-sync-works"></a>Как работает автономная синхронизация
+A local store is associated with the sync context using an initialize method such as `IMobileServicesSyncContext.InitializeAsync(localstore)` in the [.NET client SDK].
 
-При использовании таблиц синхронизации код клиента определяет, когда локальные изменения будут синхронизированы с серверной частью мобильного приложения Azure. Ничего не отправляется в серверную часть, пока не осуществляется вызов *отправки* локальных изменений. Аналогично, локальное хранилище заполняется новыми данными только в том случае, если осуществляется вызов *извлечения*.
+## <a name="<a-name="how-sync-works"></a>how-offline-synchronization-works"></a><a name="how-sync-works"></a>How offline synchronization works
 
-* **Отправка**: представляет собой операцию в контексте синхронизации и передает все изменения, внесенные операциями CUD с момента последней отправки. Обратите внимание, что нельзя передать только изменения в отдельной таблице, так как в противном случае операции могут быть отправлены не по порядку. Операция отправки выполняет серию вызовов REST к серверной части мобильного приложения Azure, которая, в свою очередь, изменит сервер базы данных.
+When using sync tables, your client code controls when local changes will be synchronized with an Azure Mobile App backend. Nothing is sent to the backend until there is a call to *push* local changes. Similarly, the local store is populated with new data only when there is a call to *pull* data.
 
-* **Извлечение**: выполняется отдельно для каждой таблицы и может настраиваться с помощью запроса для получения подмножества данных сервера. Клиентские пакеты SDK для мобильных приложений Azure вставляют результирующие данные в локальное хранилище.
+* **Push**: Push is an operation on the sync context and sends all CUD changes since the last push. Note that it is not possible to send only an individual table's changes, because otherwise operations could be sent out of order. Push executes a series of REST calls to your Azure Mobile App backend, which in turn will modify your server database.
 
-* **Неявные отправки**: если для таблицы с ожидающими локальными обновлениями выполняется извлечение, сначала будет выполнена отправка в контексте синхронизации. Это позволяет свести к минимуму конфликты между изменениями, которые уже поставлены в очередь, и новыми данными с сервера.
+* **Pull**: Pull is performed on a per-table basis and can be customized with a query to retrieve only a subset of the server data. The Azure Mobile client SDKs then insert the resulting data into the local store.
 
-* **Добавочная синхронизация**: первый параметр операции извлечения — *имя запроса*, которое используется только на стороне клиента. Если используется имя запроса, отличное от NULL, пакет SDK для мобильных приложений Azure выполнит *добавочную синхронизацию*. Каждый раз, когда операция извлечения возвращает набор результатов, последняя метка времени `updatedAt` из этого набора сохраняется в таблицах локальной системы пакета SDK. Последующие операции извлечения будут получать только записи после этой метки времени.
+* **Implicit Pushes**: If a pull is executed against a table that has pending local updates, the pull will first execute a push on the sync context. This helps minimize conflicts between changes that are already queued and new data from the server.
 
-  Для использования добавочной синхронизации ваш сервер должен возвращать осмысленные значения `updatedAt`, а также поддерживать сортировку по этому полю. Но так как пакет SDK добавляет собственную сортировку по полю updatedAt, нельзя использовать запрос на извлечение, в котором есть собственное предложение `$orderBy$`.
+* **Incremental Sync**: the first parameter to the pull operation is a *query name* that is used only on the client. If you use a non-null query name, the Azure Mobile SDK will perform an *incremental sync*.
+  Each time a pull operation returns a set of results, the latest `updatedAt` timestamp from that result set is stored in the SDK local system tables. Subsequent pull operations will only retrieve records after that timestamp.
 
-  Именем запроса может быть любая строка на ваш выбор, но оно должно быть уникальным для каждого логического запроса в приложении. В противном случае разные операции извлечения могут перезаписать одну и ту же метку времени добавочной синхронизации, и запросы могут возвращать неправильные результаты.
+  To use incremental sync, your server must return meaningful `updatedAt` values and must also support sorting by this field. However, since the SDK adds its own sort on the updatedAt field, you cannot use a pull query that has its own `$orderBy$` clause.
 
-  Если в запросе есть параметр, один из способов создать уникальное имя запроса — включить в него значение параметра. Например, при фильтрации по userid имя запроса может быть следующим (в C#):
+  The query name can be any string you choose, but it must be unique for each logical query in your app.
+  Otherwise, different pull operations could overwrite the same incremental sync timestamp and your queries can return incorrect results.
 
-		await todoTable.PullAsync("todoItems" + userid,
-			syncTable.Where(u => u.UserId == userid));
+  If the query has a parameter, one way to create a unique query name is to incorporate the parameter value.
+  For instance, if you are filtering on userid, your query name could be as follows (in C#):
 
-  Если вы хотите явно отказаться от добавочной синхронизации, передайте `null` в качестве идентификатора запроса. В этом случае при каждом вызове `PullAsync` будут извлекаться все записи, что может снижать уровень производительности.
+        await todoTable.PullAsync("todoItems" + userid,
+            syncTable.Where(u => u.UserId == userid));
 
-* **Очистка**: можно очистить локальное хранилище с помощью `IMobileServiceSyncTable.PurgeAsync`. Это может потребоваться, если в базе данных клиента есть устаревшие данные или вы хотите отменить все ожидающие изменения.
+  If you want to opt out of incremental sync, pass `null` as the query ID. In this case, all records will be retrieved on every call to `PullAsync`, which is potentially inefficient.
 
-  Очистка приведет к очистке таблицы из локального хранилища. При наличии ожидающих операций синхронизации с базой данных сервера очистка породит исключение, если только не задан параметр *force purge*.
+* **Purging**: You can clear the contents of the local store using `IMobileServiceSyncTable.PurgeAsync`.
+  This may be necessary if you have stale data in the client database, or if you wish to discard all pending changes.
 
-  Пример устаревших данных на клиенте: предположим, что в примере «todo list» устройство Device1 извлекает только элементы, которые не завершены. Затем элемент Todoitem «Купить молоко» помечается на сервере как завершенный другим устройством. Однако устройство Device1 по-прежнему будет хранить элемент Todoitem «Купить молоко» в локальном хранилище, так как оно извлекает только элементы, которые не помечены как завершенные. Очистка удалит этот устаревший элемент.
+  A purge will clear a table from the local store. If there are operations pending synchronization with the server database, the purge will throw an exception unless the *force purge* parameter is set.
 
-## Дальнейшие действия
+  As an example of stale data on the client, suppose in the "todo list" example, Device1 only pulls items that are not completed. Then, a todoitem "Buy milk" is marked completed on the server by another device. However, Device1 will still have the "Buy milk" todoitem in local store because it is only pulling items that are not marked complete. A purge will clear this stale item.
 
-* [iOS: включение автономной синхронизации]
-* [Xamarin iOS: включение автономной синхронизации]
-* [Xamarin Android: включение автономной синхронизации]
-* [Включение автономной синхронизации для приложения для Windows]
+## <a name="next-steps"></a>Next steps
+
+* [iOS: Enable offline sync]
+* [Xamarin iOS: Enable offline sync]
+* [Xamarin Android: Enable offline sync]
+* [Universal Windows Platform: Enable offline sync]
 
 <!-- Links -->
-[клиентском пакете SDK для .NET]: app-service-mobile-dotnet-how-to-use-client-library.md
-[Android: включение автономной синхронизации]: app-service-mobile-android-get-started-offline-data.md
-[iOS: включение автономной синхронизации]: app-service-mobile-ios-get-started-offline-data.md
-[Xamarin iOS: включение автономной синхронизации]: app-service-mobile-xamarin-ios-get-started-offline-data.md
-[Xamarin Android: включение автономной синхронизации]: app-service-mobile-xamarin-ios-get-started-offline-data.md
-[Включение автономной синхронизации для приложения для Windows]: app-service-mobile-windows-store-dotnet-get-started-offline-data.md
+[.NET client SDK]: app-service-mobile-dotnet-how-to-use-client-library.md
+[Android: Enable offline sync]: app-service-mobile-android-get-started-offline-data.md
+[iOS: Enable offline sync]: app-service-mobile-ios-get-started-offline-data.md
+[Xamarin iOS: Enable offline sync]: app-service-mobile-xamarin-ios-get-started-offline-data.md
+[Xamarin Android: Enable offline sync]: app-service-mobile-xamarin-ios-get-started-offline-data.md
+[Universal Windows Platform: Enable offline sync]: app-service-mobile-windows-store-dotnet-get-started-offline-data.md
 
-<!---HONumber=AcomDC_0907_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

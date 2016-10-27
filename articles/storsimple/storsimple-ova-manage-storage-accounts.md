@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Управление учетной записью хранения StorSimple | Microsoft Azure"
-   description="Здесь объясняется, как можно использовать страницу ";Настройка"; в диспетчере StorSimple для добавления, изменения и удаления или смены ключей безопасности для учетной записи хранения, связанной с виртуальным массивом StorSimple."
+   pageTitle="Manage your StorSimple storage account | Microsoft Azure"
+   description="Explains how you can use the StorSimple Manager Configure page to add, edit, delete, or rotate the security keys for a storage account associated with the StorSimple Virtual Array."
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
@@ -12,95 +12,102 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="04/18/2016"
+   ms.date="09/29/2016"
    ms.author="alkohli" />
 
-# Управление учетными записями хранения для виртуального массива StorSimple с помощью службы диспетчера StorSimple
 
-## Обзор
+# <a name="use-the-storsimple-manager-service-to-manage-storage-accounts-for-storsimple-virtual-array"></a>Use the StorSimple Manager service to manage storage accounts for StorSimple Virtual Array
 
-На странице **Настройка** представлены все параметры глобальной службы, создаваемые в службе диспетчера StorSimple. Эти параметры могут применяться для всех устройств, подключенных к службе, включая:
+## <a name="overview"></a>Overview
 
-- учетные записи хранения; 
-- записи системы контроля доступа. 
+The **Configure** page presents the global service parameters that can be created in the StorSimple Manager service. These parameters can be applied to all the devices connected to the service, and include:
 
-В этом учебнике объясняется, как с помощью страницы **Настройка** добавлять, изменять или удалять учетные записи хранения для виртуального массива StorSimple. Сведения в этом учебнике относятся только к виртуальному массиву StorSimple с общедоступной версией программного обеспечения, выпущенной в марте 2016 года.
+- Storage accounts 
+- Access control records 
 
- ![Страница "Настройка"](./media/storsimple-ova-manage-storage-accounts/configure_service_page.png)
+This tutorial explains how you can use the **Configure** page to add, edit, or delete storage accounts for your StorSimple Virtual Array. The information in this tutorial only applies to the StorSimple Virtual Array running March 2016 GA release software.
 
-Учетные записи хранения содержат учетные данные, используемые устройством для доступа к учетной записи хранения у поставщика облачной службы. Для учетных записей хранения Microsoft Azure это такие учетные данные, как имя учетной записи и основной ключ доступа.
+ ![Configure page](./media/storsimple-ova-manage-storage-accounts/configure_service_page.png)  
 
-На странице **Настройка** все учетные записи хранения, созданные для подписки выставления счетов, отображаются в виде таблицы, содержащей следующие сведения:
+Storage accounts contain the credentials that the device uses to access your storage account with your cloud service provider. For Microsoft Azure storage accounts, these are credentials such as the account name and the primary access key. 
 
-- **Имя** — уникальное имя, назначенное учетной записи при ее создании.
-- **SSL включен** — включение протокола SSL, чтобы обмен данными между облаком и устройством осуществлялся по безопасному каналу.
+On the **Configure** page, all storage accounts that are created for the billing subscription are displayed in a tabular format containing the following information:
 
-Вот наиболее типичные задачи, которые можно выполнить на странице **Настройка** для учетных записей хранения:
+- **Name** – The unique name assigned to the account when it was created.
+- **SSL enabled** – Whether the SSL is enabled and device-to-cloud communication is over the secure channel.
 
-- добавление учетной записи хранения; 
-- изменение учетной записи хранения; 
-- Удаление учетной записи хранения 
+The most common tasks related to storage accounts that can be performed on the **Configure** page are:
+
+- Add a storage account 
+- Edit a storage account 
+- Delete a storage account 
 
 
-## Типы учетных записей хранения
+## <a name="types-of-storage-accounts"></a>Types of storage accounts
 
-Существует три типа учетных записей хранения, которые можно использовать на устройстве StorSimple.
+There are three types of storage accounts that can be used with your StorSimple device.
 
-- **Автоматически созданные учетные записи хранения** — как ясно из названия, этот тип учетной записи хранения создается автоматически при создании службы. Дополнительные сведения о создании этой учетной записи хранения см. в разделе [Создание службы](storsimple-ova-manage-service.md#create-a-service). 
-- **Учетные записи хранения в подписке службы** — это учетные записи хранилища Azure, которые связаны с подпиской той же службы. Дополнительные сведения о том, как создаются эти учетные записи хранения, см. в разделе [Об учетных записях хранения Azure](../storage/storage-create-storage-account.md). 
-- **Учетные записи хранения вне подписки на службу** — это учетные записи хранения Azure, которые не связаны со службой и скорее всего существовали до создания службы.
+- **Auto-generated storage accounts** – As the name suggests, this type of storage account is automatically generated when the service is first created. To learn more about how this storage account is created, see [Create a new service](storsimple-ova-manage-service.md#create-a-service). 
+- **Storage accounts in the service subscription** – These are the Azure storage accounts that are associated with the same subscription as that of the service. To learn more about how these storage accounts are created, see [About Azure Storage Accounts](../storage/storage-create-storage-account.md). 
+- **Storage accounts outside of the service subscription** – These are the Azure storage accounts that are not associated with your service and likely existed before the service was created.
 
-## добавление учетной записи хранения;
+Each StorSimple Virtual Array creates a container (with a prefix hcs) in the associated storage account. This container has all the cloud data for your device. Do not delete this container by accessing it through the Azure Storage service as this action will result in data loss.
 
-Вы можете добавить учетную запись хранения в конфигурацию службы диспетчера StorSimple, указав уникальное понятное имя и учетные данные для доступа, связанные с учетной записью хранения. Также можно включить режим SSL для создания безопасного сетевого канала связи между устройством и облаком.
+## <a name="add-a-storage-account"></a>Add a storage account
 
-Для одного поставщика облачных служб можно создать несколько учетных записей. При сохранении учетной записи хранения служба пытается связаться с поставщиком облачной службы. В этот момент выполняется аутентификация по учетным данным и предоставленным данным для доступа. Учетная запись хранения создается только в том случае, если аутентификация завершается успешно. При сбое аутентификации, будет отображаться соответствующее сообщение об ошибке.
+You can add a storage account to your StorSimple Manager service configuration by providing a unique friendly name and access credentials that are linked to the storage account. You also have the option of enabling the secure sockets layer (SSL) mode to create a secure channel for network communication between your device and the cloud.
 
-Учетные записи хранения Resource Manager, созданные на портале Azure, также поддерживаются StorSimple. Учетные записи хранения Resource Manager не будут отображаться в раскрывающемся списке для выбора: в нем будут доступны только учетные записи хранения, созданные на классическом портале Azure. Учетные записи хранения Resource Manager потребуется добавить с помощью процедуры добавления учетной записи хранения, как описано ниже.
+You can create multiple accounts for a given cloud service provider. While the storage account is being saved, the service attempts to communicate with your cloud service provider. The credentials and the access material that you supplied will be authenticated at this time. A storage account is created only if the authentication succeeds. If the authentication fails, then an appropriate error message will be displayed.
 
-Процедура добавления учетной записи хранения классической модели Azure описана ниже.
+Resource Manager storage accounts created in Azure portal are also supported with StorSimple. The Resource Manager storage accounts will not show up in the drop-down list for selection, only the storage accounts created in the Azure classic portal will be displayed. Resource Manager storage accounts will need to be added using the procedure to add a storage account as described below.
+
+The procedure for adding an Azure classic storage account is detailed below.
 
 [AZURE.INCLUDE [add-a-storage-account](../../includes/storsimple-ova-configure-new-storage-account.md)]
 
-## Изменение учетной записи хранения
+## <a name="edit-a-storage-account"></a>Edit a storage account
 
-Вы можете изменить учетную записи хранения, используемую вашим устройством. При изменении учетной записи хранения, которая используется в настоящий момент, единственным полем, доступным для изменения, является ключ доступа и режим SSL для учетной записи хранения. Можно предоставить новый ключ доступа к хранилищу или изменить параметр **Включить режим SSL** и сохранить измененные параметры.
+You can edit a storage account used by your device. If you edit a storage account that is currently in use, the fields available to modify are the access key and the SSL mode for the storage account. You can supply the new storage access key or modify the **Enable SSL mode** selection and save the updated settings.
 
-#### Изменение учетной записи хранения
+#### <a name="to-edit-a-storage-account"></a>To edit a storage account
 
-1. На главной странице служб выберите службу, дважды щелкните имя службы и выберите элемент **Настройка**.
+1. On the service landing page, select your service, double-click the service name, and then click **Configure**.
 
-2. Щелкните **Добавить/изменить учетную запись хранения**.
+2. Click **Add/Edit Storage Accounts**.
 
-3. В диалоговом окне **Добавление или изменение учетных записей хранения**:
+3. In the **Add/Edit Storage Accounts** dialog box:
 
-  1. В раскрывающемся списке **Учетные записи хранения** выберите существующую учетную запись, которую нужно изменить.
-  2. При необходимости можно изменить параметр **Включить режим SSL**.
-  3. Ключи доступа учетной записи хранения можно сменить. Дополнительные сведения см. в статье [Повторное создание ключей доступа к хранилищу](storage-create-storage-account.md#manage-your-storage-access-keys). Укажите новый ключ учетной записи хранения. Для учетной записи хранения Azure это первичный ключ доступа. 
-  4. Щелкните значок с изображением флажка ![значок галочки](./media/storsimple-ova-manage-storage-accounts/checkicon.png), чтобы сохранить настройки. Параметры на странице **Настройки** обновятся. 
-  5. Чтобы сохранить измененные параметры, в нижней части страницы нажмите кнопку **Сохранить**. 
+  1. In the drop-down list of **Storage Accounts**, choose an existing account that you would like to modify. 
+  2. If necessary, you can modify the **Enable SSL Mode** selection.
+  3. You can choose to regenerate your storage account access keys. For more information, see [Regenerate the storage account keys](storage-create-storage-account.md#manage-your-storage-access-keys). Supply the new storage account key. For an Azure storage account, this is the primary access key. 
+  4. Click the check icon ![check icon](./media/storsimple-ova-manage-storage-accounts/checkicon.png) to save the settings. The settings will be updated on the **Configure** page. 
+  5. At the bottom of the page, click **Save** to save the newly updated settings. 
 
-     ![Изменение учетной записи хранения](./media/storsimple-ova-manage-storage-accounts/modifyexistingstorageaccount.png)
+     ![Edit a storage account](./media/storsimple-ova-manage-storage-accounts/modifyexistingstorageaccount.png)
   
-## Удаление учетной записи хранения
+## <a name="delete-a-storage-account"></a>Delete a storage account
 
-> [AZURE.IMPORTANT] Учетную запись хранения можно удалить только в том случае, если она не используется. Если учетная запись хранения используется, вы получите уведомление.
+> [AZURE.IMPORTANT] You can delete a storage account only if it is not in use. If a storage account is in use, you will be notified.
 
-#### Удаление учетной записи хранения
+#### <a name="to-delete-a-storage-account"></a>To delete a storage account
 
-1. На главной странице службы диспетчера StorSimple выберите службу, дважды щелкните ее имя и щелкните **Настроить**.
+1. On the StorSimple Manager service landing page, select your service, double-click the service name, and then click **Configure**.
 
-2. В таблице учетных записей хранения наведите указатель мыши на учетную запись, которую требуется удалить.
+2. In the tabular list of storage accounts, hover over the account that you wish to delete.
 
-3. Значок удаления (**x**) для этой учетной записи хранения будет отображаться в крайнем правом столбце. Щелкните значок **x**, чтобы удалить учетные данные.
+3. A delete icon (**x**) will appear in the extreme right column for that storage account. Click the **x** icon to delete the credentials.
 
-4. При появлении запроса на подтверждение нажмите кнопку **Да**, чтобы продолжить удаление. Таблица будет обновляться с учетом изменений.
+4. When prompted for confirmation, click **Yes** to continue with the deletion. The tabular listing will be updated to reflect the changes.
 
-5. Чтобы сохранить измененные параметры, в нижней части страницы нажмите кнопку **Сохранить**.
+5. At the bottom of the page, click **Save** to save the newly updated settings.
 
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Next steps
 
-- Узнайте, как [администрировать виртуальный массив StorSimple](storsimple-ova-web-ui-admin.md).
+- Learn how to [administer your StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
 
-<!---HONumber=AcomDC_0504_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

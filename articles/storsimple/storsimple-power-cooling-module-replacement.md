@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Замена БПО на устройстве StorSimple | Microsoft Azure"
-   description="Объясняется процесс снятия и замены блока питания и охлаждения модуля (БПО) на устройстве StorSimple"
+   pageTitle="Replace a PCM on your StorSimple device | Microsoft Azure"
+   description="Explains how to remove and replace the Power and Cooling Module (PCM) on your StorSimple device"
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
@@ -15,144 +15,149 @@
    ms.date="08/18/2016"
    ms.author="alkohli" />
 
-# Замена блока питания и охлаждения на устройстве StorSimple
 
-## Обзор
+# <a name="replace-a-power-and-cooling-module-on-your-storsimple-device"></a>Replace a Power and Cooling Module on your StorSimple device
 
-Блок питания и охлаждения (БПО) на устройстве Microsoft Azure StorSimple состоит из источников питания и вентиляторов, которые управляются с помощью основного корпуса и корпуса EBOD. Для каждого корпуса сертифицирована только одна модель БПО. Основной корпус сертифицирован для БПО мощностью 764 Вт, а корпус EBOD — для БПО мощностью 580 Вт. Несмотря на то что БПО для основного корпуса и корпуса EBOD различаются, процедура замены идентична.
+## <a name="overview"></a>Overview
 
-В этом учебнике объясняется, как выполнить такие задачи:
+The Power and Cooling Module (PCM) in your Microsoft Azure StorSimple device consists of a power supply and cooling fans that are controlled through the primary and EBOD enclosures. There is only one model of PCM that is certified for each enclosure. The primary enclosure is certified for a 764 W PCM and the EBOD enclosure is certified for a 580 W PCM. Although the PCMs for the primary enclosure and the EBOD enclosure are different, the replacement procedure is identical.
 
-- Снятие БПО
-- Установка нового БПО
+This tutorial explains how to:
 
->[AZURE.IMPORTANT] Перед снятием и заменой БПО ознакомьтесь со сведениями о безопасности в разделе [Замена компонентов оборудования StorSimple](storsimple-hardware-component-replacement.md).
+- Remove a PCM
+- Install a replacement PCM
 
-## Перед заменой БПО
+>[AZURE.IMPORTANT] Before removing and replacing a PCM, review the safety information in [StorSimple hardware component replacement](storsimple-hardware-component-replacement.md).
 
-Перед заменой учтите следующие важные моменты.
+## <a name="before-you-replace-a-pcm"></a>Before you replace a PCM
 
-- В случае сбоя питания БПО оставьте неисправный блок на месте, но отключите шнур питания. Вентилятор продолжит получать питание от корпуса и обеспечивать необходимое охлаждение. В случае сбоя вентилятора БПО необходимо немедленно заменить.
+Be aware of the following important issues before you replace your PCM:
 
-- Перед снятием БПО отключите питание БПО, выключив тумблер питания (при наличии) или физически отключив шнур питания. При этом в системе появится предупреждение о предстоящем отключении питания.
+- If the power supply of the PCM fails, leave the faulty module installed, but remove the power cord. The fan will continue to receive power from the enclosure and continue to provide proper cooling. If the fan fails, the PCM needs to be replaced immediately.
 
-- Перед заменой неисправного БПО убедитесь, что другие БПО работают. Неисправный БПО необходимо заменить на полностью рабочий БПО как можно быстрее.
+- Before removing the PCM, disconnect the power from the PCM by turning off the main switch (where present) or by physically removing the power cord. This provides a warning to your system that a power shutdown is imminent.
 
-- Замена БПО занимает всего несколько минут, но она должна быть завершена в течение 10 минут после снятия неисправного БПО для предотвращения перегрева.
+- Make sure that the other PCM is functional for continued system operation before replacing the faulty PCM. A faulty PCM must be replaced by a fully operational PCM as soon as possible.
 
-- Обратите внимание на то, что сменные модули 764 W PCM, поставленные с завода, не включают модуль резервного аккумулятора. Извлеките аккумулятор из неисправного PCM и вставьте его в сменный модуль, прежде чем произвести замену. Дополнительные сведения см. в инструкциях по [извлечению и вставке нового модуля резервного аккумулятора](storsimple-battery-replacement.md).
+- PCM module replacement takes only few minutes to complete, but it must be completed within 10 minutes of removing the failed PCM to prevent overheating.
+
+- Note that the replacement 764 W PCM modules shipped from the factory do not contain the backup battery module. You will need to remove the battery from your faulty PCM and then insert it into the replacement module prior to performing the replacement. For more information, see how to [remove and insert a backup battery module](storsimple-battery-replacement.md).
 
 
-## Снятие БПО
+## <a name="remove-a-pcm"></a>Remove a PCM
 
-Когда вы будете готовы к снятию блока питания и охлаждения (БПО) с устройства Microsoft Azure StorSimple, выполните следующие действия.
+Follow these instructions when you are ready to remove a Power and Cooling Module (PCM) from your Microsoft Azure StorSimple device.
 
->[AZURE.NOTE] Перед снятием БПО убедитесь, что правильно выбрали замену (764 Вт для основного корпуса и 580 Вт для корпуса EBOD).
+>[AZURE.NOTE] Before you remove your PCM, verify that you have a correct replacement (764 W for the primary enclosure or 580 W for the EBOD enclosure).
 
-#### Снятие БПО
+#### <a name="to-remove-a-pcm"></a>To remove a PCM
 
-1. В классическом портале Azure щелкните **Устройства** > **Обслуживание** > **Состояние оборудования**. Проверьте состояние компонентов БПО в разделе **Общие компоненты**, чтобы определить неисправный БПО.
+1. In the Azure classic portal, click **Devices** > **Maintenance** > **Hardware Status**. Check the status of the PCM components under **Shared Components** to identify which PCM has failed:
 
-     - В случае сбоя питания БПО 0 индикатор **Питание БПО 0** будет красного цвета.
+     - If a power supply in PCM 0 has failed, the status of **Power Supply in PCM 0** will be red.
 
-     - В случае сбоя питания БПО 1 индикатор **Питание БПО 1** будет красного цвета.
+     - If a power supply in PCM 1 has failed, the status of **Power Supply in PCM 1** will be red.
 
-     - При неисправности вентилятора в БПО 1 элементы **Охлаждение 0 для БПО 0** или **Охлаждение 1 для БПО 0** будут красными.
+     - If the fan in PCM 1 has failed, the status of either **Cooling 0 for PCM 0** or **Cooling 1 for PCM 0** will be red.
 
-2. Найдите неисправный БПО на обратной стороне основного корпуса. При использовании модели 8600 определите основной корпус с помощью идентификационного номера компонента системы, отображаемого на передней панели светодиодного индикатора. Идентификационный номер модуля по умолчанию на основном корпусе — это **00**, а идентификационный номер модуля по умолчанию на корпусе EBOD — **01**. Передняя панель светодиодного индикатора приведена на следующей схеме и описана в таблице.
+2. Locate the failed PCM on the back of the primary enclosure. If you are running an 8600 model, identify the primary enclosure by looking at the System Unit Identification Number shown on the front panel LED display. The default Unit ID displayed on the primary enclosure is **00**, whereas the default Unit ID displayed on the EBOD enclosure is **01**. The following diagram and table explain the front panel of the LED display.
 
-    ![Идентификатор системы на передней панели OPS](./media/storsimple-power-cooling-module-replacement/IC740991.png)
+    ![System ID on front OPS panel](./media/storsimple-power-cooling-module-replacement/IC740991.png)
 
-     **Рис. 1.** Передняя панель устройства
+     **Figure 1** Front panel of the device  
 
-    |Метка|Описание|
-    |:---|:-----------|
-    |1|Кнопка выключения|
-    |2|Питание системы|
-    |3|Сбой модуля|
-    |4\.|Логический сбой|
-    |5|Дисплей идентификатора модуля|
+  	|Label|Description|
+  	|:---|:-----------|
+  	|1|Mute button|
+  	|2|System power|
+  	|3|Module fault|
+  	|4|Logical fault|
+  	|5|Unit ID display|
 
-3. Неисправный БПО также можно определить с помощью светодиодных индикаторов мониторинга на задней поверхности основного корпуса. Определение неисправного БПО с помощью светодиодов показано на следующей схеме и в таблице. Например, если горит светодиод **Неисправность вентилятора**, это означает неисправность вентилятора. Аналогично, если горит светодиодный индикатор **Сбой питания**, произошел сбой питания.
+3. The monitoring indicator LEDs in the back of the primary enclosure can also be used to identify the faulty PCM. See the following diagram and table to understand how to use the LEDs to locate the faulty PCM. For example, if the LED corresponding to the **Fan Fail** is lit, the fan has failed. Likewise, if the LED corresponding to **AC Fail** is lit, the power supply has failed. 
 
-    ![Светодиодные индикаторы мониторинга на задней панели БПО устройства](./media/storsimple-power-cooling-module-replacement/IC740992.png)
+    ![Backplane of device PCM monitoring indicator LEDs](./media/storsimple-power-cooling-module-replacement/IC740992.png)
 
-     **Рис. 2.** Задняя панель БПО со светодиодными индикаторами
+     **Figure 2** Back of PCM with indicator LEDs
 
-    |Метка|Описание|
-    |:---|:-----------|
-    |1|Сбой питания от электросети|
-    |2|Сбой вентилятора|
-    |3|Сбой аккумулятора|
-    |4\.|БПО исправен|
-    |5|Сбой постоянного напряжения|
-    |6|Батарея работоспособна|
+  	|Label|Description|
+  	|:---|:-----------|
+  	|1|AC power failure|
+  	|2|Fan failure|
+  	|3|Battery fault|
+  	|4|PCM OK|
+  	|5|DC power failure|
+  	|6|Battery healthy|
 
-4. Для поиска неисправного БПО обратитесь к следующей схеме задней панели устройства StorSimple. БПО 0 находится слева, а БПО 1 — справа. Подробная информация о БПО приведена в следующей таблице.
+4. Refer to the following diagram of the back of the StorSimple device to locate the failed PCM module. PCM 0 is on the left and PCM 1 is on the right. The table that follows explains the modules.
 
-     ![Задняя панель модулей основного корпуса устройства](./media/storsimple-power-cooling-module-replacement/IC740994.png)
+     ![Backplane of device primary enclosure modules](./media/storsimple-power-cooling-module-replacement/IC740994.png)
 
-     **Рис. 3.** Задняя панель устройства с подключенными модулями
+     **Figure 3** Back of device with plug-in modules 
 
-    |Метка|Описание|
-    |:---|:-----------|
-    |1|PCM 0|
-    |2|PCM 1|
-    |3|Контроллер 0|
-    |4\.|Контроллер 1|
+  	|Label|Description|
+  	|:---|:-----------|
+  	|1|PCM 0|
+  	|2|PCM 1|
+  	|3|Controller 0|
+  	|4|Controller 1|
 
-5. Отключите неисправный БПО и отсоедините кабель питания. Теперь можно снять БПО.
+5. Turn off the faulty PCM and disconnect the power supply cord. You can now remove the PCM.
 
-6. Возьмитесь за защелку и боковую поверхность рукоятки БПО большим и указательным пальцем и сожмите их, чтобы открыть рукоятку.
+6. Grasp the latch and the side of the PCM handle between your thumb and forefinger, and squeeze them together to open the handle.
 
-    ![Открытие рукоятки БПО](./media/storsimple-power-cooling-module-replacement/IC740995.png)
+    ![Opening PCM Handle](./media/storsimple-power-cooling-module-replacement/IC740995.png)
 
-    **Рис. 4.** Открытие рукоятки БПО
+    **Figure 4** Opening the PCM handle
 
-7. Возьмитесь за рукоятку и снимите БПО.
+7. Grip the handle and remove the PCM.
 
-    ![Снятие устройства БПО](./media/storsimple-power-cooling-module-replacement/IC740996.png)
+    ![Removing Device PCM](./media/storsimple-power-cooling-module-replacement/IC740996.png)
 
-    **Рис. 5.** Извлечение БПО
+    **Figure 5** Removing the PCM
 
-## Установка нового БПО
+## <a name="install-a-replacement-pcm"></a>Install a replacement PCM
 
-Для установки нового БПО на устройство StorSimple выполните следующие действия. Перед установкой сменного PCM установите модуль резервного аккумулятора (только для 764 W PCM). Дополнительные сведения см. в инструкциях по [извлечению и вставке нового модуля резервного аккумулятора](storsimple-battery-replacement.md).
+Follow these instructions to install a PCM in your StorSimple device. Ensure that you have inserted the backup battery module prior to installing the replacement PCM (applies to 764 W PCMs only). For more information, see how to [remove and insert a backup battery module](storsimple-battery-replacement.md).
 
-#### Установка БПО
+#### <a name="to-install-a-pcm"></a>To install a PCM
 
-1. Убедитесь, что замена для заданного типа корпуса выбрана правильно. Для основного корпуса необходим БПО мощностью 764 Вт, для корпуса EBOD — мощностью 580 Вт. Не стоит пытаться использовать БПО мощностью 580 Вт для основного корпуса или БПО мощностью 764 Вт для корпуса EBOD. На следующем рисунке показано, где найти эти сведения на наклейке изготовителя БПО.
+1. Verify that you have the correct replacement PCM for this enclosure. The primary enclosure needs a 764 W PCM and the EBOD enclosure needs a 580 W PCM. You should not attempt to use the 580 W PCM in the Primary enclosure, or the 764 W PCM in the EBOD enclosure. The following image shows where to identify this information on the label that is affixed to the PCM.
 
-    ![Наклейка БПО](./media/storsimple-power-cooling-module-replacement/IC740973.png)
+    ![Device PCM Label](./media/storsimple-power-cooling-module-replacement/IC740973.png)
 
-    **Рис. 6.** Наклейка БПО
+    **Figure 6** PCM label
 
-2. Проверьте отсутствие повреждений корпуса, уделяя особое внимание разъемам.
-										
-    >[AZURE.NOTE] **Не устанавливайте блок, если контакты на разъеме изогнуты.**
+2. Check for damage to the enclosure, paying particular attention to the connectors. 
+                                        
+    >[AZURE.NOTE] **Do not install the module if any connector pins are bent.**
 
-3. С рукояткой БПО в открытом положении установите БПО в корпус.
+3. With the PCM handle in the open position, slide the module into the enclosure.
 
-    ![Установка устройства БПО](./media/storsimple-power-cooling-module-replacement/IC740975.png)
+    ![Installing Device PCM](./media/storsimple-power-cooling-module-replacement/IC740975.png)
 
-    **Рис. 7.** Установка БПО
+    **Figure 7** Installing the PCM
 
-4. Закройте рукоятку БПО. При срабатывании защелки рукоятки должен раздаться щелчок.
-										
-    >[AZURE.NOTE] Чтобы убедиться, что штырьки разъема встали на место, можно аккуратно потянуть рукоятку, не открывая защелку. Если БПО сдвигается, это означает, что защелка закрылась до соединения разъема.
+4. Manually close the PCM handle. You should hear a click as the handle latch engages. 
+                                        
+    >[AZURE.NOTE] To ensure that the connector pins have engaged, you can gently tug on the handle without releasing the latch. If the PCM slides out, it implies that the latch was closed before the connectors engaged.
 
-5. Подключите кабели питания к источнику питания и БПО.
+5. Connect the power cables to the power source and to the PCM.
 
-6. Закрепите механические зажимы.
+6. Secure the strain relief bales. 
 
-7. Включите БПО.
+7. Turn on the PCM.
 
-8. Убедитесь, что замена выполнена успешно: на классическом портале Azure службы диспетчера StorSimple выберите **Устройства** > **Обслуживание** > **Состояние оборудования**. В разделе **Общие компоненты** индикатор состояния БПО должен быть зеленого цвета.
-										
-    >[AZURE.NOTE] Для полной инициализации установленного БПО может потребоваться несколько минут.
+8. Verify that the replacement was successful: in the Azure classic portal of your StorSimple Manager service, navigate to **Devices** > **Maintenance** > **Hardware Status**. Under **Shared Components**, the status of the PCM should be green. 
+                                        
+    >[AZURE.NOTE] It may take a few minutes for the replacement PCM to completely initialize.
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Next steps
 
-Узнайте подробнее о [замене компонентов оборудования StorSimple](storsimple-hardware-component-replacement.md).
+Learn more about [StorSimple hardware component replacement](storsimple-hardware-component-replacement.md).
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

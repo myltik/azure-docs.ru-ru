@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Получение ценных сведений о потреблении ресурсов Microsoft Azure | Microsoft Azure"
-   description="Предоставляет общие сведения о API использования и RateCard для выставления счетов Azure, которые применяются для получения ценных сведений о потреблении ресурсов Azure и соответствующих тенденциях."
+   pageTitle="Gain insights into your Microsoft Azure resource consumption | Microsoft Azure"
+   description="Provides a conceptual overview of the Azure Billing Usage and RateCard APIs, which are used to provide insights into Azure resource consumption and trends."
    services=""
    documentationCenter=""
    authors="BryanLa"
@@ -17,66 +17,71 @@
    ms.date="08/16/2016"
    ms.author="mobandyo;bryanla"/>
 
-# Получение ценных сведений о потреблении ресурсов Microsoft Azure
 
-Клиенты и партнеры нуждаются в возможности точно прогнозировать расходы Azure и управлять ими. При переходе от модели капитальных расходов к модели эксплуатационных расходов они также нуждаются в возможности производить сравнительный анализ возвратных платежей и виртуальных счетов, а также обеспечивать точность при определении затрат и выставлении счетов , особенно для больших облачных развертываний.
+# <a name="gain-insights-into-your-microsoft-azure-resource-consumption"></a>Gain insights into your Microsoft Azure resource consumption
 
-Эти потребности удовлетворяют рассматриваемые в данной статье API использования ресурсов и тарифной карты (RateCard) Azure, которые позволяют получить новые ценные сведения о вашем потреблении ресурсов Azure.
+Customers and partners require the ability to accurately predict and manage their Azure costs.  As they move from a Capex to an Opex model, they also need the ability to do showback vs. chargeback analysis, as well as provide mode fidelity in estimation and billing, especially for large cloud deployments.
 
-## Знакомство с API использования ресурсов и RateCard в Azure
+The Azure Resource Usage and Rate Card APIs discussed in this article address these needs, by enabling new insights into your consumption of Azure resources.  
 
-API использования ресурсов и RateCard в Azure реализованы в виде поставщика ресурсов и относятся к семейству API, предоставляемых диспетчером ресурсов Azure.
+## <a name="introducing-the-azure-resource-usage-and-ratecard-apis"></a>Introducing the Azure Resource Usage and RateCard APIs
 
-### API использования ресурсов Azure (предварительная версия)
-Клиенты и партнеры могут применять API использования ресурсов Azure для получения оценочных данных об уровне потребления Azure. Доступны следующие функции:
+The Azure Resource Usage and RateCard APIs are implemented as a Resource Provider, as part of the family of APIs exposed by the Azure Resource Manager.  
 
-- **Azure Role-based Access Control** (Управление доступом на основе ролей Azure) — клиенты и партнеры могут настроить свои политики доступа на [портале Azure](https://portal.azure.com) или с помощью [командлетов Azure PowerShell](powershell-install-configure.md), чтобы указать, какие пользователи или приложения могут получить доступ к данным об использовании в рамках подписки. Вызывающие объекты должны использовать стандартные маркеры Azure Active Directory для проверки подлинности. Вызывающий объект также должен быть добавлен в роль читателя, владельца или участника, чтобы получить доступ к данным об использовании для конкретной подписки Azure.
+### <a name="azure-resource-usage-api-(preview)"></a>Azure Resource Usage API (Preview)
+Customers and partners can use the Azure Resource Usage API to get their estimated Azure consumption data. The features include:
 
-- **Hourly or Daily Aggregations** (Агрегирование по часам или по дням) — вызывающие объекты могут указать, требуется ли получать данные об использовании Azure сегментами за каждый час или за каждый день. По умолчанию используется получение сегментов за каждый день.
+- **Azure Role-based Access Control** - Customers and partners can configure their access policies on the [Azure portal](https://portal.azure.com) or through [Azure PowerShell cmdlets](powershell-install-configure.md) to specify which users or applications can get access to the subscription’s usage data. Callers must use standard Azure Active Directory tokens for authentication. The caller must also be added to either the Reader, Owner or Contributor role to get access to the usage data for a particular Azure subscription.
 
-- **Instance metadata provided (includes resource tags)** (Предоставленные метаданные экземпляров, включая теги ресурсов) — ответ будет содержать сведения уровня экземпляра, например полный URI-код ресурса (/subscriptions/{идентификатор подписки}/..), информацию о группе ресурсов и теги ресурсов. Это поможет клиентам детерминированно и программно распределять использование по тегам для таких вариантов использования, как перекрестное выставление счетов.
+- **Hourly or Daily Aggregations** - Callers can specify whether they want their Azure usage data in hourly buckets or daily buckets. The default is daily.
 
-- **Resource metadata provided** (Предоставленные метаданные ресурсов) — в ответе также будут передаваться сведения о ресурсах, такие как имя индикатора, категория индикатора, подкатегория индикатора, единица измерения и регион, чтобы клиенты могли получить более полное представление о потребленных ресурсах. Мы также работаем над согласованием терминологии метаданных для портала Azure, файлов сведений об использовании Azure, файлов сведений о выставлении счетов по EA и других общедоступных механизмов, чтобы клиенты могли соотносить данные из разных областей.
+- **Instance metadata provided (includes resource tags)** – Instance-level details such as the fully qualified resource uri (/subscriptions/{subscription-id}/..), along with the resource group information and resource tags will be provided in the response. This will help customers deterministically and programmatically allocate usage by the tags, for use-cases like cross-charging.
 
-- **Usage for all offer types** (Использование для всех видов предложений) — данные об использовании будут доступны для всех видов предложений, включая оплату по мере использования, MSDN, денежные обязательства, денежный кредит и EA.
+- **Resource metadata provided** - Resource details such as the meter name, meter category, meter sub category, unit and region will also be passed in the response, to give the callers a better understanding of what was consumed. We are also working to align  resource metadata terminology across the Azure portal, Azure usage CSV, EA billing CSV and other public-facing experiences, to enable customers to correlate data across experiences.
 
-### API RateCard по ресурсам Azure (предварительная версия)
-Клиенты и партнеры могут использовать API RateCard по ресурсам Azure для получения списка доступных ресурсов Azure, а также примерной стоимости каждого из них. Доступны следующие функции:
+- **Usage for all offer types** – Usage data will be accessible for all offer types including Pay-as-you-go, MSDN, Monetary commitment, Monetary credit, and EA among others.
 
-- **Azure Role-based Access Control** (Управление доступом на основе ролей Azure) — клиенты и партнеры могут настроить свои политики доступа на [портале версии Azure](https://portal.azure.com) или с помощью [командлетов Azure PowerShell](powershell-install-configure.md), чтобы указать, какие пользователи или приложения могут получить доступ к данным RateCard. Вызывающие объекты должны использовать стандартные маркеры Azure Active Directory для проверки подлинности. Вызывающий объект также должен быть добавлен в роль читателя, владельца или участника, чтобы получить доступ к данным об использовании для конкретной подписки Azure.
+### <a name="azure-resource-ratecard-api-(preview)"></a>Azure Resource RateCard API (Preview)
+Customers and partners can use the Azure Resource RateCard API to get the list of available Azure resources, along with estimated pricing information for each. The features include:
 
-- **Support for Pay-as-you-go, MSDN, Monetary commitment, and Monetary credit offers (EA not supported)** (Поддержка оплаты по мере использования, MSDN, денежных обязательств, денежного кредита, EA не поддерживается) — этот API предоставляет сведения о тарифах Azure на уровне предложений для сравнения с уровнем подписок. Вызывающий объект этого API должен передать сведения о предложении, чтобы получить информацию о ресурсах и тарифы. Поскольку в рамках EA действуют специальные тарифы для каждой регистрации, в настоящее время мы не можем предоставить сведения о тарифах для EA.
+- **Azure Role-based Access Control** - Customers and partners can configure their access policies on the [Azure portal](https://portal.azure.com) or through [Azure PowerShell cmdlets](powershell-install-configure.md) to specify which users or applications can get access to the RateCard data. Callers must use standard Azure Active Directory tokens for authentication. The caller must also be added to either the Reader, Owner or Contributor role to get access to the usage data for a particular Azure subscription.
 
-## Сценарии
+- **Support for Pay-as-you-go, MSDN, Monetary commitment, and Monetary credit offers (EA not supported)** - This API provides Azure offer-level rate information, vs. subscription-level.  The caller of this API must pass in the offer information to get resource details and rates.  As EA offers have customized rates per enrollment, we are unable to provide the EA rates at this time.
 
-Ниже приведено несколько сценариев, которые становятся возможными благодаря сочетанию API использования и RateCard.
+## <a name="scenarios"></a>Scenarios
 
-- **Azure spend during the month** (Затраты на Azure в течение месяца) — клиенты могут сочетать API использования и RateCard, чтобы получить более ценные сведения о затратах на облако в течение месяца, анализируя данные оценки использования и затрат сегментами за каждый час или за каждый день.
+Here are some of the scenarios that are made possible with the combination of the Usage and the RateCard APIs:
 
-- **Set up alerts** (Настройка оповещений) — клиенты и партнеры могут настроить оповещения на основе ресурсов или денежных средств для уровня потребления облака, получая оценочные показатели потребления и издержек с помощью API использования и RateCard.
+- **Azure spend during the month** - Customers can use the Usage and RateCard APIs in combination to get better insights into their cloud spend during the month, by analyzing the hourly and daily buckets of usage and charge estimates.
 
-- **Predict bill** (Прогнозирование счета) — клиенты и партнеры могут получить оценочные показатели потребления и издержек для облака и применить алгоритмы машинного обучения, чтобы спрогнозировать сумму счета в конце цикла выставления счетов.
+- **Set up alerts** – Customers and partners can set up resource-based or monetary-based alerts on their cloud consumption by getting the estimated consumption and charge estimate using the Usage and the RateCard API.
 
-- **Pre-consumption cost analysis** (Анализ затрат до потребления) — клиенты могут также использовать API RateCard, чтобы спрогнозировать размер счета в случае переноса рабочих нагрузок в Azure, предоставив необходимые показатели использования. Если клиенты имеют рабочие нагрузки в других облаках и в частных облаках, они также могут сопоставить их использование с тарифами Azure, чтобы точнее определить предполагаемые расходы Azure. [Калькулятор цен Azure](https://azure.microsoft.com/pricing/calculator/) дает более полное представление о том, что именно можно получить: например, наши партнеры по выставлению счетов предоставляют возможность получения сводки по предложению и сравнения/противопоставления разных типов предложений, выходящих за рамки оплаты по мере использования, включая денежные обязательства и денежный кредит. API также позволяют оценить стоимость с учетом изменений по регионам, в результате чего становится возможен анализ "что если", необходимый для принятия решений о развертывании, поскольку развертывание ресурсов в различных контроллерах доменов по всему миру может оказывать непосредственное влияние на совокупную стоимость.
+- **Predict bill** – Customers and partners can get their estimated consumption and cloud spend and apply machine learning algorithms to predict what their bill would be at the end of the billing cycle.
 
-- **What-if analysis** (Анализ "что если") —
+- **Pre-consumption cost analysis** – Customers can also use the RateCard API to predict how much their bill would be if they were to move their workloads to Azure, by providing desired usage numbers. If customers have existing workloads in other clouds or private clouds, they can also map their usage with the Azure rates to get a better estimate of their estimated Azure spend. This provides an enhanced view of what can be obtained via the [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator/), as (for example) our Billing partners provide the ability to pivot on offer and compare/contrast between different offer types beyond Pay-As-You-Go, including Monetary commitment and Monetary credit. The APIs also provide the ability to do cost estimation changes by region, enabling the type of what-if analysis required to make deployment decisions, as deploying resources in different DCs around the world can have a direct impact on total cost.
 
-	- клиенты и партнеры могут определить, выгоднее ли выполнять рабочие нагрузки в другом регионе или с другой конфигурацией ресурсов Azure. Стоимость ресурсов Azure может отличаться в зависимости от региона Azure, в котором они размещаются, что позволяет клиентам и партнерам оптимизировать затраты.
+- **What-if analysis** -
 
-	- Клиенты и партнеры также могут определить, предоставляет ли другое предложение Azure более выгодный тариф на ресурс Azure.
+    - Customers and partners can determine whether it would be more cost-effective to run their workloads in another region, or on another configuration of the Azure resource. Azure resource costs may differ based on the Azure region in which they are running, and this allows customers and partners to get cost optimizations.
 
-## Решения партнеров
+    - Customers and partners can also determine if another Azure offer type gives a better rate on an Azure resource.
 
-Статья [API использования и RateCard Microsoft Azure позволяют Cloudyn предоставлять ITFM-функции своим клиентам](billing-usage-rate-card-partner-solution-cloudyn.md) описывает интеграцию механизмов, предоставляемых партнером по API выставления счетов Azure — [Cloudyn](https://www.cloudyn.com/microsoft-azure/). Эта статья содержит подробное описание полученного опыта, включая короткий видеоролик, где показано, как клиент Azure может использовать API выставления счетов Azure и Cloudyn для извлечения ценных сведений из своих данных о потреблении Azure.
+## <a name="partner-solutions"></a>Partner solutions
 
-В статье [Интеграция Cloud Cruiser и API выставления счетов Microsoft Azure](billing-usage-rate-card-partner-solution-cloudcruiser.md) описано, как [пакет Cloud Cruiser Express для Azure](http://www.cloudcruiser.com/partners/microsoft/) работает непосредственно с портала WAP, позволяя клиентам легко управлять рабочими и финансовыми аспектами их частного или общедоступного облака Microsoft Azure из единого пользовательского интерфейса.
+[Microsoft Azure Usage and RateCard APIs Enable Cloudyn to Provide ITFM for Customers](billing-usage-rate-card-partner-solution-cloudyn.md) describes the integration experience offered by Azure Billing API partner [Cloudyn](https://www.cloudyn.com/microsoft-azure/).  This article provides detailed coverage of their experiences, including a short video which shows how an Azure customer can use Cloudyn and the Azure Billing APIs to gains insights from their Azure consumption data.
 
-## Дальнейшие действия
-+ В статье [Справочник по API REST выставления счетов в Azure](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c) приведены дополнительные сведения о двух API, которые входят в состав набора API, предоставляемого диспетчером ресурсов Azure.
-+ Если вы хотите подробнее изучить код примера, посетите страницу "Образцы кода API выставления счетов Microsoft Azure" на сайте [Образцы кодов Azure](https://azure.microsoft.com/documentation/samples/?term=billing).
+[Cloud Cruiser and Microsoft Azure Billing API Integration](billing-usage-rate-card-partner-solution-cloudcruiser.md) describes how [Cloud Cruiser's Express for Azure Pack](http://www.cloudcruiser.com/partners/microsoft/) works directly from the  WAP portal, enabling customers to seamlessly manage both the operational and financial aspects of their Microsoft Azure private or hosted public cloud from a single user interface.   
 
-## Подробнее
-+ В статье [Обзор диспетчера ресурсов Azure](resource-group-overview.md) приведены дополнительные сведения о диспетчере ресурсов Azure.
-+ Дополнительные сведения о наборе средств, необходимых для получения представления о расходах на облако, см. в статье Gartner [Руководство по ИТ-средствам финансового управления (ITFM)](http://www.gartner.com/technology/reprints.do?id=1-212F7AL&ct=140909&st=sb).
+## <a name="next-steps"></a>Next Steps
++ Check out the [Azure Billing REST API Reference](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c) for more details on both APIs, which are part of the set of APIs provided by the Azure Resource Manager.
++ If you would like to dive right into the sample code, check out our Microsoft Azure Billing API Code Samples on [Azure Code Samples](https://azure.microsoft.com/documentation/samples/?term=billing).
 
-<!---HONumber=AcomDC_0817_2016-->
+## <a name="learn-more"></a>Learn more
++ See the [Azure Resource Manager Overview](resource-group-overview.md) article to learn more about the Azure Resource Manager.
++ For additional information on the suite of tools necessary to help in gaining an understanding of cloud spend, please refer to  Gartner article [Market Guide for IT Financial Management (ITFM) Tools](http://www.gartner.com/technology/reprints.do?id=1-212F7AL&ct=140909&st=sb).
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

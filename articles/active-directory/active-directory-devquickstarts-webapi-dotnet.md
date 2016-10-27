@@ -1,67 +1,69 @@
 <properties
-	pageTitle="Приступая к работе с Azure AD для .NET | Microsoft Azure"
-	description="Практическое руководство по созданию веб-интерфейса API для .NET MVC, который интегрируется с Azure AD для выполнения проверки подлинности и авторизации."
-	services="active-directory"
-	documentationCenter=".net"
-	authors="dstrockis"
-	manager="mbaldwin"
-	editor=""/>
+    pageTitle="Azure AD .NET Getting Started | Microsoft Azure"
+    description="How to build a .NET MVC Web API that integrates with Azure AD for authentication and authorization."
+    services="active-directory"
+    documentationCenter=".net"
+    authors="dstrockis"
+    manager="mbaldwin"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="09/16/2016"
-	ms.author="dastrock"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="dotnet"
+    ms.topic="article"
+    ms.date="09/16/2016"
+    ms.author="dastrock"/>
 
 
-# Защита веб-интерфейса API с помощью маркеров носителя из Azure AD
+
+# <a name="protect-a-web-api-using-bearer-tokens-from-azure-ad"></a>Protect a Web API using Bearer tokens from Azure AD
 
 [AZURE.INCLUDE [active-directory-devguide](../../includes/active-directory-devguide.md)]
 
-Если вы создаете приложение, которое предоставляет доступ к конфиденциальным ресурсам, необходимо знать, как защитить эти ресурсы от несанкционированного доступа. Azure AD упрощает для разработчика процесс защиты веб-интерфейса API с помощью маркеров доступа OAuth Bearer 2.0 — потребуется добавить всего несколько строк кода.
+If you’re building an application that provides access to protected resources you will need to know how to protect those resources from unwarranted access.
+Azure AD makes it simple and straightforward to protect a web API using OAuth Bearer 2.0 Access Tokens with only a few lines of code.
 
-В веб-приложениях ASP.NET это можно сделать с помощью реализации Майкрософт промежуточного слоя OWIN (открытого интерфейса для .NET, поддерживаемого сообществом разработчиков), включенного в .NET Framework 4.5. Мы будем использовать OWIN для создания веб-API To Do List, который:
--	указывает, какие API защищены;
--	проверяет, содержат ли вызовы веб-API действительный маркер доступа.
+In Asp.NET web apps, you can accomplish this using Microsoft’s implementation of the community-driven OWIN middleware included in .NET Framework 4.5.  Here we’ll use OWIN to build a "To Do List" web API that:
+-   Designates which API's are protected.
+-   Validates that the Web API calls contain a valid Access Token.
 
-Для этого вам необходимо:
+In order to do this, you’ll need to:
 
-1. зарегистрировать приложение в Azure AD;
-2. Настроить приложение для использования конвейера проверки подлинности OWIN.
-3. Настроить клиентское приложение для вызова методов веб-API приложения To Do List.
+1. Register an application with Azure AD
+2. Set up your app to use the OWIN authentication pipeline.
+3. Configure a client application to call the To Do List Web API
 
-Чтобы начать работу, [загрузите каркас приложения](https://github.com/AzureADQuickStarts/WebAPI-Bearer-DotNet/archive/skeleton.zip) или [завершенный пример](https://github.com/AzureADQuickStarts/WebAPI-Bearer-DotNet/archive/complete.zip). Каждый из них является решением Visual Studio 2013. Вам также потребуется клиент Azure AD для регистрации приложения. Если у вас нет клиента, [узнайте, как его получить](active-directory-howto-tenant.md).
+To get started, [download the app skeleton](https://github.com/AzureADQuickStarts/WebAPI-Bearer-DotNet/archive/skeleton.zip) or [download the completed sample](https://github.com/AzureADQuickStarts/WebAPI-Bearer-DotNet/archive/complete.zip).  Each is a Visual Studio 2013 solution.  You'll also need an Azure AD tenant in which to register your application.  If you don't have one already, [learn how to get one](active-directory-howto-tenant.md).
 
 
-## *1. Регистрация приложения в Azure AD*
-Для защиты приложения необходимо сначала создать приложение в клиенте и предоставить Azure AD некоторую важную информации.
+## <a name="*1.-register-an-application-with-azure-ad*"></a>*1.  Register an Application with Azure AD*
+To secure your application, you’ll first need to create an application in your tenant and provide Azure AD with a few key pieces of information.
 
--	Войдите на [Портал управления Azure](https://manage.windowsazure.com)
--	В левой панели навигации щелкните **Active Directory**.
--	Выберите клиента, в котором будет зарегистрировано приложение.
--	Перейдите на вкладку **Приложения** и нажмите кнопку **Добавить** в нижней панели.
--	Следуйте инструкциям на экране, а затем создайте новое **Веб-приложение и/или веб-API**.
-    -	**Имя** приложения является его описанием для конечных пользователей. Введите "Служба To Do List".
-    -	**URI перенаправления** представляет собой сочетание схемы и строки, используемое Azure AD для возвращения любых маркеров, запрошенных приложением. Укажите `https://localhost:44321/` для этого параметра.
--	После завершения регистрации перейдите на вкладку **Настройка** и найдите поле **URI кода приложения**. Укажите для этого параметра идентификатор, специфичный для клиента, например `https://contoso.onmicrosoft.com/TodoListService`
-- Сохраните конфигурацию. Не закрывайте портал, так как через некоторое время потребуется зарегистрировать клиентское приложение.
+-   Sign into the [Azure Management Portal](https://manage.windowsazure.com)
+-   In the left hand nav, click on **Active Directory**
+-   Select a tenant in which to register the application.
+-   Click the **Applications** tab, and click **Add** in the bottom drawer.
+-   Follow the prompts and create a new **Web Application and/or WebAPI**.
+    -   The **Name** of the application will describe your application to end-users.  Enter "To Do List Service".
+    -   The **Redirect Uri** is a scheme and string combination that Azure AD would use to return any tokens your app requested. Enter `https://localhost:44321/` for this value.
+-   Once you’ve completed registration, navigate to **Configure** tab and locate the **App ID URI** field.  Enter a tenant-specific identifier for this value, e.g. `https://contoso.onmicrosoft.com/TodoListService`
+- Save the configuration.  Leave the portal open - you'll also need to register your client application shortly.
 
-## *2. Настройка приложения для использования конвейера проверки подлинности OWIN*
+## <a name="*2.-set-up-your-app-to-use-the-owin-authentication-pipeline*"></a>*2. Set up your app to use the OWIN authentication pipeline*
 
-Теперь после регистрации приложения в Azure AD необходимо настроить приложение для взаимодействия с Azure AD, чтобы выполнять проверку входящих запросов и маркеров.
+Now that you’ve registered an application with Azure AD, you need to set up your application to communicate with Azure AD in order to validate incoming requests & tokens.
 
--	Для начала откройте решение и добавьте пакеты NuGet промежуточного слоя OWIN в проект TodoListService с помощью консоли диспетчера пакетов.
+-   To begin, open the solution and add the OWIN middleware NuGet packages to the TodoListService project using the Package Manager Console.
 
 ```
 PM> Install-Package Microsoft.Owin.Security.ActiveDirectory -ProjectName TodoListService
 PM> Install-Package Microsoft.Owin.Host.SystemWeb -ProjectName TodoListService
 ```
 
--	Добавьте класс OWIN Startup в проект TodoListService под именем `Startup.cs`. Щелкните правой кнопкой мыши проект и выберите в контекстном меню **Добавить**, затем **Новый элемент** и найдите OWIN. При запуске приложения промежуточный слой OWIN вызовет метод `Configuration(…)`.
--	Замените объявление класса на `public partial class Startup` — часть этого класса уже была реализована в другом файле. В методе `Configuration(…)` добавьте вызов ConfgureAuth(...), чтобы настроить проверку подлинности для веб-приложения.
+-   Add an OWIN Startup class to the TodoListService project called `Startup.cs`.  Right click on the project --> **Add** --> **New Item** --> Search for “OWIN”.  The OWIN middleware will invoke the `Configuration(…)` method when your app starts.
+-   Change the class declaration to `public partial class Startup` - we’ve already implemented part of this class for you in another file.  In the `Configuration(…)` method, make a call to ConfgureAuth(…) to set up authentication for your web app.
 
 ```C#
 public partial class Startup
@@ -73,7 +75,7 @@ public partial class Startup
 }
 ```
 
--	Откройте файл `App_Start\Startup.Auth.cs` и реализуйте метод `ConfigureAuth(…)`. Параметры, указанные в `WindowsAzureActiveDirectoryBearerAuthenticationOptions`, будут служить координатами приложения для взаимодействия с Azure AD.
+-   Open the file `App_Start\Startup.Auth.cs` and implement the `ConfigureAuth(…)` method.  The parameters you provide in `WindowsAzureActiveDirectoryBearerAuthenticationOptions` will serve as coordinates for your app to communicate with Azure AD.
 
 ```C#
 public void ConfigureAuth(IAppBuilder app)
@@ -87,7 +89,7 @@ public void ConfigureAuth(IAppBuilder app)
 }
 ```
 
--	Теперь можно использовать атрибуты `[Authorize]` для защиты контроллеров и действий с помощью проверки подлинности JWT. Снабдите класс `Controllers\TodoListController.cs` тегом авторизации. Пользователь будет вынужден войти в систему, прежде чем сможет обратиться к этой странице.
+-   Now you can use `[Authorize]` attributes to protect your controllers and actions with JWT bearer authentication.  Decorate the `Controllers\TodoListController.cs` class with an authorize tag.  This will force the user to sign in before accessing that page.
 
 ```C#
 [Authorize]
@@ -95,8 +97,8 @@ public class TodoListController : ApiController
 {
 ```
 
-- Когда авторизованный вызывающий объект успешно вызывает один из интерфейсов API `TodoListController`, может потребоваться доступ к сведениям о вызывающем объекте. OWIN предоставляет доступ к утверждениям внутри маркера защиты посредством объекта `ClaimsPrincpal`.
-- Общим требованием для веб-интерфейсов API является проверка областей (scope) в маркере, чтобы гарантировать, что конечный пользователь предоставил разрешения, необходимые для доступа к службе To Do List:
+- When an authorized caller successfully invokes one of the `TodoListController` APIs, the action might need access to information about the caller.  OWIN provides access to the claims inside the bearer token via the `ClaimsPrincpal` object.  
+- A common requirement for web APIs is to validate the "scopes" present in the token - this ensures that the end user has consented to the permissions required to access the Todo List Service:
 
 ```C#
 public IEnumerable<TodoItem> Get()
@@ -113,30 +115,34 @@ public IEnumerable<TodoItem> Get()
 }
 ```
 
--	Наконец, откройте файл `web.config` в корне проекта TodoListService, а затем введите значения конфигурации в разделе `<appSettings>`.
-  -	`ida:Tenant` — это имя вашего клиента Azure AD, например "contoso.onmicrosoft.com".
-  -	Ваш `ida:Audience` — это URI идентификатора приложения, введенное на портале Azure.
+-   Finally, open the `web.config` file in the root of the TodoListService project, and enter your configuration values in the `<appSettings>` section.
+  - The `ida:Tenant` is the name of your Azure AD tenant, e.g. "contoso.onmicrosoft.com".
+  - Your `ida:Audience` is the App ID URI of the application that you entered in the Azure Portal.
 
-## *3. Настройка клиентского приложения и запуск службы*
-Чтобы увидеть службу To Do List в действии, необходимо настроить To Do List Client для получения маркеров Azure AD и выполнения вызовов службы.
+## <a name="*3.-configure-a-client-application-&-run-the-service*"></a>*3.  Configure a client application & Run the service*
+Before you can see the Todo List Service in action, you need to configure the Todo List Client so it can get tokens from AAD and make calls to the service.
 
-- Перейдите на [Портал управления Azure](https://manage.windowsazure.com)
-- Создайте новое приложение в клиенте Azure AD и выберите **Собственное клиентское приложение** в конечном запросе.
-    -	**Имя** приложения является его описанием для конечных пользователей.
-    -	В качестве **URI переадресации** введите значение `http://TodoListClient/`.
-- После завершения регистрации служба Azure AD присваивает приложению уникальный **Идентификатор клиента**. Это значение понадобится далее, поэтому его следует скопировать с вкладки "Настройка".
-- Также на вкладке **Настройка** найдите раздел "Разрешения для других приложений". Щелкните "Добавить приложение". Из раскрывающегося списка "Показать" выберите "Все приложения" и щелкните флажок вверху. Найдите и щелкните службу To Do List, затем щелкните флажок внизу, чтобы добавить приложение. Выберите "Доступ к ’Служба To Do List’" из выпадающего меню "Делегированные разрешения" и сохраните конфигурацию.
+- Navigate back to the [Azure Management Portal](https://manage.windowsazure.com)
+- Create a new application in your Azure AD tenant, and select **Native Client Application** in the resulting prompt.
+    -   The **Name** of the application will describe your application to end-users
+    -   Enter `http://TodoListClient/` for the **Redirect Uri** value.
+- Once you’ve completed registration, AAD will assign your app a unique **Client Id**. You’ll need this value in the next steps, so copy it from the Configure tab.
+- Also in **Configure** tab, locate the "Permissions to Other Applications" section. Click "Add Application." Select "All Apps" in the "Show" dropdown, and click the upper check mark. Locate & click on your To Do List Service, and click the bottom check mark to add the application. Select "Access To Do List Service" from the "Delegated Permissions" dropdown, and save the configuration.
 
 
-- В Visual Studio откройте файл `App.config` проекта TodoListClient и введите значения конфигурации в раздел `<appSettings>`.
-  -	`ida:Tenant` — это имя вашего клиента Azure AD, например "contoso.onmicrosoft.com".
-  -	`ida:ClientId` — это идентификатор вашего приложения, скопированный из портала Azure.
-  -	`todo:TodoListResourceId` — это код URI идентификатора приложения, введенный на портале Azure.
+- In Visual Studio, open `App.config` in the TodoListClient project and enter your configuration values in the `<appSettings>` section.
+  - The `ida:Tenant` is the name of your Azure AD tenant, e.g. "contoso.onmicrosoft.com".
+  - Your `ida:ClientId` app ID you copied from the Azure Portal.
+  - Your `todo:TodoListResourceId` is the App ID URI of the To Do List Service application that you entered in the Azure Portal.
 
-Наконец, выполните очистку, соберите и запустите каждый из проектов. Если вы еще этого не сделали, создайте нового пользователя в своем клиенте с доменом *.onmicrosoft.com. Войдите в клиент To Do List от имени данного пользователя и добавьте несколько задач в список To Do List.
+Finally, clean, build and run each project!  If you haven’t already, now is the time to create a new user in your tenant with a *.onmicrosoft.com domain.  Sign in to the To Do List client with that user, and add some tasks to the user's To Do List.
 
-Для справки следует отметить, что готовый пример (без ваших значений конфигурации) находится [здесь](https://github.com/AzureADQuickStarts/WebAPI-Bearer-DotNet/archive/complete.zip). Теперь можно приступить к дополнительным сценариям идентификации.
+For reference, the completed sample (without your configuration values) is provided [here](https://github.com/AzureADQuickStarts/WebAPI-Bearer-DotNet/archive/complete.zip).  You can now move on to more additional identity scenarios.
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

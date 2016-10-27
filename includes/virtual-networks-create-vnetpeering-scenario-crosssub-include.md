@@ -1,11 +1,14 @@
-## Пиринг в разных подписках
+## <a name="peering-across-subscriptions"></a>Peering across subscriptions
 
-В этом сценарии вы создадите пиринг между двумя виртуальными сетями, принадлежащими к разным подпискам.
+In this scenario you will create a peering between two VNets belonging to different subscriptions.
 
-![Сценарий с несколькими подписками](./media/virtual-networks-create-vnetpeering-scenario-crosssub-include/figure01.PNG)
+![cross sub scenario](./media/virtual-networks-create-vnetpeering-scenario-crosssub-include/figure01.PNG)
 
-При пиринге виртуальных сетей для авторизации используется управление доступом на основе ролей (RBAC). В случае с несколькими подписками следует сначала предоставить необходимые права пользователям, создающим пиринговые соединения.
+VNet peering relies on Role based access control (RBAC) for authorization. For cross-subscriptions scenario, you first need to grant sufficient permission to users who will create the peering link:
 
-> [AZURE.NOTE] Если один и тот же пользователь имеет права на обе подписки, вы можете пропустить шаги 1–4, приведенные ниже.
+> [AZURE.NOTE] If the same user has the privilege over both subscriptions, then you can skip step1-4 below.
 
-<!---HONumber=AcomDC_0921_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

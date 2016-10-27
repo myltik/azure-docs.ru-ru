@@ -1,13 +1,13 @@
 <properties
-	pageTitle="Учебник по Apache Storm: начало работы со Storm | Microsoft Azure"
-	description="Начало работы с анализом больших объемов данных с помощью Apache Storm и примеров Storm Starter в HDInsight. Информация об использовании Storm для обработки данных в режиме реального времени."
-	keywords="apache storm, учебник sapache storm, анализ больших данных, storm starter"
-	services="hdinsight"
-	documentationCenter=""
-	authors="Blackmist"
-	manager="jhubbard"
-	editor="cgronlun"
-	tags="azure-portal"/>
+    pageTitle="Apache Storm tutorial: Get started with Storm | Microsoft Azure"
+    description="Get started with big data analytics using Apache Storm and the Storm Starter samples on HDInsight. Learn how to use Storm to process data real-time."
+    keywords="apache storm,apache storm tutorial,big data analytics,storm starter"
+    services="hdinsight"
+    documentationCenter=""
+    authors="Blackmist"
+    manager="jhubbard"
+    editor="cgronlun"
+    tags="azure-portal"/>
 
 <tags
    ms.service="hdinsight"
@@ -19,223 +19,228 @@
    ms.author="larryfr"/>
 
 
-# Учебник по Apache Storm в HDInsight: начало работы с анализом больших объемов данных в HDInsight с помощью примеров Storm Starter
 
-Apache Storm — это масштабируемая отказоустойчивая распределенная система выполнения расчетов для обработки данных потоковой передачи в режиме реального времени. С помощью Storm в Microsoft Azure HDInsight можно создать облачный кластер Storm для анализа больших данных в режиме реального времени.
+# <a name="apache-storm-tutorial:-get-started-with-the-storm-starter-samples-for-big-data-analytics-on-hdinsight"></a>Apache Storm tutorial: Get started with the Storm Starter samples for big data analytics on HDInsight
 
-> [AZURE.NOTE] С помощью действий, описанных в данной статье, можно создать кластер HDInsight под управлением Windows. Действия по созданию Storm под управлением Linux в кластере HDInsight см. в статье [Учебник по Apache Storm в HDInsight: начало работы с анализом больших объемов данных в HDInsight с помощью примеров Storm Starter](hdinsight-apache-storm-tutorial-get-started-linux.md).
+Apache Storm is a scalable, fault-tolerant, distributed, real-time computation system for processing streams of data. With Storm on Microsoft Azure HDInsight, you can create a cloud-based Storm cluster that performs big data analytics in real time. 
 
-## Перед началом работы
+> [AZURE.NOTE] The steps in this article create a Windows-based HDInsight cluster. For steps to create a Linux-based Storm on HDInsight cluster, see [Apache Storm tutorial: Get started with the Storm Starter sample using data analytics on HDInsight](hdinsight-apache-storm-tutorial-get-started-linux.md)
+
+## <a name="prerequisites"></a>Prerequisites
 
 [AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-Необходимое условие для успешного выполнения инструкций этого учебника:
+You must have the following to successfully complete this Apache Storm tutorial:
 
-- **Подписка Azure.**. См. [Бесплатная пробная версия Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
-## Создание кластера Storm
+### <a name="access-control-requirements"></a>Access control requirements
 
-Storm в HDInsight использует хранилище BLOB-объектов Azure для хранения файлов журнала и топологий, отправленных в кластер. Чтобы создать учетную запись хранения Azure для работы с кластером, выполните указанные ниже действия.
+[AZURE.INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
 
-1. Войдите на [портал Azure][preview-portal].
+## <a name="create-a-storm-cluster"></a>Create a Storm cluster
 
-2. Последовательно выберите элементы **Создать**, __Анализ данных__ и __HDInsight__.
+Storm on HDInsight uses Azure Blob storage for storing log files and topologies submitted to the cluster. Use the following steps to create an Azure storage account for use with your cluster:
 
-	![Создание кластера на портале Azure](./media/hdinsight-apache-storm-tutorial-get-started/new-cluster.png)
+1. Sign in to the [Azure Portal][preview-portal].
 
-3. Введите __имя кластера__. Рядом с __именем кластера__ (если оно доступно) отобразится зеленый флажок.
+2. Select **NEW**, select __Data Analytics__, and then select __HDInsight__.
 
-4. Если у вас есть несколько подписок, выберите запись __Подписка__, чтобы выбрать подписку Azure для кластера.
+    ![Create a new cluster in the Azure Portal](./media/hdinsight-apache-storm-tutorial-get-started/new-cluster.png)
 
-5.  В поле __Выберите тип кластера__ выберите кластер __Storm__. В поле __Операционная система__ выберите Windows. В поле __Уровень кластера__ выберите STANDARD. И, наконец, нажмите кнопку выбора, чтобы сохранить эти параметры.
+3. Enter a __Cluster Name__. A green check appears beside the __Cluster Name__ if it is available.
 
-	![Имя кластера, тип кластера и тип ОС](./media/hdinsight-apache-storm-tutorial-get-started/clustertype.png)
+4. If you have more than one subscription, select the __Subscription__ entry to select the Azure subscription that will be used for the cluster.
 
-5. В разделе __Группа ресурсов__ откройте раскрывающийся список, чтобы увидеть список существующих групп ресурсов и выбрать ту, в которой будет создан кластер. Вы также можете щелкнуть __Создать__ и ввести имя новой группы ресурсов. Если имя новой группы доступно, то рядом с ним отобразится зеленый флажок.
+5.  Use __Select Cluster Type__ to select a __Storm__ cluster. For the __Operating System__, select Windows. For __Cluster Tier__, select STANDARD. Finally, use the select button to save these settings.
 
-6. Выберите __Учетные данные__, а затем введите данные в поля __Имя пользователя для входа в кластер__ и __Пароль для входа в кластер__. В завершение нажмите кнопку __Выбрать__, чтобы задать учетные данные. В этом учебнике удаленный рабочий стол не будет использоваться, поэтому его можно не включать.
+    ![Cluster name, cluster type, and OS Type](./media/hdinsight-apache-storm-tutorial-get-started/clustertype.png)
 
-	![Колонка "Учетные данные кластера"](./media/hdinsight-apache-storm-tutorial-get-started/clustercredentials.png)
+5. For __Resource Group__, you can us the drop down list to see a list of existing resource groups and then select the one to create the cluster in. Or you can select __New__ and then enter the name of the new resource group. A green check appears to indicate if the new group name is available.
 
-6. Выберите запись __Источник данных__, чтобы выбрать существующий источник данных или создать новый.
+6. Select __Credentials__, and then enter a __Cluster Login Username__ and __Cluster Login Password__. Finally, use  __Select__ to set the credentials. Remote desktop will not be used in this document, so you can leave it disabled.
 
-	![Колонка "Источник данных"](./media/hdinsight-apache-storm-tutorial-get-started/datasource.png)
+    ![Cluster credentials blade](./media/hdinsight-apache-storm-tutorial-get-started/clustercredentials.png)
 
-	В настоящее время в качестве источника данных для кластера HDInsight можно выбрать учетную запись хранения Azure. Далее приводится описание элементов интерфейса. Эти сведения помогут вам лучше понять записи в колонке __Источник данных__.
+6. For __Data Source__, you can select the entry to choose an existing data source, or create a new one.
 
-	- __Метод выбора__. Выберите значение __Из всех подписок__, чтобы активировать поиск учетных записей хранения в своих подписках. Задайте значение __Ключ доступа__, если вы хотите ввести __имя хранилища__ и __ключ доступа__ существующей учетной записи хранения.
+    ![Data source blade](./media/hdinsight-apache-storm-tutorial-get-started/datasource.png)
 
-	- __Создать__. Эта команда позволяет создавать новые учетные записи хранения. В появившееся поле введите имя учетной записи хранения. Если имя доступно, то отобразится зеленый флажок.
+    Currently you can select an Azure storage account as the data source for an HDInsight cluster. Use the following to understand the entries on the __Data Source__ blade.
 
-	- __Выбрать контейнер по умолчанию__: позволяет ввести имя контейнера по умолчанию и использовать его для кластера. Вы можете ввести любое имя, однако мы рекомендуем использовать такое же имя, как у кластера, чтобы легко распознавать, какой контейнер используется для конкретного кластера.
+    - __Selection Method__: Set this to __From all subscriptions__ to enable browsing of storage accounts on your subscriptions. Set to __Access Key__ if you want to enter the __Storage Name__ and __Access Key__ of an existing storage account.
 
-	- __Расположение__. Географический регион, к которому будет относиться существующая или новая учетная запись хранения.
+    - __Create New__: Use this to create a new storage account. Use the field that appears to enter the name of the storage account. A green check appears if the name is available.
 
-		> [AZURE.IMPORTANT] Выбранное расположение для источника данных по умолчанию будет определять расположение кластера HDInsight. Кластер и источник данных по умолчанию должны находиться в одном регионе.
+    - __Choose Default Container__: Use this to enter the name of the default container to use for the cluster. While you can enter any name here, we recommend using the same name as the cluster so that you can easily recognize that the container is used for this specific cluster.
 
-	- __Выбрать__. Эта кнопка позволяет сохранить конфигурацию источника данных.
+    - __Location__: The geographic region that the storage account will be is in, or will be created in.
 
-7. Выберите __Ценовые категории узла__, чтобы отобразить сведения об узлах, которые будут созданы для этого кластера. По умолчанию выбрано __4__ рабочих узла. Выберите значение __1__. Этого количества достаточно для работы с данным руководством. Кроме того, это позволит снизить стоимость кластера. Оценочная стоимость кластера отображается в нижней части этой колонки.
+        > [AZURE.IMPORTANT] Selecting the location for the default data source also sets the location of the HDInsight cluster. The cluster and default data source must be located in the same region.
 
-	![Колонка "Ценовые категории узла"](./media/hdinsight-apache-storm-tutorial-get-started/nodepricingtiers.png)
+    - __Select__: Use this to save the data source configuration.
 
-	Нажмите кнопку __Выбрать__, чтобы сохранить сведения о __ценовых категориях узлов__.
+7. Select __Node Pricing Tiers__ to display information about the nodes that will be created for this cluster. By default, the number of worker nodes is set to __4__. Set this to __1__, as this is sufficient for this tutorial and reduces the cost of the cluster. The estimated cost of the cluster is shown at the bottom of this blade.
 
-8. Выберите __Необязательная конфигурация__. В этой колонке можно выбрать версию кластера, а также настроить другие необязательные параметры, включая присоединение к __виртуальной сети__.
+    ![Node pricing tiers blade](./media/hdinsight-apache-storm-tutorial-get-started/nodepricingtiers.png)
 
-	![Колонка "Дополнительная конфигурация"](./media/hdinsight-apache-storm-tutorial-get-started/optionalconfiguration.png)
+    Use  __Select__ to save the __Node Pricing Tiers__ information.
 
-9. Обязательно выберите параметр __Закрепить на начальной панели__, а затем щелкните __Создать__. После этого будет создан кластер, а на начальную панель портала Azure будет добавлена его плитка. Значок указывает, что выполняется подготовка кластера. После завершения подготовки вместо него будет отображаться значок HDInsight.
+8. Select __Optional Configuration__. This blade allows you to select the cluster version, as well as configure other optional settings such as joining a __Virtual Network__.
 
-	| Подготовка выполняется | Подготовка завершена |
-	| ------------------ | --------------------- |
-	| ![Индикатор подготовки к работе на начальной панели](./media/hdinsight-apache-storm-tutorial-get-started/provisioning.png) | ![Плитка подготовки кластера](./media/hdinsight-apache-storm-tutorial-get-started/provisioned.png) |
+    ![Optional configuration blade](./media/hdinsight-apache-storm-tutorial-get-started/optionalconfiguration.png)
 
-	> [AZURE.NOTE] Обычно создание кластера занимает около 15 минут. Отслеживать процесс подготовки можно с помощью плитки на начальной панели или записи __Уведомления__ в левой части страницы.
+9. Ensure that __Pin to Startboard__ is selected, and then select __Create__. This creates the cluster and adds a tile for it to the Startboard of your Azure portal. The icon indicates that the cluster is provisioning, and changes to display the HDInsight icon once provisioning has completed.
 
-## Запуск образца Storm Starter в HDInsight
+  	| While provisioning | Provisioning complete |
+  	| ------------------ | --------------------- |
+  	| ![Provisioning indicator on Startboard](./media/hdinsight-apache-storm-tutorial-get-started/provisioning.png) | ![Provisioned cluster tile](./media/hdinsight-apache-storm-tutorial-get-started/provisioned.png) |
 
-В этом учебнике Apache Storm вы познакомитесь с анализом больших объемов данных с использованием примеров Storm Starter на портале GitHub.
+    > [AZURE.NOTE] It takes some time for the cluster to be created, usually around 15 minutes. Use the tile on the Startboard, or the __Notifications__ entry on the left of the page, to check on the provisioning process.
 
-Каждый экземпляр Storm в кластере HDInsight поставляется с панелью мониторинга Storm, которую можно использоваться для загрузки и запуска топологий Storm в кластере. Каждый кластер также поставляется с примерами топологий, которые можно запускать непосредственно из панели мониторинга Storm.
+## <a name="run-a-storm-starter-sample-on-hdinsight"></a>Run a Storm Starter sample on HDInsight
 
-### <a id="connect"></a>Подключение к панели мониторинга
+This Apache Storm tutorial introduces you to big data analytics using the Storm Starter samples on GitHub.
 
-Панель мониторинга находится по адресу **https://&lt;clustername>.azurehdinsight.net//**, где **clustername** — имя кластера. Чтобы воспользоваться ссылкой на панель мониторинга, выберите кластер на начальной панели, а затем — ссылку __Панель мониторинга__ в верхней части колонки.
+Each Storm on HDInsight cluster comes with the Storm Dashboard, which can be used to upload and run Storm topologies on the cluster. Each cluster also comes with sample topologies that can be run directly from the Storm Dashboard.
 
-![Портал Azure со ссылкой на панель мониторинга Storm](./media/hdinsight-apache-storm-tutorial-get-started/dashboard.png)
+### <a name="<a-id="connect"></a>connect-to-the-dashboard"></a><a id="connect"></a>Connect to the dashboard
 
-> [AZURE.NOTE] При подключении к панели мониторинга отобразится запрос на ввод имени пользователя и пароля. Это имя администратора (**admin**) и пароль, который вы использовали при создании кластера.
+The dashboard is located at **https://&lt;clustername>.azurehdinsight.net//**, where **clustername** is the name of the cluster. You can also find a link to the dashboard by selecting the cluster from the Startboard and selecting the __Dashboard__ link at the top of the blade.
 
-После загрузки панели мониторинга Storm отобразится форма **Submit Topology** (Отправка топологии).
+![Azure portal with Storm Dashboard link](./media/hdinsight-apache-storm-tutorial-get-started/dashboard.png)
 
-![Отправка топологии Storm Starter с панели мониторинга Storm.](./media/hdinsight-apache-storm-tutorial-get-started/submit.png)
+> [AZURE.NOTE] When connecting to the dashboard, you are prompted to enter a user name and password. This is the administrator name (**admin**) and password used when you created the cluster.
 
-C помощью формы **Отправка топологии** можно отправлять и запускать JAR-файлы, содержащие топологии Storm. Она также включает несколько основных примеров, входящих в состав кластера.
+Once the Storm Dashboard has loaded, you will see the **Submit Topology** form.
 
-### <a id="run"></a>Запуск примера подсчета слов из проекта Storm Starter на портале GitHub
+![Submit your Storm Starter topology with the Storm Dashboard.](./media/hdinsight-apache-storm-tutorial-get-started/submit.png)
 
-Образцы, поставляемые с кластером, включают несколько вариантов топологии подсчета слов. Эти примеры включают **воронку**, которая случайным образом создает предложения, и **сито**, которое разбивает каждое предложение на отдельные слова, а затем подсчитывает случаи употребления каждого слова. Эти примеры взяты из [примеров Storm Starter](https://github.com/apache/storm/tree/master/examples/storm-starter), которые являются частью Apache Storm.
+The **Submit Topology** form can be used to upload and run .jar files that contain Storm topologies. It also includes several basic samples that are provided with the cluster.
 
-Выполните следующие действия, чтобы запустить пример Storm Starter.
+### <a name="<a-id="run"></a>run-the-word-count-sample-from-the-storm-starter-project-in-github"></a><a id="run"></a>Run the word-count sample from the Storm Starter project in GitHub
 
-1. Выберите **StormStarter - WordCount** (StormStarter — Подсчет слов) из раскрывающегося списка **Jar File** (JAR-файл). После этого действия в поля **Имя класса** и **Дополнительные параметры** будут внесены параметры, использующиеся в данном примере.
+The samples provided with the cluster include several variations of a word-counting topology. These samples include a **spout** that randomly emits sentences, and **bolts** that break each sentence into individual words, then count how many times each word has occurred. These samples are from the [Storm Starter samples](https://github.com/apache/storm/tree/master/examples/storm-starter), which are a part of Apache Storm.
 
-	![Выбранный WordCount в Storm Starter на панели мониторинга Storm.](./media/hdinsight-apache-storm-tutorial-get-started/submit.png)
+Perform the following steps to run a Storm Starter sample:
 
-	* **Имя класса** — класс в JAR-файле, который отправляет топологии.
-	* **Дополнительные параметры** — любые параметры, необходимые для топологии. В этом примере это поле используется для присвоения понятного имени отправленной топологии.
+1. Select **StormStarter - WordCount** from the **Jar File** drop-down. This populates the **Class Name** and **Additional Parameters** fields with the parameters for this sample.
 
-2. Нажмите кнопку **Submit** (Отправить). Через некоторое время в поле **Результат** отобразится команда, используемая для отправки задания, а также результаты ее выполнения. В поле **Ошибка** будут отображаться все ошибки, возникающие при отправке топологии.
+    ![Storm Starter WordCount selected on Storm Dashboard.](./media/hdinsight-apache-storm-tutorial-get-started/submit.png)
 
-	![Кнопка отправки и результаты WordCount в Storm Starter.](./media/hdinsight-apache-storm-tutorial-get-started/submit-results.png)
+    * **Class Name** - The class in the .jar file that submits the topology.
+    * **Additional Parameters** - Any parameters required by the topology. In this example, the field is used to provide a friendly name for the submitted topology.
 
-	> [AZURE.NOTE] Отображение результатов не означает завершение топологии — **топология Storm выполняется после запуска, пока вы ее не остановите** Топология подсчета слов генерирует случайные предложения и подсчитывает частоту употребления каждого слова в них, пока вы ее не остановите.
+2. Click  **Submit**. After a moment, the **Result** field displays the command used to submit the job, as well as the results of the command. The **Error** field displays any errors that occur in submitting the topology.
 
-### <a id="monitor"></a>Мониторинг топологии
+    ![Submit button and results of Storm Starter WordCount.](./media/hdinsight-apache-storm-tutorial-get-started/submit-results.png)
 
-Пользовательский интерфейс Storm можно использовать для мониторинга топологии.
+    > [AZURE.NOTE] The results do not indicate that the topology has finished - **a Storm topology, once started, runs until you stop it.** The word-count topology generates random sentences, and keeps a count of how many times it encounters each word, until you stop it.
 
-1. В верхней части панели мониторинга Storm выберите **Storm UI** (Пользовательский интерфейс Storm). Отобразится сводная информация о кластере и обо всех работающих топологиях.
+### <a name="<a-id="monitor"></a>monitor-the-topology"></a><a id="monitor"></a>Monitor the topology
 
-	![Панель мониторинга Storm, отображающая сводку топологии WordCount в Storm Starter.](./media/hdinsight-apache-storm-tutorial-get-started/stormui.png)
+The Storm UI can be used to monitor the topology.
 
-	На странице выше можно просмотреть время активности топологии, а также количество используемых рабочих процессов, исполнителей и задач.
+1. Select **Storm UI** from the top of the Storm Dashboard. This displays summary information for the cluster and all running topologies.
 
-	> [AZURE.NOTE] Столбец **Name** (Имя) содержит понятное имя, введенное в поле **Additional Parameters** (Дополнительные параметры).
+    ![Storm dashboard showing the Storm Starter WordCount topology summary.](./media/hdinsight-apache-storm-tutorial-get-started/stormui.png)
 
-4. В разделе **Topology summary** (Сводка топологии) выберите запись **wordcount** (количество слов) в столбце **Name** (Имя). После этого отобразится дополнительная информация о топологии.
+    From the page above, you can see the time the topology has been active, as well as the number of workers, executors, and tasks being used.
 
-	![Панель мониторинга Storm, отображающая сведения о топологии WordCount в Storm Starter.](./media/hdinsight-apache-storm-tutorial-get-started/topology-summary.png)
+    > [AZURE.NOTE] The **Name** column contains the friendly name supplied earlier via the **Additional Parameters** field.
 
-	Эта страница содержит следующую информацию.
+4. Under **Topology summary**, select the **wordcount** entry in the **Name** column. This displays more information about the topology.
 
-	* **Topology stats** (Статистика топологий) —основная информация о производительности топологии, упорядоченная по временным промежуткам.
+    ![Storm Dashboard with Storm Starter WordCount topology information.](./media/hdinsight-apache-storm-tutorial-get-started/topology-summary.png)
 
-		> [AZURE.NOTE] При выборе определенного временного промежутка меняется информация, отображаемая в других разделах страницы.
+    This page provides the following information:
 
-	* **Spouts** (Воронки) — основная информация о воронках, в том числе последняя ошибка, возвращенная каждой воронкой.
+    * **Topology stats** - Basic information on the topology performance, organized into time windows.
 
-	* **Bolts** (Сита) — основная информация о ситах.
+        > [AZURE.NOTE] Selecting a specific time window changes the time window for information displayed in other sections of the page.
 
-	* **Topology configuration** (Конфигурация топологии) — подробная информация о конфигурации топологии.
+    * **Spouts** - Basic information about spouts, including the last error returned by each spout.
 
-	Эта страница также содержит действия, которые можно выполнять в топологии.
+    * **Bolts** - Basic information about bolts.
 
-	* **Activate** (Включить) — возобновление обработки отключенной топологии.
+    * **Topology configuration** - Detailed information about the topology configuration.
 
-	* **Deactivate** (Отключить) — приостановка выполняемой топологии.
+    This page also provides actions that can be taken on the topology:
 
-	* **Rebalance** (Повторная балансировка) — корректировка параллелизма топологии. После изменения числа узлов в кластере необходимо выполнить повторную балансировку топологий. Это позволяет топологии скорректировать параллелизм для компенсации увеличения или уменьшения количества узлов в кластере. Дополнительные сведения см. в статье [Общие сведения о параллелизме топологии Storm](http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html).
+    * **Activate** - Resumes processing of a deactivated topology.
 
-	* **Kill** (Удалить) — останавливает выполнение топологии Storm по истечении заданного времени ожидания.
+    * **Deactivate** - Pauses a running topology.
 
-5. На этой странице выберите запись и раздела **Spouts** (Воронки) или **Bolts** (Сита). Отобразится информация о выбранном компоненте.
+    * **Rebalance** - Adjusts the parallelism of the topology. You should rebalance running topologies after you have changed the number of nodes in the cluster. This allows the topology to adjust parallelism to compensate for the increased/decreased number of nodes in the cluster. For more information, see [Understanding the parallelism of a Storm topology](http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html).
 
-	![Панель мониторинга Storm со сведениями о выбранных компонентах.](./media/hdinsight-apache-storm-tutorial-get-started/component-summary.png)
+    * **Kill** - Terminates a Storm topology after the specified timeout.
 
-	На этой странице отображается следующая информация.
+5. From this page, select an entry from the **Spouts** or **Bolts** section. This displays information about the selected component.
 
-	* **Spout/Bolt stats** (Статистика воронки/сита) —основная информация о производительности соответствующего компонента, упорядоченная по временным промежуткам.
+    ![Storm Dachborad with information about selected components.](./media/hdinsight-apache-storm-tutorial-get-started/component-summary.png)
 
-		> [AZURE.NOTE] При выборе определенного временного промежутка меняется информация, отображаемая в других разделах страницы.
+    This page displays the following information:
 
-	* **Input stats** (Статистика ввода, только для сита) — информация о компонентах, которые производят данные, используемые ситом.
+    * **Spout/Bolt stats** - Basic information on the component performance, organized into time windows.
 
-	* **Output stats** (Статистика вывода) — информация о данных, созданных этим ситом.
+        > [AZURE.NOTE] Selecting a specific time window changes the time window for information displayed in other sections of the page.
 
-	* **Executors** (Исполнители) — информация об экземплярах этого компонента.
+    * **Input stats** (bolt only) - Information on components that produce data consumed by the bolt.
 
-	* **Errors** (Ошибки) — ошибки, созданные этим компонентом.
+    * **Output stats** - Information on data emitted by this bolt.
 
-5. Во время просмотра информации о воронке и сите выберите запись из столбца **Port** (Порт) в разделе **Executors** (Исполнители), чтобы просмотреть информацию о конкретном экземпляре компонента.
+    * **Executors** - Information on instances of this component.
 
-		2015-01-27 14:18:02 b.s.d.task [INFO] Emitting: split default ["with"]
-		2015-01-27 14:18:02 b.s.d.task [INFO] Emitting: split default ["nature"]
-		2015-01-27 14:18:02 b.s.d.executor [INFO] Processing received message source: split:21, stream: default, id: {}, [snow]
-		2015-01-27 14:18:02 b.s.d.task [INFO] Emitting: count default [snow, 747293]
-		2015-01-27 14:18:02 b.s.d.executor [INFO] Processing received message source: split:21, stream: default, id: {}, [white]
-		2015-01-27 14:18:02 b.s.d.task [INFO] Emitting: count default [white, 747293]
-		2015-01-27 14:18:02 b.s.d.executor [INFO] Processing received message source: split:21, stream: default, id: {}, [seven]
-		2015-01-27 14:18:02 b.s.d.task [INFO] Emitting: count default [seven, 1493957]
+    * **Errors** - Errors produced by this component.
 
-	Эти данные показывают, что слово **seven** (семь) использовалось 1 493 957 раз. Столько раз оно было обнаружено с момента запуска данной топологии.
+5. When viewing the details of a spout or bolt, select an entry from the **Port** column in the **Executors** section to view details for a specific instance of the component.
 
-### Остановка топологии
+        2015-01-27 14:18:02 b.s.d.task [INFO] Emitting: split default ["with"]
+        2015-01-27 14:18:02 b.s.d.task [INFO] Emitting: split default ["nature"]
+        2015-01-27 14:18:02 b.s.d.executor [INFO] Processing received message source: split:21, stream: default, id: {}, [snow]
+        2015-01-27 14:18:02 b.s.d.task [INFO] Emitting: count default [snow, 747293]
+        2015-01-27 14:18:02 b.s.d.executor [INFO] Processing received message source: split:21, stream: default, id: {}, [white]
+        2015-01-27 14:18:02 b.s.d.task [INFO] Emitting: count default [white, 747293]
+        2015-01-27 14:18:02 b.s.d.executor [INFO] Processing received message source: split:21, stream: default, id: {}, [seven]
+        2015-01-27 14:18:02 b.s.d.task [INFO] Emitting: count default [seven, 1493957]
 
-Вернитесь на страницу **Сводка топологии**, найдите необходимую топологию подсчета слов, и в разделе **Действия топологии** нажмите кнопку **Удалить**. При появлении запроса введите 10 секунд ожидания перед остановкой топологии. По истечении времени ожидания топология перестанет отображаться при переходе к разделу **Пользовательский интерфейс Storm** на панели мониторинга.
+    From this data, you can see that the word **seven** has occurred 1,493,957 times. That is how many times it has been encountered since this topology was started.
 
-##Удаление кластера
+### <a name="stop-the-topology"></a>Stop the topology
+
+Return to the **Topology summary** page for the word-count topology, and then select **Kill** from the **Topology actions** section. When prompted, enter 10 for the seconds to wait before stopping the topology. After the timeout period, the topology no longer appears when you visit the **Storm UI** section of the dashboard.
+
+##<a name="delete-the-cluster"></a>Delete the cluster
 
 [AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-## Сводка
+## <a name="summary"></a>Summary
 
-В этом учебнике Apache Storm используется Storm Starter для объяснения принципов создания Storm в кластере HDInsight и использования панели мониторинга Storm для развертывания и отслеживания топологий Storm, а также управления ими.
+In this Apache Storm tutorial, you used the Storm Starter to learn how to create a Storm on HDInsight cluster and use the Storm Dashboard to deploy, monitor, and manage Storm topologies.
 
-## <a id="next"></a>Дальнейшие действия
+## <a name="<a-id="next"></a>next-steps"></a><a id="next"></a>Next steps
 
-* **Средства HDInsight для Visual Studio** —средства HDInsight позволяют использовать Visual Studio для отправки и отслеживания топологии Storm, а также управления ею, точно также как панель мониторинга Storm, которая упоминалась выше. Средства HDInsight также позволяют создавать топологии Storm C# и включает примеры топологий, которые можно развернуть и запустить в кластере.
+* **HDInsight Tools for Visual Studio** - HDInsight Tools allows you to use Visual Studio to submit, monitor, and manage Storm topologies similar to the Storm Dashboard mentioned earlier. HDInsight Tools also provides the ability to create C# Storm topologies, and includes sample topologies that you can deploy and run on your cluster.
 
-	Дополнительные сведения см. в статье [Приступая к работе с инструментами Hadoop в Visual Studio для HDInsight для выполнения запроса Hive](hdinsight-hadoop-visual-studio-tools-get-started.md).
+    For more information, see [Get Started using the HDInsight Tools for Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md).
 
-* **Примеры файлов** — кластер HDInsight Storm приводит несколько примеров в каталоге **%STORM\_HOME%\\contrib**. Каждый пример должен содержать следующие элементы:
+* **Sample files** - The HDInsight Storm cluster provides several examples in the **%STORM_HOME%\contrib** directory. Each example should contain the following:
 
-	* Исходный код, например, storm-starter-0.9.1.2.1.5.0-2057-sources.jar
+    * The source code - for example, storm-starter-0.9.1.2.1.5.0-2057-sources.jar
 
-	* Документы Java, например, storm-starter-0.9.1.2.1.5.0-2057-javadoc.jar
+    * The Java docs - for example, storm-starter-0.9.1.2.1.5.0-2057-javadoc.jar
 
-	* Пример, например, storm-starter-0.9.1.2.1.5.0-2057-jar-with-dependencies.jar
+    * The example - for example, storm-starter-0.9.1.2.1.5.0-2057-jar-with-dependencies.jar
 
-	Для извлечения исходного кода или документов Java используйте команду 'jar'. Например, 'jar -xvf storm-starter-0.9.1.2.1.5.0.2057-javadoc.jar'.
+    Use the 'jar' command to extract the source code or Java docs. For example, 'jar -xvf storm-starter-0.9.1.2.1.5.0.2057-javadoc.jar'.
 
-	> [AZURE.NOTE] Документы Java состоят из веб-страниц. После извлечения откройте файл **index.html** браузером.
+    > [AZURE.NOTE] Java docs consist of webpages. Once extracted, use a browser to view the **index.html** file.
 
-	Чтобы открыть эти образцы, необходимо включить удаленный рабочий стол для Storm в кластере HDInsight и скопировать файлы из папки **%STORM\_HOME%\\contrib**.
+    To access these samples, you must enable Remote Desktop for the Storm on HDInsight cluster, and then copy the files from **%STORM_HOME%\contrib**.
 
-* Следующий документ содержит список других примеров, которые могут использоваться со Storm на HDInsight:
+* The following document contains a list of other examples that can be used with Storm on HDInsight:
 
-	* [Примеры топологий для Storm в HDInsight](hdinsight-storm-example-topology.md)
+    * [Example topologies for Storm on HDInsight](hdinsight-storm-example-topology.md)
 
 [apachestorm]: https://storm.incubator.apache.org
 [stormdocs]: http://storm.incubator.apache.org/documentation/Documentation.html
@@ -245,4 +250,8 @@ C помощью формы **Отправка топологии** можно �
 [hdinsight-provision]: hdinsight-provision-clusters.md
 [preview-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,43 +1,48 @@
 <properties
-	pageTitle="Пояснения к предварительной версии Azure Active Directory B2C | Microsoft Azure"
-	description="В этом разделе описываются различия между Azure Active Directory на классическом портале и предварительной версией Azure Active Directory на портале Azure."
-	services="active-directory"
-	documentationCenter=""
-	authors="curtand"
-	manager="femila"
-	editor=""/>
+    pageTitle="Azure Active Directory preview explainer | Microsoft Azure"
+    description="A topic that explains the differences between Azure Active Directory in the classic portal and the Azure Active Directory preview in the Azure portal."
+    services="active-directory"
+    documentationCenter=""
+    authors="curtand"
+    manager="femila"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/12/2016"
-	ms.author="curtand"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/12/2016"
+    ms.author="curtand"/>
 
 
-# Предварительная версия интерфейса управления Azure Active Directory на портале Azure
 
-На портале Azure доступна только предварительная версия интерфейса управления Azure Active Directory (Azure AD). Вы можете опробовать ее, войдя на [портал Azure](https://portal.azure.com) как глобальный администратор своего каталога. Затем выберите службу Azure Active Directory из списка служб, если она отображается, или щелкните **Больше служб**, чтобы просмотреть список всех служб. Чтоб использовать интерфейс управления Azure AD на портале Azure, не требуется подписка Azure.
+# <a name="preview-of-the-azure-active-directory-management-experience-in-the-azure-portal"></a>Preview of the Azure Active Directory management experience in the Azure portal
+
+The Azure Active Directory (Azure AD) management experience is in preview in the Azure portal. You can try it out by signing in to [the Azure portal](https://portal.azure.com) as a global administrator of your directory. Then, select Azure Active Directory in the services list if it is visible, or select **More services** to view the list of all services. You do not need an Azure subscription to use the Azure AD management experience in the Azure portal.
 
 
-## Возможности предварительной версии
+## <a name="capabilities-of-the-preview-experience"></a>Capabilities of the preview experience
 
-Предварительная версия интерфейса позволяет управлять на портале Azure многими ресурсами каталога, в том числе пользователями, группами и приложениями, а также параметрами каталога. Мы улучшаем этот интерфейс, чтобы включить в него все возможности интерфейса управления Azure AD, доступные на [классическом портале Azure](https://manage.windowsazure.com). А пока некоторые задачи управления каталогами по-прежнему необходимо выполнять на классическом портале.
+The preview experience enables you to manage many directory resources such as users, groups, and applications, as well as directory settings, in the Azure portal. We are improving this experience to include all the capabilities that exist in the Azure AD management experience in the [Azure classic portal](https://manage.windowsazure.com). Until then, there are some directory management tasks that you must still complete in the classic portal.
 
-## Управление одними и теми же клиентами Azure AD
+## <a name="manage-the-same-azure-ad-tenants"></a>Manage the same Azure AD tenants
 
-Предварительная версия считывает и записывает данные в тот же клиент Azure Active Directory, что и классический портал и центр администрирования Office 365. Изменения, внесенные на любом из этих порталов, автоматически отображаются во всех остальных.
+The preview experience reads and writes to the same Azure Active Directory tenant as the classic portal, and the Office 365 Admin center. Changes made in any of these portals are reflected in all of the others.
 
-## Использование единой логики авторизации
+## <a name="use-the-same-authorization-logic"></a>Use the same authorization logic
 
-Предварительная версия использует ту же логику авторизации, что и существующие клиенты Active Directory. Пользователи имеют право вносить изменения в ресурсы каталога согласно своей роли каталога. Например, это может быть роль глобального администратора, администратора пользователей или администратора паролей. Наличие роли для ресурсов или подписки Azure не дает пользователю право управлять ресурсами каталога. Дополнительные сведения о ролях управления Azure AD см. в статье [Назначение ролей администратора в Azure Active Directory](active-directory-assign-admin-roles.md).
+The preview experience uses the same authorization logic as existing Active Directory clients. Users are authorized to make changes to directory resources based on their directory role, such as global administrator, user administrator, password administrator. Having a role on Azure resources or an Azure subscription does not authorize a user to manage directory resources. For more information Azure AD management roles, see [Assigning administrator roles in Azure Active Directory](active-directory-assign-admin-roles.md). 
 
-Предварительная версия оптимизирована для глобальных администраторов. Если использовать предварительную версию, выполнив вход в качестве пользователя, который не является глобальным администратором, то ее возможности будут ограничены. Например, вы смоете нажать кнопку, которая позволяет начать задачу, которую невозможно выполнить в каталоге. Вскоре мы усовершенствуем эти функции интерфейса.
+The preview experience is optimized for global administrators. If you use the preview experience while signed in as a user that is not a global administrator, you may have a degraded experience. For example, you might be able to select a button that lets you begin a task that you can't complete in the directory. We are improving this experience soon.
  
-## Сообщение своего мнения
+## <a name="tell-us-what-you-think"></a>Tell us what you think
 
-Вы можете оставить отзыв о предварительной версии в разделе об администрирования портала на [форуме отзывов о Azure AD](https://social.msdn.microsoft.com/Forums/home?forum=WindowsAzureAD&filter=alltypes&sort=lastpostdesc).
+You can provide feedback on the preview experience in the admin portal section of the [Azure AD feedback forum](https://social.msdn.microsoft.com/Forums/home?forum=WindowsAzureAD&filter=alltypes&sort=lastpostdesc).
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

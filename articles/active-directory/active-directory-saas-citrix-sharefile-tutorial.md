@@ -1,6 +1,6 @@
 <properties 
-    pageTitle="Учебник. Интеграция Azure Active Directory с Citrix ShareFile | Microsoft Azure" 
-    description="Узнайте, как использовать Citrix ShareFile вместе с Azure Active Directory для реализации единого входа, автоматической подготовки пользователей и выполнения других задач." 
+    pageTitle="Tutorial: Azure Active Directory Integration with Citrix ShareFile | Microsoft Azure" 
+    description="Learn how to use Citrix ShareFile with Azure Active Directory to enable single sign-on, automated provisioning, and more!" 
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
@@ -11,140 +11,148 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="07/11/2016" 
+    ms.date="09/29/2016" 
     ms.author="jeedes" />
 
-#Учебник. Интеграция Azure Active Directory с Citrix ShareFile
 
-Цель данного учебника — показать интеграцию Azure и Citrix ShareFile. Сценарий, описанный в этом учебнике, предполагает, что у вас уже имеется:
+#<a name="tutorial:-azure-active-directory-integration-with-citrix-sharefile"></a>Tutorial: Azure Active Directory Integration with Citrix ShareFile
 
--   Действующая подписка на Azure
--   Клиент Citrix ShareFile
+The objective of this tutorial is to show the integration of Azure and Citrix ShareFile.  
+The scenario outlined in this tutorial assumes that you already have the following items:
 
-После выполнения действий, описанных в этом руководстве, пользователи Azure AD, которых вы прикрепите к Citrix ShareFile, смогут использовать единый вход в приложение на веб-сайте Citrix ShareFile вашей организации (вход, инициированный поставщиком услуг) или на панели доступа, как описано в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
+-   A valid Azure subscription
+-   A Citrix ShareFile tenant
 
-Сценарий, описанный в этом учебнике, состоит из следующих блоков:
+After completing this tutorial, the Azure AD users you have assigned to Citrix ShareFile will be able to single sign into the application at your Citrix ShareFile company site (service provider initiated sign on), or using the [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
 
-1.  Включение интеграции приложений для Citrix ShareFile
-2.  Настройка единого входа
-3.  Настройка подготовки учетных записей пользователей
-4.  Назначение пользователей
+The scenario outlined in this tutorial consists of the following building blocks:
 
-![Сценарий](./media/active-directory-saas-citrix-sharefile-tutorial/IC773620.png "Сценарий")
-##Включение интеграции приложений для Citrix ShareFile
+1.  Enabling the application integration for Citrix ShareFile
+2.  Configuring single sign-on
+3.  Configuring user provisioning
+4.  Assigning users
 
-В этом разделе показано, как включить интеграцию приложений для Citrix ShareFile.
+![Scenario](./media/active-directory-saas-citrix-sharefile-tutorial/IC773620.png "Scenario")
+##<a name="enabling-the-application-integration-for-citrix-sharefile"></a>Enabling the application integration for Citrix ShareFile
 
-###Чтобы включить интеграцию приложений для Citrix ShareFile, выполните следующие действия.
+The objective of this section is to outline how to enable the application integration for Citrix ShareFile.
 
-1.  На классическом портале Azure в области навигации слева щелкните **Active Directory**.
+###<a name="to-enable-the-application-integration-for-citrix-sharefile,-perform-the-following-steps:"></a>To enable the application integration for Citrix ShareFile, perform the following steps:
+
+1.  In the Azure classic portal, on the left navigation pane, click **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-citrix-sharefile-tutorial/IC700993.png "Active Directory")
 
-2.  Из списка **Каталог** выберите каталог, для которого нужно включить интеграцию каталогов.
+2.  From the **Directory** list, select the directory for which you want to enable directory integration.
 
-3.  Чтобы открыть представление приложений, в представлении каталога нажмите **Приложения** в верхнем меню.
+3.  To open the applications view, in the directory view, click **Applications** in the top menu.
 
-    ![Приложения](./media/active-directory-saas-citrix-sharefile-tutorial/IC700994.png "Приложения")
+    ![Applications](./media/active-directory-saas-citrix-sharefile-tutorial/IC700994.png "Applications")
 
-4.  В нижней части страницы нажмите кнопку **Добавить**.
+4.  Click **Add** at the bottom of the page.
 
-    ![Добавление приложения](./media/active-directory-saas-citrix-sharefile-tutorial/IC749321.png "Добавление приложения")
+    ![Add application](./media/active-directory-saas-citrix-sharefile-tutorial/IC749321.png "Add application")
 
-5.  В диалоговом окне **Что необходимо сделать?** нажмите **Добавить приложение из коллекции**.
+5.  On the **What do you want to do** dialog, click **Add an application from the gallery**.
 
-    ![Добавить приложение из коллекции](./media/active-directory-saas-citrix-sharefile-tutorial/IC749322.png "Добавить приложение из коллекции")
+    ![Add an application from gallerry](./media/active-directory-saas-citrix-sharefile-tutorial/IC749322.png "Add an application from gallerry")
 
-6.  В **поле поиска** введите **Citrix ShareFile**.
+6.  In the **search box**, type **Citrix ShareFile**.
 
-    ![Коллекция приложений](./media/active-directory-saas-citrix-sharefile-tutorial/IC773621.png "Коллекция приложений")
+    ![Application gallery](./media/active-directory-saas-citrix-sharefile-tutorial/IC773621.png "Application gallery")
 
-7.  В области результатов выберите **Citrix ShareFile** и нажмите кнопку **Завершить**, чтобы добавить приложение.
+7.  In the results pane, select **Citrix ShareFile**, and then click **Complete** to add the application.
 
     ![Citrix ShareFile](./media/active-directory-saas-citrix-sharefile-tutorial/IC773622.png "Citrix ShareFile")
-##Настройка единого входа
+##<a name="configuring-single-sign-on"></a>Configuring single sign-on
 
-В этом разделе показано, как разрешить пользователям проходить проверку подлинности в Citrix ShareFile со своей учетной записью Azure AD, используя федерацию на основе протокола SAML.
+The objective of this section is to outline how to enable users to authenticate to Citrix ShareFile with their account in Azure AD using federation based on the SAML protocol.
 
-###Чтобы настроить единый вход, выполните следующие действия.
+###<a name="to-configure-single-sign-on,-perform-the-following-steps:"></a>To configure single sign-on, perform the following steps:
 
-1.  На странице интеграции с приложением **Citrix ShareFile** классического портала Azure щелкните **Настройка единого входа**, чтобы открыть диалоговое окно **Настройка единого входа**.
+1.  In the Azure classic portal, on the **Citrix ShareFile** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
 
-    ![Включить единый вход](./media/active-directory-saas-citrix-sharefile-tutorial/IC773623.png "Включить единый вход")
+    ![Enable single sign-on](./media/active-directory-saas-citrix-sharefile-tutorial/IC773623.png "Enable single sign-on")
 
-2.  На странице **Как пользователи должны входить в Citrix ShareFile?** выберите **Единый вход Microsoft Azure AD** и нажмите кнопку **Далее**.
+2.  On the **How would you like users to sign on to Citrix ShareFile** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
-    ![Настройка единого входа](./media/active-directory-saas-citrix-sharefile-tutorial/IC773624.png "Настройка единого входа")
+    ![Configure Single Sign-On](./media/active-directory-saas-citrix-sharefile-tutorial/IC773624.png "Configure Single Sign-On")
 
-3.  На странице **Настройка URL-адреса приложения** введите в текстовое поле **URL-адрес для входа в Citrix ShareFile** свой URL-адрес в формате `https://<tenant-name>.shareFile.com` и нажмите **Далее**.
+3.  On the **Configure App URL** page, in the **Citrix ShareFile Sign On URL** textbox, type your URL using the following pattern `https://<tenant-name>.shareFile.com`, and then click **Next**.
 
-    ![Настройка URL-адреса приложения](./media/active-directory-saas-citrix-sharefile-tutorial/IC773625.png "Настройка URL-адреса приложения")
+    ![Configure App URL](./media/active-directory-saas-citrix-sharefile-tutorial/IC773625.png "Configure App URL")
 
-4.  Для загрузки сертификата на странице **Настройка единого входа в Citrix ShareFile** нажмите кнопку **Загрузить сертификат** и сохраните файл сертификата на своем компьютере.
+4.  On the **Configure single sign-on at Citrix ShareFile** page, to download your certificate, click **Download certificate**, and then save the certificate file on your computer.
 
-    ![Настройка единого входа](./media/active-directory-saas-citrix-sharefile-tutorial/IC773626.png "Настройка единого входа")
+    ![ConfigureSingle Sign-On](./media/active-directory-saas-citrix-sharefile-tutorial/IC773626.png "ConfigureSingle Sign-On")
 
-5.  В другом окне веб-браузера войдите на свой корпоративный веб-сайт **Citrix ShareFile** в качестве администратора.
+5.  In a different web browser window, log into your **Citrix ShareFile** company site as an administrator.
 
-6.  На панели инструментов в верхней части экрана нажмите **Администратор**.
+6.  In the toolbar on the top, click **Admin**.
 
-7.  В левой области навигации нажмите **Настройка единого входа**.
+7.  In the left navigation pane, select **Configure Single Sign-On**.
 
-    ![Администрирование учетной записи](./media/active-directory-saas-citrix-sharefile-tutorial/IC773627.png "Администрирование учетной записи")
+    ![Account Administration](./media/active-directory-saas-citrix-sharefile-tutorial/IC773627.png "Account Administration")
 
-8.  На диалоговой странице **Настройка единого входа и SAML 2.0** в разделе **Основные параметры** выполните следующие действия.
+8.  On the **Single Sign-On/ SAML 2.0 Configuration** dialog page under **Basic Settings**, perform the following steps:
 
-    ![Единый вход](./media/active-directory-saas-citrix-sharefile-tutorial/IC773628.png "Единый вход")
+    ![Single sign-on](./media/active-directory-saas-citrix-sharefile-tutorial/IC773628.png "Single sign-on")
 
-    1.  Выберите команду **Enable SAML** (Включить SAML).
-    2.  На диалоговой странице **Настройка единого входа в Citrix ShareFile** классического портала Azure скопируйте значение поля **Идентификатор сущности** и вставьте его в текстовое поле **Your IDP Issuer/ Entity ID** (Идентификатор издателя или сущности поставщика удостоверений).
-    3.  На диалоговой странице **Настройка единого входа в Citrix ShareFile** классического портала Azure скопируйте значение поля **URL-адрес удаленного входа** и вставьте его в текстовое поле **URL-адрес для входа**.
-    4.  На диалоговой странице **Настройка единого входа в Citrix ShareFile** классического портала Azure скопируйте значение поля **URL-адрес удаленного выхода** и вставьте его в текстовое поле **Logout URL** (URL-адрес для выхода).
-    5.  Нажмите **Изменить** рядом с полем **Сертификат X.509** и передайте сертификат, скачанный с классического портала Azure. ![Основные параметры](./media/active-directory-saas-citrix-sharefile-tutorial/IC773629.png "Основные параметры")
+    1.  Click **Enable SAML**.
+    2.  In the Azure classic portal, on the **Configure single sign-on at Citrix ShareFile** dialog page, copy the **Entity ID** value, and then paste it into the **Your IDP Issuer/ Entity ID** textbox.
+    3.  In the Azure classic portal, on the **Configure single sign-on at Citrix ShareFile** dialog page, copy the **Remote Login URL** value, and then paste it into the **Login URL** textbox.
+    4.  In the Azure classic portal, on **the Configure single sign-on at Citrix ShareFile** dialog page, copy the **Remote Logout URL** value, and then paste it into the **Logout URL** textbox.
+    5.  Click **Change** next to the **X.509 Certificate** field and then upload the certificate you downloaded from the Azure AD classic portal.
+        ![Basic Settings](./media/active-directory-saas-citrix-sharefile-tutorial/IC773629.png "Basic Settings")
 
-9.  Нажмите **Сохранить** на портале управления Citrix ShareFile.
+9.  Click **Save** on the Citrix ShareFile management portal.
 
-10. На классическом портале Azure выберите подтверждение конфигурации единого входа, а затем нажмите кнопку **Завершить**, чтобы закрыть диалоговое окно **Настройка единого входа**.
+10. On the Azure classic portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
 
-    ![Настройка единого входа](./media/active-directory-saas-citrix-sharefile-tutorial/IC773630.png "Настройка единого входа")
-##Настройка подготовки учетных записей пользователей
+    ![Configure single sign-on](./media/active-directory-saas-citrix-sharefile-tutorial/IC773630.png "Configure single sign-on")
+##<a name="configuring-user-provisioning"></a>Configuring user provisioning
 
-Чтобы пользователи Azure AD могли выполнить вход в Citrix ShareFile, они должны быть подготовлены для Citrix ShareFile. В случае с Citrix ShareFile подготовка выполняется вручную.
+In order to enable Azure AD users to log into Citrix ShareFile, they must be provisioned into Citrix ShareFile.  
+In the case of Citrix ShareFile, provisioning is a manual task.
 
-###Чтобы подготовить учетные записи пользователей, выполните следующие действия.
+###<a name="to-provision-a-user-accounts,-perform-the-following-steps:"></a>To provision a user accounts, perform the following steps:
 
-1.  Войдите в клиент **Citrix ShareFile**.
+1.  Log in to your **Citrix ShareFile** tenant.
 
-2.  Последовательно выберите пункты **Управление пользователями > Управление домашним ресурсом пользователей > + Создать сотрудника**.
+2.  Click **Manage Users \> Manage Users Home \> + Create Employee**.
 
-    ![Создать сотрудника](./media/active-directory-saas-citrix-sharefile-tutorial/IC781050.png "Создать сотрудника")
+    ![Create Employee](./media/active-directory-saas-citrix-sharefile-tutorial/IC781050.png "Create Employee")
 
-3.  Заполните поля **Адрес электронной почты**, **Имя** и **Фамилия** данными действительной учетной записи Azure AD, которую желаете подготовить.
+3.  Enter the **Email**, **First name** and **Last name** of a valid Azure AD account you want to provision.
 
-    ![Основные сведения](./media/active-directory-saas-citrix-sharefile-tutorial/IC799951.png "Основные сведения")
+    ![Basic Information](./media/active-directory-saas-citrix-sharefile-tutorial/IC799951.png "Basic Information")
 
-4.  Нажмите кнопку **Добавить пользователя**.
+4.  Click **Add User**.
 
-    >[AZURE.NOTE] Владелец учетной записи Azure AD получит по электронной почте сообщение со ссылкой для активации учетной записи.
+    >[AZURE.NOTE] The AAD account holder will receive an email and follow a link to confirm their account before it becomes active.
 
->[AZURE.NOTE] Вы можете использовать любые другие инструменты создания учетной записи пользователя Citrix ShareFile или API, предоставляемые Citrix ShareFile для подготовки учетных записей пользователей AAD.
+>[AZURE.NOTE] You can use any other Citrix ShareFile user account creation tools or APIs provided by Citrix ShareFile to provision AAD user accounts.
 
-##Назначение пользователей
+##<a name="assigning-users"></a>Assigning users
 
-Чтобы проверить свою конфигурацию, предоставьте пользователям Azure AD, которые должны использовать приложение, доступ путем их назначения.
+To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.
 
-###Чтобы назначить пользователей Citrix ShareFile, выполните следующие действия.
+###<a name="to-assign-users-to-citrix-sharefile,-perform-the-following-steps:"></a>To assign users to Citrix ShareFile, perform the following steps:
 
-1.  На классическом портале Azure создайте тестовую учетную запись.
+1.  In the Azure classic portal, create a test account.
 
-2.  На странице интеграции с приложением **Citrix ShareFile** нажмите кнопку **Назначить пользователей**.
+2.  On the **Citrix ShareFile **application integration page, click **Assign users**.
 
-    ![Назначить пользователей](./media/active-directory-saas-citrix-sharefile-tutorial/IC773631.png "Назначить пользователей")
+    ![Assign users](./media/active-directory-saas-citrix-sharefile-tutorial/IC773631.png "Assign users")
 
-3.  Выберите тестового пользователя, нажмите кнопку **Назначить**, а затем — **Да**, чтобы подтвердить назначение.
+3.  Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.
 
-    ![Да](./media/active-directory-saas-citrix-sharefile-tutorial/IC767830.png "Да")
+    ![Yes](./media/active-directory-saas-citrix-sharefile-tutorial/IC767830.png "Yes")
 
-Если вы хотите проверить параметры единого входа, откройте панель доступа. Дополнительные сведения о панели доступа см. в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
+If you want to test your single sign-on settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0713_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Azure AD Connect: обновление службы DirSync | Microsoft Azure"
-   description="Узнайте, как обновить DirSync до Azure AD Connect. В этой статье описывается процедура обновления DirSync до Azure AD Connect"
+   pageTitle="Azure AD Connect: Upgrade from DirSync | Microsoft Azure"
+   description="Learn how to upgrade from DirSync to Azure AD Connect. This articles describes the steps for upgrading from DirSync to Azure AD Connect."
    services="active-directory"
    documentationCenter=""
    authors="andkjell"
@@ -14,198 +14,216 @@
    ms.devlang="na"
    ms.topic="get-started-article"
    ms.date="08/19/2016"
-   ms.author="andkjell;shoatman;billmath"/>
+   ms.author="shoatman;billmath"/>
 
-# Azure AD Connect: обновление DirSync
-Azure AD Connect является преемником Microsoft Azure Active Directory Sync Tool (DirSync). В этой статье описано, как можно обновить DirSync. Следующие действия не подходят для обновления другого выпуска Azure AD Connect или Azure AD Sync.
 
-Прежде чем приступать к установке Azure AD Connect, [скачайте Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771) и выполните предварительные шаги, перечисленные в разделе [Azure AD Connect: оборудование и необходимые условия](../active-directory-aadconnect-prerequisites.md). В частности, ознакомьтесь со сведениями об указанных ниже областях, отличных от DirSync.
+# <a name="azure-ad-connect:-upgrade-from-dirsync"></a>Azure AD Connect: Upgrade from DirSync
+Azure AD Connect is the successor to DirSync. You find the ways you can upgrade from DirSync in this topic. These steps do not work for upgrading from another release of Azure AD Connect or from Azure AD Sync.
 
-- Требуемая версия .NET и PowerShell. На сервере должны быть установлены более новые версии, чем требуется для DirSync.
-- Конфигурация прокси-сервера. Если для доступа в Интернет используется прокси-сервер, перед обновлением этот параметр необходимо настроить. В DirSync всегда используется прокси-сервер, настроенный для пользователя, выполняющего установку, но в Azure AD Connect вместо этого используются параметры компьютера.
-- URL-адреса, которые должны быть открыты на прокси-сервере. Для основных сценариев, которые также поддерживаются DirSync, применяются одинаковые требования. Если вы хотите использовать одну из новых функций Azure AD Connect, следует открыть некоторые новые URL-адреса.
+Before you start installing Azure AD Connect, make sure to [download Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771) and complete the pre-requisite steps in [Azure AD Connect: Hardware and prerequisites](../active-directory-aadconnect-prerequisites.md). In particular, you want to read about the following, since these areas are different from DirSync:
 
-Если вам не нужно обновлять DirSync, см. другие сценарии в разделе [Дополнительная документация](#related-documentation).
+- The required version of .Net and PowerShell. Newer versions are required to be on the server than what DirSync needed.
+- The proxy server configuration. If you use a proxy server to reach the internet, this setting must be configured before you upgrade. DirSync always used the proxy server configured for the user installing it, but Azure AD Connect uses machine settings instead.
+- The URLs required to be open in the proxy server. For basic scenarios, those also supported by DirSync, the requirements are the same. If you want to use any of the new features included with Azure AD Connect, some new URLs must be opened.
 
-## Обновление из DirSync
-В зависимости от текущего развертывания DirSync, существуют различные параметры для обновления. Если ожидаемое время обновления составляет менее трех часов, рекомендуем выполнить обновление на месте. Если ожидаемое время обновления составляет более трех часов, рекомендуем реализовать параллельное развертывание на другом сервере. Предполагается, что при наличии более 50 000 объектов для обновления потребуется более трех часов.
+If you are not upgrading from DirSync, see [related documentation](#related-documentation) for other scenarios.
 
-Сценарий |  
+## <a name="upgrade-from-dirsync"></a>Upgrade from DirSync
+Depending on your current DirSync deployment, there are different options for the upgrade. If the expected upgrade time is less than three hours, then the recommendation is to do an in-place upgrade. If the expected upgrade time is more than three hours, then the recommendation is to do a parallel deployment on another server. It is estimated that if you have more than 50,000 objects it takes more than three hours to do the upgrade.
+
+Scenario |  
 ---- | ----
-[Обновление «на месте»](#in-place-upgrade) | Предпочтительный вариант, если обновление предположительно займет менее 3 часов.
-[Параллельное развертывание](#parallel-deployment) | Предпочтительный вариант, если обновление предположительно займет более 3 часов.
+[In-place upgrade](#in-place-upgrade)  | Preferred option if the upgrade is expected to take less than 3 hours.
+[Parallel deployment](#parallel-deployment) | Preferred option if the upgrade is expected to take more than 3 hours.
 
->[AZURE.NOTE] При планировании обновления из DirSync до Azure AD Connect не удаляйте DirSync самостоятельно до обновления. Azure AD Connect считает и перенесет конфигурацию из DirSync и удалит его после проверки сервера.
+>[AZURE.NOTE] When you plan to upgrade from DirSync to Azure AD Connect, do not uninstall DirSync yourself before the upgrade. Azure AD Connect will read and migrate the configuration from DirSync and uninstall after inspecting the server.
 
-**Обновление на месте**. Мастер отобразит ожидаемое время завершения обновления. Оценка основана на предположении, что для завершения обновления базы данных, содержащей 50 000 объектов (пользователей, контактов и групп), потребуется три часа. Если число объектов в базе данных меньше 50 000, Azure AD Connect порекомендует обновление на месте. Если вы приняли решение продолжить, текущие параметры будут автоматически применены во время обновления и сервер автоматически возобновит активную синхронизацию.
+**In-place upgrade**  
+The expected time to complete the upgrade is displayed by the wizard. This estimate is based on the assumption that it takes three hours to complete an upgrade for a database with 50,000 objects (users, contacts, and groups). If the number of objects in your database is less than 50,000, then Azure AD Connect recommends an in-place upgrade. If you decide to continue, your current settings are automatically applied during upgrade and your server automatically resumes active synchronization.
 
-Если вы хотите перенести конфигурацию и выполнить параллельное развертывание, можно проигнорировать рекомендации по обновлению на месте. Например, можно воспользоваться возможностью обновления оборудования и операционной системы. Дополнительные сведения см. в разделе [Параллельное развертывание](#parallel-deployment).
+If you want to do a configuration migration and do a parallel deployment, then you can override the in-place upgrade recommendation. You might for example take the opportunity to refresh the hardware and operating system. See the [parallel deployment](#parallel-deployment) section for more information.
 
-**Параллельное развертывание**. Этот сценарий рекомендуется использовать при наличии более 50 000 объектов. Это позволит избежать задержек в работе пользователей. Программа установки Azure AD Connect попытается оценить ожидаемое время простоя из-за обновления, но если вы уже обновляли службу DirSync, то лучше руководствоваться собственным опытом.
+**Parallel deployment**  
+If you have more than 50,000 objects, then a parallel deployment is recommended. This avoids any operational delays experienced by your users. The Azure AD Connect installation attempts to estimate the downtime for the upgrade, but if you've upgraded DirSync in the past, your own experience is likely to be the best guide.
 
-### Поддерживаемые обновляемые конфигурации DirSync
-Следующие изменения в конфигурации поддерживаются в DirSync и будут обновлены.
+### <a name="supported-dirsync-configurations-to-be-upgraded"></a>Supported DirSync configurations to be upgraded
+The following configuration changes are supported with DirSync are upgraded:
 
-- Фильтрация домена и подразделения
-- Альтернативный идентификатор (UPN)
-- Гибридные параметры синхронизации паролей и Exchange
-- Параметры вашего леса или домена и Azure AD
-- Фильтрация на основе атрибутов пользователя
+- Domain and OU filtering
+- Alternate ID (UPN)
+- Password sync and Exchange hybrid settings
+- Your forest/domain and Azure AD settings
+- Filtering based on user attributes
 
-Обновить следующее изменение невозможно. Обновление будет заблокировано при следующих условиях:
+The following change cannot be upgraded. If you have this configuration, the upgrade is blocked:
 
-- Неподдерживаемые изменения DirSync, например удаленные атрибуты и использование пользовательского расширения DLL.
+- Unsupported DirSync changes, for example removed attributes and using a custom extension DLL
 
-![Обновление заблокировано](./media/active-directory-aadconnect-dirsync-upgrade-get-started/analysisblocked.png)
+![Upgrade blocked](./media/active-directory-aadconnect-dirsync-upgrade-get-started/analysisblocked.png)
 
-В таких случаях рекомендуется установить новый сервер Azure AD Connect в [промежуточном режиме](../active-directory-aadconnectsync-operations.md#staging-mode), а также проверить старую конфигурацию DirSync и новую конфигурацию Azure AD Connect. Повторно примените изменения с помощью пользовательской конфигурации, как описано в разделе [Пользовательская конфигурация службы синхронизации Azure AD Connect](../active-directory-aadconnectsync-whatis.md).
+In those cases, the recommendation is to install a new Azure AD Connect server in [staging mode](../active-directory-aadconnectsync-operations.md#staging-mode) and verify the old DirSync and new Azure AD Connect configuration. Reapply any changes using custom configuration, as described in [Azure AD Connect Sync custom configuration](../active-directory-aadconnectsync-whatis.md).
 
-Пароли, используемые DirSync для учетных записей служб, невозможно получить и перенести. Эти пароли будут сбрасываются во время обновления.
+The passwords used by DirSync for the service accounts cannot be retrieved and are not migrated. These passwords are reset during the upgrade.
 
-### Общие инструкции по обновлению из DirSync до Azure AD Connect
+### <a name="high-level-steps-for-upgrading-from-dirsync-to-azure-ad-connect"></a>High-level steps for upgrading from DirSync to Azure AD Connect
 
-1. Приветствие мастера установки Azure AD Connect.
-2. Анализ текущей конфигурации DirSync
-3. Получение пароля глобального администратора Azure AD.
-4. Получение учетных данных для учетной записи администратора предприятия (используется только во время установки Azure AD Connect).
-5. Установка Azure AD Connect
-    * Удаление (или временное отключение) DirSync
-	* Установка Azure AD Connect
-	* Запуск синхронизации (при необходимости).
+1. Welcome to Azure AD Connect
+2. Analysis of current DirSync configuration
+3. Collect Azure AD global admin password
+4. Collect credentials for an enterprise admin account (only used during the installation of Azure AD Connect)
+5. Installation of Azure AD Connect
+    * Uninstall DirSync (or temporarily disable it)
+    * Install Azure AD Connect
+    * Optionally begin synchronization
 
-Дополнительные действия необходимы, если:
+Additional steps are required when:
 
-* в настоящее время вы используете полную версию SQL Server, локальную или удаленную;
-* в области синхронизации более 50 000 объектов.
+* You're currently using Full SQL Server - local or remote
+* You have more than 50,000 objects in scope for synchronization
 
-## Обновление «на месте»
+## <a name="in-place-upgrade"></a>In-place upgrade
 
-1. Запустите установщик Azure AD Connect (MSI).
-2. Просмотрите и примите условия лицензионного соглашения и заявления о конфиденциальности. ![Вас приветствует Azure AD](./media/active-directory-aadconnect-dirsync-upgrade-get-started/Welcome.png)
-3. Нажмите кнопку "Далее" для анализа существующей установки DirSync. ![Анализ существующей установки службы синхронизации каталогов](./media/active-directory-aadconnect-dirsync-upgrade-get-started/Analyze.png)
-4. По завершении анализа вы получите рекомендации по дальнейшим действиям.
-    - При использовании SQL Server Express и наличии менее 50 000 объектов отображается следующий экран: ![Анализ завершен, все готово для обновления DirSync](./media/active-directory-aadconnect-dirsync-upgrade-get-started/AnalysisReady.png).
-    - При использовании полной версии SQL Server для DirSync вы увидите эту страницу: ![Анализ завершен, все готово для обновления DirSync](./media/active-directory-aadconnect-dirsync-upgrade-get-started/AnalysisReadyFullSQL.png) Здесь отображаются сведения о существующей базе данных SQL Server, используемой DirSync. При необходимости внесите соответствующие изменения. Нажмите кнопку **Далее**, чтобы продолжить установку.
-    - При наличии более 50 000 объектов отображается следующий экран: ![Анализ завершен, все готово для обновления DirSync](./media/active-directory-aadconnect-dirsync-upgrade-get-started/AnalysisRecommendParallel.png) Чтобы продолжить обновление на месте, установите флажок рядом с сообщением **Продолжить обновление DirSync на этом компьютере.** Чтобы вместо этого реализовать [параллельное развертывание](#parallel-deployment), экспортируйте параметры конфигурации DirSync и перенесите конфигурацию на новый сервер.
-5. Введите пароль для учетной записи, используемой в настоящее время для подключения к Azure AD. Это должна быть учетная запись, используемая в настоящее время с DirSync. ![Введите учетные данные Azure AD.](./media/active-directory-aadconnect-dirsync-upgrade-get-started/ConnectToAzureAD.png) Если вы получаете сообщение об ошибке и испытываете проблемы с подключением, см. статью [Устранение неполадок подключения в Azure AD Connect](../active-directory-aadconnect-troubleshoot-connectivity.md).
-6. Укажите учетную запись администратора предприятия для Active Directory. ![Введите учетные данные ADDS.](./media/active-directory-aadconnect-dirsync-upgrade-get-started/ConnectToADDS.png)
-7. Теперь все готово для настройки. Нажмите кнопку **Обновить**, чтобы удалить DirSync и начать настройку и синхронизацию Azure AD Connect. ![Теперь все готово для настройки.](./media/active-directory-aadconnect-dirsync-upgrade-get-started/ReadyToConfigure.png)
-8. После завершения установки выполните выход из Windows и снова войдите, прежде чем использовать диспетчер службы синхронизации или редактор правил синхронизации либо вносить в конфигурацию какие-либо другие изменения.
+1. Launch the Azure AD Connect installer (MSI).
+2. Review and agree to license terms and privacy notice.
+![Welcome to Azure AD](./media/active-directory-aadconnect-dirsync-upgrade-get-started/Welcome.png)
+3. Click next to begin analysis of your existing DirSync installation.
+![Analyzing existing Directory Sync installation](./media/active-directory-aadconnect-dirsync-upgrade-get-started/Analyze.png)
+4. When the analysis completes, you see the recommendations on how to proceed.  
+    - If you use SQL Server Express and have less than 50,000 objects, the following screen is shown: ![Analysis completed ready to upgrade from DirSync](./media/active-directory-aadconnect-dirsync-upgrade-get-started/AnalysisReady.png)
+    - If you use a full SQL Server for DirSync, you see this page instead: ![Analysis completed ready to upgrade from DirSync](./media/active-directory-aadconnect-dirsync-upgrade-get-started/AnalysisReadyFullSQL.png)  
+The information regarding the existing SQL Server database server being used by DirSync is displayed. Make appropriate adjustments if needed. Click **Next** to continue the installation.
+    - If you have more than 50,000 objects, you see this screen instead: ![Analysis completed ready to upgrade from DirSync](./media/active-directory-aadconnect-dirsync-upgrade-get-started/AnalysisRecommendParallel.png)  
+To proceed with an in-place upgrade, click the checkbox next to this message: **Continue upgrading DirSync on this computer.**
+To do a [parallel deployment](#parallel-deployment) instead, you export the DirSync configuration settings and move the configuration to the new server.
+5. Provide the password for the account you currently use to connect to Azure AD. This must be the account currently used by DirSync.
+![Enter your Azure AD credentials](./media/active-directory-aadconnect-dirsync-upgrade-get-started/ConnectToAzureAD.png)  
+If you receive an error and have problems with connectivity, see [Troubleshoot connectivity problems](../active-directory-aadconnect-troubleshoot-connectivity.md).
+6. Provide an enterprise admin account for Active Directory.
+![Enter your ADDS credentials](./media/active-directory-aadconnect-dirsync-upgrade-get-started/ConnectToADDS.png)
+7. You're now ready to configure. When you click **Upgrade**, DirSync is uninstalled and Azure AD Connect is configured and begins synchronizing.
+![Ready to configure](./media/active-directory-aadconnect-dirsync-upgrade-get-started/ReadyToConfigure.png)
+8. After the installation has completed, sign out and sign in again to Windows before you use Synchronization Service Manager, Synchronization Rule Editor, or try to make any other configuration changes.
 
-## Параллельное развертывание
+## <a name="parallel-deployment"></a>Parallel deployment
 
-### Экспорт конфигурации DirSync
-**Параллельное развертывание — более 50 000 объектов**
+### <a name="export-the-dirsync-configuration"></a>Export the DirSync configuration
+**Parallel deployment with more than 50,000 objects**
 
-При наличии более 50 000 объектов программа установки Azure AD Connect порекомендует параллельное развертывание.
+If you have more than 50,000 objects, then the Azure AD Connect installation recommends a parallel deployment.
 
-Появится экран, аналогичный показанному ниже.
+A screen similar to the following is displayed:
 
-![Анализ завершен.](./media/active-directory-aadconnect-dirsync-upgrade-get-started/AnalysisRecommendParallel.png)
+![Analysis complete](./media/active-directory-aadconnect-dirsync-upgrade-get-started/AnalysisRecommendParallel.png)
 
-Если вы хотите продолжить параллельное развертывание, сделайте следующее.
+If you want to proceed with parallel deployment, you need to perform the following steps:
 
-- Нажмите кнопку **Экспорт параметров**. Если вы устанавливаете Azure AD Connect на отдельном сервере, эти параметры будут перенесены из текущей службы DirSync в устанавливаемую службу Azure AD Connect.
+- Click the **Export settings** button. When you install Azure AD Connect on a separate server, these settings are migrated from your current DirSync to your new Azure AD Connect installation.
 
-После успешного экспорта настроек вы можете закрыть мастер Azure AD Connect на сервере DirSync. Перейдите к следующему шагу [Установка Azure AD Connect на отдельном сервере](#installation-of-azure-ad-connect-on-separate-server).
+Once your settings have been successfully exported, you can exit the Azure AD Connect wizard on the DirSync server. Continue with the next step to [install Azure AD Connect on a separate server](#installation-of-azure-ad-connect-on-separate-server)
 
-**Параллельное развертывание — менее 50 000 объектов**
+**Parallel deployment with less than 50,000 objects**
 
-Если у вас менее 50 000 объектов, но вы хотите реализовать параллельное развертывание, выполните следующие действия.
+If you have less than 50,000 objects but still want to do a parallel deployment, then do the following:
 
-1. Запустите установщик Azure AD Connect (MSI).
-2. При отображении экрана **Вас приветствует Azure AD Connect** выйдите из мастера установки, нажав кнопку c крестиком в правом верхнем углу окна.
-3. Откройте окно командной строки.
-4. Из папки установки Azure AD Connect (по умолчанию: C:\\Program Files\\Microsoft Azure Active Directory Connect) выполните следующую команду: `AzureADConnect.exe /ForceExport`.
-5. Нажмите кнопку **Экспорт параметров**. Если вы устанавливаете Azure AD Connect на отдельном сервере, эти параметры будут перенесены из текущей службы DirSync в устанавливаемую службу Azure AD Connect.
+1. Run the Azure AD Connect installer (MSI).
+2. When you see the **Welcome to Azure AD Connect** screen, exit the installation wizard by clicking the "X" in the top right corner of the window.
+3. Open a command prompt.
+4. From the install location of Azure AD Connect (Default: C:\Program Files\Microsoft Azure Active Directory Connect) execute the following command:  `AzureADConnect.exe /ForceExport`.
+5. Click the **Export settings** button.  When you install Azure AD Connect on a separate server, these settings are migrated from your current DirSync to your new Azure AD Connect installation.
 
-![Анализ завершен.](./media/active-directory-aadconnect-dirsync-upgrade-get-started/forceexport.png)
+![Analysis complete](./media/active-directory-aadconnect-dirsync-upgrade-get-started/forceexport.png)
 
-После успешного экспорта настроек вы можете закрыть мастер Azure AD Connect на сервере DirSync. Перейдите к следующему шагу — [Установка Azure AD Connect на отдельном сервере](#installation-of-azure-ad-connect-on-separate-server).
+Once your settings have been successfully exported, you can exit the Azure AD Connect wizard on the DirSync server. Continue with the next step to [install Azure AD Connect on a separate server](#installation-of-azure-ad-connect-on-separate-server)
 
-### Установка Azure AD Connect на отдельном сервере
+### <a name="install-azure-ad-connect-on-separate-server"></a>Install Azure AD Connect on separate server
 
-При установке Azure AD Connect на новом сервере предполагается, что вы хотите выполнить чистую установку Azure AD Connect. Так как вы собираетесь использовать конфигурацию DirSync, необходимо выполнить некоторые дополнительные действия.
+When you install Azure AD Connect on a new server, the assumption is that you want to perform a clean install of Azure AD Connect. Since you want to use the DirSync configuration, there are some extra steps to take:
 
-1. Запустите установщик Azure AD Connect (MSI).
-2. При отображении экрана **Вас приветствует Azure AD Connect** выйдите из мастера установки, нажав кнопку c крестиком в правом верхнем углу окна.
-3. Откройте окно командной строки.
-4. Из папки установки Azure AD Connect (по умолчанию: C:\\Program Files\\Microsoft Azure Active Directory Connect) выполните следующую команду: `AzureADConnect.exe /migrate`. Будет запущен мастер установки Azure AD Connect и появится следующий экран: ![Введите учетные данные Azure AD.](./media/active-directory-aadconnect-dirsync-upgrade-get-started/ImportSettings.png).
-5. Выберите файл параметров, экспортированный из установки DirSync.
-6. Настройте любые дополнительные параметры, в том числе:
-    - пользовательский путь установки Azure AD Connect;
-	- существующий экземпляр SQL Server (по умолчанию Azure AD Connect устанавливает SQL Server 2012 Express). Не используйте один и тот же экземпляр базы данных в качестве сервера DirSync.
-	- Учетная запись службы, используемая для подключения к SQL Server (если база данных SQL Server удаленная, эта учетная запись должна быть учетной записью службы домена). Следующие параметры можно увидеть на этом экране: ![Введите учетные данные Azure AD.](./media/active-directory-aadconnect-dirsync-upgrade-get-started/advancedsettings.png).
-7. Нажмите кнопку **Далее**.
-8. Не снимайте флажок **Запустить синхронизацию сразу после завершения настройки** на странице **Готово к настройке**. Теперь сервер находится в [промежуточном режиме](../active-directory-aadconnectsync-operations.md#staging-mode), поэтому изменения не экспортируются в Azure AD.
-9. Щелкните **Install** (Установить).
-10. После завершения установки выполните выход из Windows и снова войдите, прежде чем использовать диспетчер службы синхронизации или редактор правил синхронизации либо вносить в конфигурацию какие-либо другие изменения.
+1. Run the Azure AD Connect installer (MSI).
+2. When you see the **Welcome to Azure AD Connect** screen, exit the installation wizard by clicking the "X" in the top right corner of the window.
+3. Open a command prompt.
+4. From the install location of Azure AD Connect (Default: C:\Program Files\Microsoft Azure Active Directory Connect) execute the following command:  `AzureADConnect.exe /migrate`.
+    The Azure AD Connect installation wizard starts and presents you with the following screen: ![Enter your Azure AD credentials](./media/active-directory-aadconnect-dirsync-upgrade-get-started/ImportSettings.png)
+5. Select the settings file that exported from your DirSync installation.
+6. Configure any advanced options including:
+    - A custom installation location for Azure AD Connect.
+    - An existing instance of SQL Server (Default: Azure AD Connect installs SQL Server 2012 Express). Do not use the same database instance as your DirSync server.
+    - A service account used to connect to SQL Server (If your SQL Server database is remote then this account must be a domain service account).
+These options can be seen on this screen: ![Enter your Azure AD credentials](./media/active-directory-aadconnect-dirsync-upgrade-get-started/advancedsettings.png)
+7. Click **Next**.
+8. On the **Ready to configure** page, leave the **Start the synchronization process as soon as the configuration completes** checked. The server is now in [staging mode](../active-directory-aadconnectsync-operations.md#staging-mode) so changes are not exported to Azure AD.
+9. Click **Install**.
+10. After the installation has completed, sign out and sign in again to Windows before you use Synchronization Service Manager, Synchronization Rule Editor, or try to make any other configuration changes.
 
->[AZURE.NOTE] Между Windows Server Active Directory и Azure Active Directory начнется синхронизация, но изменения не будут экспортированы в Azure AD. В каждый момент времени активно экспортировать изменения может только одно средство синхронизации. Это называется [промежуточным режимом](../active-directory-aadconnectsync-operations.md#staging-mode).
+>[AZURE.NOTE] Synchronization between Windows Server Active Directory and Azure Active Directory begins, but no changes are exported to Azure AD. Only one synchronization tool can be actively exporting changes at a time. This state is called [staging mode](../active-directory-aadconnectsync-operations.md#staging-mode).
 
-### Убедитесь, что служба Azure AD Connect готова к синхронизации.
+### <a name="verify-that-azure-ad-connect-is-ready-to-begin-synchronization"></a>Verify that Azure AD Connect is ready to begin synchronization
 
-Чтобы определить, готова ли служба Azure AD Connect наследовать настройки DirSync, необходимо открыть **Synchronization Service Manager** в группе **Azure AD Connect** из меню "Пуск".
+To verify that Azure AD Connect is ready to take over from DirSync, you need to open **Synchronization Service Manager** in the group **Azure AD Connect** from the start menu.
 
-В приложении перейдите на вкладку **Операции**. Здесь вы сможете проверить выполнение следующих операций:
+In the application, go to the **Operations** tab. On this tab, confirm that the following operations have completed:
 
-- Импорт в соединителе AD
-- Импорт в соединителе Azure AD
-- Полная синхронизация в соединителе AD
-- Полная синхронизация в соединителе Azure AD
+- Import on the AD Connector
+- Import on the Azure AD Connector
+- Full Sync on the AD Connector
+- Full Sync on the Azure AD Connector
 
-![Импорт и синхронизация завершены](./media/active-directory-aadconnect-dirsync-upgrade-get-started/importsynccompleted.png)
+![Import and Sync Completed](./media/active-directory-aadconnect-dirsync-upgrade-get-started/importsynccompleted.png)
 
-Просмотрите результат этих операций и убедитесь, что отсутствуют ошибки.
+Review the result from these operations and ensure there are no errors.
 
-Если вы хотите просмотреть, какие изменения будут экспортированы в Azure AD, прочитайте, как проверить конфигурацию в [промежуточном режиме](../active-directory-aadconnectsync-operations.md#staging-mode). Внесите необходимые изменения конфигурации, пока не увидите что-нибудь непредвиденное.
+If you want to see and inspect the changes that are about to be exported to Azure AD, then read how to verify the configuration under [staging mode](../active-directory-aadconnectsync-operations.md#staging-mode). Make required configuration changes until you do not see anything unexpected.
 
-Если эти действия выполнены и вы довольны результатами, можно переходить от DirSync к Azure AD.
+You are ready to switch from DirSync to Azure AD when you have completed these steps and are happy with the result.
 
-### Удаление DirSync (старый сервер)
+### <a name="uninstall-dirsync-(old-server)"></a>Uninstall DirSync (old server)
 
-- В разделе **Программы и компоненты** найдите **Microsoft Azure Active Directory Sync Tool**.
-- Удалите **Microsoft Azure Active Directory Sync Tool**.
-- Удаление может занять до 15 минут.
+- In **Programs and features** find **Windows Azure Active Directory sync tool**
+- Uninstall **Windows Azure Active Directory sync tool**
+- The uninstallation might take up to 15 minutes to complete.
 
-Если вы хотите удалить DirSync позже, можно также временно завершить работу сервера или отключить службу. Если что-то пойдет не так, этот метод позволяет снова включить ее. Но следующий шаг вряд ли завершится ошибкой, поэтому в этом не должно возникнуть необходимости.
+If you prefer to uninstall DirSync later, you can also temporarily shut down the server or disable the service. If something goes wrong, this method allows you to re-enable it. However, it is not expected that the next step will fail so this should not be needed.
 
-После удаления или отключения DirSync нет ни одного активного сервера, экспортируемого в Azure AD. Следующий шаг — включение Azure AD Connect — необходимо завершить, прежде чем продолжать синхронизацию изменений локальной службы Active Directory с Azure AD.
+With DirSync uninstalled or disabled, there is no active server exporting to Azure AD. The next step to enable Azure AD Connect must be completed before any changes in your on-premises Active Directory will continue to be synchronized to Azure AD.
 
-### Включение Azure AD Connect (новый сервер)
-При повторном открытии Azure AD Connect после установки вы сможете внести дополнительные изменения в конфигурацию. Запустите **Azure AD Connect** из меню "Пуск" или с помощью ярлыка на рабочем столе. Убедитесь, что не пытаетесь повторно запустить программу установки MSI.
+### <a name="enable-azure-ad-connect-(new-server)"></a>Enable Azure AD Connect (new server)
+After installation, reopening Azure AD connect will allow you to make additional configuration changes. Start **Azure AD Connect** from the start menu or from the shortcut on the desktop. Make sure you do not try to run the installation MSI again.
 
-Вы увидите следующее:
+You should see the following:
 
-![Дополнительные задачи](./media/active-directory-aadconnect-dirsync-upgrade-get-started/AdditionalTasks.png)
+![Additional tasks](./media/active-directory-aadconnect-dirsync-upgrade-get-started/AdditionalTasks.png)
 
-- Выберите **Настроить промежуточный режим**.
-- Отключите промежуточный режим, сняв флажок **Промежуточный режим включен**.
+- Select **Configure staging mode**.
+- Turn off staging by unchecking the **Enabled staging mode** checkbox.
 
-![Введите учетные данные Azure AD.](./media/active-directory-aadconnect-dirsync-upgrade-get-started/configurestaging.png)
+![Enter your Azure AD credentials](./media/active-directory-aadconnect-dirsync-upgrade-get-started/configurestaging.png)
 
-- Нажмите кнопку **Далее**.
-- На странице подтверждения нажмите кнопку **Установить**.
+- Click the **Next** button
+- On the confirmation page, click the **install** button.
 
-Azure AD Connect теперь является активным сервером.
+Azure AD Connect is now your active server.
 
-## Дальнейшие действия
-После установки Azure AD Connect можно [проверить установку и назначить лицензии](../active-directory-aadconnect-whats-next.md).
+## <a name="next-steps"></a>Next steps
+Now that you have Azure AD Connect installed you can [verify the installation and assign licenses](../active-directory-aadconnect-whats-next.md).
 
-Подробные сведения о новых функциях, включенных при установке, см. в следующих статьях: [Azure AD Connect: автоматическое обновление](../active-directory-aadconnect-feature-automatic-upgrade.md), [Синхронизация Azure AD Connect: предотвращение случайного удаления](../active-directory-aadconnectsync-feature-prevent-accidental-deletes.md) и [Использование Azure AD Connect Health для синхронизации](../active-directory-aadconnect-health-sync.md).
+Learn more about these new features, which were enabled with the installation: [Automatic upgrade](../active-directory-aadconnect-feature-automatic-upgrade.md), [Prevent accidental deletes](../active-directory-aadconnectsync-feature-prevent-accidental-deletes.md), and [Azure AD Connect Health](../active-directory-aadconnect-health-sync.md).
 
-Дополнительные сведения см. в статье [Синхронизация Azure AD Connect: планировщик](../active-directory-aadconnectsync-feature-scheduler.md).
+Learn more about these common topics: [scheduler and how to trigger sync](../active-directory-aadconnectsync-feature-scheduler.md).
 
-Узнайте больше об [интеграции локальных удостоверений с Azure Active Directory](../active-directory-aadconnect.md).
+Learn more about [Integrating your on-premises identities with Azure Active Directory](../active-directory-aadconnect.md).
 
-## Дополнительная документация
+## <a name="related-documentation"></a>Related documentation
 
-Раздел |  
+Topic |  
 --------- | ---------
-Обзор Azure AD Connect | [Интеграция локальных удостоверений с Azure Active Directory](../active-directory-aadconnect.md)
-Обновление предыдущей версии Connect | [Обновление предыдущей версии Connect](../active-directory-aadconnect-upgrade-previous-version.md)
-Установка с помощью стандартных параметров | [Экспресс-установка Azure AD Connect](active-directory-aadconnect-get-started-express.md)
-Установка с помощью настроенных параметров | [Выборочная установка Azure AD Connect](active-directory-aadconnect-get-started-custom.md)
-Учетные записи, используемые для установки | [Дополнительная информация об учетных записях и разрешениях Azure AD Connect](active-directory-aadconnect-accounts-permissions.md)
+Azure AD Connect overview | [Integrating your on-premises identities with Azure Active Directory](../active-directory-aadconnect.md)
+Upgrade from a previous Connect version | [Upgrade from a previous version of Connect](../active-directory-aadconnect-upgrade-previous-version.md)
+Install using Express settings | [Express installation of Azure AD Connect](active-directory-aadconnect-get-started-express.md)
+Install using customized settings | [Custom installation of Azure AD Connect](active-directory-aadconnect-get-started-custom.md)
+Accounts used for installation | [More about Azure AD Connect accounts and permissions](active-directory-aadconnect-accounts-permissions.md)
 
-<!---HONumber=AcomDC_1005_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

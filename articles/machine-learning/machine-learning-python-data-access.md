@@ -1,122 +1,123 @@
 <properties 
-	pageTitle="Доступ к наборам данных с помощью клиентской библиотеки Python для машинного обучения | Microsoft Azure" 
-	description="Установка и использование клиентской библиотеки Python для безопасного доступа к данным Машинного обучения Azure и управления ими из локальной среды Python." 
-	services="machine-learning" 
-	documentationCenter="python" 
-	authors="bradsev" 
-	manager="jhubbard" 
-	editor="cgronlun"/>
+    pageTitle="Access datasets with Machine Learning Python client library | Microsoft Azure" 
+    description="Install and use the Python client library to access and manage Azure Machine Learning data securely from a local Python environment." 
+    services="machine-learning" 
+    documentationCenter="python" 
+    authors="bradsev" 
+    manager="jhubbard" 
+    editor="cgronlun"/>
 
 <tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/12/2016" 
-	ms.author="huvalo;bradsev" />
+    ms.service="machine-learning" 
+    ms.workload="data-services" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="09/12/2016" 
+    ms.author="huvalo;bradsev" />
 
 
-#Доступ к наборам данных через Python с помощью клиентской библиотеки Python для машинного обучения Azure 
 
-Предварительная версия клиентской библиотеки Python для машинного обучения Microsoft Azure может обеспечить безопасный доступ к наборам данных машинного обучения Azure из локальной среды Python. Она также позволяет создавать наборы данных и управлять ими в рабочей области.
+#<a name="access-datasets-with-python-using-the-azure-machine-learning-python-client-library"></a>Access datasets with Python using the Azure Machine Learning Python client library 
 
-В этой статье описано, как:
+The preview of Microsoft Azure Machine Learning Python client library can enable secure access to your Azure Machine Learning datasets from a local Python environment and enables the creation and management of datasets in a workspace.
 
-* установить клиентскую библиотеку Python для машинного обучения;
-* обращаться к наборам данных и передавать их, включая указания по получению авторизации для доступа к наборам данных машинного обучения Azure из локальной среды Python;
-*  получать доступ к промежуточным наборам данных из экспериментов;
-*  использовать клиентскую библиотеку Python для перечисления наборов данных, получать доступ к метаданным, читать содержимое набора данных, создавать новые наборы данных и обновлять существующие наборы данных.
+This topic provides instructions on how to:
+
+* install the Machine Learning Python client library 
+* access and upload datasets, including instructions on how to get authorization to access Azure Machine Learning datasets from your local Python environment
+*  access intermediate datasets from experiments
+*  use the Python client library to enumerate datasets, access metadata, read the contents of a dataset, create new datasets and update existing datasets
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
  
-##<a name="prerequisites"></a>Предварительные требования
+##<a name="<a-name="prerequisites"></a>prerequisites"></a><a name="prerequisites"></a>Prerequisites
 
-Клиентская библиотека Python была протестирована в следующих средах:
+The Python client library has been tested under the following environments:
 
- - Windows, Mac и Linux.
- - Python 2.7, 3.3 и 3.4
+ - Windows, Mac and Linux
+ - Python 2.7, 3.3 and 3.4
 
-Зависит от следующих пакетов:
+It has a dependency on the following packages:
 
  - requests
  - python-dateutil
  - pandas
 
-Рекомендуется использовать дистрибутив Python, например [Anaconda](http://continuum.io/downloads#all) или [Canopy](https://store.enthought.com/downloads/), который поставляется с Python, IPython и тремя устанавливаемыми пакетами, перечисленными выше. Хотя использование IPython не является обязательным, это отличная среда для интерактивного управления данными и их визуализации.
+We recommend using a Python distribution such as [Anaconda](http://continuum.io/downloads#all) or [Canopy](https://store.enthought.com/downloads/), which come with Python, IPython and the three packages listed above installed. Although IPython is not strictly required, it is a great environment for manipulating and visualizing data interactively.
 
 
-###<a name="installation"></a>Как установить клиентскую библиотеку Python для Машинного обучения Azure
+###<a name="<a-name="installation"></a>how-to-install-the-azure-machine-learning-python-client-library"></a><a name="installation"></a>How to install the Azure Machine Learning Python client library
 
-Клиентскую библиотеку Python для Машинного обучения Azure также необходимо установить для выполнения задач, описанных в этой статье. Она доступна в [каталоге пакетов Python](https://pypi.python.org/pypi/azureml). Чтобы установить ее в своей среде Python, выполните следующую команду в локальной среде Python:
+The Azure Machine Learning Python client library must also be installed to complete the tasks outlined in this topic. It is available from the [Python Package Index](https://pypi.python.org/pypi/azureml). To install it in your Python environment, run the following command from your local Python environment:
 
     pip install azureml
 
-Кроме того, можно скачать и установить ее из источников на портале [github](https://github.com/Azure/Azure-MachineLearning-ClientLibrary-Python).
+Alternatively, you can download and install from the sources on [github](https://github.com/Azure/Azure-MachineLearning-ClientLibrary-Python).
 
     python setup.py install
 
-Если на компьютере установлено приложение git, вы можете использовать команду pip для установки непосредственно из репозитория git:
+If you have git installed on your machine, you can use pip to install directly from the git repository:
 
-	pip install git+https://github.com/Azure/Azure-MachineLearning-ClientLibrary-Python.git
-
-
-##<a name="datasetAccess"></a>Использование фрагментов кода Студии для доступа к наборам данных
-
-Клиентская библиотека Python обеспечивает программный доступ к существующим наборам данных от экспериментов, которые были выполнены.
-
-С помощью веб-интерфейса Студии можно создавать фрагменты кода, содержащие все необходимые данные для скачивания и десериализации наборов данных в качестве объектов Pandas DataFrame в папку на компьютере.
-
-### <a name="security"></a>Безопасность доступа к данным
-
-Фрагменты кода, предоставляемые Студией для использования с клиентской библиотекой Python, включают в себя идентификатор рабочей области и маркер авторизации. Они предоставляют полный доступ к рабочей области, и их необходимо защитить, например, паролем.
-
-По соображениям безопасности функциональность фрагмента кода доступна только пользователям с ролью **Владелец** для рабочей области. Роль пользователя отображается в Студии машинного обучения Azure на странице **ПОЛЬЗОВАТЕЛИ** в разделе **Параметры**.
-
-![Безопасность][security]
-
-Если ваша роль не **Владелец**, то вы можете запросить приглашение в качестве владельца или обратиться к владельцу рабочей области за предоставлением фрагмента кода.
-
-Чтобы получить маркер авторизации, выполните одно из следующих:
+    pip install git+https://github.com/Azure/Azure-MachineLearning-ClientLibrary-Python.git
 
 
+##<a name="<a-name="datasetaccess"></a>use-studio-code-snippets-to-access-datasets"></a><a name="datasetAccess"></a>Use Studio Code snippets to access datasets
 
-- Запросите маркер у владельца. Владельцы могут получить доступ к маркерам авторизации на странице «Параметры» своего рабочего пространства в Студии. Выберите **Параметры** в левой области и щелкните **AUTHORIZATION TOKENS** (МАРКЕРЫ АВТОРИЗАЦИИ), чтобы просмотреть основной и дополнительный маркеры. Хотя в фрагменте кода могут использоваться как основные, так и дополнительные маркеры авторизации, владельцам рекомендуется предоставлять только дополнительные маркеры авторизации.
+The Python client library gives you programmatic access to your existing datasets from experiments that have been run.
+
+From the Studio web interface, you can generate code snippets that include all the necessary information to download and deserialize datasets as Pandas DataFrame objects on your location machine.
+
+### <a name="<a-name="security"></a>security-for-data-access"></a><a name="security"></a>Security for data access
+
+The code snippets provided by Studio for use with the Python client library includes your workspace id and authorization token. These provide full access to your workspace and must be protected, like a password.
+
+For security reasons, the code snippet functionality is only available to users that have their role set as **Owner** for the workspace. Your role is displayed in Azure Machine Learning Studio on the **USERS** page under **Settings**.
+
+![Security][security]
+
+If your role is not set as **Owner**, you can either request to be reinvited as an owner, or ask the owner of the workspace to provide you with the code snippet.
+
+To obtain the authorization token, you can do one of the following:
+
+
+
+- Ask for a token from an owner. Owners can access their authorization tokens from the Settings page of their workspace in Studio. Select **Settings** from the left pane and click **AUTHORIZATION TOKENS** to see the primary and secondary tokens.  Although either the primary or the secondary authorization tokens can be used in the code snippet, it is recommended that owners only share the secondary authorization tokens.
 
 ![](./media/machine-learning-python-data-access/ml-python-access-settings-tokens.png)
 
-- Обратитесь за повышением уровня до роли владельца. Для этого текущему владельцу рабочей области сначала необходимо удалить вас из рабочей области, а затем повторно пригласить в качестве владельца.
+- Ask to be promoted to role of owner.  To do this, a current owner of the workspace needs to first remove you from the workspace then re-invite you to it as an owner.
 
-Получив идентификатор рабочей области и маркер авторизации, разработчики могут получить доступ к рабочей области с помощью фрагмента кода вне зависимости от своей роли.
+Once developers have obtained the workspace id and authorization token, they are able to access the workspace using the code snippet regardless of their role.
 
-Для управления маркерами авторизации используется раздел **Параметры** страницы **МАРКЕРЫ АВТОРИЗАЦИИ**. Их можно создать повторно, но эта процедура отменяет доступ для предыдущего маркера.
+Authorization tokens are managed on the **AUTHORIZATION TOKENS** page under **SETTINGS**. You can regenerate them, but this procedure revokes access to the previous token.
 
-### <a name="accessingDatasets"></a>Доступ к наборам данных из локального приложения Python
+### <a name="<a-name="accessingdatasets"></a>access-datasets-from-a-local-python-application"></a><a name="accessingDatasets"></a>Access datasets from a local Python application
 
-1. В Студии машинного обучения на панели навигации слева щелкните **НАБОРЫ ДАННЫХ**.
+1. In Machine Learning Studio, click **DATASETS** in the navigation bar on the left.
 
-2. Выберите набор данных, к которому хотите получить доступ. Можно выбрать любой из наборов данных из списка **МОИ НАБОРЫ ДАННЫХ** или **ПРИМЕРЫ**.
+2. Select the dataset you would like to access. You can select any of the datasets from the **MY DATASETS** list or from the **SAMPLES** list.
 
-3. На нижней панели инструментов щелкните **Generate Data Access Code** (Создать код доступа к данным). Эта кнопка отключена, если данные хранятся в формате, несовместимом с клиентской библиотекой Python.
+3. From the bottom toolbar, click **Generate Data Access Code**. If the data is in a format incompatible with the Python client library, this button is disabled.
 
-	![Наборы данных][datasets]
+    ![Datasets][datasets]
 
-4. Выберите фрагмент кода в появившемся окне и скопируйте его в буфер обмена.
+4. Select the code snippet from the window that appears and copy it to your clipboard.
 
-	![Код доступа][dataset-access-code]
+    ![Access Code][dataset-access-code]
 
-5. Вставьте код в заметки своего локального приложения Python.
+5. Paste the code into the notebook of your local Python application.
 
-	![Заметки][ipython-dataset]
+    ![Notebook][ipython-dataset]
 
-## <a name="accessingIntermediateDatasets"></a>Доступ к промежуточным наборам данных из экспериментов машинного обучения
+## <a name="<a-name="accessingintermediatedatasets"></a>access-intermediate-datasets-from-machine-learning-experiments"></a><a name="accessingIntermediateDatasets"></a>Access intermediate datasets from Machine Learning experiments
 
-После выполнения эксперимента в Студии машинного обучения можно получить доступ к промежуточным наборам данных из выходных узлов модулей. Промежуточные наборы данных — это данные, создаваемые и используемые на промежуточных шагах после запуска инструмента моделирования.
+After an experiment is run in the Machine Learning Studio, it is possible to access the intermediate datasets from the output nodes of modules. Intermediate datasets are data that has been created and used for intermediate steps when a model tool has been run.
 
-Доступ к промежуточным наборам данных можно получить при условии, что формат данных совместим с клиентской библиотекой Python.
+Intermediate datasets can be accessed as long as the data format is compatible with the Python client library.
 
-Поддерживаются следующие форматы (константы для них находятся в классе `azureml.DataTypeIds`):
+The following formats are supported (constants for these are in the `azureml.DataTypeIds` class):
 
  - PlainText
  - GenericCSV
@@ -124,131 +125,130 @@
  - GenericCSVNoHeader
  - GenericTSVNoHeader
 
-Определить формат можно, наведя указатель мыши на выходной узел модуля. Он отображается во всплывающей подсказке вместе с именем узла.
+You can determine the format by hovering over a module output node. It is displayed along with the node name, in a tooltip.
 
-Некоторые модули, например модуль [Разделение][split], выводят данные в формат `Dataset`, который не поддерживается клиентской библиотекой Python.
+Some of the modules, such as the [Split][split] module, output to a format named `Dataset`, which is not supported by the Python client library.
 
-![Формат набора данных][dataset-format]
+![Dataset Format][dataset-format]
 
-В этом случае требуется модуль преобразования, например [Convert to CSV][convert-to-csv] \(Преобразование в CSV-файл), чтобы получить выходные данные в поддерживаемом формате.
+You need to use a conversion module, such as [Convert to CSV][convert-to-csv], to get an output into a supported format.
 
-![Формат GenericCSV][csv-format]
+![GenericCSV Format][csv-format]
 
-Далее показан пример, который создает эксперимент, выполняет его и обращается к промежуточному набору данных.
+The following steps show an example that creates an experiment, runs it and accesses the intermediate dataset.
 
-1. Создайте новый эксперимент.
+1. Create a new experiment.
 
-2. Вставьте модуль набора данных **Adult Census Income Binary Classification**.
+2. Insert an **Adult Census Income Binary Classification dataset** module.
 
-3. Вставьте модуль [Разделение][split] и подключите к его вводу выходные данные модуля набора данных.
+3. Insert a [Split][split] module, and connect its input to the dataset module output.
 
-4. Вставьте модуль [Преобразование в CSV-файл][convert-to-csv] и подключите к его вводу выходные данные модуля набора данных [Разделение][split].
+4. Insert a [Convert to CSV][convert-to-csv] module and connect its input to one of the [Split][split] module outputs.
 
-5. Сохраните эксперимент, выполните его и дождитесь завершения выполнения.
+5. Save the experiment, run it, and wait for it to finish running.
 
-6. Щелкните выходной узел в модуле [Convert to CSV][convert-to-csv] \(Преобразование в CSV-файл).
+6. Click the output node on the [Convert to CSV][convert-to-csv] module.
 
-7. В появившемся контекстном меню
-8.  выберите **Generate Data Access Code** (Создать код доступа к данным).
+7. When the context menu appears, select **Generate Data Access Code**.
 
-	![Контекстное меню][experiment]
+    ![Context Menu][experiment]
 
-8. Выберите фрагмент кода в появившемся окне и скопируйте его в буфер обмена.
+8. Select the code snippet and copy it to your clipboard from the window that appears.
 
-	![Код доступа][intermediate-dataset-access-code]
+    ![Access Code][intermediate-dataset-access-code]
 
-9. Вставьте код в заметки.
+9. Paste the code in your notebook.
 
-	![Заметки][ipython-intermediate-dataset]
+    ![Notebook][ipython-intermediate-dataset]
 
-10. Вы можете визуализировать данные с помощью matplotlib. Вот как выглядит гистограмма для столбца возраста:
+10. You can visualize the data using matplotlib. This displays in a histogram for the age column:
 
-	![Гистограмма][ipython-histogram]
+    ![Histogram][ipython-histogram]
 
 
-##<a name="clientApis"></a>Использование клиентской библиотеки Python для машинного обучения для осуществления доступа, чтения, создания и управления наборами данных
+##<a name="<a-name="clientapis"></a>use-the-machine-learning-python-client-library-to-access,-read,-create,-and-manage-datasets"></a><a name="clientApis"></a>Use the Machine Learning Python client library to access, read, create, and manage datasets
 
-### Рабочая область
+### <a name="workspace"></a>Workspace
 
-Рабочая область — это точка входа для клиентской библиотеки Python. Предоставьте класс `Workspace` с идентификатором рабочей области и маркером авторизации для создания экземпляра:
+The workspace is the entry point for the Python client library. Provide the `Workspace` class with your workspace id and authorization token to create an instance:
 
     ws = Workspace(workspace_id='4c29e1adeba2e5a7cbeb0e4f4adfb4df',
                    authorization_token='f4f3ade2c6aefdb1afb043cd8bcf3daf')
 
 
-### Перечисление наборов данных
+### <a name="enumerate-datasets"></a>Enumerate datasets
 
-Для перечисления всех наборов данных в заданной рабочей области:
+To enumerate all datasets in a given workspace:
 
     for ds in ws.datasets:
         print(ds.name)
 
-Для перечисления только созданных пользователями наборов данных:
+To enumerate just the user-created datasets:
 
     for ds in ws.user_datasets:
         print(ds.name)
 
-Для перечисления только примеров наборов данных:
+To enumerate just the example datasets:
 
     for ds in ws.example_datasets:
         print(ds.name)
 
-Можно обратиться к набору данных по имени (с учетом регистра):
+You can access a dataset by name (which is case-sensitive):
 
     ds = ws.datasets['my dataset name']
 
-Или по индексу:
+Or you can access it by index:
 
     ds = ws.datasets[0]
 
 
-### Метаданные
+### <a name="metadata"></a>Metadata
 
-Кроме содержимого в наборах данных имеются метаданные. (Промежуточные наборы данных являются исключением из этого правила и не имеют метаданных.)
+Datasets have metadata, in addition to content. (Intermediate datasets are an exception to this rule and do not have any metadata.)
 
-Некоторые значения метаданных назначаются пользователем во время создания:
+Some metadata values are assigned by the user at creation time:
 
     print(ds.name)
     print(ds.description)
     print(ds.family_id)
     print(ds.data_type_id)
 
-Другие значения назначаются Машинным обучением Azure:
+Others are values assigned by Azure ML:
 
     print(ds.id)
     print(ds.created_date)
     print(ds.size)
 
-Дополнительную информацию о доступных метаданных см. в описании класса `SourceDataset`.
+See the `SourceDataset` class for more on the available metadata.
 
 
-### Чтение содержимого
+### <a name="read-contents"></a>Read contents
 
-Фрагменты кода, предоставляемые Студией машинного обучения, автоматически скачивают набор данных и выполняют его десериализацию в объект Pandas DataFrame. Это выполняется методом `to_dataframe`:
+The code snippets provided by Machine Learning Studio automatically download and deserialize the dataset to a Pandas DataFrame object. This is done with the `to_dataframe` method:
 
     frame = ds.to_dataframe()
 
-Если вы предпочитаете скачать необработанные данные и выполнить десериализацию вручную, это возможно. На данный момент это единственная возможность для таких форматов, как «ARFF», которые клиентская библиотека Python не может десериализовать.
+If you prefer to download the raw data, and perform the deserialization yourself, that is an option. At the moment, this is the only option for formats such as 'ARFF', which the Python client library cannot deserialize.
 
-Для считывания содержимого в виде текста:
+To read the contents as text:
 
     text_data = ds.read_as_text()
 
-Для считывания содержимого в виде двоичного файла:
+To read the contents as binary:
 
     binary_data = ds.read_as_binary()
 
-Можно также просто открыть поток содержимого:
+You can also just open a stream to the contents:
 
     with ds.open() as file:
         binary_data_chunk = file.read(1000)
 
 
-### Создание нового набора данных
+### <a name="create-a-new-dataset"></a>Create a new dataset
 
-Клиентская библиотека Python позволяет передавать наборы данных из программы Python. Эти наборы данных затем станут доступными для использования в вашей рабочей области.
+The Python client library allows you to upload datasets from your Python program. These datasets are then available for use in your workspace.
 
-Если данные в формате Pandas DataFrame, используйте следующий код:
+If you have your data in a Pandas DataFrame, use the following code:
 
     from azureml import DataTypeIds
 
@@ -259,7 +259,7 @@
         description='my description'
     )
 
-Если данные уже сериализованы, можно использовать:
+If your data is already serialized, you can use:
 
     from azureml import DataTypeIds
 
@@ -270,7 +270,7 @@
         description='my description'
     )
 
-Клиентская библиотека Python может сериализовать объекты Pandas DataFrame в следующие форматы (константы для них находятся в классе `azureml.DataTypeIds`):
+The Python client library is able to serialize a Pandas DataFrame to the following formats (constants for these are in the `azureml.DataTypeIds` class):
 
  - PlainText
  - GenericCSV
@@ -279,11 +279,11 @@
  - GenericTSVNoHeader
 
 
-### Обновление существующего набора данных
+### <a name="update-an-existing-dataset"></a>Update an existing dataset
 
-Если вы попытаетесь передать новый набор данных с именем, которое совпадает с именем существующего набора данных, то произойдет ошибка конфликта.
+If you try to upload a new dataset with a name that matches an existing dataset, you should get a conflict error.
 
-Чтобы обновить существующий набор данных, сначала необходимо получить ссылку на существующий набор данных:
+To update an existing dataset, you first need to get a reference to the existing dataset:
 
     dataset = ws.datasets['existing dataset']
 
@@ -291,7 +291,7 @@
     print(dataset.name)         # 'existing dataset'
     print(dataset.description)  # 'data up to jan 2015'
 
-Затем используйте `update_from_dataframe` для сериализации и замены содержимого набора данных в Azure:
+Then use `update_from_dataframe` to serialize and replace the contents of the dataset on Azure:
 
     dataset = ws.datasets['existing dataset']
 
@@ -301,7 +301,7 @@
     print(dataset.name)         # 'existing dataset'
     print(dataset.description)  # 'data up to jan 2015'
 
-Если вы хотите сериализовать данные в другой формат, укажите значение необязательного параметра `data_type_id`.
+If you want to serialize the data to a different format, specify a value for the optional `data_type_id` parameter.
 
     from azureml import DataTypeIds
 
@@ -316,7 +316,7 @@
     print(dataset.name)         # 'existing dataset'
     print(dataset.description)  # 'data up to jan 2015'
 
-При необходимости можно задать новое описание, указав значение для параметра `description`.
+You can optionally set a new description by specifying a value for the `description` parameter.
 
     dataset = ws.datasets['existing dataset']
 
@@ -329,7 +329,7 @@
     print(dataset.name)         # 'existing dataset'
     print(dataset.description)  # 'data up to feb 2015'
 
-Кроме того, при необходимости можно задать новое имя, указав значение для параметра `name`. Теперь вы сможете извлекать набор данных только с помощью нового имени. Следующий код обновляет данные, имя и описание.
+You can optionally set a new name by specifying a value for the `name` parameter. From now on, you'll retrieve the dataset using the new name only. The following code updates the data, name and description.
 
     dataset = ws.datasets['existing dataset']
 
@@ -346,23 +346,23 @@
     print(ws.datasets['existing dataset v2'].name) # 'existing dataset v2'
     print(ws.datasets['existing dataset'].name)    # IndexError
 
-Параметры `data_type_id`, `name` и `description` являются необязательными, и по умолчанию используются их предыдущие значения. Параметр `dataframe` всегда является обязательным.
+The `data_type_id`, `name` and `description` parameters are optional and default to their previous value. The `dataframe` parameter is always required.
 
-Если данные уже сериализованы, вместо `update_from_dataframe` используйте `update_from_raw_data`: Он работает точно так же, просто вместо `dataframe` передается `raw_data`.
+If your data is already serialized, use `update_from_raw_data` instead of `update_from_dataframe`. If you just pass in `raw_data` instead of  `dataframe`, it works in a similar way.
 
 
 
 <!-- Images -->
-[security]: ./media/machine-learning-python-data-access/security.png
-[dataset-format]: ./media/machine-learning-python-data-access/dataset-format.png
-[csv-format]: ./media/machine-learning-python-data-access/csv-format.png
-[datasets]: ./media/machine-learning-python-data-access/datasets.png
-[dataset-access-code]: ./media/machine-learning-python-data-access/dataset-access-code.png
-[ipython-dataset]: ./media/machine-learning-python-data-access/ipython-dataset.png
-[experiment]: ./media/machine-learning-python-data-access/experiment.png
-[intermediate-dataset-access-code]: ./media/machine-learning-python-data-access/intermediate-dataset-access-code.png
-[ipython-intermediate-dataset]: ./media/machine-learning-python-data-access/ipython-intermediate-dataset.png
-[ipython-histogram]: ./media/machine-learning-python-data-access/ipython-histogram.png
+[security]:./media/machine-learning-python-data-access/security.png
+[dataset-format]:./media/machine-learning-python-data-access/dataset-format.png
+[csv-format]:./media/machine-learning-python-data-access/csv-format.png
+[datasets]:./media/machine-learning-python-data-access/datasets.png
+[dataset-access-code]:./media/machine-learning-python-data-access/dataset-access-code.png
+[ipython-dataset]:./media/machine-learning-python-data-access/ipython-dataset.png
+[experiment]:./media/machine-learning-python-data-access/experiment.png
+[intermediate-dataset-access-code]:./media/machine-learning-python-data-access/intermediate-dataset-access-code.png
+[ipython-intermediate-dataset]:./media/machine-learning-python-data-access/ipython-intermediate-dataset.png
+[ipython-histogram]:./media/machine-learning-python-data-access/ipython-histogram.png
 
 
 <!-- Module References -->
@@ -370,4 +370,8 @@
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
  
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

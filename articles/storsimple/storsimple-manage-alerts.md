@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Просмотр оповещений StorSimple и управление ими | Microsoft Azure"
-   description="Описание условий срабатывания оповещений StorSimple и уровней их серьезности, описание порядка настройки отправки уведомлений об оповещениях, а также того, как использовать службу диспетчера StorSimple для управления оповещениями."
+   pageTitle="View and manage StorSimple alerts | Microsoft Azure"
+   description="Describes StorSimple alert conditions and severity, how to configure alert notifications, and how to use the StorSimple Manager service to manage alerts."
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
@@ -12,246 +12,252 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="06/09/2016"
+   ms.date="10/18/2016"
    ms.author="anbacker" />
 
-# Использование службы управления StorSimple для просмотра оповещений StorSimple и управления ими
 
-## Обзор
+# <a name="use-the-storsimple-manager-service-to-view-and-manage-storsimple-alerts"></a>Use the StorSimple Manager service to view and manage StorSimple alerts
 
-Вкладка **Оповещения** в службе диспетчера StorSimple предоставляет способ для просмотра и удаления оповещений, связанных с устройством StorSimple, на основе данных в режиме реального времени. На этой вкладке можно централизованно отслеживать проблемы работоспособности устройств StorSimple и всего решения Microsoft Azure StorSimple.
+## <a name="overview"></a>Overview
 
-В этом учебнике описываются распространенные условия оповещений, уровни серьезности и настройка уведомлений об оповещениях. Кроме того, он включает краткую справочную таблицу оповещений, которая позволяет быстро найти нужное оповещение и реагировать соответствующим образом.
+The **Alerts** tab in the StorSimple Manager service provides a way for you to review and clear StorSimple device–related alerts on a real-time basis. From this tab, you can centrally monitor the health issues of your StorSimple devices and the overall Microsoft Azure StorSimple solution.
 
-![Страница оповещений](./media/storsimple-manage-alerts/HCS_AlertsPage.png)
+This tutorial describes common alert conditions, alert severity levels, and how to configure alert notifications. Additionally, it includes alert quick reference tables, which enable you to quickly locate a specific alert and respond appropriately.
 
-## Распространенные условия оповещений
+![Alerts page](./media/storsimple-manage-alerts/HCS_AlertsPage.png)
 
-Устройство StorSimple создает оповещения в ответ на ряд условий. Ниже приведены наиболее распространенные типы условий оповещения.
+## <a name="common-alert-conditions"></a>Common alert conditions
 
-- **Проблемы с оборудованием** — эти оповещения сообщают о работоспособности оборудования. Они позволяют узнать, требуется ли обновление встроенного ПО, есть ли проблемы сетевого интерфейса и присутствуют ли сложности с одним из дисков с данными.
+Your StorSimple device generates alerts in response to a variety of conditions. The following are the most common types of alert conditions:
 
-- **Проблемы с подключением** — эти оповещения появляются при возникновении сложностей в процессе передачи данных. Проблемы связи могут возникнуть во время передачи данных в учетную запись хранения Azure и из нее или из-за отсутствия подключения между устройствами и службой диспетчера StorSimple. Проблемы связи сложнее всего исправить, поскольку существует множество точек отказа. Всегда необходимо сначала проверить, есть ли сетевое подключение и доступ к Интернету, перед тем как выполнять более сложные методы устранения неполадок. Справку по устранению неполадок см. в разделе [Устранение неполадок с помощью командлета Test-Connection](storsimple-troubleshoot-deployment.md).
+- **Hardware issues** – These alerts tell you about the health of your hardware. They let you know if firmware upgrades are needed, if a network interface has issues, or if there is a problem with one of your data drives.
 
-- **Проблемы с производительностью** — эти оповещения отображаются, когда система работает неоптимально, например в условиях большой нагрузки.
+- **Connectivity issues** – These alerts occur when there is difficulty in transferring data. Communication issues can occur during transfer of data to and from the Azure storage account or due to lack of connectivity between the devices and the StorSimple Manager service. Communication issues are some of the hardest to fix because there are so many points of failure. You should always first verify that network connectivity and Internet access are available before continuing on to more advanced troubleshooting. For help with troubleshooting, go to [Troubleshoot with the Test-Connection cmdlet](storsimple-troubleshoot-deployment.md).
 
-Кроме того могут появиться оповещения, относящиеся к безопасности, обновлениям или сбоям заданий.
+- **Performance issues** – These alerts are caused when your system isn’t performing optimally, such as when it is under a heavy load.
 
-## Уровни серьезности оповещений
+In addition, you might see alerts related to security, updates, or job failures.
 
-Оповещения имеют различные уровни серьезности в зависимости от того, какое влияние окажет оповещение и какая потребуется реакция. Ниже перечислены уровни серьезности.
+## <a name="alert-severity-levels"></a>Alert severity levels
 
-- **Критическое** — это оповещение является ответом на условие, которое влияет на успешную работу системы. Убедитесь, что работа службы StorSimple не прервана.
+Alerts have different severity levels, depending on the impact that the alert situation will have and the need for a response to the alert. The severity levels are:
 
-- **Предупреждение** — это условие может стать критическим, если его не разрешить. Необходимо изучить ситуацию и предпринять любые действия, необходимые для решения этой проблемы.
+- **Critical** – This alert is in response to a condition that is affecting the successful performance of your system. Action is required to ensure that the StorSimple service is not interrupted.
 
-- **Информация** — это оповещение содержит сведения, которые могут быть полезны для отслеживания системы и управления ею.
+- **Warning** – This condition could become critical if not resolved. You should investigate the situation and take any action required to clear the issue.
 
-## Настроить параметры оповещений.
+- **Information** – This alert contains information that can be useful in tracking and managing your system.
 
-Можно выбрать, хотите ли вы получать уведомления по электронной почте об условиях оповещений для каждого устройства StorSimple. Кроме того, можно указать других получателей оповещений. Для этого следует ввести их адреса электронной почты в поле **Другие получатели электронной почты**, разделяя их точкой с запятой.
+## <a name="configure-alert-settings"></a>Configure alert settings
 
->[AZURE.NOTE] Можно ввести не более 20 адресов электронной почты для каждого устройства.
+You can choose whether you want to be notified by email of alert conditions for each of your StorSimple devices. Additionally, you can identify other alert notification recipients by entering their email addresses in the **Other email recipients** box, separated by semicolons.
 
-После включения уведомлений по электронной почте для устройства члены списка уведомлений будут получать сообщение электронной почты каждый раз при возникновении критического оповещения. Сообщения будут отправляться с адреса *storsimple-alerts-noreply@mail.windowsazure.com* и будут описывать условие оповещения. Получатели могут щелкнуть **Отмена подписки**, чтобы удалить свое имя из списка уведомлений по электронной почте.
+>[AZURE.NOTE] You can enter a maximum of 20 email addresses per device.
 
-#### Включение уведомления по электронной почте об оповещении для устройства
+After you enable email notification for a device, members of the notification list will receive an email message each time a critical alert occurs. The messages will be sent from *storsimple-alerts-noreply@mail.windowsazure.com* and will describe the alert condition. Recipients can click **Unsubscribe** to remove themselves from the email notification list.
 
-1. Выберите **Устройства** > **Настроить** для своего устройства.
+#### <a name="to-enable-email-notification-of-alerts-for-a-device"></a>To enable email notification of alerts for a device
 
-2. В разделе **Параметры оповещений** задайте следующее:
+1. Go to **Devices** > **Configure** for the device.
 
-    1. В поле **Отправить уведомление по электронной почте** выберите **Да**.
+2. Under **Alert Settings**, set the following:
 
-    2. В поле **Администраторы службы электронной почты** выберите **Да**, если хотите, чтобы администратор службы и все дополнительные администраторы получали уведомления об оповещениях.
+    1. In the **Send email notification** field, select **YES**.
 
-    3. В поле **Другие получатели электронной почты** введите адреса электронной почты всех получателей, которые должны получать уведомления об оповещениях. Введите имена в формате *someone@somewhere.com*. Используйте точку с запятой для разделения адресов электронной почты. Можно ввести не более 20 адресов электронной почты для каждого устройства.
+    2. In the **Email service administrators** field, select **YES** if you wish to have the service administrator and all co-administrators receive the alert notifications.
 
-        ![Настройка уведомлений об оповещениях](./media/storsimple-manage-alerts/AlertNotify.png)
+    3. In the **Other email recipients** field, enter the email addresses of all other recipients who should receive the alert notifications. Enter names in the format *someone@somewhere.com*. Use semicolons to separate the email addresses. You can configure a maximum of 20 email addresses per device. 
 
-3. Чтобы отправить тестовое уведомление по электронной почте, щелкните значок стрелки рядом с полем **Отправить тестовое электронное сообщение**. Служба диспетчера StorSimple отобразит сообщения о состоянии по мере отправки тестового уведомления.
+        ![Alerts notification configuration](./media/storsimple-manage-alerts/AlertNotify.png)
 
-4. Когда появится следующее сообщение, нажмите кнопку **ОК**.
+3. To send a test email notification, click the arrow icon next to **Send test email**. The StorSimple Manager service will display status messages as it forwards the test notification. 
 
-    ![Отправленное электронное письмо с тестовым уведомлением об оповещении](./media/storsimple-manage-alerts/HCS_AlertNotificationConfig3.png)
+4. When the following message appears, click **OK**. 
 
-    >[AZURE.NOTE] Если не удается отправить тестовое сообщение уведомления, служба диспетчера StorSimple отобразит соответствующее сообщение. Щелкните **ОК**, подождите несколько минут и повторите попытку отправки тестового сообщения уведомления.
+    ![Alerts test notification email sent](./media/storsimple-manage-alerts/HCS_AlertNotificationConfig3.png)
 
-## Просмотр и отслеживание оповещений
+    >[AZURE.NOTE] If the test notification message can't be sent, the StorSimple Manager service will display an appropriate message. Click **OK**, wait a few minutes, and then try to send your test notification message again. 
 
-Панель мониторинга службы диспетчера StorSimple предоставляет быстрый обзор количества оповещений на устройствах, упорядоченных по степени серьезности.
+## <a name="view-and-track-alerts"></a>View and track alerts
 
-![Панель мониторинга оповещений](./media/storsimple-manage-alerts/admin_alerts_dashboard.png)
+The StorSimple Manager service dashboard provides you with a quick glance at the number of alerts on your devices, arranged by severity level.
 
-При щелчке на уровень серьезности открывается вкладка **Оповещения**. Результаты включают только оповещения соответствующего уровня серьезности.
+![Alerts dashboard](./media/storsimple-manage-alerts/admin_alerts_dashboard.png)
 
-![Отчет об оповещениях с сортировкой по типам](./media/storsimple-manage-alerts/admin_alerts_scoped.png)
+Clicking the severity level opens the **Alerts** tab. The results include only the alerts that match that severity level.
 
-Щелкните оповещение в списке, чтобы просмотреть дополнительные сведения оповещения, включая время последней доставки оповещения, число повторений оповещения на устройстве и рекомендуемые действия для разрешения оповещения. Если это оповещение оборудования, также будет указан аппаратный компонент.
+![Alerts report scoped to alert type](./media/storsimple-manage-alerts/admin_alerts_scoped.png)
 
-![Пример оповещения оборудования](./media/storsimple-manage-alerts/admin_alerts_hardware.png)
+Clicking an alert in the list provides you with additional details for the alert, including the last time the alert was reported, the number of occurrences of the alert on the device, and the recommended action to resolve the alert. If it is a hardware alert, it will also identify the hardware component.
 
-Можно скопировать сведения об оповещении в текстовый файл, если необходимо отправить их в службу технической поддержки Майкрософт. Когда вы выполните рекомендации и устраните условия оповещения в локальной среде, удалите оповещения с устройства. Для этого выберите оповещение в разделе **Оповещения** и нажмите кнопку **Очистить**. Чтобы удалить несколько оповещений, выберите каждое оповещение, которое нужно удалить, щелкните любой столбец, кроме столбца **Оповещение**, а затем нажмите кнопку **Очистить**. Обратите внимание, что некоторые оповещения автоматически удаляются при устранении проблемы или когда система обновляет оповещения новыми данными.
+![Hardware alert example](./media/storsimple-manage-alerts/admin_alerts_hardware.png)
 
-При нажатии кнопки **Очистить** у вас будет возможность предоставить комментарии об оповещении и действиях, предпринятых для решения проблемы. Некоторые события будут удалены системой, если другое событие активируется новыми данными. В этом случае вы увидите следующее сообщение.
+You can copy the alert details to a text file if you need to send the information to Microsoft Support. After you have followed the recommendation and resolved the alert condition on-premises, you should clear the alert from the device by selecting the alert in the **Alerts** tab and clicking **Clear**. To clear multiple alerts, select each alert, click any column except the **Alert** column, and then click **Clear** after you have selected all the alerts to be cleared. Note that some alerts are automatically cleared when the issue is resolved or when the system updates the alert with new information.
 
-![Удаление сообщения оповещения](./media/storsimple-manage-alerts/admin_alerts_system_clear.png)
+When you click **Clear**, you will have the opportunity to provide comments about the alert and the steps that you took to resolve the issue. Some events will be cleared by the system if another event is triggered with new information. In that case, you will see the following message.
 
-## Сортировка и просмотр оповещений
+![Clear alert message](./media/storsimple-manage-alerts/admin_alerts_system_clear.png)
 
-Возможно, создание отчетов об оповещениях окажется более эффективным для просмотра и удаления групп оповещений. Кроме того, на вкладке **Оповещения** может отображаться до 250 оповещений. В случае превышения этого числа оповещений в представлении по умолчанию отображаются не все оповещения. Вы можете сочетать следующие поля, чтобы настроить типы отображаемых оповещений.
+## <a name="sort-and-review-alerts"></a>Sort and review alerts
 
-- **Состояние** — можно отобразить **активные** или **удаленные** оповещения. Активные оповещения по-прежнему инициируются в системе, а удаленные оповещения были либо вручную удалены администратором, либо очищены программно, так как система обновила условие оповещения новыми данными.
+You may find it more efficient to run reports on alerts so that you can review and clear them in groups. Additionally, the **Alerts** tab can display up to 250 alerts. If you have exceeded that number of alerts, not all alerts will be displayed in the default view. You can combine the following fields to customize which alerts are displayed:
 
-- **Серьезность** — можно отобразить оповещения всех уровней серьезности (критическое, предупреждение, информация) или только определенных степеней серьезности, например только критические оповещения.
+- **Status** – You can display either **Active** or **Cleared** alerts. Active alerts are still being triggered on your system, while cleared alerts have been either manually cleared by an administrator or programmatically cleared because the system updated the alert condition with new information.
 
-- **Источник** — можно отобразить оповещения из всех источников или ограничить оповещения теми, которые поступили из службы либо с одного или со всех устройств.
+- **Severity** – You can display alerts of all severity levels (critical, warning, information), or just a certain severity, such as only critical alerts.
 
-- **Диапазон времени** — указав даты **С** и **По** и отметки времени, можно просмотреть оповещения за период времени, который вас интересует.
+- **Source** – You can display alerts from all sources, or limit the alerts to those that come from either the service or one or all of the devices.
 
-## Краткий справочник по оповещениям
+- **Time range** – By specifying the **From** and **To** dates and time stamps, you can look at alerts during the time period that you are interested in.
 
-В следующей таблице перечислены некоторые из оповещений Microsoft Azure StorSimple, с которыми вы можете столкнуться, а также дополнительные сведения и рекомендации при наличии. Оповещения устройств StorSimple делятся на следующие категории.
+## <a name="alerts-quick-reference"></a>Alerts quick reference
 
-- [Оповещения облачных подключений](#cloud-connectivity-alerts)
+The following tables list some of the Microsoft Azure StorSimple alerts that you might encounter, as well as additional information and recommendations where available. StorSimple device alerts fall into one of the following categories:
 
-- [Оповещения кластера](#cluster-alerts)
+- [Cloud connectivity alerts](#cloud-connectivity-alerts)
 
-- [Оповещения аварийного восстановления](#disaster-recovery-alerts)
+- [Cluster alerts](#cluster-alerts)
 
-- [Оповещения оборудования](#hardware-alerts)
+- [Disaster recovery alerts](#disaster-recovery-alerts)
 
-- [Оповещения о сбоях заданий](#job-failure-alerts)
+- [Hardware alerts](#hardware-alerts)
 
-- [Оповещения локально закрепленных томов](#locally-pinned-volume-alerts)
+- [Job failure alerts](#job-failure-alerts)
 
-- [Оповещения сети](#networking-alerts)
+- [Locally pinned volume alerts](#locally-pinned-volume-alerts)
 
-- [Оповещения производительности](#performance-alerts)
+- [Networking alerts](#networking-alerts)
 
-- [Оповещения безопасности](#security-alerts)
+- [Performance alerts](#performance-alerts)
 
-- [Оповещения пакета поддержки](#support-package-alerts)
+- [Security alerts](#security-alerts)
 
-- [Оповещения об обновлениях](#update-alerts)
+- [Support package alerts](#support-package-alerts)
 
-### Оповещения облачных подключений
+- [Update alerts](#update-alerts)
 
-|Текст оповещения|Событие|Дополнительные сведения и рекомендуемые действия|
+### <a name="cloud-connectivity-alerts"></a>Cloud connectivity alerts
+
+|Alert text|Event|More information / recommended actions|
 |:---|:---|:---|
-|Невозможно установить подключение к <*имя облачных учетных данных*>.|Невозможно установить подключение к учетной записи хранения.|Похоже, возникла проблема с подключением устройства. Запустите на устройстве командлет `Test-HcsmConnection` из интерфейса Windows PowerShell для StorSimple, чтобы определить и устранить проблему. Если параметры верны, проблема может быть с учетными данными учетной записи хранения, в отношении которой возникло оповещение. В этом случае используйте командлет `Test-HcsStorageAccountCredential`, чтобы определить, существуют ли проблемы, которые можно решить.<ul><li>Проверьте параметры сети.</li><li>Проверьте учетные данные учетной записи хранения.</li></ul>|
-|Не получен пакет пульса от устройства за последние <*количество*> мин.|Не удается подключиться к устройству.|Похоже, возникла проблема с подключением устройства. Запустите на устройстве командлет `Test-HcsmConnection` из интерфейса Windows PowerShell для StorSimple, чтобы определить и устранить проблему, или обратитесь к администратору сети.|
+|Connectivity to <*cloud credential name*> cannot be established.|Cannot connect to the storage account.|It looks like there might be a connectivity issue with your device. Please run the `Test-HcsmConnection` cmdlet from the Windows PowerShell Interface for StorSimple on your device to identify and fix the issue. If the settings are correct, the issue might be with the credentials of the storage account for which the alert was raised. In this case, use the `Test-HcsStorageAccountCredential` cmdlet to determine if there are issues that you can resolve.<ul><li>Check your network settings.</li><li>Check your storage account credentials.</li></ul>|
+|We have not received a heartbeat from your device for the last <*number*> minutes.|Cannot connect to device.|It looks like there is a connectivity issue with your device. Please use the `Test-HcsmConnection` cmdlet from the Windows PowerShell Interface for StorSimple on your device to identify and fix the issue or contact your network administrator.|
 
-### Поведение StorSimple при сбое подключения к облаку
+### <a name="storsimple-behavior-when-cloud-connectivity-fails"></a>StorSimple behavior when cloud connectivity fails
 
-Что произойдет, если подключение к облаку моего устройства StorSimple в производственной среде прервется?
+What happens if cloud connectivity fails for my StorSimple device running in production?
 
-Если подключение к облаку прервется для устройства StorSimple, находящегося в производственной среде, то в зависимости от состояния вашего устройства могут произойти следующие события:
+If cloud connectivity fails on your StorSimple production device, then depending on the state of your device, the following can occur: 
 
-- **Для локальных данных на устройстве**: некоторое время работа не будет прерываться, и операции чтения будут обрабатываться как обычно. Однако по мере увеличения числа операций ввода-вывода до превышающих заданные ограничения могут возникнуть сбои операций чтения. 
+- **For the local data on your device**: For some time, there will be no disruption and reads will continue to be served. However, as the number of outstanding IOs increases and exceeds a limit, the reads could start to fail. 
 
-	В зависимости от объема данных, хранящихся на вашем устройстве, операции чтения будут обрабатываться в течение нескольких часов после прерывания подключения к облаку. После этого скорость обработки операций чтения уменьшится и в какой-то момент возникнут сбои, если подключение к облаку будет нарушено в течение нескольких часов. (На устройстве есть временное хранилище для данных, которые должны быть оправлены в облако. Эта область очищается после отправки данных. В случае сбоя подключения данные из этой области хранения не будут оправлены в облако и операция ввода-вывода завершится сбоем.)
+    Depending on the amount of data on your device, the writes will also continue to occur for the first few hours after the disruption in the cloud connectivity. The writes will then slow down and eventually start to fail if the cloud connectivity is disrupted for several hours. (There is temporary storage on the device for data that is to be pushed to the cloud. This area is flushed when the data is sent. If connectivity fails, data in this storage area will not be pushed to the cloud, and IO will fail.)   
 
  
-- **Для данных в облаке**: при большинстве ошибок подключения возвращается ошибка. После восстановления подключения обработка операций ввода-вывода возобновляется без необходимости подключения тома пользователем. В редких случаях может потребоваться вмешательство пользователя для включения тома на классическом портале Azure.
+- **For the data in the cloud**: For most cloud connectivity errors, an error is returned. Once the connectivity is restored, the IOs are resumed without the user having to bring the volume online. In rare instances, user intervention may be required to bring back the volume online from the Azure classic portal. 
  
-- **Для облачных моментальных снимков в процессе создания**: операция повторяется несколько раз в течение 4–5 часов. При этом, если подключение не восстанавливается, попытка создания моментального снимка завершится сбоем.
+- **For cloud snapshots in progress**: The operation is retried a few times within 4-5 hours and if the connectivity is not restored, the cloud snapshots will fail.
 
 
-### Оповещения кластера
+### <a name="cluster-alerts"></a>Cluster alerts
 
-|Текст оповещения|Событие|Дополнительные сведения и рекомендуемые действия|
+|Alert text|Event|More information / recommended actions|
 |:---|:---|:---|
-|Устройство выполнило отработку отказа на <*имя устройства*>.|Устройство находится в режиме обслуживания.|Устройство выполнило отработку отказа из-за входа в режим обслуживания или выхода из него. Это нормально, никаких действий не требуется. После подтверждения этого оповещения удалите его со страницы оповещений.|
-|Устройство выполнило отработку отказа на <*имя устройства*>.|Только что обновилось программное обеспечение или встроенное ПО устройства.|Произошел переход на другой ресурс кластера из-за обновления. Это нормально, никаких действий не требуется. После подтверждения этого оповещения удалите его со страницы оповещений.|
-|Устройство выполнило отработку отказа на <*имя устройства*>.|Завершение работы или перезапуск контроллера.|Устройство выполнило отработку отказа, так как администратор завершил работу контроллера или перезапустил его. Никаких действий не требуется. После подтверждения этого оповещения удалите его со страницы оповещений.|
-|Устройство выполнило отработку отказа на <*имя устройства*>.|Плановая отработка отказа.|Убедитесь, что это была плановая отработка отказа. После выполнения соответствующего действия удалите это оповещение со страницы оповещений.|
-|Устройство выполнило отработку отказа на <*имя устройства*>.|Незапланированная отработка отказа.|StorSimple предусматривает автоматическое восстановление после незапланированной отработки отказа. Если вы видите большое количество таких оповещений, обратитесь в службу технической поддержки Майкрософт.|
-|Устройство выполнило отработку отказа на <*имя устройства*>.|Неизвестные или другие причины.|Если вы видите большое количество таких оповещений, обратитесь в службу технической поддержки Майкрософт. После решения проблемы удалите это оповещение со страницы оповещений.|
-|Критическая служба устройства сообщает о сбое.|Сбой службы пути к данным. |Обратитесь за помощью в службу технической поддержки Майкрософт.|
-|Виртуальный IP-адрес сетевого интерфейса <*Данные №*> сообщает о сбое. |Неизвестные или другие причины. |Иногда временные условия могут вызывать эти оповещения. В таком случае это оповещение будет автоматически удалено через некоторое время. Если проблема будет повторяться, обратитесь в службу поддержки Майкрософт.|
-|Виртуальный IP-адрес сетевого интерфейса <*Данные №*> сообщает о сбое.|Имя интерфейса: <*Данные №*>. IP-адрес <IP address> нельзя перевести в оперативный режим, так как обнаружен повторяющийся IP-адрес в сети. |Убедитесь, что повторяющийся IP-адрес удален из сети, или перенастройте интерфейс с другим IP-адресом.|
+|Device failed over to <*device name*>.|Device is in maintenance mode.|Device failed over due to entering or exiting maintenance mode. This is normal and no action is needed. After you have acknowledged this alert, clear it from the alerts page.|
+|Device failed over to <*device name*>.|Device firmware or software was just updated.|There was a cluster failover due to an update. This is normal and no action is needed. After you have acknowledged this alert, clear it from the alerts page.|
+|Device failed over to <*device name*>.|Controller was shut down or restarted.|Device failed over because the active controller was shut down or restarted by an administrator. No action is needed. After you have acknowledged this alert, clear it from the alerts page.|
+|Device failed over to <*device name*>.|Planned failover.|Verify that this was a planned failover. After you have taken appropriate action, clear this alert from the alerts page.|
+|Device failed over to <*device name*>.|Unplanned failover.|StorSimple is built to automatically recover from unplanned failovers. If you see a large number of these alerts, contact Microsoft Support.|
+|Device failed over to <*device name*>.|Other/unknown cause.|If you see a large number of these alerts, contact Microsoft Support. After the issue is resolved, clear this alert from the alerts page.|
+|A critical device service reports status as failed.|Datapath service failure. |Contact Microsoft Support for assistance.|
+|Virtual IP address for network interface <*DATA #*> reports status as failed. |Other/unknown cause. |Sometimes temporary conditions can cause these alerts. If this is the case, then this alert will be automatically cleared after some time. If the issue persists, contact Microsoft Support.|
+|Virtual IP address for network interface <*DATA #*> reports status as failed.|Interface name: <*DATA #*> IP address <IP address> cannot be brought online because a duplicate IP address was detected on the network. |Ensure that the duplicate IP address is removed from the network or reconfigure the interface with a different IP address.|
 
 
-### Оповещения аварийного восстановления
+### <a name="disaster-recovery-alerts"></a>Disaster recovery alerts
 
-|Текст оповещения|Событие|Дополнительные сведения и рекомендуемые действия|
+|Alert text|Event|More information / recommended actions|
 |:---|:---|:---|
-|Операции восстановления не удалось восстановить все параметры для этой службы. Данные конфигурации устройства находятся в несогласованном состоянии для некоторых устройств.|После аварийного восстановления обнаружена несогласованность данных.|Зашифрованные данные в службе не синхронизированы с данными на устройстве. Авторизуйте устройство <*имя устройства*> из диспетчера StorSimple, чтобы запустить процесс синхронизации. С помощью интерфейса Windows PowerShell для StorSimple запустите `Restore-HcsmEncryptedServiceData` на устройстве <*имя устройства*>, указав старый пароль в качестве входных данных для этого командлета, чтобы восстановить профиль безопасности. Затем запустите командлет `Invoke-HcsmServiceDataEncryptionKeyChange`, чтобы обновить ключ шифрования данных службы. После выполнения соответствующего действия удалите это оповещение со страницы оповещений.|
+|Recovery operations could not restore all of the settings for this service. Device configuration data is in an inconsistent state for some devices.|Data inconsistency detected after disaster recovery.|Encrypted data on the service is not synchronized with that on the device. Authorize the device <*device name*> from StorSimple Manager to start the synchronization process. Use the Windows PowerShell Interface for StorSimple to run the `Restore-HcsmEncryptedServiceData` on device <*device name*> cmdlet, providing the old password as an input to this cmdlet to restore the security profile. Then run the `Invoke-HcsmServiceDataEncryptionKeyChange` cmdlet to update the service data encryption key. After you have taken appropriate action, clear this alert from the alerts page.|
 
 
-### Оповещения оборудования
+### <a name="hardware-alerts"></a>Hardware alerts
 
-|Текст оповещения|Событие|Дополнительные сведения и рекомендуемые действия|
+|Alert text|Event|More information / recommended actions|
 |:---|:---|:---|
-|Аппаратный компонент <*идентификатор компонента*> сообщает о состоянии <*состояние*>.||Иногда временные условия могут вызывать эти оповещения. В таком случае это оповещение будет автоматически удалено через некоторое время. Если проблема будет повторяться, обратитесь в службу поддержки Майкрософт.|
-|Неисправность пассивного контроллера.|Пассивный (дополнительный) контроллер не функционирует.|Ваше устройство работоспособно, но один из контроллеров неисправен. Попробуйте перезапустить этот контроллер. Если проблема будет повторяться, обратитесь в службу поддержки Майкрософт.|
+|Hardware component <*component ID*> reports status as <*status*>.||Sometimes temporary conditions can cause these alerts. If so, this alert will be automatically cleared after some time. If the issue persists, contact Microsoft Support.|
+|Passive controller malfunctioning.|The passive (secondary) controller is not functioning.|Your device is operational, but one of your controllers is malfunctioning. Try restarting that controller. If the issue is not resolved, contact Microsoft Support.|
 
-### Оповещения о сбоях заданий
+### <a name="job-failure-alerts"></a>Job failure alerts
 
-|Текст оповещения|Событие|Дополнительные сведения и рекомендуемые действия|
+|Alert text|Event|More information / recommended actions|
 |:---|:---|:---|
-|Не удалось выполнить резервное копирование <*идентификатор исходной группы томов*>.|Сбой задания резервного копирования.|Проблемы с подключением могут мешать успешному выполнению операции резервного копирования. Если проблем с подключением нет, возможно, достигнуто максимальное число резервных копий. Удалите резервные копии, которые больше не нужны, и повторите попытку. После выполнения соответствующего действия удалите это оповещение со страницы оповещений.|
-|Не удалось выполнить клонирование из <*идентификаторы исходного элемента резервной копии*> в <*серийные номера конечного тома*>.|Сбой задания клонирования.|Обновите список резервного копирования для проверки действительности резервной копии. Если резервная копия действительна, возможно, проблемы подключения к облаку препятствуют успешному выполнению операции клонирования. Если проблем с подключением нет, возможно, достигнут максимальный объем хранилища. Удалите резервные копии, которые больше не нужны, и повторите попытку. После выполнения соответствующего действия для решения проблемы удалите это оповещение со страницы оповещений.|
-|Не удалось восстановить <*идентификаторы исходного элемента резервной копии*>.|Сбой задания восстановления.|Обновите список резервного копирования для проверки действительности резервной копии. Если резервная копия действительна, возможно, проблемы подключения к облаку препятствуют успешному выполнению операции восстановления. Если проблем с подключением нет, возможно, достигнут максимальный объем хранилища. Удалите резервные копии, которые больше не нужны, и повторите попытку. После выполнения соответствующего действия для решения проблемы удалите это оповещение со страницы оповещений.|
+|Backup of <*source volume group ID*> failed.|Backup job failed.|Connectivity issues could be preventing the backup operation from successfully completing. If there are no connectivity issues, you may have reached the maximum number of backups. Delete any backups that are no longer needed and retry the operation. After you have taken appropriate action, clear this alert from the alerts page.|
+|Clone of <*source backup element IDs*> to <*destination volume serial numbers*> failed.|Clone job failed.|Refresh the backup list to verify that the backup is still valid. If the backup is valid, it is possible that cloud connectivity issues are preventing the clone operation from successfully completing. If there are no connectivity issues, you may have reached the storage limit. Delete any backups that are no longer needed and retry the operation. After you have taken appropriate action to resolve the issue, clear this alert from the alerts page.|
+|Restore of <*source backup element IDs*> failed.|Restore job failed.|Refresh the backup list to verify that the backup is still valid. If the backup is valid, it is possible that cloud connectivity issues are preventing the restore operation from successfully completing. If there are no connectivity issues, you may have reached the storage limit. Delete any backups that are no longer needed and retry the operation. After you have taken appropriate action to resolve the issue, clear this alert from the alerts page.|
 
-### Оповещения локально закрепленных томов
+### <a name="locally-pinned-volume-alerts"></a>Locally pinned volume alerts
 
-|Текст оповещения|Событие|Дополнительные сведения и рекомендуемые действия|
+|Alert text|Event|More information / recommended actions|
 |:---|:---|:---|
-|Не удалось создать локальный том <*имя тома*>.| Не удалось выполнить задание создания тома. <*Сообщение об ошибке, соответствующее коду ошибки*>.|Проблемы с подключением могут препятствовать успешному созданию пространства. Локально закрепленные тома подготавливаются "тесно", поэтому процесс создания пространства включает вытеснение многоуровневых томов в облако. Если возникли проблемы с подключением, возможно, вы исчерпали локальное пространство на устройстве. Прежде чем повторять эту операцию, убедитесь, что на устройстве есть место.|
-|Не удалось расширить локальный том <*имя тома*>.|Не удалось выполнить задание изменения тома. <*Сообщение об ошибке, соответствующее коду ошибки*>.|Проблемы с подключением могут препятствовать успешному расширению тома. Локально закрепленные тома подготавливаются "тесно", поэтому процесс расширения существующего пространства включает вытеснение многоуровневых томов в облако. Если возникли проблемы с подключением, возможно, вы исчерпали локальное пространство на устройстве. Прежде чем повторять эту операцию, убедитесь, что на устройстве есть место.|
-|Не удалось преобразовать том <*имя тома*>.|Не удалось выполнить задание по преобразованию локально закрепленного тома в многоуровневый.|Не удалось выполнить преобразование локально закрепленного тома в многоуровневый. Убедитесь в отсутствии проблем с подключением, которые могут помешать успешно завершить операцию. Информацию об устранении неполадок с подключением см. в разделе [Устранение неполадок с помощью командлета Test-HcsmConnection](storsimple-troubleshoot-deployment.md#troubleshoot-with-the-test-hcsmconnection-cmdlet).<br>Исходный локально закрепленный том теперь помечен как многоуровневый том, так как некоторые данные из локально закрепленного тома вытеснены в облако во время преобразования. Полученный в результате многоуровневый том по-прежнему занимает локальное пространство на устройстве, которое уже нельзя освободить для будущих локальных томов.<br>Устраните проблемы с подключением, очистите оповещение и преобразуйте этот том обратно в исходный локально закрепленный том, чтобы все данные снова стали доступными локально.|
-|Не удалось преобразовать том <*имя тома*>.|Не удалось выполнить задание по преобразованию многоуровневого тома в локально закрепленный.|Не удалось выполнить преобразование многоуровневого тома в локально закрепленный. Убедитесь в отсутствии проблем с подключением, которые могут помешать успешно завершить операцию. Информацию об устранении неполадок с подключением см. в разделе [Устранение неполадок с помощью командлета Test-HcsmConnection](storsimple-troubleshoot-deployment.md#troubleshoot-with-the-test-hcsmconnection-cmdlet).<br>Исходный многоуровневый том теперь помечен как локально закрепленный, так как часть процесса преобразования по-прежнему содержит данные, размещенные в облаке, хотя пространство на устройстве, "тесно" подготовленное для этого тома, уже нельзя освободить для будущих локальных томов.<br>Устраните проблемы с подключением, очистите оповещение и преобразуйте этот том обратно в исходный многоуровневый том, чтобы локальное "тесно" подготовленное пространство можно было освобождать.|
-|Использование локального пространства для локальных моментальных снимков <*имя группы томов*> приближается к лимиту.|Пространство для локальных моментальных снимков политики резервного копирования скоро может закончиться. Снимки будут становиться недействительными во избежание сбоев записи на узле.|Частое создание локальных моментальных снимков и обработка данных в томах, связанных с этой группой политики резервного копирования, приводят к тому, что локальное пространство на устройстве быстро заканчивается. Удалите все ненужные локальные моментальные снимки. Кроме того, обновите расписание локальных моментальных снимков для этой политики резервного копирования, чтобы локальные моментальные снимки создавались реже, и убедитесь, что облачные моментальные снимки создаются регулярно. Если не выполнить эти действия, локальное пространство для этих моментальных снимков вскоре будет исчерпано и система будет автоматически удалять их, чтобы обеспечить успешную обработку записей узла.|
-|Локальные моментальные снимки для <*имя группы томов*> стали недействительными.|Локальные моментальные снимки для <*имя группы томов*> стали недействительными и были удалены, так как на устройстве закончилось локальное пространство.|Чтобы это не повторялось в будущем, просмотрите расписание локальных моментальных снимков для этой политики резервного копирования и удалите все ненужные локальные моментальные снимки. Частое создание локальных моментальных снимков и обработка данных в томах, связанных с этой группой политики резервного копирования, может привести к тому, что локальное пространство на устройстве быстро закончится.|
-|Не удалось восстановить <*идентификаторы исходного элемента резервной копии*>.|Сбой задания восстановления.|Если к локально закрепленным томам или комбинации локально закрепленных и многоуровневых томов применяется эта политика резервного копирования, обновите список резервного копирования, чтобы убедиться, что резервная копия по-прежнему действительна. Если резервная копия действительна, возможно, проблемы подключения к облаку препятствуют успешному выполнению операции восстановления. Данные локально закрепленных томов, восстановленных в рамках этой группы моментальных снимков, не загружены на устройство. Кроме того, если в этой группе моментальных снимков есть комбинация многоуровневых и локально закрепленных томов, они не будут синхронизироваться между собой. Чтобы успешно завершить операцию восстановления, переведите тома этой группы в автономный режим на узле и повторите операцию восстановления. Обратите внимание, что любые изменения, внесенные в данные тома во время процесса восстановления, будут потеряны.|
+|Creation of local volume <*volume name*> failed.| The volume creation job has failed. <*Error message corresponding to the failed error code*>.|Connectivity issues could be preventing the space creation operation from successfully completing. Locally pinned volumes are thickly provisioned and the process of creating space involves spilling tiered volumes to the cloud. If there are no connectivity issues, you may have exhausted the local space on the device. Determine if space exists on the device before retrying this operation.|
+|Expansion of local volume <*volume name*> failed.|The volume modification job has failed due to <*error message corresponding to the failed error code*>.|Connectivity issues could be preventing the volume expansion operation from successfully completing. Locally pinned volumes are thickly provisioned and the process of extending the existing space involves spilling tiered volumes to the cloud. If there are no connectivity issues, you may have exhausted the local space on the device. Determine if space exists on the device before retrying this operation.|
+|Conversion of volume <*volume name*> failed.|The volume conversion job to convert the volume type from locally pinned to tiered failed.|Conversion of the volume from type locally pinned to tiered could not be completed. Ensure that there are no connectivity issues preventing the operation from completing successfully. For troubleshooting connectivity issues go to [Troubleshoot with the Test-HcsmConnection cmdlet](storsimple-troubleshoot-deployment.md#troubleshoot-with-the-test-hcsmconnection-cmdlet).<br>The original locally pinned volume has now been marked as a tiered volume since some of the data from the locally pinned volume has spilled to the cloud during the conversion. The resultant tiered volume is still occupying local space on the device that cannot be reclaimed for future local volumes.<br>Resolve any connectivity issues, clear the alert and convert this volume back to the original locally pinned volume type to ensure all the data is made available locally again.|
+|Conversion of volume <*volume name*> failed.|The volume conversion job to convert the volume type from tiered to locally pinned failed.|Conversion of the volume from type tiered to locally pinned could not be completed. Ensure that there are no connectivity issues preventing the operation from completing successfully. For troubleshooting connectivity issues go to [Troubleshoot with the Test-HcsmConnection cmdlet](storsimple-troubleshoot-deployment.md#troubleshoot-with-the-test-hcsmconnection-cmdlet).<br>The original tiered volume now marked as a locally pinned volume as part of the conversion process continues to have data residing in the cloud, while the thickly provisioned space on the device for this volume can no longer reclaimed for future local volumes.<br>Resolve any connectivity issues, clear the alert and convert this volume back to the original tiered volume type to ensure local space thickly provisioned on the device can be reclaimed.|
+|Nearing local space consumption for local snapshots of <*volume group name*>|Local snapshots for the backup policy might soon run out of space and be invalidated to avoid host write failures.|Frequent local snapshots alongside a high data churn in the volumes associated with this backup policy group are causing local space on the device to be consumed quickly. Delete any local snapshots that are no longer needed. Also, update your local snapshot schedules for this backup policy to take less frequent local snapshots, and ensure that cloud snapshots are taken regularly. If these actions are not taken, local space for these snapshots might soon be exhausted and the system will automatically delete them to ensure that host writes continue to be processed successfully.|
+|Local snapshots for <*volume group name*> have been invalidated.|The local snapshots for <*volume group name*> have been invalidated and then deleted because they were exceeding the local space on the device.|To ensure this does not recur in the future, review the local snapshot schedules for this backup policy and delete any local snapshots that are no longer needed. Frequent local snapshots alongside a high data churn in the volumes associated with this backup policy group might cause local space on the device to be consumed quickly.|
+|Restore of <*source backup element IDs*> failed.|The restore job has failed.|If you have locally pinned or a mix of locally pinned and tiered volumes in this backup policy, refresh the backup list to verify that the backup is still valid. If the backup is valid, it is possible that cloud connectivity issues are preventing the restore operation from successfully completing. The locally pinned volumes that were being restored as part of this snapshot group do not have all of their data downloaded to the device, and, if you have a mix of tiered and locally pinned volumes in this snapshot group, they will not be in sync with each other. To successfully complete the restore operation, take the volumes in this group offline on the host and retry the restore operation. Note that any modifications to the volume data that were performed during the restore process will be lost.|
 
-### Оповещения сети
+### <a name="networking-alerts"></a>Networking alerts
 
-|Текст оповещения|Событие|Дополнительные сведения и рекомендуемые действия|
+|Alert text|Event|More information / recommended actions|
 |:---|:---|:---|
-|Не удалось запустить службу или службы StorSimple.|Ошибка пути к данным |Если проблема будет повторяться, обратитесь в службу поддержки Майкрософт.|
-|Для Data0 обнаружен повторяющийся IP-адрес.| |Система обнаружила конфликт для IP-адреса 10.0.0.1. Сетевой ресурс Data0 на устройстве *<device1>* находится вне сети. Убедитесь, что этот IP-адрес не использует другая сущность в этой сети. Информацию об устранении неполадок сети см. в разделе [Устранение неполадок с помощью командлета Get-NetAdapter](storsimple-troubleshoot-deployment.md#troubleshoot-with-the-get-netadapter-cmdlet). Обратитесь к администратору сети за помощью в решении этой проблемы. Если проблема будет повторяться, обратитесь в службу поддержки Майкрософт. |
-|Адрес IPv4 (или IPv6) для Data0 находится вне сети.| |Сетевой ресурс Data0 с IP-адресом 10.0.0.1. и длиной префикса 22 на устройстве *<device1>* находится вне сети. Убедитесь, что порты коммутатора, к которым подключен этот интерфейс, исправны. Информацию об устранении неполадок сети см. в разделе [Устранение неполадок с помощью командлета Get-NetAdapter](storsimple-troubleshoot-deployment.md#troubleshoot-with-the-get-netadapter-cmdlet). |
+|Could not start StorSimple service(s).|Datapath error |If the problem persists, contact Microsoft Support.|
+|Duplicate IP address detected for 'Data0'.| |The system has detected a conflict for IP address '10.0.0.1'. The network resource 'Data0' on the device *<device1>* is offline. Ensure that this IP address is not used by any other entity in this network. To troubleshoot network issues, go to [Troubleshoot with the Get-NetAdapter cmdlet](storsimple-troubleshoot-deployment.md#troubleshoot-with-the-get-netadapter-cmdlet). Contact your network administrator for help resolving this issue. If the problem persists, contact Microsoft Support. |
+|IPv4 (or IPv6) address for 'Data0' is offline.| |The network resource 'Data0' with IP address '10.0.0.1.' and prefix length '22' on the device *<device1>* is offline. Ensure that the switch ports to which this interface is connected are operational. To troubleshoot network issues, go to [Troubleshoot with the Get-NetAdapter cmdlet](storsimple-troubleshoot-deployment.md#troubleshoot-with-the-get-netadapter-cmdlet). |
  
 
-### Оповещения производительности
+### <a name="performance-alerts"></a>Performance alerts
 
-|Текст оповещения|Событие|Дополнительные сведения и рекомендуемые действия|
+|Alert text|Event|More information / recommended actions|
 |:---|:---|:---|
-|Загрузка устройства превысила <*пороговое значение*>.|Медленнее, чем ожидаемое время ответа.|Устройство сообщает об использовании в условиях большой нагрузки ввода и вывода. Это может привести к снижению производительности устройства. Просмотрите рабочие нагрузки, которые были присоединены к устройству, и определите, можно ли переместить некоторые из них на другое устройство или удалить.<br>Информацию о текущем состоянии см. в статье [Использование службы StorSimple Manager для мониторинга устройства StorSimple](storsimple-monitor-device.md).|
+|The device load has exceeded <*threshold*>.|Slower than expected response times.|Your device reports utilization under a heavy input/output load. This could cause your device to not work as well as it should. Review the workloads that you have attached to the device, and determine if there are any that could be moved to another device or that are no longer necessary.<br>To understand the current status, go to [Use the StorSimple Manager service to monitor your device](storsimple-monitor-device.md)|
 
-### Оповещения безопасности
+### <a name="security-alerts"></a>Security alerts
 
-|Текст оповещения|Событие|Дополнительные сведения и рекомендуемые действия|
+|Alert text|Event|More information / recommended actions|
 |:---|:---|:---|
-|Начался сеанс поддержки Майкрософт.|Стороннее лицо получило доступ к сеансу поддержки.|Подтвердите, что доступ авторизован. После выполнения соответствующего действия удалите это оповещение со страницы оповещений.|
-|Пароль для <*элемент*> истекает через <*период времени*>.|Приближается истечение срока действия пароля.|Измените пароль до истечения срока его действия.|
-|Для <*идентификатор элемента*> отсутствуют сведения о конфигурации безопасности.||Тома, связанные с этим контейнером томов, нельзя использовать для репликации конфигурации StorSimple. Чтобы обеспечить безопасное хранение данных, рекомендуется удалить контейнер томов и все тома, связанные с контейнером тома. После выполнения соответствующего действия удалите это оповещение со страницы оповещений.|
-|<*количество*> неудачных попыток входа для <*идентификатор элемента*>.|Несколько неудачных попыток входа.|Возможно, устройство подвергается атаке, или авторизованный пользователь пытается подключиться с неверным паролем.<ul><li>Свяжитесь с авторизованными пользователями и убедитесь, что эти попытки осуществлялись из надежных источников. Если вы продолжаете видеть большое число неудачных попыток входа, попробуйте отключить удаленное управление и обратиться к администратору сети. После выполнения действия удалите это оповещение со страницы оповещений.</li><li>Убедитесь, что для экземпляров диспетчера моментальных снимков настроен правильный пароль. После выполнения нужных действий удалите это оповещение со страницы оповещений.</li></ul>Дополнительные сведения см. в разделе [Изменение пароля устройства с истекшим сроком годности](storsimple-snapshot-manager-manage-devices.md#change-an-expired-device-password).|
-|При изменении ключа шифрования данных службы произошла одна или несколько ошибок.||При изменении ключа шифрования данных службы произошли ошибки. После устранения условий ошибки запустите командлет `Invoke-HcsmServiceDataEncryptionKeyChange` из интерфейса Windows PowerShell для StorSimple на своем устройстве, чтобы обновить службу. Если проблема не исчезнет, обратитесь в службу технической поддержки Майкрософт. После разрешения проблемы удалите это оповещение со страницы оповещений.|
+|Microsoft Support session has begun.|Third-party accessed support session.|Please confirm this access is authorized. After you have taken appropriate action, clear this alert from the alerts page.|
+|Password for <*element*> will expire in <*length of time*>.|Password expiration is approaching.|Change your password before it expires.|
+|Security configuration information missing for <*element ID*>.||The volumes associated with this volume container cannot be used to replicate your StorSimple configuration. To ensure that your data is safely stored, we recommend that you delete the volume container and any volumes associated with the volume container. After you have taken appropriate action, clear this alert from the alerts page.|
+|<*number*> login attempts failed for <*element ID*>.|Multiple failed logon attempts.|Your device might be under attack or an authorized user is attempting to connect with an incorrect password.<ul><li>Contact your authorized users and verify that these attempts were from a legitimate source. If you continue to see large numbers of failed login attempts, consider disabling remote management and contacting your network administrator. After you have taken appropriate action, clear this alert from the alerts page.</li><li>Check that your Snapshot Manager instances are configured with the correct password. After you have taken appropriate action, clear this alert from the alerts page.</li></ul>For more information, go to [Change an expired device password](storsimple-snapshot-manager-manage-devices.md#change-an-expired-device-password).|
+|One or more failures occurred while changing the service data encryption key.||There were errors encountered while changing the service data encryption key. After you have addressed the error conditions, run the `Invoke-HcsmServiceDataEncryptionKeyChange` cmdlet from the Windows PowerShell Interface for StorSimple on your device to update the service. If this issue persists, contact Microsoft support. After you resolve the issue, clear this alert from the alerts page.|
 
-### Оповещения пакета поддержки
+### <a name="support-package-alerts"></a>Support package alerts
 
-|Текст оповещения|Событие|Дополнительные сведения и рекомендуемые действия|
+|Alert text|Event|More information / recommended actions|
 |:---|:---|:---|
-|Не удалось создать пакет поддержки.|StorSimple не удалось создать пакет.|Повторите операцию. Если проблема будет повторяться, обратитесь в службу поддержки Майкрософт. После решения проблемы удалите это оповещение со страницы оповещений.|
+|Creation of support package failed.|StorSimple couldn't generate the package.|Retry this operation. If the issue persists, contact Microsoft Support. After you have resolved the issue, clear this alert from the alerts page.|
 
-### Оповещения об обновлениях
+### <a name="update-alerts"></a>Update alerts
 
-|Текст оповещения|Событие|Дополнительные сведения и рекомендуемые действия|
+|Alert text|Event|More information / recommended actions|
 |:---|:---|:---|
-|Исправление установлено.|Обновление программного обеспечения и встроенного ПО завершено.|Исправление успешно установлено на устройстве.|
-|Доступно обновление вручную.|Уведомление о доступных обновлениях.|Используйте интерфейс Windows PowerShell для StorSimple на устройстве, чтобы установить эти обновления. <br>Дополнительные сведения см. в статье [Обновление устройства StorSimple серии 8000](storsimple-update-device.md).|
-|Доступны новые обновления.|Уведомление о доступных обновлениях.|Эти обновления можно установить на устройстве со страницы **Обслуживание** или с помощью интерфейса Windows PowerShell для StorSimple. <br>Дополнительные сведения см. в статье [Обновление устройства StorSimple серии 8000](storsimple-update-device.md).|
-|Не удалось установить обновления.|Обновления не были успешно установлены.|Системе не удалось установить обновления. Эти обновления можно установить на устройстве со страницы **Обслуживание** или с помощью интерфейса Windows PowerShell для StorSimple. Если проблема будет повторяться, обратитесь в службу поддержки Майкрософт. <br>Дополнительные сведения см. в статье [Обновление устройства StorSimple серии 8000](storsimple-update-device.md).|
-|Не удается автоматически проверять наличие новых обновлений.|Сбой автоматической проверки.|Наличие новых обновлений можно проверять вручную на странице **Обслуживание**.|
-|Доступен новый агент WUA.|Уведомление о доступном обновлении.|Загрузите последнюю версию агента обновления Windows и установите его из интерфейса Windows PowerShell.|
-|Версия компонента встроенного ПО <*идентификатор компонента*> не соответствует оборудованию.|Обновления встроенного ПО не были успешно установлены.|Обратитесь в службу технической поддержки Майкрософт.|
+|Hotfix installed.|Software/firmware update completed.|The hotfix has been successfully installed on your device.|
+|Manual updates available.|Notification of available updates.|Use the Windows PowerShell Interface for StorSimple on your device to install these updates. <br>For more information, go to [Update your StorSimple 8000 Series device](storsimple-update-device.md).|
+|New updates available.|Notification of available updates.|You can install these updates either from the **Maintenance** page or by using the Windows PowerShell Interface for StorSimple on your device. <br>For more information, go to [Update your StorSimple 8000 Series device](storsimple-update-device.md).|
+|Failed to install updates.|Updates were not successfully installed.|Your system was not able to install the updates. You can install these updates either from the **Maintenance** page or by using the Windows PowerShell Interface for StorSimple on your device. If the issue persists, contact Microsoft Support. <br>For more information, go to [Update your StorSimple 8000 Series device](storsimple-update-device.md).|
+|Unable to automatically check for new updates.|Automatic check failed.|You can manually check for new updates from the **Maintenance** page.|
+|New WUA agent available.|Notification of available update.|Download the latest Windows Update Agent and install it from the Windows PowerShell interface.|
+|Version of firmware component <*component ID*> does not match with hardware.|Firmware update(s) were not successfully installed.|Contact Microsoft Support.|
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Next steps
 
-См. дополнительные сведения об [ошибках StorSimple и устранении неполадок на работающем устройстве](storsimple-troubleshoot-operational-device.md).
+Learn more about [StorSimple errors and troubleshooting an operational device](storsimple-troubleshoot-operational-device.md).
 
-<!---HONumber=AcomDC_0615_2016-->
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

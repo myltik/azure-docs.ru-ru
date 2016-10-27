@@ -1,13 +1,13 @@
 <properties
-   pageTitle="Масштабирование Функций Azure | Microsoft Azure"
-   description="Узнайте, как Функции Azure масштабируются в соответствии с потребностями непостоянных рабочих нагрузок."
+   pageTitle="How to scale Azure Functions | Microsoft Azure"
+   description="Understand how Azure Functions scale to meet the needs of your event-driven workloads."
    services="functions"
    documentationCenter="na"
    authors="dariagrigoriu"
    manager="erikre"
    editor=""
    tags=""
-   keywords="функции azure, функции, обработка событий, веб-перехватчики, динамические вычисления, независимая архитектура"/>
+   keywords="azure functions, functions, event processing, webhooks, dynamic compute, serverless architecture"/>
 
 <tags
    ms.service="functions"
@@ -18,33 +18,40 @@
    ms.date="08/03/2016"
    ms.author="dariagrigoriu"/>
 
-# Масштабирование Функций Azure
 
-## Введение
+# <a name="how-to-scale-azure-functions"></a>How to scale Azure Functions
 
-Функции Azure удобны тем, что вычислительные ресурсы потребляются только по мере необходимости. Это означает, что вы не платите за неактивные виртуальные машины и вам не нужно резервировать емкость на всякий случай. Платформа выделяет вычислительные ресурсы в процессе выполнения кода, масштабируя их в соответствии с нагрузкой и освобождая, когда код не выполняется.
+## <a name="introduction"></a>Introduction
 
-Механизмом, обеспечивающим эту новую возможность, является динамический план обслуживания.
+An advantage of Azure Functions is that compute resources are only consumed when needed. This means that you don’t pay for idle VMs or have to reserve capacity for when you might need it. Instead, the platform allocates compute power when your code is running, scales up as necessary to handle load, and then scales down when code is not running.
 
-В этой статье приводятся общие сведения о том, как работает динамический план обслуживания и как платформа масштабируется по требованию для выполнения кода.
+The mechanism for this new capability is the Dynamic Service plan.  
 
-Если вы еще не знакомы с функциями Azure, прочтите статью [Обзор функций Azure](functions-overview.md), чтобы лучше понимать их возможности.
+This article provides an overview of how the Dynamic Service plan works and how the platform scales on demand to run your code.
 
-## Настройка функций Azure
+If you are not yet familiar with Azure Functions, make sure to check the [Azure Functions overview](functions-overview.md) article to better understand its capabilities.
 
-С масштабированием связаны два основных параметра:
+## <a name="configure-azure-functions"></a>Configure Azure Functions
 
-* [план службы приложений](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) или динамический план обслуживания;
-* размер памяти для среды выполнения.
+Two main settings are related to scaling:
 
-Стоимость функции меняется в зависимости от выбранного плана обслуживания. В случае с динамическим планом обслуживания стоимость является функцией времени выполнения, размера памяти и количества выполнений. Плата взимается только за фактическое выполнение кода.
+* [Azure App Service plan](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) or Dynamic Service plan
+* Memory size for the execution environment
 
-План службы приложений размещает функции на существующих виртуальных машинах, которые также могут использоваться для выполнения другого кода. Дополнительная плата за выполнение функций на виртуальных машинах, помимо ежемесячной оплаты за их использование, не взимается.
+The cost of a function changes depending on the service plan that you select. With a Dynamic Service plan, cost is a function of execution time, memory size, and number of executions. Charges accrue only when your code is actually running.
 
-## Выбор плана обслуживания
+An App Service plan hosts your functions on existing VMs, which might also be used to run other code. After you pay for these VMs each month, there is no extra charge for execution functions on them.
 
-При создании функций вы можете выбрать для их выполнения динамический план обслуживания или обычный [план службы приложений](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). Если используется план службы приложений, функции выполняются на выделенной виртуальной машине, так же как веб-приложения для SKU уровня "Базовый", "Стандартный" или "Премиум". Выделенная виртуальная машина назначается вашим приложениям и функциям и всегда доступна вне зависимости от наличия активно выполняемого кода. Это хороший вариант в том случае, если у вас уже есть недозагруженные виртуальные машины, на которых выполняется другой код, или если вы планируете выполнять функции непрерывно или почти непрерывно. При использовании виртуальной машины затраты не зависят от времени выполнения и размера памяти. Это позволяет ограничить затраты на многие функции длительного выполнения до стоимости одной или нескольких виртуальных машин, на которых они выполняются.
+## <a name="choose-a-service-plan"></a>Choose a service plan
 
-[AZURE.INCLUDE [Динамический план обслуживания](../../includes/functions-dynamic-service-plan.md)]
+When you create functions, you can select to run them on a Dynamic Service plan or an [App Service plan](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md).
+In the App Service plan, your functions will run on a dedicated VM, just like web apps work today for Basic, Standard, or Premium SKUs.
+This dedicated VM is allocated to your apps and functions and is always available whether code is being actively executed or not. This is a good option if you have existing, under-utilized VMs that are already running other code or if you expect to run functions continuously or almost continuously. A VM decouples cost from both runtime and memory size. As a result, you can limit the cost of many long-running functions to the cost of the one or more VMs that they run on.
 
-<!---HONumber=AcomDC_0803_2016-->
+[AZURE.INCLUDE [Dynamic Service plan](../../includes/functions-dynamic-service-plan.md)]
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

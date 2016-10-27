@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Создание виртуальных машин Windows и управление ими в Visual Studio | Microsoft Azure"
-   description="Узнайте, как создавать виртуальные машины Azure на основе Windows и управлять ими в Visual Studio."
+   pageTitle="Create and manage Windows VMs in Visual Studio | Microsoft Azure"
+   description="Learn to use Visual Studio to create and manage Azure VMs running Windows"
    services="visual-studio-online,virtual-machines-windows"
    documentationCenter="na"
    authors="TomArcher"
@@ -15,10 +15,15 @@
    ms.date="08/15/2016"
    ms.author="tarcher" />
 
-# Создание виртуальных машин Windows и управление ими в Visual Studio
+
+# <a name="create-and-manage-windows-virtual-machines-in-visual-studio"></a>Create and manage Windows virtual machines in Visual Studio
 
 
 
 [AZURE.INCLUDE [virtual-machines-common-classic-manage-visual-studio](../../includes/virtual-machines-common-classic-manage-visual-studio.md)]
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,11 +1,15 @@
-## Цепочка служб. Транзит по пиринговой виртуальной сети
+## <a name="service-chaining---transit-through-peered-vnet"></a>Service Chaining - Transit through peered VNet
 
-Несмотря на то что при использовании системных маршрутов трафик для развертывания передается автоматически, существуют случаи, когда требуется управлять маршрутизацией пакетов через виртуальное устройство. В этом случае подписка содержит две виртуальные сети — HubVNet и VNet1, как показано на приведенной ниже схеме. Виртуальное сетевое устройство (NVA) развертывается в виртуальной сети в HubVNet. Установив пиринговое подключение между виртуальными сетями HubVNet и VNet1, можно настроить определяемые пользователем маршруты и указать следующий прыжок к NVA в сети HubVNet.
+Although the use of system routes facilitates traffic automatically for your deployment, there are cases in which you want to control the routing of packets through a virtual appliance.
+In this scenario, there are two VNets in a subscription, HubVNet and VNet1 as described in the diagram below. You deploy Network Virtual Appliance(NVA) in VNet HubVNet. After establishing VNet peering between HubVNet and VNet1, you can set up User Defined Routes and specify the next hop to NVA in the HubVNet.
 
-![Транзит NVA](./media/virtual-networks-create-vnetpeering-scenario-transit-include/figure01.PNG)
+![NVA Transit](./media/virtual-networks-create-vnetpeering-scenario-transit-include/figure01.PNG)
 
-> [AZURE.NOTE] Для простоты здесь предполагается, что все виртуальные сети находятся в одной подписке. Но указанные здесь сведения также применимы для сценариев с использованием нескольких подписок.
+> [AZURE.NOTE] For the simplicity, assume all VNets here are in the same subscription. But it also works for cross-subscription scenario.
 
-Ключевым свойством для включения транзитной маршрутизации является параметр "Разрешить перенаправленный трафик". Он позволяет принимать и отправлять трафик с виртуального сетевого устройства и на него в пределах виртуальной сети, участвующей в пиринге.
+The key property to enable Transit routing is the "Allow Forwarded Traffic" parameter. This allows accepting and sending traffic from/to the NVA in the peered VNet.  
 
-<!---HONumber=AcomDC_0928_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Создание индекса службы поиска Azure с помощью пакета SDK для .NET | Microsoft Azure | Размещенная облачная служба поиска"
-    description="Индекс можно создать в коде с помощью пакета SDK для .NET службы поиска Azure."
+    pageTitle="Create an Azure Search index using the .NET SDK | Microsoft Azure | Hosted cloud search service"
+    description="Create an index in code using the Azure Search .NET SDK."
     services="search"
     documentationCenter=""
     authors="brjohnstmsft"
@@ -17,39 +17,40 @@
     ms.date="08/29/2016"
     ms.author="brjohnst"/>
 
-# Создание индекса службы поиска Azure с помощью пакета SDK для .NET
+
+# <a name="create-an-azure-search-index-using-the-.net-sdk"></a>Create an Azure Search index using the .NET SDK
 > [AZURE.SELECTOR]
-- [Обзор](search-what-is-an-index.md)
-- [Портал](search-create-index-portal.md)
+- [Overview](search-what-is-an-index.md)
+- [Portal](search-create-index-portal.md)
 - [.NET](search-create-index-dotnet.md)
 - [REST](search-create-index-rest-api.md)
 
 
-Эта статья поможет вам создать [индекс](https://msdn.microsoft.com/library/azure/dn798941.aspx) службы поиска Azure с помощью [пакета SDK для .NET службы поиска Azure](https://msdn.microsoft.com/library/azure/dn951165.aspx).
+This article will walk you through the process of creating an Azure Search [index](https://msdn.microsoft.com/library/azure/dn798941.aspx) using the [Azure Search .NET SDK](https://msdn.microsoft.com/library/azure/dn951165.aspx).
 
-Перед выполнением инструкций, приведенных в этом руководстве, и созданием индекса следует [создать службу поиска Azure](search-create-service-portal.md).
+Before following this guide and creating an index, you should have already [created an Azure Search service](search-create-service-portal.md).
 
-Все приведенные здесь примеры кода написаны на языке C#. Полный исходный код можно найти на сайте [GitHub](http://aka.ms/search-dotnet-howto).
+Note that all sample code in this article is written in C#. You can find the full source code [on GitHub](http://aka.ms/search-dotnet-howto).
 
-## 1\. Определение ключа API администратора службы поиска Azure
-После подготовки службы поиска Azure все почти готово к тому, чтобы вы могли отправлять запросы для конечной точки вашей службы, используя пакет SDK для .NET. Для этого сначала нужно получить один из ключей API администратора, созданный для подготовленной службы поиска. Пакет SDK для .NET отправляет этот ключ при каждом запросе к службе. Если есть действительный ключ, для каждого запроса устанавливаются отношения доверия между приложением, которое отправляет запрос, и службой, которая его обрабатывает.
+## <a name="i.-identify-your-azure-search-service's-admin-api-key"></a>I. Identify your Azure Search service's admin api-key
+Now that you have provisioned an Azure Search service, you are almost ready to issue requests against your service endpoint using the .NET SDK. First, you will need to obtain one of the admin api-keys that was generated for the search service you provisioned. The .NET SDK will send this api-key on every request to your service. Having a valid key establishes trust, on a per request basis, between the application sending the request and the service that handles it.
 
-1. Чтобы найти ключи API своей службы, войдите на [портал Azure](https://portal.azure.com/).
-2. Перейдите к колонке службы поиска Azure.
-3. Щелкните значок "Ключи".
+1. To find your service's api-keys you must log into the [Azure Portal](https://portal.azure.com/)
+2. Go to your Azure Search service's blade
+3. Click on the "Keys" icon
 
-Ваша служба получит *ключи администратора* и *ключи запросов*.
+Your service will have *admin keys* and *query keys*.
 
-  - Первичные и вторичные *ключи администратора* предоставляют полный доступ ко всем операциям, включая возможность управлять службой, создавать и удалять индексы, индексаторы и источники данных. Ключей два, поэтому вы можете и дальше использовать вторичный ключ, если решите повторно создать первичный ключ, и наоборот.
-  - *Ключи запросов* предоставляют только разрешение на чтение индексов и документов; обычно они добавляются в клиентские приложения, которые создают запросы на поиск.
+  - Your primary and secondary *admin keys* grant full rights to all operations, including the ability to manage the service, create and delete indexes, indexers, and data sources. There are two keys so that you can continue to use the secondary key if you decide to regenerate the primary key, and vice-versa.
+  - Your *query keys* grant read-only access to indexes and documents, and are typically distributed to client applications that issue search requests.
 
-Для создания индекса можно использовать первичный или вторичный ключ администратора.
+For the purposes of creating an index, you can use either your primary or secondary admin key.
 
 <a name="CreateSearchServiceClient"></a>
-## 2\. Создание экземпляра класса SearchServiceClient
-Чтобы начать использовать пакет SDK для .NET в службе поиска Azure, нужно создать экземпляр класса `SearchServiceClient`. Этот класс имеет несколько конструкторов. Нужный вам конструктор принимает в качестве параметров имя службы поиска и объект `SearchCredentials`. `SearchCredentials` содержит ключ API.
+## <a name="ii.-create-an-instance-of-the-searchserviceclient-class"></a>II. Create an instance of the SearchServiceClient class
+To start using the Azure Search .NET SDK, you will need to create an instance of the `SearchServiceClient` class. This class has several constructors. The one you want takes your search service name and a `SearchCredentials` object as parameters. `SearchCredentials` wraps your api-key.
 
-Приведенный ниже код создает новый `SearchServiceClient` с использованием значений для имени службы поиска и ключа API, которые хранятся в файле конфигурации приложения (`app.config` или `web.config`):
+The code below creates a new `SearchServiceClient` using values for the search service name and api-key that are stored in the application's config file (`app.config` or `web.config`):
 
 ```csharp
 string searchServiceName = ConfigurationManager.AppSettings["SearchServiceName"];
@@ -58,20 +59,20 @@ string adminApiKey = ConfigurationManager.AppSettings["SearchServiceAdminApiKey"
 SearchServiceClient serviceClient = new SearchServiceClient(searchServiceName, new SearchCredentials(adminApiKey));
 ```
 
-`SearchServiceClient` имеет свойство `Indexes`. Это свойство предоставляет все методы, которые требуются для создания, перечисления, обновления или удаления индексов службы поиска Azure.
+`SearchServiceClient` has an `Indexes` property. This property provides all the methods you need to create, list, update, or delete Azure Search indexes.
 
-> [AZURE.NOTE] Класс `SearchServiceClient` управляет подключениями к службе поиска. Во избежание открытия слишком большого числа подключений в приложении рекомендуется по возможности совместно использовать один экземпляр `SearchServiceClient`. Его методы поддерживают такое использование, так как являются потокобезопасными.
+> [AZURE.NOTE] The `SearchServiceClient` class manages connections to your search service. In order to avoid opening too many connections, you should try to share a single instance of `SearchServiceClient` in your application if possible. Its methods are thread-safe to enable such sharing.
 
 <a name="DefineIndex"></a>
-## 3\. Определение индекса службы поиска Azure с помощью класса `Index`
-Для создания индекса достаточно отправить один вызов в метод `Indexes.Create`. В качестве параметра этот метод принимает объект `Index`, определяющий индекс службы поиска Azure. Вам нужно создать и инициализировать объект `Index` следующим образом:
+## <a name="iii.-define-your-azure-search-index-using-the-`index`-class"></a>III. Define your Azure Search index using the `Index` class
+A single call to the `Indexes.Create` method will create your index. This method takes as a parameter an `Index` object that defines your Azure Search index. You need to create an `Index` object and initialize it as follows:
 
-1. Задайте имя вашего индекса в качестве значения для свойства `Name` объекта `Index`.
-2. Назначьте свойству `Fields` объекта `Index` массив объектов `Field`. Каждый из объектов `Field` определяет поведение поля в индексе. Имя поля вместе с типом данных можно указать в конструкторе (или анализаторе для строковых полей). Можно также задать другие свойства, например `IsSearchable`, `IsFilterable` и т. д.
+1. Set the `Name` property of the `Index` object to the name of your index.
+2. Set the `Fields` property of the `Index` object to an array of `Field` objects. Each of the `Field` objects defines the behavior of a field in your index. You can provide the name of the field to the constructor, along with the data type (or analyzer for string fields). You can also set other properties like `IsSearchable`, `IsFilterable`, etc.
 
-При проектировании индекса важно помнить об удобстве работы с поиском и бизнес-потребностях, поэтому каждому `Field` необходимо назначить [подходящие свойства](https://msdn.microsoft.com/library/azure/dn798941.aspx). Эти свойства контролируют, какие функции поиска (фильтрация, фасетная навигация, сортировка полнотекстового поиска и т. д.) применяются к каждому полю. Для любого свойства, не заданного явным образом, класс `Field` по умолчанию отключает соответствующую функцию поиска, пока вы специально не включите ее.
+It is important that you keep your search user experience and business needs in mind when designing your index as each `Field` must be assigned the [appropriate properties](https://msdn.microsoft.com/library/azure/dn798941.aspx). These properties control which search features (filtering, faceting, sorting full-text search, etc.) apply to which fields. For any property you do not explicitly set, the `Field` class defaults to disabling the corresponding search feature unless you specifically enable it.
 
-В нашем примере мы присвоили индексу имя hotels и определили поля следующим образом:
+For our example, we've named our index "hotels" and defined our fields as follows:
 
 ```csharp
 var definition = new Index()
@@ -95,32 +96,36 @@ var definition = new Index()
 };
 ```
 
-Мы тщательно выбрали значения свойств для каждого `Field` в зависимости от того, как мы планируем использовать их в приложении. Например, вполне вероятно, что людей, которые ищут гостиницы, будут интересовать совпадения по ключевым словам в поле `description`, поэтому мы включаем для него полнотекстовый поиск, задав значение `true` для `IsSearchable`.
+We have carefully chosen the property values for each `Field` based on how we think they will be used in an application. For example, it is likely that people searching for hotels will be interested in keyword matches on the `description` field, so we enable full-text search for that field by setting `IsSearchable` to `true`.
 
-Обратите внимание, что только одно поле в индексе типа `DataType.String` должно быть назначено как поле _key_ путем задания значения `true` для `IsKey` (см. `hotelId` в примере выше).
+Please note that exactly one field in your index of type `DataType.String` must be the designated as the _key_ field by setting `IsKey` to `true` (see `hotelId` in the above example).
 
-Приведенное ранее определение индекса использует настраиваемый языковой анализатор для поля `description_fr`, так как оно предназначено для текста на французском языке. Дополнительные сведения об анализаторах языка см. в [статье о поддержке языков на сайте MSDN](https://msdn.microsoft.com/library/azure/dn879793.aspx), а также в соответствующей [записи блога](https://azure.microsoft.com/blog/language-support-in-azure-search/).
+The index definition above uses a custom language analyzer for the `description_fr` field because it is intended to store French text. See [the Language support topic on MSDN](https://msdn.microsoft.com/library/azure/dn879793.aspx) as well as the corresponding [blog post](https://azure.microsoft.com/blog/language-support-in-azure-search/) for more information about language analyzers.
 
-> [AZURE.NOTE]  Обратите внимание, что при передаче `AnalyzerName.FrLucene` в конструктор `Field` будет автоматически иметь тип `DataType.String`, а для его `IsSearchable` будет установлено значение `true`.
+> [AZURE.NOTE]  Note that by passing `AnalyzerName.FrLucene` in the constructor, the `Field` will automatically be of type `DataType.String` and will have `IsSearchable` set to `true`.
 
-## 4\. Создание индекса
-Теперь, когда у нас есть инициализированный объект `Index`, мы можем создать индекс, просто вызвав метод `Indexes.Create` для объекта `SearchServiceClient`:
+## <a name="iv.-create-the-index"></a>IV. Create the index
+Now that you have an initialized `Index` object, you can create the index simply by calling `Indexes.Create` on your `SearchServiceClient` object:
 
 ```csharp
 serviceClient.Indexes.Create(definition);
 ```
 
-В случае успешного запроса метод возвращает обычные данные. При наличии проблем с запросом, например недопустимого параметра, метод вызывает исключение `CloudException`.
+For a successful request, the method will return normally. If there is a problem with the request such as an invalid parameter, the method will throw `CloudException`.
 
-Если вы завершили работу с индексом и хотите удалить его, просто вызовите `Indexes.Delete` для `SearchServiceClient`. Например, индекс hotels удаляется так:
+When you're done with an index and want to delete it, just call the `Indexes.Delete` method on your `SearchServiceClient`. For example, this is how we would delete the "hotels" index:
 
 ```csharp
 serviceClient.Indexes.Delete("hotels");
 ```
 
-> [AZURE.NOTE] Для простоты пример кода в этой статье использует синхронные методы пакета SDK для Поиска Azure в .NET. Рекомендуем использовать в ваших приложениях асинхронные методы, чтобы сохранить масштабируемость и скорость отклика. Например, в приведенных выше примерах можно использовать `CreateAsync` и `DeleteAsync` вместо `Create` и `Delete`.
+> [AZURE.NOTE] The example code in this article uses the synchronous methods of the Azure Search .NET SDK for simplicity. We recommend that you use the asynchronous methods in your own applications to keep them scalable and responsive. For example, in the examples above you could use `CreateAsync` and `DeleteAsync` instead of `Create` and `Delete`.
 
-## Далее
-Создав индекс службы поиска Azure, вы сможете [передать в него содержимое](search-what-is-data-import.md) и искать нужные вам данные.
+## <a name="next"></a>Next
+After creating an Azure Search index, you will be ready to [upload your content into the index](search-what-is-data-import.md) so you can start searching your data.
 
-<!---HONumber=AcomDC_0831_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

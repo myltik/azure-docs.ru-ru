@@ -1,106 +1,113 @@
 <properties
-	pageTitle=" Создание учетной записи служб мультимедиа Azure с помощью портала Azure | Microsoft Azure"
-	description="В этом руководстве описаны этапы создания учетной записи служб мультимедиа Azure с помощью портала Azure."
-	services="media-services"
-	documentationCenter=""
-	authors="Juliako"
-	manager="erikre"
-	editor=""/>
+    pageTitle=" Create an Azure Media Services account with the Azure portal | Microsoft Azure"
+    description="This tutorial walks you through the steps of creating an Azure Media Services account with the Azure portal."
+    services="media-services"
+    documentationCenter=""
+    authors="Juliako"
+    manager="erikre"
+    editor=""/>
 
 <tags
-	ms.service="media-services"
-	ms.workload="media"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="09/07/2016"
-	ms.author="juliako"/>
+    ms.service="media-services"
+    ms.workload="media"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="09/07/2016"
+    ms.author="juliako"/>
 
 
-# Создание учетной записи служб мультимедиа Azure с помощью портала Azure
+
+# <a name="create-an-azure-media-services-account-with-the-azure-portal"></a>Create an Azure Media Services account with the Azure portal
 
 > [AZURE.SELECTOR]
-- [Портал](media-services-portal-create-account.md)
+- [Portal](media-services-portal-create-account.md)
 - [PowerShell](media-services-manage-with-powershell.md)
 - [REST](http://msdn.microsoft.com/library/azure/dn194267.aspx)
 
-> [AZURE.NOTE] Для работы с этим учебником требуется учетная запись Azure. Дополнительные сведения см. в разделе [Бесплатная пробная версия Azure](https://azure.microsoft.com/pricing/free-trial/).
+> [AZURE.NOTE] To complete this tutorial, you need an Azure account. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/). 
 
-На портале Azure можно быстро создать учетную запись служб мультимедиа Azure (AMS). Эту учетную запись можно использовать для доступа к службам мультимедиа, которые позволяют хранить, шифровать, кодировать мультимедийный контент, управлять им и обеспечивать его потоковую передачу в Azure. При создании учетной записи служб мультимедиа также создается связанная учетная запись хранения (или используется уже существующая) в той же географической области, что и учетная запись служб мультимедиа.
+The Azure portal provides a way to quickly create an Azure Media Services (AMS) account. You can use your account to access Media Services that enable you to store, encrypt, encode, manage, and stream media content in Azure. At the time you create a Media Services account, you also create an associated storage account (or use an existing one) in the same geographic region as the Media Services account.
 
-В этой статье объясняются некоторые общие понятия и демонстрируется, как создать учетную запись служб мультимедиа с помощью портала Azure.
+This article explains some common concepts and shows how to create a Media Services account with the Azure portal.
 
-## Основные понятия
+## <a name="concepts"></a>Concepts
 
-Для доступа к службам мультимедиа требуется две связанные учетные записи:
+Accessing Media Services requires two associated accounts:
 
-- Учетная запись служб мультимедиа. Ваша учетная запись обеспечивает доступ к набору облачных служб мультимедиа, доступных в Azure. Учетная запись служб мультимедиа фактически не хранит мультимедийный контент. Вместо этого в учетной записи хранятся метаданные о мультимедийном контенте и заданиях обработки мультимедиа. При создании учетной записи выберите доступную область служб мультимедиа. Выбранная область является центром обработки данных, который хранит записи метаданных для вашей учетной записи.
+- A Media Services account. Your account gives you access to a set of cloud-based Media Services that are available in Azure. A Media Services account does not store actual media content. Instead it stores metadata about the media content and media processing jobs in your account. At the time you create the account, you select an available Media Services region. The region you select is a data center that stores the metadata records for your account.
 
-	В службах мультимедиа (AMS) доступны следующие регионы: Северная Европа, Западная Европа, Запад США, Восток США, Юго-Восточная Азия, Восточная Азия, Западная часть Японии, Восточная часть Японии. Для служб мультимедиа не используются территориальные группы.
-	
-	Службы AMS теперь доступны в таких центрах обработки данных: южная Бразилия, западная Индия, южная Индия и центральная Индия. Теперь с помощью портала Azure вы можете создавать учетные записи служб мультимедиа и выполнять различные задачи, описанные здесь. Но в этих центрах обработки данных не поддерживается кодирование в реальном времени. Кроме того, в этих центрах обработки данных доступны не все типы зарезервированных единиц кодирования.
-	
-	- Южная Бразилия: доступны только стандартные и базовые зарезервированные единицы кодирования.
-	- Западная Индия и южная Индия: укажите большие двоичные объекты для хранения файлов мультимедиа. Учетная запись хранения должна находиться в том же географическом регионе, что и учетная запись служб мультимедиа. При создании учетной записи служб мультимедиа можно выбрать существующую учетную запись хранения в той же области или создать новую учетную запись хранения в той же области. При удалении учетной записи служб мультимедиа, BLOB-объекты в связанной учетной записи хранения не удаляются.
+    Available Media Services (AMS) regions include the following: North Europe, West Europe, West US, East US, Southeast Asia, East Asia, Japan West, Japan East. Media Services does not use affinity groups.
+    
+    AMS is now also available in the following data centers: Brazil South, India West, India South, and India Central. You can now use the Azure  portal to create Media Service accounts and perform various tasks described here. However, Live Encoding is not enabled in these data centers. Further, not all types of Encoding Reserved Units are available in these data centers.
+    
+    - Brazil South: Only Standard and Basic Encoding Reserved Units are available.
+    - India West, India South: Provide storage blobs for media files; storage accounts must be located in the same geographic region as the Media Services account. When you create a Media Services account, you can either choose an existing storage account in the same region, or you can create a new storage account in the same region. If you delete a Media Services account, the blobs in your related storage account are not deleted.
 
-## Создание учетной записи AMS
+## <a name="create-an-ams-account"></a>Create an AMS account
 
-В этом разделе показано, как создать учетную запись AMS.
+The steps in this section show how to create an AMS account.
 
-1. Войдите на [портал Azure](https://portal.azure.com/).
-2. Щелкните **+Создать** > **Мультимедиа+CDN** > **Службы мультимедиа**.
+1. Log in at the [Azure portal](https://portal.azure.com/).
+2. Click **+New** > **Media + CDN** > **Media Services**.
 
-	![Создание служб мультимедиа](./media/media-services-portal-vod-get-started/media-services-new1.png)
+    ![Media Services Create](./media/media-services-portal-vod-get-started/media-services-new1.png)
 
-3. В окне **создания учетной записи служб мультимедиа** введите необходимые значения.
+3. In **CREATE MEDIA SERVICES ACCOUNT** enter required values.
 
-	![Создание служб мультимедиа](./media/media-services-portal-vod-get-started/media-services-new3.png)
-	
-	1. Укажите **имя учетной записи** AMS. Имя учетной записи служб мультимедиа может состоять из букв или цифр в нижнем регистре без пробелов и должно иметь длину от 3 до 24 символов.
-	2. В поле "Подписка" выберите одну из доступных подписок Azure.
-	
-	2. Выберите новую или существующую **группу ресурсов**. Группа ресурсов — это коллекция ресурсов с одинаковым жизненным циклом, разрешениями и политиками. Дополнительные сведения см. [здесь](resource-group-overview.md#resource-groups).
-	3. В поле **Расположение** выберите географический регион, который будет использоваться для хранения записей мультимедиа и метаданных вашей учетной записи служб мультимедиа. Этот регион будет использоваться для обработки и потоковой передачи мультимедиа. В раскрывающемся списке отображаются только доступные регионы служб мультимедиа.
-	
-	3. Выберите **учетную запись хранения**, чтобы определить хранилище BLOB-объектов для мультимедийного содержимого из учетной записи служб мультимедиа. Можно выбрать существующую учетную запись хранения в географическом регионе, где находится учетная запись служб мультимедиа, или создать учетную запись хранения. Новая учетная запись хранения будет создана в том же регионе. В отношении учетных записей хранения действуют те же правила, что и для учетных записей служб носителей.
+    ![Media Services Create](./media/media-services-portal-vod-get-started/media-services-new3.png)
+    
+    1. In **Account Name**, enter the name of the new AMS account. A Media Services account name is all lowercase numbers or letters with no spaces, and is 3 to 24 characters in length.
+    2. In Subscription, select among the different Azure subscriptions that you have access to.
+    
+    2. In **Resource Group**, select the new or existing resource.  A resource group is a collection of resources that share lifecycle, permissions, and policies. Learn more [here](resource-group-overview.md#resource-groups).
+    3. In **Location**,  select the geographic region that will be used to store the media and metadata records for your Media Services account. This  region will be used to process and stream your media. Only the available Media Services regions appear in the drop-down list box. 
+    
+    3. In **Storage Account**, select a storage account to provide blob storage of the media content from your Media Services account. You can select an existing storage account in the same geographic region as your Media Services account, or you can create a storage account. A new storage account is created in the same region. The rules for storage account names are the same as for Media Services accounts.
 
-		Дополнительные сведения о хранилище см. [здесь](storage-introduction.md).
+        Learn more about storage [here](storage-introduction.md).
 
-	4. Установите флажок **Закрепить на панели мониторинга**, чтобы отслеживать развертывание учетной записи.
-	
-7. Нажмите кнопку **Создать** в нижней части формы.
+    4. Select **Pin to dashboard** to see the progress of the account deployment.
+    
+7. Click **Create** at the bottom of the form.
 
-	Когда учетная запись будет создана, состояние изменится на **Выполняется**.
+    Once the account is successfully created, the status changes to **Running**. 
 
-	![Параметры служб мультимедиа](./media/media-services-portal-vod-get-started/media-services-settings.png)
+    ![Media Services settings](./media/media-services-portal-vod-get-started/media-services-settings.png)
 
-	Управлять учетной записью AMS (например, передавать видео, кодировать ресурсы, отслеживать выполнение задания) можно в окне **Параметры**.
+    To manage your AMS account (for example, upload videos, encode assets, monitor job progress) use the **Settings** window.
 
-## Управление ключами
+## <a name="manage-keys"></a>Manage Keys
 
-Для программного доступа к учетной записи служб мультимедиа требуется имя учетной записи и сведения о первичном ключе.
+You need the account name and the primary key information to programmatically access the Media Services account.
 
-1. На портале Azure выберите свою учетную запись.
+1. In the Azure portal, select your account. 
 
-	Справа появится окно **Параметры**.
+    The **Settings** window appears on the right. 
 
-2. В окне **Параметры** выберите **Ключи**.
+2. In the **Settings** window, select **Keys**. 
 
-	В окне **Управление ключами** отображается имя учетной записи, а также первичные и вторичные ключи.
-3. Нажмите кнопку копирования, чтобы скопировать значения.
-	
-	![Ключи служб мультимедиа](./media/media-services-portal-vod-get-started/media-services-keys.png)
+    The **Manage keys** windows shows the account name and the primary and secondary keys is displayed. 
+3. Press the copy button to copy the values.
+    
+    ![Media Services Keys](./media/media-services-portal-vod-get-started/media-services-keys.png)
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Next steps
 
-Теперь можно отправить файлы в учетную запись AMS. Дополнительные сведения см. в статье [Upload files into a Media Services account using the Azure portal](media-services-portal-upload-files.md) (Отправка файлов в учетную запись служб мультимедиа с помощью портала Azure).
+You can now upload files into your AMS account. For more information, see [Upload files](media-services-portal-upload-files.md).
 
-## Схемы обучения работе со службами мультимедиа
+## <a name="media-services-learning-paths"></a>Media Services learning paths
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-##Отзывы
+##<a name="provide-feedback"></a>Provide feedback
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0907_2016-->
+
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

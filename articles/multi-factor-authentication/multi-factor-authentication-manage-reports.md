@@ -1,51 +1,56 @@
 <properties 
-	pageTitle="Отчеты Azure Multi-Factor Authentication"
-	description="Эта статья содержит информацию о том, как использовать функцию отчетов службы Azure Multi-Factor Authentication."
-	services="multi-factor-authentication"
-	documentationCenter=""
-	authors="kgremban"
-	manager="femila"
-	editor="curtand"/>
+    pageTitle="Azure Multi-Factor Authentication Reports"
+    description="This describes how to use the Azure Multi-Factor Authentication feature - reports."
+    services="multi-factor-authentication"
+    documentationCenter=""
+    authors="kgremban"
+    manager="femila"
+    editor="curtand"/>
 
 <tags
-	ms.service="multi-factor-authentication"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/04/2016"
-	ms.author="kgremban"/>
+    ms.service="multi-factor-authentication"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="08/04/2016"
+    ms.author="kgremban"/>
 
-# Отчеты в службе Azure Multi-Factor Authentication
 
-Azure Multi-Factor Authentication предоставляет несколько типов отчетов, которые могут быть полезны для вас и вашей организации. Эти отчеты доступны через портал управления Multi-Factor Authentication. Для использования портала у вас должен быть поставщик MFA или лицензия Azure MFA, Azure AD Premium или Enterprise Mobility Suite. Ниже приведен список доступных отчетов.
+# <a name="reports-in-azure-multi-factor-authentication"></a>Reports in Azure Multi-Factor Authentication
 
-Чтобы получить доступ к отчетам, войдите на портал управления Azure.
+Azure Multi-Factor Authentication provides several reports that can be used by you and your organization. These reports can be accessed through the Multi-Factor Authentication Management Portal, which requires that you have an Azure MFA Provider, or an Azure MFA, Azure AD Premium or Enterprise Mobility Suite license. The following is a list of the available reports.
 
-Имя| Описание
+You can access reports through the Azure Management portal.
+
+Name| Description
 :------------- | :------------- |
-Использование | В отчетах об использовании содержится информация об общем использовании, сводный отчет по пользователям и сведения о пользователях.
-Состояние серверов|В этом отчете отображается состояние серверов Multi-Factor Authentication, с которыми связана ваша учетная запись.
-Журнал заблокированных пользователей|В этих отчетах отображается журнал запросов о блокировании и разблокировании пользователей.
-Журнал обойденных пользователей|Отображается журнал запросов об обходе службы Multi-Factor Authentication в случае использования того или иного номера телефона.
-Предупреждение о мошенничестве|Отображается история оповещений о мошенничестве, отправленных в рамках указанного диапазона дат.
-Поставлено в очередь|Отображается список отчетов, поставленных в очередь для обработки, и их состояние. Ссылка на загрузку или просмотр отчета предоставляется по завершении его составления.
+Usage | The usage reports display information on overall usage, user summary and user details.
+Server Status|This report displays the status of Multi-Factor Authentication Servers associated with your account.
+Blocked User History|These reports show the history of requests to block or unblock users.
+Bypassed User History|Shows the history of requests to bypass Multi-Factor Authentication for a user's phone number.
+Fraud Alert|Shows a history of fraud alerts submitted during the date range you specified.
+Queued|Lists reports queued for processing and their status. A link to download or view the report is provided when the report is complete.
 
-## Просмотр отчетов
+## <a name="to-view-reports"></a>To view reports
 
-1.	Выполните вход в http://azure.microsoft.com.
-2.	Выберите слева элемент Active Directory.
-3.	Выберите один из следующих вариантов:
-	- **Вариант 1**: перейдите на вкладку "Поставщики Multi-Factor Authentication". Выберите поставщика MFA и нажмите кнопку "Управление" в нижней части окна.
-	- **Вариант 2**: выберите свой каталог и перейдите на вкладку "Настройка". В разделе многофакторной проверки подлинности щелкните "Управление параметрами службы". В нижней части страницы "Параметры службы MFA" щелкните "Перейти на портал".
-4.	На портале управления Azure Multi-Factor Authentication в меню слева вы увидите пункт "Просмотреть отчет". В этом разделе можно выбирать описанные выше отчеты.
+1.  Log on to http://azure.microsoft.com
+2.  On the left, select Active Directory.
+3.  Select one of the following options:
+    - **Option 1**: Click the Multi-Factor Auth Providers tab. Select your MFA provider and click the Manage button at the bottom.
+    - **Option 2**: Select your directory and click the Configure tab. Under the multi-factor authentication section, select Manage service settings. At the bottom of the MFA Service Settings page, click the Go to the portal link.
+4.  In the Azure Multi-Factor Authentication Management Portal, you will see the View a Report section in the left navigation. From here you can select the reports described above.
 
 <center>![Cloud](./media/multi-factor-authentication-manage-reports/report.png)</center>
 
 
-**Дополнительные ресурсы**
+**Additional Resources**
 
-* [Для пользователей](multi-factor-authentication-end-user.md)
-* [Azure Multi-Factor Authentication в MSDN](https://msdn.microsoft.com/library/azure/dn249471.aspx)
+* [For Users](multi-factor-authentication-end-user.md)
+* [Azure Multi-Factor Authentication on MSDN](https://msdn.microsoft.com/library/azure/dn249471.aspx)
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

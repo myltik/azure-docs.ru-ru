@@ -1,42 +1,44 @@
-Чтобы создать виртуальную сеть с помощью портала Azure, выполните указанные ниже действия. Снимки экрана приведены в качестве примеров. Обязательно подставьте собственные значения. Дополнительные сведения о работе с виртуальными сетями см. в статье [Обзор виртуальной сети](../articles/virtual-network/virtual-networks-overview.md).
+To create a VNet by using the Azure portal, follow the steps below. The screenshots are provided as examples. Be sure to replace the values with your own. For more information about working with virtual networks, see the [Virtual Network Overview](../articles/virtual-network/virtual-networks-overview.md).
 
-1. В браузере откройте [портал Azure](http://portal.azure.com) и при необходимости войдите с использованием учетной записи Azure.
+1. From a browser, navigate to the [Azure portal](http://portal.azure.com) and, if necessary, sign in with your Azure account.
 
-2. Нажмите кнопку **Создать**. В поле **Поиск по Marketplace** введите "Виртуальная сеть". Найдите **виртуальную сеть** в результатах поиска и щелкните ее, чтобы открыть колонку **виртуальной сети**.
+2. Click **New**. In the **Search the marketplace** field, type "Virtual Network". Locate **Virtual Network** from the returned list and click to open the **Virtual Network** blade.
 
-	![Колонка поиска ресурса виртуальной сети](./media/vpn-gateway-basic-vnet-rm-portal-include/newvnetportal700.png "Колонка поиска ресурса виртуальной сети")
+    ![Locate Virtual Network resource blade](./media/vpn-gateway-basic-vnet-rm-portal-include/newvnetportal700.png "Locate virtual network resource blade")
 
-3. В нижней части колонки "Виртуальная сеть" из списка **Выберите модель развертывания** выберите **Диспетчер ресурсов** и щелкните **Создать**.
+3. Near the bottom of the Virtual Network blade, from the **Select a deployment model** list, select **Resource Manager**, and then click **Create**.
 
 
-	![Выбор Resource Manager](./media/vpn-gateway-basic-vnet-rm-portal-include/resourcemanager250.png "Выбор Resource Manager")
+    ![Select Resource Manager](./media/vpn-gateway-basic-vnet-rm-portal-include/resourcemanager250.png "Select Resource Manager")
 
-4. В колонке **Создание виртуальной сети** настройте параметры виртуальной сети. Если введенные в полях значения допустимы, красный восклицательный знак сменится зеленой галочкой.
+4. On the **Create virtual network** blade, configure the VNet settings. When you fill in the fields, the red exclamation mark will become a green check mark when the characters entered in the field are valid.
 
-	![Проверка значений полей](./media/vpn-gateway-basic-vnet-rm-portal-include/checkmark300.png "Проверка значений полей")
+    ![Field validation](./media/vpn-gateway-basic-vnet-rm-portal-include/checkmark300.png "Field validation")
 
-5. Колонка **Создать виртуальную сеть** выглядит, как на рисунке ниже. Некоторые значения могут быть заполнены автоматически. В таком случае подставьте собственные значения.
+5. The **Create virtual network** blade looks similar to the following example. There may be values that are auto-filled. If so, replace the values with your own.
 
-	![Вкладка создания виртуальной сети](./media/vpn-gateway-basic-vnet-rm-portal-include/createvnet300.png "Вкладка создания виртуальной сети")
+    ![Create virtual network blade](./media/vpn-gateway-basic-vnet-rm-portal-include/createvnet300.png "Create virtual network blade")
 
-6. **Имя**. Введите имя виртуальной сети.
+6. **Name**: Enter the name for your Virtual Network.
 
-7. **Адресное пространство**. Введите адресное пространство. Если их несколько, добавьте первое адресное пространство. Дополнительные адресные пространства можно добавить позже, после создания виртуальной сети.
+7. **Address space**: Enter the address space. If you have multiple address spaces to add, add your first address space. You can add additional address spaces later, after creating the VNet.
  
-8. **Имя подсети**. Добавьте имя подсети и диапазон адресов подсети. Дополнительные подсети можно добавить позже, после создания виртуальной сети.
+8. **Subnet name**: Add the subnet name and subnet address range. You can add additional subnets later, after creating the VNet.
 
-10. **Подписка**. Убедитесь, что указана правильная подписка. Подписки можно менять с помощью раскрывающегося списка.
+10. **Subscription**: Verify that the Subscription listed is the correct one. You can change subscriptions by using the drop-down.
 
-11. **Группа ресурсов**. Выберите имеющуюся группу ресурсов или создайте новую. Чтобы создать новую группу, введите ее имя. Если вы создаете группу ресурсов, укажите для нее имя, которое будет использоваться в вашей конфигурации. Дополнительные сведения о группах ресурсов см. в статье [Общие сведения о диспетчере ресурсов Azure](resource-group-overview.md#resource-groups).
+11. **Resource group**: Select an existing resource group, or create a new one by typing a name for your new resource group. If you are creating a new group, name the resource group according to your planned configuration values. For more information about resource groups, visit [Azure Resource Manager Overview](resource-group-overview.md#resource-groups).
 
-12. **Расположение**. Выберите расположение для виртуальной сети. Расположение определяет, где будут находиться ресурсы, развертываемые в этой виртуальной сети.
+12. **Location**: Select the location for your VNet. The location determines where the resources that you deploy to this VNet will reside.
 
-13. Установите флажок **Закрепить на панели мониторинга** для быстрого перехода к виртуальной сети с панели мониторинга, а затем нажмите кнопку **Создать**.
-	
-	![Закрепление на панели мониторинга](./media/vpn-gateway-basic-vnet-rm-portal-include/pintodashboard150.png "закрепление на панели мониторинга")
+13. Select **Pin to dashboard** if you want to be able to find your VNet easily on the dashboard, and then click **Create**.
+    
+    ![Pin to dashboard](./media/vpn-gateway-basic-vnet-rm-portal-include/pintodashboard150.png "pin to dashboard")
 
-14. После нажатия кнопки **Создать** на панели мониторинга появится плитка, на которой отображается ход создания виртуальной сети. Когда виртуальная сеть будет создана, плитка изменится.
+14. After clicking **Create**, you will see a tile on your dashboard that will reflect the progress of your VNet. The tile changes as the VNet is being created.
 
-	![Плитка создания виртуальной сети](./media/vpn-gateway-basic-vnet-rm-portal-include/deploying150.png "Плитка создания виртуальной сети")
+    ![Creating virtual network tile](./media/vpn-gateway-basic-vnet-rm-portal-include/deploying150.png "Creating virtual network tile")
 
-<!---HONumber=AcomDC_1005_2016-->
+<!--HONumber=Oct16_HO2-->
+
+

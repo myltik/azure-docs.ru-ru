@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Отключение и удаление виртуального массива StorSimple | Microsoft Azure"
-   description="Описание процедуры вывода устройства StorSimple из эксплуатации путем его отключения и последующего удаления."
+   pageTitle="Deactivate and delete a StorSimple Virtual Array | Microsoft Azure"
+   description="Describes how to remove StorSimple device from service by  first deactivating it and then deleting it."
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
@@ -15,90 +15,94 @@
    ms.date="06/20/2016"
    ms.author="alkohli" />
 
-# Отключение и удаление виртуального массива StorSimple
 
-## Обзор
+# <a name="deactivate-and-delete-a-storsimple-virtual-array"></a>Deactivate and delete a StorSimple Virtual Array
 
-При отключении виртуального массива StorSimple вы разрываете подключение между устройством и соответствующей службой диспетчера StorSimple. Отключение является НЕОБРАТИМОЙ операцией. Отключенное устройство нельзя зарегистрировать в службе диспетчера StorSimple повторно.
+## <a name="overview"></a>Overview
 
-Отключение и удаление виртуального устройства StorSimple используется в таких ситуациях.
+When you deactivate a StorSimple Virtual Array, you sever the connection between the device and the corresponding StorSimple Manager service. Deactivation is a PERMANENT operation and cannot be undone. A deactivated device cannot be registered with the StorSimple Manager service again.
+
+You may need to deactivate and delete a StorSimple virtual device in the following scenarios:
 
 
-- Устройство подключено к сети, а вам нужно выполнить отработку отказа этого устройства. Это может потребоваться, если планируется использовать устройство большего размера. После завершения передачи данных и отработки отказа устройство можно удалить.
+- Your device is online and you plan to fail over this device. You may need to do this if you are planning  to upgrade to a larger device. After the device data is transferred and the failover is complete, you can then delete the device.
 
-- Устройство отключено от сети, а вам нужно выполнить отработку отказа этого устройства. Это может произойти при аварии, когда основное устройство не работает из-за сбоя в центре обработки данных. Планируется выполнить отработку отказа устройства. После завершения передачи данных и отработки отказа устройство можно удалить.
+- Your device is offline and you plan to fail over this device. This may happen in the event of a disaster where due to an outage in the datacenter, your primary device is down. You plan to fail over the device to a secondary device. After the device data is transferred and the failover is complete, you can delete the device.
 
-- Вы хотите перестать использовать устройство, а затем удалить его.
+- You want to decommission the device and then delete it. 
  
 
-После отключения устройства все данные, хранящиеся локально, станут недоступны. Можно будет восстановить только данные, хранящиеся в облаке. Если вы планируете сохранить данные устройства после его отключения, перед отключением устройства следует создать облачный моментальный снимок всех данных. Это позволит вам восстановить все данные в дальнейшем.
+When you deactivate a device, any data that was stored locally will no longer be accessible. Only the data stored in the cloud can be recovered. If you plan to keep the device data after deactivation, then you should take a cloud snapshot of all your data before you deactivate a device. This will allow you to recover all the data at a later stage.
 
 
-В этом учебнике объясняется, как выполнить такие задачи:
+This tutorial explains how to:
 
-- Отключение устройства 
-- Удаление отключенного устройства
+- Deactivate a device 
+- Delete a deactivated device
 
 
-## Отключение устройства
+## <a name="deactivate-a-device"></a>Deactivate a device
 
-Выполните следующие действия, чтобы отключить устройство.
+Perform the following steps to deactivate your device.
 
-#### Отключение устройства   
+#### <a name="to-deactivate-the-device"></a>To deactivate the device   
 
-1. Откройте страницу **Устройства**. Выберите устройство, которое требуется отключить.
+1. Go to **Devices** page. Select the device that you wish to deactivate.
 
-	![Выберите устройство, которое необходимо отключить](./media/storsimple-ova-deactivate-and-delete-device/deactivate1m.png)
+    ![Select device to deactivate](./media/storsimple-ova-deactivate-and-delete-device/deactivate1m.png)
 
-3. В нижней части страницы нажмите кнопку **Отключить**.
+3. At the bottom of the page, click **Deactivate**.
 
-	![Нажмите кнопку "Отключить"](./media/storsimple-ova-deactivate-and-delete-device/deactivate2m.png)
+    ![Click deactivate](./media/storsimple-ova-deactivate-and-delete-device/deactivate2m.png)
 
-4. Появится сообщение с подтверждением. Чтобы продолжить, щелкните **Да**.
+4. A confirmation message will appear. Click **Yes** to continue. 
 
-	![Подтвердите отключение](./media/storsimple-ova-deactivate-and-delete-device/deactivate3m.png)
+    ![Confirm deactivate](./media/storsimple-ova-deactivate-and-delete-device/deactivate3m.png)
 
-	Начнется процесс отключения, который займет несколько минут.
+    The deactivate process will start and take a few minutes to complete.
 
-	![Отключение выполняется](./media/storsimple-ova-deactivate-and-delete-device/deactivate4m.png)
+    ![Deactivate in progress](./media/storsimple-ova-deactivate-and-delete-device/deactivate4m.png)
 
-3. После отключения список устройств будет обновлен.
+3. After deactivation, the list of the devices will be refreshed. 
 
-	![Отключение завершено](./media/storsimple-ova-deactivate-and-delete-device/deactivate5m.png)
+    ![Deactivate complete](./media/storsimple-ova-deactivate-and-delete-device/deactivate5m.png)
 
-	Теперь устройство можно удалить.
+    You can now delete this device. 
 
-## Удаление устройства
+## <a name="delete-the-device"></a>Delete the device
 
-Чтобы удалить устройство, сначала отключите его. При этом устройство удаляется из списка устройств, подключенных к службе. После удаления устройства служба больше не сможет управлять им. При этом связанные с устройством данные останутся в облаке. Учтите, что за эти данные будет взиматься плата.
+A device has to be first deactivated in order to delete it. Deleting a device removes it from the list of devices connected to the service. The service can then no longer manage the deleted device. The data associated with the device will however remain in the cloud. Be aware that this data will then accrue charges. 
 
-Вот как можно удалить устройство:
+Complete the following steps to delete the device:
 
-#### Удаление устройства 
+#### <a name="to-delete-the-device"></a>To delete the device 
 
- 1. На странице **Devices** (Устройства) службы диспетчера StorSimple выберите отключенное устройство, которое требуется удалить.
+ 1. On the StorSimple Manager service **Devices** page, select a deactivated device that you wish to delete.
 
-	![Выберите устройство, которое необходимо удалить](./media/storsimple-ova-deactivate-and-delete-device/deactivate5m.png)
+    ![Select device to delete](./media/storsimple-ova-deactivate-and-delete-device/deactivate5m.png)
 
- 2. В нижней части страницы нажмите кнопку **Удалить**.
+ 2. On the bottom on the page, click **Delete**.
  
-	![Нажмите кнопку "Удалить"](./media/storsimple-ova-deactivate-and-delete-device/deactivate6m.png)
+    ![Click delete](./media/storsimple-ova-deactivate-and-delete-device/deactivate6m.png)
 
- 3. После этого введите подтверждение для применения этих исправлений. Введите имя устройства, чтобы подтвердить его удаление. Обратите внимание, что удаление устройства не приводит к удалению связанных с устройством облачных данных. Щелкните значок галочки, чтобы продолжить.
+ 3. You will be prompted for confirmation. Type the device name to confirm device deletion. Note that deleting the device will not delete the cloud data associated with the device. Click the check icon to continue.
  
-	![Подтверждение удаления](./media/storsimple-ova-deactivate-and-delete-device/deactivate7m.png)
+    ![Confirm delete](./media/storsimple-ova-deactivate-and-delete-device/deactivate7m.png) 
 
- 5. Удаление устройства может занять несколько минут.
+ 5. It may take a few minutes for the device to be deleted. 
 
-	![Удаление выполняется](./media/storsimple-ova-deactivate-and-delete-device/deactivate8m.png)
+    ![Delete in progress](./media/storsimple-ova-deactivate-and-delete-device/deactivate8m.png)
 
- 	После удаления устройства список устройств будет обновлен.
+    After the device is deleted, the list of devices will be refreshed.
 
-	![Удаление завершено](./media/storsimple-ova-deactivate-and-delete-device/deactivate9m.png)
+    ![Delete complete](./media/storsimple-ova-deactivate-and-delete-device/deactivate9m.png)
 
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Next steps
 
-- Подробнее об управлении устройством с помощью службы диспетчера StorSimple см. в статье [Use the StorSimple Manager service to administer your StorSimple Virtual Array (preview)](storsimple-ova-manager-service-administration.md) (Использование службы диспетчера StorSimple для администрирования виртуального массива StorSimple (предварительная версия)). 
+- To learn more about how to use the StorSimple Manager service, go to [Use the StorSimple Manager service to administer your StorSimple Virtual Array](storsimple-ova-manager-service-administration.md). 
 
-<!---HONumber=AcomDC_0622_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -14,9 +14,10 @@
    ms.tgt_pltfrm="na"
    ms.workload="identity"
    ms.date="08/17/2016"
-   ms.author="andkjell"/>
+   ms.author="billmath"/>
 
-# История выпусков версий соединителей
+
+# <a name="connector-version-release-history"></a>История выпусков версий соединителей
 Соединители для Forefront Identity Manager (FIM) и Microsoft Identity Manager (MIM) часто обновляются.
 
 >[AZURE.NOTE]
@@ -27,16 +28,17 @@
 Связанные ссылки
 
 - [Скачивание последних соединителей.](http://go.microsoft.com/fwlink/?LinkId=717495)
-- Справочная документация по [универсальному соединителю LDAP](active-directory-aadconnectsync-connector-genericldap.md).
-- Справочная документация по [универсальному соединителю SQL](active-directory-aadconnectsync-connector-genericsql.md).
-- Справочная документация по [соединителю веб-служб](http://go.microsoft.com/fwlink/?LinkID=226245).
-- Справочная документация по [соединителю PowerShell](active-directory-aadconnectsync-connector-powershell.md).
-- Справочная документация по [соединителю Lotus Domino](active-directory-aadconnectsync-connector-domino.md).
+- [универсальному соединителю LDAP](active-directory-aadconnectsync-connector-genericldap.md) .
+- [универсальному соединителю SQL](active-directory-aadconnectsync-connector-genericsql.md) .
+- [соединителю веб-служб](http://go.microsoft.com/fwlink/?LinkID=226245) .
+- [соединителю PowerShell](active-directory-aadconnectsync-connector-powershell.md) .
+- [соединителю Lotus Domino](active-directory-aadconnectsync-connector-domino.md) .
 
-## 1\.1.117.0
+## <a name="1.1.117.0"></a>1.1.117.0
 Дата выпуска: март 2016 г.
 
-**Новый соединитель** Первоначальный выпуск [универсального соединителя SQL](active-directory-aadconnectsync-connector-genericsql.md).
+**Новый соединитель**  
+Первоначальный выпуск [универсальному соединителю SQL](active-directory-aadconnectsync-connector-genericsql.md).
 
 **Новые функции:**
 
@@ -61,7 +63,7 @@
     - При экспорте с добавлением и удалением участника группы выполнялось только экспортирование добавленных участников.
     - Если документ Notes являлся недопустимым (атрибуту isValid задано значение false), происходил сбой соединителя.
 
-## Более старые выпуски
+## <a name="older-releases"></a>Более старые выпуски
 До марта 2016 г. соединители выпускались в виде разделов службы поддержки.
 
 **Универсальный LDAP**
@@ -85,13 +87,17 @@
 - [KB3096533](https://support.microsoft.com/kb/3096533) — 1.0.0597, сентябрь 2015 г.
 - [KB3044895](https://support.microsoft.com/kb/3044895) — 1.0.0549, март 2015 г.
 - [KB2977286](https://support.microsoft.com/kb/2977286) — 5.3.0712, август 2014 г.
-- [KB2932635](https://support.microsoft.com/kb/2932635) — 5.3.1003, февраль 2014 г.
+- [KB2932635](https://support.microsoft.com/kb/2932635) — 5.3.1003, февраль 2014 г.  
 - [KB2899874](https://support.microsoft.com/kb/2899874) — 5.3.0721, октябрь 2013 г.
 - [KB2875551](https://support.microsoft.com/kb/2875551) — 5.3.0534, август 2013 г.
 
-## Дальнейшие действия
-Узнайте больше о настройке [службы синхронизации Azure AD Connect](active-directory-aadconnectsync-whatis.md).
+## <a name="next-steps"></a>Дальнейшие действия
+Узнайте больше о настройке [службы синхронизации Azure AD Connect](active-directory-aadconnectsync-whatis.md) .
 
 Узнайте больше об [интеграции локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,6 +1,6 @@
 <properties
    pageTitle="Publish-WebApplicationVM | Microsoft Azure"
-   description="Узнайте, как развернуть веб-приложение на виртуальной машине. Этот сценарий создает необходимые ресурсы в подписке Azure, если они еще не созданы."
+   description="Learn how to deploy a web application to a virtual machine. This script creates the required resources in your Azure subscription if they don't exist."
    services="visual-studio-online"
    documentationCenter="na"
    authors="TomArcher"
@@ -15,9 +15,10 @@
    ms.date="08/15/2016"
    ms.author="tarcher" />
 
-# Publish-WebApplicationVM (сценарий Windows PowerShell)
 
-Развертывание веб-приложения на виртуальной машине. и создает необходимые ресурсы в подписке Azure, если они еще не созданы.
+# <a name="publish-webapplicationvm-(windows-powershell-script)"></a>Publish-WebApplicationVM (Windows PowerShell script)
+
+Deploys a web application to a virtual machine. The script creates the required resources in your Azure subscription if they don't exist.
 
 ```
 Publish-WebApplicationVM
@@ -30,95 +31,95 @@ Publish-WebApplicationVM
 -Verbose
 ```
 
-### Параметр Configuration
+### <a name="configuration"></a>Configuration
 
-Путь к файлу конфигурации JSON, содержащему подробные сведения о развертывании.
+The path to the JSON configuration file that describes the details of the deployment.
 
-|Псевдонимы|Нет|
+|Aliases|none|
 |---|---|
-|Обязательный?|Да|
-|Позиция|именованная|
-|Значение по умолчанию|Нет|
-|Принимает входные данные конвейера?|нет|
-|Принимает подстановочные знаки?|нет|
+|Required?|true|
+|Position|named|
+|Default value|none|
+|Accept pipeline input?|false|
+|Accept wildcard characters?|false|
 
-### Параметр SubscriptionName
+### <a name="subscriptionname"></a>SubscriptionName
 
-Имя подписки Azure, в которой необходимо создать виртуальную машину.
+The name of the Azure subscription in which you want to create the virtual machine.
 
-|Псевдонимы|Нет|
+|Aliases|none|
 |---|---|
-|Обязательный?|нет|
-|Позиция|именованная|
-|Значение по умолчанию|Используется первая подписка в файле подписок|
-|Принимает входные данные конвейера?|нет|
-|Принимает подстановочные знаки?|нет|
+|Required?|false|
+|Position|named|
+|Default value|Uses the first subscription in the subscription file|
+|Accept pipeline input?|false|
+|Accept wildcard characters?|false|
 
-### Параметр WebDeployPackage
+### <a name="webdeploypackage"></a>WebDeployPackage
 
-Путь к пакету веб-развертывания для публикации на виртуальной машине. Этот пакет можно создать с помощью мастера «Публикация веб-сайта» в Visual Studio. См. [инструкции по созданию пакета веб-развертывания в Visual Studio](https://msdn.microsoft.com/library/dd465323.aspx).
+The path to the web deployment package to publish to the virtual machine. You can create this package by using the Publish Web wizard in Visual Studio. See [How to: Create a Web Deployment Package in Visual Studio](https://msdn.microsoft.com/library/dd465323.aspx).
 
-|Псевдонимы|Нет|
+|Aliases|none|
 |---|---|
-|Обязательный?|нет|
-|Позиция|именованная|
-|Значение по умолчанию|Нет|
-|Принимает входные данные конвейера?|нет|
-|Принимает подстановочные знаки?|нет|
+|Required?|false|
+|Position|named|
+|Default value|none|
+|Accept pipeline input?|false|
+|Accept wildcard characters?|false|
 
-### AllowUntrusted
+### <a name="allowuntrusted"></a>AllowUntrusted
 
-Значение true позволяет использовать сертификаты, не подписанные надежным корневым центром сертификации.
+If true, allow the use of certificates that aren't signed by a trusted root authority.
 
-|Псевдонимы|Нет|
+|Aliases|none|
 |---|---|
-|Обязательный?|нет|
-|Позиция|именованная|
-|Значение по умолчанию|false|
-|Принимает входные данные конвейера?|нет|
-|Принимает подстановочные знаки?|нет|
+|Required?|false|
+|Position|named|
+|Default value|false|
+|Accept pipeline input?|false|
+|Accept wildcard characters?|false|
 
-### VMPassword
+### <a name="vmpassword"></a>VMPassword
 
-Данные учетной записи виртуальной машины. Пример: -VMPassword @{Name = "admin"; Password = "password"}
+The credentials for the virtual machine account. Example: -VMPassword @{Name = "admin"; Password = "password"}
 
-|Псевдонимы|Нет|
+|Aliases|none|
 |---|---|
-|Обязательный?|нет|
-|Позиция|именованная|
-|Значение по умолчанию|Нет|
-|Принимает входные данные конвейера?|нет|
-|Принимает подстановочные знаки?|нет|
+|Required?|false|
+|Position|named|
+|Default value|none|
+|Accept pipeline input?|false|
+|Accept wildcard characters?|false|
 
-### Параметр DatabaseServerPassword
+### <a name="databaseserverpassword"></a>DatabaseServerPassword
 
-Учетные данные для базы данных SQL в Azure. Пример: -DatabaseServerPassword @{Name = "admin"; Password = "password"}
+The credentials for the SQL database in Azure. Example: -DatabaseServerPassword @{Name = "admin"; Password = "password"}
 
-|Псевдонимы|Нет|
+|Aliases|none|
 |---|---|
-|Обязательный?|нет|
-|Позиция|именованная|
-|Значение по умолчанию|Нет|
-|Принимает входные данные конвейера?|нет|
-|Принимает подстановочные знаки?|нет|
+|Required?|false|
+|Position|named|
+|Default value|none|
+|Accept pipeline input?|false|
+|Accept wildcard characters?|false|
 
-### Параметр SendHostMessagesToOutput
+### <a name="sendhostmessagestooutput"></a>SendHostMessagesToOutput
 
-Если установлено значение true, оправляет сообщения из сценария в поток вывода.
+If true, print messages from the script to the output stream.
 
-|Псевдонимы|Нет|
+|Aliases|none|
 |---|---|
-|Обязательный?|нет|
-|Позиция|именованная|
-|Значение по умолчанию|false|
-|Принимает входные данные конвейера?|нет|
-|Принимает подстановочные знаки?|Нет|
+|Required?|false|
+|Position|named|
+|Default value|false|
+|Accept pipeline input?|false|
+|Accept wildcard characters?|false|
 
-## Примечания
+## <a name="remarks"></a>Remarks
 
-Подробное описание того, как использовать сценарий для создания сред разработки и тестирования, см. в статье [Использование скриптов Windows PowerShell для публикации в среды разработки и тестирования](vs-azure-tools-publishing-using-powershell-scripts.md).
+For a complete explanation of how to use the script to create Dev and Test environments, see [Using Windows PowerShell Scripts to Publish to Dev and Test Environments](vs-azure-tools-publishing-using-powershell-scripts.md).
 
-В файле конфигурации JSON указаны данные объектов, которые необходимо развернуть. Он содержит сведения, указанные при создании проекта, например имя, группу сходства, образ виртуального жесткого диска и размер виртуальной машины. Он также включает конечные точки виртуальной машины, подготавливаемые базы данных (если они есть) и параметры веб-развертывания. В следующем коде показан пример файла конфигурации JSON.
+The JSON configuration file specifies the details of what is to be deployed. It includes the information that you specified when you created the project, such as the name, affinity group, VHD image, and size of the virtual machine. It also includes the endpoints on the virtual machine, the databases to provision, if any, and web deployment parameters. The following code shows an example JSON configuration file:
 
 ```
 {
@@ -187,6 +188,10 @@ Publish-WebApplicationVM
 }
 ```
 
-В файле конфигурации JSON можно изменить объекты, которые подлежат подготовке. Виртуальная машина и облачная служба необходимы, но раздел баз данных является необязательным.
+You can edit the JSON configuration file to change what is provisioned. A virtual machine and a cloud service are required, but the database section is optional.
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

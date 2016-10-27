@@ -1,159 +1,173 @@
 <properties
-	pageTitle="Реализация синхронизации паролей с помощью службы Azure AD Connect Sync | Microsoft Azure"
-	description="В этой статье объясняется, как работает синхронизация паролей и как ее включить."
-	services="active-directory"
-	documentationCenter=""
-	authors="markusvi"
-	manager="femila"
-	editor=""/>
+    pageTitle="Implementing password synchronization with Azure AD Connect sync | Microsoft Azure"
+    description="Provides information about how password synchronization works and how to enable it."
+    services="active-directory"
+    documentationCenter=""
+    authors="markusvi"
+    manager="femila"
+    editor=""/>
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/24/2016"
-	ms.author="markusvi;andkjell"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="08/24/2016"
+    ms.author="markusvi;andkjell"/>
 
 
-# Реализация синхронизации паролей с помощью службы Azure AD Connect Sync
-В этой статье содержатся сведения о том, как синхронизировать пароли пользователей локальной службы Active Directory (AD) и облачной службы Azure Active Directory (Azure AD).
 
-## Что такое синхронизация паролей
-Вероятность того, что сделанная работа может быть заблокирована из-за забытого пароля, связана с количеством разных паролей, которые необходимо помнить. Чем больше паролей необходимо помнить, тем выше вероятность забыть один из них. Вопросы и звонки о восстановлении паролей и прочие проблемы, связанные с паролями, забирают больше всего ресурсов службы технической поддержки.
+# <a name="implementing-password-synchronization-with-azure-ad-connect-sync"></a>Implementing password synchronization with Azure AD Connect sync
+This topic provides you with the information you need to synchronize your user passwords from an on-premises Active Directory (AD) to a cloud-based Azure Active Directory (Azure AD).
 
-Синхронизация паролей — это функция для синхронизации паролей пользователей локальной службы Active Directory и облачной службы Azure Active Directory (Azure AD). Эта функция позволяет входить в службы Azure Active Directory (например, Office 365, Microsoft Intune, CRM Online и доменные службы Azure AD) с помощью пароля, используемого для входа в локальную службу Active Directory.
+## <a name="what-is-password-synchronization"></a>What is password synchronization
+The probability that you are blocked from getting your work done due to a forgotten password is related to the number of different passwords you need to remember. The more passwords you need to remember, the higher the probability to forget one. Questions and calls about password resets and other password-related issues demand the most helpdesk resources.
 
-![Что такое Azure AD Connect?](./media/active-directory-aadconnectsync-implement-password-synchronization/arch1.png)
+Password synchronization is a feature to synchronize user passwords from an on-premises Active Directory to a cloud-based Azure Active Directory (Azure AD).
+This feature enables you to sign in to Azure Active Directory services (such as Office 365, Microsoft Intune, CRM Online, and Azure AD Domain Services) using the same password you are using to sign in to your on-premises Active Directory.
 
-За счет сокращения числа паролей, которые должны помнить пользователи, до одного единственного, синхронизация паролей дает следующие преимущества:
+![What is Azure AD Connect](./media/active-directory-aadconnectsync-implement-password-synchronization/arch1.png)
 
-- Повышение производительности пользователей
-- Снижение затрат, связанных со службой технической поддержки
+By reducing the number of passwords your users need to maintain to just one, password synchronization helps you to:
 
-Если выбран параметр [**Федерация с AD FS**](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Configuring-AD-FS-for-user-sign-in-with-Azure-AD-Connect), можно также включить синхронизацию паролей на случай сбоя в инфраструктуре AD FS.
+- Improve the productivity of your users
+- Reduce your helpdesk costs  
 
-Синхронизация паролей — это расширение функции синхронизации каталогов, реализованное при помощи служб синхронизации Azure AD Connect. Для использования синхронизации паролей в определенной среде необходимо выполнение следующих действий.
+Also, if you select to use [**Federation with AD FS**](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Configuring-AD-FS-for-user-sign-in-with-Azure-AD-Connect), you can optionally enable password synchronization as a backup in case your AD FS infrastructure fails.
 
-- Установка Azure AD Connect
-- Настройка синхронизации служб каталогов между локальной службой AD и Azure Active Directory
-- Включение синхронизации паролей
+Password synchronization is an extension to the directory synchronization feature implemented by Azure AD Connect sync. To use password synchronization in your environment, you need to:
 
-Дополнительные сведения см. в разделе [Интеграция локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md).
+- Install Azure AD Connect  
+- Configure directory synchronization between your on-premises AD and your Azure Active Directory
+- Enable password synchronization
 
-> [AZURE.NOTE] Дополнительную информацию о доменных службах Active Directory, настроенных для использования FIPS и синхронизации паролей, см. в разделе [Синхронизация паролей и FIPS](#password-synchronization-and-fips).
+For more details, see [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md)
 
-## Как работает синхронизация паролей
-Доменная служба Active Directory хранит пароли в виде хэш-значений, которые представляют фактические пароли пользователей. Хэш-значение — это результат односторонней математической функции (*алгоритма хэширования*). Не существует метода для возврата результата односторонней функции в обычную текстовую версию пароля. Хэш пароля не может использоваться для входа в локальную сеть.
+> [AZURE.NOTE] For more details about Active Directory Domain Services that are configured for FIPS and password synchronization, see [Password Sync and FIPS](#password-synchronization-and-fips).
 
-Чтобы синхронизировать пароль, Azure AD Connect Sync извлекает хэш пароля из локального каталога Active Directory. Перед синхронизацией в службу проверки подлинности Azure Active Directory хэш пароля дополнительно обрабатывается системой безопасности. Пароли синхронизируются для каждого пользователя отдельно и в хронологическом порядке.
+## <a name="how-password-synchronization-works"></a>How password synchronization works
+The Active Directory domain service stores passwords in form of a hash value representation of the actual user password. A hash value is a result of a one-way mathematical function (the "*hashing algorithm*"). There is no method to revert the result of a one-way function to the plain text version of a password. You cannot use a password hash to sign in to your on-premises network.
 
-Фактический поток данных в процессе синхронизации паролей аналогичен синхронизации данных пользователей, таких как отображаемые имена или адреса электронной почты. Но синхронизация паролей происходит чаще, чем это обычно делается для других атрибутов. Процесс синхронизации паролей выполняется каждые 2 минуты. Нельзя изменять частоту выполнения этого процесса. При синхронизации пароль перезаписывает существующий в облачной службе.
+To synchronize your password, Azure AD Connect sync extracts your password hash from the on-premises Active Directory. Extra security processing is applied to the password hash before it is synchronized to the Azure Active Directory authentication service. Passwords are synchronized on a per-user basis and in chronological order.
 
-При первом включении функции синхронизации паролей она выполняет первоначальную синхронизацию паролей всех пользователей в области. Нельзя явно определить подмножество паролей пользователей, которые требуется синхронизировать.
+The actual data flow of the password synchronization process is similar to the synchronization of user data such as DisplayName or Email Addresses. However, passwords are synchronized more frequently than the standard directory synchronization window for other attributes. The password synchronization process runs every 2 minutes. You cannot modify the frequency of this process. When you synchronize a password, it overwrites the existing cloud password.
 
-При изменении локального пароля новый пароль, как правило, синхронизируется в течение нескольких минут. Если синхронизация паролей завершается сбоем, автоматически осуществляется новая попытка. Ошибки, возникающие во время синхронизации паролей, записываются в журнал событий.
+The first time, you enable the password synchronization feature, it performs an initial synchronization of the passwords of all in-scope users. You cannot explicitly define a subset of user passwords you want to synchronize.
 
-Синхронизация пароля не влияет на пользователей, находящихся в системе в момент ее выполнения. Если изменение пароля синхронизируется во время вашего пребывания в облачной службе, оно не применяется в сеансе облачной службы немедленно. Однако, когда снова возникнет необходимость в проверке подлинности в облачной службе, потребуется указать новый пароль.
+When you change an on-premises password, the updated password is synchronized, most often in a matter of minutes.
+The password synchronization feature automatically retries failed synchronization attempts. If an error occurs during an attempt to synchronize a password, an error is logged in your event viewer.
 
-> [AZURE.NOTE] Синхронизация паролей поддерживается только для типа объектов user в Active Directory. Она не поддерживается для типа объектов iNetOrgPerson.
+The synchronization of a password has no impact on the currently logged on user.
+Your current cloud service session is not immediately affected by a synchronized password change that occurs while you are signed in to a cloud service. However, when the cloud service requires you to authenticate again, you need to provide your new password.
 
-### Как синхронизация паролей работает с доменными службами Azure AD
-Функцию синхронизации паролей также можно использовать для синхронизации локальных паролей с [доменными службами Azure AD](../active-directory-domain-services/active-directory-ds-overview.md). Данный сценарий позволяет доменным службам Azure AD проверять подлинность пользователей в облаке, применяя все методы, доступные в локальной службе AD. Действия в этом сценарии аналогичны использованию инструмента миграции Active Directory Migration Tool (ADMT) в локальной среде.
+> [AZURE.NOTE] Password sync is only supported for the object type user in Active Directory. It is not supported for the iNetOrgPerson object type.
 
-### Вопросы безопасности
-При синхронизации пароли в текстовом формате не передаются в службу синхронизации паролей, Azure AD или какие-либо другие связанные службы.
+### <a name="how-password-synchronization-works-with-azure-ad-domain-services"></a>How password synchronization works with Azure AD Domain Services
+You can also use the password synchronization feature to synchronize your on-premises passwords to the [Azure AD Domain Services](../active-directory-domain-services/active-directory-ds-overview.md). This scenario allows the Azure AD Domain Services to authenticate your users in the cloud with all the methods available in your on-premises AD. The experience of this scenario is similar to using the Active Directory Migration Tool (ADMT) in an on-premises environment.
 
-Кроме того, в локальном каталоге Active Directory пароли могут храниться в зашифрованном виде и не подлежать восстановлению. При передаче данных между локальным каталогом AD и Azure Active Directory используется хэш-код пароля Active Directory. Хэш-код пароля не может использоваться для доступа к ресурсам вашей локальной среды.
+### <a name="security-considerations"></a>Security considerations
+When synchronizing passwords, the plain-text version of your password is not exposed to the password synchronization feature, to Azure AD, or any of the associated services.
 
-### Рекомендации по политикам паролей
-Есть два типа политик паролей, которые затрагивает синхронизация паролей:
+Also, there is no requirement on the on-premises Active Directory to store the password in a reversibly encrypted format. A digest of the Active Directory password hash is used for the transmission between the on-premises AD and Azure Active Directory. The digest of the password hash cannot be used to access resources in your on-premises environment.
 
-1. Политика сложности паролей.
-2. Политика срока действия паролей.
+### <a name="password-policy-considerations"></a>Password policy considerations
+There are two types of password policies that are affected by enabling password synchronization:
 
-**Политика сложности паролей** При включении синхронизации паролей политики сложности паролей, настроенные в локальном каталоге Active Directory, переопределяют политики сложности, настроенные в облаке для синхронизированных пользователей. Все допустимые пароли из локального Active Directory можно использовать для доступа к службам Azure AD.
+1. Password Complexity Policy
+2. Password Expiration Policy
 
-> [AZURE.NOTE] Пароли пользователей, созданные непосредственно в облаке, и впредь регулируются политиками паролей, которые настроены в облаке.
+**Password complexity policy**  
+When you enable password synchronization, the password complexity policies in your on-premises Active Directory override complexity policies in the cloud for synchronized users. You can use all valid passwords of your on-premises Active Directory to access Azure AD services.
 
-**Политика срока действия пароля** Если пароль пользователя синхронизируется, для пароля облачной учетной записи устанавливается *неограниченный срок действия*. Синхронизированный пароль, срок действия которого в локальной среде истек, можно использовать для входа в облачные службы. Пароль для облачной учетной записи изменяется, когда вы изменяете пароль в локальной среде.
+> [AZURE.NOTE] Passwords for users that are created directly in the cloud are still subject to password policies as defined in the cloud.
 
-### Перезапись синхронизированных паролей
-Администратор может вручную сбросить пароль с помощью Windows PowerShell.
+**Password expiration policy**  
+If a user is in the scope of password synchronization, the cloud account password is set to "*Never Expire*".
+You can continue to sign in to your cloud services using a synchronized password that has been expired in your on-premises environment. Your cloud password is updated the next time you change the password in the on-premises environment.
 
-В таком случае новый пароль перезапишет синхронизированный пароль, и к новому паролю будут применены все политики паролей, настроенные в облаке.
+### <a name="overwriting-synchronized-passwords"></a>Overwriting synchronized passwords
+An administrator can manually reset your password using Windows PowerShell.
 
-Если вы снова измените локальный пароль, новый пароль синхронизируется в облако и перезапишет пароль, измененный вручную.
+In this case, the new password overrides your synchronized password and all password policies defined in the cloud are applied to the new password.
 
-## Включение синхронизации паролей
-Если во время установки Azure AD Connect используются **стандартные параметры**, синхронизация паролей включается по умолчанию. Дополнительные сведения см. в статье [Приступая к работе с Azure AD Connect с использованием стандартных параметров](active-directory-aadconnect-get-started-express.md).
+If you change your on-premises password again, the new password is synchronized to the cloud, and overrides the manually updated password.
 
-Если во время установки Azure AD Connect используются пользовательские параметры, вам нужно включить синхронизацию паролей на странице входа в систему. Дополнительные сведения см. в статье [Выборочная установка Azure AD Connect](active-directory-aadconnect-get-started-custom.md).
+## <a name="enabling-password-synchronization"></a>Enabling password synchronization
+Password synchronization is automatically enabled, when you install Azure AD Connect using the **Express Settings**. For more details, see [Getting started with Azure AD Connect using express settings](./aad-connect/active-directory-aadconnect-get-started-express.md).
 
-![Включение синхронизации паролей](./media/active-directory-aadconnectsync-implement-password-synchronization/usersignin.png)
+If you use custom settings when you install Azure AD Connect, you enable password synchronization on the user sign-in page. For more details, see [Custom installation of Azure AD Connect](./aad-connect/active-directory-aadconnect-get-started-custom.md).
 
-### Синхронизация паролей и FIPS
-Если сервер заблокирован в соответствии с федеральным стандартом обработки информации (FIPS), схема MD5 отключена.
+![Enabling password synchronization](./media/active-directory-aadconnectsync-implement-password-synchronization/usersignin.png)
 
-**Чтобы включить MD5 для синхронизации паролей выполните следующие действия.**
+### <a name="password-synchronization-and-fips"></a>Password synchronization and FIPS
+If your server has been locked down according to Federal Information Processing Standard (FIPS), then MD5 has been disabled.
 
-1. Перейдите к папке **%programfiles%\\Azure AD Sync\\Bin**.
-2. Откройте файл **miiserver.exe.config**.
-3. Перейдите на узел **конфигурации или среды выполнения** (в конце файла конфигурации).
-4. Добавьте следующий узел: `<enforceFIPSPolicy enabled="false"/>`.
-5. Сохраните изменения.
+**To enable MD5 for password synchronization, perform the following steps:**
 
-Этот фрагмент должен выглядеть следующим образом.
+1. Go to **%programfiles%\Azure AD Sync\Bin**.
+2. Open **miiserver.exe.config**.
+3. Go to the **configuration/runtime** node (at the end of the file).
+4. Add the following node: `<enforceFIPSPolicy enabled="false"/>`
+5. Save your changes.
+
+For reference, this snip is how it should look like:
 
 ```
-	<configuration>
-		<runtime>
-			<enforceFIPSPolicy enabled="false"/>
-		</runtime>
-	</configuration>
+    <configuration>
+        <runtime>
+            <enforceFIPSPolicy enabled="false"/>
+        </runtime>
+    </configuration>
 ```
 
-Дополнительные сведения о безопасности и FIPS см. в записи блога [Синхронизация паролей, шифрование и соответствие FIPS в AAD](https://blogs.technet.microsoft.com/enterprisemobility/2014/06/28/aad-password-sync-encryption-and-fips-compliance/).
+For information about security and FIPS see [AAD Password Sync, Encryption and FIPS compliance](https://blogs.technet.microsoft.com/enterprisemobility/2014/06/28/aad-password-sync-encryption-and-fips-compliance/)
 
-## Устранение неполадок синхронизации паролей
-Неполадки синхронизации паролей могут возникать либо в подмножестве пользователей, либо у всех.
+## <a name="troubleshooting-password-synchronization"></a>Troubleshooting password synchronization
+If passwords are not synchronizing as expected, it can either be for a subset of users or for all users.
 
-- Если проблемы возникли с отдельными объектами, см. раздел [Устранение неполадок синхронизации паролей, связанных с одним объектом](#troubleshoot-one-object-that-is-not-synchronizing-passwords).
-- Если пароли не синхронизируются, см. раздел [Устранение неполадок, связанных с синхронизацией паролей](#troubleshoot-issues-where-no-passwords-are-synchronized).
+- If you have an issue with individual objects, then see [Troubleshoot one object that is not synchronizing passwords](#troubleshoot-one-object-that-is-not-synchronizing-passwords).
+- If you have an issue where no passwords are synchronized, see [Troubleshoot issues where no passwords are synchronized](#troubleshoot-issues-where-no-passwords-are-synchronized).
 
-### Устранение неполадок синхронизации паролей, связанных с одним объектом
-Проблемы, связанные с синхронизацией паролей, можно легко устранить, просмотрев состояние объекта.
+### <a name="troubleshoot-one-object-that-is-not-synchronizing-passwords"></a>Troubleshoot one object that is not synchronizing passwords
+You can easily troubleshoot password synchronization issues by reviewing the status of an object.
 
-Запустите оснастку **Пользователи и компьютеры Active Directory**. Найдите пользователя и снимите флажок **Потребовать смены пароля пользователя при следующем входе в систему**. ![Повышение производительности в Active Directory с помощью синхронизации паролей](./media/active-directory-aadconnectsync-implement-password-synchronization/adprodpassword.png) Если флажок установлен, пользователь должен войти в систему и сменить пароль. Временные пароли не синхронизируются с Azure AD.
+Start in **Active Directory Users and Computers**. Find the user and verify that **User must change password at next logon** is unselected.
+![Active Directory productive passwords](./media/active-directory-aadconnectsync-implement-password-synchronization/adprodpassword.png)  
+If it is selected, then ask the user to sign in and change the password. Temporary passwords are not synchronized to Azure AD.
 
-Если в Active Directory этот флажок снят, далее необходимо отследить пользователя в модуле синхронизации. Отследив пользователя от локального Active Directory до Azure AD, вы сможете убедиться в отсутствии ошибок в объекте.
+If it looks correct in Active Directory, then the next step is to follow the user in the sync engine. By following the user from on-premises Active Directory to Azure AD, you can see if there is a descriptive error on the object.
 
-1. Запустите **[Synchronization Service Manager](active-directory-aadconnectsync-service-manager-ui.md)**.
-2. Щелкните **Соединители**.
-3. Выберите **соединитель Active Directory**, к которому относится пользователь.
-4. Выберите **Search Connector Space** (Поиск пространства соединителя).
-5. Найдите нужного пользователя.
-6. Откройте вкладку **Журнал обращений и преобразований** и убедитесь, что по крайней мере для одного правила синхронизации параметр **Синхронизация паролей** имеет значение **True**. В конфигурации по умолчанию правило синхронизации имеет имя **In from AD - User AccountEnabled**. ![Сведения о журнале обращений и преобразований пользователя](./media/active-directory-aadconnectsync-implement-password-synchronization/cspasswordsync.png)
-7. Затем [отследите пользователя](active-directory-aadconnectsync-service-manager-ui-connectors.md#follow-an-object-and-its-data-through-the-system) от метавселенной до пространства соединителя Azure AD. Объект пространства соединителя должен содержать правило исходящих подключений, в котором параметр **Синхронизация паролей** имеет значение **True**. В конфигурации по умолчанию это будет правило синхронизации с именем **Out to AAD - User Join**. ![Свойства пространства соединителя пользователя](./media/active-directory-aadconnectsync-implement-password-synchronization/cspasswordsync2.png)
-8. Чтобы просмотреть сведения о синхронизации паролей объекта за прошедшую неделю, щелкните **Журнал**. ![Сведения журнала объекта](./media/active-directory-aadconnectsync-implement-password-synchronization/csobjectlog.png)
+1. Start the **[Synchronization Service Manager](active-directory-aadconnectsync-service-manager-ui.md)**.
+2. Click **Connectors**.
+3. Select the **Active Directory Connector** the user is located in.
+4. Select **Search Connector Space**.
+5. Locate the user you are looking for.
+6. Select the **lineage** tab and make sure that at least one Sync Rule shows **Password Sync** as **True**. In the default configuration, the name of the Sync Rule is **In from AD - User AccountEnabled**.  
+    ![Lineage information about a user](./media/active-directory-aadconnectsync-implement-password-synchronization/cspasswordsync.png)  
+7. Then [follow the user](active-directory-aadconnectsync-service-manager-ui-connectors.md#follow-an-object-and-its-data-through-the-system) through the metaverse to the Azure AD Connector space. The connector space object should have an outbound rule with **Password Sync** set to **True**. In the default configuration, the name of the sync rule is **Out to AAD - User Join**.  
+    ![Connector space properties of a user](./media/active-directory-aadconnectsync-implement-password-synchronization/cspasswordsync2.png)  
+8. To see the password sync details of the object for the past week, click **Log...**.  
+    ![Object log details](./media/active-directory-aadconnectsync-implement-password-synchronization/csobjectlog.png)  
 
-В столбце "Состояние" могут содержаться перечисленные ниже значения.
+The status column can have the following values:
 
-Состояние | Description (Описание)
+Status | Description
 ---- | -----
-Успешно | Пароль успешно синхронизирован
-FilteredByTarget | Для пароля установлено значение **Пользователь должен изменить пароль при следующем входе**. Пароль не синхронизирован.
-NoTargetConnection | Объект отсутствует в метавселенной или в пространстве соединителя Azure AD.
-SourceConnectorNotPresent | Объект не найден в локальном пространстве соединителя Active Directory.
-TargetNotExportedToDirectory | Объект в пространстве соединителя Azure AD еще не экспортирован.
-MigratedCheckDetailsForMoreInfo | Запись журнала создана до выхода версии 1.0.9125.0 и отображается в исходном состоянии.
+Success | Password has been successfully synchronized.
+FilteredByTarget | Password is set to **User must change password at next logon**. Password has not been synchronized.
+NoTargetConnection | No object in the metaverse or in the Azure AD connector space.
+SourceConnectorNotPresent | No object found in the on-premises Active Directory connector space.
+TargetNotExportedToDirectory | The object in the Azure AD connector space has not yet been exported.
+MigratedCheckDetailsForMoreInfo | Log entry was created before build 1.0.9125.0 and is shown in its legacy state.
 
-### Устранение неполадок, связанных с синхронизацией паролей
-Начните с выполнения скрипта, описанного в разделе [Получение состояния параметров синхронизации паролей](#get-the-status-of-password-sync-settings). В этом разделе рассматривается конфигурация синхронизации паролей. ![Выходные данные сценария PowerShell из параметров синхронизации паролей](./media/active-directory-aadconnectsync-implement-password-synchronization/psverifyconfig.png) Если в Azure AD не включена функция синхронизации паролей или не добавлено состояние канала синхронизации, запустите мастер установки Azure AD Connect. Выберите **Настроить параметры синхронизации** и снимите флажок "Синхронизация паролей". Это позволит временно отключить функцию. Затем снова запустите мастер установки и включите синхронизацию паролей. Запустите скрипт снова и проверьте правильность конфигурации.
+### <a name="troubleshoot-issues-where-no-passwords-are-synchronized"></a>Troubleshoot issues where no passwords are synchronized
+Start by running the script in the section [Get the status of password sync settings](#get-the-status-of-password-sync-settings). It gives you an overview of the password sync configuration.  
+![PowerShell script output from password sync settings](./media/active-directory-aadconnectsync-implement-password-synchronization/psverifyconfig.png)  
+If the feature is not enabled in Azure AD or if the sync channel status is not enabled, then run the Connect installation wizard. Select **Customize synchronization options** and unselect password sync. This change temporarily disables the feature. Then run the wizard again and re-enable password sync. Run the script again to verify that the configuration is correct.
 
-Если конфигурация недопустима, тогда запустите скрипт, описанный в разделе [Запуск полной синхронизации всех паролей](#trigger-a-full-sync-of-all-passwords). Кроме того, этот скрипт можно использовать, если конфигурация правильная, но пароли не синхронизируются.
+If the script shows that there is no heartbeat, then run the script in [Trigger a full sync of all passwords](#trigger-a-full-sync-of-all-passwords). This script can also be used for other scenarios where the configuration is correct but passwords are not synchronized.
 
-#### Получение состояния параметров синхронизации паролей
+#### <a name="get-the-status-of-password-sync-settings"></a>Get the status of password sync settings
 
 ```
 Import-Module ADSync
@@ -208,8 +222,8 @@ if ($adConnectors -eq $null)
 Write-Host
 ```
 
-#### Запуск полной синхронизации всех паролей
-Полную синхронизацию всех паролей можно активировать с помощью следующего скрипта:
+#### <a name="trigger-a-full-sync-of-all-passwords"></a>Trigger a full sync of all passwords
+You can trigger a full sync of all passwords using the following script:
 
 ```
 $adConnector = "<CASE SENSITIVE AD CONNECTOR NAME>"
@@ -225,9 +239,13 @@ Set-ADSyncAADPasswordSyncConfiguration -SourceConnector $adConnector -TargetConn
 Set-ADSyncAADPasswordSyncConfiguration -SourceConnector $adConnector -TargetConnector $aadConnector -Enable $true
 ```
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Next steps
 
-* [Azure AD Connect Sync: настройка параметров синхронизации](active-directory-aadconnectsync-whatis.md)
-* [Интеграция локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md)
+* [Azure AD Connect Sync: Customizing Synchronization options](active-directory-aadconnectsync-whatis.md)
+* [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

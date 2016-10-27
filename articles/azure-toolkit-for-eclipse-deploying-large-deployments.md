@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Развертывание крупных систем"
-    description="Узнайте о развертывании крупных систем с помощью набора средств Azure для Eclipse."
+    pageTitle="Deploying Large Deployments"
+    description="Learn how to deploy large deployments using the Azure Toolkit for Eclipse."
     services=""
     documentationCenter="java"
     authors="rmcmurray"
@@ -16,43 +16,49 @@
     ms.date="08/11/2016" 
     ms.author="robmcm"/>
 
+
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/dn268601.aspx -->
 
-# Развертывание крупных систем #
+# <a name="deploying-large-deployments"></a>Deploying Large Deployments #
 
-В случае если развертывание слишком велико для размещения в корневом каталоге приложения, вы можете использовать локальный ресурс хранилища в качестве корневой папки для своего JDK и сервера приложений.
+If your deployment is too large to be contained in the default approot folder, you can use a local storage resource as the deployment root folder for your JDK and application server.
 
-## Использование локального ресурса хранилища в качестве корневой папки развертывания для крупных развертываний ##
+## <a name="to-use-a-local-storage-resource-as-the-deployment-root-folder-for-large-deployments"></a>To use a local storage resource as the deployment root folder for large deployments ##
 
-1. Создайте новый локальный ресурс хранилища. Имя ресурса значения не имеет. Ресурсы хранилища определяются на уровне роли. Быстрее всего получить доступа к диалоговому окну настройки локального хранилища, из которого вы можете создать новый локальный ресурс хранилища, можно с помощью следующих действий: щелкните правой кнопкой мыши роль в представлении **обозревателя проектов** (разверните узел проекта Azure, если вы не видите роль), выберите **Azure** и **Локальное хранилище**. В диалоговом окне **Локальное хранилище** нажмите кнопку **Добавить** для создания нового локального ресурса хранилища.
-1. Установите желаемый размер не менее 2048 МБ (меньшее значение может привести к тем же проблемам с размером файлов, что и в корневом каталоге приложения).
-1. Убедитесь, что флажок **Clean the contents when the role instance is recycled** (Очищать содержимое при перезапуске экземпляра роли) установлен. Это поможет предотвратить конфликты логики запуска развертывания с уже существующими файлами в ресурсе при перезапуске экземпляра роли.
-1. Убедитесь, что для значения **Environment variable storing the resource's directory path after deployment** (Переменная среды, хранящая путь к каталогу ресурса после развертывания) задана строка **DEPLOYROOT**. Диалоговое окно локального ресурса хранилища будет выглядеть следующим образом. ![][ic667943]
+1. Create a new local storage resource. The name of the resource does not matter. Storage resources are defined at the role level. The quickest way to access the local storage configuration dialog, from which you could create a new local storage resource, is by using the following steps: Right-click the role in the **Project Explorer** view (expand your Azure project node if you don't see the role), click **Azure**, and then click **Local Storage**. Within the **Local Storage** dialog, click **Add** to create a new local storage resource.
+1. Set the desired size to at least 2048 MB (anything less may cause the same file size problems as you would encounter in the approot).
+1. Ensure that **Clean the contents when the role instance is recycled** is checked; this will help prevent the deployment's startup logic from running into conflicts with pre-existing files in the resource when the role instance is recycled.
+1. Ensure that the **Environment variable storing the resource's directory path after deployment** value is set to the string **DEPLOYROOT**. Your local storage resource dialog will look similar to the following.
+    ![][ic667943]
 
-Кроме того, если вы используете **DEPLOYROOT** в качестве имени *name* локального ресурса и не изменяете автоматически созданное имя переменной среды (в данном случае это **DEPLOYROOT\_PATH**), данный вариант также подойдет для вашего приложения.
+Alternatively, if you use **DEPLOYROOT** as the *name* of your local resource and you do not change the automatically-generated environment variable name (which will be set to **DEPLOYROOT_PATH** in that case), that would work for your application as well.
 
-Дополнительные сведения о создании локального ресурса хранилища вы можете найти в статье [Свойства локального хранилища][].
+Additional information about creating a local storage resource can be found at [Local storage properties][].
 
-## См. также ##
+## <a name="see-also"></a>See Also ##
 
-[Набор средств Azure для Eclipse][]
+[Azure Toolkit for Eclipse][]
 
-[Создание приложения Hello World для Azure в Eclipse][]
+[Creating a Hello World Application for Azure in Eclipse][]
 
-[Установка набора средств Azure для Eclipse][]
+[Installing the Azure Toolkit for Eclipse][] 
 
-Дополнительные сведения об использовании Azure с Java см. в [центре разработчиков Java для Azure][].
+For more information about using Azure with Java, see the [Azure Java Developer Center][].
 
 <!-- URL List -->
 
-[центре разработчиков Java для Azure]: http://go.microsoft.com/fwlink/?LinkID=699547
-[Набор средств Azure для Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
-[Создание приложения Hello World для Azure в Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
-[Установка набора средств Azure для Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
-[Свойства локального хранилища]: http://go.microsoft.com/fwlink/?LinkID=699525#local_storage_properties
+[Azure Java Developer Center]: http://go.microsoft.com/fwlink/?LinkID=699547
+[Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
+[Creating a Hello World Application for Azure in Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
+[Installing the Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
+[Local storage properties]: http://go.microsoft.com/fwlink/?LinkID=699525#local_storage_properties
 
 <!-- IMG List -->
 
 [ic667943]: ./media/azure-toolkit-for-eclipse-deploying-large-deployments/ic667943.png
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

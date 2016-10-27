@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Виртуальное устройство StorSimple с обновлением 2 | Microsoft Azure"
-   description="Описание способов создания, развертывания виртуального устройства StorSimple в виртуальной сети Microsoft Azure и управления им. (Применимо к StorSimple с обновлением 2.)"
+   pageTitle="StorSimple virtual device Update 2| Microsoft Azure"
+   description="Learn how to create, deploy, and manage a StorSimple virtual device in a Microsoft Azure virtual network. (Applies to StorSimple Update 2)."
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
@@ -15,284 +15,290 @@
    ms.date="09/23/2016"
    ms.author="alkohli" />
 
-# Развертывание виртуального устройства StorSimple в Azure и управление им
+
+# <a name="deploy-and-manage-a-storsimple-virtual-device-in-azure"></a>Deploy and manage a StorSimple virtual device in Azure
 
 
-##Обзор
-Виртуальное устройство StorSimple серии 8000 — это дополнительная функция, поставляемая вместе с решением Microsoft Azure StorSimple. Виртуальное устройство StorSimple работает в виртуальной машине в виртуальной сети Microsoft Azure, и вы можете использовать его для резервного копирования и клонирования данных с узлов. В этом учебнике описывается развертывание виртуального устройства и управление им в Azure. Информация касается всех виртуальных устройств c программным обеспечением до версии с обновлением 2.
+##<a name="overview"></a>Overview
+The StorSimple 8000 series virtual device is an additional capability that comes with your Microsoft Azure StorSimple solution. The StorSimple virtual device runs on a virtual machine in a Microsoft Azure virtual network, and you can use it to back up and clone data from your hosts. This tutorial describes how to deploy and manage a virtual device in Azure and is applicable to all the virtual devices running software version Update 2 and lower.
 
 
-#### Сравнение моделей виртуального устройства
+#### <a name="virtual-device-model-comparison"></a>Virtual device model comparison
 
-Виртуальное устройство StorSimple доступно в двух моделях — 8010 (ценовая категория "Стандартный"; ранее представлена как 1100) и 8020 (ценовая категория "Премиум"; впервые представлена в обновлении 2). Сравнение двух моделей приведено в таблице ниже.
+The StorSimple virtual device is available in two models, a standard 8010 (formerly known as the 1100) and a premium 8020 (introduced in Update 2). A comparison of the two models is tabulated below.
 
 
-| Модель устройства | 8010<sup>1</sup> | 8020 |
+| Device model          | 8010<sup>1</sup>                                                                     | 8020                                                                                                                               |
 |-----------------------|---------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------|
-| **Максимальная емкость** | 30 TБ | 64 ТБ |
-| **Azure** | Standard\_A3 (4 ядра, 7 ГБ памяти) | Standard\_DS3 (4 ядра, 14 ГБ памяти) |
-| **Совместимость версий** | Версии, на которых запущено предварительное обновление 2 или более поздней версии | Версии, на которых запущено обновление 2 или более поздней версии |
-| **Регионы доступности** | Все регионы Azure | Регионы Azure, поддерживающие хранилища класса Premium<br></br>Список регионов с поддержкой модели 8020 см. [здесь](#supported-regions-for-8020). |
-| **Тип хранилища** | Использует хранилище Azure класса Standard для локальных дисков<br></br> Узнайте, как [создать учетную запись хранения класса Standard](). | Использует хранилище Azure класса Premium для локальных дисков<sup>2</sup> <br></br>Узнайте, как [создать учетную запись хранения класса Premium](storage-premium-storage.md#create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk). |
-| **Руководство по рабочим нагрузкам** | Извлечение файлов уровня элемента из резервных копий | Сценарии разработки и тестирования для облака, низкая задержка, рабочие нагрузки с более высокой производительностью <br></br>Дополнительное устройство для аварийного восстановления |
+| **Maximum capacity**      | 30 TB                                                                     | 64 TB                                                                                                                                |
+| **Azure VM**              | Standard_A3 (4 cores, 7 GB memory)                                                                      | Standard_DS3 (4 cores, 14 GB memory)                                                                                                                          |
+| **Version compatibility** | Versions running pre-Update 2 or later                                             | Versions running Update 2 or later                                                                                                  |
+| **Region availability**   | All Azure regions                                                         | Azure regions that support Premium Storage<br></br>For a list of regions, see [supported regions for 8020](#supported-regions-for-8020) |
+| **Storage type**          | Uses Azure Standard Storage for local disks<br></br> Learn how to [create a Standard Storage account]() | Uses Azure Premium Storage for local disks<sup>2</sup> <br></br>Learn how to [create a Premium Storage account](storage-premium-storage.md#create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk)                                                               |
+| **Workload guidance**     | Item level retrieval of files from backups                                              | Cloud dev and test scenarios, low latency, higher performance workloads <br></br>Secondary device for disaster recovery                                                                                            |
  
-<sup>1</sup> *Ранее известное как 1100*.
+<sup>1</sup> *Formerly known as the 1100*.
 
-<sup>2</sup> *Как 8010, так и 8020 используют для облачного уровня хранилище Azure класса Standard. Разница существует только на локальном уровне в пределах устройства*.
+<sup>2</sup> *Both the 8010 and 8020 use Azure Standard Storage for the cloud tier. The difference only exists in the local tier within the device*.
 
-#### Регионы с поддержкой модели 8020
+#### <a name="supported-regions-for-8020"></a>Supported regions for 8020
 
-Регионы для хранилища класса Premium, в которых сейчас реализована поддержка модели 8020, отображены ниже. Этот список постоянно обновляется, так как хранилище класса Premium становится доступным и в других регионах.
+The Premium Storage regions that are currently supported for 8020 are tabulated below. This list will be continuously updated as Premium Storage becomes available in more regions. 
 
-| Порядковый номер | Регионы, в которых сейчас реализована поддержка |
+| S. no.                                                  | Currently supported in regions |
 |---------------------------------------------------------|--------------------------------|
-| 1 | Центральный регион США |
-| 2 | Восток США |
-| 3 | Восток США 2 |
-| 4\. | Запад США |
-| 5 | Северная Европа |
-| 6 | Западная Европа |
-| 7 | Юго-Восточная Азия |
-| 8 | Восточная часть Японии |
-| 9 | Западная часть Японии |
-| 10 | Восточная часть Австралии |
-| 11 | Юго-Восточная часть Австралии* |
-| 12 | Восточная Азия* |
-| 13\. | Южно-центральный регион США* |
+| 1                                                       | Central US                     |
+| 2                                                       |  East US                       |
+| 3                                                       |  East US 2                     |
+| 4                                                       | West US                        |
+| 5                                                       | North Europe                   |
+| 6                                                       | West Europe                    |
+| 7                                                       | Southeast Asia                 |
+| 8                                                       | Japan East                     |
+| 9                                                       | Japan West                     |
+| 10                                                      | Australia East                 |
+| 11                                                      | Australia Southeast*           |
+| 12                                                      | East Asia*                     |
+| 13                                                      | South Central US*              |
 
-* В этих регионах хранилище класса Premium запущено недавно.
+*Premium Storage was launched recently in these geos.
 
-В этой статье описывается поэтапный процесс развертывания виртуального устройства StorSimple в Azure. После прочтения этой статьи вы узнаете:
+This article describes the step-by-step process of deploying a StorSimple virtual device in Azure. After reading this article, you will:
 
-- Чем виртуальное устройство отличается от физического.
+- Understand how the virtual device differs from the physical device.
 
-- Как создавать и настраивать виртуальные устройства.
+- Be able to create and configure the virtual device.
 
-- Как подключиться к виртуальному устройству.
+- Connect to the virtual device.
 
-- Как работать с виртуальным устройством.
+- Learn how to work with the virtual device.
 
-Сведения в этом учебнике относятся ко всем виртуальным устройствам StorSimple с обновлением версии 2 или более поздней.
+This tutorial applies to all the StorSimple virtual devices running Update 2 and higher. 
 
-## Отличия виртуального устройства от физического
+## <a name="how-the-virtual-device-differs-from-the-physical-device"></a>How the virtual device differs from the physical device
 
-Виртуальное устройство StorSimple — это программная версия StorSimple, которая выполняется на одном узле в виртуальной машине Microsoft Azure. Виртуальное устройство поддерживает сценарии аварийного восстановления, в которых физическое устройство недоступно. Кроме того, оно подходит для извлечения элементов из резервных копий, локального аварийного восстановления и использования в сценариях облачной разработки и тестирования.
+The StorSimple virtual device is a software-only version of StorSimple that runs on a single node in a Microsoft Azure Virtual Machine. The virtual device supports disaster recovery scenarios in which your physical device is not available, and is appropriate for use in item-level retrieval from backups, on-premises disaster recovery, and cloud dev and test scenarios.
 
-#### Отличия от физического устройства
+#### <a name="differences-from-the-physical-device"></a>Differences from the physical device
 
-В следующей таблице приведены основные различия между виртуальными и физическими устройствами StorSimple.
+The following table shows some key differences between the StorSimple virtual device and the StorSimple physical device.
 
-| | Физическое устройство | Виртуальное устройство |
+|                             | Physical device                                          | Virtual device                                                                            |
 |-----------------------------|----------------------------------------------------------|-------------------------------------------------------------------------------------------|
-| **Местоположение.** | Размещается в центре обработки данных. | Выполняется в Azure. |
-| **Сетевые интерфейсы** | Включает шесть сетевых интерфейсов: от DATA 0 до DATA 5. | Содержит только один сетевой интерфейс: DATA 0. |
-| **Регистрация** | Регистрируется во время настройки. | Регистрация представляет собой отдельную задачу. |
-| **Ключ шифрования данных службы** | Повторно создается на физическом устройстве, а затем виртуальное устройство обновляется с помощью нового ключа. | Повторное создание из виртуального устройства невозможно. |
+| **Location**                    | Resides in the datacenter.                               | Runs in Azure.                                                                            |
+| **Network interfaces**          | Has six network interfaces: DATA 0 through DATA 5.                  | Has only one network interface: DATA 0.                                        |
+| **Registration**                | Registered during the configuration step.                | Registration is a separate task.                                                          |
+| **Service data encryption key** | Regenerate on the physical device and then update the virtual device with the new key.           | Cannot regenerate from the virtual device. |
 
 
-## Предварительные условия (и необходимые компоненты) для виртуального устройства
+## <a name="prerequisites-for-the-virtual-device"></a>Prerequisites for the virtual device
 
-В следующих разделах разъясняются предварительные условия для настройки виртуального устройства StorSimple. Перед развертыванием виртуального устройства ознакомьтесь с разделом [Рекомендации по безопасности при использовании виртуального устройства](storsimple-security.md#storsimple-virtual-device-security).
+The following sections explain the configuration prerequisites for your StorSimple virtual device. Prior to deploying a virtual device, review the [security considerations for using a virtual device](storsimple-security.md#storsimple-virtual-device-security).
 
-#### Требования Azure
+#### <a name="azure-requirements"></a>Azure requirements
 
-Перед подготовкой виртуального устройства вам необходимо будет сделать следующее в среде Azure.
+Before you provision the virtual device, you need to make the following preparations in your Azure environment:
 
-- [Настройте виртуальную сеть в Azure](../virtual-network/virtual-networks-create-vnet-classic-portal.md) для виртуального устройства. При использовании хранилища класса Premium необходимо создать виртуальную сеть в регионе Azure, поддерживающем хранилище класса Premium. Дополнительные сведения о [регионах, которые сейчас поддерживает модель 8020](#supported-regions-for-8020).
-- Рекомендуется использовать DNS-сервер по умолчанию, предоставленный Azure, вместо того, чтобы указывать имя собственного DNS-сервера. Если DNS-имя сервера не является допустимым или если DNS-сервер не может правильно разрешать IP-адреса, создание виртуального устройства завершится с ошибкой.
-- Подключения типа "точка-сеть" и "сеть-сеть" являются необязательными. При необходимости можно настроить эти параметры для более сложных сценариев.
-- Вы можете создать [виртуальные машины Azure](../virtual-machines/virtual-machines-linux-about.md) (серверы узла) в виртуальной сети, которая может использовать тома, предоставляемые виртуальным устройством. Эти серверы должны соответствовать следующим требованиям.
-	- Они должны являться виртуальными машинами Windows или Linux с установленным программным обеспечением инициатора iSCSI.
-	- Они должны работать в той же виртуальной сети, что и виртуальное устройство.
-	- Они должны иметь возможность подключения к платформе iSCSI виртуального устройства по внутреннему IP-адресу виртуального устройства.
+- For the virtual device, [configure a virtual network on Azure](../virtual-network/virtual-networks-create-vnet-classic-portal.md). If using Premium Storage, you must create a virtual network in an Azure region that supports Premium Storage. More information on [regions that are currently supported for 8020](#supported-regions-for-8020).
+- It is advisable to use the default DNS server provided by Azure instead of specifying your own DNS server name. If your DNS server name is not valid or if the DNS server is not able to resolve IP addresses correctly, the creation of the virtual device will fail.
+- Point-to-site and site-to-site are optional, but not required. If you wish, you can configure these options for more advanced scenarios. 
+- You can create [Azure Virtual Machines](../virtual-machines/virtual-machines-linux-about.md) (host servers) in the virtual network that can use the volumes exposed by the virtual device. These servers must meet the following requirements:                            
+    - Be Windows or Linux VMs with iSCSI Initiator software installed.
+    - Be running in the same virtual network as the virtual device.
+    - Be able to connect to the iSCSI target of the virtual device through the internal IP address of the virtual device.
 
-- Убедитесь, что вы настроили поддержку iSCSI и облачный трафик в одной виртуальной сети.
+- Make sure you have configured support for iSCSI and cloud traffic on the same virtual network.
 
 
-#### Требования StorSimple
+#### <a name="storsimple-requirements"></a>StorSimple requirements
 
-Внесите следующие изменения в службу Azure StorSimple перед созданием виртуального устройства.
+Make the following updates to your Azure StorSimple service before you create a virtual device:
 
 
-- Добавьте [записи контроля доступа](storsimple-manage-acrs.md) для виртуальных машин, которые будут серверами узла для виртуального устройства.
+- Add [access control records](storsimple-manage-acrs.md) for the VMs that are going to be host servers for your virtual device.
 
-- Используйте [учетную запись хранения](storsimple-manage-storage-accounts.md#add-a-storage-account), которая находится в том же регионе, что и виртуальное устройство. Если учетные записи хранения находятся в разных регионах, это может привести к сильному понижению производительности. С виртуальным устройством можно использовать учетную запись хранения класса Standard или Premium. Дополнительную информацию о создании новой учетной записи хранения см. в статьях [Учетная запись хранения класса Standard]() и [Учетная запись хранения класса Premium](storage-premium-storage.md#create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk).
+- Use a [storage account](storsimple-manage-storage-accounts.md#add-a-storage-account) in the same region as the virtual device. Storage accounts in different regions may result in poor performance. You can use a Standard or Premium Storage account with the virtual device. More information on how to create a [Standard Storage account]() or a [Premium Storage account](storage-premium-storage.md#create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk)
 
-- Для создания виртуального устройства используйте учетную запись хранения, отличную от той, которая используется для ваших данных. Использование той же учетной записи хранения может привести к сильному понижению производительности.
+- Use a different storage account for virtual device creation from the one used for your data. Using the same storage account may result in poor performance.
 
-Перед началом работы убедитесь, что у вас есть следующие сведения.
+Make sure that you have the following information before you begin:
 
-- Учетная запись на классическом портале Azure и учетные данные для доступа.
+- Your Azure classic portal account with access credentials.
 
-- Копия ключа шифрования данных службы, полученная с физического устройства.
+- A copy of the service data encryption key from your physical device.
 
 
-## Создание и настройка виртуального устройства
+## <a name="create-and-configure-the-virtual-device"></a>Create and configure the virtual device
 
-Перед выполнением этих процедур убедитесь, что соблюдены [предварительные условия для виртуального устройства](#prerequisites-for-the-virtual-device).
+Before performing these procedures, make sure that you have met the [Prerequisites for the virtual device](#prerequisites-for-the-virtual-device). 
 
-После создания виртуальной сети, настройки службы диспетчера StorSimple и регистрации физического устройства StorSimple в службе вы можете выполнить следующие действия для создания и настройки виртуального устройства StorSimple.
+After you have created a virtual network, configured a StorSimple Manager service, and registered your physical StorSimple device with the service, you can use the following steps to create and configure a StorSimple virtual device. 
 
-### Шаг 1. Создание виртуального устройства
+### <a name="step-1:-create-a-virtual-device"></a>Step 1: Create a virtual device
 
-Выполните указанные ниже действия для создания виртуального устройства StorSimple.
+Perform the following steps to create the StorSimple virtual device.
 
-[AZURE.INCLUDE [Создание виртуального устройства](../../includes/storsimple-create-virtual-device-u2.md)]
+[AZURE.INCLUDE [Create a virtual device](../../includes/storsimple-create-virtual-device-u2.md)]
 
-Если на этом этапе создания виртуального устройства происходит сбой, подключение к Интернету может отсутствовать. Дополнительные сведения см. в разделе о [поиске и устранении ошибок подключения к Интернету](#troubleshoot-internet-connectivity-errors) при создании виртуального устройства.
+If the creation of the virtual device fails in this step, you may not have connectivity to the Internet. For more information, go to [troubleshoot Internet connectivity failures](#troubleshoot-internet-connectivity-errors) when creatig a virtual device.
 
 
-### Шаг 2. Настройка и регистрация виртуального устройства
+### <a name="step-2:-configure-and-register-the-virtual-device"></a>Step 2: Configure and register the virtual device
 
-Перед тем, как начать эту процедуру, убедитесь, что у вас есть копия ключа шифрования данных службы. Ключ шифрования данных службы был создан при настройке первого устройства StorSimple, и его рекомендовалось сохранить в защищенном месте. Если у вас нет копии ключа шифрования данных службы, следует обратиться в службу поддержки Майкрософт за помощью.
+Before starting this procedure, make sure that you have a copy of the service data encryption key. The service data encryption key was created when you configured your first StorSimple device and you were instructed to save it in a secure location. If you do not have a copy of the service data encryption key, you must contact Microsoft Support for assistance.
 
-Выполните следующие действия, чтобы настроить и зарегистрировать виртуальное устройство StorSimple.
-[AZURE.INCLUDE [Настройка и регистрация виртуального устройства](../../includes/storsimple-configure-register-virtual-device.md)]
+Perform the following steps to configure and register your StorSimple virtual device.
+[AZURE.INCLUDE [Configure and register a virtual device](../../includes/storsimple-configure-register-virtual-device.md)]
 
-### Шаг 3 (необязательный). Изменение параметров конфигурации устройства
+### <a name="step-3:-(optional)-modify-the-device-configuration-settings"></a>Step 3: (Optional) Modify the device configuration settings
 
-В следующем разделе описаны параметры конфигурации устройства, которые необходимо настроить для виртуального устройства StorSimple, если вы хотите использовать CHAP, диспетчер моментальных снимков StorSimple или изменить пароль администратора устройства.
+The following section describes the device configuration settings needed for the StorSimple virtual device if you want to use CHAP, StorSimple Snapshot Manager or change the Device Administrator password.
 
-#### Настройка инициатора CHAP
+#### <a name="configure-the-chap-initiator"></a>Configure the CHAP initiator
 
-Этот параметр содержит учетные данные, которые виртуальное устройство (целевое устройство) ожидает от инициаторов (серверов), пытающихся получить доступ к томам. Инициаторы предоставят имя пользователя и пароль CHAP для собственной идентификации на устройстве во время проверки подлинности. Подробные инструкции см. в разделе [Настройка CHAP для устройства](storsimple-configure-chap.md#unidirectional-or-one-way-authentication).
+This parameter contains the credentials that your virtual device (target) expects from the initiators (servers) that are attempting to access the volumes. The initiators will provide a CHAP user name and a CHAP password to identify themselves to your device during this authentication. For detailed steps, go to [Configure CHAP for your device](storsimple-configure-chap.md#unidirectional-or-one-way-authentication).
 
-#### Настройка целевого устройства CHAP
+#### <a name="configure-the-chap-target"></a>Configure the CHAP target
 
-Этот параметр содержит учетные данные, которые виртуальное устройство использует при запросе взаимной или двунаправленной проверки подлинности инициатором с поддержкой CHAP. Ваше виртуальное устройство будет использовать обратные имя пользователя и пароль CHAP для собственной идентификации в инициаторе во время проверки подлинности. Обратите внимание, что параметры целевого устройства CHAP являются глобальными. При их применении все тома, подключенные к виртуальному устройству для хранения данных, будут использовать проверку подлинности CHAP. Подробные инструкции см. в разделе [Настройка CHAP для устройства](storsimple-configure-chap.md#bidirectional-or-mutual-authentication).
+This parameter contains the credentials that your virtual device uses when a CHAP-enabled initiator requests mutual or bi-directional authentication. Your virtual device will use a Reverse CHAP user name and Reverse CHAP password to identify itself to the initiator during this authentication process. Note that CHAP target settings are global settings. When these are applied, all the volumes connected to the storage virtual device will use CHAP authentication. For detailed steps, go to [Configure CHAP for your device](storsimple-configure-chap.md#bidirectional-or-mutual-authentication).
 
-#### Настройка пароля диспетчера моментальных снимков StorSimple
+#### <a name="configure-the-storsimple-snapshot-manager-password"></a>Configure the StorSimple Snapshot Manager password
 
-Программное обеспечение диспетчера моментальных снимков StorSimple находится на узле Windows и позволяет администраторам управлять созданием резервных копий для устройства StorSimple в виде локальных и облачных моментальных снимков.
+StorSimple Snapshot Manager software resides on your Windows host and allows administrators to manage backups of your StorSimple device in the form of local and cloud snapshots.
 
->[AZURE.NOTE] Для виртуального устройства узел Windows — это виртуальная машина Azure.
+>[AZURE.NOTE] For the virtual device, your Windows host is an Azure virtual machine.
 
-При настройке устройства в диспетчере моментальных снимков StorSimple вас попросят указать IP-адрес и пароль устройства StorSimple для проверки подлинности устройства для хранения данных. Подробные инструкции см. в разделе [Установка пароля диспетчера моментальных снимков StorSimple](storsimple-change-passwords.md#change-the-storsimple-snapshot-manager-password).
+When configuring a device in the StorSimple Snapshot Manager, you will be prompted to provide the StorSimple device IP address and password to authenticate your storage device. For detailed steps, go to [Configure StorSimple Snapshot Manager password](storsimple-change-passwords.md#change-the-storsimple-snapshot-manager-password).
 
-#### Изменение пароля администратора устройства 
+#### <a name="change-the-device-administrator-password"></a>Change the device administrator password 
 
-При использовании интерфейса Windows PowerShell для доступа к виртуальному устройству вам потребуется ввести пароль администратора устройства. Для обеспечения безопасности ваших данных необходимо изменить этот пароль перед тем, как использовать виртуальное устройство. Подробные инструкции см. в разделе [Установка пароля администратора устройства](storsimple-change-passwords.md#change-the-device-administrator-password).
+When you use the Windows PowerShell interface to access the virtual device, you will be required to enter a device administrator password. For the security of your data, you are required to change this password before the virtual device can be used. For detailed steps, go to [Configure device administrator password](storsimple-change-passwords.md#change-the-device-administrator-password).
 
-## Удаленное подключение к виртуальному устройству
-Удаленный доступ к виртуальному устройству в интерфейсе Windows PowerShell по умолчанию отключен. Необходимо сначала включить удаленное управление на виртуальном устройстве, а затем включить его в клиенте, который будет использоваться для доступа к виртуальному устройству.
+## <a name="connect-remotely-to-the-virtual-device"></a>Connect remotely to the virtual device
+Remote access to your virtual device via the Windows PowerShell interface is not enabled by default. You need to enable remote management on the virtual device first, and then enable it on the client that will be used to access your virtual device.
 
-Ниже описаны два этапа для удаленного подключения.
+The two-step process to connect remotely is detailed below.
 
-### Шаг 1. Настройка удаленного управления
+### <a name="step-1:-configure-remote-management"></a>Step 1: Configure remote management
 
-Выполните следующие действия, чтобы настроить удаленное управление для виртуального устройства StorSimple.
+Perform the following steps to configure remote management for your StorSimple virtual device.
 
-[AZURE.INCLUDE [Настройка удаленного управления по протоколу HTTP для виртуального устройства](../../includes/storsimple-configure-remote-management-http-device.md)]
+[AZURE.INCLUDE [Configure remote management via HTTP for virtual device](../../includes/storsimple-configure-remote-management-http-device.md)]
 
-### Шаг 2. Удаленный доступ к виртуальному устройству
+### <a name="step-2:-remotely-access-the-virtual-device"></a>Step 2: Remotely access the virtual device
 
-После включения удаленного управления на странице конфигурации устройства StorSimple вы можете использовать удаленное взаимодействие Windows PowerShell для подключения к виртуальному устройству с другой виртуальной машины в той же виртуальной сети; например, вы можете подключиться с виртуальной машины-хоста, которую вы настроили и использовали для подключения iSCSI. В большинстве развертываний у вас уже есть открытая общедоступная конечная точка для доступа к виртуальной машине-хосту, которую можно использовать для доступа к виртуальному устройству.
+After you have enabled remote management on the StorSimple device configuration page, you can use Windows PowerShell remoting to connect to the virtual device from another virtual machine inside the same virtual network; for example, you can connect from the host VM that you configured and used to connect iSCSI. In most deployments, you will have already opened a public endpoint to access your host VM that you can use for accessing the virtual device.
 
->[AZURE.WARNING] **Для повышения уровня безопасности настоятельно рекомендуется использовать протокол HTTPS при подключении к конечным точкам и удалении конечных точек после завершения удаленного сеанса PowerShell.**
+>[AZURE.WARNING] **For enhanced security, we strongly recommend that you use HTTPS when connecting to the endpoints and then delete the endpoints after you have completed your PowerShell remote session.**
 
-Процедуры настройки удаленного взаимодействия на виртуальном устройстве описаны в статье [Удаленное подключение к устройству StorSimple](storsimple-remote-connect.md).
+You should follow the procedures in [Connecting remotely to your StorSimple device](storsimple-remote-connect.md) to set up remoting for your virtual device.
 
-## Прямое подключение к виртуальному устройству
+## <a name="connect-directly-to-the-virtual-device"></a>Connect directly to the virtual device
 
-Также можно подключиться непосредственно к виртуальному устройству. Если вы хотите подключиться напрямую к виртуальному устройству с другого компьютера, находящегося за пределами виртуальной сети или за пределами среды Microsoft Azure, необходимо создать дополнительные конечные точки, как описано в следующей процедуре.
+You can also connect directly to the virtual device. If you want to connect directly to the virtual device from another computer outside the virtual network or outside the Microsoft Azure environment, you need to create additional endpoints as described in the following procedure. 
 
-Выполните следующие действия, чтобы создать общедоступную конечную точку на виртуальном устройстве.
+Perform the following steps to create a public endpoint on the virtual device.
 
-[AZURE.INCLUDE [Создание общедоступных конечных точек на виртуальном устройстве](../../includes/storsimple-create-public-endpoints-virtual-device.md)]
+[AZURE.INCLUDE [Create public endpoints on a virtual device](../../includes/storsimple-create-public-endpoints-virtual-device.md)]
 
-Рекомендуется подключиться с другой виртуальной машины внутри той же виртуальной сети, так как это минимизирует число общедоступных конечных точек в виртуальной сети. При использовании этого метода вы просто подключаетесь к виртуальной машине с помощью сеанса удаленного рабочего стола, а затем настраиваете виртуальную машину так же, как любой другой клиент Windows в локальной сети. Вам не нужно добавлять номер общедоступного порта, так как порт будет уже известен.
+We recommend that you connect from another virtual machine inside the same virtual network because this practice minimizes the number of public endpoints on your virtual network. When you use this method, you simply connect to the virtual machine through a Remote Desktop session and then configure that virtual machine for use as you would any other Windows client on a local network. You do not need to append the public port number because the port will already be known.
 
-## Работа с виртуальным устройством StorSimple
+## <a name="work-with-the-storsimple-virtual-device"></a>Work with the StorSimple virtual device
 
-После создания и настройки виртуального устройства StorSimple вы можете начать работу с ним. Работа с контейнерами томов, томами и политиками резервного копирования на виртуальном устройстве аналогична работе с ними на физическом устройстве StorSimple. Единственное отличие состоит в том, что нужно убедиться, что вы выбрали виртуальное устройство из списка устройств. Обратитесь к статье [Управление виртуальным устройством с помощью службы диспетчера StorSimple](storsimple-manager-service-administration.md) для получения пошаговых процедур для различных задач управления виртуальным устройством.
+Now that you have created and configured the StorSimple virtual device, you are ready to start working with it. You can work with volume containers, volumes, and backup policies on a virtual device just as you would on a physical StorSimple device; the only difference is that you need to make sure that you select the virtual device from your device list. Refer to [use the StorSimple Manager service to manage a virtual device](storsimple-manager-service-administration.md) for step-by-step procedures of the various management tasks for the virtual device.
 
-В следующих разделах рассматриваются некоторые отличия, с которыми вы столкнетесь при работе с виртуальным устройством.
+The following sections discuss some of the differences you will encounter when working with the virtual device.
 
-### Обслуживание виртуального устройства StorSimple
+### <a name="maintain-a-storsimple-virtual-device"></a>Maintain a StorSimple virtual device
 
-Так как это программное устройство, обслуживание виртуального устройства сведено к минимуму по сравнению с обслуживанием физического устройства. Доступны следующие варианты:
+Because it is a software-only device, maintenance for the virtual device is minimal when compared to maintenance for the physical device. You have the following options:
 
-- **Обновления программного обеспечения** — вы можете просмотреть дату последнего обновления программного обеспечения, а также все сообщения о состоянии обновления. Вы можете нажать кнопку **Проверить наличие обновлений** в нижней части страницы для выполнения проверки вручную, если необходимо проверить наличие обновлений. При их наличии щелкните **Установить обновления**. Так как на виртуальном устройстве есть только один интерфейс, это означает, что при применении обновлений произойдет краткое прерывание в работе служб. Виртуальное устройство будет перезагружено (при необходимости) для применения выпущенных обновлений. Описание пошаговой процедуры см. в статье [Обновление устройства](storsimple-update-device.md#install-regular-updates-via-the-azure-classic-portal).
-- **Пакет поддержки** — вы можете создать и отправить пакет поддержки, чтобы помочь службе поддержки Майкрософт в устранении неполадок на виртуальном устройстве. Описание пошаговой процедуры см. в статье [Создание пакетов поддержки и управление ими](storsimple-create-manage-support-package.md).
+- **Software updates** – You can view the date that the software was last updated, together with any update status messages. You can use the **Scan updates** button at the bottom of the page to perform a manual scan if you want to check for new updates. If updates are available, click **Install Updates** to install. Because there is only a single interface on the virtual device, this means that there will be a slight service interruption when updates are applied. The virtual device will shut down and restart (if necessary) to apply any updates that have been released. For a step-by-step procedure, go to [update your device](storsimple-update-device.md#install-regular-updates-via-the-azure-classic-portal).
+- **Support package** – You can create and upload a support package to help Microsoft Support troubleshoot issues with your virtual device. For a step-by-step procedure, go to [create and manage a support package](storsimple-create-manage-support-package.md).
 
-### Учетные записи хранения для виртуального устройства
+### <a name="storage-accounts-for-a-virtual-device"></a>Storage accounts for a virtual device
 
-Учетные записи хранения используются в службе диспетчера StorSimple, на виртуальных и физических устройствах. При создании учетных записей хранения в понятном имени рекомендуется использовать идентификатор региона, чтобы упростить обеспечение использования одного и тот же региона во всех компонентах системы. Для виртуального устройства важно, чтобы все компоненты находились в одном регионе, чтобы предотвратить понижение производительности.
+Storage accounts are created for use by the StorSimple Manager service, by the virtual device, and by the physical device. When you create your storage accounts, we recommend that you use a region identifier in the friendly name to help ensure that the region is consistent throughout all of the system components. For a virtual device, it is important that all of the components be in the same region to prevent performance issues.
 
-Описание пошаговой процедуры см. в статье [Добавление учетной записи хранения](storsimple-manage-storage-accounts.md#add-a-storage-account).
+For a step-by-step procedure, go to [add a storage account](storsimple-manage-storage-accounts.md#add-a-storage-account).
 
-### Деактивация виртуального устройства StorSimple
+### <a name="deactivate-a-storsimple-virtual-device"></a>Deactivate a StorSimple virtual device
 
-При деактивации виртуального устройства будет удалена виртуальная машина и ресурсы, созданные при ее подготовке. После деактивации виртуального устройства его невозможно вернуть в предыдущее состояние. Перед деактивацией виртуального устройства убедитесь, что остановили или удалили клиенты и узлы, зависящие от него.
+Deactivating a virtual device deletes the VM and the resources created when it was provisioned. After the virtual device is deactivated, it cannot be restored to its previous state. Before you deactivate the virtual device, make sure to stop or delete clients and hosts that depend on it.
 
-Деактивация виртуального устройства приведет к следующим действиям:
+Deactivating a virtual device results in the following actions:
 
-- Виртуальное устройство будет удалено.
+- The virtual device is removed.
 
-- Диск ОС и диски данных, созданные для виртуального устройства, будут удалены.
+- The OS disk and data disks created for the virtual device are removed.
 
-- Размещенная служба и виртуальная сеть, созданные во время подготовки, будут сохранены. Если вы не используете их, удалите их вручную.
+- The hosted service and virtual network created during provisioning are retained. If you are not using them, you should delete them manually.
 
-- Облачные моментальные снимки, созданные для виртуального устройства, будут сохранены.
+- Cloud snapshots created for the virtual device are retained.
 
-Описание пошаговой процедуры см. в статье [Отключение и удаление устройства StorSimple](storsimple-deactivate-and-delete-device.md).
+For a step-by-step procedure, go to [Deactivate and delete your StorSimple device](storsimple-deactivate-and-delete-device.md).
 
-После того как виртуальное устройство будет показано как деактивированное на странице службы диспетчера StorSimple, вы сможете удалить виртуальное устройство из списка устройств на странице **Устройства**.
+As soon as the virtual device is shown as deactivated on the StorSimple Manager service page, you can delete the virtual device from device list on the **Devices** page.
 
 
-### Запуск, остановка и перезапуск виртуального устройства
-В отличие от физического устройства StorSimple на виртуальном устройстве StorSimple нет кнопки включения и выключения питания. Однако иногда возникают ситуации, когда необходимо остановить и перезапустить виртуальное устройство. Например, для завершения некоторых обновлений может потребоваться перезапуск виртуальной машины. Самый простой способ запуска, остановки и перезапуска виртуального устройства — использовать консоль управления виртуальными машинами.
+### <a name="start,-stop-and-restart-a-virtual-device"></a>Start, stop and restart a virtual device
+Unlike the StorSimple physical device, there is no power on or power off button to push on a StorSimple virtual device. However, there may be occasions where you need to stop and restart the virtual device. For example, some updates might require that the VM be restarted to finish the update process. The easiest way for you to start, stop, and restart a virtual device is to use the Virtual Machines Management Console.
 
-Состояние виртуального устройства в консоли управления — **Работает**, так как оно запускается по умолчанию после создания. Вы можете запустить, остановить и перезапустить виртуальную машину в любое время.
+When you look at the Management Console, the virtual device status is **Running** because it is started by default after it is created. You can start, stop, and restart a virtual machine at any time.
 
-[AZURE.INCLUDE [Остановка и перезапуск виртуального устройства](../../includes/storsimple-stop-restart-virtual-device.md)]
+[AZURE.INCLUDE [Stop and restart virtual device](../../includes/storsimple-stop-restart-virtual-device.md)]
 
-### Сброс к параметрам по умолчанию
+### <a name="reset-to-factory-defaults"></a>Reset to factory defaults
 
-Если вы хотите заново настроить виртуальное устройство, просто деактивируйте и удалите его, а затем создайте новое. Как и при сбросе физического устройства на новом виртуальном устройстве не будут установлены обновления, поэтому прежде чем использовать его, проверьте их наличие.
+If you decide that you just want to start over with your virtual device, simply deactivate and delete it and then create a new one. Just like when your physical device is reset, your new virtual device will not have any updates installed; therefore, make sure to check for updates before using it.
 
 
-## Отработка отказа для виртуального устройства
+## <a name="fail-over-to-the-virtual-device"></a>Fail over to the virtual device
 
-Аварийное восстановление — это один из основных сценариев, для которых разработано виртуальное устройство StorSimple. В этом сценарии физическое устройство StorSimple или весь центр обработки данных могут быть недоступны. Однако вы можете использовать виртуальное устройство для восстановления операций в другом местоположении. Во время аварийного восстановления контейнеры томов из исходного устройства сменят владельца и будут перемещены на виртуальное устройство. Предварительные требования для аварийного восстановления включают создание и настройку виртуального устройства, отключение всех томов в контейнере томов и связь контейнера томов с облачным моментальным снимком.
+Disaster recovery (DR) is one of the key scenarios that the StorSimple virtual device was designed for. In this scenario, the physical StorSimple device or entire datacenter might not be available. Fortunately, you can use a virtual device to restore operations in an alternate location. During DR, the volume containers from the source device change ownership and are transferred to the virtual device. The prerequisites for DR are that the virtual device has been created and configured, all the volumes within the volume container have been taken offline, and the volume container has an associated cloud snapshot.
 
 >[AZURE.NOTE] 
 >
-> - При использовании виртуального устройства в качестве вторичного устройства для аварийного восстановления следует помнить, что устройство 8010 имеет 30 ТБ в хранилище класса Standard, а устройство 8020 — 64 ТБ в хранилище класса Premium. Виртуальное устройство большей емкости 8020 может лучше подходить для сценария аварийного восстановления.
-> - Вы не можете выполнить отработку отказа или клонирование с устройства с обновлением версии 2 на устройство с предварительным обновлением версии 1. Однако отработку отказа с устройства с обновлением версии 2 на устройство с обновлением версии 1 (1.1 или 1.2) выполнить можно.
+> - When using a virtual device as the secondary device for DR, keep in mind that the 8010 has 30 TB of Standard Storage and 8020 has 64 TB of Premium Storage. The higher capacity 8020 virtual device may be more suited for a DR scenario.
+> - You cannot failover or clone from a device running Update 2 to a device running pre-Update 1 software. You can however fail over a device running Update 2 to a device running Update 1 (1.1 or 1.2)
 
-Описание пошаговой процедуры см. в статье [Отработка отказа на виртуальное устройство](storsimple-device-failover-disaster-recovery.md#fail-over-to-a-storsimple-virtual-device).
+For a step-by-step procedure, go to [failover to a virtual device](storsimple-device-failover-disaster-recovery.md#fail-over-to-a-storsimple-virtual-device).
  
 
-## Завершение работы или удаление виртуального устройства
+## <a name="shut-down-or-delete-the-virtual-device"></a>Shut down or delete the virtual device
 
-Если вы ранее настроили и использовали виртуальное устройство StorSimple, но сейчас хотите остановить выставление счетов за вычисления, связанные с его использованием, можно завершить работу виртуального устройства. При завершении работы виртуального устройства его операционная система и диски с данными в хранилище не удаляются. Начисление расходов для подписки останавливается, но плата за хранилище для ОС и дисков с данными будет взиматься и дальше.
+If you previously configured and used a StorSimple virtual device but now want to stop accruing compute charges for its use, you can shut down the virtual device. Shutting down the virtual device doesn’t delete its operating system or data disks in storage. It does stop charges accruing on your subscription, but storage charges for the OS and data disks will continue.
 
-При удалении или завершении работы виртуального устройства оно отобразится на странице «Устройства» службы диспетчера StorSimple как **Автономное**. Вы можете деактивировать или удалить устройство, если необходимо также удалить резервные копии, созданные виртуальным устройством. Дополнительные сведения см. в статье [Отключение и удаление устройства StorSimple](storsimple-deactivate-and-delete-device.md).
+If you delete or shut down the virtual device, it will appear as **Offline** on the Devices page of the StorSimple Manager service. You can choose to deactivate or delete the device if you also wish to delete the backups created by the virtual device. For more information, see [Deactivate and delete a StorSimple device](storsimple-deactivate-and-delete-device.md).
 
-[AZURE.INCLUDE [Завершение работы виртуального устройства](../../includes/storsimple-shutdown-virtual-device.md)]
+[AZURE.INCLUDE [Shut down a virtual device](../../includes/storsimple-shutdown-virtual-device.md)]
 
-[AZURE.INCLUDE [Удаление виртуального устройства](../../includes/storsimple-delete-virtual-device.md)]
+[AZURE.INCLUDE [Delete a virtual device](../../includes/storsimple-delete-virtual-device.md)]
 
    
-## Поиск и устранение ошибок подключения к Интернету 
+## <a name="troubleshoot-internet-connectivity-errors"></a>Troubleshoot Internet connectivity errors 
 
-Если в ходе создания виртуального устройства прерывается подключение к Интернету, этот этап завершается ошибкой. Чтобы проверить, является ли причиной сбоя отсутствие подключения к Интернету, на классическом портале Azure выполните следующие действия.
+During the creation of a virtual device, if there is no connectivity to the Internet, the creation step will fail. To troubleshoot if the failure is because of Internet connectivity, perform the following steps in the Azure classic portal:
 
-1. Создайте в Azure виртуальную машину под управлением Windows Server 2012. Важно, чтобы для этой виртуальной машины использовалась та же учетная запись хранения, виртуальная сеть и подсеть, что и для нового виртуального устройства. Если в Azure уже имеется узел Windows Server, использующий ту же учетную запись хранения, виртуальную сеть и подсеть, вы можете использовать его для поиска и устранения ошибок подключения к Интернету.
-2. Войдите удаленно на виртуальную машину, созданную на предыдущем этапе.
-3. Откройте окно командной строки на виртуальной машине (нажмите Win + R, затем введите `cmd`).
-4. Выполните в командной строке следующий командлет.
+1. Create a Windows server 2012 virtual machine in Azure. This virtual machine should use the same storage account, VNet and subnet as used by your virtual device. If you already have an existing Windows Server host in Azure using the same storage account, Vnet and subnet, you can also use it to troubleshoot the Internet connectivity.
+2. Remote log into the virtual machine created in the preceding step. 
+3. Open a command window inside the virtual machine (Win + R and then type `cmd`).
+4. Run the following cmd at the prompt.
 
-	`nslookup windows.net`
+    `nslookup windows.net`
 
-5. Если командлет `nslookup` завершается ошибкой, это значит, что виртуальное устройство нельзя зарегистрировать в службе диспетчера StorSimple из-за ошибки подключения к Интернету.
-6. Внесите необходимые изменения в свою виртуальную сеть, чтобы обеспечить доступ виртуального устройства к сайтам Azure, таким как windows.net.
+5. If `nslookup` fails, then Internet connectivity failure is preventing the virtual device from registering to the StorSimple Manager service. 
+6. Make the required changes to your virtual network to ensure that the virtual device is able to access Azure sites such as “windows.net”.
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Next steps
 
-- Узнайте, как [управлять виртуальным устройством с помощью службы диспетчера StorSimple](storsimple-manager-service-administration.md).
+- Learn how to [use the StorSimple Manager service to manage a virtual device](storsimple-manager-service-administration.md).
  
-- Узнайте, как [восстановить том StorSimple из резервного набора данных](storsimple-restore-from-backup-set.md).
+- Understand how to [restore a StorSimple volume from a backup set](storsimple-restore-from-backup-set.md). 
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

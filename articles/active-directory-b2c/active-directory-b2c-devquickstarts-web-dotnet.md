@@ -1,73 +1,74 @@
 <properties
-	pageTitle="Azure Active Directory B2C | Microsoft Azure"
-	description="Инструкции по созданию веб-приложений, позволяющих пользователям выполнять вход, регистрироваться и управлять профилем, с помощью Azure Active Directory B2C."
-	services="active-directory-b2c"
-	documentationCenter=".net"
-	authors="dstrockis"
-	manager="msmbaldwin"
-	editor=""/>
+    pageTitle="Azure Active Directory B2C | Microsoft Azure"
+    description="How to build a web application that has sign-in, sign-up, and profile management by using Azure Active Directory B2C."
+    services="active-directory-b2c"
+    documentationCenter=".net"
+    authors="dstrockis"
+    manager="mbaldwin"
+    editor=""/>
 
 <tags
-	ms.service="active-directory-b2c"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="07/22/2016"
-	ms.author="dastrock"/>
+    ms.service="active-directory-b2c"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="dotnet"
+    ms.topic="article"
+    ms.date="07/22/2016"
+    ms.author="dastrock"/>
 
-# Azure AD B2C: создание веб-приложения API .NET
+
+# <a name="azure-ad-b2c:-build-a-.net-web-app"></a>Azure AD B2C: Build a .NET web app
 
 <!-- TODO [AZURE.INCLUDE [active-directory-b2c-devquickstarts-web-switcher](../../includes/active-directory-b2c-devquickstarts-web-switcher.md)]-->
 
-Azure Active Directory (Azure AD) B2C позволяет добавлять в веб-приложения мощные функции для самостоятельного управления удостоверениями. Это можно сделать, выполнив несколько простых действий. В этой статье описывается, как создать веб-приложение MVC для .NET, которое предусматривает регистрацию и вход пользователя, а также управление профилем. Приложение будет поддерживать регистрацию и вход в систему по имени пользователя или адресу электронной почты, а также учетной записи в социальной сети, такой как Facebook или Google.
+By using Azure Active Directory (Azure AD) B2C, you can add powerful self-service identity management features to your web app in a few short steps. This article will discuss how to create a .NET Model-View-Controller (MVC) web app that includes user sign-up, sign-in, and profile management. The app will include support for sign-up and sign-in by using a user name or email, and by using social accounts such as Facebook and Google.
 
-## Создание каталога Azure AD B2C
+## <a name="get-an-azure-ad-b2c-directory"></a>Get an Azure AD B2C directory
 
-Перед использованием Azure AD B2C необходимо создать каталог или клиент. Каталог — это контейнер для всех ваших пользователей, приложений, групп и т. д. Прежде чем продолжать работу с руководством, [создайте каталог B2C](active-directory-b2c-get-started.md), если он еще не создан.
+Before you can use Azure AD B2C, you must create a directory, or tenant. A directory is a container for all of your users, apps, groups, and more.  If you don't have one already, [create a B2C directory](active-directory-b2c-get-started.md) before you continue in this guide.
 
-## Создание приложения
+## <a name="create-an-application"></a>Create an application
 
-Затем необходимо создать приложение в каталоге B2C. Это дает Azure AD информацию, необходимую для безопасного взаимодействия с вашим приложением. Чтобы создать приложение, следуйте [этим инструкциям](active-directory-b2c-app-registration.md). Не забудьте сделать следующее.
+Next, you need to create an app in your B2C directory. This gives Azure AD information that it needs to securely communicate with your app. To create an app, follow [these instructions](active-directory-b2c-app-registration.md).  Be sure to:
 
-- Включите в приложение **веб-приложение или веб-API**.
-- Укажите `https://localhost:44316/` в качестве **URI перенаправления**. Это URL-адрес по умолчанию для данного примера кода.
-- Скопируйте **идентификатор приложения**, назначенный приложению. Оно понадобится вам позднее.
+- Include a **web app/web API** in the application.
+- Enter `https://localhost:44316/` as a **Redirect URI**. It is the default URL for this code sample.
+- Copy down the **Application ID** that is assigned to your app.  You will need it later.
 
 [AZURE.INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
-## Создание политик
+## <a name="create-your-policies"></a>Create your policies
 
-В Azure AD B2C любое взаимодействие с пользователем определяется [политикой](active-directory-b2c-reference-policies.md). Этот пример кода включает три способа идентификации: регистрацию, вход в систему и изменение профиля. Вам нужно создать по одной политике каждого типа, как описано в [справочной статье о политиках](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy).
+In Azure AD B2C, every user experience is defined by a [policy](active-directory-b2c-reference-policies.md). This code sample contains three identity experiences: sign up, sign in, and edit profile. You need to create one policy of each type, as described in the [policy reference article](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy).
 
->[AZURE.NOTE] Azure AD B2C также поддерживает объединенную политику регистрации или входа в систему, не представленную в этом учебнике. Политика регистрации или входа в систему описана в [этом учебнике](active-directory-b2c-devquickstarts-web-dotnet-susi.md).
+>[AZURE.NOTE] Azure AD B2C also supports a combined sign up or sign in policy which is not featured in this tutorial.  The sign up or sign in policy is shown in [this equivalent tutorial](active-directory-b2c-devquickstarts-web-dotnet-susi.md).
 
-При создании трех необходимых политик обязательно сделайте следующее:
+When you create the three policies, be sure to:
 
-- В колонке поставщиков удостоверений выберите элемент **Регистрация с помощью идентификатора пользователя** или **Регистрация по электронной почте**.
-- В политике регистрации укажите **отображаемое имя** и другие атрибуты регистрации.
-- В каждой политике в качестве утверждения приложения выберите утверждение **Отображаемое имя**. Можно также выбрать другие утверждения.
-- Скопируйте **имя** каждой политики после ее создания. Имена политик понадобятся вам позднее.
+- Choose **User ID sign-up** or **Email sign-up** in the identity providers blade.
+- Choose the **Display name** and other sign-up attributes in your sign-up policy.
+- Choose the **Display name** claim as an application claim in every policy. You can choose other claims as well.
+- Copy the **Name** of each policy after you create it. You'll need those policy names later.
 
 [AZURE.INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
 
-Создав три политики, можно приступать к сборке приложения.
+After you create your three policies, you're ready to build your app.  
 
-## Загрузка кода и настройка проверки подлинности
+## <a name="download-the-code-and-configure-authentication"></a>Download the code and configure authentication
 
-Код для этого примера размещен на веб-сайте [GitHub](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIdConnect-DotNet). Чтобы выполнить сборку примера, [скачайте схему проекта в виде ZIP-файла](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIdConnect-DotNet/archive/skeleton.zip). Ее также можно клонировать:
+The code for this sample [is maintained on GitHub](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIdConnect-DotNet). To build the sample as you go, you can [download the skeleton project as a .zip file](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIdConnect-DotNet/archive/skeleton.zip). You can also clone the skeleton:
 
 ```
 git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIdConnect-DotNet.git
 ```
 
-Полный пример кода можно скачать [в виде ZIP-архива](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIdConnect-DotNet/archive/complete.zip) или получить его из ветви `complete` того же репозитория.
+The completed sample is also [available as a .zip file](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIdConnect-DotNet/archive/complete.zip) or on the `complete` branch of the same repository.
 
-Скачав пример кода, откройте SLN-файл Visual Studio, чтобы начать работу.
+After you download the sample code, open the Visual Studio .sln file to get started.
 
-Приложение взаимодействует с Azure AD B2C, отправляя сообщения проверки подлинности. В этих сообщениях указана политика, которую необходимо выполнить как часть HTTP-запроса. В случае с веб-приложениями .NET можно использовать ПО промежуточного слоя OWIN Майкрософт. С его помощью можно отправлять запросы проверки подлинности по протоколу OpenID Connect, выполнять политики, управлять сеансом пользователя и решать другие задачи.
+Your app communicates with Azure AD B2C by sending authentication messages that specify the policy they want to execute as part of the HTTP request. For .NET web applications, you can use Microsoft's OWIN middleware to send OpenID Connect authentication requests, execute policies, manage user sessions, and more.
 
-Сначала добавьте пакеты NuGet ПО промежуточного слоя OWIN в проект с помощью консоли диспетчера пакетов Visual Studio.
+To begin, add the OWIN middleware NuGet packages to the project by using the Visual Studio Package Manager Console.
 
 ```
 PM> Install-Package Microsoft.Owin.Security.OpenIdConnect
@@ -75,7 +76,7 @@ PM> Install-Package Microsoft.Owin.Security.Cookies
 PM> Install-Package Microsoft.Owin.Host.SystemWeb
 ```
 
-Затем откройте файл `web.config` в корне проекта и введите значения конфигурации приложения в разделе `<appSettings>`, заменив существующие значения собственными.
+Next, open the `web.config` file in the root of the project and enter your app's configuration values in the `<appSettings>` section, replacing the existing values.
 
 ```
 <configuration>
@@ -97,7 +98,7 @@ PM> Install-Package Microsoft.Owin.Host.SystemWeb
 
 [AZURE.INCLUDE [active-directory-b2c-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)]
 
-Теперь добавьте класс запуска OWIN в проект с именем `Startup.cs`. Щелкните проект правой кнопкой мыши и выберите **Добавить** в контекстном меню, затем **Новый элемент**, после чего найдите OWIN. **Не забудьте заменить объявление класса `public partial class Startup`**. Часть этого класса уже была реализована в другом файле. При запуске вашего приложения промежуточный слой OWIN вызовет метод `Configuration(...)`. В этом методе отправьте вызов в `ConfigureAuth(...)`, чтобы настроить проверку подлинности для приложения.
+Next, add an OWIN startup class to the project called `Startup.cs`. Right-click on the project, select **Add** and **New Item**, and then Search for "OWIN." **Make sure to change the class declaration to `public partial class Startup`**. We implemented part of this class for you in another file. The OWIN middleware will invoke the `Configuration(...)` method when your app starts. In this method, make a call to `ConfigureAuth(...)`, where you set up authentication for your app.
 
 ```C#
 // Startup.cs
@@ -111,7 +112,7 @@ public partial class Startup
 }
 ```
 
-Откройте файл `App_Start\Startup.Auth.cs` и реализуйте метод `ConfigureAuth(...)`. Параметры, указанные в `OpenIdConnectAuthenticationOptions`, будут служить координатами приложения для взаимодействия с Azure AD. Также будет необходимо настроить проверку подлинности для файлов Cookie — промежуточный слой OpenID Connect использует файлы cookie для поддержки сеанса пользователя и выполнения других задач.
+Open the file `App_Start\Startup.Auth.cs` and implement the `ConfigureAuth(...)` method.  The parameters you provide in `OpenIdConnectAuthenticationOptions` serve as coordinates for your app to communicate with Azure AD. You also need to set up cookie authentication. The OpenID Connect middleware uses cookies to maintain user sessions, among other things.
 
 ```C#
 // App_Start\Startup.Auth.cs
@@ -187,10 +188,10 @@ public partial class Startup
 }
 ```
 
-## Отправка запросов на проверку подлинности в Azure AD
-Теперь приложение настроено на взаимодействие с Azure AD B2C с использованием протокола проверки подлинности OpenID Connect. OWIN полностью возьмет на себя выполнение процессов создания сообщений проверки подлинности, проверки маркеров из Azure AD и поддержки сеанса пользователя. Осталось инициировать все потоки пользователей.
+## <a name="send-authentication-requests-to-azure-ad"></a>Send authentication requests to Azure AD
+Your app is now properly configured to communicate with Azure AD B2C by using the OpenID Connect authentication protocol.  OWIN has taken care of all of the details of crafting authentication messages, validating tokens from Azure AD, and maintaining user session.  All that remains is to initiate each user's flow.
 
-Когда пользователь нажимает кнопку **Регистрация**, **Вход** или **Изменить профиль** в веб-приложении, в `Controllers\AccountController.cs` вызывается соответствующее действие. В каждом случае можно использовать встроенные методы OWIN для запуска нужной политики:
+When a user selects **Sign up**, **Sign in**, or **Edit profile** in the web app, the associated action is invoked in `Controllers\AccountController.cs`. In each case, you can use built-in OWIN methods to trigger the right policy:
 
 ```C#
 // Controllers\AccountController.cs
@@ -226,7 +227,7 @@ public void Profile()
 }
 ```
 
-Кроме того, в контроллерах можно использовать тег `[Authorize]`. Он отвечает за выполнение определенных политик, если вход пользователя не выполнен. Откройте файл `Controllers\HomeController.cs` и добавьте тег `[Authorize]` в контроллер утверждений. OWIN выберет последнюю настроенную политику при вызове тега авторизации.
+You can also use an `[Authorize]` tag in your controllers that requires the execution of a certain policy if the user is not signed in. Open `Controllers\HomeController.cs` and add the `[Authorize]` tag to the claims controller.  OWIN will select the last policy configured to execute when the Authorize tag is invoked.
 
 ```C#
 // Controllers\HomeController.cs
@@ -238,7 +239,7 @@ public ActionResult Claims()
   ...
 ```
 
-Для выхода пользователя из приложения также можно использовать OWIN. В `Controllers\AccountController.cs` добавьте:
+You can also use OWIN to sign out the user from the app. In `Controllers\AccountController.cs`:  
 
 ```C#
 // Controllers\AccountController.cs
@@ -255,10 +256,10 @@ public void SignOut()
 }
 ```
 
-## Отображение сведений о пользователе
-При проверке подлинности пользователей с помощью OpenID Connect служба Azure AD возвращает в приложение маркер идентификатора, который содержит **утверждения**. о пользователе. Эти утверждения можно использовать для персонализации приложения.
+## <a name="display-user-information"></a>Display user information
+When you authenticate users by using OpenID Connect, Azure AD returns an ID token to the app that contains **claims**. These are assertions about the user. You can use claims to personalize your app.  
 
-Откройте файл `Controllers\HomeController.cs`. Для доступа к утверждениям о пользователе в своих контроллерах можно использовать объект субъекта безопасности `ClaimsPrincipal.Current`.
+Open the `Controllers\HomeController.cs` file. You can access user claims in your controllers via the `ClaimsPrincipal.Current` security principal object.
 
 ```C#
 // Controllers\HomeController.cs
@@ -266,34 +267,34 @@ public void SignOut()
 [Authorize]
 public ActionResult Claims()
 {
-	Claim displayName = ClaimsPrincipal.Current.FindFirst(ClaimsPrincipal.Current.Identities.First().NameClaimType);
-	ViewBag.DisplayName = displayName != null ? displayName.Value : string.Empty;
+    Claim displayName = ClaimsPrincipal.Current.FindFirst(ClaimsPrincipal.Current.Identities.First().NameClaimType);
+    ViewBag.DisplayName = displayName != null ? displayName.Value : string.Empty;
     return View();
 }
 ```
 
-Вы можете открыть любое утверждение, которое ваше приложение получает таким же образом. Список всех получаемых приложением утверждений можно найти на странице **Утверждения**.
+You can access any claim that your application receives in the same way.  A list of all the claims the app receives is available for you on the **Claims** page.
 
-## Запуск примера приложения
+## <a name="run-the-sample-app"></a>Run the sample app
 
-Приложение готово к сбору и запуску. Зарегистрируйтесь в приложении с использованием адреса электронной почты или имени пользователя. Выйдите и снова войдите под именем того же пользователя. Измените профиль пользователя. Выйдите и зарегистрируйтесь от имени другого пользователя. Обратите внимание, что информация на вкладке **Утверждения** соответствует сведениям, настроенным в политиках.
+Finally, you can build and run your app. Sign up for the app by using an email address or user name. Sign out and sign back in as the same user. Edit that user's profile. Sign out and sign up as a different user. Note that the information displayed on the **Claims** tab corresponds to the information that you configured on your policies.
 
-## Добавление поставщиков удостоверений социальных сетей
+## <a name="add-social-idps"></a>Add social IDPs
 
-В настоящее время приложение поддерживает регистрацию и вход пользователей только с использованием **локальных учетных записей**. Учетные записи хранятся в каталоге B2C, где применяется имя пользователя и пароль. С помощью Azure AD B2C можно добавить поддержку для других **поставщиков удостоверений** (IDP), не изменяя код.
+Currently, the app supports only user sign-up and sign-in by using **local accounts**. These are accounts stored in your B2C directory that use a user name and password. By using Azure AD B2C, you can add support for other **identity providers** (IDPs) without changing any of your code.
 
-Чтобы добавить в приложение поставщиков удостоверений социальных сетей, следуйте подробным инструкциям, приведенным в указанных ниже статьях. Для каждого поставщика удостоверений, поддержку которого нужно добавить, необходимо зарегистрировать приложение в соответствующей системе и получить идентификатор клиента.
+To add social IDPs to your app, begin by following the detailed instructions in these articles. For each IDP you want to support, you need to register an application in that system and obtain a client ID.
 
-- [Настройка Facebook как поставщика удостоверений](active-directory-b2c-setup-fb-app.md)
-- [Настройка Google как поставщика удостоверений](active-directory-b2c-setup-goog-app.md)
-- [Настройка Amazon как поставщика удостоверений](active-directory-b2c-setup-amzn-app.md)
-- [Настройка LinkedIn как поставщика удостоверений](active-directory-b2c-setup-li-app.md)
+- [Set up Facebook as an IDP](active-directory-b2c-setup-fb-app.md)
+- [Set up Google as an IDP](active-directory-b2c-setup-goog-app.md)
+- [Set up Amazon as an IDP](active-directory-b2c-setup-amzn-app.md)
+- [Set up LinkedIn as an IDP](active-directory-b2c-setup-li-app.md)
 
-Добавив поставщики удостоверений в каталог B2C, внесите соответствующие изменения в три политики, как описано в [справочной статье о политиках](active-directory-b2c-reference-policies.md). Сохраните политики и перезапустите приложение. Добавленные поставщики удостоверений должны отобразиться в виде вариантов при входе и регистрации.
+After you add the identity providers to your B2C directory, you need to edit each of your three policies to include the new IDPs, as described in the [policy reference article](active-directory-b2c-reference-policies.md). After you save your policies, run the app again.  You should see the new IDPs added as sign-in and sign-up options in each of your identity experiences.
 
-Вы можете свободно экспериментировать с политиками, например: добавлять или удалять поставщиков удостоверений, управлять утверждениями приложений или изменять атрибуты регистрации, а также наблюдать эффект в примере приложения. Эксперименты помогают увидеть связь между политиками, запросами на проверку подлинности и библиотекой OWIN.
+You can experiment with your policies and observe the effect on your sample app. Add or remove IDPs, manipulate application claims, or change sign-up attributes. Experiment until you can see how policies, authentication requests, and OWIN tie together.
 
-Полный пример (без ваших значений конфигурации) можно загрузить в виде [ZIP-архива](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIdConnect-DotNet/archive/complete.zip). Кроме того, его можно клонировать из GitHub:
+For reference, the completed sample (without your configuration values) [is provided as a .zip file](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIdConnect-DotNet/archive/complete.zip). You can also clone it from GitHub:
 
 ```
 git clone --branch complete https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIdConnect-DotNet.git
@@ -311,4 +312,8 @@ You can now move on to more advanced B2C topics. You might try:
 
 -->
 
-<!---HONumber=AcomDC_0727_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,16 +1,19 @@
-Ресурс|Ограничение по умолчанию|Максимальное ограничение
+Resource|Default Limit|Maximum Limit
 ---|---|---
-Максимальное количество доверенных IP-адресов и диапазонов IP-адресов</a> на одну подписку<sup>1</sup>|0|12
-Количество дней, в течение которого необходимо помнить мои устройства|14|60
-Максимальное количество паролей приложений|0|Без ограничений
-Количество попыток в рамках вызова MFA|1|99
-Время ожидания для двусторонних текстовых сообщений, с|60|600
-Продолжительность однократного обхода по умолчанию, с|300|1800
-Количество последовательных отказов MFA, после которых происходит блокировка учетной записи пользователя|Не задано|99
-Время, по истечении которого выполняется сброс счетчика блокировки, мин.|Не задано|9999
-Время, по истечении которого выполняется разблокирование учетной записи, мин.|Не задано|9999
+Max number of Trusted IP addresses/ranges</a> per subscription<sup>1</sup>|0|12
+Remember my devices - number of days|14|60
+Max number of app passwords?|0|No Limit
+Allow **X** attempts during MFA call|1|99
+Two-way Text message Timeout Seconds|60|600
+Default one-time bypass seconds|300|1800
+Lock user account after **X** consecutive MFA denials|Not Set|99
+Reset account lockout counter after **X** minutes|Not Set|9999
+Unlock account after **X** minutes|Not Set|9999
 
 
-<sup>1</sup>В будущем предполагается увеличить это значение.
+<sup>1</sup>This is expected to increase in the future.
 
-<!---HONumber=Oct15_HO3-->
+
+<!--HONumber=Oct16_HO2-->
+
+

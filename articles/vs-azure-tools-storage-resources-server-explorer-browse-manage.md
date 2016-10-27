@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Обзор ресурсов хранилища с помощью обозревателя сервера и управление ими | Microsoft Azure"
-   description="Обзор ресурсов хранилища с помощью обозревателя сервера и управление ими"
+   pageTitle="Browsing and managing storage resources with Server Explorer | Microsoft Azure"
+   description="Browsing and managing storage resources with Server Explorer"
    services="visual-studio-online"
    documentationCenter="na"
    authors="TomArcher"
@@ -15,306 +15,311 @@
    ms.date="07/18/2016"
    ms.author="tarcher" />
 
-# Обзор ресурсов хранилища с помощью обозревателя сервера и управление ими
+
+# <a name="browsing-and-managing-storage-resources-with-server-explorer"></a>Browsing and Managing Storage Resources with Server Explorer
 
 [AZURE.INCLUDE [storage-try-azure-tools](../includes/storage-try-azure-tools.md)]
 
-## Обзор
-Если вы установили инструменты Azure для Microsoft Visual Studio, вы можете просматривать данные BLOB-объектов, очередей и таблиц из учетных записей хранения в Azure. Узел хранилища Azure в обозревателе сервера отображает данные, содержащиеся в вашей локальной учетной записи эмулятора хранения и других учетных записях хранения Azure.
+## <a name="overview"></a>Overview
+If you've installed the Azure Tools for Microsoft Visual Studio, you can view blob, queue, and table data from your storage accounts for Azure. The Azure Storage node in Server Explorer shows data that’s in your local storage emulator account and your other Azure storage accounts.
 
-Чтобы просмотреть обозреватель сервера в Visual Studio, в строке меню выберите **Представление**, **Обозреватель сервера**. Узел "Хранилище" отображает все учетные записи хранения, существующие в подписках и сертификатах Azure, к которым вы подключены. Если ваша учетная запись хранения не отображается, добавьте ее, следуя инструкциям [далее в этом разделе](#add-storage-accounts-by-using-server-explorer).
+To view Server Explorer in Visual Studio, on the menu bar, choose **View**, **Server Explorer**. The storage node shows all of the storage accounts that exist under each Azure subscription/certificate you're connected to. If your storage account doesn't appear, you can add it by following the instructions [later in this topic](#add-storage-accounts-by-using-server-explorer).
 
-Начиная с версии Azure SDK 2.7, для просмотра ресурсов Azure и управления ими можно также использовать новый Cloud Explorer. Дополнительные сведения см. в статье [Управление ресурсами Azure с помощью Cloud Explorer](./vs-azure-tools-resources-managing-with-cloud-explorer.md).
+Starting in Azure SDK 2.7, you can also use the new Cloud Explorer to view and manage your Azure resources. See [Managing Azure Resources with Cloud Explorer](./vs-azure-tools-resources-managing-with-cloud-explorer.md) for more information.
 
 
-## Просмотр ресурсов хранилища и управление в Visual Studio
+## <a name="view-and-manage-storage-resources-in-visual-studio"></a>View and manage storage resources in Visual Studio
 
-Обозреватель сервера автоматически отображает список BLOB-объектов, очередей и таблиц в учетной записи эмулятора хранения. Учетная запись эмулятора хранения отображается в узле "Хранилище" как узел **Разработка**.
+Server Explorer automatically shows a list of blobs, queues, and tables in your storage emulator account. The storage emulator account is listed in Server Explorer under the Storage node as the **Development** node.
 
-Чтобы просмотреть ресурсы учетной записи эмулятора хранения, разверните узел **Разработка**. Если эмулятор хранения не был запущен при развертывании узла **Разработка**, он запустится автоматически. Это может занять несколько минут. Пока запускается эмулятор хранения, можно продолжать работу в остальных областях Visual Studio.
+To see the storage emulator account’s resources, expand the **Development** node. If the storage emulator hasn’t been started when you expand the **Development** node, it will automatically start. This can take several seconds. You can continue to work in other areas of Visual Studio while the storage emulator starts.
 
-Для просмотра ресурсов в учетной записи хранения откройте узел учетной записи хранения в обозревателе сервера. Отображаются следующие вложенные узлы:
+To view resources in a storage account, expand the storage account’s node in Server Explorer. The following sub-nodes appear:
 
-- BLOB-объекты
+- Blobs
 
-- Очереди
+- Queues
 
-- Таблицы
+- Tables
 
-## Работа с BLOB-ресурсами
+## <a name="work-with-blob-resources"></a>Work with Blob Resources
 
-Узел "BLOB-объекты" отображает список контейнеров для выбранной учетной записи хранения. Контейнеры BLOB-объектов содержат файлы BLOB-объектов, которые можно упорядочить в папки и вложенные папки. Дополнительные сведения см. в статье [Как использовать хранилище больших двоичных объектов из .NET](./storage/storage-dotnet-how-to-use-blobs.md).
+The Blobs node displays a list of containers for the selected storage account. Blob containers contain blob files, and you can organize these blobs into folders and subfolders. See [How to use Blob Storage from .NET](./storage/storage-dotnet-how-to-use-blobs.md) for more information.
 
-### Создание контейнера BLOB-объектов
+### <a name="to-create-a-blob-container"></a>To create a blob container
 
-1. Откройте контекстное меню для узла **BLOB-объекты** и выберите **Создать контейнер BLOB-объектов**.
+1. Open the shortcut menu for the **Blobs** node, and then choose **Create Blob Container**.
 
-1. Введите имя нового контейнера в диалоговом окне **Создание контейнера BLOB-объектов** и нажмите кнопку **ОК**.
+1. Enter the name of the new container in the **Create Blob Container** dialog box and then choose **Ok**.
 
-    ![Добавление нового контейнера BLOB-объектов](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC744153.bmp)
+    ![Adding a new blob container](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC744153.bmp)
 
-    >[AZURE.NOTE] Имя контейнера BLOB-объектов должно начинаться с числа (0–9) или строчной буквы (a–z).
+    >[AZURE.NOTE] The blob container name must begin with a number (0-9) or lowercase letter (a-z).
 
-### Удаление контейнера BLOB-объектов
+### <a name="to-delete-a-blob-container"></a>To delete a blob container
 
-- Откройте контекстное меню для контейнера BLOB-объектов, который нужно удалить, и выберите команду **Удалить**.
+- Open the shortcut menu for the blob container you want to remove and then choose **Delete**.
 
-### Отображение списка элементов, содержащихся в контейнере BLOB-объектов
+### <a name="to-display-a-list-of-the-items-contained-in-a-blob-container"></a>To display a list of the items contained in a blob container
 
-- Откройте контекстное меню для имени контейнера BLOB-объектов в списке и выберите команду **Просмотреть контейнер больших двоичных объектов**.
+- Open the shortcut menu for a blob container name in the list and then choose **View Blob Container**.
 
-    Содержимое контейнера BLOB-объектов отображается на вкладке "Представление контейнера BLOB-объектов".
+    When you view the contents of a blob container, it appears in a tab known as the blob container view.
 
-    ![VST\_SE\_BlobDesigner](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC749016.png)
+    ![VST_SE_BlobDesigner](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC749016.png)
 
-    С BLOB-объектами можно выполнить следующие операции с помощью кнопок в правом верхнем углу представления контейнера BLOB-объектов:
+    You can perform the following operations on blobs by using the buttons in the top-right corner of the blob container view:
 
-    - Ввести значение фильтра и применить его.
+    - Enter a filter value and apply it
 
-    - Обновить список BLOB-объектов в контейнере.
+    - Refresh the list of blobs in the container
 
-    - Отправить файл.
+    - Upload a file
 
-    - Удаление большого двоичного объекта
+    - Delete a blob
 
-      >[AZURE.NOTE] При удалении файла из контейнера BLOB-объектов базовый файл не удаляется. Он удаляется только из контейнера BLOB-объектов.
+      >[AZURE.NOTE] Deleting a file from a blob container doesn’t delete the underlying file; it only removes it from the blob container.
 
-    - Открыть BLOB-объект.
+    - Open a blob
 
-    - Сохранить BLOB-объект на локальном компьютере.
+    - Save a blob to the local computer
 
-### Создание папки или вложенной папки в контейнере BLOB-объектов
+### <a name="to-create-a-folder-or-subfolder-in-a-blob-container"></a>To create a folder or subfolder in a blob container
 
-1. Выберите контейнер BLOB-объектов в обозревателе сервера. В окне контейнера нажмите кнопку **Отправить BLOB-объект**.
+1. Choose the blob container in Server Explorer. In the container window, choose the **Upload Blob** button.
 
-    ![Отправка файла в папку BLOB-объектов](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC766037.png)
+    ![Uploading a file into a blob folder](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC766037.png)
 
-1. В диалоговом окне **Отправить новый файл** нажмите кнопку **Обзор**, чтобы указать необходимый файл, а затем введите имя папки в поле **Папка (необязательно)**.
+1. In the **Upload New File** dialog box, choose the **Browse** button to specify the file you want to upload, and then enter a folder name in the **Folder (optional)** box.
 
-    Добавлять вложенные папки в папки контейнера можно таким же способом. Если не указать имя папки, файл будет отправлен на верхний уровень контейнера BLOB-объектов. Файл содержится в указанной папке в контейнере.
+    You can add subfolders in container folders by following the same procedure. If you don’t specify a folder name, the file will be uploaded to the top level of the blob container.The file appears in the specified folder in the container.
 
-    ![Папка добавлена в контейнер BLOB-объектов](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC766038.png)
+    ![Folder added to a blob container](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC766038.png)
 
-1. Чтобы просмотреть содержимое папки, дважды щелкните папку или нажмите клавишу ВВОД. Чтобы перейти обратно из папки контейнера в его корень, нажмите кнопку **Открыть родительский каталог** (стрелка вверх).
+1. Double-click the folder or press ENTER to see the contents of the folder. When you’re in the container’s folder, you can navigate back to the root of the container by choosing the **Open Parent Directory** (up arrow) button.
 
-### Удаление папки контейнера
+### <a name="to-delete-a-container-folder"></a>To delete a container folder
 
- - Удалите все файлы в папке.
+ - Delete all of the files in the folder
 
-    >[AZURE.NOTE] Так как папки в контейнерах BLOB-объектов виртуальные, невозможно создать пустую папку или удалить папку, чтобы удалить файлы в ней. Чтобы удалить папку, необходимо удалить все ее содержимое.
+    >[AZURE.NOTE] Because folders in blob containers are virtual folders, you can’t create an empty folder, nor can you delete a folder to delete its file contents. You have to delete the entire contents of a folder to delete the folder.
 
-### Фильтрация BLOB-объектов в контейнере
+### <a name="to-filter-blobs-in-a-container"></a>To filter blobs in a container
 
-Отображаемые BLOB-объекты можно фильтровать по общему префиксу.
+You can filter the blobs that are displayed by specifying a common prefix.
 
-Например, если ввести префикс `hello` в текстовое поле фильтра и нажать кнопку **Выполнить** (**!**), отобразятся только BLOB-объекты, начинающиеся со слова hello.
+For example, if you enter the prefix `hello` in the filter text box and then choose the **Execute** (**!**)button, only blobs that begin with 'hello' appear.
 
-![VST\_SE\_FilterBlobs](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC519076.png)
+![VST_SE_FilterBlobs](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC519076.png)
 
 
->[AZURE.NOTE] В поле фильтра учитывается регистр и не поддерживается фильтрация с подстановочными знаками. BLOB-объекты можно фильтровать только по префиксу. Префикс может содержать разделитель, если он используется для создания виртуальной иерархии. Например, фильтрация по префиксу HelloFabric/ возвращает все BLOB-объекты, начинающиеся с этой строки.
+>[AZURE.NOTE] The filter field is case-sensitive and doesn’t support filtering with wildcard characters. Blobs can only be filtered by prefix. The prefix may include a delimiter if you are using a delimiter to organize blobs in a virtual hierarchy. For example, filtering on the prefix HelloFabric/ returns all blobs beginning with that string.
 
-### Загрузка данных BLOB-объектов
+### <a name="to-download-blob-data"></a>To download blob data
 
-- В **обозревателе сервера** откройте контекстное меню для одного или нескольких BLOB-объектов и выберите **Открыть** либо выберите имя BLOB-объекта и нажмите кнопку **Открыть** или дважды щелкните имя BLOB-объекта.
+- In **Server Explorer**, open the shortcut menu for one or more blobs and then choose **Open**, or choose the blob name and then choose the **Open** button, or double-click the blob name.
 
-    В окне **Журнал действий Azure** отображается ход скачивания.
+    The progress of a blob download appears in the **Azure Activity Log** window.
 
-    BLOB-объект откроется в редакторе по умолчанию для этого типа файлов. Если операционная система распознает этот тип файла, файл откроется в локально установленном приложении. В противном случае будет предложено выбрать приложение, которое подходит для этого типа файла BLOB-объекта. Локальный файл, который создается во время загрузки BLOB-объекта, помечен как доступный только для чтения.
+    The blob opens in the default editor for that file type. If the operating system recognizes the file type, the file opens in a locally installed application; otherwise, you're prompted to choose an application that’s appropriate for the file type of the blob. The local file that’s created when you download a blob is marked as read-only.
 
-    Данные BLOB-объекта кэшируются локально и проверяются на соответствие данным последнего изменения объекта в службе BLOB-объектов. Если BLOB-объект изменился со времени последней загрузки, он будет загружен снова. В противном случае он загрузится с локального диска. По умолчанию BLOB-объект загружается во временный каталог. Чтобы скачать BLOB-объекты в определенный каталог, откройте контекстное меню для выбранных имен BLOB-объектов и выберите пункт **Сохранить как**. При таком способе сохранения BLOB-объекта файл не открывается, и локальный файл создается с атрибутами чтения и записи.
+    Blob data is cached locally and checked against the blob's last modified time in the Blob service. If the blob has been updated since it was last downloaded, it will be downloaded again; otherwise the blob will be loaded from the local disk. By default a blob is downloaded to a temporary directory. To download blobs to a specific directory, open the shortcut menu for the selected blob names and choose **Save As**. When you save a blob in this manner, the blob file is not opened, and the local file is created with read-write attributes.
 
-### Отправка BLOB-объектов
+### <a name="to-upload-blobs"></a>To upload blobs
 
-- Чтобы просмотреть представление контейнера BLOB-объектов, при открытом контейнере нажмите кнопку **Отправить BLOB-объект**.
+- Choose the **Upload Blob** button when the container is open for viewing in the blob container view.
 
-    Можно выбрать один или несколько файлов для отправки и отправлять файлы любого типа. В **журнале действий Azure** отображается ход отправки. Дополнительную информацию о работе с данными BLOB-объектов см. в статье [Использование службы хранилища BLOB-объектов Azure в .NET](http://go.microsoft.com/fwlink/p/?LinkId=267911).
+    You can choose one or more files to upload, and you can upload files of any type. The **Azure Activity Log** shows the progress of the upload. For more information about how to work with blob data, see [How to use the Azure Blob Storage Service in .NET](http://go.microsoft.com/fwlink/p/?LinkId=267911).
 
-### Просмотр журналов, перенесенных в BLOB-объекты
+### <a name="to-view-logs-transferred-to-blobs"></a>To view logs transferred to blobs
 
-- Если для записи данных из приложения Azure в журнал используется система диагностики Azure и журналы перенесены в вашу учетную запись хранения, вы увидите контейнеры, созданные Azure для этих журналов. Просмотр этих журналов в обозревателе сервера — простой способ обнаружения проблем приложения, особенно если оно развернуто в Azure. Дополнительные сведения о системе диагностики Azure см. в статье [Сбор данных журнала с помощью системы диагностики Azure](https://msdn.microsoft.com/library/azure/gg433048.aspx).
+- If you are using Azure Diagnostics to log data from your Azure application and you have transferred logs to your storage account, you’ll see containers that were created by Azure for these logs. Viewing these logs in Server Explorer is an easy way to identify problems with your application, especially if it’s been deployed to Azure. For more information about Azure Diagnostics, see [Collect Logging Data by Using Azure Diagnostics](https://msdn.microsoft.com/library/azure/gg433048.aspx).
 
-### Получение URL-адреса для BLOB-объекта
+### <a name="to-get-the-url-for-a-blob"></a>To get the URL for a blob
 
-- Откройте контекстное меню BLOB-объекта и выберите пункт **Копировать URL-адрес**.
+- Open the blob’s shortcut menu and then choose **Copy URL**.
 
-### Изменение BLOB-объекта
+### <a name="to-edit-a-blob"></a>To edit a blob
 
-- Выберите BLOB-объект и нажмите кнопку **Открыть BLOB-объект**.
+- Select the blob and then choose the **Open Blob** button.
 
-    Файл загружается во временную папку и открывается на локальном компьютере. После внесения изменений BLOB-объект необходимо отправить еще раз.
+    The file is downloaded to a temporary location and opened on the local computer. You must upload the blob again after you make changes.
 
-## Работа с ресурсами очередей
+## <a name="work-with-queue-resources"></a>Work with Queue Resources
 
-Очереди служб хранилища размещаются в учетной записи хранения Azure. Их можно использовать, чтобы разрешать ролям облачных служб взаимодействовать друг с другом и другими службами с помощью механизма передачи сообщений. Доступ к очередям можно получить программным путем через облачную службу и веб-службу для внешних клиентов. Можно также получить доступ к очереди напрямую с помощью обозревателя сервера в Visual Studio.
+Storage services queues are hosted in an Azure storage account and you can use them to allow your cloud service roles to communicate with each other and with other services by a message passing mechanism. You can access the queue programmatically through a cloud service and over a web service for external clients. You can also access the queue directly by using Server Explorer in Visual Studio.
 
-При разработке облачной службы, которая использует очереди, можно использовать Visual Studio для создания очередей и работы с ними в интерактивном режиме во время разработки и тестирования кода.
+When you develop a cloud service that uses queues, you might want to use Visual Studio to create queues and work with them interactively while you develop and test your code.
 
-В обозревателе сервера можно просматривать очереди в учетной записи хранения, создавать и удалять очереди, открывать очередь для просмотра сообщений и добавлять сообщения в очередь. Если очередь открывается для просмотра, можно просматривать отдельные сообщения, а с помощью кнопок в левом верхнем углу можно выполнять следующие действия в очереди:
+In Server Explorer, you can view the queues in a storage account, create and delete queues, open a queue to view its messages, and add messages to a queue. When you open a queue for viewing, you can view the individual messages, and you can perform the following actions on the queue by using the buttons in the top-left corner:
 
-- обновлять представление очереди;
+- Refresh the view of the queue
 
-- добавлять сообщения в очередь;
+- Add a message to the queue
 
-- удалять верхние сообщения из очереди;
+- Dequeue the topmost message.
 
-- очищать всю очередь.
+- Clear the entire queue
 
-На следующем рисунке показана очередь из двух сообщений.
+The following image shows a queue that contains two messages.
 
-![Просмотр очереди](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC651470.png)
+![Viewing a Queue](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC651470.png)
 
-Дополнительные сведения об очередях служб хранилища см. в статье [Использование хранилища очередей](http://go.microsoft.com/fwlink/?LinkID=264702). Сведения о веб-службе для очередей служб хранилища см. в статье [Основные понятия службы очередей](http://go.microsoft.com/fwlink/?LinkId=264788). Сведения об отправке сообщения в очередь службы хранилища с помощью Visual Studio см. в статье [Отправка сообщений в очередь служб хранилища](https://msdn.microsoft.com/library/azure/jj649344.aspx).
+For more information about storage services queues, see [How to: Use the Queue Storage Service](http://go.microsoft.com/fwlink/?LinkID=264702). For information about the web service for storage services queues, see [Queue Service Concepts](http://go.microsoft.com/fwlink/?LinkId=264788). For information about how to send messages to a storage services queue by using Visual Studio, see [Sending Messages to a Storage Services Queue](https://msdn.microsoft.com/library/azure/jj649344.aspx).
 
->[AZURE.NOTE] Очереди служб хранилища отличаются от очередей служебной шины. Сведения об очередях служебной шины см. в статье "Очереди, разделы и подписки служебной шины".
+>[AZURE.NOTE] Storage services queues are distinct from service bus queues. For more information about service bus queues, see Service Bus Queues, Topics, and Subscriptions.
 
-## Работа с ресурсами таблиц
+## <a name="work-with-table-resources"></a>Work with Table Resources
 
-В службе хранилища таблиц Azure хранятся большие объемы структурированных данных. Эта служба — хранилище данных NoSQL, которое принимает вызовы внутри и снаружи облака Azure с проверкой подлинности. Таблицы Azure идеально подходят для хранения нереляционных структурированных данных.
+The Azure Table storage service stores large amounts of structured data. The service is a NoSQL datastore which accepts authenticated calls from inside and outside the Azure cloud. Azure tables are ideal for storing structured, non-relational data.
 
-### Создание таблицы
+### <a name="to-create-a-table"></a>To create a table
 
-1. В обозревателе сервера выберите узел **Таблицы** учетной записи хранения, а затем выберите команду **Создать таблицу**.
+1. In Server Explorer, select the **Tables** node of the storage account, and then choose **Create Table**.
 
-1. В диалоговом окне **Создание таблицы** введите имя таблицы.
+1. In the **Create Table** dialog box, enter a name for the table.
 
-### Просмотр данных таблицы
+### <a name="to-view-table-data"></a>To view table data
 
-1. В обозревателе сервера откройте узел **Azure** и выберите узел **Хранилище**.
+1. In Server Explorer, open the **Azure** node, and then open the **Storage** node.
 
-1. Чтобы просмотреть список таблиц для учетной записи хранения, откройте нужный узел учетной записи хранения и выберите узел **Таблицы**.
+1. Open the storage account node that you are interested in, and then open the **Tables** node to see a list of tables for the storage account.
 
-1. Откройте контекстное меню таблицы и выберите пункт **Просмотр таблицы**.
+1. Open the shortcut menu for a table and then choose **View Table**.
 
-    ![Таблица Azure в обозревателе решений](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC744165.png)
+    ![An Azure table in Solution Explorer](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC744165.png)
 
-Таблица упорядочена по сущностям (отображаются в строках) и свойствам (отображаются в столбцах). Например, на следующем рисунке приведены сущности, содержащиеся в **конструкторе таблиц**:
+The table is organized by entities (shown in rows) and properties (shown in columns). For example, the following illustration shows entities listed in the **Table Designer**:
 
-### Изменение данных таблицы
+### <a name="to-edit-table-data"></a>To edit table data
 
-1. В **конструкторе таблиц** откройте контекстное меню для сущности (одна строка) или свойства (одна ячейка) и выберите пункт **Изменить**.
+1. In the **Table Designer**, open the shortcut menu for an entity (a single row) or a property (a single cell) and then choose **Edit**.
 
-    ![Добавление или изменение сущности таблицы](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC656238.png)
+    ![Add or Edit a Table Entity](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC656238.png)
 
-    Сущности в одной таблице не обязательно должны иметь одинаковый набор свойств (столбцов). При просмотре и изменении данных таблицы не забывайте о следующих ограничениях.
-    - Нельзя просматривать или изменять двоичные данные (типа byte), но их можно сохранять в таблице.
+    Entities in a single table aren’t required to have the same set of properties (columns). Keep in mind the following restrictions on viewing and editing table data.
+    - You can’t view or edit binary data (type byte[]), but you can store it in a table.
 
-    - Нельзя изменять значения **PartitionKey** и **RowKey**, так как табличное хранилище в Azure не поддерживает эту операцию.
+    - You can’t edit the **PartitionKey** or **RowKey** values, because table storage in Azure doesn't support that operation.
 
-    - Нельзя создать свойство Timestamp, так как свойство с таким именем используется службами хранилища Azure.
+    - You can’t create a property called Timestamp, Azure Storage services use a property with that name.
 
-    - Если вы вводите значение DateTime, следует придерживаться формата, соответствующего языковым и региональным параметрам компьютера (например, ММ/ДД/ГГГГ ЧЧ:ММ:СС [AM| PM] для английского языка США).
+    - If you enter a DateTime value, you must follow a format that's appropriate to the region and language settings of your computer (for example, MM/DD/YYYY HH:MM:SS [AM|PM] for U.S. English).
 
-### Добавление сущностей
+### <a name="to-add-entities"></a>To add entities
 
-1. В **конструкторе таблиц** нажмите кнопку **Добавление сущности**, которая находится в правом верхнем углу представления таблицы.
+1. In the **Table Designer**, choose the **Add Entity** button, which is near the top-right corner of the table view.
 
-    ![Добавить сущность](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC655336.png)
+    ![Add Entity](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC655336.png)
 
-1. В диалоговом окне **Добавление сущности** введите значения свойств **PartitionKey** и **RowKey**.
+1. In the **Add Entity** dialog box, enter the values of the **PartitionKey** and **RowKey** properties.
 
-    ![Диалоговое окно "Добавление сущности"](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC655335.png)
+    ![Add Entity Dialog Box](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC655335.png)
 
-    Значения следует вводить аккуратно, так как после закрытия диалогового окна их можно изменить только удалив сущность и добавив ее снова.
+    Enter the values carefully because you can't change them after you close the dialog box unless you delete the entity and add it again.
 
-### Фильтрация сущностей
+### <a name="to-filter-entities"></a>To filter entities
 
-Набор сущностей, которые отображаются в таблице, можно настроить, если используется построитель запросов.
+You can customize the set of entities that appear in a table if you use the query builder.
 
-1. Чтобы открыть построитель запросов, откройте таблицу для просмотра.
+1. To open the query builder, open a table for viewing.
 
-1. Нажмите крайнюю справа кнопку на панели инструментов в представлении таблицы.
+1. Choose the rightmost button on the table view’s toolbar.
 
-    Откроется диалоговое окно **Построитель запросов**. На рисунке ниже приведен запрос, созданный в построителе запросов.
+    The **Query Builder** dialog box appears. The following illustration shows a query that's being built in the query builder.
 
-    ![Построитель запросов](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC652231.png)
+    ![Query Builder](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC652231.png)
 
-1. После завершения построения запроса закройте диалоговое окно. Полученная текстовая форма запроса отобразится в текстовом поле в качестве фильтра служб данных WCF.
+1. When you’re done building the query, close the dialog box. The resulting text form of the query appears in a text box as a WCF Data Services filter.
 
-1. Чтобы выполнить запрос, выберите значок зеленого треугольника.
+1. To run the query, choose the green triangle icon.
 
-    Данные сущностей, отображаемые в **конструкторе таблиц**, также можно фильтровать, если ввести строку фильтра служб данных WCF непосредственно в поле фильтра. Такая строка аналогична SQL-предложению WHERE, но отправляется на сервер как HTTP-запрос. Сведения о построении строк фильтра см. в статье [Построение строк фильтра для конструктора таблиц](https://msdn.microsoft.com/library/azure/ff683669.aspx).
+    You can also filter entity data that appears in the **Table Designer** if you enter a WCF Data Services filter string directly in the filter field. This kind of string is similar to a SQL WHERE clause but is sent to the server as an HTTP request. For information about how to construct filter strings, see [Constructing Filter Strings for the Table Designer](https://msdn.microsoft.com/library/azure/ff683669.aspx).
 
-    Ниже приведен пример допустимой строки фильтра.
+    The following illustration shows an example of a valid filter string:
 
-    ![VST\_SE\_TableFilter](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC655337.png)
+    ![VST_SE_TableFilter](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC655337.png)
 
-### Обновление данных хранилища
+### <a name="refresh-storage-data"></a>Refresh storage data
 
-Подключение обозревателя сервера к учетной записи хранения или получение данных из нее может длиться около минуты. Если не удается подключиться, время ожидания операции может истечь. Во время получения данных можно продолжать работу в других областях Visual Studio. Чтобы отменить операцию, которая выполняется слишком долго, нажмите кнопку **Остановить обновление** на панели инструментов обозревателя сервера.
+When Server Explorer connects to or gets data from a storage account, it might take up to a minute for the operation to complete. If it can’t connect, the operation might time out. While data is retrieved, you can continue to work in other parts of Visual Studio. To cancel the operation if it’s taking too long, choose the **Stop Refresh** button on the Server Explorer toolbar.
 
-#### Обновление данных контейнера BLOB-объектов
+#### <a name="to-refresh-blob-container-data"></a>To refresh blob container data
 
-- Выберите узел **BLOB-объекты** под узлом **Хранилище** и на панели инструментов обозревателя сервера выберите **Обновить**.
+- Select the **Blobs** node beneath **Storage** and choose the **Refresh** button on the Server Explorer toolbar.
 
-- Чтобы обновить список отображаемых BLOB-объектов, нажмите кнопку **Выполнить**.
+- To refresh the list of blobs that is displayed, choose the **Execute** button.
 
-#### Обновление данных таблицы
+#### <a name="to-refresh-table-data"></a>To refresh table data
 
-- Выберите узел **Таблицы** под узлом **Хранилище** и нажмите кнопку **Обновить**.
+- Select the **Tables** node beneath **Storage** and choose the **Refresh** button.
 
-- Чтобы обновить список объектов, которые отображаются в **конструкторе таблиц**, нажмите кнопку **Выполнить** в **конструкторе таблиц**.
+- To refresh the list of entities that is displayed in the **Table Designer**, choose the **Execute** button on the **Table Designer**.
 
-#### Обновление данных очереди
+#### <a name="to-refresh-queue-data"></a>To refresh queue data
 
-- Выберите узел **Очереди** и нажмите кнопку **Обновить**.
+- Select the **Queues** node, and then choose the **Refresh** button.
 
-#### Обновление всех элементов в учетной записи хранения
+#### <a name="to-refresh-all-items-in-a-storage-account"></a>To refresh all items in a storage account
 
-- Выберите имя учетной записи, а затем выберите **Обновить** на панели инструментов в обозревателе сервера.
+- Choose the account name, and then choose the **Refresh** button on the toolbar for Server Explorer.
 
-### Добавление учетных записей хранения с помощью обозревателя сервера
+### <a name="add-storage-accounts-by-using-server-explorer"></a>Add storage accounts by using Server Explorer
 
-Существует два способа добавления учетных записей хранения с помощью обозревателя сервера. Можно создать новую учетную запись хранения в подписке Azure или присоединить существующую учетную запись хранения.
+There are two ways to add storage accounts by using Server Explorer. You can create a new storage account in your Azure subscription, or you can attach an existing storage account.
 
-#### Создание новой учетной записи хранения с помощью обозревателя сервера
+#### <a name="to-create-a-new-storage-account-by-using-server-explorer"></a>To create a new storage account by using Server Explorer
 
-1. В обозревателе сервера откройте контекстное меню узла "Хранилище" и выберите пункт "Создать учетную запись хранения".
+1. In Server Explorer, open the shortcut menu for the Storage node, and then choose Create Storage Account.
 
-    ![Создание новой учетной записи хранения Azure](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC744166.png)
+    ![Create a new Azure storage account](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC744166.png)
 
-1. В диалоговом окне **Создание учетной записи хранилища** укажите для новой учетной записи следующие сведения.
+1. Select or enter the following information for the new storage account in the **Create Storage Account** dialog box.
 
-    - Подписка Azure, в которую следует добавить учетную запись хранения.
+    - The Azure subscription to which you want to add the storage account.
 
-    - Имя, которое вы хотите использовать для новой учетной записи хранения.
+    - The name you want to use for the new storage account.
 
-    - Регион или территориальная группа (например, Запад США или Восточная Азия).
+    - The region or affinity group (such as West US or East Asia).
 
-    - Тип репликации учетной записи хранения (например, геоизбыточная).
+    - The type of replication you want to use for the storage account, such as Geo-Redundant.
 
-1. Выберите **Создать**.
+1. Choose **Create**.
 
-    Новая учетная запись хранения отображается в списке **Хранилище** в обозревателе решений.
+    The new storage account appears in the **Storage** list in Solution Explorer.
 
-#### Присоединение существующей учетной записи хранения с помощью обозревателя сервера
+#### <a name="to-attach-an-existing-storage-account-by-using-server-explorer"></a>To attach an existing storage account by using Server Explorer
 
-1. В обозревателе сервера откройте контекстное меню узла "Хранилище Azure" и выберите пункт **Присоединить внешнее хранилище**.
+1. In Server Explorer, open the shortcut menu for the Azure storage node, and then choose **Attach External Storage**.
 
-    ![Добавление существующей учетной записи хранения](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC766039.png)
+    ![Adding an existing storage account](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC766039.png)
 
-1. В диалоговом окне **Создание учетной записи хранилища** укажите для новой учетной записи следующие сведения.
+1. Select or enter the following information for the new storage account in the **Create Storage Account** dialog box.
 
-    - Имя существующей учетной записи хранения, которую вы хотите присоединить. Имя можно ввести или выбрать из списка.
+    - The name of the existing storage account you want to attach. You can enter a name or select it from the list.
 
-    - Ключ для выбранной учетной записи хранения. Это значение обычно вводится автоматически при выборе учетной записи хранения. Если вы хотите, чтобы Visual Studio запомнила ключ учетной записи хранения, установите флажок "Запомнить ключ учетной записи".
+    - The key for the selected storage account. This value is typically provided for you when you select a storage account. If you want Visual Studio to remember the storage account key, select the Remember account key box.
 
-    - Протокол, используемый для подключения к учетной записи хранения, например HTTP, HTTPS, или настраиваемая конечная точка. Сведения о настраиваемых конечных точках см. в статье [Настройка строк подключения](https://msdn.microsoft.com/library/azure/ee758697.aspx).
+    - The protocol to use to connect to the storage account, such as HTTP, HTTPS, or a custom endpoint. See [How to Configure Connection Strings](https://msdn.microsoft.com/library/azure/ee758697.aspx) for more information about custom endpoints.
 
-### Просмотр вторичных конечных точек
+### <a name="to-view-the-secondary-endpoints"></a>To view the secondary endpoints
 
-- Если вы создали учетную запись хранения с помощью варианта репликации **Геоизбыточное хранилище с доступом на чтение**, можно просмотреть его вторичные конечные точки. Откройте контекстное меню для имени учетной записи и выберите **Свойства**.
+- If you created a storage account using the **Read-Access Geo Redundant** replication option, you can view its secondary endpoints. Open the shortcut menu for the account name, and then choose **Properties**.
 
-    ![Вторичные конечные точки хранилища](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC766040.png)
+    ![Storage secondary endpoints](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC766040.png)
 
-### Удаление учетной записи хранения из обозревателя сервера
+### <a name="to-remove-a-storage-account-from-server-explorer"></a>To remove a storage account from Server Explorer
 
-- Откройте контекстное меню для имени учетной записи и выберите **Удалить**. При удалении учетной записи хранения сохраненные данные ключа для этой учетной записи также удаляются.
+- In Server Explorer, open the shortcut menu for the account name, and then choose **Delete**. If you delete a storage account, any saved key information for that account is also removed.
 
-    >[AZURE.NOTE] Удаление учетной записи хранения из обозревателя сервера не влияет на вашу учетную запись хранения или содержащиеся в ней данные. Удаляется только ссылка из обозревателя сервера. Чтобы окончательно удалить учетную запись хранения, используйте [классический портал Azure](http://go.microsoft.com/fwlink/?LinkID=213885).
+    >[AZURE.NOTE] If you delete a storage account from Server Explorer, it doesn’t affect your storage account or any data that it contains; it simply removes the reference from Server Explorer. To permanently delete a storage account, use the [Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=213885).
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Next steps
 
-Дополнительные сведения об использовании служб хранилища Azure см. в статье [Доступ к службам хранилища Azure](https://msdn.microsoft.com/library/azure/ee405490.aspx).
+To learn more about how use Azure storage services, see [Accessing the Azure Storage Services](https://msdn.microsoft.com/library/azure/ee405490.aspx).
 
-<!---HONumber=AcomDC_0720_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

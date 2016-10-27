@@ -1,114 +1,119 @@
 <properties 
-	pageTitle="Функциональные возможности операционной системы для службы приложений Azure" 
-	description="Дополнительные сведения о функциональных возможностях ОС, доступных для веб-приложений, серверов мобильных приложений и приложений API в службе приложений Azure." 
-	services="app-service" 
-	documentationCenter="" 
-	authors="cephalin" 
-	manager="wpickett" 
-	editor="mollybos"/>
+    pageTitle="Operating system functionality on Azure App Service" 
+    description="Learn about the OS functionality available to web apps, mobile app backends, and API apps on Azure App Service" 
+    services="app-service" 
+    documentationCenter="" 
+    authors="cephalin" 
+    manager="wpickett" 
+    editor="mollybos"/>
 
 <tags 
-	ms.service="app-service" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/01/2016" 
-	ms.author="cephalin"/>
+    ms.service="app-service" 
+    ms.workload="web" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="07/01/2016" 
+    ms.author="cephalin"/>
 
-# Функциональные возможности операционной системы для службы приложений Azure #
 
-В этой статье описываются общие базовые функции операционной системы, доступные для всех приложений под управлением [службы приложений Azure](http://go.microsoft.com/fwlink/?LinkId=529714). Данные функциональные возможности включают в себя доступ к файлам, сети и реестру, а также диагностику и журналы событий.
+# <a name="operating-system-functionality-on-azure-app-service"></a>Operating system functionality on Azure App Service #
+
+This article describes the common baseline operating system functionality that is available to all apps running on [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714). This functionality includes file, network, and registry access, and diagnostics logs and events. 
 
 <a id="tiers"></a>
-## Уровни обслуживания плана службы приложений
+## <a name="app-service-plan-tiers"></a>App Service plan tiers
 
-Служба приложений запускает приложения клиента в мультитенантной среде размещения. Приложения, развернутые на уровнях служб **Free** и **Shared**, выполняются в рабочих процессах на общих виртуальных машинах, а приложения, развернутые на уровнях **Standard** и **Premium**, выполняются на виртуальных машинах, которые выделены специально для приложений, связанных с отдельным заказчиком.
+App Service runs customer apps in a multi-tenant hosting environment. Apps deployed in the **Free** and **Shared** tiers run in worker processes on shared virtual machines, while apps deployed in the **Standard** and **Premium** tiers run on virtual machine(s) dedicated specifically for the apps associated with a single customer.
 
-Поскольку служба приложений поддерживает простое масштабирование между различными уровнями, конфигурация безопасности для приложений службы приложений не изменится. Это обеспечивает отсутствие внезапного изменения режима работы приложений и неожиданных сбоев при переключении плана службы приложений с одного уровня на другой.
+Because App Service supports a seamless scaling experience between different tiers, the security configuration enforced for App Service apps remains the same. This ensures that apps don't suddenly behave differently, failing in unexpected ways, when App Service plan switches from one tier to another.
 
 <a id="developmentframeworks"></a>
-## Платформы разработки
+## <a name="development-frameworks"></a>Development frameworks
 
-От ценовых категорий службы приложений зависит объем доступных приложениям вычислительных ресурсов (ЦП, дисковое пространство, память и исходящий сетевой трафик). При этом спектр доступных приложениям функциональных возможностей платформы остается неизменным в любом уровне масштабирования.
+App Service pricing tiers control the amount of compute resources (CPU, disk storage, memory, and network egress) available to apps. However, the breadth of framework functionality available to apps remains the same regardless of the scaling tiers.
 
-Служба приложений поддерживает широкий спектр платформ разработки, включая ASP.NET, классический ASP, node.js, PHP и Python, выполняемых в виде расширений в службах IIS. Чтобы упростить и нормализовать конфигурацию безопасности, служба приложений обычно использует различные платформы разработки с параметрами по умолчанию. Один из подходов к настройке приложений может заключаться в настройке контактной зоны API и функциональных возможностей для каждой отдельной платформы разработки. Вместо этого служба приложений использует более общий подход, реализуя общий базовый уровень функциональных возможностей операционной системы независимо от среды разработки приложения.
+App Service supports a variety of development frameworks, including ASP.NET, classic ASP, node.js, PHP and Python - all of which run as extensions within IIS. In order to simplify and normalize security configuration, App Service apps typically run the various development frameworks with their default settings. One approach to configuring apps could have been to customize the API surface area and functionality for each individual development framework. App Service instead takes a more generic approach by enabling a common baseline of operating system functionality regardless of an app's development framework.
 
-В следующих разделах приведены общие виды функциональных возможностей операционной системы, доступных приложениям службы приложений.
+The following sections summarize the general kinds of operating system functionality available to App Service apps.
 
 <a id="FileAccess"></a>
-##Доступ к файлам
+##<a name="file-access"></a>File access
 
-В службе приложений используются разные диски, включая локальные и сетевые диски.
+Various drives exist within App Service, including local drives and network drives.
 
 <a id="LocalDrives"></a>
-### Локальные диски
+### <a name="local-drives"></a>Local drives
 
-По своей сути служба приложений является службой, выполняемой поверх инфраструктуры Azure PaaS (платформа как услуга). В результате локальные диски, "подключенные" к виртуальной машине, – это те же типы дисков, которые доступны любой рабочей роли в Azure. Сюда входит диск операционной системы (диск D:\\), диск приложений, содержащий файлы пакета CSPKG Azure, которые используются исключительно службой приложений (и недоступны для клиентов), и "пользовательский" диск (диск C:\\), размер которого зависит от размера виртуальной машины.
+At its core, App Service is a service running on top of the Azure PaaS (platform as a service) infrastructure. As a result, the local drives that are "attached" to a virtual machine are the same drive types available to any worker role running in Azure. This includes an operating system drive (the D:\ drive), an application drive that contains Azure Package cspkg files used exclusively by App Service (and inaccessible to customers), and a "user" drive (the C:\ drive), whose size varies depending on the size of the VM.
 
 <a id="NetworkDrives"></a>
-### Сетевые диски (общие UNC-ресурсы)
+### <a name="network-drives-(aka-unc-shares)"></a>Network drives (aka UNC shares)
 
-Одно из уникальных свойств службы приложений, позволяющее упростить обслуживание и развертывание приложений, — это возможность хранения всего пользовательского содержимого на наборе общих UNC-ресурсов. Эта модель очень хорошо согласуется с распространенным шаблоном хранилища содержимого, который используется локальными средами размещения веб-сайтов, имеющими несколько серверов с балансировкой нагрузки.
+One of the unique aspects of App Service that makes app deployment and maintenance straightforward is that all user content is stored on a set of UNC shares. This model maps very nicely to the common pattern of content storage used by on-premises web hosting environments that have multiple load-balanced servers. 
 
-Внутри службы приложений присутствует определенное число общих UNC-ресурсов, созданных в каждом центре обработки данных. Процент пользовательского содержимого для всех клиентов в каждом центре обработки данных выделяется для каждого общего UNC-ресурса. Кроме того, все файловое содержимое для одной клиентской подписки всегда размещается в одном общем UNC-ресурсе.
+Within App Service, there are number of UNC shares created in each data center. A percentage of the user content for all customers in each data center is allocated to each UNC share. Furthermore, all of the file content for a single customer's subscription is always placed on the same UNC share. 
 
-Обратите внимание, что из-за особенностей работы облачных служб виртуальная машина, отвечающая за размещение общего UNC-ресурса, будет периодически меняться. Гарантируется, что общие UNC-ресурсы будут подключаться к различным виртуальным машинам во время их включения и отключения в рамках выполнения обычных облачных операций. По этой причине в приложениях никогда не следует жестко программировать предположение о том, что информация о машине в пути UNC со временем будет оставаться неизменной. Вместо этого они должны использовать удобный *искусственный* абсолютный путь **D:\\home\\site**, предоставляемый службой приложений. Ложный абсолютный путь предоставляет портативный и независимый от приложений и пользователей метод указания ссылки на свое приложение. С помощью пути **D:\\home\\site** можно переносить общие файлы из приложения в приложение без необходимости настраивать новый абсолютный путь для каждой передачи.
+Note that due to how cloud services work, the specific virtual machine responsible for hosting a UNC share will change over time. It is guaranteed that UNC shares will be mounted by different virtual machines as they are brought up and down during the normal course of cloud operations. For this reason, apps should never make hard-coded assumptions that the machine information in a UNC file path will remain stable over time. Instead, they should use the convenient *faux* absolute path **D:\home\site** that App Service provides. This faux absolute path provides a portable, app-and-user-agnostic method for referring to one's own app. By using **D:\home\site**, one can transfer shared files from app to app without having to configure a new absolute path for each transfer.
 
 <a id="TypesOfFileAccess"></a>
-### Типы доступа к файлам для приложения
+### <a name="types-of-file-access-granted-to-an-app"></a>Types of file access granted to an app
 
-В состав подписки каждого клиента входит зарезервированная структура каталогов на определенном общем UNC-ресурсе в центре обработки данных. У клиента может быть несколько приложений, созданных в конкретном центре обработки данных, поэтому все каталоги, относящиеся к одной клиентской подписке, создаются на одном общем UNC-ресурсе. Общий ресурс может содержать каталоги, например, для содержимого, журналов ошибок и диагностики, а также более ранних версий приложения, созданных системой управления версиями. Каталоги приложения клиента доступны для чтения и записи во время выполнения для кода приложения.
+Each customer's subscription has a reserved directory structure on a specific UNC share within a data center. A customer may have multiple apps created within a specific data center, so all of the directories belonging to a single customer subscription are created on the same UNC share. The share may include directories such as those for content, error and diagnostic logs, and earlier versions of the app created by source control. As expected, a customer's app directories are available for read and write access at runtime by the app's application code.
 
-На локальных дисках, подключенных к виртуальной машине, где выполняется приложение, служба приложений резервирует часть места на диске C:\\ под временное локальное хранилище для конкретного приложения. Хотя приложение имеет полный доступ к чтению и записи к собственному временному локальному хранилищу, код приложения не может использовать это хранилище напрямую. Наоборот, цель состоит в том, чтобы предоставить временное хранилище файлов для служб IIS и платформ веб-приложений. Служба приложений также ограничивает объем временного локального хранилища для каждого приложения, чтобы предотвратить использование чрезмерных объемов памяти отдельными приложениями.
+On the local drives attached to the virtual machine that runs an app, App Service reserves a chunk of space on the C:\ drive for app-specific temporary local storage. Although an app has full read/write access to its own temporary local storage, that storage really isn't intended to be used directly by the application code. Rather, the intent is to provide temporary file storage for IIS and web application frameworks. App Service also limits the amount of temporary local storage available to each app to prevent individual apps from consuming excessive amounts of local file storage.
 
-Двумя примерами того, как служба приложений использует временное локальное хранилище, являются каталог для временных файлов ASP.NET и каталог для сжатых файлов IIS. Система компиляции ASP.NET использует каталог "Temporary ASP.NET Files" в качестве временного расположения кэша компиляции. Службы IIS используют каталог "IIS Temporary Compressed Files" для хранения сжатых выходных данных ответа. Оба эти типа использования файлов (а также и другие) в службе приложений переназначаются временному локальному хранилищу для конкретных приложений. Результатом такого переназначения является неизменная работа функциональных возможностей.
+Two examples of how App Service uses temporary local storage are the directory for temporary ASP.NET files and the directory for IIS compressed files. The ASP.NET compilation system uses the "Temporary ASP.NET Files" directory as a temporary compilation cache location. IIS uses the "IIS Temporary Compressed Files" directory to store compressed response output. Both of these types of file usage (as well as others) are remapped in App Service to per-app temporary local storage. This remapping ensures that functionality continues as expected.
 
-Каждое приложение в службе приложений выполняется как случайное уникальное удостоверение рабочего процесса с низкими привилегиями, называемое "удостоверением пула приложений". Подробнее такое удостоверение описано здесь: [http://www.iis.net/learn/manage/configuring-security/application-pool-identities](http://www.iis.net/learn/manage/configuring-security/application-pool-identities). Код приложения использует это удостоверение в целях базового доступа только для чтения к диску операционной системы (диск D:\\). Это означает, что код приложения может перечислять стандартные структуры каталогов и считывать стандартные файлы на диске операционной системы. Хотя такой уровень доступа может показаться довольно обширным, те же каталоги и файлы доступны при подготовке рабочей роли в размещенной службе Azure и считывании содержимого диска.
+Each app in App Service runs as a random unique low-privileged worker process identity called the "application pool identity", described further here: [http://www.iis.net/learn/manage/configuring-security/application-pool-identities](http://www.iis.net/learn/manage/configuring-security/application-pool-identities). Application code uses this identity for basic read-only access to the operating system drive (the D:\ drive). This means application code can list common directory structures and read common files on operating system drive. Although this might appear to be a somewhat broad level of access, the same directories and files are accessible when you provision a worker role in an Azure hosted service and read the drive contents. 
 
 <a name="multipleinstances"></a>
-### Доступ к файлам в нескольких экземплярах
+### <a name="file-access-across-multiple-instances"></a>File access across multiple instances
 
-Содержимое приложения находится в домашнем каталоге, и код приложения может осуществлять в него запись. Если приложение выполняется в нескольких экземплярах, домашний каталог используется совместно всеми этими экземплярами, чтобы все они могли просматривать один и тот же каталог. Например, если приложение сохраняет отправленные файлы в домашний каталог, эти файлы сразу же становятся доступны всем экземплярам.
+The home directory contains an app's content, and application code can write to it. If an app runs on multiple instances, the home directory is shared among all instances so that all instances see the same directory. So, for example, if an app saves uploaded files to the home directory, those files are immediately available to all instances. 
 
 <a id="NetworkAccess"></a>
-## Доступ к сети
-Код приложения может использовать протоколы на базе TCP/IP и UDP для установки исходящих сетевых подключений к доступным из Интернета конечным точкам, предоставляющим внешние службы. Приложения могут использовать эти же протоколы для подключения к службам в Azure, например путем установки HTTPS-подключений к базе данных SQL Azure.
+## <a name="network-access"></a>Network access
+Application code can use TCP/IP and UDP based protocols to make outbound network connections to Internet accessible endpoints that expose external services. Apps can use these same protocols to connect to services within Azure&#151;for example, by establishing HTTPS connections to SQL Database.
 
-Также у приложений есть ограниченная возможность установить одно локальное подключение с замыканием на себя и заставить приложение прослушивать этот локальный сокет замыкания на себя. Эта возможность предназначена главным образом для того, чтобы использовать приложения, прослушивающие локальные сокеты замыкания на себя. Обратите внимание, что каждое приложение обращается к частному подключению с замыканием на себя. Приложение А не может прослушивать локальный сокет замыкания на себя, созданный приложением Б.
+There is also a limited capability for apps to establish one local loopback connection, and have an app listen on that local loopback socket. This feature exists primarily to enable apps that listen on local loopback sockets as part of their functionality. Note that each app sees a "private" loopback connection; app "A" cannot listen to a local loopback socket established by app "B".
 
-Именованные каналы также поддерживаются в качестве механизма межпроцессного взаимодействия (IPC) между различными процессами, которые совместно обеспечивают работу приложения. Например, модуль FastCGI IIS использует именованные каналы для координации отдельных процессов, обеспечивающих работу страниц PHP.
+Named pipes are also supported as an inter-process communication (IPC) mechanism between different processes that collectively run an app. For example, the IIS FastCGI module relies on named pipes to coordinate the individual processes that run PHP pages.
 
 
 <a id="Code"></a>
-## Выполнение кода, процессы и память
-Как отмечалось ранее, приложения выполняются внутри рабочих процессов с низкими привилегиями, используя случайное удостоверение пула приложений. Код приложения имеет доступ к области памяти, связанной с рабочим процессом, а также любыми дочерними процессами, которые могут порождаться процессами CGI или другими приложениями. Однако одно приложение не может получить доступ к памяти или данным другого приложения, даже если оно находится на той же виртуальной машине.
+## <a name="code-execution,-processes-and-memory"></a>Code execution, processes and memory
+As noted earlier, apps run inside of low-privileged worker processes using a random application pool identity. Application code has access to the memory space associated with the worker process, as well as any child processes that may be spawned by CGI processes or other applications. However, one app cannot access the memory or data of another app even if it is on the same virtual machine.
 
-Приложения могут выполнять скрипты или страницы, созданные на базе поддерживаемых платформ веб-разработки. Служба приложений не настраивает параметры веб-платформ для получения более ограниченных режимов. Например, приложения ASP.NET, выполняемые в службе приложений, имеют полное доверие в отличие от режима более ограниченного доверия. Веб-платформы, в том числе классические ASP и ASP.NET, могут вызвать внутрипроцессные COM-компоненты (но не внепроцессные COM-компоненты), например ADO (объекты данных ActiveX), зарегистрированные по умолчанию в операционной системе Windows.
+Apps can run scripts or pages written with supported web development frameworks. App Service doesn't configure any web framework settings to more restricted modes. For example, ASP.NET apps running on App Service run in "full" trust as opposed to a more restricted trust mode. Web frameworks, including both classic ASP and ASP.NET, can call in-process COM components (but not out of process COM components) like ADO (ActiveX Data Objects) that are registered by default on the Windows operating system.
 
-Приложения могут порождать и запускать произвольный код. Приложение может создать командную оболочку или запустить скрипт PowerShell. Тем не менее, хотя приложением могут порождаться процессы и произвольный код, исполняемые программы и скрипты по-прежнему требуют прав доступа, назначаемых родительскому пулу приложений. Например, приложение может породить исполняемый файл, который выполняет исходящий вызов HTTP, но тот же самый исполняемый файл не может попытаться отменить привязку IP-адреса виртуальной машины к его сетевой карте. Коду с низким уровнем привилегий разрешено выполнять исходящий сетевой вызов, но для перенастройки параметров сети на виртуальной машине требуются права администратора.
+Apps can spawn and run arbitrary code. It is allowable for an app to do things like spawn a command shell or run a PowerShell script. However, even though arbitrary code and processes can be spawned from an app, executable programs and scripts are still restricted to the privileges granted to the parent application pool. For example, an app can spawn an executable that makes an outbound HTTP call, but that same executable cannot attempt to unbind the IP address of a virtual machine from its NIC. Making an outbound network call is allowed to low-privileged code, but attempting to reconfigure network settings on a virtual machine requires administrative privileges.
 
 
 <a id="Diagnostics"></a>
-## Журналы диагностики и события
-Сведения журнала являются другим набором данных, к которому пытаются получить доступ некоторые приложения. Типы данных журнала, которые доступны коду, выполняемому в службе приложений, включают в себя диагностическую информацию и сведения журналов, создаваемые приложением и легко доступные приложению.
+## <a name="diagnostics-logs-and-events"></a>Diagnostics logs and events
+Log information is another set of data that some apps attempt to access. The types of log information available to code running in App Service includes diagnostic and log information generated by an app that is also easily accessible to the app. 
 
-Например, журналы HTTP W3C, созданные активным приложением, доступны либо в каталоге журнала в сетевой папке, созданной для данного приложения, либо в хранилище больших двоичных объектов, если клиент настроил ведение журналов W3C в этом хранилище. Последний вариант позволяет собирать больше журналов без риска превышения лимитов хранилища файлов, связанных с сетевой папкой.
+For example, W3C HTTP logs generated by an active app are available either on a log directory in the network share location created for the app, or available in blob storage if a customer has set up W3C logging to storage. The latter option enables large quantities of logs to be gathered without the risk of exceeding the file storage limits associated with a network share.
 
-Точно так же можно регистрировать диагностическую информацию реального времени из приложений .NET с помощью инфраструктуры трассировки и диагностики .NET, при этом имеется возможность записывать данные трассировки в сетевую папку приложения или в хранилище BLOB-объектов.
+In a similar vein, real-time diagnostics information from .NET apps can also be logged using the .NET tracing and diagnostics infrastructure, with options to write the trace information to either the app's network share, or alternatively to a blob storage location.
 
-Приложениям недоступны следующие области ведения журналов диагностики и трассировки: события трассировки событий Windows и общие журналы событий Windows (например журналы событий системы, приложений и безопасности). Поскольку данные трассировки событий Windows могут стать видимыми в рамках всей машины (при использовании подходящих ACL), доступ на чтение и запись к событиям трассировки событий Windows блокируется. Разработчики могут заметить, что вызовы API для чтения и записи событий трассировки событий Windows и общих журналов событий Windows работают, но это вызвано тем, что служба приложений "подделывает" такие вызовы, чтобы они выглядели успешными. На самом деле код приложения не имеет доступа к этим данным событий.
+Areas of diagnostics logging and tracing that aren't available to apps are Windows ETW events and common Windows event logs (e.g. System, Application and Security event logs). Since ETW trace information can potentially be viewable machine-wide (with the right ACLs), read and write access to ETW events are blocked. Developers might notice that API calls to read and write ETW events and common Windows event logs appear to work, but that is because App Service is "faking" the calls so that they appear to succeed. In reality, the application code has no access to this event data.
 
 <a id="RegistryAccess"></a>
-## Доступ к реестру
-Приложения имеют доступ только для чтения к большей части реестра на виртуальной машине, где они выполняются. На практике это означает, что разделы реестра, которые предоставляют локальным группам "Пользователи" доступ только для чтения, доступны приложениям. Одной областью реестра, в настоящее время не поддерживающей доступ для чтения или записи, является куст HKEY\_CURRENT\_USER.
+## <a name="registry-access"></a>Registry access
+Apps have read-only access to much (though not all) of the registry of the virtual machine they are running on. In practice, this means registry keys that allow read-only access to the local Users group are accessible by apps. One area of the registry that is currently not supported for either read or write access is the HKEY\_CURRENT\_USER hive.
 
-Запись в реестр заблокирована, включая доступ к разделам реестра для отдельных пользователей. С точки зрения приложения в среде Azure никогда не следует полагаться на возможность записи в реестр, так как приложения перемещаются между разными виртуальными машинами. Единственным постоянным хранилищем для записи, на которое может полагаться приложение, является структура каталогов содержимого для отдельных приложений, хранящаяся в общих UNC-ресурсах службы приложений.
+Write-access to the registry is blocked, including access to any per-user registry keys. From the app's perspective, write access to the registry should never be relied upon in the Azure environment since apps can (and do) get migrated across different virtual machines. The only persistent writeable storage that can be depended on by an app is the per-app content directory structure stored on the App Service UNC shares. 
 
->[AZURE.NOTE] Чтобы приступить к работе со службой приложений Azure до создания учетной записи Azure, перейдите к разделу [Пробное использование службы приложений](http://go.microsoft.com/fwlink/?LinkId=523751), где вы можете быстро создать кратковременное веб-приложение начального уровня в службе приложений. Никаких кредитных карт и обязательств.
+>[AZURE.NOTE] If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
 
 [AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
  
  
 
-<!---HONumber=AcomDC_0706_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

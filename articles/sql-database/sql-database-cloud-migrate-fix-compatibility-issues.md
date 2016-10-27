@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Устранение проблем совместимости базы данных SQL Server перед переносом в базу данных SQL | Microsoft Azure"
-   description="База данных SQL Microsoft Azure, миграция базы данных, совместимость, мастер миграции SQL Azure"
+   pageTitle="Fix SQL Server database compatibility issues before migration to SQL Database | Microsoft Azure"
+   description="Microsoft Azure SQL Database, database migration, compatibility, SQL Azure Migration Wizard"
    services="sql-database"
    documentationCenter=""
    authors="CarlRabeler"
@@ -16,33 +16,38 @@
    ms.date="08/24/2016"
    ms.author="carlrab"/>
 
-# Устранение проблем совместимости базы данных SQL Server с помощью мастера миграции SQL Azure перед миграцией в базу данных SQL Azure
+
+# <a name="use-sql-azure-migration-wizard-to-fix-sql-server-database-compatibility-issues-before-migration-to-azure-sql-database"></a>Use SQL Azure Migration Wizard to Fix SQL Server database compatibility issues before migration to Azure SQL Database
 
 > [AZURE.SELECTOR]
-- С помощью [мастера миграции SQL Azure (SAMW)](sql-database-cloud-migrate-fix-compatibility-issues.md)
-- Использование [SSDT](sql-database-cloud-migrate-fix-compatibility-issues-ssdt.md)
-- Использование [SSMS](sql-database-cloud-migrate-fix-compatibility-issues-ssms.md)
+- Use [SQL Azure Migration Wizard](sql-database-cloud-migrate-fix-compatibility-issues.md)
+- Use [SSDT](sql-database-cloud-migrate-fix-compatibility-issues-ssdt.md)
+- Use [SSMS](sql-database-cloud-migrate-fix-compatibility-issues-ssms.md)
 
-В этой статье вы узнаете, как найти и устранить проблемы совместимости базы данных SQL Server с помощью мастера миграции SQL Azure, прежде чем выполнить миграцию в базу данных SQL Azure.
+In this article, you learn to detect and fix SQL Server database compatibility issues using the SQL Azure Migration Wizard before migration to Azure SQL Database.
 
-## Использование мастера миграции SQL Azure
+## <a name="using-sql-azure-migration-wizard"></a>Using SQL Azure Migration wizard
 
-Используйте инструмент CodePlex, [мастер миграции Базы данных SQL Microsoft Azure ](http://sqlazuremw.codeplex.com/), чтобы создать сценарий T-SQL для несовместимой исходной базы данных. Этот сценарий затем преобразуется мастером, чтобы обеспечить его совместимость с базой данных SQL. После этого следует подключиться к базе данных SQL Azure, чтобы выполнить данный сценарий. Этот инструмент также анализирует файлы трассировки, чтобы выявить проблемы совместимости. Сценарии могут создаваться только со схемой или могут содержать данные в формате BCP. Дополнительная документация, в том числе пошаговые инструкции, доступна на сайте Codeplex в разделе [Мастер миграции SQL Azure](http://sqlazuremw.codeplex.com/).
+Use the [SQL Azure Migration wizard](http://sqlazuremw.codeplex.com/) CodePlex tool to generate a T-SQL script from an incompatible source database. This script is then transformed by the wizard to make it compatible with the SQL Database. You then connect to Azure SQL Database to execute the script. This tool also analyzes trace files to determine compatibility issues. The script can be generated with schema only or can include data in BCP format. Additional documentation, including step-by-step guidance is available on CodePlex at [SQL Azure Migration wizard](http://sqlazuremw.codeplex.com/).  
 
- ![Схема переноса SAMW](./media/sql-database-cloud-migrate/02SAMWDiagram.png)
+ ![SAMW migration diagram](./media/sql-database-cloud-migrate/02SAMWDiagram.png)
 
-  > [AZURE.NOTE] Не все несовместимые схемы, которые способен обнаружить мастер, могут быть исправлены с помощью встроенных средств преобразования. Если имеются несовместимые сценарии, которые не удается обработать, то о них будет сообщено как об ошибках. Такие сценарии будут внедрены в созданный сценарий с соответствующими комментариями. Если обнаружено много ошибок, используйте Visual Studio или SQL Server Management Studio для исправления каждой ошибки, которую невозможно исправить с помощью мастера миграции SQL Server.
+  > [AZURE.NOTE] Not all incompatible schema that are detected by the wizard can be fixed by its built-in transformations. Incompatible script that cannot be addressed are reported as errors, with comments injected into the generated script. If many errors are detected, use either Visual Studio or SQL Server Management Studio to step through and fix each error that could not be fixed using the SQL Server Migration Wizard.
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Next steps
 
-- [Последняя версия SSDT](https://msdn.microsoft.com/library/mt204009.aspx)
-- [Последняя версия SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx)
-- [Перенос совместимой базы данных SQL Server в Базу данных SQL](sql-database-cloud-migrate.md#migrate-a-compatible-sql-server-database-to-sql-database)
+- [Newest version of SSDT](https://msdn.microsoft.com/library/mt204009.aspx)
+- [Newest version of SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx)
+- [Migrate a compatible SQL Server database to SQL Database](sql-database-cloud-migrate.md#migrate-a-compatible-sql-server-database-to-sql-database)
 
-## Дополнительные ресурсы
+## <a name="additional-resources"></a>Additional resources
 
-- [База данных SQL версии 12.](sql-database-v12-whats-new.md)
-- [Частично или полностью неподдерживаемые функции Transact-SQL.](sql-database-transact-sql-information.md)
-- [Migrate non-SQL Server databases using SQL Server Migration Assistant (Миграция баз данных не на основе SQL Server с помощью помощника по миграции SQL Server).](http://blogs.msdn.com/b/ssma/)
+- [SQL Database V12](sql-database-v12-whats-new.md)
+- [Transact-SQL partially or unsupported functions](sql-database-transact-sql-information.md)
+- [Migrate non-SQL Server databases using SQL Server Migration Assistant](http://blogs.msdn.com/b/ssma/)
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

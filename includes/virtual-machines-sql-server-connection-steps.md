@@ -1,122 +1,125 @@
-### Откройте TCP-порты в брандмауэре Windows для экземпляра ядра СУБД по умолчанию
+### <a name="open-tcp-ports-in-the-windows-firewall-for-the-default-instance-of-the-database-engine"></a>Open TCP ports in the Windows firewall for the default instance of the Database Engine
 
-1. Подключитесь к виртуальной машине через удаленный рабочий стол. Подробные инструкции по подключению к виртуальной машине см. в разделе [Открытие виртуальной машины с помощью удаленного рабочего стола](virtual-machines-windows-portal-sql-server-provision.md#open-the-vm-with-remote-desktop).
+1. Connect to the virtual machine with Remote Desktop. For detailed instructions on connecting to the VM, see [Open a SQL VM with Remote Desktop](virtual-machines-windows-portal-sql-server-provision.md#open-the-vm-with-remote-desktop).
 
-1. После входа введите **WF.msc** на начальном экране и нажмите клавишу ВВОД.
+1. Once logged in, at the Start screen, type **WF.msc**, and then hit ENTER.
 
-	![Запустите программу брандмауэра](./media/virtual-machines-sql-server-connection-steps/12Open-WF.png)
+    ![Start the Firewall Program](./media/virtual-machines-sql-server-connection-steps/12Open-WF.png)
 
-2. В поле **Брандмауэр Windows в режиме повышенной безопасности** в левой области щелкните правой кнопкой мыши **Правила для входящих подключений** и нажмите кнопку **Создать правило** в области действий.
+2. In the **Windows Firewall with Advanced Security**, in the left pane, right-click **Inbound Rules**, and then click **New Rule** in the action pane.
 
-	![Создать правило](./media/virtual-machines-sql-server-connection-steps/13New-FW-Rule.png)
+    ![New Rule](./media/virtual-machines-sql-server-connection-steps/13New-FW-Rule.png)
 
-3. В области **Тип правила** диалогового окна **Мастер создания правила для нового входящего подключения** выберите **Порт** и нажмите кнопку **Далее**.
+3. In the **New Inbound Rule Wizard** dialog box, under **Rule Type**, select **Port**, and then click **Next**.
 
-4. В диалоговом окне **Протокол и порты** используйте значение по умолчанию **TCP**. Выберите поле **Определенные локальные порты**, а затем введите номер порта экземпляра ядра СУБД (**1433** для экземпляра по умолчанию или номер для частного порта, указанный при настройке конечной точки).
+4. In the **Protocol and Ports** dialog, use the default **TCP**. In the **Specific local ports** box, then type the port number of the instance of the Database Engine (**1433** for the default instance or your choice for the private port in the endpoint step).
 
-	![TCP-порт 1433](./media/virtual-machines-sql-server-connection-steps/14Port-1433.png)
+    ![TCP Port 1433](./media/virtual-machines-sql-server-connection-steps/14Port-1433.png)
 
-5. Нажмите кнопку **Далее**.
+5. Click **Next**.
 
-6. В диалоговом окне **Действие** выберите **Разрешить подключение** и нажмите кнопку **Далее**.
+6. In the **Action** dialog box, select **Allow the connection**, and then click **Next**.
 
-	**Примечание по безопасности.** Выбрав вариант **Разрешить только безопасное подключение**, можно обеспечить дополнительную защиту. Выберите этот вариант, если требуется настроить дополнительные параметры безопасности в вашей среде.
+    **Security Note:** Selecting **Allow the connection if it is secure** can provide additional security. Select this option if you want to configure additional security options in your environment.
 
-	![Разрешить подключения](./media/virtual-machines-sql-server-connection-steps/15Allow-Connection.png)
+    ![Allow Connections](./media/virtual-machines-sql-server-connection-steps/15Allow-Connection.png)
 
-7. В диалоговом окне **Профиль** выберите **Общий**, **Личный** и **Доменный**. Нажмите кнопку **Далее**.
+7. In the **Profile** dialog box, select **Public**, **Private**, and **Domain**. Then click **Next**.
 
-    **Примечание по безопасности.** Выбрав вариант **Открытый**, вы получите доступ через Интернет. Во всех возможных случаях выбирайте более строгий профиль.
+    **Security Note:**  Selecting **Public** allows access over the internet. Whenever possible, select a more restrictive profile.
 
-	![Открытый профиль](./media/virtual-machines-sql-server-connection-steps/16Public-Private-Domain-Profile.png)
+    ![Public Profile](./media/virtual-machines-sql-server-connection-steps/16Public-Private-Domain-Profile.png)
 
-8. В диалоговом окне **Имя** введите имя и описание правила и нажмите кнопку **Готово**.
+8. In the **Name** dialog box, type a name and description for this rule, and then click **Finish**.
 
-	![Имя правила](./media/virtual-machines-sql-server-connection-steps/17Rule-Name.png)
+    ![Rule Name](./media/virtual-machines-sql-server-connection-steps/17Rule-Name.png)
 
-При необходимости откройте дополнительные порты для других компонентов. Дополнительные сведения содержатся в разделе [Настройка брандмауэра Windows для разрешения доступа к SQL Server](http://msdn.microsoft.com/library/cc646023.aspx).
+Open additional ports for other components as needed. For more information, see [Configuring the Windows Firewall to Allow SQL Server Access](http://msdn.microsoft.com/library/cc646023.aspx).
 
 
-### Настройка SQL Server для прослушивания через протокол TCP
+### <a name="configure-sql-server-to-listen-on-the-tcp-protocol"></a>Configure SQL Server to listen on the TCP protocol
 
-1. При установленном подключении к виртуальной машине на начальной странице введите **SQL Server Configuration Manager** и нажмите клавишу ВВОД.
+1. While connected to the virtual machine, on the Start page, type **SQL Server Configuration Manager** and hit ENTER.
 
-	![Откройте SSCM](./media/virtual-machines-sql-server-connection-steps/9Click-SSCM.png)
+    ![Open SSCM](./media/virtual-machines-sql-server-connection-steps/9Click-SSCM.png)
 
-2. В диспетчере конфигурации SQL Server в области консоли разверните пункт **Сетевая конфигурация SQL Server**.
+2. In SQL Server Configuration Manager, in the console pane, expand **SQL Server Network Configuration**.
 
-3. В области консоли щелкните **Протоколы для MSSQLSERVER** (имя экземпляра по умолчанию). В области сведений щелкните правой кнопкой мыши **TCP** и выберите **Включить** (если этот тип протокола еще не включен).
+3. In the console pane, click **Protocols for MSSQLSERVER** (he default instance name.) In the details pane, right-click **TCP** and click **Enable** if it is not already enabled.
 
-	![Включение TCP](./media/virtual-machines-sql-server-connection-steps/10Enable-TCP.png)
+    ![Enable TCP](./media/virtual-machines-sql-server-connection-steps/10Enable-TCP.png)
 
-5. В области консоли выберите **Службы SQL Server**. В области сведений щелкните правой кнопкой мыши **SQL Server (_имя экземпляра_)** (экземпляр по умолчанию — **SQL Server (MSSQLSERVER)**) и нажмите кнопку **Перезагрузить**, чтобы остановить и перезапустить экземпляр SQL Server.
+5. In the console pane, click **SQL Server Services**. In the details pane, right-click **SQL Server (_instance name_)** (the default instance is **SQL Server (MSSQLSERVER)**), and then click **Restart**, to stop and restart the instance of SQL Server.
 
-	![Перезапустите ядро СУБД](./media/virtual-machines-sql-server-connection-steps/11Restart.png)
+    ![Restart Database Engine](./media/virtual-machines-sql-server-connection-steps/11Restart.png)
 
-7. Закройте диспетчер конфигурации SQL Server.
+7. Close SQL Server Configuration Manager.
 
-Дополнительные сведения о включении протоколов для компонента SQL Server Database Engine см. в разделе [Включение или отключение сетевого протокола сервера](http://msdn.microsoft.com/library/ms191294.aspx).
+For more information about enabling protocols for the SQL Server Database Engine, see [Enable or Disable a Server Network Protocol](http://msdn.microsoft.com/library/ms191294.aspx).
 
-### Настройка SQL Server на проверку подлинности в смешанном режиме
+### <a name="configure-sql-server-for-mixed-mode-authentication"></a>Configure SQL Server for mixed mode authentication
 
-Компонент SQL Server Database Engine не может использовать проверку подлинности Windows без среды домена. Чтобы подключиться к компоненту Database Engine с другого компьютера, необходимо настроить для SQL Server смешанный режим проверки подлинности. Смешанный режим позволяет выполнять проверку подлинности SQL Server и проверку подлинности Windows.
+The SQL Server Database Engine cannot use Windows Authentication without domain environment. To connect to the Database Engine from another computer, configure SQL Server for mixed mode authentication. Mixed mode authentication allows both SQL Server Authentication and Windows Authentication.
 
->[AZURE.NOTE] Настройка аутентификации в смешанном режиме может быть необязательна, если вы настроили виртуальную сеть Azure с помощью настроенной доменной среды.
+>[AZURE.NOTE] Configuring mixed mode authentication might not be necessary if you have configured an Azure Virtual Network with a configured domain environment.
 
-1. При установленном подключении к виртуальной машине на начальной странице введите **SQL Server Management Studio** и щелкните выбранный значок.
+1. While connected to the virtual machine, on the Start page, type **SQL Server Management Studio** and click the selected icon.
 
-	При первом открытии Management Studio необходимо создать среду пользователей Management Studio. Это может занять несколько минут.
+    The first time you open Management Studio it must create the users Management Studio environment. This may take a few moments.
 
-2. Management Studio отображает диалоговое окно **Подключение к серверу**. В поле **Имя сервера** введите имя виртуальной машины для подключения к ядру СУБД с помощью обозревателя объектов (вместо имени виртуальной машины можно также использовать **(local)**, а вместо **имени сервера** — одну точку). Выберите **Проверка подлинности Windows** и оставьте **_your\_VM\_name_\\your\_local\_administrator** в поле **Имя пользователя**. Щелкните **Подключить**.
+2. Management Studio presents the **Connect to Server** dialog box. In the **Server name** box, type the name of the virtual machine to connect to the Database Engine  with the Object Explorer (Instead of the virtual machine name you can also use **(local)** or a single period as the **Server name**). Select **Windows Authentication**, and leave **_your_VM_name_\your_local_administrator** in the **User name** box. Click **Connect**.
 
-	![Подключение к серверу](./media/virtual-machines-sql-server-connection-steps/19Connect-to-Server.png)
+    ![Connect to Server](./media/virtual-machines-sql-server-connection-steps/19Connect-to-Server.png)
 
-3. В обозревателе объектов SQL Server Management Studio щелкните правой кнопкой мыши имя экземпляра SQL Server (имя виртуальной машины) и нажмите **Свойства**.
+3. In SQL Server Management Studio Object Explorer, right-click the name of the instance of SQL Server (the virtual machine name), and then click **Properties**.
 
-	![Свойства сервера](./media/virtual-machines-sql-server-connection-steps/20Server-Properties.png)
+    ![Server Properties](./media/virtual-machines-sql-server-connection-steps/20Server-Properties.png)
 
-4. На странице **Безопасность** в разделе **Проверка подлинности сервера** выберите **Режим проверки подлинности SQL Server и Windows** и нажмите кнопку **ОК**.
+4. On the **Security** page, under **Server authentication**, select **SQL Server and Windows Authentication mode**, and then click **OK**.
 
-	![Выберите режим проверки подлинности](./media/virtual-machines-sql-server-connection-steps/21Mixed-Mode.png)
+    ![Select Authentication Mode](./media/virtual-machines-sql-server-connection-steps/21Mixed-Mode.png)
 
-5. В диалоговом окне SQL Server Management Studio щелкните **ОК** для подтверждения необходимости перезапуска SQL Server.
+5. In the SQL Server Management Studio dialog box, click **OK** to acknowledge the requirement to restart SQL Server.
 
-6. В обозревателе объектов щелкните сервер правой кнопкой мыши и выберите **Перезагрузить**. (Если выполняется агент SQL Server, его также нужно перезапустить).
+6. In Object Explorer, right-click your server, and then click **Restart**. (If SQL Server Agent is running, it must also be restarted.)
 
-	![Перезагрузить](./media/virtual-machines-sql-server-connection-steps/22Restart2.png)
+    ![Restart](./media/virtual-machines-sql-server-connection-steps/22Restart2.png)
 
-7. В диалоговом окне SQL Server Management Studio щелкните **Да** для подтверждения перезапуска SQL Server.
+7. In the SQL Server Management Studio dialog box, click **Yes** to agree that you want to restart SQL Server.
 
-### Создание учетных записей проверки подлинности SQL Server
+### <a name="create-sql-server-authentication-logins"></a>Create SQL Server authentication logins
 
-Чтобы подключиться к компоненту Database Engine с другого компьютера, необходимо создать как минимум одну учетную запись проверки подлинности SQL Server.
+To connect to the Database Engine from another computer, you must create at least one SQL Server authentication login.
 
-1. В обозревателе объектов SQL Server Management Studio разверните папку экземпляра сервера, на котором требуется создать новую учетную запись.
+1. In SQL Server Management Studio Object Explorer, expand the folder of the server instance in which you want to create the new login.
 
-2. Щелкните правой кнопкой мыши папку **Безопасность**, выберите **Создать** и **Учетная запись...**
+2. Right-click the **Security** folder, point to **New**, and select **Login...**.
 
-	![Новая учетная запись](./media/virtual-machines-sql-server-connection-steps/23New-Login.png)
+    ![New Login](./media/virtual-machines-sql-server-connection-steps/23New-Login.png)
 
-3. В диалоговом окне **Создание учетной записи** на странице **Общие** введите имя нового пользователя в поле **Имя для входа в систему**.
+3. In the **Login - New** dialog box, on the **General** page, enter the name of the new user in the **Login name** box.
 
-4. Выберите **Проверка подлинности SQL Server**.
+4. Select **SQL Server authentication**.
 
-5. В поле **Пароль** введите пароль для нового пользователя. В поле **Подтвердите пароль** введите пароль еще раз.
+5. In the **Password** box, enter a password for the new user. Enter that password again into the **Confirm Password** box.
 
-6. Выберите необходимые параметры принудительного применения паролей (**Требовать использование политики паролей**, **Задать срок окончания действия пароля** и **Пользователь должен сменить пароль при следующем входе**). Если вы сами используете это имя пользователя, то запрашивать смену пароля при следующем входе не нужно.
+6. Select the password enforcement options required (**Enforce password policy**, **Enforce password expiration**, and **User must change password at next login**). If you are using this login for yourself, you do not need to require a password change at the next login.
 
-9. В списке **База данных по умолчанию** выберите базу данных по умолчанию для учетной записи. По умолчанию используется значение **Основная**. Если пользовательская база данных еще не создана, оставьте значение **Основная**.
+9. From the **Default database** list, select a default database for the login. **master** is the default for this option. If you have not yet created a user database, leave this set to **master**.
 
-	![Свойства учетной записи](./media/virtual-machines-sql-server-connection-steps/24Test-Login.png)
+    ![Login Properties](./media/virtual-machines-sql-server-connection-steps/24Test-Login.png)
 
-11. При первом создании учетной записи может потребоваться ее назначение в качестве администратора SQL Server. В таком случае на странице **Роли сервера** выберите **sysadmin**.
+11. If this is the first login you are creating, you may want to designate this login as a SQL Server administrator. If so, on the **Server Roles** page, check **sysadmin**.
 
-	>[AZURE.NOTE] Участники фиксированной серверной роли sysadmin получают все права для управления ядром СУБД. Количество представителей этой роли нужно ограничить.
+    >[AZURE.NOTE] Members of the sysadmin fixed server role have complete control of the Database Engine. You should carefully restrict membership in this role.
 
-	![sysadmin](./media/virtual-machines-sql-server-connection-steps/25sysadmin.png)
+    ![sysadmin](./media/virtual-machines-sql-server-connection-steps/25sysadmin.png)
 
-12. Нажмите кнопку ОК.
+12. Click OK.
 
-Более подробные сведения об учетных записях SQL Server см. в разделе [Создание учетной записи](http://msdn.microsoft.com/library/aa337562.aspx).
+For more information about SQL Server logins, see [Create a Login](http://msdn.microsoft.com/library/aa337562.aspx).
 
-<!---HONumber=AcomDC_0629_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

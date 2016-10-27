@@ -1,7 +1,11 @@
-﻿(c) Корпорация Microsoft (Microsoft Corporation).  Распространяется на следующих условиях:
+Copyright (c) Microsoft Corporation.  Distributed under the following terms:
  
-1. Microsoft и любой из участников этого проекта (каждый со своей стороны) предоставляют вам лицензию, согласно своим соответствующим авторским правам, на документацию Microsoft Azure по условиям [лицензии Creative Commons Attribution 3.0 для Соединенных Штатов](http://creativecommons.org/licenses/by/3.0/us/legalcode).  В дополнение к этому Microsoft и любой из таких участников предоставляют вам дополнительную лицензию на все примеры кода, содержащиеся в документации, согласно своим правам на интеллектуальную собственность. Вы можете использовать этот код с целью разработки или проектирования своего программного обеспечения для Microsoft Azure.
+1. Microsoft and any contributors to this project each grants you a license, under its respective copyrights, to the Microsoft Azure Documentation under the [Creative Commons Attribution 3.0 United States License](http://creativecommons.org/licenses/by/3.0/us/legalcode).  In addition, with respect to any sample code contained in the documentation, Microsoft and any such contributors grants you an additional license, under its respective intellectual property rights, to use the code to develop or design your software for Microsoft Azure.
  
-2.  Microsoft, Windows, Microsoft Azure и другие продукты и услуги Microsoft, упоминаемые в документации, могут быть охраняемыми товарными знаками Microsoft в США и других странах. Настоящая лицензия не дает права использовать наименования, логотипы или товарные знаки. Общие правила Microsoft по использованию товарных знаков опубликованы на веб-странице [http://go.microsoft.com/fwlink/?LinkID=254653](http://go.microsoft.com/fwlink/?LinkID=254653).
+2.  Microsoft, Windows, Microsoft Azure and/or other Microsoft products and services referenced in the documentation may be either trademarks or registered trademarks of Microsoft in the United States and/or other countries. This license does not grant you rights to use any names, logos, or trademarks. For Microsoft’s general trademark guidelines, go to [http://go.microsoft.com/fwlink/?LinkID=254653](http://go.microsoft.com/fwlink/?LinkID=254653).
  
-3.  Microsoft и любой из участников оставляют за собой все остальные права независимо от того, как они предоставлены — авторскими правами, патентами, товарными знаками, подразумеваемым образом, в силу лишения права возражения (эстоппель) или каким-либо иным способом.
+3.  Microsoft and any contributors reserves all others rights, whether under copyrights, patents, or trademarks, or by implication, estoppel or otherwise.
+
+<!--HONumber=Oct16_HO2-->
+
+

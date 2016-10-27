@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Заметки о выпуске, посвященные обновлению 0.3 для StorSimple 8000 | Microsoft Azure"
-   description="Описание новых функций и исправлений, открытых проблем и доступных решений для выпуска Microsoft Azure StorSimple (обновление 0.3) от февраля 2015 года."
+   pageTitle="StorSimple 8000 Update 0.3 release notes | Microsoft Azure"
+   description="Describes the new features and fixes, open issues, and available workarounds for the February 2015 Microsoft Azure StorSimple release (Update 0.3)."
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
@@ -15,75 +15,80 @@
    ms.date="04/18/2016"
    ms.author="v-sharos" />
 
-# Заметки о выпуске, посвященные обновлению 0.3 для устройств серии StorSimple 8000. Февраль 2015 г.
 
-## Обзор
+# <a name="storsimple-8000-series-update-0.3-release-notes---february-2015"></a>StorSimple 8000 Series Update 0.3 release notes - February 2015
 
-В приведенных ниже заметках о выпуске описаны критические открытые проблемы в обновлении 0.3 для устройств серии StorSimple 8000, выпущенного в феврале 2015 г. Здесь также содержится список обновлений программного обеспечения и встроенного ПО StorSimple для этого выпуска. Это третий выпуск после версии выпуска для устройств серии StorSimple 8000, ставшей общедоступной в июле 2014 г.
+## <a name="overview"></a>Overview
+
+The following release notes identify the critical open issues for  StorSimple 8000 Series Update 0.3 released in February 2015. They also contain a list of the StorSimple software and firmware updates included in this release. This is the third release after the StorSimple 8000 Series Release version was made generally available in July 2014.
   
-Это обновление не меняет версию программного обеспечения устройства январского обновления. У него сохраняется версия 6.3.9600.17312. Вы можете убедиться, что обновление установлено, проверив дату **Последнее обновление**. Если указана дата 10.02.2015 или более поздняя, то обновление было установлено успешно.
+This update does not change the device software version from the January update. It continues to be version 6.3.9600.17312. You can confirm that the update has been installed by checking the **Last Updated** date. If the date is 2/10/2015 or later, then the update has been installed successfully.  
 
-Рекомендуется проверять и устанавливать доступные обновления сразу после установки устройства StorSimple. Также можно включить автоматическое обновление для загрузки и установки по мере выпуска важных обновлений корпорации Майкрософт. Дополнительные сведения см. в разделе [Обновление устройства StorSimple](storsimple-update-device.md).
+We recommend that you scan for and apply any available updates immediately after you install your StorSimple device. You can also turn on automatic updates to download and install high-priority updates from Microsoft as soon as they are released. For more information, see [Update your StorSimple device](storsimple-update-device.md).  
 
-Перед развертыванием обновления в решении StorSimple, просмотрите сведения, содержащиеся в заметках о выпуске.
+Please review the information contained in the release notes before you deploy the update in your StorSimple solution.  
 
 >[AZURE.IMPORTANT]   
 >
-> - Для установки февральского обновления используйте службу диспетчера StorSimple, а не Windows PowerShell для StorSimple.   
-> - Установка этого обновления занимает около часа. Однако для установки накопительных пакетов обновлений может потребоваться до 3 часов.  
-> -	Февральский выпуск StorSimple не содержит никаких обновлений для виртуального устройства StorSimple. К виртуальному устройству можно применить все доступные обновления Windows, включая последние исправления безопасности, но версия виртуального устройства останется неизменной.  
+> - Use the StorSimple Manager service and not Windows PowerShell for StorSimple to install the February update.   
+> - It takes approximately an hour to install this update. However, if you are installing cumulative updates, the process can take about 3 hours to complete.  
+> - The February release of StorSimple does not contain any updates to the StorSimple virtual device. You can still apply any available Windows updates to the virtual device, including recent security fixes, but you will not see a change in version for the virtual device.  
 
-Перед обновлением устройства StorSimple убедитесь, что выполняются следующие условия.
+Make sure that the following prerequisites are met prior to updating your StorSimple device.  
 
-- Перед началом проверки наличия обновлений убедитесь, что оба контроллера устройства работают. Если не работает ни один из контроллеров, проверка завершится ошибкой. Чтобы проверить работоспособность контроллеров, перейдите в раздел **Состояние оборудования** на странице **Обслуживание**. Если есть компоненты в состоянии **Требуют внимания**, прежде чем что-то предпринять, обратитесь в службу поддержки Майкрософт.
-- Убедитесь, что для контроллеров 0 и 1 используются маршрутизируемые фиксированные IP-адреса и эти контроллеры могут подключаться к Интернету, поскольку они используются для доставки обновлений на устройство. Чтобы проверить, может ли контроллер подключиться к внешним адресам, можно использовать [командлет Test-Connection](https://technet.microsoft.com/library/hh849808.aspx) для проверки связи с известными адресами за пределами сети, например outlook.com.
-- Убедитесь, что порты 80 и 443 на устройстве StorSimple доступны для исходящего трафика. Дополнительные сведения см. в статье [Требования к сети для устройства StorSimple](storsimple-system-requirements.md#networking-requirements-for-your-storsimple-device).
-- Если версия программного обеспечения устройства старее 6.3.9600.17312 (обновление за октябрь 2014 года), перед началом обновления отключите порты Data 2 и Data 3, если они включены. Если при установке обновления оставить включенным порт Data 2 или Data 3, это может привести к переходу контроллера устройства в режим восстановления. Обратите внимание, что при отключении сетевых интерфейсов все связанные тома будут отключены и операции ввода-вывода на время обновления будут прерваны.  
+- Ensure that both device controllers are running before you scan for updates. If either controller is not running, the scan will fail. To verify that the controllers are in a healthy state, navigate to **Hardware Status** under the **Maintenance** page. If there are components that **Need attention**, contact Microsoft Support before proceeding any further.
+- Ensure that fixed IPs for both controller 0 and controller 1 are routable and can connect to the Internet as these are used for servicing the updates to the device. You can use the [Test-Connection cmdlet](https://technet.microsoft.com/library/hh849808.aspx) to ping a known address outside of the network, such as outlook.com, to verify that the controller has connectivity to the outside network.
+- Ensure that ports 80 and 443 are available on your StorSimple device for outbound communication. For more information, see the [Networking requirements for your StorSimple device](storsimple-system-requirements.md#networking-requirements-for-your-storsimple-device).
+- If the device software version is older than 6.3.9600.17312 (October 2014 update), disable the Data 2 and Data 3 ports, if enabled, before starting the update. Leaving the Data 2 or Data 3 ports enabled when you apply the update might cause your device controller to go into recovery mode. Please note that when you disable the network interfaces, all the associated volumes will be taken offline and the I/Os will be disrupted for the duration of the update.  
   
-## Новые возможности в февральском выпуске
+## <a name="what's-new-in-the-february-release"></a>What's new in the February release
 
-Это обновление содержит исправление для решения проблемы сброса к параметрам по умолчанию, которая возникала на устройствах с общедоступным выпуском при обновлении до октябрьского выпуска 2014 года. Дополнительные сведения см. в разделе [Исправления в этом выпуске](#issues-fixed-in-the-february-release).
+This update contains a fix for the factory reset issue that occurred on devices that had been upgraded from the GA release to the October 2014 release. For more information, see [Issues fixed in this release](#issues-fixed-in-the-february-release).   
 
-Это обновление не содержит новых компонентов или функциональных возможностей.
+This update does not contain new features or functionality.  
 
-## Исправления в февральском выпуске
+## <a name="issues-fixed-in-the-february-release"></a>Issues fixed in the February release
 
-В таблице ниже описываются проблемы, исправленные в этом обновлении.
+The following table describes the issue that was fixed in this update.  
  
-| № | Функция | Проблема | Для физического устройства | Для виртуального устройства |
+| No. | Feature | Issue | Applies to physical device | Applies to virtual device |
 |-----|---------|-------|---------------------------------|-------------------------------|
-| 1 | Сброс к параметрам по умолчанию | Выполняется сброс к параметрам по умолчанию на устройстве, где изначально был установлен общедоступный выпуск (версия 6.3.9600.17215), а затем было установлено обновление до октябрьского выпуска (версия 6.3.9600.17312). Сброс к параметрам по умолчанию завершается ошибкой, и устройство работает нестабильно. | Да | Нет |
+| 1 | Factory reset | You try to perform a factory reset on a device that originally had the GA release (version 6.3.9600.17215) installed but has been updated to the October release (version 6.3.9600.17312). The factory reset fails and the device becomes unstable. | Yes | No |
 
 
-## Известные проблемы в февральском выпуске
+## <a name="known-issues-in-the-february-release"></a>Known issues in the February release
 
-В таблице ниже содержится сводка по известным проблемам в этом выпуске.
+The following table provides a summary of known issues in this release.
  
-| Нет. | Функция | Проблема | Комментарий или временное решение | Для физического устройства | Для виртуального устройства |
+| No. | Feature | Issue | Comments/workaround | Applies to physical device  | Applies to virtual device |
 |-----|---------|-------|----------------------------|-----------------------------|--------------------------|
-| 1 | Сброс к параметрам по умолчанию | В некоторых случаях при выполнении сброса к параметрам по умолчанию устройство StorSimple может зависнуть и отобразится следующее сообщение: **Выполняется сброс к параметрам по умолчанию (этап 8)**. Это происходит при нажатии клавиш CTRL+C во время выполнения командлета. | Не нажимайте клавиши CTRL+C после начала сброса. Если вы уже находитесь в процессе сброса, обратитесь в службу технической поддержки Майкрософт, чтобы уточнить дальнейшие действия. | Да | Нет |
-| 2 | Дисковый кворум | В редких случаях, если большинство дисков в корпусе EBOD устройства 8600 отключены, что приводит к отсутствию дискового кворума, пул хранения отключается. Он будет оставаться отключенным даже если диски будут подключены повторно. | Устройство необходимо будет перезагрузить. Если проблема возникнет снова, обратитесь в службу поддержки Майкрософт. | Да | Нет |
-| 3 | Сбои облачных моментальных снимков | В редких случаях создание облачного моментального снимка может завершиться с ошибкой: **Достигнуто максимально допустимое количество резервных копий**. Это происходит, когда на одном устройстве создается более 255 клонов одного и того же исходного тома, который был удален. | | Да | Да |
-| 4 | Неправильный идентификатор контроллера | При замене контроллера, контроллер 0 может отображаться как контроллер 1. Во время замены контроллера, когда образ загружается с однорангового узла, идентификатор контроллера может изначально отображаться как идентификатор контроллера однорангового узла. Иногда такое поведение может также наблюдаться после перезагрузки системы. | Никаких действий от пользователя не требуется. Ситуация разрешится сама после завершения замены контроллера. | Да | Нет |
-| 5 | Диаграммы мониторинга устройств | В службе диспетчера StorSimple диаграммы мониторинга устройства не работают, если обычная проверка подлинности или проверка подлинности NTLM включена в конфигурации прокси-сервера устройства. | Измените конфигурацию веб-прокси для устройства, зарегистрированного в службе диспетчера StorSimple, чтобы для проверки подлинности было установлено значение «НЕТ». Чтобы сделать это, запустите оболочку Windows PowerShell для командлета StorSimple Set-HcsWebProxy. | Да | Да |
-| 6 | учетные записи хранения; | Использование службы хранилища для удаления учетной записи хранения не поддерживается. Это приведет к ситуации, в которой невозможно получить пользовательские данные. | | Да | Да |
-| 7 | Отработка отказа устройства | Многократные отработки отказов контейнера томов из одного исходного устройства на разные целевые устройства не поддерживаются. Отработка отказа с одного неиспользуемого устройства на несколько устройств приведет к тому, что контейнеры томов на первом отказавшем устройстве потеряют право собственности на данные. После такой отработки отказа эти контейнеры томов при просмотре на классическом портале Azure отображаются или ведут себя по-другому. | | Да | Нет |
-| 8 | Установка | Во время установки адаптера StorSimple для SharePoint для успешного завершения установки необходимо указать IP-адрес устройства. | | Да | Нет |
-| 9 | Веб-прокси | Если в конфигурации веб-прокси указан протокол HTTPS, это повлияет на связь между устройством и службой и устройство будет отключено. В этом процессе также могут создаваться пакеты поддержки, вследствие чего устройство потребляет значительные ресурсы. | Убедитесь, что для URL-адреса прокси-сервера указан протокол HTTP. Дополнительные сведения см. в статье [Настройка веб-прокси для устройства](storsimple-configure-web-proxy.md). | Да | Нет |
-| 10 | Веб-прокси | Если настроить и включить веб-прокси на зарегистрированном устройстве, на этом устройстве необходимо будет перезагрузить активный контроллер. | | Да | Нет |
-| 11 | Высокая задержка при связи с облаком и высокая рабочая нагрузка операций ввода-вывода | Когда на устройстве StorSimple обнаруживается очень высокая задержка для облачных служб (порядка нескольких секунд) в сочетании с высокой рабочей нагрузкой операций ввода-вывода, тома на устройстве переходят в состояние сниженной производительности и операции ввода-вывода могут завершиться ошибкой "Устройство не готово". | Чтобы исправить ошибку, потребуется вручную перезагрузить контроллеры устройства или выполнить отработку отказа устройства. | Да | Нет |
+| 1 | Factory reset | In some instances, when you perform a factory reset, the StorSimple device may be stuck and display this message: **Reset to factory is in progress (phase 8)**. This happens if you press CTRL+C while the cmdlet is in progress. | Do not press CTRL+C after initiating a factory reset. If you are already in this state, please contact Microsoft Support for next steps. | Yes | No |
+| 2 | Disk quorum | In rare instances, if the majority of disks in the EBOD enclosure of an 8600device are disconnected resulting in no disk quorum, then the storage pool will be offline. It will stay offline even if the disks are reconnected. | You will need to reboot the device. If the issue persists, please contact Microsoft Support for next steps. | Yes | No |
+| 3 | Cloud snapshot failures | In rare instances, a cloud snapshot may fail with the error **Maximum backup limit reached**. This occurs if you exceed 255 online clones on the same device, from the same original volume which has been deleted. |  | Yes | Yes |
+| 4 | Incorrect controller ID | When a controller replacement is performed, controller 0 may show up as controller 1. During controller replacement, when the image is loaded from the peer node, the controller ID can show up initially as the peer controller’s ID. In rare instances, this behavior may also be seen after a system reboot. | No user action is required. This situation will resolve itself after the controller replacement is complete. | Yes | No |
+| 5 | Device monitoring charts | In the StorSimple Manager service, the device monitoring charts do not work when Basic or NTLM authentication is enabled in the proxy server configuration for the device. | Modify the web proxy configuration for the device registered with your StorSimple Manager service so that authentication is set to NONE. To do this, run the the Windows PowerShell for StorSimple Set-HcsWebProxy cmdlet. | Yes | Yes |
+| 6 | Storage accounts | Using the Storage service to delete the storage account is an unsupported scenario. This will lead to a situation in which user data cannot be retrieved. |  | Yes | Yes |
+| 7 | Device failover | Multiple failovers of a volume container from the same source device to different target devices is not supported.  Failover from a single dead device to multiple devices will make the volume containers on the first failed over device lose data ownership. After such a failover, these volume containers will appear or behave differently when you view them in the Azure classic portal. |   | Yes | No |
+| 8 | Installation | During StorSimple Adapter for SharePoint installation, you need to provide a device IP in order for the install to finish successfully. |  | Yes | No |
+| 9 | Web proxy | If your web proxy configuration has HTTPS as the specified protocol, then your device-to-service communication will be affected and the device will go offline. Support packages will also be generated in the process, consuming significant resources on your device. | Make sure that the web proxy URL has HTTP as the specified protocol. More information on how to [Configure web proxy for your device](storsimple-configure-web-proxy.md). | Yes | No |
+| 10 | Web proxy | If you configure and enable web proxy on a registered device, then you will need to restart the active controller on your device. |  | Yes | No |
+| 11 | High cloud latency and high I/O workload | When your StorSimple device encounters a combination of very high cloud latencies (order of seconds) and high I/O workload, the device volumes go into a degraded state and the I/Os may fail with a "device not ready" error. | You will need to manually reboot the device controllers or perform a device failover to recover from this situation. | Yes | No |
 
-## Обновления физического устройства в февральском выпуске
+## <a name="physical-device-updates-in-the-february-release"></a>Physical device updates in the February release
 
-Это обновление устраняет проблему сброса к параметрам по умолчанию, которая возникала на устройствах с общедоступным выпуском при обновлении до октябрьского выпуска 2014 года. Оно не содержит никаких других обновлений для устройства StorSimple.
+This update fixes the factory reset issue that occurred on devices that had been upgraded from the GA release to the October 2014 release. It does not contain any other updates to the StorSimple device.  
 
-## SAS-контроллер и обновление встроенного ПО в февральском выпуске
+## <a name="serial-attached-scsi-(sas)-controller-and-firmware-updates-in-the-february-release"></a>Serial-attached SCSI (SAS) controller and firmware updates in the February release
 
-Этот выпуск не содержит никаких обновлений для SAS-контроллера или встроенного ПО. Обновление драйвера было в октябрьском выпуске 2014 года.
+This release does not contain any updates to the serial-attached SCSI (SAS) controller or the firmware. The driver update was in the October, 2014 release.  
 
-## Обновления виртуального устройства в февральском выпуске
+## <a name="virtual-device-updates-in-the-february-release"></a>Virtual device updates in the February release
 
-Эта версия не содержит никаких обновлений для виртуального устройства. Установка этого обновления не приведет к изменению версии программного обеспечения виртуального устройства.
+This release does not contain any updates for the virtual device. Applying this update will not change the software version of a virtual device.
  
 
-<!---HONumber=AcomDC_0427_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

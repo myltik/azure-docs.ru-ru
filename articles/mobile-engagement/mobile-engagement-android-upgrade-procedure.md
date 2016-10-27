@@ -1,72 +1,74 @@
 <properties 
-	pageTitle="Интеграция пакета Android SDK для Azure Mobile Engagement" 
-	description="Последние обновления и процедуры пакета Android SDK для Azure Mobile Engagement"
-	services="mobile-engagement" 
-	documentationCenter="mobile" 
-	authors="piyushjo" 
-	manager="dwrede" 
-	editor="" />
+    pageTitle="Azure Mobile Engagement Android SDK Integration" 
+    description="Latest updates and procedures for Android SDK for Azure Mobile Engagement"
+    services="mobile-engagement" 
+    documentationCenter="mobile" 
+    authors="piyushjo" 
+    manager="dwrede" 
+    editor="" />
 
 <tags 
-	ms.service="mobile-engagement" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-android" 
-	ms.devlang="Java" 
-	ms.topic="article" 
-	ms.date="08/19/2016"
-	ms.author="piyushjo" />
+    ms.service="mobile-engagement" 
+    ms.workload="mobile" 
+    ms.tgt_pltfrm="mobile-android" 
+    ms.devlang="Java" 
+    ms.topic="article" 
+    ms.date="08/19/2016"
+    ms.author="piyushjo" />
 
 
-#Процедуры обновления
 
-Если вы уже интегрировали в приложение старую версию пакета SDK, при обновлении пакета SDK необходимо учитывать следующее.
+#<a name="upgrade-procedures"></a>Upgrade procedures
 
-Если вы пропустили несколько версий пакета SDK, вам понадобиться выполнить несколько процедур. Например, при миграции из версии 1.4.0 в 1.6.0, необходимо сначала выполнить процедуру "из версии 1.4.0 в 1.5.0", а затем процедуру "из версии 1.5.0 в 1.6.0".
+If you already have integrated an older version of our SDK into your application, you have to consider the following points when upgrading the SDK.
 
-Независимо от того, с какой версии выполняется обновление, необходимо заменить `mobile-engagement-VERSION.jar` на новую версию.
+You may have to follow several procedures if you missed several versions of the SDK. For example if you migrate from 1.4.0 to 1.6.0 you have to first follow the "from 1.4.0 to 1.5.0" procedure then the "from 1.5.0 to 1.6.0" procedure.
 
-##Версии с 4.2.0 до 4.2.1
+Whatever the version you upgrade from, you have to replace the `mobile-engagement-VERSION.jar` with the new one.
 
-Фактически это действие можно выполнить в любой версии пакета SDK — это повышает безопасность при интеграции действий модуля Reach.
+##<a name="from-4.2.0-to-4.2.1"></a>From 4.2.0 to 4.2.1
 
-Теперь ко всем действиям модуля Reach необходимо добавлять `exported="false"`.
+This step can actually be done on any version of the SDK, its a security improvement when you integrate Reach activities.
 
-Действия модуля Reach должны выглядеть в `AndroidManifest.xml` следующим образом.
+You should now add `exported="false"` to all Reach activities.
 
-			<activity android:name="com.microsoft.azure.engagement.reach.activity.EngagementTextAnnouncementActivity" android:theme="@android:style/Theme.Light" android:exported="false">
-			  <intent-filter>
-			    <action android:name="com.microsoft.azure.engagement.reach.intent.action.ANNOUNCEMENT"/>
-			    <category android:name="android.intent.category.DEFAULT" />
-			    <data android:mimeType="text/plain" />
-			  </intent-filter>
-			</activity>
-			<activity android:name="com.microsoft.azure.engagement.reach.activity.EngagementWebAnnouncementActivity" android:theme="@android:style/Theme.Light" android:exported="false">
-			  <intent-filter>
-			    <action android:name="com.microsoft.azure.engagement.reach.intent.action.ANNOUNCEMENT"/>
-			    <category android:name="android.intent.category.DEFAULT" />
-			    <data android:mimeType="text/html" />
-			  </intent-filter>
-			</activity>
-			<activity android:name="com.microsoft.azure.engagement.reach.activity.EngagementPollActivity" android:theme="@android:style/Theme.Light" android:exported="false">
-			  <intent-filter>
-			    <action android:name="com.microsoft.azure.engagement.reach.intent.action.POLL"/>
-			    <category android:name="android.intent.category.DEFAULT" />
-			  </intent-filter>
-			</activity>
-			<activity android:name="com.microsoft.azure.engagement.reach.activity.EngagementLoadingActivity" android:theme="@android:style/Theme.Dialog" android:exported="false">
-			  <intent-filter>
-			    <action android:name="com.microsoft.azure.engagement.reach.intent.action.LOADING"/>
-			    <category android:name="android.intent.category.DEFAULT"/>
-			  </intent-filter>
-			</activity>
+Reach activities should now look like this on your `AndroidManifest.xml`:
 
-##С версии 4.0.0 до версии 4.1.0
+            <activity android:name="com.microsoft.azure.engagement.reach.activity.EngagementTextAnnouncementActivity" android:theme="@android:style/Theme.Light" android:exported="false">
+              <intent-filter>
+                <action android:name="com.microsoft.azure.engagement.reach.intent.action.ANNOUNCEMENT"/>
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="text/plain" />
+              </intent-filter>
+            </activity>
+            <activity android:name="com.microsoft.azure.engagement.reach.activity.EngagementWebAnnouncementActivity" android:theme="@android:style/Theme.Light" android:exported="false">
+              <intent-filter>
+                <action android:name="com.microsoft.azure.engagement.reach.intent.action.ANNOUNCEMENT"/>
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="text/html" />
+              </intent-filter>
+            </activity>
+            <activity android:name="com.microsoft.azure.engagement.reach.activity.EngagementPollActivity" android:theme="@android:style/Theme.Light" android:exported="false">
+              <intent-filter>
+                <action android:name="com.microsoft.azure.engagement.reach.intent.action.POLL"/>
+                <category android:name="android.intent.category.DEFAULT" />
+              </intent-filter>
+            </activity>
+            <activity android:name="com.microsoft.azure.engagement.reach.activity.EngagementLoadingActivity" android:theme="@android:style/Theme.Dialog" android:exported="false">
+              <intent-filter>
+                <action android:name="com.microsoft.azure.engagement.reach.intent.action.LOADING"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+              </intent-filter>
+            </activity>
 
-Пакет SDK теперь обрабатывает новую модель разрешений из Android M.
+##<a name="from-4.0.0-to-4.1.0"></a>From 4.0.0 to 4.1.0
 
-Если вы используете характеристики расположений или общие уведомления, ознакомьтесь с [этим разделом](mobile-engagement-android-integrate-engagement.md#android-m-permissions).
+The SDK now handle new permission model from Android M.
 
-Помимо новой модели разрешений, теперь поддерживается настройка характеристик расположений во время выполнения. Кроме того, по-прежнему обеспечивается поддержка совместимости с параметрами манифеста для расположения, но сейчас эта возможность устарела. Чтобы использовать конфигурацию среды выполнения, удалите следующие разделы из ``AndroidManifest.xml``:
+If you use location features or big picture notifications please read [this section](mobile-engagement-android-integrate-engagement.md#android-m-permissions).
+
+In addition to the new permission model, we now support configuring location features at runtime.
+We are still compatible with the manifest parameters for location but it's now deprecated. To use runtime configuration, remove the following sections from your ``AndroidManifest.xml``:
 
     <meta-data
       android:name="engagement:locationReport:lazyArea"
@@ -81,21 +83,21 @@
       android:name="engagement:locationReport:realTime:fine"
       android:value="true"/>
 
-и ознакомьтесь с [этой обновленной процедурой](mobile-engagement-android-integrate-engagement.md#location-reporting), чтобы вместо этого использовать конфигурацию среды выполнения.
+and read [this updated procedure](mobile-engagement-android-integrate-engagement.md#location-reporting) to use runtime configuration instead.
 
-##С версии 3.0.0 до версии 4.0.0
+##<a name="from-3.0.0-to-4.0.0"></a>From 3.0.0 to 4.0.0
 
-### Системные push-уведомления
+### <a name="native-push"></a>Native push
 
-Системные push-уведомления (GCM/ADM) теперь также используются для уведомлений из приложений, поэтому их учетные данные необходимо задавать для всех типов кампаний push-уведомлений.
+Native push (GCM/ADM) is now also used for in app notifications so you must configure the native push credentials for any type of push campaign.
 
-Если вы еще не сделали этого, следуйте [этой процедуре](mobile-engagement-android-integrate-engagement-reach.md#native-push).
+If not already done please follow [this procedure](mobile-engagement-android-integrate-engagement-reach.md#native-push).
 
-### AndroidManifest.xml
+### <a name="androidmanifest.xml"></a>AndroidManifest.xml
 
-Возможности интеграции с Reach были изменены в ``AndroidManifest.xml``.
+Reach integration has been modified in ``AndroidManifest.xml``.
 
-Замените это:
+Replace this:
 
     <receiver
       android:name="com.microsoft.azure.engagement.reach.EngagementReachReceiver"
@@ -111,7 +113,7 @@
       </intent-filter>
     </receiver>
 
-на
+By
 
     <receiver
       android:name="com.microsoft.azure.engagement.reach.EngagementReachReceiver"
@@ -131,7 +133,8 @@
       </intent-filter>
     </receiver>
 
-Теперь при выборе объявления (текстового или с веб-содержимым) или опроса может отображаться экран загрузки. Чтобы кампании работали в версии 4.0.0, необходимо добавить этот код:
+There is possibly a loading screen now when you click on an announcement (with text/web content) or a poll.
+You have to add this for those campaigns to work in 4.0.0:
 
     <activity
       android:name="com.microsoft.azure.engagement.reach.activity.EngagementLoadingActivity"
@@ -142,283 +145,287 @@
       </intent-filter>
     </activity>
 
-### Ресурсы
+### <a name="resources"></a>Resources
 
-Внедрите новый файл `res/layout/engagement_loading.xml` в проект.
+Embed the new `res/layout/engagement_loading.xml` file into your project.
 
-##Из версии 2.4.0 в 3.0.0
+##<a name="from-2.4.0-to-3.0.0"></a>From 2.4.0 to 3.0.0
 
-Ниже описан процесс переноса интеграции пакета SDK из службы Capptain от Capptain SAS в приложение на платформе Azure Mobile Engagement. При миграции с более ранней версии сначала ознакомьтесь с информацией о переносе на версию 2.4.0 на веб-сайте Capptain, а затем примените следующую процедуру.
+The following describes how to migrate an SDK integration from the Capptain service offered by Capptain SAS into an app powered by Azure Mobile Engagement. If you are migrating from an earlier version, please consult the Capptain web site to migrate to 2.4.0 first and then apply the following procedure.
 
->[AZURE.IMPORTANT] Службы Capptain и Azure Mobile Engagement отличаются друг от друга. В представленных ниже процедурах описывается способ переноса только для клиентского приложения. При переносе пакета SDK в приложение данные НЕ будут перенесены с серверов Capptain на серверы Mobile Engagement.
+>[AZURE.IMPORTANT] Capptain and Mobile Engagement are not the same services, and the procedure given below only highlights how to migrate the client app. Migrating the SDK in the app will NOT migrate your data from the Capptain servers to the Mobile Engagement servers.
 
-### JAR-файл
+### <a name="jar-file"></a>JAR file
 
-Замените `capptain.jar` на `mobile-engagement-VERSION.jar` в папке `libs`.
+Replace `capptain.jar` by `mobile-engagement-VERSION.jar` in your `libs` folder.
 
-### Файлы ресурсов
+### <a name="resource-files"></a>Resource files
 
-Каждый предоставленный файл ресурсов (с префиксом `capptain_`) должен быть заменен на новый (с префиксом `engagement_`).
+Every resource file that we provided (prefixed by `capptain_`) has to be replaced by the new ones (prefixed with `engagement_`).
 
-Если вы настроили эти файлы, потребуется повторно применить настройку к новым файлам. **Все идентификаторы фалов ресурсов также были переименованы.**
+If you customized those files, you have to re-apply your customization on the new files, **all the identifiers in the resource files have also been renamed**.
 
-### Идентификатор приложения
+### <a name="application-id"></a>Application ID
 
-Теперь служба Engagement использует строку подключения для настройки идентификаторов пакета SDK, таких как идентификатор приложения.
+Now Engagement uses a connection string to configure the SDK identifiers such as the application identifier.
 
-Необходимо использовать метод `EngagementAgent.init` в действии запуска следующим образом:
+You have to use `EngagementAgent.init` method in your launcher activity like this:
 
-			EngagementConfiguration engagementConfiguration = new EngagementConfiguration();
-			engagementConfiguration.setConnectionString("Endpoint={appCollection}.{domain};AppId={appId};SdkKey={sdkKey}");
-			EngagementAgent.getInstance(this).init(engagementConfiguration);
+            EngagementConfiguration engagementConfiguration = new EngagementConfiguration();
+            engagementConfiguration.setConnectionString("Endpoint={appCollection}.{domain};AppId={appId};SdkKey={sdkKey}");
+            EngagementAgent.getInstance(this).init(engagementConfiguration);
 
-Теперь строка подключения для приложения отображается на портале Azure.
+The connection string for your application is displayed on Azure Portal.
 
-Удалите все вызовы к `CapptainAgent.configure`, так как `EngagementAgent.init` заменяет этот метод.
+Please remove any call to `CapptainAgent.configure` as `EngagementAgent.init` replaces that method.
 
-`appId` больше нельзя настраивать с помощью `AndroidManifest.xml`.
+The `appId` can no longer be configured using `AndroidManifest.xml`.
 
-Удалите этот раздел из `AndroidManifest.xml`, если он имеется:
+Please remove this section from your `AndroidManifest.xml` if you have it:
 
-			<meta-data android:name="capptain:appId" android:value="<YOUR_APPID>"/>
+            <meta-data android:name="capptain:appId" android:value="<YOUR_APPID>"/>
 
-### API Java
+### <a name="java-api"></a>Java API
 
-Любой вызов любого класса Java пакета SDK должен быть переименован, например `CapptainAgent.getInstance(this)` нужно переименовать в `EngagementAgent.getInstance(this)`, `extends CapptainActivity` нужно переименовать в `extends EngagementActivity` и т. д.
+Every call to any Java class of our SDK has to be renamed; for example, `CapptainAgent.getInstance(this)` must be renamed `EngagementAgent.getInstance(this)`, `extends CapptainActivity` must be renamed `extends EngagementActivity` etc...
 
-Если была выполнена интеграция с файлами параметров агента по умолчанию, то теперь имя файла по умолчанию — `engagement.agent`, а ключ — `engagement:agent`.
+If you were integrated with default agent preference files, the default file name is now `engagement.agent` and the key is `engagement:agent`.
 
-При создании веб-объявлений теперь используется модуль привязки Javascript `engagementReachContent`.
+When creating web announcements, the Javascript binder is now `engagementReachContent`.
 
-### AndroidManifest.xml
+### <a name="androidmanifest.xml"></a>AndroidManifest.xml
 
-Выполнено много изменений. Служба больше не используется совместно, а большое количество получателей больше нельзя экспортировать.
+A lot of changes happened there, the service is not shared anymore, and a lot of receivers are not exportable anymore.
 
-Объявление службы теперь упрощено, удален фильтр намерений и все метаданные в нем, а также добавлен `exportable=false`.
+The service declaration is now simpler; remove the intent filter and all meta-data inside it, and add `exportable=false`.
 
-Кроме того, все переименовано для использования службы Engagement.
+Plus everything is renamed to use engagement.
 
-Теперь это выглядит следующим образом:
+It now looks like:
 
-			<service
-			  android:name="com.microsoft.azure.engagement.service.EngagementService"
-			  android:exported="false"
-			  android:label="<Your application name>Service"
-			  android:process=":Engagement"/>
+            <service
+              android:name="com.microsoft.azure.engagement.service.EngagementService"
+              android:exported="false"
+              android:label="<Your application name>Service"
+              android:process=":Engagement"/>
 
-При необходимости включить журналы тестирования метаданные теперь перемещаются в тег приложения и переименовываются:
+When you want to enable test logs, the meta-data has now been moved to the application tag and has been renamed:
 
-			<application>
-			
-			  <meta-data android:name="engagement:log:test" android:value="true" />
-			
-			  <service/>
-			
-			</application>
+            <application>
+            
+              <meta-data android:name="engagement:log:test" android:value="true" />
+            
+              <service/>
+            
+            </application>
 
-Все остальные метаданные только что были переименованы. Здесь приводится полный список (разумеется, следует переименовывать только те, которые используются):
+All other meta-data have just been renamed, here is the full list (of course rename only the ones you use):
 
-			<meta-data
-			  android:name="engagement:reportCrash"
-			  android:value="true"/>
-			<meta-data
-			  android:name="engagement:sessionTimeout"
-			  android:value="10000"/>
-			<meta-data
-			  android:name="engagement:burstThreshold"
-			  android:value="0"/>
-			<meta-data
-			  android:name="engagement:connection:delay"
-			  android:value="0"/>
-			<meta-data
-			  android:name="engagement:locationReport:lazyArea"
-			  android:value="false"/>
-			<meta-data
-			  android:name="engagement:locationReport:realTime"
-			  android:value="false"/>
-			<meta-data
-			  android:name="engagement:locationReport:realTime:background"
-			  android:value="false"/>
-			<meta-data
-			  android:name="engagement:locationReport:realTime:fine"
-			  android:value="false"/>
-			<meta-data
-			  android:name="engagement:agent:settings:name"
-			  android:value="engagement.agent"/>
-			<meta-data
-			  android:name="engagement:agent:settings:mode"
-			  android:value="0"/>
-			<meta-data
-			  android:name="engagement:gcm:sender"
-			  android:value="<YOUR_PROJECT_NUMBER>\n"/>
-			<meta-data
-			  android:name="engagement:adm:register"
-			  android:value="true"/>
-			<meta-data
-			  android:name="engagement:reach:notification:icon"
-			  android:value="<DRAWABLE_NAME_WITHOUT_EXTENSION>"/>
-			
-			<activity android:name="SomeActivityWithoutReachOverlay">
-			  <meta-data
-			    android:name="engagement:notification:overlay"
-			    android:value="false"/>
-			</activity>
+            <meta-data
+              android:name="engagement:reportCrash"
+              android:value="true"/>
+            <meta-data
+              android:name="engagement:sessionTimeout"
+              android:value="10000"/>
+            <meta-data
+              android:name="engagement:burstThreshold"
+              android:value="0"/>
+            <meta-data
+              android:name="engagement:connection:delay"
+              android:value="0"/>
+            <meta-data
+              android:name="engagement:locationReport:lazyArea"
+              android:value="false"/>
+            <meta-data
+              android:name="engagement:locationReport:realTime"
+              android:value="false"/>
+            <meta-data
+              android:name="engagement:locationReport:realTime:background"
+              android:value="false"/>
+            <meta-data
+              android:name="engagement:locationReport:realTime:fine"
+              android:value="false"/>
+            <meta-data
+              android:name="engagement:agent:settings:name"
+              android:value="engagement.agent"/>
+            <meta-data
+              android:name="engagement:agent:settings:mode"
+              android:value="0"/>
+            <meta-data
+              android:name="engagement:gcm:sender"
+              android:value="<YOUR_PROJECT_NUMBER>\n"/>
+            <meta-data
+              android:name="engagement:adm:register"
+              android:value="true"/>
+            <meta-data
+              android:name="engagement:reach:notification:icon"
+              android:value="<DRAWABLE_NAME_WITHOUT_EXTENSION>"/>
+            
+            <activity android:name="SomeActivityWithoutReachOverlay">
+              <meta-data
+                android:name="engagement:notification:overlay"
+                android:value="false"/>
+            </activity>
 
-Отслеживание Google Play и SmartAd удалено из пакета SDK. Необходимо просто удалить это без замены.
+Google Play and SmartAd tracking has been removed from SDK you just have to remove this without replacement:
 
-			<meta-data 
-				android:name="capptain:track:installReferrerForwardList"
-				android:value="com.class1,com.class2"/>
-			<meta-data
-				android:name="capptain:track:adservers"
-				android:value="smartad" />
+            <meta-data 
+                android:name="capptain:track:installReferrerForwardList"
+                android:value="com.class1,com.class2"/>
+            <meta-data
+                android:name="capptain:track:adservers"
+                android:value="smartad" />
 
-Действия модуля Reach теперь объявляются следующим образом:
+The Reach activities are now declared like this:
 
-			<activity
-			  android:name="com.microsoft.azure.engagement.reach.activity.EngagementTextAnnouncementActivity"
-			  android:theme="@android:style/Theme.Light">
-			  <intent-filter>
-			    <action android:name="com.microsoft.azure.engagement.reach.intent.action.ANNOUNCEMENT"/>
-			    <category android:name="android.intent.category.DEFAULT"/>
-			    <data android:mimeType="text/plain"/>
-			  </intent-filter>
-			</activity>
-			<activity
-			  android:name="com.microsoft.azure.engagement.reach.activity.EngagementWebAnnouncementActivity"
-			  android:theme="@android:style/Theme.Light">
-			  <intent-filter>
-			    <action android:name="com.microsoft.azure.engagement.reach.intent.action.ANNOUNCEMENT"/>
-			    <category android:name="android.intent.category.DEFAULT"/>
-			    <data android:mimeType="text/html"/>
-			  </intent-filter>
-			</activity>
-			<activity
-			  android:name="com.microsoft.azure.engagement.reach.activity.EngagementPollActivity"
-			  android:theme="@android:style/Theme.Light">
-			  <intent-filter>
-			    <action android:name="com.microsoft.azure.engagement.reach.intent.action.POLL"/>
-			    <category android:name="android.intent.category.DEFAULT"/>
-			  </intent-filter>
-			</activity>
-			
-Если действия модуля Reach настроены, необходимо изменить только действия намерений для соответствия `com.microsoft.azure.engagement.reach.intent.action.ANNOUNCEMENT` или `com.microsoft.azure.engagement.reach.intent.action.POLL`.
+            <activity
+              android:name="com.microsoft.azure.engagement.reach.activity.EngagementTextAnnouncementActivity"
+              android:theme="@android:style/Theme.Light">
+              <intent-filter>
+                <action android:name="com.microsoft.azure.engagement.reach.intent.action.ANNOUNCEMENT"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="text/plain"/>
+              </intent-filter>
+            </activity>
+            <activity
+              android:name="com.microsoft.azure.engagement.reach.activity.EngagementWebAnnouncementActivity"
+              android:theme="@android:style/Theme.Light">
+              <intent-filter>
+                <action android:name="com.microsoft.azure.engagement.reach.intent.action.ANNOUNCEMENT"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="text/html"/>
+              </intent-filter>
+            </activity>
+            <activity
+              android:name="com.microsoft.azure.engagement.reach.activity.EngagementPollActivity"
+              android:theme="@android:style/Theme.Light">
+              <intent-filter>
+                <action android:name="com.microsoft.azure.engagement.reach.intent.action.POLL"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+              </intent-filter>
+            </activity>
+            
+If you have custom Reach activities, you need only to change the intent actions to match either `com.microsoft.azure.engagement.reach.intent.action.ANNOUNCEMENT` or `com.microsoft.azure.engagement.reach.intent.action.POLL`.
 
-Получатели рассылок были переименованы, кроме того, было добавлено `exported=false`. Ниже приводится полный список получателей с новой спецификацией (разумеется, необходимо переименовывать только тех, которые используются):
+The broadcast receivers have been renamed, plus we now add `exported=false`. Here is the full list of the receivers with the new specification, (of course rename only the ones you use):
 
-			<receiver android:name="com.microsoft.azure.engagement.reach.EngagementReachReceiver"
-			  android:exported="false">
-			  <intent-filter>
-			    <action android:name="android.intent.action.BOOT_COMPLETED"/>
-			    <action android:name="com.microsoft.azure.engagement.intent.action.AGENT_CREATED"/>
-			    <action android:name="com.microsoft.azure.engagement.intent.action.MESSAGE"/>
-			    <action android:name="com.microsoft.azure.engagement.reach.intent.action.ACTION_NOTIFICATION"/>
-			    <action android:name="com.microsoft.azure.engagement.reach.intent.action.EXIT_NOTIFICATION"/>
-			    <action android:name="android.intent.action.DOWNLOAD_COMPLETE"/>
-			    <action android:name="com.microsoft.azure.engagement.reach.intent.action.DOWNLOAD_TIMEOUT"/>
-			  </intent-filter>
-			</receiver>
-			
-			<receiver android:name="com.microsoft.azure.engagement.gcm.EngagementGCMEnabler"
-			  android:exported="false">
-			  <intent-filter>
-			    <action android:name="com.microsoft.azure.engagement.intent.action.APPID_GOT" />
-			  </intent-filter>
-			</receiver>
-			
-			<receiver
-			  android:name="com.microsoft.azure.engagement.gcm.EngagementGCMReceiver"
-			  android:permission="com.google.android.c2dm.permission.SEND">
-			  <intent-filter>
-			    <action android:name="com.google.android.c2dm.intent.REGISTRATION"/>
-			    <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
-			    <category android:name="<your_package_name>"/>
-			  </intent-filter>
-			</receiver>
-			
-			<receiver android:name="com.microsoft.azure.engagement.adm.EngagementADMEnabler"
-			  android:exported="false">
-			  <intent-filter>
-			    <action android:name="com.microsoft.azure.engagement.intent.action.APPID_GOT"/>
-			  </intent-filter>
-			</receiver>
-			
-			<receiver
-			  android:name="com.microsoft.azure.engagement.adm.EngagementADMReceiver"
-			  android:permission="com.amazon.device.messaging.permission.SEND">
-			  <intent-filter>
-			    <action android:name="com.amazon.device.messaging.intent.REGISTRATION"/>
-			    <action android:name="com.amazon.device.messaging.intent.RECEIVE"/>
-			    <category android:name="<your_package_name>"/>
-			  </intent-filter>
-			</receiver>
-			
-			<receiver android:name="<your_sub_class_of_com.microsoft.azure.engagement.reach.EngagementReachDataPushReceiver>"
-			  android:exported="false">
-			  <intent-filter>
-			    <action android:name="com.microsoft.azure.engagement.reach.intent.action.DATA_PUSH" />
-			  </intent-filter>
-			</receiver>
-			
-			<receiver android:name="com.microsoft.azure.engagement.EngagementLocationBootReceiver"
-			   android:exported="false">
-			   <intent-filter>
-			      <action android:name="android.intent.action.BOOT_COMPLETED" />
-			   </intent-filter>
-			</receiver>
-			
-			<receiver android:name="<your_sub_class_of_com.microsoft.azure.engagement.EngagementConnectionReceiver.java>"
-			  android:exported="false">
-			  <intent-filter>
-			    <action android:name="com.microsoft.azure.engagement.intent.action.CONNECTED"/>
-			    <action android:name="com.microsoft.azure.engagement.intent.action.DISCONNECTED"/>
-			  </intent-filter>
-			</receiver>
-			
-			<receiver
-			  android:name="<your_sub_class_of_com.microsoft.azure.engagement.EngagementMessageReceiver.java>"
-			  android:exported="false">
-			  <intent-filter>
-			    <action android:name="com.microsoft.azure.engagement.reach.intent.action.MESSAGE"/>
-			  </intent-filter>
-			</receiver>
+            <receiver android:name="com.microsoft.azure.engagement.reach.EngagementReachReceiver"
+              android:exported="false">
+              <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="com.microsoft.azure.engagement.intent.action.AGENT_CREATED"/>
+                <action android:name="com.microsoft.azure.engagement.intent.action.MESSAGE"/>
+                <action android:name="com.microsoft.azure.engagement.reach.intent.action.ACTION_NOTIFICATION"/>
+                <action android:name="com.microsoft.azure.engagement.reach.intent.action.EXIT_NOTIFICATION"/>
+                <action android:name="android.intent.action.DOWNLOAD_COMPLETE"/>
+                <action android:name="com.microsoft.azure.engagement.reach.intent.action.DOWNLOAD_TIMEOUT"/>
+              </intent-filter>
+            </receiver>
+            
+            <receiver android:name="com.microsoft.azure.engagement.gcm.EngagementGCMEnabler"
+              android:exported="false">
+              <intent-filter>
+                <action android:name="com.microsoft.azure.engagement.intent.action.APPID_GOT" />
+              </intent-filter>
+            </receiver>
+            
+            <receiver
+              android:name="com.microsoft.azure.engagement.gcm.EngagementGCMReceiver"
+              android:permission="com.google.android.c2dm.permission.SEND">
+              <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION"/>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+                <category android:name="<your_package_name>"/>
+              </intent-filter>
+            </receiver>
+            
+            <receiver android:name="com.microsoft.azure.engagement.adm.EngagementADMEnabler"
+              android:exported="false">
+              <intent-filter>
+                <action android:name="com.microsoft.azure.engagement.intent.action.APPID_GOT"/>
+              </intent-filter>
+            </receiver>
+            
+            <receiver
+              android:name="com.microsoft.azure.engagement.adm.EngagementADMReceiver"
+              android:permission="com.amazon.device.messaging.permission.SEND">
+              <intent-filter>
+                <action android:name="com.amazon.device.messaging.intent.REGISTRATION"/>
+                <action android:name="com.amazon.device.messaging.intent.RECEIVE"/>
+                <category android:name="<your_package_name>"/>
+              </intent-filter>
+            </receiver>
+            
+            <receiver android:name="<your_sub_class_of_com.microsoft.azure.engagement.reach.EngagementReachDataPushReceiver>"
+              android:exported="false">
+              <intent-filter>
+                <action android:name="com.microsoft.azure.engagement.reach.intent.action.DATA_PUSH" />
+              </intent-filter>
+            </receiver>
+            
+            <receiver android:name="com.microsoft.azure.engagement.EngagementLocationBootReceiver"
+               android:exported="false">
+               <intent-filter>
+                  <action android:name="android.intent.action.BOOT_COMPLETED" />
+               </intent-filter>
+            </receiver>
+            
+            <receiver android:name="<your_sub_class_of_com.microsoft.azure.engagement.EngagementConnectionReceiver.java>"
+              android:exported="false">
+              <intent-filter>
+                <action android:name="com.microsoft.azure.engagement.intent.action.CONNECTED"/>
+                <action android:name="com.microsoft.azure.engagement.intent.action.DISCONNECTED"/>
+              </intent-filter>
+            </receiver>
+            
+            <receiver
+              android:name="<your_sub_class_of_com.microsoft.azure.engagement.EngagementMessageReceiver.java>"
+              android:exported="false">
+              <intent-filter>
+                <action android:name="com.microsoft.azure.engagement.reach.intent.action.MESSAGE"/>
+              </intent-filter>
+            </receiver>
 
-Получатель отслеживания был удален, поэтому нужно удалить данный раздел:
+Tracking receiver has been removed, so you have to remove this section:
 
-		  <receiver android:name="com.ubikod.capptain.android.sdk.track.CapptainTrackReceiver">
-		    <intent-filter>
-		      <action android:name="com.ubikod.capptain.intent.action.APPID_GOT" />
-		      <!-- possibly <action android:name="com.android.vending.INSTALL_REFERRER" /> -->
-		    </intent-filter>
-		  </receiver>
+          <receiver android:name="com.ubikod.capptain.android.sdk.track.CapptainTrackReceiver">
+            <intent-filter>
+              <action android:name="com.ubikod.capptain.intent.action.APPID_GOT" />
+              <!-- possibly <action android:name="com.android.vending.INSTALL_REFERRER" /> -->
+            </intent-filter>
+          </receiver>
 
-Обратите внимание, что объявление реализации получателя рассылок **EngagementMessageReceiver** изменено в `AndroidManifest.xml`. Это вызвано тем, что API используется для отправки и удаления произвольных сообщений XMPP из произвольных сущностей XMPP, а API для отправки и получения сообщений между устройствами был удален. Таким образом, необходимо также удалить следующие обратные вызовы из реализации **EngagementMessageReceiver**:
+Note that the declaration of your implementation of the broadcast receiver **EngagementMessageReceiver** has changed in the `AndroidManifest.xml`. This is because the API to send and remove arbitrary XMPP messages from arbitrary XMPP entities and the API to send and receive messages between devices have been removed. Thus, you have also to delete the following callbacks from your **EngagementMessageReceiver** implementation :
 
-			protected void onDeviceMessageReceived(android.content.Context context, java.lang.String deviceId, java.lang.String payload)
+            protected void onDeviceMessageReceived(android.content.Context context, java.lang.String deviceId, java.lang.String payload)
 
-и
+and
 
-			protected void onXMPPMessageReceived(android.content.Context context, android.os.Bundle message)
+            protected void onXMPPMessageReceived(android.content.Context context, android.os.Bundle message)
 
-затем удалить все вызовы в **EngagementAgent** для:
+then delete any call on **EngagementAgent** for :
 
-			sendMessageToDevice(java.lang.String deviceId, java.lang.String payload, java.lang.String packageName)
+            sendMessageToDevice(java.lang.String deviceId, java.lang.String payload, java.lang.String packageName)
 
-и
+and
 
-			sendXMPPMessage(android.os.Bundle msg)
+            sendXMPPMessage(android.os.Bundle msg)
 
-### Proguard
+### <a name="proguard"></a>Proguard
 
-На настройку Proguard может оказать влияние ребрендинг, правила теперь выглядят следующим образом:
+Proguard configuration can be impacted by rebranding, the rules are now looking like:
 
-			-dontwarn android.**
-			-keep class android.support.v4.** { *; }
-			
-			-keep public class * extends android.os.IInterface
-			-keep class com.microsoft.azure.engagement.reach.activity.EngagementWebAnnouncementActivity$EngagementReachContentJS {
-			  <methods>;
-			}
+            -dontwarn android.**
+            -keep class android.support.v4.** { *; }
+            
+            -keep public class * extends android.os.IInterface
+            -keep class com.microsoft.azure.engagement.reach.activity.EngagementWebAnnouncementActivity$EngagementReachContentJS {
+              <methods>;
+            }
  
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

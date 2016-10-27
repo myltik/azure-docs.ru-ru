@@ -17,7 +17,8 @@
    ms.author="chkuhtz"
 />
 
-# Несколько виртуальных IP-адресов для Azure Load Balancer
+
+# <a name="multiple-vips-for-azure-load-balancer"></a>Несколько виртуальных IP-адресов для Azure Load Balancer
 
 Azure Load Balancer позволяет выполнять балансировку нагрузки между службами на нескольких портах, нескольких IP-адресах или обоими этими способами. Вы можете воспользоваться определениями общедоступного и внутреннего балансировщика нагрузки для выполнения балансировки потоков в наборе виртуальных машин.
 
@@ -29,9 +30,9 @@ Azure Load Balancer позволяет выполнять балансировк
 
 | Виртуальный IP-адрес | IP-адрес | protocol | порт |
 |-----|------------|----------|------|
-|1|65\.52.0.1|TCP|80|
-|2|65\.52.0.1|TCP|_8080_|
-|3|65\.52.0.1|_UDP_|80|
+|1|65.52.0.1|TCP|80|
+|2|65.52.0.1|TCP|_8080_|
+|3|65.52.0.1|_UDP_|80|
 |4|_65.52.0.2_|TCP|80|
 
 В таблице представлены четыре разных внешних интерфейса. Внешние интерфейсы 1, 2 и 3 — это один виртуальный IP-адрес с несколькими правилами. Используется один IP-адрес, но порт или протокол отличаются для каждого внешнего интерфейса. Внешние интерфейсы 1 и 4 являются примерами нескольких виртуальных IP-адресов, так как в них один интерфейсный протокол и один порт повторно используются для разных виртуальных IP-адресов.
@@ -45,7 +46,7 @@ Azure Load Balancer позволяет сочетать оба типа прав
 
 Мы рассмотрим возможные сценарии далее в этой статье, а начнем с поведения по умолчанию.
 
-## Тип правил 1: внутренние порты повторно не используются
+## <a name="rule-type-#1:-no-backend-port-reuse"></a>Тип правил 1: внутренние порты повторно не используются
 
 ![Иллюстрация нескольких виртуальных IP-адресов](./media/load-balancer-multivip-overview/load-balancer-multivip.png)
 
@@ -53,7 +54,7 @@ Azure Load Balancer позволяет сочетать оба типа прав
 
 | Виртуальный IP-адрес | IP-адрес | protocol | порт |
 |-----|------------|----------|------|
-|![Виртуальный IP-адрес](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) 1|65\.52.0.1|TCP|80|
+|![Виртуальный IP-адрес](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) 1|65.52.0.1|TCP|80|
 |![Виртуальный IP-адрес](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) 2|*65.52.0.2*|TCP|80|
 
 Выделенный IP-адрес (DIP) — это назначение входящего потока. Во внутреннем пуле каждая виртуальная машина размещает нужную службу на уникальном порте в DIP. Эта служба связывается с внешним интерфейсом посредством определения правил.
@@ -62,21 +63,21 @@ Azure Load Balancer позволяет сочетать оба типа прав
 
 | правило; | Сопоставить внешний интерфейс | С внутренним пулом |
 |------|--------------|-----------------|
-| 1 | ![Виртуальный IP-адрес](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) VIP1:80 | ![серверная часть](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) DIP1:80, ![серверная часть](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) DIP2:80 |
-| 2 | ![Виртуальный IP-адрес](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) VIP2:80 | ![серверная часть](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) DIP1:81, ![серверная часть](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) DIP2:81 |
+| 1 | ![Виртуальный IP-адрес](./media/load-balancer-multivip-overview/load-balancer-rule-green.png)  VIP1:80 | ![серверная часть](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) DIP1:80, ![серверная часть](./media/load-balancer-multivip-overview/load-balancer-rule-green.png)  DIP2:80 |
+| 2 | ![Виртуальный IP-адрес](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png)  VIP2:80 | ![серверная часть](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) DIP1:81, ![серверная часть](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png)  DIP2:81 |
 
 Полное сопоставление в Azure Load Balancer теперь выглядит следующим образом:
 
 | правило; | Виртуальный IP-адрес (VIP) | protocol | порт | Место назначения | порт |
 |------|----------------|----------|------|-----|------|
-|![правило](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) 1|65\.52.0.1|TCP|80|Выделенный IP-адрес (DIP)|80|
-|![правило](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) 2|65\.52.0.2|TCP|80|Выделенный IP-адрес (DIP)|81|
+|![правило;](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) 1|65.52.0.1|TCP|80|Выделенный IP-адрес (DIP)|80|
+|![правило;](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) 2|65.52.0.2|TCP|80|Выделенный IP-адрес (DIP)|81|
 
 Каждое правило должно создавать поток с уникальным сочетанием конечного IP-адреса и конечного порта. Изменив конечный порт потока, можно с помощью нескольких правил направить потоки на один DIP на разных портах.
 
 Пробы работоспособности всегда направлены на DIP виртуальной машины. Убедитесь, что проба отражает работоспособность виртуальной машины.
 
-## Тип правил 2: внутренние порты используются повторно с помощью плавающего IP-адреса
+## <a name="rule-type-#2:-backend-port-reuse-by-using-floating-ip"></a>Тип правил 2: внутренние порты используются повторно с помощью плавающего IP-адреса
 
 Azure Load Balancer обеспечивает гибкость, позволяя повторно использовать интерфейсный порт на нескольких виртуальных IP-адресах независимо от того, какой тип правил используется. Кроме того, в некоторых сценариях приложений использование одного порта несколькими экземплярами приложения на одной виртуальной машине во внутреннем пуле является предпочтительным или обязательным. К распространенным примерам повторного использования портов относятся виртуальные сетевые устройства, кластеризация для обеспечения высокой доступности и размещение нескольких конечных точек TLS без повторного шифрования.
 
@@ -102,22 +103,22 @@ Azure Load Balancer обеспечивает гибкость, позволяя 
 
 | Виртуальный IP-адрес | IP-адрес | protocol | порт |
 |-----|------------|----------|------|
-|![Виртуальный IP-адрес](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) 1|65\.52.0.1|TCP|80|
+|![Виртуальный IP-адрес](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) 1|65.52.0.1|TCP|80|
 |![Виртуальный IP-адрес](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) 2|*65.52.0.2*|TCP|80|
 
 Мы определим два правила:
 
 | правило; | Сопоставить внешний интерфейс | С внутренним пулом |
 |------|--------------|-----------------|
-| 1 | ![правило](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) VIP1:80 | ![серверная часть](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) VIP1:80 (на виртуальной машине 1 и виртуальной машине 2) |
-| 2 | ![правило](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) VIP2:80 | ![серверная часть](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) VIP2:80 (на виртуальной машине 1 и виртуальной машине 2) |
+| 1 | ![правило;](./media/load-balancer-multivip-overview/load-balancer-rule-green.png)  VIP1:80 | ![серверная часть](./media/load-balancer-multivip-overview/load-balancer-rule-green.png)  VIP1:80 (на виртуальной машине 1 и виртуальной машине 2) |
+| 2 | ![правило;](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png)  VIP2:80 | ![серверная часть](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png)  VIP2:80 (на виртуальной машине 1 и виртуальной машине 2) |
 
 Следующая таблица демонстрирует полное сопоставление в балансировщике нагрузки:
 
 | правило; | Виртуальный IP-адрес (VIP) | protocol | порт | Место назначения | порт |
 |------|----------------|----------|------|-------------|------|
-|![Виртуальный IP-адрес](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) 1|65\.52.0.1|TCP|80|совпадает с виртуальным IP-адресом (65.52.0.1)|совпадает с виртуальным IP-адресом (80)|
-|![Виртуальный IP-адрес](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) 2|65\.52.0.2|TCP|80|совпадает с виртуальным IP-адресом (65.52.0.2)|совпадает с виртуальным IP-адресом (80)|
+|![Виртуальный IP-адрес](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) 1|65.52.0.1|TCP|80|совпадает с виртуальным IP-адресом (65.52.0.1)|совпадает с виртуальным IP-адресом (80)|
+|![Виртуальный IP-адрес](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) 2|65.52.0.2|TCP|80|совпадает с виртуальным IP-адресом (65.52.0.2)|совпадает с виртуальным IP-адресом (80)|
 
 Местом назначения входящего потока является виртуальный IP-адрес в интерфейсе замыкания на себя на виртуальной машине. Каждое правило должно создавать поток с уникальным сочетанием конечного IP-адреса и конечного порта. Изменив конечный IP-адрес потока, можно разрешить повторное использование портов на одной виртуальной машине. Служба предоставляется балансировщику нагрузки через привязку к виртуальному IP-адресу и порту соответствующего интерфейса замыкания на себя.
 
@@ -125,11 +126,15 @@ Azure Load Balancer обеспечивает гибкость, позволяя 
 
 Тип правил с плавающим IP-адресом лежит в основе нескольких шаблонов конфигураций балансировщика нагрузки. Одним из примеров, доступных в данный момент, является конфигурация [SQL AlwaysOn with Multiple Listeners](../virtual-machines/virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md) (SQL AlwaysOn с несколькими прослушивателями). В будущем мы опишем больше сценариев.
 
-## Ограничения
+## <a name="limitations"></a>Ограничения
 
 * Конфигурации с несколькими виртуальными IP-адресами поддерживаются только при использовании виртуальных машин IaaS.
 * Если применяется правило с плавающим IP-адресом, то для исходящих потоков в приложении должен использоваться выделенный IP-адрес (DIP). Если приложение имеет привязку к виртуальному IP-адресу, настроенному в интерфейсе замыкания на себя в гостевой ОС, то функция SNAT недоступна для перезаписи исходящего потока, и поэтому поток завершается сбоем.
-* Общедоступные IP-адреса оказывают влияние на выставление счетов. Дополнительные сведения см. в разделе [Цены на IP-адреса](https://azure.microsoft.com/pricing/details/ip-addresses/).
+* Общедоступные IP-адреса оказывают влияние на выставление счетов. Дополнительные сведения см. в статье [Цены на IP-адреса](https://azure.microsoft.com/pricing/details/ip-addresses/).
 * Действуют ограничения подписки. Дополнительные сведения см. в разделе [Ограничения определенных служб](../azure-subscription-service-limits.md#networking-limits).
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

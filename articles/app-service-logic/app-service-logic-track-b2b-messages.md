@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Отслеживание сообщений B2B в приложениях логики службы приложений Azure | Microsoft Azure" 
-   description="В этом разделе рассматривается отслеживание обработки B2B." 
+   pageTitle="Track B2B messages in your logic apps in Azure App Service | Microsoft Azure" 
+   description="This topic covers tracking of B2B processing" 
    services="logic-apps" 
    documentationCenter=".net,nodejs,java" 
    authors="rajram" 
@@ -17,34 +17,39 @@
    ms.author="rajram"/>
 
 
-# Отслеживание сообщений B2B
+
+# <a name="track-b2b-messages"></a>Track B2B messages
 
 [AZURE.INCLUDE [app-service-logic-version-message](../../includes/app-service-logic-version-message.md)]
 
-## Сведения об отслеживании B2B
-Взаимодействие B2B включает обработку сообщений между торговыми партнерами. Отношения задаются как соглашения между двумя торговыми партнерами. Посте установки взаимодействия необходимо настроить наблюдение, чтобы убедиться, что взаимодействие происходило надлежащим образом.
+## <a name="b2b-tracking-information"></a>B2B Tracking Information
+B2B communication involves message processing between trading partners. The relationships are defined as agreements between two trading partners. Once the communication is established, there needs to be a way to monitor if the communication is happening as expected. 
 
-Мы реализовали отслеживание сообщений для следующих сценариев B2B: AS2, EDIFACT и X12.
+We've implemented message tracking for the following B2B scenarios: AS2, EDIFACT, and X12.
 
-## AS2
-После создания экземпляра приложения API AS2 перейдите в этот экземпляр и выберите **Отслеживание**. Здесь можно просматривать и фильтровать все данные отслеживания AS2.
+## <a name="as2"></a>AS2
+Once you have created an instance of an AS2 API App, browse to that instance, and select **Tracking**. Herein you can view and filter all the AS2 tracking information:  
 
-![][1]
+![][1]  
 
-## EDIFACT
-После создания экземпляра приложения API EDIFACT перейдите в этот экземпляр и выберите **Отслеживание**. Здесь можно просматривать и фильтровать все данные отслеживания EDIFACT. Кроме того, можно просматривать данные уровня обмена, уровня группы и уровня набора транзакций в одном представлении.
+## <a name="edifact"></a>EDIFACT
+Once you have created an instance of an EDIFACT API App, browse to that instance, and select **Tracking**. Herein you can view and filter all the EDIFACT tracking information. Additionally, you can view the interchange level, group level, and transaction set level data, all in a single view. 
 
-Если пакеты были созданы как часть соглашений EDIFACT в связанном приложении API управления торговыми партнерами, то в разделе "Пакетная обработка" будут перечислены все эти пакеты. Можно выбрать пакет для просмотра активных сообщений (если таковые имеются), а также сведений для выполненного пакета.
+If batches are created as part of EDIFACT agreements in the associated Trading Partner Management API app, then the Batching section lists all these batches. You can select a batch to see the active message (if any) and also the information for the completed:  
 
-![][2]
+![][2]      
 
-## X12
-После создания экземпляра приложения API X12 перейдите в этот экземпляр и выберите **Отслеживание**. Здесь можно просматривать и фильтровать все данные отслеживания X12. Кроме того, можно просматривать данные уровня обмена, уровня группы и уровня набора транзакций в одном представлении.
+## <a name="x12"></a>X12
+Once you have created an instance of an X12 API App, browse to that instance, and select **Tracking**. Herein you can view and filter all the X12 tracking information. Additionally, you can view the interchange level, group level, and transaction set level data, all in a single view.
 
-Если пакеты были созданы как часть соглашений X12 в связанном приложении API управления торговыми партнерами, то в разделе "Пакетная обработка" будут перечислены все эти пакеты. Можно выбрать пакет для просмотра активных сообщений (если таковые имеются), а также сведений для выполненного пакета.
+If batches are created as part of X12 agreements in the associated Trading Partner Management API app, then the Batching section lists all these batches. You can select a batch to see the active message (if any) and also the information for the completed batches.
 
 <!--Image references-->
 [1]: ./media/app-service-logic-track-b2b-messages/AS2Tracking.png
 [2]: ./media/app-service-logic-track-b2b-messages/EDIFACTTracking.png
 
-<!---HONumber=AcomDC_0803_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,9 +1,11 @@
-Виртуальная машина Azure поддерживает присоединение нескольких дисков данных. Для оптимальной производительности следует ограничить количество интенсивно используемых дисков, присоединенных к виртуальной машине, во избежание возможного регулирования. Если интенсивного одновременного использования дисков нет, учетная запись хранения может поддерживать большее количество дисков.
+An Azure virtual machine supports attaching a number of data disks. For optimal performance, you will want to limit the number of highly utilized disks attached to the virtual machine to avoid possible throttling. If all disks are not being highly utilized at the same time, the storage account can support a larger number disks.
 
-- **Для стандартных учетных записей хранения:** стандартная учетная запись хранения имеет ограничение по частоте запросов в 20 000 операций ввода-вывода. Общее число операций ввода-вывода для всех дисков виртуальной машины в стандартной учетной записи хранения не должно превышать это ограничение.
+- **For standard storage accounts:** A standard storage account has a maximum total request rate of 20,000 IOPS. The total IOPS across all of your virtual machine disks in a standard storage account should not exceed this limit.
 
-	Можно приблизительно вычислить количество дисков с высокой интенсивностью использования, поддерживаемых одной стандартной учетной записью хранения на основе ограничения частоты запросов. Например, для виртуальной машины уровня Basic максимальное количество дисков с высокой интенсивностью использования равно 66 (20 000/300 операций ввода-вывода в секунду на один диск), а для виртуальной машины уровня Standard этот показатель равен 40 (20 000/500 операций ввода-вывода в секунду на один диск), как показано в таблице ниже.
+    You can roughly calculate the number of highly utilized disks supported by a single standard storage account based on the request rate limit. For example, for a Basic Tier VM, the maximum number of highly utilized disks is about 66 (20,000/300 IOPS per disk), and for a Standard Tier VM, it is about 40 (20,000/500 IOPS per disk), as shown in the table below. 
  
-- **Для учетных записей хранения уровня Premium:** учетная запись хранения уровня Premium имеет максимальную общую пропускную способность в 50 Гбит/с. Общая пропускная способность для всех дисков виртуальной машины не должна превышать это ограничение.
+- **For premium storage accounts:** A premium storage account has a maximum total throughput rate of 50 Gbps. The total throughput across all of your VM disks should not exceed this limit.
 
-<!---HONumber=AcomDC_1125_2015-->
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,184 +1,185 @@
 <properties 
-	pageTitle="Реализация аварийного восстановления с помощью функций резервного копирования и восстановления службы в Azure API Management | Microsoft Azure" 
-	description="Использование архивации и восстановления для выполнения аварийного восстановления в службе управления API Azure." 
-	services="api-management" 
-	documentationCenter="" 
-	authors="steved0x" 
-	manager="erikre" 
-	editor=""/>
+    pageTitle="How to implement disaster recovery using service backup and restore in Azure API Management | Microsoft Azure" 
+    description="Learn how to use backup and restore to perform disaster recovery in Azure API Management." 
+    services="api-management" 
+    documentationCenter="" 
+    authors="steved0x" 
+    manager="erikre" 
+    editor=""/>
 
 <tags 
-	ms.service="api-management" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/09/2016" 
-	ms.author="sdanie"/>
+    ms.service="api-management" 
+    ms.workload="mobile" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="10/25/2016" 
+    ms.author="sdanie"/>
 
-# Реализация аварийного восстановления с помощью функций резервного копирования и восстановления службы в Azure API Management
 
-Выбрав службу Azure API Management для публикации интерфейсов API и управления ими, вы получаете множество возможностей по обеспечению отказоустойчивости и организации инфраструктуры, которые в противном случае вам пришлось бы проектировать и внедрять самостоятельно. Платформа Azure устраняет большую часть потенциальных сбоев при относительно небольших затратах.
+# <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>How to implement disaster recovery using service backup and restore in Azure API Management
 
-Чтобы обеспечить восстановление в случае проблем с доступностью в регионе, в котором размещена ваша служба API Management, необходимо быть готовым к ее воссозданию в другом регионе в любой момент. В зависимости от целевых показателей доступности и времени восстановления вам, возможно, потребуется создать резервную службу в одном или нескольких регионах, а затем наладить постоянную синхронизацию ее конфигурации и содержимого с активной службой. Функция резервного копирования и восстановления службы служит необходимым фундаментом для реализации стратегии аварийного восстановления.
+By choosing to publish and manage your APIs via Azure API Management you are taking advantage of many fault tolerance and infrastructure capabilities that you would otherwise have to design, implement, and manage. The Azure platform mitigates a large fraction of potential failures at a fraction of the cost.
 
-В этом руководстве показано, как проверять подлинность запросов к диспетчеру ресурсов Azure, а также создавать резервные копии экземпляров служб управления API и восстанавливать их.
+To recover from availability problems affecting the region where your API Management service is hosted you should be ready to reconstitute your service in a different region at any time. Depending on your availability goals and recovery time objective  you might want to reserve a backup service in one or more regions and try to maintain their configuration and content in sync with the active service. The service backup and restore feature provides the necessary building block for implementing your disaster recovery strategy.
 
->[AZURE.NOTE] Процесс резервного копирования и аварийного восстановления экземпляра службы управления API может использоваться для репликации экземпляров службы управления API, например для реализации промежуточного хранения.
+This guide shows how to authenticate Azure Resource Manager requests, and how to backup and restore your API Management service instances.
+
+>[AZURE.NOTE] The process for backing up and restoring an API Management service instance for disaster recovery can also be used for replicating API Management service instances for scenarios such as staging.
 >
->Обратите внимание, что срок действия каждой резервной копии истекает через 7 дней. При попытке восстановления резервной копии по истечении 7 дней восстановление завершится сбоем и будет отображено сообщение `Cannot restore: backup expired`.
+>Note that each backup expires after 7 days. If you attempt to restore a backup after the 7 day expiration period has expired, the restore will fail with a `Cannot restore: backup expired` message.
 
-## Проверка подлинности запросов к диспетчеру ресурсов Azure
+## <a name="authenticating-azure-resource-manager-requests"></a>Authenticating Azure Resource Manager requests
 
->[AZURE.IMPORTANT] Интерфейс REST API для резервного копирования и восстановления использует диспетчер ресурсов Azure и применяет механизм проверки подлинности, отличный от интерфейсов REST API, используемых для управления объектами службы управления API. В этом разделе описываются действия, необходимые для проверки подлинности запросов к диспетчеру ресурсов Azure. Дополнительные сведения см. в статье [Проверка подлинности запросов к диспетчеру ресурсов Azure](http://msdn.microsoft.com/library/azure/dn790557.aspx).
+>[AZURE.IMPORTANT] The REST API for backup and restore uses Azure Resource Manager and has a different authentication mechanism than the REST APIs for managing your API Management entities. The steps in this section describe how to authenticate Azure Resource Manager requests. For more information, see [Authenticating Azure Resource Manager requests](http://msdn.microsoft.com/library/azure/dn790557.aspx).
 
-Все задачи, выполняемые с ресурсами с помощью диспетчера ресурсов Azure, должны пройти проверку подлинности Azure Active Directory. Для этого:
+All of the tasks that you do on resources using the Azure Resource Manager must be authenticated with Azure Active Directory using the following steps.
 
--	добавьте приложение в клиент Azure Active Directory;
--	настройте разрешения для добавленного приложения;
--	получите маркер для проверки подлинности запросов к диспетчеру ресурсов Azure.
+-   Add an application to the Azure Active Directory tenant.
+-   Set permissions for the application that you added.
+-   Get the token for authenticating requests to Azure Resource Manager.
 
-В первую очередь необходимо создать приложение Azure Active Directory. Войдите на [классический портал Azure](http://manage.windowsazure.com/), используя подписку, включающую экземпляр службы управления API, и перейдите на вкладку **Приложения**, чтобы открыть используемый по умолчанию каталог Azure Active Directory.
+The first step is to create an Azure Active Directory application. Log into the [Azure Classic Portal](http://manage.windowsazure.com/) using the subscription that contains your API Management service instance and navigate to the **Applications** tab for your default Azure Active Directory.
 
->[AZURE.NOTE] Если этот каталог не отображается в вашей учетной записи, обратитесь к администратору подписки Azure, чтобы получить необходимые разрешения для учетной записи. Сведения о расположении каталога по умолчанию см. в статье [Поиск каталога по умолчанию](../virtual-machines/resource-group-create-work-id-from-persona.md#locate-your-default-directory-in-the-azure-portal).
+>[AZURE.NOTE] If the Azure Active Directory default directory is not visible to your account, contact the administrator of the Azure subscription to grant the required permissions to your account. For information on locating your default directory, see [Locate your default directory](../virtual-machines/virtual-machines-windows-create-aad-work-id.md#locate-your-default-directory-in-the-azure-portal).
 
-![Создание приложения Azure Active Directory][api-management-add-aad-application]
+![Create Azure Active Directory application][api-management-add-aad-application]
 
-Щелкните **Добавить**, выберите **Добавить приложение, разрабатываемое моей организацией**, а затем — **Собственное клиентское приложение**. Введите описательное имя и нажмите кнопку «Далее». Введите в поле **URI перенаправления** любой URL-адрес, например `http://resources`. Это поле является обязательным, но введенное значение впоследствии не используется. Установите флажок, чтобы сохранить приложение.
+Click **Add**, **Add an application my organization is developing**, and choose **Native client application**. Enter a descriptive name, and click the next arrow. Enter a placeholder URL such as `http://resources` for the **Redirect URI**, as it is a required field, but the value is not used later. Click the check box to save the application.
 
-После того как приложение будет сохранено, щелкните **Настройка**, прокрутите страницу вниз до раздела **Разрешения для других приложений** и нажмите кнопку **Добавить приложение**.
+Once the application is saved, click **Configure**, scroll down to the **permissions to other applications** section, and click **Add application**.
 
-![Добавление разрешений][api-management-aad-permissions-add]
+![Add permissions][api-management-aad-permissions-add]
 
-.Выберите **API управления службами **Microsoft** Azure** и установите флажок, чтобы добавить приложение.
+Select **Windows** **Azure Service Management API** and click the checkbox to add the application.
 
-![Добавление разрешений][api-management-aad-permissions]
+![Add permissions][api-management-aad-permissions]
 
-Щелкните **Делегированные разрешения** рядом с только что добавленным приложением **API управления службами **Microsoft** Azure**, установите флажок **Доступ к управлению службами Azure (предварительная версия)** и нажмите кнопку **Сохранить**.
+Click **Delegated Permissions** beside the newly added **Windows** **Azure Service Management API** application, check the box for **Access Azure Service Management (preview)**, and click **Save**.
 
-![Добавление разрешений][api-management-aad-delegated-permissions]
+![Add permissions][api-management-aad-delegated-permissions]
 
-Прежде чем вызывать API, выполняющие резервное копирование и восстановление, необходимо получить маркер. В следующем примере для получения маркера используется пакет NuGet [Microsoft.IdentityModel.Clients.ActiveDirectory](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory).
+Prior to invoking the APIs that generate the backup and restore it, it is necessary to get a token. The following example uses the [Microsoft.IdentityModel.Clients.ActiveDirectory](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory) nuget package to retrieve the token.
 
-	using Microsoft.IdentityModel.Clients.ActiveDirectory;
-	using System;
+    using Microsoft.IdentityModel.Clients.ActiveDirectory;
+    using System;
 
-	namespace GetTokenResourceManagerRequests
-	{
+    namespace GetTokenResourceManagerRequests
+    {
         class Program
-	    {
-	        static void Main(string[] args)
-	        {
-	            var authenticationContext = new AuthenticationContext("https://login.windows.net/{tenant id}");
-	            var result = authenticationContext.AcquireToken("https://management.azure.com/", {application id}, new Uri({redirect uri});
+        {
+            static void Main(string[] args)
+            {
+                var authenticationContext = new AuthenticationContext("https://login.windows.net/{tenant id}");
+                var result = authenticationContext.AcquireToken("https://management.azure.com/", {application id}, new Uri({redirect uri});
 
-	            if (result == null) {
-	                throw new InvalidOperationException("Failed to obtain the JWT token");
-	            }
+                if (result == null) {
+                    throw new InvalidOperationException("Failed to obtain the JWT token");
+                }
 
-	            Console.WriteLine(result.AccessToken);
+                Console.WriteLine(result.AccessToken);
 
-	            Console.ReadLine();
-	        }
-    	}
-	}
+                Console.ReadLine();
+            }
+        }
+    }
 
-Замените `{tentand id}`, `{application id}` и `{redirect uri}`, следуя приведенным инструкциям.
+Replace `{tentand id}`, `{application id}`, and `{redirect uri}` using the following instructions.
 
-Замените `{tenant id}` на идентификатор клиента для приложения Azure Active Directory, которое вы только что создали. Чтобы получить доступ к идентификатору, щелкните **Просмотр конечных точек**.
+Replace `{tenant id}` with the tenant id of the Azure Active Directory application you just created. You can access the id by clicking **View endpoints**.
 
 ![Endpoints][api-management-aad-default-directory]
 
 ![Endpoints][api-management-endpoint]
 
-Замените `{application id}` и `{redirect uri}`, используя **идентификатор клиента** и URL-адрес из раздела **URI перенаправления** на вкладке **Настройка** приложения Azure Active Directory.
+Replace `{application id}` and `{redirect uri}` using the **Client Id** and  the URL from the **Redirect Uris** section from your Azure Active Directory application's **Configure** tab. 
 
-![Ресурсы][api-management-aad-resources]
+![Resources][api-management-aad-resources]
 
-Когда все значения будут указаны, код должен вернуть примерно такой маркер:
+Once the values are specified, the code example should return a token similar to the following example.
 
-![Маркер][api-management-arm-token]
+![Token][api-management-arm-token]
 
-Прежде чем выполнять операции резервного копирования и восстановления, описанные в следующих разделах, задайте заголовок запроса проверки подлинности для вызова REST.
+Before calling the backup and restore operations described in the following sections, set the authorization request header for your REST call.
 
-	request.Headers.Add(HttpRequestHeader.Authorization, "Bearer " + token);
+    request.Headers.Add(HttpRequestHeader.Authorization, "Bearer " + token);
 
-## <a name="step1"> </a>Резервное копирование службы управления API
-Чтобы выполнить резервное копирование службы API Management, отправьте следующий HTTP-запрос:
+## <a name="<a-name="step1">-</a>backup-an-api-management-service"></a><a name="step1"> </a>Backup an API Management service
+To backup an API Management service issue the following HTTP request:
 
 `POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/backup?api-version={api-version}`
 
-где:
+where:
 
-* `subscriptionId` — идентификатор подписки, включающей в себя службу управления API, резервное копирование которой вы пытаетесь выполнить;
-* `resourceGroupName` — строка в формате "Api-Default-{service-region}", где `service-region` — это регион Azure, в котором размещена служба управления API для резервного копирования (например, `North-Central-US`);
-* `serviceName` — имя службы управления API, резервное копирование которой вы выполняете, на момент ее создания;
-* `api-version` — замените на `2014-02-14`.
+* `subscriptionId` - id of the subscription containing the API Management service you are attempting to backup
+* `resourceGroupName` - a string in the form of 'Api-Default-{service-region}' where `service-region` identifies the Azure region where the API Management service you are trying to backup is hosted, e.g. `North-Central-US`
+* `serviceName` - the name of the API Management service you are making a backup of specified at the time of its creation
+* `api-version` - replace  with `2014-02-14`
 
-В тексте запроса укажите целевую учетную запись хранения Azure, ключ доступа, имя контейнера BLOB-объектов и имя резервной копии:
+In the body of the request, specify the target Azure storage account name, access key, blob container name, and backup name:
 
-	'{  
-	    storageAccount : {storage account name for the backup},  
-	    accessKey : {access key for the account},  
-	    containerName : {backup container name},  
-	    backupName : {backup blob name}  
-	}'
+    '{  
+        storageAccount : {storage account name for the backup},  
+        accessKey : {access key for the account},  
+        containerName : {backup container name},  
+        backupName : {backup blob name}  
+    }'
 
-Для заголовка запроса `Content-Type` установите значение `application/json`.
+Set the value of the `Content-Type` request header to `application/json`.
 
-Резервное копирование — это длительная операция, которая может занять много минут. Если запрос выполнен успешно и процесс резервного копирования инициирован, вы получите код состояния ответа `202 Accepted` с заголовком `Location`. Чтобы отслеживать состояние операции, отправляйте запросы GET на URL-адрес, указанный в заголовке `Location`. Пока резервное копирование выполняется, вы будете получать код состояния "202 Accepted". Код ответа `200 OK` указывает на то, что резервное копирование успешно завершено.
+Backup is a long running operation that may take multiple minutes to complete.  If the request was successful and the backup process was initiated you’ll receive a `202 Accepted` response status code with a `Location` header.  Make 'GET' requests to the URL in the `Location` header to find out the status of the operation. While the backup is in progress you will continue to receive a '202 Accepted' status code. A Response code of `200 OK` will indicate successful completion of the backup operation.
 
-**Примечание**.
+**Note**:
 
-- **Контейнер**, указанный в теле запроса, **должен существовать**.
-* Пока выполняется резервное копирование, **не предпринимайте никаких действий по управлению службами**, таких как повышение или понижение уровня SKU, смена доменного имени и т. д.
-* Восстановление **резервной копии гарантируется только в течение 7 дней** с момента ее создания.
-* **Данные об использовании**, применяемые при создании аналитических отчетов, **не включаются** в резервную копию. Для периодического извлечения аналитических отчетов с целью их дальнейшего помещения на хранение используйте [API REST Azure API Management][].
-* Частота резервного копирования службы влияет на цель точки восстановления. Чтобы максимально снизить этот показатель, мы советуем настроить регулярное резервное копирование, а также выполнять резервное копирование по требованию после внесения важных изменений в службу API Management.
-* **Изменения**, внесенные в конфигурацию службы (например, интерфейсы API, политики, внешний вид портала разработчика) во время резервного копирования, **могут не быть включены в резервную копию. В этом случае они будут утеряны**.
+- **Container** specified in the request body **must exist**.
+* While backup is in progress you **should not attempt any service management operations** such as SKU upgrade or downgrade, domain name change, etc. 
+* Restore of a **backup is guaranteed only for 7 days** since the moment of its creation. 
+* **Usage data** used for creating analytics reports **is not included** in the backup. Use [Azure API Management REST API][] to periodically retrieve analytics reports for safekeeping.
+* The frequency with which you perform service backups will affect your recovery point objective. To minimize it we advise implementing regular backups as well as performing on-demand backups after making important changes to your API Management service.
+* **Changes** made to the service configuration (e.g. APIs, policies, developer portal appearance) while backup operation is in process **might not be included in the backup and therefore will be lost**.
 
-## <a name="step2"> </a>Восстановление службы управления API
-Чтобы восстановить службу API Management из ранее созданной резервной копии, отправьте следующий HTTP-запрос:
+## <a name="<a-name="step2">-</a>restore-an-api-management-service"></a><a name="step2"> </a>Restore an API Management service
+To restore an API Management service from a previously created backup make the following HTTP request:
 
 `POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/restore?api-version={api-version}`
 
-Описание:
+where:
 
-* `subscriptionId` — идентификатор подписки, включающей в себя службу управления API, которую нужно восстановить из резервной копии;
-* `resourceGroupName` — строка в формате "Api-Default-{service-region}", где `service-region` — это регион Azure, в котором размещена восстанавливаемая из резервной копии служба управления API (например, `North-Central-US`);
-* `serviceName` — имя восстанавливаемой службы управления API на момент ее создания;
-* `api-version` — замените на `2014-02-14`.
+* `subscriptionId` - id of the subscription containing the API Management service you are restoring a backup into
+* `resourceGroupName` - a string in the form of 'Api-Default-{service-region}' where `service-region` identifies the Azure region where the API Management service you are restoring a backup into is hosted, e.g. `North-Central-US`
+* `serviceName` - the name of the API Management service being restored into specified at the time of its creation
+* `api-version` - replace  with `2014-02-14`
 
-В тексте запроса укажите расположение файла резервной копии, т. е. учетную запись хранения Azure, ключ доступа, имя контейнера BLOB-объектов и имя резервной копии:
+In the body of the request, specify the backup file location, i.e. Azure storage account name, access key, blob container name, and backup name:
 
-	'{  
-	    storageAccount : {storage account name for the backup},  
-	    accessKey : {access key for the account},  
-	    containerName : {backup container name},  
-	    backupName : {backup blob name}  
-	}'
+    '{  
+        storageAccount : {storage account name for the backup},  
+        accessKey : {access key for the account},  
+        containerName : {backup container name},  
+        backupName : {backup blob name}  
+    }'
 
-Для заголовка запроса `Content-Type` установите значение `application/json`.
+Set the value of the `Content-Type` request header to `application/json`.
 
-Восстановление — это длительная операция, которая может занять до 30 минут и более. Если запрос выполнен успешно и процесс восстановления инициирован, вы получите код состояния ответа `202 Accepted` с заголовком `Location`. Чтобы отслеживать состояние операции, отправляйте запросы GET на URL-адрес, указанный в заголовке `Location`. Пока восстановление выполняется, вы будете получать код состояния "202 Accepted". Код ответа `200 OK` указывает на то, что восстановление успешно завершено.
+Restore is a long running operation that may take up to 30 or more minutes to complete.  If the request was successful and the restore process was initiated you’ll receive a `202 Accepted` response status code with a `Location` header.  Make 'GET' requests to the URL in the `Location` header to find out the status of the operation. While the restore is in progress you will continue to receive '202 Accepted' status code. A response code of `200 OK` will indicate successful completion of the restore operation.
 
->[AZURE.IMPORTANT] **SKU** восстанавливаемой службы **должен соответствовать** SKU службы в резервной копии.
+>[AZURE.IMPORTANT] **The SKU** of the service being restored into **must match** the SKU of the backed up service being restored.
 >
->**Изменения**, внесенные в конфигурацию службы (например, интерфейсы API, политики, внешний вид портала разработчика) во время восстановления, **могут быть перезаписаны**.
+>**Changes** made to the service configuration (e.g. APIs, policies, developer portal appearance) while restore operation is in progress **could be overwritten**.
 
-## Дальнейшие действия
-Чтобы ознакомиться с двумя другими способами резервного копирования и восстановления, прочитайте следующие записи в блогах по решениям Майкрософт.
+## <a name="next-steps"></a>Next steps
+Check out the following Microsoft blogs for two different walkthroughs of the backup/restore process.
 
--	[Репликация учетных записей управления API Azure](https://www.returngis.net/en/2015/06/replicate-azure-api-management-accounts/)
-	-	Благодарим Джизелу за материалы для этой статьи.
--	[Управление API Azure: резервное копирование и восстановление конфигурации](http://blogs.msdn.com/b/stuartleeks/archive/2015/04/29/azure-api-management-backing-up-and-restoring-configuration.aspx)
-	-	Стюарт подробно описывает альтернативный подход, который не соответствует официальным рекомендациям, но тоже очень интересен.
+-   [Replicate Azure API Management Accounts](https://www.returngis.net/en/2015/06/replicate-azure-api-management-accounts/) 
+    -   Thank you to Gisela for her contribution to this article.
+-   [Azure API Management: Backing Up and Restoring Configuration](http://blogs.msdn.com/b/stuartleeks/archive/2015/04/29/azure-api-management-backing-up-and-restoring-configuration.aspx)
+    -   The approach detailed by Stuart does not match the official guidance but it is very interesting.
 
 [Backup an API Management service]: #step1
 [Restore an API Management service]: #step2
 
 
-[API REST Azure API Management]: http://msdn.microsoft.com/library/azure/dn781421.aspx
+[Azure API Management REST API]: http://msdn.microsoft.com/library/azure/dn781421.aspx
 
 [api-management-add-aad-application]: ./media/api-management-howto-disaster-recovery-backup-restore/api-management-add-aad-application.png
 
@@ -191,4 +192,8 @@
 [api-management-endpoint]: ./media/api-management-howto-disaster-recovery-backup-restore/api-management-endpoint.png
  
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

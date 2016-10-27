@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Что такое модель и пакет облачной службы | Microsoft Azure"
-    description="Описание модели (CSDEF-файл, CSCFG-файл) и пакета облачной службы (CSPKG-файл) в Azure"
+    pageTitle="What is a Cloud Service model and package | Microsoft Azure"
+    description="Describes the cloud service model (.csdef, .cscfg) and package (.cspkg) in Azure"
     services="cloud-services"
     documentationCenter=""
     authors="Thraka"
@@ -15,25 +15,26 @@
     ms.date="09/06/2016"
     ms.author="adegeo"/>
 
-# Что такое модель облачных служб и как создать ее пакет?
-Облачная служба создается из трех компонентов: определения службы _(CSDEF-файл)_, конфигурации службы _(CSCFG-файл)_ и пакета службы _(CSPKG-файл)_. Файлы **ServiceDefinition.csdef** и **ServiceConfig.cscfg** являются XML-файлами, которые описывают структуру облачной службы и ее конфигурацию; совокупность файлов и называются моделью. **ServicePackage.cspkg** — это ZIP-файл, который создается на основе файла **ServiceDefinition.csdef** и который, помимо прочего, содержит все необходимые зависимости двоичном формате. Azure создает облачную службу из двух файлов: **ServicePackage.cspkg** и **ServiceConfig.cscfg**.
 
-После запуска облачной службы в Azure вы можете перенастроить ее с помощью файла **ServiceConfig.cscfg**, но вы не сможете изменить определение.
+# <a name="what-is-the-cloud-service-model-and-how-do-i-package-it?"></a>What is the Cloud Service model and how do I package it?
+A cloud service is created from three components, the service definition _(.csdef)_, the service config _(.cscfg)_, and a service package _(.cspkg)_. Both the **ServiceDefinition.csdef** and **ServiceConfig.cscfg** files are XML-based and describe the structure of the cloud service and how it's configured; collectively called the model. The **ServicePackage.cspkg** is a zip file that is generated from the **ServiceDefinition.csdef** and among other things, contains all of the required binary-based dependencies. Azure creates a cloud service from both the **ServicePackage.cspkg** and the **ServiceConfig.cscfg**.
 
-## Что еще вы хотите узнать?
+Once the cloud service is running in Azure, you can reconfigure it through the **ServiceConfig.cscfg** file, but you cannot alter the definition.
 
-* Я хочу узнать больше о файлах [ServiceDefinition.csdef](#csdef) и [ServiceConfig.cscfg](#cscfg).
-* Я уже знаю об этих файлах, покажите мне [примеры](#next-steps) того, что я могу настроить.
-* Я хочу создать файл [ServicePackage.cspkg](#cspkg).
-* Я использую Visual Studio и хочу выполнить следующие действия.
-    * [Создать новую облачную службу.][vs_create]
-    * [Изменить конфигурацию существующей облачной службы][vs_reconfigure]
-    * [Развернуть проект облачной службы][vs_deploy]
-    * [Настроить удаленный рабочий стол для экземпляра облачной службы][remotedesktop]
+## <a name="what-would-you-like-to-know-more-about?"></a>What would you like to know more about?
+
+* I want to know more about the [ServiceDefinition.csdef](#csdef) and [ServiceConfig.cscfg](#cscfg) files.
+* I already know about that, give me [some examples](#next-steps) on what I can configure.
+* I want to create the [ServicePackage.cspkg](#cspkg).
+* I am using Visual Studio and I want to...
+    * [Create a new cloud service][vs_create]
+    * [Reconfigure an existing cloud service][vs_reconfigure]
+    * [Deploy a Cloud Service project][vs_deploy]
+    * [Remote desktop into a cloud service instance][remotedesktop]
 
 <a name="csdef"></a>
-## ServiceDefinition.csdef
-Файл **ServiceDefinition.csdef** задает параметры, используемые Azure для настройки облачной службы. [Схема определения службы Azure (CSDEF-файл)](https://msdn.microsoft.com/library/azure/ee758711.aspx) предоставляет допустимый формат для файла определения службы. В следующем примере показаны параметры, которые могут быть определены для веб-ролей и рабочих ролей.
+## <a name="servicedefinition.csdef"></a>ServiceDefinition.csdef
+The **ServiceDefinition.csdef** file specifies the settings that are used by Azure to configure a cloud service. The [Azure Service Definition Schema (.csdef File)](https://msdn.microsoft.com/library/azure/ee758711.aspx) provides the allowable format for a service definition file. The following example shows the settings that can be defined for the Web and Worker roles:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -84,31 +85,39 @@
 </ServiceDefinition>
 ```
 
-Чтобы лучше понять используемую здесь схему XML, см. статью [Схема определения службы] []. В этой статье приводится краткое описание некоторых элементов.
+You can refer to the [Service Definition Schema][] for a better understanding of the XML schema used here, however, here is a quick explanation of some of the elements:
 
-**Sites** Содержит определения для веб-сайтов или веб-приложений, размещаемых в IIS7.
+**Sites**  
+Contains the definitions for websites or web applications that are hosted in IIS7.
 
-**InputEndpoints** Содержит определения для конечных точек, используемых для связи с облачной службой.
+**InputEndpoints**  
+Contains the definitions for endpoints that are used to contact the cloud service.
 
-**InternalEndpoints** Содержит определения для конечных точек, используемых экземплярами роли для взаимодействия друг с другом.
+**InternalEndpoints**  
+Contains the definitions for endpoints that are used by role instances to communicate with each other.
 
-**ConfigurationSettings** Содержит определения параметров для функций конкретной роли.
+**ConfigurationSettings**  
+Contains the setting definitions for features of a specific role.
 
-**Certificates** Содержит определения для сертификатов, которые необходимы для роли. В предыдущем примере кода показан сертификат, используемый для настройки Azure Connect.
+**Certificates**  
+Contains the definitions for certificates that are needed for a role. The previous code example shows a certificate that is used for the configuration of Azure Connect.
 
-**LocalResources** Содержит определения для локальных ресурсов хранилища. Локальный ресурс хранилища — это зарезервированный каталог в файловой системе виртуальной машины, в которой выполняется экземпляр роли.
+**LocalResources**  
+Contains the definitions for local storage resources. A local storage resource is a reserved directory on the file system of the virtual machine in which an instance of a role is running.
 
-**Imports** Содержит определения для импортированных модулей. В предыдущем примере кода показаны модули для удаленного рабочего стола и Azure Connect.
+**Imports**  
+Contains the definitions for imported modules. The previous code example shows the modules for Remote Desktop Connection and Azure Connect.
 
-**Startup** Содержит задачи, которые выполняются при запуске роли. Задачи определены в CMD-файле или исполняемом файле.
+**Startup**  
+Contains tasks that are run when the role starts. The tasks are defined in a .cmd or executable file.
 
 
 
 <a name="cscfg"></a>
-## ServiceConfiguration.cscfg
-Настройка параметров для облачной службы определяется значениями в файле **ServiceConfiguration.cscfg**. Вы указываете количество экземпляров, которые необходимо развернуть для каждой роли в этом файле. Значения для параметров конфигурации, которые определены в файле определения службы, добавляются в файл конфигурации службы. Отпечатки всех сертификатов управления, связанных с облачной службы, также добавляются в файл. [Схема конфигурации службы Azure (CSCFG-файл)](https://msdn.microsoft.com/library/azure/ee758710.aspx) предоставляет допустимый формат файла конфигурации службы.
+## <a name="serviceconfiguration.cscfg"></a>ServiceConfiguration.cscfg
+The configuration of the settings for your cloud service is determined by the values in the **ServiceConfiguration.cscfg** file. You specify the number of instances that you want to deploy for each role in this file. The values for the configuration settings that you defined in the service definition file are added to the service configuration file. The thumbprints for any management certificates that are associated with the cloud service are also added to the file. The [Azure Service Configuration Schema (.cscfg File)](https://msdn.microsoft.com/library/azure/ee758710.aspx) provides the allowable format for a service configuration file.
 
-Файл конфигурации службы не упакован с приложением; он передается в Azure как отдельный файл и используется для конфигурации облачной службы. Вы можете отправить новый файл конфигурации службы без повторного развертывания облачной службы. Значения конфигурации для облачной службы можно изменить во время работы облачной службы. В следующем примере показаны параметры конфигурации, которые можно определить для рабочих ролей и веб-ролей.
+The service configuration file is not packaged with the application, but is uploaded to Azure as a separate file and is used to configure the cloud service. You can upload a new service configuration file without redeploying your cloud service. The configuration values for the cloud service can be changed while the cloud service is running. The following example shows the configuration settings that can be defined for the Web and Worker roles:
 
 ```xml
 <?xml version="1.0"?>
@@ -128,24 +137,27 @@
 </ServiceConfiguration>
 ```
 
-Чтобы лучше понять используемую здесь схему XML, см. статью [Схема конфигурации службы](https://msdn.microsoft.com/library/azure/ee758710.aspx). В этой статье приводится краткое описание некоторых элементов.
+You can refer to the [Service Configuration Schema](https://msdn.microsoft.com/library/azure/ee758710.aspx) for better understanding the XML schema used here, however, here is a quick explanation of the elements:
 
-**Instances** Задает количество запущенных экземпляров для роли. Чтобы предотвратить возможную недоступность облачной службы во время обновлений, рекомендуется развернуть несколько экземпляров веб-ролей. Таким образом вы выполните рекомендации [Соглашения об уровне обслуживания Azure Compute](http://azure.microsoft.com/support/legal/sla/), что гарантирует 99,95 % внешней доступности для ролей с выходом в Интернет, если для службы развернуто два (или более) экземпляра роли.
+**Instances**  
+Configures the number of running instances for the role. To prevent your cloud service from potentially becoming unavailable during upgrades, it is recommend that you deploy more than one instance of your web-facing roles. By doing this, you are adhering to the guidelines in the [Azure Compute Service Level Agreement (SLA)](http://azure.microsoft.com/support/legal/sla/), which guarantees 99.95% external connectivity for Internet-facing roles when two or more role instances are deployed for a service.
 
-**ConfigurationSettings** Настраивает параметры для запущенных экземпляров роли. Имена элементов `<Setting>` должны соответствовать определениям параметров в файле определения службы.
+**ConfigurationSettings**  
+Configures the settings for the running instances for a role. The name of the `<Setting>` elements must match the setting definitions in the service definition file.
 
-**Certificates** Настраивает сертификаты, используемые службой. В предыдущем примере кода показано, как определить сертификат для модуля RemoteAccess. Значение атрибута *thumbprint* должно быть присвоено отпечатку сертификата, который будет использоваться.
+**Certificates**  
+Configures the certificates that are used by the service. The previous code example shows how to define the certificate for the RemoteAccess module. The value of the *thumbprint* attribute must be set to the thumbprint of the certificate to use.
 
 <p/>
 
- >[AZURE.NOTE] Отпечаток сертификата можно добавить в файл конфигурации с помощью текстового редактора. Также это значение можно добавить в Visual Studio на вкладке **Сертификаты** на странице роли **Свойства**.
+ >[AZURE.NOTE] The thumbprint for the certificate can be added to the configuration file by using a text editor, or the value can be added on the **Certificates** tab of the **Properties** page of the role in Visual Studio.
 
 
 
-## Определение портов для экземпляров ролей
-Azure разрешает только одну точку входа для веб-роли. Это означает, что весь трафик идет через один IP-адрес. Можно сделать так, чтобы веб-сайты совместно использовали порт. Для этого нужно настроить заголовок узла так, чтобы он направлял запрос в нужное расположение. Можно также настроить приложения для прослушивания известных портов по IP-адресу.
+## <a name="defining-ports-for-role-instances"></a>Defining ports for role instances
+Azure allows only one entry point to a web role. This means that all traffic occurs through one IP address. You can configure your websites to share a port by configuring the host header to direct the request to the correct location. You can also configure your applications to listen to well-known ports on the IP address.
 
-Следующий пример показывает конфигурацию для веб-роли с веб-сайтом и веб-приложением. Веб-сайт настроен как расположение входа по умолчанию с использованием порта 80. Веб-приложения настроены на получение запросов из альтернативного заголовка узла с именем mail.mysite.cloudapp.net.
+The following sample shows the configuration for a web role with a website and web application. The website is configured as the default entry location on port 80, and the web applications are configured to receive requests from an alternate host header that is called “mail.mysite.cloudapp.net”.
 
 ```xml
 <WebRole>
@@ -180,84 +192,90 @@ Azure разрешает только одну точку входа для ве
 ```
 
 
-## Изменение конфигурации роли
-Вы можете обновить конфигурацию облачной службы, запущенной в Azure, не переводя службу в автономный режим. Чтобы изменить сведения о конфигурации, можно отправить новый файл конфигурации. Также можно изменить файл конфигурации локально и применить его к работающей службе. В конфигурацию службы можно внести следующие изменения.
+## <a name="changing-the-configuration-of-a-role"></a>Changing the configuration of a role
+You can update the configuration of your cloud service while it is running in Azure, without taking the service offline. To change configuration information, you can either upload a new configuration file, or edit the configuration file in place and apply it to your running service. The following changes can be made to the configuration of a service:
 
-- **Изменение значений параметров конфигурации** После изменения параметра конфигурации экземпляр роли может применить изменение во время работы экземпляра в сети. Или же он может предусмотрительно перезапустить экземпляр и применить изменение, пока экземпляр запущен в автономном режиме.
+- **Changing the values of configuration settings**  
+When a configuration setting changes, a role instance can choose to apply the change while the instance is online, or to recycle the instance gracefully and apply the change while the instance is offline.
 
-- **Изменение топологии службы экземпляров роли** Изменения топологии не влияют на выполняемые экземпляры, кроме случаев, когда экземпляр удаляется. Все остальные экземпляры обычно не нуждаются в перезапуске. Тем не менее можно выбрать перезапуск экземпляров роли в ответ на изменение топологии.
+- **Changing the service topology of role instances**  
+Topology changes do not affect running instances, except where an instance is being removed. All remaining instances generally do not need to be recycled; however, you can choose to recycle role instances in response to a topology change.
 
-- **Изменение отпечатка сертификата** Вы можете обновлять сертификат, только когда экземпляр роли запущен в автономном режиме. Если сертификат добавлен, удален или изменен, когда экземпляр роли подключен к сети, Azure предусмотрительно переводит экземпляр в автономный режим для обновления сертификата. После применения изменения экземпляр снова подключается к сети.
+- **Changing the certificate thumbprint**  
+You can only update a certificate when a role instance is offline. If a certificate is added, deleted, or changed while a role instance is online, Azure gracefully takes the instance offline to update the certificate and bring it back online after the change is complete.
 
-### Обработка изменений конфигурации с помощью событий среды выполнения службы
-[Библиотека среды выполнения Azure](https://msdn.microsoft.com/library/azure/mt419365.aspx) содержит пространство имен [Microsoft.WindowsAzure.ServiceRuntime](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.aspx), которое предоставляет классы для взаимодействия со средой Azure из кода, выполняемого в экземпляре роли. Класс [RoleEnvironment](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.aspx) определяет следующие события, которые вызываются до и после изменения конфигурации.
+### <a name="handling-configuration-changes-with-service-runtime-events"></a>Handling configuration changes with Service Runtime Events
+The [Azure Runtime Library](https://msdn.microsoft.com/library/azure/mt419365.aspx) includes the [Microsoft.WindowsAzure.ServiceRuntime](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.aspx) namespace, which provides classes for interacting with the Azure environment from code running in an instance of a role. The [RoleEnvironment](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.aspx) class defines the following events that are raised before and after a configuration change:
 
-- Событие **[Changing](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.changing.aspx)** Это событие происходит до применения изменения конфигурации к указанному экземпляру роли, предоставляя экземпляру роли возможность освободить экземпляры роли при необходимости.
-- Событие **[Changed](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.changed.aspx)** Это событие происходит после применения изменения конфигурации к указанному экземпляру роли.
+- **[Changing](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.changing.aspx) event**  
+This occurs before the configuration change is applied to a specified instance of a role giving you a chance to take down the role instances if required.
+- **[Changed](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.changed.aspx) event**  
+Occurs after the configuration change is applied to a specified instance of a role.
 
-> [AZURE.NOTE] Поскольку изменения сертификата всегда переводят экземпляры роли в автономный режим, они не вызывают событий RoleEnvironment.Changing и RoleEnvironment.Changed.
+> [AZURE.NOTE] Because certificate changes always take the instances of a role offline, they do not raise the RoleEnvironment.Changing or RoleEnvironment.Changed events.
 
 <a name="cspkg"></a>
-## ServicePackage.cspkg
-Чтобы развернуть приложение как облачную службу в Azure, необходимо вначале упаковать приложение в соответствующий формат. Можно использовать программу командной строки **CSPack** (устанавливается вместе с [Azure SDK](https://azure.microsoft.com/downloads/)) для создания файла пакета в качестве альтернативы Visual Studio.
+## <a name="servicepackage.cspkg"></a>ServicePackage.cspkg
+To deploy an application as a cloud service in Azure, you must first package the application in the appropriate format. You can use the **CSPack** command-line tool (installed with the [Azure SDK](https://azure.microsoft.com/downloads/)) to create the package file as an alternative to Visual Studio.
 
-Программа **CSPack** использует содержимое файла определения службы и файла конфигурации службы для определения содержимого пакета. **CSPack** создает файл пакета приложения (CSPKG-файл), который можно отправить в Azure с помощью [портала Azure](cloud-services-how-to-create-deploy-portal.md#create-and-deploy). По умолчанию пакет называется `[ServiceDefinitionFileName].cspkg`, но вы можете указать другое имя, используя параметр `/out` в программе командной строки **CSPack**.
+**CSPack** uses the contents of the service definition file and service configuration file to define the contents of the package. **CSPack** generates an application package file (.cspkg) that you can upload to Azure by using the [Azure portal](cloud-services-how-to-create-deploy-portal.md#create-and-deploy). By default, the package is named `[ServiceDefinitionFileName].cspkg`, but you can specify a different name by using the `/out` option of **CSPack**.
 
-**CSPack** обычно расположен в `C:\Program Files\Microsoft SDKs\Azure\.NET SDK[sdk-version]\bin`.
+**CSPack** is generally located at  
+`C:\Program Files\Microsoft SDKs\Azure\.NET SDK\[sdk-version]\bin\`
 
 >[AZURE.NOTE]
-Чтобы найти файл CSPack.exe (в Windows), запустите ярлык **Командная строка Microsoft Azure**, который устанавливается вместе с пакетом SDK.
+CSPack.exe (on windows) is available by running the **Microsoft Azure Command Prompt** shortcut that is installed with the SDK.  
 >  
->Запустите программу CSPack.exe отдельно, чтобы просмотреть документацию обо всех возможных параметрах и командах.
+>Run the CSPack.exe program by itself to see documentation about all of the possible switches and commands.
 
 <p />
 
 >[AZURE.TIP]
-Запустите облачную службу локально в **эмуляторе вычислений Microsoft Azure**, используйте параметр **/copyonly**. Этот параметр копирует двоичные файлы приложения в структуру каталогов, откуда они могут выполняться в эмуляторе вычислений.
+Run your cloud service locally in the **Microsoft Azure Compute Emulator**, use the **/copyonly** option This option copies the binary files for the application to a directory layout from which they can be run in the compute emulator.
 
-### Пример команды для упаковки облачной службы
-В следующем примере создается пакет приложения, содержащий информацию для веб-роли. Команда задает используемый файл определения службы, а также каталог, в котором находятся двоичные файлы, и имя файла пакета.
+### <a name="example-command-to-package-a-cloud-service"></a>Example command to package a cloud service
+The following example creates an application package that contains the information for a web role. The command specifies the service definition file to use, the directory where binary files can be found, and the name of the package file.
 
-    cspack [DirectoryName][ServiceDefinition]
+    cspack [DirectoryName]\[ServiceDefinition]
            /role:[RoleName];[RoleBinariesDirectory]
            /sites:[RoleName];[VirtualPath];[PhysicalPath]
            /out:[OutputFileName]
 
-Если приложение содержит веб-роль и рабочую роль, используется следующая команда.
+If the application contains both a web role and a worker role, the following command is used:
 
-    cspack [DirectoryName][ServiceDefinition]
+    cspack [DirectoryName]\[ServiceDefinition]
            /out:[OutputFileName]
            /role:[RoleName];[RoleBinariesDirectory]
            /sites:[RoleName];[VirtualPath];[PhysicalPath]
            /role:[RoleName];[RoleBinariesDirectory];[RoleAssemblyName]
 
-Здесь переменные определены следующим образом.
+Where the variables are defined as follows:
 
-| Переменная | Значение |
+| Variable                  | Value |
 | ------------------------- | ----- |
-| [DirectoryName] | Подкаталог в корневом каталоге проекта, который содержит CSDEF-файл проекта Azure.|
-| [ServiceDefinition] | Имя файла определения службы. По умолчанию этот файл называется ServiceDefinition.csdef. |
-| [OutputFileName] | Имя создаваемого файла пакета. Как правило, ему присваивается имя приложения. Если имя файла не указано, создаваемому пакету с расширением .cspkg присваивается имя приложения.|
-| [RoleName] | Имя роли, определенное в файле определения службы.|
-| [RoleBinariesDirectory] | Расположение двоичных файлов для роли.|
-| [VirtualPath] | Физические каталоги для каждого виртуального пути, определенного в разделе «Сайты» определения службы.|
-| [PhysicalPath] | Физические каталоги содержимого для каждого виртуального пути, заданного в узле «Сайт» определения службы.|
-| [RoleAssemblyName] | Имя двоичного файла для роли.| 
+| \[DirectoryName\]         | The subdirectory under the root project directory that contains the .csdef file of the Azure project.|
+| \[ServiceDefinition\]     | The name of the service definition file. By default, this file is named ServiceDefinition.csdef.  |
+| \[OutputFileName\]        | The name for the generated package file. Typically, this is set to the name of the application. If no file name is specified, the application package is created as \[ApplicationName\].cspkg.|
+| \[RoleName\]              | The name of the role as defined in the service definition file.|
+| \[RoleBinariesDirectory] | The location of the binary files for the role.|
+| \[VirtualPath\]           | The physical directories for each virtual path defined in the Sites section of the service definition.|
+| \[PhysicalPath\]          | The physical directories of the contents for each virtual path defined in the site node of the service definition.|
+| \[RoleAssemblyName\]      | The name of the binary file for the role.| 
 
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Next steps
 
-Я создаю пакет облачной службы и я хочу выполнить следующие действия.
+I'm creating a cloud service package and I want to...
 
-* [Настроить удаленный рабочий стол для экземпляра облачной службы][remotedesktop]
-* [Развернуть проект облачной службы][deploy]
+* [Setup remote desktop for a cloud service instance][remotedesktop]
+* [Deploy a Cloud Service project][deploy]
 
-Я использую Visual Studio и хочу выполнить следующие действия.
+I am using Visual Studio and I want to...
 
-* [Создать новую облачную службу.][vs_create]
-* [Изменить конфигурацию существующей облачной службы][vs_reconfigure]
-* [Развернуть проект облачной службы][vs_deploy]
-* [Настроить удаленный рабочий стол для экземпляра облачной службы][vs_remote]
+* [Create a new cloud service][vs_create]
+* [Reconfigure an existing cloud service][vs_reconfigure]
+* [Deploy a Cloud Service project][vs_deploy]
+* [Setup remote desktop for a cloud service instance][vs_remote]
 
 [deploy]: cloud-services-how-to-create-deploy-portal.md
 [remotedesktop]: cloud-services-role-enable-remote-desktop.md
@@ -266,4 +284,8 @@ Azure разрешает только одну точку входа для ве
 [vs_reconfigure]: ../vs-azure-tools-configure-roles-for-cloud-service.md
 [vs_create]: ../vs-azure-tools-azure-project-create.md
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

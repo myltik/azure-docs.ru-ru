@@ -1,19 +1,22 @@
-1. На портале щелкните **Создать** > **Сети** > **Шлюз локальной сети**.
+1. In the portal, from **All resources**, click **+Add**. In the **Everything** blade search box, type **Local network gateway**, then click to search. This will return a list. Click **Local network gateway** to open the blade, then click **Create** to open the **Create local network gateway** blade.
 
-	.![Создание локального сетевого шлюза](./media/vpn-gateway-add-lng-rm-portal-include/addlng250.png)
+    ![create local network gateway](./media/vpn-gateway-add-lng-rm-portal-include/addlng250.png)
 
-2. В колонке **создания шлюза локальной сети** укажите **имя** для своего шлюза.
+2. On the **Create local network gateway blade**, specify a **Name** for your local network gateway object.
  
-3. Укажите допустимый общедоступный **IP-адрес** для VPN-устройства или шлюза виртуальной сети, к которому необходимо подключиться.<br>Если локальная сеть представляет локальное расположение, это будет общедоступный IP-адрес VPN-устройства, к которому необходимо подключиться. Он не может быть скрыт за NAT и должен быть доступен для Azure.<br>Если эта локальная сеть представляет другую виртуальную сеть, необходимо указать общедоступный IP-адрес, который был назначен шлюзу для этой виртуальной сети.<br>
+3. Specify a valid public **IP address** for the VPN device or virtual network gateway to which you want to connect.<br>If this local network represents an on-premises location, this is the public IP address of the VPN device that you want to connect to. It cannot be behind NAT and has to be reachable by Azure.<br>If this local network represents another VNet, you will specify the public IP address that was assigned to the virtual network gateway for that VNet.<br>
 
-4. **Адресное пространство** обозначает диапазон адресов для сети, которую представляет эта локальная сеть. Можно добавить несколько диапазонов пространства адресов. Убедитесь, что указанные диапазоны не перекрывают диапазоны других сетей, к которым необходимо подключиться.
+4. **Address Space** refers to the address ranges for the network that this local network represents. You can add multiple address space ranges. Make sure that the ranges you specify here do not overlap with ranges of other networks that you want to connect to.
  
-5. Убедитесь, что в поле **Подписка** указана правильная подписка.
+5. For **Subscription**, verify that the correct subscription is showing.
 
-6. В поле **Группа ресурсов** выберите нужную группу ресурсов. Можно создать новую группу ресурсов или выбрать уже созданную.
+6. For **Resource Group**, select the resource group that you want to use. You can either create a new resource group, or select one that you have already created.
 
-7. В поле **Расположение** укажите расположение, в котором будет создан этот объект. Вы можете выбрать расположение, в котором размещена виртуальная сеть, но это не обязательно.
+7. For **Location**, select the location that this object will be created in. You may want to select the same location that your VNet resides in, but you are not required to do so.
 
-8. Щелкните **Создать**, чтобы создать шлюз локальной сети.
+8. Click **Create** to create the local network gateway.
 
-<!---HONumber=AcomDC_0810_2016---->
+
+<!--HONumber=Oct16_HO2-->
+
+

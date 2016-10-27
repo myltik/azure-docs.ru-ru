@@ -1,87 +1,94 @@
 <properties
-	pageTitle="Синхронизация Azure AD Connect: повторный запуск мастера установки | Microsoft Azure"
-	description="Объясняется, как работает мастер установки при повторном запуске."
-	keywords="При повторном запуске мастера установки Azure AD Connect он позволяет настроить параметры обслуживания."
-	services="active-directory"
-	documentationCenter=""
-	authors="andkjell"
-	manager="femila"
-	editor=""/>
+    pageTitle="Azure AD Connect sync: Running the installation wizard a second time | Microsoft Azure"
+    description="Explains how the installation wizard works the second time you run it."
+    keywords="The Azure AD Connect installation wizard lets you configure maintenance settings the second time you run it"
+    services="active-directory"
+    documentationCenter=""
+    authors="andkjell"
+    manager="femila"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/31/2016"
-	ms.author="andkjell"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="08/31/2016"
+    ms.author="billmath"/>
 
 
-# Синхронизация Azure AD Connect sync: повторный запуск мастера установки
-При первом запуске мастера установки Azure AD Connect выполняется пошаговая настройка установки. При повторном запуске мастера установки предлагается настроить параметры обслуживания.
 
-Мастер установки можно найти в меню "Пуск" с именем **Azure AD Connect**.
+# <a name="azure-ad-connect-sync:-running-the-installation-wizard-a-second-time"></a>Azure AD Connect sync: Running the installation wizard a second time
+The first time you run the Azure AD Connect installation wizard, it walks you through how to configure your installation. If you run the installation wizard again, it offers options for maintenance.
 
-![Меню "Пуск"](./media/active-directory-aadconnectsync-installation-wizard/startmenu.png)
+You can find the installation wizard in the start menu named **Azure AD Connect**.
 
-При запуске мастера установки появится страница со следующими параметрами:
+![Start menu](./media/active-directory-aadconnectsync-installation-wizard/startmenu.png)
 
-![Страница со списком дополнительных задач](./media/active-directory-aadconnectsync-installation-wizard/additionaltasks.png)
+When you start the installation wizard, you see a page with these options:
 
-Если вы установили службы AD FS с Azure AD Connect, вам будет доступно еще больше возможностей. Дополнительные возможности служб AD FS описаны в разделе [Управление AD FS](active-directory-aadconnect-federation-management.md#ad-fs-management).
+![Page with a list of additional tasks](./media/active-directory-aadconnectsync-installation-wizard/additionaltasks.png)
 
-Чтобы продолжить, выберите одну из задач и нажмите кнопку **Далее**.
+If you have installed ADFS with Azure AD Connect, you have even more options. The additional options you have for ADFS are documented in [ADFS management](active-directory-aadconnect-federation-management.md#ad-fs-management).
 
-> [AZURE.IMPORTANT] Когда открыт мастер установки, приостанавливаются все операции в модуле синхронизации. Убедитесь, что сразу после внесения изменений в конфигурацию вы завершили работу мастера установки.
+Select one of the tasks and click **Next** to continue.
 
-## Просмотр текущей конфигурации
-Этот параметр позволяет быстро просмотреть текущие настройки параметров.
+> [AZURE.IMPORTANT] While you have the installation wizard open, all operations in the sync engine are suspended. Make sure you close the installation wizard as soon as you have completed your configuration changes.
 
-![Страница со списком всех параметров и их состоянием](./media/active-directory-aadconnectsync-installation-wizard/viewconfig.png)
+## <a name="view-current-configuration"></a>View current configuration
+This option gives you a quick view of your currently configured options.
 
-Чтобы вернуться, нажмите кнопку **Назад**. Если выбрать **Выход**, окно мастера установки закроется.
+![Page with a list of all options and their state](./media/active-directory-aadconnectsync-installation-wizard/viewconfig.png)
 
-## Настройка параметров синхронизации
-Этот параметр используется для изменения конфигурации синхронизации. Вы увидите набор параметров из пути установки пользовательской конфигурации. Они отобразятся, даже если изначально использовались параметры экспресс-установки.
+Click **Previous** to go back. If you select **Exit**, you close the installation wizard.
 
-- [Добавить дополнительные каталоги](active-directory-aadconnect-get-started-custom.md#connect-your-directories). Сведения об удалении каталога см. в разделе [Удаление соединителя](active-directory-aadconnectsync-service-manager-ui-connectors.md#delete).
-- [Изменить фильтрацию доменов и подразделений](active-directory-aadconnect-get-started-custom.md#domain-and-ou-filtering).
-- Удалить групповую фильтрацию.
-- [Изменить дополнительные возможности](active-directory-aadconnect-get-started-custom.md#optional-features).
+## <a name="customize-synchronization-options"></a>Customize synchronization options
+This option is used to make changes to the sync configuration. You see a subset of options from the custom configuration installation path. You see this option even if you used express installation initially.
 
-Другие параметры из начальной установки нельзя изменить, поэтому они недоступны. Доступны следующие параметры:
+- [Add more directories](active-directory-aadconnect-get-started-custom.md#connect-your-directories). For removing a directory, see [Delete a Connector](active-directory-aadconnectsync-service-manager-ui-connectors.md#delete).
+- [Change Domain and OU filtering](active-directory-aadconnect-get-started-custom.md#domain-and-ou-filtering).
+- Remove Group filtering.
+- [Change optional features](active-directory-aadconnect-get-started-custom.md#optional-features).
 
-- Изменить атрибут, используемый для userPrincipalName и sourceAnchor.
-- Изменить метод соединения для объектов из другого леса.
-- Включить фильтрацию на основе группы.
+The other options from the initial installation cannot be changed and are not available. These options are:
 
-## Обновление схемы каталога
-Этот параметр используется при изменении схемы в одном из локальных лесов AD DS. Например, когда выполнена установка Exchange или обновление до схемы Windows Server 2012 с объектами устройства. В этом случае необходимо настроить Azure AD Connect на повторное чтение схемы из AD DS и обновление кэша. Это действие также повторно создает правила синхронизации. Если добавить, например, схему Exchange, то правила синхронизации для Exchange добавятся в конфигурацию.
+- Change the attribute to use for userPrincipalName and sourceAnchor.
+- Change the joining method for objects from different forest.
+- Enable group-based filtering.
 
-При выборе этого параметра отобразятся все каталоги в конфигурации. Можно оставить значение по умолчанию и обновить все леса или отменить выбор некоторых из них.
+## <a name="refresh-directory-schema"></a>Refresh directory schema
+This option is used if you have changed the schema in one of your on-premises AD DS forests. For example, you might have installed Exchange or upgraded to a Windows Server 2012 schema with device objects. In this case, you need to instruct Azure AD Connect to read the schema again from AD DS and update its cache. This action also regenerates the Sync Rules. If you add the Exchange schema, as an example, the Sync Rules for Exchange are added to the configuration.
 
-![Страница со списком всех каталогов в среде](./media/active-directory-aadconnectsync-installation-wizard/refreshschema.png)
+When you select this option, all the directories in your configuration are listed. You can keep the default setting and refresh all forests or unselect some of them.
 
-## Настройка промежуточного режима
-Этот параметр позволяет включить и отключить на сервере промежуточный режим. Дополнительные сведения о промежуточном режиме и его использовании см. в разделе [Операции](active-directory-aadconnectsync-operations.md#staging-mode).
+![Page with a list of all directories in the environment](./media/active-directory-aadconnectsync-installation-wizard/refreshschema.png)
 
-Рядом с параметром будет показано, включен или отключен промежуточный режим в данный момент: ![Параметр, который также отображает текущее состояние промежуточного режима](./media/active-directory-aadconnectsync-installation-wizard/stagingmodecurrentstate.png)
+## <a name="configure-staging-mode"></a>Configure staging mode
+This option allows you to enable and disable staging mode on the server. More information about staging mode and how it is used can be found in [Operations](active-directory-aadconnectsync-operations.md#staging-mode).
 
-Для изменения состояния выберите этот параметр и установите или снимите флажок. ![Параметр, который также отображает текущее состояние промежуточного режима](./media/active-directory-aadconnectsync-installation-wizard/stagingmodeenable.png)
+The option shows if staging is currently enabled or disabled:  
+![Option that is also showing the current state of staging mode](./media/active-directory-aadconnectsync-installation-wizard/stagingmodecurrentstate.png)
 
-## Изменение параметров входа пользователя
-Этот параметр позволяет заменить синхронизацию паролей на федерацию или наоборот. Нельзя изменить на значение **Не настраивать**.
+To change the state, select this option and select or unselect the checkbox.  
+![Option that is also showing the current state of staging mode](./media/active-directory-aadconnectsync-installation-wizard/stagingmodeenable.png)
 
-Дополнительные сведения об этом параметре см. в разделе [Вход пользователя](active-directory-aadconnect-user-signin.md#changing-user-sign-in-method).
+## <a name="change-user-sign-in"></a>Change user sign-in
+This option allows you to change from password sync to federation or the other way around. You cannot change to **do not configure**.
 
-## Дальнейшие действия
+For more information on this option, see [user sign-in](active-directory-aadconnect-user-signin.md#changing-user-sign-in-method).
 
-- Дополнительные сведения о модели конфигурации, используемой в синхронизации Azure AD Connect, см. в статье о [принципах декларативной подготовки](active-directory-aadconnectsync-understanding-declarative-provisioning.md).
+## <a name="next-steps"></a>Next steps
 
-**Обзорные статьи**
+- Learn more about the configuration model used by Azure AD Connect sync in [Understanding Declarative Provisioning](active-directory-aadconnectsync-understanding-declarative-provisioning.md).
 
-- [Службы синхронизации Azure AD Connect: общие сведений о синхронизации и ее настройка](active-directory-aadconnectsync-whatis.md)
-- [Интеграция локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md)
+**Overview topics**
 
-<!---HONumber=AcomDC_0907_2016-->
+- [Azure AD Connect sync: Understand and customize synchronization](active-directory-aadconnectsync-whatis.md)
+- [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md)
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

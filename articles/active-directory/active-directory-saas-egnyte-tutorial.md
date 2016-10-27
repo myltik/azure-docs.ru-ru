@@ -1,6 +1,6 @@
 <properties 
-    pageTitle="Руководство. Интеграция Azure Active Directory с Egnyte | Microsoft Azure" 
-    description="Узнайте, как использовать Egnyte вместе с Azure Active Directory для реализации единого входа, автоматической подготовки и выполнения других задач." 
+    pageTitle="Tutorial: Azure Active Directory integration with Egnyte | Microsoft Azure" 
+    description="Learn how to use Egnyte with Azure Active Directory to enable single sign-on, automated provisioning, and more!" 
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
@@ -11,158 +11,162 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="07/11/2016" 
+    ms.date="09/29/2016" 
     ms.author="jeedes" />
 
-#Руководство. Интеграция Azure Active Directory с Egnyte
+
+#<a name="tutorial:-azure-active-directory-integration-with-egnyte"></a>Tutorial: Azure Active Directory integration with Egnyte
   
-Цель данного руководства — показать интеграцию Azure и Egnyte. 
-Сценарий, описанный в этом учебнике, предполагает, что у вас уже имеется:
+The objective of this tutorial is to show the integration of Azure and Egnyte.  
+The scenario outlined in this tutorial assumes that you already have the following items:
 
--   Действующая подписка на Azure
--   Подписка с поддержкой единого входа Egnyte
+-   A valid Azure subscription
+-   An Egnyte single sign-on enabled subscription
   
-После выполнения действий, описанных в этом руководстве, пользователи Azure AD, которых вы прикрепите к Egnyte, смогут использовать единый вход в приложение на веб-сайте Egnyte вашей организации (вход, инициированный поставщиком услуг) или на панели доступа, как описано в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
+After completing this tutorial, the Azure AD users you have assigned to Egnyte will be able to single sign into the application at your Egnyte company site (service provider initiated sign on), or using the [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md)
   
-Сценарий, описанный в этом учебнике, состоит из следующих блоков:
+The scenario outlined in this tutorial consists of the following building blocks:
 
-1.  Включение интеграции приложений для Egnyte
-2.  Настройка единого входа
-3.  Настройка подготовки учетных записей пользователей
-4.  Назначение пользователей
+1.  Enabling the application integration for Egnyte
+2.  Configuring single sign-on
+3.  Configuring user provisioning
+4.  Assigning users
 
-![Сценарий](./media/active-directory-saas-egnyte-tutorial/IC787812.png "Сценарий")
-##Включение интеграции приложений для Egnyte
+![Scenario](./media/active-directory-saas-egnyte-tutorial/IC787812.png "Scenario")
+##<a name="enabling-the-application-integration-for-egnyte"></a>Enabling the application integration for Egnyte
   
-В этом разделе показано, как включить интеграцию приложений для Egnyte.
+The objective of this section is to outline how to enable the application integration for Egnyte.
 
-###Чтобы включить интеграцию приложений для Egnyte, выполните следующие действия.
+###<a name="to-enable-the-application-integration-for-egnyte,-perform-the-following-steps:"></a>To enable the application integration for Egnyte, perform the following steps:
 
-1.  На классическом портале Azure в области навигации слева щелкните **Active Directory**.
+1.  In the Azure classic portal, on the left navigation pane, click **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-egnyte-tutorial/IC700993.png "Active Directory")
 
-2.  Из списка **Каталог** выберите каталог, для которого нужно включить интеграцию каталогов.
+2.  From the **Directory** list, select the directory for which you want to enable directory integration.
 
-3.  Чтобы открыть представление приложений, в представлении каталога нажмите **Приложения** в верхнем меню.
+3.  To open the applications view, in the directory view, click **Applications** in the top menu.
 
-    ![Приложения](./media/active-directory-saas-egnyte-tutorial/IC700994.png "Приложения")
+    ![Applications](./media/active-directory-saas-egnyte-tutorial/IC700994.png "Applications")
 
-4.  В нижней части страницы нажмите кнопку **Добавить**.
+4.  Click **Add** at the bottom of the page.
 
-    ![Добавление приложения](./media/active-directory-saas-egnyte-tutorial/IC749321.png "Добавление приложения")
+    ![Add application](./media/active-directory-saas-egnyte-tutorial/IC749321.png "Add application")
 
-5.  В диалоговом окне **Что необходимо сделать?** нажмите **Добавить приложение из коллекции**.
+5.  On the **What do you want to do** dialog, click **Add an application from the gallery**.
 
-    ![Добавить приложение из коллекции](./media/active-directory-saas-egnyte-tutorial/IC749322.png "Добавить приложение из коллекции")
+    ![Add an application from gallerry](./media/active-directory-saas-egnyte-tutorial/IC749322.png "Add an application from gallerry")
 
-6.  В **поле поиска** введите **egnyte**.
+6.  In the **search box**, type **egnyte**.
 
-    ![Коллекция приложений](./media/active-directory-saas-egnyte-tutorial/IC787813.png "Коллекция приложений")
+    ![Application Gallery](./media/active-directory-saas-egnyte-tutorial/IC787813.png "Application Gallery")
 
-7.  В области результатов выберите **Egnyte** и нажмите кнопку **Завершить**, чтобы добавить приложение.
+7.  In the results pane, select **Egnyte**, and then click **Complete** to add the application.
 
     ![Egnyte](./media/active-directory-saas-egnyte-tutorial/IC787814.png "Egnyte")
-##Настройка единого входа
+##<a name="configuring-single-sign-on"></a>Configuring single sign-on
   
-В этом разделе показано, как разрешить пользователям проходить проверку подлинности в Egnyte со своей учетной записью Azure AD, используя федерацию на основе протокола SAML. 
-В рамках этой процедуры потребуется создать файл сертификата в кодировке Base-64. 
-Если вы не знакомы с этой процедурой, посмотрите видео [Как преобразовать двоичный сертификат в текстовый файл](http://youtu.be/PlgrzUZ-Y1o).
+The objective of this section is to outline how to enable users to authenticate to Egnyte with their account in Azure AD using federation based on the SAML protocol.  
+As part of this procedure, you are required to create a base-64 encoded certificate file.  
+If you are not familiar with this procedure, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o).
 
-###Чтобы настроить единый вход, выполните следующие действия.
+###<a name="to-configure-single-sign-on,-perform-the-following-steps:"></a>To configure single sign-on, perform the following steps:
 
-1.  На странице интеграции с приложением **Egnyte** классического портала Azure щелкните **Настройка единого входа**, чтобы открыть диалоговое окно **Настройка единого входа**.
+1.  In the Azure classic portal, on the **Egnyte** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
 
-    ![Настройка единого входа](./media/active-directory-saas-egnyte-tutorial/IC787815.png "Настройка единого входа")
+    ![Configure Single Sign-On](./media/active-directory-saas-egnyte-tutorial/IC787815.png "Configure Single Sign-On")
 
-2.  На странице **Как пользователи должны входить в Egnyte?** выберите **Единый вход Microsoft Azure AD** и нажмите кнопку **Далее**.
+2.  On the **How would you like users to sign on to Egnyte** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
-    ![Настройка единого входа](./media/active-directory-saas-egnyte-tutorial/IC787816.png "Настройка единого входа")
+    ![Configure Single Sign-On](./media/active-directory-saas-egnyte-tutorial/IC787816.png "Configure Single Sign-On")
 
-3.  На странице **Настроить URL-адрес приложения** в текстовом поле **URL-адрес входа в Egnyte** введите свой URL-адрес в формате "*https://company.egnyte.com*" и нажмите кнопку **Далее**.
+3.  On the **Configure App URL** page, in the **Egnyte Sign In URL** textbox, type your URL using the following pattern "*https://company.egnyte.com*", and then click **Next**.
 
-    ![Настройка URL-адреса приложения](./media/active-directory-saas-egnyte-tutorial/IC787817.png "Настройка URL-адреса приложения")
+    ![Configure App URL](./media/active-directory-saas-egnyte-tutorial/IC787817.png "Configure App URL")
 
-4.  На странице **Настройка единого входа в Egnyte** нажмите кнопку **Загрузить сертификат** и сохраните файл сертификата на компьютере.
+4.  On the **Configure single sign-on at Egnyte** page, click **Download certificate**, and then save the certificate file on your computer.
 
-    ![Настройка единого входа](./media/active-directory-saas-egnyte-tutorial/IC787818.png "Настройка единого входа")
+    ![Configure Single Sign-On](./media/active-directory-saas-egnyte-tutorial/IC787818.png "Configure Single Sign-On")
 
-5.  В другом окне браузера войдите на свой корпоративный веб-сайт Egnyte в качестве администратора.
+5.  In a different web browser window, log into your Egnyte company site as an administrator.
 
-6.  Щелкните **Параметры**.
+6.  Click **Settings**.
 
-    ![данных](./media/active-directory-saas-egnyte-tutorial/IC787819.png "Параметры")
+    ![Settings](./media/active-directory-saas-egnyte-tutorial/IC787819.png "Settings")
 
-7.  В меню выберите пункт **Параметры**.
+7.  In the menu, click **Settings**.
 
-    ![Параметры](./media/active-directory-saas-egnyte-tutorial/IC787820.png "данных")
+    ![Settings](./media/active-directory-saas-egnyte-tutorial/IC787820.png "Settings")
 
-8.  Откройте вкладку **Конфигурация** и нажмите элемент **Безопасность**.
+8.  Click the **Configuration** tab, and then click **Security**.
 
-    ![Безопасность](./media/active-directory-saas-egnyte-tutorial/IC787821.png "Безопасность")
+    ![Security](./media/active-directory-saas-egnyte-tutorial/IC787821.png "Security")
 
-9.  В разделе **Проверка подлинности единого входа** выполните следующие действия.
+9.  In the **Single Sign-On Authentication** section, perform the following steps:
 
-    ![Проверка подлинности единого входа](./media/active-directory-saas-egnyte-tutorial/IC787822.png "Проверка подлинности единого входа")
+    ![Single Sign On Authentication](./media/active-directory-saas-egnyte-tutorial/IC787822.png "Single Sign On Authentication")
 
-    1.  Выберите для параметра **Проверка подлинности единого входа** значение **SAML 2.0**.
-    2.  Выберите для параметра **Поставщик удостоверений** значение **AzureAD**.
-    3.  На диалоговой странице **Настройка единого входа в Egnyte** классического портала Azure скопируйте значение поля **URL-адрес удаленного входа** и вставьте его в текстовое поле **Identity provider login URL** (URL-адрес входа для поставщика удостоверений).
-    4.  На диалоговой странице **Настройка единого входа в Egnyte** классического портала Azure скопируйте значение поля **Идентификатор сущности** и вставьте его в текстовое поле **Identity provider entity ID** (Идентификатор сущности поставщика удостоверений).
-    5.  Создайте файл в кодировке **Base-64** из загруженного сертификата.
+    1.  As **Single sign-on authentication**, select **SAML 2.0**.
+    2.  As **Identity provider**, select **AzureAD**.
+    3.  In the Azure classic portal, on the **Configure single sign-on at Egnyte** dialog page, copy the **Remote Login URL** value, and then paste it into the **Identity provider login URL ** textbox.
+    4.  In the Azure classic portal, on the **Configure single sign-on at Egnyte** dialog page, copy the **Entity ID** value, and then paste it into the **Identity provider entity ID** textbox.
+    5.  Create a **base-64 encoded** file from your downloaded certificate.  
 
-        >[AZURE.TIP]Дополнительные сведения можно узнать из видео [Преобразование двоичного сертификата в текстовый файл](http://youtu.be/PlgrzUZ-Y1o).
+        >[AZURE.TIP]For more details, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o)
 
-    6.  Откройте сертификат в кодировке Base-64 в Блокноте, скопируйте его содержимое в буфер обмена, а затем вставьте его в текстовое поле **Сертификат поставщика удостоверений**.
-    7.  Выберите для параметра **Сопоставление пользователя по умолчанию** значение **Адрес электронной почты**.
-    8.  Выберите для параметра **Использовать значение издателя домена** значение **Отключено**.
-    9.  Щелкните **Сохранить**.
+    6.  Open your base-64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste it to the **Identity provider certificate** textbox.
+    7.  As **Default user mapping**, select **Email address**.
+    8.  As **Use domain-specific issuer value**, select **disabled**.
+    9.  Click **Save**.
 
-10. На классическом портале Azure выберите подтверждение конфигурации единого входа, а затем нажмите кнопку **Завершить**, чтобы закрыть диалоговое окно **Настройка единого входа**.
+10. On the Azure classic portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
 
-    ![Настройка единого входа](./media/active-directory-saas-egnyte-tutorial/IC787823.png "Настройка единого входа")
-##Настройка подготовки учетных записей пользователей
+    ![Configure Single Sign-On](./media/active-directory-saas-egnyte-tutorial/IC787823.png "Configure Single Sign-On")
+##<a name="configuring-user-provisioning"></a>Configuring user provisioning
   
-Чтобы пользователи Azure AD могли выполнять вход в Egnyte, они должны быть подготовлены для Egnyte. 
-В случае с Egnyte подготовка выполняется вручную.
+In order to enable Azure AD users to log into Egnyte, they must be provisioned into Egnyte.  
+In the case of Egnyte, provisioning is a manual task.
 
-###Чтобы подготовить учетные записи пользователей, выполните следующие действия.
+###<a name="to-provision-a-user-accounts,-perform-the-following-steps:"></a>To provision a user accounts, perform the following steps:
 
-1.  Выполните вход на веб-сайт компании **Egnyte** в качестве администратора.
+1.  Log in to your **Egnyte** Egnyte company site as administrator.
 
-2.  Последовательно выберите пункты **Параметры > Пользователи и группы**.
+2.  Go to **Settings \> Users & Groups**.
 
-3.  Нажмите **Добавить пользователя**, а затем выберите тип для пользователя, которого желаете добавить.
+3.  Click **Add New User**, and then select the type of user you want to add.
 
-    ![Пользователи](./media/active-directory-saas-egnyte-tutorial/IC787824.png "Пользователи")
+    ![Users](./media/active-directory-saas-egnyte-tutorial/IC787824.png "Users")
 
-4.  В разделе **Новый обычный пользователь** выполните следующие действия.
+4.  In the **New Standard User** section, perform the following steps:
 
-    ![Новый обычный пользователь](./media/active-directory-saas-egnyte-tutorial/IC787825.png "Новый обычный пользователь")
+    ![New Standard User](./media/active-directory-saas-egnyte-tutorial/IC787825.png "New Standard User")
 
-    1.  Введите значения в поля **Электронная почта**, **Имя пользователя** и другие сведения о действующей учетной записи Azure Active Directory, которую вы хотите подготовить.
-    2.  Щелкните **Сохранить**.
+    1.  Type the **Email**, **Username** and other details of a valid Azure Active Directory account you want to provision.
+    2.  Click **Save**.
 
-    >[AZURE.NOTE] Владелец учетной записи Azure Active Directory получит уведомление по электронной почте.
+    >[AZURE.NOTE] The Azure Active Directory account holder will receive a notification email.
 
->[AZURE.NOTE] Вы можете использовать любые другие средства создания учетной записи пользователя Egnyte или API, предоставляемые Egnyte для подготовки учетных записей пользователя AAD.
+>[AZURE.NOTE] You can use any other Egnyte user account creation tools or APIs provided by Egnyte to provision AAD user accounts.
 
-##Назначение пользователей
+##<a name="assigning-users"></a>Assigning users
   
-Чтобы проверить свою конфигурацию, предоставьте пользователям Azure AD, которые должны использовать приложение, доступ путем их назначения.
+To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.
 
-###Чтобы назначить пользователей Egnyte, выполните следующие действия.
+###<a name="to-assign-users-to-egnyte,-perform-the-following-steps:"></a>To assign users to Egnyte, perform the following steps:
 
-1.  На классическом портале Azure создайте тестовую учетную запись.
+1.  In the Azure classic portal, create a test account.
 
-2.  На странице интеграции с приложением **Egnyte** нажмите кнопку **Назначить пользователей**.
+2.  On the **Egnyte **application integration page, click **Assign users**.
 
-    ![Назначить пользователей](./media/active-directory-saas-egnyte-tutorial/IC787826.png "Назначить пользователей")
+    ![Assign Users](./media/active-directory-saas-egnyte-tutorial/IC787826.png "Assign Users")
 
-3.  Выберите тестового пользователя, нажмите кнопку **Назначить**, а затем — **Да**, чтобы подтвердить назначение.
+3.  Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.
 
-    ![Да](./media/active-directory-saas-egnyte-tutorial/IC767830.png "Да")
+    ![Yes](./media/active-directory-saas-egnyte-tutorial/IC767830.png "Yes")
   
-Если вы хотите проверить параметры единого входа, откройте панель доступа. Дополнительные сведения о панели доступа см. в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
+If you want to test your single sign-on settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0713_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

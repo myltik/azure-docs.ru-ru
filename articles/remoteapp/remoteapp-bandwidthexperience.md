@@ -1,10 +1,10 @@
 <properties 
-    pageTitle="Azure RemoteApp — как пропускная способность сети и качество взаимодействия связаны друг с другом? | Microsoft Azure"
-	description="Сведения о том, как пропускная способность сети в Azure RemoteApp может влиять на качество взаимодействия с пользователем."
-	services="remoteapp"
-	documentationCenter="" 
-	authors="lizap" 
-	manager="mbaldwin" />
+    pageTitle="Azure RemoteApp - how do network bandwidth and quality of experience work together? | Microsoft Azure"
+    description="Learn how network bandwidth in Azure RemoteApp can impact your user's quality of experience."
+    services="remoteapp"
+    documentationCenter="" 
+    authors="lizap" 
+    manager="mbaldwin" />
 
 <tags 
     ms.service="remoteapp" 
@@ -15,27 +15,31 @@
     ms.date="08/15/2016" 
     ms.author="elizapo" />
 
-# Azure RemoteApp — как пропускная способность сети и качество взаимодействия связаны друг с другом?
+
+# <a name="azure-remoteapp---how-do-network-bandwidth-and-quality-of-experience-work-together?"></a>Azure RemoteApp - how do network bandwidth and quality of experience work together?
 
 > [AZURE.IMPORTANT]
-Мы выводим удаленное приложение Azure RemoteApp из эксплуатации. Дополнительные сведения см. в [объявлении](https://go.microsoft.com/fwlink/?linkid=821148).
+> Azure RemoteApp is being discontinued. Read the [announcement](https://go.microsoft.com/fwlink/?linkid=821148) for details.
 
-Если вы рассматриваете [общую пропускную способность сети](remoteapp-bandwidth.md), необходимую удаленному приложению Azure RemoteApp, то учитывайте следующие факторы, которые входят в состав динамической системы, влияющей на все аспекты взаимодействия с пользователем.
+When you are looking at the [overall network bandwidth](remoteapp-bandwidth.md) required for Azure RemoteApp, keep in mind the following factors - these are all part of a dynamic system that impacts the overall user experience. 
 
-- **Доступная пропускная способность и текущие условия сети** — набор параметров (потери, задержка, дрожание) одной сети, который в каждый момент времени может негативно влиять на потоковую передачу приложений, снижая общие впечатления от использования. Доступная пропускная способность в сети зависит от перегрузки, случайных потерь, задержки, так как эти параметры влияют на механизм контроля перегрузки, который, в свою очередь, управляет скоростью передачи данных для предотвращения конфликтов. Например, сеть с высоким показателем потерь или задержек приводит к неудовлетворительному взаимодействию с пользователем даже в сети с пропускной способностью 1000 МБ. Потери и задержки зависят от числа и действий (например просмотр видеозаписей, скачивание или отправка больших файлов, печать) пользователей, находящихся в одной сети.
-- **Сценарий использования** — взаимодействие зависит от того, что пользователи делают по отдельности и в составе группы в рамках одной сети. Например, для чтения одного слайда требуется обновление всего одного кадра. Если же пользователь бегло просматривает и прокручивает содержимое текстового документа, требуется обновлять большее число кадров в секунду. Взаимодействие с сервером в этом случае потребует больше пропускной способности сети. Рассмотрите и экстремальный случай, когда несколько пользователей смотрят видео высокой четкости (например с разрешением 4K), проводят конференции в высоком разрешении, играют в трехмерные игры или работают в системах автоматизированного проектирования. Все это может привести к перегрузке сети даже с очень высокой пропускной способностью.
-- **Разрешение и число экранов** — для полного обновления экранов большого размера требуется большая пропускная способность. Базовые технологии помогают справиться с этим, кодируя и передавая только обновленные области экранов, однако периодически требуется обновить весь экран. При использовании экрана с высоким разрешением (например 4K) для его обновления требуется больше пропускной способности, чем для экрана с низким разрешением (например 1024x768). Это справедливо и при использовании нескольких экранов для перенаправления. Пропускная способность должна увеличиваться вместе с числом экранов.
-- **Буфер обмена и перенаправление устройств** — это не вполне очевидная проблема, но во многих случаях, когда пользователь сохраняет большой блок данных в буфер обмена, передача этой информации с клиента удаленного рабочего стола на сервер занимает много времени. Качество работы в нисходящем сегменте может снизиться при восходящей отправке содержимого из буфера обмена. То же самое касается и перенаправления устройств — если сканер или веб-камера создают большой объем данных, который должен быть отправлен по восходящему каналу на сервер, или принтер должен принимать большой документ, или локальное хранилище должно быть доступно запущенному в облаке приложению для копирования большого файла, то пользователи могут наблюдать пропуск кадров или временное "зависание" видео, так как данные, необходимые для перенаправления устройств, повышают требования к пропускной способности сети.
+- **Available network bandwidth and current network conditions** - A set of parameters (loss, latency, jitter) on the same network at a given time can impact the application streaming experience, meaning a lowered overall user experience. The bandwidth available in your network is a function of congestion, random loss, latency because all these parameters affect the congestion control mechanism, which in turn controls the transmission speed to avoid collisions.  For example, a lossy network or network with high latency will make the user experience bad even on a network with 1000 MB bandwidth. The loss and latency vary based on the number of users that are on the same network and what those users are doing (for example, watching videos, downloading or uploading large files, printing).
+- **Usage scenario** - The experience depends on what the users are doing as individuals and as a group on the same network. For example, reading one slide requires only a single frame to be updated; if the user skims and scrolls over the content of a text document, they need a higher number of frames to be updated per second. The communication back and forth to the server in this scenario will eventually consume more network bandwidth. Also consider an extreme example: multiple users are watching high-definition videos (like 4K resolution), holding HD conference calls, playing 3D video games, or working on CAD systems. All of these can make even a really high bandwidth network practically unusable.
+- **Screen resolution and the number of screens** - More network bandwidth is required to full update bigger screens than smaller screens. The underlying technology does a pretty good job of encoding and transmitting only the regions of the screens that have been updated, but once in a while, the whole screen needs to be updated. When the user has a higher resolution screen (for example 4K resolution), that update requires more network bandwidth than a screen with lower resolution (like 1024x768px). This same logic applies if you use more than one screen for redirection. Bandwidth needs to increase with the number of screens.
+- **Clipboard and device redirection** - This is a not very obvious issue, but in many cases if a user stores a large chunk of data to the clipboard, it takes a bit of time for that information to transfer from the Remote Desktop client to the server. The downstream experience can be impacted by the experience of sending the clipboard content upstream. The same applies for device redirection - if a scanner or web cam produces a lot of data that needs to be sent upstream to the server, or a printer needs to receive a large document, or local storage needs to be available to an app running in the cloud to copy a large file, users might notice dropped frames or temporarily "frozen" video because the data needed for the device redirection is increasing the network bandwidth needs. 
 
-При оценке потребностей в пропускной способности сети следует учитывать воздействие всех этих факторов в виде единой системы.
+When you evaluate your network bandwidth needs, make sure to consider all of these factors working as a system.
 
-А сейчас вернитесь к [основной статье о пропускной способности сети](remoteapp-bandwidth.md) или перейдите к тестированию [пропускной способности](remoteapp-bandwidthtests.md).
+Now, go back to the [main network bandwidth article](remoteapp-bandwidth.md), or move on to testing your [network bandwidth](remoteapp-bandwidthtests.md).
 
-## Подробнее
-- [Оценка использования пропускной способности сети Azure RemoteApp](remoteapp-bandwidth.md)
+## <a name="learn-more"></a>Learn more
+- [Estimate Azure RemoteApp network bandwidth usage](remoteapp-bandwidth.md)
 
-- [Azure RemoteApp — тест использования пропускной способности сети в рамках распространенных сценариев](remoteapp-bandwidthtests.md)
+- [Azure RemoteApp - testing your network bandwidth usage with some common scenarios](remoteapp-bandwidthtests.md)
 
-- [Пропускная способность сети Azure RemoteApp — общие рекомендации (если невозможно провести свои тесты)](remoteapp-bandwidthguidelines.md)
+- [Azure RemoteApp network bandwidth - general guidelines (if you can't test your own)](remoteapp-bandwidthguidelines.md)
 
-<!---HONumber=AcomDC_0817_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

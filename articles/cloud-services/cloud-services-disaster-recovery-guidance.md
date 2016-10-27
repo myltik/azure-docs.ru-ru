@@ -1,65 +1,70 @@
 <properties
-	pageTitle="Что делать, если прерывание работы службы Azure влияет на облачные службы Azure | Microsoft Azure"
-	description="Узнайте, что делать, если прерывание работы службы Azure влияет на облачные службы Azure."
-	services="cloud-services"
-	documentationCenter=""
-	authors="kmouss"
-	manager="drewm"
-	editor=""/>
+    pageTitle="What to do in the event of an Azure service disruption that impacts Azure Cloud Services | Microsoft Azure"
+    description="Learn what to do in the event of an Azure service disruption that impacts Azure Cloud Services."
+    services="cloud-services"
+    documentationCenter=""
+    authors="kmouss"
+    manager="drewm"
+    editor=""/>
 
 <tags
-	ms.service="cloud-services"
-	ms.workload="cloud-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="05/16/2016"
-	ms.author="kmouss;aglick"/>
+    ms.service="cloud-services"
+    ms.workload="cloud-services"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="05/16/2016"
+    ms.author="kmouss;aglick"/>
 
-#Что делать, если прерывание работы службы Azure влияет на облачные службы Azure
 
-Корпорация Майкрософт прилагает все усилия для того, чтобы наши службы всегда были доступны. Иногда по независящим от нас обстоятельствам происходят незапланированные нарушения работы служб.
+#<a name="what-to-do-in-the-event-of-an-azure-service-disruption-that-impacts-azure-cloud-services"></a>What to do in the event of an Azure service disruption that impacts Azure Cloud Services
 
-Корпорация Майкрософт предоставляет соглашения об уровне обслуживания (SLA) для своих служб, в которых гарантируется их время бесперебойной работы и доступность. Соглашения об уровне обслуживания для отдельных служб Azure можно найти в разделе [Соглашения об уровне обслуживания Azure](https://azure.microsoft.com/support/legal/sla/).
+At Microsoft, we work hard to make sure that our services are always available to you when you need them. Forces beyond our control sometimes impact us in ways that cause unplanned service disruptions.
 
-В платформе Azure уже имеется множество встроенных возможностей для поддержки высокодоступных приложений. Дополнительные сведения об этих службах см. в статье [Аварийное восстановление и высокая доступность для приложений на платформе Azure](../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md).
+Microsoft provides a Service Level Agreement (SLA) for its services as a commitment for uptime and connectivity. The SLA for individual Azure services can be found at [Azure Service Level Agreements](https://azure.microsoft.com/support/legal/sla/).
 
-В этой статье описывается действительный сценарий аварийного восстановления, при котором из-за масштабного стихийного бедствия или обширного прерывания работы службы весь регион оказывается подвержен сбою. Такие события происходят нечасто, но необходимо быть готовыми к тому, что сбой всего региона возможен. Если весь регион испытывает перебои в работе службы, то локально избыточные копии ваших данных становятся временно недоступными. Если включена георепликация, то в другом регионе будут храниться три дополнительные копии больших двоичных объектов и таблиц службы хранилища Azure. В случае сбоя всего региона или аварии, при которой основной регион не может быть восстановлен, Azure перераспределяет все DNS-записи в геореплицированный регион.
+Azure already has many built-in platform features that support highly available applications. For more about these services, read [Disaster recovery and high availability for Azure applications](../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md).
 
->[AZURE.NOTE]Учтите, что этот процесс нельзя контролировать, и он выполняется только при нарушениях работы службы на уровне центра обработки данных. Поэтому для обеспечения самого высокого уровня доступности необходимо также использовать и другие стратегии архивации приложения. Дополнительные сведения см. в разделе с описанием [стратегий аварийного восстановления данных](../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md#DSDR). Если вы хотите повлиять на отработку отказа, попробуйте использовать [геоизбыточное хранилище с доступом только для чтения (RA-GRS)](../storage/storage-redundancy.md#read-access-geo-redundant-storage), которое создает в другом регионе копию ваших данных с доступом только для чтения.
+This article covers a true disaster recovery scenario, when a whole region experiences an outage due to major natural disaster or widespread service interruption. These are rare occurrences, but you must prepare for the possibility that there is an outage of an entire region. If an entire region experiences a service disruption, the locally redundant copies of your data would temporarily be unavailable. If you have enabled geo-replication, three additional copies of your Azure Storage blobs and tables are stored in a different region. In the event of a complete regional outage or a disaster in which the primary region is not recoverable, Azure remaps all of the DNS entries to the geo-replicated region.
 
-Чтобы помочь вам в таких ситуациях, мы предлагаем следующие рекомендации для виртуальных машин Azure. Эти рекомендации нужно применять в случае сбоя службы для всего региона, в котором развернуто приложение виртуальной машины Azure.
+>[AZURE.NOTE]Be aware that you do not have any control over this process, and it will only occur for datacenter-wide service disruptions. Because of this, you must also rely on other application-specific backup strategies to achieve the highest level of availability. For more information, see the section about [Data strategies for disaster recovery](../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md#DSDR). If you would like to be able to affect your own failover, you might want to consider the use of [read-access geo-redundant storage (RA-GRS)](../storage/storage-redundancy.md#read-access-geo-redundant-storage), which creates a read-only copy of your data in another region.
 
-##Вариант 1. ожидание восстановления
-В этом случае вам не нужно предпринимать какие-либо действия. Знайте, что команда Azure активно работает над восстановлением доступности службы. Текущее состояние службы можно просмотреть на [панели мониторинга работоспособности служб Azure](https://azure.microsoft.com/status/).
+To help you handle these rare occurrences, we provide the following guidance for Azure virtual machines (VMs) in the case of a service disruption of the entire region where your Azure VM application is deployed.
 
->[AZURE.NOTE]Это наилучший вариант, если клиент не настроил Azure Site Recovery или у него есть дополнительное развертывание в другом регионе.
+##<a name="option-1:-wait-for-recovery"></a>Option 1: Wait for recovery
+In this case, no action on your part is required. Know that Azure teams are working diligently to restore service availability. You can see the current service status on our [Azure Service Health Dashboard](https://azure.microsoft.com/status/).
 
-Для клиентов, которым требуется немедленный доступ к своим развернутым облачным службам, доступны следующие варианты.
+>[AZURE.NOTE]This is the best option if a customer hasn’t set up Azure Site Recovery or has a secondary deployment in a different region.
 
->[AZURE.NOTE]Учтите, что при их использовании возможна потеря части данных.
+For customers who want immediate access to their deployed cloud services, the following options are available.
 
-##Вариант 2. Повторное развертывание конфигурации облачной службы в новом регионе
+>[AZURE.NOTE]Be aware that these options have the possibility of some data loss.     
 
-При наличии исходного кода можно просто повторно развернуть приложение, соответствующую конфигурацию и ресурсы в новой облачной службе в новом регионе.
+##<a name="option-2:-re-deploy-your-cloud-service-configuration-to-a-new-region"></a>Option 2: Re-Deploy your cloud service configuration to a new region
 
-Дополнительные сведения о том, как создавать и развертывать приложения облачной службы, см. в разделе [Создание и развертывание облачной службы](./cloud-services-how-to-create-deploy-portal.md).
+If you have your original code, you can simply just redeploy the application, associated configuration, and associated resources to a new cloud service in a new region.  
 
-В зависимости от источников данных приложения может потребоваться проверка процедур восстановления для источника данных приложения.
-  * Для источников данных службы хранилища Azure обратитесь к разделу [Репликация службы хранилища Azure](../storage/storage-redundancy.md#read-access-geo-redundant-storage), чтобы узнать, какие варианты действий доступны на основе выбранной модели репликации приложения.
-  * Аналогичные сведения для источников данных базы данных SQL приведены в разделе [Обзор. Непрерывность облачных бизнес-процессов и аварийное восстановление баз данных с базой данных SQL](../sql-database/sql-database-business-continuity.md).
+For more detail about how to create and deploy a cloud service application, see [How to create and deploy a cloud service](./cloud-services-how-to-create-deploy-portal.md).
 
-##Вариант 3. Использование резервного развертывания с помощью диспетчера трафика Azure
-В этом случае предполагается, что решение для приложения было изначально создано с учетом регионального аварийного восстановления. Этот вариант может использоваться, если у вас уже есть дополнительное развертывание приложения облачных служб, которое работает в другом регионе и подключено через канал диспетчера трафика. В этом случае проверьте работоспособность дополнительного развертывания. Если оно работоспособно, то можно перенаправить трафик в него через диспетчер трафика Azure. С помощью этой стратегии можно воспользоваться преимуществами метода маршрутизации трафика и конфигурациями порядка отработки отказа в диспетчере трафика Azure. Дополнительную информацию см. в разделе [Как настроить параметры диспетчера трафика](../traffic-manager/traffic-manager-overview.md#how-to-configure-traffic-manager-settings).
+Depending on your application data sources, you may need to check the recovery procedures for your application data source.
+  * For Azure Storage data sources, see [Azure Storage replication](../storage/storage-redundancy.md#read-access-geo-redundant-storage) to check on the options that are available based on the chose replication model for your application.
+  * For SQL Database sources, read [Overview: Cloud business continuity and database disaster recovery with SQL Database](../sql-database/sql-database-business-continuity.md) to check on the options that are available based on the chosen replication model for your application.
 
-![Балансировка облачных служб Azure по регионам с помощью диспетчера трафика Azure](./media/cloud-services-disaster-recovery-guidance/using-azure-traffic-manager.png)
+##<a name="option-3:-use-a-backup-deployment-through-azure-traffic-manager"></a>Option 3: Use a backup deployment through Azure Traffic Manager
+This option assumes that you have already designed your application solution with regional disaster recovery in mind. You can use this option if you already have a secondary cloud services application deployment that's running in a different region and connected through a traffic manager channel. In this case, check the health of the secondary deployment. If it's healthy, you can redirect traffic to it through Azure Traffic Manager. With this strategy, you can take advantage of the traffic routing method and failover order configurations in Azure Traffic Manager. For more information, see [How to configure Traffic Manager settings](../traffic-manager/traffic-manager-overview.md#how-to-configure-traffic-manager-settings).
 
-##Дальнейшие действия
+![Balancing Azure Cloud Services across regions with Azure Traffic Manager](./media/cloud-services-disaster-recovery-guidance/using-azure-traffic-manager.png)
 
-Дополнительные сведения о том, как реализовать стратегию аварийного восстановления и обеспечить высокий уровень доступности, см. в статье [Аварийное восстановление и высокий уровень доступности для приложений Azure](../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md).
+##<a name="next-steps"></a>Next steps
 
-Возможности облачной платформы подробно описаны в [техническом руководстве по обеспечению непрерывности бизнес-процессов Azure](../resiliency/resiliency-technical-guidance.md).
+To learn more about how to implement a disaster recovery and high availability strategy, see [Disaster recovery and high availability for Azure applications](../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md).
 
-Если инструкции не ясны или вы хотите, чтобы корпорация Майкрософт выполнила эти действия от вашего имени, свяжитесь со [службой поддержки клиентов](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+To develop a detailed technical understanding of a cloud platform’s capabilities, see [Azure resiliency technical guidance](../resiliency/resiliency-technical-guidance.md).
 
-<!---HONumber=AcomDC_0629_2016-->
+If the instructions are not clear, or if you would like Microsoft to do the operations on your behalf please contact [Customer Support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

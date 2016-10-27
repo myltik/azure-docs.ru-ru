@@ -1,23 +1,25 @@
 <!---author: alkohli, last updated: 11/05/2015 --->
 
-#### Настройка и регистрация виртуального устройства
+#### <a name="to-configure-and-register-the-virtual-device"></a>To configure and register the virtual device
 
-1. Выберите виртуальное устройство StorSimple, созданное на странице **Устройства**. 
+1. Select the StorSimple virtual device you just created in the **Devices** page. 
 
-2. Щелкните **Завершить настройку устройства**. Запустится мастер настройки устройства.
+2. Click **complete device setup**. This starts the Configure device wizard.
 
-    ![Завершение настройки устройства StorSimple на странице "Устройства"](./media/storsimple-configure-register-virtual-device/StorSimple_CompleteDeviceSetupSVA1M.png)
+    ![StorSimple complete device setup in Devices page](./media/storsimple-configure-register-virtual-device/StorSimple_CompleteDeviceSetupSVA1M.png)
 
-3. Введите **Ключ шифрования данных службы** в соответствующем поле.
+3. Enter the **Service Data Encryption Key** in the space provided.
 
-4. Введите пароли диспетчера моментальных снимков и администратора устройства, соответствующие заданным параметрам и длине.
+4. Enter the Snapshot Manager and Device Administrator passwords of the length and settings specified.
 
-5. Установите флажок, чтобы завершить первоначальную настройку и регистрацию виртуального устройства.
+5. Click the check mark to finish the initial configuration and registration of the virtual device. 
 
-    ![Параметры виртуального устройства StorSimple](./media/storsimple-configure-register-virtual-device/StorSimple_VirtualDeviceSettings1.png)
+    ![StorSimple virtual device settings](./media/storsimple-configure-register-virtual-device/StorSimple_VirtualDeviceSettings1.png)
 
-После завершения настройки и регистрации устройство будет подключено к сети. (Для подключения устройства может потребоваться несколько минут.)
+After the configuration and registration is complete, the device will come online. (It may take several minutes for the device to come online.)
 
-![Этап подключения виртуального устройства StorSimple к сети](./media/storsimple-configure-register-virtual-device/StorSimple_VirtualDeviceOnline1M.png)
+![StorSimple virtual device online stage](./media/storsimple-configure-register-virtual-device/StorSimple_VirtualDeviceOnline1M.png)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Оптимизируйте запросы Hive для более быстрого выполнения в HDInsight | Microsoft Azure"
-   description="Узнайте, как оптимизировать запросы Hive для Hadoop в HDInsight."
+   pageTitle="Optimize your Hive queries for faster execution in HDInsight | Microsoft Azure"
+   description="Learn how to optimize your Hive queries for Hadoop in HDInsight."
    services="hdinsight"
    documentationCenter=""
    authors="rashimg"
@@ -18,204 +18,213 @@
    ms.author="rashimg"/>
 
 
-# Оптимизация запросов Hive для Hadoop в HDInsight
 
-По умолчанию производительность кластеров Hadoop не оптимизирована. В этой статье описывается несколько наиболее распространенных методов оптимизации производительности Hive, которые можно применить к отправке запросов.
+# <a name="optimize-hive-queries-for-hadoop-in-hdinsight"></a>Optimize Hive queries for Hadoop in HDInsight
 
-##Горизонтальное масштабирование рабочих узлов
+By default, Hadoop clusters are not optimized for performance. This article covers a few of the most common Hive performance optimization methods that you can apply to our queries.
 
-Увеличение числа рабочих узлов в кластере может дать возможность большему числу модулей сопоставления и сжатия работать параллельно. Горизонтальное масштабирование в HDInsight можно выполнить двумя способами:
+##<a name="scale-out-worker-nodes"></a>Scale out worker nodes
 
-- Во время подготовки можно указать количество рабочих узлов при помощи портала Azure, Azure PowerShell или кросс-платформенного интерфейса командной строки. Дополнительную информацию см. в разделе [Подготовка кластеров HDInsight](hdinsight-provision-clusters.md). На следующем экране показана рабочая конфигурация узла на портале Azure.
+Increasing the number of worker nodes in a cluster can leverage more mappers and reducers to be run in parallel. There are two ways you can increase scale out in HDInsight:
 
-	![scaleout\_1][image-hdi-optimize-hive-scaleout\_1]
+- At the provision time, you can specify the number of worker nodes using the Azure Portal, Azure PowerShell or Cross-platform command line interface.  For more information, see [Provision HDInsight clusters](hdinsight-provision-clusters.md). The following screen show the worker node configuration on the Azure Portal:
 
-- Во время выполнения можно масштабировать кластер без необходимости его повторного создания. Такой способ показан ниже. ![scaleout\_1][image-hdi-optimize-hive-scaleout\_2]
+    ![scaleout_1][image-hdi-optimize-hive-scaleout_1]
 
-Дополнительные сведения о разных виртуальных машинах, поддерживаемых HDInsight приведены в разделе [HDInsight цены](https://azure.microsoft.com/pricing/details/hdinsight/).
+- At the run time, you can also scale out a cluster without recreating one. This is shown below.
+![scaleout_1][image-hdi-optimize-hive-scaleout_2]
 
-##Включение Tez
+For more details on the different virtual machines supported by HDInsight, see [HDInsight pricing](https://azure.microsoft.com/pricing/details/hdinsight/).
 
-[Apache Tez](http://hortonworks.com/hadoop/tez/) — это механизм выполнения, альтернативный механизму MapReduce:
+##<a name="enable-tez"></a>Enable Tez
 
-![tez\_1][image-hdi-optimize-hive-tez\_1]
+[Apache Tez](http://hortonworks.com/hadoop/tez/) is an alternative execution engine to the MapReduce engine:
+
+![tez_1][image-hdi-optimize-hive-tez_1]
 
 
-Tez работает быстрее, так как:
+Tez is faster because:
 
-- выполняет задания, представленные в виде ориентированных ациклических графов (DAG) как единое целое; при работе с платформой MapReduce, каждый представляемый DAG требует, чтобы каждому набору модулей сопоставления соответствовал набор модулей сжатия. Это приводит к созданию множества заданий MapReduce для каждого запроса Hive. Tez не имеет такого ограничения и может обрабатывать сложные DAG как единое задание, тем самым сводя к минимуму затраты на создание новых заданий.
-- **Позволяет избежать ненужных операций записи** Из-за возникновения многочисленных заданий для каждого запроса Hive при работе на платформе MapReduce, результат каждого задания записывается в HDFS в качестве промежуточных данных. Поскольку Tez сводит к минимуму количество заданий для каждого запроса Hive, это позволяет избежать ненужных операций записи.
-- **Сводит к минимуму задержки при запуске** Платформа Tez способствует снижению задержки при запуске благодаря уменьшению количества модулей сопоставления, необходимых для запуска, а также путем оптимизации всего процесса.
-- **Повторно использует контейнеры** Каждый раз, когда появляется возможность, Tez повторно использует контейнеры, таким образом снижая задержки при запуске контейнеров.
-- **Применяет методы непрерывной оптимизации** Традиционно оптимизация выполняется на этапе компиляции. Однако по мере поступления дополнительных сведений о входных данных появляется возможность улучшить оптимизацию уже на этапе работы. Tez применяет методы непрерывной оптимизации, что позволяет производить дальнейшую оптимизацию плана на этапе работы.
+- Execute Directed Acyclic Graph (DAG) as a single job in the MapReduce engine, the DAG that is expressed requires each set of mappers to be followed by one set of reducers. This causes multiple MapReduce jobs to be spun off for each Hive query. Tez does not have such constraint and can process complex DAG as one job thus minimizing job startup overhead.
+- **Avoids unnecessary writes** Due to multiple jobs being spun for the same Hive query in the MapReduce engine, the output of each job is written to HDFS for intermediate data. Since Tez minimizes number of jobs for each Hive query it is able to avoid unnecessary write.
+- **Minimizes start-up delays** Tez is better able to minimize start-up delay by reducing the number of mappers it needs to start and also improving optimization throughout.
+- **Reuses containers** Whenever possible Tez is able to reuse containers to ensure that latency due to starting up containers is reduced.
+- **Continuous optimization techniques** Traditionally optimization was done during compilation phase. However more information about the inputs is available that allow for better optimization during runtime. Tez uses continous optimization techniques that allows it to optimize the plan further into the runtime phase.
 
-Для получения дополнительной информации об этих понятиях щелкните [здесь](http://hortonworks.com/hadoop/tez/)
+For more details on these concepts, click [here](http://hortonworks.com/hadoop/tez/)
 
-Вы можете выполнить любой запрос Hive, используя платформу Tez, активировав ее с помощью префикса запроса со следующими параметрам:
+You can make any Hive query Tez enabled by prefixing the query with the setting below:
 
-	set hive.execution.engine=tez;
+    set hive.execution.engine=tez;
 
-При подготовке кластеров HDInsight под управлением Windows необходимо включить Tez. Ниже приведен пример сценария Azure PowerShell для подготовки кластера Hadoop с активированной платформой Tez.
+For Windows-based HDInsight clusters, Tez must be enabled at the provision time. The following is a sample Azure PowerShell script for provisioning a Hadoop cluster with Tez enabled:
 
 [AZURE.INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
-	$clusterName = "[HDInsightClusterName]"
-	$location = "[AzureDataCenter]" #i.e. West US
-	$dataNodes = 32 # number of worker nodes in the cluster
+    $clusterName = "[HDInsightClusterName]"
+    $location = "[AzureDataCenter]" #i.e. West US
+    $dataNodes = 32 # number of worker nodes in the cluster
 
-	$defaultStorageAccountName = "[DefaultStorageAccountName]"
-	$defaultStorageContainerName = "[DefaultBlobContainerName]"
-	$defaultStorageAccountKey = $defaultStorageAccountKey = Get-AzureStorageKey $defaultStorageAccountName.ToLower() | %{ $_.Primary }
+    $defaultStorageAccountName = "[DefaultStorageAccountName]"
+    $defaultStorageContainerName = "[DefaultBlobContainerName]"
+    $defaultStorageAccountKey = $defaultStorageAccountKey = Get-AzureStorageKey $defaultStorageAccountName.ToLower() | %{ $_.Primary }
 
-	$hdiUserName = "[HTTPUserName]"
-	$hdiPassword = "[HTTPUserPassword]"
+    $hdiUserName = "[HTTPUserName]"
+    $hdiPassword = "[HTTPUserPassword]"
 
-	$hdiSecurePassword = ConvertTo-SecureString $hdiPassword -AsPlainText -Force
-	$hdiCredential = New-Object System.Management.Automation.PSCredential($hdiUserName, $hdiSecurePassword)
+    $hdiSecurePassword = ConvertTo-SecureString $hdiPassword -AsPlainText -Force
+    $hdiCredential = New-Object System.Management.Automation.PSCredential($hdiUserName, $hdiSecurePassword)
 
-	$hiveConfig = new-object 'Microsoft.WindowsAzure.Management.HDInsight.Cmdlet.DataObjects.AzureHDInsightHiveConfiguration'
-	$hiveConfig.Configuration = @{ "hive.execution.engine"="tez" }
+    $hiveConfig = new-object 'Microsoft.WindowsAzure.Management.HDInsight.Cmdlet.DataObjects.AzureHDInsightHiveConfiguration'
+    $hiveConfig.Configuration = @{ "hive.execution.engine"="tez" }
 
-	New-AzureHDInsightClusterConfig -ClusterSizeInNodes $dataNodes -HeadNodeVMSize Standard_D14 -DataNodeVMSize Standard_D14 |
-	Set-AzureHDInsightDefaultStorage -StorageAccountName "$defaultStorageAccountName.blob.core.windows.net" -StorageAccountKey $defaultStorageAccountKey -StorageContainerName $defaultStorageContainerName |
-	Add-AzureHDInsightConfigValues -Hive $hiveConfig |
-	New-AzureHDInsightCluster -Name $clusterName -Location $location -Credential $hdiCredential
+    New-AzureHDInsightClusterConfig -ClusterSizeInNodes $dataNodes -HeadNodeVMSize Standard_D14 -DataNodeVMSize Standard_D14 |
+    Set-AzureHDInsightDefaultStorage -StorageAccountName "$defaultStorageAccountName.blob.core.windows.net" -StorageAccountKey $defaultStorageAccountKey -StorageContainerName $defaultStorageContainerName |
+    Add-AzureHDInsightConfigValues -Hive $hiveConfig |
+    New-AzureHDInsightCluster -Name $clusterName -Location $location -Credential $hdiCredential
 
     
-> [AZURE.NOTE] При подготовке кластеров HDInsight под управлением Linux платформа Tez включена по умолчанию.
+> [AZURE.NOTE] Linux-based HDInsight clusters have Tez enabled by default.
     
 
-## Секционирование данных в Hive
+## <a name="hive-partitioning"></a>Hive partitioning
 
-Операция ввода-вывода — это основной ограничивающий фактор производительности при выполнении запросов Hive. Производительность можно повысить, если удастся уменьшить объем данных, которые необходимо считать. По умолчанию запросы Hive просматривают все таблицы Hive. Это удобно для запросов, выполняющих сканирование таблиц, однако для запросов, которым требуется просмотреть только небольшой объем данных (например, для запросов с фильтрацией), это создает излишнюю нагрузку. Секционирование данных Hive предоставляет запросам Hive доступ только к необходимому объему данных в таблицах Hive.
+I/O operation is the major performance bottleneck for running Hive queries. The performance can be improved if the amount of data that needs to be read can be reduced. By default, Hive queries scan entire Hive tables. This is great for queries like table scans, however for queries that only need to scan a small amount of data (e.g. queries with filtering), this creates unnecessary overhead. Hive partitioning allows Hive queries to access only the necessary amount of data in Hive tables.
 
-Секционирование данных Hive реализуется путем реорганизации необработанных данных в новые каталоги с присвоением каждой секции своего собственного каталога, где секция определяется пользователем. Следующая схема иллюстрирует секционирование таблицы Hive по столбцу *Год*. Для каждого года создается новый каталог.
+Hive partitioning is implemented by reorganizing the raw data into new directories with each partition having its own directory - where the partition is defined by the user. The following diagram illustrates partitioning a Hive table by the column *Year*. A new directory is created for each year.
 
-![partitioning][image-hdi-optimize-hive-partitioning\_1]
+![partitioning][image-hdi-optimize-hive-partitioning_1]
 
-Некоторые рекомендации для выполнения секционирования:
+Some partitioning considerations:
 
-- **Секций не должно быть слишком мало** — секционирование по столбцам, содержащим только небольшое количество значений, может привести к слишком малому количеству секций. Например секционирование по полу приведет к созданию только двух секций ("Мужской" и "Женской"), тем самым это сократит задержку только вполовину.
+- **Do not under-partition** - Partitioning on columns with only a few values can cause very few partitions. For example, partitioning on gender will only create two partitions to be created (male and female), thus only reduce the latency by a maximum of half.
 
-- **Секций не должно быть слишком много** — с другой стороны, создание секции для столбца с уникальным значением (например, содержащим идентификатор пользователя userid) приведет к появлению множества секций, что создаст большой объем нагрузки на кластер namenode из-за необходимости обрабатывать большие объемы каталогов.
+- **Do not over-partition** - On the other extreme, creating a partition on a column with a unique value (e.g. userid) will cause multiple partitions causing a lot of stress on the cluster namenode as it will have to handle the large amount of directories.
 
-- **Избегайте неравномерного распределения данных** — выбирайте ключ секционирования рационально, таким образом, чтобы все секции были одинакового размера. Например секционирование по *Штату* может привести к тому, что количество записей по Калифорнии будет почти в 30 раз больше, чем для Вермонта, из-за различия в населении штатов.
+- **Avoid data skew** - Choose your partitioning key wisely so that all partitions are even size. An example is partitioning on *State* may cause the number of records under California to be almost 30x that of Vermont due to the difference in population.
 
-Чтобы выполнить секционирование таблицы, используйте команду *Секционирована по*:
+To create a partition table, use the *Partitioned By* clause:
 
     CREATE TABLE lineitem_part
-    	(L_ORDERKEY INT, L_PARTKEY INT, L_SUPPKEY INT,L_LINENUMBER INT,
-    	 L_QUANTITY DOUBLE, L_EXTENDEDPRICE DOUBLE, L_DISCOUNT DOUBLE,
-    	 L_TAX DOUBLE, L_RETURNFLAG STRING, L_LINESTATUS STRING,
-    	 L_SHIPDATE_PS STRING, L_COMMITDATE STRING, L_RECEIPTDATE 	  	 STRING, L_SHIPINSTRUCT STRING, L_SHIPMODE STRING,
-    	 L_COMMENT STRING)
+        (L_ORDERKEY INT, L_PARTKEY INT, L_SUPPKEY INT,L_LINENUMBER INT,
+         L_QUANTITY DOUBLE, L_EXTENDEDPRICE DOUBLE, L_DISCOUNT DOUBLE,
+         L_TAX DOUBLE, L_RETURNFLAG STRING, L_LINESTATUS STRING,
+         L_SHIPDATE_PS STRING, L_COMMITDATE STRING, L_RECEIPTDATE        STRING, L_SHIPINSTRUCT STRING, L_SHIPMODE STRING,
+         L_COMMENT STRING)
     PARTITIONED BY(L_SHIPDATE STRING)
     ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t'
     STORED AS TEXTFILE;
 
-Как только секционированная таблица будет создана, можно выполнить статическое или динамическое секционирование.
+Once the partitioned table is created, you can either create static partitioning or dynamic partitioning.
 
-- **Статическое секционирование** означает, что вы уже распределили данные по соответствующим каталогам и можете выполнить создание секций Hive вручную, исходя из расположения каталогов. Это продемонстрировано в следующем фрагменте кода.
+- **Static partitioning** means that you have already sharded data in the appropriate directories and you can ask Hive partitions manually based on the directory location. This is shown in the code snippet below.
 
-	    INSERT OVERWRITE TABLE lineitem_part
-	    PARTITION (L_SHIPDATE = ‘5/23/1996 12:00:00 AM’)
-	    SELECT * FROM lineitem 
-	    WHERE lineitem.L_SHIPDATE = ‘5/23/1996 12:00:00 AM’
+        INSERT OVERWRITE TABLE lineitem_part
+        PARTITION (L_SHIPDATE = ‘5/23/1996 12:00:00 AM’)
+        SELECT * FROM lineitem 
+        WHERE lineitem.L_SHIPDATE = ‘5/23/1996 12:00:00 AM’
 
-	    ALTER TABLE lineitem_part ADD PARTITION (L_SHIPDATE = ‘5/23/1996 12:00:00 AM’))
-	    LOCATION ‘wasbs://sampledata@ignitedemo.blob.core.windows.net/partitions/5_23_1996/'
+        ALTER TABLE lineitem_part ADD PARTITION (L_SHIPDATE = ‘5/23/1996 12:00:00 AM’))
+        LOCATION ‘wasbs://sampledata@ignitedemo.blob.core.windows.net/partitions/5_23_1996/'
 
-- **Динамическое секционирование** означает, что Hive автоматически создаст секции для вас. Поскольку таблица секционирования уже была создана из промежуточной таблицы, теперь достаточно только выполнить вставку данных в секционированную таблицу, как показано ниже:
+- **Dynamic partitioning** means that you want Hive to create partitions automatically for you. Since we have already created the partitioning table from the staging table, all we need to do is insert data to the partitioned table as shown below:
 
-	    SET hive.exec.dynamic.partition = true;
-	    SET hive.exec.dynamic.partition.mode = nonstrict;
-	    INSERT INTO TABLE lineitem_part
-	    PARTITION (L_SHIPDATE)
-	    SELECT L_ORDERKEY as L_ORDERKEY, L_PARTKEY as L_PARTKEY , 
-	    	 L_SUPPKEY as L_SUPPKEY, L_LINENUMBER as L_LINENUMBER,
-	     	 L_QUANTITY as L_QUANTITY, L_EXTENDEDPRICE as L_EXTENDEDPRICE,
-	    	 L_DISCOUNT as L_DISCOUNT, L_TAX as L_TAX, L_RETURNFLAG as 	 	 L_RETURNFLAG, L_LINESTATUS as L_LINESTATUS, L_SHIPDATE as 	 	 L_SHIPDATE_PS, L_COMMITDATE as L_COMMITDATE, L_RECEIPTDATE as 	 L_RECEIPTDATE, L_SHIPINSTRUCT as L_SHIPINSTRUCT, L_SHIPMODE as 	 L_SHIPMODE, L_COMMENT as L_COMMENT, L_SHIPDATE as L_SHIPDATE FROM lineitem;
+        SET hive.exec.dynamic.partition = true;
+        SET hive.exec.dynamic.partition.mode = nonstrict;
+        INSERT INTO TABLE lineitem_part
+        PARTITION (L_SHIPDATE)
+        SELECT L_ORDERKEY as L_ORDERKEY, L_PARTKEY as L_PARTKEY , 
+             L_SUPPKEY as L_SUPPKEY, L_LINENUMBER as L_LINENUMBER,
+             L_QUANTITY as L_QUANTITY, L_EXTENDEDPRICE as L_EXTENDEDPRICE,
+             L_DISCOUNT as L_DISCOUNT, L_TAX as L_TAX, L_RETURNFLAG as       L_RETURNFLAG, L_LINESTATUS as L_LINESTATUS, L_SHIPDATE as       L_SHIPDATE_PS, L_COMMITDATE as L_COMMITDATE, L_RECEIPTDATE as   L_RECEIPTDATE, L_SHIPINSTRUCT as L_SHIPINSTRUCT, L_SHIPMODE as      L_SHIPMODE, L_COMMENT as L_COMMENT, L_SHIPDATE as L_SHIPDATE FROM lineitem;
 
-Для получения дополнительных сведений обратитесь к разделу [Секционированные таблицы](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL#LanguageManualDDL-PartitionedTables).
+For more details, see [Partitioned Tables](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL#LanguageManualDDL-PartitionedTables).
 
-##Использование формата ORC-файлов
+##<a name="use-the-orcfile-format"></a>Use the ORCFile format
 
-Hive поддерживает различные форматы. Например:
+Hive supports different file formats. For example:
 
-- **Текст**: это формат файла по умолчанию, работает с большинством сценариев
-- **Avro**: хорошо подходит для сценариев взаимодействия
-- **ORC/Parquet**: лучше всего подходит для повышения производительности
+- **Text**: this is the default file format and works with most scenarios
+- **Avro**: works well for interoperability scenarios
+- **ORC/Parquet**: best suited for performance
 
-Формат ORC (Optimized Row Columnar) — это очень эффективный способ хранения данных Hive. По сравнению с другими форматами ORC имеет следующие преимущества:
+ORC (Optimized Row Columnar) format is a highly efficient way to store Hive data. Compared to other formats, ORC has the following advantages:
 
-- поддержка сложных типов, включая даты и время и частично структурированные и сложные типы
-- обеспечивает показатель сжатия данных до 70 %
-- индексирует каждые 10 000 строк, что позволяет пропускать строки
-- обеспечивает существенное снижение времени выполнения запросов
+- support for complex types including DateTime and complex and semi-structured types
+- up to 70% compression
+- indexes every 10,000 rows which allow skipping rows
+- a significant drop in run-time execution
 
-Чтобы активировать ORC формат, необходимо сначала создать таблицу командой *Хранение в виде ORC*:
+To enable ORC format, you first create a table with the clause *Stored as ORC*:
 
     CREATE TABLE lineitem_orc_part
-    	(L_ORDERKEY INT, L_PARTKEY INT,L_SUPPKEY INT, L_LINENUMBER INT,
-    	 L_QUANTITY DOUBLE, L_EXTENDEDPRICE DOUBLE, L_DISCOUNT DOUBLE,
-    	 L_TAX DOUBLE, L_RETURNFLAG STRING, L_LINESTATUS STRING,
-    	 L_SHIPDATE_PS STRING, L_COMMITDATE STRING, L_RECEIPTDATE STRING,
-		 L_SHIPINSTRUCT STRING, L_SHIPMODE STRING, L_COMMENT 	 STRING)
+        (L_ORDERKEY INT, L_PARTKEY INT,L_SUPPKEY INT, L_LINENUMBER INT,
+         L_QUANTITY DOUBLE, L_EXTENDEDPRICE DOUBLE, L_DISCOUNT DOUBLE,
+         L_TAX DOUBLE, L_RETURNFLAG STRING, L_LINESTATUS STRING,
+         L_SHIPDATE_PS STRING, L_COMMITDATE STRING, L_RECEIPTDATE STRING,
+         L_SHIPINSTRUCT STRING, L_SHIPMODE STRING, L_COMMENT     STRING)
     PARTITIONED BY(L_SHIPDATE STRING)
     STORED AS ORC;
 
-Далее необходимо выполнить вставку данных в таблицу ORC из промежуточной таблицы. Например:
+Next, you insert data to the ORC table from the staging table. For example:
 
     INSERT INTO TABLE lineitem_orc
     SELECT L_ORDERKEY as L_ORDERKEY, 
            L_PARTKEY as L_PARTKEY , 
-    	   L_SUPPKEY as L_SUPPKEY,
-		   L_LINENUMBER as L_LINENUMBER,
-     	   L_QUANTITY as L_QUANTITY, 
-		   L_EXTENDEDPRICE as L_EXTENDEDPRICE,
-    	   L_DISCOUNT as L_DISCOUNT,
-		   L_TAX as L_TAX,
+           L_SUPPKEY as L_SUPPKEY,
+           L_LINENUMBER as L_LINENUMBER,
+           L_QUANTITY as L_QUANTITY, 
+           L_EXTENDEDPRICE as L_EXTENDEDPRICE,
+           L_DISCOUNT as L_DISCOUNT,
+           L_TAX as L_TAX,
            L_RETURNFLAG as L_RETURNFLAG,
-		   L_LINESTATUS as L_LINESTATUS,
-		   L_SHIPDATE as L_SHIPDATE,
-		   L_COMMITDATE as L_COMMITDATE,
-		   L_RECEIPTDATE as L_RECEIPTDATE, 
-		   L_SHIPINSTRUCT as L_SHIPINSTRUCT,
-		   L_SHIPMODE as L_SHIPMODE,
-		   L_COMMENT as L_COMMENT
+           L_LINESTATUS as L_LINESTATUS,
+           L_SHIPDATE as L_SHIPDATE,
+           L_COMMITDATE as L_COMMITDATE,
+           L_RECEIPTDATE as L_RECEIPTDATE, 
+           L_SHIPINSTRUCT as L_SHIPINSTRUCT,
+           L_SHIPMODE as L_SHIPMODE,
+           L_COMMENT as L_COMMENT
     FROM lineitem;
 
-Вы можете прочитать подробнее о формате ORC [здесь](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+ORC).
+You can read more on the ORC format [here](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+ORC).
 
-##Векторизация
+##<a name="vectorization"></a>Vectorization
 
-Векторизация позволяет Hive обрабатывать пакеты из 1024 строк одновременно вместо обработки каждой строки отдельно. Это означает, что простые операции будут выполняться быстрее благодаря меньшему объему внутреннего кода, необходимого для запуска.
+Vectorization allows Hive to process a batch of 1024 rows together instead of processing one row at a time. This means that simple operations are done faster because less internal code needs to run.
 
-Чтобы активировать функцию векторизации, создайте запрос Hive со следующими параметрами:
+To enable vectorization prefix your Hive query with the following setting:
 
     set hive.vectorized.execution.enabled = true;
 
-Для получения дополнительных сведений обратитесь к разделу [Выполнение векторизованного запроса](https://cwiki.apache.org/confluence/display/Hive/Vectorized+Query+Execution).
+For more information, see [Vectorized query execution](https://cwiki.apache.org/confluence/display/Hive/Vectorized+Query+Execution).
 
 
-##Другие методы оптимизации
+##<a name="other-optimization-methods"></a>Other optimization methods
 
-Существуют дополнительные методы оптимизации, которые также можно использовать, например:
+There are more optimization methods that you can consider, for example:
 
-- **Группирование Hive** — техника, которая позволяет сегментировать или объединять в кластеры большие наборы данных для оптимизации производительности запросов.
-- **Оптимизация объединений** — это оптимизация выполнения запросов Hive с целью повышения эффективности объединений и сокращения действия пользователя. Для получения дополнительных сведений обратитесь к разделу [Оптимизация объединений](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+JoinOptimization#LanguageManualJoinOptimization-JoinOptimization).
-- **увеличение модулей сжатия**
+- **Hive bucketing:** a technique that allows to cluster or segment large sets of data to optimize query performance.
+- **Join optimization:** optimization of Hive's query execution planning to improve the efficiency of joins and reduce the need for user hints. For more information, see [Join optimization](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+JoinOptimization#LanguageManualJoinOptimization-JoinOptimization).
+- **increase Reducers**
 
-##<a id="nextsteps"></a>Дальнейшие действия
-В этой статье вы узнали некоторые распространенные методы оптимизации запросов Hive. Для получения дополнительных сведений ознакомьтесь со следующими статьями:
+##<a name="<a-id="nextsteps"></a>-next-steps"></a><a id="nextsteps"></a> Next steps
+In this article, you have learned several common Hive query optimization methods. To learn more, see the following articles:
 
-- [Использование Apache Hive в HDInsight](hdinsight-use-hive.md)
-- [Анализ данных о задержке рейсов с помощью Hadoop в HDInsight](hdinsight-analyze-flight-delay-data.md)
-- [Анализ данных Twitter с помощью Hive в HDInsight](hdinsight-analyze-twitter-data.md)
-- [Анализ данных датчика с помощью консоли запросов Hive с Hadoop в HDInsight](hdinsight-hive-analyze-sensor-data.md)
-- [Использование Hive в HDInsight для анализа журналов веб-сайтов](hdinsight-hive-analyze-website-log.md)
+- [Use Apache Hive in HDInsight](hdinsight-use-hive.md)
+- [Analyze flight delay data by using Hive in HDInsight](hdinsight-analyze-flight-delay-data.md)
+- [Analyze Twitter data using Hive in HDInsight](hdinsight-analyze-twitter-data.md)
+- [Analyze sensor data using the Hive Query Console on Hadoop in HDInsight](hdinsight-hive-analyze-sensor-data.md)
+- [Use Hive with HDInsight to analyze logs from websites](hdinsight-hive-analyze-website-log.md)
 
 
-[image-hdi-optimize-hive-scaleout_1]: ./media/hdinsight-hadoop-optimize-hive-query/scaleout_1.png [image-hdi-optimize-hive-scaleout_2]: ./media/hdinsight-hadoop-optimize-hive-query/scaleout_2.png [image-hdi-optimize-hive-tez_1]: ./media/hdinsight-hadoop-optimize-hive-query/tez_1.png [image-hdi-optimize-hive-partitioning_1]: ./media/hdinsight-hadoop-optimize-hive-query/partitioning_1.png
+[image-hdi-optimize-hive-scaleout_1]: ./media/hdinsight-hadoop-optimize-hive-query/scaleout_1.png
+[image-hdi-optimize-hive-scaleout_2]: ./media/hdinsight-hadoop-optimize-hive-query/scaleout_2.png
+[image-hdi-optimize-hive-tez_1]: ./media/hdinsight-hadoop-optimize-hive-query/tez_1.png
+[image-hdi-optimize-hive-partitioning_1]: ./media/hdinsight-hadoop-optimize-hive-query/partitioning_1.png
 
-<!---HONumber=AcomDC_0727_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

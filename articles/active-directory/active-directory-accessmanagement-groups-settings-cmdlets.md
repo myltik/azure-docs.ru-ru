@@ -1,23 +1,24 @@
 <properties
-	pageTitle="Настройка параметров групп с помощью командлетов Azure Active Directory | Microsoft Azure"
-	description="Управление параметрами групп с помощью командлетов Azure Active Directory."
-	services="active-directory"
-	documentationCenter=""
-	authors="curtand"
-	manager="femila"
-	editor=""/>
+    pageTitle="Настройка параметров групп с помощью командлетов Azure Active Directory | Microsoft Azure"
+    description="Управление параметрами групп с помощью командлетов Azure Active Directory."
+    services="active-directory"
+    documentationCenter=""
+    authors="curtand"
+    manager="femila"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/22/2016"
-	ms.author="curtand"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/22/2016"
+    ms.author="curtand"/>
 
 
-# Настройка параметров групп с помощью командлетов Azure Active Directory
+
+# <a name="azure-active-directory-cmdlets-for-configuring-group-settings"></a>Настройка параметров групп с помощью командлетов Azure Active Directory
 
 Можно настроить следующие параметры для объединенных групп в каталоге.
 
@@ -29,94 +30,94 @@
 
 Эти параметры настраиваются с помощью объектов Settings и SettingsTemplate. Изначально в каталоге не отображаются объекты Settings. Это означает, что каталог настроен с параметрами по умолчанию. Чтобы изменить параметры по умолчанию, необходимо с помощью шаблона параметров создать объект параметров. Шаблоны параметров определены корпорацией Майкрософт.
 
-С [сайта Microsoft Connect](http://connect.microsoft.com/site1164/Downloads/DownloadDetails.aspx?DownloadID=59185) можно скачать модуль, содержащий командлеты, которые используются для этих операций.
+С [сайта Microsoft Connect](http://connect.microsoft.com/site1164/Downloads/DownloadDetails.aspx?DownloadID=59185)можно скачать модуль, содержащий командлеты, которые используются для этих операций.
 
-## Создание параметров на уровне каталога
+## <a name="create-settings-at-the-directory-level"></a>Создание параметров на уровне каталога
 
 Далее приведены действия, необходимые для создания параметров на уровне каталога, применимые ко всем группам Office в каталоге.
 
 1. Если вы не знаете, какой объект SettingTemplate использовать, этот командлет возвращает список шаблонов параметров:
 
-	`Get-MsolAllSettingTemplate`
+    `Get-MsolAllSettingTemplate`
 
-	![Список шаблонов параметров](./media/active-directory-accessmanagement-groups-settings-cmdlets/list-of-templates.png)
+    ![Список шаблонов параметров](./media/active-directory-accessmanagement-groups-settings-cmdlets/list-of-templates.png)
 
 2. Чтобы добавить URL-адрес правил использования, сначала необходимо получить объект SettingsTemplate, который определяет значение URL-адреса правил использования; это — шаблон Group.Unified:
 
-	`$template = Get-MsolSettingTemplate –TemplateId 62375ab9-6b52-47ed-826b-58e47e0e304b`
+    `$template = Get-MsolSettingTemplate –TemplateId 62375ab9-6b52-47ed-826b-58e47e0e304b`
 
 3. Затем создайте новый объект параметров на основе этого шаблона:
 
-	`$setting = $template.CreateSettingsObject()`
+    `$setting = $template.CreateSettingsObject()`
 
 4. Затем обновите значение правил использования:
 
-	`$setting["UsageGuidelinesUrl"] = "<https://guideline.com>"`
+    `$setting["UsageGuidelinesUrl"] = "<https://guideline.com>"`
 
 5. И, наконец, примените параметры:
 
-	`New-MsolSettings –SettingsObject $setting`
+    `New-MsolSettings –SettingsObject $setting`
 
-	![Добавление URL-адреса правил использования](./media/active-directory-accessmanagement-groups-settings-cmdlets/add-usage-guideline-url.png)
+    ![Добавление URL-адреса правил использования](./media/active-directory-accessmanagement-groups-settings-cmdlets/add-usage-guideline-url.png)
 
 Ниже приведены параметры, определенные в объекте SettingsTemplate шаблона Group.Unified.
 
- **Параметр** | **Описание**                                                                                             
+ **Параметр**                          | **Описание**                                                                                             
 --------------------------------------|-----------------------------------------------
- <ul><li>ClassificationList<li>Type: String<li>Default: “” | Разделенный запятыми список допустимых значений классификации, которые можно применять к объединенным группам.                
- <ul><li>EnableGroupCreation<li>Type: Boolean<li>Default: True | Флаг, указывающий, разрешено ли создание объединенных групп в каталоге.                               
- <ul><li>GroupCreationAllowedGroupId<li>Type: String<li>Default: “” | Идентификатор GUID группы безопасности, которой разрешено создавать объединенные группы, даже когда EnableGroupCreation == false.
- <ul><li>UsageGuidelinesUrl<li>Type: String<li>Default: “” | Ссылка на правила использования группы.                                                                       
+ <ul><li>ClassificationList<li>Тип: строка<li>Default: “”                  | Разделенный запятыми список допустимых значений классификации, которые можно применять к объединенным группам.                
+ <ul><li>EnableGroupCreation<li>Тип: логический<li> значение по умолчанию: True              | Флаг, указывающий, разрешено ли создание объединенных групп в каталоге.                               
+ <ul><li>GroupCreationAllowedGroupId<li>Тип: строка<li>Default: “”         | Идентификатор GUID группы безопасности, которой разрешено создавать объединенные группы, даже когда EnableGroupCreation == false.
+ <ul><li>UsageGuidelinesUrl<li>Тип: строка<li>Default: “”                  | Ссылка на правила использования группы.                                                                       
 
-## Чтение параметров на уровне каталога
+## <a name="read-settings-at-the-directory-level"></a>Чтение параметров на уровне каталога
 
 Далее приведены действия, необходимые для чтения параметров на уровне каталога, применимые ко всем группам Office в каталоге.
 
 1. Чтение всех существующих параметров каталога:
 
-	`Get-MsolAllSettings`
+    `Get-MsolAllSettings`
 
 2. Чтение всех параметров определенной группы:
 
-	`Get-MsolAllSettings -TargetType Groups -TargetObjectId <groupObjectId>`
+    `Get-MsolAllSettings -TargetType Groups -TargetObjectId <groupObjectId>`
 
 3. Чтение определенных параметров каталога, использующих идентификатор GUID SettingId:
 
-	`Get-MsolSettings –SettingId dbbcb0ea-a6ff-4b44-a1f3-9d7cef74984c`
+    `Get-MsolSettings –SettingId dbbcb0ea-a6ff-4b44-a1f3-9d7cef74984c`
 
-	![Идентификатор GUID параметров](./media/active-directory-accessmanagement-groups-settings-cmdlets/settings-id-guid.png)
+    ![Идентификатор GUID параметров](./media/active-directory-accessmanagement-groups-settings-cmdlets/settings-id-guid.png)
 
-## Обновление параметров на уровне каталога
+## <a name="update-settings-at-the-directory-level"></a>Обновление параметров на уровне каталога
 
 Далее приведены действия, необходимые для обновления параметров на уровне каталога, применимые ко всем группам Office в каталоге.
 
 1. Получение существующего объекта Settings:
 
-	`$setting = Get-MsolSettings –SettingId dbbcb0ea-a6ff-4b44-a1f3-9d7cef74984c`
+    `$setting = Get-MsolSettings –SettingId dbbcb0ea-a6ff-4b44-a1f3-9d7cef74984c`
 
 2. Получение значения, которое требуется обновить:
 
-	`$value = $Setting.GetSettingsValue()`
+    `$value = $Setting.GetSettingsValue()`
 
 3. Обновление значения:
 
-	`$value["AllowToAddGuests"] = "false"`
+    `$value["AllowToAddGuests"] = "false"`
 
 4. Обновление параметра:
 
-	`Set-MsolSettings –SettingId dbbcb0ea-a6ff-4b44-a1f3-9d7cef74984c –SettingsValue $value`
+    `Set-MsolSettings –SettingId dbbcb0ea-a6ff-4b44-a1f3-9d7cef74984c –SettingsValue $value`
 
-## Удаление параметров на уровне каталога
+## <a name="remove-settings-at-the-directory-level"></a>Удаление параметров на уровне каталога
 
 Далее приведено действие, необходимое для удаления параметров на уровне каталога, применимое ко всем группам Office в каталоге.
 
-	`Remove-MsolSettings –SettingId dbbcb0ea-a6ff-4b44-a1f3-9d7cef74984c`
+    `Remove-MsolSettings –SettingId dbbcb0ea-a6ff-4b44-a1f3-9d7cef74984c`
 
-## Справочник по синтаксису командлетов
+## <a name="cmdlet-syntax-reference"></a>Справочник по синтаксису командлетов
 
 Дополнительную документацию по PowerShell Azure Active Directory см. в разделе [Azure Active Directory Cmdlets](http://go.microsoft.com/fwlink/p/?LinkId=808260) (Командлеты Azure Active Directory).
 
-## Ссылка на объект SettingsTemplate (объект SettingsTemplate шаблона Group.Unified)
+## <a name="settingstemplate-object-reference-(group.unified-settingstemplate-object)"></a>Ссылка на объект SettingsTemplate (объект SettingsTemplate шаблона Group.Unified)
 
 - "name": "EnableGroupCreation", "type": "System.Boolean", "defaultValue": "true", "description": "Логический флаг, указывающий, включена ли функция создания объединенных групп."
 
@@ -126,14 +127,14 @@
 
 - "name": "UsageGuidelinesUrl", "type": "System.String", "defaultValue": "", "description": "Ссылка на правила использования группы."
 
-name | type | defaultValue | description
+name | type | defaultValue | Описание
 ----------  | ----------  | ---------  | ----------
-"EnableGroupCreation" | "System.Boolean" | True | "Логический флаг, указывающий, включена ли функция создания объединенных групп."
-"GroupCreationAllowedGroupId" | "System.Guid" | "" | "Идентификатор GUID группы безопасности, внесенной в список расширений и имеющей право на создание объединенных групп."
-"ClassificationList" | "System.String" | "" | "Разделенный запятыми список допустимых значений классификации, которые можно применять к объединенным группам."
-"UsageGuidelinesUrl" | "System.String" | "" | "Ссылка на правила использования группы."
+"EnableGroupCreation"  | "System.Boolean"  | True  | "Логический флаг, указывающий, включена ли функция создания объединенных групп."
+"GroupCreationAllowedGroupId"  | "System.Guid"  | ""  | "Идентификатор GUID группы безопасности, внесенной в список расширений и имеющей право на создание объединенных групп."
+"ClassificationList"  | "System.String"  | ""  | "Разделенный запятыми список допустимых значений классификации, которые можно применять к объединенным группам."
+"UsageGuidelinesUrl"  | "System.String"  | ""  | "Ссылка на правила использования группы."
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Дальнейшие действия
 
 Дополнительную документацию по PowerShell Azure Active Directory см. в разделе [Azure Active Directory Cmdlets](http://go.microsoft.com/fwlink/p/?LinkId=808260) (Командлеты Azure Active Directory).
 
@@ -143,4 +144,8 @@ name | type | defaultValue | description
 
 * [Интеграция локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

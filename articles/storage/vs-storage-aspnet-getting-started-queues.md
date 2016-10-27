@@ -1,107 +1,109 @@
 <properties
-	pageTitle="Начало работы с хранилищем очередей и подключенными службами Visual Studio (ASP.NET) | Microsoft Azure"
-	description="Как приступить к работе, используя хранилище очередей Azure в проекте ASP.NET в Visual Studio после подключения к учетной записи хранения с помощью подключенных служб Visual Studio"
-	services="storage"
-	documentationCenter=""
-	authors="TomArcher"
-	manager="douge"
-	editor=""/>
+    pageTitle="Get started with queue storage and Visual Studio connected services (ASP.NET) | Microsoft Azure"
+    description="How to get started using Azure Queue storage in an ASP.NET project in Visual Studio after connecting to a storage account using Visual Studio connected services"
+    services="storage"
+    documentationCenter=""
+    authors="TomArcher"
+    manager="douge"
+    editor=""/>
 
 <tags
-	ms.service="storage"
-	ms.workload="web"
-	ms.tgt_pltfrm="vs-getting-started"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/15/2016"
-	ms.author="tarcher"/>
+    ms.service="storage"
+    ms.workload="web"
+    ms.tgt_pltfrm="vs-getting-started"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="08/15/2016"
+    ms.author="tarcher"/>
 
-# Начало работы с хранилищем очередей Azure и подключенными службами Visual Studio
+
+# <a name="get-started-with-azure-queue-storage-and-visual-studio-connected-services"></a>Get started with Azure Queue storage and Visual Studio connected services
 
 [AZURE.INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
 
-## Обзор
+## <a name="overview"></a>Overview
 
-В этой статье описывается, как приступить к использованию хранилища очередей Azure в Visual Studio после создания учетной записи хранения Azure или указания ссылки на нее в проекте ASP.NET с помощью диалогового окна **Добавление подключенных служб** в Visual Studio.
+This article describes how get started using Azure Queue storage in Visual Studio after you have created or referenced an Azure storage account in an ASP.NET project by using the  Visual Studio **Add Connected Services** dialog.
 
-Мы покажем, как создать очередь Azure и получить к ней доступ с помощью учетной записи хранения. Кроме того, вы узнаете, как выполнять базовые операции с очередями, например добавлять, изменять, считывать и удалять сообщения в очередях. Примеры написаны на языке C# и используют [клиентскую библиотеку службы хранилища Microsoft Azure для .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx). Дополнительные сведения см. на сайте [ASP.NET](http://www.asp.net).
+We'll show you how to create and access an Azure Queue in your storage account. We'll also show you how to perform basic queue operations, such as adding, modifying, reading and removing queue messages. The samples are written in C# code and use the [Microsoft Azure Storage Client Library for .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx). For more information about ASP.NET, see [ASP.NET](http://www.asp.net).
 
-Хранилище очередей Azure — это служба для хранения большого количества сообщений, к которым можно получить доступ практически из любой точки мира с помощью вызовов с проверкой подлинности по протоколам HTTP или HTTPS. Одно сообщение очереди может быть размером до 64 КБ, а очередь может содержать миллионы сообщений до общего ограничения емкости учетной записи хранения.
+Azure Queue storage is a service for storing large numbers of messages that can be accessed from anywhere in the world via authenticated calls using HTTP or HTTPS. A single queue message can be up to 64 KB in size, and a queue can contain millions of messages, up to the total capacity limit of a storage account.
 
-## Доступ к очередям в коде
+## <a name="access-queues-in-code"></a>Access queues in code
 
-Для доступа к очередям в проектах ASP.NET необходимо включить следующие элементы во все файлы исходного кода C#, которые обращаются к хранилищу очередей Azure.
+To access queues in ASP.NET projects, you need to include the following items to any C# source file that access Azure Queue storage.
 
-1. Убедитесь, что объявления пространств имен в верхней части файла C# содержат указанные ниже операторы **using**.
+1. Make sure the namespace declarations at the top of the C# file include these **using** statements.
 
-		using Microsoft.Framework.Configuration;
-		using Microsoft.WindowsAzure.Storage;
-		using Microsoft.WindowsAzure.Storage.Queue;
+        using Microsoft.Framework.Configuration;
+        using Microsoft.WindowsAzure.Storage;
+        using Microsoft.WindowsAzure.Storage.Queue;
 
-2. Получите объект **CloudStorageAccount**, представляющий данные учетной записи хранения. Используйте следующий код, чтобы получить строку подключения и сведения об учетной записи хранения из конфигурации службы Azure.
+2. Get a **CloudStorageAccount** object that represents your storage account information. Use the following code to get the your storage connection string and storage account information from the Azure service configuration.
 
-		 CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-		   CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));
+         CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+           CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));
 
-3. Используйте объект **CloudQueueClient** для ссылки на объекты очереди в вашей учетной записи хранения.
+3. Get a **CloudQueueClient** object to reference the queue objects in your storage account.  
 
-	    // Create the CloudQueueClient object for this storage account.
-    	CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
+        // Create the CloudQueueClient object for this storage account.
+        CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
 
-4. Получите объект **CloudQueue** для ссылки на определенную очередь.
+4. Get a **CloudQueue** object to reference a specific queue.
 
-    	// Get a reference to a queue named "messageQueue"
-	    CloudQueue messageQueue = queueClient.GetQueueReference("messageQueue");
+        // Get a reference to a queue named "messageQueue"
+        CloudQueue messageQueue = queueClient.GetQueueReference("messageQueue");
 
 
-**ПРИМЕЧАНИЕ.** Вставьте весь код, представленный выше, перед кодом в указанных ниже примерах.
+**NOTE** Use all of the above code in front of the code in the following samples.
 
-## Создание очереди в коде
+## <a name="create-a-queue-in-code"></a>Create a queue in code
 
-Чтобы создать очередь Azure в коде, просто добавьте вызов **CreateIfNotExists** в приведенный выше код.
+To create an Azure queue in code, just add a call to **CreateIfNotExists** to the code above.
 
-	// Create the messageQueue if it does not exist
-	messageQueue.CreateIfNotExists();
+    // Create the messageQueue if it does not exist
+    messageQueue.CreateIfNotExists();
 
-## Добавление сообщения в очередь
+## <a name="add-a-message-to-a-queue"></a>Add a message to a queue
 
-Чтобы вставить сообщение в существующую очередь, создайте объект **CloudQueueMessage**, а затем вызовите метод **AddMessage**.
+To insert a message into an existing queue, create a new **CloudQueueMessage** object, then call the **AddMessage** method.
 
-Для создания объекта **CloudQueueMessage** можно использовать либо строку (в формате UTF-8), либо массив типа byte.
+A **CloudQueueMessage** object can be created from either a string (in UTF-8 format) or a byte array.
 
-Ниже приведен пример, который вставляет сообщение "Hello, World".
+Here is an example which inserts the message 'Hello, World'.
 
-	// Create a message and add it to the queue.
-	CloudQueueMessage message = new CloudQueueMessage("Hello, World");
-	messageQueue.AddMessage(message);
+    // Create a message and add it to the queue.
+    CloudQueueMessage message = new CloudQueueMessage("Hello, World");
+    messageQueue.AddMessage(message);
 
-## Чтение сообщения в очереди
+## <a name="read-a-message-in-a-queue"></a>Read a message in a queue
 
-Можно просмотреть сообщение в начале очереди, не удаляя его из очереди, вызвав метод PeekMessage().
+You can peek at the message in the front of a queue without removing it from the queue by calling the PeekMessage() method.
 
-	// Peek at the next message
+    // Peek at the next message
     CloudQueueMessage peekedMessage = messageQueue.PeekMessage();
 
-## Чтение и удаление сообщения в очереди
+## <a name="read-and-remove-a-message-in-a-queue"></a>Read and remove a message in a queue
 
-Ваш код может удалить сообщение из очереди в два этапа.
-1. Вызовите метод GetMessage(), чтобы получить следующее сообщение в очереди. Сообщение, возвращаемое методом GetMessage(), становится невидимым для другого кода, считывающего сообщения из этой очереди. По умолчанию это сообщение остается невидимым в течение 30 секунд.
-2.	Чтобы завершить удаление сообщения из очереди, вызовите метод **DeleteMessage**.
+Your code can remove (de-queue) a message from a queue in two steps.
+1. Call GetMessage() to get the next message in a queue. A message returned from GetMessage() becomes invisible to any other code reading messages from this queue. By default, this message stays invisible for 30 seconds.
+2.  To finish removing the message from the queue, call **DeleteMessage**.
 
-Этот двухэтапный процесс удаления сообщения позволяет удостовериться, что если коду не удастся обработать сообщение из-за сбоя оборудования или программного обеспечения, другой экземпляр кода сможет получить то же сообщение и повторить попытку. Указанный ниже код вызывает метод **DeleteMessage** сразу после обработки сообщения.
+This two-step process of removing a message assures that if your code fails to process a message due to hardware or software failure, another instance of your code can get the same message and try again. The following code calls **DeleteMessage** right after the message has been processed.
 
-	// Get the next message in the queue.
-	CloudQueueMessage retrievedMessage = messageQueue.GetMessage();
+    // Get the next message in the queue.
+    CloudQueueMessage retrievedMessage = messageQueue.GetMessage();
 
-	// Process the message in less than 30 seconds
+    // Process the message in less than 30 seconds
 
-	// Then delete the message.
-	await messageQueue.DeleteMessage(retrievedMessage);
+    // Then delete the message.
+    await messageQueue.DeleteMessage(retrievedMessage);
 
 
-## Использование дополнительных параметров для удаления сообщений из очереди
+## <a name="use-additional-options-for-de-queuing-messages"></a>Use additional options for de-queuing messages
 
-Способ извлечения сообщения из очереди можно настроить двумя способами. Во-первых, можно получить пакет сообщений (до 32 сообщений). Во-вторых, можно задать более длительное или короткое время ожидания видимости, чтобы предоставить коду больше или меньше времени на полную обработку каждого сообщения. В следующем примере кода метод **GetMessages** используется для получения 20 сообщений в одном вызове. Затем он обрабатывает каждое сообщение с помощью цикла **foreach**. Он также задает время ожидания невидимости 5 минут для каждого сообщения. Обратите внимание на то, что пятиминутный период начинается для всех сообщений одновременно, поэтому по прошествии пяти минут с момента вызова **GetMessages** все сообщения, которые не были удалены, снова становятся видимыми.
+There are two ways you can customize message retrieval from a queue.
+First, you can get a batch of messages (up to 32). Second, you can set a longer or shorter invisibility timeout, allowing your code more or less time to fully process each message. The following code example uses the **GetMessages** method to get 20 messages in one call. Then it processes each message using a **foreach** loop. It also sets the invisibility timeout to five minutes for each message. Note that the 5 minutes starts for all messages at the same time, so after 5 minutes have passed since the call to **GetMessages**, any messages which have not been deleted will become visible again.
 
     // Create the queue client.
     CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
@@ -115,22 +117,22 @@
         queue.DeleteMessage(message);
     }
 
-## Получение длины очереди
+## <a name="get-the-queue-length"></a>Get the queue length
 
-Вы можете узнать приблизительное количество сообщений в очереди. Метод **FetchAttributes** отправляет в службу очередей запрос на извлечение атрибутов очереди, включая количество сообщений. Свойство **ApproximateMethodCount** возвращает последнее значение, полученное с использованием метода **FetchAttributes**, без обращения к службе очередей.
+You can get an estimate of the number of messages in a queue. The **FetchAttributes** method asks the queueservice to retrieve the queue attributes, including the message count. The **ApproximateMethodCount** property returns the last value retrieved by the **FetchAttributes** method, without calling the queueservice.
 
-	// Fetch the queue attributes.
-	messageQueue.FetchAttributes();
+    // Fetch the queue attributes.
+    messageQueue.FetchAttributes();
 
     // Retrieve the cached approximate message count.
     int? cachedMessageCount = messageQueue.ApproximateMessageCount;
 
-	// Display number of messages.
-	Console.WriteLine("Number of messages in queue: " + cachedMessageCount);
+    // Display number of messages.
+    Console.WriteLine("Number of messages in queue: " + cachedMessageCount);
 
-## Использование алгоритма Async-Await со стандартными API очередей
+## <a name="use-async-await-pattern-with-common-queueapis"></a>Use Async-Await pattern with common queueAPIs
 
-В этом примере показано, как использовать алгоритм Async-Await со стандартными API очередей. Вызывается асинхронная версия каждого из методов (на это указывает постфикс Async после их названий). При использовании асинхронного метода алгоритм Async-Await приостанавливает локальное выполнение процесса до завершения вызова. Благодаря этому текущий поток может выполнять другие задачи, что позволяет избежать возникновения узких мест и повысить общую скорость реагирования приложения. Дополнительные сведения об использовании алгоритма Async-Await в .NET см. в статье [Асинхронное программирование с использованием ключевых слов Async и Await (C# и Visual Basic)](https://msdn.microsoft.com/library/hh191443.aspx).
+This example shows how to use the Async-Await pattern with common queueAPIs. The sample calls the async version of each of the given methods, this can be seen by the Async post-fix of each method. When an async method is used the async-await pattern suspends local execution until the call completes. This behavior allows the current thread to do other work which helps avoid performance bottlenecks and improves the overall responsiveness of your application. For more details on using the Async-Await pattern in .NET see [Async and Await (C# and Visual Basic)] (https://msdn.microsoft.com/library/hh191443.aspx)
 
     // Create a message to put in the queue
     CloudQueueMessage cloudQueueMessage = new CloudQueueMessage("My message");
@@ -147,15 +149,18 @@
     await messageQueue.DeleteMessageAsync(retrievedMessage);
     Console.WriteLine("Deleted message");
 
-## Удаление очереди
+## <a name="delete-a-queue"></a>Delete a queue
 
-Чтобы удалить очередь и все сообщения в ней, вызовите метод **Delete** для объекта очереди.
+To delete a queue and all the messages contained in it, call the **Delete** method on the queue object.
 
     // Delete the queue.
     messageQueue.Delete();
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Next steps
 
 [AZURE.INCLUDE [vs-storage-dotnet-queues-next-steps](../../includes/vs-storage-dotnet-queues-next-steps.md)]
 
-<!---HONumber=AcomDC_0817_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

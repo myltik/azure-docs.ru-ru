@@ -1,12 +1,15 @@
-Ресурс|Максимальное ограничение
+Resource|Maximum Limit
 ---|---
-Пользователей коллекции приложений|5 для каждой коллекции приложений
-Среднее число точек данных|200 на активного пользователя в день
-Средний набор сведений о приложении|50 на активного пользователя в день
-Среднее число передаваемых сообщений|20 на активного пользователя в день
-Сегменты|100 на каждое приложение
-Критериев на сегмент|10
-Активных push-кампаний|50 на приложение
-Всего push-кампаний (включая активные и завершенные)|1000 на приложение
+App Collection Users|5 per App Collection
+Average Data points|200 per Active User/Day
+Average App-Info set|50 per Active User/Day
+Average Messages pushed|20 per Active User/Day
+Segments|100 per app
+Criteria per segment|10
+Active Push Campaigns|50 per app
+Total Push Campaigns (includes Active & Completed)|1000 per app
 
-<!---HONumber=Oct15_HO3-->
+
+<!--HONumber=Oct16_HO2-->
+
+

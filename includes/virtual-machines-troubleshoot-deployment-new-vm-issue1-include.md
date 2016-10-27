@@ -1,5 +1,10 @@
-## Проблема: пользовательский образ; ошибки подготовки
+## <a name="issue:-custom-image;-provisioning-errors"></a>Issue: Custom image; provisioning errors
 
-Ошибки подготовки возникают при отправке или записи обобщенного образа виртуальной машины в качестве специализированного образа виртуальной машины (и наоборот). В первом случае возникнет ошибка времени ожидания подготовки, а во втором — сбой подготовки. Чтобы развернуть пользовательский образ без ошибок, необходимо обеспечить, чтобы тип изображения не менялся при записи.
+Provisioning errors arise if you upload or capture a generalized VM image as a specialized VM image or vice versa. The former will cause a provisioning timeout error and the latter will cause a provisioning failure. To deploy your custom image without errors, you must ensure that the type of the image does not change during the capture process.
 
-В следующей таблице перечислены возможные комбинации обобщенного и специализированного образов, возможные типы ошибок, а также необходимые действия по их исправлению.
+The following table lists the possible combinations of generalized and specialized images, the error type you will encounter and what you need to do to fix the errors.
+
+
+<!--HONumber=Oct16_HO2-->
+
+

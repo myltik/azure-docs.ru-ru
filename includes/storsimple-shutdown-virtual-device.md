@@ -1,9 +1,12 @@
-#### Завершение работы виртуального устройства
+#### <a name="to-shut-down-a-virtual-device"></a>To shut down a virtual device
 
-1. Выполните вход на портал управления.
+1. Sign in to the Management Portal.
 
-2. Щелкните **Виртуальные машины** и выберите виртуальное устройство.
+2. Click **Virtual Machines**, and then select the virtual device.
 
-3. Щелкните **Завершить работу**.
+3. Click **Shutdown**.
 
-<!---HONumber=AcomDC_1217_2015-->
+
+<!--HONumber=Oct16_HO2-->
+
+

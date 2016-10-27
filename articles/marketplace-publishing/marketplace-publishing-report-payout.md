@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Основная информация об отчетах о выплатах Azure Marketplace | Microsoft Azure"
-   description="Узнайте, как просмотреть и принять отчет о выплатах Azure Marketplace."
+   pageTitle="Understand the Azure Marketplace payout reporting | Microsoft Azure"
+   description="Learn how to review and ingest the Azure Marketplace payout report."
    services="marketplace-publishing"
    documentationCenter="na"
    authors="v-jeana"
@@ -16,95 +16,97 @@
    ms.date="09/19/2016"
    ms.author="v-jeana; hascipio; v-dabosl"/>
 
-# Основная информация об отчетах о выплатах Azure Marketplace
 
-## Доступ к отчетам о выплатах и их просмотр
+# <a name="understand-your-azure-marketplace-payout-reports"></a>Understand your Azure Marketplace payout reports
 
-В процессе перехода на Центр разработчиков некоторые из ваших отчетов о выплатах могут быть доступны в Центре разработчиков https://dev.windows.com/ru-RU, а другие все еще останутся на портале публикации https://publish.windowsazure.com.
+## <a name="access-and-view-your-payout-reports"></a>Access and view your payout reports
 
-В **Центре разработчиков** теперь будут доступны отчеты о выплатах за любые предложения Marketplace, связанные с современными выплатами. На данный момент к ним относятся:
-- Виртуальные машины
-- Предложения B+C
-- Данные и службы для разработчиков, предоставляемые по EA
+While we transition to Dev Center some of your payout reports may be available in the Dev Center at https://dev.windows.com/en-us while others may still be found in Publishing Portal at https://publish.windowsazure.com.
 
-В **портале публикации** будут по-прежнему доступны следующие отчеты:
-- данные и службы разработчика, предлагаемые по Web Direct (в котором используется система выплат предыдущих версий).
+Payout reporting will now be available in **Dev Center** for any Marketplace offerings that are associated with modern payouts; this currently includes:
+- VMs
+- B+C offers
+- Data and Dev Services offered under EA
 
-Отчеты доступны в течение 45 дней после закрытия квартала и рассчитываются после возвратов денежных средств.
+Payout reporting will still be in **Publishing Portal** for:
+- Data and Dev Services offered under Web Direct (which still uses the legacy payout system).
 
-### Доступ к отчетам выплатах в Центре разработчиков
+Reports are available 45 days after the close of the quarter and are calculated after any refunds.
 
-1. Перейдите в Центр разработчиков по ссылке https://dev.windows.com/ru-RU.
-2. Нажмите на кнопку **Панель мониторинга**.
+### <a name="access-payout-reports-in-dev-center"></a>Access payout reports in Dev Center
+
+1. Navigate to Dev Center at https://dev.windows.com/en-us.
+2. Click **Dashboard**.
 
     ![LandingPageDashboardHighlight][1]
 
-3. Щелкните **Сводка о выплатах**.
+3. Click **Payout Summary**.
 
     ![DashboardPayoutSummary][2]
 
 
-## Просмотр отчетов о выплатах в Центре разработчиков
+## <a name="view-your-payout-reports-in-dev-center"></a>View your payout reports in Dev Center
 
-В отчет о выплатах для каждого квартала записываются все транзакции за квартал.
+The payout report for each quarter records all transactions that occurred within that quarter.
 
-- Зарезервированный объем включает любые платежи, накапливаемые вне предстоящего цикла выплат (этот объем может быть перемещен в предстоящий платеж за следующий месяц). Обычно он составляет $0 (если клиент не осуществляет выплаты заранее).
-- Щелкните ссылки **Просмотр сведений** в разделах "Предстоящий платеж" и "Последний платеж" для просмотра примечания об этих выплатах.
-- Щелкните раздел **Платежные ведомости** для просмотра сведений о платежах, обрабатываемых с помощью приложения или продукта.
-- Щелкните ссылку **Просмотр** для просмотра отдельных ведомостей.
+- The Reserved amount indicates any payments that are accruing outside of the upcoming payment cycle (e.g. this amount will move to upcoming payment the following month).  This amount will typically be $0 (unless a customer pays well in advance).
+- Click on the Upcoming payment or Most recent payment **View details** links to see a note about those payouts.
+- Click on **Payment Statements** to view the details under proceeds by app/product.
+- Click on the **View** link to see individual statements.
 
     ![PayoutSummaryUpcomingMostRecentLinksStatement][3]
 
-- Используйте фильтр **Разобрать платежи** в нижней части отдельной ведомости для просмотра нескольких приложений и продуктов, если их несколько.
+- Use the **Proceeds Breakdown** filter at the bottom of the individual statement to view multiple apps/products if they exist.
 
     ![PayoutSummaryPaymentStatementsFilterControl][4]
 
 
 
-## Просмотр отчетов о выплатах в портале публикации
-В отчет о выплатах для каждого квартала записываются все транзакции за квартал.
+## <a name="view-your-payout-reports-in-publishing-portal"></a>View your payout reports in Publishing Portal
+The payout report for each quarter records all transactions that occurred within that quarter.
 
-1. Откройте портал публикации по адресу https://publish.windowsazure.com.
-2. В разделе **Издатели** щелкните **Отчеты о выплатах**.
-3. Щелкните раскрывающийся список, чтобы отобразить все доступные квартальные отчеты о выплатах.
+1. Navigate to the publishing portal at https://publish.windowsazure.com.
+2. From the **Publishers** section, click **Payout Reports**.
+3. Click the drop-down to display all available quarterly payout reports.
 
     ![accessingpayoutreport][5]
 
 
-### Чтение отчетов о выплатах
+### <a name="read-your-payout-reports"></a>Read your payout reports
 
-В отчет о выплатах для каждого квартала записываются все транзакции за квартал.
+The payout report for each quarter records all transactions that occurred within that quarter.
 
-- Если вы ищете записи главной книги за конкретной квартал, выберите из раскрывающегося списка отчет о выплатах за этот квартал. Например, если вам нужны записи главной книги за апрель-июнь 2015 года, выберите из раскрывающегося списка этот диапазон дат.
-- Если вы ищете подробную информацию о выплатах за конкретный квартал, выберите из раскрывающегося списка отчет о выплатах за следующий за ним квартал. Например, если вам нужны данные выплат за апрель-июнь 2015 года, эти суммы будут отображены в отчете о выплатах за июль-сентябрь 2015 года. ![readingpayoutreport][6]
+- If you are looking for ledger entries that relate to a particular quarter, select the payout report for that quarter from the drop-down. For example, if you are interested in ledger entries for April to June 2015, select that date range from the drop-down.
+- If you are looking for details of payouts that relate to a particular quarter, select the payout report for the subsequent quarter. For example, if you are interested in the payouts for April to June 2015, these amounts will appear in the subsequent payout report for July to September 2015.
+![readingpayoutreport][6]
 
-- В области финансовой сводки показаны сальдо, кредиты и дебета по категориям.
-- В записях главной книги показаны отдельные транзакции.
+- The financial summary panel shows balances, credits, and debits by category.
+- Ledger entries show individual transactions.
 
-## Определения
+## <a name="definitions"></a>Definitions
 
-**Область финансовой сводки:**
+**Financial summary panel:**
 
 ![financialdefinitions][7]
 
-**Записи главной книги:**
+**Ledger entries:**
 
 ![ledgerdefinitions][8]
 
-## Вопросы о выплатах
+## <a name="payout-questions"></a>Payout questions
 
-Если у вас возник вопрос по выплатам, обратитесь к нашей группе поддержки.
+If you have a question related to your payouts, contact our support team.
 
 ![payoutquestions][9]
 
-1. Откройте страницу службы поддержки.
-2. Выберите **Выплаты**.
-3. Выберите **Запросы, связанные с выплатами**.
-4. Нажмите кнопку **Отправить запрос**.
+1. Navigate to the support pages.
+2. Select **Payouts**.
+3. Select **Payout related inquiries**.
+4. Click **Start request**.
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Next steps
 
-В случае других запросов поддержки отправьте проблему на <https://portal.azure.com>.
+For other support queries, please log an issue at <https://portal.azure.com>.
 
 [1]: ./media/marketplace-publishing-report-payout/LandingPage-DashboardHighlight.png
 [2]: ./media/marketplace-publishing-report-payout/Dashboard-PayoutSummary.png
@@ -116,4 +118,8 @@
 [8]: ./media/marketplace-publishing-report-payout/ledgerdefinitions.png
 [9]: ./media/marketplace-publishing-report-payout/payoutquestions.png
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,26 +1,31 @@
 <properties
-	pageTitle="Основные команды интерфейса командной строки для задач виртуальных машин Windows | Microsoft Azure"
-	description="Основные команды интерфейса командной строки Azure для создания виртуальных машин Windows и управления ими в Azure Resource Manager"
-	services="virtual-machines-windows"
-	documentationCenter=""
-	authors="dlepow"
-	manager="timlt"
-	editor=""
-	tags="azure-resource-manager,azure-service-management"/>
+    pageTitle="Basic CLI commands for Windows VM tasks | Microsoft Azure"
+    description="Basic Azure CLI commands to create and manage Windows VMs in Azure Resource Manager"
+    services="virtual-machines-windows"
+    documentationCenter=""
+    authors="dlepow"
+    manager="timlt"
+    editor=""
+    tags="azure-resource-manager,azure-service-management"/>
 
 <tags
-	ms.service="virtual-machines-windows"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="vm-windows"
-	ms.workload="infrastructure-services"
-	ms.date="08/23/2016"
-	ms.author="danlep"/>
+    ms.service="virtual-machines-windows"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="vm-windows"
+    ms.workload="infrastructure-services"
+    ms.date="08/23/2016"
+    ms.author="danlep"/>
 
-# Распространенные команды интерфейса командной строки Azure для выполнения задач виртуальной машины в модели развертывания Resource Manager 
 
-В этой статье перечислены распространенные команды интерфейса командной строки Azure (Azure CLI) для создания виртуальных машин и управления ими в модели развертывания Resource Manager.
+# <a name="common-azure-cli-commands-for-virtual-machine-tasks-in-the-resource-manager-deployment-model"></a>Common Azure CLI commands for virtual machine tasks in the Resource Manager deployment model 
+
+This article shows common Azure Command-Line Interface (Azure CLI) commands to create and manage VMs in the Resource Manager deployment model. 
 
 [AZURE.INCLUDE [virtual-machines-common-cli-manage](../../includes/virtual-machines-common-cli-manage.md)]
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Центр управления безопасностью Майкрософт | Microsoft Azure"
-   description="Центр управления безопасностью Майкрософт содержит сведения, позволяющие вам сохранять уверенность в безопасности платформы Azure, используемой для запуска служб."
+   pageTitle="Microsoft Trust Center | Microsoft Azure"
+   description="The Microsoft Trust center provides you the information you need to be confident that the Azure platform on which you run your services is secure."
    services="security"
    documentationCenter="na"
    authors="TomShinder"
@@ -16,25 +16,30 @@
    ms.date="08/09/2016"
    ms.author="terrylan"/>
 
-# Центр управления безопасностью Майкрософт
 
-Страница сведений о безопасности в Azure на сайте Azure.com содержит информацию, необходимую для безопасного планирования, проектирования и настройки облачных решений, а также управления ими. В центре управления безопасностью Майкрософт вы найдете сведения, подтверждающие надежность платформы Azure, которую вы используете для работы своих служб.
+# <a name="microsoft-trust-center"></a>Microsoft Trust Center
 
-Мы знаем, что доверяя свои приложения и данные службе Azure, вы захотите получить ответы на определенные вопросы. Где они находятся? Кто может получить к ним доступ? Что предпринимает корпорация Майкрософт, чтобы защитить их? Как можно проверить, действительно ли выполняется все заявленное корпорацией Майкрософт?
+The Azure Security Information site on Azure.com gives you the information you need to plan, design, deploy, configure, and manage your cloud solutions securely. With the Microsoft Trust center, you also have the information you need to be confident that the Azure platform on which you run your services is secure.
 
-И мы даем вам эти ответы. Так как данные принадлежат вам, именно вы решаете, кто имеет доступ, и вместе с нами решаете, где они размещаются. Для защиты ваших данных мы используем передовые технологии безопасности и шифрование мирового уровня. Наше соответствие требованием проходит независимый аудит, и мы с готовностью предоставляем сведения самого разного характера — начиная с того, как мы обрабатываем надлежащие заявленные требования в отношении данных ваших клиентов, и заканчивая безопасностью нашего кода.
+We know that when you entrust your applications and data to Azure, you’re going to have questions. Where is it? Who can access it? What is Microsoft doing to protect it? How can you verify that Microsoft is doing what it says?
 
-В центре управления безопасностью Майкрософт вы найдете сведения о следующих аспектах:
+And we have answers. Because it’s your data, you decide who has access, and you work with us to decide where it is located. To safeguard your data, we use state-of-the-art security technology and world-class cryptography. Our compliance is independently audited, and we’re transparent on many levels—from how we handle legal demands for your customer data to the security of our code.
 
-- [Безопасность](https://aka.ms/tcsecurity) — сведения о защите всех служб Microsoft Cloud.
-- [Конфиденциальность](https://aka.ms/tcprivacy) — сведения о том, как корпорация Майкрософт обеспечивает конфиденциальность данных в облаке Microsoft Cloud.
-- [Соответствие требованиям](https://aka.ms/tccompliance) — сведения о том, как корпорация Майкрософт помогает организациям соблюдать государственные, региональные и отраслевые требования, регулирующие сбор и использование пользовательских данных.
-- [Прозрачность](https://aka.ms/tctransparency) — сведения о том, как корпорация Майкрософт позволяет вам управлять своими данными в облаке и помогает узнать о способах обработки этих данных.
-- [Продукты и услуги](https://aka.ms/tcproductsservices) — сводное описание всех продуктов и служб Microsoft Cloud.
-- [Портал безопасности службы](https://aka.ms/tcservicetrportal) — копии отчетов о независимом аудите служб Microsoft Cloud, оценки рисков, рекомендации по безопасности и другие связанные материалы.
-- [Новые возможности](https://aka.ms/tcwhatsnew) — сведения о новых способах обеспечения безопасности в Microsoft Cloud.
-- [Ресурсы](https://aka.ms/tcresources) — технические документы, видеоролики и примеры использования доверенного облака Майкрософт.
+Here's what you find at the Microsoft Trust Center:
 
-[Центр управления безопасностью Майкрософт](https://www.microsoft.com/trustcenter) имеет все необходимо, чтобы помочь вам осознать, насколько безопасно облако Microsoft Cloud.
+- [Security](https://aka.ms/tcsecurity) – Learn how all the Microsoft Cloud services are secured.
+- [Privacy](https://aka.ms/tcprivacy) – Understand how Microsoft ensures privacy of your Data in the Microsoft cloud.
+- [Compliance](https://aka.ms/tccompliance) – Discover how Microsoft helps organizations comply with national, regional, and industry-specific requirements governing the collection and use of individuals’ data.
+- [Transparency](https://aka.ms/tctransparency) – View how Microsoft believes that you control your data in the cloud and how Microsoft helps you know as much as possible about how that data is handled.
+- [Products and Services](https://aka.ms/tcproductsservices) – See all the Microsoft Cloud products and services in one place
+- [Service Trust Portal](https://aka.ms/tcservicetrportal) – Obtain copies of independent audit reports of Microsoft cloud services, risk assessments, security best practices, and related materials.
+- [What’s New](https://aka.ms/tcwhatsnew) – Find out what’s new in Microsoft Cloud Trust
+- [Resources](https://aka.ms/tcresources) – Investigate white papers, videos, and case studies on Microsoft Trusted Cloud
 
-<!---HONumber=AcomDC_0810_2016-->
+The [Microsoft Trust Center](https://www.microsoft.com/trustcenter) has what you need to understand what we do to secure the Microsoft Cloud.
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

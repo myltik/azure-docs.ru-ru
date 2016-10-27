@@ -1,64 +1,68 @@
-## Что такое очереди служебной шины?
+## <a name="what-are-service-bus-queues?"></a>What are Service Bus queues?
 
-Очереди служебной шины поддерживают модель **обмена сообщениями через посредника**. При использовании очередей компоненты распределенного приложения не взаимодействуют между собой напрямую, а обмениваются сообщениями через очередь, которая выступает в качестве посредника. Производитель (отправитель) передает сообщение в очередь, а затем продолжает его обработку. Потребитель сообщения (получатель) асинхронно извлекает сообщение из очереди и обрабатывает его. Поставщику не нужно ждать ответа от потребителя, чтобы продолжить обработку и отправку дальнейших сообщений. Очереди предлагают доставку сообщений конкурирующим потребителям по типу **FIFO** (первым пришел, первым вышел). То есть обычно получатели принимают и обрабатывают сообщения в том порядке, в котором они были добавлены в очередь, и каждое сообщение принимается и обрабатывается только одним потребителем сообщений.
+Service Bus queues support a **brokered messaging** communication model. When using queues, components of a distributed application do not communicate directly with each other; instead they exchange messages via a queue, which acts as an intermediary (broker). A message producer (sender) hands off a message to the queue and then continues its processing. Asynchronously, a message consumer (receiver) pulls the message from the queue and processes it. The producer does not have to wait for a reply from the consumer in order to continue to process and send further messages. Queues offer **First In, First Out (FIFO)** message delivery to one or more competing consumers. That is, messages are typically received and processed by the receivers in the order in which they were added to the queue, and each message is received and processed by only one message consumer.
 
 ![QueueConcepts](./media/howto-service-bus-queues/sb-queues-08.png)
 
-Очереди служебной шины — это технология общего назначения, которая может использоваться для разнообразных сценариев:
+Service Bus queues are a general-purpose technology that can be used for a wide variety of scenarios:
 
--   Взаимодействие между веб-ролями и рабочими ролями в многоуровневом приложении Azure.
--   Обмен данными между локальными приложениями и приложениями, размещенными в Azure, в гибридном решении.
--   Связь между компонентами распределенного приложения, которое работает в другой организации или в другом подразделении данной организации.
+-   Communication between web and worker roles in a multi-tier Azure application.
+-   Communication between on-premises apps and Azure-hosted apps in a hybrid solution.
+-   Communication between components of a distributed application running on-premises in different organizations or departments of an organization.
 
-С помощью очередей можно лучше масштабировать приложения и сделать архитектуру более устойчивой.
+Using queues enables you to scale your applications more easily, and enable more resiliency to your architecture.
 
-## Создание пространства имен службы
+## <a name="create-a-service-namespace"></a>Create a service namespace
 
-Чтобы начать использовать очереди служебной шины в Azure, необходимо сначала создать пространство имен службы. Пространство имен предоставляет контейнер для адресации ресурсов служебной шины в вашем приложении.
+To begin using Service Bus queues in Azure, you must first create a service namespace. A namespace provides a scoping container for addressing Service Bus resources within your application.
 
-Создание пространства имен службы:
+To create a namespace:
 
-1.  Перейдите на [классический портал Azure][].
+1.  Log on to the [Azure classic portal][].
 
-2.  На портале в области навигации слева щелкните элемент **Служебная шина**.
+2.  In the left navigation pane of the portal, click **Service Bus**.
 
-3.  В нижней части портала нажмите кнопку **Создать**. 
-	![](./media/howto-service-bus-queues/sb-queues-03.png)
+3.  In the lower pane of the portal, click **Create**.
+    ![](./media/howto-service-bus-queues/sb-queues-03.png)
 
-4.  В диалоговом окне**Добавление нового пространства имен** введите имя пространства имен. Система немедленно проверит, доступно ли это имя. 
-	![](./media/howto-service-bus-queues/sb-queues-04.png)
+4.  In the **Add a new namespace** dialog, enter a namespace name. The system immediately checks to see if the name is available.   
+    ![](./media/howto-service-bus-queues/sb-queues-04.png)
 
-5.  Убедившись, что имя пространства имен доступно, выберите страну или регион, где будет размещено ваше пространство имен (необходимо указать страну и регион развертывания своих вычислительных ресурсов).
+5.  After making sure the namespace name is available, choose the country or region in which your namespace should be hosted (make sure you use the same country/region in which you are deploying your compute resources).
 
-	 >[AZURE.IMPORTANT] Выберите **тот же регион**, который собираетесь выбрать для развертывания приложения. Это обеспечит наилучшую производительность.
+     > [AZURE.IMPORTANT] Pick the **same region** that you intend to choose for deploying your application. This will give you the best performance.
 
-6. 	Оставьте в остальных полях диалогового окна значения по умолчанию (**Обмен сообщениями** и **Уровень Standard**), а затем щелкните значок галочки (кнопка «ОК»). Теперь система создает пространство имен и включает его. Вероятно, придется подождать несколько минут, пока система не выделит ресурсы для вашей учетной записи.
+6.  Leave the other fields in the dialog with their default values (**Messaging** and **Standard Tier**), then click the OK check mark. The system now creates your namespace and enables it. You might have to wait several minutes as the system provisions resources for your account.
 
-	![](./media/howto-service-bus-queues/getting-started-multi-tier-27.png)
+    ![](./media/howto-service-bus-queues/getting-started-multi-tier-27.png)
 
-Активация созданного пространства имен займет некоторое время, после чего пространство имен появится на портале Azure. Прежде чем продолжать, подождите, пока состояние не изменится на **Активное**.
+The namespace you created takes a moment to activate, and will then appear in the portal. Wait until the namespace status is **Active** before continuing.
 
-## Получение учетных данных управления по умолчанию для пространства имен
+## <a name="obtain-the-default-management-credentials-for-the-namespace"></a>Obtain the default management credentials for the namespace
 
-Для выполнения операций управления, таких как создание очереди в новом пространстве имен, необходимо получить учетные данные управления для пространства имен. Эти учетные данные можно получить на [классическом портале Azure][].
+In order to perform management operations, such as creating a queue on the new namespace, you must obtain the management credentials for the namespace. You can obtain these credentials from the [Azure classic portal][].
 
-###Получение учетных данных управления с портала
+###<a name="to-obtain-management-credentials-from-the-portal"></a>To obtain management credentials from the portal
 
-1.  В левой области навигации щелкните узел **Служебная шина**, чтобы отобразить список доступных пространств имен:   
-	![](./media/howto-service-bus-queues/sb-queues-13.png)
+1.  In the left navigation pane, click the **Service Bus** node, to display the list of available namespaces:   
+    ![](./media/howto-service-bus-queues/sb-queues-13.png)
 
-2.  Выберите пространство имен, которое вы только что создали, из появившегося списка:   
-	![](./media/howto-service-bus-queues/sb-queues-09.png)
+2.  Select the namespace you just created from the list shown:   
+    ![](./media/howto-service-bus-queues/sb-queues-09.png)
 
-3.  Щелкните **Сведения о подключении**.   
-	![](./media/howto-service-bus-queues/sb-queues-06.png)
+3.  Click **Connection Information**.   
+    ![](./media/howto-service-bus-queues/sb-queues-06.png)
 
-4.  В области **Сведения о доступе к подключению** найдите строку подключения, которая содержит ключ SAS и имя ключа.
+4.  In the **Access connection information** pane, find the connection string that contains the SAS key and key name.   
 
-	![](./media/howto-service-bus-queues/multi-web-45.png)
+    ![](./media/howto-service-bus-queues/multi-web-45.png)
     
-5.  Запишите ключ или скопируйте его в буфер обмена.
+5.  Make a note of the key, or copy it to the clipboard.
 
-  [классический портал Azure]: http://manage.windowsazure.com
-  [классическом портале Azure]: http://manage.windowsazure.com
+  [Azure classic portal]: http://manage.windowsazure.com
+
+
+
+<!--HONumber=Oct16_HO2-->
+
 

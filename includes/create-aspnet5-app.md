@@ -1,13 +1,16 @@
-1. В меню Visual Studio выберите **Файл > Создать > Проект**.
+1. From the Visual Studio menu, select **File > New > Project**.
 
-1. В разделе **Шаблоны** диалогового окна **Новый проект** выберите **Visual C# > Веб-проект**.
+1. Under the **Templates** section of the **New Project** dialog box, select **Visual C# > Web**.
 
-1. Выберите **ASP.NET Core Web Application (.NET Core)** (Веб-приложение ASP.NET Core (.NET Core)).
+1. Select **ASP.NET Core Web Application (.NET Core)**.
 
-1. Присвойте новому приложению имя (или оставьте имя по умолчанию) и нажмите кнопку **ОК**.
+1. Give your new application a name (or take the default) and select **OK**.
 
-1. В разделе **ASP.NET Core Templates** (Шаблоны ASP.NET Core) выберите **Веб-приложение** и нажмите кнопку **ОК**.
+1. Under **ASP.NET Core Templates**, select **Web Application** and select **OK**.
 
-1. Снимите флажок **Разместить в облаке**. В качестве решения для развертывания будет использоваться Docker.
+1. Unselect **Host in the cloud**. You'll be using Docker as your deployment solution.
 
-<!---HONumber=AcomDC_0622_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

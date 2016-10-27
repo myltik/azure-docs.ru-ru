@@ -1,54 +1,57 @@
-# Рекомендации по обеспечению безопасности "Интернета вещей"
+# <a name="internet-of-things-security-best-practices"></a>Internet of Things security best practices
 
-Защита инфраструктуры "Интернета вещей" (IoT) требует тщательно продуманной стратегии с точки зрения безопасности. Согласно этой стратегии необходимо защищать данные в облаке, обеспечивать целостность данных в процессе передачи через общедоступный Интернет и безопасно подготавливать устройства. Каждый следующий уровень обеспечивает большие гарантии безопасности во всей инфраструктуре.
+To secure an Internet of Things (IoT) infrastructure requires a rigorous security-in-depth strategy. This strategy requires you to secure data in the cloud, protect data integrity while in transit over the public internet, and securely provision devices. Each layer builds greater security assurance in the overall infrastructure.
 
-## Защита инфраструктуры IoT
+## <a name="secure-an-iot-infrastructure"></a>Secure an IoT infrastructure
 
-Эту тщательно продуманную стратегию безопасности можно разработать и реализовать при условии активного участия разных сотрудников, занимающихся производством, разработкой и развертыванием устройств и инфраструктуры IoT. Эти сотрудники описаны ниже.
+This security-in-depth strategy can be developed and executed with active participation of various players involved with the manufacturing, development, and deployment of IoT devices and infrastructure. Following is a high-level description of these players.  
 
-- **Изготовитель или интегратор оборудования IoT**. Как правило, это изготовители развертываемого оборудования IoT, интеграторы оборудования, которые собирают оборудование различных изготовителей, или поставщики оборудования, которые предоставляют оборудование для развертывания IoT, изготовленное или интегрированное другими поставщиками.
-- **Разработчик решений IoT**. Разработка решения IoT обычно осуществляется разработчиком решений. Этот разработчик может входить в команду внутри компании или системный интегратор, специализирующийся на данной деятельности. Разработчик решений IoT может с нуля разработать различные компоненты решения IoT, интегрировать разные готовые компоненты или компоненты с открытым кодом и внедрить предварительно настроенные решения, немного изменив их.
-- **Специалист по развертыванию решений IoT**. Разработанное решение IoT следует развернуть в рабочей среде. При этом развертывается оборудование, налаживается взаимодействие устройств и развертываются решения на аппаратных устройствах или в облаке.
-- **Оператор решений IoT**. После развертывания используемое решение IoT требует долгосрочного мониторинга, установки обновлений и обслуживания. Эти задачи может выполнять команда внутри компании, в которую входят специалисты по информационным технологиям, группы по эксплуатации и обслуживанию оборудования, а также специалисты в определенной области, которые следят за работой всей инфраструктуры IoT.
+- **IoT hardware manufacturer/integrator**: Typically, these are the manufacturers of IoT hardware being deployed, integrators assembling hardware from various manufacturers, or suppliers providing hardware for an IoT deployment manufactured or integrated by other suppliers.
+- **IoT solution developer**: The development of an IoT solution is typically done by a solution developer. This developer may part of an in-house team or a system integrator (SI) specializing in this activity. The IoT solution developer can develop various components of the IoT solution from scratch, integrate various off-the-shelf or open-source components, or adopt preconfigured solutions with minor adaptation.
+- **IoT solution deployer**: After an IoT solution is developed, it needs to be deployed in the field. This involves deployment of hardware, interconnection of devices, and deployment of solutions in hardware devices or the cloud.
+- **IoT solution operator**: After the IoT solution is deployed, it requires long-term operations, monitoring, upgrades, and maintenance. This can be done by an in-house team that comprises information technology specialists, hardware operations and maintenance teams, and domain specialists who monitor the correct behavior of overall IoT infrastructure.
 
-В разделах ниже представлены рекомендации по разработке, развертыванию и эксплуатации безопасной инфраструктуры IoT для каждого из этих сотрудников.
+The sections that follow provide best practices for each of these players to help develop, deploy, and operate a secure IoT infrastructure.
 
-## Производитель или интегратор оборудования IoT
+## <a name="iot-hardware-manufacturer/integrator"></a>IoT hardware manufacturer/integrator
 
-Ниже приведены рекомендации для изготовителей оборудования IoT и интеграторов оборудования.
+The following are the best practices for IoT hardware manufacturers and hardware integrators.
 
-- **Соблюдение минимальных требований к оборудованию**. Оборудование должно содержать минимум компонентов, необходимых для его работы, и ничего лишнего. Например, добавлять USB-порты следует, только если они нужны для работы устройства. Дополнительные компоненты открывают новые направления для атак на устройство, которых следует избегать.
-- **Защита оборудования от незаконного изменения**. Создайте процедуры для выявления возможностей для физического незаконного изменения, например отошедшей крышки устройства или изъятия компонента устройства. Эти сигналы о незаконном изменении могут передаваться в потоке данных, отправляемых в облако, предупреждая операторов об этих событиях.
-- **Создание решения на базе безопасного оборудования**. Если себестоимость проданных товаров позволяет, создайте функции безопасности, например безопасное зашифрованное хранилище, или функции загрузки на основе доверенного платформенного модуля (TPM). Эти функции повышают безопасность устройств и помогают защитить всю инфраструктуру IoT.
-- **Обеспечение безопасности при обновлении**. Встроенное ПО будет обновляться на протяжении всего времени существования устройства, и это неизбежно. Разработка безопасных способов обновления и криптографическая надежность версий встроенного ПО позволит обеспечить безопасность устройств во время и после обновления.
+- **Scope hardware to minimum requirements**: The hardware design should include the minimum features required for operation of the hardware, and nothing more. An example is to include USB ports only if necessary for the operation of the device. These additional features open the device for unwanted attack vectors that should be avoided.
+- **Make hardware tamper proof**: Build in mechanisms to detect physical tampering, such as opening of the device cover or removing a part of the device. These tamper signals may be part of the data stream uploaded to the cloud, which could alert operators of these events.
+- **Build around secure hardware**: If COGS permits, build security features such as secure and encrypted storage, or boot functionality based on Trusted Platform Module (TPM). These features make devices more secure and help protect the overall IoT infrastructure.
+- **Make upgrades secure**: Firmware upgrades during the lifetime of the device are inevitable. Building devices with secure paths for upgrades and cryptographic assurance of firmware versions will allow the device to be secure during and after upgrades.
 
-## Разработчик решений IoT
+## <a name="iot-solution-developer"></a>IoT solution developer
 
-Ниже приведены рекомендации для разработчиков решений IoT.
+The following are the best practices for IoT solution developers:
 
-- **Выбор безопасного метода разработки программного обеспечения**. При разработке защищенного ПО нужно тщательно продумать обеспечение защиты на всех этапах — от создания проекта вплоть до его реализации, тестирования и развертывания. От этого метода зависит выбор платформ, языков и инструментов. Жизненный цикл разработки защищенных приложений (Майкрософт) предоставляет поэтапный способ создания защищенного программного обеспечения.
-- **Осторожность при выборе программного обеспечения с открытым кодом**. Программное обеспечение с открытым кодом позволяет ускорить разработку решений. При его выборе следует учитывать уровень активности сообщества в отношении каждого такого компонента. Если сообщество активно, то это гарантирует поддержку программного обеспечения, а также обнаружение и устранение проблем. И наоборот, если используется малоизвестное неактивное программное обеспечение с открытым кодом, то поддержка предоставляться не будет, а проблемы, скорее всего, не будут выявляться.
-- **Осторожность при интеграции**. Множество брешей в системе защиты ПО обнаруживаются на границе интерфейсов API и библиотек. Функциональная возможность, которая не нужна для текущего развертывания, может быть по-прежнему доступна на уровне API. Для обеспечения общей безопасности обязательно проверьте все интерфейсы интегрируемых компонентов на наличие уязвимостей.
+- **Follow secure software development methodology**: Development of secure software requires ground-up thinking about security, from the inception of the project all the way to its implementation, testing, and deployment. The choices of platforms, languages, and tools are all influenced with this methodology. The Microsoft Security Development Lifecycle provides a step-by-step approach to building secure software.
+- **Choose open-source software with care**: Open-source software provides an opportunity to quickly develop solutions. When you're choosing open-source software, consider the activity level of the community for each open-source component. An active community ensures that software is supported and that issues are discovered and addressed. Alternatively, an obscure and inactive open-source software might not be supported and issues will probably not be discovered.
+- **Integrate with care**: Many software security flaws exist at the boundary of libraries and APIs. Functionality that may not be required for the current deployment might still be available via an API layer. To ensure overall security, make sure to check all interfaces of components being integrated for security flaws.      
 
-## Специалист по развертыванию решений IoT
+## <a name="iot-solution-deployer"></a>IoT solution deployer
 
-Ниже приведены рекомендации для специалистов по развертыванию решений IoT.
+The following are best practices for IoT solution deployers:
 
-- **Безопасное развертывание оборудования**. Оборудование IoT может потребоваться развернуть в незащищенных местах, например в общественных помещениях или неконтролируемых расположениях. В этом случае следует обеспечить максимальную защиту развертываемого оборудования от незаконного изменения. Если в оборудовании установлены USB-порты или другие порты, убедитесь, что они надежно прикрыты. Их можно использовать в качестве точек входя для атаки.
-- **Безопасное хранение ключей аутентификации**. При развертывании каждому устройству требуются коды и связанные с ними ключи аутентификации, создаваемые облачной службой. Эти ключи следует хранить в физически безопасном месте даже после развертывания. Вредоносное устройство может использовать любой скомпрометированный ключ для маскировки под существующее устройство.
+- **Deploy hardware securely**: IoT deployments may require hardware to be deployed in unsecure locations, such as in public spaces or unsupervised locales. In such situations, ensure that hardware deployment is tamper-proof to the maximum extent. If USB or other ports are available on the hardware, ensure that they are covered securely. Many attack vectors can use these as entry points.
+- **Keep authentication keys safe**: During deployment, each device requires device IDs and associated authentication keys generated by the cloud service. Keep these keys physically safe even after the deployment. Any compromised key can be used by a malicious device to masquerade as an existing device.
 
-## Оператор решений IoT
+## <a name="iot-solution-operator"></a>IoT solution operator
 
-Ниже приведены рекомендации для операторов решений IoT.
+The following are the best practices for IoT solution operators:
 
-- **Обновление системы**. Операционная система и все драйверы устройства должны быть обновлены до последней версии. Корпорация Майкрософт автоматически обновляет Windows 10 (IoT или другие SKU), если включен соответствующий параметр. Таким образом вы получаете безопасную операционную систему для устройств IoT. Постоянное обновление других операционных систем, например Linux, также позволяет защитить их от атак злоумышленников.
-- **Защита от вредоносных действий**. По возможности добавьте новейшие антивирусные и антивредоносные программы в операционную систему каждого устройства. Это поможет устранить большинство внешних угроз. Вы можете защитить большинство современных операционных систем от угроз, приняв соответствующие меры.
-- **Частое проведение аудита**. Для реагирования на проблемы с безопасностью в первую очередь следует выполнять аудит инфраструктуры IoT на наличие инцидентов безопасности. Большинство операционных систем обладает встроенными средствами ведения журнала событий. Их следует часто просматривать, чтобы убедиться в отсутствии брешей в системе безопасности. Данные аудита можно отправить как отдельный поток данных телеметрии в облачную службу для анализа.
-- **Физическая защита инфраструктуры IoT**. Самые серьезные атаки на систему безопасности инфраструктуры IoT осуществляются посредством физического доступа к устройствам. Очень важно обеспечить защиту USB-портов и других физически доступных компонентов от атак злоумышленников. Одним из ключей к обнаружению брешей является ведение журналов физического доступа, например использования USB-портов. Опять же, в Windows 10 (IoT и другие SKU) доступна возможность подробного ведения журнала таких событий.
-- **Защита учетных данных облака**. С помощью учетных данных для аутентификации в облаке, используемых для настройки развертывания инфраструктуры IoT и работы с ней, возможно, проще всего получить доступ к системе IoT и скомпрометировать ее. Чтобы защитить учетные данные, следует часто изменять пароль и не использовать их на общедоступных компьютерах.
+- **Keep the system up to date**: Ensure that device operating systems and all device drivers are upgraded to the latest versions. If you turn on automatic updates in Windows 10 (IoT or other SKUs), Microsoft keeps it up to date, providing a secure operating system for IoT devices. Keeping other operating systems (such as Linux) up to date helps ensure that they are also protected against malicious attacks.
+- **Protect against malicious activity**: If the operating system permits, install the latest antivirus and antimalware capabilities on each device operating system. This can help mitigate most external threats. You can protect most modern operating systems against threats by taking appropriate steps.
+- **Audit frequently**: Auditing IoT infrastructure for security-related issues is key when responding to security incidents. Most operating systems provide built-in event logging that should be reviewed frequently to make sure no security breach has occurred. Audit information can be sent as a separate telemetry stream to the cloud service where it can be analyzed.
+- **Physically protect the IoT infrastructure**: The worst security attacks against IoT infrastructure are launched using physical access to devices. One important safety practice is to protect against malicious use of USB ports and other physical access. One key to uncovering breaches that might have occurred is logging of physical access, such as USB port use. Again, Windows 10 (IoT and other SKUs) enables detailed logging of these events.
+- **Protect cloud credentials**: Cloud authentication credentials used for configuring and operating an IoT deployment are possibly the easiest way to gain access and compromise an IoT system. Protect the credentials by changing the password frequently, and refrain from using these credentials on public machines.
 
-Возможности разных устройств IoT различаются. Некоторые устройства могут быть компьютерами со стандартной операционной системой настольного компьютера. А на некоторых устройствах может быть установлена очень упрощенная операционная система. Описанные выше рекомендации по безопасности могут применяться к этим устройствам в разной степени. Следует использовать дополнительные рекомендации по развертыванию и безопасности, предоставляемые изготовителем устройств (если таковые имеются).
+Capabilities of different IoT devices vary. Some devices might be computers running common desktop operating systems, and some devices might be running very light-weight operating systems. The security best practices described previously might be applicable to these devices in varying degrees. If provided, additional security and deployment best practices from the manufacturers of these devices should be followed.
 
-Некоторые устаревшие и ограниченные устройства могут быть не предназначены для развертывания IoT. В них может отсутствовать возможность шифрования данных, подключения к Интернету или предоставления расширенных средств аудита. Чтобы обеспечить безопасность, необходимую при подключении таких устройств к Интернету, при объединении данных устаревших устройств нужно использовать полевые шлюзы. Полевой шлюз обеспечивает безопасную аутентификацию, согласование зашифрованных сеансов, получение команд из облака и другие функции безопасности.
+Some legacy and constrained devices might not have been designed specifically for IoT deployment. These devices might lack the capability to encrypt data, connect with the Internet, or provide advanced auditing. In these cases, a modern and secure field gateway can aggregate data from legacy devices and provide the security required for connecting these devices over the Internet. Field gateways can provide secure authentication, negotiation of encrypted sessions, receipt of commands from the cloud, and many other security features.
 
-<!---HONumber=AcomDC_0817_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

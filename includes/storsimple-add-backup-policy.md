@@ -1,19 +1,25 @@
 
 <!--author=alkohli last changed: 9/11/15-->
 
-#### Добавление политики резервного копирования StorSimple
+#### <a name="to-add-a-storsimple-backup-policy"></a>To add a StorSimple backup policy
 
-1. На странице устройства **Быстрый запуск** перейдите на вкладку **Политики резервного копирования**. В результате откроется страница **Политики резервного копирования**.
+1. On the device **Quick Start** page, click the **Backup Policies** tab. This will take you to the **Backup Policies** page.
 
-2. В нижней части страницы щелкните **Добавить**.
+2. At the bottom of the page, click **Add**.
 
-3. В диалоговом окне **Добавление политики резервного копирования** выполните следующие действия:
+3. In the **Add Backup Policy** dialog box, do the following:
 
-    1. Укажите имя политики резервного копирования длиной от 3 до 150 знаков.
-    2. Назначьте политике один или несколько томов. Если вы используете других поставщиков облачных служб, в раскрывающемся списке будут показаны только тома, относящиеся к выбранному вами поставщику. Благодаря этому можно группировать тома, относящиеся к определенному поставщику облачных служб, для создания мгновенного снимка.
-    3. Щелкните значок галочки ![значок галочки](./media/storsimple-add-backup-policy/HCS_CheckIcon-include.png), чтобы сохранить политику.
+    1. Specify a backup policy name that contains between 3 and 150 characters.
+    2. Assign one or more volumes to this backup policy. If you are using other cloud service providers, based on your first selection, the drop-down list will show volumes belonging to only that cloud service provider. This will allow you to group volumes belonging to a single cloud service provider for taking a snapshot.
+    3. Click the check icon ![check icon](./media/storsimple-add-backup-policy/HCS_CheckIcon-include.png) to save the policy.
 
-Добавленная политика появится в таблице на странице **Политики резервного копирования**.
+The newly added policy will be displayed in the tabular view on the **Backup Policies** page.
  
 
-<!---HONumber=Oct15_HO3-->
+
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

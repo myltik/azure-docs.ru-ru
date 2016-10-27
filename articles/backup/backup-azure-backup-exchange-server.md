@@ -1,135 +1,141 @@
 <properties
-	pageTitle="Резервное копирование Exchange Server в службу архивации Azure с помощью System Center 2012 R2 DPM | Microsoft Azure"
-	description="Узнайте, как выполнить резервное копирование Exchange Server в службу архивации Azure с помощью System Center 2012 R2 DPM"
-	services="backup"
-	documentationCenter=""
-	authors="MaanasSaran"
-	manager="NKolli1"
-	editor=""/>
+    pageTitle="Back up an Exchange server to Azure Backup with System Center 2012 R2 DPM | Microsoft Azure"
+    description="Learn how to back up an Exchange server to Azure Backup using System Center 2012 R2 DPM"
+    services="backup"
+    documentationCenter=""
+    authors="MaanasSaran"
+    manager="NKolli1"
+    editor=""/>
 
 <tags
-	ms.service="backup"
-	ms.workload="storage-backup-recovery"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/15/2016"
-	ms.author="anuragm;jimpark;delhan;trinadhk;markgal"/>
+    ms.service="backup"
+    ms.workload="storage-backup-recovery"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="08/15/2016"
+    ms.author="anuragm;jimpark;delhan;trinadhk;markgal"/>
 
 
-# Резервное копирование Exchange Server в службу архивации Azure с помощью System Center 2012 R2 DPM
-В этой статье описывается настройка Data Protection Manager (DPM) в System Center 2012 R2 для резервного копирования Microsoft Exchange Server в службу архивации Azure.
 
-## Обновления
-Для успешной регистрации сервера DPM в службе архивации Azure вам потребуется установить последний накопительный пакет обновления для System Center 2012 R2 DPM и последнюю версию агента резервного копирования Azure. Скачать последний накопительный пакет обновления можно из [каталога Microsoft](http://catalog.update.microsoft.com/v7/site/Search.aspx?q=System%20Center%202012%20R2%20Data%20protection%20manager).
+# <a name="back-up-an-exchange-server-to-azure-backup-with-system-center-2012-r2-dpm"></a>Back up an Exchange server to Azure Backup with System Center 2012 R2 DPM
+This article describes how to configure a System Center 2012 R2 Data Protection Manager (DPM) server to back up a Microsoft Exchange server to  Azure Backup.  
 
->[AZURE.NOTE] В примерах в этой статье установлен агент резервного копирования Azure версии 2.0.8719.0, а в System Center 2012 R2 DPM установлен накопительный пакет обновления 6.
+## <a name="updates"></a>Updates
+To successfully register the DPM server with Azure Backup, you must install the latest update rollup for System Center 2012 R2 DPM and the latest version of the Azure Backup Agent. Get the latest update rollup from the [Microsoft Catalog](http://catalog.update.microsoft.com/v7/site/Search.aspx?q=System%20Center%202012%20R2%20Data%20protection%20manager).
 
-## Предварительные требования
-Прежде чем продолжить, выполните все [предварительные требования](backup-azure-dpm-introduction.md#prerequisites) по использованию службы архивации Microsoft Azure для защиты рабочих нагрузок. Список предварительных требований:
+>[AZURE.NOTE] For the examples in this article, version 2.0.8719.0 of the Azure Backup Agent is installed, and Update Rollup 6 is installed on System Center 2012 R2 DPM.
 
-- На сайте Azure должно быть создано хранилище службы архивации.
-- Учетные данные агента и хранилища должны быть загружены на сервер DPM.
-- Агент должен быть установлен на сервере DPM.
-- Для регистрации сервера DPM должны использоваться учетные данные хранилища.
-- Если необходимо защитить Exchange 2016, обновите Data Protection Manager до версии DPM 2012 R2 с накопительным пакетом 9 или более поздней версии.
+## <a name="prerequisites"></a>Prerequisites
+Before you continue, make sure that all the [prerequisites](backup-azure-dpm-introduction.md#prerequisites) for using Microsoft Azure Backup to protect workloads have been met. These prerequisites include the following:
 
-## Агент защиты DPM  
-Чтобы установить агент защиты DPM на сервере Exchange, выполните следующие действия.
+- A backup vault on the Azure site has been created.
+- Agent and vault credentials have been downloaded to the DPM server.
+- The agent is installed on the DPM server.
+- The vault credentials were used to register the DPM server.
+- If you are protecting Exchange 2016, please upgrade to DPM 2012 R2 UR9 or later
 
-1. Убедитесь, что брандмауэры настроены правильно. См. статью [Настройка исключений брандмауэра для агента](https://technet.microsoft.com/library/Hh758204.aspx).
+## <a name="dpm-protection-agent"></a>DPM protection agent  
+To install the DPM protection agent on the Exchange server, follow these steps:
 
-2. Установите агент на сервере Exchange, последовательно выбрав **Управление > Агенты > Установить** в консоли администратора DPM. Подробную инструкцию см. в статье [Установка агента защиты DPM](https://technet.microsoft.com/library/hh758186.aspx?f=255&MSPPError=-2147217396).
+1. Make sure that the firewalls are correctly configured. See [Configure firewall exceptions for the agent](https://technet.microsoft.com/library/Hh758204.aspx).
 
-## Создание группы защиты для сервера Exchange Server
+2. Install the agent on the Exchange server by clicking **Management > Agents > Install** in DPM Administrator Console. See [Install the DPM protection agent](https://technet.microsoft.com/library/hh758186.aspx?f=255&MSPPError=-2147217396) for detailed steps.
 
-1. В консоли администратора DPM щелкните **Защита** и на ленте инструментов нажмите кнопку **Создать**. Откроется мастер **создания групп защиты**.
+## <a name="create-a-protection-group-for-the-exchange-server"></a>Create a protection group for the Exchange server
 
-2. На экране **приветствия** щелкните **Далее**.
+1. In the DPM Administrator Console, click **Protection**, and then click **New** on the tool ribbon to open the **Create New Protection Group** wizard.
 
-3. На экране **Выбор типа группы защиты** выберите **Серверы** и щелкните **Далее**.
+2. On the **Welcome** screen of the wizard click **Next**.
 
-4. Выберите на сервере Exchange Server базу данных, которую требуется защитить, и нажмите кнопку **Далее**.
+3. On the **Select protection group type** screen, select **Servers** and click **Next**.
 
-    >[AZURE.NOTE] Если вы хотите защитить базу данных Exchange 2013, изучите [предварительные требования для Exchange 2013](https://technet.microsoft.com/library/dn751029.aspx).
+4. Select the Exchange server database that you want to protect and click **Next**.
 
-    В следующем примере выбрана база данных Exchange 2010.
+    >[AZURE.NOTE] If you are protecting Exchange 2013, check the [Exchange 2013 prerequisites](https://technet.microsoft.com/library/dn751029.aspx).
 
-    ![Выберите членов группы](./media/backup-azure-backup-exchange-server/select-group-members.png)
+    In the following example, the Exchange 2010 database is selected.
 
-5. Выберите способ защиты данных.
+    ![Select group members](./media/backup-azure-backup-exchange-server/select-group-members.png)
 
-    Укажите имя группы защиты и выберите оба следующих параметра:
+5. Select the data protection method.
 
-    - «Мне нужна краткосрочная защита с использованием диска»;
-    - «Мне нужна оперативная защита».
+    Name the protection group, and then select both of the following options:
 
-6. Нажмите кнопку **Далее**.
+    - I want short-term protection using Disk.
+    - I want online protection.
 
-7. Выберите параметр **Запустить программу Eseutil для проверки целостности данных**, чтобы проверить целостность баз данных Exchange Server.
+6. Click **Next**.
 
-    После этого проверка согласованности резервного копирования будет выполняться на сервере DPM, что позволит исключить операции ввода-вывода при выполнении команды **eseutil** на сервере Exchange.
+7. Select the **Run Eseutil to check data integrity** option if you want to check the integrity of the Exchange Server databases.
 
-    >[AZURE.NOTE] Чтобы использовать этот параметр, скопируйте файлы Ese.dll и Eseutil.exe в каталог C:\\Program Files\\Microsoft System Center 2012 R2\\DPM\\DPM\\bin на сервере DPM. В противном случае возникнет следующая ошибка: ![ошибка Eseutil](./media/backup-azure-backup-exchange-server/eseutil-error.png)
+    After you select this option, backup consistency checking will be run on the DPM server to avoid the I/O traffic that’s generated by running the **eseutil** command on the Exchange server.
 
-8. Нажмите кнопку **Далее**.
+    >[AZURE.NOTE] To use this option, you must copy the Ese.dll and Eseutil.exe files to the C:\Program Files\Microsoft System Center 2012 R2\DPM\DPM\bin directory on the DPM server. Otherwise, the following error is triggered:  
+    ![eseutil error](./media/backup-azure-backup-exchange-server/eseutil-error.png)
 
-9. Выберите базу данных для **копирующей архивации**, а затем нажмите кнопку **Далее**.
+8. Click **Next**.
 
-    >[AZURE.NOTE] Если не выбрать «Полное резервное копирование» хотя бы для одной копии базы данных в группе обеспечения доступности баз данных, журналы не будут усечены.
+9. Select the database for **Copy Backup**, and then click **Next**.
 
-10. Настройте цели **краткосрочного резервного копирования** и нажмите кнопку **Далее**.
+    >[AZURE.NOTE] If you do not select “Full backup” for at least one DAG copy of a database, logs will not be truncated.
 
-11. Проверьте, есть ли на диске свободное место, и нажмите кнопку **Далее**.
+10. Configure the goals for **Short-Term backup**, and then click **Next**.
 
-12. Выберите время создания сервером DPM начальной репликации и нажмите кнопку **Далее**.
+11. Review the available disk space, and then click **Next**.
 
-13. Выберите параметры проверки согласованности и нажмите кнопку **Далее**.
+12. Select the time at which the DPM server will create the initial replication, and then click **Next**.
 
-14. Выберите базу данных для резервного копирования в Azure и нажмите кнопку **Далее**. Например:
+13. Select the consistency check options, and then click **Next**.
 
-    ![Выбор оперативной защиты данных](./media/backup-azure-backup-exchange-server/specify-online-protection-data.png)
+14. Choose the database that you want to back up to Azure, and then click **Next**. For example:
 
-15. Определите расписание **резервного копирования в Azure** и нажмите кнопку **Далее**. Например:
+    ![Specify online protection data](./media/backup-azure-backup-exchange-server/specify-online-protection-data.png)
 
-    ![Выбор расписания оперативного резервного копирования](./media/backup-azure-backup-exchange-server/specify-online-backup-schedule.png)
+15. Define the schedule for **Azure Backup**, and then click **Next**. For example:
 
-    >[AZURE.NOTE] Обратите внимание, что точки оперативного восстановления создаются на основании точек быстрого полного восстановления. Таким образом, в расписании резервного копирования нужно указать, что точки оперативного восстановления должны создаваться после точек быстрого полного восстановления.
+    ![Specify online backup schedule](./media/backup-azure-backup-exchange-server/specify-online-backup-schedule.png)
 
-16. Настройте политику хранения для **службы архивации Azure** и нажмите кнопку **Далее**.
+    >[AZURE.NOTE] Note Online recovery points are based on express full recovery points. Therefore, you must schedule the online recovery point after the time that’s specified for the express full recovery point.
 
-17. Выберите параметр оперативной репликации и нажмите кнопку **Далее**.
+16. Configure the retention policy for **Azure Backup**, and then click **Next**.
 
-    Если база данных имеет большой размер, процедура создания первой резервной копии по сети может занять много времени. Чтобы избежать этого, можно создать автономную резервную копию.
+17. Choose an online replication option and click **Next**.
 
-    ![Выбор политики оперативного хранения](./media/backup-azure-backup-exchange-server/specify-online-retention-policy.png)
+    If you have a large database, it could take a long time for the initial backup to be created over the network. To avoid this issue, you can create an offline backup.  
 
-18. Проверьте параметры и щелкните **Создать группу**.
+    ![Specify online retention policy](./media/backup-azure-backup-exchange-server/specify-online-retention-policy.png)
 
-19. Нажмите кнопку **Закрыть**
+18. Confirm the settings, and then click **Create Group**.
 
-## Восстановление базы данных Exchange
+19. Click **Close**.
 
-1. Чтобы восстановить базу данных Exchange, щелкните кнопку **Восстановление** на консоли администратора DPM.
+## <a name="recover-the-exchange-database"></a>Recover the Exchange database
 
-2. Выберите базу данных Exchange, которую требуется восстановить.
+1. To recover an Exchange database, click **Recovery** in the DPM Administrator Console.
 
-3. Выберите точку оперативного восстановления из раскрывающегося списка *Время восстановления*.
+2. Locate the Exchange database that you want to recover.
 
-4. Щелкните **Восстановить**, чтобы запустить **мастер восстановления**.
+3. Select an online recovery point from the *recovery time* drop-down list.
 
-Для точек оперативного восстановления существует пять типов восстановления:
+4. Click **Recover** to start the **Recovery Wizard**.
 
-- **Восстановить в исходное расположение сервера Exchange.** Данные будут восстановлены на исходный сервер Exchange Server.
-- **Восстановить в другую базу данных на сервере Exchange.** Данные будут восстановлены в другую базу данных на другом сервере Exchange Server.
-- **Восстановить в базу данных восстановления.** Данные будут восстановлены в базу данных восстановления Exchange (RDB).
-- **Копировать в сетевую папку.** Данные будут восстановлены в сетевую папку.
-- **Копировать на ленту.** Если у вас имеется ленточная библиотека или изолированный ленточный накопитель, подключенные и настроенные на сервере DPM, точка восстановления будет скопирована на свободную ленту.
+For online recovery points, there are five recovery types:
 
-    ![Выбор оперативной репликации](./media/backup-azure-backup-exchange-server/choose-online-replication.png)
+- **Recover to original Exchange Server location:** The data will be recovered to the original Exchange server.
+- **Recover to another database on an Exchange Server:** The data will be recovered to another database on another Exchange server.
+- **Recover to a Recovery Database:** The data will be recovered to an Exchange Recovery Database (RDB).
+- **Copy to a network folder:** The data will be recovered to a network folder.
+- **Copy to tape:** If you have a tape library or a stand-alone tape drive attached and configured on the DPM server, the recovery point will be copied to a free tape.
 
-## Дальнейшие действия
+    ![Choose online replication](./media/backup-azure-backup-exchange-server/choose-online-replication.png)
 
-- [Часто задаваемые вопросы о службе архивации Azure](backup-azure-backup-faq.md)
+## <a name="next-steps"></a>Next steps
 
-<!---HONumber=AcomDC_0817_2016-->
+- [Azure Backup FAQ](backup-azure-backup-faq.md)
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+
